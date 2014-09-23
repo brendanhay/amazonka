@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketPolicy = PutBucketPolicy
-    { _pbpBucket :: Text
+    { _pbpBucket :: BucketName
     , _pbpContentMD5 :: Maybe Text
     , _pbpPolicy :: Text
     } deriving (Eq, Ord, Show, Generic)
@@ -53,13 +53,13 @@ data PutBucketPolicy = PutBucketPolicy
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
 -- * @ContentMD5 ::@ @Maybe Text@
 --
 -- * @Policy ::@ @Text@
 --
-putBucketPolicy :: Text -- ^ 'pbpBucket'
+putBucketPolicy :: BucketName -- ^ 'pbpBucket'
                 -> Text -- ^ 'pbpPolicy'
                 -> PutBucketPolicy
 putBucketPolicy p1 p3 = PutBucketPolicy
@@ -68,7 +68,7 @@ putBucketPolicy p1 p3 = PutBucketPolicy
     , _pbpPolicy = p3
     }
 
-pbpBucket :: Lens' PutBucketPolicy Text
+pbpBucket :: Lens' PutBucketPolicy BucketName
 pbpBucket = lens _pbpBucket (\s a -> s { _pbpBucket = a })
 
 pbpContentMD5 :: Lens' PutBucketPolicy (Maybe Text)

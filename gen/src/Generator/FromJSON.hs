@@ -139,7 +139,7 @@ instance FromJSON Override where
         <*> o .:? "prefix"
         <*> o .:? "require" .!= mempty
         <*> o .:? "ignore"  .!= mempty
-        <*> o .:? "field"   .!= mempty
+        <*> o .:? "type"    .!= mempty
         <*> o .:? "rename"  .!= mempty
 
 instance FromJSON Service where

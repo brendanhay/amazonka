@@ -41,7 +41,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype HeadBucket = HeadBucket
-    { _hbBucket :: Text
+    { _hbBucket :: BucketName
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -49,15 +49,15 @@ newtype HeadBucket = HeadBucket
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
-headBucket :: Text -- ^ 'hbBucket'
+headBucket :: BucketName -- ^ 'hbBucket'
            -> HeadBucket
 headBucket p1 = HeadBucket
     { _hbBucket = p1
     }
 
-hbBucket :: Lens' HeadBucket Text
+hbBucket :: Lens' HeadBucket BucketName
 hbBucket = lens _hbBucket (\s a -> s { _hbBucket = a })
 
 instance ToPath HeadBucket

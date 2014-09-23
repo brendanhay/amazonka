@@ -80,7 +80,7 @@ type PutObjectCopy = CopyObject
 
 data CopyObject = CopyObject
     { _coACL :: Maybe ObjectCannedACL
-    , _coBucket :: Text
+    , _coBucket :: BucketName
     , _coCacheControl :: Maybe Text
     , _coContentDisposition :: Maybe Text
     , _coContentEncoding :: Maybe Text
@@ -96,7 +96,7 @@ data CopyObject = CopyObject
     , _coGrantRead :: Maybe Text
     , _coGrantReadACP :: Maybe Text
     , _coGrantWriteACP :: Maybe Text
-    , _coKey :: Text
+    , _coKey :: ObjectKey
     , _coMetadata :: Map Text Text
     , _coMetadataDirective :: Maybe MetadataDirective
     , _coServerSideEncryption :: Maybe ServerSideEncryption
@@ -117,7 +117,7 @@ data CopyObject = CopyObject
 --
 -- * @ACL ::@ @Maybe ObjectCannedACL@
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
 -- * @CacheControl ::@ @Maybe Text@
 --
@@ -149,7 +149,7 @@ data CopyObject = CopyObject
 --
 -- * @GrantWriteACP ::@ @Maybe Text@
 --
--- * @Key ::@ @Text@
+-- * @Key ::@ @ObjectKey@
 --
 -- * @Metadata ::@ @Map Text Text@
 --
@@ -173,8 +173,8 @@ data CopyObject = CopyObject
 --
 -- * @CopySourceSSECustomerKeyMD5 ::@ @Maybe Text@
 --
-copyObject :: Text -- ^ 'coKey'
-           -> Text -- ^ 'coBucket'
+copyObject :: ObjectKey -- ^ 'coKey'
+           -> BucketName -- ^ 'coBucket'
            -> Text -- ^ 'coCopySource'
            -> CopyObject
 copyObject p18 p2 p8 = CopyObject
@@ -213,7 +213,7 @@ copyObject p18 p2 p8 = CopyObject
 coACL :: Lens' CopyObject (Maybe ObjectCannedACL)
 coACL = lens _coACL (\s a -> s { _coACL = a })
 
-coBucket :: Lens' CopyObject Text
+coBucket :: Lens' CopyObject BucketName
 coBucket = lens _coBucket (\s a -> s { _coBucket = a })
 
 -- | Specifies caching behavior along the request/reply chain.
@@ -291,7 +291,7 @@ coGrantReadACP = lens _coGrantReadACP (\s a -> s { _coGrantReadACP = a })
 coGrantWriteACP :: Lens' CopyObject (Maybe Text)
 coGrantWriteACP = lens _coGrantWriteACP (\s a -> s { _coGrantWriteACP = a })
 
-coKey :: Lens' CopyObject Text
+coKey :: Lens' CopyObject ObjectKey
 coKey = lens _coKey (\s a -> s { _coKey = a })
 
 -- | A map of metadata to store with the object in S3.

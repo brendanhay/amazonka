@@ -40,7 +40,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype DeleteBucketPolicy = DeleteBucketPolicy
-    { _dbpBucket :: Text
+    { _dbpBucket :: BucketName
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -48,15 +48,15 @@ newtype DeleteBucketPolicy = DeleteBucketPolicy
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
-deleteBucketPolicy :: Text -- ^ 'dbpBucket'
+deleteBucketPolicy :: BucketName -- ^ 'dbpBucket'
                    -> DeleteBucketPolicy
 deleteBucketPolicy p1 = DeleteBucketPolicy
     { _dbpBucket = p1
     }
 
-dbpBucket :: Lens' DeleteBucketPolicy Text
+dbpBucket :: Lens' DeleteBucketPolicy BucketName
 dbpBucket = lens _dbpBucket (\s a -> s { _dbpBucket = a })
 
 instance ToPath DeleteBucketPolicy

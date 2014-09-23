@@ -76,7 +76,7 @@ type InitiateMultipartUpload = CreateMultipartUpload
 
 data CreateMultipartUpload = CreateMultipartUpload
     { _cmu2ACL :: Maybe ObjectCannedACL
-    , _cmu2Bucket :: Text
+    , _cmu2Bucket :: BucketName
     , _cmu2CacheControl :: Maybe Text
     , _cmu2ContentDisposition :: Maybe Text
     , _cmu2ContentEncoding :: Maybe Text
@@ -87,7 +87,7 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmu2GrantRead :: Maybe Text
     , _cmu2GrantReadACP :: Maybe Text
     , _cmu2GrantWriteACP :: Maybe Text
-    , _cmu2Key :: Text
+    , _cmu2Key :: ObjectKey
     , _cmu2Metadata :: Map Text Text
     , _cmu2ServerSideEncryption :: Maybe ServerSideEncryption
     , _cmu2StorageClass :: Maybe StorageClass
@@ -104,7 +104,7 @@ data CreateMultipartUpload = CreateMultipartUpload
 --
 -- * @ACL ::@ @Maybe ObjectCannedACL@
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
 -- * @CacheControl ::@ @Maybe Text@
 --
@@ -126,7 +126,7 @@ data CreateMultipartUpload = CreateMultipartUpload
 --
 -- * @GrantWriteACP ::@ @Maybe Text@
 --
--- * @Key ::@ @Text@
+-- * @Key ::@ @ObjectKey@
 --
 -- * @Metadata ::@ @Map Text Text@
 --
@@ -142,8 +142,8 @@ data CreateMultipartUpload = CreateMultipartUpload
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-createMultipartUpload :: Text -- ^ 'cmu2Key'
-                      -> Text -- ^ 'cmu2Bucket'
+createMultipartUpload :: ObjectKey -- ^ 'cmu2Key'
+                      -> BucketName -- ^ 'cmu2Bucket'
                       -> CreateMultipartUpload
 createMultipartUpload p13 p2 = CreateMultipartUpload
     { _cmu2ACL = Nothing
@@ -172,7 +172,7 @@ createMultipartUpload p13 p2 = CreateMultipartUpload
 cmu2ACL :: Lens' CreateMultipartUpload (Maybe ObjectCannedACL)
 cmu2ACL = lens _cmu2ACL (\s a -> s { _cmu2ACL = a })
 
-cmu2Bucket :: Lens' CreateMultipartUpload Text
+cmu2Bucket :: Lens' CreateMultipartUpload BucketName
 cmu2Bucket = lens _cmu2Bucket (\s a -> s { _cmu2Bucket = a })
 
 -- | Specifies caching behavior along the request/reply chain.
@@ -224,7 +224,7 @@ cmu2GrantWriteACP :: Lens' CreateMultipartUpload (Maybe Text)
 cmu2GrantWriteACP =
     lens _cmu2GrantWriteACP (\s a -> s { _cmu2GrantWriteACP = a })
 
-cmu2Key :: Lens' CreateMultipartUpload Text
+cmu2Key :: Lens' CreateMultipartUpload ObjectKey
 cmu2Key = lens _cmu2Key (\s a -> s { _cmu2Key = a })
 
 -- | A map of metadata to store with the object in S3.
@@ -302,8 +302,8 @@ instance ToHeaders CreateMultipartUpload where
 instance ToBody CreateMultipartUpload
 
 data CreateMultipartUploadResponse = CreateMultipartUploadResponse
-    { _cmurrBucket :: Maybe Text
-    , _cmurrKey :: Maybe Text
+    { _cmurrBucket :: Maybe BucketName
+    , _cmurrKey :: Maybe ObjectKey
     , _cmurrUploadId :: Maybe Text
     , _cmurrServerSideEncryption :: Maybe ServerSideEncryption
     , _cmurrSSECustomerAlgorithm :: Maybe Text
@@ -317,9 +317,9 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Maybe Text@
+-- * @Bucket ::@ @Maybe BucketName@
 --
--- * @Key ::@ @Maybe Text@
+-- * @Key ::@ @Maybe ObjectKey@
 --
 -- * @UploadId ::@ @Maybe Text@
 --
@@ -340,11 +340,11 @@ createMultipartUploadResponse = CreateMultipartUploadResponse
     }
 
 -- | Name of the bucket to which the multipart upload was initiated.
-cmurrBucket :: Lens' CreateMultipartUploadResponse (Maybe Text)
+cmurrBucket :: Lens' CreateMultipartUploadResponse (Maybe BucketName)
 cmurrBucket = lens _cmurrBucket (\s a -> s { _cmurrBucket = a })
 
 -- | Object key for which the multipart upload was initiated.
-cmurrKey :: Lens' CreateMultipartUploadResponse (Maybe Text)
+cmurrKey :: Lens' CreateMultipartUploadResponse (Maybe ObjectKey)
 cmurrKey = lens _cmurrKey (\s a -> s { _cmurrKey = a })
 
 -- | ID for the initiated multipart upload.

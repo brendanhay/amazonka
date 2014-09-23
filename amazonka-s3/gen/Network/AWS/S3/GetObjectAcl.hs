@@ -45,9 +45,9 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data GetObjectAcl = GetObjectAcl
-    { _goaBucket :: Text
-    , _goaKey :: Text
-    , _goaVersionId :: Maybe Text
+    { _goaBucket :: BucketName
+    , _goaKey :: ObjectKey
+    , _goaVersionId :: Maybe ObjectVersionId
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -55,14 +55,14 @@ data GetObjectAcl = GetObjectAcl
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
--- * @Key ::@ @Text@
+-- * @Key ::@ @ObjectKey@
 --
--- * @VersionId ::@ @Maybe Text@
+-- * @VersionId ::@ @Maybe ObjectVersionId@
 --
-getObjectAcl :: Text -- ^ 'goaBucket'
-             -> Text -- ^ 'goaKey'
+getObjectAcl :: BucketName -- ^ 'goaBucket'
+             -> ObjectKey -- ^ 'goaKey'
              -> GetObjectAcl
 getObjectAcl p1 p2 = GetObjectAcl
     { _goaBucket = p1
@@ -70,14 +70,14 @@ getObjectAcl p1 p2 = GetObjectAcl
     , _goaVersionId = Nothing
     }
 
-goaBucket :: Lens' GetObjectAcl Text
+goaBucket :: Lens' GetObjectAcl BucketName
 goaBucket = lens _goaBucket (\s a -> s { _goaBucket = a })
 
-goaKey :: Lens' GetObjectAcl Text
+goaKey :: Lens' GetObjectAcl ObjectKey
 goaKey = lens _goaKey (\s a -> s { _goaKey = a })
 
 -- | VersionId used to reference a specific version of the object.
-goaVersionId :: Lens' GetObjectAcl (Maybe Text)
+goaVersionId :: Lens' GetObjectAcl (Maybe ObjectVersionId)
 goaVersionId = lens _goaVersionId (\s a -> s { _goaVersionId = a })
 
 instance ToPath GetObjectAcl

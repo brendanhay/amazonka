@@ -73,14 +73,14 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data HeadObject = HeadObject
-    { _hoBucket :: Text
+    { _hoBucket :: BucketName
     , _hoIfMatch :: Maybe Text
     , _hoIfModifiedSince :: Maybe RFC822
     , _hoIfNoneMatch :: Maybe Text
     , _hoIfUnmodifiedSince :: Maybe RFC822
-    , _hoKey :: Text
+    , _hoKey :: ObjectKey
     , _hoRange :: Maybe Text
-    , _hoVersionId :: Maybe Text
+    , _hoVersionId :: Maybe ObjectVersionId
     , _hoSSECustomerAlgorithm :: Maybe Text
     , _hoSSECustomerKey :: Maybe Text
     , _hoSSECustomerKeyMD5 :: Maybe Text
@@ -91,7 +91,7 @@ data HeadObject = HeadObject
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
 -- * @IfMatch ::@ @Maybe Text@
 --
@@ -101,11 +101,11 @@ data HeadObject = HeadObject
 --
 -- * @IfUnmodifiedSince ::@ @Maybe RFC822@
 --
--- * @Key ::@ @Text@
+-- * @Key ::@ @ObjectKey@
 --
 -- * @Range ::@ @Maybe Text@
 --
--- * @VersionId ::@ @Maybe Text@
+-- * @VersionId ::@ @Maybe ObjectVersionId@
 --
 -- * @SSECustomerAlgorithm ::@ @Maybe Text@
 --
@@ -113,8 +113,8 @@ data HeadObject = HeadObject
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-headObject :: Text -- ^ 'hoBucket'
-           -> Text -- ^ 'hoKey'
+headObject :: BucketName -- ^ 'hoBucket'
+           -> ObjectKey -- ^ 'hoKey'
            -> HeadObject
 headObject p1 p6 = HeadObject
     { _hoBucket = p1
@@ -130,7 +130,7 @@ headObject p1 p6 = HeadObject
     , _hoSSECustomerKeyMD5 = Nothing
     }
 
-hoBucket :: Lens' HeadObject Text
+hoBucket :: Lens' HeadObject BucketName
 hoBucket = lens _hoBucket (\s a -> s { _hoBucket = a })
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
@@ -155,7 +155,7 @@ hoIfUnmodifiedSince :: Lens' HeadObject (Maybe RFC822)
 hoIfUnmodifiedSince =
     lens _hoIfUnmodifiedSince (\s a -> s { _hoIfUnmodifiedSince = a })
 
-hoKey :: Lens' HeadObject Text
+hoKey :: Lens' HeadObject ObjectKey
 hoKey = lens _hoKey (\s a -> s { _hoKey = a })
 
 -- | Downloads the specified range bytes of an object. For more information
@@ -165,7 +165,7 @@ hoRange :: Lens' HeadObject (Maybe Text)
 hoRange = lens _hoRange (\s a -> s { _hoRange = a })
 
 -- | VersionId used to reference a specific version of the object.
-hoVersionId :: Lens' HeadObject (Maybe Text)
+hoVersionId :: Lens' HeadObject (Maybe ObjectVersionId)
 hoVersionId = lens _hoVersionId (\s a -> s { _hoVersionId = a })
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
@@ -215,9 +215,9 @@ data HeadObjectResponse = HeadObjectResponse
     , _horRestore :: Maybe Text
     , _horLastModified :: Maybe RFC822
     , _horContentLength :: Maybe Integer
-    , _horETag :: Maybe Text
+    , _horETag :: Maybe ETag
     , _horMissingMeta :: Maybe Integer
-    , _horVersionId :: Maybe Text
+    , _horVersionId :: Maybe ObjectVersionId
     , _horCacheControl :: Maybe Text
     , _horContentDisposition :: Maybe Text
     , _horContentEncoding :: Maybe Text
@@ -250,11 +250,11 @@ data HeadObjectResponse = HeadObjectResponse
 --
 -- * @ContentLength ::@ @Maybe Integer@
 --
--- * @ETag ::@ @Maybe Text@
+-- * @ETag ::@ @Maybe ETag@
 --
 -- * @MissingMeta ::@ @Maybe Integer@
 --
--- * @VersionId ::@ @Maybe Text@
+-- * @VersionId ::@ @Maybe ObjectVersionId@
 --
 -- * @CacheControl ::@ @Maybe Text@
 --
@@ -334,7 +334,7 @@ horContentLength =
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL.
-horETag :: Lens' HeadObjectResponse (Maybe Text)
+horETag :: Lens' HeadObjectResponse (Maybe ETag)
 horETag = lens _horETag (\s a -> s { _horETag = a })
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta
@@ -345,7 +345,7 @@ horMissingMeta :: Lens' HeadObjectResponse (Maybe Integer)
 horMissingMeta = lens _horMissingMeta (\s a -> s { _horMissingMeta = a })
 
 -- | Version of the object.
-horVersionId :: Lens' HeadObjectResponse (Maybe Text)
+horVersionId :: Lens' HeadObjectResponse (Maybe ObjectVersionId)
 horVersionId = lens _horVersionId (\s a -> s { _horVersionId = a })
 
 -- | Specifies caching behavior along the request/reply chain.

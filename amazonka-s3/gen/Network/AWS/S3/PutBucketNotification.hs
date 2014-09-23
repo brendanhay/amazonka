@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketNotification = PutBucketNotification
-    { _pbnBucket :: Text
+    { _pbnBucket :: BucketName
     , _pbnContentMD5 :: Maybe Text
     , _pbnNotificationConfiguration :: NotificationConfiguration
     } deriving (Eq, Ord, Show, Generic)
@@ -52,13 +52,13 @@ data PutBucketNotification = PutBucketNotification
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
 -- * @ContentMD5 ::@ @Maybe Text@
 --
 -- * @NotificationConfiguration ::@ @NotificationConfiguration@
 --
-putBucketNotification :: Text -- ^ 'pbnBucket'
+putBucketNotification :: BucketName -- ^ 'pbnBucket'
                       -> NotificationConfiguration -- ^ 'pbnNotificationConfiguration'
                       -> PutBucketNotification
 putBucketNotification p1 p3 = PutBucketNotification
@@ -67,7 +67,7 @@ putBucketNotification p1 p3 = PutBucketNotification
     , _pbnNotificationConfiguration = p3
     }
 
-pbnBucket :: Lens' PutBucketNotification Text
+pbnBucket :: Lens' PutBucketNotification BucketName
 pbnBucket = lens _pbnBucket (\s a -> s { _pbnBucket = a })
 
 pbnContentMD5 :: Lens' PutBucketNotification (Maybe Text)

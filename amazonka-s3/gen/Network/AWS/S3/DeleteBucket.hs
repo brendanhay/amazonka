@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype DeleteBucket = DeleteBucket
-    { _dbBucket :: Text
+    { _dbBucket :: BucketName
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -50,15 +50,15 @@ newtype DeleteBucket = DeleteBucket
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
-deleteBucket :: Text -- ^ 'dbBucket'
+deleteBucket :: BucketName -- ^ 'dbBucket'
              -> DeleteBucket
 deleteBucket p1 = DeleteBucket
     { _dbBucket = p1
     }
 
-dbBucket :: Lens' DeleteBucket Text
+dbBucket :: Lens' DeleteBucket BucketName
 dbBucket = lens _dbBucket (\s a -> s { _dbBucket = a })
 
 instance ToPath DeleteBucket

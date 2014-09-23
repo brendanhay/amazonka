@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketWebsite = PutBucketWebsite
-    { _pbwBucket :: Text
+    { _pbwBucket :: BucketName
     , _pbwContentMD5 :: Maybe Text
     , _pbwWebsiteConfiguration :: WebsiteConfiguration
     } deriving (Eq, Ord, Show, Generic)
@@ -52,13 +52,13 @@ data PutBucketWebsite = PutBucketWebsite
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
 -- * @ContentMD5 ::@ @Maybe Text@
 --
 -- * @WebsiteConfiguration ::@ @WebsiteConfiguration@
 --
-putBucketWebsite :: Text -- ^ 'pbwBucket'
+putBucketWebsite :: BucketName -- ^ 'pbwBucket'
                  -> WebsiteConfiguration -- ^ 'pbwWebsiteConfiguration'
                  -> PutBucketWebsite
 putBucketWebsite p1 p3 = PutBucketWebsite
@@ -67,7 +67,7 @@ putBucketWebsite p1 p3 = PutBucketWebsite
     , _pbwWebsiteConfiguration = p3
     }
 
-pbwBucket :: Lens' PutBucketWebsite Text
+pbwBucket :: Lens' PutBucketWebsite BucketName
 pbwBucket = lens _pbwBucket (\s a -> s { _pbwBucket = a })
 
 pbwContentMD5 :: Lens' PutBucketWebsite (Maybe Text)

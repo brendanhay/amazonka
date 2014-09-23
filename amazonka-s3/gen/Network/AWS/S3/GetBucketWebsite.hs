@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketWebsite = GetBucketWebsite
-    { _gbwBucket :: Text
+    { _gbwBucket :: BucketName
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -53,15 +53,15 @@ newtype GetBucketWebsite = GetBucketWebsite
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
-getBucketWebsite :: Text -- ^ 'gbwBucket'
+getBucketWebsite :: BucketName -- ^ 'gbwBucket'
                  -> GetBucketWebsite
 getBucketWebsite p1 = GetBucketWebsite
     { _gbwBucket = p1
     }
 
-gbwBucket :: Lens' GetBucketWebsite Text
+gbwBucket :: Lens' GetBucketWebsite BucketName
 gbwBucket = lens _gbwBucket (\s a -> s { _gbwBucket = a })
 
 instance ToPath GetBucketWebsite

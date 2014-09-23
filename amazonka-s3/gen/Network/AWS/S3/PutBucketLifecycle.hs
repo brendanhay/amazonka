@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketLifecycle = PutBucketLifecycle
-    { _pblBucket :: Text
+    { _pblBucket :: BucketName
     , _pblContentMD5 :: Maybe Text
     , _pblLifecycleConfiguration :: Maybe LifecycleConfiguration
     } deriving (Eq, Ord, Show, Generic)
@@ -53,13 +53,13 @@ data PutBucketLifecycle = PutBucketLifecycle
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
 -- * @ContentMD5 ::@ @Maybe Text@
 --
 -- * @LifecycleConfiguration ::@ @Maybe LifecycleConfiguration@
 --
-putBucketLifecycle :: Text -- ^ 'pblBucket'
+putBucketLifecycle :: BucketName -- ^ 'pblBucket'
                    -> PutBucketLifecycle
 putBucketLifecycle p1 = PutBucketLifecycle
     { _pblBucket = p1
@@ -67,7 +67,7 @@ putBucketLifecycle p1 = PutBucketLifecycle
     , _pblLifecycleConfiguration = Nothing
     }
 
-pblBucket :: Lens' PutBucketLifecycle Text
+pblBucket :: Lens' PutBucketLifecycle BucketName
 pblBucket = lens _pblBucket (\s a -> s { _pblBucket = a })
 
 pblContentMD5 :: Lens' PutBucketLifecycle (Maybe Text)

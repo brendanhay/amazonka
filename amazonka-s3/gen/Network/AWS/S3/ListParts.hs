@@ -56,8 +56,8 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data ListParts = ListParts
-    { _lpBucket :: Text
-    , _lpKey :: Text
+    { _lpBucket :: BucketName
+    , _lpKey :: ObjectKey
     , _lpMaxParts :: Maybe Integer
     , _lpPartNumberMarker :: Maybe Integer
     , _lpUploadId :: Text
@@ -68,9 +68,9 @@ data ListParts = ListParts
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
--- * @Key ::@ @Text@
+-- * @Key ::@ @ObjectKey@
 --
 -- * @MaxParts ::@ @Maybe Integer@
 --
@@ -78,8 +78,8 @@ data ListParts = ListParts
 --
 -- * @UploadId ::@ @Text@
 --
-listParts :: Text -- ^ 'lpBucket'
-          -> Text -- ^ 'lpKey'
+listParts :: BucketName -- ^ 'lpBucket'
+          -> ObjectKey -- ^ 'lpKey'
           -> Text -- ^ 'lpUploadId'
           -> ListParts
 listParts p1 p2 p5 = ListParts
@@ -90,10 +90,10 @@ listParts p1 p2 p5 = ListParts
     , _lpUploadId = p5
     }
 
-lpBucket :: Lens' ListParts Text
+lpBucket :: Lens' ListParts BucketName
 lpBucket = lens _lpBucket (\s a -> s { _lpBucket = a })
 
-lpKey :: Lens' ListParts Text
+lpKey :: Lens' ListParts ObjectKey
 lpKey = lens _lpKey (\s a -> s { _lpKey = a })
 
 -- | Sets the maximum number of parts to return.
@@ -119,8 +119,8 @@ instance ToHeaders ListParts
 instance ToBody ListParts
 
 data ListPartsResponse = ListPartsResponse
-    { _lprBucket :: Maybe Text
-    , _lprKey :: Maybe Text
+    { _lprBucket :: Maybe BucketName
+    , _lprKey :: Maybe ObjectKey
     , _lprUploadId :: Maybe Text
     , _lprPartNumberMarker :: Maybe Integer
     , _lprNextPartNumberMarker :: Maybe Integer
@@ -139,9 +139,9 @@ data ListPartsResponse = ListPartsResponse
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Maybe Text@
+-- * @Bucket ::@ @Maybe BucketName@
 --
--- * @Key ::@ @Maybe Text@
+-- * @Key ::@ @Maybe ObjectKey@
 --
 -- * @UploadId ::@ @Maybe Text@
 --
@@ -178,11 +178,11 @@ listPartsResponse p7 = ListPartsResponse
     }
 
 -- | Name of the bucket to which the multipart upload was initiated.
-lprBucket :: Lens' ListPartsResponse (Maybe Text)
+lprBucket :: Lens' ListPartsResponse (Maybe BucketName)
 lprBucket = lens _lprBucket (\s a -> s { _lprBucket = a })
 
 -- | Object key for which the multipart upload was initiated.
-lprKey :: Lens' ListPartsResponse (Maybe Text)
+lprKey :: Lens' ListPartsResponse (Maybe ObjectKey)
 lprKey = lens _lprKey (\s a -> s { _lprKey = a })
 
 -- | Upload ID identifying the multipart upload whose parts are being listed.

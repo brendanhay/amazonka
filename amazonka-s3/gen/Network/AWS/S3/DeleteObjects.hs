@@ -50,7 +50,7 @@ import Network.AWS.Types (Region)
 type DeleteMultipleObjects = DeleteObjects
 
 data DeleteObjects = DeleteObjects
-    { _do1Bucket :: Text
+    { _do1Bucket :: BucketName
     , _do1Delete :: Delete
     , _do1MFA :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -60,13 +60,13 @@ data DeleteObjects = DeleteObjects
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
 -- * @Delete ::@ @Delete@
 --
 -- * @MFA ::@ @Maybe Text@
 --
-deleteObjects :: Text -- ^ 'do1Bucket'
+deleteObjects :: BucketName -- ^ 'do1Bucket'
               -> Delete -- ^ 'do1Delete'
               -> DeleteObjects
 deleteObjects p1 p2 = DeleteObjects
@@ -75,7 +75,7 @@ deleteObjects p1 p2 = DeleteObjects
     , _do1MFA = Nothing
     }
 
-do1Bucket :: Lens' DeleteObjects Text
+do1Bucket :: Lens' DeleteObjects BucketName
 do1Bucket = lens _do1Bucket (\s a -> s { _do1Bucket = a })
 
 do1Delete :: Lens' DeleteObjects Delete

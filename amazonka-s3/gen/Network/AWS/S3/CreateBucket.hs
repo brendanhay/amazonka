@@ -54,7 +54,7 @@ type PutBucket = CreateBucket
 
 data CreateBucket = CreateBucket
     { _cbACL :: Maybe BucketCannedACL
-    , _cbBucket :: Text
+    , _cbBucket :: BucketName
     , _cbCreateBucketConfiguration :: Maybe CreateBucketConfiguration
     , _cbGrantFullControl :: Maybe Text
     , _cbGrantRead :: Maybe Text
@@ -70,7 +70,7 @@ data CreateBucket = CreateBucket
 --
 -- * @ACL ::@ @Maybe BucketCannedACL@
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
 -- * @CreateBucketConfiguration ::@ @Maybe CreateBucketConfiguration@
 --
@@ -84,7 +84,7 @@ data CreateBucket = CreateBucket
 --
 -- * @GrantWriteACP ::@ @Maybe Text@
 --
-createBucket :: Text -- ^ 'cbBucket'
+createBucket :: BucketName -- ^ 'cbBucket'
              -> CreateBucket
 createBucket p2 = CreateBucket
     { _cbACL = Nothing
@@ -101,7 +101,7 @@ createBucket p2 = CreateBucket
 cbACL :: Lens' CreateBucket (Maybe BucketCannedACL)
 cbACL = lens _cbACL (\s a -> s { _cbACL = a })
 
-cbBucket :: Lens' CreateBucket Text
+cbBucket :: Lens' CreateBucket BucketName
 cbBucket = lens _cbBucket (\s a -> s { _cbBucket = a })
 
 cbCreateBucketConfiguration :: Lens' CreateBucket (Maybe CreateBucketConfiguration)

@@ -52,14 +52,14 @@ import Network.AWS.Types (Region)
 data PutObjectAcl = PutObjectAcl
     { _poaACL :: Maybe ObjectCannedACL
     , _poaAccessControlPolicy :: Maybe AccessControlPolicy
-    , _poaBucket :: Text
+    , _poaBucket :: BucketName
     , _poaContentMD5 :: Maybe Text
     , _poaGrantFullControl :: Maybe Text
     , _poaGrantRead :: Maybe Text
     , _poaGrantReadACP :: Maybe Text
     , _poaGrantWrite :: Maybe Text
     , _poaGrantWriteACP :: Maybe Text
-    , _poaKey :: Text
+    , _poaKey :: ObjectKey
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -71,7 +71,7 @@ data PutObjectAcl = PutObjectAcl
 --
 -- * @AccessControlPolicy ::@ @Maybe AccessControlPolicy@
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
 -- * @ContentMD5 ::@ @Maybe Text@
 --
@@ -85,10 +85,10 @@ data PutObjectAcl = PutObjectAcl
 --
 -- * @GrantWriteACP ::@ @Maybe Text@
 --
--- * @Key ::@ @Text@
+-- * @Key ::@ @ObjectKey@
 --
-putObjectAcl :: Text -- ^ 'poaKey'
-             -> Text -- ^ 'poaBucket'
+putObjectAcl :: ObjectKey -- ^ 'poaKey'
+             -> BucketName -- ^ 'poaBucket'
              -> PutObjectAcl
 putObjectAcl p10 p3 = PutObjectAcl
     { _poaACL = Nothing
@@ -111,7 +111,7 @@ poaAccessControlPolicy :: Lens' PutObjectAcl (Maybe AccessControlPolicy)
 poaAccessControlPolicy =
     lens _poaAccessControlPolicy (\s a -> s { _poaAccessControlPolicy = a })
 
-poaBucket :: Lens' PutObjectAcl Text
+poaBucket :: Lens' PutObjectAcl BucketName
 poaBucket = lens _poaBucket (\s a -> s { _poaBucket = a })
 
 poaContentMD5 :: Lens' PutObjectAcl (Maybe Text)
@@ -140,7 +140,7 @@ poaGrantWriteACP :: Lens' PutObjectAcl (Maybe Text)
 poaGrantWriteACP =
     lens _poaGrantWriteACP (\s a -> s { _poaGrantWriteACP = a })
 
-poaKey :: Lens' PutObjectAcl Text
+poaKey :: Lens' PutObjectAcl ObjectKey
 poaKey = lens _poaKey (\s a -> s { _poaKey = a })
 
 instance ToPath PutObjectAcl

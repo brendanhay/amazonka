@@ -71,7 +71,7 @@ import Network.AWS.Types (Region)
 data PutObject = PutObject
     { _poACL :: Maybe ObjectCannedACL
     , _poBody :: RqBody
-    , _poBucket :: Text
+    , _poBucket :: BucketName
     , _poCacheControl :: Maybe Text
     , _poContentDisposition :: Maybe Text
     , _poContentEncoding :: Maybe Text
@@ -84,7 +84,7 @@ data PutObject = PutObject
     , _poGrantRead :: Maybe Text
     , _poGrantReadACP :: Maybe Text
     , _poGrantWriteACP :: Maybe Text
-    , _poKey :: Text
+    , _poKey :: ObjectKey
     , _poMetadata :: Map Text Text
     , _poServerSideEncryption :: Maybe ServerSideEncryption
     , _poStorageClass :: Maybe StorageClass
@@ -103,7 +103,7 @@ data PutObject = PutObject
 --
 -- * @Body ::@ @RqBody@
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
 -- * @CacheControl ::@ @Maybe Text@
 --
@@ -129,7 +129,7 @@ data PutObject = PutObject
 --
 -- * @GrantWriteACP ::@ @Maybe Text@
 --
--- * @Key ::@ @Text@
+-- * @Key ::@ @ObjectKey@
 --
 -- * @Metadata ::@ @Map Text Text@
 --
@@ -145,9 +145,9 @@ data PutObject = PutObject
 --
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
-putObject :: Text -- ^ 'poKey'
+putObject :: ObjectKey -- ^ 'poKey'
           -> RqBody -- ^ 'poBody'
-          -> Text -- ^ 'poBucket'
+          -> BucketName -- ^ 'poBucket'
           -> PutObject
 putObject p16 p2 p3 = PutObject
     { _poACL = Nothing
@@ -182,7 +182,7 @@ poACL = lens _poACL (\s a -> s { _poACL = a })
 poBody :: Lens' PutObject RqBody
 poBody = lens _poBody (\s a -> s { _poBody = a })
 
-poBucket :: Lens' PutObject Text
+poBucket :: Lens' PutObject BucketName
 poBucket = lens _poBucket (\s a -> s { _poBucket = a })
 
 -- | Specifies caching behavior along the request/reply chain.
@@ -239,7 +239,7 @@ poGrantReadACP = lens _poGrantReadACP (\s a -> s { _poGrantReadACP = a })
 poGrantWriteACP :: Lens' PutObject (Maybe Text)
 poGrantWriteACP = lens _poGrantWriteACP (\s a -> s { _poGrantWriteACP = a })
 
-poKey :: Lens' PutObject Text
+poKey :: Lens' PutObject ObjectKey
 poKey = lens _poKey (\s a -> s { _poKey = a })
 
 -- | A map of metadata to store with the object in S3.
@@ -318,9 +318,9 @@ instance ToBody PutObject where
 
 data PutObjectResponse = PutObjectResponse
     { _porExpiration :: Maybe RFC822
-    , _porETag :: Maybe Text
+    , _porETag :: Maybe ETag
     , _porServerSideEncryption :: Maybe ServerSideEncryption
-    , _porVersionId :: Maybe Text
+    , _porVersionId :: Maybe ObjectVersionId
     , _porSSECustomerAlgorithm :: Maybe Text
     , _porSSECustomerKeyMD5 :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -334,11 +334,11 @@ data PutObjectResponse = PutObjectResponse
 --
 -- * @Expiration ::@ @Maybe RFC822@
 --
--- * @ETag ::@ @Maybe Text@
+-- * @ETag ::@ @Maybe ETag@
 --
 -- * @ServerSideEncryption ::@ @Maybe ServerSideEncryption@
 --
--- * @VersionId ::@ @Maybe Text@
+-- * @VersionId ::@ @Maybe ObjectVersionId@
 --
 -- * @SSECustomerAlgorithm ::@ @Maybe Text@
 --
@@ -361,7 +361,7 @@ porExpiration :: Lens' PutObjectResponse (Maybe RFC822)
 porExpiration = lens _porExpiration (\s a -> s { _porExpiration = a })
 
 -- | Entity tag for the uploaded object.
-porETag :: Lens' PutObjectResponse (Maybe Text)
+porETag :: Lens' PutObjectResponse (Maybe ETag)
 porETag = lens _porETag (\s a -> s { _porETag = a })
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
@@ -371,7 +371,7 @@ porServerSideEncryption =
          (\s a -> s { _porServerSideEncryption = a })
 
 -- | Version of the object.
-porVersionId :: Lens' PutObjectResponse (Maybe Text)
+porVersionId :: Lens' PutObjectResponse (Maybe ObjectVersionId)
 porVersionId = lens _porVersionId (\s a -> s { _porVersionId = a })
 
 -- | If server-side encryption with a customer-provided encryption key was

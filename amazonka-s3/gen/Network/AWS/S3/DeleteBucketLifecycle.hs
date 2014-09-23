@@ -40,7 +40,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype DeleteBucketLifecycle = DeleteBucketLifecycle
-    { _dblBucket :: Text
+    { _dblBucket :: BucketName
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -48,15 +48,15 @@ newtype DeleteBucketLifecycle = DeleteBucketLifecycle
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
-deleteBucketLifecycle :: Text -- ^ 'dblBucket'
+deleteBucketLifecycle :: BucketName -- ^ 'dblBucket'
                       -> DeleteBucketLifecycle
 deleteBucketLifecycle p1 = DeleteBucketLifecycle
     { _dblBucket = p1
     }
 
-dblBucket :: Lens' DeleteBucketLifecycle Text
+dblBucket :: Lens' DeleteBucketLifecycle BucketName
 dblBucket = lens _dblBucket (\s a -> s { _dblBucket = a })
 
 instance ToPath DeleteBucketLifecycle

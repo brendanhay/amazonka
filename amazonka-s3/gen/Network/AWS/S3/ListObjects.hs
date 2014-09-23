@@ -61,8 +61,8 @@ import Network.AWS.Types (Region)
 type GetBucket = ListObjects
 
 data ListObjects = ListObjects
-    { _loBucket :: Text
-    , _loDelimiter :: Maybe Text
+    { _loBucket :: BucketName
+    , _loDelimiter :: Maybe Char
     , _loEncodingType :: Maybe EncodingType
     , _loMarker :: Maybe Text
     , _loMaxKeys :: Maybe Integer
@@ -74,9 +74,9 @@ data ListObjects = ListObjects
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
--- * @Delimiter ::@ @Maybe Text@
+-- * @Delimiter ::@ @Maybe Char@
 --
 -- * @EncodingType ::@ @Maybe EncodingType@
 --
@@ -86,7 +86,7 @@ data ListObjects = ListObjects
 --
 -- * @Prefix ::@ @Maybe Text@
 --
-listObjects :: Text -- ^ 'loBucket'
+listObjects :: BucketName -- ^ 'loBucket'
             -> ListObjects
 listObjects p1 = ListObjects
     { _loBucket = p1
@@ -97,11 +97,11 @@ listObjects p1 = ListObjects
     , _loPrefix = Nothing
     }
 
-loBucket :: Lens' ListObjects Text
+loBucket :: Lens' ListObjects BucketName
 loBucket = lens _loBucket (\s a -> s { _loBucket = a })
 
 -- | A delimiter is a character you use to group keys.
-loDelimiter :: Lens' ListObjects (Maybe Text)
+loDelimiter :: Lens' ListObjects (Maybe Char)
 loDelimiter = lens _loDelimiter (\s a -> s { _loDelimiter = a })
 
 -- | Requests Amazon S3 to encode the object keys in the response and specifies
@@ -139,7 +139,7 @@ data ListObjectsResponse = ListObjectsResponse
     , _lorMarker :: Maybe Text
     , _lorNextMarker :: Maybe Text
     , _lorContents :: [Object]
-    , _lorName :: Text
+    , _lorName :: BucketName
     , _lorPrefix :: Maybe Text
     , _lorMaxKeys :: Maybe Integer
     , _lorCommonPrefixes :: [CommonPrefix]
@@ -161,7 +161,7 @@ data ListObjectsResponse = ListObjectsResponse
 --
 -- * @Contents ::@ @[Object]@
 --
--- * @Name ::@ @Text@
+-- * @Name ::@ @BucketName@
 --
 -- * @Prefix ::@ @Maybe Text@
 --
@@ -172,7 +172,7 @@ data ListObjectsResponse = ListObjectsResponse
 -- * @EncodingType ::@ @Maybe EncodingType@
 --
 listObjectsResponse :: Bool -- ^ 'lorIsTruncated'
-                    -> Text -- ^ 'lorName'
+                    -> BucketName -- ^ 'lorName'
                     -> ListObjectsResponse
 listObjectsResponse p1 p5 = ListObjectsResponse
     { _lorIsTruncated = p1
@@ -208,7 +208,7 @@ lorNextMarker = lens _lorNextMarker (\s a -> s { _lorNextMarker = a })
 lorContents :: Lens' ListObjectsResponse [Object]
 lorContents = lens _lorContents (\s a -> s { _lorContents = a })
 
-lorName :: Lens' ListObjectsResponse Text
+lorName :: Lens' ListObjectsResponse BucketName
 lorName = lens _lorName (\s a -> s { _lorName = a })
 
 lorPrefix :: Lens' ListObjectsResponse (Maybe Text)

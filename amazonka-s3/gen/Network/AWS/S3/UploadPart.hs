@@ -60,10 +60,10 @@ import Network.AWS.Types (Region)
 
 data UploadPart = UploadPart
     { _upBody :: RqBody
-    , _upBucket :: Text
+    , _upBucket :: BucketName
     , _upContentLength :: Maybe Integer
     , _upContentMD5 :: Maybe Text
-    , _upKey :: Text
+    , _upKey :: ObjectKey
     , _upPartNumber :: !Integer
     , _upUploadId :: Text
     , _upSSECustomerAlgorithm :: Maybe Text
@@ -78,13 +78,13 @@ data UploadPart = UploadPart
 --
 -- * @Body ::@ @RqBody@
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
 -- * @ContentLength ::@ @Maybe Integer@
 --
 -- * @ContentMD5 ::@ @Maybe Text@
 --
--- * @Key ::@ @Text@
+-- * @Key ::@ @ObjectKey@
 --
 -- * @PartNumber ::@ @Integer@
 --
@@ -97,8 +97,8 @@ data UploadPart = UploadPart
 -- * @SSECustomerKeyMD5 ::@ @Maybe Text@
 --
 uploadPart :: RqBody -- ^ 'upBody'
-           -> Text -- ^ 'upBucket'
-           -> Text -- ^ 'upKey'
+           -> BucketName -- ^ 'upBucket'
+           -> ObjectKey -- ^ 'upKey'
            -> Integer -- ^ 'upPartNumber'
            -> Text -- ^ 'upUploadId'
            -> UploadPart
@@ -118,7 +118,7 @@ uploadPart p1 p2 p5 p6 p7 = UploadPart
 upBody :: Lens' UploadPart RqBody
 upBody = lens _upBody (\s a -> s { _upBody = a })
 
-upBucket :: Lens' UploadPart Text
+upBucket :: Lens' UploadPart BucketName
 upBucket = lens _upBucket (\s a -> s { _upBucket = a })
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
@@ -129,7 +129,7 @@ upContentLength = lens _upContentLength (\s a -> s { _upContentLength = a })
 upContentMD5 :: Lens' UploadPart (Maybe Text)
 upContentMD5 = lens _upContentMD5 (\s a -> s { _upContentMD5 = a })
 
-upKey :: Lens' UploadPart Text
+upKey :: Lens' UploadPart ObjectKey
 upKey = lens _upKey (\s a -> s { _upKey = a })
 
 -- | Part number of part being uploaded.
@@ -182,7 +182,7 @@ instance ToBody UploadPart where
 
 data UploadPartResponse = UploadPartResponse
     { _uprServerSideEncryption :: Maybe ServerSideEncryption
-    , _uprETag :: Maybe Text
+    , _uprETag :: Maybe ETag
     , _uprSSECustomerAlgorithm :: Maybe Text
     , _uprSSECustomerKeyMD5 :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -196,7 +196,7 @@ data UploadPartResponse = UploadPartResponse
 --
 -- * @ServerSideEncryption ::@ @Maybe ServerSideEncryption@
 --
--- * @ETag ::@ @Maybe Text@
+-- * @ETag ::@ @Maybe ETag@
 --
 -- * @SSECustomerAlgorithm ::@ @Maybe Text@
 --
@@ -217,7 +217,7 @@ uprServerSideEncryption =
          (\s a -> s { _uprServerSideEncryption = a })
 
 -- | Entity tag for the uploaded object.
-uprETag :: Lens' UploadPartResponse (Maybe Text)
+uprETag :: Lens' UploadPartResponse (Maybe ETag)
 uprETag = lens _uprETag (\s a -> s { _uprETag = a })
 
 -- | If server-side encryption with a customer-provided encryption key was

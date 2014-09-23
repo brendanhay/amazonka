@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketTagging = GetBucketTagging
-    { _gbtBucket :: Text
+    { _gbtBucket :: BucketName
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -50,15 +50,15 @@ newtype GetBucketTagging = GetBucketTagging
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
-getBucketTagging :: Text -- ^ 'gbtBucket'
+getBucketTagging :: BucketName -- ^ 'gbtBucket'
                  -> GetBucketTagging
 getBucketTagging p1 = GetBucketTagging
     { _gbtBucket = p1
     }
 
-gbtBucket :: Lens' GetBucketTagging Text
+gbtBucket :: Lens' GetBucketTagging BucketName
 gbtBucket = lens _gbtBucket (\s a -> s { _gbtBucket = a })
 
 instance ToPath GetBucketTagging

@@ -45,7 +45,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketRequestPayment = PutBucketRequestPayment
-    { _pbrpBucket :: Text
+    { _pbrpBucket :: BucketName
     , _pbrpContentMD5 :: Maybe Text
     , _pbrpRequestPaymentConfiguration :: RequestPaymentConfiguration
     } deriving (Eq, Ord, Show, Generic)
@@ -55,13 +55,13 @@ data PutBucketRequestPayment = PutBucketRequestPayment
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
 -- * @ContentMD5 ::@ @Maybe Text@
 --
 -- * @RequestPaymentConfiguration ::@ @RequestPaymentConfiguration@
 --
-putBucketRequestPayment :: Text -- ^ 'pbrpBucket'
+putBucketRequestPayment :: BucketName -- ^ 'pbrpBucket'
                         -> RequestPaymentConfiguration -- ^ 'pbrpRequestPaymentConfiguration'
                         -> PutBucketRequestPayment
 putBucketRequestPayment p1 p3 = PutBucketRequestPayment
@@ -70,7 +70,7 @@ putBucketRequestPayment p1 p3 = PutBucketRequestPayment
     , _pbrpRequestPaymentConfiguration = p3
     }
 
-pbrpBucket :: Lens' PutBucketRequestPayment Text
+pbrpBucket :: Lens' PutBucketRequestPayment BucketName
 pbrpBucket = lens _pbrpBucket (\s a -> s { _pbrpBucket = a })
 
 pbrpContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)

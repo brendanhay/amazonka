@@ -42,7 +42,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 data PutBucketTagging = PutBucketTagging
-    { _pbtBucket :: Text
+    { _pbtBucket :: BucketName
     , _pbtContentMD5 :: Maybe Text
     , _pbtTagging :: Tagging
     } deriving (Eq, Ord, Show, Generic)
@@ -52,13 +52,13 @@ data PutBucketTagging = PutBucketTagging
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
 -- * @ContentMD5 ::@ @Maybe Text@
 --
 -- * @Tagging ::@ @Tagging@
 --
-putBucketTagging :: Text -- ^ 'pbtBucket'
+putBucketTagging :: BucketName -- ^ 'pbtBucket'
                  -> Tagging -- ^ 'pbtTagging'
                  -> PutBucketTagging
 putBucketTagging p1 p3 = PutBucketTagging
@@ -67,7 +67,7 @@ putBucketTagging p1 p3 = PutBucketTagging
     , _pbtTagging = p3
     }
 
-pbtBucket :: Lens' PutBucketTagging Text
+pbtBucket :: Lens' PutBucketTagging BucketName
 pbtBucket = lens _pbtBucket (\s a -> s { _pbtBucket = a })
 
 pbtContentMD5 :: Lens' PutBucketTagging (Maybe Text)

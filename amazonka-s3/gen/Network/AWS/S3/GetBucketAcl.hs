@@ -43,7 +43,7 @@ import Network.AWS.Prelude
 import Network.AWS.Types (Region)
 
 newtype GetBucketAcl = GetBucketAcl
-    { _gbaBucket :: Text
+    { _gbaBucket :: BucketName
     } deriving (Eq, Ord, Show, Generic)
 
 -- | Smart constructor for the minimum required parameters to construct
@@ -51,15 +51,15 @@ newtype GetBucketAcl = GetBucketAcl
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * @Bucket ::@ @Text@
+-- * @Bucket ::@ @BucketName@
 --
-getBucketAcl :: Text -- ^ 'gbaBucket'
+getBucketAcl :: BucketName -- ^ 'gbaBucket'
              -> GetBucketAcl
 getBucketAcl p1 = GetBucketAcl
     { _gbaBucket = p1
     }
 
-gbaBucket :: Lens' GetBucketAcl Text
+gbaBucket :: Lens' GetBucketAcl BucketName
 gbaBucket = lens _gbaBucket (\s a -> s { _gbaBucket = a })
 
 instance ToPath GetBucketAcl

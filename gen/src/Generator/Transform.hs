@@ -353,7 +353,7 @@ annOf rq svc s = def
     ann' x = let y = annOf rq svc x in (_anRaw' y, _anWrap y)
 
     switch = name `elem` switches
-
+ 
     name = s^.cmnName
     req  = body || s^.cmnRequired
     body = isBody s

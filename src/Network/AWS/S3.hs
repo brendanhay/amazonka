@@ -145,7 +145,7 @@ s3Response :: a
            -> S3Response
            -> AWS (Either AWSError (Either S3ErrorResponse S3Response))
 s3Response _ rs
-    | code >= 200 && code < 300 = return . Right $ Right rs
+    | code >= 200 && code < 400 = return . Right $ Right rs
     | otherwise = do
         lbs <- responseBody rs $$+- Conduit.sinkLbs
         if LBS.null lbs
@@ -488,7 +488,7 @@ instance (Rq a, Rs a ~ S3Response) => Rq (GetVersion a) where
 --
 -- You must have READ access to the object.
 --
--- By default, the HEAD operation retrieves metadata from the latest version of an object. If the latest version is a delete marker, Amazon S3 behaves as if the object was deleted. To retrieve metadata from a different version, use the versionId subresource. 
+-- By default, the HEAD operation retrieves metadata from the latest version of an object. If the latest version is a delete marker, Amazon S3 behaves as if the object was deleted. To retrieve metadata from a different version, use the versionId subresource.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/RESTObjectHEAD.html>
 data HeadObject = HeadObject

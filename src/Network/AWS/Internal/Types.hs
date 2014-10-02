@@ -347,6 +347,11 @@ data InstanceType
     | I2_2XLarge
     | I2_4XLarge
     | I2_8XLarge
+    | R3_Large
+    | R3_XLarge
+    | R3_2XLarge
+    | R3_4XLarge
+    | R3_8XLarge
       deriving (Eq, Ord, Generic)
 
 instance Show InstanceType where
@@ -380,6 +385,11 @@ instance Show InstanceType where
         I2_2XLarge  -> "i2.2xlarge"
         I2_4XLarge  -> "i2.4xlarge"
         I2_8XLarge  -> "i2.8xlarge"
+        R3_Large    -> "r3.large"
+        R3_XLarge   -> "r3.xlarge"
+        R3_2XLarge  -> "r3.2xlarge"
+        R3_4XLarge  -> "r3.4xlarge"
+        R3_8XLarge  -> "r3.8xlarge"
 
 instance Read InstanceType where
     readPrec = readAssocList
@@ -412,6 +422,11 @@ instance Read InstanceType where
         , ("i2.2xlarge",  I2_2XLarge)
         , ("i2.4xlarge",  I2_4XLarge)
         , ("i2.8xlarge",  I2_8XLarge)
+        , ("r3.large",    R3_Large)
+        , ("r3.xlarge",   R3_XLarge)
+        , ("r3.2xlarge",  R3_2XLarge)
+        , ("r3.4xlarge",  R3_4XLarge)
+        , ("r3.8xlarge",  R3_8XLarge)
         ]
 
 instance IsQuery InstanceType where

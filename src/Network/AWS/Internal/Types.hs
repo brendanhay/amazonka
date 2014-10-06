@@ -319,6 +319,9 @@ instance IsXML AvailabilityZone where
 
 data InstanceType
     = T1_Micro
+    | T2_Micro
+    | T2_Small
+    | T2_Medium
     | M1_Small
     | M1_Medium
     | M1_Large
@@ -357,6 +360,9 @@ data InstanceType
 instance Show InstanceType where
     show typ = case typ of
         T1_Micro    -> "t1.micro"
+        T2_Micro    -> "t2.micro"
+        T2_Small    -> "t2.small"
+        T2_Medium   -> "t2.medium"
         M1_Small    -> "m1.small"
         M1_Medium   -> "m1.medium"
         M1_Large    -> "m1.large"
@@ -394,6 +400,9 @@ instance Show InstanceType where
 instance Read InstanceType where
     readPrec = readAssocList
         [ ("t1.micro",    T1_Micro)
+        , ("t2.micro",    T2_Micro)
+        , ("t2.small",    T2_Small)
+        , ("t2.medium",   T2_Medium)
         , ("m1.small",    M1_Small)
         , ("m1.medium",   M1_Medium)
         , ("m1.large",    M1_Large)

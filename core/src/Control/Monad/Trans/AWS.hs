@@ -24,10 +24,9 @@
 module Control.Monad.Trans.AWS
     (
     -- * Transformer
-      AWST
-    -- ** Aliases
+      AWS
+    , AWST
     , MonadAWS
-    , AWS
 
     -- * Run
     , runAWST
@@ -186,8 +185,8 @@ instance (Applicative m, MonadIO m, MonadBase IO m, MonadThrow m)
 
 -- | Unwrap an 'AWST' transformer, calling all of the registered 'ResourceT'
 -- release actions.
-runAWST :: MonadBaseControl IO m => AWST m a -> Env -> m (Either Error a)
-runAWST m e = runResourceT (withInternalState (runAWST' m . (e,)))
+runAWST :: MonadBaseControl IO m => Env -> AWST m a -> m (Either Error a)
+runAWST e m = runResourceT (withInternalState (runAWST' m . (e,)))
 
 runAWST' :: AWST m a -> (Env, InternalState) -> m (Either Error a)
 runAWST' (AWST k) = runExceptT . runReaderT k
@@ -339,4 +338,4 @@ presign :: ( MonadIO m
         -> UTCTime -- ^ Signing time.
         -> Int     -- ^ Expiry time in seconds.
         -> m (Signed a (Sg (Sv a)))
-presign rq t x = scoped $ \e -> AWS.presign e rq t x
+presign rq t x = scoped (\e -> AWS.presign e rq t x)

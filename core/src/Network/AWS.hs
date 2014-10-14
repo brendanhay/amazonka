@@ -116,7 +116,7 @@ paginate e = go
     go rq = do
         rs <- lift (send e rq)
         yield rs
-        either (const $ return ())
+        either (const (return ()))
                (maybe (return ()) go . next rq)
                rs
 

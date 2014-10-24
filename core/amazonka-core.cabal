@@ -1,11 +1,11 @@
 name:                  amazonka-core
 version:               0.0.0
-synopsis:              Comprehensive Amazon Web Services SDK
+synopsis:              Comprehensive Amazon Web Services SDK.
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple
@@ -77,7 +77,6 @@ library
         , http-conduit          == 2.1.4.*
         , http-types
         , lens                  == 4.4.*
-        , lifted-async
         , mmorph
         , monad-control
         , mtl

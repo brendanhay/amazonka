@@ -43,8 +43,8 @@ module Network.AWS.Types
     , Auth            (..)
     , withAuth
 
-    -- * Logging
-    , Logging         (..)
+    -- * Logger
+    , Logger         (..)
     , debug
 
     -- * Services
@@ -292,12 +292,12 @@ withAuth (Auth  e) f = f e
 withAuth (Ref _ r) f = liftIO (readIORef r) >>= f
 
 -- | The log level and associated logger function.
-data Logging
+data Logger
     = None
     | Debug (Text -> IO ())
 
 -- | Log a message using the debug logger, or if none is specified noop.
-debug :: MonadIO m => Logging -> Text -> m ()
+debug :: MonadIO m => Logger -> Text -> m ()
 debug None      = const (return ())
 debug (Debug f) = liftIO . f
 

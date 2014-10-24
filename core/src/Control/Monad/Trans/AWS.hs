@@ -28,7 +28,7 @@ module Control.Monad.Trans.AWS
     , AWST
     , MonadAWS
 
-    -- * Run
+    -- * Running
     , runAWST
 
     -- * Environment
@@ -66,10 +66,6 @@ module Control.Monad.Trans.AWS
     , paginateCatch
     -- ** Pre-signing URLs
     , presign
-
-    -- * Asynchronous actions
-    , Async.async
-    , Async.wait
 
     -- * Types
     , module Network.AWS.Types

@@ -25,6 +25,8 @@ accessor t
     | "_" `Text.isPrefixOf` t = t
     | otherwise               = "_" <> t
 
+Should just use haskell keywords/etc from parsec or something.
+
 smartCtor :: Text -> Text
 smartCtor = f . lowerFirstWord
   where

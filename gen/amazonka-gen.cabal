@@ -3,10 +3,10 @@ version:               0.1.0
 synopsis:              Pending
 description:           Pending
 homepage:              https://github.com/brendanhay/amazonka
-license:               MPL-2.0
+license:               OtherLicense
 license-file:          LICENSE
 author:                Brendan Hay
-maintainer:            brendan.g.hay@gmail.com
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
 copyright:             Copyright (c) 2013-2014 Brendan Hay
 category:              Network, AWS, Cloud
 build-type:            Simple

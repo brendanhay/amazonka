@@ -16,12 +16,14 @@ module Main (main) where
 import Control.Applicative
 import Control.Error
 import Data.Monoid
-import Generator.FromJSON
-import Generator.Models
-import Generator.Render
-import Generator.Transform
+-- import Gen.FromJSON
+import Gen.V2.Model
+-- import Gen.Render
+import Gen.V2.Decode
 import Options.Applicative
 import System.Directory
+
+main = return ()
 
 data Options = Options
     { optDir      :: FilePath

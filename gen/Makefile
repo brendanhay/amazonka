@@ -1,6 +1,6 @@
 SHELL    := /usr/bin/env bash
 FLAGS    := -j --disable-documentation --disable-library-coverage
-DEPS     := vendor/botocore vendor/ede vendor/jason
+DEPS     := vendor/botocore vendor/jason
 BOTO     := vendor/botocore/botocore/data/aws
 
 RESTS3 := \
@@ -75,7 +75,6 @@ clean:
 	rm -rf cabal.sandbox.config .cabal-sandbox vendor
 
 add-sources: cabal.sandbox.config $(DEPS)
-	cabal sandbox add-source vendor/ede
 	cabal sandbox add-source vendor/jason
 
 cabal.sandbox.config:

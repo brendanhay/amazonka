@@ -21,8 +21,7 @@ executable amazonka-gen
     ghc-options:       -Wall -threaded
 
     build-depends:
-          aeson
-        , jason
+          aeson                == 0.8.*
         , attoparsec
         , base                 == 4.7.*
         , bifunctors
@@ -31,15 +30,18 @@ executable amazonka-gen
         , containers
         , data-default
         , directory
-        , ede                  >= 0.1.5
+        , ede                  == 0.2.3
         , errors
         , filepath
         , http-types
+        , jason
         , lens
         , mtl
-        , optparse-applicative == 0.10.*
+        , optparse-applicative == 0.11.*
         , semigroups
+        , template-haskell
         , text
+        , text-manipulate
         , transformers
         , unordered-containers
         , vector

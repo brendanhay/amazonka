@@ -4,7 +4,7 @@
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Generator.Transform
+-- Module      : Gen.Transform
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Generator.Transform where
+module Gen.Transform where
 
 import           Control.Applicative
 import           Control.Lens         hiding (indexed)
@@ -33,8 +33,8 @@ import           Data.Ord
 import           Data.String
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
-import           Data.Text.Util
-import           Generator.AST
+import           Gen.Naming
+import           Gen.AST
 import           Text.EDE.Filters
 
 -- FIXME: When replacing/ignoring types via 'existing', it should actually merge

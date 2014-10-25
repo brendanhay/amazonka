@@ -5,7 +5,7 @@
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TemplateHaskell            #-}
 
--- Module      : Generator.AST
+-- Module      : Gen.AST
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -15,7 +15,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Generator.AST where
+module Gen.AST where
 
 import           Control.Applicative
 import           Control.Lens

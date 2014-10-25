@@ -6,7 +6,7 @@
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
--- Module      : Generator.FromJSON
+-- Module      : Gen.FromJSON
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,7 +16,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Generator.FromJSON where
+module Gen.FromJSON where
 
 import           Control.Applicative
 import           Control.Error
@@ -35,18 +35,18 @@ import           Data.Jason                 hiding (Error)
 import           Data.Jason.Types           hiding (Error)
 import           Data.List
 import           Data.Monoid                hiding (Sum)
-import           Data.String.CaseConversion
+import           Gen.Naming
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import qualified Data.Text.Unsafe           as Text
-import           Data.Text.Util
+import           Gen.Naming
 import           Data.Traversable           (traverse)
 import           GHC.Generics
-import           Generator.AST
-import           Generator.Log
-import           Generator.Models
-import           Generator.Transform
+import           Gen.AST
+import           Gen.Log
+import           Gen.Models
+import           Gen.Transform
 import           Network.HTTP.Types.Method
 import           Text.EDE.Filters
 

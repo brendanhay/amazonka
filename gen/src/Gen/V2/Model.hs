@@ -66,10 +66,6 @@ loadModel o d = do
 
     name = takeBaseName (dropTrailingPathSeparator d)
 
-    dots "."  = False
-    dots ".." = False
-    dots _    = True
-
 merge :: Object -> Object -> Object
 merge (Obj a) (Obj b) = Obj (assoc value a b)
   where

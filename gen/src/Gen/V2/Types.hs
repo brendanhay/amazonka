@@ -43,3 +43,8 @@ data Path
 
 data URI = URI [Path] [(Text, Maybe Text)]
     deriving (Eq, Show)
+
+dots :: FilePath -> Bool
+dots "."  = False
+dots ".." = False
+dots _    = True

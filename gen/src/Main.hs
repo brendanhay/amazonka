@@ -23,8 +23,10 @@ import Control.Monad
 import Control.Monad.IO.Class
 import Control.Monad.State
 import Data.Monoid
-import Gen.V2.Decode
+import Gen.V2.Asset
 import Gen.V2.Model
+import Gen.V2.Stage1
+import Gen.V2.Stage2
 import Gen.V2.Template
 import Options.Applicative
 import System.Directory

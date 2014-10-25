@@ -5,7 +5,7 @@
 {-# LANGUAGE TupleSections       #-}
 {-# LANGUAGE ViewPatterns        #-}
 
--- Module      : Gen.V2.Template
+-- Module      : Gen.V2.Asset
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -15,7 +15,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.V2.Template where
+module Gen.V2.Asset where
 
 import           Control.Applicative
 import           Control.Error
@@ -33,47 +33,15 @@ import qualified Data.Text           as Text
 import qualified Data.Text.Lazy.IO   as LText
 import qualified Data.Vector         as Vector
 import           Gen.V2.Log
-import           Gen.V2.Stage1       (Protocol(..))
+import           Gen.V2.Types
 import           System.Directory
 import           System.FilePath     hiding (normalise)
-import           Text.EDE            (Template)
-import qualified Text.EDE            as EDE
-import           Text.EDE.Filters
 
-data Templates = Templates
-    { _tCabal     :: Template
-    , _tInterface :: Template
-    , _tService   :: Protocol -> (Template, Template)
-    }
-
-loadTemplates :: FilePath -> Script Templates
-loadTemplates d = do
-    f  <- Templates
-        <$> load "cabal"
-        <*> load "interface"
-
-    !x <- (,)
-        <$> load "xml/types"
-        <*> load "xml/operation"
-
-    !j <- (,)
-        <$> load "json/types"
-        <*> load "json/operation"
-
-    !q <- (,)
-        <$> load "query/types"
-        <*> load "query/operation"
-
-    return $! f $ \t ->
-        case t of
-            JSON     -> j
-            RestJSON -> j
-            RestXML  -> x
-            Query    -> q
+copyAssets :: FilePath -> FilePath -> Script ()
+copyAssets s d = do
+    fs <- map (combine s) . filter dots <$> scriptIO (getDirectoryContents s)
+    scriptIO (mapM_ copy fs)
   where
-    load (path -> f) =
-           say "Parse Template" f
-        *> scriptIO (EDE.eitherParseFile f)
-       >>= hoistEither
+    copy f@(dest -> p) = say "Copying Asset" p >> copyFile f p
 
-    path f = d </> f <.> "ede"
+    dest f = d </> takeFileName f

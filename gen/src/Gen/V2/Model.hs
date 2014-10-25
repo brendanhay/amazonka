@@ -11,35 +11,30 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.V2.Model
-    ( Model (..)
-    , loadModel
-    ) where
+module Gen.V2.Model where
 
 import           Control.Applicative  ((<$>))
 import           Control.Error
 import           Control.Monad
-import           Data.Aeson           hiding (object)
 import qualified Data.ByteString.Lazy as LBS
+import           Data.Function        (on)
 import qualified Data.HashMap.Strict  as Map
+import           Data.Jason           (eitherDecode')
+import           Data.Jason.Types     hiding (object)
 import           Data.List
+import           Data.List            (unionBy)
 import           Data.Monoid
 import           Data.Ord
+import qualified Data.Text            as Text
+import           Gen.V2.Log
+import           Gen.V2.Types
 import           System.Directory
 import           System.FilePath
 
-data Model = Model
-    { _mVersion :: String
-    , _mModel   :: Object
-    } deriving (Show, Eq)
-
-instance Ord Model where
-    compare = comparing _mVersion
-
 loadModel :: FilePath -> FilePath -> Script Model
 loadModel o d = do
-    v  <- version
-    Model v . Map.unions <$> sequence
+    v <- version
+    Model name v . foldl' merge mempty <$> sequence
         [ required override
         , required (api     v)
         , optional (waiters v)
@@ -48,24 +43,44 @@ loadModel o d = do
   where
     version = do
         fs <- scriptIO (getDirectoryContents d)
-        f  <- tryHead ("Failed to get model version from " ++ d) fs
+        f  <- tryHead ("Failed to get model version from " ++ d) (filter dots fs)
         return (takeWhile (/= '.') f)
 
-    required f = object f !? ("Failed to load " ++ f)
-    optional   = scriptIO . fmap (fromMaybe mempty) . object
+    required f = object f >>= hoistEither
+    optional   = fmap (fromMaybe mempty . hush) . object
 
-    object f = do
+    object f = scriptIO $ do
         p <- doesFileExist f
-        bool (return Nothing)
-             (decode' <$> LBS.readFile f)
+        when p (say "Decode Model" f)
+        bool (return  . Left $ "Failed to find " ++ f)
+             (eitherDecode' <$> LBS.readFile f)
              p
-
-    override = o
-        </> takeBaseName (dropTrailingPathSeparator d)
-        <.> "overrides.json"
 
     api     = path "api.json"
     waiters = path "waiters.json"
     pagers  = path "paginators.json"
 
     path e v = d </> v <.> e
+
+    override = o </> name <.> "json"
+
+    name = takeBaseName (dropTrailingPathSeparator d)
+
+    dots "."  = False
+    dots ".." = False
+    dots _    = True
+
+merge :: Object -> Object -> Object
+merge (Obj a) (Obj b) = Obj (assoc value a b)
+  where
+    value :: Value -> Value -> Value
+    value l r =
+        case (l, r) of
+            (Object x, Object y) -> Object (x `merge` y)
+            (_,        _)        -> l
+
+    assoc :: Eq k => (v -> v -> v) -> [(k, v)] -> [(k, v)] -> [(k, v)]
+    assoc f xs ys = unionBy ((==) `on` fst) (map g xs) ys
+      where
+        g (k, x) | Just y <- lookup k ys = (k, f x y)
+                 | otherwise             = (k, x)

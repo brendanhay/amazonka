@@ -19,22 +19,27 @@
 module Gen.V2.Decode where
 
 import           Control.Applicative
+import           Control.Error
 import           Control.Lens
-import           Data.Aeson
-import           Data.CaseInsensitive      (CI)
+import           Data.CaseInsensitive (CI)
 import           Data.Default
 import           Data.Function
-import qualified Data.HashMap.Strict       as Map
+import qualified Data.HashMap.Strict  as Map
+import           Data.Jason
 import           Data.Maybe
-import           Data.Monoid               hiding (Sum)
+import           Data.Monoid          hiding (Sum)
 import           Data.Ord
 import           Data.String
-import           Data.Text                 (Text)
-import qualified Data.Text                 as Text
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import           Data.Text.Manipulate
+import           Gen.V2.Log
+import           Gen.V2.Types
 import           Gen.V2.TH
 
--- Keep the boto json structure completely intact.
+-- NOTE: Keep the boto json structure completely intact.
+-- FIXME: _retry.json
+-- FIXME: _endpoints.json
 
 data Signature
     = V2
@@ -149,3 +154,6 @@ instance HasMetadata API where
 
 data Paginators = Paginators
 data Waiters    = Waiters
+
+stage1 :: Model -> Script ()
+stage1 Model{..} = return ()

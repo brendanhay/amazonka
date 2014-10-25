@@ -10,6 +10,32 @@
 
 module Gen.V2.Types where
 
+import           Control.Applicative  ((<$>))
+import           Control.Error
+import           Control.Monad
+import qualified Data.ByteString.Lazy as LBS
+import           Data.Function        (on)
+import qualified Data.HashMap.Strict  as Map
+import           Data.Jason           (eitherDecode')
+import           Data.Jason.Types     hiding (object)
+import           Data.List
+import           Data.List            (unionBy)
+import           Data.Monoid
+import           Data.Ord
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
+import           System.Directory
+import           System.FilePath
+
+data Model = Model
+    { _mName    :: String
+    , _mVersion :: String
+    , _mModel   :: Object
+    } deriving (Show, Eq)
+
+instance Ord Model where
+    compare a b = comparing _mName a b <> comparing _mVersion a b
+
 data Path
     = Const Text
     | Var   Text

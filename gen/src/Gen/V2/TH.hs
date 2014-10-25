@@ -18,12 +18,12 @@ module Gen.V2.TH where
 
 import           Control.Applicative
 import           Control.Lens
-import           Data.Aeson.TH
 import           Data.CaseInsensitive      (CI)
 import           Data.Char
 import           Data.Default
 import           Data.Function
 import qualified Data.HashMap.Strict       as Map
+import           Data.Jason.TH
 import           Data.Maybe
 import           Data.Monoid               hiding (Sum)
 import           Data.Ord

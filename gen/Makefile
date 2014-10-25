@@ -58,11 +58,12 @@ MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 .PHONY: gen
 
 gen: build
-	dist/build/amazonka-gen/amazonka-gen \
- --output=$(realpath ../) \
- --override=$(realpath ./model) \
- --assets=$(realpath ./asset) \
- $(addprefix --model=,$(realpath $(addprefix $(BOTO)/,$(MODELS))))
+	@dist/build/amazonka-gen/amazonka-gen \
+ --out=../ \
+ --overrides=overrides \
+ --templates=templates \
+ --assets=assets \
+ $(addprefix --model=,$(addprefix $(BOTO)/,$(MODELS)))
 
 build:
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))

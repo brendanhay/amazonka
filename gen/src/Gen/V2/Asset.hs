@@ -17,25 +17,12 @@
 
 module Gen.V2.Asset where
 
-import           Control.Applicative
-import           Control.Error
-import           Control.Lens        ((^.))
-import           Control.Monad
-import           Data.Aeson
-import           Data.Char
-import qualified Data.Foldable       as Fold
-import           Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as Map
-import           Data.List           (intersperse)
-import           Data.Monoid
-import           Data.Text           (Text)
-import qualified Data.Text           as Text
-import qualified Data.Text.Lazy.IO   as LText
-import qualified Data.Vector         as Vector
-import           Gen.V2.Log
-import           Gen.V2.Types
-import           System.Directory
-import           System.FilePath     hiding (normalise)
+import Control.Applicative
+import Control.Error
+import Gen.V2.Log
+import Gen.V2.Types
+import System.Directory
+import System.FilePath     hiding (normalise)
 
 copyAssets :: FilePath -> FilePath -> Script ()
 copyAssets s d = do

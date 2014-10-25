@@ -19,26 +19,11 @@ module Gen.V2.Template where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Lens        ((^.))
-import           Control.Monad
-import           Data.Aeson
-import           Data.Char
-import qualified Data.Foldable       as Fold
-import           Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as Map
-import           Data.List           (intersperse)
-import           Data.Monoid
-import           Data.Text           (Text)
-import qualified Data.Text           as Text
-import qualified Data.Text.Lazy.IO   as LText
-import qualified Data.Vector         as Vector
 import           Gen.V2.Log
-import           Gen.V2.Stage1       (Protocol(..))
-import           System.Directory
+import           Gen.V2.Types
 import           System.FilePath     hiding (normalise)
 import           Text.EDE            (Template)
 import qualified Text.EDE            as EDE
-import           Text.EDE.Filters
 
 data Templates = Templates
     { _tCabal     :: Template

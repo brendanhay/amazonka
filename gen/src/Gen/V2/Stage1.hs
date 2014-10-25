@@ -1,3 +1,4 @@
+{-# LANGUAGE BangPatterns               #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
@@ -18,95 +19,39 @@
 
 module Gen.V2.Stage1 where
 
-import           Control.Applicative
-import           Control.Error
-import           Control.Lens
-import           Data.CaseInsensitive (CI)
-import           Data.Default
-import           Data.Function
-import qualified Data.HashMap.Strict  as Map
-import           Data.Jason
-import           Data.Maybe
-import           Data.Monoid          hiding (Sum)
-import           Data.Ord
-import           Data.String
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import           Data.Text.Manipulate
-import           Gen.V2.Log
-import           Gen.V2.Types
-import           Gen.V2.TH
-
--- NOTE: Keep the boto json structure completely intact.
--- FIXME: _retry.json
--- FIXME: _endpoints.json
-
-data Signature
-    = V2
-    | V3
-    | V4
-      deriving (Eq, Show)
-
-nullary dec ''Signature
-
-data Protocol
-    = JSON
-    | RestJSON
-    | RestXML
-    | Query
-      deriving (Eq, Show)
-
-nullary dec ''Protocol
-
-data Timestamp
-    = RFC822
-    | ISO8601
-    | POSIX
-      deriving (Eq, Show)
-
-nullary dec ''Timestamp
-
-data Checksum
-    = MD5
-    | SHA256
-      deriving (Eq, Show)
-
-nullary dec ''Checksum
+import Control.Error
+import Control.Monad
+import Data.HashMap.Strict (HashMap)
+import Data.Jason
+import Data.Jason.Types
+import Data.Text           (Text)
+import Gen.V2.Log
+import Gen.V2.TH
+import Gen.V2.Types
 
 data Metadata = Metadata
-    { _mServiceAbbreviation :: Text
-    , _mServiceFullName     :: Text
+    { _mServiceFullName     :: Text
+    , _mServiceAbbreviation :: Maybe Text
     , _mApiVersion          :: Text
     , _mEndpointPrefix      :: Text
-    , _mGlobalEndpoint      :: Text
+    , _mGlobalEndpoint      :: Maybe Text
     , _mSignatureVersion    :: !Signature
-    , _mXmlNamespace        :: Text
-    , _mTargetPrefix        :: Text
-    , _mJsonVersion         :: Text
-    , _mTimestampFormat     :: !Timestamp
-    , _mChecksumFormat      :: !Checksum
+    , _mXmlNamespace        :: Maybe Text
+    , _mTargetPrefix        :: Maybe Text
+    , _mJsonVersion         :: Maybe Text
+    , _mTimestampFormat     :: Maybe Timestamp
+    , _mChecksumFormat      :: Maybe Checksum
     , _mProtocol            :: !Protocol
     } deriving (Eq, Show)
 
-classy dec ''Metadata
-
-data Method
-    = GET
-    | POST
-    | HEAD
-    | PUT
-    | DELETE
-    | OPTIONS
-      deriving (Eq, Show)
-
-nullary dec ''Method
+classy stage1 ''Metadata
 
 data HTTP = HTTP
-    { _hMethod     :: Method
+    { _hMethod     :: !Method
     , _hRequestUri :: Text
     } deriving (Eq, Show)
 
-record dec ''HTTP
+record stage1 ''HTTP
 
 data Ref = Ref
     { _rShape         :: Text
@@ -114,40 +59,40 @@ data Ref = Ref
     , _rResultWrapper :: Maybe Text
     } deriving (Eq, Show)
 
-record dec ''Ref
+record stage1 ''Ref
 
 data Error = Error
     { _eShape         :: Text
-    , _eDocumentation :: Text
+    , _eDocumentation :: Maybe Text
     , _eException     :: !Bool
     } deriving (Eq, Show)
 
-record dec ''Error
+record stage1 ''Error
 
 data Operation = Operation
     { _oName          :: Text
-    , _oDocumentation :: Text
+    , _oDocumentation :: Maybe Text
     , _oHttp          :: HTTP
-    , _oInput         :: Ref
-    , _oOutput        :: Ref
-    , _oErrors        :: [Error]
+    , _oInput         :: Maybe Ref
+    , _oOutput        :: Maybe Ref
+    , _oErrors        :: Maybe [Error]
     } deriving (Eq, Show)
 
-record dec ''Operation
+record stage1 ''Operation
 
 data Shape = Shape
     deriving (Eq, Show)
 
-record dec ''Shape
+record stage1 ''Shape
 
 data API = API
     { _apiMetadata      :: Metadata
-    , _apiDocumentation :: Text
-    , _apiOperations    :: [Operation]
-    , _apiShapes        :: [Shape]
+    , _apiDocumentation :: Maybe Text
+    , _apiOperations    :: HashMap Text Operation
+--    , _apiShapes        :: HashMap Text Shape
     } deriving (Eq, Show)
 
-makeLenses ''API
+record stage1 ''API
 
 instance HasMetadata API where
     metadata = apiMetadata
@@ -155,5 +100,10 @@ instance HasMetadata API where
 data Paginators = Paginators
 data Waiters    = Waiters
 
-stage1 :: Model -> Script ()
-stage1 Model{..} = return ()
+decodeStage1 :: Model -> Script ()
+decodeStage1 Model{..} = do
+    say "Decode Model" _mPath
+    void $! hoistEither $ dec (Object _mModel)
+  where
+    dec :: Value -> Either String API
+    dec !v = parseEither parseJSON v

@@ -18,14 +18,10 @@ import           Control.Error
 import           Control.Monad
 import qualified Data.ByteString.Lazy as LBS
 import           Data.Function        (on)
-import qualified Data.HashMap.Strict  as Map
 import           Data.Jason           (eitherDecode')
 import           Data.Jason.Types     hiding (object)
 import           Data.List
-import           Data.List            (unionBy)
 import           Data.Monoid
-import           Data.Ord
-import qualified Data.Text            as Text
 import           Gen.V2.Log
 import           Gen.V2.Types
 import           System.Directory
@@ -34,7 +30,7 @@ import           System.FilePath
 loadModel :: FilePath -> FilePath -> Script Model
 loadModel o d = do
     v <- version
-    Model name v . foldl' merge mempty <$> sequence
+    Model name v d . foldl' merge mempty <$> sequence
         [ required override
         , required (api     v)
         , optional (waiters v)
@@ -51,7 +47,7 @@ loadModel o d = do
 
     object f = scriptIO $ do
         p <- doesFileExist f
-        when p (say "Decode Model" f)
+        when p (say "Parse Model" f)
         bool (return  . Left $ "Failed to find " ++ f)
              (eitherDecode' <$> LBS.readFile f)
              p

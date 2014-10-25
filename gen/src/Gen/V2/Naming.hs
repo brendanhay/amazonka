@@ -12,23 +12,11 @@
 
 module Gen.V2.Naming where
 
-import           Control.Applicative
-import           Control.Lens
-import           Data.Aeson.TH
-import           Data.CaseInsensitive      (CI)
 import           Data.Char
-import           Data.Default
-import           Data.Function
-import qualified Data.HashMap.Strict       as Map
 import           Data.Maybe
-import           Data.Monoid               hiding (Sum)
-import           Data.Ord
-import           Data.String
-import           Data.Text                 (Text)
-import qualified Data.Text                 as Text
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import           Data.Text.Manipulate
-import           Language.Haskell.TH
-import           Network.HTTP.Types.Method
 
 lensName :: Text -> Text
 lensName t = fromMaybe t ("_" `Text.stripPrefix` t)

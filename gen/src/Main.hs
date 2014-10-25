@@ -109,14 +109,21 @@ main = do
             !m  <- loadModel _overrides d
 
             -- Decode the JSON to Stage1 AST
-            !s1 <- stage1 m
-
-            -- Transformation from Stage1 -> Stage2 AST
-
-            -- Decode the overrides from the JSON
-
-            -- Apply the overrides to Stage2 AST
-
-            -- Render the templates
+            !s1 <- decodeStage1 m
 
             return ()
+
+            -- Transformation from Stage1 -> Stage2 AST
+            -- s2 <- stage2 s1
+
+            -- -- Decode the overrides from the JSON
+            -- o  <- decodeOverrides m
+
+            -- -- Apply the overrides to Stage2 AST
+            -- s  <- applyOverrides o s2
+
+            -- -- Render the templates
+            -- renderSources s
+
+            -- -- Copy the assets
+            -- copyAssets _assets ?

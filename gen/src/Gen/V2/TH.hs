@@ -1,6 +1,6 @@
+{-# LANGUAGE DataKinds         #-}
+{-# LANGUAGE KindSignatures    #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE KindSignatures #-}
-{-# LANGUAGE DataKinds #-}
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE ViewPatterns      #-}
 
@@ -18,54 +18,45 @@ module Gen.V2.TH where
 
 import           Control.Applicative
 import           Control.Lens
-import           Data.CaseInsensitive      (CI)
-import           Data.Char
-import           Data.Default
-import           Data.Function
-import qualified Data.HashMap.Strict       as Map
 import           Data.Jason.TH
-import           Data.Maybe
-import           Data.Monoid               hiding (Sum)
-import           Data.Ord
-import           Data.String
-import           Data.Text                 (Text)
-import qualified Data.Text                 as Text
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import           Data.Text.Manipulate
 import           Gen.V2.Naming
 import           Language.Haskell.TH
-import           Network.HTTP.Types.Method
 
 data TH = TH
-    { _jsonCtor  :: Text -> Text
-    , _jsonField :: Text -> Text
-    , _lensField :: Text -> Text
+    { _thCtor  :: Text -> Text
+    , _thField :: Text -> Text
+    , _thLens  :: Text -> Text
+    , _thJSON  :: Name -> Q [Dec]
     }
 
-dec :: TH
-dec = TH toSpinal keyName lensName
+makeLenses ''TH
 
-enc :: TH
-enc = undefined
+stage1, stage2 :: TH
+stage1 = TH toSpinal keyName lensName (deriveFromJSON (aeson stage1))
+stage2 = TH toSpinal keyName lensName (deriveToJSON   (aeson stage2))
 
 nullary :: TH -> Name -> Q [Dec]
-nullary th = deriveJSON (aeson th)
+nullary = _thJSON
 
 record :: TH -> Name -> Q [Dec]
 record th n = concat <$> sequence
     [ makeLensesWith (lenses th lensRules) n
-    , nullary th n
+    , _thJSON th n
     ]
 
 classy :: TH -> Name -> Q [Dec]
 classy th n = concat <$> sequence
     [ makeLensesWith (lenses th classyRules) n
-    , nullary th n
+    , _thJSON th n
     ]
 
 aeson :: TH -> Options
 aeson th = defaultOptions
-    { constructorTagModifier = withText (_jsonCtor th)
-    , fieldLabelModifier     = withText (_jsonField th)
+    { constructorTagModifier = text (_thCtor th)
+    , fieldLabelModifier     = text (_thField th)
     , omitNothingFields      = True
     , allNullaryToStringTag  = True
     }
@@ -74,7 +65,7 @@ lenses :: TH -> LensRules -> LensRules
 lenses th = lensField .~ const f
   where
     f :: Name -> [DefName]
-    f x = [TopName (mkName (withText (_lensField th) (nameBase x)))]
+    f x = [TopName (mkName (text (_thLens th) (nameBase x)))]
 
-withText :: (Text -> Text) -> String -> String
-withText f = Text.unpack . f . Text.pack
+text :: (Text -> Text) -> String -> String
+text f = Text.unpack . f . Text.pack

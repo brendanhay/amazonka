@@ -1,10 +1,5 @@
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TemplateHaskell            #-}
-
--- {-# OPTIONS_GHC -ddump-splices #-}
+{-# LANGUAGE DataKinds       #-}
+{-# LANGUAGE TemplateHaskell #-}
 
 -- Module      : Gen.V2.Stage2
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -17,3 +12,21 @@
 -- Portability : non-portable (GHC extensions)
 
 module Gen.V2.Stage2 where
+
+import Control.Error
+import Data.HashMap.Strict (HashMap)
+import Data.Jason
+import Data.Monoid
+import Data.Text           (Text)
+import Gen.V2.TH
+import Gen.V2.Types
+
+data Stage2 = Stage2
+
+instance ToJSON Stage2 where
+    toJSON = const (toJSON (mempty :: HashMap Text Value))
+
+--record stage2 ''Stage2
+
+decodeS2 :: Model S2 -> Script Stage2
+decodeS2 = const (return Stage2)

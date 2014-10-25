@@ -1,11 +1,10 @@
 {-# LANGUAGE BangPatterns               #-}
+{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TemplateHaskell            #-}
-
--- {-# OPTIONS_GHC -ddump-splices #-}
 
 -- Module      : Gen.V2.Stage1
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -24,6 +23,7 @@ import Control.Monad
 import Data.HashMap.Strict (HashMap)
 import Data.Jason
 import Data.Jason.Types
+import Data.Monoid
 import Data.Text           (Text)
 import Gen.V2.Log
 import Gen.V2.TH
@@ -85,25 +85,24 @@ data Shape = Shape
 
 record stage1 ''Shape
 
-data API = API
-    { _apiMetadata      :: Metadata
-    , _apiDocumentation :: Maybe Text
-    , _apiOperations    :: HashMap Text Operation
---    , _apiShapes        :: HashMap Text Shape
+data Pager  = Pager
+data Waiter = Waiter
+
+data Stage1 = Stage1
+    { _s1Metadata      :: Metadata
+    , _s1Documentation :: Maybe Text
+    , _s1Operations    :: HashMap Text Value
+    , _s1Shapes        :: HashMap Text Value
+    , _s1Pagination    :: HashMap Text Value
+    , _a1Waiters       :: HashMap Text Value
     } deriving (Eq, Show)
 
-record stage1 ''API
+record stage1 ''Stage1
 
-instance HasMetadata API where
-    metadata = apiMetadata
+instance HasMetadata Stage1 where
+    metadata = s1Metadata
 
-data Paginators = Paginators
-data Waiters    = Waiters
-
-decodeStage1 :: Model -> Script ()
-decodeStage1 Model{..} = do
+decodeS1 :: Model S1 -> Script Stage1
+decodeS1 Model{..} = do
     say "Decode Model" _mPath
-    void $! hoistEither $ dec (Object _mModel)
-  where
-    dec :: Value -> Either String API
-    dec !v = parseEither parseJSON v
+    hoistEither (parseEither parseJSON (Object _mModel))

@@ -1,3 +1,5 @@
+{-# LANGUAGE DataKinds         #-}
+{-# LANGUAGE KindSignatures    #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TemplateHaskell   #-}
@@ -102,16 +104,6 @@ instance FromJSON Method where
 
 nullary stage2 ''Method
 
-data Model = Model
-    { _mName    :: String
-    , _mVersion :: String
-    , _mPath    :: FilePath
-    , _mModel   :: Object
-    } deriving (Show, Eq)
-
-instance Ord Model where
-    compare a b = comparing _mName a b <> comparing _mVersion a b
-
 data Path
     = Const Text
     | Var   Text
@@ -119,6 +111,18 @@ data Path
 
 data URI = URI [Path] [(Text, Maybe Text)]
     deriving (Eq, Show)
+
+data Type = S1 | S2
+
+data Model (a :: Type) = Model
+    { _mName    :: String
+    , _mVersion :: String
+    , _mPath    :: FilePath
+    , _mModel   :: Object
+    } deriving (Show, Eq)
+
+instance Ord (Model a) where
+    compare a b = comparing _mName a b <> comparing _mVersion a b
 
 dots :: FilePath -> Bool
 dots "."  = False

@@ -28,12 +28,14 @@ import Gen.V2.Model
 import Gen.V2.Stage1
 import Gen.V2.Stage2
 import Gen.V2.Template
+import Gen.V2.Transform
 import Options.Applicative
 import System.Directory
 
 data Options = Options
     { _out       :: FilePath
     , _models    :: [FilePath]
+    , _services  :: FilePath
     , _overrides :: FilePath
     , _templates :: FilePath
     , _assets    :: FilePath
@@ -55,13 +57,19 @@ parser = Options
     <*> some (strOption
          ( long "model"
         <> metavar "PATH"
-        <> help "Directory containing a service's models. [required]"
+        <> help "Directory for a service's botocore models. [required]"
          ))
+
+    <*> strOption
+         ( long "services"
+        <> metavar "PATH"
+        <> help "Directory for amazonka models. [required]"
+         )
 
     <*> strOption
          ( long "overrides"
         <> metavar "DIR"
-        <> help "Directory containing model overrides. [required]"
+        <> help "Directory containing amazonka overrides. [required]"
          )
 
     <*> strOption
@@ -73,13 +81,14 @@ parser = Options
     <*> strOption
          ( long "assets"
         <> metavar "PATH"
-        <> help "Directory containing service assets. [required]"
+        <> help "Directory containing assets for generated libraries. [required]"
          )
 
 validate :: MonadIO m => Options -> m Options
 validate o = flip execStateT o $ do
     sequence_
         [ check out
+        , check services
         , check overrides
         , check templates
         , check assets
@@ -98,32 +107,39 @@ main = do
     Options{..} <- customExecParser (prefs showHelpOnError) options
         >>= validate
 
-    mapM_ (createDirectoryIfMissing True)
-        [_out, _overrides, _templates, _assets]
-
     runScript $ do
         !ts <- loadTemplates _templates
 
-        -- Load a single model, then process it
+        -- Process a Stage1 AST from the corresponding botocore model.
         forM_ _models $ \d -> do
-            !m  <- loadModel _overrides d
+            -- Load the Stage1 raw JSON.
+            !m1 <- loadS1 d
 
-            -- Decode the JSON to Stage1 AST
-            !s1 <- decodeStage1 m
+            -- Decode the Stage1 JSON to AST.
+            !s1 <- decodeS1 m1
 
-            return ()
+            -- Transformation from Stage1 -> Stage2 AST.
+            !i2 <- hoistEither (transformS1ToS2 s1)
 
-            -- Transformation from Stage1 -> Stage2 AST
-            -- s2 <- stage2 s1
+            -- Store the intemediary Stage2 AST as JSON.
+            -- Note: This is primarily done for debugging purposes,
+            -- but it's also convenient for merging overrides.
+            storeS2 _services m1 i2
 
-            -- -- Decode the overrides from the JSON
-            -- o  <- decodeOverrides m
+            -- Load the intemediary Stage2 JSON,
+            -- with left-biased merge of overrides(l).
+            !m2 <- loadS2 _overrides _services m1
 
-            -- -- Apply the overrides to Stage2 AST
-            -- s  <- applyOverrides o s2
+            -- Decode the Stage2 JSON to AST.
+            !s2 <- decodeS2 m2
 
-            -- -- Render the templates
+            -- Truncation and trimming phase of Stage2 AST.
+            let !r = trimS2 s2
+
+            -- Render the templates, creating or overriding the target library.
             -- renderSources s
 
-            -- -- Copy the assets
+            -- Copy static assets to the library root.
             -- copyAssets _assets ?
+
+            return ()

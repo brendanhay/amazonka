@@ -38,6 +38,10 @@ stage1, stage2 :: TH
 stage1 = TH toSpinal keyName lensName (deriveFromJSON (aeson stage1))
 stage2 = TH toSpinal keyName lensName (deriveJSON     (aeson stage2))
 
+stage2f, stage2t :: TH
+stage2f = stage2 & thJSON .~ deriveFromJSON (aeson stage2)
+stage2t = stage2 & thJSON .~ deriveToJSON   (aeson stage2)
+
 nullary :: TH -> Name -> Q [Dec]
 nullary = _thJSON
 

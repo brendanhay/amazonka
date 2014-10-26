@@ -74,7 +74,7 @@ required :: FromJSON a => FilePath -> Script a
 required f = object f >>= hoistEither
 
 optional :: Text -> FilePath -> Script Object
-optional k = fmap (fromMaybe (Obj [(k, Null)]) . hush) . object
+optional k = fmap (fromMaybe (Obj [(k, Object mempty)]) . hush) . object
 
 object :: FromJSON a => FilePath -> Script (Either String a)
 object f = scriptIO $ do

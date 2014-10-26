@@ -70,12 +70,13 @@ data Error = Error
 record stage1 ''Error
 
 data Operation = Operation
-    { _oName          :: Text
-    , _oDocumentation :: Maybe Text
-    , _oHttp          :: HTTP
-    , _oInput         :: Maybe Ref
-    , _oOutput        :: Maybe Ref
-    , _oErrors        :: Maybe [Error]
+    { _oName             :: Text
+    , _oDocumentation    :: Maybe Text
+    , _oDocumentationUrl :: Text
+    , _oHttp             :: HTTP
+    , _oInput            :: Maybe Ref
+    , _oOutput           :: Maybe Ref
+    , _oErrors           :: Maybe [Error]
     } deriving (Eq, Show)
 
 record stage1 ''Operation

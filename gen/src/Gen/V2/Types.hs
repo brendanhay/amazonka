@@ -43,7 +43,7 @@ instance FromJSON Signature where
         "s3"      -> pure V4
         e         -> fail ("Unknown Signature: " ++ Text.unpack e)
 
-nullary stage2 ''Signature
+nullary stage2t ''Signature
 
 data Protocol
     = JSON
@@ -61,7 +61,7 @@ instance FromJSON Protocol where
         "ec2"       -> pure Query
         e           -> fail ("Unknown Protocol: " ++ Text.unpack e)
 
-nullary stage2 ''Protocol
+nullary stage2t ''Protocol
 
 data Timestamp
     = RFC822
@@ -75,15 +75,15 @@ instance FromJSON Timestamp where
         "unixTimestamp" -> pure POSIX
         e               -> fail ("Unknown Timestamp: " ++ Text.unpack e)
 
-nullary stage2 ''Timestamp
+nullary stage2t ''Timestamp
 
 data Checksum
     = MD5
     | SHA256
       deriving (Eq, Show)
 
-nullary stage1 ''Checksum
-nullary stage2 ''Checksum
+nullary stage1  ''Checksum
+nullary stage2t ''Checksum
 
 data Method
     = GET
@@ -102,7 +102,7 @@ instance FromJSON Method where
         "DELETE" -> pure DELETE
         e        -> fail ("Unknown Method: " ++ Text.unpack e)
 
-nullary stage2 ''Method
+nullary stage2t ''Method
 
 data Path
     = Const Text

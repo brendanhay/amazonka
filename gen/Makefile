@@ -14,10 +14,10 @@ RESTXML := \
 # cloudsearchdomain
 
 RESTJSON := \
- elastictranscoder
+ elastictranscoder \
+ cognito-sync
 # Omitted - boto's models don't reflect the documentation
 # and my understanding of the service is limited.
-# cognito-sync
 
 QUERY := \
  autoscaling \

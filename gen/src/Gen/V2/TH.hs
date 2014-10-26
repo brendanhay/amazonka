@@ -63,6 +63,7 @@ aeson th = defaultOptions
     , fieldLabelModifier     = text (_thField th)
     , omitNothingFields      = True
     , allNullaryToStringTag  = True
+    , sumEncoding            = defaultTaggedObject { tagFieldName = "type" }
     }
 
 lenses :: TH -> LensRules -> LensRules

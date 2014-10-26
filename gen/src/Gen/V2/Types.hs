@@ -72,6 +72,7 @@ data Timestamp
 instance FromJSON Timestamp where
     parseJSON = withText "timestamp" $ \case
         "rfc822"        -> pure RFC822
+        "iso8601"       -> pure ISO8601
         "unixTimestamp" -> pure POSIX
         e               -> fail ("Unknown Timestamp: " ++ Text.unpack e)
 

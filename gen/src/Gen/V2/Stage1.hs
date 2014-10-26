@@ -53,10 +53,22 @@ data HTTP = HTTP
 
 record stage1 ''HTTP
 
+data Location
+    = Headers
+    | Header
+    | URI
+    | Querystring
+      deriving (Eq, Show)
+
+nullary stage1 ''Location
+
 data Ref = Ref
     { _rShape         :: Text
     , _rDocumentation :: Maybe Text
     , _rResultWrapper :: Maybe Text
+    , _rLocation      :: Maybe Location
+    , _rLocationName  :: Maybe Text
+    , _rStreaming     :: Maybe Bool
     } deriving (Eq, Show)
 
 record stage1 ''Ref
@@ -81,7 +93,86 @@ data Operation = Operation
 
 record stage1 ''Operation
 
-data Shape = Shape
+data XmlNamespace = XmlNamespace
+    { _xPrefix :: Text
+    , _xUri    :: Text
+    } deriving (Eq, Show)
+
+record stage1 ''XmlNamespace
+
+-- Need to deserialise errors
+data Shape
+    = List
+      { _sMember        :: Ref
+      , _sMin           :: Maybe Int
+      , _sMax           :: Maybe Int
+      , _sFlattened     :: Maybe Bool
+      , _sLocationName  :: Maybe Text
+      }
+
+    | Structure
+      { _sRequired      :: Maybe [Text]
+      , _sDocumentation :: Maybe Text -- on all?
+--      , _sMembers       :: HashMap Text Ref
+      , _sPayload       :: Maybe Text
+      , _sXmlNamespace  :: Maybe XmlNamespace
+      , _sException     :: Maybe Bool
+      , _sFault         :: Maybe Bool
+      }
+
+    | Map
+      { _sKey           :: Ref
+      , _sValue         :: Ref
+      , _sMin           :: Maybe Int
+      , _sMax           :: Maybe Int
+      }
+
+    | String
+      { _sMin           :: Maybe Int
+      , _sMax           :: Maybe Int
+      , _sPattern       :: Maybe Text
+      , _sEnum          :: Maybe [Text]
+      , _sXmlAttribute  :: Maybe Bool
+      , _sLocationName  :: Maybe Text
+      , _sSensitive     :: Maybe Bool
+      }
+
+    | Integer
+      { _sMin           :: Maybe Int
+      , _sMax           :: Maybe Int
+      , _sBox           :: Maybe Bool
+      }
+
+    | Long
+      { _sMin           :: Maybe Int
+      , _sMax           :: Maybe Int
+      , _sBox           :: Maybe Bool
+      }
+
+    | Double
+      { _sMin           :: Maybe Int
+      , _sMax           :: Maybe Int
+      , _sBox           :: Maybe Bool
+      }
+
+    | Float
+      { _sMin           :: Maybe Int
+      , _sMax           :: Maybe Int
+      , _sBox           :: Maybe Bool
+      }
+
+    | Boolean
+      { _sBox           :: Maybe Bool
+      }
+
+    | Timestamp
+      { _sTimestampFormat :: Maybe Timestamp
+      }
+
+    | Blob
+      { _sSensitive     :: Maybe Bool
+      }
+
     deriving (Eq, Show)
 
 record stage1 ''Shape
@@ -93,7 +184,7 @@ data Stage1 = Stage1
     { _s1Metadata      :: Metadata
     , _s1Documentation :: Maybe Text
     , _s1Operations    :: HashMap Text Value
-    , _s1Shapes        :: HashMap Text Value
+    , _s1Shapes        :: HashMap Text Shape
     , _s1Pagination    :: HashMap Text Value
     , _a1Waiters       :: HashMap Text Value
     } deriving (Eq, Show)

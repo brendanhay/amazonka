@@ -23,10 +23,7 @@ import Gen.V2.Types
 
 data Stage2 = Stage2
 
-instance ToJSON Stage2 where
-    toJSON = const (toJSON (mempty :: HashMap Text Value))
-
---record stage2 ''Stage2
+record stage2 ''Stage2
 
 decodeS2 :: Model S2 -> Script Stage2
 decodeS2 = const (return Stage2)

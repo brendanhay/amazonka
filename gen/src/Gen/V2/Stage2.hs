@@ -20,7 +20,6 @@
 module Gen.V2.Stage2 where
 
 import           Control.Error
-import           Data.HashMap.Strict (HashMap)
 import           Data.Jason.Types
 import           Data.Monoid
 import           Data.SemVer
@@ -51,9 +50,9 @@ data Type = Type
 record stage2 ''Type
 
 data Operation = Operation
-    { _oName             :: Text
-    , _oDocumentation    :: Doc
-    , _oDocumentationUrl :: Text
+    { _opName             :: Text
+    , _opDocumentation    :: Doc
+    , _opDocumentationUrl :: Text
     } deriving (Eq, Show)
 
 record stage2 ''Operation
@@ -76,7 +75,7 @@ data Service = Service
     , _svSignature      :: !Signature
     , _svTimestamp      :: !Timestamp
     , _svChecksum       :: !Checksum
-    , _svXmlNamespace   :: Maybe Text
+    , _svXmlNamespace   :: Text
     , _svTargetPrefix   :: Maybe Text
     , _svError          :: Text
     } deriving (Eq, Show)

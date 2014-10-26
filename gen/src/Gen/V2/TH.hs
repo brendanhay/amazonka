@@ -29,32 +29,32 @@ data TH = TH
     { _thCtor  :: Text -> Text
     , _thField :: Text -> Text
     , _thLens  :: Text -> Text
-    , _thJSON  :: Name -> Q [Dec]
+    , _thJSON  :: Options -> Name -> Q [Dec]
     }
 
 makeLenses ''TH
 
 stage1, stage2 :: TH
-stage1 = TH toSpinal keyName lensName (deriveFromJSON (aeson stage1))
-stage2 = TH toSpinal keyName lensName (deriveJSON     (aeson stage2))
+stage1 = TH toSpinal keyName lensName deriveFromJSON
+stage2 = TH toSpinal keyName lensName deriveJSON
 
 stage2f, stage2t :: TH
-stage2f = stage2 & thJSON .~ deriveFromJSON (aeson stage2)
-stage2t = stage2 & thJSON .~ deriveToJSON   (aeson stage2)
+stage2f = stage2 & thJSON .~ deriveFromJSON
+stage2t = stage2 & thJSON .~ deriveToJSON
 
 nullary :: TH -> Name -> Q [Dec]
-nullary = _thJSON
+nullary th = (th ^. thJSON) (aeson th)
 
 record :: TH -> Name -> Q [Dec]
 record th n = concat <$> sequence
     [ makeLensesWith (lenses th lensRules) n
-    , _thJSON th n
+    , nullary th n
     ]
 
 classy :: TH -> Name -> Q [Dec]
 classy th n = concat <$> sequence
     [ makeLensesWith (lenses th classyRules) n
-    , _thJSON th n
+    , nullary th n
     ]
 
 aeson :: TH -> Options

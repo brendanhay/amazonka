@@ -21,6 +21,9 @@ import           Data.Text.Manipulate
 lensName :: Text -> Text
 lensName t = fromMaybe t ("_" `Text.stripPrefix` t)
 
+keyPython :: Text -> Text
+keyPython = toSnake . keyName . Text.replace "." "_"
+
 keyName :: Text -> Text
 keyName t
     | "_" `Text.isPrefixOf` t = lowerHead (dropLower t)

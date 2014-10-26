@@ -116,25 +116,25 @@ main = do
             !m1 <- loadS1 d
 
             -- Decode the Stage1 JSON to AST.
-            !_  <- decodeS1 m1
+            !s1 <- decodeS1 m1
 
-            -- -- Transformation from Stage1 -> Stage2 AST.
-            -- !i2 <- hoistEither (transformS1ToS2 s1)
+            -- Transformation from Stage1 -> Stage2 AST.
+            !i2 <- hoistEither (transformS1ToS2 s1)
 
-            -- -- Store the intemediary Stage2 AST as JSON.
-            -- -- Note: This is primarily done for debugging purposes,
-            -- -- but it's also convenient for merging overrides.
-            -- storeS2 _services m1 i2
+            -- Store the intemediary Stage2 AST as JSON.
+            -- Note: This is primarily done for debugging purposes,
+            -- but it's also convenient for merging overrides.
+            storeS2 _services m1 i2
 
-            -- Load the intemediary Stage2 JSON,
-            -- with left-biased merge of overrides(l).
---            !m2 <- loadS2 _overrides _services m1
+            -- -- Load the intemediary Stage2 JSON,
+            -- -- with left-biased merge of overrides(l).
+            -- !m2 <- loadS2 _overrides _services m1
 
-            -- Decode the Stage2 JSON to AST.
-  --          !s2 <- decodeS2 m2
+            -- -- Decode the Stage2 JSON to AST.
+            -- !s2 <- decodeS2 m2
 
-            -- Truncation and trimming phase of Stage2 AST.
-    --        let !r = trimS2 s2
+            -- -- Truncation and trimming phase of Stage2 AST.
+            -- let !r = trimS2 s2
 
             -- Render the templates, creating or overriding the target library.
             -- renderSources s

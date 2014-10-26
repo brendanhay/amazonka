@@ -24,6 +24,7 @@ import Control.Monad.IO.Class
 import Control.Monad.State
 import Data.Monoid
 import Gen.V2.Asset
+import Gen.V2.Log
 import Gen.V2.Model
 import Gen.V2.Stage1
 import Gen.V2.Stage2
@@ -31,9 +32,12 @@ import Gen.V2.Template
 import Gen.V2.Transform
 import Options.Applicative
 import System.Directory
+import System.FilePath
 
 data Options = Options
-    { _out       :: FilePath
+    { _stage1    :: !Bool
+    , _stage2    :: !Bool
+    , _out       :: FilePath
     , _models    :: [FilePath]
     , _services  :: FilePath
     , _overrides :: FilePath
@@ -48,7 +52,17 @@ options = info (helper <*> parser) fullDesc
 
 parser :: Parser Options
 parser = Options
-    <$> strOption
+    <$> switch
+         ( long "skip-stage1"
+        <> help "Skip the Stage 1 transformations."
+         )
+
+    <*> switch
+         ( long "skip-stage2"
+        <> help "Skip the Stage 2 transformations."
+         )
+
+    <*> strOption
          ( long "out"
         <> metavar "DIR"
         <> help "Directory to place the generated library. [required]"
@@ -112,34 +126,46 @@ main = do
 
         -- Process a Stage1 AST from the corresponding botocore model.
         forM_ _models $ \d -> do
-            -- Load the Stage1 raw JSON.
-            !m1 <- loadS1 d
+            let n = takeBaseName d
+                s = "Starting "  ++ n ++ "..."
+                c = "Completed " ++ n ++ "."
 
-            -- Decode the Stage1 JSON to AST.
-            !s1 <- decodeS1 m1
+            unless _stage1 $ do
+                say "Stage1" s
 
-            -- Transformation from Stage1 -> Stage2 AST.
-            !i2 <- hoistEither (transformS1ToS2 s1)
+                -- Load the Stage1 raw JSON.
+                !m1 <- loadS1 d
 
-            -- Store the intemediary Stage2 AST as JSON.
-            -- Note: This is primarily done for debugging purposes,
-            -- but it's also convenient for merging overrides.
-            storeS2 _services m1 i2
+                -- Decode the Stage1 JSON to AST.
+                !s1 <- decodeS1 m1
 
-            -- -- Load the intemediary Stage2 JSON,
-            -- -- with left-biased merge of overrides(l).
-            -- !m2 <- loadS2 _overrides _services m1
+                -- Transformation from Stage1 -> Stage2 AST.
+                !i2 <- hoistEither (transformS1ToS2 s1)
 
-            -- -- Decode the Stage2 JSON to AST.
-            -- !s2 <- decodeS2 m2
+                -- Store the intemediary Stage2 AST as JSON.
+                -- Note: This is primarily done for debugging purposes,
+                -- but it's also convenient for merging overrides.
+                storeS2 _services m1 i2
 
-            -- -- Truncation and trimming phase of Stage2 AST.
-            -- let !r = trimS2 s2
+                say "Stage1" c
 
-            -- Render the templates, creating or overriding the target library.
-            -- renderSources s
+            unless _stage2 $ do
+                say "Stage2" s
 
-            -- Copy static assets to the library root.
-            -- copyAssets _assets ?
+                -- -- Load the intemediary Stage2 JSON,
+                -- -- with left-biased merge of overrides(l).
+                -- !m2 <- loadS2 _overrides _services m1
 
-            return ()
+                -- -- Decode the Stage2 JSON to AST.
+                -- !s2 <- decodeS2 m2
+
+                -- -- Truncation and trimming phase of Stage2 AST.
+                -- let !r = trimS2 s2
+
+                -- Render the templates, creating or overriding the target library.
+                -- renderSources s
+
+                -- Copy static assets to the library root.
+                -- copyAssets _assets ?
+
+                say "Stage2" c

@@ -76,17 +76,11 @@ data Ref = Ref
     , _rLocation      :: Maybe Location
     , _rLocationName  :: Maybe Text
     , _rStreaming     :: Maybe Bool
+    , _eException     :: Maybe Bool
+    , _eFault         :: Maybe Bool
     } deriving (Eq, Show)
 
 record stage1 ''Ref
-
-data Error = Error
-    { _eShape         :: Text
-    , _eDocumentation :: Maybe Text
-    , _eException     :: !Bool
-    } deriving (Eq, Show)
-
-record stage1 ''Error
 
 data Operation = Operation
     { _oName             :: Text
@@ -95,7 +89,7 @@ data Operation = Operation
     , _oHttp             :: HTTP
     , _oInput            :: Maybe Ref
     , _oOutput           :: Maybe Ref
-    , _oErrors           :: Maybe [Error]
+    , _oErrors           :: Maybe [Ref]
     } deriving (Eq, Show)
 
 record stage1 ''Operation
@@ -111,6 +105,7 @@ record stage1 ''XmlNamespace
 data Shape
     = List
       { _sMember          :: Ref
+      , _sDocumentation   :: Maybe Text
       , _sMin             :: Maybe Int
       , _sMax             :: Maybe Int
       , _sFlattened       :: Maybe Bool
@@ -119,8 +114,8 @@ data Shape
 
     | Structure
       { _sRequired        :: Maybe [Text]
-      , _sDocumentation   :: Maybe Text -- on all?
---      , _sMembers       :: HashMap Text Ref
+      , _sDocumentation   :: Maybe Text
+      , _sMembers         :: HashMap Text Ref
       , _sPayload         :: Maybe Text
       , _sXmlNamespace    :: Maybe XmlNamespace
       , _sException       :: Maybe Bool
@@ -130,6 +125,7 @@ data Shape
     | Map
       { _sKey             :: Ref
       , _sValue           :: Ref
+      , _sDocumentation   :: Maybe Text
       , _sMin             :: Maybe Int
       , _sMax             :: Maybe Int
       }
@@ -137,6 +133,7 @@ data Shape
     | String
       { _sMin             :: Maybe Int
       , _sMax             :: Maybe Int
+      , _sDocumentation   :: Maybe Text
       , _sPattern         :: Maybe Text
       , _sEnum            :: Maybe [Text]
       , _sXmlAttribute    :: Maybe Bool
@@ -147,37 +144,44 @@ data Shape
     | Integer
       { _sMin             :: Maybe Int
       , _sMax             :: Maybe Int
+      , _sDocumentation   :: Maybe Text
       , _sBox             :: Maybe Bool
       }
 
     | Long
       { _sMin             :: Maybe Int
       , _sMax             :: Maybe Int
+      , _sDocumentation   :: Maybe Text
       , _sBox             :: Maybe Bool
       }
 
     | Double
       { _sMin             :: Maybe Int
       , _sMax             :: Maybe Int
+      , _sDocumentation   :: Maybe Text
       , _sBox             :: Maybe Bool
       }
 
     | Float
       { _sMin             :: Maybe Int
       , _sMax             :: Maybe Int
+      , _sDocumentation   :: Maybe Text
       , _sBox             :: Maybe Bool
       }
 
     | Boolean
-      { _sBox             :: Maybe Bool
+      { _sDocumentation   :: Maybe Text
+      , _sBox             :: Maybe Bool
       }
 
     | Timestamp
       { _sTimestampFormat :: Maybe Timestamp
+      , _sDocumentation   :: Maybe Text
       }
 
     | Blob
       { _sSensitive       :: Maybe Bool
+      , _sDocumentation   :: Maybe Text
       }
 
     deriving (Eq, Show)

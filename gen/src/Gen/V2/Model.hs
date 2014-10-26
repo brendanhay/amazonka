@@ -19,12 +19,13 @@ import           Control.Monad
 import qualified Data.ByteString.Lazy as LBS
 import           Data.Function        (on)
 import qualified Data.HashMap.Strict  as Map
-import           Data.Jason           (eitherDecode', encode)
+import           Data.Jason           (eitherDecode')
 import           Data.Jason.Types     hiding (object)
 import           Data.List
 import           Data.Monoid
 import           Data.Ord
 import           Data.Text            (Text)
+import           Gen.V2.JSON
 import           Gen.V2.Log
 import           Gen.V2.Types
 import           System.Directory
@@ -34,7 +35,7 @@ storeS2 :: ToJSON a => FilePath -> Model S1 -> a -> Script ()
 storeS2 d m x = scriptIO $ do
     p <- doesFileExist f
     say (if p then "Overwrite" else "Create") f
-    LBS.writeFile f (encode x)
+    LBS.writeFile f (encodePretty x)
   where
     f = pathS2 d m
 

@@ -21,8 +21,7 @@ executable amazonka-gen
     ghc-options:       -Wall -threaded
 
     build-depends:
-          attoparsec
-        , base                 == 4.7.*
+          base                 == 4.7.*
         , bytestring
         , case-insensitive
         , directory
@@ -33,6 +32,7 @@ executable amazonka-gen
         , lens
         , mtl
         , optparse-applicative == 0.11.*
+        , semver
         , template-haskell
         , text
         , text-manipulate

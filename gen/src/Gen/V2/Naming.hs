@@ -19,7 +19,7 @@ import qualified Data.Text            as Text
 import           Data.Text.Manipulate
 
 lensName :: Text -> Text
-lensName t = fromMaybe t ("_" `Text.stripPrefix` t)
+lensName = stripText "_"
 
 keyPython :: Text -> Text
 keyPython = toSnake . keyName . Text.replace "." "_"
@@ -31,3 +31,10 @@ keyName t
 
 dropLower :: Text -> Text
 dropLower = Text.dropWhile (not . isUpper)
+
+stripAWS :: Text -> Text
+stripAWS = stripText "Amazon" . stripText "AWS" . Text.replace " " ""
+
+stripText :: Text -> Text -> Text
+stripText p t = fromMaybe t (p `Text.stripPrefix` t)
+

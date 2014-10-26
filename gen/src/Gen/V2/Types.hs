@@ -113,9 +113,9 @@ data Path
 data URI = URI [Path] [(Text, Maybe Text)]
     deriving (Eq, Show)
 
-data Type = S1 | S2
+data Stage = S1 | S2
 
-data Model (a :: Type) = Model
+data Model (a :: Stage) = Model
     { _mName    :: String
     , _mVersion :: String
     , _mPath    :: FilePath

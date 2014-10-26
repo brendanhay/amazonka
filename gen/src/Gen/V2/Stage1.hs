@@ -36,23 +36,6 @@ import           Gen.V2.Naming
 import           Gen.V2.TH
 import           Gen.V2.Types
 
-data Metadata = Metadata
-    { _mServiceFullName     :: Text
-    , _mServiceAbbreviation :: Maybe Text
-    , _mApiVersion          :: Text
-    , _mEndpointPrefix      :: Text
-    , _mGlobalEndpoint      :: Maybe Text
-    , _mSignatureVersion    :: !Signature
-    , _mXmlNamespace        :: Maybe Text
-    , _mTargetPrefix        :: Maybe Text
-    , _mJsonVersion         :: Maybe Text
-    , _mTimestampFormat     :: Maybe Timestamp
-    , _mChecksumFormat      :: Maybe Checksum
-    , _mProtocol            :: !Protocol
-    } deriving (Eq, Show)
-
-classy stage1 ''Metadata
-
 data HTTP = HTTP
     { _hMethod     :: !Method
     , _hRequestUri :: Text
@@ -225,6 +208,23 @@ data Waiter = Waiter
     } deriving (Eq, Show)
 
 record (stage1 & thField .~ keyPython) ''Waiter
+
+data Metadata = Metadata
+    { _mServiceFullName     :: Text
+    , _mServiceAbbreviation :: Maybe Text
+    , _mApiVersion          :: Text
+    , _mEndpointPrefix      :: Text
+    , _mGlobalEndpoint      :: Maybe Text
+    , _mSignatureVersion    :: !Signature
+    , _mXmlNamespace        :: Maybe Text
+    , _mTargetPrefix        :: Maybe Text
+    , _mJsonVersion         :: Maybe Text
+    , _mTimestampFormat     :: Maybe Timestamp
+    , _mChecksumFormat      :: Maybe Checksum
+    , _mProtocol            :: !Protocol
+    } deriving (Eq, Show)
+
+classy stage1 ''Metadata
 
 data Stage1 = Stage1
     { _s1Metadata      :: Metadata

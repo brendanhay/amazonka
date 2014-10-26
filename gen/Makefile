@@ -59,7 +59,7 @@ MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 
 gen: build
 	@dist/build/amazonka-gen/amazonka-gen \
- --out=../ \
+--out=../ \
  --services=services \
  --overrides=overrides \
  --templates=templates \

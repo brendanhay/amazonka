@@ -1,8 +1,17 @@
-{-# LANGUAGE DataKinds         #-}
-{-# LANGUAGE KindSignatures    #-}
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE TemplateHaskell   #-}
+{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DeriveFoldable             #-}
+{-# LANGUAGE DeriveFunctor              #-}
+{-# LANGUAGE DeriveTraversable          #-}
+{-# LANGUAGE ExtendedDefaultRules       #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE KindSignatures             #-}
+{-# LANGUAGE LambdaCase                 #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE TemplateHaskell            #-}
+{-# LANGUAGE TupleSections              #-}
+
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
 -- Module      : Gen.V2.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -17,16 +26,42 @@
 module Gen.V2.Types where
 
 import           Control.Applicative
-import           Data.Jason.Types    hiding (object)
+import           Control.Lens         (makeLenses)
+import           Data.Attoparsec.Text (Parser, parseOnly)
+import qualified Data.Attoparsec.Text as AText
+import           Data.Bifunctor
+import           Data.Foldable        (Foldable)
+import           Data.Jason.Types     hiding (Parser)
 import           Data.Monoid
 import           Data.Ord
-import           Data.Text           (Text)
-import qualified Data.Text           as Text
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
+import           Data.Traversable     (Traversable, traverse)
 import           Gen.V2.TH
+
+default (Text)
 
 -- NOTE: Keep the boto json structure completely intact.
 -- FIXME: _retry.json
 -- FIXME: _endpoints.json
+
+class ToFilePath a where
+    toFilePath :: a -> FilePath
+
+instance ToFilePath FilePath where
+    toFilePath = id
+
+data OrdMap a = OrdMap { ordMap :: [(Text, a)] }
+    deriving (Eq, Show, Functor, Foldable, Traversable)
+
+makeLenses ''OrdMap
+
+instance FromJSON a => FromJSON (OrdMap a) where
+    parseJSON = withObject "ordered_map" $ \case
+        Obj xs -> OrdMap <$> traverse (\(k, v) -> (k,) <$> parseJSON v) xs
+
+instance ToJSON a => ToJSON (OrdMap a) where
+    toJSON = Object . Obj . map (second toJSON) . ordMap
 
 data Signature
     = V2
@@ -43,7 +78,7 @@ instance FromJSON Signature where
         "s3"      -> pure V4
         e         -> fail ("Unknown Signature: " ++ Text.unpack e)
 
-nullary stage2t ''Signature
+nullary stage2 ''Signature
 
 data Protocol
     = JSON
@@ -61,7 +96,7 @@ instance FromJSON Protocol where
         "ec2"       -> pure Query
         e           -> fail ("Unknown Protocol: " ++ Text.unpack e)
 
-nullary stage2t ''Protocol
+nullary stage2 ''Protocol
 
 data Timestamp
     = RFC822
@@ -76,15 +111,16 @@ instance FromJSON Timestamp where
         "unixTimestamp" -> pure POSIX
         e               -> fail ("Unknown Timestamp: " ++ Text.unpack e)
 
-nullary stage2t ''Timestamp
+timestamp :: Timestamp -> Text
+timestamp = Text.pack . show
 
 data Checksum
     = MD5
     | SHA256
       deriving (Eq, Show)
 
-nullary stage1  ''Checksum
-nullary stage2t ''Checksum
+nullary stage1 ''Checksum
+nullary stage2 ''Checksum
 
 data Method
     = GET
@@ -103,15 +139,52 @@ instance FromJSON Method where
         "DELETE" -> pure DELETE
         e        -> fail ("Unknown Method: " ++ Text.unpack e)
 
-nullary stage2t ''Method
+nullary stage2 ''Method
 
-data Path
-    = Const Text
-    | Var   Text
+data Location
+    = Headers
+    | Header
+    | Uri
+    | Querystring
+    | Unknown
       deriving (Eq, Show)
 
-data URI = URI [Path] [(Text, Maybe Text)]
-    deriving (Eq, Show)
+nullary stage1 ''Location
+nullary stage2 ''Location
+
+data Path
+    = Seg Text
+    | Var Text
+      deriving (Eq, Show)
+
+pathParser :: Parser Path
+pathParser = Seg <$> AText.takeWhile1 end <|> Var <$> var
+  where
+    var = AText.char '{' *> AText.takeWhile1 end <* AText.char '}'
+
+    end '{' = False
+    end '?' = False
+    end _   = True
+
+instance ToJSON Path where
+    toJSON = \case
+        Seg t -> object ["type" .= "const", "value" .= t]
+        Var t -> object ["type" .= "var",   "value" .= t]
+
+data URI = URI
+    { _uriPath  :: [Path]
+    , _uriQuery :: Maybe Text
+    } deriving (Eq, Show)
+
+uriParser :: Parser URI
+uriParser = URI
+    <$> ((:) <$> pathParser <*> many pathParser)
+    <*> (optional (AText.char '?' *> AText.takeText))
+
+instance FromJSON URI where
+    parseJSON = withText "uri" (either fail return . parseOnly uriParser)
+
+record stage2 ''URI
 
 data Stage = S1 | S2
 

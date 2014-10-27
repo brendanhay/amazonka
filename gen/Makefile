@@ -1,7 +1,6 @@
 SHELL    := /usr/bin/env bash
 FLAGS    := -j --disable-documentation --disable-library-coverage
 DEPS     := vendor/botocore vendor/jason
-BOTO     := vendor/botocore/botocore/data/aws
 
 RESTS3 := \
  s3
@@ -57,14 +56,14 @@ MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 
 .PHONY: gen
 
-gen: build
+gen: build stage1 stage2
 	@dist/build/amazonka-gen/amazonka-gen \
 --out=../ \
- --services=services \
+ --services=stage2 \
  --overrides=overrides \
  --templates=templates \
  --assets=assets \
- $(addprefix --model=,$(addprefix $(BOTO)/,$(MODELS)))
+ $(addprefix --model=,$(addprefix stage1/,$(MODELS)))
 
 build:
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
@@ -73,8 +72,7 @@ install: add-sources
 	cabal install $(FLAGS) --only-dependencies
 
 clean:
-	cabal clean
-	rm -rf cabal.sandbox.config .cabal-sandbox vendor
+	rm -rf vendor stage1
 
 add-sources: cabal.sandbox.config $(DEPS)
 	cabal sandbox add-source vendor/jason
@@ -83,7 +81,14 @@ cabal.sandbox.config:
 	cabal sandbox init
 
 vendor/botocore:
-	git clone git@github.com:boto/botocore $@
+	git clone git@github.com:boto/botocore $@ && \
+ cp -rf $@/botocore/data/aws stage1
 
 vendor/%:
 	git clone git@github.com:brendanhay/$*.git $@
+
+stage1:
+	@mkdir $@
+
+stage2:
+	@mkdir $@

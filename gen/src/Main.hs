@@ -119,7 +119,7 @@ main = do
             !s1 <- decodeS1 m1
 
             -- Transformation from Stage1 -> Stage2 AST.
-            !i2 <- hoistEither (transformS1ToS2 s1)
+            let !i2 = transformS1ToS2 s1
 
             -- Store the intemediary Stage2 AST as JSON.
             -- Note: This is primarily done for debugging purposes,

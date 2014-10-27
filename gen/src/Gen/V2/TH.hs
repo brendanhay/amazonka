@@ -36,11 +36,7 @@ makeLenses ''TH
 
 stage1, stage2 :: TH
 stage1 = TH toSpinal keyName lensName deriveFromJSON
-stage2 = TH toSpinal keyName lensName deriveJSON
-
-stage2f, stage2t :: TH
-stage2f = stage2 & thJSON .~ deriveFromJSON
-stage2t = stage2 & thJSON .~ deriveToJSON
+stage2 = TH toSpinal keyName lensName deriveToJSON
 
 nullary :: TH -> Name -> Q [Dec]
 nullary th = (th ^. thJSON) (aeson th)

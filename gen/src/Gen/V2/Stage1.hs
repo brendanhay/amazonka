@@ -38,29 +38,21 @@ import           Gen.V2.Types
 
 data HTTP = HTTP
     { _hMethod     :: !Method
-    , _hRequestUri :: Text
+    , _hRequestUri :: URI
     } deriving (Eq, Show)
 
 record stage1 ''HTTP
 
-data Location
-    = Headers
-    | Header
-    | URI
-    | Querystring
-      deriving (Eq, Show)
-
-nullary stage1 ''Location
-
 data Ref = Ref
-    { _rShape         :: Text
-    , _rDocumentation :: Maybe Text
-    , _rResultWrapper :: Maybe Text
-    , _rLocation      :: Maybe Location
-    , _rLocationName  :: Maybe Text
-    , _rStreaming     :: Maybe Bool
-    , _eException     :: Maybe Bool
-    , _eFault         :: Maybe Bool
+    { _refShape         :: Text
+    , _refDocumentation :: Maybe Text
+    , _refLocation      :: Maybe Location
+    , _refLocationName  :: Maybe Text
+    , _refStreaming     :: Maybe Bool
+    , _refException     :: Maybe Bool
+    , _refFault         :: Maybe Bool
+    , _refResultWrapper :: Maybe Text
+    , _refWrapper       :: Maybe Bool
     } deriving (Eq, Show)
 
 record stage1 ''Ref
@@ -78,8 +70,8 @@ data Operation = Operation
 record stage1 ''Operation
 
 data XmlNamespace = XmlNamespace
-    { _xPrefix :: Text
-    , _xUri    :: Text
+    { _xnsPrefix :: Text
+    , _xnsUri    :: Text
     } deriving (Eq, Show)
 
 record stage1 ''XmlNamespace
@@ -87,84 +79,85 @@ record stage1 ''XmlNamespace
 -- Need to deserialise errors
 data Shape
     = List
-      { _sMember          :: Ref
-      , _sDocumentation   :: Maybe Text
-      , _sMin             :: Maybe Int
-      , _sMax             :: Maybe Int
-      , _sFlattened       :: Maybe Bool
-      , _sLocationName    :: Maybe Text
+      { _shpMember          :: Ref
+      , _shpDocumentation   :: Maybe Text
+      , _shpMin             :: Maybe Int
+      , _shpMax             :: Maybe Int
+      , _shpFlattened       :: Maybe Bool
+      , _shpLocationName    :: Maybe Text
       }
 
     | Structure
-      { _sRequired        :: Maybe [Text]
-      , _sDocumentation   :: Maybe Text
-      , _sMembers         :: HashMap Text Ref
-      , _sPayload         :: Maybe Text
-      , _sXmlNamespace    :: Maybe XmlNamespace
-      , _sException       :: Maybe Bool
-      , _sFault           :: Maybe Bool
+      { _shpRequired        :: Maybe [Text]
+      , _shpDocumentation   :: Maybe Text
+      , _shpMembers         :: OrdMap Ref
+        -- ^ FIXME: Use Jason's assoc list to ensure ordering
+      , _shpPayload         :: Maybe Text
+      , _shpXmlNamespace    :: Maybe XmlNamespace
+      , _shpException       :: Maybe Bool
+      , _shpFault           :: Maybe Bool
       }
 
     | Map
-      { _sKey             :: Ref
-      , _sValue           :: Ref
-      , _sDocumentation   :: Maybe Text
-      , _sMin             :: Maybe Int
-      , _sMax             :: Maybe Int
+      { _shpKey             :: Ref
+      , _shpValue           :: Ref
+      , _shpDocumentation   :: Maybe Text
+      , _shpMin             :: Maybe Int
+      , _shpMax             :: Maybe Int
       }
 
     | String
-      { _sMin             :: Maybe Int
-      , _sMax             :: Maybe Int
-      , _sDocumentation   :: Maybe Text
-      , _sPattern         :: Maybe Text
-      , _sEnum            :: Maybe [Text]
-      , _sXmlAttribute    :: Maybe Bool
-      , _sLocationName    :: Maybe Text
-      , _sSensitive       :: Maybe Bool
+      { _shpMin             :: Maybe Int
+      , _shpMax             :: Maybe Int
+      , _shpDocumentation   :: Maybe Text
+      , _shpPattern         :: Maybe Text
+      , _shpEnum            :: Maybe [Text]
+      , _shpXmlAttribute    :: Maybe Bool
+      , _shpLocationName    :: Maybe Text
+      , _shpSensitive       :: Maybe Bool
       }
 
     | Integer
-      { _sMin             :: Maybe Int
-      , _sMax             :: Maybe Int
-      , _sDocumentation   :: Maybe Text
-      , _sBox             :: Maybe Bool
+      { _shpMin             :: Maybe Int
+      , _shpMax             :: Maybe Int
+      , _shpDocumentation   :: Maybe Text
+      , _shpBox             :: Maybe Bool
       }
 
     | Long
-      { _sMin             :: Maybe Int
-      , _sMax             :: Maybe Int
-      , _sDocumentation   :: Maybe Text
-      , _sBox             :: Maybe Bool
+      { _shpMin             :: Maybe Int
+      , _shpMax             :: Maybe Int
+      , _shpDocumentation   :: Maybe Text
+      , _shpBox             :: Maybe Bool
       }
 
     | Double
-      { _sMin             :: Maybe Int
-      , _sMax             :: Maybe Int
-      , _sDocumentation   :: Maybe Text
-      , _sBox             :: Maybe Bool
+      { _shpMin             :: Maybe Int
+      , _shpMax             :: Maybe Int
+      , _shpDocumentation   :: Maybe Text
+      , _shpBox             :: Maybe Bool
       }
 
     | Float
-      { _sMin             :: Maybe Int
-      , _sMax             :: Maybe Int
-      , _sDocumentation   :: Maybe Text
-      , _sBox             :: Maybe Bool
+      { _shpMin             :: Maybe Int
+      , _shpMax             :: Maybe Int
+      , _shpDocumentation   :: Maybe Text
+      , _shpBox             :: Maybe Bool
       }
 
     | Boolean
-      { _sDocumentation   :: Maybe Text
-      , _sBox             :: Maybe Bool
+      { _shpDocumentation   :: Maybe Text
+      , _shpBox             :: Maybe Bool
       }
 
     | Timestamp
-      { _sTimestampFormat :: Maybe Timestamp
-      , _sDocumentation   :: Maybe Text
+      { _shpTimestampFormat :: Maybe Timestamp
+      , _shpDocumentation   :: Maybe Text
       }
 
     | Blob
-      { _sSensitive       :: Maybe Bool
-      , _sDocumentation   :: Maybe Text
+      { _shpSensitive       :: Maybe Bool
+      , _shpDocumentation   :: Maybe Text
       }
 
     deriving (Eq, Show)
@@ -183,12 +176,12 @@ instance FromJSON Key where
         e              -> fail ("Unknown Pager Key: " ++ show e)
 
 data Pager = Pager
-    { _pMoreResults      :: Maybe Text
-    , _pLimitKey         :: Maybe Text
-    , _pOutputToken      :: Maybe Key
-    , _pInputToken       :: Maybe Key
-    , _pResultkey        :: Maybe Key
-    , _pNonAggregatekeys :: Maybe Key
+    { _pgMoreResults      :: Maybe Text
+    , _pgLimitKey         :: Maybe Text
+    , _pgOutputToken      :: Maybe Key
+    , _pgInputToken       :: Maybe Key
+    , _pgResultkey        :: Maybe Key
+    , _pgNonAggregatekeys :: Maybe Key
     } deriving (Eq, Show)
 
 record stage1 ''Pager

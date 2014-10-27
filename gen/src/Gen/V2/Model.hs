@@ -47,7 +47,7 @@ loadS2 o d m =
         ]
 
 pathS2 :: FilePath -> Model S1 -> FilePath
-pathS2 d m = d </> _mName m <.> _mVersion m <.> "json"
+pathS2 d m = d </> _mName m <.> "json"
 
 loadS1 :: FilePath -> Script (Model S1)
 loadS1 d = do

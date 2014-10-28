@@ -1,5 +1,6 @@
 {-# LANGUAGE DataKinds         #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.V2.Model
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -18,12 +19,10 @@ import           Control.Error
 import           Control.Monad
 import qualified Data.ByteString.Lazy as LBS
 import           Data.Function        (on)
-import qualified Data.HashMap.Strict  as Map
 import           Data.Jason           (eitherDecode')
 import           Data.Jason.Types     hiding (object)
 import           Data.List
 import           Data.Monoid
-import           Data.Ord
 import           Data.Text            (Text)
 import           Gen.V2.JSON
 import           Gen.V2.Log
@@ -75,7 +74,7 @@ required :: FromJSON a => FilePath -> Script a
 required f = object f >>= hoistEither
 
 optional :: Text -> FilePath -> Script Object
-optional k = fmap (fromMaybe (Obj [(k, Object mempty)]) . hush) . object
+optional k = fmap (fromMaybe (mkObject [(k, Object mempty)]) . hush) . object
 
 object :: FromJSON a => FilePath -> Script (Either String a)
 object f = scriptIO $ do
@@ -89,7 +88,7 @@ merge :: [Object] -> Object
 merge = foldl' go mempty
   where
     go :: Object -> Object -> Object
-    go (Obj a) (Obj b) = Obj (assoc value a b)
+    go (unObject -> a) (unObject -> b) = mkObject (assoc value a b)
 
     value :: Value -> Value -> Value
     value l r =

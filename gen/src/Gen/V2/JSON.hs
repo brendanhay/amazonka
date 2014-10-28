@@ -51,9 +51,9 @@ encodePretty = Text.encodeUtf8
 fromValue :: PState -> Value -> Builder
 fromValue st@PState{..} = go
   where
-    go (Array v)        = fromCompound st ("[", "]") fromValue (Vector.toList v)
-    go (Object (Obj m)) = fromCompound st ("{", "}") fromPair (pstSort m)
-    go v                = Jason.fromValue v
+    go (Array  v) = fromCompound st ("[", "]") fromValue (Vector.toList v)
+    go (Object o) = fromCompound st ("{", "}") fromPair (pstSort (unObject o))
+    go v          = Jason.fromValue v
 
 fromCompound :: PState
              -> (Builder, Builder)

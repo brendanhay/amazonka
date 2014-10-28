@@ -12,6 +12,7 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TemplateHaskell            #-}
+{-# LANGUAGE ViewPatterns               #-}
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
@@ -27,28 +28,20 @@
 
 module Gen.V2.Stage2 where
 
-import           Control.Applicative
 import           Control.Error
 import           Control.Lens        hiding ((.=), (<.>), op)
-import           Control.Lens.Plated
 import           Data.Char
 import           Data.Foldable       (Foldable, foldl')
-import           Data.Function       (on)
 import           Data.HashMap.Strict (HashMap)
-import qualified Data.HashMap.Strict as Map
 import           Data.Jason
-import           Data.Jason.Types    (Object(..), Pair)
+import           Data.Jason.Types    (Pair, mkObject, unObject)
 import           Data.List           (intersect, nub, sort, delete, partition)
-import           Data.Maybe
 import           Data.Monoid
 import           Data.SemVer
 import           Data.String
 import           Data.Text           (Text)
 import qualified Data.Text           as Text
-import           Data.Traversable
-import           Gen.V2.JSON
-import           Gen.V2.Log
-import           Gen.V2.Naming
+import           Gen.V2.JSON         ()
 import           Gen.V2.TH
 import           Gen.V2.Types
 import           System.FilePath
@@ -83,9 +76,9 @@ requestNS :: Protocol -> NS
 requestNS p = namespace ["Request", Text.pack (show p)]
 
 rewrap :: Pair -> Value -> Value
-rewrap x = Object . Obj . \case
-    Object (Obj xs) -> x:xs
-    _               -> [x]
+rewrap x = Object . mkObject . \case
+    Object o -> x:unObject o
+    _        -> [x]
 
 data Derive
     = Eq'
@@ -172,9 +165,9 @@ instance ToJSON Type where
         wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
         parens t = "(" <> t <> ")"
 
-required :: Type -> Bool
-required (TMaybe _) = False
-required _          = True
+isRequired :: Type -> Bool
+isRequired (TMaybe _) = False
+isRequired _          = True
 
 class TypesOf a where
     typesOf :: a -> [Type]
@@ -253,7 +246,7 @@ instance ToJSON Data where
                 , "payload"  .= Null
                 ]
               where
-                (req, opt) = partition (required . view typeOf) fs
+                (req, opt) = partition (isRequired . view typeOf) fs
 
 instance DerivingOf Data where
     derivingOf d = f (derivingOf (typesOf d))
@@ -288,14 +281,7 @@ newtype Request = Request Data
     deriving (Eq, Show)
 
 instance ToJSON Request where
-    toJSON (Request d) = Object (Obj (x <> y))
-      where
-        Object (Obj x) = toJSON d
-        Object (Obj y) = object
-            [ "required" .= Null
-            , "optional" .= Null
-            , "payload"  .= Null
-            ]
+    toJSON (Request d) = toJSON d
 
 data Response = Response
     { _rsWrapper       :: !Bool
@@ -304,10 +290,10 @@ data Response = Response
     } deriving (Eq, Show)
 
 instance ToJSON Response where
-    toJSON (Response w r d) = Object (Obj (x <> y))
+    toJSON (Response w r d) = Object (mkObject (x <> y))
       where
-        Object (Obj x) = toJSON (Request d)
-        Object (Obj y) = object
+        Object (unObject -> x) = toJSON (Request d)
+        Object (unObject -> y) = object
             [ "resultWrapper" .= r
             , "wrapper"       .= w
             ]
@@ -347,7 +333,7 @@ data Service = Service
     , _svError          :: !Text
     } deriving (Eq, Show)
 
-classy stage2 ''Service
+record stage2 ''Service
 
 data Cabal = Cabal
     { _cLibrary      :: !Text
@@ -358,7 +344,7 @@ data Cabal = Cabal
     , _cDependencies :: [Named Version]
     } deriving (Eq, Show)
 
-classy stage2 ''Cabal
+record stage2 ''Cabal
 
 instance ToFilePath Cabal where
     toFilePath c = Text.unpack (_cLibrary c) <.> "cabal"
@@ -391,12 +377,6 @@ data Stage2 = Stage2
     } deriving (Eq, Show)
 
 record stage2 ''Stage2
-
-instance HasCabal Stage2 where
-    cabal = s2Cabal
-
-instance HasService Stage2 where
-    service = s2Service . mModule
 
 -- decodeS2 :: Model S2 -> Script Stage2
 -- decodeS2 Model{..} = do

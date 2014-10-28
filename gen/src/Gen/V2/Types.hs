@@ -10,6 +10,7 @@
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE TemplateHaskell            #-}
 {-# LANGUAGE TupleSections              #-}
+{-# LANGUAGE ViewPatterns               #-}
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
@@ -59,12 +60,12 @@ data OrdMap a = OrdMap { ordMap :: [(Text, a)] }
 makeLenses ''OrdMap
 
 instance FromJSON a => FromJSON (OrdMap a) where
-    parseJSON = withObject "ordered_map" $ \(Obj o) ->
+    parseJSON = withObject "ordered_map" $ \(unObject -> o) ->
         OrdMap <$> traverse (\(k, v) -> (k,) <$> parseJSON v) o
 
 
 instance ToJSON a => ToJSON (OrdMap a) where
-    toJSON = Object . Obj . map (second toJSON) . ordMap
+    toJSON = Object . mkObject . map (second toJSON) . ordMap
 
 data Signature
     = V2

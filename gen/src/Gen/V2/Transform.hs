@@ -22,30 +22,15 @@ import           Control.Error
 import           Control.Lens               hiding (transform, op)
 import           Control.Monad
 import           Control.Monad.State.Strict
-import           Data.Bifunctor
-import qualified Data.ByteString.Lazy       as LBS
-import           Data.Function              (on)
 import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
-import           Data.Jason                 (eitherDecode')
-import           Data.Jason.Types           hiding (object)
-import           Data.List
-import           Data.Maybe
 import           Data.Monoid
-import           Data.Ord
 import           Data.SemVer                (initial)
 import           Data.Text                  (Text)
-import qualified Data.Text                  as Text
-import qualified Data.Traversable           as Traverse
-import           Debug.Trace
-import           Gen.V2.Log
-import           Gen.V2.Naming
 import qualified Gen.V2.Stage1              as S1
 import           Gen.V2.Stage1              hiding (Operation)
 import           Gen.V2.Stage2
 import           Gen.V2.Types
-import           System.Directory
-import           System.FilePath
 
 transformS1ToS2 :: Stage1 -> Stage2
 transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
@@ -101,10 +86,9 @@ transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
 
     endpointPrefix = s1 ^. mEndpointPrefix
 
-    endpoint  = maybe Regional (const Global) (s1 ^. mGlobalEndpoint)
+    endpoint = maybe Regional (const Global) (s1 ^. mGlobalEndpoint)
 
-    timestamp = fromMaybe RFC822 (s1 ^. mTimestampFormat)
-    checksum  = fromMaybe SHA256 (s1 ^. mChecksumFormat)
+    checksum = fromMaybe SHA256 (s1 ^. mChecksumFormat)
 
     xmlNamespace = "https://"
         <> endpointPrefix
@@ -159,9 +143,9 @@ operation a p o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
                 return (Named k d)
 
 dataTypes :: HashMap Text S1.Shape -> HashMap Text Data
-dataTypes m = evalState state mempty
+dataTypes m = evalState run mempty
   where
-    state = Map.fromList . catMaybes <$> mapM (uncurry struct) (Map.toList m)
+    run = Map.fromList . catMaybes <$> mapM (uncurry struct) (Map.toList m)
 
     struct k = \case
         Struct' s -> Just . (k,) <$> solve s

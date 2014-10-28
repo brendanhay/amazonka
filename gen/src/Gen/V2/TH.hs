@@ -19,24 +19,25 @@ module Gen.V2.TH where
 import           Control.Applicative
 import           Control.Lens
 import           Data.Jason.TH
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import           Data.Text.Manipulate
+import           Data.Text           (Text)
+import qualified Data.Text           as Text
 import           Gen.V2.Naming
 import           Language.Haskell.TH
 
 data TH = TH
-    { _thCtor  :: Text -> Text
-    , _thField :: Text -> Text
-    , _thLens  :: Text -> Text
-    , _thJSON  :: Options -> Name -> Q [Dec]
+    { _thCtor     :: Text -> Text
+    , _thField    :: Text -> Text
+    , _thLens     :: Text -> Text
+    , _thTag      :: String
+    , _thContents :: String
+    , _thJSON     :: Options -> Name -> Q [Dec]
     }
 
 makeLenses ''TH
 
 stage1, stage2 :: TH
-stage1 = TH toSpinal keyName lensName deriveFromJSON
-stage2 = TH toSpinal keyName lensName deriveToJSON
+stage1 = TH ctorName keyName lensName "type" "contents" deriveFromJSON
+stage2 = stage1 & thJSON .~ deriveToJSON
 
 nullary :: TH -> Name -> Q [Dec]
 nullary th = (th ^. thJSON) (aeson th)
@@ -59,7 +60,11 @@ aeson th = defaultOptions
     , fieldLabelModifier     = text (_thField th)
     , omitNothingFields      = True
     , allNullaryToStringTag  = True
-    , sumEncoding            = defaultTaggedObject { tagFieldName = "type" }
+    , sumEncoding            =
+        defaultTaggedObject
+            { tagFieldName      = _thTag th
+            , contentsFieldName = _thContents th
+            }
     }
 
 lenses :: TH -> LensRules -> LensRules

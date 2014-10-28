@@ -1,11 +1,19 @@
 {-# LANGUAGE BangPatterns               #-}
 {-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DeriveFoldable             #-}
+{-# LANGUAGE DeriveFunctor              #-}
+{-# LANGUAGE DeriveTraversable          #-}
+{-# LANGUAGE ExtendedDefaultRules       #-}
 {-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE FunctionalDependencies     #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
+{-# LANGUAGE MultiParamTypeClasses      #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TemplateHaskell            #-}
+
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
 -- Module      : Gen.V2.Stage2
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -21,22 +29,31 @@ module Gen.V2.Stage2 where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Lens        (makeLenses)
+import           Control.Lens        hiding ((.=), (<.>), op)
+import           Control.Lens.Plated
 import           Data.Char
+import           Data.Foldable       (Foldable, foldl')
+import           Data.Function       (on)
 import           Data.HashMap.Strict (HashMap)
 import qualified Data.HashMap.Strict as Map
-import           Data.Jason.Types
+import           Data.Jason
+import           Data.Jason.Types    (Object(..), Pair)
+import           Data.List           (intersect, nub, sort, delete, partition)
+import           Data.Maybe
 import           Data.Monoid
 import           Data.SemVer
 import           Data.String
 import           Data.Text           (Text)
 import qualified Data.Text           as Text
+import           Data.Traversable
 import           Gen.V2.JSON
 import           Gen.V2.Log
 import           Gen.V2.Naming
 import           Gen.V2.TH
 import           Gen.V2.Types
 import           System.FilePath
+
+default (Text)
 
 newtype Doc = Doc Text
     deriving (Eq, Show, ToJSON, IsString)
@@ -47,9 +64,6 @@ documentation = Doc . fromMaybe ""
 newtype NS = NS [Text]
     deriving (Eq, Show)
 
--- instance FromJSON NS where
---     parseJSON = withText "namespace" (pure . NS . Text.splitOn ".")
-
 instance ToJSON NS where
     toJSON (NS xs) = String (Text.intercalate "." xs)
 
@@ -59,14 +73,46 @@ instance ToFilePath NS where
 namespace :: [Text] -> NS
 namespace = NS . ("Network":) . ("AWS":)
 
--- Wrapper types
+typesNS :: Abbrev -> NS
+typesNS (Abbrev a) = namespace [a, "Types"]
 
--- data List a
--- data List1 a
--- data Map k v
--- data Optional a
--- data Box a
--- data Sensitive a
+operationNS :: Abbrev -> Text -> NS
+operationNS (Abbrev a) op = namespace [a, op]
+
+requestNS :: Protocol -> NS
+requestNS p = namespace ["Request", Text.pack (show p)]
+
+rewrap :: Pair -> Value -> Value
+rewrap x = Object . Obj . \case
+    Object (Obj xs) -> x:xs
+    _               -> [x]
+
+data Derive
+    = Eq'
+    | Ord'
+    | Show'
+    | Generic'
+    | Enum'
+    | Num'
+    | Monoid'
+    | Semigroup'
+      deriving (Eq, Ord, Show)
+
+nullary stage2 ''Derive
+
+class DerivingOf a where
+    derivingOf :: a -> [Derive]
+
+instance DerivingOf a => DerivingOf [a] where
+    derivingOf xs =
+        case map derivingOf xs of
+            []   -> []
+            y:ys -> sort (foldl' intersect y ys)
+
+data Derived a = Derived !a !Value
+
+instance (DerivingOf a, ToJSON a) => ToJSON (Derived a) where
+    toJSON (Derived x v) = rewrap ("deriving", toJSON (derivingOf x)) v
 
 data Prim
     = PBlob
@@ -88,76 +134,194 @@ primitive = \case
     PDouble  -> "Double"
     PTime ts -> "Time " <> timestamp ts
 
+instance DerivingOf Prim where
+    derivingOf = (def ++) . \case
+        PBlob    -> []
+        PBool    -> [Enum']
+        PText    -> [Monoid']
+        PInt     -> [Num', Enum']
+        PInteger -> [Num', Enum']
+        PDouble  -> [Num', Enum']
+        PTime{}  -> []
+      where
+        def = [Eq', Ord', Show', Generic']
+
 data Type
-    = Prim  !Prim
-    | Type  Text
-    | List  !Type
-    | List1 !Type
-    | Map   !Type !Type
-    | Maybe !Type
+    = TType   !Text
+    | TPrim   !Prim
+    | TBody   !Bool
+    | TList   !Type
+    | TList1  !Type
+    | TMap    !Type !Type
+    | TMaybe  !Type
       deriving (Eq, Show)
 
 instance ToJSON Type where
     toJSON = toJSON . go
       where
         go = \case
-            Prim  p   -> primitive p
-            Type  t   -> t
-            List  x   -> "List "  <> wrap (go x)
-            List1 x   -> "List1 " <> wrap (go x)
-            Map   k v -> "Map "   <> wrap (go k) <> " " <> wrap (go v)
-            Maybe x   -> "Maybe " <> wrap (go x)
+            TType   t     -> t
+            TPrim   p     -> primitive p
+            TBody   True  -> "RqBody"
+            TBody   False -> "RsBody"
+            TList   x     -> "List "  <> wrap (go x)
+            TList1  x     -> "List1 " <> wrap (go x)
+            TMap    k v   -> "Map "   <> wrap (go k) <> " " <> wrap (go v)
+            TMaybe  x     -> "Maybe " <> wrap (go x)
 
         wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
         parens t = "(" <> t <> ")"
 
 required :: Type -> Bool
-required (Maybe _) = True
-required _         = False
+required (TMaybe _) = False
+required _          = True
 
-data Named a = Named Text !a
-    deriving (Eq, Show)
+class TypesOf a where
+    typesOf :: a -> [Type]
+
+instance TypesOf a => TypesOf [a] where
+    typesOf = nub . concatMap typesOf
+
+instance TypesOf Type where
+    typesOf = (:[])
+
+instance DerivingOf Type where
+    derivingOf = \case
+        TType  _   -> [Eq', Ord', Show', Generic']
+        TPrim  p   -> derivingOf p
+        TBody  _   -> [Show']
+        TList  x   -> Monoid' : derivingOf x
+        TList1 x   -> Semigroup' : derivingOf x
+        TMap   k v -> derivingOf k `intersect` derivingOf v
+        TMaybe x   -> derivingOf x
+
+data Typed a = Typed
+    { _typeOf :: !Type
+    , _typedV :: !a
+    } deriving (Eq, Show, Functor, Foldable, Traversable)
+
+makeClassy ''Typed
+
+instance ToJSON a => ToJSON (Typed a) where
+    toJSON (Typed k v) = rewrap ("type", toJSON k) (toJSON v)
+
+instance TypesOf (Typed a) where
+    typesOf = (:[]) . _typeOf
+
+data Named a = Named
+   { _nameOf :: !Text
+   , _namedV :: !a
+   } deriving (Eq, Show, Functor, Foldable, Traversable)
+
+makeLenses ''Named
 
 instance ToJSON a => ToJSON (Named a) where
-    toJSON (Named k v) = Object . Obj $ ("name", String k) : unwrap (toJSON v)
-      where
-        unwrap = \case
-            Object (Obj x) -> x
-            x              -> unwrap (object ["value" .= x])
+    toJSON (Named k v) = rewrap ("name", String k) (toJSON v)
+
+instance TypesOf a => TypesOf (Named a) where
+    typesOf = typesOf . _namedV
+
+instance HasTyped (Named (Typed a)) a where
+    typed = namedV
+
+type Ann a = Named (Typed a)
 
 data Field = Field
-    { _fType         :: !Type
-    , _fLocation     :: !Location
-    , _fLocationName :: Text
+    { _fLocation     :: Maybe Location
+    , _fLocationName :: Maybe Text
     } deriving (Eq, Show)
 
-instance ToJSON Field where
-    toJSON Field{..} = object
-        [ "type"         .= _fType
-        , "required"     .= required _fType
-        , "location"     .= _fLocation
---        , "locationName" .= _fLocationName
-        ]
+record stage2 ''Field
 
 data Data
-    = Newtype { _ntField   :: Named  Field }
-    | Record  { _recFields :: OrdMap Field }
-    | Nullary { _nFields   :: OrdMap Field }
+    = Newtype !(Ann Field)
+    | Record  [Ann Field]
+    | Nullary [Ann Field]
     | Empty
       deriving (Eq, Show)
 
-record stage2 ''Data
+instance ToJSON Data where
+    toJSON d = toJSON . Derived d $
+        case d of
+            Nullary fs -> object ["type" .= "nullary", "enums" .= fs]
+            Newtype f  -> object ["type" .= "newtype", "field" .= f]
+            Empty      -> object ["type" .= "empty"]
+            Record  fs -> object
+                [ "type"     .= "record"
+                , "required" .= req
+                , "optional" .= opt
+                , "payload"  .= Null
+                ]
+              where
+                (req, opt) = partition (required . view typeOf) fs
 
-data Operation = Operation
-    { _opDocumentation    :: Doc
-    , _opDocumentationUrl :: Maybe Text
-    , _opMethod           :: !Method
-    , _opUri              :: URI
-    , _opRequest          :: Named Data
-    , _opResponse         :: Named Data
+instance DerivingOf Data where
+    derivingOf d = f (derivingOf (typesOf d))
+      where
+        f | Newtype{} <- d = id
+          | otherwise      = delete Monoid'
+
+instance TypesOf Data where
+    typesOf = \case
+        Newtype f  -> typesOf f
+        Record  fs -> typesOf fs
+        Nullary fs -> typesOf fs
+        Empty      -> []
+
+-- parametersOf :: Data -> Ctor
+-- parametersOf = undefined
+
+-- FIXME: Parameter information for smart constructors on serialise
+-- FIXME: Deriving list on serialise
+-- FIXME: Type classes on serialise
+
+data Body
+    = XML
+    | JSON
+    | Raw
+    | Stream
+      deriving (Eq, Show)
+
+nullary stage2 ''Body
+
+newtype Request = Request Data
+    deriving (Eq, Show)
+
+instance ToJSON Request where
+    toJSON (Request d) = Object (Obj (x <> y))
+      where
+        Object (Obj x) = toJSON d
+        Object (Obj y) = object
+            [ "required" .= Null
+            , "optional" .= Null
+            , "payload"  .= Null
+            ]
+
+data Response = Response
+    { _rsWrapper       :: !Bool
+    , _rsResultWrapper :: Maybe Text
+    , _rsData          :: !Data
     } deriving (Eq, Show)
 
--- Errors? Pagination? Result/Request inline and not part of the types module?
+instance ToJSON Response where
+    toJSON (Response w r d) = Object (Obj (x <> y))
+      where
+        Object (Obj x) = toJSON (Request d)
+        Object (Obj y) = object
+            [ "resultWrapper" .= r
+            , "wrapper"       .= w
+            ]
+
+-- FIXME: Errors? Pagination? Result/Request inline and not part of
+-- the types module?
+data Operation = Operation
+    { _opDocumentation    :: !Doc
+    , _opDocumentationUrl :: Maybe Text
+    , _opMethod           :: !Method
+    , _opUri              :: !URI
+    , _opRequest          :: !(Named Request)
+    , _opResponse         :: !(Named Response)
+    } deriving (Eq, Show)
 
 record stage2 ''Operation
 
@@ -166,30 +330,30 @@ data Endpoint
     | Regional
       deriving (Eq, Show)
 
-nullary stage2 ''Endpoint
+nullary (stage2 & thCtor .~ id) ''Endpoint
 
 data Service = Service
-    { _svName           :: Text
-    , _svAbbrev         :: Text
-    , _svVersion        :: Text
-    , _svDocumentation  :: Doc
+    { _svName           :: !Text
+    , _svAbbrev         :: !Abbrev
+    , _svVersion        :: !Text
+    , _svDocumentation  :: !Doc
     , _svProtocol       :: !Protocol
     , _svEndpoint       :: !Endpoint
-    , _svEndpointPrefix :: Text
+    , _svEndpointPrefix :: !Text
     , _svSignature      :: !Signature
     , _svChecksum       :: !Checksum
-    , _svXmlNamespace   :: Text
+    , _svXmlNamespace   :: !Text
     , _svTargetPrefix   :: Maybe Text
-    , _svError          :: Text
+    , _svError          :: !Text
     } deriving (Eq, Show)
 
 classy stage2 ''Service
 
 data Cabal = Cabal
-    { _cLibrary      :: Text
-    , _cVersion      :: Version
-    , _cSynopsis     :: Doc
-    , _cDescription  :: Doc
+    { _cLibrary      :: !Text
+    , _cVersion      :: !Version
+    , _cSynopsis     :: !Doc
+    , _cDescription  :: !Doc
     , _cModules      :: [NS]
     , _cDependencies :: [Named Version]
     } deriving (Eq, Show)
@@ -201,9 +365,9 @@ instance ToFilePath Cabal where
 
 data Mod a = Mod
     { _mModule    :: !a
-    , _mNamespace :: NS
+    , _mNamespace :: !NS
     , _mImports   :: [NS]
-    } deriving (Eq, Show)
+    } deriving (Eq, Show, Functor)
 
 makeLenses ''Mod
 
@@ -232,7 +396,7 @@ instance HasCabal Stage2 where
     cabal = s2Cabal
 
 instance HasService Stage2 where
-    service = s2Service.mModule
+    service = s2Service . mModule
 
 -- decodeS2 :: Model S2 -> Script Stage2
 -- decodeS2 Model{..} = do

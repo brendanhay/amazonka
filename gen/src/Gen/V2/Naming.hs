@@ -29,6 +29,9 @@ keyName t
     | "_" `Text.isPrefixOf` t = lowerHead (dropLower t)
     | otherwise               = t
 
+ctorName :: Text -> Text
+ctorName t = toSpinal (fromMaybe t ("'" `Text.stripSuffix` t))
+
 dropLower :: Text -> Text
 dropLower = Text.dropWhile (not . isUpper)
 

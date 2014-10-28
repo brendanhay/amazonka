@@ -72,7 +72,8 @@ install: add-sources
 	cabal install $(FLAGS) --only-dependencies
 
 clean:
-	rm -rf vendor stage1
+	cabal clean
+	rm -rf stage1 stage2 cabal.sandbox.config .cabal-sandbox vendor
 
 add-sources: cabal.sandbox.config $(DEPS)
 	cabal sandbox add-source vendor/jason

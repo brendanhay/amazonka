@@ -1,11 +1,14 @@
 {-# LANGUAGE BangPatterns               #-}
 {-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE ExtendedDefaultRules       #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TemplateHaskell            #-}
+
+{-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
 -- Module      : Gen.V2.Stage1
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -36,6 +39,8 @@ import           Gen.V2.Naming
 import           Gen.V2.TH
 import           Gen.V2.Types
 
+default (Text)
+
 data HTTP = HTTP
     { _hMethod     :: !Method
     , _hRequestUri :: URI
@@ -44,7 +49,7 @@ data HTTP = HTTP
 record stage1 ''HTTP
 
 data Ref = Ref
-    { _refShape         :: Text
+    { _refShape         :: !Text
     , _refDocumentation :: Maybe Text
     , _refLocation      :: Maybe Location
     , _refLocationName  :: Maybe Text
@@ -58,7 +63,7 @@ data Ref = Ref
 record stage1 ''Ref
 
 data Operation = Operation
-    { _oName             :: Text
+    { _oName             :: !Text
     , _oDocumentation    :: Maybe Text
     , _oDocumentationUrl :: Maybe Text
     , _oHttp             :: HTTP
@@ -70,99 +75,118 @@ data Operation = Operation
 record stage1 ''Operation
 
 data XmlNamespace = XmlNamespace
-    { _xnsPrefix :: Text
-    , _xnsUri    :: Text
+    { _xnsPrefix :: !Text
+    , _xnsUri    :: !Text
     } deriving (Eq, Show)
 
 record stage1 ''XmlNamespace
 
+data SList = SList
+    { _lstMember        :: Ref
+    , _lstDocumentation :: Maybe Text
+    , _lstMin           :: Maybe Int
+    , _lstMax           :: Maybe Int
+    , _lstFlattened     :: Maybe Bool
+    , _lstLocationName  :: Maybe Text
+    } deriving (Eq, Show)
+
+record stage1 ''SList
+
+data SStruct = SStruct
+    { _scRequired      :: Maybe [Text]
+    , _scDocumentation :: Maybe Text
+    , _scMembers       :: OrdMap Ref
+    , _scPayload       :: Maybe Text
+    , _scXmlNamespace  :: Maybe XmlNamespace
+    , _scException     :: Maybe Bool
+    , _scFault         :: Maybe Bool
+    } deriving (Eq, Show)
+
+record stage1 ''SStruct
+
+data SMap = SMap
+    { _mapKey           :: Ref
+    , _mapValue         :: Ref
+    , _mapDocumentation :: Maybe Text
+    , _mapMin           :: Maybe Int
+    , _mapMax           :: Maybe Int
+    } deriving (Eq, Show)
+
+record stage1 ''SMap
+
+data SString = SString
+    { _strMin           :: Maybe Int
+    , _strMax           :: Maybe Int
+    , _strDocumentation :: Maybe Text
+    , _strPattern       :: Maybe Text
+    , _strEnum          :: Maybe [Text]
+    , _strXmlAttribute  :: Maybe Bool
+    , _strLocationName  :: Maybe Text
+    , _strSensitive     :: Maybe Bool
+    } deriving (Eq, Show)
+
+record stage1 ''SString
+
+data SNum a = SNum
+    { _numMin           :: Maybe a
+    , _numMax           :: Maybe a
+    , _numDocumentation :: Maybe Text
+    , _numBox           :: Maybe Bool
+    } deriving (Eq, Show)
+
+record stage1 ''SNum
+
+data SBool = SBool
+    { _blDocumentation :: Maybe Text
+    , _blBox           :: Maybe Bool
+    } deriving (Eq, Show)
+
+record stage1 ''SBool
+
+data STime = STime
+    { _tsTimestampFormat :: Maybe Timestamp
+    , _tsDocumentation   :: Maybe Text
+    } deriving (Eq, Show)
+
+record stage1 ''STime
+
+data SBlob = SBlob
+    { _blbSensitive     :: Maybe Bool
+    , _blbDocumentation :: Maybe Text
+    } deriving (Eq, Show)
+
+record stage1 ''SBlob
+
 -- Need to deserialise errors
 data Shape
-    = List
-      { _shpMember          :: Ref
-      , _shpDocumentation   :: Maybe Text
-      , _shpMin             :: Maybe Int
-      , _shpMax             :: Maybe Int
-      , _shpFlattened       :: Maybe Bool
-      , _shpLocationName    :: Maybe Text
-      }
+    = List'   SList
+    | Struct' SStruct
+    | Map'    SMap
+    | String' SString
+    | Int'    (SNum Int)
+    | Long'   (SNum Integer)
+    | Double' (SNum Double)
+    | Bool'   SBool
+    | Time'   STime
+    | Blob'   SBlob
+      deriving (Eq, Show)
 
-    | Structure
-      { _shpRequired        :: Maybe [Text]
-      , _shpDocumentation   :: Maybe Text
-      , _shpMembers         :: OrdMap Ref
-        -- ^ FIXME: Use Jason's assoc list to ensure ordering
-      , _shpPayload         :: Maybe Text
-      , _shpXmlNamespace    :: Maybe XmlNamespace
-      , _shpException       :: Maybe Bool
-      , _shpFault           :: Maybe Bool
-      }
-
-    | Map
-      { _shpKey             :: Ref
-      , _shpValue           :: Ref
-      , _shpDocumentation   :: Maybe Text
-      , _shpMin             :: Maybe Int
-      , _shpMax             :: Maybe Int
-      }
-
-    | String
-      { _shpMin             :: Maybe Int
-      , _shpMax             :: Maybe Int
-      , _shpDocumentation   :: Maybe Text
-      , _shpPattern         :: Maybe Text
-      , _shpEnum            :: Maybe [Text]
-      , _shpXmlAttribute    :: Maybe Bool
-      , _shpLocationName    :: Maybe Text
-      , _shpSensitive       :: Maybe Bool
-      }
-
-    | Integer
-      { _shpMin             :: Maybe Int
-      , _shpMax             :: Maybe Int
-      , _shpDocumentation   :: Maybe Text
-      , _shpBox             :: Maybe Bool
-      }
-
-    | Long
-      { _shpMin             :: Maybe Int
-      , _shpMax             :: Maybe Int
-      , _shpDocumentation   :: Maybe Text
-      , _shpBox             :: Maybe Bool
-      }
-
-    | Double
-      { _shpMin             :: Maybe Int
-      , _shpMax             :: Maybe Int
-      , _shpDocumentation   :: Maybe Text
-      , _shpBox             :: Maybe Bool
-      }
-
-    | Float
-      { _shpMin             :: Maybe Int
-      , _shpMax             :: Maybe Int
-      , _shpDocumentation   :: Maybe Text
-      , _shpBox             :: Maybe Bool
-      }
-
-    | Boolean
-      { _shpDocumentation   :: Maybe Text
-      , _shpBox             :: Maybe Bool
-      }
-
-    | Timestamp
-      { _shpTimestampFormat :: Maybe Timestamp
-      , _shpDocumentation   :: Maybe Text
-      }
-
-    | Blob
-      { _shpSensitive       :: Maybe Bool
-      , _shpDocumentation   :: Maybe Text
-      }
-
-    deriving (Eq, Show)
-
-record stage1 ''Shape
+instance FromJSON Shape where
+    parseJSON = withObject "shape" $ \o -> do
+        let f g = g <$> parseJSON (Object o)
+        o .: "type" >>= \case
+            "list"      -> f List'
+            "structure" -> f Struct'
+            "map"       -> f Map'
+            "string"    -> f String'
+            "integer"   -> f Int'
+            "long"      -> f Long'
+            "double"    -> f Double'
+            "float"     -> f Double'
+            "boolean"   -> f Bool'
+            "timestamp" -> f Time'
+            "blob"      -> f Blob'
+            e           -> fail ("Unknown Shape type: " ++ show e)
 
 data Key
     = Many [Text]
@@ -203,10 +227,10 @@ data Waiter = Waiter
 record (stage1 & thField .~ keyPython) ''Waiter
 
 data Metadata = Metadata
-    { _mServiceFullName     :: Text
-    , _mServiceAbbreviation :: Maybe Text
-    , _mApiVersion          :: Text
-    , _mEndpointPrefix      :: Text
+    { _mServiceFullName     :: !Text
+    , _mServiceAbbreviation :: Maybe Abbrev
+    , _mApiVersion          :: !Text
+    , _mEndpointPrefix      :: !Text
     , _mGlobalEndpoint      :: Maybe Text
     , _mSignatureVersion    :: !Signature
     , _mXmlNamespace        :: Maybe Text

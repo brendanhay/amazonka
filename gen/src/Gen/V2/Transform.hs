@@ -3,6 +3,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.V2.Transform
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -16,9 +17,9 @@
 
 module Gen.V2.Transform where
 
-import           Control.Applicative        ((<$>))
+import           Control.Applicative        ((<$>), (<*>), pure)
 import           Control.Error
-import           Control.Lens               hiding (transform)
+import           Control.Lens               hiding (transform, op)
 import           Control.Monad
 import           Control.Monad.State.Strict
 import           Data.Bifunctor
@@ -35,10 +36,12 @@ import           Data.Ord
 import           Data.SemVer                (initial)
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
+import qualified Data.Traversable           as Traverse
+import           Debug.Trace
 import           Gen.V2.Log
 import           Gen.V2.Naming
 import qualified Gen.V2.Stage1              as S1
-import           Gen.V2.Stage1              hiding (Operation, Shape(..))
+import           Gen.V2.Stage1              hiding (Operation)
 import           Gen.V2.Stage2
 import           Gen.V2.Types
 import           System.Directory
@@ -56,13 +59,15 @@ transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
         , _cModules      =
               serviceModule ^. mNamespace
             : typesModule   ^. mNamespace
-            : map (view mNamespace) (Map.elems ops)
+            : operationNamespaces
         }
 
     serviceModule = Mod
         { _mModule    = service
-        , _mNamespace = namespace [abbrev]
-        , _mImports   = []
+        , _mNamespace = namespace [unAbbrev abbrev]
+        , _mImports   =
+              typesModule ^. mNamespace
+            : operationNamespaces
         }
 
     service = Service
@@ -77,20 +82,20 @@ transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
         , _svChecksum       = checksum
         , _svXmlNamespace   = fromMaybe xmlNamespace (s1 ^. mXmlNamespace)
         , _svTargetPrefix   = s1 ^. mTargetPrefix
-        , _svError          = abbrev <> "Error"
+        , _svError          = unAbbrev abbrev <> "Error"
         }
 
     typesModule = Mod
         { _mModule    = ts
-        , _mNamespace = namespace [abbrev, "Types"]
+        , _mNamespace = typesNS abbrev
         , _mImports   = []
         }
 
-    (ops, ts) = transform abbrev s1
+    operationNamespaces = map (view mNamespace) (Map.elems ops)
 
-    abbrev = stripAWS $
-        fromMaybe (s1 ^. mServiceFullName)
-                  (s1 ^. mServiceAbbreviation)
+    abbrev = maybeAbbrev (s1 ^. mServiceFullName) (s1 ^. mServiceAbbreviation)
+
+    (ops, ts) = transform abbrev s1
 
     version = s1 ^. mApiVersion
 
@@ -107,21 +112,21 @@ transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
         <> version
         <> "/"
 
-transform :: Text
+transform :: Abbrev
           -> Stage1
           -> (HashMap Text (Mod Operation), HashMap Text Data)
-transform abbrev s1 = runState f s
+transform a s1 = runState (Map.traverseWithKey (const f) (s1 ^. s1Operations)) s
   where
-    f = Map.traverseWithKey (const (operation abbrev)) (s1 ^. s1Operations)
-    s = types (s1 ^. s1Shapes)
+    f = operation a (s1 ^. mProtocol)
+    s = dataTypes (s1 ^. s1Shapes)
 
-operation :: Text
+operation :: Abbrev
+          -> Protocol
           -> S1.Operation
           -> State (HashMap Text Data) (Mod Operation)
-operation abbrev o = do
-    rq <- go (o ^. oInput)
-    rs <- go (o ^. oOutput)
-    return $ Mod
+operation a p o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
+  where
+    op rq rs = Mod
         { _mModule = Operation
             { _opDocumentation    = documentation (o ^. oDocumentation)
             , _opDocumentationUrl = o ^. oDocumentationUrl
@@ -130,105 +135,94 @@ operation abbrev o = do
             , _opRequest          = rq
             , _opResponse         = rs
             }
-        , _mNamespace = namespace [abbrev, o ^. oName]
-        , _mImports   = []
+        , _mNamespace = operationNS a (o ^. oName)
+        , _mImports   = [requestNS p, typesNS a]
         }
-  where
+
+    request :: Maybe Ref -> State (HashMap Text Data) (Named Request)
+    request = fmap (fmap Request) . go
+
+    response :: Maybe Ref -> State (HashMap Text Data) (Named Response)
+    response r = fmap (Response w k) <$> go r
+      where
+        w = fromMaybe False (join (_refWrapper <$> r))
+        k = join (_refResultWrapper <$> r)
+
     go Nothing  = return (Named "Empty" Empty)
     go (Just x) = do
         let k = x ^. refShape
         m <- gets (^. at k)
         case m of
             Nothing -> return (Named k Empty)
-            Just y  -> do
+            Just d  -> do
                 modify (Map.delete k)
-                return (Named k y)
+                return (Named k d)
 
-types :: HashMap Text S1.Shape -> HashMap Text Data
-types = Map.fromList . mapMaybe (uncurry go) . Map.toList
+dataTypes :: HashMap Text S1.Shape -> HashMap Text Data
+dataTypes m = evalState state mempty
   where
-    go k = \case
-         S1.Structure{..} ->
-             let fs = map (second field) (ordMap _shpMembers)
-              in Just . (k,) $ case fs of
-                     [(n, f)] -> Newtype (Named n f)
-                     _        -> Record  (OrdMap fs)
+    state = Map.fromList . catMaybes <$> mapM (uncurry struct) (Map.toList m)
 
-         _ -> Nothing
+    struct k = \case
+        Struct' s -> Just . (k,) <$> solve s
+        _         -> return Nothing
 
-    field Ref{..} =
-         Field { _fType         = Type _refShape
-               , _fLocation     = fromMaybe Unknown _refLocation
-               , _fLocationName = fromMaybe _refShape _refLocationName
-               }
+    solve SStruct{..} = do
+        fs <- forM (ordMap _scMembers) $ \(k, r) -> do
+            t <- required _scRequired k <$> ref r
+            return (k, Typed t (Field (r ^. refLocation) (r ^. refLocationName)))
 
+        return $ case fs of
+            []       -> Empty
+            [(n, f)] -> Newtype (Named n f)
+            _        -> Record  (map (uncurry Named) fs)
 
-    -- | Map
-    --   { _shpKey             :: Ref
-    --   , _shpValue           :: Ref
-    --   , _shpDocumentation   :: Maybe Text
-    --   , _shpMin             :: Maybe Int
-    --   , _shpMax             :: Maybe Int
-    --   }
+    required (fromMaybe [] -> rs) k x =
+        let f = if k `elem` rs then id else TMaybe
+         in case x of
+                TType{} -> f x
+                TPrim{} -> f x
+                _       -> x
 
-    -- | String
-    --   { _shpMin             :: Maybe Int
-    --   , _shpMax             :: Maybe Int
-    --   , _shpDocumentation   :: Maybe Text
-    --   , _shpPattern         :: Maybe Text
-    --   , _shpEnum            :: Maybe [Text]
-    --   , _shpXmlAttribute    :: Maybe Bool
-    --   , _shpLocationName    :: Maybe Text
-    --   , _shpSensitive       :: Maybe Bool
-    --   }
+    prop :: Named S1.Shape -> State (HashMap Text Type) Type
+    prop (Named k s) =  do
+        x <- gets (Map.lookup k)
+        maybe (go >>= ins k)
+              return
+              x
+      where
+        go = case s of
+            Struct' _ -> pure (TType k)
+            List'   x -> list x <$> ref (x ^. lstMember)
+            Map'    x -> TMap   <$> ref (x ^. mapKey) <*> ref (x ^. mapValue)
+            String' x -> pure (TPrim PText)
+            Int'    x -> pure (TPrim PInt)
+            Long'   x -> pure (TPrim PInteger)
+            Double' x -> pure (TPrim PDouble)
+            Bool'   _ -> pure (TPrim PBool)
+            Time'   x -> pure (TPrim . PTime $ defaultTS (x ^. tsTimestampFormat))
+            Blob'   x
+                -- | Just True <- x ^. refStreaming
+                --             -> pure (TBody True)
+                | otherwise -> pure (TPrim PBlob)
 
-    -- | Integer
-    --   { _shpMin             :: Maybe Int
-    --   , _shpMax             :: Maybe Int
-    --   , _shpDocumentation   :: Maybe Text
-    --   , _shpBox             :: Maybe Bool
-    --   }
+        list SList{..}
+            | fromMaybe 0 _lstMin > 0 = TList1
+            | otherwise               = TList
 
-    -- | Long
-    --   { _shpMin             :: Maybe Int
-    --   , _shpMax             :: Maybe Int
-    --   , _shpDocumentation   :: Maybe Text
-    --   , _shpBox             :: Maybe Bool
-    --   }
+    ref :: Ref -> State (HashMap Text Type) Type
+    ref r = do
+        let k = r ^. refShape
+            t = TType k
+        x <- gets (Map.lookup k)
+        maybe (maybe (ins k t >> return t)
+                     (prop . Named k)
+                     (Map.lookup k m))
+              return
+              x
 
-    -- | Double
-    --   { _shpMin             :: Maybe Int
-    --   , _shpMax             :: Maybe Int
-    --   , _shpDocumentation   :: Maybe Text
-    --   , _shpBox             :: Maybe Bool
-    --   }
-
-    -- | Float
-    --   { _shpMin             :: Maybe Int
-    --   , _shpMax             :: Maybe Int
-    --   , _shpDocumentation   :: Maybe Text
-    --   , _shpBox             :: Maybe Bool
-    --   }
-
-    -- | Boolean
-    --   { _shpDocumentation   :: Maybe Text
-    --   , _shpBox             :: Maybe Bool
-    --   }
-
-    -- | Timestamp
-    --   { _shpTimestampFormat :: Maybe Timestamp
-    --   , _shpDocumentation   :: Maybe Text
-    --   }
-
-    -- | Blob
-    --   { _shpSensitive       :: Maybe Bool
-    --   , _shpDocumentation   :: Maybe Text
-    --   }
-
-    --      Map {..} ->
-
-    --      String{} ->
-        
+    ins :: Text -> Type -> State (HashMap Text Type) Type
+    ins k t = modify (Map.insert k t) >> return t
 
 trimS2 :: Stage2 -> Stage2
 trimS2 = id

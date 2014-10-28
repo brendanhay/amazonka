@@ -32,11 +32,13 @@ import qualified Data.Attoparsec.Text as AText
 import           Data.Bifunctor
 import           Data.Foldable        (Foldable)
 import           Data.Jason.Types     hiding (Parser)
+import           Data.Maybe
 import           Data.Monoid
 import           Data.Ord
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Traversable     (Traversable, traverse)
+import           Gen.V2.Naming
 import           Gen.V2.TH
 
 default (Text)
@@ -57,8 +59,9 @@ data OrdMap a = OrdMap { ordMap :: [(Text, a)] }
 makeLenses ''OrdMap
 
 instance FromJSON a => FromJSON (OrdMap a) where
-    parseJSON = withObject "ordered_map" $ \case
-        Obj xs -> OrdMap <$> traverse (\(k, v) -> (k,) <$> parseJSON v) xs
+    parseJSON = withObject "ordered_map" $ \(Obj o) ->
+        OrdMap <$> traverse (\(k, v) -> (k,) <$> parseJSON v) o
+
 
 instance ToJSON a => ToJSON (OrdMap a) where
     toJSON = Object . Obj . map (second toJSON) . ordMap
@@ -114,6 +117,9 @@ instance FromJSON Timestamp where
 timestamp :: Timestamp -> Text
 timestamp = Text.pack . show
 
+defaultTS :: Maybe Timestamp -> Timestamp
+defaultTS = fromMaybe RFC822
+
 data Checksum
     = MD5
     | SHA256
@@ -146,45 +152,54 @@ data Location
     | Header
     | Uri
     | Querystring
-    | Unknown
       deriving (Eq, Show)
 
 nullary stage1 ''Location
 nullary stage2 ''Location
 
-data Path
+data Seg
     = Seg Text
     | Var Text
       deriving (Eq, Show)
 
-pathParser :: Parser Path
-pathParser = Seg <$> AText.takeWhile1 end <|> Var <$> var
+segParser :: Parser Seg
+segParser = Seg <$> AText.takeWhile1 (end '{') <|> Var <$> var
   where
-    var = AText.char '{' *> AText.takeWhile1 end <* AText.char '}'
+    var = AText.char '{' *> AText.takeWhile1 (end '}') <* AText.char '}'
 
-    end '{' = False
-    end '?' = False
-    end _   = True
+    end x y | x == y = False
+    end _ '?'        = False
+    end _ _          = True
 
-instance ToJSON Path where
+instance ToJSON Seg where
     toJSON = \case
         Seg t -> object ["type" .= "const", "value" .= t]
         Var t -> object ["type" .= "var",   "value" .= t]
 
 data URI = URI
-    { _uriPath  :: [Path]
-    , _uriQuery :: Maybe Text
+    { _uriPath  :: [Seg]
+    , _uriQuery :: [Seg]
     } deriving (Eq, Show)
 
 uriParser :: Parser URI
 uriParser = URI
-    <$> ((:) <$> pathParser <*> many pathParser)
-    <*> (optional (AText.char '?' *> AText.takeText))
+    <$> some segParser
+    <*> AText.option [] (AText.char '?' *> some segParser)
+    <*  AText.endOfInput
 
 instance FromJSON URI where
     parseJSON = withText "uri" (either fail return . parseOnly uriParser)
 
 record stage2 ''URI
+
+newtype Abbrev = Abbrev { unAbbrev :: Text }
+    deriving (Eq, Show, ToJSON)
+
+instance FromJSON Abbrev where
+    parseJSON = withText "service_abbreviation" (pure . Abbrev . stripAWS)
+
+maybeAbbrev :: Text -> Maybe Abbrev -> Abbrev
+maybeAbbrev t = fromMaybe (Abbrev (stripAWS t))
 
 data Stage = S1 | S2
 

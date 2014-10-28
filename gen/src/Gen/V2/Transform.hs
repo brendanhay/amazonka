@@ -111,7 +111,7 @@ transform a s1 = runState (Map.traverseWithKey (const f) (s1 ^. s1Operations)) s
     s = prefixes $ dataTypes (s1 ^. s1Shapes)
 
 prefixes :: HashMap Text Data -> HashMap Text Data
-prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
+prefixes m = evalState (Map.fromList <$> mapM run (Map.toList m)) mempty
   where
     run (k, v) = (k,) <$> go (prefix k) v
 
@@ -119,14 +119,12 @@ prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
 
     go :: MonadState (HashSet Text) m => Text -> Data -> m Data
     go k v = do
-        let v' = prefixed k v
-            ks = Set.fromList (fields v')
-        p <- noneExist ks
+        let m = prefixed k v
+            fs = Set.fromList (fields m)
+        p <- gets (Set.null . Set.intersection fs)
         if p
-            then modify (mappend ks) >> return v'
-            else go (numericSuffix k) v'
-
-    noneExist fs = gets (Set.null . Set.intersection fs)
+            then modify (mappend fs) >> return m
+            else go (numericSuffix k) v -- original v
 
     prefixed k (Newtype f)  = Newtype (f & nameOf %~ mappend k)
     prefixed k (Record  fs) = Record  (map (over nameOf (mappend k)) fs)

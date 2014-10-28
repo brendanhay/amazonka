@@ -41,3 +41,8 @@ stripAWS = stripText "Amazon" . stripText "AWS" . Text.replace " " ""
 stripText :: Text -> Text -> Text
 stripText p t = fromMaybe t (p `Text.stripPrefix` t)
 
+numericSuffix :: Text -> Text
+numericSuffix t
+    | Text.null t                 = Text.singleton '1'
+    | x <- Text.last t, isDigit x = Text.init t `Text.snoc` succ x
+    | otherwise                   = t `Text.snoc` '1'

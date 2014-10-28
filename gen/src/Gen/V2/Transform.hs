@@ -1,4 +1,5 @@
 {-# LANGUAGE DataKinds         #-}
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -24,9 +25,14 @@ import           Control.Monad
 import           Control.Monad.State.Strict
 import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
+import           Data.HashSet               (HashSet)
+import qualified Data.HashSet               as Set
 import           Data.Monoid
 import           Data.SemVer                (initial)
 import           Data.Text                  (Text)
+import qualified Data.Text                  as Text
+import           Data.Text.Manipulate
+import           Gen.V2.Naming
 import qualified Gen.V2.Stage1              as S1
 import           Gen.V2.Stage1              hiding (Operation)
 import           Gen.V2.Stage2
@@ -102,7 +108,35 @@ transform :: Abbrev
 transform a s1 = runState (Map.traverseWithKey (const f) (s1 ^. s1Operations)) s
   where
     f = operation a (s1 ^. mProtocol)
-    s = dataTypes (s1 ^. s1Shapes)
+    s = prefixes $ dataTypes (s1 ^. s1Shapes)
+
+prefixes :: HashMap Text Data -> HashMap Text Data
+prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
+  where
+    run (k, v) = (k,) <$> go (prefix k) v
+
+    prefix k = Text.toLower (fromMaybe (Text.take 3 k) (toAcronym k))
+
+    go :: MonadState (HashSet Text) m => Text -> Data -> m Data
+    go k v = do
+        let v' = prefixed k v
+            ks = Set.fromList (fields v')
+        p <- noneExist ks
+        if p
+            then modify (mappend ks) >> return v'
+            else go (numericSuffix k) v'
+
+    noneExist fs = gets (Set.null . Set.intersection fs)
+
+    prefixed k (Newtype f)  = Newtype (f & nameOf %~ mappend k)
+    prefixed k (Record  fs) = Record  (map (over nameOf (mappend k)) fs)
+    prefixed k (Nullary fs) = Nullary (map (over nameOf (mappend k)) fs)
+    prefixed _ Empty        = Empty
+
+    fields (Newtype f)  = [f ^. nameOf]
+    fields (Record  fs) = map (view nameOf) fs
+    fields (Nullary fs) = map (view nameOf) fs
+    fields Empty        = []
 
 operation :: Abbrev
           -> Protocol

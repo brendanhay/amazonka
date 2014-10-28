@@ -261,13 +261,6 @@ instance TypesOf Data where
         Nullary fs -> typesOf fs
         Empty      -> []
 
--- parametersOf :: Data -> Ctor
--- parametersOf = undefined
-
--- FIXME: Parameter information for smart constructors on serialise
--- FIXME: Deriving list on serialise
--- FIXME: Type classes on serialise
-
 data Body
     = XML
     | JSON
@@ -377,8 +370,3 @@ data Stage2 = Stage2
     } deriving (Eq, Show)
 
 record stage2 ''Stage2
-
--- decodeS2 :: Model S2 -> Script Stage2
--- decodeS2 Model{..} = do
---     say "Decode Model" _mPath
---     hoistEither (parseEither parseJSON (Object _mModel))

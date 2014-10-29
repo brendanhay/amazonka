@@ -43,7 +43,7 @@ transformS1ToS2 :: Stage1 -> Stage2
 transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
   where
     cabal = Cabal
-        { _cLibrary      = endpointPrefix
+        { _cLibrary      = library abbrev
         , _cVersion      = initial
         , _cSynopsis     = ""
         , _cDescription  = ""

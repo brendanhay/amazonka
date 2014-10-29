@@ -52,7 +52,7 @@ import           Gen.V2.Types
 import           System.Directory
 import           System.FilePath
 
-default (Text)
+default (Text, FilePath)
 
 newtype Doc = Doc Text
     deriving (Eq, Show, ToJSON, IsString)
@@ -361,8 +361,17 @@ data Service = Service
 
 record stage2 ''Service
 
+newtype Library = Library Text
+    deriving (Eq, Show, ToJSON)
+
+instance ToFilePath Library where
+    toFilePath (Library t) = Text.unpack t
+
+library :: Abbrev -> Library
+library = Library . mappend "amazonka-" . Text.toLower . unAbbrev
+
 data Cabal = Cabal
-    { _cLibrary      :: !Text
+    { _cLibrary      :: !Library
     , _cVersion      :: !Version
     , _cSynopsis     :: !Doc
     , _cDescription  :: !Doc
@@ -373,7 +382,7 @@ data Cabal = Cabal
 record stage2 ''Cabal
 
 instance ToFilePath Cabal where
-    toFilePath c = Text.unpack (_cLibrary c) <.> "cabal"
+    toFilePath c = toFilePath (_cLibrary c) <.> "cabal"
 
 data Mod a = Mod
     { _mModule    :: !a
@@ -411,3 +420,22 @@ store d m x = scriptIO $ do
     LBS.writeFile f (encodePretty x)
   where
     f = d </> _mName m <.> "json"
+
+render :: FilePath -> Templates -> Stage2 -> Script ()
+render d Templates{..} s2 = do
+    createDir src
+    renderFile "Render Types" gen t (s2 ^. s2Types)
+  where
+    (t, o) = _tService (s2 ^. s2Service.mModule.svProtocol)
+
+    src :: FilePath
+    src = rel "src"
+
+    gen :: FilePath
+    gen = rel "gen"
+
+    rel :: ToFilePath a => a -> FilePath
+    rel = combine d . combine lib . toFilePath
+
+    lib :: FilePath
+    lib = toFilePath (s2 ^. s2Cabal.cLibrary)

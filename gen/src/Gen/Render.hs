@@ -133,10 +133,12 @@ render' lbl d f t e = do
     scriptIO (say lbl file)
     hs <- hoistEither $ EDE.eitherRenderWith filters t (env e)
     scriptIO $ do
-        createDirectoryIfMissing True (dropFileName file)
+        say
+        createDirectoryIfMissing True dir
         LText.writeFile file hs
   where
     file = d </> f
+    dir  = dropFileName file
 
 env :: ToJSON a => a -> Object
 env x =

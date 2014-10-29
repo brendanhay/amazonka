@@ -19,6 +19,7 @@ import           Control.Applicative
 import           Control.Error
 import           Control.Monad
 import           Control.Monad.IO.Class
+import qualified Data.Aeson             as A
 import qualified Data.ByteString.Lazy   as LBS
 import           Data.Jason             (eitherDecode')
 import           Data.Jason.Types       hiding (object)
@@ -26,10 +27,20 @@ import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import qualified Data.Text.IO           as Text
+import qualified Data.Text.Lazy.IO      as LText
 import           Gen.V2.Types
 import           System.Directory
 import           System.FilePath
+import           Text.EDE               (Template)
 import qualified Text.EDE               as EDE
+
+say :: MonadIO m => Text -> String -> m ()
+say x msg = liftIO . Text.putStrLn $ "[ " <> y <> "] " <> Text.pack msg
+  where
+    y | n > 0     = x <> Text.replicate n " "
+      | otherwise = x
+
+    n = 17 - Text.length x
 
 loadTemplates :: FilePath -> Script Templates
 loadTemplates d = do
@@ -63,6 +74,39 @@ loadTemplates d = do
 
     path f = d </> f <.> "ede"
 
+copyAssets :: FilePath -> FilePath -> Script ()
+copyAssets s d = do
+    fs <- map (combine s) . filter dots <$> scriptIO (getDirectoryContents s)
+    scriptIO (mapM_ copy fs)
+  where
+    copy f@(dest -> p) = say "Copying Asset" p >> copyFile f p
+
+    dest f = d </> takeFileName f
+
+renderFile :: (ToFilePath a, A.ToJSON a)
+           => Text
+           -> FilePath
+           -> Template
+           -> a
+           -> Script ()
+renderFile lbl d t x = do
+    say lbl f
+    txt <- toEnv >>= hoistEither . EDE.eitherRender t
+    createDir (dropFileName f)
+    scriptIO (LText.writeFile f txt)
+  where
+    f = d </> toFilePath x
+
+    toEnv :: Script A.Object
+    toEnv = case A.toJSON x of
+        A.Object o -> right o
+        e          -> left  ("Failed to extract JSON Object from: " ++ show e)
+
+createDir :: MonadIO m => FilePath -> EitherT String m ()
+createDir d = scriptIO $ do
+    say "Create Directory" d
+    createDirectoryIfMissing True d
+
 reqObject :: FromJSON a => FilePath -> Script a
 reqObject f = loadObject f >>= hoistEither
 
@@ -76,20 +120,3 @@ loadObject f = scriptIO $ do
     bool (return  . Left $ "Failed to find " ++ f)
          (eitherDecode' <$> LBS.readFile f)
          p
-
-copyAssets :: FilePath -> FilePath -> Script ()
-copyAssets s d = do
-    fs <- map (combine s) . filter dots <$> scriptIO (getDirectoryContents s)
-    scriptIO (mapM_ copy fs)
-  where
-    copy f@(dest -> p) = say "Copying Asset" p >> copyFile f p
-
-    dest f = d </> takeFileName f
-
-say :: MonadIO m => Text -> String -> m ()
-say x msg = liftIO . Text.putStrLn $ "[ " <> y <> "] " <> Text.pack msg
-  where
-    y | n > 0     = x <> Text.replicate n " "
-      | otherwise = x
-
-    n = 17 - Text.length x

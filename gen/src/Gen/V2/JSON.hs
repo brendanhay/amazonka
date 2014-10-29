@@ -22,7 +22,6 @@ import           Data.Jason.Types
 import           Data.List
 import           Data.Monoid
 import           Data.SemVer      (Version, fromText, toText)
-import qualified Data.Vector      as Vector
 
 instance FromJSON Version where
     parseJSON = withText "semantic_version" $
@@ -48,3 +47,4 @@ merge = foldl' go mempty
       where
         g (k, x) | Just y <- lookup k ys = (k, f x y)
                  | otherwise             = (k, x)
+

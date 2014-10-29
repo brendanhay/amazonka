@@ -28,7 +28,6 @@
 
 module Gen.V2.Stage2 where
 
-import Control.Lens.Plated
 import           Control.Applicative
 import           Control.Error
 import           Control.Lens        hiding ((.=), (<.>), op)
@@ -254,10 +253,12 @@ instance ToJSON Data where
                 [ "type"     .= "record"
                 , "required" .= req
                 , "optional" .= opt
-                , "payload"  .= Null
+                , "payload"  .= pay
                 ]
               where
                 (req, opt) = partition (isRequired . view typeOf) fs
+
+                pay = headMay (filter (view (namedV.typedV.fPayload)) fs)
 
 instance DerivingOf Data where
     derivingOf d = f (derivingOf (typesOf d))

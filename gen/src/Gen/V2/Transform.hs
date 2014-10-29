@@ -87,7 +87,7 @@ transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
 
     abbrev = maybeAbbrev (s1 ^. mServiceFullName) (s1 ^. mServiceAbbreviation)
 
-    (ops, ts) = transform abbrev s1
+    (ops, ts) = types abbrev s1
 
     version = s1 ^. mApiVersion
 
@@ -103,15 +103,13 @@ transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
         <> version
         <> "/"
 
-transform :: Abbrev
-          -> Stage1
-          -> (HashMap Text (Mod Operation), HashMap Text Data)
-transform a s1 = second (Map.map snd) (runState run s)
+types :: Abbrev -> Stage1 -> (HashMap Text (Mod Operation), HashMap Text Data)
+types a s1 = second (Map.map snd) (runState run s)
   where
     run = Map.traverseWithKey (const f) (s1 ^. s1Operations)
 
     f = operation a (s1 ^. mProtocol)
-    s = prefixes (dataTypes (s1 ^. s1Shapes))
+    s = prefixes (datas (s1 ^. s1Shapes))
 
 prefixes :: HashMap Text (a, Data) -> HashMap Text (a, Data)
 prefixes m = evalState (Map.fromList <$> mapM run (Map.toList m)) mempty
@@ -175,8 +173,8 @@ operation a p o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
                 modify (Map.delete k)
                 return (Named k (setStreaming rq d))
 
-dataTypes :: HashMap Text S1.Shape -> HashMap Text (S1.Shape, Data)
-dataTypes m = evalState (Map.traverseWithKey (const descend) m) mempty
+datas :: HashMap Text S1.Shape -> HashMap Text (S1.Shape, Data)
+datas m = evalState (Map.traverseWithKey (const descend) m) mempty
   where
     descend :: S1.Shape -> State (HashMap Text Type) (S1.Shape, Data)
     descend = \case

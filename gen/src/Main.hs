@@ -109,7 +109,7 @@ main = do
         -- Process a Stage1 AST from the corresponding botocore model.
         forM_ (o ^. models) $ \d -> do
             -- Load the Stage1 raw JSON.
-            !m  <- S1.load d
+            !m  <- S1.model d (o ^. overrides)
 
             -- Decode the Stage1 JSON to AST.
             !s1 <- S1.decode m
@@ -121,10 +121,6 @@ main = do
             -- Note: This is primarily done for debugging purposes.
             S2.store (o ^. services) m s2
 
-            -- -- Load the intemediary Stage2 JSON,
-            -- -- with left-biased merge of overrides(l).
-            -- !m2 <- loadS2 _overrides _services m1
-
             -- -- Decode the Stage2 JSON to AST.
             -- !s2 <- decodeS2 m2
 
@@ -132,9 +128,9 @@ main = do
             -- let !r = trimS2 s2
 
             -- Render the templates, creating or overriding the target library.
---            lib <- S2.render (o ^. out) ts s2
+            lib <- S2.render (o ^. out) ts s2
 
             -- Copy static assets to the library root.
---            copyAssets (o ^. assets) lib
+            copyAssets (o ^. assets) lib
 
             return ()

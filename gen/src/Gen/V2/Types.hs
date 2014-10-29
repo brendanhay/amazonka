@@ -31,6 +31,7 @@ import           Data.Attoparsec.Text (Parser, parseOnly)
 import qualified Data.Attoparsec.Text as AText
 import           Data.Bifunctor
 import           Data.Foldable        (Foldable)
+import           Data.HashMap.Strict  (HashMap)
 import           Data.Jason.Types     hiding (Parser)
 import           Data.Maybe
 import           Data.Monoid
@@ -197,16 +198,27 @@ newtype Abbrev = Abbrev { unAbbrev :: Text }
     deriving (Eq, Show, A.ToJSON)
 
 instance FromJSON Abbrev where
-    parseJSON = withText "service_abbreviation" (pure . Abbrev . stripAWS)
+    parseJSON = withText "service_abbreviation" (pure . mkAbbrev)
+
+mkAbbrev :: Text -> Abbrev
+mkAbbrev = Abbrev . Text.replace "/" "" . Text.replace " " "" . stripAWS
 
 maybeAbbrev :: Text -> Maybe Abbrev -> Abbrev
-maybeAbbrev t = fromMaybe (Abbrev (stripAWS t))
+maybeAbbrev t = fromMaybe (mkAbbrev t)
+
+data Overrides = Overrides
+    { _ovRequired :: Maybe (HashMap Text Text)
+
+    } deriving (Show, Eq)
+
+record stage1 ''Overrides
 
 data Model = Model
-    { _mName    :: String
-    , _mVersion :: String
-    , _mPath    :: FilePath
-    , _mModel   :: Object
+    { _mName      :: String
+    , _mVersion   :: String
+    , _mPath      :: FilePath
+    , _mModel     :: Object
+    , _mOverrides :: Overrides
     } deriving (Show, Eq)
 
 instance Ord Model where

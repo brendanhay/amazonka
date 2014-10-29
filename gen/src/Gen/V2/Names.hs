@@ -36,7 +36,11 @@ dropLower :: Text -> Text
 dropLower = Text.dropWhile (not . isUpper)
 
 stripAWS :: Text -> Text
-stripAWS = stripText "Amazon" . stripText "AWS" . Text.replace " " ""
+stripAWS = Text.strip
+    . stripText "Amazon"
+    . Text.strip
+    . stripText "AWS"
+    . Text.strip
 
 stripText :: Text -> Text -> Text
 stripText p t = fromMaybe t (p `Text.stripPrefix` t)

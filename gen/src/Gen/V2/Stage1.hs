@@ -258,14 +258,18 @@ record stage1 ''Stage1
 instance HasMetadata Stage1 where
     metadata = s1Metadata
 
-load :: FilePath -> Script Model
-load d = do
+model :: FilePath -> FilePath -> Script Model
+model d o = do
     v <- version
-    Model name v d . merge <$> sequence
-        [ reqObject (api v)
+    say "Load Overrides" override
+    m1 <- reqObject override
+    m2 <- merge <$> sequence
+        [ return m1
+        , reqObject (api v)
         , optObject "waiters"    (waiters v)
         , optObject "pagination" (pagers  v)
         ]
+    Model name v d m2 <$> hoistEither (parseEither parseJSON (Object m1))
   where
     version = do
         fs <- scriptIO (getDirectoryContents d)
@@ -278,9 +282,11 @@ load d = do
 
     path e v = d </> v <.> e
 
+    override = o </> name <.> "json"
+
     name = takeBaseName (dropTrailingPathSeparator d)
 
 decode :: Model -> Script Stage1
 decode Model{..} = do
-    say "Decode Model" _mPath
+    say "Decode Stage1" _mPath
     hoistEither (parseEither parseJSON (Object _mModel))

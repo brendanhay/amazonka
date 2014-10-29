@@ -82,14 +82,13 @@ cabal.sandbox.config:
 	cabal sandbox init
 
 vendor/botocore:
-	git clone git@github.com:boto/botocore $@ && \
- cp -rf $@/botocore/data/aws stage1
+	git clone git@github.com:boto/botocore $@
 
 vendor/%:
 	git clone git@github.com:brendanhay/$*.git $@
 
 stage1:
-	@mkdir $@
+	cp -rf $@/botocore/data/aws stage1
 
 stage2:
 	@mkdir $@

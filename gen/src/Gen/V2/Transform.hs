@@ -28,6 +28,7 @@ import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
 import           Data.HashSet               (HashSet)
 import qualified Data.HashSet               as Set
+import           Data.List                  (sort)
 import           Data.Monoid
 import           Data.SemVer                (initial)
 import           Data.Text                  (Text)
@@ -48,7 +49,7 @@ transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
         , _cSynopsis     = ""
         , _cDescription  = ""
         , _cDependencies = []
-        , _cModules      =
+        , _cModules      = sort $
               serviceModule ^. mNamespace
             : typesModule   ^. mNamespace
             : operationNamespaces
@@ -57,7 +58,7 @@ transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
     serviceModule = Mod
         { _mModule    = service
         , _mNamespace = namespace [unAbbrev abbrev]
-        , _mImports   =
+        , _mImports   = sort $
               typesModule ^. mNamespace
             : operationNamespaces
         }
@@ -83,7 +84,7 @@ transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
         , _mImports   = []
         }
 
-    operationNamespaces = map (view mNamespace) ops
+    operationNamespaces = sort (map (view mNamespace) ops)
 
     abbrev = maybeAbbrev (s1 ^. mServiceFullName) (s1 ^. mServiceAbbreviation)
 

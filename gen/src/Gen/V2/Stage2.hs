@@ -61,7 +61,7 @@ documentation :: Maybe Text -> Doc
 documentation = Doc . fromMaybe ""
 
 newtype NS = NS [Text]
-    deriving (Eq, Show)
+    deriving (Eq, Ord, Show)
 
 instance ToJSON NS where
     toJSON (NS xs) = String (Text.intercalate "." xs)
@@ -414,10 +414,8 @@ data Stage2 = Stage2
 record stage2 ''Stage2
 
 store :: ToJSON a => FilePath -> Model -> a -> Script ()
-store d m x = scriptIO $ do
-    p <- doesFileExist f
-    say (if p then "Overwrite" else "Create") f
-    LBS.writeFile f (encodePretty x)
+store d m x =
+    say "Store Stage2" f >> scriptIO (LBS.writeFile f (encodePretty x))
   where
     f = d </> _mName m <.> "json"
 

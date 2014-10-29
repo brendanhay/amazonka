@@ -250,6 +250,3 @@ datas m = evalState (Map.traverseWithKey (const descend) m) mempty
 
     insert :: Text -> Type -> State (HashMap Text Type) Type
     insert k t = modify (Map.insert k t) >> return t
-
-trimS2 :: Stage2 -> Stage2
-trimS2 = id

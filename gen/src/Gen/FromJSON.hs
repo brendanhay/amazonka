@@ -35,12 +35,12 @@ import           Data.Jason                 hiding (Error)
 import           Data.Jason.Types           hiding (Error)
 import           Data.List
 import           Data.Monoid                hiding (Sum)
-import           Gen.Naming
+import           Gen.Names
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import qualified Data.Text.Encoding         as Text
 import qualified Data.Text.Unsafe           as Text
-import           Gen.Naming
+import           Gen.Names
 import           Data.Traversable           (traverse)
 import           GHC.Generics
 import           Gen.AST

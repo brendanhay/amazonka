@@ -33,7 +33,7 @@ import           Data.Ord
 import           Data.String
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
-import           Gen.Naming
+import           Gen.Names
 import           Gen.AST
 import           Text.EDE.Filters
 

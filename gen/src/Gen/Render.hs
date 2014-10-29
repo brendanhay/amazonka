@@ -31,7 +31,7 @@ import           Data.Monoid
 import           Data.Text           (Text)
 import qualified Data.Text           as Text
 import qualified Data.Text.Lazy.IO   as LText
-import           Gen.Naming
+import           Gen.Names
 import qualified Data.Vector         as Vector
 import           Gen.AST       hiding (HashMap)
 import           Gen.Log

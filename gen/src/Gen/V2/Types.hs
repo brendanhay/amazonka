@@ -28,6 +28,7 @@ module Gen.V2.Types where
 
 import           Control.Applicative
 import           Control.Lens         (makeLenses)
+import qualified Data.Aeson           as A
 import           Data.Attoparsec.Text (Parser, parseOnly)
 import qualified Data.Attoparsec.Text as AText
 import           Data.Bifunctor
@@ -39,8 +40,9 @@ import           Data.Ord
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Traversable     (Traversable, traverse)
-import           Gen.V2.Naming
+import           Gen.V2.Names
 import           Gen.V2.TH
+import           Text.EDE             (Template)
 
 default (Text)
 
@@ -172,10 +174,10 @@ segParser = Seg <$> AText.takeWhile1 (end '{') <|> Var <$> var
     end _ '?'        = False
     end _ _          = True
 
-instance ToJSON Seg where
+instance A.ToJSON Seg where
     toJSON = \case
-        Seg t -> object ["type" .= "const", "value" .= t]
-        Var t -> object ["type" .= "var",   "value" .= t]
+        Seg t -> A.object ["type" A..= "const", "value" A..= t]
+        Var t -> A.object ["type" A..= "var",   "value" A..= t]
 
 data URI = URI
     { _uriPath  :: [Seg]
@@ -194,7 +196,7 @@ instance FromJSON URI where
 record stage2 ''URI
 
 newtype Abbrev = Abbrev { unAbbrev :: Text }
-    deriving (Eq, Show, ToJSON)
+    deriving (Eq, Show, A.ToJSON)
 
 instance FromJSON Abbrev where
     parseJSON = withText "service_abbreviation" (pure . Abbrev . stripAWS)
@@ -213,6 +215,12 @@ data Model (a :: Stage) = Model
 
 instance Ord (Model a) where
     compare a b = comparing _mName a b <> comparing _mVersion a b
+
+data Templates = Templates
+    { _tCabal     :: Template
+    , _tInterface :: Template
+    , _tService   :: Protocol -> (Template, Template)
+    }
 
 dots :: FilePath -> Bool
 dots "."  = False

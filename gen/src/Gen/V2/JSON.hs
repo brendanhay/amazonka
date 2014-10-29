@@ -1,5 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE OverloadedStrings    #-}
+{-# LANGUAGE RecordWildCards      #-}
+{-# LANGUAGE ViewPatterns         #-}
+
+{-# OPTIONS_GHC -fno-warn-orphans #-}
 
 -- Module      : Gen.V2.JSON
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -13,68 +16,35 @@
 
 module Gen.V2.JSON where
 
-import           Data.ByteString.Lazy    (ByteString)
-import           Data.Function           (on)
-import qualified Data.Jason.Encode       as Jason
+import qualified Data.Aeson       as A
+import           Data.Function    (on)
 import           Data.Jason.Types
-import           Data.List               (intersperse, sortBy, elemIndex)
-import           Data.Maybe
+import           Data.List
 import           Data.Monoid
-import           Data.Ord
-import           Data.SemVer             (Version, fromText, toText)
-import           Data.Text               (Text)
-import qualified Data.Text               as Text
-import           Data.Text.Lazy.Builder  (Builder, toLazyText)
-import qualified Data.Text.Lazy.Encoding as Text
-import qualified Data.Vector             as Vector
+import           Data.SemVer      (Version, fromText, toText)
+import qualified Data.Vector      as Vector
 
 instance FromJSON Version where
     parseJSON = withText "semantic_version" $
         either fail return . fromText
 
-instance ToJSON Version where
-    toJSON = String . toText
+instance A.ToJSON Version where
+    toJSON = A.String . toText
 
-data PState = PState
-    { pstIndent :: Int
-    , pstLevel  :: Int
-    , pstSort   :: [(Text, Value)] -> [(Text, Value)]
-    }
-
-encodePretty :: ToJSON a => a -> ByteString
-encodePretty = Text.encodeUtf8
-    . toLazyText
-    . fromValue (PState 4 0 sort') . toJSON
+merge :: [Object] -> Object
+merge = foldl' go mempty
   where
-    sort' = sortBy (mempty `on` fst)
+    go :: Object -> Object -> Object
+    go (unObject -> a) (unObject -> b) = mkObject (assoc value a b)
 
-fromValue :: PState -> Value -> Builder
-fromValue st@PState{..} = go
-  where
-    go (Array  v) = fromCompound st ("[", "]") fromValue (Vector.toList v)
-    go (Object o) = fromCompound st ("{", "}") fromPair (pstSort (unObject o))
-    go v          = Jason.fromValue v
+    value :: Value -> Value -> Value
+    value l r =
+        case (l, r) of
+            (Object x, Object y) -> Object (x `go` y)
+            (_,        _)        -> l
 
-fromCompound :: PState
-             -> (Builder, Builder)
-             -> (PState -> a -> Builder)
-             -> [a]
-             -> Builder
-fromCompound st@PState{..} (delimL, delimR) fromItem items = mconcat
-    [ delimL
-    , if null items
-          then mempty
-          else "\n" <> items' <> "\n" <> fromIndent st
-    , delimR
-    ]
-  where
-    items' = mconcat . intersperse ",\n" $
-                map (\item -> fromIndent st' <> fromItem st' item)
-                    items
-    st' = st { pstLevel = pstLevel + 1 }
-
-fromPair :: PState -> (Text, Value) -> Builder
-fromPair st (k, v) = Jason.fromValue (toJSON k) <> ": " <> fromValue st v
-
-fromIndent :: PState -> Builder
-fromIndent PState{..} = mconcat $ replicate (pstIndent * pstLevel) " "
+    assoc :: Eq k => (v -> v -> v) -> [(k, v)] -> [(k, v)] -> [(k, v)]
+    assoc f xs ys = unionBy ((==) `on` fst) (map g xs) ys
+      where
+        g (k, x) | Just y <- lookup k ys = (k, f x y)
+                 | otherwise             = (k, x)

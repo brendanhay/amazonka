@@ -24,16 +24,19 @@ module Gen.V2.Stage1 where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Lens
-import           Data.HashMap.Strict  (HashMap)
-import           Data.Jason           as Jason
+import           Control.Lens        hiding ((<.>))
+import           Data.HashMap.Strict (HashMap)
+import           Data.Jason          as Jason
 import           Data.Jason.Types
-import           Data.Text            (Text)
-import qualified Data.Vector          as Vector
-import           Gen.V2.Log
-import           Gen.V2.Naming
+import           Data.Text           (Text)
+import qualified Data.Vector         as Vector
+import           Gen.V2.IO
+import           Gen.V2.JSON
+import           Gen.V2.Names
 import           Gen.V2.TH
 import           Gen.V2.Types
+import           System.FilePath
+import           System.Directory
 
 default (Text)
 
@@ -255,7 +258,29 @@ record stage1 ''Stage1
 instance HasMetadata Stage1 where
     metadata = s1Metadata
 
-decodeS1 :: Model S1 -> Script Stage1
-decodeS1 Model{..} = do
+load :: FilePath -> Script (Model S1)
+load d = do
+    v <- version
+    Model name v d . merge <$> sequence
+        [ reqObject (api v)
+        , optObject "waiters"    (waiters v)
+        , optObject "pagination" (pagers  v)
+        ]
+  where
+    version = do
+        fs <- scriptIO (getDirectoryContents d)
+        f  <- tryHead ("Failed to get model version from " ++ d) (filter dots fs)
+        return (takeWhile (/= '.') f)
+
+    api     = path "api.json"
+    waiters = path "waiters.json"
+    pagers  = path "paginators.json"
+
+    path e v = d </> v <.> e
+
+    name = takeBaseName (dropTrailingPathSeparator d)
+
+decode :: Model S1 -> Script Stage1
+decode Model{..} = do
     say "Decode Model" _mPath
     hoistEither (parseEither parseJSON (Object _mModel))

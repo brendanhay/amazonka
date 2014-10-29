@@ -33,7 +33,7 @@ import           Data.SemVer                (initial)
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import           Data.Text.Manipulate
-import           Gen.V2.Naming
+import           Gen.V2.Names
 import qualified Gen.V2.Stage1              as S1
 import           Gen.V2.Stage1              hiding (Operation)
 import           Gen.V2.Stage2
@@ -171,15 +171,15 @@ operation a p o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
         m <- gets (^. at k)
         case m of
             Nothing     -> return (Named k Empty)
-            Just (s, d) -> do
+            Just (_, d) -> do
                 modify (Map.delete k)
                 return (Named k (setStreaming rq d))
 
 dataTypes :: HashMap Text S1.Shape -> HashMap Text (S1.Shape, Data)
-dataTypes m = evalState (Map.traverseWithKey descend m) mempty
+dataTypes m = evalState (Map.traverseWithKey (const descend) m) mempty
   where
-    descend :: Text -> S1.Shape -> State (HashMap Text Type) (S1.Shape, Data)
-    descend k = \case
+    descend :: S1.Shape -> State (HashMap Text Type) (S1.Shape, Data)
+    descend = \case
         s@(Struct' x) -> (s,) <$> solve x
         s             -> return (s, Empty)
 
@@ -238,13 +238,13 @@ dataTypes m = evalState (Map.traverseWithKey descend m) mempty
             Struct' _ -> pure (TType k)
             List'   x -> list x <$> ref (x ^. lstMember)
             Map'    x -> TMap   <$> ref (x ^. mapKey) <*> ref (x ^. mapValue)
-            String' x -> pure (TPrim PText)
-            Int'    x -> pure (TPrim PInt)
-            Long'   x -> pure (TPrim PInteger)
-            Double' x -> pure (TPrim PDouble)
+            String' _ -> pure (TPrim PText)
+            Int'    _ -> pure (TPrim PInt)
+            Long'   _ -> pure (TPrim PInteger)
+            Double' _ -> pure (TPrim PDouble)
             Bool'   _ -> pure (TPrim PBool)
             Time'   x -> pure (TPrim . PTime $ defaultTS (x ^. tsTimestampFormat))
-            Blob'   x -> pure (TPrim PBlob)
+            Blob'   _ -> pure (TPrim PBlob)
 
         list SList{..}
             | fromMaybe 0 _lstMin > 0 = TList1

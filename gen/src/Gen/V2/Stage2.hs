@@ -30,21 +30,26 @@ module Gen.V2.Stage2 where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Lens        hiding ((.=), (<.>), op)
+import           Control.Lens             hiding ((.=), (<.>), op)
+import           Data.Aeson
+import           Data.Aeson.Encode.Pretty
+import           Data.Aeson.Types         (Pair)
+import qualified Data.ByteString.Lazy     as LBS
 import           Data.Char
-import           Data.Foldable       (Foldable, foldl')
-import           Data.HashMap.Strict (HashMap)
-import           Data.Jason
-import           Data.Jason.Types    (Pair, mkObject, unObject)
-import           Data.List           (intersect, nub, sort, delete, partition)
+import           Data.Foldable            (Foldable, foldl')
+import           Data.HashMap.Strict      (HashMap)
+import qualified Data.HashMap.Strict      as Map
+import           Data.List                (intersect, nub, sort, delete, partition)
 import           Data.Monoid
 import           Data.SemVer
 import           Data.String
-import           Data.Text           (Text)
-import qualified Data.Text           as Text
-import           Gen.V2.JSON         ()
+import           Data.Text                (Text)
+import qualified Data.Text                as Text
+import           Gen.V2.IO
+import           Gen.V2.JSON              ()
 import           Gen.V2.TH
 import           Gen.V2.Types
+import           System.Directory
 import           System.FilePath
 
 default (Text)
@@ -77,9 +82,9 @@ requestNS :: Protocol -> NS
 requestNS p = namespace ["Request", Text.pack (show p)]
 
 rewrap :: Pair -> Value -> Value
-rewrap x = Object . mkObject . \case
-    Object o -> x:unObject o
-    _        -> [x]
+rewrap (k, v) = Object . \case
+    Object o -> Map.insert    k v o
+    _        -> Map.singleton k v
 
 data Derive
     = Eq'
@@ -311,10 +316,10 @@ data Response = Response
     } deriving (Eq, Show)
 
 instance ToJSON Response where
-    toJSON (Response w r d) = Object (mkObject (x <> y))
+    toJSON (Response w r d) = Object (x <> y)
       where
-        Object (unObject -> x) = toJSON (Request d)
-        Object (unObject -> y) = object
+        Object x = toJSON (Request d)
+        Object y = object
             [ "resultWrapper" .= r
             , "wrapper"       .= w
             ]
@@ -398,3 +403,11 @@ data Stage2 = Stage2
     } deriving (Eq, Show)
 
 record stage2 ''Stage2
+
+store :: ToJSON a => FilePath -> Model S1 -> a -> Script ()
+store d m x = scriptIO $ do
+    p <- doesFileExist f
+    say (if p then "Overwrite" else "Create") f
+    LBS.writeFile f (encodePretty x)
+  where
+    f = d </> _mName m <.> "json"

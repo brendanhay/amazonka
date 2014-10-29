@@ -18,10 +18,11 @@ module Gen.V2.TH where
 
 import           Control.Applicative
 import           Control.Lens
-import           Data.Jason.TH
+import qualified Data.Aeson.TH       as A
+import qualified Data.Jason.TH       as J
 import           Data.Text           (Text)
 import qualified Data.Text           as Text
-import           Gen.V2.Naming
+import           Gen.V2.Names
 import           Language.Haskell.TH
 
 data TH = TH
@@ -30,17 +31,20 @@ data TH = TH
     , _thLens     :: Text -> Text
     , _thTag      :: String
     , _thContents :: String
-    , _thJSON     :: Options -> Name -> Q [Dec]
+    , _thJSON     :: Name -> Q [Dec]
     }
 
 makeLenses ''TH
 
-stage1, stage2 :: TH
-stage1 = TH ctorName keyName lensName "type" "contents" deriveFromJSON
-stage2 = stage1 & thJSON .~ deriveToJSON
+stage1 :: TH
+stage1 = TH ctorName keyName lensName "type" "contents" $
+    J.deriveFromJSON (jason stage1)
+
+stage2 :: TH
+stage2 = stage1 & thJSON .~ (A.deriveToJSON (aeson stage2))
 
 nullary :: TH -> Name -> Q [Dec]
-nullary th = (th ^. thJSON) (aeson th)
+nullary = (^. thJSON)
 
 record :: TH -> Name -> Q [Dec]
 record th n = concat <$> sequence
@@ -54,16 +58,28 @@ classy th n = concat <$> sequence
     , nullary th n
     ]
 
-aeson :: TH -> Options
-aeson th = defaultOptions
-    { constructorTagModifier = text (_thCtor th)
-    , fieldLabelModifier     = text (_thField th)
-    , omitNothingFields      = True
-    , allNullaryToStringTag  = True
-    , sumEncoding            =
-        defaultTaggedObject
-            { tagFieldName      = _thTag th
-            , contentsFieldName = _thContents th
+aeson :: TH -> A.Options
+aeson th = A.defaultOptions
+    { A.constructorTagModifier = text (_thCtor th)
+    , A.fieldLabelModifier     = text (_thField th)
+    , A.omitNothingFields      = True
+    , A.allNullaryToStringTag  = True
+    , A.sumEncoding            =
+        A.defaultTaggedObject
+            { A.tagFieldName      = _thTag th
+            , A.contentsFieldName = _thContents th
+            }
+    }
+
+jason :: TH -> J.Options
+jason th = J.defaultOptions
+    { J.constructorTagModifier = text (_thCtor th)
+    , J.fieldLabelModifier     = text (_thField th)
+    , J.allNullaryToStringTag  = True
+    , J.sumEncoding            =
+        J.defaultTaggedObject
+            { J.tagFieldName      = _thTag th
+            , J.contentsFieldName = _thContents th
             }
     }
 

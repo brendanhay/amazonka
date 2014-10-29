@@ -15,23 +15,19 @@
 
 module Main (main) where
 
-import Control.Applicative
-import Control.Error
-import Control.Lens
-import Control.Monad
-import Control.Monad.IO.Class
-import Control.Monad.State
-import Data.Monoid
-import Gen.V2.Asset
-import Gen.V2.Log
-import Gen.V2.Model
-import Gen.V2.Stage1
-import Gen.V2.Stage2
-import Gen.V2.Template
-import Gen.V2.Transform
-import Options.Applicative
-import System.Directory
-import System.FilePath
+import           Control.Applicative
+import           Control.Error
+import           Control.Lens
+import           Control.Monad
+import           Control.Monad.IO.Class
+import           Control.Monad.State
+import           Data.Monoid
+import           Gen.V2.IO
+import qualified Gen.V2.Stage1          as S1
+import qualified Gen.V2.Stage2          as S2
+import           Gen.V2.Transform
+import           Options.Applicative
+import           System.Directory
 
 data Options = Options
     { _out       :: FilePath
@@ -113,10 +109,10 @@ main = do
         -- Process a Stage1 AST from the corresponding botocore model.
         forM_ (o ^. models) $ \d -> do
             -- Load the Stage1 raw JSON.
-            !m1 <- loadS1 d
+            !m1 <- S1.load d
 
             -- Decode the Stage1 JSON to AST.
-            !s1 <- decodeS1 m1
+            !s1 <- S1.decode m1
 
             -- Transformation from Stage1 -> Stage2 AST.
             let !i2 = transformS1ToS2 s1
@@ -124,7 +120,7 @@ main = do
             -- Store the intemediary Stage2 AST as JSON.
             -- Note: This is primarily done for debugging purposes,
             -- but it's also convenient for merging overrides.
-            storeS2 (o ^. services) m1 i2
+            S2.store (o ^. services) m1 i2
 
             -- -- Load the intemediary Stage2 JSON,
             -- -- with left-biased merge of overrides(l).

@@ -212,9 +212,6 @@ newtype Library = Library Text
 instance ToFilePath Library where
     toFilePath (Library t) = Text.unpack t
 
-library :: Abbrev -> Library
-library = Library . mappend "amazonka-" . Text.toLower . unAbbrev
-
 data Overrides = Overrides
     { _ovRequired :: Maybe (HashMap Text Text)
     } deriving (Show, Eq)

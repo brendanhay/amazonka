@@ -246,7 +246,7 @@ classy stage1 ''Metadata
 
 data Stage1 = Stage1
     { _s1Metadata      :: Metadata
-    , _s1Library       :: Maybe Library
+    , _s1Library       :: Library
     , _s1Documentation :: Maybe Text
     , _s1Operations    :: HashMap Text Operation
     , _s1Shapes        :: HashMap Text Shape

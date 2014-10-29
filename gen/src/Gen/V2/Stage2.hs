@@ -361,15 +361,6 @@ data Service = Service
 
 record stage2 ''Service
 
-newtype Library = Library Text
-    deriving (Eq, Show, ToJSON)
-
-instance ToFilePath Library where
-    toFilePath (Library t) = Text.unpack t
-
-library :: Abbrev -> Library
-library = Library . mappend "amazonka-" . Text.toLower . unAbbrev
-
 data Cabal = Cabal
     { _cLibrary      :: !Library
     , _cVersion      :: !Version

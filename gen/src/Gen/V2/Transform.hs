@@ -44,7 +44,7 @@ transformS1ToS2 :: Stage1 -> Stage2
 transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
   where
     cabal = Cabal
-        { _cLibrary      = library abbrev
+        { _cLibrary      = fromMaybe (library abbrev) (s1 ^. s1Library)
         , _cVersion      = initial
         , _cSynopsis     = ""
         , _cDescription  = ""

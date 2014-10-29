@@ -79,7 +79,7 @@ copyAssets s d = do
     fs <- map (combine s) . filter dots <$> scriptIO (getDirectoryContents s)
     scriptIO (mapM_ copy fs)
   where
-    copy f@(dest -> p) = say "Copying Asset" p >> copyFile f p
+    copy f@(dest -> p) = say "Copy Asset" p >> copyFile f p
 
     dest f = d </> takeFileName f
 

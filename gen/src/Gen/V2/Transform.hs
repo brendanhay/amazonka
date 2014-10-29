@@ -23,6 +23,7 @@ import           Control.Error
 import           Control.Lens               hiding (transform, op)
 import           Control.Monad
 import           Control.Monad.State.Strict
+import           Data.Bifunctor
 import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
 import           Data.HashSet               (HashSet)
@@ -105,26 +106,28 @@ transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
 transform :: Abbrev
           -> Stage1
           -> (HashMap Text (Mod Operation), HashMap Text Data)
-transform a s1 = runState (Map.traverseWithKey (const f) (s1 ^. s1Operations)) s
+transform a s1 = second (Map.map snd) (runState run s)
   where
-    f = operation a (s1 ^. mProtocol)
-    s = prefixes $ dataTypes (s1 ^. s1Shapes)
+    run = Map.traverseWithKey (const f) (s1 ^. s1Operations)
 
-prefixes :: HashMap Text Data -> HashMap Text Data
+    f = operation a (s1 ^. mProtocol)
+    s = prefixes (dataTypes (s1 ^. s1Shapes))
+
+prefixes :: HashMap Text (a, Data) -> HashMap Text (a, Data)
 prefixes m = evalState (Map.fromList <$> mapM run (Map.toList m)) mempty
   where
-    run (k, v) = (k,) <$> go (prefix k) v
+    run (k, (s, x)) = (\y -> (k, (s, y))) <$> go (prefix k) x
 
     prefix k = Text.toLower (fromMaybe (Text.take 3 k) (toAcronym k))
 
     go :: MonadState (HashSet Text) m => Text -> Data -> m Data
-    go k v = do
-        let m = prefixed k v
-            fs = Set.fromList (fields m)
+    go k v1 = do
+        let v2 = prefixed k v1
+            fs = Set.fromList (fields v2)
         p <- gets (Set.null . Set.intersection fs)
         if p
-            then modify (mappend fs) >> return m
-            else go (numericSuffix k) v -- original v
+            then modify (mappend fs) >> return v2
+            else go (numericSuffix k) v1
 
     prefixed k (Newtype f)  = Newtype (f & nameOf %~ mappend k)
     prefixed k (Record  fs) = Record  (map (over nameOf (mappend k)) fs)
@@ -139,7 +142,7 @@ prefixes m = evalState (Map.fromList <$> mapM run (Map.toList m)) mempty
 operation :: Abbrev
           -> Protocol
           -> S1.Operation
-          -> State (HashMap Text Data) (Mod Operation)
+          -> State (HashMap Text (S1.Shape, Data)) (Mod Operation)
 operation a p o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
   where
     op rq rs = Mod
@@ -155,55 +158,79 @@ operation a p o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
         , _mImports   = [requestNS p, typesNS a]
         }
 
-    request :: Maybe Ref -> State (HashMap Text Data) (Named Request)
-    request = fmap (fmap Request) . go
+    request = fmap (fmap Request) . go True
 
-    response :: Maybe Ref -> State (HashMap Text Data) (Named Response)
-    response r = fmap (Response w k) <$> go r
+    response r = fmap (Response w k) <$> go False r
       where
         w = fromMaybe False (join (_refWrapper <$> r))
         k = join (_refResultWrapper <$> r)
 
-    go Nothing  = return (Named "Empty" Empty)
-    go (Just x) = do
+    go _  Nothing  = return (Named "Empty" Empty)
+    go rq (Just x) = do
         let k = x ^. refShape
         m <- gets (^. at k)
         case m of
-            Nothing -> return (Named k Empty)
-            Just d  -> do
+            Nothing     -> return (Named k Empty)
+            Just (s, d) -> do
                 modify (Map.delete k)
-                return (Named k d)
+                return (Named k (setStreaming rq d))
 
-dataTypes :: HashMap Text S1.Shape -> HashMap Text Data
-dataTypes m = evalState run mempty
+dataTypes :: HashMap Text S1.Shape -> HashMap Text (S1.Shape, Data)
+dataTypes m = evalState (Map.traverseWithKey descend m) mempty
   where
-    run = Map.fromList . catMaybes <$> mapM (uncurry struct) (Map.toList m)
+    descend :: Text -> S1.Shape -> State (HashMap Text Type) (S1.Shape, Data)
+    descend k = \case
+        s@(Struct' x) -> (s,) <$> solve x
+        s             -> return (s, Empty)
 
-    struct k = \case
-        Struct' s -> Just . (k,) <$> solve s
-        _         -> return Nothing
+    solve :: S1.SStruct -> State (HashMap Text Type) Data
+    solve s = go <$> mapM (field pay req) (ordMap (s ^. scMembers))
+      where
+        pay = s ^. scPayload
+        req = fromMaybe [] (s ^. scRequired)
 
-    solve SStruct{..} = do
-        fs <- forM (ordMap _scMembers) $ \(k, r) -> do
-            t <- required _scRequired k <$> ref r
-            return (k, Typed t (Field (r ^. refLocation) (r ^. refLocationName)))
+        go []       = Empty
+        go [(n, f)] = Newtype (Named n f)
+        go fs       = Record  (map (uncurry Named) fs)
 
-        return $ case fs of
-            []       -> Empty
-            [(n, f)] -> Newtype (Named n f)
-            _        -> Record  (map (uncurry Named) fs)
+    field :: Maybe Text
+          -> [Text]
+          -> (Text, Ref)
+          -> State (HashMap Text Type) (Text, Typed Field)
+    field pay req (k, r) = do
+        t <- require req k <$> ref r
 
-    required (fromMaybe [] -> rs) k x =
-        let f = if k `elem` rs then id else TMaybe
-         in case x of
-                TType{} -> f x
-                TPrim{} -> f x
+        let l = r ^. refLocation
+            n = r ^. refLocationName
+            p = pay == Just k
+            s = fromMaybe False (r ^. refStreaming)
+
+        return (k, Typed t (Field l n p s))
+
+    require :: [Text] -> Text -> Type -> Type
+    require req k x
+        | k `elem` req = x
+        | otherwise    =
+            case x of
+                TType{} -> TMaybe x
+                TPrim{} -> TMaybe x
                 _       -> x
+
+    ref :: Ref -> State (HashMap Text Type) Type
+    ref r = do
+        let k = r ^. refShape
+            t = TType k
+        x <- gets (Map.lookup k)
+        maybe (maybe (insert k t >> return t)
+                     (prop . Named k)
+                     (Map.lookup k m))
+              return
+              x
 
     prop :: Named S1.Shape -> State (HashMap Text Type) Type
     prop (Named k s) =  do
         x <- gets (Map.lookup k)
-        maybe (go >>= ins k)
+        maybe (go >>= insert k)
               return
               x
       where
@@ -217,28 +244,14 @@ dataTypes m = evalState run mempty
             Double' x -> pure (TPrim PDouble)
             Bool'   _ -> pure (TPrim PBool)
             Time'   x -> pure (TPrim . PTime $ defaultTS (x ^. tsTimestampFormat))
-            Blob'   x
-                -- | Just True <- x ^. refStreaming
-                --             -> pure (TBody True)
-                | otherwise -> pure (TPrim PBlob)
+            Blob'   x -> pure (TPrim PBlob)
 
         list SList{..}
             | fromMaybe 0 _lstMin > 0 = TList1
             | otherwise               = TList
 
-    ref :: Ref -> State (HashMap Text Type) Type
-    ref r = do
-        let k = r ^. refShape
-            t = TType k
-        x <- gets (Map.lookup k)
-        maybe (maybe (ins k t >> return t)
-                     (prop . Named k)
-                     (Map.lookup k m))
-              return
-              x
-
-    ins :: Text -> Type -> State (HashMap Text Type) Type
-    ins k t = modify (Map.insert k t) >> return t
+    insert :: Text -> Type -> State (HashMap Text Type) Type
+    insert k t = modify (Map.insert k t) >> return t
 
 trimS2 :: Stage2 -> Stage2
 trimS2 = id

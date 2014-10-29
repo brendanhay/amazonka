@@ -25,14 +25,10 @@ module Gen.V2.Stage1 where
 import           Control.Applicative
 import           Control.Error
 import           Control.Lens
-import           Control.Monad
 import           Data.HashMap.Strict  (HashMap)
 import           Data.Jason           as Jason
-import           Data.Jason.TH
 import           Data.Jason.Types
-import           Data.Monoid
 import           Data.Text            (Text)
-import           Data.Text.Manipulate
 import qualified Data.Vector          as Vector
 import           Gen.V2.Log
 import           Gen.V2.Naming
@@ -170,6 +166,8 @@ data Shape
     | Time'   STime
     | Blob'   SBlob
       deriving (Eq, Show)
+
+makePrisms ''Shape
 
 instance FromJSON Shape where
     parseJSON = withObject "shape" $ \o -> do

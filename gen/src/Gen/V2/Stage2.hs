@@ -28,6 +28,8 @@
 
 module Gen.V2.Stage2 where
 
+import Control.Lens.Plated
+import           Control.Applicative
 import           Control.Error
 import           Control.Lens        hiding ((.=), (<.>), op)
 import           Data.Char
@@ -109,6 +111,8 @@ instance (DerivingOf a, ToJSON a) => ToJSON (Derived a) where
 
 data Prim
     = PBlob
+    | PReq
+    | PRes
     | PBool
     | PText
     | PInt
@@ -119,48 +123,54 @@ data Prim
 
 primitive :: Prim -> Text
 primitive = \case
-    PBlob    -> "Blob"
-    PBool    -> "Bool"
-    PText    -> "Text"
-    PInt     -> "Int"
-    PInteger -> "Integer"
-    PDouble  -> "Double"
-    PTime ts -> "Time " <> timestamp ts
+    PBlob     -> "Blob"
+    PReq      -> "RqBody"
+    PRes      -> "RsBody"
+    PBool     -> "Bool"
+    PText     -> "Text"
+    PInt      -> "Int"
+    PInteger  -> "Integer"
+    PDouble   -> "Double"
+    PTime ts  -> "Time " <> timestamp ts
 
 instance DerivingOf Prim where
     derivingOf = (def ++) . \case
-        PBlob    -> []
         PBool    -> [Enum']
         PText    -> [Monoid']
         PInt     -> [Num', Enum']
         PInteger -> [Num', Enum']
         PDouble  -> [Num', Enum']
-        PTime{}  -> []
+        _        -> []
       where
         def = [Eq', Ord', Show', Generic']
 
 data Type
-    = TType   !Text
-    | TPrim   !Prim
-    | TBody   !Bool
-    | TList   !Type
-    | TList1  !Type
-    | TMap    !Type !Type
-    | TMaybe  !Type
+    = TType  !Text
+    | TPrim  !Prim
+    | TList  !Type
+    | TList1 !Type
+    | TMap   !Type !Type
+    | TMaybe !Type
       deriving (Eq, Show)
+
+instance Plated Type where
+    plate f = \case
+        TList   x   -> TList  <$> f x
+        TList1  x   -> TList1 <$> f x
+        TMap    k v -> TMap   <$> f k <*> f v
+        TMaybe  x   -> TMaybe <$> f x
+        x           -> pure x
 
 instance ToJSON Type where
     toJSON = toJSON . go
       where
         go = \case
-            TType   t     -> t
-            TPrim   p     -> primitive p
-            TBody   True  -> "RqBody"
-            TBody   False -> "RsBody"
-            TList   x     -> "List "  <> wrap (go x)
-            TList1  x     -> "List1 " <> wrap (go x)
-            TMap    k v   -> "Map "   <> wrap (go k) <> " " <> wrap (go v)
-            TMaybe  x     -> "Maybe " <> wrap (go x)
+            TType   t   -> t
+            TPrim   p   -> primitive p
+            TList   x   -> "List "  <> wrap (go x)
+            TList1  x   -> "List1 " <> wrap (go x)
+            TMap    k v -> "Map "   <> wrap (go k) <> " " <> wrap (go v)
+            TMaybe  x   -> "Maybe " <> wrap (go x)
 
         wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
         parens t = "(" <> t <> ")"
@@ -182,7 +192,6 @@ instance DerivingOf Type where
     derivingOf = \case
         TType  _   -> [Eq', Ord', Show', Generic']
         TPrim  p   -> derivingOf p
-        TBody  _   -> [Show']
         TList  x   -> Monoid' : derivingOf x
         TList1 x   -> Semigroup' : derivingOf x
         TMap   k v -> derivingOf k `intersect` derivingOf v
@@ -222,6 +231,8 @@ type Ann a = Named (Typed a)
 data Field = Field
     { _fLocation     :: Maybe Location
     , _fLocationName :: Maybe Text
+    , _fPayload      :: !Bool
+    , _fStreaming    :: !Bool
     } deriving (Eq, Show)
 
 record stage2 ''Field
@@ -260,6 +271,22 @@ instance TypesOf Data where
         Record  fs -> typesOf fs
         Nullary fs -> typesOf fs
         Empty      -> []
+
+setStreaming :: Bool -> Data -> Data
+setStreaming rq = \case
+    Newtype f  -> Newtype (go f)
+    Record  fs -> Record  (map go fs)
+    Nullary fs -> Nullary (map go fs)
+    Empty      -> Empty
+  where
+    go x = x & typeOf %~ transform (body (x ^. namedV.typedV.fStreaming))
+
+    body :: Bool -> Type -> Type
+    body True (TMaybe x@(TPrim PBlob)) = body True x
+    body True (TPrim PBlob)
+        | rq        = TPrim PReq
+        | otherwise = TPrim PRes
+    body _    x     = x
 
 data Body
     = XML

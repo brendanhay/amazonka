@@ -1,11 +1,9 @@
-{-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveFoldable             #-}
 {-# LANGUAGE DeriveFunctor              #-}
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE ExtendedDefaultRules       #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE KindSignatures             #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE TemplateHaskell            #-}
@@ -204,22 +202,20 @@ instance FromJSON Abbrev where
 maybeAbbrev :: Text -> Maybe Abbrev -> Abbrev
 maybeAbbrev t = fromMaybe (Abbrev (stripAWS t))
 
-data Stage = S1 | S2
-
-data Model (a :: Stage) = Model
+data Model = Model
     { _mName    :: String
     , _mVersion :: String
     , _mPath    :: FilePath
     , _mModel   :: Object
     } deriving (Show, Eq)
 
-instance Ord (Model a) where
+instance Ord Model where
     compare a b = comparing _mName a b <> comparing _mVersion a b
 
 data Templates = Templates
-    { _tCabal     :: Template
-    , _tInterface :: Template
-    , _tService   :: Protocol -> (Template, Template)
+    { _tCabal    :: Template
+    , _tService  :: Template
+    , _tProtocol :: Protocol -> (Template, Template)
     }
 
 dots :: FilePath -> Bool

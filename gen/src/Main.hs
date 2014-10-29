@@ -133,8 +133,9 @@ main = do
             -- let !r = trimS2 s2
 
             -- Render the templates, creating or overriding the target library.
-            S2.render (o ^. out) ts s2
+            lib <- S2.render (o ^. out) ts s2
 
             -- Copy static assets to the library root.
-            -- copyAssets _assets ?
+            copyAssets (o ^. assets) lib
+
             return ()

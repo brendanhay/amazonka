@@ -90,9 +90,9 @@ renderFile :: (ToFilePath a, A.ToJSON a)
            -> a
            -> Script ()
 renderFile lbl d t x = do
+    createDir (dropFileName f)
     say lbl f
     txt <- toEnv >>= hoistEither . EDE.eitherRender t
-    createDir (dropFileName f)
     scriptIO (LText.writeFile f txt)
   where
     f = d </> toFilePath x
@@ -103,9 +103,7 @@ renderFile lbl d t x = do
         e          -> left  ("Failed to extract JSON Object from: " ++ show e)
 
 createDir :: MonadIO m => FilePath -> EitherT String m ()
-createDir d = scriptIO $ do
-    say "Create Directory" d
-    createDirectoryIfMissing True d
+createDir = scriptIO . createDirectoryIfMissing True
 
 reqObject :: FromJSON a => FilePath -> Script a
 reqObject f = loadObject f >>= hoistEither

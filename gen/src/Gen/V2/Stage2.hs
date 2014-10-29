@@ -413,7 +413,7 @@ data Stage2 = Stage2
 
 record stage2 ''Stage2
 
-store :: ToJSON a => FilePath -> Model S1 -> a -> Script ()
+store :: ToJSON a => FilePath -> Model -> a -> Script ()
 store d m x = scriptIO $ do
     p <- doesFileExist f
     say (if p then "Overwrite" else "Create") f
@@ -421,12 +421,20 @@ store d m x = scriptIO $ do
   where
     f = d </> _mName m <.> "json"
 
-render :: FilePath -> Templates -> Stage2 -> Script ()
+render :: FilePath -> Templates -> Stage2 -> Script FilePath
 render d Templates{..} s2 = do
     createDir src
-    renderFile "Render Types" gen t (s2 ^. s2Types)
+
+    renderFile "Render Cabal"   gen _tCabal   (s2 ^. s2Types)
+    renderFile "Render Service" gen _tService (s2 ^. s2Types)
+    renderFile "Render Types"   gen t         (s2 ^. s2Types)
+
+    mapM_ (renderFile "Render Operation" gen o) $
+        Map.elems (s2 ^. s2Operations)
+
+    return (rel "")
   where
-    (t, o) = _tService (s2 ^. s2Service.mModule.svProtocol)
+    (t, o) = _tProtocol (s2 ^. s2Service.mModule.svProtocol)
 
     src :: FilePath
     src = rel "src"
@@ -435,7 +443,4 @@ render d Templates{..} s2 = do
     gen = rel "gen"
 
     rel :: ToFilePath a => a -> FilePath
-    rel = combine d . combine lib . toFilePath
-
-    lib :: FilePath
-    lib = toFilePath (s2 ^. s2Cabal.cLibrary)
+    rel = combine d . combine (toFilePath (s2 ^. s2Cabal.cLibrary)) . toFilePath

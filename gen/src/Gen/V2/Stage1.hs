@@ -258,7 +258,7 @@ record stage1 ''Stage1
 instance HasMetadata Stage1 where
     metadata = s1Metadata
 
-load :: FilePath -> Script (Model S1)
+load :: FilePath -> Script Model
 load d = do
     v <- version
     Model name v d . merge <$> sequence
@@ -280,7 +280,7 @@ load d = do
 
     name = takeBaseName (dropTrailingPathSeparator d)
 
-decode :: Model S1 -> Script Stage1
+decode :: Model -> Script Stage1
 decode Model{..} = do
     say "Decode Model" _mPath
     hoistEither (parseEither parseJSON (Object _mModel))

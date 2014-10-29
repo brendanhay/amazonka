@@ -407,7 +407,7 @@ instance ToFilePath (Mod a) where
 data Stage2 = Stage2
     { _s2Cabal      :: Cabal
     , _s2Service    :: Mod Service
-    , _s2Operations :: HashMap Text (Mod Operation)
+    , _s2Operations :: [Mod (Named Operation)]
     , _s2Types      :: Mod (HashMap Text Data)
     } deriving (Eq, Show)
 
@@ -425,14 +425,13 @@ render :: FilePath -> Templates -> Stage2 -> Script FilePath
 render d Templates{..} s2 = do
     createDir src
 
-    renderFile "Render Cabal"   gen _tCabal   (s2 ^. s2Types)
-    renderFile "Render Service" gen _tService (s2 ^. s2Types)
+    renderFile "Render Cabal"   lib _tCabal   (s2 ^. s2Cabal)
+    renderFile "Render Service" gen _tService (s2 ^. s2Service)
     renderFile "Render Types"   gen t         (s2 ^. s2Types)
 
-    mapM_ (renderFile "Render Operation" gen o) $
-        Map.elems (s2 ^. s2Operations)
+    mapM_ (renderFile "Render Operation" gen o) (s2 ^. s2Operations)
 
-    return (rel "")
+    return lib
   where
     (t, o) = _tProtocol (s2 ^. s2Service.mModule.svProtocol)
 
@@ -441,6 +440,9 @@ render d Templates{..} s2 = do
 
     gen :: FilePath
     gen = rel "gen"
+
+    lib :: FilePath
+    lib = rel ""
 
     rel :: ToFilePath a => a -> FilePath
     rel = combine d . combine (toFilePath (s2 ^. s2Cabal.cLibrary)) . toFilePath

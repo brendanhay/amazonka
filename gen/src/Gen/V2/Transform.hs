@@ -83,11 +83,11 @@ transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
         , _mImports   = []
         }
 
-    operationNamespaces = map (view mNamespace) (Map.elems ops)
+    operationNamespaces = map (view mNamespace) ops
 
     abbrev = maybeAbbrev (s1 ^. mServiceFullName) (s1 ^. mServiceAbbreviation)
 
-    (ops, ts) = types abbrev s1
+    (ops, Map.filter (/= Empty) -> ts) = types abbrev s1
 
     version = s1 ^. mApiVersion
 
@@ -103,10 +103,10 @@ transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
         <> version
         <> "/"
 
-types :: Abbrev -> Stage1 -> (HashMap Text (Mod Operation), HashMap Text Data)
+types :: Abbrev -> Stage1 -> ([Mod (Named Operation)], HashMap Text Data)
 types a s1 = second (Map.map snd) (runState run s)
   where
-    run = Map.traverseWithKey (const f) (s1 ^. s1Operations)
+    run = Map.elems <$> Map.traverseWithKey f (s1 ^. s1Operations)
 
     f = operation a (s1 ^. mProtocol)
     s = prefixes (datas (s1 ^. s1Shapes))
@@ -139,12 +139,13 @@ prefixes m = evalState (Map.fromList <$> mapM run (Map.toList m)) mempty
 
 operation :: Abbrev
           -> Protocol
+          -> Text
           -> S1.Operation
-          -> State (HashMap Text (S1.Shape, Data)) (Mod Operation)
-operation a p o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
+          -> State (HashMap Text (S1.Shape, Data)) (Mod (Named Operation))
+operation a p n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
   where
     op rq rs = Mod
-        { _mModule = Operation
+        { _mModule = Named n $ Operation
             { _opDocumentation    = documentation (o ^. oDocumentation)
             , _opDocumentationUrl = o ^. oDocumentationUrl
             , _opMethod           = o ^. oHttp.hMethod

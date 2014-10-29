@@ -118,8 +118,7 @@ main = do
             let !s2 = transformS1ToS2 s1
 
             -- Store the intemediary Stage2 AST as JSON.
-            -- Note: This is primarily done for debugging purposes,
-            -- but it's also convenient for merging overrides.
+            -- Note: This is primarily done for debugging purposes.
             S2.store (o ^. services) m s2
 
             -- -- Load the intemediary Stage2 JSON,
@@ -133,9 +132,9 @@ main = do
             -- let !r = trimS2 s2
 
             -- Render the templates, creating or overriding the target library.
-            lib <- S2.render (o ^. out) ts s2
+--            lib <- S2.render (o ^. out) ts s2
 
             -- Copy static assets to the library root.
-            copyAssets (o ^. assets) lib
+--            copyAssets (o ^. assets) lib
 
             return ()

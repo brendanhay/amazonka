@@ -30,6 +30,7 @@ import qualified Data.Aeson           as A
 import           Data.Attoparsec.Text (Parser, parseOnly)
 import qualified Data.Attoparsec.Text as AText
 import           Data.Bifunctor
+import           Data.CaseInsensitive (CI)
 import           Data.Foldable        (Foldable)
 import           Data.HashMap.Strict  (HashMap)
 import           Data.Jason.Types     hiding (Parser)
@@ -39,6 +40,7 @@ import           Data.Ord
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Traversable     (Traversable, traverse)
+import           Gen.V2.JSON          ()
 import           Gen.V2.Names
 import           Gen.V2.TH
 import           Text.EDE             (Template)
@@ -212,18 +214,24 @@ newtype Library = Library Text
 instance ToFilePath Library where
     toFilePath (Library t) = Text.unpack t
 
-data Overrides = Overrides
-    { _ovRequired :: Maybe (HashMap Text Text)
-    } deriving (Show, Eq)
+data Override = Override
+    { _ovRenameTo  :: Maybe Text             -- ^ Rename type
+    , _ovExistsAs  :: Maybe Text             -- ^ Existing type that supplants this type
+    , _ovSumPrefix :: Maybe Text             -- ^ Sum constructor prefix
+    , _ovRequired  :: [CI Text]              -- ^ Required fields
+    , _ovIgnored   :: [CI Text]              -- ^ Ignored fields
+    , _ovRenamed   :: HashMap (CI Text) Text -- ^ Rename fields
+    , _ovTyped     :: HashMap (CI Text) Text -- ^ Field types
+    } deriving (Eq, Show)
 
-record stage1 ''Overrides
+record stage1 ''Override
 
 data Model = Model
     { _mName      :: String
     , _mVersion   :: String
     , _mPath      :: FilePath
     , _mModel     :: Object
-    , _mOverrides :: Overrides
+    , _mOverrides :: HashMap (CI Text) Override
     } deriving (Show, Eq)
 
 instance Ord Model where

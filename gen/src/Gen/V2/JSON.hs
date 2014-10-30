@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleInstances    #-}
 {-# LANGUAGE OverloadedStrings    #-}
 {-# LANGUAGE RecordWildCards      #-}
 {-# LANGUAGE ViewPatterns         #-}
@@ -16,12 +17,24 @@
 
 module Gen.V2.JSON where
 
-import qualified Data.Aeson       as A
-import           Data.Function    (on)
+import qualified Data.Aeson           as A
+import           Data.Bifunctor
+import           Data.CaseInsensitive (CI)
+import qualified Data.CaseInsensitive as CI
+import           Data.Function        (on)
+import           Data.HashMap.Strict  (HashMap)
+import qualified Data.HashMap.Strict  as Map
 import           Data.Jason.Types
 import           Data.List
 import           Data.Monoid
-import           Data.SemVer      (Version, fromText, toText)
+import           Data.SemVer          (Version, fromText, toText)
+import           Data.Text            (Text)
+
+instance FromJSON (CI Text) where
+    parseJSON = withText "case-insensitive" (return . CI.mk)
+
+instance FromJSON a => FromJSON (HashMap (CI Text) a) where
+    parseJSON = fmap (Map.fromList . map (first CI.mk) . Map.toList) . parseJSON
 
 instance FromJSON Version where
     parseJSON = withText "semantic_version" $
@@ -47,4 +60,3 @@ merge = foldl' go mempty
       where
         g (k, x) | Just y <- lookup k ys = (k, f x y)
                  | otherwise             = (k, x)
-

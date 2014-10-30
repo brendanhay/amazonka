@@ -33,7 +33,7 @@
             "exists": "BucketName"
         },
         "ObjectKey": {
-            "exists": "ObjectKey"
+            "exists_as": "ObjectKey"
         },
         "ObjectVersionId": {
             "exists": "ObjectVersionId"

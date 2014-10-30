@@ -49,7 +49,6 @@ import           Gen.V2.IO
 import           Gen.V2.JSON              ()
 import           Gen.V2.TH
 import           Gen.V2.Types
-import           System.Directory
 import           System.FilePath
 
 default (Text, FilePath)

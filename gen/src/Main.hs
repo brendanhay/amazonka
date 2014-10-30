@@ -121,12 +121,6 @@ main = do
             -- Note: This is primarily done for debugging purposes.
             S2.store (o ^. services) m s2
 
-            -- -- Decode the Stage2 JSON to AST.
-            -- !s2 <- decodeS2 m2
-
-            -- -- Truncation and trimming phase of Stage2 AST.
-            -- let !r = trimS2 s2
-
             -- Render the templates, creating or overriding the target library.
             lib <- S2.render (o ^. out) ts s2
 

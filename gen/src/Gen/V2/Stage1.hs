@@ -24,9 +24,9 @@ module Gen.V2.Stage1 where
 
 import           Control.Applicative
 import           Control.Error
-import           Control.Lens        hiding ((<.>))
+import           Control.Lens        hiding ((<.>), (??))
 import           Data.HashMap.Strict (HashMap)
-import           Data.Jason          as Jason
+import           Data.Jason          as J
 import           Data.Jason.Types
 import           Data.Text           (Text)
 import qualified Data.Vector         as Vector
@@ -196,9 +196,9 @@ data Key
 
 instance FromJSON Key where
     parseJSON = \case
-        Jason.String t -> pure (One t)
-        Jason.Array  v -> Many <$> traverse parseJSON (Vector.toList v)
-        e              -> fail ("Unknown Pager Key: " ++ show e)
+        J.String t -> pure (One t)
+        J.Array  v -> Many <$> traverse parseJSON (Vector.toList v)
+        e          -> fail ("Unknown Pager Key: " ++ show e)
 
 data Pager = Pager
     { _pgMoreResults      :: Maybe Text
@@ -245,13 +245,13 @@ data Metadata = Metadata
 classy stage1 ''Metadata
 
 data Stage1 = Stage1
-    { _s1Metadata      :: Metadata
-    , _s1Library       :: !Library
-    , _s1Documentation :: Maybe Text
+    { _s1Library       :: !Library
+    , _s1Metadata      :: Metadata
+    , _s1Documentation :: Text
     , _s1Operations    :: HashMap Text Operation
     , _s1Shapes        :: HashMap Text Shape
     , _s1Pagination    :: HashMap Text Pager
-    , _a1Waiters       :: HashMap Text Waiter
+    , _s1Waiters       :: HashMap Text Waiter
     } deriving (Eq, Show)
 
 record stage1 ''Stage1
@@ -261,8 +261,7 @@ instance HasMetadata Stage1 where
 
 model :: FilePath -> FilePath -> Script Model
 model d o = do
-    v <- version
-    say "Load Overrides" override
+    v  <- version
     m1 <- reqObject override
     m2 <- merge <$> sequence
         [ return m1
@@ -270,7 +269,8 @@ model d o = do
         , optObject "waiters"    (waiters v)
         , optObject "pagination" (pagers  v)
         ]
-    Model name v d m2 <$> hoistEither (parseEither parseJSON (Object m1))
+    x <- lookup "overrides" (unObject m1) ?? "Unable to find key: overrides"
+    Model name v d m2 <$> hoistEither (parseEither parseJSON x)
   where
     version = do
         fs <- scriptIO (getDirectoryContents d)

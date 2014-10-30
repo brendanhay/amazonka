@@ -52,7 +52,7 @@ JSON := \
  logs \
  cognito-identity
 
-MODELS ?= $(RESTS3) $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
+MODELS ?= $(RESTS3) # $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 
 .PHONY: gen
 

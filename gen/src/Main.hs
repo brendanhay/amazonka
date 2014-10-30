@@ -28,6 +28,7 @@ import qualified Gen.V2.Stage2          as S2
 import           Gen.V2.Transform
 import           Options.Applicative
 import           System.Directory
+import           System.IO
 
 data Options = Options
     { _out       :: FilePath
@@ -101,6 +102,8 @@ canon = liftIO . canonicalizePath
 
 main :: IO ()
 main = do
+    hSetBuffering stdout LineBuffering
+
     o <- customExecParser (prefs showHelpOnError) options >>= validate
 
     runScript $ do

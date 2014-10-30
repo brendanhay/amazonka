@@ -33,6 +33,7 @@ import           Data.Bifunctor
 import           Data.CaseInsensitive (CI)
 import           Data.Foldable        (Foldable)
 import           Data.HashMap.Strict  (HashMap)
+import           Data.HashSet         (HashSet)
 import           Data.Jason.Types     hiding (Parser)
 import           Data.Maybe
 import           Data.Monoid
@@ -214,17 +215,32 @@ newtype Library = Library Text
 instance ToFilePath Library where
     toFilePath (Library t) = Text.unpack t
 
+-- library :: Text -> Maybe Abbrev -> Library
+-- library t = Library
+--     . mappend "amazonka-"
+--     . Text.toLower
+--     . stripAWS
+--     . maybe t unAbbrev
+
 data Override = Override
-    { _ovRenameTo  :: Maybe Text             -- ^ Rename type
-    , _ovExistsAs  :: Maybe Text             -- ^ Existing type that supplants this type
-    , _ovSumPrefix :: Maybe Text             -- ^ Sum constructor prefix
-    , _ovRequired  :: [CI Text]              -- ^ Required fields
-    , _ovIgnored   :: [CI Text]              -- ^ Ignored fields
-    , _ovRenamed   :: HashMap (CI Text) Text -- ^ Rename fields
-    , _ovTyped     :: HashMap (CI Text) Text -- ^ Field types
+    { _oRenameTo   :: Maybe Text             -- ^ Rename type
+    , _oReplacedBy :: Maybe Text             -- ^ Existing type that supplants this type
+    , _oSumPrefix  :: Maybe Text             -- ^ Sum constructor prefix
+    , _oRequired   :: HashSet (CI Text)      -- ^ Required fields
+    , _oIgnored    :: HashSet (CI Text)      -- ^ Ignored fields
+    , _oRenamed    :: HashMap (CI Text) Text -- ^ Rename fields
+    , _oTyped      :: HashMap (CI Text) Text -- ^ Field types
     } deriving (Eq, Show)
 
-record stage1 ''Override
+instance FromJSON Override where
+    parseJSON = withObject "override" $ \o -> Override
+        <$> o .:? "rename_to"
+        <*> o .:? "replaced_by"
+        <*> o .:? "sum_prefix"
+        <*> o .:? "required" .!= mempty
+        <*> o .:? "ignored"  .!= mempty
+        <*> o .:? "renamed"  .!= mempty
+        <*> o .:? "typed"    .!= mempty
 
 data Model = Model
     { _mName      :: String

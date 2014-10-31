@@ -35,6 +35,8 @@ import           Data.Aeson
 import           Data.Aeson.Encode.Pretty
 import           Data.Aeson.Types         (Pair)
 import qualified Data.ByteString.Lazy     as LBS
+import qualified Data.CaseInsensitive     as CI
+import           Data.CaseInsensitive     (CI)
 import           Data.Char
 import           Data.Foldable            (Foldable, foldl')
 import           Data.HashMap.Strict      (HashMap)
@@ -218,7 +220,10 @@ data Named a = Named
    , _namedV :: !a
    } deriving (Eq, Show, Functor, Foldable, Traversable)
 
-makeLenses ''Named
+makeClassy ''Named
+
+nameCI :: HasNamed a s => a -> CI Text
+nameCI = CI.mk . view nameOf
 
 instance ToJSON a => ToJSON (Named a) where
     toJSON (Named k v) = rewrap ("name", String k) (toJSON v)
@@ -276,6 +281,12 @@ instance TypesOf Data where
         Record  fs -> typesOf fs
         Nullary fs -> typesOf fs
         Empty      -> []
+
+mapFields :: (Ann Field -> Ann Field) -> Data -> Data
+mapFields f (Newtype x)  = Newtype (f x)
+mapFields f (Record  xs) = Record  (map f xs)
+mapFields f (Nullary xs) = Nullary (map f xs)
+mapFields _ Empty        = Empty
 
 setStreaming :: Bool -> Data -> Data
 setStreaming rq = \case

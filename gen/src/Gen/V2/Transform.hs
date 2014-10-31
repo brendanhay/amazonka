@@ -16,14 +16,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.V2.Transform where
+module Gen.V2.Transform (transformS1ToS2) where
 
 import           Control.Applicative        ((<$>), (<*>), pure)
 import           Control.Error
-import           Control.Lens               hiding (transform, op)
+import           Control.Lens               hiding (op, ignored)
 import           Control.Monad
 import           Control.Monad.State.Strict
-import           Data.Bifunctor
+import           Data.CaseInsensitive       (CI)
+import qualified Data.CaseInsensitive       as CI
 import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
 import           Data.HashSet               (HashSet)
@@ -40,8 +41,8 @@ import           Gen.V2.Stage1              hiding (Operation)
 import           Gen.V2.Stage2
 import           Gen.V2.Types
 
-transformS1ToS2 :: Stage1 -> Stage2
-transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
+transformS1ToS2 :: Model -> Stage1 -> Stage2
+transformS1ToS2 m s1 = Stage2 cabal serviceModule ops typesModule
   where
     cabal = Cabal
         { _cLibrary      = s1 ^. s1Library
@@ -88,7 +89,7 @@ transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
 
     abbrev = maybeAbbrev (s1 ^. mServiceFullName) (s1 ^. mServiceAbbreviation)
 
-    (ops, Map.filter (/= Empty) -> ts) = types abbrev s1
+    (ops, Map.filter (/= Empty) -> ts) = types (m ^. mOverrides) abbrev s1
 
     version = s1 ^. mApiVersion
 
@@ -104,18 +105,21 @@ transformS1ToS2 s1 = Stage2 cabal serviceModule ops typesModule
         <> version
         <> "/"
 
-types :: Abbrev -> Stage1 -> ([Mod (Named Operation)], HashMap Text Data)
-types a s1 = second (Map.map snd) (runState run s)
+types :: HashMap Text Override
+      -> Abbrev
+      -> Stage1
+      -> ([Mod (Named Operation)], HashMap Text Data)
+types os a s1 = runState run s
   where
     run = Map.elems <$> Map.traverseWithKey f (s1 ^. s1Operations)
 
     f = operation a (s1 ^. mProtocol)
-    s = prefixes (datas (s1 ^. s1Shapes))
+    s = prefixes (overrides os (datas (s1 ^. s1Shapes)))
 
-prefixes :: HashMap Text (a, Data) -> HashMap Text (a, Data)
+prefixes :: HashMap Text Data -> HashMap Text Data
 prefixes m = evalState (Map.fromList <$> mapM run (Map.toList m)) mempty
   where
-    run (k, (s, x)) = (\y -> (k, (s, y))) <$> go (prefix k) x
+    run (k, x) = (k,) <$> go (prefix k) x
 
     prefix k = Text.toLower (fromMaybe (Text.take 3 k) (toAcronym k))
 
@@ -128,10 +132,7 @@ prefixes m = evalState (Map.fromList <$> mapM run (Map.toList m)) mempty
             then modify (mappend fs) >> return v2
             else go (numericSuffix k) v1
 
-    prefixed k (Newtype f)  = Newtype (f & nameOf %~ mappend k)
-    prefixed k (Record  fs) = Record  (map (over nameOf (mappend k)) fs)
-    prefixed k (Nullary fs) = Nullary (map (over nameOf (mappend k)) fs)
-    prefixed _ Empty        = Empty
+    prefixed k = mapFields (nameOf %~ mappend k)
 
     fields (Newtype f)  = [f ^. nameOf]
     fields (Record  fs) = map (view nameOf) fs
@@ -142,7 +143,7 @@ operation :: Abbrev
           -> Protocol
           -> Text
           -> S1.Operation
-          -> State (HashMap Text (S1.Shape, Data)) (Mod (Named Operation))
+          -> State (HashMap Text Data) (Mod (Named Operation))
 operation a p n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
   where
     op rq rs = Mod
@@ -170,18 +171,76 @@ operation a p n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
         let k = x ^. refShape
         m <- gets (^. at k)
         case m of
-            Nothing     -> return (Named k Empty)
-            Just (_, d) -> do
+            Nothing -> return (Named k Empty)
+            Just d  -> do
                 modify (Map.delete k)
                 return (Named k (setStreaming rq d))
 
-datas :: HashMap Text S1.Shape -> HashMap Text (S1.Shape, Data)
+overrides :: HashMap Text Override -> HashMap Text Data -> HashMap Text Data
+overrides = flip (Map.foldlWithKey' run)
+  where
+    run :: HashMap Text Data -- ^ acc
+        -> Text              -- ^ key
+        -> Override          -- ^ val
+        -> HashMap Text Data
+    run r k o =
+          renameTo   k (o ^. oRenameTo)
+        . replacedBy k (o ^. oReplacedBy)
+        . sumPrefix  k (o ^. oSumPrefix)
+        . Map.adjust (mapFields field) k
+        $ r
+      where
+        field = required (o ^. oRequired)
+--              . ignored  (o ^. oIgnored)
+              . renamed  (o ^. oRenamed)
+
+    renameTo :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
+    renameTo _ Nothing  m = m
+    renameTo x (Just y) m = replaced x (Just y) $
+        maybe m (\z -> Map.delete x (Map.insert y z m))
+                (Map.lookup x m)
+
+    replacedBy :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
+    replacedBy x y = Map.filterWithKey (const . (/= x)) . replaced x y
+
+    replaced :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
+    replaced _ Nothing  = id
+    replaced x (Just y) = Map.map (mapFields (typeOf %~ transform go))
+      where
+        go :: Type -> Type
+        go (TType z)
+            | z == y = TType x
+        go z         = z
+
+    sumPrefix :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
+    sumPrefix _ Nothing  = id
+    sumPrefix x (Just y) = Map.adjust (mapFields (nameOf %~ mappend y)) x
+
+    -- Fields:
+
+    required :: HashSet (CI Text) -> Ann a -> Ann a
+    required s f
+        | Set.member (nameCI f) s
+        , TMaybe t <- f ^. typeOf = f & typeOf .~ t
+        | otherwise               = f
+
+    ignored :: HashSet (CI Text) -> Named a -> Maybe (Named a)
+    ignored s n
+        | Set.member (nameCI n) s = Nothing
+        | otherwise               = Just n
+
+    renamed :: HashMap (CI Text) Text -> Named a -> Named a
+    renamed m = nameOf %~ (\n -> fromMaybe n (Map.lookup (CI.mk n) m))
+
+datas :: HashMap Text S1.Shape -> HashMap Text Data
 datas m = evalState (Map.traverseWithKey (const descend) m) mempty
   where
-    descend :: S1.Shape -> State (HashMap Text Type) (S1.Shape, Data)
+    descend :: S1.Shape -> State (HashMap Text Type) Data
     descend = \case
-        s@(Struct' x) -> (s,) <$> solve x
-        s             -> return (s, Empty)
+        (Struct' x) -> solve x
+        _           -> return Empty
+
+    ^^ need to add newtype and nullary here
 
     solve :: S1.SStruct -> State (HashMap Text Type) Data
     solve s = go <$> mapM (field pay req) (ordMap (s ^. scMembers))

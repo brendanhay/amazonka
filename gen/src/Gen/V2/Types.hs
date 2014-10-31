@@ -229,8 +229,10 @@ data Override = Override
     , _oRequired   :: HashSet (CI Text)      -- ^ Required fields
     , _oIgnored    :: HashSet (CI Text)      -- ^ Ignored fields
     , _oRenamed    :: HashMap (CI Text) Text -- ^ Rename fields
-    , _oTyped      :: HashMap (CI Text) Text -- ^ Field types
+--    , _oTyped      :: HashMap (CI Text) Text -- ^ Field types
     } deriving (Eq, Show)
+
+makeLenses ''Override
 
 instance FromJSON Override where
     parseJSON = withObject "override" $ \o -> Override
@@ -240,15 +242,17 @@ instance FromJSON Override where
         <*> o .:? "required" .!= mempty
         <*> o .:? "ignored"  .!= mempty
         <*> o .:? "renamed"  .!= mempty
-        <*> o .:? "typed"    .!= mempty
+--        <*> o .:? "typed"    .!= mempty
 
 data Model = Model
     { _mName      :: String
     , _mVersion   :: String
     , _mPath      :: FilePath
     , _mModel     :: Object
-    , _mOverrides :: HashMap (CI Text) Override
+    , _mOverrides :: HashMap Text Override
     } deriving (Show, Eq)
+
+makeLenses ''Model
 
 instance Ord Model where
     compare a b = comparing _mName a b <> comparing _mVersion a b

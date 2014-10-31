@@ -104,7 +104,8 @@ main :: IO ()
 main = do
     hSetBuffering stdout LineBuffering
 
-    o <- customExecParser (prefs showHelpOnError) options >>= validate
+    o <- customExecParser (prefs showHelpOnError) options
+        >>= validate
 
     runScript $ do
         !ts <- loadTemplates (o ^. templates)
@@ -118,7 +119,7 @@ main = do
             !s1 <- S1.decode m
 
             -- Transformation from Stage1 -> Stage2 AST.
-            let !s2 = transformS1ToS2 s1
+            let !s2 = transformS1ToS2 m s1
 
             -- Store the intemediary Stage2 AST as JSON.
             -- Note: This is primarily done for debugging purposes.

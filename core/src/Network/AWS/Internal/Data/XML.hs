@@ -23,7 +23,7 @@ import           Control.Applicative
 import           Control.Monad
 import qualified Data.ByteString                as BS
 import           Data.ByteString.Lazy.Char8     (ByteString)
-import           Data.Default
+import           Data.Default.Class
 import           Data.Foldable                  (foldr', foldrM)
 import           Data.HashMap.Strict            (HashMap)
 import qualified Data.HashMap.Strict            as Map

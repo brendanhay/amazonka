@@ -20,7 +20,7 @@ module Gen.AST where
 import           Control.Applicative
 import           Control.Lens
 import           Data.CaseInsensitive      (CI)
-import           Data.Default
+import           Data.Default.Class
 import           Data.Function
 import qualified Data.HashMap.Strict       as Map
 import           Data.Maybe

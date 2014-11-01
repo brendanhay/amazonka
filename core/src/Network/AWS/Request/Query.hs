@@ -13,7 +13,7 @@ module Network.AWS.Request.Query
     ) where
 
 import Control.Lens              hiding (Action)
-import Data.Default
+import Data.Default.Class
 import Network.AWS.Data
 import Network.AWS.Types
 import Network.HTTP.Types.Method

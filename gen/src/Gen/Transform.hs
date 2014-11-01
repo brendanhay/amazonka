@@ -24,7 +24,7 @@ import           Data.Bifunctor
 import           Data.CaseInsensitive (CI)
 import qualified Data.CaseInsensitive as CI
 import           Data.Char
-import           Data.Default
+import           Data.Default.Class
 import qualified Data.HashMap.Strict  as Map
 import           Data.List
 import           Data.Maybe

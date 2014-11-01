@@ -24,7 +24,7 @@ module Network.AWS
     , envAuth
     , envRegion
     , envManager
-    , envLogging
+    , envLogger
     -- ** Creating the environment
     , Credentials (..)
     , newEnv
@@ -57,7 +57,7 @@ import           Network.HTTP.Conduit
 -- | The environment containing the parameters required to make AWS requests.
 data Env = Env
     { _envRegion  :: !Region
-    , _envLogging :: Logging
+    , _envLogger  :: Logger
     , _envManager :: Manager
     , _envAuth    :: Auth
     }
@@ -67,7 +67,7 @@ makeLenses ''Env
 -- | This creates a new environment without debug logging and uses 'getAuth'
 -- to expand/discover the supplied 'Credentials'.
 --
--- Lenses such as 'envLogging' can be used to modify the 'Env' with a debug logger.
+-- Lenses such as 'envLogger' can be used to modify the 'Env' with a debug logger.
 newEnv :: (Functor m, MonadIO m)
        => Region
        -> Credentials
@@ -88,14 +88,14 @@ send :: (MonadCatch m, MonadResource m, AWSRequest a)
 send Env{..} x@(request -> rq) = go `catch` er >>= response x
   where
     go = do
-        debug _envLogging $
+        debug _envLogger $
             "[Raw Request]\n" <> toText rq
         t  <- liftIO getCurrentTime
         s  <- Sign.sign _envAuth _envRegion rq t
-        debug _envLogging $
+        debug _envLogger $
             "[Signed Request]\n" <> toText s
         rs <- liftResourceT (http (s^.sgRequest) _envManager)
-        debug _envLogging $
+        debug _envLogger $
             "[Raw Response]\n" <> toText rs
         return (Right rs)
 

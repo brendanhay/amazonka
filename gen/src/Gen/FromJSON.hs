@@ -28,7 +28,7 @@ import qualified Data.ByteString.Char8      as BS
 import qualified Data.ByteString.Lazy       as LBS
 import           Data.CaseInsensitive       (CI)
 import qualified Data.CaseInsensitive       as CI
-import           Data.Default
+import           Data.Default.Class
 import           Data.Function
 import qualified Data.HashMap.Strict        as Map
 import           Data.Jason                 hiding (Error)

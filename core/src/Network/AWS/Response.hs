@@ -35,7 +35,7 @@ import           Data.ByteString              (ByteString)
 import qualified Data.ByteString.Lazy         as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
-import           Data.Default
+import           Data.Default.Class
 import           Data.Monoid
 import           Data.Text                    (Text)
 import           Network.AWS.Data

@@ -36,7 +36,7 @@ module Control.Monad.Trans.AWS
     , envAuth
     , envRegion
     , envManager
-    , envLogging
+    , envLogger
     , scoped
     -- ** Creating the environment
     , Credentials (..)
@@ -84,7 +84,7 @@ import           Data.Bifunctor
 import           Data.Conduit
 import           Data.Text                    (Text)
 import           Data.Time
-import           Network.AWS                  (Env, newEnv, envRegion, envLogging, envAuth, envManager)
+import           Network.AWS                  (Env, newEnv, envRegion, envLogger, envAuth, envManager)
 import qualified Network.AWS                  as AWS
 import           Network.AWS.Auth
 import qualified Network.AWS.Types            as Types
@@ -220,16 +220,16 @@ verifyWith p f e = either (const err) g (matching p e)
 scoped :: MonadReader Env m => (Env -> m a) -> m a
 scoped f = ask >>= f
 
--- | Use the logger from 'envLogging' to log a debug message.
+-- | Use the logger from 'envLogger' to log a debug message.
 debug :: (MonadIO m, MonadReader Env m) => Text -> m ()
-debug t = view envLogging >>= (`Types.debug` t)
+debug t = view envLogger >>= (`Types.debug` t)
 
--- | Perform a monadic action if 'envLogging' is set to 'Debug'.
+-- | Perform a monadic action if 'envLogger' is set to 'Debug'.
 --
 -- Analogous to 'when'.
 whenDebug :: MonadReader Env m => m () -> m ()
 whenDebug f = do
-    l <- view envLogging
+    l <- view envLogger
     case l of
         Debug _ -> f
         _       -> return ()

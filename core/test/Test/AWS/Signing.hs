@@ -23,7 +23,7 @@ import           Data.ByteString.Char8      (ByteString)
 import qualified Data.ByteString.Char8      as BS
 import qualified Data.CaseInsensitive       as CI
 import qualified Data.Char                  as Char
-import           Data.Default
+import           Data.Default.Class
 import           Data.List                  (isSuffixOf)
 import           Data.Maybe
 import           Data.Monoid

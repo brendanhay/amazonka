@@ -43,7 +43,7 @@ import qualified Data.ByteString.Char8                as BS
 import           Data.Char
 import           Data.Data
 import           Data.Data.Lens
-import           Data.Default
+import           Data.Default.Class
 import           Data.List                            (sort)
 import           Data.List.NonEmpty                   (NonEmpty(..))
 import qualified Data.List.NonEmpty                   as NonEmpty

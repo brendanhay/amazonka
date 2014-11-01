@@ -102,7 +102,7 @@ import           Data.ByteString              (ByteString)
 import qualified Data.ByteString.Base64       as Base64
 import           Data.Char
 import           Data.Conduit
-import           Data.Default
+import           Data.Default.Class
 import           Data.IORef
 import           Data.Monoid
 import           Data.String

@@ -28,7 +28,7 @@ module Network.AWS.Internal.Request
 
 import           Control.Lens
 import           Data.ByteString              (ByteString)
-import           Data.Default
+import           Data.Default.Class
 import           Network.AWS.Data
 import           Network.AWS.Types
 import qualified Network.HTTP.Client.Internal as HTTP

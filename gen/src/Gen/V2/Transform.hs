@@ -192,8 +192,8 @@ overrides = flip (Map.foldlWithKey' run)
         $ r
       where
         field = required (o ^. oRequired)
---              . ignored  (o ^. oIgnored)
               . renamed  (o ^. oRenamed)
+              -- . ignored  (o ^. oIgnored)
 
     -- Types:
 

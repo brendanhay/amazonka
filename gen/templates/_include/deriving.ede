@@ -1,0 +1,1 @@
+({% for d in deriving %}{{ d.value }}{% if !d.last %}, {% endif %}{% endfor %})

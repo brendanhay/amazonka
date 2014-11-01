@@ -199,16 +199,16 @@ overrides = flip (Map.foldlWithKey' run)
 
     renameTo :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
     renameTo _ Nothing  m = m
-    renameTo x (Just y) m = replaced x (Just y) $
+    renameTo x (Just y) m = replaced x y $
         maybe m (\z -> Map.delete x (Map.insert y z m))
                 (Map.lookup x m)
 
     replacedBy :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
-    replacedBy x y = Map.filterWithKey (const . (/= x)) . replaced x y
+    replacedBy _ Nothing  = id
+    replacedBy x (Just y) = Map.filterWithKey (const . (/= x)) . replaced x y
 
-    replaced :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
-    replaced _ Nothing  = id
-    replaced x (Just y) = Map.map (mapFields (typeOf %~ transform go))
+    replaced :: Text -> Text -> HashMap Text Data -> HashMap Text Data
+    replaced x y = Map.map (mapFields (typeOf %~ transform go))
       where
         go :: Type -> Type
         go (TType z)

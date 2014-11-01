@@ -5,11 +5,6 @@
         "serviceAbbreviation": "S3"
     },
     "overrides": {
-        "*": {
-            "required": [
-                "IsTruncated"
-            ]
-        },
         "ListObjectsResponse": {
             "required": [
                 "Name"
@@ -42,6 +37,17 @@
         },
         "Delimiter": {
             "replaced_by": "Char"
+        },
+        "NoncurrentVersionExpiration": {
+            "required": [
+                "NoncurrentDays"
+            ]
+        },
+        "NoncurrentVersionTransition": {
+            "required": [
+                "NoncurrentDays",
+                "StorageClass"
+            ]
         }
     }
 }

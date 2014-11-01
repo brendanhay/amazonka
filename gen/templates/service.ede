@@ -5,7 +5,7 @@
 {% endif %}
 module {{ namespace }}
 {% for imp in imports %}
-    {% if imp.first %}( {% else %}, {% endif %}module {{ imp.value }}
+    {% if imp.first %}( {% else %}--, {% endif %}-- module {{ imp.value }}
   {% if imp.last %}
     ) where
   {% endif %}
@@ -14,5 +14,6 @@ module {{ namespace }}
 {% endfor %}
 
 {% for imp in imports %}
-  import {{ imp.value }}
+--  import {{ imp.value }}
 {% endfor %}
+import {{ namespace }}.Types

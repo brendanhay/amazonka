@@ -137,7 +137,7 @@ primitive = \case
     PInt      -> "Int"
     PInteger  -> "Integer"
     PDouble   -> "Double"
-    PTime ts  -> "Time " <> timestamp ts
+    PTime ts  -> timestamp ts
 
 instance DerivingOf Prim where
     derivingOf = (def ++) . \case
@@ -173,7 +173,7 @@ instance ToJSON Type where
         go = \case
             TType   t   -> t
             TPrim   p   -> primitive p
-            TList   x   -> "List "  <> wrap (go x)
+            TList   x   -> "[" <> wrap (go x) <> "]"
             TList1  x   -> "List1 " <> wrap (go x)
             TMap    k v -> "Map "   <> wrap (go k) <> " " <> wrap (go v)
             TMaybe  x   -> "Maybe " <> wrap (go x)

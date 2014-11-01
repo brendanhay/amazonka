@@ -1,3 +1,6 @@
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+
 {% include "../_include/license.ede" %}
 
 module {{ namespace }} where

@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Gen.V2.Names
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,7 +21,7 @@ import qualified Data.Text            as Text
 import           Data.Text.Manipulate
 
 enumName :: Text -> Text -> Text
-enumName k = mappend (Text.toUpper k) . toPascal . Text.replace ":" "-"
+enumName k v = Text.toUpper k <> (toPascal . Text.toLower $ Text.replace ":" "-" v)
 
 lensName :: Text -> Text
 lensName = stripText "_"

@@ -255,11 +255,11 @@ datas m = evalState (Map.traverseWithKey solve m) mempty
         go [(n, f)] = Newtype (Named n f)
         go fs       = Record  (map (uncurry Named) fs)
 
-        wrapped l n = return
-            . Newtype
-            . Named k
-            . Typed (TPrim PText)
-            $ Field l n False False
+        -- wrapped l n = return
+        --     . Newtype
+        --     . Named k
+        --     . Typed (TPrim PText)
+        --     $ Field l n False False
 
     field :: Maybe Text
           -> [Text]

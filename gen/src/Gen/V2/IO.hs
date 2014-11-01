@@ -28,6 +28,7 @@ import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import qualified Data.Text.IO           as Text
 import qualified Data.Text.Lazy.IO      as LText
+import           Gen.V2.Filters
 import           Gen.V2.Types
 import           System.Directory
 import           System.FilePath
@@ -46,7 +47,7 @@ loadTemplates :: FilePath -> Script Templates
 loadTemplates d = do
     f  <- Templates
         <$> load "cabal"
-        <*> load "interface"
+        <*> load "service"
 
     !x <- (,)
         <$> load "xml/types"
@@ -92,7 +93,7 @@ renderFile :: (ToFilePath a, A.ToJSON a)
 renderFile lbl d t x = do
     createDir (dropFileName f)
     say lbl f
-    txt <- toEnv >>= hoistEither . EDE.eitherRender t
+    txt <- toEnv >>= hoistEither . EDE.eitherRenderWith genFilters t
     scriptIO (LText.writeFile f txt)
   where
     f = d </> toFilePath x

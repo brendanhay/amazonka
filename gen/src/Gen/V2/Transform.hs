@@ -122,12 +122,11 @@ prefixes m = evalState (Map.fromList <$> mapM run (Map.toList m)) mempty
   where
     run (k, x) = (k,) <$> go (prefix k) x
 
-    prefix k = Text.toLower (fromMaybe (Text.take 3 k) (toAcronym k))
+    prefix k = Text.toLower (fromMaybe (Text.take 1 k) (toAcronym k))
 
     go :: MonadState (HashSet Text) m => Text -> Data -> m Data
     go k v1
-        | Nullary{} <- v1 = do
-            return v1
+        | Nullary{} <- v1 = return $! mapNames (enumName k) v1
         | otherwise       = do
             let v2 = mapNames (mappend k) v1
                 fs = Set.fromList (fields v2)

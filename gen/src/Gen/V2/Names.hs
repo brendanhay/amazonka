@@ -14,9 +14,13 @@ module Gen.V2.Names where
 
 import           Data.Char
 import           Data.Maybe
+import           Data.Monoid
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Manipulate
+
+enumName :: Text -> Text -> Text
+enumName k = mappend (Text.toUpper k) . toPascal . Text.replace ":" "-"
 
 lensName :: Text -> Text
 lensName = stripText "_"

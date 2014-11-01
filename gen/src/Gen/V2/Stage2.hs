@@ -98,7 +98,8 @@ data Derive
     | Semigroup'
       deriving (Eq, Ord, Show)
 
-nullary stage2 ''Derive
+instance ToJSON Derive where
+    toJSON = toJSON . takeWhile (/= '\'') . show
 
 class DerivingOf a where
     derivingOf :: a -> [Derive]
@@ -237,10 +238,11 @@ instance HasTyped (Named (Typed a)) a where
 type Ann a = Named (Typed a)
 
 data Field = Field
-    { _fLocation     :: Maybe Location
-    , _fLocationName :: Maybe Text
-    , _fPayload      :: !Bool
-    , _fStreaming    :: !Bool
+    { _fLocation      :: Maybe Location
+    , _fLocationName  :: Maybe Text
+    , _fPayload       :: !Bool
+    , _fStreaming     :: !Bool
+    , _fDocumentation :: Maybe Doc
     } deriving (Eq, Show)
 
 record stage2 ''Field
@@ -265,19 +267,21 @@ instance ToJSON Data where
             Empty      -> object ["type" .= "empty"]
             Record  fs -> object
                 [ "type"     .= "record"
-                , "required" .= req
-                , "optional" .= opt
-                , "payload"  .= pay
+                , "fields"   .= fs
+                -- , "required" .= req
+                -- , "optional" .= opt
+                -- , "payload"  .= pay
                 ]
               where
-                (req, opt) = partition (isRequired . view typeOf) fs
+                -- (req, opt) = partition (isRequired . view typeOf) fs
 
-                pay = headMay (filter (view (namedV.typedV.fPayload)) fs)
+                -- pay = headMay (filter (view (namedV.typedV.fPayload)) fs)
 
 instance DerivingOf Data where
     derivingOf d = f (derivingOf (typesOf d))
       where
         f | Newtype{} <- d = id
+          | Nullary{} <- d = const [Eq', Ord', Enum', Show']
           | otherwise      = delete Monoid'
 
 instance TypesOf Data where
@@ -413,6 +417,13 @@ instance ToJSON a => ToJSON (Mod a) where
 instance ToFilePath (Mod a) where
     toFilePath = toFilePath . _mNamespace
 
+data Types = Types
+    { _tService :: Service
+    , _tTypes   :: HashMap Text Data
+    } deriving (Eq, Show)
+
+record stage2 ''Types
+
 data Stage2 = Stage2
     { _s2Cabal      :: Cabal
     , _s2Service    :: Mod Service
@@ -434,12 +445,14 @@ render d Templates{..} s2 = do
 
     renderFile "Render Cabal"   lib _tCabal   (s2 ^. s2Cabal)
     renderFile "Render Service" gen _tService (s2 ^. s2Service)
-    renderFile "Render Types"   gen t         (s2 ^. s2Types)
+    renderFile "Render Types"   gen t         types
 
     mapM_ (renderFile "Render Operation" gen o) (s2 ^. s2Operations)
 
     return lib
   where
+    types = Types (s2 ^. s2Service.mModule) <$> s2 ^. s2Types
+
     (t, o) = _tProtocol (s2 ^. s2Service.mModule.svProtocol)
 
     src :: FilePath

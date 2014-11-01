@@ -125,13 +125,16 @@ prefixes m = evalState (Map.fromList <$> mapM run (Map.toList m)) mempty
     prefix k = Text.toLower (fromMaybe (Text.take 3 k) (toAcronym k))
 
     go :: MonadState (HashSet Text) m => Text -> Data -> m Data
-    go k v1 = do
-        let v2 = mapNames (mappend k) v1
-            fs = Set.fromList (fields v2)
-        p <- gets (Set.null . Set.intersection fs)
-        if p
-            then modify (mappend fs) >> return v2
-            else go (numericSuffix k) v1
+    go k v1
+        | Nullary{} <- v1 = do
+            return v1
+        | otherwise       = do
+            let v2 = mapNames (mappend k) v1
+                fs = Set.fromList (fields v2)
+            p <- gets (Set.null . Set.intersection fs)
+            if p
+                then modify (mappend fs) >> return v2
+                else go (numericSuffix k) v1
 
     fields (Newtype f)  = [f ^. nameOf]
     fields (Record  fs) = map (view nameOf) fs
@@ -247,8 +250,6 @@ datas m = evalState (Map.traverseWithKey solve m) mempty
             | Just xs <- x ^. strEnum ->
                 return $! Nullary (map (\t -> Named t (Branch t)) xs)
 
-        -- String' x -> wrapped Nothing (x ^. strLocationName)
-
         _         -> return Empty
       where
         go []       = Empty
@@ -260,6 +261,8 @@ datas m = evalState (Map.traverseWithKey solve m) mempty
         --     . Named k
         --     . Typed (TPrim PText)
         --     $ Field l n False False
+        -- String' x -> wrapped Nothing (x ^. strLocationName)
+
 
     field :: Maybe Text
           -> [Text]
@@ -270,10 +273,11 @@ datas m = evalState (Map.traverseWithKey solve m) mempty
 
         let l = r ^. refLocation
             n = r ^. refLocationName
+            d = r ^. refDocumentation
             p = pay == Just k
             s = fromMaybe False (r ^. refStreaming)
 
-        return (k, Typed t (Field l n p s))
+        return (k, Typed t (Field l n p s (Doc <$> d)))
 
     require :: [Text] -> Text -> Type -> Type
     require req k x

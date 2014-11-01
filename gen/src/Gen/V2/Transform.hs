@@ -35,6 +35,7 @@ import           Data.SemVer                (initial)
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import           Data.Text.Manipulate
+import           Debug.Trace
 import           Gen.V2.Names
 import qualified Gen.V2.Stage1              as S1
 import           Gen.V2.Stage1              hiding (Operation)
@@ -125,14 +126,12 @@ prefixes m = evalState (Map.fromList <$> mapM run (Map.toList m)) mempty
 
     go :: MonadState (HashSet Text) m => Text -> Data -> m Data
     go k v1 = do
-        let v2 = prefixed k v1
+        let v2 = mapNames (mappend k) v1
             fs = Set.fromList (fields v2)
         p <- gets (Set.null . Set.intersection fs)
         if p
             then modify (mappend fs) >> return v2
             else go (numericSuffix k) v1
-
-    prefixed k = mapFields (nameOf %~ mappend k)
 
     fields (Newtype f)  = [f ^. nameOf]
     fields (Record  fs) = map (view nameOf) fs
@@ -194,6 +193,8 @@ overrides = flip (Map.foldlWithKey' run)
 --              . ignored  (o ^. oIgnored)
               . renamed  (o ^. oRenamed)
 
+    -- Types:
+
     renameTo :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
     renameTo _ Nothing  m = m
     renameTo x (Just y) m = replaced x (Just y) $
@@ -233,24 +234,32 @@ overrides = flip (Map.foldlWithKey' run)
     renamed m = nameOf %~ (\n -> fromMaybe n (Map.lookup (CI.mk n) m))
 
 datas :: HashMap Text S1.Shape -> HashMap Text Data
-datas m = evalState (Map.traverseWithKey (const descend) m) mempty
+datas m = evalState (Map.traverseWithKey solve m) mempty
   where
-    descend :: S1.Shape -> State (HashMap Text Type) Data
-    descend = \case
-        (Struct' x) -> solve x
-        _           -> return Empty
+    solve :: Text -> S1.Shape -> State (HashMap Text Type) Data
+    solve k = \case
+        Struct' x -> go <$> mapM (field pay req) (ordMap (x ^. scMembers))
+          where
+            pay = x ^. scPayload
+            req = fromMaybe [] (x ^. scRequired)
 
-    ^^ need to add newtype and nullary here
+        String' x
+            | Just xs <- x ^. strEnum ->
+                return $! Nullary (map (\t -> Named t (Branch t)) xs)
 
-    solve :: S1.SStruct -> State (HashMap Text Type) Data
-    solve s = go <$> mapM (field pay req) (ordMap (s ^. scMembers))
+        -- String' x -> wrapped Nothing (x ^. strLocationName)
+
+        _         -> return Empty
       where
-        pay = s ^. scPayload
-        req = fromMaybe [] (s ^. scRequired)
-
         go []       = Empty
         go [(n, f)] = Newtype (Named n f)
         go fs       = Record  (map (uncurry Named) fs)
+
+        wrapped l n = return
+            . Newtype
+            . Named k
+            . Typed (TPrim PText)
+            $ Field l n False False
 
     field :: Maybe Text
           -> [Text]

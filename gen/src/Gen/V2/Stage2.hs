@@ -245,17 +245,22 @@ data Field = Field
 
 record stage2 ''Field
 
+newtype Branch = Branch { _bBranch :: Text }
+    deriving (Eq, Show)
+
+record stage2 ''Branch
+
 data Data
     = Newtype !(Ann Field)
     | Record  [Ann Field]
-    | Nullary [Ann Field]
+    | Nullary [Named Branch]
     | Empty
       deriving (Eq, Show)
 
 instance ToJSON Data where
     toJSON d = toJSON . Derived d $
         case d of
-            Nullary fs -> object ["type" .= "nullary", "enums" .= fs]
+            Nullary fs -> object ["type" .= "nullary", "branches" .= fs]
             Newtype f  -> object ["type" .= "newtype", "field" .= f]
             Empty      -> object ["type" .= "empty"]
             Record  fs -> object
@@ -279,21 +284,24 @@ instance TypesOf Data where
     typesOf = \case
         Newtype f  -> typesOf f
         Record  fs -> typesOf fs
-        Nullary fs -> typesOf fs
+        Nullary _  -> []
         Empty      -> []
 
 mapFields :: (Ann Field -> Ann Field) -> Data -> Data
 mapFields f (Newtype x)  = Newtype (f x)
 mapFields f (Record  xs) = Record  (map f xs)
-mapFields f (Nullary xs) = Nullary (map f xs)
+mapFields _ (Nullary xs) = Nullary xs
 mapFields _ Empty        = Empty
 
+mapNames :: (Text -> Text) -> Data -> Data
+mapNames f (Newtype x)  = Newtype (x & nameOf  %~ f)
+mapNames f (Record  xs) = Record  (map (nameOf %~ f) xs)
+mapNames f (Nullary xs) = Nullary (map (nameOf %~ f) xs)
+mapNames _ Empty        = Empty
+
+-- FIXME: use mapFields here
 setStreaming :: Bool -> Data -> Data
-setStreaming rq = \case
-    Newtype f  -> Newtype (go f)
-    Record  fs -> Record  (map go fs)
-    Nullary fs -> Nullary (map go fs)
-    Empty      -> Empty
+setStreaming rq = mapFields go
   where
     go x = x & typeOf %~ transform (body (x ^. namedV.typedV.fStreaming))
 

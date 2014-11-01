@@ -61,7 +61,7 @@ import Control.Monad.Trans.Resource (MonadResource(..))
 import Data.Aeson                   (FromJSON(..), ToJSON(..))
 import Data.Bifunctor               as Export
 import Data.ByteString              (ByteString)
-import Data.Default                 as Export
+import Data.Default.Class           as Export
 import Data.Hashable                as Export
 import Data.Maybe                   as Export
 import Data.Monoid                  as Export
@@ -75,7 +75,7 @@ import Network.AWS.Types
 import Network.HTTP.Client          (HttpException, RequestBody, Response)
 import Prelude                      as Export hiding (head, error)
 
-import Control.Lens as Lens
+import Control.Lens                 as Lens
     ( Lens'
     , Prism'
     , (<&>)

@@ -72,7 +72,6 @@ module Control.Monad.Trans.AWS
     ) where
 
 import           Control.Applicative
-import qualified Control.Concurrent.Async.Lifted as Async
 import           Control.Lens
 import           Control.Monad.Base
 import           Control.Monad.Catch
@@ -83,13 +82,13 @@ import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Resource
 import           Data.Bifunctor
 import           Data.Conduit
-import           Data.Text                       (Text)
+import           Data.Text                    (Text)
 import           Data.Time
-import           Network.AWS                     (Env, newEnv, envRegion, envLogging, envAuth, envManager)
-import qualified Network.AWS                     as AWS
+import           Network.AWS                  (Env, newEnv, envRegion, envLogging, envAuth, envManager)
+import qualified Network.AWS                  as AWS
 import           Network.AWS.Auth
-import qualified Network.AWS.Types               as Types
-import           Network.AWS.Types               hiding (debug)
+import qualified Network.AWS.Types            as Types
+import           Network.AWS.Types            hiding (debug)
 
 -- | A convenient alias for 'AWST' 'IO'.
 type AWS = AWST IO

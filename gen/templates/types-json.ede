@@ -3,7 +3,7 @@
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
 
-{% include "../_include/license.ede" %}
+{% include "_include/license.ede" %}
 
 module {{ namespace }} where
 
@@ -15,11 +15,11 @@ import Network.AWS.Prelude
   {% endif %}
   {% case type.value.type %}
   {% when "record" %}
-    {% include "../_include/record.ede" with type = type.value %}
+    {% include "_include/record.ede" with type = type.value %}
   {% when "newtype" %}
-    {% include "../_include/newtype.ede" with type = type.value %}
+    {% include "_include/newtype.ede" with type = type.value %}
   {% when "nullary" %}
-    {% include "../_include/nullary.ede" with type = type.value %}
+    {% include "_include/nullary.ede" with type = type.value %}
   {% endcase %}
   {% if !type.last %}
 

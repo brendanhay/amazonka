@@ -50,16 +50,16 @@ loadTemplates d = do
         <*> load "service"
 
     !x <- (,)
-        <$> load "xml/types"
-        <*> load "xml/operation"
+        <$> load "types-xml"
+        <*> load "operation-xml"
 
     !j <- (,)
-        <$> load "json/types"
-        <*> load "json/operation"
+        <$> load "types-json"
+        <*> load "operation-json"
 
     !q <- (,)
-        <$> load "query/types"
-        <*> load "query/operation"
+        <$> load "types-query"
+        <*> load "operation-query"
 
     return $! f $ \t ->
         case t of

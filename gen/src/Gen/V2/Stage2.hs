@@ -149,14 +149,15 @@ primitive = \case
 
 instance DerivingOf Prim where
     derivingOf = (def ++) . \case
-        PBool    -> [Enum']
-        PText    -> [Monoid']
-        PInt     -> [Num', Enum']
-        PInteger -> [Num', Enum']
-        PDouble  -> [Num', Enum']
+        PBool    -> [Ord', Enum']
+        PText    -> [Ord', Monoid']
+        PInt     -> [Ord', Num', Enum']
+        PInteger -> [Ord', Num', Enum']
+        PDouble  -> [Ord', Num', Enum']
+        PTime _  -> [Ord']
         _        -> []
       where
-        def = [Eq', Ord', Show', Generic']
+        def = [Eq', Show', Generic']
 
 data Type
     = TType  !Text

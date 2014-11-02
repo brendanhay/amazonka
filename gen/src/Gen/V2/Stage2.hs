@@ -161,32 +161,35 @@ instance DerivingOf Prim where
         def = [Eq', Show', Generic']
 
 data Type
-    = TType  !Text
-    | TPrim  !Prim
-    | TList  !Type
-    | TList1 !Type
-    | TMap   !Type !Type
-    | TMaybe !Type
+    = TType      !Text
+    | TPrim      !Prim
+    | TList      !Type
+    | TList1     !Type
+    | TMap       !Type !Type
+    | TMaybe     !Type
+    | TSensitive !Type
       deriving (Eq, Ord, Show)
 
 instance Plated Type where
     plate f = \case
-        TList   x   -> TList  <$> f x
-        TList1  x   -> TList1 <$> f x
-        TMap    k v -> TMap   <$> f k <*> f v
-        TMaybe  x   -> TMaybe <$> f x
-        x           -> pure x
+        TList      x   -> TList      <$> f x
+        TList1     x   -> TList1     <$> f x
+        TMap       k v -> TMap       <$> f k <*> f v
+        TMaybe     x   -> TMaybe     <$> f x
+        TSensitive x   -> TSensitive <$> f x
+        x              -> pure x
 
 instance ToJSON Type where
     toJSON = toJSON . go
       where
         go = \case
-            TType   t   -> t
-            TPrim   p   -> primitive p
-            TList   x   -> "[" <> wrap (go x) <> "]"
-            TList1  x   -> "List1 " <> wrap (go x)
-            TMap    k v -> "Map "   <> wrap (go k) <> " " <> wrap (go v)
-            TMaybe  x   -> "Maybe " <> wrap (go x)
+            TType      t   -> t
+            TPrim      p   -> primitive p
+            TList      x   -> "["          <> wrap (go x) <> "]"
+            TList1     x   -> "List1 "     <> wrap (go x)
+            TMap       k v -> "Map "       <> wrap (go k) <> " " <> wrap (go v)
+            TMaybe     x   -> "Maybe "     <> wrap (go x)
+            TSensitive x   -> "Sensitive " <> wrap (go x)
 
         wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
         parens t = "(" <> t <> ")"
@@ -209,15 +212,17 @@ instance TypesOf Type where
 
 instance DerivingOf Type where
     derivingOf = \case
-        TType  _   -> [Eq', Ord', Show', Generic']
-        TPrim  p   -> derivingOf p
-        TList  x   -> Monoid' : derivingOf x
-        TList1 x   -> Semigroup' : derivingOf x
-        TMap   k v -> derivingOf k `intersect` derivingOf v
-        TMaybe x   -> derivingOf x
+        TType      _   -> [Eq', Ord', Show', Generic']
+        TPrim      p   -> derivingOf p
+        TList      x   -> Monoid' : derivingOf x
+        TList1     x   -> Semigroup' : derivingOf x
+        TMap       k v -> derivingOf k `intersect` derivingOf v
+        TMaybe     x   -> derivingOf x
+        TSensitive x   -> derivingOf x
 
 data Field = Field
     { _fName          :: !Text
+    , _fShape         :: !Text
     , _fType          :: !Type
     , _fLocation      :: !Location
     , _fLocationName  :: !Text

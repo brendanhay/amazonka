@@ -212,15 +212,22 @@ overrides = flip (Map.foldlWithKey' run)
 
     replacedBy :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
     replacedBy _ Nothing  = id
-    replacedBy x (Just y) = Map.filterWithKey (const . (/= x)) . replaced x y
+    replacedBy x (Just y) = Map.filterWithKey (const . (/= y)) . replaced x y
 
     replaced :: Text -> Text -> HashMap Text Data -> HashMap Text Data
-    replaced x y = Map.map (mapFields (typeOf %~ transform go))
+    replaced x y = Map.map (mapFields go)
       where
-        go :: Type -> Type
-        go (TType z)
-            | z == y = TType x
-        go z         = z
+        go :: Field -> Field
+        go f | f ^. fShape == x = f & typeOf %~ retype
+             | otherwise        = f
+
+        retype :: Type -> Type
+        retype (TMaybe _) = TMaybe (TType y)
+        retype (TList  _) = TList  (TType y)
+        retype (TList1 _) = TList1 (TType y)
+        retype (TType  _) = TType y
+        retype (TPrim  _) = TType y
+        retype z          = error $ "Unsupported retyping of: " ++ show (z, y)
 
     sumPrefix :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
     sumPrefix _ Nothing  = id
@@ -287,6 +294,7 @@ datas p m = evalState (Map.traverseWithKey solve m) mempty
 
         return $ Field
             { _fName          = k
+            , _fShape         = r ^. refShape
             , _fType          = t
             , _fLocation      = location p s l
             , _fLocationName  = fromMaybe k n
@@ -298,9 +306,10 @@ datas p m = evalState (Map.traverseWithKey solve m) mempty
         | k `elem` req = x
         | otherwise    =
             case x of
-                TPrim {} -> TMaybe x
-                TType {} -> TMaybe x
-                _        -> x
+                TPrim      {} -> TMaybe x
+                TType      {} -> TMaybe x
+                TSensitive {} -> TMaybe x
+                _             -> x
 
     ref :: Ref -> State (HashMap Text Type) Type
     ref r = do
@@ -324,13 +333,16 @@ datas p m = evalState (Map.traverseWithKey solve m) mempty
             Struct' _ -> pure (TType k)
             List'   x -> list x <$> ref (x ^. lstMember)
             Map'    x -> TMap   <$> ref (x ^. mapKey) <*> ref (x ^. mapValue)
-            String' _ -> pure (TPrim PText)
             Int'    _ -> pure (TPrim PInt)
             Long'   _ -> pure (TPrim PInteger)
             Double' _ -> pure (TPrim PDouble)
             Bool'   _ -> pure (TPrim PBool)
             Time'   x -> pure (TPrim . PTime $ defaultTS (x ^. tsTimestampFormat))
             Blob'   _ -> pure (TPrim PBlob)
+            String' x
+                | fromMaybe False (x ^. strSensitive)
+                            -> pure (TSensitive (TPrim PText))
+                | otherwise -> pure (TPrim PText)
 
         list SList{..}
             | fromMaybe 0 _lstMin > 0 = TList1

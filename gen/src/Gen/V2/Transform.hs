@@ -297,9 +297,9 @@ datas m = evalState (Map.traverseWithKey solve m) mempty
         | k `elem` req = x
         | otherwise    =
             case x of
-                TType{} -> TMaybe x
-                TPrim{} -> TMaybe x
-                _       -> x
+                TPrim {} -> TMaybe x
+                TType {} -> TMaybe x
+                _        -> x
 
     ref :: Ref -> State (HashMap Text Type) Type
     ref r = do

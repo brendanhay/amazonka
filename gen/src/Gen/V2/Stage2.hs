@@ -48,6 +48,7 @@ import           Data.SemVer
 import           Data.String
 import           Data.Text                (Text)
 import qualified Data.Text                as Text
+import           Debug.Trace
 import           Gen.V2.IO
 import           Gen.V2.JSON              ()
 import           Gen.V2.TH
@@ -296,18 +297,19 @@ mapNames f (Record  n xs) = Record  n (map (nameOf %~ f) xs)
 mapNames f (Nullary n m)  = Nullary n (Map.fromList . map (first f) $ Map.toList m)
 mapNames _ Empty          = Empty
 
--- FIXME: use mapFields here
 setStreaming :: Bool -> Data -> Data
-setStreaming rq = mapFields go
+setStreaming rq = mapFields $ \x ->
+    x & typeOf %~ transform (body (x ^. fStreaming))
   where
-    go x = x & typeOf %~ transform (body (x ^. fStreaming))
-
     body :: Bool -> Type -> Type
-    body True (TMaybe x@(TPrim PBlob)) = body True x
+    body True (TMaybe x@(TPrim y))
+        | PReq  <- y = x
+        | PRes  <- y = x
+        | PBlob <- y = body True x
     body True (TPrim PBlob)
-        | rq        = TPrim PReq
-        | otherwise = TPrim PRes
-    body _    x     = x
+        | rq         = TPrim PReq
+        | otherwise  = TPrim PRes
+    body _    x      =  x
 
 data Body
     = XML

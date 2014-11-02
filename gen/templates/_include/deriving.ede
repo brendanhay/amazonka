@@ -1,1 +1,1 @@
-({% for d in deriving %}{{ d.value }}{% if !d.last %}, {% endif %}{% endfor %})
+({% for d in type.deriving %}{{ d.value }}{% if !d.last %}, {% endif %}{% endfor %})

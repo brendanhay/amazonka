@@ -19,28 +19,7 @@ import Network.AWS.Prelude
   {% when "newtype" %}
     {% include "../_include/newtype.ede" with type = type.value %}
   {% when "nullary" %}
-data {{ type.value.name }}
-    {% for branch in type.value.branches %}
-    {% if branch.first %}={% else %}|{% endif %} {{ branch.key }} -- ^ {{ branch.value }}
-    {% endfor %}
-      deriving {% include "../_include/deriving.ede" with deriving = type.value.deriving %}
-
-instance Hashable {{ type.value.name }}
-
-instance FromText {{ type.value.name }} where
-    {% for branch in type.value.branches %}
-      {% if branch.first %}
-    parser = match "{{ branch.value }}" {{ branch.key }}
-      {% else %}
-         <|> match "{{ branch.value }}" {{ branch.key }}
-      {% endif %}
-    {% endfor %}
-
-instance ToText {{ type.value.name }} where
-    toText = \case
-    {% for branch in type.value.branches %}
-        {{ branch.key }} -> "{{ branch.value }}"
-    {% endfor %}
+    {% include "../_include/nullary.ede" with type = type.value %}
   {% endcase %}
   {% if !type.last %}
 

@@ -5,4 +5,4 @@ data {{ type.name }} = {{ type.name }}
 {{ field.value.documentation | below(68, 6) }}
   {% endif %}
     {% endfor %}
-    } deriving {% include "deriving.ede" with deriving = type.deriving %}
+    } deriving {% include "deriving.ede" %}

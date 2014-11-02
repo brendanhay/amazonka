@@ -107,7 +107,7 @@ dataTypes os a s1 = bimap sort (sort . Map.elems) (runState run s)
     run = Map.elems <$> Map.traverseWithKey f (s1 ^. s1Operations)
 
     f = operation a (s1 ^. mProtocol)
-    s = prefixes (overrides os (datas (s1 ^. s1Shapes)))
+    s = prefixes (overrides os (datas (s1 ^. mProtocol) (s1 ^. s1Shapes)))
 
 prefixes :: HashMap Text Data -> HashMap Text Data
 prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
@@ -154,6 +154,8 @@ operation a p n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
   where
     op rq rs = Operation
         { _opName             = n
+        , _opService          = a
+        , _opProtocol         = p
         , _opNamespace        = operationNS a (o ^. oName)
         , _opImports          = [requestNS p, typesNS a]
         , _opDocumentation    = documentation (o ^. oDocumentation)
@@ -166,7 +168,7 @@ operation a p n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
 
     request = go Request True
 
-    response r = go (\n d -> Response n w k d) False r
+    response r = go (Response w k) False r
       where
         w = fromMaybe False (join (_refWrapper <$> r))
         k = join (_refResultWrapper <$> r)
@@ -178,8 +180,9 @@ operation a p n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
         case m of
             Nothing -> return (c k Empty)
             Just d  -> do
+                let d' = setStreaming rq d
                 modify (Map.delete k)
-                return (c k (setStreaming rq d))
+                return (c k d')
 
 overrides :: HashMap Text Override -> HashMap Text Data -> HashMap Text Data
 overrides = flip (Map.foldlWithKey' run)
@@ -242,8 +245,8 @@ overrides = flip (Map.foldlWithKey' run)
 --    renamed :: HashMap (CI Text) Text -> Named a -> Named a
     renamed m = nameOf %~ (\n -> fromMaybe n (Map.lookup (CI.mk n) m))
 
-datas :: HashMap Text S1.Shape -> HashMap Text Data
-datas m = evalState (Map.traverseWithKey solve m) mempty
+datas :: Protocol -> HashMap Text S1.Shape -> HashMap Text Data
+datas p m = evalState (Map.traverseWithKey solve m) mempty
   where
     solve :: Text -> S1.Shape -> State (HashMap Text Type) Data
     solve k = \case
@@ -273,22 +276,20 @@ datas m = evalState (Map.traverseWithKey solve m) mempty
           -> [Text]
           -> (Text, Ref)
           -> State (HashMap Text Type) Field
-    field pay req (k, r) = do
+    field _ req (k, r) = do
         t <- require req k <$> ref r
 
         let l = r ^. refLocation
             n = r ^. refLocationName
             d = r ^. refDocumentation
-            p = pay == Just k
             s = fromMaybe False (r ^. refStreaming)
+--            p = pay == Just k
 
         return $ Field
             { _fName          = k
             , _fType          = t
-            , _fLocation      = l
-            , _fLocationName  = n
-            , _fPayload       = p
-            , _fStreaming     = s
+            , _fLocation      = location p s l
+            , _fLocationName  = fromMaybe k n
             , _fDocumentation = Doc <$> d
             }
 

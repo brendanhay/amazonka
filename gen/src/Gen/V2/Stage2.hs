@@ -48,6 +48,7 @@ import           Data.SemVer
 import           Data.String
 import           Data.Text                (Text)
 import qualified Data.Text                as Text
+import           Data.Text.Manipulate
 import           Debug.Trace
 import           Gen.V2.IO
 import           Gen.V2.JSON              ()
@@ -218,10 +219,8 @@ instance DerivingOf Type where
 data Field = Field
     { _fName          :: !Text
     , _fType          :: !Type
-    , _fLocation      :: Maybe Location
-    , _fLocationName  :: Maybe Text
-    , _fPayload       :: !Bool
-    , _fStreaming     :: !Bool
+    , _fLocation      :: !Location
+    , _fLocationName  :: !Text
     , _fDocumentation :: Maybe Doc
     } deriving (Eq, Show)
 
@@ -257,13 +256,27 @@ instance Ord Data where
 instance ToJSON Data where
     toJSON d = toJSON . Derived d $
         case d of
-            Empty        -> object ["type" .= "empty"]
-            Nullary n fs -> object ["type" .= "nullary", "name" .= n, "branches" .= fs]
-            Newtype n f  -> object ["type" .= "newtype", "name" .= n, "field" .= f]
+            Empty        -> object
+                [ "type" .= "empty"
+                ]
+
+            Nullary n fs -> object
+                [ "type"     .= "nullary"
+                , "name"     .= n
+                , "branches" .= fs
+                ]
+
+            Newtype n f  -> object
+                [ "type"     .= "newtype"
+                , "name"     .= n
+                , "field"    .= f
+                , "fields"   .= [f]
+                ]
+
             Record  n fs -> object
-                [ "type"   .= "record"
-                , "name"   .= n
-                , "fields" .= fs
+                [ "type"     .= "record"
+                , "name"     .= n
+                , "fields"   .= fs
                 -- , "required" .= req
                 -- , "optional" .= opt
                 -- , "payload"  .= pay
@@ -300,30 +313,21 @@ mapNames _ Empty          = Empty
 
 setStreaming :: Bool -> Data -> Data
 setStreaming rq = mapFields $ \x ->
-    x & typeOf %~ transform (body (x ^. fStreaming))
+    x & typeOf %~ transform (body (x ^. fLocation))
   where
-    body :: Bool -> Type -> Type
-    body True (TMaybe x@(TPrim y))
-        | PReq  <- y = x
-        | PRes  <- y = x
-        | PBlob <- y = body True x
-    body True (TPrim PBlob)
+    body :: Location -> Type -> Type
+    body Body (TMaybe x@(TPrim y))
+        | PReq <- y = x
+        | PRes <- y = x
+        | otherwise = body Body x
+    body Body (TPrim _)
         | rq         = TPrim PReq
         | otherwise  = TPrim PRes
     body _    x      =  x
 
-data Body
-    = XML
-    | JSON
-    | Raw
-    | Stream
-      deriving (Eq, Show)
-
-nullary stage2 ''Body
-
 data Request = Request
-    { _rqName :: !Text
-    , _rqData :: !Data
+    { _rqName  :: !Text
+    , _rqData  :: !Data
     } deriving (Eq, Show)
 
 instance ToJSON Request where
@@ -331,18 +335,25 @@ instance ToJSON Request where
       where
         Object x = toJSON d
         Object y = object
-            [ "name" .= n
+            [ "name"      .= n
+            , "streaming" .= stream
             ]
 
+        stream = any ((== Body) . view fLocation) $
+            case d of
+                Newtype _ f  -> [f]
+                Record  _ fs -> fs
+                _            -> []
+
 data Response = Response
-    { _rsName          :: !Text
-    , _rsWrapper       :: !Bool
+    { _rsWrapper       :: !Bool
     , _rsResultWrapper :: Maybe Text
+    , _rsName          :: !Text
     , _rsData          :: !Data
     } deriving (Eq, Show)
 
 instance ToJSON Response where
-    toJSON (Response n w r d) = Object (x <> y)
+    toJSON (Response w r n d) = Object (x <> y)
       where
         Object x = toJSON (Request n d)
         Object y = object
@@ -354,6 +365,8 @@ instance ToJSON Response where
 -- the types module?
 data Operation = Operation
     { _opName             :: !Text
+    , _opService          :: !Abbrev
+    , _opProtocol         :: !Protocol
     , _opNamespace        :: !NS
     , _opImports          :: [NS]
     , _opDocumentation    :: !Doc

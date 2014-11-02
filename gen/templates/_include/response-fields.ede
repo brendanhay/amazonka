@@ -1,0 +1,14 @@
+{% for field in response.fields %}
+  {% case field.value.location %}
+  {% when "headers" %}
+        {% include "applicative.ede" %} (Map <$> h ~:: "{{ field.value.locationName }}")
+  {% when "header" %}
+        {% include "applicative.ede" %} h ~: "{{ field.value.locationName }}"
+  {% when "body-xml" %}
+        {% include "applicative.ede" %} x %| "{{ field.value.locationName }}"
+  {% when "body-json" %}
+        {% include "applicative.ede" %} o .: "{{ field.value.locationName }}"
+  {% when "body" %}
+        {% include "applicative.ede" %} pure (RsBody b)
+  {% endcase %}
+{% endfor %}

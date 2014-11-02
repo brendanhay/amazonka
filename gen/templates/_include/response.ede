@@ -1,0 +1,15 @@
+{% case response.type %}
+{% when "empty" %}
+    response = const (nullaryResponse {{ response.name }})
+{% else %}
+  {% if response.streaming %}
+    response = const . bodyResponse $ \h b ->
+    {% include "response-fields.ede" %}
+  {% elif protocol == "json" %}
+    response = const . jsonResponse $ \h o ->
+    {% include "response-fields.ede" %}
+  {% else %}
+    response = const . xmlResponse $ \h x ->
+    {% include "response-fields.ede" %}
+  {% endif %}
+{% endcase %}

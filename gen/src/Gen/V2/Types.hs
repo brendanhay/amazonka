@@ -90,17 +90,16 @@ instance A.ToJSON Signature where
     toJSON = A.toJSON . show
 
 data Protocol
-    = JSON
-    | RestJSON
-    | RestXML
+    = Json
+    | Xml
     | Query
       deriving (Eq, Show)
 
 instance FromJSON Protocol where
     parseJSON = withText "protocol" $ \case
-        "json"      -> pure JSON
-        "rest-json" -> pure RestJSON
-        "rest-xml"  -> pure RestXML
+        "json"      -> pure Json
+        "rest-json" -> pure Json
+        "rest-xml"  -> pure Xml
         "query"     -> pure Query
         "ec2"       -> pure Query
         e           -> fail ("Unknown Protocol: " ++ Text.unpack e)
@@ -158,7 +157,19 @@ data Location
     | Header
     | Uri
     | Querystring
+    | BodyXml
+    | BodyJson
+    | Body
       deriving (Eq, Ord, Show)
+
+location :: Protocol -> Bool -> Maybe Location -> Location
+location _ True = const Body
+location p _    = fromMaybe l
+  where
+    l = case p of
+        Json  -> BodyJson
+        Xml   -> BodyXml
+        Query -> BodyXml
 
 nullary stage1 ''Location
 nullary stage2 ''Location

@@ -63,10 +63,9 @@ loadTemplates d = do
 
     return $! f $ \t ->
         case t of
-            JSON     -> j
-            RestJSON -> j
-            RestXML  -> x
-            Query    -> q
+            Json  -> j
+            Xml   -> x
+            Query -> q
   where
     load (path -> f) =
            say "Parse Template" f

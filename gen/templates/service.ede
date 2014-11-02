@@ -13,7 +13,5 @@ module {{ namespace }}
     where
 {% endfor %}
 
-{% for imp in imports %}
---  import {{ imp.value }}
-{% endfor %}
+{% include "_include/imports.ede" %}
 import {{ namespace }}.Types

@@ -1,0 +1,11 @@
+  {% if type.documentation %}
+{{ type.documentation | above(76, 0) }}
+  {% endif %}
+  {% case type.type %}
+  {% when "record" %}
+{% include "record.ede" %}
+  {% when "newtype" %}
+{% include "newtype.ede" %}
+  {% when "nullary" %}
+{% include "nullary.ede" %}
+  {% endcase %}

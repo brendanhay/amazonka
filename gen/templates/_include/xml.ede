@@ -1,0 +1,15 @@
+instance FromXML {{ type.name }} where
+  {% if type.flattened %}
+    fromXMLOptions = xmlOptions { xmlListElem = Nothing }
+  {% else %}
+    fromXMLOptions = xmlOptions
+  {% endif %}
+    fromXMLRoot    = fromRoot "{{ type.name }}"
+
+instance ToXML {{ type.name }} where
+  {% if type.flattened %}
+    toXMLOptions = xmlOptions { xmlListElem = Nothing }
+  {% else %}
+    toXMLOptions = xmlOptions
+  {% endif %}
+    toXMLRoot    = toRoot "{{ type.name }}"

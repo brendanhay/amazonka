@@ -42,9 +42,8 @@ module Network.AWS.Prelude
 
     -- * Shared
     , Action          (..)
-    , Endpoint       (..)
-    , Service        (..)
-    , Switch          (..)
+    , Endpoint        (..)
+    , Service         (..)
 
     -- * Lenses
     , module Lens

@@ -255,7 +255,7 @@ instance Ord Data where
 instance ToJSON Data where
     toJSON d = toJSON . Derived d $
         case d of
-            Empty      -> object ["type" .= "empty"]
+            Empty        -> object ["type" .= "empty"]
             Nullary n fs -> object ["type" .= "nullary", "name" .= n, "branches" .= fs]
             Newtype n f  -> object ["type" .= "newtype", "name" .= n, "field" .= f]
             Record  n fs -> object
@@ -275,7 +275,7 @@ instance DerivingOf Data where
     derivingOf d = f (derivingOf (typesOf d))
       where
         f | Newtype{} <- d = id
-          | Nullary{} <- d = const [Eq', Ord', Enum', Show']
+          | Nullary{} <- d = const [Eq', Ord', Enum', Show', Generic']
           | otherwise      = delete Monoid'
 
 instance TypesOf Data where

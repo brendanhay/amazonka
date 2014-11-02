@@ -84,7 +84,6 @@ module Network.AWS.Types
     , zSuffix
 
     -- * Miscellaneous
-    , Switch          (..)
     , Action          (..)
     , Base64          (..)
     , base64
@@ -422,10 +421,6 @@ newtype Action = Action Text
 
 instance ToQuery Action where
     toQuery (Action a) = toQuery ("Action" :: ByteString, a)
-
--- | A switch which can be either 'Enabled' or 'Disabled'.
-data Switch a = Enabled | Disabled
-    deriving (Eq, Ord, Show, Generic)
 
 -- | Base64 encoded binary date.
 newtype Base64 = Base64 ByteString

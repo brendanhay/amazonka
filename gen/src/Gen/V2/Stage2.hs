@@ -377,7 +377,8 @@ data Endpoint
     | Regional
       deriving (Eq, Show)
 
-nullary (stage2 & thCtor .~ id) ''Endpoint
+instance ToJSON Endpoint where
+    toJSON = toJSON . show
 
 data Service = Service
     { _svName           :: !Text

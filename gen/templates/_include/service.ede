@@ -1,0 +1,13 @@
+-- | Supported version (@{{ service.version }}@) of the {{ service.name }}.
+data {{ service.abbrev }} deriving (Typeable)
+
+instance AWSService {{ service.abbrev }} where
+    type Sg {{ service.abbrev }} = {{ service.signature }}
+    type Er {{ service.abbrev }} = {{ service.error }}
+
+    service = Service
+        { _svcEndpoint = {{ service.endpoint }}
+        , _svcPrefix   = "{{ service.endpointPrefix }}"
+        , _svcVersion  = "{{ service.version }}"
+        , _svcTarget   = {% if targetPrefix %}Just "{{ service.targetPrefix }}"{% else %}Nothing{% endif %}
+        }

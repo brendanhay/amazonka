@@ -86,7 +86,8 @@ instance FromJSON Signature where
         "s3"      -> pure V4
         e         -> fail ("Unknown Signature: " ++ Text.unpack e)
 
-nullary stage2 ''Signature
+instance A.ToJSON Signature where
+    toJSON = A.toJSON . show
 
 data Protocol
     = JSON

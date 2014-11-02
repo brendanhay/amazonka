@@ -44,14 +44,14 @@ module Network.AWS.Types
     , withAuth
 
     -- * Logger
-    , Logger         (..)
+    , Logger          (..)
     , debug
 
     -- * Services
     , AWSService      (..)
-    , Service        (..)
+    , Service         (..)
     -- ** Endpoints
-    , Endpoint       (..)
+    , Endpoint        (..)
     , Host            (..)
     , endpoint
 

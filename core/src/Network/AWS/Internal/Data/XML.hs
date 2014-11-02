@@ -157,6 +157,10 @@ instance FromXML BS.ByteString where
     fromXMLRoot = fromRoot "ByteString"
     fromXML o   = fmap Text.encodeUtf8 . fromXML (retag o)
 
+instance FromXML Int where
+    fromXMLRoot = fromRoot "Int"
+    fromXML     = const fromNodeContent
+
 instance FromXML Integer where
     fromXMLRoot = fromRoot "Integer"
     fromXML     = const fromNodeContent
@@ -296,6 +300,10 @@ instance ToXML Text where
 instance ToXML BS.ByteString where
     toXMLRoot = toRoot "ByteString"
     toXML o   = toXML (retag o) . Text.decodeUtf8
+
+instance ToXML Int where
+    toXMLRoot = toRoot "Int"
+    toXML _   = (:[]) . NodeContent . toText
 
 instance ToXML Integer where
     toXMLRoot = toRoot "Integer"

@@ -9,6 +9,15 @@ module {{ namespace }} where
 
 import Network.AWS.Prelude
 
+{% include "_include/service.ede" %}
+
+xmlOptions :: Tagged a XMLOptions
+xmlOptions = Tagged def
+{% if xmlNamespace %}
+    { xmlNamespace = Just "{{ xmlNamespace }}"
+    }
+{% endif %}
+
 {% for type in types %}
 {% include "_include/datatype.ede" with type = type.value %}
 

@@ -15,18 +15,9 @@ import Network.AWS.Prelude
   {% endif %}
   {% case type.value.type %}
   {% when "record" %}
-data {{ type.value.name }} = {{ type.value.name }}
-    {% for field in type.value.fields %}
-    {% if field.first %}{ {% else %}, {% endif %}{{ field.value.name }} :: {{ field.value.type }}
-  {% if field.value.documentation %}
-{{ field.value.documentation | below(68, 6) }}
-  {% endif %}
-    {% endfor %}
-    } deriving {% include "../_include/deriving.ede" with deriving = type.value.deriving %}
+    {% include "../_include/record.ede" with type = type.value %}
   {% when "newtype" %}
-newtype {{ type.value.name }} = {{ type.value.name }}
-    { {{ type.value.field.name }} :: {{ type.value.field.type }}
-    } deriving {% include "../_include/deriving.ede" with deriving = type.value.deriving %}
+    {% include "../_include/newtype.ede" with type = type.value %}
   {% when "nullary" %}
 data {{ type.value.name }}
     {% for branch in type.value.branches %}

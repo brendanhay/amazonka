@@ -1,0 +1,8 @@
+data {{ type.name }} = {{ type.name }}
+    {% for field in type.fields %}
+    {% if field.first %}{ {% else %}, {% endif %}{{ field.value.name }} :: {{ field.value.type }}
+  {% if field.value.documentation %}
+{{ field.value.documentation | below(68, 6) }}
+  {% endif %}
+    {% endfor %}
+    } deriving {% include "deriving.ede" with deriving = type.deriving %}

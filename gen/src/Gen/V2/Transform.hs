@@ -120,7 +120,7 @@ prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
     go k v1
         | Nullary{} <- v1 = do
             let v2  = mapNames (enumName "") v1
-            let v3  = mapNames (enumName k)  v2
+                v3  = mapNames (enumName k)  v2
                 fs1 = Set.fromList (fields v2)
                 fs2 = Set.fromList (fields v3)
 

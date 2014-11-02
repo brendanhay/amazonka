@@ -247,10 +247,10 @@ instance Ord Data where
             (Nullary x _, Nullary y _) -> x `compare` y
             (Newtype x _, Newtype y _) -> x `compare` y
             (Record  x _, Record  y _) -> x `compare` y
-            (Nullary _ _, _)           -> GT
-            (Newtype _ _, _)           -> GT
-            (Record  _ _, _)           -> GT
-            _                          -> LT
+            (Nullary _ _, _)           -> LT
+            (Newtype _ _, _)           -> LT
+            (Record  _ _, _)           -> LT
+            _                          -> GT
 
 instance ToJSON Data where
     toJSON d = toJSON . Derived d $
@@ -268,7 +268,6 @@ instance ToJSON Data where
                 ]
 --               where
 --                 -- (req, opt) = partition (isRequired . view typeOf) fs
-
 --                 -- pay = headMay (filter (view (namedV.typedV.fPayload)) fs)
 
 instance DerivingOf Data where

@@ -29,7 +29,7 @@ executable amazonka-gen
         , bytestring
         , case-insensitive
         , directory
-        , ede                  == 0.2.3
+        , ede                  == 0.2.3.1
         , errors
         , filepath
         , jason

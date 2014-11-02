@@ -110,7 +110,7 @@ data Timestamp
     = RFC822
     | ISO8601
     | POSIX
-      deriving (Eq, Show)
+      deriving (Eq, Ord, Show)
 
 instance FromJSON Timestamp where
     parseJSON = withText "timestamp" $ \case
@@ -157,7 +157,7 @@ data Location
     | Header
     | Uri
     | Querystring
-      deriving (Eq, Show)
+      deriving (Eq, Ord, Show)
 
 nullary stage1 ''Location
 nullary stage2 ''Location

@@ -1,5 +1,7 @@
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase                 #-}
+{-# LANGUAGE OverloadedStrings          #-}
 
 {% include "../_include/license.ede" %}
 
@@ -13,7 +15,7 @@ import Network.AWS.Prelude
   {% endif %}
   {% case type.value.type %}
   {% when "record" %}
-data {{ type.key }} = {{ type.key }}
+data {{ type.value.name }} = {{ type.value.name }}
     {% for field in type.value.fields %}
     {% if field.first %}{ {% else %}, {% endif %}{{ field.value.name }} :: {{ field.value.type }}
   {% if field.value.documentation %}
@@ -22,15 +24,32 @@ data {{ type.key }} = {{ type.key }}
     {% endfor %}
     } deriving {% include "../_include/deriving.ede" with deriving = type.value.deriving %}
   {% when "newtype" %}
-newtype {{ type.key }} = {{ type.key }}
+newtype {{ type.value.name }} = {{ type.value.name }}
     { {{ type.value.field.name }} :: {{ type.value.field.type }}
     } deriving {% include "../_include/deriving.ede" with deriving = type.value.deriving %}
   {% when "nullary" %}
-data {{ type.key }}
+data {{ type.value.name }}
     {% for branch in type.value.branches %}
-    {% if branch.first %}={% else %}|{% endif %} {{ branch.value.name }}
+    {% if branch.first %}={% else %}|{% endif %} {{ branch.key }} -- ^ {{ branch.value }}
     {% endfor %}
       deriving {% include "../_include/deriving.ede" with deriving = type.value.deriving %}
+
+instance Hashable {{ type.value.name }}
+
+instance FromText {{ type.value.name }} where
+    {% for branch in type.value.branches %}
+      {% if branch.first %}
+    parser = match "{{ branch.value }}" {{ branch.key }}
+      {% else %}
+         <|> match "{{ branch.value }}" {{ branch.key }}
+      {% endif %}
+    {% endfor %}
+
+instance ToText {{ type.value.name }} where
+    toText = \case
+    {% for branch in type.value.branches %}
+        {{ branch.key }} -> "{{ branch.value }}"
+    {% endfor %}
   {% endcase %}
   {% if !type.last %}
 

@@ -26,7 +26,7 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-        Network.AWS.S3.Types
+          Network.AWS.S3.Types
     {# {% for mod in modules %} #}
     {#   {% if mod.first %}  {% else %}, {% endif %}{{ mod.value }} #}
     {# {% endfor %} #}

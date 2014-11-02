@@ -21,7 +21,14 @@ import qualified Data.Text            as Text
 import           Data.Text.Manipulate
 
 enumName :: Text -> Text -> Text
-enumName k v = Text.toUpper k <> (toPascal . Text.toLower $ Text.replace ":" "-" v)
+enumName k v1 = Text.toUpper k <> toPascal v3
+  where
+    v3 | Text.all f v2 = Text.toLower v2
+       | otherwise     = v2
+
+    v2 = Text.replace ":" "-" v1
+
+    f c = isUpper c || c `elem` "-_/"
 
 lensName :: Text -> Text
 lensName = stripText "_"

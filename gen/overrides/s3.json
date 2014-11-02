@@ -48,6 +48,9 @@
                 "NoncurrentDays",
                 "StorageClass"
             ]
+        },
+        "BucketCannedACL": {
+            "sum_prefix": "Canned"
         }
     }
 }

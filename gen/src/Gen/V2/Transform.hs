@@ -174,7 +174,7 @@ operation a p n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
         let k = x ^. refShape
         m <- gets (^. at k)
         case m of
-            Nothing -> return (c "penis" k Empty)
+            Nothing -> return (c "" k Empty)
             Just d  -> do
                 let d' = setStreaming rq d
                     k' = operationName k

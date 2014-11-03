@@ -25,6 +25,7 @@ import           Text.EDE.Filters
 
 genFilters :: HashMap Text Term
 genFilters = Map.fromList
-    [ "above" @: wrapHaddock "| "
-    , "below" @: wrapHaddock "^ "
+    [ "above"     @: wrapHaddock "| "
+    , "below"     @: wrapHaddock "^ "
+    , "highlight" @: highlightType
     ]

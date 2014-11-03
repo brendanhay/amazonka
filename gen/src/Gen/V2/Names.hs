@@ -33,6 +33,9 @@ enumName k v1 = Text.toUpper k <> toPascal v3
 lensName :: Text -> Text
 lensName = stripText "_"
 
+fieldName :: Text -> Text
+fieldName = mappend "_" . lensName
+
 keyPython :: Text -> Text
 keyPython = toSnake . keyName . Text.replace "." "_"
 

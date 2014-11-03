@@ -52,6 +52,7 @@ import           Data.Text.Manipulate
 import           Debug.Trace
 import           Gen.V2.IO
 import           Gen.V2.JSON              ()
+import           Gen.V2.Names
 import           Gen.V2.TH
 import           Gen.V2.Types
 import           System.FilePath
@@ -231,30 +232,25 @@ instance DerivingOf Type where
         TMaybe     x   -> derivingOf x
         TSensitive x   -> derivingOf x
 
-data Param
-    = Required
-      { _pNum     :: !Int
-      , _pField   :: !Text
-      , _pType    :: !Type
-      }
+data Param = Param !Int Field
 
-    | Optional
-      { _pField   :: !Text
-      , _pDefault :: !Text
-      }
+instance ToJSON Param where
+    toJSON (Param n f) = Object (x <> y)
+      where
+        Object x = toJSON f
+        Object y = object
+            [ "num"     .= n
+            , "default" .= def (_fType f)
+            ]
 
-record stage2 ''Param
+        def t | isMonoid   t = "mempty"
+              | isRequired t = "<error>"
+              | otherwise    = "Nothing"
 
 parameters :: [Field] -> ([Param], [Param])
-parameters fs = (x, y)
+parameters = bimap f f . partition (isRequired . view typeOf)
   where
-    x = zipWith (\n f -> Required n (_fName f) (_fType f)) [1..] req
-    y = map (\f -> Optional (_fName f) (def (_fType f))) opt
-
-    (req, opt) = partition (isRequired . view typeOf) fs
-
-    def t | isMonoid t = "mempty"
-          | otherwise  = "Nothing"
+    f = zipWith Param [1..]
 
 data Field = Field
     { _fName          :: !Text
@@ -268,7 +264,18 @@ data Field = Field
 instance Ord Field where
     compare a b = on compare _fName a b <> on compare _fType a b
 
-record stage2 ''Field
+makeLenses ''Field
+
+instance ToJSON Field where
+    toJSON Field{..} = object
+        [ "name"          .= fieldName _fName
+        , "lens"          .= lensName  _fName
+        , "shape"         .= _fShape
+        , "type"          .= _fType
+        , "location"      .= _fLocation
+        , "locationName"  .= _fLocationName
+        , "documentation" .= _fDocumentation
+        ]
 
 instance HasName Field where
     nameOf = fName

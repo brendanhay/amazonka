@@ -12,9 +12,23 @@
 
 module Gen.V2.Documentation where
 
+import           Data.Char
 import           Data.Monoid
 import           Data.Text   (Text)
 import qualified Data.Text   as Text
+
+highlightType :: Text -> Text
+highlightType = Text.unwords . map start . Text.words
+  where
+    start t
+        | Text.null t                     = t
+        | Just ('(', xs) <- Text.uncons t = "('" <> end xs
+        | otherwise                       = "'"  <> end t
+
+    end t
+        | Text.null t        = t
+        | ')' <- Text.last t = Text.init t <> "')"
+        | otherwise          = t <> "'"
 
 wrapHaddock :: Text -> Text -> Int -> Int -> Text
 wrapHaddock start t n i

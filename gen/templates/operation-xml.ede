@@ -5,6 +5,11 @@ module {{ namespace }} where
 import Network.AWS.Prelude
 {% include "_include/imports.ede" %}
 
+{% if documentation %}
+{{ documentation | above(76, 0) }}
+{% endif %}
+{% include "_include/constructor.ede" with type = request %}
+
 {% include "_include/datatype.ede" with type = request %}
 
 {% include "_include/datatype.ede" with type = response %}

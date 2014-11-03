@@ -121,8 +121,14 @@ instance (DerivingOf a, ToJSON a) => ToJSON (Derived a) where
 class HasName a where
     nameOf :: Lens' a Text
 
+instance HasName Text where
+    nameOf = id
+
 nameCI :: HasName a => a -> CI Text
 nameCI = CI.mk . view nameOf
+
+constructor :: HasName a => a -> Text
+constructor = uncurry (<>) . first Text.toLower . breakWord . view nameOf
 
 data Prim
     = PBlob
@@ -198,6 +204,11 @@ isRequired :: Type -> Bool
 isRequired (TMaybe _) = False
 isRequired _          = True
 
+isMonoid :: Type -> Bool
+isMonoid (TList  _) = True
+isMonoid (TMap _ _) = True
+isMonoid _          = False
+
 class HasType a where
     typeOf :: Lens' a Type
 
@@ -220,6 +231,31 @@ instance DerivingOf Type where
         TMaybe     x   -> derivingOf x
         TSensitive x   -> derivingOf x
 
+data Param
+    = Required
+      { _pNum     :: !Int
+      , _pField   :: !Text
+      , _pType    :: !Type
+      }
+
+    | Optional
+      { _pField   :: !Text
+      , _pDefault :: !Text
+      }
+
+record stage2 ''Param
+
+parameters :: [Field] -> ([Param], [Param])
+parameters fs = (x, y)
+  where
+    x = zipWith (\n f -> Required n (_fName f) (_fType f)) [1..] req
+    y = map (\f -> Optional (_fName f) (def (_fType f))) opt
+
+    (req, opt) = partition (isRequired . view typeOf) fs
+
+    def t | isMonoid t = "mempty"
+          | otherwise  = "Nothing"
+
 data Field = Field
     { _fName          :: !Text
     , _fShape         :: !Text
@@ -228,6 +264,9 @@ data Field = Field
     , _fLocationName  :: !Text
     , _fDocumentation :: Maybe Doc
     } deriving (Eq, Show)
+
+instance Ord Field where
+    compare a b = on compare _fName a b <> on compare _fType a b
 
 record stage2 ''Field
 
@@ -262,7 +301,7 @@ instance ToJSON Data where
     toJSON d = toJSON . Derived d $
         case d of
             Empty        -> object
-                [ "type" .= "empty"
+                [ "type"     .= "empty"
                 ]
 
             Nullary n fs -> object
@@ -274,21 +313,31 @@ instance ToJSON Data where
             Newtype n f  -> object
                 [ "type"     .= "newtype"
                 , "name"     .= n
+                , "ctor"     .= ctor
+                , "ctorPad"  .= pad
                 , "field"    .= f
                 , "fields"   .= [f]
+                , "required" .= req
+                , "optional" .= opt
                 ]
+              where
+                (req, opt) = parameters [f]
+                pad        = Text.replicate (Text.length ctor) " "
+                ctor       = constructor n
 
             Record  n fs -> object
                 [ "type"     .= "record"
                 , "name"     .= n
-                , "fields"   .= fs
-                -- , "required" .= req
-                -- , "optional" .= opt
-                -- , "payload"  .= pay
+                , "ctor"     .= ctor
+                , "ctorPad"  .= pad
+                , "fields"   .= sort fs
+                , "required" .= req
+                , "optional" .= opt
                 ]
---               where
---                 -- (req, opt) = partition (isRequired . view typeOf) fs
---                 -- pay = headMay (filter (view (namedV.typedV.fPayload)) fs)
+              where
+                (req, opt) = parameters fs
+                pad        = Text.replicate (Text.length ctor) " "
+                ctor       = constructor n
 
 instance DerivingOf Data where
     derivingOf d = f (derivingOf (typesOf d))
@@ -304,22 +353,24 @@ instance TypesOf Data where
         Nullary _ _  -> []
         Empty        -> []
 
-mapFields :: (Field -> Field) -> Data -> Data
-mapFields f (Newtype n x)  = Newtype n (f x)
-mapFields f (Record  n xs) = Record  n (map f xs)
-mapFields _ (Nullary n m)  = Nullary n m
-mapFields _ Empty          = Empty
+dataFields :: Traversal' Data Field
+dataFields f = \case
+    Newtype n x  -> Newtype n <$> f x
+    Record  n xs -> Record  n <$> traverse f xs
+    Nullary n m  -> pure (Nullary n m)
+    Empty        -> pure Empty
 
-mapNames :: (Text -> Text) -> Data -> Data
-mapNames f (Newtype n x)  = Newtype n (x & nameOf  %~ f)
-mapNames f (Record  n xs) = Record  n (map (nameOf %~ f) xs)
-mapNames f (Nullary n m)  = Nullary n (Map.fromList . map (first f) $ Map.toList m)
-mapNames _ Empty          = Empty
+fieldNames :: Data -> [Text]
+fieldNames = toListOf (dataFields . nameOf)
+
+mapFieldNames :: (Text -> Text) -> Data -> Data
+mapFieldNames f = dataFields %~ nameOf %~ f
 
 setStreaming :: Bool -> Data -> Data
-setStreaming rq = mapFields $ \x ->
-    x & typeOf %~ transform (body (x ^. fLocation))
+setStreaming rq = dataFields %~ go
   where
+    go x = x & typeOf %~ transform (body (x ^. fLocation))
+
     body :: Location -> Type -> Type
     body Body (TMaybe x@(TPrim y))
         | PReq <- y = x
@@ -328,7 +379,11 @@ setStreaming rq = mapFields $ \x ->
     body Body (TPrim _)
         | rq         = TPrim PReq
         | otherwise  = TPrim PRes
-    body _    x      =  x
+    body _    x      = x
+
+isEmpty :: Data -> Bool
+isEmpty Empty = True
+isEmpty _     = False
 
 data Request = Request
     { _rqName  :: !Text

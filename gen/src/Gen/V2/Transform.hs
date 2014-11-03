@@ -85,7 +85,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
 
     abbrev = maybeAbbrev (s1 ^. mServiceFullName) (s1 ^. mServiceAbbreviation)
 
-    (ops, filter (/= Empty) -> ts) = dataTypes (m ^. mOverrides) abbrev s1
+    (ops, filter (not . isEmpty) -> ts) = dataTypes (m ^. mOverrides) abbrev s1
 
     version = s1 ^. mApiVersion
 
@@ -119,10 +119,10 @@ prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
     go :: Text -> Data -> State (HashSet Text) Data
     go k v1
         | Nullary{} <- v1 = do
-            let v2  = mapNames (enumName "") v1
-                v3  = mapNames (enumName k)  v2
-                fs1 = Set.fromList (fields v2)
-                fs2 = Set.fromList (fields v3)
+            let v2  = mapFieldNames (enumName "") v1
+                v3  = mapFieldNames (enumName k)  v2
+                fs1 = Set.fromList (fieldNames v2)
+                fs2 = Set.fromList (fieldNames v3)
 
             p1 <- gets (Set.null . Set.intersection fs1)
             p2 <- gets (Set.null . Set.intersection fs2)
@@ -132,18 +132,13 @@ prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
                | otherwise -> go (numericSuffix k) v3
 
         | otherwise       = do
-            let v2 = mapNames (mappend k) v1
-                fs = Set.fromList (fields v2)
+            let v2 = mapFieldNames (mappend k) v1
+                fs = Set.fromList (fieldNames v2)
 
             p <- gets (Set.null . Set.intersection fs)
 
             if | p         -> modify (mappend fs) >> return v2
                | otherwise -> go (numericSuffix k) v1
-
-    fields (Newtype _ f)  = [f ^. nameOf]
-    fields (Record  _ fs) = map (view nameOf) fs
-    fields (Nullary _ bs) = Map.keys bs
-    fields Empty          = []
 
 operation :: Abbrev
           -> Protocol
@@ -195,7 +190,7 @@ overrides = flip (Map.foldlWithKey' run)
           renameTo   k (o ^. oRenameTo)
         . replacedBy k (o ^. oReplacedBy)
         . sumPrefix  k (o ^. oSumPrefix)
-        . Map.adjust (mapFields field) k
+        . Map.adjust (dataFields %~ field) k
         $ r
       where
         field = required (o ^. oRequired)
@@ -215,7 +210,7 @@ overrides = flip (Map.foldlWithKey' run)
     replacedBy x (Just y) = Map.filterWithKey (const . (/= y)) . replaced x y
 
     replaced :: Text -> Text -> HashMap Text Data -> HashMap Text Data
-    replaced x y = Map.map (mapFields go)
+    replaced x y = Map.map (dataFields %~ go)
       where
         go :: Field -> Field
         go f | f ^. fShape == x = f & typeOf %~ retype
@@ -233,7 +228,7 @@ overrides = flip (Map.foldlWithKey' run)
     sumPrefix _ Nothing  = id
     sumPrefix k (Just y) = Map.adjust f k
       where
-        f x@Nullary{} = mapNames (mappend y) x
+        f x@Nullary{} = mapFieldNames (mappend y) x
         f x           = x
 
     -- Fields:

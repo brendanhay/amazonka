@@ -232,26 +232,6 @@ instance DerivingOf Type where
         TMaybe     x   -> derivingOf x
         TSensitive x   -> derivingOf x
 
-data Param = Param !Int Field
-
-instance ToJSON Param where
-    toJSON (Param n f) = Object (x <> y)
-      where
-        Object x = toJSON f
-        Object y = object
-            [ "num"     .= n
-            , "default" .= def (_fType f)
-            ]
-
-        def t | isMonoid   t = "mempty"
-              | isRequired t = "<error>"
-              | otherwise    = "Nothing"
-
-parameters :: [Field] -> ([Param], [Param])
-parameters = bimap f f . partition (isRequired . view typeOf)
-  where
-    f = zipWith Param [1..]
-
 data Field = Field
     { _fName          :: !Text
     , _fShape         :: !Text
@@ -275,7 +255,15 @@ instance ToJSON Field where
         , "location"      .= _fLocation
         , "locationName"  .= _fLocationName
         , "documentation" .= _fDocumentation
+        , "default"       .= def
         ]
+      where
+        def | isMonoid   _fType = "mempty"
+            | isRequired _fType = "<error>"
+            | otherwise         = "Nothing"
+
+parameters :: [Field] -> ([Field], [Field])
+parameters = partition (isRequired . view typeOf)
 
 instance HasName Field where
     nameOf = fName
@@ -370,6 +358,9 @@ dataFields f = \case
 fieldNames :: Data -> [Text]
 fieldNames = toListOf (dataFields . nameOf)
 
+fieldPrefix :: Data -> Maybe Text
+fieldPrefix = fmap (Text.takeWhile (not . isUpper)) . headMay . fieldNames
+
 mapFieldNames :: (Text -> Text) -> Data -> Data
 mapFieldNames f = dataFields %~ nameOf %~ f
 
@@ -393,24 +384,17 @@ isEmpty Empty = True
 isEmpty _     = False
 
 data Request = Request
-    { _rqName  :: !Text
-    , _rqData  :: !Data
+    { _rqUri  :: !URI
+    , _rqName :: !Text
+    , _rqData :: !Data
     } deriving (Eq, Show)
 
 instance ToJSON Request where
-    toJSON (Request n d) = Object (x <> y)
+    toJSON (Request u n d) = Object (operationJSON n d <> x)
       where
-        Object x = toJSON d
-        Object y = object
-            [ "name"      .= n
-            , "streaming" .= stream
+        Object x = object
+            [ "uri" .= u
             ]
-
-        stream = any ((== Body) . view fLocation) $
-            case d of
-                Newtype _ f  -> [f]
-                Record  _ fs -> fs
-                _            -> []
 
 data Response = Response
     { _rsWrapper       :: !Bool
@@ -420,13 +404,27 @@ data Response = Response
     } deriving (Eq, Show)
 
 instance ToJSON Response where
-    toJSON (Response w r n d) = Object (x <> y)
+    toJSON (Response w r n d) = Object (operationJSON n d <> x)
       where
-        Object x = toJSON (Request n d)
-        Object y = object
+        Object x = object
             [ "resultWrapper" .= r
             , "wrapper"       .= w
             ]
+
+operationJSON :: Text -> Data -> Object
+operationJSON n d = x <> y
+  where
+    Object x = toJSON d
+    Object y = object
+        [ "name"      .= n
+        , "streaming" .= stream
+        ]
+
+    stream = any ((== Body) . view fLocation) $
+        case d of
+            Newtype _ f  -> [f]
+            Record  _ fs -> fs
+            _            -> []
 
 -- FIXME: Errors? Pagination? Result/Request inline and not part of
 -- the types module?
@@ -439,7 +437,6 @@ data Operation = Operation
     , _opDocumentation    :: !Doc
     , _opDocumentationUrl :: Maybe Text
     , _opMethod           :: !Method
-    , _opUri              :: !URI
     , _opRequest          :: !Request
     , _opResponse         :: !Response
     } deriving (Eq, Show)

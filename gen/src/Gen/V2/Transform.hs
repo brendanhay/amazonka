@@ -156,28 +156,30 @@ operation a p n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
         , _opDocumentation    = documentation (o ^. oDocumentation)
         , _opDocumentationUrl = o ^. oDocumentationUrl
         , _opMethod           = o ^. oHttp.hMethod
-        , _opUri              = o ^. oHttp.hRequestUri
         , _opRequest          = rq
         , _opResponse         = rs
         }
 
-    request = go Request True
+    prefixURI x = o ^. oHttp.hRequestUri & uriSegments.segVars %~ mappend x
 
-    response r = go (Response w k) False r
+    request = go (\x -> Request (prefixURI x)) True
+
+    response r = go (const (Response w k)) False r
       where
         w = fromMaybe False (join (_refWrapper <$> r))
         k = join (_refResultWrapper <$> r)
 
-    go c _  Nothing  = return (c "Empty" Empty)
+    go c _  Nothing  = return (c "" "Empty" Empty)
     go c rq (Just x) = do
         let k = x ^. refShape
         m <- gets (^. at k)
         case m of
-            Nothing -> return (c k Empty)
+            Nothing -> return (c "penis" k Empty)
             Just d  -> do
                 let d' = setStreaming rq d
+                    t  = fieldPrefix d'
                 modify (Map.delete k)
-                return (c k d')
+                return (c (fromMaybe "" t) k d')
 
 overrides :: HashMap Text Override -> HashMap Text Data -> HashMap Text Data
 overrides = flip (Map.foldlWithKey' run)

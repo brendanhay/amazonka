@@ -25,7 +25,7 @@
 module Gen.V2.Types where
 
 import           Control.Applicative
-import           Control.Lens         (makeLenses)
+import           Control.Lens         (Traversal', makeLenses)
 import qualified Data.Aeson           as A
 import           Data.Attoparsec.Text (Parser, parseOnly)
 import qualified Data.Attoparsec.Text as AText
@@ -190,8 +190,15 @@ segParser = Seg <$> AText.takeWhile1 (end '{') <|> Var <$> var
 
 instance A.ToJSON Seg where
     toJSON = \case
-        Seg t -> A.object ["type" A..= "const", "value" A..= t]
-        Var t -> A.object ["type" A..= "var",   "value" A..= t]
+        Seg t -> A.object ["type" A..= "const", "value" A..= strip t]
+        Var t -> A.object ["type" A..= "var",   "value" A..= strip t]
+      where
+        strip = Text.replace "+" ""
+
+segVars :: Traversal' Seg Text
+segVars f = \case
+    Seg x -> pure (Seg x)
+    Var x -> Var <$> f x
 
 data URI = URI
     { _uriPath  :: [Seg]
@@ -208,6 +215,9 @@ instance FromJSON URI where
     parseJSON = withText "uri" (either fail return . parseOnly uriParser)
 
 record stage2 ''URI
+
+uriSegments :: Traversal' URI Seg
+uriSegments f x = URI <$> traverse f (_uriPath x) <*> traverse f (_uriQuery x)
 
 newtype Abbrev = Abbrev { unAbbrev :: Text }
     deriving (Eq, Show, A.ToJSON)

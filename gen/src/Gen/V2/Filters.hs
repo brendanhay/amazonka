@@ -16,6 +16,7 @@ import           Data.Char
 import           Data.HashMap.Strict  (HashMap)
 import qualified Data.HashMap.Strict  as Map
 import           Data.Maybe
+import           Data.Monoid
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Manipulate
@@ -28,4 +29,11 @@ genFilters = Map.fromList
     [ "above"     @: wrapHaddock "| "
     , "below"     @: wrapHaddock "^ "
     , "highlight" @: highlightType
+    , "wrapped"   @: wrapped
     ]
+
+wrapped :: Text -> Text
+wrapped t = parens (Text.any isSpace t)
+  where
+    parens True  = "(" <> t <> ")"
+    parens False = t

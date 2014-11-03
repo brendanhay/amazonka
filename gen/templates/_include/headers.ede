@@ -1,0 +1,14 @@
+{% if (request.headers | length) > 0 %}
+instance ToHeaders {{ request.name }} where
+    toHeaders {{ request.name }}{..} = concat
+  {% for hdr in request.headers %}
+    {% if hdr.first %}
+        [ "{{ hdr.value.locationName }}" =: {{ hdr.value.field }}
+    {% else %}
+        , "{{ hdr.value.locationName }}" =: {{ hdr.value.field }}
+    {% endif %}
+  {% endfor %}
+        ]
+{% else %}
+instance ToHeaders {{ request.name }}
+{% endif %}

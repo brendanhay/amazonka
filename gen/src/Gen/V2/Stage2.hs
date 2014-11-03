@@ -265,6 +265,19 @@ instance ToJSON Field where
 parameters :: [Field] -> ([Field], [Field])
 parameters = partition (isRequired . view typeOf)
 
+isHeader :: Field -> Bool
+isHeader = f . view fLocation
+  where
+    f Header  = True
+    f Headers = True
+    f _       = False
+
+isQuery :: Field -> Bool
+isQuery = f . view fLocation
+  where
+    f Querystring = True
+    f _           = False
+
 instance HasName Field where
     nameOf = fName
 
@@ -393,7 +406,17 @@ instance ToJSON Request where
     toJSON (Request u n d) = Object (operationJSON n d <> x)
       where
         Object x = object
-            [ "uri" .= u
+            [ "path"    .= _uriPath u
+            , "headers" .= locations isHeader
+            , "query"   .= (map toJSON (_uriQuery u) ++ locations isQuery)
+            ]
+
+        locations p = map pair . filter p $ toListOf dataFields d
+
+        pair f = object
+            [ "type"         .= "field"
+            , "field"        .= fieldName (_fName f)
+            , "locationName" .= _fLocationName f
             ]
 
 data Response = Response

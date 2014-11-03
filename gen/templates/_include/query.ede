@@ -1,0 +1,30 @@
+{% case request.query | length %}
+{% when 0 %}
+instance ToQuery {{ request.name }}
+{% when 1 %}
+instance ToQuery {{ request.name }} where
+  {% for part in request.query %}
+    {% case part.value.type %}
+    {% when "var" %}
+    toQuery {{ request.name }}{..} = toText {{ part.value.value }}
+    {% when "const" %}
+    toQuery = const "{{ part.value.value }}"
+    {% endcase %}
+  {% endfor %}
+{% else %}
+instance ToQuery {{ request.name }} where
+    toQuery {{ request.name }}{..} = mconcat
+  {% for qry in request.query %}
+    {% case qry.value.type %}
+    {% when "var" %}
+        {% if qry.first %}[{% else %},{% endif %} toText {{ qry.value.value }}
+    {% when "const" %}
+        {% if qry.first %}[{% else %},{% endif %} "{{ qry.value.value }}"
+    {% when "field" %}
+        {% if qry.first %}[{% else %},{% endif %} "{{ qry.value.locationName }}" =? {{ qry.value.field }}
+    {% endcase %}
+  {% endfor %}
+  {% if (request.query | length) > 0 %}
+        ]
+  {% endif %}
+{% endcase %}

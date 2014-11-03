@@ -1,9 +1,9 @@
-{% case request.uri.path | length %}
+{% case request.path | length %}
 {% when 0 %}
 instance ToPath {{ request.name }}
 {% when 1 %}
 instance ToPath {{ request.name }} where
-  {% for part in request.uri.path %}
+  {% for part in request.path %}
     {% case part.value.type %}
     {% when "var" %}
     toPath {{ request.name }}{..} = {{ part.value.value }}
@@ -14,7 +14,7 @@ instance ToPath {{ request.name }} where
 {% else %}
 instance ToPath {{ request.name }} where
     toPath {{ request.name }}{..} = mconcat
-  {% for part in request.uri.path %}
+  {% for part in request.path %}
     {% if part.first %}
       {% case part.value.type %}
       {% when "var" %}
@@ -31,7 +31,7 @@ instance ToPath {{ request.name }} where
           {% endcase %}
     {% endif %}
   {% endfor %}
-  {% if (request.uri.path | length) > 0 %}
+  {% if (request.path | length) > 0 %}
         ]
   {% endif %}
 {% endcase %}

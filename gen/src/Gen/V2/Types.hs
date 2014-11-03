@@ -190,10 +190,10 @@ segParser = Seg <$> AText.takeWhile1 (end '{') <|> Var <$> var
 
 instance A.ToJSON Seg where
     toJSON = \case
-        Seg t -> A.object ["type" A..= "const", "value" A..= strip t]
-        Var t -> A.object ["type" A..= "var",   "value" A..= strip t]
+        Seg t -> A.object ["type" A..= "const", "value" A..= t]
+        Var t -> A.object ["type" A..= "var",   "value" A..= name t]
       where
-        strip = Text.replace "+" ""
+        name = fieldName . Text.replace "+" ""
 
 segVars :: Traversal' Seg Text
 segVars f = \case

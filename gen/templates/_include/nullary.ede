@@ -1,3 +1,6 @@
+  {% if type.documentation %}
+{{ type.documentation | above(76, 0) }}
+  {% endif %}
 data {{ type.name }}
     {% for branch in type.branches %}
     {% if branch.first %}={% else %}|{% endif %} {{ branch.key }} -- ^ {{ branch.value }}

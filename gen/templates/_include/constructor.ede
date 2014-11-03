@@ -2,6 +2,11 @@
 {% when "empty" %}
 {% when "nullary" %}
 {% else %}
+    {% if type.documentation %}
+{{ type.documentation | above(76, 0) }}
+  {% else %}
+-- | '{{ type.name }}' smart constructor.
+  {% endif %}
   {% for field in type.fields %}
     {% if field.first %}
 --

@@ -2,9 +2,12 @@ data {{ type.name }} = {{ type.name }}
 {% for field in type.fields %}
     {% if field.first %}{ {% else %}, {% endif %}{{ field.value.name }} :: {{ field.value.type }}
 {% endfor %}
-    } deriving {% include "deriving.ede" %}{% for field in type.fields %}
+    } deriving {% include "deriving.ede" %}
+{% include "constructor.ede" %}
+{% for field in type.fields %}
+
   {% if field.value.documentation %}
-{{ field.value.documentation | above(76, 0) }}
+{{ field.value.documentation | above(74, 0) }}
   {% endif %}
 {{ field.value.lens }} :: Lens' {{ type.name }} {{ field.value.type | wrapped }}
   {% if (field.value.name | length) > 24 %}

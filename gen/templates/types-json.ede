@@ -9,19 +9,3 @@ module {{ namespace }} where
 
 import Network.AWS.Prelude
 
-{% for type in types %}
-  {% if type.value.documentation %}
-{{ type.value.documentation | above(76, 0) }}
-  {% endif %}
-  {% case type.value.type %}
-  {% when "record" %}
-    {% include "_include/record.ede" with type = type.value %}
-  {% when "newtype" %}
-    {% include "_include/newtype.ede" with type = type.value %}
-  {% when "nullary" %}
-    {% include "_include/nullary.ede" with type = type.value %}
-  {% endcase %}
-  {% if !type.last %}
-
-  {% endif %}
-{% endfor %}

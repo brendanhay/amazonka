@@ -1,5 +1,0 @@
-{% include "constructor-datatype.ede" %}
-
-newtype {{ type.name }} = {{ type.name }}
-    { {{ type.field.name }} :: {{ type.field.type }}
-    } deriving {% include "../_include/deriving.ede" %}

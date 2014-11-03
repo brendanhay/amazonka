@@ -177,9 +177,15 @@ operation a p n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
             Nothing -> return (c "penis" k Empty)
             Just d  -> do
                 let d' = setStreaming rq d
-                    t  = fieldPrefix d'
+                    k' = operationName k
+                    t  = fromMaybe "" (fieldPrefix d')
                 modify (Map.delete k)
-                return (c (fromMaybe "" t) k d')
+                return $! c t k' (renamed k' d')
+
+    renamed k = \case
+        Newtype _ f  -> Newtype k f
+        Record  _ fs -> Record  k fs
+        x            -> x
 
 overrides :: HashMap Text Override -> HashMap Text Data -> HashMap Text Data
 overrides = flip (Map.foldlWithKey' run)

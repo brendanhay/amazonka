@@ -20,6 +20,9 @@ import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Manipulate
 
+operationName :: Text -> Text
+operationName t = fromMaybe t (Text.stripSuffix "Request" t)
+
 enumName :: Text -> Text -> Text
 enumName k v1 = Text.toUpper k <> toPascal v3
   where

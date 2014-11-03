@@ -8,8 +8,6 @@ import Network.AWS.Prelude
 {% if documentation %}
 {{ documentation | above(76, 0) }}
 {% endif %}
-{% include "_include/constructor.ede" with type = request %}
-
 {% include "_include/datatype.ede" with type = request %}
 
 {% include "_include/path.ede" %}

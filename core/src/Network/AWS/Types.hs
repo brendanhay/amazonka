@@ -29,7 +29,7 @@ module Network.AWS.Types
     , AWSServiceError (..)
     , Error           (..)
     , _ServiceError
-    , _ClientError
+    , _HttpError
     , _SerializerError
     , _Nested
 
@@ -108,7 +108,6 @@ import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
-import qualified Data.Text.Lazy               as LText
 import           Data.Time
 import           Data.Typeable
 import           GHC.Generics
@@ -117,21 +116,19 @@ import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Client          hiding (Request)
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
+import           Network.HTTP.Types.Status    (Status)
 import           System.Locale
 
 -- | An error type representing the subset of errors that can be directly
 -- attributed to this library.
 data Error
-    = ServiceError    String
-    | ClientError     HttpException
+    = ServiceError    Text Text Status String
+    | HttpError       HttpException
     | SerializerError String
     | Nested          [Error]
       deriving (Show, Typeable)
 
 instance Exception Error
-
-instance IsString Error where
-    fromString = ServiceError
 
 instance Monoid Error where
     mempty      = Nested []
@@ -144,30 +141,24 @@ instance Monoid Error where
 class AWSError a where
     awsError :: a -> Error
 
+instance AWSError a => AWSError [a] where
+    awsError = Nested . map awsError
+
 instance AWSError Error where
     awsError = id
 
-instance AWSError String where
-    awsError = ServiceError
-
-instance AWSError Text where
-    awsError = ServiceError . Text.unpack
-
-instance AWSError LText.Text where
-    awsError = ServiceError . LText.unpack
-
 instance AWSError HttpException where
-    awsError = ClientError
+    awsError = HttpError
 
 -- | Convert from service specific errors to the more general service error.
 class (Typeable a, AWSError a) => AWSServiceError a where
-    serviceError    :: String        -> a
-    clientError     :: HttpException -> a
-    serializerError :: String        -> a
+    serviceError    :: Text -> Text -> Status -> String -> a
+    httpError       :: HttpException                    -> a
+    serializerError :: String                           -> a
 
 instance AWSServiceError Error where
     serviceError    = ServiceError
-    clientError     = ClientError
+    httpError       = HttpError
     serializerError = SerializerError
 
 -- | The properties (such as endpoint) for a service, as well as it's

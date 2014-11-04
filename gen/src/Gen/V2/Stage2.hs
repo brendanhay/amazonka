@@ -357,13 +357,15 @@ dataFields f = \case
     Empty        -> pure Empty
 
 fieldNames :: Data -> [Text]
-fieldNames = toListOf (dataFields . nameOf)
+fieldNames (Nullary _ m) = Map.keys m
+fieldNames d             = toListOf (dataFields . nameOf) d
 
 fieldPrefix :: Data -> Maybe Text
 fieldPrefix = fmap (Text.takeWhile (not . isUpper)) . headMay . fieldNames
 
 mapFieldNames :: (Text -> Text) -> Data -> Data
-mapFieldNames f = dataFields %~ nameOf %~ f
+mapFieldNames f (Nullary n m) = Nullary n . Map.fromList . map (first f) $ Map.toList m
+mapFieldNames f d             = d & dataFields %~ nameOf %~ f
 
 setStreaming :: Bool -> Data -> Data
 setStreaming rq = dataFields %~ go

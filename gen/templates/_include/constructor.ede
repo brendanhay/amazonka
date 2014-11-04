@@ -4,6 +4,10 @@
 {% else %}
   {% for field in type.fields %}
     {% if field.first %}
+      {% if type.documentation %}
+      {% else %}
+-- | '{{ type.name }}' constructor.
+      {% endif %}
 --
 -- The fields accessible through corresponding lenses are:
 --

@@ -75,6 +75,7 @@ module Network.AWS.Types
     -- ** HTTP Client
     , ClientRequest
     , ClientResponse
+    , ResponseBody
     , clientRequest
 
     -- * Regions
@@ -99,6 +100,7 @@ import           Data.Aeson                   hiding (Error)
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
 import qualified Data.ByteString.Base64       as Base64
+import qualified Data.ByteString.Lazy         as LBS
 import           Data.Char
 import           Data.Conduit
 import           Data.Default.Class
@@ -125,7 +127,7 @@ type Abbrev = Text
 -- | An error type representing the subset of errors that can be directly
 -- attributed to this library.
 data Error
-    = HttpError       Abbrev HttpException
+    = HttpError       HttpException
     | SerializerError Abbrev String
     | ServiceError    Abbrev Status Text
     | Nested          [Error]
@@ -154,8 +156,7 @@ instance AWSError HttpException where
 class (Typeable a, AWSError a) => AWSServiceError a where
     httpError       :: HttpException -> a
     serializerError :: String        -> a
-    serviceError    :: Status -> LBS.ByteString -> Maybe a
-    checkError      :: Status -> Bool
+    serviceError    :: Status        -> Maybe (LBS.ByteString -> a)
 
 -- | The properties (such as endpoint) for a service, as well as it's
 -- associated signing algorithm and error types.
@@ -429,8 +430,11 @@ instance ToJSON Base64 where
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
 
+-- | A convenience alias encapsulating the common 'Response'.
+type ClientResponse = Response ResponseBody
+
 -- | A convenience alias encapsulating the common 'Response' body.
-type ClientResponse = Response (ResumableSource (ResourceT IO) ByteString)
+type ResponseBody = ResumableSource (ResourceT IO) ByteString
 
 -- | Construct a 'ClientRequest' using common parameters such as TLS and prevent
 -- throwing errors when receiving erroneous status codes in respones.

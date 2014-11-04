@@ -12,14 +12,8 @@
 
 module Network.AWS.Response
     (
-    -- * Pagination
-      index
-    , choice
-
     -- * Responses
-    -- , headerResponse
-    -- , cursorResponse
-    , xmlResponse
+      xmlResponse
     , jsonResponse
     , nullaryResponse
     , bodyResponse
@@ -45,82 +39,79 @@ import           Network.HTTP.Types
 import qualified Text.XML                     as XML
 import           Text.XML.Cursor
 
-index :: ToText c => Getting [b] a [b] -> Getting c b c -> a -> Maybe Text
-index g f = fmap (toText . view f) . lastMay . view g
+-- index :: ToText c => Getting [b] a [b] -> Getting c b c -> a -> Maybe Text
+-- index g f = fmap (toText . view f) . lastMay . view g
 
-choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
-choice f g x = f x <|> g x
+-- choice :: Alternative f => (a -> f b) -> (a -> f b) -> a -> f b
+-- choice f g x = f x <|> g x
 
-lastMay :: [a] -> Maybe a
-lastMay []     = Nothing
-lastMay (x:xs) = Just (go x xs)
-  where
-    go y []     = y
-    go _ (y:ys) = go y ys
+-- lastMay :: [a] -> Maybe a
+-- lastMay []     = Nothing
+-- lastMay (x:xs) = Just (go x xs)
+--   where
+--     go y []     = y
+--     go _ (y:ys) = go y ys
 
-headerResponse :: (MonadResource m, AWSServiceError e)
-               => (ResponseHeaders -> Either String a)
-               -> Either HttpException ClientResponse
-               -> m (Either e a)
-headerResponse f = receive $ \hs bdy -> do
-     liftResourceT (closeResumableSource bdy)
-     return $! serializerError `first` f hs
-
--- cursorResponse :: (MonadResource m, AWSServiceError e)
---                => (ResponseHeaders -> Cursor -> Either String a)
---                -> Either HttpException ClientResponse
---                -> m (Either e a)
--- cursorResponse f = receive $ \hs bdy -> do
---     lbs <- sinkLbs bdy
---     case XML.parseLBS def lbs of
---         Left  ex  -> return . Left . serializerError $ show ex
---         Right doc ->
---             case f hs (fromDocument doc) of
---                 Left  s -> return . Left $ serviceError s
---                 Right x -> return (Right x)
-
-xmlResponse :: (MonadResource m, AWSServiceError e, FromXML a)
-            => Either HttpException ClientResponse
+xmlResponse :: (MonadResource m, AWSServiceError e)
+            => (ResponseHeaders -> Cursor -> Either String a)
+            -> Either HttpException ClientResponse
             -> m (Either e a)
-xmlResponse = receive $ \_ bdy -> do
+xmlResponse f = receive $ \hs bdy -> do
     lbs <- sinkLbs bdy
-    return $! serializerError `first` decodeXML lbs
+    case XML.parseLBS def lbs of
+        Left  ex  -> deserializeFailure (show ex)
+        Right doc ->
+            case f hs (fromDocument doc) of
+                Left  s -> deserializeFailure s
+                Right x -> return (Right x)
 
 jsonResponse :: (MonadResource m, AWSServiceError e, FromJSON a)
-             => Either HttpException ClientResponse
+             => (ResponseHeaders -> Object -> Either String a)
+             -> Either HttpException ClientResponse
              -> m (Either e a)
-jsonResponse = receive $ \_ bdy -> do
+jsonResponse f = receive $ \hs bdy -> do
     lbs <- sinkLbs bdy
-    return $! serializerError `first` eitherDecode lbs
+    case eitherDecode' lbs of
+        Left  s -> deserializeFailure s
+        Right o ->
+            case f hs o of
+                Left  s -> deserializeFailure s
+                Right x -> return (Right x)
 
-bodyResponse :: (Monad m, AWSServiceError e)
-             => (ResponseHeaders -> a -> m (Either String b))
-             -> Either HttpException (Response a)
-             -> m (Either e b)
-bodyResponse f = receive (\hs bdy -> first serializerError `liftM` f hs bdy)
+bodyResponse :: (MonadResource m, AWSServiceError e)
+             => (ResponseHeaders -> ResponseBody -> m (Either String a))
+             -> Either HttpException ClientResponse
+             -> m (Either e a)
+bodyResponse f = receive $ \hs bdy ->
+    first serializerError `liftM` f hs bdy
 
 nullaryResponse :: (MonadResource m, AWSServiceError e)
                 => a
                 -> Either HttpException ClientResponse
                 -> m (Either e a)
-nullaryResponse x = receive (\_ bdy -> liftResourceT (bdy $$+- return (Right x)))
+nullaryResponse x = receive $ \_ bdy ->
+    liftResourceT (bdy $$+- return (Right x))
 
-receive :: (Monad m, AWSServiceError e)
-        => (ResponseHeaders -> a -> m (Either e b))
-        -> Either HttpException (Response a)
-        -> m (Either e b)
-receive f = either failure success
+receive :: (MonadResource m, AWSServiceError e)
+        => (ResponseHeaders -> ResponseBody -> m (Either e a))
+        -> Either HttpException ClientResponse
+        -> m (Either e a)
+receive f = either httpFailure success
   where
-    failure = return . Left . httpError
-
-    success rs
-        | statusCode st >= 400 = failure (StatusCodeException st hs mempty)
-        | otherwise = f hs (responseBody rs)
+    success rs =
+        maybe (f hs bdy)
+              (\g -> Left . g <$> sinkLbs bdy)
+              (serviceError s)
       where
-        st = responseStatus  rs
-        hs = responseHeaders rs
+        s   = responseStatus  rs
+        bdy = responseBody    rs
+        hs  = responseHeaders rs
 
-sinkLbs :: MonadResource m
-        => ResumableSource (ResourceT IO) ByteString
-        -> m LBS.ByteString
+sinkLbs :: MonadResource m => ResponseBody -> m LBS.ByteString
 sinkLbs bdy = liftResourceT (bdy $$+- Conduit.sinkLbs)
+
+deserializeFailure :: (Monad m, AWSServiceError e) => String -> m (Either e a)
+deserializeFailure = return . Left . serializerError
+
+httpFailure :: (Monad m, AWSServiceError e) => HttpException -> m (Either e a)
+httpFailure = return . Left . httpError

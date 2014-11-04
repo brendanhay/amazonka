@@ -44,6 +44,7 @@ import           Data.Traversable     (Traversable, traverse)
 import           Gen.V2.JSON          ()
 import           Gen.V2.Names
 import           Gen.V2.TH
+import           System.FilePath
 import           Text.EDE             (Template)
 
 default (Text)
@@ -66,7 +67,6 @@ makeLenses ''OrdMap
 instance FromJSON a => FromJSON (OrdMap a) where
     parseJSON = withObject "ordered_map" $ \(unObject -> o) ->
         OrdMap <$> traverse (\(k, v) -> (k,) <$> parseJSON v) o
-
 
 instance ToJSON a => ToJSON (OrdMap a) where
     toJSON = Object . mkObject . map (second toJSON) . ordMap
@@ -237,21 +237,38 @@ newtype Library = Library Text
 instance ToFilePath Library where
     toFilePath (Library t) = Text.unpack t
 
--- library :: Text -> Maybe Abbrev -> Library
--- library t = Library
---     . mappend "amazonka-"
---     . Text.toLower
---     . stripAWS
---     . maybe t unAbbrev
+newtype NS = NS [Text]
+    deriving (Eq, Ord, Show)
+
+instance A.ToJSON NS where
+    toJSON (NS xs) = A.toJSON (Text.intercalate "." xs)
+
+instance FromJSON NS where
+    parseJSON = withText "namespace" (pure . NS . Text.split (== '.'))
+
+instance ToFilePath NS where
+    toFilePath (NS xs) = Text.unpack (Text.intercalate "/" xs) <.> "hs"
+
+namespace :: [Text] -> NS
+namespace = NS . ("Network":) . ("AWS":)
+
+typesNS :: Abbrev -> NS
+typesNS (Abbrev a) = namespace [a, "Types"]
+
+operationNS :: Abbrev -> Text -> NS
+operationNS (Abbrev a) op = namespace [a, op]
+
+requestNS :: Protocol -> NS
+requestNS p = namespace ["Request", Text.pack (show p)]
 
 data Override = Override
-    { _oRenameTo   :: Maybe Text             -- ^ Rename type
-    , _oReplacedBy :: Maybe Text             -- ^ Existing type that supplants this type
-    , _oSumPrefix  :: Maybe Text             -- ^ Sum constructor prefix
-    , _oRequired   :: HashSet (CI Text)      -- ^ Required fields
-    , _oIgnored    :: HashSet (CI Text)      -- ^ Ignored fields
-    , _oRenamed    :: HashMap (CI Text) Text -- ^ Rename fields
---    , _oTyped      :: HashMap (CI Text) Text -- ^ Field types
+    { _oRenameTo          :: Maybe Text             -- ^ Rename type
+    , _oReplacedBy        :: Maybe Text             -- ^ Existing type that supplants this type
+    , _oSumPrefix         :: Maybe Text             -- ^ Sum constructor prefix
+    , _oRequired          :: HashSet (CI Text)      -- ^ Required fields
+    , _oIgnored           :: HashSet (CI Text)      -- ^ Ignored fields
+    , _oRenamed           :: HashMap (CI Text) Text -- ^ Rename fields
+--    , _oTyped           :: HashMap (CI Text) Text -- ^ Field types
     } deriving (Eq, Show)
 
 makeLenses ''Override
@@ -266,12 +283,21 @@ instance FromJSON Override where
         <*> o .:? "renamed"  .!= mempty
 --        <*> o .:? "typed"    .!= mempty
 
+data Overrides = Overrides
+    { _oLibrary           :: !Library
+    , _oOperationsModules :: [NS]
+    , _oTypesModules      :: [NS]
+    , _oOverrides         :: HashMap Text Override
+    } deriving (Eq, Show)
+
+record stage1 ''Overrides
+
 data Model = Model
     { _mName      :: String
     , _mVersion   :: String
     , _mPath      :: FilePath
     , _mModel     :: Object
-    , _mOverrides :: HashMap Text Override
+    , _mOverrides :: Overrides
     } deriving (Show, Eq)
 
 makeLenses ''Model

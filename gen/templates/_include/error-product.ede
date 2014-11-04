@@ -1,0 +1,8 @@
+{% case error.type %}
+{% when "newtype" %}
+ {{ error.field.name }}
+{% when "record" %}
+{% for field in error.fields %} {{ field.value.name }}{% endfor %}
+{% when "product" %}
+{% for slot in error.slots %} {{ slot.value }}{% endfor %}
+{% endcase %}

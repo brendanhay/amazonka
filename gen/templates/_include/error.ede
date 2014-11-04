@@ -1,0 +1,25 @@
+-- | A sum type representing possible '{{ service.abbrev }}' errors returned by the
+-- {{ service.name }}.
+--
+-- These typically include 'HTTPException's thrown by the underlying HTTP
+-- mechanisms, serialisation errors, and typed errors as specified by the
+-- service description where applicable.
+data {{ service.error }}
+    = {{ service.abbrev }}Http       HttpException
+    | {{ service.abbrev }}Serializer String
+    | {{ service.abbrev }}Service    Status {{ service.abbrev }}ServiceError
+      deriving (Show, Typeable, Generic)
+
+instance Exception {{ service.error }}
+
+instance AWSError {{ service.error }} where
+    awsError = \case
+        {{ service.abbrev }}Http       ex  -> HttpError       "{{ service.abbrev }}" ex
+        {{ service.abbrev }}Serializer e   -> SerializerError "{{ service.abbrev }}" e
+        {{ service.abbrev }}Service    s x -> ServiceError    "{{ service.abbrev }}" s (toText x)
+
+instance AWSServiceError {{ service.error }} where
+    httpError       = {{ service.abbrev }}Http
+    serializerError = {{ service.abbrev }}Serializer
+    serviceError    = {{ service.abbrev | toLower }}Error
+    checkError      = {{ service.abbrev | toLower }}Check

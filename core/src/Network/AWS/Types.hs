@@ -119,12 +119,15 @@ import           Network.HTTP.Types.Method
 import           Network.HTTP.Types.Status    (Status)
 import           System.Locale
 
+-- | Abbreviated service name.
+type Abbrev = Text
+
 -- | An error type representing the subset of errors that can be directly
 -- attributed to this library.
 data Error
-    = ServiceError    Text Text Status String
-    | HttpError       HttpException
-    | SerializerError String
+    = HttpError       Abbrev HttpException
+    | SerializerError Abbrev String
+    | ServiceError    Abbrev Status Text
     | Nested          [Error]
       deriving (Show, Typeable)
 
@@ -141,9 +144,6 @@ instance Monoid Error where
 class AWSError a where
     awsError :: a -> Error
 
-instance AWSError a => AWSError [a] where
-    awsError = Nested . map awsError
-
 instance AWSError Error where
     awsError = id
 
@@ -152,14 +152,10 @@ instance AWSError HttpException where
 
 -- | Convert from service specific errors to the more general service error.
 class (Typeable a, AWSError a) => AWSServiceError a where
-    serviceError    :: Text -> Text -> Status -> String -> a
-    httpError       :: HttpException                    -> a
-    serializerError :: String                           -> a
-
-instance AWSServiceError Error where
-    serviceError    = ServiceError
-    httpError       = HttpError
-    serializerError = SerializerError
+    httpError       :: HttpException -> a
+    serializerError :: String        -> a
+    serviceError    :: Status -> LBS.ByteString -> Maybe a
+    checkError      :: Status -> Bool
 
 -- | The properties (such as endpoint) for a service, as well as it's
 -- associated signing algorithm and error types.

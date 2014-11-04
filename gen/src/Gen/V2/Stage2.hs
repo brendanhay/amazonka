@@ -43,7 +43,7 @@ import           Data.Function            (on)
 import           Data.HashMap.Strict      (HashMap)
 import qualified Data.HashMap.Strict      as Map
 import           Data.List                (intersect, nub, sort, delete, partition)
-import           Data.Monoid
+import           Data.Monoid              hiding (Product)
 import           Data.SemVer
 import           Data.String
 import           Data.Text                (Text)
@@ -64,27 +64,6 @@ newtype Doc = Doc Text
 
 documentation :: Maybe Text -> Doc
 documentation = Doc . fromMaybe ""
-
-newtype NS = NS [Text]
-    deriving (Eq, Ord, Show)
-
-instance ToJSON NS where
-    toJSON (NS xs) = String (Text.intercalate "." xs)
-
-instance ToFilePath NS where
-    toFilePath (NS xs) = Text.unpack (Text.intercalate "/" xs) <.> "hs"
-
-namespace :: [Text] -> NS
-namespace = NS . ("Network":) . ("AWS":)
-
-typesNS :: Abbrev -> NS
-typesNS (Abbrev a) = namespace [a, "Types"]
-
-operationNS :: Abbrev -> Text -> NS
-operationNS (Abbrev a) op = namespace [a, op]
-
-requestNS :: Protocol -> NS
-requestNS p = namespace ["Request", Text.pack (show p)]
 
 rewrap :: Pair -> Value -> Value
 rewrap (k, v) = Object . \case
@@ -291,6 +270,7 @@ data Data
     = Nullary !Text (HashMap Text Text)
     | Newtype !Text !Field
     | Record  !Text [Field]
+    | Product !Text [Type]
     | Empty
       deriving (Eq, Show)
 
@@ -310,6 +290,12 @@ instance ToJSON Data where
         case d of
             Empty        -> object
                 [ "type"     .= "empty"
+                ]
+
+            Product n fs -> object
+                [ "type"     .= "product"
+                , "name"     .= n
+                , "slots"    .= fs
                 ]
 
             Nullary n fs -> object
@@ -358,6 +344,7 @@ instance TypesOf Data where
     typesOf = \case
         Newtype _ f  -> typesOf f
         Record  _ fs -> typesOf fs
+        Product _ fs -> fs
         Nullary _ _  -> []
         Empty        -> []
 
@@ -365,6 +352,7 @@ dataFields :: Traversal' Data Field
 dataFields f = \case
     Newtype n x  -> Newtype n <$> f x
     Record  n xs -> Record  n <$> traverse f xs
+    Product n xs -> pure (Product n xs)
     Nullary n m  -> pure (Nullary n m)
     Empty        -> pure Empty
 
@@ -480,6 +468,13 @@ data Endpoint
 instance ToJSON Endpoint where
     toJSON = toJSON . show
 
+-- data Error = Error
+--     { _eName   :: !Text
+--     , _eFields :: HashMap Text Data
+--     } deriving (Eq, Show)
+
+-- record stage2 ''Error
+
 data Service = Service
     { _svName           :: !Text
     , _svAbbrev         :: !Abbrev
@@ -507,8 +502,9 @@ data Cabal = Cabal
     , _cVersion      :: !Version
     , _cSynopsis     :: !Doc
     , _cDescription  :: !Doc
-    , _cModules      :: [NS]
     , _cDependencies :: [Version]
+    , _cExposed      :: [NS]
+    , _cOther        :: [NS]
     } deriving (Eq, Show)
 
 record stage2 ''Cabal
@@ -519,6 +515,7 @@ instance ToFilePath Cabal where
 data Types = Types
     { _tService   :: Service
     , _tNamespace :: !NS
+    , _tImports   :: [NS]
     , _tTypes     :: [Data]
     } deriving (Eq, Show)
 

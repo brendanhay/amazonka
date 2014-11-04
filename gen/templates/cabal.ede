@@ -32,6 +32,9 @@ library
     {# {% endfor %} #}
 
     other-modules:
+      {% for mod in other %}
+        {% if mod.first %}  {% else %}, {% endif %}{{ mod.value }}
+      {% endfor %}
 
     build-depends:
           amazonka-core

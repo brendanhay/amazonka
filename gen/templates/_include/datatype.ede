@@ -1,7 +1,7 @@
-  {% case type.type %}
-  {% when "empty" %}
-  {% when "nullary" %}
+{% case type.type %}
+{% when "empty" %}
+{% when "nullary" %}
 {% include "nullary.ede" %}
-  {% else %}
+{% else %}
 {% include "record.ede" %}
-  {% endcase %}
+{% endcase %}

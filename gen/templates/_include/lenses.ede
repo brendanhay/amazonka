@@ -1,0 +1,22 @@
+{% case type.type %}
+{% when "empty" %}
+{% when "nullary" %}
+{% else %}
+  {% for field in type.fields %}
+
+    {% if field.value.documentation %}
+{{ field.value.documentation | above(74, 0) }}
+    {% endif %}
+{{ field.value.lens }} :: Lens' {{ type.name }} {{ field.value.type | wrapped }}
+    {% if (field.value.name | length) > 24 %}
+{{ field.value.lens }} =
+    lens {{ field.value.name }}
+         (\s a -> s { {{ field.value.name }} = a })
+    {% elif (field.value.name | length) > 17 %}
+{{ field.value.lens }} =
+    lens {{ field.value.name }} (\s a -> s { {{ field.value.name }} = a })
+    {% else %}
+{{ field.value.lens }} = lens {{ field.value.name }} (\s a -> s { {{ field.value.name }} = a })
+    {% endif %}
+  {% endfor %}
+{% endcase %}

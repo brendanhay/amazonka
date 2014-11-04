@@ -5,10 +5,12 @@ module {{ namespace }} where
 import Network.AWS.Prelude
 {% include "_include/imports.ede" %}
 
+{% include "_include/datatype.ede" with type = request %}
 {% if documentation %}
 {{ documentation | above(76, 0) }}
 {% endif %}
-{% include "_include/datatype.ede" with type = request %}
+{% include "_include/constructor.ede" with type = request %}
+{% include "_include/lenses.ede" with type = request %}
 
 {% include "_include/path.ede" %}
 
@@ -17,7 +19,6 @@ import Network.AWS.Prelude
 {% include "_include/headers.ede" %}
 
 {% include "_include/datatype.ede" with type = response %}
-
 instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
     type Rs {{ request.name }} = {{ response.name }}

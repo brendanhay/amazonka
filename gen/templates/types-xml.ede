@@ -8,6 +8,7 @@
 module {{ namespace }} where
 
 import Network.AWS.Prelude
+{% include "_include/imports.ede" %}
 
 {% include "_include/service.ede" %}
 
@@ -18,10 +19,19 @@ xmlOptions = Tagged def
     }
 {% endif %}
 
+{% include "_include/error.ede" %}
+
 {% for type in types %}
 {% include "_include/datatype.ede" with type = type.value %}
+{% if type.value.documentation %}
+{{ type.value.documentation | above(76, 0) }}
+{% else %}
+-- | '{{ type.value.name }}' constructor.
+{% endif %}
+{% include "_include/constructor.ede" with type = type.value %}
+{% include "_include/lenses.ede"      with type = type.value %}
 
-{% include "_include/xml.ede" with type = type.value %}
+{% include "_include/xml.ede"         with type = type.value %}
   {% if !type.last %}
 
   {% endif %}

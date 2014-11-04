@@ -21,17 +21,17 @@ module Gen.V2.Transform (transformS1ToS2) where
 
 import           Control.Applicative        ((<$>), (<*>), pure)
 import           Control.Error
-import           Control.Lens               hiding (op, ignored)
+import           Control.Lens               hiding (op, ignored, filtered)
 import           Control.Monad
 import           Control.Monad.State.Strict
-import           Data.CaseInsensitive       (CI)
+import           Data.Bifunctor
 import qualified Data.CaseInsensitive       as CI
 import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
 import           Data.HashSet               (HashSet)
 import qualified Data.HashSet               as Set
 import           Data.List                  (sort)
-import           Data.Monoid
+import           Data.Monoid                hiding (Product)
 import           Data.SemVer                (initial)
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
@@ -47,13 +47,15 @@ transformS1ToS2 :: Model -> Stage1 -> Stage2
 transformS1ToS2 m s1 = Stage2 cabal service ops types
   where
     cabal = Cabal
-        { _cLibrary      = s1 ^. s1Library
+        { _cLibrary      = overrides ^. oLibrary
         , _cVersion      = initial
         , _cSynopsis     = ""
         , _cDescription  = ""
         , _cDependencies = []
-        , _cModules      = sort $
+        , _cExposed      = sort $
             service ^. svNamespace : typesNamespace : operationNamespaces
+        , _cOther        = sort $
+            (overrides ^. oOperationsModules) ++ (overrides ^. oTypesModules)
         }
 
     service = Service
@@ -76,7 +78,8 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
     types = Types
         { _tService   = service
         , _tNamespace = typesNamespace
-        , _tTypes     = ts
+        , _tImports   = overrides ^. oTypesModules
+        , _tTypes     = filter (not . isEmpty) (Map.elems ts)
         }
 
     typesNamespace = typesNS abbrev
@@ -85,7 +88,9 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
 
     abbrev = maybeAbbrev (s1 ^. mServiceFullName) (s1 ^. mServiceAbbreviation)
 
-    (ops, filter (not . isEmpty) -> ts) = dataTypes (m ^. mOverrides) abbrev s1
+    (ops, ts) = dataTypes overrides abbrev s1
+
+    overrides = m ^. mOverrides
 
     version = s1 ^. mApiVersion
 
@@ -101,13 +106,36 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         <> version
         <> "/"
 
-dataTypes :: HashMap Text Override -> Abbrev -> Stage1 -> ([Operation], [Data])
-dataTypes os a s1 = bimap sort (sort . Map.elems) (runState run s)
-  where
-    run = Map.elems <$> Map.traverseWithKey f (s1 ^. s1Operations)
+-- errors :: Abbrev -> Stage1 -> HashMap Text Data -> Error
+-- errors (unAbbrev -> a) s1 ts = Error (a <> "Error") ds
+--   where
+--     ds = Map.fromList
+--          [ p "Service"    [TType "Status", TType (a <> "Message")]
+--          , p "Http"       [TType "HttpException"]
+--          , p "Serializer" [TType "String"]
+--          ]
 
-    f = operation a (s1 ^. mProtocol)
-    s = prefixes (overrides os (datas (s1 ^. mProtocol) (s1 ^. s1Shapes)))
+--     p k xs = let k' = a <> k in (k', Product k' xs)
+
+    -- es = Map.filterWithKey (const . (`elem` rs)) ts
+    -- rs = map _refShape
+    --      . concatMap (fromMaybe [] . _oErrors)
+    --      . Map.elems
+    --      $ s1 ^. s1Operations
+
+dataTypes :: Overrides
+          -> Abbrev
+          -> Stage1
+          -> ([Operation], HashMap Text Data)
+dataTypes o a s1 = first (sort . Map.elems) (runState run s)
+  where
+    run = Map.traverseWithKey f (s1 ^. s1Operations)
+
+    f = operation a (s1 ^. mProtocol) (o ^. oOperationsModules)
+
+    s = prefixes
+        . filtered (o ^. oOverrides)
+        $ datas    (s1 ^. mProtocol) (s1 ^. s1Shapes)
 
 prefixes :: HashMap Text Data -> HashMap Text Data
 prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
@@ -132,7 +160,7 @@ prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
                | otherwise -> go (numericSuffix k) v3
 
         | otherwise       = do
-            let v2 = mapFieldNames (mappend k) v1
+            let v2 = mapFieldNames (mappend k . upperHead) v1
                 fs = Set.fromList (fieldNames v2)
 
             p <- gets (Set.null . Set.intersection fs)
@@ -142,17 +170,18 @@ prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
 
 operation :: Abbrev
           -> Protocol
+          -> [NS]
           -> Text
           -> S1.Operation
           -> State (HashMap Text Data) Operation
-operation a p n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
+operation a p ns n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
   where
     op rq rs = Operation
         { _opName             = n
         , _opService          = a
         , _opProtocol         = p
         , _opNamespace        = operationNS a (o ^. oName)
-        , _opImports          = [requestNS p, typesNS a]
+        , _opImports          = requestNS p : typesNS a : ns
         , _opDocumentation    = documentation (o ^. oDocumentation)
         , _opDocumentationUrl = o ^. oDocumentationUrl
         , _opMethod           = o ^. oHttp.hMethod
@@ -187,8 +216,8 @@ operation a p n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
         Record  _ fs -> Record  k fs
         x            -> x
 
-overrides :: HashMap Text Override -> HashMap Text Data -> HashMap Text Data
-overrides = flip (Map.foldlWithKey' run)
+filtered :: HashMap Text Override -> HashMap Text Data -> HashMap Text Data
+filtered = flip (Map.foldlWithKey' run)
   where
     run :: HashMap Text Data -- ^ acc
         -> Text              -- ^ key

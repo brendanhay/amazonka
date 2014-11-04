@@ -5,7 +5,6 @@
         "serviceAbbreviation": "S3"
     },
     "operationsModules": [
-
     ],
     "typesModules": [
         "Network.AWS.S3.Internal"

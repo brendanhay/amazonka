@@ -35,7 +35,7 @@
   {% for opt in type.optional %}
     {% if (type.required | empty) && opt.first %}{ {% else %}, {% endif %}{{ opt.value.name }} = {{ opt.value.default }}
   {% endfor %}
-  {% if !(type.required | empty) && !(type.optional | empty) %}
+  {% if !(type.required | empty) || !(type.optional | empty) %}
     }
   {% endif %}
 {% endcase %}

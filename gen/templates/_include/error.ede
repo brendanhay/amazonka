@@ -23,3 +23,18 @@ instance AWSServiceError {{ service.error }} where
     serializerError = {{ service.abbrev }}Serializer
     serviceError    = serviceError{{ service.abbrev }} {{ service.abbrev }}Service
     checkError      = checkError{{ service.abbrev }}
+
+_{{ service.abbrev }}Http :: Prism' {{ service.error }} HttpException
+_{{ service.abbrev }}Http = prism {{ service.abbrev }}Http $ \case
+    {{ service.abbrev }}Http ex -> Right ex
+    x -> Left x
+
+_{{ service.abbrev }}Serializer :: Prism' {{ service.error }} String
+_{{ service.abbrev }}Serializer = prism {{ service.abbrev }}Serializer $ \case
+    {{ service.abbrev }}Serializer e -> Right e
+    x -> Left x
+
+_{{ service.abbrev }}Service :: Prism' {{ service.error }} (Status, {{ service.abbrev }}ServiceError)
+_{{ service.abbrev }}Service = prism (uncurry {{ service.abbrev }}Service) $ \case
+    {{ service.abbrev }}Service s x -> Right (s, x)
+    x -> Left x

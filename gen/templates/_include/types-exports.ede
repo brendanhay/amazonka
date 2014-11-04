@@ -20,9 +20,9 @@ module {{ namespace }}
       {{ service.abbrev }}
     -- ** Errors
     , {{ service.error }} (..)
-{# {% for branch in error.ctors %} #}
-{#     , {{ branch.key | prism }} #}
-{# {% endfor %} #}
+    , _{{ service.abbrev }}Http
+    , _{{ service.abbrev }}Serializer
+    , _{{ service.abbrev }}Service
 {% case service.protocol %}
 {% when "json" %}
 {% else %}

@@ -1,14 +1,9 @@
-{% include "_include/license.ede" %}
-
-module {{ namespace }} where
+{% include "_include/operation-exports.ede" %}
 
 import Network.AWS.Prelude
 {% include "_include/imports.ede" %}
 
 {% include "_include/datatype.ede" with type = request %}
-{% if documentation %}
-{{ documentation | above(76, 0) }}
-{% endif %}
 {% include "_include/constructor.ede" with type = request %}
 {% include "_include/lenses.ede" with type = request %}
 

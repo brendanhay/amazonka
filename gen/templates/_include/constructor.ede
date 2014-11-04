@@ -5,6 +5,7 @@
   {% for field in type.fields %}
     {% if field.first %}
       {% if type.documentation %}
+{{ type.documentation | above(74, 0) }}
       {% else %}
 -- | '{{ type.name }}' constructor.
       {% endif %}

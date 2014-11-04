@@ -1,11 +1,4 @@
-{-# LANGUAGE DeriveGeneric              #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE LambdaCase                 #-}
-{-# LANGUAGE OverloadedStrings          #-}
-
-{% include "_include/license.ede" %}
-
-module {{ namespace }} where
+{% include "_include/types-exports.ede" %}
 
 import Network.AWS.Prelude
 {% include "_include/imports.ede" %}

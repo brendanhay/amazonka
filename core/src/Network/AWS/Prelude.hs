@@ -18,7 +18,6 @@ module Network.AWS.Prelude
     , Typeable
 
     -- * Primitives
-    , Base64
     , ByteString
     , Exception
     , HttpException
@@ -42,6 +41,7 @@ module Network.AWS.Prelude
 
     -- * Shared
     , Action          (..)
+    , Boolean         (..)
     , Endpoint        (..)
     , Service         (..)
 

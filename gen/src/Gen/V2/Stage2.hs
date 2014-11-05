@@ -139,12 +139,6 @@ primitive int = \case
     PTime ts | int       -> timestamp ts
              | otherwise -> "UTCTime"
 
-primIso :: Prim -> Maybe Text
-primIso = \case
-    PTime _ -> Just "_Time"
-    PBool _ -> Just "_Boolean"
-    _       -> Nothing
-
 instance DerivingOf Prim where
     derivingOf = (def ++) . \case
         PBool    -> [Ord', Enum']
@@ -239,6 +233,12 @@ typeIso = \case
     TMap       _ _ -> Just "_Map"
     TSensitive _   -> Just "_Sensitive"
     _              -> Nothing
+
+primIso :: Prim -> Maybe Text
+primIso = \case
+    PTime _ -> Just "_Time"
+    PBool   -> Just "_Boolean"
+    _       -> Nothing
 
 typeDefault :: Type -> Text
 typeDefault t

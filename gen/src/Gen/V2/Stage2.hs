@@ -130,8 +130,9 @@ primitive int = \case
     PBlob                -> "Blob"
     PReq                 -> "RqBody"
     PRes                 -> "RsBody"
-    PBool | int          -> "Boolean"
-          | otherwise    -> "Bool"
+    -- PBool | int          -> "Boolean"
+          -- | otherwise    -> "Bool"
+    PBool                -> "Bool"
     PText                -> "Text"
     PInt                 -> "Int"
     PInteger             -> "Integer"
@@ -237,7 +238,7 @@ typeIso = \case
 primIso :: Prim -> Maybe Text
 primIso = \case
     PTime _ -> Just "_Time"
-    PBool   -> Just "_Boolean"
+--    PBool   -> Just "_Boolean"
     _       -> Nothing
 
 typeDefault :: Type -> Text

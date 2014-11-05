@@ -41,7 +41,6 @@ module Network.AWS.Prelude
 
     -- * Shared
     , Action          (..)
-    , Boolean         (..)
     , Endpoint        (..)
     , Service         (..)
 

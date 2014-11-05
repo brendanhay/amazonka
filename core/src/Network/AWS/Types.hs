@@ -86,8 +86,6 @@ module Network.AWS.Types
 
     -- * Miscellaneous
     , Action          (..)
-    , Boolean         (..)
-    , _Boolean
     ) where
 
 import           Control.Applicative
@@ -410,8 +408,8 @@ newtype Action = Action Text
 instance ToQuery Action where
     toQuery (Action a) = toQuery ("Action" :: ByteString, a)
 
-newtype Boolean = Boolean Bool
-    deriving (Eq, Ord, Show)
+-- newtype Boolean = Boolean Bool
+--     deriving (Eq, Ord, Show)
 
 -- -- | Base64 encoded binary date.
 -- newtype Base64 = Base64 ByteString

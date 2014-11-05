@@ -14,4 +14,3 @@ module {{ namespace }}
 {% endfor %}
 
 {% include "_include/imports.ede" %}
-import {{ namespace }}.Types

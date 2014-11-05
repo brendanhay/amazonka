@@ -14,14 +14,14 @@ instance Exception {{ service.error }}
 
 instance AWSError {{ service.error }} where
     awsError = \case
-        {{ service.abbrev }}Http       ex  -> HttpError       "{{ service.abbrev }}" ex
+        {{ service.abbrev }}Http       ex  -> HttpError       ex
         {{ service.abbrev }}Serializer e   -> SerializerError "{{ service.abbrev }}" e
-        {{ service.abbrev }}Service    s x -> ServiceError    "{{ service.abbrev }}" s (toText x)
+        {{ service.abbrev }}Service    s x -> ServiceError    "{{ service.abbrev }}" s (show x)
 
 instance AWSServiceError {{ service.error }} where
     httpError       = {{ service.abbrev }}Http
     serializerError = {{ service.abbrev }}Serializer
-    serviceError    = {{ service.protocol }}Error {{ service.abbrev }}Service checkStatus
+    serviceError    = {{ service.protocol }}Error httpStatus {{ service.abbrev }}Service
 
 _{{ service.abbrev }}Http :: Prism' {{ service.error }} HttpException
 _{{ service.abbrev }}Http = prism {{ service.abbrev }}Http $ \case

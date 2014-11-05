@@ -12,9 +12,11 @@
 
 module Network.AWS.Response
     (
+     -- * Status predicate
+      httpStatus
+
     -- * Errors
-      xmlError
-    , checkStatus
+    , xmlError
 
     -- * Responses
     , xmlResponse
@@ -56,15 +58,15 @@ import           Text.XML.Cursor
 --     go y []     = y
 --     go _ (y:ys) = go y ys
 
-checkStatus :: Status -> Bool
-checkStatus = False
+httpStatus :: Status -> Bool
+httpStatus = const False
 
 xmlError :: (AWSServiceError e, FromXML a)
-         => (Status -> a -> e)
-         -> (Status -> Bool)
+         => (Status -> Bool)
+         -> (Status -> a -> e)
          -> Status
          -> Maybe (LBS.ByteString -> e)
-xmlError f p s
+xmlError p f s
     | p s       = Nothing
     | otherwise = Just (either serializerError (f s) . decodeXML)
 

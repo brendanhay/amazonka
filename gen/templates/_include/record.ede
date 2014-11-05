@@ -1,4 +1,8 @@
+{% if type.type == "newtype" %}
+newtype {{ type.name }} = {{ type.name }}
+{% else %}
 data {{ type.name }} = {{ type.name }}
+{% endif %}
 {% for field in type.fields %}
     {% if field.first %}{ {% else %}, {% endif %}{{ field.value.name }} :: {{ field.value.type }}
 {% endfor %}

@@ -129,7 +129,7 @@ type Abbrev = Text
 data Error
     = HttpError       HttpException
     | SerializerError Abbrev String
-    | ServiceError    Abbrev Status Text
+    | ServiceError    Abbrev Status String
     | Nested          [Error]
       deriving (Show, Typeable)
 

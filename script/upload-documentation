@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+set -e
+
+package=${PWD##*/}
+
+echo "Package: ${package}"
+read -p "Version: " version
+read -p "Hackage user: " user
+read -sp "Hackage password (not echoed): " password
+
+echo
+echo "BUILDING"
+echo
+
+cabal configure
+cabal build
+cabal haddock \
+ --hyperlink-source \
+ --html-location='/package/$pkg-$version/docs' \
+ --contents-location='/package/$pkg'
+
+echo
+echo "ARCHIVING"
+echo
+
+cd dist/doc/html
+DDIR="${package}-${version}-docs"
+cp -r "${package}" "${DDIR}" && gtar -c -v -z -Hustar -f "${DDIR}.tar.gz" "${DDIR}"
+
+echo
+echo "UPLOADING"
+echo
+
+curl -X PUT -H 'Content-Type: application/x-tar' \
+    -H 'Content-Encoding: gzip' --data-binary "@${DDIR}.tar.gz" \
+    "http://${user}:${password}@hackage.haskell.org/package/${package}-${version}/docs"

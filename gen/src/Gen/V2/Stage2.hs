@@ -49,7 +49,6 @@ import           Data.String
 import           Data.Text                (Text)
 import qualified Data.Text                as Text
 import           Data.Text.Manipulate
-import           Debug.Trace
 import           Gen.V2.IO
 import           Gen.V2.JSON              ()
 import           Gen.V2.Names
@@ -58,6 +57,9 @@ import           Gen.V2.Types
 import           System.FilePath
 
 default (Text, FilePath)
+
+newtype Exposed  a = Exposed  a
+newtype Internal a = Internal a
 
 newtype Doc = Doc Text
     deriving (Eq, Ord, Show, ToJSON, IsString)
@@ -122,17 +124,26 @@ data Prim
     | PTime !Timestamp
       deriving (Eq, Ord, Show)
 
-primitive :: Prim -> Text
-primitive = \case
-    PBlob     -> "Blob"
-    PReq      -> "RqBody"
-    PRes      -> "RsBody"
-    PBool     -> "Bool"
-    PText     -> "Text"
-    PInt      -> "Int"
-    PInteger  -> "Integer"
-    PDouble   -> "Double"
-    PTime ts  -> timestamp ts
+-- | Primitives are rendered according to their unwrapped Iso' mappings.
+primitive :: Bool -> Prim -> Text
+primitive int = \case
+    PBlob                -> "Blob"
+    PReq                 -> "RqBody"
+    PRes                 -> "RsBody"
+    PBool | int          -> "Boolean"
+          | otherwise    -> "Bool"
+    PText                -> "Text"
+    PInt                 -> "Int"
+    PInteger             -> "Integer"
+    PDouble              -> "Double"
+    PTime ts | int       -> timestamp ts
+             | otherwise -> "UTCTime"
+
+primIso :: Prim -> Maybe Text
+primIso = \case
+    PTime _ -> Just "_Time"
+    PBool _ -> Just "_Boolean"
+    _       -> Nothing
 
 instance DerivingOf Prim where
     derivingOf = (def ++) . \case
@@ -156,30 +167,6 @@ data Type
     | TSensitive !Type
       deriving (Eq, Ord, Show)
 
-instance Plated Type where
-    plate f = \case
-        TList      x   -> TList      <$> f x
-        TList1     x   -> TList1     <$> f x
-        TMap       k v -> TMap       <$> f k <*> f v
-        TMaybe     x   -> TMaybe     <$> f x
-        TSensitive x   -> TSensitive <$> f x
-        x              -> pure x
-
-instance ToJSON Type where
-    toJSON = toJSON . go
-      where
-        go = \case
-            TType      t   -> t
-            TPrim      p   -> primitive p
-            TList      x   -> "["          <> wrap (go x) <> "]"
-            TList1     x   -> "List1 "     <> wrap (go x)
-            TMap       k v -> "Map "       <> wrap (go k) <> " " <> wrap (go v)
-            TMaybe     x   -> "Maybe "     <> wrap (go x)
-            TSensitive x   -> "Sensitive " <> wrap (go x)
-
-        wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
-        parens t = "(" <> t <> ")"
-
 isRequired :: Type -> Bool
 isRequired (TMaybe _) = False
 isRequired _          = True
@@ -189,33 +176,75 @@ isMonoid (TList  _) = True
 isMonoid (TMap _ _) = True
 isMonoid _          = False
 
+instance Plated Type where
+    plate f = \case
+        TList      x   -> TList      <$> f x
+        TList1     x   -> TList1     <$> f x
+        TMap       k v -> TMap       <$> f k <*> f v
+        TMaybe     x   -> TMaybe     <$> f x
+        TSensitive x   -> TSensitive <$> f x
+        x              -> pure x
+
+instance ToJSON (Exposed Type) where
+    toJSON (Exposed e) = toJSON (go e)
+      where
+        go = \case
+            TType      t   -> t
+            TPrim      p   -> primitive False p
+            TList      x   -> "["          <> wrap (go x) <> "]"
+            TList1     x   -> "NonEmpty "  <> wrap (go x)
+            TMap       k v -> "HashMap  "  <> wrap (go k) <> " " <> wrap (go v)
+            TMaybe     x   -> "Maybe "     <> wrap (go x)
+            TSensitive x   -> wrap (go x)
+
+        wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
+        parens t = "(" <> t <> ")"
+
+instance ToJSON (Internal Type) where
+    toJSON (Internal i) = toJSON (go i)
+      where
+        go = \case
+            TType      t   -> t
+            TPrim      p   -> primitive True p
+            TList      x   -> "["          <> wrap (go x) <> "]"
+            TList1     x   -> "List1 "     <> wrap (go x)
+            TMap       k v -> "Map "       <> wrap (go k) <> " " <> wrap (go v)
+            TMaybe     x   -> "Maybe "     <> wrap (go x)
+            TSensitive x   -> "Sensitive " <> wrap (go x)
+
+        wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
+        parens t = "(" <> t <> ")"
+
 typeMapping :: Type -> Maybe Text
 typeMapping t
     | x:xs <- go t = Just (Text.intercalate " . " (x : xs))
     | otherwise    = Nothing
   where
-    go = \case
+    go y = case y of
         TType      _   -> []
-        TPrim      p   -> prim p
+        TPrim      p   -> maybeToList (primIso p)
         TList      _   -> []
-        TList1     _   -> []
-        TMap       _ _ -> []
+        TList1     _   -> maybeToList (typeIso y)
+        TMap       _ _ -> maybeToList (typeIso y)
         TMaybe     x   -> wrap (go x)
-        TSensitive x   -> "_Sensitive" : go x
+        TSensitive x   -> maybeToList (typeIso y) ++ go x
 
     wrap []     = []
     wrap (x:xs) = "mapping " <> x : xs
 
-    prim = \case
-        PBlob     -> []
-        PReq      -> []
-        PRes      -> []
-        PBool     -> ["_Bool"]
-        PText     -> []
-        PInt      -> []
-        PInteger  -> []
-        PDouble   -> []
-        PTime _   -> ["_Time"]
+typeIso :: Type -> Maybe Text
+typeIso = \case
+    TPrim      p   -> primIso p
+    TList1     _   -> Just "_List1"
+    TMap       _ _ -> Just "_Map"
+    TSensitive _   -> Just "_Sensitive"
+    _              -> Nothing
+
+typeDefault :: Type -> Text
+typeDefault t
+    | isMonoid   t = "mempty"
+    | isRequired t = "<error>"
+    | otherwise    = "Nothing"
 
 class HasType a where
     typeOf :: Lens' a Type
@@ -259,16 +288,14 @@ instance ToJSON Field where
         , "lens"          .= lensName  _fName
         , "lensMapping"   .= typeMapping _fType
         , "shape"         .= _fShape
-        , "type"          .= _fType
+        , "type"          .= Internal _fType
+        , "typeExposed"   .= Exposed _fType
         , "location"      .= _fLocation
         , "locationName"  .= _fLocationName
         , "documentation" .= _fDocumentation
-        , "default"       .= def
+        , "default"       .= typeDefault _fType
+        , "iso"           .= typeIso _fType
         ]
-      where
-        def | isMonoid   _fType = "mempty"
-            | isRequired _fType = "<error>"
-            | otherwise         = "Nothing"
 
 parameters :: [Field] -> ([Field], [Field])
 parameters = partition (isRequired . view typeOf)
@@ -324,7 +351,7 @@ instance ToJSON Data where
             Product n fs -> object
                 [ "type"     .= "product"
                 , "name"     .= n
-                , "slots"    .= fs
+                , "slots"    .= map Internal fs
                 ]
 
             Nullary n fs -> object
@@ -504,13 +531,6 @@ data Endpoint
 
 instance ToJSON Endpoint where
     toJSON = toJSON . show
-
--- data Error = Error
---     { _eName   :: !Text
---     , _eFields :: HashMap Text Data
---     } deriving (Eq, Show)
-
--- record stage2 ''Error
 
 data Service = Service
     { _svName           :: !Text

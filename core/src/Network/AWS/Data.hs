@@ -47,8 +47,8 @@ module Network.AWS.Data
     , module Network.AWS.Data.Map
     ) where
 
-import Network.AWS.Data.List1               (List1, list1)
-import Network.AWS.Data.Map                 (Map(..), nullMap)
+import Network.AWS.Data.List1               (List1, _List1, list1)
+import Network.AWS.Data.Map
 import Network.AWS.Internal.Data.Body
 import Network.AWS.Internal.Data.ByteString
 import Network.AWS.Internal.Data.Header

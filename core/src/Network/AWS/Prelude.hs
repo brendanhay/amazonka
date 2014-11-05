@@ -98,6 +98,8 @@ import Control.Lens as Lens
     , (%=)
     , lens
     , prism
+    , iso
+    , withIso
     , to
     , mapping
     )

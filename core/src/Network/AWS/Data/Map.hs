@@ -12,7 +12,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Map where
+module Network.AWS.Data.Map
+    ( Map
+    , _Map
+    , nullMap
+    ) where
 
 import           Control.Applicative
 import           Control.Lens

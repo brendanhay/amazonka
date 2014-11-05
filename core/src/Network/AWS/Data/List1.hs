@@ -15,6 +15,7 @@
 
 module Network.AWS.Data.List1
     ( List1
+    , _List1
     , list1
     , head
     , length

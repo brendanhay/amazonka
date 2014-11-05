@@ -86,8 +86,8 @@ module Network.AWS.Types
 
     -- * Miscellaneous
     , Action          (..)
-    , Base64          (..)
-    , base64
+    , Boolean         (..)
+    , _Boolean
     ) where
 
 import           Control.Applicative
@@ -410,22 +410,25 @@ newtype Action = Action Text
 instance ToQuery Action where
     toQuery (Action a) = toQuery ("Action" :: ByteString, a)
 
--- | Base64 encoded binary date.
-newtype Base64 = Base64 ByteString
-    deriving (Eq, Ord, Show, Generic)
+newtype Boolean = Boolean Bool
+    deriving (Eq, Ord, Show)
 
-base64 :: ByteString -> Base64
-base64 = Base64 . Base64.encode
+-- -- | Base64 encoded binary date.
+-- newtype Base64 = Base64 ByteString
+--     deriving (Eq, Ord, Show, Generic)
 
-instance ToByteString Base64 where
-    toBS (Base64 bs) = bs
+-- base64 :: ByteString -> Base64
+-- base64 = Base64 . Base64.encode
 
-instance FromJSON Base64 where
-    parseJSON = withText "Base64" $
-        return . Base64 . Base64.decodeLenient . Text.encodeUtf8
+-- instance ToByteString Base64 where
+--     toBS (Base64 bs) = bs
 
-instance ToJSON Base64 where
-    toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
+-- instance FromJSON Base64 where
+--     parseJSON = withText "Base64" $
+--         return . Base64 . Base64.decodeLenient . Text.encodeUtf8
+
+-- instance ToJSON Base64 where
+--     toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
 
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request
@@ -448,3 +451,4 @@ clientRequest = def
 makePrisms ''Error
 makeLenses ''Request
 makeLenses ''Zone
+makePrisms ''Boolean

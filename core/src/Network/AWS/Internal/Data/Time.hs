@@ -23,6 +23,7 @@ module Network.AWS.Internal.Data.Time
     , Time   (..)
     , _Time
 
+    , UTCTime
     , RFC822
     , ISO8601
     , BasicTime

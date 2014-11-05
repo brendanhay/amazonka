@@ -13,14 +13,14 @@
 -- The fields accessible through corresponding lenses are:
 --
     {% endif %}
--- * '{{ field.value.lens }}' @::@ {{ field.value.type | highlight }}
+-- * '{{ field.value.lens }}' @::@ {{ field.value.typeExposed | highlight }}
 --
   {% endfor %}
   {% for req in type.required %}
     {% if req.first %}
 {{ type.ctor }} :: {{ req.value.type }} -- ^ '{{ req.value.lens }}'
     {% else %}
-{{ " " | justifyLeft(type.ctor | length) }} -> {{ req.value.type }} -- ^ '{{ req.value.lens }}'
+{{ " " | justifyLeft(type.ctor | length) }} -> {{ req.value.typeExposed }} -- ^ '{{ req.value.lens }}'
     {% endif %}
     {% if req.last %}
 {{ " " | justifyLeft(type.ctor | length) }} -> {{ type.name }}
@@ -30,7 +30,7 @@
   {% endfor %}
 {{ type.ctor }}{% for req in type.required %} p{{ req.index }}{% endfor %} = {{ type.name }}
   {% for req in type.required %}
-    {% if req.first %}{ {% else %}, {% endif %}{{ req.value.name | justifyLeft(type.fieldPad) }} = p{{ req.index }}
+    {% if req.first %}{ {% else %}, {% endif %}{{ req.value.name | justifyLeft(type.fieldPad) }} = {% include "iso.ede" with field = req.value %}p{{ req.index }}
   {% endfor %}
   {% for opt in type.optional %}
     {% if (type.required | empty) && opt.first %}{ {% else %}, {% endif %}{{ opt.value.name | justifyLeft(type.fieldPad) }} = {{ opt.value.default }}

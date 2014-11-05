@@ -449,4 +449,4 @@ clientRequest = def
 makePrisms ''Error
 makeLenses ''Request
 makeLenses ''Zone
-makePrisms ''Boolean
+-- makePrisms ''Boolean

@@ -10,6 +10,9 @@
         "Network.AWS.S3.Internal"
     ],
     "overrides": {
+        "Error": {
+            "rename_to": "S3ServiceError"
+        },
         "ListObjectsResponse": {
             "required": [
                 "Name"

@@ -45,6 +45,12 @@ module Network.AWS.Prelude
     , Endpoint        (..)
     , Service         (..)
 
+    -- * Errors
+    , Error           (..)
+
+    -- * HTTP
+    , Status
+
     -- * Lenses
     , module Lens
     ) where
@@ -72,6 +78,7 @@ import Network.AWS.Data             as Export hiding (Query)
 import Network.AWS.Response         as Export
 import Network.AWS.Types
 import Network.HTTP.Client          (HttpException, RequestBody, Response)
+import Network.HTTP.Types.Status    (Status)
 import Prelude                      as Export hiding (head, error)
 
 import Control.Lens                 as Lens

@@ -239,12 +239,20 @@ filtered = flip (Map.foldlWithKey' run)
     renameTo :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
     renameTo _ Nothing  m = m
     renameTo x (Just y) m = replaced x y $
-        maybe m (\z -> Map.delete x (Map.insert y z m))
-                (Map.lookup x m)
+        case Map.lookup x m of
+            Nothing -> m
+            Just z  -> Map.delete x (Map.insert y (ren z) m)
+      where
+        ren = \case
+            Newtype _ f  -> Newtype y f
+            Record  _ fs -> Record  y fs
+            Product _ fs -> Product y fs
+            Nullary _ m' -> Nullary y m'
+            Empty        -> Empty
 
     replacedBy :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
     replacedBy _ Nothing  = id
-    replacedBy x (Just y) = Map.filterWithKey (const . (/= y)) . replaced x y
+    replacedBy x (Just y) = Map.filterWithKey (const . (/= x)) . replaced x y
 
     replaced :: Text -> Text -> HashMap Text Data -> HashMap Text Data
     replaced x y = Map.map (dataFields %~ go)

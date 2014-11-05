@@ -21,8 +21,7 @@ instance AWSError {{ service.error }} where
 instance AWSServiceError {{ service.error }} where
     httpError       = {{ service.abbrev }}Http
     serializerError = {{ service.abbrev }}Serializer
-    serviceError    = serviceError{{ service.abbrev }} {{ service.abbrev }}Service
-    checkError      = checkError{{ service.abbrev }}
+    serviceError    = {{ service.protocol }}Error {{ service.abbrev }}Service checkStatus
 
 _{{ service.abbrev }}Http :: Prism' {{ service.error }} HttpException
 _{{ service.abbrev }}Http = prism {{ service.abbrev }}Http $ \case

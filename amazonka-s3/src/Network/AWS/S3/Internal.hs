@@ -11,11 +11,15 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.S3.Internal where
+module Network.AWS.S3.Internal
+    ( module Network.AWS.S3.Internal
+    , Region
+    ) where
 
 import Data.String
 import GHC.Generics
 import Network.AWS.Prelude
+import Network.AWS.Types (Region)
 
 newtype BucketName = BucketName Text
     deriving (Eq, Ord, Show, Generic, IsString)

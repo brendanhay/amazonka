@@ -12,8 +12,12 @@
 
 module Network.AWS.Response
     (
+    -- * Errors
+      xmlError
+    , checkStatus
+
     -- * Responses
-      xmlResponse
+    , xmlResponse
     , jsonResponse
     , nullaryResponse
     , bodyResponse
@@ -51,6 +55,18 @@ import           Text.XML.Cursor
 --   where
 --     go y []     = y
 --     go _ (y:ys) = go y ys
+
+checkStatus :: Status -> Bool
+checkStatus = False
+
+xmlError :: (AWSServiceError e, FromXML a)
+         => (Status -> a -> e)
+         -> (Status -> Bool)
+         -> Status
+         -> Maybe (LBS.ByteString -> e)
+xmlError f p s
+    | p s       = Nothing
+    | otherwise = Just (either serializerError (f s) . decodeXML)
 
 xmlResponse :: (MonadResource m, AWSServiceError e)
             => (ResponseHeaders -> Cursor -> Either String a)

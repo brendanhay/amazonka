@@ -81,7 +81,7 @@ import Network.HTTP.Client          (HttpException, RequestBody, Response)
 import Network.HTTP.Types.Status    (Status)
 import Prelude                      as Export hiding (head, error)
 
-import Control.Lens                 as Lens
+import Control.Lens as Lens
     ( Lens'
     , Prism'
     , (<&>)
@@ -99,4 +99,5 @@ import Control.Lens                 as Lens
     , lens
     , prism
     , to
+    , mapping
     )

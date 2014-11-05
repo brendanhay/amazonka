@@ -1,6 +1,3 @@
-How to generate 'mapping' and chained lenses to determine what type is exposed
-to the lens user?
-
 {-# LANGUAGE DataKinds         #-}
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE LambdaCase        #-}

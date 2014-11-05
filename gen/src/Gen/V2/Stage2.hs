@@ -189,6 +189,34 @@ isMonoid (TList  _) = True
 isMonoid (TMap _ _) = True
 isMonoid _          = False
 
+typeMapping :: Type -> Maybe Text
+typeMapping t
+    | x:xs <- go t = Just (Text.intercalate " . " (x : xs))
+    | otherwise    = Nothing
+  where
+    go = \case
+        TType      _   -> []
+        TPrim      p   -> prim p
+        TList      _   -> []
+        TList1     _   -> []
+        TMap       _ _ -> []
+        TMaybe     x   -> wrap (go x)
+        TSensitive x   -> "_Sensitive" : go x
+
+    wrap []     = []
+    wrap (x:xs) = "mapping " <> x : xs
+
+    prim = \case
+        PBlob     -> []
+        PReq      -> []
+        PRes      -> []
+        PBool     -> ["_Bool"]
+        PText     -> []
+        PInt      -> []
+        PInteger  -> []
+        PDouble   -> []
+        PTime _   -> ["_Time"]
+
 class HasType a where
     typeOf :: Lens' a Type
 
@@ -229,6 +257,7 @@ instance ToJSON Field where
     toJSON Field{..} = object
         [ "name"          .= fieldName _fName
         , "lens"          .= lensName  _fName
+        , "lensMapping"   .= typeMapping _fType
         , "shape"         .= _fShape
         , "type"          .= _fType
         , "location"      .= _fLocation

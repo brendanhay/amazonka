@@ -11,12 +11,21 @@
     {% if (field.value.name | length) > 24 %}
 {{ field.value.lens }} =
     lens {{ field.value.name }}
-         (\s a -> s { {{ field.value.name }} = a })
+        (\s a -> s { {{ field.value.name }} = a })
+      {% if field.value.lensMapping %}
+            . {{ field.value.lensMapping }}
+      {% endif %}
     {% elif (field.value.name | length) > 17 %}
 {{ field.value.lens }} =
     lens {{ field.value.name }} (\s a -> s { {{ field.value.name }} = a })
+      {% if field.value.lensMapping %}
+        . {{ field.value.lensMapping }}
+      {% endif %}
     {% else %}
 {{ field.value.lens }} = lens {{ field.value.name }} (\s a -> s { {{ field.value.name }} = a })
+      {% if field.value.lensMapping %}
+    . {{ field.value.lensMapping }}
+      {% endif %}
     {% endif %}
   {% endfor %}
 {% endcase %}

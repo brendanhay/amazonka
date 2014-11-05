@@ -21,7 +21,7 @@ instance ToQuery {{ request.name }} where
     {% when "const" %}
         {% if qry.first %}[{% else %},{% endif %} "{{ qry.value.value }}"
     {% when "field" %}
-        {% if qry.first %}[{% else %},{% endif %} "{{ qry.value.locationName }}" =? {{ qry.value.field }}
+        {% if qry.first %}[{% else %},{% endif %} "{{ qry.value.locationName  | concat("\"") | justifyLeft(request.queryPad) }} =? {{ qry.value.field }}
     {% endcase %}
   {% endfor %}
   {% if (request.query | length) > 0 %}

@@ -20,20 +20,20 @@
     {% if req.first %}
 {{ type.ctor }} :: {{ req.value.type }} -- ^ '{{ req.value.lens }}'
     {% else %}
-{{ type.ctorPad }} -> {{ req.value.type }} -- ^ '{{ req.value.lens }}'
+{{ " " | justifyLeft(type.ctor | length) }} -> {{ req.value.type }} -- ^ '{{ req.value.lens }}'
     {% endif %}
     {% if req.last %}
-{{ type.ctorPad }} -> {{ type.name }}
+{{ " " | justifyLeft(type.ctor | length) }} -> {{ type.name }}
     {% endif %}
   {% else %}
 {{ type.ctor }} :: {{ type.name }}
   {% endfor %}
 {{ type.ctor }}{% for req in type.required %} p{{ req.index }}{% endfor %} = {{ type.name }}
   {% for req in type.required %}
-    {% if req.first %}{ {% else %}, {% endif %}{{ req.value.name }} = p{{ req.index }}
+    {% if req.first %}{ {% else %}, {% endif %}{{ req.value.name | justifyLeft(type.fieldPad) }} = p{{ req.index }}
   {% endfor %}
   {% for opt in type.optional %}
-    {% if (type.required | empty) && opt.first %}{ {% else %}, {% endif %}{{ opt.value.name }} = {{ opt.value.default }}
+    {% if (type.required | empty) && opt.first %}{ {% else %}, {% endif %}{{ opt.value.name | justifyLeft(type.fieldPad) }} = {{ opt.value.default }}
   {% endfor %}
   {% if !(type.required | empty) || !(type.optional | empty) %}
     }

@@ -336,31 +336,27 @@ instance ToJSON Data where
             Newtype n f  -> object
                 [ "type"     .= "newtype"
                 , "name"     .= n
-                , "ctor"     .= ctor
-                , "ctorPad"  .= pad
+                , "ctor"     .= constructor n
                 , "field"    .= f
                 , "fields"   .= [f]
+                , "fieldPad" .= (0 :: Int)
                 , "required" .= req
                 , "optional" .= opt
                 ]
               where
                 (req, opt) = parameters [f]
-                pad        = Text.replicate (Text.length ctor) " "
-                ctor       = constructor n
 
             Record  n fs -> object
                 [ "type"     .= "record"
                 , "name"     .= n
-                , "ctor"     .= ctor
-                , "ctorPad"  .= pad
+                , "ctor"     .= constructor n
                 , "fields"   .= sort fs
+                , "fieldPad" .= (maximum (map (Text.length . view nameOf) fs) + 1)
                 , "required" .= req
                 , "optional" .= opt
                 ]
               where
                 (req, opt) = parameters fs
-                pad        = Text.replicate (Text.length ctor) " "
-                ctor       = constructor n
 
 instance DerivingOf Data where
     derivingOf d = f (derivingOf (typesOf d))
@@ -425,12 +421,20 @@ instance ToJSON Request where
     toJSON (Request u n d) = Object (operationJSON n d <> x)
       where
         Object x = object
-            [ "path"    .= _uriPath u
-            , "headers" .= locations isHeader
-            , "query"   .= (map toJSON (_uriQuery u) ++ locations isQuery)
+            [ "path"      .= _uriPath u
+            , "headers"   .= map pair hdr
+            , "headerPad" .= pad hdr
+            , "query"     .= (map toJSON (_uriQuery u) ++ map pair qry)
+            , "queryPad"  .= pad qry
             ]
 
-        locations p = map pair . filter p $ toListOf dataFields d
+        pad [] = 0
+        pad xs = (+1) . maximum $ map (Text.length . _fLocationName) xs
+
+        hdr = locations isHeader
+        qry = locations isQuery
+
+        locations p = filter p (toListOf dataFields d)
 
         pair f = object
             [ "type"         .= "field"

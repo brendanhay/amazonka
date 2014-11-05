@@ -30,6 +30,7 @@ genFilters = Map.fromList
     , "below"     @: wrapHaddock "^ "
     , "highlight" @: highlightType
     , "wrapped"   @: wrapped
+    , "concat"    @: (mappend :: Text -> Text -> Text)
     ]
 
 wrapped :: Text -> Text

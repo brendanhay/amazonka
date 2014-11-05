@@ -1,25 +1,18 @@
 #!/usr/bin/env bash
 
 set -e
-set -x
-set -o errexit
 
-branch=$(git symbolic-ref -q HEAD)
-branch=${branch##refs/heads/}
-branch=${branch:-HEAD}
+doc=$HOME/Projects/aws-doc
+libs=$HOME/Projects/aws/amazonka-*
 
-cabal configure --disable-tests
+standalone-haddock \
+ -o $doc \
+ --package-db $HOME/Projects/aws/.cabal-sandbox/x86_64-osx-ghc-7.8.3-packages.conf.d \
+ core $libs
 
-DOCDIR=`mktemp -d -t pages.XXXXXX`
-cabal haddock --haddock-option=-o$DOCDIR
+cd $doc
 
-HEAD=`git rev-parse HEAD`
-
-git checkout gh-pages
-
-mv $DOCDIR/* .
-
-git add *.html *.js *.css *.gif *.png
-git commit -m "Generated documentation from $HEAD on $branch"
+git checkout gh-pages || true
+git add .
+git commit -am "Updating"
 git push origin gh-pages
-git checkout $branch

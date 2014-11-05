@@ -15,6 +15,7 @@
 module Network.AWS.Data.Map where
 
 import           Control.Applicative
+import           Control.Lens
 import           Data.Aeson
 import           Data.Bifunctor
 import qualified Data.CaseInsensitive                 as CI
@@ -43,6 +44,9 @@ newtype Map k v = Map { toHashMap :: HashMap k v }
         , Monoid
         , Semigroup
         )
+
+_Map :: Iso' (Map k v) (HashMap k v)
+_Map = iso toHashMap Map
 
 nullMap :: Map k v -> Bool
 nullMap = Map.null . toHashMap

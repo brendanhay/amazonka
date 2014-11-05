@@ -26,6 +26,7 @@ module Network.AWS.Data.List1
     ) where
 
 import           Control.Applicative
+import           Control.Lens                    (Iso', iso)
 import           Data.Aeson
 import           Data.Foldable                   (Foldable)
 import           Data.List.NonEmpty              (NonEmpty(..))
@@ -51,6 +52,9 @@ newtype List1 a = List1 { toNonEmpty :: NonEmpty a }
         , Traversable
         , Semigroup
         )
+
+_List1 :: Iso' (List1 a) (NonEmpty a)
+_List1 = iso toNonEmpty List1
 
 list1 :: a -> [a] -> List1 a
 list1 a = List1 . (:|) a

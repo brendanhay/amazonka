@@ -3,6 +3,7 @@
 {-# LANGUAGE FlexibleInstances   #-}
 {-# LANGUAGE GADTs               #-}
 {-# LANGUAGE KindSignatures      #-}
+{-# LANGUAGE LambdaCase          #-}
 {-# LANGUAGE OverloadedStrings   #-}
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE StandaloneDeriving  #-}
@@ -20,6 +21,7 @@
 module Network.AWS.Internal.Data.Time
     ( Format (..)
     , Time   (..)
+    , _Time
 
     , RFC822
     , ISO8601
@@ -29,6 +31,7 @@ module Network.AWS.Internal.Data.Time
     ) where
 
 import           Control.Applicative
+import           Control.Lens
 import           Data.Aeson
 import           Data.Attoparsec.Text                 (Parser)
 import qualified Data.Attoparsec.Text                 as AText
@@ -63,6 +66,22 @@ instance Ord (Time (a :: Format)) where
       where
         ts (Time         t) = (t, defaultTimeLocale)
         ts (LocaleTime l t) = (t, l)
+
+
+-- -- | This is a poorly behaved isomorphism, due to the fact 'LocaleTime' only
+-- -- exists for testing purposes, and we wish to compose using 'mapping'
+-- -- in real usage.
+_Time :: Iso' (Time a) UTCTime
+_Time = iso (\case; Time a -> a; LocaleTime _ a -> a) Time
+
+-- _Time :: Lens' (Time a) UTCTime
+-- _Time = lens f g
+--   where
+--     f (Time         a) = a
+--     f (LocalTime  _ a) = a
+
+--     g (Time         _) a = Time a
+--     g (LocaleTime l _) a = LocaleTime l a
 
 type RFC822    = Time RFC822Format
 type ISO8601   = Time ISO8601Format

@@ -3,7 +3,7 @@
   {% endif %}
 data {{ type.name }}
     {% for branch in type.branches %}
-    {% if branch.first %}={% else %}|{% endif %} {{ branch.key }} -- ^ {{ branch.value }}
+    {% if branch.first %}={% else %}|{% endif %} {{ branch.key | justifyLeft(type.branchPad) }} -- ^ {{ branch.value }}
     {% endfor %}
       deriving {% include "../_include/deriving.ede" %}
 instance Hashable {{ type.name }}
@@ -11,14 +11,14 @@ instance Hashable {{ type.name }}
 instance FromText {{ type.name }} where
     {% for branch in type.branches %}
       {% if branch.first %}
-    parser = match "{{ branch.value }}" {{ branch.key }}
+    parser = match "{{ branch.value | concat("\"") | justifyLeft(type.valuePad) }} {{ branch.key }}
       {% else %}
-         <|> match "{{ branch.value }}" {{ branch.key }}
+         <|> match "{{ branch.value | concat("\"") | justifyLeft(type.valuePad) }} {{ branch.key }}
       {% endif %}
     {% endfor %}
 
 instance ToText {{ type.name }} where
     toText = \case
     {% for branch in type.branches %}
-        {{ branch.key }} -> "{{ branch.value }}"
+        {{ branch.key | justifyLeft(type.branchPad) }} -> "{{ branch.value }}"
     {% endfor %}

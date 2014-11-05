@@ -328,9 +328,11 @@ instance ToJSON Data where
                 ]
 
             Nullary n fs -> object
-                [ "type"     .= "nullary"
-                , "name"     .= n
-                , "branches" .= fs
+                [ "type"      .= "nullary"
+                , "name"      .= n
+                , "branches"  .= fs
+                , "branchPad" .= maximum (map Text.length $ Map.keys fs)
+                , "valuePad"  .= (maximum (map Text.length $ Map.elems fs) + 1)
                 ]
 
             Newtype n f  -> object

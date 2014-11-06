@@ -69,8 +69,6 @@ instance ToQuery GetBucketPolicy where
 
 instance ToHeaders GetBucketPolicy
 
-instance ToBody GetBucketPolicy
-
 newtype GetBucketPolicyOutput = GetBucketPolicyOutput
     { _gbpoPolicy :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)

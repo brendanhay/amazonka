@@ -69,8 +69,6 @@ instance ToQuery GetBucketNotification where
 
 instance ToHeaders GetBucketNotification
 
-instance ToBody GetBucketNotification
-
 newtype GetBucketNotificationOutput = GetBucketNotificationOutput
     { _gbnoTopicConfiguration :: Maybe TopicConfiguration
     } deriving (Eq, Ord, Show, Generic)

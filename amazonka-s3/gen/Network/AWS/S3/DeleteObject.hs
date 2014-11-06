@@ -104,8 +104,6 @@ instance ToHeaders DeleteObject where
         [ "x-amz-mfa" =: _dor1MFA
         ]
 
-instance ToBody DeleteObject
-
 data DeleteObjectOutput = DeleteObjectOutput
     { _dooDeleteMarker :: Maybe Bool
     , _dooVersionId    :: Maybe ObjectVersionId

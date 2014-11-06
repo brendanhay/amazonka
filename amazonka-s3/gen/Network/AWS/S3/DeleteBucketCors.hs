@@ -65,8 +65,6 @@ instance ToQuery DeleteBucketCors where
 
 instance ToHeaders DeleteBucketCors
 
-instance ToBody DeleteBucketCors
-
 instance AWSRequest DeleteBucketCors where
     type Sv DeleteBucketCors = S3
     type Rs DeleteBucketCors = Empty

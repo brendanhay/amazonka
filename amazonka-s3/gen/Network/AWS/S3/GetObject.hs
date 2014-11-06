@@ -284,8 +284,6 @@ instance ToHeaders GetObject where
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _gorSSECustomerKeyMD5
         ]
 
-instance ToBody GetObject
-
 data GetObjectOutput = GetObjectOutput
     { _gooAcceptRanges            :: Maybe Text
     , _gooBody                    :: RsBody

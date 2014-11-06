@@ -70,8 +70,6 @@ instance ToQuery GetBucketAcl where
 
 instance ToHeaders GetBucketAcl
 
-instance ToBody GetBucketAcl
-
 data GetBucketAclOutput = GetBucketAclOutput
     { _gbaoGrants :: [Grant]
     , _gbaoOwner  :: Maybe Owner

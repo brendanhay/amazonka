@@ -65,8 +65,6 @@ instance ToQuery DeleteBucketPolicy where
 
 instance ToHeaders DeleteBucketPolicy
 
-instance ToBody DeleteBucketPolicy
-
 instance AWSRequest DeleteBucketPolicy where
     type Sv DeleteBucketPolicy = S3
     type Rs DeleteBucketPolicy = Empty

@@ -1,6 +1,7 @@
 {% case request.query | length %}
 {% when 0 %}
 instance ToQuery {{ request.name }}
+
 {% when 1 %}
 instance ToQuery {{ request.name }} where
   {% for part in request.query %}
@@ -11,6 +12,7 @@ instance ToQuery {{ request.name }} where
     toQuery = const "{{ part.value.value }}"
     {% endcase %}
   {% endfor %}
+
 {% else %}
 instance ToQuery {{ request.name }} where
     toQuery {{ request.name }}{..} = mconcat
@@ -27,4 +29,5 @@ instance ToQuery {{ request.name }} where
   {% if (request.query | length) > 0 %}
         ]
   {% endif %}
+
 {% endcase %}

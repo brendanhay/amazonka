@@ -70,8 +70,6 @@ instance ToQuery GetBucketVersioning where
 
 instance ToHeaders GetBucketVersioning
 
-instance ToBody GetBucketVersioning
-
 data GetBucketVersioningOutput = GetBucketVersioningOutput
     { _gbvoMFADelete :: Maybe Text
     , _gbvoStatus    :: Maybe Text

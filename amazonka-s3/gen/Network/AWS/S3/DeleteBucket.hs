@@ -66,8 +66,6 @@ instance ToQuery DeleteBucket
 
 instance ToHeaders DeleteBucket
 
-instance ToBody DeleteBucket
-
 instance AWSRequest DeleteBucket where
     type Sv DeleteBucket = S3
     type Rs DeleteBucket = Empty

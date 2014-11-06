@@ -143,8 +143,6 @@ instance ToQuery ListObjectVersions where
 
 instance ToHeaders ListObjectVersions
 
-instance ToBody ListObjectVersions
-
 data ListObjectVersionsOutput = ListObjectVersionsOutput
     { _lovoCommonPrefixes      :: [CommonPrefix]
     , _lovoDeleteMarkers       :: [DeleteMarkerEntry]

@@ -69,8 +69,6 @@ instance ToQuery GetBucketTagging where
 
 instance ToHeaders GetBucketTagging
 
-instance ToBody GetBucketTagging
-
 newtype GetBucketTaggingOutput = GetBucketTaggingOutput
     { _gbtoTagSet :: [Tag]
     } deriving (Eq, Ord, Show, Generic, Monoid)

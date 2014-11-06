@@ -212,8 +212,6 @@ instance ToHeaders HeadObject where
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _horSSECustomerKeyMD5
         ]
 
-instance ToBody HeadObject
-
 data HeadObjectOutput = HeadObjectOutput
     { _hooAcceptRanges            :: Maybe Text
     , _hooCacheControl            :: Maybe Text

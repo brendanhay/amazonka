@@ -147,8 +147,6 @@ instance ToQuery ListMultipartUploads where
 
 instance ToHeaders ListMultipartUploads
 
-instance ToBody ListMultipartUploads
-
 data ListMultipartUploadsOutput = ListMultipartUploadsOutput
     { _lmuoBucket             :: Maybe BucketName
     , _lmuoCommonPrefixes     :: [CommonPrefix]

@@ -1,6 +1,7 @@
 {% case request.path | length %}
 {% when 0 %}
 instance ToPath {{ request.name }}
+
 {% when 1 %}
 instance ToPath {{ request.name }} where
   {% for part in request.path %}
@@ -11,6 +12,7 @@ instance ToPath {{ request.name }} where
     toPath = const "{{ part.value.value }}"
     {% endcase %}
   {% endfor %}
+
 {% else %}
 instance ToPath {{ request.name }} where
     toPath {{ request.name }}{..} = mconcat
@@ -34,4 +36,5 @@ instance ToPath {{ request.name }} where
   {% if (request.path | length) > 0 %}
         ]
   {% endif %}
+
 {% endcase %}

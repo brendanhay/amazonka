@@ -9,6 +9,8 @@ instance ToHeaders {{ request.name }} where
     {% endif %}
   {% endfor %}
         ]
+
 {% else %}
 instance ToHeaders {{ request.name }}
+
 {% endif %}

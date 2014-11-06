@@ -69,8 +69,6 @@ instance ToQuery GetBucketRequestPayment where
 
 instance ToHeaders GetBucketRequestPayment
 
-instance ToBody GetBucketRequestPayment
-
 newtype GetBucketRequestPaymentOutput = GetBucketRequestPaymentOutput
     { _gbrpoPayer :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)

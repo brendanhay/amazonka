@@ -69,8 +69,6 @@ instance ToQuery GetBucketLocation where
 
 instance ToHeaders GetBucketLocation
 
-instance ToBody GetBucketLocation
-
 newtype GetBucketLocationOutput = GetBucketLocationOutput
     { _gbloLocationConstraint :: Maybe Region
     } deriving (Eq, Ord, Show, Generic)

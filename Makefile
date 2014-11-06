@@ -19,5 +19,4 @@ clean-%:
 	make -C $* clean
 
 cabal.sandbox.config:
-	cabal sandbox init && \
- cabal sandbox add-source core
+	cabal sandbox init

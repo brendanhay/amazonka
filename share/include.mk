@@ -15,7 +15,8 @@ install: cabal.sandbox.config
  --only-dependencies
 
 cabal.sandbox.config:
-	cabal sandbox init --sandbox=$(SANDBOX)
+	cabal sandbox init --sandbox=$(SANDBOX) && \
+ cabal sandbox add-source $(TOP)/core
 
 clean:
 	cabal clean

@@ -31,6 +31,7 @@ import           Data.Attoparsec.Text (Parser, parseOnly)
 import qualified Data.Attoparsec.Text as AText
 import           Data.Bifunctor
 import           Data.CaseInsensitive (CI)
+import           Data.Char
 import           Data.Foldable        (Foldable)
 import           Data.HashMap.Strict  (HashMap)
 import           Data.HashSet         (HashSet)
@@ -112,7 +113,7 @@ instance FromJSON Protocol where
         e           -> fail ("Unknown Protocol: " ++ Text.unpack e)
 
 instance A.ToJSON Protocol where
-    toJSON = A.toJSON . show
+    toJSON = A.toJSON . map toLower . show
 
 data Timestamp
     = RFC822

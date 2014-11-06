@@ -165,7 +165,9 @@ fromProfileName m name = auth >>= start
     auth = do
         !lbs <- LBS.fromStrict `liftM` metadata m
             (IAM . SecurityCredentials $ Just name)
-        either (throwError . HttpParserException) return (Aeson.eitherDecode lbs)
+        either (throwError . HttpParserException)
+               return
+               (Aeson.eitherDecode lbs)
 
     start !a = ExceptT . liftM Right . liftIO $
         case _authExpiry a of

@@ -48,7 +48,7 @@ data DeleteObjects = DeleteObjects
     { _dorBucket :: BucketName
     , _dorDelete :: Delete
     , _dorMFA    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteObjects' constructor.
 --
@@ -100,7 +100,7 @@ instance ToBody DeleteObjects where
 data DeleteObjectsOutput = DeleteObjectsOutput
     { _dooDeleted :: [DeletedObject]
     , _dooErrors  :: [Error]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteObjectsOutput' constructor.
 --

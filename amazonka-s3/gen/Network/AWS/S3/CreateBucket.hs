@@ -56,7 +56,7 @@ data CreateBucket = CreateBucket
     , _cbrGrantReadACP              :: Maybe Text
     , _cbrGrantWrite                :: Maybe Text
     , _cbrGrantWriteACP             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateBucket' constructor.
 --
@@ -170,4 +170,4 @@ instance AWSRequest CreateBucket where
 
     request  = put'
     response = const . xmlResponse $ \h x -> CreateBucketOutput
-        <$> h ~: "Location"
+        <$> h ~:? "Location"

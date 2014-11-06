@@ -39,7 +39,7 @@ import Network.AWS.S3.Types
 
 newtype HeadBucket = HeadBucket
     { _hbrBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'HeadBucket' constructor.
 --

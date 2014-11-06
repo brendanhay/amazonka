@@ -76,7 +76,7 @@ data UploadPartCopy = UploadPartCopy
     , _upcrSSECustomerKey                 :: Maybe (Sensitive Text)
     , _upcrSSECustomerKeyMD5              :: Maybe Text
     , _upcrUploadId                       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UploadPartCopy' constructor.
 --
@@ -281,7 +281,7 @@ data UploadPartCopyOutput = UploadPartCopyOutput
     , _upcoSSECustomerAlgorithm :: Maybe Text
     , _upcoSSECustomerKeyMD5    :: Maybe Text
     , _upcoServerSideEncryption :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UploadPartCopyOutput' constructor.
 --
@@ -344,7 +344,7 @@ instance AWSRequest UploadPartCopy where
     request  = put'
     response = const . xmlResponse $ \h x -> UploadPartCopyOutput
         <$> x %| "CopyPartResult"
-        <*> h ~: "x-amz-copy-source-version-id"
-        <*> h ~: "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~: "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~: "x-amz-server-side-encryption"
+        <*> h ~:? "x-amz-copy-source-version-id"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption"

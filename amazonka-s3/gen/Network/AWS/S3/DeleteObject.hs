@@ -51,7 +51,7 @@ data DeleteObject = DeleteObject
     , _dor1Key       :: ObjectKey
     , _dor1MFA       :: Maybe Text
     , _dor1VersionId :: Maybe ObjectVersionId
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteObject' constructor.
 --
@@ -108,7 +108,7 @@ instance ToHeaders DeleteObject where
 data DeleteObjectOutput = DeleteObjectOutput
     { _dooDeleteMarker :: Maybe Bool
     , _dooVersionId    :: Maybe ObjectVersionId
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteObjectOutput' constructor.
 --
@@ -140,5 +140,5 @@ instance AWSRequest DeleteObject where
 
     request  = delete'
     response = const . xmlResponse $ \h x -> DeleteObjectOutput
-        <$> h ~: "x-amz-delete-marker"
-        <*> h ~: "x-amz-version-id"
+        <$> h ~:? "x-amz-delete-marker"
+        <*> h ~:? "x-amz-version-id"

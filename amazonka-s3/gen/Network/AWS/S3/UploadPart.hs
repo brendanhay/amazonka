@@ -68,7 +68,7 @@ data UploadPart = UploadPart
     , _uprSSECustomerKey       :: Maybe (Sensitive Text)
     , _uprSSECustomerKeyMD5    :: Maybe Text
     , _uprUploadId             :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 -- | 'UploadPart' constructor.
 --
@@ -194,7 +194,7 @@ data UploadPartOutput = UploadPartOutput
     , _upoSSECustomerAlgorithm :: Maybe Text
     , _upoSSECustomerKeyMD5    :: Maybe Text
     , _upoServerSideEncryption :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UploadPartOutput' constructor.
 --
@@ -245,7 +245,7 @@ instance AWSRequest UploadPart where
 
     request  = put'
     response = const . xmlResponse $ \h x -> UploadPartOutput
-        <$> h ~: "ETag"
-        <*> h ~: "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~: "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~: "x-amz-server-side-encryption"
+        <$> h ~:? "ETag"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption"

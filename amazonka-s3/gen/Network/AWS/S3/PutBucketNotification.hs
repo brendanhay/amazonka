@@ -42,7 +42,7 @@ data PutBucketNotification = PutBucketNotification
     { _pbnrBucket                    :: BucketName
     , _pbnrContentMD5                :: Maybe Text
     , _pbnrNotificationConfiguration :: NotificationConfiguration
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketNotification' constructor.
 --

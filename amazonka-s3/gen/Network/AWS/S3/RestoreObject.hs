@@ -44,7 +44,7 @@ data RestoreObject = RestoreObject
     , _rorKey            :: ObjectKey
     , _rorRestoreRequest :: Maybe RestoreRequest
     , _rorVersionId      :: Maybe ObjectVersionId
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RestoreObject' constructor.
 --

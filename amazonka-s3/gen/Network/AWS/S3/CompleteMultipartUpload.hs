@@ -54,7 +54,7 @@ data CompleteMultipartUpload = CompleteMultipartUpload
     , _cmurKey             :: ObjectKey
     , _cmurMultipartUpload :: Maybe CompletedMultipartUpload
     , _cmurUploadId        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CompleteMultipartUpload' constructor.
 --
@@ -115,7 +115,7 @@ data CompleteMultipartUploadOutput = CompleteMultipartUploadOutput
     , _cmuoLocation             :: Maybe Text
     , _cmuoServerSideEncryption :: Maybe Text
     , _cmuoVersionId            :: Maybe ObjectVersionId
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CompleteMultipartUploadOutput' constructor.
 --
@@ -184,8 +184,8 @@ instance AWSRequest CompleteMultipartUpload where
     response = const . xmlResponse $ \h x -> CompleteMultipartUploadOutput
         <$> x %| "Bucket"
         <*> x %| "ETag"
-        <*> h ~: "x-amz-expiration"
+        <*> h ~:? "x-amz-expiration"
         <*> x %| "Key"
         <*> x %| "Location"
-        <*> h ~: "x-amz-server-side-encryption"
-        <*> h ~: "x-amz-version-id"
+        <*> h ~:? "x-amz-server-side-encryption"
+        <*> h ~:? "x-amz-version-id"

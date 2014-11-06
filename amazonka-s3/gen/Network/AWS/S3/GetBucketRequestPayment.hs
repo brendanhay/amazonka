@@ -42,7 +42,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketRequestPayment = GetBucketRequestPayment
     { _gbrprBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetBucketRequestPayment' constructor.
 --

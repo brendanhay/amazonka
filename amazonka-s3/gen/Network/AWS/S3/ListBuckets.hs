@@ -48,7 +48,7 @@ instance ToHeaders Empty
 data ListBucketsOutput = ListBucketsOutput
     { _lboBuckets :: [Bucket]
     , _lboOwner   :: Maybe Owner
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListBucketsOutput' constructor.
 --

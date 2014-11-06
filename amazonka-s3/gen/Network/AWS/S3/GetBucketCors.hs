@@ -42,7 +42,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketCors = GetBucketCors
     { _gbcrBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetBucketCors' constructor.
 --
@@ -72,7 +72,7 @@ instance ToHeaders GetBucketCors
 
 newtype GetBucketCorsOutput = GetBucketCorsOutput
     { _gbcoCORSRules :: [CORSRule]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Show, Generic, Monoid)
 
 -- | 'GetBucketCorsOutput' constructor.
 --

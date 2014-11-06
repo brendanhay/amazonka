@@ -64,7 +64,7 @@ data ListMultipartUploads = ListMultipartUploads
     , _lmurMaxUploads     :: Maybe Int
     , _lmurPrefix         :: Maybe Text
     , _lmurUploadIdMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListMultipartUploads' constructor.
 --
@@ -160,7 +160,7 @@ data ListMultipartUploadsOutput = ListMultipartUploadsOutput
     , _lmuoPrefix             :: Maybe Text
     , _lmuoUploadIdMarker     :: Maybe Text
     , _lmuoUploads            :: [MultipartUpload]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListMultipartUploadsOutput' constructor.
 --

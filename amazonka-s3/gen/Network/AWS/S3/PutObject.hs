@@ -91,7 +91,7 @@ data PutObject = PutObject
     , _porServerSideEncryption    :: Maybe Text
     , _porStorageClass            :: Maybe Text
     , _porWebsiteRedirectLocation :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Show, Generic)
 
 -- | 'PutObject' constructor.
 --
@@ -331,7 +331,7 @@ data PutObjectOutput = PutObjectOutput
     , _pooSSECustomerKeyMD5    :: Maybe Text
     , _pooServerSideEncryption :: Maybe Text
     , _pooVersionId            :: Maybe ObjectVersionId
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PutObjectOutput' constructor.
 --
@@ -399,9 +399,9 @@ instance AWSRequest PutObject where
 
     request  = put'
     response = const . xmlResponse $ \h x -> PutObjectOutput
-        <$> h ~: "ETag"
-        <*> h ~: "x-amz-expiration"
-        <*> h ~: "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~: "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~: "x-amz-server-side-encryption"
-        <*> h ~: "x-amz-version-id"
+        <$> h ~:? "ETag"
+        <*> h ~:? "x-amz-expiration"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption"
+        <*> h ~:? "x-amz-version-id"

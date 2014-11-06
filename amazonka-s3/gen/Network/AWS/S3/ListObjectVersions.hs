@@ -65,7 +65,7 @@ data ListObjectVersions = ListObjectVersions
     , _lovrMaxKeys         :: Maybe Int
     , _lovrPrefix          :: Maybe Text
     , _lovrVersionIdMarker :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListObjectVersions' constructor.
 --
@@ -157,7 +157,7 @@ data ListObjectVersionsOutput = ListObjectVersionsOutput
     , _lovoPrefix              :: Maybe Text
     , _lovoVersionIdMarker     :: Maybe Text
     , _lovoVersions            :: [ObjectVersion]
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListObjectVersionsOutput' constructor.
 --

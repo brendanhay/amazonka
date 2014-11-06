@@ -43,7 +43,7 @@ data PutBucketPolicy = PutBucketPolicy
     { _pbprBucket     :: BucketName
     , _pbprContentMD5 :: Maybe Text
     , _pbprPolicy     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketPolicy' constructor.
 --

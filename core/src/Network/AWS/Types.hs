@@ -444,6 +444,9 @@ newtype Sensitive a = Sensitive a
 instance Show (Sensitive a) where
     show = const "******"
 
+instance ToByteString a => ToByteString (Sensitive a) where
+    toBS (Sensitive s) = toBS s
+
 data Empty = Empty
     deriving (Eq, Show)
 

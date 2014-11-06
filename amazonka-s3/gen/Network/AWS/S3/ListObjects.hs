@@ -62,7 +62,7 @@ data ListObjects = ListObjects
     , _lorMarker       :: Maybe Text
     , _lorMaxKeys      :: Maybe Int
     , _lorPrefix       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListObjects' constructor.
 --
@@ -141,7 +141,7 @@ data ListObjectsOutput = ListObjectsOutput
     , _looName           :: Maybe BucketName
     , _looNextMarker     :: Maybe Text
     , _looPrefix         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListObjectsOutput' constructor.
 --

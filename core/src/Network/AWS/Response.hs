@@ -26,7 +26,6 @@ module Network.AWS.Response
     ) where
 
 import           Control.Applicative
-import           Control.Monad
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import           Data.Bifunctor
@@ -93,11 +92,11 @@ jsonResponse f = receive $ \hs bdy -> do
                 Right x -> return (Right x)
 
 bodyResponse :: (MonadResource m, AWSServiceError e)
-             => (ResponseHeaders -> ResponseBody -> m (Either String a))
+             => (ResponseHeaders -> ResponseBody -> Either String a)
              -> Either HttpException ClientResponse
              -> m (Either e a)
 bodyResponse f = receive $ \hs bdy ->
-    first serializerError `liftM` f hs bdy
+    return (serializerError `first` f hs bdy)
 
 nullaryResponse :: (MonadResource m, AWSServiceError e)
                 => a

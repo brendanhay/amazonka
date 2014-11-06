@@ -54,7 +54,7 @@ data PutBucketAcl = PutBucketAcl
     , _pbarGrantReadACP        :: Maybe Text
     , _pbarGrantWrite          :: Maybe Text
     , _pbarGrantWriteACP       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketAcl' constructor.
 --

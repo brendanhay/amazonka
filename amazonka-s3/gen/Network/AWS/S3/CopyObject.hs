@@ -103,7 +103,7 @@ data CopyObject = CopyObject
     , _corServerSideEncryption           :: Maybe Text
     , _corStorageClass                   :: Maybe Text
     , _corWebsiteRedirectLocation        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CopyObject' constructor.
 --
@@ -417,7 +417,7 @@ data CopyObjectOutput = CopyObjectOutput
     , _cooSSECustomerAlgorithm :: Maybe Text
     , _cooSSECustomerKeyMD5    :: Maybe Text
     , _cooServerSideEncryption :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CopyObjectOutput' constructor.
 --
@@ -485,8 +485,8 @@ instance AWSRequest CopyObject where
     request  = put'
     response = const . xmlResponse $ \h x -> CopyObjectOutput
         <$> x %| "CopyObjectResult"
-        <*> h ~: "x-amz-copy-source-version-id"
-        <*> h ~: "x-amz-expiration"
-        <*> h ~: "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~: "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~: "x-amz-server-side-encryption"
+        <*> h ~:? "x-amz-copy-source-version-id"
+        <*> h ~:? "x-amz-expiration"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption"

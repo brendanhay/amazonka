@@ -42,7 +42,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketLocation = GetBucketLocation
     { _gblrBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetBucketLocation' constructor.
 --
@@ -72,7 +72,7 @@ instance ToHeaders GetBucketLocation
 
 newtype GetBucketLocationOutput = GetBucketLocationOutput
     { _gbloLocationConstraint :: Maybe Region
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetBucketLocationOutput' constructor.
 --

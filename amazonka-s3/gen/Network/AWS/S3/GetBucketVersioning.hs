@@ -43,7 +43,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketVersioning = GetBucketVersioning
     { _gbvrBucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetBucketVersioning' constructor.
 --

@@ -90,7 +90,7 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmur1ServerSideEncryption    :: Maybe Text
     , _cmur1StorageClass            :: Maybe Text
     , _cmur1WebsiteRedirectLocation :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateMultipartUpload' constructor.
 --
@@ -313,7 +313,7 @@ data CreateMultipartUploadOutput = CreateMultipartUploadOutput
     , _cmuo1SSECustomerKeyMD5    :: Maybe Text
     , _cmuo1ServerSideEncryption :: Maybe Text
     , _cmuo1UploadId             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateMultipartUploadOutput' constructor.
 --
@@ -382,7 +382,7 @@ instance AWSRequest CreateMultipartUpload where
     response = const . xmlResponse $ \h x -> CreateMultipartUploadOutput
         <$> x %| "Bucket"
         <*> x %| "Key"
-        <*> h ~: "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~: "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~: "x-amz-server-side-encryption"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption"
         <*> x %| "UploadId"

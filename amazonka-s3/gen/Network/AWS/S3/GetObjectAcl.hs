@@ -47,7 +47,7 @@ data GetObjectAcl = GetObjectAcl
     { _goarBucket    :: BucketName
     , _goarKey       :: ObjectKey
     , _goarVersionId :: Maybe ObjectVersionId
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetObjectAcl' constructor.
 --
@@ -97,7 +97,7 @@ instance ToHeaders GetObjectAcl
 data GetObjectAclOutput = GetObjectAclOutput
     { _goaoGrants :: [Grant]
     , _goaoOwner  :: Maybe Owner
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetObjectAclOutput' constructor.
 --

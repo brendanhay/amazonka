@@ -43,7 +43,7 @@ data PutBucketLifecycle = PutBucketLifecycle
     { _pblrBucket                 :: BucketName
     , _pblrContentMD5             :: Maybe Text
     , _pblrLifecycleConfiguration :: Maybe LifecycleConfiguration
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketLifecycle' constructor.
 --

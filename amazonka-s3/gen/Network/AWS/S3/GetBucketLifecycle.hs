@@ -42,7 +42,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketLifecycle = GetBucketLifecycle
     { _gblr1Bucket :: BucketName
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetBucketLifecycle' constructor.
 --
@@ -72,7 +72,7 @@ instance ToHeaders GetBucketLifecycle
 
 newtype GetBucketLifecycleOutput = GetBucketLifecycleOutput
     { _gbloRules :: [Rule]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Show, Generic, Monoid)
 
 -- | 'GetBucketLifecycleOutput' constructor.
 --

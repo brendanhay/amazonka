@@ -65,6 +65,8 @@ instance ToQuery DeleteBucketLifecycle where
 
 instance ToHeaders DeleteBucketLifecycle
 
+instance ToBody DeleteBucketLifecycle
+
 instance AWSRequest DeleteBucketLifecycle where
     type Sv DeleteBucketLifecycle = S3
     type Rs DeleteBucketLifecycle = Empty

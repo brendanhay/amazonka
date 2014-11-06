@@ -72,6 +72,8 @@ instance ToQuery GetBucketWebsite where
 
 instance ToHeaders GetBucketWebsite
 
+instance ToBody GetBucketWebsite
+
 data GetBucketWebsiteOutput = GetBucketWebsiteOutput
     { _gbwoErrorDocument         :: Maybe ErrorDocument
     , _gbwoIndexDocument         :: Maybe IndexDocument

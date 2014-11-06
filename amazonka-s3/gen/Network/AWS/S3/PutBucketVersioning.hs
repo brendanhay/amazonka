@@ -99,6 +99,9 @@ instance ToHeaders PutBucketVersioning where
         , "x-amz-mfa"   =: _pbvrMFA
         ]
 
+instance ToBody PutBucketVersioning where
+    toBody = toBody . encodeXML . _pbvrVersioningConfiguration
+
 instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3
     type Rs PutBucketVersioning = Empty

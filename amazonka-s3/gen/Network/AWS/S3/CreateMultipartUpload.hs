@@ -137,12 +137,10 @@ data CreateMultipartUpload = CreateMultipartUpload
 --
 createMultipartUpload :: BucketName -- ^ 'cmur1Bucket'
                       -> ObjectKey -- ^ 'cmur1Key'
-                      -> HashMap  Text Text -- ^ 'cmur1Metadata'
                       -> CreateMultipartUpload
-createMultipartUpload p1 p2 p3 = CreateMultipartUpload
+createMultipartUpload p1 p2 = CreateMultipartUpload
     { _cmur1Bucket                  = p1
     , _cmur1Key                     = p2
-    , _cmur1Metadata                = withIso _Map (const id) p3
     , _cmur1ACL                     = Nothing
     , _cmur1CacheControl            = Nothing
     , _cmur1ContentDisposition      = Nothing
@@ -154,6 +152,7 @@ createMultipartUpload p1 p2 p3 = CreateMultipartUpload
     , _cmur1GrantRead               = Nothing
     , _cmur1GrantReadACP            = Nothing
     , _cmur1GrantWriteACP           = Nothing
+    , _cmur1Metadata                = mempty
     , _cmur1ServerSideEncryption    = Nothing
     , _cmur1StorageClass            = Nothing
     , _cmur1WebsiteRedirectLocation = Nothing
@@ -224,7 +223,7 @@ cmur1Key :: Lens' CreateMultipartUpload ObjectKey
 cmur1Key = lens _cmur1Key (\s a -> s { _cmur1Key = a })
 
 -- | A map of metadata to store with the object in S3.
-cmur1Metadata :: Lens' CreateMultipartUpload (HashMap  Text Text)
+cmur1Metadata :: Lens' CreateMultipartUpload (HashMap Text Text)
 cmur1Metadata = lens _cmur1Metadata (\s a -> s { _cmur1Metadata = a })
     . _Map
 
@@ -303,6 +302,8 @@ instance ToHeaders CreateMultipartUpload where
         , "x-amz-server-side-encryption-customer-key"       =: _cmur1SSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _cmur1SSECustomerKeyMD5
         ]
+
+instance ToBody CreateMultipartUpload
 
 data CreateMultipartUploadOutput = CreateMultipartUploadOutput
     { _cmuo1Bucket               :: Maybe BucketName

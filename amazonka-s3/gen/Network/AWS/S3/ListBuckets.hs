@@ -44,6 +44,8 @@ instance ToQuery Empty
 
 instance ToHeaders Empty
 
+instance ToBody Empty
+
 data ListBucketsOutput = ListBucketsOutput
     { _lboBuckets :: [Bucket]
     , _lboOwner   :: Maybe Owner

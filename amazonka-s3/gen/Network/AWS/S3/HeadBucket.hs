@@ -65,6 +65,8 @@ instance ToQuery HeadBucket
 
 instance ToHeaders HeadBucket
 
+instance ToBody HeadBucket
+
 instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3
     type Rs HeadBucket = Empty

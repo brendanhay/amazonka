@@ -87,6 +87,9 @@ instance ToHeaders PutBucketNotification where
         [ "Content-MD5" =: _pbnrContentMD5
         ]
 
+instance ToBody PutBucketNotification where
+    toBody = toBody . encodeXML . _pbnrNotificationConfiguration
+
 instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3
     type Rs PutBucketNotification = Empty

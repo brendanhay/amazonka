@@ -90,6 +90,9 @@ instance ToHeaders PutBucketRequestPayment where
         [ "Content-MD5" =: _pbrprContentMD5
         ]
 
+instance ToBody PutBucketRequestPayment where
+    toBody = toBody . encodeXML . _pbrprRequestPaymentConfiguration
+
 instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3
     type Rs PutBucketRequestPayment = Empty

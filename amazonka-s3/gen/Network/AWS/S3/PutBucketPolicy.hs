@@ -87,6 +87,9 @@ instance ToHeaders PutBucketPolicy where
         [ "Content-MD5" =: _pbprContentMD5
         ]
 
+instance ToBody PutBucketPolicy where
+    toBody = toBody . encodeXML . _pbprPolicy
+
 instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3
     type Rs PutBucketPolicy = Empty

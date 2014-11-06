@@ -1,4 +1,4 @@
--- Module      : Network.AWS.Request.RestS3
+-- Module      : Network.AWS.Request.XML
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -8,9 +8,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Request.RestS3
+module Network.AWS.Request.XML
     ( get
-    , Network.AWS.Internal.Request.head
     , delete
     , post
     , put
@@ -22,10 +21,10 @@ import Network.AWS.Internal.Request
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 
-post :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
-post = put
+post :: (ToPath a, ToQuery a, ToHeaders a, ToXML a) => a -> Request a
+post x = put x & rqMethod .~ POST
 {-# INLINE post #-}
 
-put :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
-put x = get x & rqMethod .~ PUT & rqBody .~ toBody x
+put :: (ToPath a, ToQuery a, ToHeaders a, ToXML a) => a -> Request a
+put x = get x & rqMethod .~ PUT & rqBody .~ toBody (encodeXML x)
 {-# INLINE put #-}

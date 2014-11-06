@@ -185,6 +185,9 @@ instance ToHeaders UploadPart where
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _uprSSECustomerKeyMD5
         ]
 
+instance ToBody UploadPart where
+    toBody = toBody . _uprBody
+
 data UploadPartOutput = UploadPartOutput
     { _upoETag                 :: Maybe ETag
     , _upoSSECustomerAlgorithm :: Maybe Text

@@ -69,6 +69,8 @@ instance ToQuery GetBucketLifecycle where
 
 instance ToHeaders GetBucketLifecycle
 
+instance ToBody GetBucketLifecycle
+
 newtype GetBucketLifecycleOutput = GetBucketLifecycleOutput
     { _gbloRules :: [Rule]
     } deriving (Eq, Ord, Show, Generic, Monoid)

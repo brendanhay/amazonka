@@ -87,6 +87,9 @@ instance ToHeaders PutBucketWebsite where
         [ "Content-MD5" =: _pbwrContentMD5
         ]
 
+instance ToBody PutBucketWebsite where
+    toBody = toBody . encodeXML . _pbwrWebsiteConfiguration
+
 instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3
     type Rs PutBucketWebsite = Empty

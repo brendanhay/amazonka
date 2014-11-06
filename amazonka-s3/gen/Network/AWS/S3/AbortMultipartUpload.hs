@@ -86,6 +86,8 @@ instance ToQuery AbortMultipartUpload where
 
 instance ToHeaders AbortMultipartUpload
 
+instance ToBody AbortMultipartUpload
+
 instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3
     type Rs AbortMultipartUpload = Empty

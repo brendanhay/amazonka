@@ -30,14 +30,12 @@ library
         , Network.AWS
         , Network.AWS.Auth
         , Network.AWS.Data
-        , Network.AWS.Data.List1
-        , Network.AWS.Data.Map
         , Network.AWS.EC2.Metadata
         , Network.AWS.Prelude
+        , Network.AWS.Request.Body
         , Network.AWS.Request.JSON
         , Network.AWS.Request.Query
-        , Network.AWS.Request.RestS3
-        , Network.AWS.Request.RestXML
+        , Network.AWS.Request.XML
         , Network.AWS.Response
         , Network.AWS.Signing.V2
         , Network.AWS.Signing.V3
@@ -45,15 +43,18 @@ library
         , Network.AWS.Types
 
     other-modules:
-          Network.AWS.Internal.Data.Body
-        , Network.AWS.Internal.Data.ByteString
-        , Network.AWS.Internal.Data.Header
-        , Network.AWS.Internal.Data.Path
-        , Network.AWS.Internal.Data.Query
-        , Network.AWS.Internal.Data.Text
-        , Network.AWS.Internal.Data.Time
-        , Network.AWS.Internal.Data.URI
-        , Network.AWS.Internal.Data.XML
+          Network.AWS.Data.Internal.Body
+        , Network.AWS.Data.Internal.ByteString
+        , Network.AWS.Data.Internal.Header
+        , Network.AWS.Data.Internal.List1
+        , Network.AWS.Data.Internal.Map
+        , Network.AWS.Data.Internal.Path
+        , Network.AWS.Data.Internal.Query
+        , Network.AWS.Data.Internal.Text
+        , Network.AWS.Data.Internal.Time
+        , Network.AWS.Data.Internal.URI
+        , Network.AWS.Data.Internal.XML
+
         , Network.AWS.Internal.Request
         , Network.AWS.Internal.Signing
 

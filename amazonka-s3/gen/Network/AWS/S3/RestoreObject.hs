@@ -96,6 +96,9 @@ instance ToQuery RestoreObject where
 
 instance ToHeaders RestoreObject
 
+instance ToBody RestoreObject where
+    toBody = toBody . encodeXML . _rorRestoreRequest
+
 instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3
     type Rs RestoreObject = Empty

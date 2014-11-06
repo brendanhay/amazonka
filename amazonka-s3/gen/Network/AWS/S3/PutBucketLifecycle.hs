@@ -87,6 +87,9 @@ instance ToHeaders PutBucketLifecycle where
         [ "Content-MD5" =: _pblrContentMD5
         ]
 
+instance ToBody PutBucketLifecycle where
+    toBody = toBody . encodeXML . _pblrLifecycleConfiguration
+
 instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3
     type Rs PutBucketLifecycle = Empty

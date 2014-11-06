@@ -69,6 +69,8 @@ instance ToQuery GetBucketCors where
 
 instance ToHeaders GetBucketCors
 
+instance ToBody GetBucketCors
+
 newtype GetBucketCorsOutput = GetBucketCorsOutput
     { _gbcoCORSRules :: [CORSRule]
     } deriving (Eq, Ord, Show, Generic, Monoid)

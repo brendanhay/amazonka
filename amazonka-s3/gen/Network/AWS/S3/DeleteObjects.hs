@@ -93,6 +93,9 @@ instance ToHeaders DeleteObjects where
         [ "x-amz-mfa" =: _dorMFA
         ]
 
+instance ToBody DeleteObjects where
+    toBody = toBody . encodeXML . _dorDelete
+
 data DeleteObjectsOutput = DeleteObjectsOutput
     { _dooDeleted :: [DeletedObject]
     , _dooErrors  :: [Error]

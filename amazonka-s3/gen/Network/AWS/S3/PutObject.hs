@@ -145,13 +145,11 @@ data PutObject = PutObject
 putObject :: RqBody -- ^ 'porBody'
           -> BucketName -- ^ 'porBucket'
           -> ObjectKey -- ^ 'porKey'
-          -> HashMap  Text Text -- ^ 'porMetadata'
           -> PutObject
-putObject p1 p2 p3 p4 = PutObject
+putObject p1 p2 p3 = PutObject
     { _porBody                    = p1
     , _porBucket                  = p2
     , _porKey                     = p3
-    , _porMetadata                = withIso _Map (const id) p4
     , _porACL                     = Nothing
     , _porCacheControl            = Nothing
     , _porContentDisposition      = Nothing
@@ -165,6 +163,7 @@ putObject p1 p2 p3 p4 = PutObject
     , _porGrantRead               = Nothing
     , _porGrantReadACP            = Nothing
     , _porGrantWriteACP           = Nothing
+    , _porMetadata                = mempty
     , _porServerSideEncryption    = Nothing
     , _porStorageClass            = Nothing
     , _porWebsiteRedirectLocation = Nothing
@@ -243,7 +242,7 @@ porKey :: Lens' PutObject ObjectKey
 porKey = lens _porKey (\s a -> s { _porKey = a })
 
 -- | A map of metadata to store with the object in S3.
-porMetadata :: Lens' PutObject (HashMap  Text Text)
+porMetadata :: Lens' PutObject (HashMap Text Text)
 porMetadata = lens _porMetadata (\s a -> s { _porMetadata = a })
     . _Map
 
@@ -320,6 +319,9 @@ instance ToHeaders PutObject where
         , "x-amz-server-side-encryption-customer-key"       =: _porSSECustomerKey
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _porSSECustomerKeyMD5
         ]
+
+instance ToBody PutObject where
+    toBody = toBody . _porBody
 
 data PutObjectOutput = PutObjectOutput
     { _pooETag                 :: Maybe ETag

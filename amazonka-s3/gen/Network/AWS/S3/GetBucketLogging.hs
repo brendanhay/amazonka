@@ -70,6 +70,8 @@ instance ToQuery GetBucketLogging where
 
 instance ToHeaders GetBucketLogging
 
+instance ToBody GetBucketLogging
+
 newtype GetBucketLoggingOutput = GetBucketLoggingOutput
     { _gbloLoggingEnabled :: Maybe LoggingEnabled
     } deriving (Eq, Ord, Show, Generic)

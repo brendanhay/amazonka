@@ -38,11 +38,10 @@ import qualified Data.ByteString.Lazy     as LBS
 import           Data.CaseInsensitive     (CI)
 import qualified Data.CaseInsensitive     as CI
 import           Data.Char
-import           Data.Foldable            (foldl')
 import           Data.Function            (on)
 import           Data.HashMap.Strict      (HashMap)
 import qualified Data.HashMap.Strict      as Map
-import           Data.List                (intersect, nub, sort, delete, partition)
+import           Data.List
 import           Data.Monoid              hiding (Product)
 import           Data.SemVer
 import           Data.String
@@ -188,7 +187,7 @@ instance ToJSON (Exposed Type) where
             TPrim      p   -> primitive False p
             TList      x   -> "["          <> wrap (go x) <> "]"
             TList1     x   -> "NonEmpty "  <> wrap (go x)
-            TMap       k v -> "HashMap  "  <> wrap (go k) <> " " <> wrap (go v)
+            TMap       k v -> "HashMap "   <> wrap (go k) <> " " <> wrap (go v)
             TMaybe     x   -> "Maybe "     <> wrap (go x)
             TSensitive x   -> wrap (go x)
 
@@ -299,7 +298,9 @@ instance ToJSON Field where
         ]
 
 parameters :: [Field] -> ([Field], [Field])
-parameters = partition (isRequired . view typeOf)
+parameters = partition (f . view typeOf)
+  where
+    f x = not (isMonoid x) && isRequired x
 
 isHeader :: Field -> Bool
 isHeader = f . view fLocation
@@ -313,6 +314,14 @@ isQuery = f . view fLocation
   where
     f Querystring = True
     f _           = False
+
+isPayload :: Field -> Bool
+isPayload f =
+    case _fLocation f of
+        BodyXml  -> True
+        BodyJson -> True
+        Body     -> True
+        _        -> False
 
 instance HasName Field where
     nameOf = fName
@@ -372,9 +381,11 @@ instance ToJSON Data where
                 , "fieldPad" .= (0 :: Int)
                 , "required" .= req
                 , "optional" .= opt
+                , "payload"  .= pay
                 ]
               where
                 (req, opt) = parameters [f]
+                pay        = find isPayload [f]
 
             Record  n fs -> object
                 [ "type"     .= "record"
@@ -384,9 +395,11 @@ instance ToJSON Data where
                 , "fieldPad" .= (maximum (map (Text.length . view nameOf) fs) + 1)
                 , "required" .= req
                 , "optional" .= opt
+                , "payload"  .= pay
                 ]
               where
                 (req, opt) = parameters fs
+                pay        = find isPayload fs
 
 instance DerivingOf Data where
     derivingOf d = f (derivingOf (typesOf d))

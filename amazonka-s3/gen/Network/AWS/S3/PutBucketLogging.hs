@@ -89,6 +89,9 @@ instance ToHeaders PutBucketLogging where
         [ "Content-MD5" =: _pblr1ContentMD5
         ]
 
+instance ToBody PutBucketLogging where
+    toBody = toBody . encodeXML . _pblr1BucketLoggingStatus
+
 instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3
     type Rs PutBucketLogging = Empty

@@ -130,6 +130,8 @@ instance ToQuery ListObjects where
 
 instance ToHeaders ListObjects
 
+instance ToBody ListObjects
+
 data ListObjectsOutput = ListObjectsOutput
     { _looCommonPrefixes :: [CommonPrefix]
     , _looContents       :: [Object]

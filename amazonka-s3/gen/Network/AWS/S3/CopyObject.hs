@@ -169,13 +169,11 @@ data CopyObject = CopyObject
 copyObject :: BucketName -- ^ 'corBucket'
            -> Text -- ^ 'corCopySource'
            -> ObjectKey -- ^ 'corKey'
-           -> HashMap  Text Text -- ^ 'corMetadata'
            -> CopyObject
-copyObject p1 p2 p3 p4 = CopyObject
+copyObject p1 p2 p3 = CopyObject
     { _corBucket                         = p1
     , _corCopySource                     = p2
     , _corKey                            = p3
-    , _corMetadata                       = withIso _Map (const id) p4
     , _corACL                            = Nothing
     , _corCacheControl                   = Nothing
     , _corContentDisposition             = Nothing
@@ -191,6 +189,7 @@ copyObject p1 p2 p3 p4 = CopyObject
     , _corGrantRead                      = Nothing
     , _corGrantReadACP                   = Nothing
     , _corGrantWriteACP                  = Nothing
+    , _corMetadata                       = mempty
     , _corMetadataDirective              = Nothing
     , _corServerSideEncryption           = Nothing
     , _corStorageClass                   = Nothing
@@ -317,7 +316,7 @@ corKey :: Lens' CopyObject ObjectKey
 corKey = lens _corKey (\s a -> s { _corKey = a })
 
 -- | A map of metadata to store with the object in S3.
-corMetadata :: Lens' CopyObject (HashMap  Text Text)
+corMetadata :: Lens' CopyObject (HashMap Text Text)
 corMetadata = lens _corMetadata (\s a -> s { _corMetadata = a })
     . _Map
 
@@ -407,6 +406,8 @@ instance ToHeaders CopyObject where
         , "x-amz-copy-source-server-side-encryption-customer-key"       =: _corCopySourceSSECustomerKey
         , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _corCopySourceSSECustomerKeyMD5
         ]
+
+instance ToBody CopyObject
 
 data CopyObjectOutput = CopyObjectOutput
     { _cooCopyObjectResult     :: Maybe CopyObjectResult

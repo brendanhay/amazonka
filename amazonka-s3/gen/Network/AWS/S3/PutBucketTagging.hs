@@ -85,6 +85,9 @@ instance ToHeaders PutBucketTagging where
         [ "Content-MD5" =: _pbtrContentMD5
         ]
 
+instance ToBody PutBucketTagging where
+    toBody = toBody . encodeXML . _pbtrTagging
+
 instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3
     type Rs PutBucketTagging = Empty

@@ -80,6 +80,8 @@ instance ToQuery GetObjectTorrent where
 
 instance ToHeaders GetObjectTorrent
 
+instance ToBody GetObjectTorrent
+
 newtype GetObjectTorrentOutput = GetObjectTorrentOutput
     { _gotoBody :: RsBody
     } deriving (Eq, Show, Generic)

@@ -103,6 +103,9 @@ instance ToQuery CompleteMultipartUpload where
 
 instance ToHeaders CompleteMultipartUpload
 
+instance ToBody CompleteMultipartUpload where
+    toBody = toBody . encodeXML . _cmurMultipartUpload
+
 data CompleteMultipartUploadOutput = CompleteMultipartUploadOutput
     { _cmuoBucket               :: Maybe BucketName
     , _cmuoETag                 :: Maybe ETag

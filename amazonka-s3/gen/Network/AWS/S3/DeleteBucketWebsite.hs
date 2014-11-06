@@ -65,6 +65,8 @@ instance ToQuery DeleteBucketWebsite where
 
 instance ToHeaders DeleteBucketWebsite
 
+instance ToBody DeleteBucketWebsite
+
 instance AWSRequest DeleteBucketWebsite where
     type Sv DeleteBucketWebsite = S3
     type Rs DeleteBucketWebsite = Empty

@@ -124,6 +124,8 @@ instance ToQuery ListParts where
 
 instance ToHeaders ListParts
 
+instance ToBody ListParts
+
 data ListPartsOutput = ListPartsOutput
     { _lpoBucket               :: Maybe BucketName
     , _lpoInitiator            :: Maybe Initiator

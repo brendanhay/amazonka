@@ -440,7 +440,7 @@ instance AWSError S3Error where
 instance AWSServiceError S3Error where
     httpError       = S3Http
     serializerError = S3Serializer
-    serviceError    = xmlError httpStatus S3Service
+    serviceError    = XMLError httpStatus S3Service
 
 _S3Http :: Prism' S3Error HttpException
 _S3Http = prism S3Http $ \case
@@ -1208,16 +1208,12 @@ data CORSRule = CORSRule
 --
 -- * 'corsrMaxAgeSeconds' @::@ 'Maybe' 'Int'
 --
-corsrule :: [Text] -- ^ 'corsrAllowedHeaders'
-         -> [Text] -- ^ 'corsrAllowedMethods'
-         -> [Text] -- ^ 'corsrAllowedOrigins'
-         -> [Text] -- ^ 'corsrExposeHeaders'
-         -> CORSRule
-corsrule p1 p2 p3 p4 = CORSRule
-    { _corsrAllowedHeaders = p1
-    , _corsrAllowedMethods = p2
-    , _corsrAllowedOrigins = p3
-    , _corsrExposeHeaders  = p4
+corsrule :: CORSRule
+corsrule = CORSRule
+    { _corsrAllowedHeaders = mempty
+    , _corsrAllowedMethods = mempty
+    , _corsrAllowedOrigins = mempty
+    , _corsrExposeHeaders  = mempty
     , _corsrMaxAgeSeconds  = Nothing
     }
 
@@ -1278,13 +1274,12 @@ data WebsiteConfiguration = WebsiteConfiguration
 --
 -- * 'wcRoutingRules' @::@ '[RoutingRule]'
 --
-websiteConfiguration :: [RoutingRule] -- ^ 'wcRoutingRules'
-                     -> WebsiteConfiguration
-websiteConfiguration p1 = WebsiteConfiguration
-    { _wcRoutingRules          = p1
-    , _wcErrorDocument         = Nothing
+websiteConfiguration :: WebsiteConfiguration
+websiteConfiguration = WebsiteConfiguration
+    { _wcErrorDocument         = Nothing
     , _wcIndexDocument         = Nothing
     , _wcRedirectAllRequestsTo = Nothing
+    , _wcRoutingRules          = mempty
     }
 
 wcErrorDocument :: Lens' WebsiteConfiguration (Maybe ErrorDocument)
@@ -2077,10 +2072,9 @@ newtype Tagging = Tagging
 --
 -- * 'tTagSet' @::@ '[Tag]'
 --
-tagging :: [Tag] -- ^ 'tTagSet'
-        -> Tagging
-tagging p1 = Tagging
-    { _tTagSet = p1
+tagging :: Tagging
+tagging = Tagging
+    { _tTagSet = mempty
     }
 
 tTagSet :: Lens' Tagging [Tag]
@@ -2142,10 +2136,9 @@ newtype CORSConfiguration = CORSConfiguration
 --
 -- * 'corscCORSRules' @::@ '[CORSRule]'
 --
-corsconfiguration :: [CORSRule] -- ^ 'corscCORSRules'
-                  -> CORSConfiguration
-corsconfiguration p1 = CORSConfiguration
-    { _corscCORSRules = p1
+corsconfiguration :: CORSConfiguration
+corsconfiguration = CORSConfiguration
+    { _corscCORSRules = mempty
     }
 
 corscCORSRules :: Lens' CORSConfiguration [CORSRule]
@@ -2379,10 +2372,9 @@ newtype CompletedMultipartUpload = CompletedMultipartUpload
 --
 -- * 'cmuParts' @::@ '[CompletedPart]'
 --
-completedMultipartUpload :: [CompletedPart] -- ^ 'cmuParts'
-                         -> CompletedMultipartUpload
-completedMultipartUpload p1 = CompletedMultipartUpload
-    { _cmuParts = p1
+completedMultipartUpload :: CompletedMultipartUpload
+completedMultipartUpload = CompletedMultipartUpload
+    { _cmuParts = mempty
     }
 
 cmuParts :: Lens' CompletedMultipartUpload [CompletedPart]
@@ -2489,10 +2481,9 @@ data AccessControlPolicy = AccessControlPolicy
 --
 -- * 'acpOwner' @::@ 'Maybe' 'Owner'
 --
-accessControlPolicy :: [Grant] -- ^ 'acpGrants'
-                    -> AccessControlPolicy
-accessControlPolicy p1 = AccessControlPolicy
-    { _acpGrants = p1
+accessControlPolicy :: AccessControlPolicy
+accessControlPolicy = AccessControlPolicy
+    { _acpGrants = mempty
     , _acpOwner  = Nothing
     }
 
@@ -2635,10 +2626,9 @@ newtype LifecycleConfiguration = LifecycleConfiguration
 --
 -- * 'lcRules' @::@ '[Rule]'
 --
-lifecycleConfiguration :: [Rule] -- ^ 'lcRules'
-                       -> LifecycleConfiguration
-lifecycleConfiguration p1 = LifecycleConfiguration
-    { _lcRules = p1
+lifecycleConfiguration :: LifecycleConfiguration
+lifecycleConfiguration = LifecycleConfiguration
+    { _lcRules = mempty
     }
 
 lcRules :: Lens' LifecycleConfiguration [Rule]
@@ -2668,11 +2658,10 @@ data LoggingEnabled = LoggingEnabled
 --
 -- * 'leTargetPrefix' @::@ 'Maybe' 'Text'
 --
-loggingEnabled :: [TargetGrant] -- ^ 'leTargetGrants'
-               -> LoggingEnabled
-loggingEnabled p1 = LoggingEnabled
-    { _leTargetGrants = p1
-    , _leTargetBucket = Nothing
+loggingEnabled :: LoggingEnabled
+loggingEnabled = LoggingEnabled
+    { _leTargetBucket = Nothing
+    , _leTargetGrants = mempty
     , _leTargetPrefix = Nothing
     }
 
@@ -2801,10 +2790,9 @@ data Delete = Delete
 --
 -- * 'dQuiet' @::@ 'Maybe' 'Bool'
 --
-delete :: [ObjectIdentifier] -- ^ 'dObjects'
-       -> Delete
-delete p1 = Delete
-    { _dObjects = p1
+delete :: Delete
+delete = Delete
+    { _dObjects = mempty
     , _dQuiet   = Nothing
     }
 

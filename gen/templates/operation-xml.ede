@@ -13,6 +13,8 @@ import Network.AWS.Prelude
 
 {% include "_include/headers.ede" %}
 
+{% include "_include/body.ede" %}
+
 {% include "_include/datatype.ede" with type = response %}
 instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}

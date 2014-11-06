@@ -148,6 +148,9 @@ instance ToHeaders PutBucketAcl where
         , "x-amz-grant-write-acp"    =: _pbarGrantWriteACP
         ]
 
+instance ToBody PutBucketAcl where
+    toBody = toBody . encodeXML . _pbarAccessControlPolicy
+
 instance AWSRequest PutBucketAcl where
     type Sv PutBucketAcl = S3
     type Rs PutBucketAcl = Empty

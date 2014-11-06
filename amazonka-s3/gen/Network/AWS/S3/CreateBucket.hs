@@ -142,6 +142,9 @@ instance ToHeaders CreateBucket where
         , "x-amz-grant-write-acp"    =: _cbrGrantWriteACP
         ]
 
+instance ToBody CreateBucket where
+    toBody = toBody . encodeXML . _cbrCreateBucketConfiguration
+
 newtype CreateBucketOutput = CreateBucketOutput
     { _cboLocation :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)

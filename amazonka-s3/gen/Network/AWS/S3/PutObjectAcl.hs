@@ -160,6 +160,9 @@ instance ToHeaders PutObjectAcl where
         , "x-amz-grant-write-acp"    =: _poarGrantWriteACP
         ]
 
+instance ToBody PutObjectAcl where
+    toBody = toBody . encodeXML . _poarAccessControlPolicy
+
 instance AWSRequest PutObjectAcl where
     type Sv PutObjectAcl = S3
     type Rs PutObjectAcl = Empty

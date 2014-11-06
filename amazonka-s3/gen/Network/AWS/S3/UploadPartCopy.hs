@@ -272,6 +272,8 @@ instance ToHeaders UploadPartCopy where
         , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _upcrCopySourceSSECustomerKeyMD5
         ]
 
+instance ToBody UploadPartCopy
+
 data UploadPartCopyOutput = UploadPartCopyOutput
     { _upcoCopyPartResult       :: Maybe CopyPartResult
     , _upcoCopySourceVersionId  :: Maybe Text

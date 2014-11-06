@@ -93,6 +93,8 @@ instance ToQuery GetObjectAcl where
 
 instance ToHeaders GetObjectAcl
 
+instance ToBody GetObjectAcl
+
 data GetObjectAclOutput = GetObjectAclOutput
     { _goaoGrants :: [Grant]
     , _goaoOwner  :: Maybe Owner

@@ -3,7 +3,7 @@
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
 
--- Module      : Network.AWS.Data.List1
+-- Module      : Network.AWS.Data.Internal.List1
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -13,7 +13,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.List1
+module Network.AWS.Data.Internal.List1
     ( List1
     , _List1
     , list1

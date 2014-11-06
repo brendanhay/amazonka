@@ -104,7 +104,10 @@ instance FromJSON Protocol where
         "ec2"       -> pure Query
         e           -> fail ("Unknown Protocol: " ++ Text.unpack e)
 
-nullary stage2 ''Protocol
+instance A.ToJSON Protocol where
+    toJSON Json  = A.toJSON "JSON"
+    toJSON Xml   = A.toJSON "XML"
+    toJSON Query = A.toJSON "Query"
 
 data Timestamp
     = RFC822

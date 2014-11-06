@@ -85,6 +85,9 @@ instance ToHeaders PutBucketCors where
         [ "Content-MD5" =: _pbcrContentMD5
         ]
 
+instance ToBody PutBucketCors where
+    toBody = toBody . encodeXML . _pbcrCORSConfiguration
+
 instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3
     type Rs PutBucketCors = Empty

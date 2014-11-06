@@ -72,6 +72,9 @@ module Network.AWS.Types
     , rqPath
     , rqQuery
     , rqBody
+    -- * Responses
+    , Empty           (..)
+
     -- ** HTTP Client
     , ClientRequest
     , ClientResponse
@@ -426,6 +429,9 @@ instance ToQuery Action where
 
 -- instance ToJSON Base64 where
 --     toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
+
+data Empty = Empty
+    deriving (Eq, Show)
 
 -- | A convenience alias to avoid type ambiguity.
 type ClientRequest = Client.Request

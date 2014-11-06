@@ -20,7 +20,9 @@ module Network.AWS.Prelude
     -- * Primitives
     , ByteString
     , Exception
+    , HashMap
     , HttpException
+    , NonEmpty
     , RequestBody
     , Response
     , Text
@@ -43,6 +45,7 @@ module Network.AWS.Prelude
     , Action          (..)
     , Endpoint        (..)
     , Service         (..)
+    , Empty           (..)
 
     -- * Errors
     , Error           (..)
@@ -66,7 +69,9 @@ import Data.Aeson                   (FromJSON(..), ToJSON(..))
 import Data.Bifunctor               as Export
 import Data.ByteString              (ByteString)
 import Data.Default.Class           as Export
+import Data.HashMap.Strict          (HashMap)
 import Data.Hashable                as Export
+import Data.List.NonEmpty           (NonEmpty)
 import Data.Maybe                   as Export
 import Data.Monoid                  as Export
 import Data.Tagged                  as Export
@@ -80,7 +85,7 @@ import Network.HTTP.Client          (HttpException, RequestBody, Response)
 import Network.HTTP.Types.Status    (Status)
 import Prelude                      as Export hiding (head, error)
 
-import Control.Lens as Lens
+import Control.Lens                 as Lens
     ( Lens'
     , Prism'
     , (<&>)

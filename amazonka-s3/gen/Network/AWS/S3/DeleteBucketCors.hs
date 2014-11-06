@@ -32,7 +32,7 @@ module Network.AWS.S3.DeleteBucketCors
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Xml
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 newtype DeleteBucketCors = DeleteBucketCors

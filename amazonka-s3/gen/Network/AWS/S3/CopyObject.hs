@@ -69,7 +69,7 @@ module Network.AWS.S3.CopyObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Xml
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 data CopyObject = CopyObject

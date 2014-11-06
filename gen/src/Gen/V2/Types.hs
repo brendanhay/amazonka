@@ -93,7 +93,13 @@ data Protocol
     = Json
     | Xml
     | Query
-      deriving (Eq, Show)
+      deriving (Eq)
+
+instance Show Protocol where
+    show = \case
+        Json  -> "JSON"
+        Xml   -> "XML"
+        Query -> "Query"
 
 instance FromJSON Protocol where
     parseJSON = withText "protocol" $ \case
@@ -105,9 +111,7 @@ instance FromJSON Protocol where
         e           -> fail ("Unknown Protocol: " ++ Text.unpack e)
 
 instance A.ToJSON Protocol where
-    toJSON Json  = A.toJSON "JSON"
-    toJSON Xml   = A.toJSON "XML"
-    toJSON Query = A.toJSON "Query"
+    toJSON = A.toJSON . show
 
 data Timestamp
     = RFC822

@@ -43,7 +43,7 @@ module Network.AWS.S3.CreateBucket
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.Xml
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 data CreateBucket = CreateBucket

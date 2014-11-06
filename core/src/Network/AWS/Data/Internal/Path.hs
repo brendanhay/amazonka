@@ -12,17 +12,12 @@ module Network.AWS.Data.Internal.Path
     ( ToPath (..)
     ) where
 
-import           Data.ByteString.Char8 (ByteString)
-import           Data.Monoid
-import           Data.Text             (Text)
-import qualified Data.Text.Encoding    as Text
+import Data.Monoid
+import Data.Text   (Text)
 
 class ToPath a where
-    toPath :: a -> ByteString
+    toPath :: a -> Text
     toPath = const mempty
 
-instance ToPath ByteString where
-    toPath = id
-
 instance ToPath Text where
-    toPath = Text.encodeUtf8
+    toPath = id

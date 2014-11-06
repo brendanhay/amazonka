@@ -20,6 +20,7 @@ module Network.AWS.Data.Internal.Text
     , AText.takeText
 
     , ToText   (..)
+    , showText
     ) where
 
 import           Control.Applicative
@@ -62,6 +63,9 @@ instance FromText Double     where parser = AText.rational
 
 instance FromText Bool where
     parser = matchCI "false" False <|> matchCI "true" True
+
+showText :: ToText a => a -> String
+showText = Text.unpack . toText
 
 class ToText a where
     toText :: a -> Text

@@ -237,12 +237,18 @@ newtype AccessKey = AccessKey ByteString
 instance ToByteString AccessKey where
     toBS (AccessKey k) = k
 
+instance ToText AccessKey where
+    toText = Text.decodeUtf8 . toBS
+
 -- | Secret key credential.
 newtype SecretKey = SecretKey ByteString
     deriving (Eq, Show, IsString)
 
 instance ToByteString SecretKey where
     toBS (SecretKey k) = k
+
+instance ToText SecretKey where
+    toText = Text.decodeUtf8 . toBS
 
 -- | A security token used by STS to temporarily authorise access to an AWS resource.
 newtype SecurityToken = SecurityToken ByteString

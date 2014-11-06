@@ -31,6 +31,7 @@ module Network.AWS.Request
 import           Control.Lens
 import           Data.ByteString              (ByteString)
 import           Data.Default.Class
+import qualified Data.Text.Encoding           as Text
 import           Network.AWS.Data
 import           Network.AWS.Types
 import qualified Network.HTTP.Client.Internal as HTTP
@@ -39,7 +40,7 @@ import           Network.HTTP.Types.Method
 
 get' :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 get' x = def
-    & rqPath    .~ toPath x
+    & rqPath    .~ Text.encodeUtf8 (toPath x)
     & rqQuery   .~ toQuery x
     & rqHeaders .~ toHeaders x
 {-# INLINE get' #-}

@@ -9,7 +9,7 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Request.Query
-    ( post
+    ( post'
     ) where
 
 import Control.Lens              hiding (Action)
@@ -18,9 +18,9 @@ import Network.AWS.Data
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 
-post :: ToQuery a => Action -> a -> Request a
-post a x = def
+post' :: ToQuery a => Action -> a -> Request a
+post' a x = def
     & rqMethod .~ POST
     & rqQuery <>~ toQuery x
     & rqQuery <>~ toQuery a
-{-# INLINE post #-}
+{-# INLINE post' #-}

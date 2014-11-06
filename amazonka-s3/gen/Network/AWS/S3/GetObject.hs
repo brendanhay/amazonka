@@ -72,7 +72,7 @@ module Network.AWS.S3.GetObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data GetObject = GetObject

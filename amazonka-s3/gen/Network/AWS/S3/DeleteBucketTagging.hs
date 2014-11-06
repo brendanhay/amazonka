@@ -32,7 +32,7 @@ module Network.AWS.S3.DeleteBucketTagging
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype DeleteBucketTagging = DeleteBucketTagging

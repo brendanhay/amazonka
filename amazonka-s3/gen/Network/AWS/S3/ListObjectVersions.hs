@@ -53,7 +53,7 @@ module Network.AWS.S3.ListObjectVersions
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data ListObjectVersions = ListObjectVersions

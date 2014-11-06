@@ -34,7 +34,7 @@ module Network.AWS.S3.DeleteBucket
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype DeleteBucket = DeleteBucket

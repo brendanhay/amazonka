@@ -26,18 +26,14 @@ module Network.AWS.Response
     ) where
 
 import           Control.Applicative
-import           Control.Lens                 (Getting, view)
 import           Control.Monad
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import           Data.Bifunctor
-import           Data.ByteString              (ByteString)
 import qualified Data.ByteString.Lazy         as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Default.Class
-import           Data.Monoid
-import           Data.Text                    (Text)
 import           Network.AWS.Data
 import           Network.AWS.Types
 import           Network.HTTP.Client

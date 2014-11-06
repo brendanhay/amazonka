@@ -53,7 +53,7 @@ delete x = get x & rqMethod .~ DELETE
 {-# INLINE delete #-}
 
 post :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
-post x = put x & rqMethd .~ POST
+post x = put x & rqMethod .~ POST
 {-# INLINE post #-}
 
 put :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a

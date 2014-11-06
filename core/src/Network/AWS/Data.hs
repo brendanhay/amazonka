@@ -42,13 +42,13 @@ module Network.AWS.Data
 
     -- * Collections
     -- ** Non-empty List
-    , module Network.AWS.Data.List1
+    , module Network.AWS.Data.Internal.List1
     -- ** Unordered Map
-    , module Network.AWS.Data.Map
+    , module Network.AWS.Data.Internal.Map
     ) where
 
-import Network.AWS.Data.List1               (List1, _List1, list1)
-import Network.AWS.Data.Map
+import Network.AWS.Data.Internal.List1               (List1, _List1, list1)
+import Network.AWS.Data.Internal.Map
 import Network.AWS.Data.Internal.Body
 import Network.AWS.Data.Internal.ByteString
 import Network.AWS.Data.Internal.Header

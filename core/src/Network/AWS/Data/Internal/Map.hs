@@ -2,7 +2,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
 
--- Module      : Network.AWS.Data.Map
+-- Module      : Network.AWS.Data.Internal.Map
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -12,7 +12,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Data.Map
+module Network.AWS.Data.Internal.Map
     ( Map
     , _Map
     , nullMap
@@ -30,7 +30,6 @@ import           Data.Hashable                        (Hashable)
 import           Data.Monoid
 import           Data.Semigroup                       (Semigroup)
 import           Data.Tagged
-import           Data.Traversable                     (Traversable)
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Header
 import           Network.AWS.Data.Internal.Query

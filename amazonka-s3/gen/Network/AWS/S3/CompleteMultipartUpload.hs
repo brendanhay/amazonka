@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -116,12 +117,71 @@ data CompleteMultipartUploadOutput = CompleteMultipartUploadOutput
     , _cmuoVersionId            :: Maybe ObjectVersionId
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'CompleteMultipartUploadOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cmuoBucket' @::@ 'Maybe' 'BucketName'
+--
+-- * 'cmuoETag' @::@ 'Maybe' 'ETag'
+--
+-- * 'cmuoExpiration' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'cmuoKey' @::@ 'Maybe' 'ObjectKey'
+--
+-- * 'cmuoLocation' @::@ 'Maybe' 'Text'
+--
+-- * 'cmuoServerSideEncryption' @::@ 'Maybe' 'Text'
+--
+-- * 'cmuoVersionId' @::@ 'Maybe' 'ObjectVersionId'
+--
+completeMultipartUploadOutput :: CompleteMultipartUploadOutput
+completeMultipartUploadOutput = CompleteMultipartUploadOutput
+    { _cmuoLocation             = Nothing
+    , _cmuoBucket               = Nothing
+    , _cmuoKey                  = Nothing
+    , _cmuoExpiration           = Nothing
+    , _cmuoETag                 = Nothing
+    , _cmuoServerSideEncryption = Nothing
+    , _cmuoVersionId            = Nothing
+    }
+
+cmuoBucket :: Lens' CompleteMultipartUploadOutput (Maybe BucketName)
+cmuoBucket = lens _cmuoBucket (\s a -> s { _cmuoBucket = a })
+
+-- | Entity tag of the object.
+cmuoETag :: Lens' CompleteMultipartUploadOutput (Maybe ETag)
+cmuoETag = lens _cmuoETag (\s a -> s { _cmuoETag = a })
+
+-- | If the object expiration is configured, this will contain the expiration
+-- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
+-- encoded.
+cmuoExpiration :: Lens' CompleteMultipartUploadOutput (Maybe UTCTime)
+cmuoExpiration = lens _cmuoExpiration (\s a -> s { _cmuoExpiration = a })
+    . mapping _Time
+
+cmuoKey :: Lens' CompleteMultipartUploadOutput (Maybe ObjectKey)
+cmuoKey = lens _cmuoKey (\s a -> s { _cmuoKey = a })
+
+cmuoLocation :: Lens' CompleteMultipartUploadOutput (Maybe Text)
+cmuoLocation = lens _cmuoLocation (\s a -> s { _cmuoLocation = a })
+
+-- | The Server-side encryption algorithm used when storing this object in S3.
+cmuoServerSideEncryption :: Lens' CompleteMultipartUploadOutput (Maybe Text)
+cmuoServerSideEncryption =
+    lens _cmuoServerSideEncryption
+        (\s a -> s { _cmuoServerSideEncryption = a })
+
+-- | Version of the object.
+cmuoVersionId :: Lens' CompleteMultipartUploadOutput (Maybe ObjectVersionId)
+cmuoVersionId = lens _cmuoVersionId (\s a -> s { _cmuoVersionId = a })
+
 instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3
     type Rs CompleteMultipartUpload = CompleteMultipartUploadOutput
 
-    request  = post
-    response = const . xmlResponse $ \h x ->
+    request  = post'
+    response = const . xmlResponse $ \h x -> CompleteMultipartUploadOutput
         <$> x %| "Bucket"
         <*> x %| "ETag"
         <*> h ~: "x-amz-expiration"

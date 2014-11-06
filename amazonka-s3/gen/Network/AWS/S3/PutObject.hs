@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -332,12 +333,72 @@ data PutObjectOutput = PutObjectOutput
     , _pooVersionId            :: Maybe ObjectVersionId
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'PutObjectOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'pooETag' @::@ 'Maybe' 'ETag'
+--
+-- * 'pooExpiration' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'pooSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+--
+-- * 'pooSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+--
+-- * 'pooServerSideEncryption' @::@ 'Maybe' 'Text'
+--
+-- * 'pooVersionId' @::@ 'Maybe' 'ObjectVersionId'
+--
+putObjectOutput :: PutObjectOutput
+putObjectOutput = PutObjectOutput
+    { _pooExpiration           = Nothing
+    , _pooETag                 = Nothing
+    , _pooServerSideEncryption = Nothing
+    , _pooVersionId            = Nothing
+    , _pooSSECustomerAlgorithm = Nothing
+    , _pooSSECustomerKeyMD5    = Nothing
+    }
+
+-- | Entity tag for the uploaded object.
+pooETag :: Lens' PutObjectOutput (Maybe ETag)
+pooETag = lens _pooETag (\s a -> s { _pooETag = a })
+
+-- | If the object expiration is configured, this will contain the expiration
+-- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
+-- encoded.
+pooExpiration :: Lens' PutObjectOutput (Maybe UTCTime)
+pooExpiration = lens _pooExpiration (\s a -> s { _pooExpiration = a })
+    . mapping _Time
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header confirming the
+-- encryption algorithm used.
+pooSSECustomerAlgorithm :: Lens' PutObjectOutput (Maybe Text)
+pooSSECustomerAlgorithm =
+    lens _pooSSECustomerAlgorithm (\s a -> s { _pooSSECustomerAlgorithm = a })
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header to provide round trip
+-- message integrity verification of the customer-provided encryption key.
+pooSSECustomerKeyMD5 :: Lens' PutObjectOutput (Maybe Text)
+pooSSECustomerKeyMD5 =
+    lens _pooSSECustomerKeyMD5 (\s a -> s { _pooSSECustomerKeyMD5 = a })
+
+-- | The Server-side encryption algorithm used when storing this object in S3.
+pooServerSideEncryption :: Lens' PutObjectOutput (Maybe Text)
+pooServerSideEncryption =
+    lens _pooServerSideEncryption (\s a -> s { _pooServerSideEncryption = a })
+
+-- | Version of the object.
+pooVersionId :: Lens' PutObjectOutput (Maybe ObjectVersionId)
+pooVersionId = lens _pooVersionId (\s a -> s { _pooVersionId = a })
+
 instance AWSRequest PutObject where
     type Sv PutObject = S3
     type Rs PutObject = PutObjectOutput
 
-    request  = put
-    response = const . xmlResponse $ \h x ->
+    request  = put'
+    response = const . xmlResponse $ \h x -> PutObjectOutput
         <$> h ~: "ETag"
         <*> h ~: "x-amz-expiration"
         <*> h ~: "x-amz-server-side-encryption-customer-algorithm"

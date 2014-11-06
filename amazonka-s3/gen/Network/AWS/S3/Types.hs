@@ -440,7 +440,7 @@ instance AWSError S3Error where
 instance AWSServiceError S3Error where
     httpError       = S3Http
     serializerError = S3Serializer
-    serviceError    = XMLError httpStatus S3Service
+    serviceError    = xmlError httpStatus S3Service
 
 _S3Http :: Prism' S3Error HttpException
 _S3Http = prism S3Http $ \case

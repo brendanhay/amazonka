@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -235,12 +236,190 @@ data HeadObjectOutput = HeadObjectOutput
     , _hooWebsiteRedirectLocation :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'HeadObjectOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'hooAcceptRanges' @::@ 'Maybe' 'Text'
+--
+-- * 'hooCacheControl' @::@ 'Maybe' 'Text'
+--
+-- * 'hooContentDisposition' @::@ 'Maybe' 'Text'
+--
+-- * 'hooContentEncoding' @::@ 'Maybe' 'Text'
+--
+-- * 'hooContentLanguage' @::@ 'Maybe' 'Text'
+--
+-- * 'hooContentLength' @::@ 'Maybe' 'Int'
+--
+-- * 'hooContentType' @::@ 'Maybe' 'Text'
+--
+-- * 'hooDeleteMarker' @::@ 'Maybe' 'Bool'
+--
+-- * 'hooETag' @::@ 'Maybe' 'ETag'
+--
+-- * 'hooExpiration' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'hooExpires' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'hooLastModified' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'hooMetadata' @::@ 'HashMap' 'Text' 'Text'
+--
+-- * 'hooMissingMeta' @::@ 'Maybe' 'Int'
+--
+-- * 'hooRestore' @::@ 'Maybe' 'Text'
+--
+-- * 'hooSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+--
+-- * 'hooSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+--
+-- * 'hooServerSideEncryption' @::@ 'Maybe' 'Text'
+--
+-- * 'hooVersionId' @::@ 'Maybe' 'ObjectVersionId'
+--
+-- * 'hooWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
+--
+headObjectOutput :: HeadObjectOutput
+headObjectOutput = HeadObjectOutput
+    { _hooDeleteMarker            = Nothing
+    , _hooAcceptRanges            = Nothing
+    , _hooExpiration              = Nothing
+    , _hooRestore                 = Nothing
+    , _hooLastModified            = Nothing
+    , _hooContentLength           = Nothing
+    , _hooETag                    = Nothing
+    , _hooMissingMeta             = Nothing
+    , _hooVersionId               = Nothing
+    , _hooCacheControl            = Nothing
+    , _hooContentDisposition      = Nothing
+    , _hooContentEncoding         = Nothing
+    , _hooContentLanguage         = Nothing
+    , _hooContentType             = Nothing
+    , _hooExpires                 = Nothing
+    , _hooWebsiteRedirectLocation = Nothing
+    , _hooServerSideEncryption    = Nothing
+    , _hooMetadata                = mempty
+    , _hooSSECustomerAlgorithm    = Nothing
+    , _hooSSECustomerKeyMD5       = Nothing
+    }
+
+hooAcceptRanges :: Lens' HeadObjectOutput (Maybe Text)
+hooAcceptRanges = lens _hooAcceptRanges (\s a -> s { _hooAcceptRanges = a })
+
+-- | Specifies caching behavior along the request/reply chain.
+hooCacheControl :: Lens' HeadObjectOutput (Maybe Text)
+hooCacheControl = lens _hooCacheControl (\s a -> s { _hooCacheControl = a })
+
+-- | Specifies presentational information for the object.
+hooContentDisposition :: Lens' HeadObjectOutput (Maybe Text)
+hooContentDisposition =
+    lens _hooContentDisposition (\s a -> s { _hooContentDisposition = a })
+
+-- | Specifies what content encodings have been applied to the object and thus
+-- what decoding mechanisms must be applied to obtain the media-type
+-- referenced by the Content-Type header field.
+hooContentEncoding :: Lens' HeadObjectOutput (Maybe Text)
+hooContentEncoding =
+    lens _hooContentEncoding (\s a -> s { _hooContentEncoding = a })
+
+-- | The language the content is in.
+hooContentLanguage :: Lens' HeadObjectOutput (Maybe Text)
+hooContentLanguage =
+    lens _hooContentLanguage (\s a -> s { _hooContentLanguage = a })
+
+-- | Size of the body in bytes.
+hooContentLength :: Lens' HeadObjectOutput (Maybe Int)
+hooContentLength = lens _hooContentLength (\s a -> s { _hooContentLength = a })
+
+-- | A standard MIME type describing the format of the object data.
+hooContentType :: Lens' HeadObjectOutput (Maybe Text)
+hooContentType = lens _hooContentType (\s a -> s { _hooContentType = a })
+
+-- | Specifies whether the object retrieved was (true) or was not (false) a
+-- Delete Marker. If false, this response header does not appear in the
+-- response.
+hooDeleteMarker :: Lens' HeadObjectOutput (Maybe Bool)
+hooDeleteMarker = lens _hooDeleteMarker (\s a -> s { _hooDeleteMarker = a })
+
+-- | An ETag is an opaque identifier assigned by a web server to a specific
+-- version of a resource found at a URL.
+hooETag :: Lens' HeadObjectOutput (Maybe ETag)
+hooETag = lens _hooETag (\s a -> s { _hooETag = a })
+
+-- | If the object expiration is configured (see PUT Bucket lifecycle), the
+-- response includes this header. It includes the expiry-date and rule-id
+-- key value pairs providing object expiration information. The value of the
+-- rule-id is URL encoded.
+hooExpiration :: Lens' HeadObjectOutput (Maybe UTCTime)
+hooExpiration = lens _hooExpiration (\s a -> s { _hooExpiration = a })
+    . mapping _Time
+
+-- | The date and time at which the object is no longer cacheable.
+hooExpires :: Lens' HeadObjectOutput (Maybe UTCTime)
+hooExpires = lens _hooExpires (\s a -> s { _hooExpires = a })
+    . mapping _Time
+
+-- | Last modified date of the object.
+hooLastModified :: Lens' HeadObjectOutput (Maybe UTCTime)
+hooLastModified = lens _hooLastModified (\s a -> s { _hooLastModified = a })
+    . mapping _Time
+
+-- | A map of metadata to store with the object in S3.
+hooMetadata :: Lens' HeadObjectOutput (HashMap Text Text)
+hooMetadata = lens _hooMetadata (\s a -> s { _hooMetadata = a })
+    . _Map
+
+-- | This is set to the number of metadata entries not returned in x-amz-meta
+-- headers. This can happen if you create metadata using an API like SOAP
+-- that supports more flexible metadata than the REST API. For example,
+-- using SOAP, you can create metadata whose values are not legal HTTP
+-- headers.
+hooMissingMeta :: Lens' HeadObjectOutput (Maybe Int)
+hooMissingMeta = lens _hooMissingMeta (\s a -> s { _hooMissingMeta = a })
+
+-- | Provides information about object restoration operation and expiration
+-- time of the restored object copy.
+hooRestore :: Lens' HeadObjectOutput (Maybe Text)
+hooRestore = lens _hooRestore (\s a -> s { _hooRestore = a })
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header confirming the
+-- encryption algorithm used.
+hooSSECustomerAlgorithm :: Lens' HeadObjectOutput (Maybe Text)
+hooSSECustomerAlgorithm =
+    lens _hooSSECustomerAlgorithm (\s a -> s { _hooSSECustomerAlgorithm = a })
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header to provide round trip
+-- message integrity verification of the customer-provided encryption key.
+hooSSECustomerKeyMD5 :: Lens' HeadObjectOutput (Maybe Text)
+hooSSECustomerKeyMD5 =
+    lens _hooSSECustomerKeyMD5 (\s a -> s { _hooSSECustomerKeyMD5 = a })
+
+-- | The Server-side encryption algorithm used when storing this object in S3.
+hooServerSideEncryption :: Lens' HeadObjectOutput (Maybe Text)
+hooServerSideEncryption =
+    lens _hooServerSideEncryption (\s a -> s { _hooServerSideEncryption = a })
+
+-- | Version of the object.
+hooVersionId :: Lens' HeadObjectOutput (Maybe ObjectVersionId)
+hooVersionId = lens _hooVersionId (\s a -> s { _hooVersionId = a })
+
+-- | If the bucket is configured as a website, redirects requests for this
+-- object to another object in the same bucket or to an external URL. Amazon
+-- S3 stores the value of this header in the object metadata.
+hooWebsiteRedirectLocation :: Lens' HeadObjectOutput (Maybe Text)
+hooWebsiteRedirectLocation =
+    lens _hooWebsiteRedirectLocation
+        (\s a -> s { _hooWebsiteRedirectLocation = a })
+
 instance AWSRequest HeadObject where
     type Sv HeadObject = S3
     type Rs HeadObject = HeadObjectOutput
 
-    request  = head
-    response = const . xmlResponse $ \h x ->
+    request  = head'
+    response = const . xmlResponse $ \h x -> HeadObjectOutput
         <$> h ~: "accept-ranges"
         <*> h ~: "Cache-Control"
         <*> h ~: "Content-Disposition"
@@ -253,7 +432,7 @@ instance AWSRequest HeadObject where
         <*> h ~: "x-amz-expiration"
         <*> h ~: "Expires"
         <*> h ~: "Last-Modified"
-        <*> (Map <$> h ~:: "x-amz-meta-")
+        <*> h ~:: "x-amz-meta-"
         <*> h ~: "x-amz-missing-meta"
         <*> h ~: "x-amz-restore"
         <*> h ~: "x-amz-server-side-encryption-customer-algorithm"

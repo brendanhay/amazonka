@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -195,12 +196,55 @@ data UploadPartOutput = UploadPartOutput
     , _upoServerSideEncryption :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'UploadPartOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'upoETag' @::@ 'Maybe' 'ETag'
+--
+-- * 'upoSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+--
+-- * 'upoSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+--
+-- * 'upoServerSideEncryption' @::@ 'Maybe' 'Text'
+--
+uploadPartOutput :: UploadPartOutput
+uploadPartOutput = UploadPartOutput
+    { _upoServerSideEncryption = Nothing
+    , _upoETag                 = Nothing
+    , _upoSSECustomerAlgorithm = Nothing
+    , _upoSSECustomerKeyMD5    = Nothing
+    }
+
+-- | Entity tag for the uploaded object.
+upoETag :: Lens' UploadPartOutput (Maybe ETag)
+upoETag = lens _upoETag (\s a -> s { _upoETag = a })
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header confirming the
+-- encryption algorithm used.
+upoSSECustomerAlgorithm :: Lens' UploadPartOutput (Maybe Text)
+upoSSECustomerAlgorithm =
+    lens _upoSSECustomerAlgorithm (\s a -> s { _upoSSECustomerAlgorithm = a })
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header to provide round trip
+-- message integrity verification of the customer-provided encryption key.
+upoSSECustomerKeyMD5 :: Lens' UploadPartOutput (Maybe Text)
+upoSSECustomerKeyMD5 =
+    lens _upoSSECustomerKeyMD5 (\s a -> s { _upoSSECustomerKeyMD5 = a })
+
+-- | The Server-side encryption algorithm used when storing this object in S3.
+upoServerSideEncryption :: Lens' UploadPartOutput (Maybe Text)
+upoServerSideEncryption =
+    lens _upoServerSideEncryption (\s a -> s { _upoServerSideEncryption = a })
+
 instance AWSRequest UploadPart where
     type Sv UploadPart = S3
     type Rs UploadPart = UploadPartOutput
 
-    request  = put
-    response = const . xmlResponse $ \h x ->
+    request  = put'
+    response = const . xmlResponse $ \h x -> UploadPartOutput
         <$> h ~: "ETag"
         <*> h ~: "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~: "x-amz-server-side-encryption-customer-key-MD5"

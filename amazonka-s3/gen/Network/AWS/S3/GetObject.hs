@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -308,12 +309,198 @@ data GetObjectOutput = GetObjectOutput
     , _gooWebsiteRedirectLocation :: Maybe Text
     } deriving (Eq, Show, Generic)
 
+-- | 'GetObjectOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gooAcceptRanges' @::@ 'Maybe' 'Text'
+--
+-- * 'gooBody' @::@ 'RsBody'
+--
+-- * 'gooCacheControl' @::@ 'Maybe' 'Text'
+--
+-- * 'gooContentDisposition' @::@ 'Maybe' 'Text'
+--
+-- * 'gooContentEncoding' @::@ 'Maybe' 'Text'
+--
+-- * 'gooContentLanguage' @::@ 'Maybe' 'Text'
+--
+-- * 'gooContentLength' @::@ 'Maybe' 'Int'
+--
+-- * 'gooContentType' @::@ 'Maybe' 'Text'
+--
+-- * 'gooDeleteMarker' @::@ 'Maybe' 'Bool'
+--
+-- * 'gooETag' @::@ 'Maybe' 'ETag'
+--
+-- * 'gooExpiration' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'gooExpires' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'gooLastModified' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'gooMetadata' @::@ 'HashMap' 'Text' 'Text'
+--
+-- * 'gooMissingMeta' @::@ 'Maybe' 'Int'
+--
+-- * 'gooRestore' @::@ 'Maybe' 'Text'
+--
+-- * 'gooSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+--
+-- * 'gooSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+--
+-- * 'gooServerSideEncryption' @::@ 'Maybe' 'Text'
+--
+-- * 'gooVersionId' @::@ 'Maybe' 'ObjectVersionId'
+--
+-- * 'gooWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
+--
+getObjectOutput :: RsBody -- ^ 'gooBody'
+                -> GetObjectOutput
+getObjectOutput p1 = GetObjectOutput
+    { _gooBody                    = p1
+    , _gooDeleteMarker            = Nothing
+    , _gooAcceptRanges            = Nothing
+    , _gooExpiration              = Nothing
+    , _gooRestore                 = Nothing
+    , _gooLastModified            = Nothing
+    , _gooContentLength           = Nothing
+    , _gooETag                    = Nothing
+    , _gooMissingMeta             = Nothing
+    , _gooVersionId               = Nothing
+    , _gooCacheControl            = Nothing
+    , _gooContentDisposition      = Nothing
+    , _gooContentEncoding         = Nothing
+    , _gooContentLanguage         = Nothing
+    , _gooContentType             = Nothing
+    , _gooExpires                 = Nothing
+    , _gooWebsiteRedirectLocation = Nothing
+    , _gooServerSideEncryption    = Nothing
+    , _gooMetadata                = mempty
+    , _gooSSECustomerAlgorithm    = Nothing
+    , _gooSSECustomerKeyMD5       = Nothing
+    }
+
+gooAcceptRanges :: Lens' GetObjectOutput (Maybe Text)
+gooAcceptRanges = lens _gooAcceptRanges (\s a -> s { _gooAcceptRanges = a })
+
+-- | Object data.
+gooBody :: Lens' GetObjectOutput RsBody
+gooBody = lens _gooBody (\s a -> s { _gooBody = a })
+
+-- | Specifies caching behavior along the request/reply chain.
+gooCacheControl :: Lens' GetObjectOutput (Maybe Text)
+gooCacheControl = lens _gooCacheControl (\s a -> s { _gooCacheControl = a })
+
+-- | Specifies presentational information for the object.
+gooContentDisposition :: Lens' GetObjectOutput (Maybe Text)
+gooContentDisposition =
+    lens _gooContentDisposition (\s a -> s { _gooContentDisposition = a })
+
+-- | Specifies what content encodings have been applied to the object and thus
+-- what decoding mechanisms must be applied to obtain the media-type
+-- referenced by the Content-Type header field.
+gooContentEncoding :: Lens' GetObjectOutput (Maybe Text)
+gooContentEncoding =
+    lens _gooContentEncoding (\s a -> s { _gooContentEncoding = a })
+
+-- | The language the content is in.
+gooContentLanguage :: Lens' GetObjectOutput (Maybe Text)
+gooContentLanguage =
+    lens _gooContentLanguage (\s a -> s { _gooContentLanguage = a })
+
+-- | Size of the body in bytes.
+gooContentLength :: Lens' GetObjectOutput (Maybe Int)
+gooContentLength = lens _gooContentLength (\s a -> s { _gooContentLength = a })
+
+-- | A standard MIME type describing the format of the object data.
+gooContentType :: Lens' GetObjectOutput (Maybe Text)
+gooContentType = lens _gooContentType (\s a -> s { _gooContentType = a })
+
+-- | Specifies whether the object retrieved was (true) or was not (false) a
+-- Delete Marker. If false, this response header does not appear in the
+-- response.
+gooDeleteMarker :: Lens' GetObjectOutput (Maybe Bool)
+gooDeleteMarker = lens _gooDeleteMarker (\s a -> s { _gooDeleteMarker = a })
+
+-- | An ETag is an opaque identifier assigned by a web server to a specific
+-- version of a resource found at a URL.
+gooETag :: Lens' GetObjectOutput (Maybe ETag)
+gooETag = lens _gooETag (\s a -> s { _gooETag = a })
+
+-- | If the object expiration is configured (see PUT Bucket lifecycle), the
+-- response includes this header. It includes the expiry-date and rule-id
+-- key value pairs providing object expiration information. The value of the
+-- rule-id is URL encoded.
+gooExpiration :: Lens' GetObjectOutput (Maybe UTCTime)
+gooExpiration = lens _gooExpiration (\s a -> s { _gooExpiration = a })
+    . mapping _Time
+
+-- | The date and time at which the object is no longer cacheable.
+gooExpires :: Lens' GetObjectOutput (Maybe UTCTime)
+gooExpires = lens _gooExpires (\s a -> s { _gooExpires = a })
+    . mapping _Time
+
+-- | Last modified date of the object.
+gooLastModified :: Lens' GetObjectOutput (Maybe UTCTime)
+gooLastModified = lens _gooLastModified (\s a -> s { _gooLastModified = a })
+    . mapping _Time
+
+-- | A map of metadata to store with the object in S3.
+gooMetadata :: Lens' GetObjectOutput (HashMap Text Text)
+gooMetadata = lens _gooMetadata (\s a -> s { _gooMetadata = a })
+    . _Map
+
+-- | This is set to the number of metadata entries not returned in x-amz-meta
+-- headers. This can happen if you create metadata using an API like SOAP
+-- that supports more flexible metadata than the REST API. For example,
+-- using SOAP, you can create metadata whose values are not legal HTTP
+-- headers.
+gooMissingMeta :: Lens' GetObjectOutput (Maybe Int)
+gooMissingMeta = lens _gooMissingMeta (\s a -> s { _gooMissingMeta = a })
+
+-- | Provides information about object restoration operation and expiration
+-- time of the restored object copy.
+gooRestore :: Lens' GetObjectOutput (Maybe Text)
+gooRestore = lens _gooRestore (\s a -> s { _gooRestore = a })
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header confirming the
+-- encryption algorithm used.
+gooSSECustomerAlgorithm :: Lens' GetObjectOutput (Maybe Text)
+gooSSECustomerAlgorithm =
+    lens _gooSSECustomerAlgorithm (\s a -> s { _gooSSECustomerAlgorithm = a })
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header to provide round trip
+-- message integrity verification of the customer-provided encryption key.
+gooSSECustomerKeyMD5 :: Lens' GetObjectOutput (Maybe Text)
+gooSSECustomerKeyMD5 =
+    lens _gooSSECustomerKeyMD5 (\s a -> s { _gooSSECustomerKeyMD5 = a })
+
+-- | The Server-side encryption algorithm used when storing this object in S3.
+gooServerSideEncryption :: Lens' GetObjectOutput (Maybe Text)
+gooServerSideEncryption =
+    lens _gooServerSideEncryption (\s a -> s { _gooServerSideEncryption = a })
+
+-- | Version of the object.
+gooVersionId :: Lens' GetObjectOutput (Maybe ObjectVersionId)
+gooVersionId = lens _gooVersionId (\s a -> s { _gooVersionId = a })
+
+-- | If the bucket is configured as a website, redirects requests for this
+-- object to another object in the same bucket or to an external URL. Amazon
+-- S3 stores the value of this header in the object metadata.
+gooWebsiteRedirectLocation :: Lens' GetObjectOutput (Maybe Text)
+gooWebsiteRedirectLocation =
+    lens _gooWebsiteRedirectLocation
+        (\s a -> s { _gooWebsiteRedirectLocation = a })
+
 instance AWSRequest GetObject where
     type Sv GetObject = S3
     type Rs GetObject = GetObjectOutput
 
-    request  = get
-    response = const . bodyResponse $ \h b ->
+    request  = get'
+    response = const . bodyResponse $ \h b -> GetObjectOutput
         <$> h ~: "accept-ranges"
         <*> pure (RsBody b)
         <*> h ~: "Cache-Control"
@@ -327,7 +514,7 @@ instance AWSRequest GetObject where
         <*> h ~: "x-amz-expiration"
         <*> h ~: "Expires"
         <*> h ~: "Last-Modified"
-        <*> (Map <$> h ~:: "x-amz-meta-")
+        <*> h ~:: "x-amz-meta-"
         <*> h ~: "x-amz-missing-meta"
         <*> h ~: "x-amz-restore"
         <*> h ~: "x-amz-server-side-encryption-customer-algorithm"

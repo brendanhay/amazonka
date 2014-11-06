@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -79,12 +80,48 @@ data GetBucketWebsiteOutput = GetBucketWebsiteOutput
     , _gbwoRoutingRules          :: [RoutingRule]
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'GetBucketWebsiteOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gbwoErrorDocument' @::@ 'Maybe' 'ErrorDocument'
+--
+-- * 'gbwoIndexDocument' @::@ 'Maybe' 'IndexDocument'
+--
+-- * 'gbwoRedirectAllRequestsTo' @::@ 'Maybe' 'RedirectAllRequestsTo'
+--
+-- * 'gbwoRoutingRules' @::@ '[RoutingRule]'
+--
+getBucketWebsiteOutput :: GetBucketWebsiteOutput
+getBucketWebsiteOutput = GetBucketWebsiteOutput
+    { _gbwoRedirectAllRequestsTo = Nothing
+    , _gbwoIndexDocument         = Nothing
+    , _gbwoErrorDocument         = Nothing
+    , _gbwoRoutingRules          = mempty
+    }
+
+gbwoErrorDocument :: Lens' GetBucketWebsiteOutput (Maybe ErrorDocument)
+gbwoErrorDocument =
+    lens _gbwoErrorDocument (\s a -> s { _gbwoErrorDocument = a })
+
+gbwoIndexDocument :: Lens' GetBucketWebsiteOutput (Maybe IndexDocument)
+gbwoIndexDocument =
+    lens _gbwoIndexDocument (\s a -> s { _gbwoIndexDocument = a })
+
+gbwoRedirectAllRequestsTo :: Lens' GetBucketWebsiteOutput (Maybe RedirectAllRequestsTo)
+gbwoRedirectAllRequestsTo =
+    lens _gbwoRedirectAllRequestsTo
+        (\s a -> s { _gbwoRedirectAllRequestsTo = a })
+
+gbwoRoutingRules :: Lens' GetBucketWebsiteOutput [RoutingRule]
+gbwoRoutingRules = lens _gbwoRoutingRules (\s a -> s { _gbwoRoutingRules = a })
+
 instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
     type Rs GetBucketWebsite = GetBucketWebsiteOutput
 
-    request  = get
-    response = const . xmlResponse $ \h x ->
+    request  = get'
+    response = const . xmlResponse $ \h x -> GetBucketWebsiteOutput
         <$> x %| "ErrorDocument"
         <*> x %| "IndexDocument"
         <*> x %| "RedirectAllRequestsTo"

@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -90,9 +91,10 @@ instance ToHeaders PutBucketNotification where
 instance ToBody PutBucketNotification where
     toBody = toBody . encodeXML . _pbnrNotificationConfiguration
 
+
 instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3
     type Rs PutBucketNotification = Empty
 
-    request  = put
+    request  = put'
     response = const (nullaryResponse Empty)

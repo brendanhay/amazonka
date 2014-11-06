@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -73,10 +74,25 @@ newtype GetBucketRequestPaymentOutput = GetBucketRequestPaymentOutput
     { _gbrpoPayer :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
+-- | 'GetBucketRequestPaymentOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gbrpoPayer' @::@ 'Maybe' 'Text'
+--
+getBucketRequestPaymentOutput :: GetBucketRequestPaymentOutput
+getBucketRequestPaymentOutput = GetBucketRequestPaymentOutput
+    { _gbrpoPayer = Nothing
+    }
+
+-- | Specifies who pays for the download and request fees.
+gbrpoPayer :: Lens' GetBucketRequestPaymentOutput (Maybe Text)
+gbrpoPayer = lens _gbrpoPayer (\s a -> s { _gbrpoPayer = a })
+
 instance AWSRequest GetBucketRequestPayment where
     type Sv GetBucketRequestPayment = S3
     type Rs GetBucketRequestPayment = GetBucketRequestPaymentOutput
 
-    request  = get
-    response = const . xmlResponse $ \h x ->
+    request  = get'
+    response = const . xmlResponse $ \h x -> GetBucketRequestPaymentOutput
         <$> x %| "Payer"

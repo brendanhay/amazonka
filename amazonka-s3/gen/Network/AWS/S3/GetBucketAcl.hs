@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -75,11 +76,32 @@ data GetBucketAclOutput = GetBucketAclOutput
     , _gbaoOwner  :: Maybe Owner
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'GetBucketAclOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gbaoGrants' @::@ '[Grant]'
+--
+-- * 'gbaoOwner' @::@ 'Maybe' 'Owner'
+--
+getBucketAclOutput :: GetBucketAclOutput
+getBucketAclOutput = GetBucketAclOutput
+    { _gbaoOwner  = Nothing
+    , _gbaoGrants = mempty
+    }
+
+-- | A list of grants.
+gbaoGrants :: Lens' GetBucketAclOutput [Grant]
+gbaoGrants = lens _gbaoGrants (\s a -> s { _gbaoGrants = a })
+
+gbaoOwner :: Lens' GetBucketAclOutput (Maybe Owner)
+gbaoOwner = lens _gbaoOwner (\s a -> s { _gbaoOwner = a })
+
 instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
     type Rs GetBucketAcl = GetBucketAclOutput
 
-    request  = get
-    response = const . xmlResponse $ \h x ->
+    request  = get'
+    response = const . xmlResponse $ \h x -> GetBucketAclOutput
         <$> x %| "AccessControlList"
         <*> x %| "Owner"

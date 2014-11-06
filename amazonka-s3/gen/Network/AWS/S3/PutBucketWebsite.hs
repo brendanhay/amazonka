@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -90,9 +91,10 @@ instance ToHeaders PutBucketWebsite where
 instance ToBody PutBucketWebsite where
     toBody = toBody . encodeXML . _pbwrWebsiteConfiguration
 
+
 instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3
     type Rs PutBucketWebsite = Empty
 
-    request  = put
+    request  = put'
     response = const (nullaryResponse Empty)

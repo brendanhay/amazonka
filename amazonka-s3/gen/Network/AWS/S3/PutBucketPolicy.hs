@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -90,9 +91,10 @@ instance ToHeaders PutBucketPolicy where
 instance ToBody PutBucketPolicy where
     toBody = toBody . encodeXML . _pbprPolicy
 
+
 instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3
     type Rs PutBucketPolicy = Empty
 
-    request  = put
+    request  = put'
     response = const (nullaryResponse Empty)

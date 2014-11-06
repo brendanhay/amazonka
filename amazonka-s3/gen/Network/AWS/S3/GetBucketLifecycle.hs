@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -73,10 +74,24 @@ newtype GetBucketLifecycleOutput = GetBucketLifecycleOutput
     { _gbloRules :: [Rule]
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
+-- | 'GetBucketLifecycleOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gbloRules' @::@ '[Rule]'
+--
+getBucketLifecycleOutput :: GetBucketLifecycleOutput
+getBucketLifecycleOutput = GetBucketLifecycleOutput
+    { _gbloRules = mempty
+    }
+
+gbloRules :: Lens' GetBucketLifecycleOutput [Rule]
+gbloRules = lens _gbloRules (\s a -> s { _gbloRules = a })
+
 instance AWSRequest GetBucketLifecycle where
     type Sv GetBucketLifecycle = S3
     type Rs GetBucketLifecycle = GetBucketLifecycleOutput
 
-    request  = get
-    response = const . xmlResponse $ \h x ->
+    request  = get'
+    response = const . xmlResponse $ \h x -> GetBucketLifecycleOutput
         <$> x %| "Rule"

@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -49,11 +50,31 @@ data ListBucketsOutput = ListBucketsOutput
     , _lboOwner   :: Maybe Owner
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'ListBucketsOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lboBuckets' @::@ '[Bucket]'
+--
+-- * 'lboOwner' @::@ 'Maybe' 'Owner'
+--
+listBucketsOutput :: ListBucketsOutput
+listBucketsOutput = ListBucketsOutput
+    { _lboBuckets = mempty
+    , _lboOwner   = Nothing
+    }
+
+lboBuckets :: Lens' ListBucketsOutput [Bucket]
+lboBuckets = lens _lboBuckets (\s a -> s { _lboBuckets = a })
+
+lboOwner :: Lens' ListBucketsOutput (Maybe Owner)
+lboOwner = lens _lboOwner (\s a -> s { _lboOwner = a })
+
 instance AWSRequest Empty where
     type Sv Empty = S3
     type Rs Empty = ListBucketsOutput
 
-    request  = get
-    response = const . xmlResponse $ \h x ->
+    request  = get'
+    response = const . xmlResponse $ \h x -> ListBucketsOutput
         <$> x %| "Buckets"
         <*> x %| "Owner"

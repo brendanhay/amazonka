@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -93,9 +94,10 @@ instance ToHeaders PutBucketRequestPayment where
 instance ToBody PutBucketRequestPayment where
     toBody = toBody . encodeXML . _pbrprRequestPaymentConfiguration
 
+
 instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3
     type Rs PutBucketRequestPayment = Empty
 
-    request  = put
+    request  = put'
     response = const (nullaryResponse Empty)

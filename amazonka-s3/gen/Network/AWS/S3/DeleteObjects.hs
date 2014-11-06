@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -101,11 +102,31 @@ data DeleteObjectsOutput = DeleteObjectsOutput
     , _dooErrors  :: [Error]
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'DeleteObjectsOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dooDeleted' @::@ '[DeletedObject]'
+--
+-- * 'dooErrors' @::@ '[Error]'
+--
+deleteObjectsOutput :: DeleteObjectsOutput
+deleteObjectsOutput = DeleteObjectsOutput
+    { _dooDeleted = mempty
+    , _dooErrors  = mempty
+    }
+
+dooDeleted :: Lens' DeleteObjectsOutput [DeletedObject]
+dooDeleted = lens _dooDeleted (\s a -> s { _dooDeleted = a })
+
+dooErrors :: Lens' DeleteObjectsOutput [Error]
+dooErrors = lens _dooErrors (\s a -> s { _dooErrors = a })
+
 instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
     type Rs DeleteObjects = DeleteObjectsOutput
 
-    request  = post
-    response = const . xmlResponse $ \h x ->
+    request  = post'
+    response = const . xmlResponse $ \h x -> DeleteObjectsOutput
         <$> x %| "Deleted"
         <*> x %| "Error"

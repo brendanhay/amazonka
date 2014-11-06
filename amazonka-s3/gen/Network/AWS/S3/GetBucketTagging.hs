@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -73,10 +74,24 @@ newtype GetBucketTaggingOutput = GetBucketTaggingOutput
     { _gbtoTagSet :: [Tag]
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
+-- | 'GetBucketTaggingOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gbtoTagSet' @::@ '[Tag]'
+--
+getBucketTaggingOutput :: GetBucketTaggingOutput
+getBucketTaggingOutput = GetBucketTaggingOutput
+    { _gbtoTagSet = mempty
+    }
+
+gbtoTagSet :: Lens' GetBucketTaggingOutput [Tag]
+gbtoTagSet = lens _gbtoTagSet (\s a -> s { _gbtoTagSet = a })
+
 instance AWSRequest GetBucketTagging where
     type Sv GetBucketTagging = S3
     type Rs GetBucketTagging = GetBucketTaggingOutput
 
-    request  = get
-    response = const . xmlResponse $ \h x ->
+    request  = get'
+    response = const . xmlResponse $ \h x -> GetBucketTaggingOutput
         <$> x %| "TagSet"

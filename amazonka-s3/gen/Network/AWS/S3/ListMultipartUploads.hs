@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -161,12 +162,107 @@ data ListMultipartUploadsOutput = ListMultipartUploadsOutput
     , _lmuoUploads            :: [MultipartUpload]
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'ListMultipartUploadsOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lmuoBucket' @::@ 'Maybe' 'BucketName'
+--
+-- * 'lmuoCommonPrefixes' @::@ '[CommonPrefix]'
+--
+-- * 'lmuoEncodingType' @::@ 'Maybe' 'Text'
+--
+-- * 'lmuoIsTruncated' @::@ 'Maybe' 'Bool'
+--
+-- * 'lmuoKeyMarker' @::@ 'Maybe' 'Text'
+--
+-- * 'lmuoMaxUploads' @::@ 'Maybe' 'Int'
+--
+-- * 'lmuoNextKeyMarker' @::@ 'Maybe' 'Text'
+--
+-- * 'lmuoNextUploadIdMarker' @::@ 'Maybe' 'Text'
+--
+-- * 'lmuoPrefix' @::@ 'Maybe' 'Text'
+--
+-- * 'lmuoUploadIdMarker' @::@ 'Maybe' 'Text'
+--
+-- * 'lmuoUploads' @::@ '[MultipartUpload]'
+--
+listMultipartUploadsOutput :: ListMultipartUploadsOutput
+listMultipartUploadsOutput = ListMultipartUploadsOutput
+    { _lmuoBucket             = Nothing
+    , _lmuoKeyMarker          = Nothing
+    , _lmuoUploadIdMarker     = Nothing
+    , _lmuoNextKeyMarker      = Nothing
+    , _lmuoPrefix             = Nothing
+    , _lmuoNextUploadIdMarker = Nothing
+    , _lmuoMaxUploads         = Nothing
+    , _lmuoIsTruncated        = Nothing
+    , _lmuoUploads            = mempty
+    , _lmuoCommonPrefixes     = mempty
+    , _lmuoEncodingType       = Nothing
+    }
+
+-- | Name of the bucket to which the multipart upload was initiated.
+lmuoBucket :: Lens' ListMultipartUploadsOutput (Maybe BucketName)
+lmuoBucket = lens _lmuoBucket (\s a -> s { _lmuoBucket = a })
+
+lmuoCommonPrefixes :: Lens' ListMultipartUploadsOutput [CommonPrefix]
+lmuoCommonPrefixes =
+    lens _lmuoCommonPrefixes (\s a -> s { _lmuoCommonPrefixes = a })
+
+-- | Encoding type used by Amazon S3 to encode object keys in the response.
+lmuoEncodingType :: Lens' ListMultipartUploadsOutput (Maybe Text)
+lmuoEncodingType = lens _lmuoEncodingType (\s a -> s { _lmuoEncodingType = a })
+
+-- | Indicates whether the returned list of multipart uploads is truncated. A
+-- value of true indicates that the list was truncated. The list can be
+-- truncated if the number of multipart uploads exceeds the limit allowed or
+-- specified by max uploads.
+lmuoIsTruncated :: Lens' ListMultipartUploadsOutput (Maybe Bool)
+lmuoIsTruncated = lens _lmuoIsTruncated (\s a -> s { _lmuoIsTruncated = a })
+
+-- | The key at or after which the listing began.
+lmuoKeyMarker :: Lens' ListMultipartUploadsOutput (Maybe Text)
+lmuoKeyMarker = lens _lmuoKeyMarker (\s a -> s { _lmuoKeyMarker = a })
+
+-- | Maximum number of multipart uploads that could have been included in the
+-- response.
+lmuoMaxUploads :: Lens' ListMultipartUploadsOutput (Maybe Int)
+lmuoMaxUploads = lens _lmuoMaxUploads (\s a -> s { _lmuoMaxUploads = a })
+
+-- | When a list is truncated, this element specifies the value that should be
+-- used for the key-marker request parameter in a subsequent request.
+lmuoNextKeyMarker :: Lens' ListMultipartUploadsOutput (Maybe Text)
+lmuoNextKeyMarker =
+    lens _lmuoNextKeyMarker (\s a -> s { _lmuoNextKeyMarker = a })
+
+-- | When a list is truncated, this element specifies the value that should be
+-- used for the upload-id-marker request parameter in a subsequent request.
+lmuoNextUploadIdMarker :: Lens' ListMultipartUploadsOutput (Maybe Text)
+lmuoNextUploadIdMarker =
+    lens _lmuoNextUploadIdMarker (\s a -> s { _lmuoNextUploadIdMarker = a })
+
+-- | When a prefix is provided in the request, this field contains the
+-- specified prefix. The result contains only keys starting with the
+-- specified prefix.
+lmuoPrefix :: Lens' ListMultipartUploadsOutput (Maybe Text)
+lmuoPrefix = lens _lmuoPrefix (\s a -> s { _lmuoPrefix = a })
+
+-- | Upload ID after which listing began.
+lmuoUploadIdMarker :: Lens' ListMultipartUploadsOutput (Maybe Text)
+lmuoUploadIdMarker =
+    lens _lmuoUploadIdMarker (\s a -> s { _lmuoUploadIdMarker = a })
+
+lmuoUploads :: Lens' ListMultipartUploadsOutput [MultipartUpload]
+lmuoUploads = lens _lmuoUploads (\s a -> s { _lmuoUploads = a })
+
 instance AWSRequest ListMultipartUploads where
     type Sv ListMultipartUploads = S3
     type Rs ListMultipartUploads = ListMultipartUploadsOutput
 
-    request  = get
-    response = const . xmlResponse $ \h x ->
+    request  = get'
+    response = const . xmlResponse $ \h x -> ListMultipartUploadsOutput
         <$> x %| "Bucket"
         <*> x %| "CommonPrefixes"
         <*> x %| "EncodingType"

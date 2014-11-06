@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -73,10 +74,25 @@ newtype GetBucketLocationOutput = GetBucketLocationOutput
     { _gbloLocationConstraint :: Maybe Region
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'GetBucketLocationOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gbloLocationConstraint' @::@ 'Maybe' 'Region'
+--
+getBucketLocationOutput :: GetBucketLocationOutput
+getBucketLocationOutput = GetBucketLocationOutput
+    { _gbloLocationConstraint = Nothing
+    }
+
+gbloLocationConstraint :: Lens' GetBucketLocationOutput (Maybe Region)
+gbloLocationConstraint =
+    lens _gbloLocationConstraint (\s a -> s { _gbloLocationConstraint = a })
+
 instance AWSRequest GetBucketLocation where
     type Sv GetBucketLocation = S3
     type Rs GetBucketLocation = GetBucketLocationOutput
 
-    request  = get
-    response = const . xmlResponse $ \h x ->
+    request  = get'
+    response = const . xmlResponse $ \h x -> GetBucketLocationOutput
         <$> x %| "LocationConstraint"

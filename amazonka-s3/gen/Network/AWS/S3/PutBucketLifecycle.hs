@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -90,9 +91,10 @@ instance ToHeaders PutBucketLifecycle where
 instance ToBody PutBucketLifecycle where
     toBody = toBody . encodeXML . _pblrLifecycleConfiguration
 
+
 instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3
     type Rs PutBucketLifecycle = Empty
 
-    request  = put
+    request  = put'
     response = const (nullaryResponse Empty)

@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -74,10 +75,25 @@ newtype GetBucketLoggingOutput = GetBucketLoggingOutput
     { _gbloLoggingEnabled :: Maybe LoggingEnabled
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'GetBucketLoggingOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gbloLoggingEnabled' @::@ 'Maybe' 'LoggingEnabled'
+--
+getBucketLoggingOutput :: GetBucketLoggingOutput
+getBucketLoggingOutput = GetBucketLoggingOutput
+    { _gbloLoggingEnabled = Nothing
+    }
+
+gbloLoggingEnabled :: Lens' GetBucketLoggingOutput (Maybe LoggingEnabled)
+gbloLoggingEnabled =
+    lens _gbloLoggingEnabled (\s a -> s { _gbloLoggingEnabled = a })
+
 instance AWSRequest GetBucketLogging where
     type Sv GetBucketLogging = S3
     type Rs GetBucketLogging = GetBucketLoggingOutput
 
-    request  = get
-    response = const . xmlResponse $ \h x ->
+    request  = get'
+    response = const . xmlResponse $ \h x -> GetBucketLoggingOutput
         <$> x %| "LoggingEnabled"

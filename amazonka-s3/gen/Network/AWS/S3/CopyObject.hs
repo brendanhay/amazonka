@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -418,12 +419,71 @@ data CopyObjectOutput = CopyObjectOutput
     , _cooServerSideEncryption :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'CopyObjectOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cooCopyObjectResult' @::@ 'Maybe' 'CopyObjectResult'
+--
+-- * 'cooCopySourceVersionId' @::@ 'Maybe' 'Text'
+--
+-- * 'cooExpiration' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'cooSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+--
+-- * 'cooSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+--
+-- * 'cooServerSideEncryption' @::@ 'Maybe' 'Text'
+--
+copyObjectOutput :: CopyObjectOutput
+copyObjectOutput = CopyObjectOutput
+    { _cooCopyObjectResult     = Nothing
+    , _cooExpiration           = Nothing
+    , _cooCopySourceVersionId  = Nothing
+    , _cooServerSideEncryption = Nothing
+    , _cooSSECustomerAlgorithm = Nothing
+    , _cooSSECustomerKeyMD5    = Nothing
+    }
+
+cooCopyObjectResult :: Lens' CopyObjectOutput (Maybe CopyObjectResult)
+cooCopyObjectResult =
+    lens _cooCopyObjectResult (\s a -> s { _cooCopyObjectResult = a })
+
+cooCopySourceVersionId :: Lens' CopyObjectOutput (Maybe Text)
+cooCopySourceVersionId =
+    lens _cooCopySourceVersionId (\s a -> s { _cooCopySourceVersionId = a })
+
+-- | If the object expiration is configured, the response includes this
+-- header.
+cooExpiration :: Lens' CopyObjectOutput (Maybe UTCTime)
+cooExpiration = lens _cooExpiration (\s a -> s { _cooExpiration = a })
+    . mapping _Time
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header confirming the
+-- encryption algorithm used.
+cooSSECustomerAlgorithm :: Lens' CopyObjectOutput (Maybe Text)
+cooSSECustomerAlgorithm =
+    lens _cooSSECustomerAlgorithm (\s a -> s { _cooSSECustomerAlgorithm = a })
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header to provide round trip
+-- message integrity verification of the customer-provided encryption key.
+cooSSECustomerKeyMD5 :: Lens' CopyObjectOutput (Maybe Text)
+cooSSECustomerKeyMD5 =
+    lens _cooSSECustomerKeyMD5 (\s a -> s { _cooSSECustomerKeyMD5 = a })
+
+-- | The Server-side encryption algorithm used when storing this object in S3.
+cooServerSideEncryption :: Lens' CopyObjectOutput (Maybe Text)
+cooServerSideEncryption =
+    lens _cooServerSideEncryption (\s a -> s { _cooServerSideEncryption = a })
+
 instance AWSRequest CopyObject where
     type Sv CopyObject = S3
     type Rs CopyObject = CopyObjectOutput
 
-    request  = put
-    response = const . xmlResponse $ \h x ->
+    request  = put'
+    response = const . xmlResponse $ \h x -> CopyObjectOutput
         <$> x %| "CopyObjectResult"
         <*> h ~: "x-amz-copy-source-version-id"
         <*> h ~: "x-amz-expiration"

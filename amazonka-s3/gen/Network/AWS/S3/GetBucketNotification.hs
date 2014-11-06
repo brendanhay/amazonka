@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -73,10 +74,25 @@ newtype GetBucketNotificationOutput = GetBucketNotificationOutput
     { _gbnoTopicConfiguration :: Maybe TopicConfiguration
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'GetBucketNotificationOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gbnoTopicConfiguration' @::@ 'Maybe' 'TopicConfiguration'
+--
+getBucketNotificationOutput :: GetBucketNotificationOutput
+getBucketNotificationOutput = GetBucketNotificationOutput
+    { _gbnoTopicConfiguration = Nothing
+    }
+
+gbnoTopicConfiguration :: Lens' GetBucketNotificationOutput (Maybe TopicConfiguration)
+gbnoTopicConfiguration =
+    lens _gbnoTopicConfiguration (\s a -> s { _gbnoTopicConfiguration = a })
+
 instance AWSRequest GetBucketNotification where
     type Sv GetBucketNotification = S3
     type Rs GetBucketNotification = GetBucketNotificationOutput
 
-    request  = get
-    response = const . xmlResponse $ \h x ->
+    request  = get'
+    response = const . xmlResponse $ \h x -> GetBucketNotificationOutput
         <$> x %| "TopicConfiguration"

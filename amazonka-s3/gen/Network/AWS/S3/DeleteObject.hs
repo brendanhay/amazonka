@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -109,11 +110,35 @@ data DeleteObjectOutput = DeleteObjectOutput
     , _dooVersionId    :: Maybe ObjectVersionId
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'DeleteObjectOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dooDeleteMarker' @::@ 'Maybe' 'Bool'
+--
+-- * 'dooVersionId' @::@ 'Maybe' 'ObjectVersionId'
+--
+deleteObjectOutput :: DeleteObjectOutput
+deleteObjectOutput = DeleteObjectOutput
+    { _dooDeleteMarker = Nothing
+    , _dooVersionId    = Nothing
+    }
+
+-- | Specifies whether the versioned object that was permanently deleted was
+-- (true) or was not (false) a delete marker.
+dooDeleteMarker :: Lens' DeleteObjectOutput (Maybe Bool)
+dooDeleteMarker = lens _dooDeleteMarker (\s a -> s { _dooDeleteMarker = a })
+
+-- | Returns the version ID of the delete marker created as a result of the
+-- DELETE operation.
+dooVersionId :: Lens' DeleteObjectOutput (Maybe ObjectVersionId)
+dooVersionId = lens _dooVersionId (\s a -> s { _dooVersionId = a })
+
 instance AWSRequest DeleteObject where
     type Sv DeleteObject = S3
     type Rs DeleteObject = DeleteObjectOutput
 
-    request  = delete
-    response = const . xmlResponse $ \h x ->
+    request  = delete'
+    response = const . xmlResponse $ \h x -> DeleteObjectOutput
         <$> h ~: "x-amz-delete-marker"
         <*> h ~: "x-amz-version-id"

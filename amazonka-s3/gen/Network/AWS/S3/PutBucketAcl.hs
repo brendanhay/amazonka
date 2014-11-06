@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -151,9 +152,10 @@ instance ToHeaders PutBucketAcl where
 instance ToBody PutBucketAcl where
     toBody = toBody . encodeXML . _pbarAccessControlPolicy
 
+
 instance AWSRequest PutBucketAcl where
     type Sv PutBucketAcl = S3
     type Rs PutBucketAcl = Empty
 
-    request  = put
+    request  = put'
     response = const (nullaryResponse Empty)

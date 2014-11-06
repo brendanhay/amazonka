@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -84,10 +85,25 @@ newtype GetObjectTorrentOutput = GetObjectTorrentOutput
     { _gotoBody :: RsBody
     } deriving (Eq, Show, Generic)
 
+-- | 'GetObjectTorrentOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gotoBody' @::@ 'RsBody'
+--
+getObjectTorrentOutput :: RsBody -- ^ 'gotoBody'
+                       -> GetObjectTorrentOutput
+getObjectTorrentOutput p1 = GetObjectTorrentOutput
+    { _gotoBody = p1
+    }
+
+gotoBody :: Lens' GetObjectTorrentOutput RsBody
+gotoBody = lens _gotoBody (\s a -> s { _gotoBody = a })
+
 instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3
     type Rs GetObjectTorrent = GetObjectTorrentOutput
 
-    request  = get
-    response = const . bodyResponse $ \h b ->
+    request  = get'
+    response = const . bodyResponse $ \h b -> GetObjectTorrentOutput
         <$> pure (RsBody b)

@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -314,12 +315,71 @@ data CreateMultipartUploadOutput = CreateMultipartUploadOutput
     , _cmuo1UploadId             :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'CreateMultipartUploadOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cmuo1Bucket' @::@ 'Maybe' 'BucketName'
+--
+-- * 'cmuo1Key' @::@ 'Maybe' 'ObjectKey'
+--
+-- * 'cmuo1SSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+--
+-- * 'cmuo1SSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+--
+-- * 'cmuo1ServerSideEncryption' @::@ 'Maybe' 'Text'
+--
+-- * 'cmuo1UploadId' @::@ 'Maybe' 'Text'
+--
+createMultipartUploadOutput :: CreateMultipartUploadOutput
+createMultipartUploadOutput = CreateMultipartUploadOutput
+    { _cmuo1Bucket               = Nothing
+    , _cmuo1Key                  = Nothing
+    , _cmuo1UploadId             = Nothing
+    , _cmuo1ServerSideEncryption = Nothing
+    , _cmuo1SSECustomerAlgorithm = Nothing
+    , _cmuo1SSECustomerKeyMD5    = Nothing
+    }
+
+-- | Name of the bucket to which the multipart upload was initiated.
+cmuo1Bucket :: Lens' CreateMultipartUploadOutput (Maybe BucketName)
+cmuo1Bucket = lens _cmuo1Bucket (\s a -> s { _cmuo1Bucket = a })
+
+-- | Object key for which the multipart upload was initiated.
+cmuo1Key :: Lens' CreateMultipartUploadOutput (Maybe ObjectKey)
+cmuo1Key = lens _cmuo1Key (\s a -> s { _cmuo1Key = a })
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header confirming the
+-- encryption algorithm used.
+cmuo1SSECustomerAlgorithm :: Lens' CreateMultipartUploadOutput (Maybe Text)
+cmuo1SSECustomerAlgorithm =
+    lens _cmuo1SSECustomerAlgorithm
+        (\s a -> s { _cmuo1SSECustomerAlgorithm = a })
+
+-- | If server-side encryption with a customer-provided encryption key was
+-- requested, the response will include this header to provide round trip
+-- message integrity verification of the customer-provided encryption key.
+cmuo1SSECustomerKeyMD5 :: Lens' CreateMultipartUploadOutput (Maybe Text)
+cmuo1SSECustomerKeyMD5 =
+    lens _cmuo1SSECustomerKeyMD5 (\s a -> s { _cmuo1SSECustomerKeyMD5 = a })
+
+-- | The Server-side encryption algorithm used when storing this object in S3.
+cmuo1ServerSideEncryption :: Lens' CreateMultipartUploadOutput (Maybe Text)
+cmuo1ServerSideEncryption =
+    lens _cmuo1ServerSideEncryption
+        (\s a -> s { _cmuo1ServerSideEncryption = a })
+
+-- | ID for the initiated multipart upload.
+cmuo1UploadId :: Lens' CreateMultipartUploadOutput (Maybe Text)
+cmuo1UploadId = lens _cmuo1UploadId (\s a -> s { _cmuo1UploadId = a })
+
 instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3
     type Rs CreateMultipartUpload = CreateMultipartUploadOutput
 
-    request  = post
-    response = const . xmlResponse $ \h x ->
+    request  = post'
+    response = const . xmlResponse $ \h x -> CreateMultipartUploadOutput
         <$> x %| "Bucket"
         <*> x %| "Key"
         <*> h ~: "x-amz-server-side-encryption-customer-algorithm"

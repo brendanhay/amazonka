@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -92,9 +93,10 @@ instance ToHeaders PutBucketLogging where
 instance ToBody PutBucketLogging where
     toBody = toBody . encodeXML . _pblr1BucketLoggingStatus
 
+
 instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3
     type Rs PutBucketLogging = Empty
 
-    request  = put
+    request  = put'
     response = const (nullaryResponse Empty)

@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -88,9 +89,10 @@ instance ToHeaders PutBucketTagging where
 instance ToBody PutBucketTagging where
     toBody = toBody . encodeXML . _pbtrTagging
 
+
 instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3
     type Rs PutBucketTagging = Empty
 
-    request  = put
+    request  = put'
     response = const (nullaryResponse Empty)

@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -149,10 +150,24 @@ newtype CreateBucketOutput = CreateBucketOutput
     { _cboLocation :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
+-- | 'CreateBucketOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cboLocation' @::@ 'Maybe' 'Text'
+--
+createBucketOutput :: CreateBucketOutput
+createBucketOutput = CreateBucketOutput
+    { _cboLocation = Nothing
+    }
+
+cboLocation :: Lens' CreateBucketOutput (Maybe Text)
+cboLocation = lens _cboLocation (\s a -> s { _cboLocation = a })
+
 instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3
     type Rs CreateBucket = CreateBucketOutput
 
-    request  = put
-    response = const . xmlResponse $ \h x ->
+    request  = put'
+    response = const . xmlResponse $ \h x -> CreateBucketOutput
         <$> h ~: "Location"

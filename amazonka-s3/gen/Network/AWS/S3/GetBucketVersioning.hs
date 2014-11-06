@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -75,11 +76,36 @@ data GetBucketVersioningOutput = GetBucketVersioningOutput
     , _gbvoStatus    :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
+-- | 'GetBucketVersioningOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gbvoMFADelete' @::@ 'Maybe' 'Text'
+--
+-- * 'gbvoStatus' @::@ 'Maybe' 'Text'
+--
+getBucketVersioningOutput :: GetBucketVersioningOutput
+getBucketVersioningOutput = GetBucketVersioningOutput
+    { _gbvoStatus    = Nothing
+    , _gbvoMFADelete = Nothing
+    }
+
+-- | Specifies whether MFA delete is enabled in the bucket versioning
+-- configuration. This element is only returned if the bucket has been
+-- configured with MFA delete. If the bucket has never been so configured,
+-- this element is not returned.
+gbvoMFADelete :: Lens' GetBucketVersioningOutput (Maybe Text)
+gbvoMFADelete = lens _gbvoMFADelete (\s a -> s { _gbvoMFADelete = a })
+
+-- | The versioning state of the bucket.
+gbvoStatus :: Lens' GetBucketVersioningOutput (Maybe Text)
+gbvoStatus = lens _gbvoStatus (\s a -> s { _gbvoStatus = a })
+
 instance AWSRequest GetBucketVersioning where
     type Sv GetBucketVersioning = S3
     type Rs GetBucketVersioning = GetBucketVersioningOutput
 
-    request  = get
-    response = const . xmlResponse $ \h x ->
+    request  = get'
+    response = const . xmlResponse $ \h x -> GetBucketVersioningOutput
         <$> x %| "MfaDelete"
         <*> x %| "Status"

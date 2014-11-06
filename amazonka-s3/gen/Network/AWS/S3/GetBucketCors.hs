@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -73,10 +74,24 @@ newtype GetBucketCorsOutput = GetBucketCorsOutput
     { _gbcoCORSRules :: [CORSRule]
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
+-- | 'GetBucketCorsOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gbcoCORSRules' @::@ '[CORSRule]'
+--
+getBucketCorsOutput :: GetBucketCorsOutput
+getBucketCorsOutput = GetBucketCorsOutput
+    { _gbcoCORSRules = mempty
+    }
+
+gbcoCORSRules :: Lens' GetBucketCorsOutput [CORSRule]
+gbcoCORSRules = lens _gbcoCORSRules (\s a -> s { _gbcoCORSRules = a })
+
 instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
     type Rs GetBucketCors = GetBucketCorsOutput
 
-    request  = get
-    response = const . xmlResponse $ \h x ->
+    request  = get'
+    response = const . xmlResponse $ \h x -> GetBucketCorsOutput
         <$> x %| "CORSRule"

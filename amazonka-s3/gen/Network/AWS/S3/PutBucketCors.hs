@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -88,9 +89,10 @@ instance ToHeaders PutBucketCors where
 instance ToBody PutBucketCors where
     toBody = toBody . encodeXML . _pbcrCORSConfiguration
 
+
 instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3
     type Rs PutBucketCors = Empty
 
-    request  = put
+    request  = put'
     response = const (nullaryResponse Empty)

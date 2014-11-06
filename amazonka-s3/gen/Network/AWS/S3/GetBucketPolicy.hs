@@ -1,9 +1,10 @@
-{-# LANGUAGE DeriveGeneric               #-}
-{-# LANGUAGE FlexibleInstances           #-}
-{-# LANGUAGE NoImplicitPrelude           #-}
-{-# LANGUAGE OverloadedStrings           #-}
-{-# LANGUAGE RecordWildCards             #-}
-{-# LANGUAGE TypeFamilies                #-}
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
@@ -73,10 +74,25 @@ newtype GetBucketPolicyOutput = GetBucketPolicyOutput
     { _gbpoPolicy :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
+-- | 'GetBucketPolicyOutput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'gbpoPolicy' @::@ 'Maybe' 'Text'
+--
+getBucketPolicyOutput :: GetBucketPolicyOutput
+getBucketPolicyOutput = GetBucketPolicyOutput
+    { _gbpoPolicy = Nothing
+    }
+
+-- | The bucket policy as a JSON document.
+gbpoPolicy :: Lens' GetBucketPolicyOutput (Maybe Text)
+gbpoPolicy = lens _gbpoPolicy (\s a -> s { _gbpoPolicy = a })
+
 instance AWSRequest GetBucketPolicy where
     type Sv GetBucketPolicy = S3
     type Rs GetBucketPolicy = GetBucketPolicyOutput
 
-    request  = get
-    response = const . xmlResponse $ \h x ->
+    request  = get'
+    response = const . xmlResponse $ \h x -> GetBucketPolicyOutput
         <$> x %| "Policy"

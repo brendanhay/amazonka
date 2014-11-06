@@ -1,7 +1,7 @@
 {% for field in response.fields %}
   {% case field.value.location %}
   {% when "headers" %}
-        {% include "applicative.ede" %} (Map <$> h ~:: "{{ field.value.locationName }}")
+        {% include "applicative.ede" %} h ~:: "{{ field.value.locationName }}"
   {% when "header" %}
         {% include "applicative.ede" %} h ~: "{{ field.value.locationName }}"
   {% when "body-xml" %}

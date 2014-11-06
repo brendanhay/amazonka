@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Network.AWS.Internal.Request
+-- Module      : Network.AWS.Request
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,12 +10,14 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.Request
+module Network.AWS.Request
     (
     -- * Requests
       get
-    , Network.AWS.Internal.Request.head
+    , Network.AWS.Request.head
     , delete
+    , post
+    , put
 
     -- * Lenses
     , method
@@ -50,6 +52,14 @@ delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
 delete x = get x & rqMethod .~ DELETE
 {-# INLINE delete #-}
 
+post :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
+post x = put x & rqMethd .~ POST
+{-# INLINE post #-}
+
+put :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
+put x = get x & rqMethod .~ PUT & rqBody .~ toBody x
+{-# INLINE put #-}
+
 method :: Lens' HTTP.Request HTTP.Method
 method f x = f (HTTP.method x) <&> \y -> x { HTTP.method = y }
 {-# INLINE method #-}
@@ -71,5 +81,6 @@ requestBody f x = f (HTTP.requestBody x) <&> \y -> x { HTTP.requestBody = y }
 {-# INLINE requestBody #-}
 
 requestHeaders :: Lens' HTTP.Request HTTP.RequestHeaders
-requestHeaders f x = f (HTTP.requestHeaders x) <&> \y -> x { HTTP.requestHeaders = y }
+requestHeaders f x =
+    f (HTTP.requestHeaders x) <&> \y -> x { HTTP.requestHeaders = y }
 {-# INLINE requestHeaders #-}

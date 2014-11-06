@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Network.AWS.Internal.Data.Body
+-- Module      : Network.AWS.Data.Internal.Body
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.Data.Body where
+module Network.AWS.Data.Internal.Body where
 
 import           Control.Applicative
 import           Control.Monad.IO.Class
@@ -30,7 +30,7 @@ import           Data.Int
 import           Data.Monoid
 import           Data.String
 import qualified Data.Text                      as Text
-import           Network.AWS.Internal.Data.Text
+import           Network.AWS.Data.Internal.Text
 import           Network.HTTP.Client
 import           System.IO
 

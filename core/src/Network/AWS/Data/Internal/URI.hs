@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Network.AWS.Internal.Data.URI
+-- Module      : Network.AWS.Data.Internal.URI
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.Data.URI
+module Network.AWS.Data.Internal.URI
     ( collapseURI
     , encodeURI
     ) where
@@ -20,7 +20,7 @@ import qualified Data.ByteString.Char8       as BS
 import           Data.Char
 import qualified Data.Foldable               as Fold
 import           Data.Monoid
-import           Network.AWS.Internal.Data.ByteString
+import           Network.AWS.Data.Internal.ByteString
 
 collapseURI :: ByteString -> ByteString
 collapseURI bs

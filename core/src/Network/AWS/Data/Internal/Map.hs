@@ -31,11 +31,11 @@ import           Data.Monoid
 import           Data.Semigroup                       (Semigroup)
 import           Data.Tagged
 import           Data.Traversable                     (Traversable)
-import           Network.AWS.Internal.Data.ByteString
-import           Network.AWS.Internal.Data.Header
-import           Network.AWS.Internal.Data.Query
-import           Network.AWS.Internal.Data.Text
-import           Network.AWS.Internal.Data.XML
+import           Network.AWS.Data.Internal.ByteString
+import           Network.AWS.Data.Internal.Header
+import           Network.AWS.Data.Internal.Query
+import           Network.AWS.Data.Internal.Text
+import           Network.AWS.Data.Internal.XML
 
 newtype Map k v = Map { toHashMap :: HashMap k v }
     deriving

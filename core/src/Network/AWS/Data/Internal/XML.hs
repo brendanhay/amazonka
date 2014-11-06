@@ -7,7 +7,7 @@
 {-# LANGUAGE ScopedTypeVariables  #-}
 {-# LANGUAGE TypeOperators        #-}
 
--- Module      : Network.AWS.Internal.Data.XML
+-- Module      : Network.AWS.Data.Internal.XML
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -17,7 +17,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.Data.XML where
+module Network.AWS.Data.Internal.XML where
 
 import           Control.Applicative
 import           Control.Monad
@@ -36,7 +36,7 @@ import           Data.Text                      (Text)
 import qualified Data.Text                      as Text
 import qualified Data.Text.Encoding             as Text
 import           GHC.Generics
-import           Network.AWS.Internal.Data.Text
+import           Network.AWS.Data.Internal.Text
 import           Text.XML
 import           Text.XML.Cursor
 

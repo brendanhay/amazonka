@@ -32,10 +32,8 @@ library
         , Network.AWS.Data
         , Network.AWS.EC2.Metadata
         , Network.AWS.Prelude
-        , Network.AWS.Request.Body
-        , Network.AWS.Request.JSON
+        , Network.AWS.Request
         , Network.AWS.Request.Query
-        , Network.AWS.Request.XML
         , Network.AWS.Response
         , Network.AWS.Signing.V2
         , Network.AWS.Signing.V3
@@ -54,9 +52,7 @@ library
         , Network.AWS.Data.Internal.Time
         , Network.AWS.Data.Internal.URI
         , Network.AWS.Data.Internal.XML
-
-        , Network.AWS.Internal.Request
-        , Network.AWS.Internal.Signing
+        , Network.AWS.Signing.Internal
 
     build-depends:
           aeson                 == 0.8.*

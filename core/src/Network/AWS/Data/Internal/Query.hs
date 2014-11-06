@@ -8,7 +8,7 @@
 {-# LANGUAGE TypeFamilies        #-}
 {-# LANGUAGE TypeOperators       #-}
 
--- Module      : Network.AWS.Internal.Data.Query
+-- Module      : Network.AWS.Data.Internal.Query
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -18,7 +18,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.Data.Query
+module Network.AWS.Data.Internal.Query
     ( QueryOptions (..)
     , Query
 
@@ -51,9 +51,9 @@ import           Data.Monoid
 import           Data.String
 import           Data.Text                            (Text)
 import           GHC.Generics
-import           Network.AWS.Internal.Data.ByteString
-import           Network.AWS.Internal.Data.Text
-import           Network.AWS.Internal.Data.Time
+import           Network.AWS.Data.Internal.ByteString
+import           Network.AWS.Data.Internal.Text
+import           Network.AWS.Data.Internal.Time
 
 data Query
     = List  [Query]
@@ -107,9 +107,9 @@ renderQuery = intercalate . sort . enc Nothing
         | Just n <- k = [n]
         | otherwise   = []
 
-    intercalate []       = mempty
-    intercalate (x : []) = x
-    intercalate (x : xs) = x <> ksep <> intercalate xs
+    intercalate []     = mempty
+    intercalate [x]    = x
+    intercalate (x:xs) = x <> ksep <> intercalate xs
 
     ksep = "&"
     vsep = "="

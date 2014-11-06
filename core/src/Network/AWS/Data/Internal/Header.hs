@@ -4,7 +4,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TupleSections     #-}
 
--- Module      : Network.AWS.Internal.Data.Header
+-- Module      : Network.AWS.Data.Internal.Header
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.Data.Header where
+module Network.AWS.Data.Internal.Header where
 
 import           Control.Applicative
 import           Data.ByteString.Char8       (ByteString)
@@ -30,8 +30,8 @@ import           Data.Monoid
 import           Data.Text                   (Text)
 import qualified Data.Text                   as Text
 import qualified Data.Text.Encoding          as Text
-import           Network.AWS.Internal.Data.ByteString
-import           Network.AWS.Internal.Data.Text
+import           Network.AWS.Data.Internal.ByteString
+import           Network.AWS.Data.Internal.Text
 import           Network.HTTP.Types
 
 hHost :: HeaderName

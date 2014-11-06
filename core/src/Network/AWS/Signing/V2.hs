@@ -21,7 +21,7 @@ module Network.AWS.Signing.V2
     , Meta (..)
 
     -- * Re-exports
-    , module Network.AWS.Internal.Signing
+    , module Network.AWS.Signing.Internal
     ) where
 
 import           Control.Applicative
@@ -33,7 +33,7 @@ import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data
 import           Network.AWS.Internal.Request
-import           Network.AWS.Internal.Signing
+import           Network.AWS.Signing.Internal
 import           Network.AWS.Types
 import           Network.HTTP.Types           hiding (renderQuery, toQuery)
 

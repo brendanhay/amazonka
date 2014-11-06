@@ -50,7 +50,7 @@ import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Auth
 import           Network.AWS.Data
-import qualified Network.AWS.Internal.Signing as Sign
+import qualified Network.AWS.Signing.Internal as Sign
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
 

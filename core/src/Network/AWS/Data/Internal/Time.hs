@@ -8,7 +8,7 @@
 {-# LANGUAGE ScopedTypeVariables #-}
 {-# LANGUAGE StandaloneDeriving  #-}
 
--- Module      : Network.AWS.Internal.Data.Time
+-- Module      : Network.AWS.Data.Internal.Time
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -18,7 +18,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Internal.Data.Time
+module Network.AWS.Data.Internal.Time
     ( Format (..)
     , Time   (..)
     , _Time
@@ -42,9 +42,9 @@ import           Data.Tagged
 import qualified Data.Text                            as Text
 import           Data.Time
 import           Data.Time.Clock.POSIX
-import           Network.AWS.Internal.Data.ByteString
-import           Network.AWS.Internal.Data.Text
-import           Network.AWS.Internal.Data.XML
+import           Network.AWS.Data.Internal.ByteString
+import           Network.AWS.Data.Internal.Text
+import           Network.AWS.Data.Internal.XML
 import           System.Locale
 
 data Format

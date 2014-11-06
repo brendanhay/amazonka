@@ -36,8 +36,8 @@ import           Data.Semigroup                  (Semigroup)
 import           Data.Tagged
 import           Data.Traversable
 import qualified Data.Vector                     as Vector
-import           Network.AWS.Internal.Data.Query
-import           Network.AWS.Internal.Data.XML
+import           Network.AWS.Data.Internal.Query
+import           Network.AWS.Data.Internal.XML
 import           Prelude                         hiding (map, head, length)
 
 newtype List1 a = List1 { toNonEmpty :: NonEmpty a }

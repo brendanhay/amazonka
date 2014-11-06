@@ -3,7 +3,7 @@
   {% when "headers" %}
         {% include "applicative.ede" %} h ~:: "{{ field.value.locationName }}"
   {% when "header" %}
-        {% include "applicative.ede" %} h ~: "{{ field.value.locationName }}"
+        {% include "applicative.ede" %} h {% if field.value.required %}~:|{% else %}~:?{% endif %} "{{ field.value.locationName }}"
   {% when "body-xml" %}
         {% include "applicative.ede" %} x %| "{{ field.value.locationName }}"
   {% when "body-json" %}

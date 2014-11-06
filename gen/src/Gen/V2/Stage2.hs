@@ -260,7 +260,7 @@ instance TypesOf Type where
 
 instance DerivingOf Type where
     derivingOf = \case
-        TType      _   -> [Eq', Ord', Show', Generic']
+        TType      _   -> [Eq', Show', Generic']
         TPrim      p   -> derivingOf p
         TList      x   -> Monoid' : derivingOf x
         TList1     x   -> Semigroup' : derivingOf x
@@ -293,6 +293,7 @@ instance ToJSON Field where
         , "location"      .= _fLocation
         , "locationName"  .= _fLocationName
         , "documentation" .= _fDocumentation
+        , "required"      .= isRequired _fType
         , "default"       .= typeDefault _fType
         , "iso"           .= typeIso _fType
         ]

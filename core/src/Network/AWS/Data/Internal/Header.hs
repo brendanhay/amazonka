@@ -17,19 +17,19 @@
 module Network.AWS.Data.Internal.Header where
 
 import           Control.Applicative
-import           Data.ByteString.Char8       (ByteString)
-import qualified Data.ByteString.Char8       as BS
-import qualified Data.CaseInsensitive        as CI
-import           Data.Foldable               as Fold
-import           Data.Function               (on)
-import           Data.HashMap.Strict         (HashMap)
-import qualified Data.HashMap.Strict         as Map
-import           Data.List                   (deleteBy)
+import           Data.ByteString.Char8                (ByteString)
+import qualified Data.ByteString.Char8                as BS
+import qualified Data.CaseInsensitive                 as CI
+import           Data.Foldable                        as Fold
+import           Data.Function                        (on)
+import           Data.HashMap.Strict                  (HashMap)
+import qualified Data.HashMap.Strict                  as Map
+import           Data.List                            (deleteBy)
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text                   (Text)
-import qualified Data.Text                   as Text
-import qualified Data.Text.Encoding          as Text
+import           Data.Text                            (Text)
+import qualified Data.Text                            as Text
+import qualified Data.Text.Encoding                   as Text
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
 import           Network.HTTP.Types
@@ -79,7 +79,7 @@ instance ToByteString a => ToHeader (Maybe a) where
 instance (ToByteString k, ToByteString v) => ToHeader (HashMap k v) where
     toHeader p = map (\(k, v) -> (CI.mk (p <> toBS k), toBS v)) . Map.toList
 
-infixl 6 ~:, ~:?, ~:!, ~::
+infixl 6 ~:, ~:?, ~:!
 
 (~:) :: FromText a => ResponseHeaders -> HeaderName -> Either String a
 (~:) hs k = hs ~:? k >>= note
@@ -95,10 +95,3 @@ infixl 6 ~:, ~:?, ~:!, ~::
 
 (~:!) :: Functor f => f (Maybe a) -> a -> f a
 (~:!) p v = fromMaybe v <$> p
-
-(~::) :: FromText v => [Header] -> Text -> Either String (HashMap Text v)
-(~::) hs p =
-    Map.filterWithKey (const . Text.isPrefixOf p) . Map.fromList <$> mapM f hs
-  where
-    f (k, v) = (Text.decodeUtf8 (CI.foldedCase k),)
-        <$> fromText (Text.decodeUtf8 v)

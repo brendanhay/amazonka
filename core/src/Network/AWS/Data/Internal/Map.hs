@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE TupleSections              #-}
 
 -- Module      : Network.AWS.Data.Internal.Map
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -16,6 +17,7 @@ module Network.AWS.Data.Internal.Map
     ( Map
     , _Map
     , nullMap
+    , (~::)
     ) where
 
 import           Control.Applicative
@@ -30,11 +32,15 @@ import           Data.Hashable                        (Hashable)
 import           Data.Monoid
 import           Data.Semigroup                       (Semigroup)
 import           Data.Tagged
+import           Data.Text                            (Text)
+import qualified Data.Text                            as Text
+import qualified Data.Text.Encoding                   as Text
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Header
 import           Network.AWS.Data.Internal.Query
 import           Network.AWS.Data.Internal.Text
 import           Network.AWS.Data.Internal.XML
+import           Network.HTTP.Types.Header            (Header)
 
 newtype Map k v = Map { toHashMap :: HashMap k v }
     deriving
@@ -53,6 +59,16 @@ _Map = iso toHashMap Map
 
 nullMap :: Map k v -> Bool
 nullMap = Map.null . toHashMap
+
+infixl 6 ~::
+
+(~::) :: FromText v => [Header] -> Text -> Either String (Map Text v)
+(~::) hs p = Map
+    . Map.filterWithKey (const . Text.isPrefixOf p)
+    . Map.fromList <$> mapM f hs
+  where
+    f (k, v) = (Text.decodeUtf8 (CI.foldedCase k),)
+        <$> fromText (Text.decodeUtf8 v)
 
 instance (ToByteString k, ToByteString v) => ToHeader (Map k v) where
     toHeader p = map (bimap (CI.mk . mappend p . toBS) toBS)

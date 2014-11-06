@@ -43,9 +43,11 @@ module Network.AWS.Prelude
 
     -- * Shared
     , Action          (..)
-    , Endpoint        (..)
-    , Service         (..)
     , Empty           (..)
+    , Endpoint        (..)
+    , Sensitive       (..)
+    , _Sensitive
+    , Service         (..)
 
     -- * Errors
     , Error           (..)

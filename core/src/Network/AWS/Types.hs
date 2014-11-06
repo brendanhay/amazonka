@@ -89,6 +89,8 @@ module Network.AWS.Types
 
     -- * Miscellaneous
     , Action          (..)
+    , Sensitive       (..)
+    , _Sensitive
     ) where
 
 import           Control.Applicative
@@ -436,6 +438,12 @@ instance ToQuery Action where
 -- instance ToJSON Base64 where
 --     toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
 
+newtype Sensitive a = Sensitive a
+    deriving (Eq, Ord)
+
+instance Show (Sensitive a) where
+    show = const "******"
+
 data Empty = Empty
     deriving (Eq, Show)
 
@@ -460,4 +468,4 @@ clientRequest = def
 makePrisms ''Error
 makeLenses ''Request
 makeLenses ''Zone
--- makePrisms ''Boolean
+makePrisms ''Sensitive

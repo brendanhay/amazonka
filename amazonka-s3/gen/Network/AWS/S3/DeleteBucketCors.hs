@@ -68,6 +68,7 @@ instance ToQuery DeleteBucketCors where
 
 instance ToHeaders DeleteBucketCors
 
+data DeleteBucketCorsResponse = DeleteBucketCorsResponse
 deleteBucketCorsResponse :: DeleteBucketCorsResponse
 deleteBucketCorsResponse = DeleteBucketCorsResponse
 

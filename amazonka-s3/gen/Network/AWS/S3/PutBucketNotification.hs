@@ -93,6 +93,7 @@ instance ToHeaders PutBucketNotification where
 instance ToBody PutBucketNotification where
     toBody = toBody . encodeXML . _pbnrNotificationConfiguration
 
+data PutBucketNotificationResponse = PutBucketNotificationResponse
 putBucketNotificationResponse :: PutBucketNotificationResponse
 putBucketNotificationResponse = PutBucketNotificationResponse
 

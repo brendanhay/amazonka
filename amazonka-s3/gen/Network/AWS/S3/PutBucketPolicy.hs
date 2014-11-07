@@ -93,6 +93,7 @@ instance ToHeaders PutBucketPolicy where
 instance ToBody PutBucketPolicy where
     toBody = toBody . encodeXML . _pbprPolicy
 
+data PutBucketPolicyResponse = PutBucketPolicyResponse
 putBucketPolicyResponse :: PutBucketPolicyResponse
 putBucketPolicyResponse = PutBucketPolicyResponse
 

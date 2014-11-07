@@ -69,6 +69,7 @@ instance ToQuery DeleteBucket
 
 instance ToHeaders DeleteBucket
 
+data DeleteBucketResponse = DeleteBucketResponse
 deleteBucketResponse :: DeleteBucketResponse
 deleteBucketResponse = DeleteBucketResponse
 

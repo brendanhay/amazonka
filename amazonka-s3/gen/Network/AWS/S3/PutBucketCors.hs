@@ -91,6 +91,7 @@ instance ToHeaders PutBucketCors where
 instance ToBody PutBucketCors where
     toBody = toBody . encodeXML . _pbcrCORSConfiguration
 
+data PutBucketCorsResponse = PutBucketCorsResponse
 putBucketCorsResponse :: PutBucketCorsResponse
 putBucketCorsResponse = PutBucketCorsResponse
 

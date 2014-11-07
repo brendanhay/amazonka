@@ -40,6 +40,7 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
 
+data ListBuckets = ListBuckets
 listBuckets :: ListBuckets
 listBuckets = ListBuckets
 

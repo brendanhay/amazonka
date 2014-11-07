@@ -102,6 +102,7 @@ instance ToHeaders RestoreObject
 instance ToBody RestoreObject where
     toBody = toBody . encodeXML . _rorRestoreRequest
 
+data RestoreObjectResponse = RestoreObjectResponse
 restoreObjectResponse :: RestoreObjectResponse
 restoreObjectResponse = RestoreObjectResponse
 

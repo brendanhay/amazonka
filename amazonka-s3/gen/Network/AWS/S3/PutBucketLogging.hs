@@ -95,6 +95,7 @@ instance ToHeaders PutBucketLogging where
 instance ToBody PutBucketLogging where
     toBody = toBody . encodeXML . _pblr1BucketLoggingStatus
 
+data PutBucketLoggingResponse = PutBucketLoggingResponse
 putBucketLoggingResponse :: PutBucketLoggingResponse
 putBucketLoggingResponse = PutBucketLoggingResponse
 

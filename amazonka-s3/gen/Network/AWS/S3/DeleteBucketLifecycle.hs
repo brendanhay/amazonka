@@ -68,6 +68,7 @@ instance ToQuery DeleteBucketLifecycle where
 
 instance ToHeaders DeleteBucketLifecycle
 
+data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
 deleteBucketLifecycleResponse :: DeleteBucketLifecycleResponse
 deleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
 

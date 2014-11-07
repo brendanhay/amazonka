@@ -166,6 +166,7 @@ instance ToHeaders PutObjectAcl where
 instance ToBody PutObjectAcl where
     toBody = toBody . encodeXML . _poarAccessControlPolicy
 
+data PutObjectAclResponse = PutObjectAclResponse
 putObjectAclResponse :: PutObjectAclResponse
 putObjectAclResponse = PutObjectAclResponse
 

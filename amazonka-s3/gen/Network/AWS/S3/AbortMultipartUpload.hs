@@ -89,6 +89,7 @@ instance ToQuery AbortMultipartUpload where
 
 instance ToHeaders AbortMultipartUpload
 
+data AbortMultipartUploadResponse = AbortMultipartUploadResponse
 abortMultipartUploadResponse :: AbortMultipartUploadResponse
 abortMultipartUploadResponse = AbortMultipartUploadResponse
 

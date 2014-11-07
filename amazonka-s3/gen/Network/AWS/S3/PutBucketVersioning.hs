@@ -105,6 +105,7 @@ instance ToHeaders PutBucketVersioning where
 instance ToBody PutBucketVersioning where
     toBody = toBody . encodeXML . _pbvrVersioningConfiguration
 
+data PutBucketVersioningResponse = PutBucketVersioningResponse
 putBucketVersioningResponse :: PutBucketVersioningResponse
 putBucketVersioningResponse = PutBucketVersioningResponse
 

@@ -68,6 +68,7 @@ instance ToQuery DeleteBucketPolicy where
 
 instance ToHeaders DeleteBucketPolicy
 
+data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse
 deleteBucketPolicyResponse :: DeleteBucketPolicyResponse
 deleteBucketPolicyResponse = DeleteBucketPolicyResponse
 

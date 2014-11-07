@@ -68,6 +68,7 @@ instance ToQuery DeleteBucketWebsite where
 
 instance ToHeaders DeleteBucketWebsite
 
+data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
 deleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse
 deleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
 

@@ -91,6 +91,7 @@ instance ToHeaders PutBucketTagging where
 instance ToBody PutBucketTagging where
     toBody = toBody . encodeXML . _pbtrTagging
 
+data PutBucketTaggingResponse = PutBucketTaggingResponse
 putBucketTaggingResponse :: PutBucketTaggingResponse
 putBucketTaggingResponse = PutBucketTaggingResponse
 

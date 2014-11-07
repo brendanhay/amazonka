@@ -154,6 +154,7 @@ instance ToHeaders PutBucketAcl where
 instance ToBody PutBucketAcl where
     toBody = toBody . encodeXML . _pbarAccessControlPolicy
 
+data PutBucketAclResponse = PutBucketAclResponse
 putBucketAclResponse :: PutBucketAclResponse
 putBucketAclResponse = PutBucketAclResponse
 

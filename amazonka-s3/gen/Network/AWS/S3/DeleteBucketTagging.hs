@@ -68,6 +68,7 @@ instance ToQuery DeleteBucketTagging where
 
 instance ToHeaders DeleteBucketTagging
 
+data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
 deleteBucketTaggingResponse :: DeleteBucketTaggingResponse
 deleteBucketTaggingResponse = DeleteBucketTaggingResponse
 

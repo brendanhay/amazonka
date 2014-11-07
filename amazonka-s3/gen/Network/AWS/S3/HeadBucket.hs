@@ -68,6 +68,7 @@ instance ToQuery HeadBucket
 
 instance ToHeaders HeadBucket
 
+data HeadBucketResponse = HeadBucketResponse
 headBucketResponse :: HeadBucketResponse
 headBucketResponse = HeadBucketResponse
 

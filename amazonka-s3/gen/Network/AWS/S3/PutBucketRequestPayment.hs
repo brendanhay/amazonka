@@ -96,6 +96,7 @@ instance ToHeaders PutBucketRequestPayment where
 instance ToBody PutBucketRequestPayment where
     toBody = toBody . encodeXML . _pbrprRequestPaymentConfiguration
 
+data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 

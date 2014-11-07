@@ -93,6 +93,7 @@ instance ToHeaders PutBucketWebsite where
 instance ToBody PutBucketWebsite where
     toBody = toBody . encodeXML . _pbwrWebsiteConfiguration
 
+data PutBucketWebsiteResponse = PutBucketWebsiteResponse
 putBucketWebsiteResponse :: PutBucketWebsiteResponse
 putBucketWebsiteResponse = PutBucketWebsiteResponse
 

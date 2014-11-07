@@ -93,6 +93,7 @@ instance ToHeaders PutBucketLifecycle where
 instance ToBody PutBucketLifecycle where
     toBody = toBody . encodeXML . _pblrLifecycleConfiguration
 
+data PutBucketLifecycleResponse = PutBucketLifecycleResponse
 putBucketLifecycleResponse :: PutBucketLifecycleResponse
 putBucketLifecycleResponse = PutBucketLifecycleResponse
 

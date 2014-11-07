@@ -140,24 +140,35 @@ dataTypes o a s1 = (sort . Map.elems) `first` runState run s
 prefixes :: HashMap Text Data -> HashMap Text Data
 prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
   where
-    run (k, x) = (k,) <$> go (prefix k) x
+    run (k, x) = (k,) <$> go k (prefix k) x
 
     prefix k = Text.toLower (fromMaybe (Text.take 1 k) (toAcronym k))
 
-    go :: Text -> Data -> State (HashSet Text) Data
-    go k v1
+    names = Set.fromList (Map.keys m)
+
+    go :: Text -> Text -> Data -> State (HashSet Text) Data
+    go n k v1
         | Nullary{} <- v1 = do
             let v2  = mapFieldNames (enumName "") v1
                 v3  = mapFieldNames (enumName k)  v2
+                v4  = mapFieldNames (enumName n)  v1
+
                 fs1 = Set.fromList (fieldNames v2)
                 fs2 = Set.fromList (fieldNames v3)
+                fs3 = Set.fromList (fieldNames v4)
 
-            p1 <- gets (Set.null . Set.intersection fs1)
-            p2 <- gets (Set.null . Set.intersection fs2)
+            s <- get
 
-            if | p1        -> modify (mappend fs1) >> return v2
-               | p2        -> modify (mappend fs2) >> return v3
-               | otherwise -> go (numericSuffix k) v3
+            let p1 = Set.null (Set.intersection fs1 s)
+                p2 = Set.null (Set.intersection fs2 s)
+                p3 = Set.null (Set.intersection fs3 s)
+                p  = Set.null (Set.intersection fs1 names)
+
+            if | p1, p       -> modify (mappend fs1) >> return v2
+               | p2 || not p -> modify (mappend fs2) >> return v3
+               | p3          -> modify (mappend fs3) >> return v4
+               | otherwise   ->
+                   error $ "Unabled to generate enum fields for: " ++ show n
 
         | otherwise       = do
             let v2 = mapFieldNames (mappend k . upperHead) v1
@@ -166,7 +177,7 @@ prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
             p <- gets (Set.null . Set.intersection fs)
 
             if | p         -> modify (mappend fs) >> return v2
-               | otherwise -> go (numericSuffix k) v1
+               | otherwise -> go n (numericSuffix k) v1
 
 operation :: Abbrev
           -> Protocol

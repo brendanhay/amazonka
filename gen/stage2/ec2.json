@@ -519,17 +519,17 @@
                     "Generic"
                 ],
                 "branches": {
-                    "BlockDeviceMapping": "blockDeviceMapping",
-                    "Kernel": "kernel",
-                    "Ramdisk": "ramdisk",
-                    "LaunchPermission": "launchPermission",
-                    "ProductCodes": "productCodes",
-                    "Description": "description"
+                    "IANLaunchPermission": "launchPermission",
+                    "IANProductCodes": "productCodes",
+                    "IANRamdisk": "ramdisk",
+                    "IANKernel": "kernel",
+                    "IANDescription": "description",
+                    "IANBlockDeviceMapping": "blockDeviceMapping"
                 },
                 "valuePad": 19,
                 "name": "ImageAttributeName",
                 "type": "nullary",
-                "branchPad": 18
+                "branchPad": 21
             },
             {
                 "deriving": [
@@ -4180,13 +4180,13 @@
                     "Generic"
                 ],
                 "branches": {
-                    "VS1VSAvailable": "available",
-                    "VS1VSPending": "pending"
+                    "VPCSTATEPending": "pending",
+                    "VPCSTATEAvailable": "available"
                 },
                 "valuePad": 10,
                 "name": "VpcState",
                 "type": "nullary",
-                "branchPad": 14
+                "branchPad": 17
             },
             {
                 "deriving": [
@@ -4197,28 +4197,28 @@
                     "Generic"
                 ],
                 "branches": {
-                    "Snapshot": "snapshot",
-                    "DhcpOptions": "dhcp-options",
-                    "Image": "image",
-                    "Volume": "volume",
-                    "NetworkInterface": "network-interface",
-                    "Subnet": "subnet",
-                    "SecurityGroup": "security-group",
-                    "CustomerGateway": "customer-gateway",
-                    "RouteTable": "route-table",
-                    "Vpc": "vpc",
-                    "VpnGateway": "vpn-gateway",
-                    "NetworkAcl": "network-acl",
-                    "InternetGateway": "internet-gateway",
-                    "SpotInstancesRequest": "spot-instances-request",
-                    "ReservedInstances": "reserved-instances",
-                    "VpnConnection": "vpn-connection",
-                    "Instance": "instance"
+                    "RTSecurityGroup": "security-group",
+                    "RTSnapshot": "snapshot",
+                    "RTSubnet": "subnet",
+                    "RTNetworkInterface": "network-interface",
+                    "RTReservedInstances": "reserved-instances",
+                    "RTVpnConnection": "vpn-connection",
+                    "RTNetworkAcl": "network-acl",
+                    "RTVpnGateway": "vpn-gateway",
+                    "RTDhcpOptions": "dhcp-options",
+                    "RTImage": "image",
+                    "RTInstance": "instance",
+                    "RTCustomerGateway": "customer-gateway",
+                    "RTInternetGateway": "internet-gateway",
+                    "RTSpotInstancesRequest": "spot-instances-request",
+                    "RTVpc": "vpc",
+                    "RTVolume": "volume",
+                    "RTRouteTable": "route-table"
                 },
                 "valuePad": 23,
                 "name": "ResourceType",
                 "type": "nullary",
-                "branchPad": 20
+                "branchPad": 22
             },
             {
                 "deriving": [
@@ -12766,15 +12766,15 @@
                     "Generic"
                 ],
                 "branches": {
-                    "NIAGroupSet": "groupSet",
-                    "NIAAttachment": "attachment",
-                    "NIADescription": "description",
-                    "NIASourceDestCheck": "sourceDestCheck"
+                    "SourceDestCheck": "sourceDestCheck",
+                    "Attachment": "attachment",
+                    "GroupSet": "groupSet",
+                    "Description": "description"
                 },
                 "valuePad": 16,
                 "name": "NetworkInterfaceAttribute",
                 "type": "nullary",
-                "branchPad": 18
+                "branchPad": 15
             },
             {
                 "deriving": [
@@ -12785,14 +12785,14 @@
                     "Generic"
                 ],
                 "branches": {
-                    "ITVKernel": "kernel",
-                    "ITVMachine": "machine",
-                    "ITVRamdisk": "ramdisk"
+                    "Machine": "machine",
+                    "Kernel": "kernel",
+                    "Ramdisk": "ramdisk"
                 },
                 "valuePad": 8,
                 "name": "ImageTypeValues",
                 "type": "nullary",
-                "branchPad": 10
+                "branchPad": 7
             },
             {
                 "deriving": [
@@ -13049,10 +13049,10 @@
                     "Generic"
                 ],
                 "branches": {
-                    "VS2VS1VSAvailable": "available",
-                    "VS2VS1VSDeleted": "deleted",
-                    "VS2VS1VSDeleting": "deleting",
-                    "VS2VS1VSPending": "pending"
+                    "VPNSTATEPending": "pending",
+                    "VPNSTATEAvailable": "available",
+                    "VPNSTATEDeleted": "deleted",
+                    "VPNSTATEDeleting": "deleting"
                 },
                 "valuePad": 10,
                 "name": "VpnState",
@@ -17569,13 +17569,13 @@
                     "Generic"
                 ],
                 "branches": {
-                    "VANProductCodes": "productCodes",
-                    "VANAutoEnableIO": "autoEnableIO"
+                    "ProductCodes": "productCodes",
+                    "AutoEnableIO": "autoEnableIO"
                 },
                 "valuePad": 13,
                 "name": "VolumeAttributeName",
                 "type": "nullary",
-                "branchPad": 15
+                "branchPad": 12
             },
             {
                 "deriving": [
@@ -17930,15 +17930,15 @@
                     "Generic"
                 ],
                 "branches": {
-                    "LS1LSActive": "active",
-                    "LS1LSCancelled": "cancelled",
-                    "LS1LSClosed": "closed",
-                    "LS1LSPending": "pending"
+                    "LISTINGSTATUSClosed": "closed",
+                    "LISTINGSTATUSPending": "pending",
+                    "LISTINGSTATUSActive": "active",
+                    "LISTINGSTATUSCancelled": "cancelled"
                 },
                 "valuePad": 10,
                 "name": "ListingStatus",
                 "type": "nullary",
-                "branchPad": 14
+                "branchPad": 22
             },
             {
                 "deriving": [

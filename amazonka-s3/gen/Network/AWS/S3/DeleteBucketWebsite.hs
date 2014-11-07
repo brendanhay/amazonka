@@ -69,6 +69,10 @@ instance ToQuery DeleteBucketWebsite where
 instance ToHeaders DeleteBucketWebsite
 
 data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
+-- | 'DeleteBucketWebsiteResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
 deleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse
 deleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
 

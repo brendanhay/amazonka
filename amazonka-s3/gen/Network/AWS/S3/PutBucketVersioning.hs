@@ -106,6 +106,10 @@ instance ToBody PutBucketVersioning where
     toBody = toBody . encodeXML . _pbvrVersioningConfiguration
 
 data PutBucketVersioningResponse = PutBucketVersioningResponse
+-- | 'PutBucketVersioningResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
 putBucketVersioningResponse :: PutBucketVersioningResponse
 putBucketVersioningResponse = PutBucketVersioningResponse
 

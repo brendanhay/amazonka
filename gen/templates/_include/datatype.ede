@@ -2,6 +2,7 @@
 {% when "void" %}
 {% when "empty" %}
 data {{ type.name }} = {{ type.name }}
+
 {% when "nullary" %}
 {% include "nullary.ede" %}
 {% else %}

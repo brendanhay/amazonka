@@ -94,6 +94,10 @@ instance ToBody PutBucketLifecycle where
     toBody = toBody . encodeXML . _pblrLifecycleConfiguration
 
 data PutBucketLifecycleResponse = PutBucketLifecycleResponse
+-- | 'PutBucketLifecycleResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
 putBucketLifecycleResponse :: PutBucketLifecycleResponse
 putBucketLifecycleResponse = PutBucketLifecycleResponse
 

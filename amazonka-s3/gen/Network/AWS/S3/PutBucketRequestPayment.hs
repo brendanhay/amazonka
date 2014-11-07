@@ -97,6 +97,10 @@ instance ToBody PutBucketRequestPayment where
     toBody = toBody . encodeXML . _pbrprRequestPaymentConfiguration
 
 data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
+-- | 'PutBucketRequestPaymentResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
 putBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 

@@ -2,17 +2,15 @@
 {% when "void" %}
 {% when "nullary" %}
 {% else %}
-  {% for field in type.fields %}
-    {% if field.first %}
-      {% if type.documentation %}
+  {% if type.documentation %}
 {{ type.documentation | above(74, 0) }}
-      {% else %}
+  {% else %}
 -- | '{{ type.name }}' constructor.
-      {% endif %}
+  {% endif %}
 --
 -- The fields accessible through corresponding lenses are:
 --
-    {% endif %}
+  {% for field in type.fields %}
 -- * '{{ field.value.lens }}' @::@ {{ field.value.typeExposed | highlight }}
 --
   {% endfor %}

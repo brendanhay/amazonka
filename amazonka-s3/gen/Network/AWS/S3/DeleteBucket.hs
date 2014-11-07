@@ -70,6 +70,10 @@ instance ToQuery DeleteBucket
 instance ToHeaders DeleteBucket
 
 data DeleteBucketResponse = DeleteBucketResponse
+-- | 'DeleteBucketResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
 deleteBucketResponse :: DeleteBucketResponse
 deleteBucketResponse = DeleteBucketResponse
 

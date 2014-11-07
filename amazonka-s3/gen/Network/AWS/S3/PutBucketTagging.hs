@@ -92,6 +92,10 @@ instance ToBody PutBucketTagging where
     toBody = toBody . encodeXML . _pbtrTagging
 
 data PutBucketTaggingResponse = PutBucketTaggingResponse
+-- | 'PutBucketTaggingResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
 putBucketTaggingResponse :: PutBucketTaggingResponse
 putBucketTaggingResponse = PutBucketTaggingResponse
 

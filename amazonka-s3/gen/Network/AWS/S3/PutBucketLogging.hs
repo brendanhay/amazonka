@@ -96,6 +96,10 @@ instance ToBody PutBucketLogging where
     toBody = toBody . encodeXML . _pblr1BucketLoggingStatus
 
 data PutBucketLoggingResponse = PutBucketLoggingResponse
+-- | 'PutBucketLoggingResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
 putBucketLoggingResponse :: PutBucketLoggingResponse
 putBucketLoggingResponse = PutBucketLoggingResponse
 

@@ -69,6 +69,10 @@ instance ToQuery HeadBucket
 instance ToHeaders HeadBucket
 
 data HeadBucketResponse = HeadBucketResponse
+-- | 'HeadBucketResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
 headBucketResponse :: HeadBucketResponse
 headBucketResponse = HeadBucketResponse
 

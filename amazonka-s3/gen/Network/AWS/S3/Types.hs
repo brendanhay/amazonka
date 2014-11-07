@@ -2503,26 +2503,26 @@ instance ToXML AccessControlPolicy where
     toXMLRoot    = toRoot "AccessControlPolicy"
 
 data BucketCannedACL
-    = CannedauthenticatedRead -- ^ authenticated-read
-    | Cannedprivate           -- ^ private
-    | CannedpublicRead        -- ^ public-read
-    | CannedpublicReadWrite   -- ^ public-read-write
+    = CannedAuthenticatedRead -- ^ authenticated-read
+    | CannedPrivate           -- ^ private
+    | CannedPublicRead        -- ^ public-read
+    | CannedPublicReadWrite   -- ^ public-read-write
       deriving (Eq, Ord, Enum, Show, Generic)
 
 instance Hashable BucketCannedACL
 
 instance FromText BucketCannedACL where
-    parser = match "authenticated-read" CannedauthenticatedRead
-         <|> match "private"            Cannedprivate
-         <|> match "public-read"        CannedpublicRead
-         <|> match "public-read-write"  CannedpublicReadWrite
+    parser = match "authenticated-read" CannedAuthenticatedRead
+         <|> match "private"            CannedPrivate
+         <|> match "public-read"        CannedPublicRead
+         <|> match "public-read-write"  CannedPublicReadWrite
 
 instance ToText BucketCannedACL where
     toText = \case
-        CannedauthenticatedRead -> "authenticated-read"
-        Cannedprivate           -> "private"
-        CannedpublicRead        -> "public-read"
-        CannedpublicReadWrite   -> "public-read-write"
+        CannedAuthenticatedRead -> "authenticated-read"
+        CannedPrivate           -> "private"
+        CannedPublicRead        -> "public-read"
+        CannedPublicReadWrite   -> "public-read-write"
 
 instance FromXML BucketCannedACL where
     fromXMLOptions = xmlOptions

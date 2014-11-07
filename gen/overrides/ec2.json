@@ -10,6 +10,12 @@
     "typesModules": [
     ],
     "overrides": {
+        "InstanceAttributeName": {
+            "sum_prefix": "Instance"
+        },
+        "ImageAttributeName": {
+            "sum_prefix": "Image"
+        },
         "IpRange": {
             "required": [
                 "CidrIp"

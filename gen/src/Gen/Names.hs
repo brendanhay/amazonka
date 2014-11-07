@@ -28,9 +28,12 @@ import           Text.Parsec.Token    (reservedNames)
 operationName :: Text -> Text
 operationName t = fromMaybe t (Text.stripSuffix "Request" t)
 
-enumName :: Text -> Text -> Text
-enumName k v1 = Text.toUpper k <> toPascal v3
+enumName :: Bool -> Text -> Text -> Text
+enumName u k1 v1 = k2 <> toPascal v3
   where
+    k2 | u         = Text.toUpper k1
+       | otherwise = k1
+
     v3 | Text.all f v2 = Text.toLower v2
        | otherwise     = v2
 

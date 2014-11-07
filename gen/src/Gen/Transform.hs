@@ -149,9 +149,9 @@ prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
     go :: Text -> Text -> Data -> State (HashSet Text) Data
     go n k v1
         | Nullary{} <- v1 = do
-            let v2  = mapFieldNames (enumName "") v1
-                v3  = mapFieldNames (enumName k)  v2
-                v4  = mapFieldNames (enumName n)  v1
+            let v2  = mapFieldNames (enumName False "") v1
+                v3  = mapFieldNames (enumName True  k)  v2
+                v4  = mapFieldNames (enumName False n)  v1
 
                 fs1 = Set.fromList (fieldNames v2)
                 fs2 = Set.fromList (fieldNames v3)
@@ -162,12 +162,14 @@ prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
             let p1 = Set.null (Set.intersection fs1 s)
                 p2 = Set.null (Set.intersection fs2 s)
                 p3 = Set.null (Set.intersection fs3 s)
-                p  = Set.null (Set.intersection fs1 names)
+                d1 = Set.null (Set.intersection fs1 names)
+                d2 = Set.null (Set.intersection fs2 names)
+                d3 = Set.null (Set.intersection fs3 names)
 
-            if | p1, p       -> modify (mappend fs1) >> return v2
-               | p2 || not p -> modify (mappend fs2) >> return v3
-               | p3          -> modify (mappend fs3) >> return v4
-               | otherwise   ->
+            if | p1, d1    -> modify (mappend fs1) >> return v2
+               | p2, d2    -> modify (mappend fs2) >> return v3
+               | p3, d3    -> modify (mappend fs3) >> return v4
+               | otherwise ->
                    error $ "Unabled to generate enum fields for: " ++ show n
 
         | otherwise       = do
@@ -291,7 +293,7 @@ filtered = flip (Map.foldlWithKey' run)
     sumPrefix _ Nothing  = id
     sumPrefix k (Just y) = Map.adjust f k
       where
-        f x@Nullary{} = mapFieldNames (mappend y) x
+        f x@Nullary{} = mapFieldNames (mappend y . upperHead) x
         f x           = x
 
     -- Fields:

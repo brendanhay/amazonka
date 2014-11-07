@@ -519,17 +519,17 @@
                     "Generic"
                 ],
                 "branches": {
-                    "IANLaunchPermission": "launchPermission",
-                    "IANProductCodes": "productCodes",
-                    "IANRamdisk": "ramdisk",
-                    "IANKernel": "kernel",
-                    "IANDescription": "description",
-                    "IANBlockDeviceMapping": "blockDeviceMapping"
+                    "ImageKernel": "kernel",
+                    "ImageBlockDeviceMapping": "blockDeviceMapping",
+                    "ImageRamdisk": "ramdisk",
+                    "ImageProductCodes": "productCodes",
+                    "ImageDescription": "description",
+                    "ImageLaunchPermission": "launchPermission"
                 },
                 "valuePad": 19,
                 "name": "ImageAttributeName",
                 "type": "nullary",
-                "branchPad": 21
+                "branchPad": 23
             },
             {
                 "deriving": [
@@ -4180,8 +4180,8 @@
                     "Generic"
                 ],
                 "branches": {
-                    "VPCSTATEPending": "pending",
-                    "VPCSTATEAvailable": "available"
+                    "VpcStatePending": "pending",
+                    "VpcStateAvailable": "available"
                 },
                 "valuePad": 10,
                 "name": "VpcState",
@@ -13049,10 +13049,10 @@
                     "Generic"
                 ],
                 "branches": {
-                    "VPNSTATEPending": "pending",
-                    "VPNSTATEAvailable": "available",
-                    "VPNSTATEDeleted": "deleted",
-                    "VPNSTATEDeleting": "deleting"
+                    "VpnStatePending": "pending",
+                    "VpnStateAvailable": "available",
+                    "VpnStateDeleted": "deleted",
+                    "VpnStateDeleting": "deleting"
                 },
                 "valuePad": 10,
                 "name": "VpnState",
@@ -13591,24 +13591,24 @@
                     "Generic"
                 ],
                 "branches": {
-                    "IANInstanceInitiatedShutdownBehavior": "instanceInitiatedShutdownBehavior",
-                    "IANProductCodes": "productCodes",
-                    "IANGroupSet": "groupSet",
-                    "IANDisableApiTermination": "disableApiTermination",
-                    "IANSriovNetSupport": "sriovNetSupport",
-                    "IANRootDeviceName": "rootDeviceName",
-                    "IANUserData": "userData",
-                    "IANEbsOptimized": "ebsOptimized",
-                    "IANInstanceType": "instanceType",
-                    "IANRamdisk": "ramdisk",
-                    "IANKernel": "kernel",
-                    "IANBlockDeviceMapping": "blockDeviceMapping",
-                    "IANSourceDestCheck": "sourceDestCheck"
+                    "IANInstanceKernel": "kernel",
+                    "IANInstanceBlockDeviceMapping": "blockDeviceMapping",
+                    "IANInstanceInstanceInitiatedShutdownBehavior": "instanceInitiatedShutdownBehavior",
+                    "IANInstanceSriovNetSupport": "sriovNetSupport",
+                    "IANInstanceRamdisk": "ramdisk",
+                    "IANInstanceDisableApiTermination": "disableApiTermination",
+                    "IANInstanceProductCodes": "productCodes",
+                    "IANInstanceGroupSet": "groupSet",
+                    "IANInstanceSourceDestCheck": "sourceDestCheck",
+                    "IANInstanceEbsOptimized": "ebsOptimized",
+                    "IANInstanceInstanceType": "instanceType",
+                    "IANInstanceUserData": "userData",
+                    "IANInstanceRootDeviceName": "rootDeviceName"
                 },
                 "valuePad": 34,
                 "name": "InstanceAttributeName",
                 "type": "nullary",
-                "branchPad": 36
+                "branchPad": 44
             },
             {
                 "deriving": [
@@ -17930,10 +17930,10 @@
                     "Generic"
                 ],
                 "branches": {
-                    "LISTINGSTATUSClosed": "closed",
-                    "LISTINGSTATUSPending": "pending",
-                    "LISTINGSTATUSActive": "active",
-                    "LISTINGSTATUSCancelled": "cancelled"
+                    "ListingStatusClosed": "closed",
+                    "ListingStatusPending": "pending",
+                    "ListingStatusActive": "active",
+                    "ListingStatusCancelled": "cancelled"
                 },
                 "valuePad": 10,
                 "name": "ListingStatus",

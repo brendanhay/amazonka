@@ -4771,10 +4771,10 @@
                     "Generic"
                 ],
                 "branches": {
-                    "CannedpublicReadWrite": "public-read-write",
-                    "CannedpublicRead": "public-read",
-                    "CannedauthenticatedRead": "authenticated-read",
-                    "Cannedprivate": "private"
+                    "CannedPublicReadWrite": "public-read-write",
+                    "CannedPublicRead": "public-read",
+                    "CannedAuthenticatedRead": "authenticated-read",
+                    "CannedPrivate": "private"
                 },
                 "valuePad": 19,
                 "name": "BucketCannedACL",

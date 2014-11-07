@@ -42,22 +42,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketVersioning = GetBucketVersioning
-    { _gbvrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    { _gbvrBucket :: Text
+    } deriving ()
 
 -- | 'GetBucketVersioning' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbvrBucket' @::@ 'BucketName'
+-- * 'gbvrBucket' @::@ 'Text'
 --
-getBucketVersioning :: BucketName -- ^ 'gbvrBucket'
+getBucketVersioning :: Text -- ^ 'gbvrBucket'
                     -> GetBucketVersioning
 getBucketVersioning p1 = GetBucketVersioning
     { _gbvrBucket = p1
     }
 
-gbvrBucket :: Lens' GetBucketVersioning BucketName
+gbvrBucket :: Lens' GetBucketVersioning Text
 gbvrBucket = lens _gbvrBucket (\s a -> s { _gbvrBucket = a })
 
 instance ToPath GetBucketVersioning where

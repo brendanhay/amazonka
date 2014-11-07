@@ -72,24 +72,24 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data HeadObject = HeadObject
-    { _horBucket               :: BucketName
+    { _horBucket               :: Text
     , _horIfMatch              :: Maybe Text
     , _horIfModifiedSince      :: Maybe RFC822
     , _horIfNoneMatch          :: Maybe Text
     , _horIfUnmodifiedSince    :: Maybe RFC822
-    , _horKey                  :: ObjectKey
+    , _horKey                  :: Text
     , _horRange                :: Maybe Text
     , _horSSECustomerAlgorithm :: Maybe Text
     , _horSSECustomerKey       :: Maybe (Sensitive Text)
     , _horSSECustomerKeyMD5    :: Maybe Text
-    , _horVersionId            :: Maybe ObjectVersionId
-    } deriving (Eq, Show, Generic)
+    , _horVersionId            :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'HeadObject' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'horBucket' @::@ 'BucketName'
+-- * 'horBucket' @::@ 'Text'
 --
 -- * 'horIfMatch' @::@ 'Maybe' 'Text'
 --
@@ -99,7 +99,7 @@ data HeadObject = HeadObject
 --
 -- * 'horIfUnmodifiedSince' @::@ 'Maybe' 'UTCTime'
 --
--- * 'horKey' @::@ 'ObjectKey'
+-- * 'horKey' @::@ 'Text'
 --
 -- * 'horRange' @::@ 'Maybe' 'Text'
 --
@@ -109,10 +109,10 @@ data HeadObject = HeadObject
 --
 -- * 'horSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'horVersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'horVersionId' @::@ 'Maybe' 'Text'
 --
-headObject :: BucketName -- ^ 'horBucket'
-           -> ObjectKey -- ^ 'horKey'
+headObject :: Text -- ^ 'horBucket'
+           -> Text -- ^ 'horKey'
            -> HeadObject
 headObject p1 p2 = HeadObject
     { _horBucket               = p1
@@ -128,7 +128,7 @@ headObject p1 p2 = HeadObject
     , _horSSECustomerKeyMD5    = Nothing
     }
 
-horBucket :: Lens' HeadObject BucketName
+horBucket :: Lens' HeadObject Text
 horBucket = lens _horBucket (\s a -> s { _horBucket = a })
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
@@ -155,7 +155,7 @@ horIfUnmodifiedSince =
     lens _horIfUnmodifiedSince (\s a -> s { _horIfUnmodifiedSince = a })
         . mapping _Time
 
-horKey :: Lens' HeadObject ObjectKey
+horKey :: Lens' HeadObject Text
 horKey = lens _horKey (\s a -> s { _horKey = a })
 
 -- | Downloads the specified range bytes of an object. For more information
@@ -188,7 +188,7 @@ horSSECustomerKeyMD5 =
     lens _horSSECustomerKeyMD5 (\s a -> s { _horSSECustomerKeyMD5 = a })
 
 -- | VersionId used to reference a specific version of the object.
-horVersionId :: Lens' HeadObject (Maybe ObjectVersionId)
+horVersionId :: Lens' HeadObject (Maybe Text)
 horVersionId = lens _horVersionId (\s a -> s { _horVersionId = a })
 
 instance ToPath HeadObject where
@@ -222,7 +222,7 @@ data HeadObjectOutput = HeadObjectOutput
     , _hooContentLength           :: Maybe Int
     , _hooContentType             :: Maybe Text
     , _hooDeleteMarker            :: Maybe Bool
-    , _hooETag                    :: Maybe ETag
+    , _hooETag                    :: Maybe Text
     , _hooExpiration              :: Maybe RFC822
     , _hooExpires                 :: Maybe RFC822
     , _hooLastModified            :: Maybe RFC822
@@ -232,9 +232,9 @@ data HeadObjectOutput = HeadObjectOutput
     , _hooSSECustomerAlgorithm    :: Maybe Text
     , _hooSSECustomerKeyMD5       :: Maybe Text
     , _hooServerSideEncryption    :: Maybe Text
-    , _hooVersionId               :: Maybe ObjectVersionId
+    , _hooVersionId               :: Maybe Text
     , _hooWebsiteRedirectLocation :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'HeadObjectOutput' constructor.
 --
@@ -256,7 +256,7 @@ data HeadObjectOutput = HeadObjectOutput
 --
 -- * 'hooDeleteMarker' @::@ 'Maybe' 'Bool'
 --
--- * 'hooETag' @::@ 'Maybe' 'ETag'
+-- * 'hooETag' @::@ 'Maybe' 'Text'
 --
 -- * 'hooExpiration' @::@ 'Maybe' 'UTCTime'
 --
@@ -276,7 +276,7 @@ data HeadObjectOutput = HeadObjectOutput
 --
 -- * 'hooServerSideEncryption' @::@ 'Maybe' 'Text'
 --
--- * 'hooVersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'hooVersionId' @::@ 'Maybe' 'Text'
 --
 -- * 'hooWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
@@ -344,7 +344,7 @@ hooDeleteMarker = lens _hooDeleteMarker (\s a -> s { _hooDeleteMarker = a })
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL.
-hooETag :: Lens' HeadObjectOutput (Maybe ETag)
+hooETag :: Lens' HeadObjectOutput (Maybe Text)
 hooETag = lens _hooETag (\s a -> s { _hooETag = a })
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the
@@ -403,7 +403,7 @@ hooServerSideEncryption =
     lens _hooServerSideEncryption (\s a -> s { _hooServerSideEncryption = a })
 
 -- | Version of the object.
-hooVersionId :: Lens' HeadObjectOutput (Maybe ObjectVersionId)
+hooVersionId :: Lens' HeadObjectOutput (Maybe Text)
 hooVersionId = lens _hooVersionId (\s a -> s { _hooVersionId = a })
 
 -- | If the bucket is configured as a website, redirects requests for this

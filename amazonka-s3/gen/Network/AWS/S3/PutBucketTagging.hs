@@ -39,22 +39,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketTagging = PutBucketTagging
-    { _pbtrBucket     :: BucketName
+    { _pbtrBucket     :: Text
     , _pbtrContentMD5 :: Maybe Text
     , _pbtrTagging    :: Tagging
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketTagging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbtrBucket' @::@ 'BucketName'
+-- * 'pbtrBucket' @::@ 'Text'
 --
 -- * 'pbtrContentMD5' @::@ 'Maybe' 'Text'
 --
 -- * 'pbtrTagging' @::@ 'Tagging'
 --
-putBucketTagging :: BucketName -- ^ 'pbtrBucket'
+putBucketTagging :: Text -- ^ 'pbtrBucket'
                  -> Tagging -- ^ 'pbtrTagging'
                  -> PutBucketTagging
 putBucketTagging p1 p2 = PutBucketTagging
@@ -63,7 +63,7 @@ putBucketTagging p1 p2 = PutBucketTagging
     , _pbtrContentMD5 = Nothing
     }
 
-pbtrBucket :: Lens' PutBucketTagging BucketName
+pbtrBucket :: Lens' PutBucketTagging Text
 pbtrBucket = lens _pbtrBucket (\s a -> s { _pbtrBucket = a })
 
 pbtrContentMD5 :: Lens' PutBucketTagging (Maybe Text)

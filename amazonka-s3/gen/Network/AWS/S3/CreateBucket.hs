@@ -49,7 +49,7 @@ import Network.AWS.S3.Types
 
 data CreateBucket = CreateBucket
     { _cbrACL                       :: Maybe Text
-    , _cbrBucket                    :: BucketName
+    , _cbrBucket                    :: Text
     , _cbrCreateBucketConfiguration :: Maybe CreateBucketConfiguration
     , _cbrGrantFullControl          :: Maybe Text
     , _cbrGrantRead                 :: Maybe Text
@@ -64,7 +64,7 @@ data CreateBucket = CreateBucket
 --
 -- * 'cbrACL' @::@ 'Maybe' 'Text'
 --
--- * 'cbrBucket' @::@ 'BucketName'
+-- * 'cbrBucket' @::@ 'Text'
 --
 -- * 'cbrCreateBucketConfiguration' @::@ 'Maybe' 'CreateBucketConfiguration'
 --
@@ -78,7 +78,7 @@ data CreateBucket = CreateBucket
 --
 -- * 'cbrGrantWriteACP' @::@ 'Maybe' 'Text'
 --
-createBucket :: BucketName -- ^ 'cbrBucket'
+createBucket :: Text -- ^ 'cbrBucket'
              -> CreateBucket
 createBucket p1 = CreateBucket
     { _cbrBucket                    = p1
@@ -95,7 +95,7 @@ createBucket p1 = CreateBucket
 cbrACL :: Lens' CreateBucket (Maybe Text)
 cbrACL = lens _cbrACL (\s a -> s { _cbrACL = a })
 
-cbrBucket :: Lens' CreateBucket BucketName
+cbrBucket :: Lens' CreateBucket Text
 cbrBucket = lens _cbrBucket (\s a -> s { _cbrBucket = a })
 
 cbrCreateBucketConfiguration :: Lens' CreateBucket (Maybe CreateBucketConfiguration)

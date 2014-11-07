@@ -41,22 +41,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketRequestPayment = GetBucketRequestPayment
-    { _gbrprBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    { _gbrprBucket :: Text
+    } deriving ()
 
 -- | 'GetBucketRequestPayment' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbrprBucket' @::@ 'BucketName'
+-- * 'gbrprBucket' @::@ 'Text'
 --
-getBucketRequestPayment :: BucketName -- ^ 'gbrprBucket'
+getBucketRequestPayment :: Text -- ^ 'gbrprBucket'
                         -> GetBucketRequestPayment
 getBucketRequestPayment p1 = GetBucketRequestPayment
     { _gbrprBucket = p1
     }
 
-gbrprBucket :: Lens' GetBucketRequestPayment BucketName
+gbrprBucket :: Lens' GetBucketRequestPayment Text
 gbrprBucket = lens _gbrprBucket (\s a -> s { _gbrprBucket = a })
 
 instance ToPath GetBucketRequestPayment where

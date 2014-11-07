@@ -39,22 +39,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype DeleteBucket = DeleteBucket
-    { _dbrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    { _dbrBucket :: Text
+    } deriving ()
 
 -- | 'DeleteBucket' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbrBucket' @::@ 'BucketName'
+-- * 'dbrBucket' @::@ 'Text'
 --
-deleteBucket :: BucketName -- ^ 'dbrBucket'
+deleteBucket :: Text -- ^ 'dbrBucket'
              -> DeleteBucket
 deleteBucket p1 = DeleteBucket
     { _dbrBucket = p1
     }
 
-dbrBucket :: Lens' DeleteBucket BucketName
+dbrBucket :: Lens' DeleteBucket Text
 dbrBucket = lens _dbrBucket (\s a -> s { _dbrBucket = a })
 
 instance ToPath DeleteBucket where

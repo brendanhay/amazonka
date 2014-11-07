@@ -45,22 +45,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data DeleteObjects = DeleteObjects
-    { _dorBucket :: BucketName
+    { _dorBucket :: Text
     , _dorDelete :: Delete
     , _dorMFA    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteObjects' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dorBucket' @::@ 'BucketName'
+-- * 'dorBucket' @::@ 'Text'
 --
 -- * 'dorDelete' @::@ 'Delete'
 --
 -- * 'dorMFA' @::@ 'Maybe' 'Text'
 --
-deleteObjects :: BucketName -- ^ 'dorBucket'
+deleteObjects :: Text -- ^ 'dorBucket'
               -> Delete -- ^ 'dorDelete'
               -> DeleteObjects
 deleteObjects p1 p2 = DeleteObjects
@@ -69,7 +69,7 @@ deleteObjects p1 p2 = DeleteObjects
     , _dorMFA    = Nothing
     }
 
-dorBucket :: Lens' DeleteObjects BucketName
+dorBucket :: Lens' DeleteObjects Text
 dorBucket = lens _dorBucket (\s a -> s { _dorBucket = a })
 
 dorDelete :: Lens' DeleteObjects Delete
@@ -98,17 +98,17 @@ instance ToBody DeleteObjects where
     toBody = toBody . encodeXML . _dorDelete
 
 data DeleteObjectsOutput = DeleteObjectsOutput
-    { _dooDeleted :: [DeletedObject]
-    , _dooErrors  :: [Error]
+    { _dooDeleted :: [S3ServiceError]
+    , _dooErrors  :: [S3ServiceError]
     } deriving (Eq, Show, Generic)
 
 -- | 'DeleteObjectsOutput' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dooDeleted' @::@ '[DeletedObject]'
+-- * 'dooDeleted' @::@ '[S3ServiceError]'
 --
--- * 'dooErrors' @::@ '[Error]'
+-- * 'dooErrors' @::@ '[S3ServiceError]'
 --
 deleteObjectsOutput :: DeleteObjectsOutput
 deleteObjectsOutput = DeleteObjectsOutput
@@ -116,10 +116,10 @@ deleteObjectsOutput = DeleteObjectsOutput
     , _dooErrors  = mempty
     }
 
-dooDeleted :: Lens' DeleteObjectsOutput [DeletedObject]
+dooDeleted :: Lens' DeleteObjectsOutput [S3ServiceError]
 dooDeleted = lens _dooDeleted (\s a -> s { _dooDeleted = a })
 
-dooErrors :: Lens' DeleteObjectsOutput [Error]
+dooErrors :: Lens' DeleteObjectsOutput [S3ServiceError]
 dooErrors = lens _dooErrors (\s a -> s { _dooErrors = a })
 
 instance AWSRequest DeleteObjects where

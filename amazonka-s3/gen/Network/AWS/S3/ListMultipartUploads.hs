@@ -57,22 +57,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data ListMultipartUploads = ListMultipartUploads
-    { _lmurBucket         :: BucketName
-    , _lmurDelimiter      :: Maybe Char
+    { _lmurBucket         :: Text
+    , _lmurDelimiter      :: Maybe Text
     , _lmurEncodingType   :: Maybe Text
     , _lmurKeyMarker      :: Maybe Text
     , _lmurMaxUploads     :: Maybe Int
     , _lmurPrefix         :: Maybe Text
     , _lmurUploadIdMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListMultipartUploads' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lmurBucket' @::@ 'BucketName'
+-- * 'lmurBucket' @::@ 'Text'
 --
--- * 'lmurDelimiter' @::@ 'Maybe' 'Char'
+-- * 'lmurDelimiter' @::@ 'Maybe' 'Text'
 --
 -- * 'lmurEncodingType' @::@ 'Maybe' 'Text'
 --
@@ -84,7 +84,7 @@ data ListMultipartUploads = ListMultipartUploads
 --
 -- * 'lmurUploadIdMarker' @::@ 'Maybe' 'Text'
 --
-listMultipartUploads :: BucketName -- ^ 'lmurBucket'
+listMultipartUploads :: Text -- ^ 'lmurBucket'
                      -> ListMultipartUploads
 listMultipartUploads p1 = ListMultipartUploads
     { _lmurBucket         = p1
@@ -96,11 +96,11 @@ listMultipartUploads p1 = ListMultipartUploads
     , _lmurUploadIdMarker = Nothing
     }
 
-lmurBucket :: Lens' ListMultipartUploads BucketName
+lmurBucket :: Lens' ListMultipartUploads Text
 lmurBucket = lens _lmurBucket (\s a -> s { _lmurBucket = a })
 
 -- | Character you use to group keys.
-lmurDelimiter :: Lens' ListMultipartUploads (Maybe Char)
+lmurDelimiter :: Lens' ListMultipartUploads (Maybe Text)
 lmurDelimiter = lens _lmurDelimiter (\s a -> s { _lmurDelimiter = a })
 
 lmurEncodingType :: Lens' ListMultipartUploads (Maybe Text)
@@ -149,7 +149,7 @@ instance ToQuery ListMultipartUploads where
 instance ToHeaders ListMultipartUploads
 
 data ListMultipartUploadsOutput = ListMultipartUploadsOutput
-    { _lmuoBucket             :: Maybe BucketName
+    { _lmuoBucket             :: Maybe Text
     , _lmuoCommonPrefixes     :: [CommonPrefix]
     , _lmuoEncodingType       :: Maybe Text
     , _lmuoIsTruncated        :: Maybe Bool
@@ -166,7 +166,7 @@ data ListMultipartUploadsOutput = ListMultipartUploadsOutput
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lmuoBucket' @::@ 'Maybe' 'BucketName'
+-- * 'lmuoBucket' @::@ 'Maybe' 'Text'
 --
 -- * 'lmuoCommonPrefixes' @::@ '[CommonPrefix]'
 --
@@ -204,7 +204,7 @@ listMultipartUploadsOutput = ListMultipartUploadsOutput
     }
 
 -- | Name of the bucket to which the multipart upload was initiated.
-lmuoBucket :: Lens' ListMultipartUploadsOutput (Maybe BucketName)
+lmuoBucket :: Lens' ListMultipartUploadsOutput (Maybe Text)
 lmuoBucket = lens _lmuoBucket (\s a -> s { _lmuoBucket = a })
 
 lmuoCommonPrefixes :: Lens' ListMultipartUploadsOutput [CommonPrefix]

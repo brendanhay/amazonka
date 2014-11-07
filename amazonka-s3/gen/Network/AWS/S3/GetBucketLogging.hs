@@ -42,22 +42,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketLogging = GetBucketLogging
-    { _gblr2Bucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    { _gblr2Bucket :: Text
+    } deriving ()
 
 -- | 'GetBucketLogging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gblr2Bucket' @::@ 'BucketName'
+-- * 'gblr2Bucket' @::@ 'Text'
 --
-getBucketLogging :: BucketName -- ^ 'gblr2Bucket'
+getBucketLogging :: Text -- ^ 'gblr2Bucket'
                  -> GetBucketLogging
 getBucketLogging p1 = GetBucketLogging
     { _gblr2Bucket = p1
     }
 
-gblr2Bucket :: Lens' GetBucketLogging BucketName
+gblr2Bucket :: Lens' GetBucketLogging Text
 gblr2Bucket = lens _gblr2Bucket (\s a -> s { _gblr2Bucket = a })
 
 instance ToPath GetBucketLogging where

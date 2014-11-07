@@ -41,22 +41,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketPolicy = GetBucketPolicy
-    { _gbprBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    { _gbprBucket :: Text
+    } deriving ()
 
 -- | 'GetBucketPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbprBucket' @::@ 'BucketName'
+-- * 'gbprBucket' @::@ 'Text'
 --
-getBucketPolicy :: BucketName -- ^ 'gbprBucket'
+getBucketPolicy :: Text -- ^ 'gbprBucket'
                 -> GetBucketPolicy
 getBucketPolicy p1 = GetBucketPolicy
     { _gbprBucket = p1
     }
 
-gbprBucket :: Lens' GetBucketPolicy BucketName
+gbprBucket :: Lens' GetBucketPolicy Text
 gbprBucket = lens _gbprBucket (\s a -> s { _gbprBucket = a })
 
 instance ToPath GetBucketPolicy where

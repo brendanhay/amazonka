@@ -38,22 +38,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype HeadBucket = HeadBucket
-    { _hbrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    { _hbrBucket :: Text
+    } deriving ()
 
 -- | 'HeadBucket' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'hbrBucket' @::@ 'BucketName'
+-- * 'hbrBucket' @::@ 'Text'
 --
-headBucket :: BucketName -- ^ 'hbrBucket'
+headBucket :: Text -- ^ 'hbrBucket'
            -> HeadBucket
 headBucket p1 = HeadBucket
     { _hbrBucket = p1
     }
 
-hbrBucket :: Lens' HeadBucket BucketName
+hbrBucket :: Lens' HeadBucket Text
 hbrBucket = lens _hbrBucket (\s a -> s { _hbrBucket = a })
 
 instance ToPath HeadBucket where

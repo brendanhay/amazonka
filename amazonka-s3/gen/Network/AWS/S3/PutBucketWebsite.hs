@@ -39,22 +39,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketWebsite = PutBucketWebsite
-    { _pbwrBucket               :: BucketName
+    { _pbwrBucket               :: Text
     , _pbwrContentMD5           :: Maybe Text
     , _pbwrWebsiteConfiguration :: WebsiteConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketWebsite' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbwrBucket' @::@ 'BucketName'
+-- * 'pbwrBucket' @::@ 'Text'
 --
 -- * 'pbwrContentMD5' @::@ 'Maybe' 'Text'
 --
 -- * 'pbwrWebsiteConfiguration' @::@ 'WebsiteConfiguration'
 --
-putBucketWebsite :: BucketName -- ^ 'pbwrBucket'
+putBucketWebsite :: Text -- ^ 'pbwrBucket'
                  -> WebsiteConfiguration -- ^ 'pbwrWebsiteConfiguration'
                  -> PutBucketWebsite
 putBucketWebsite p1 p2 = PutBucketWebsite
@@ -63,7 +63,7 @@ putBucketWebsite p1 p2 = PutBucketWebsite
     , _pbwrContentMD5           = Nothing
     }
 
-pbwrBucket :: Lens' PutBucketWebsite BucketName
+pbwrBucket :: Lens' PutBucketWebsite Text
 pbwrBucket = lens _pbwrBucket (\s a -> s { _pbwrBucket = a })
 
 pbwrContentMD5 :: Lens' PutBucketWebsite (Maybe Text)

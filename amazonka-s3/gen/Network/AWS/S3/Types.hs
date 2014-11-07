@@ -480,7 +480,7 @@ instance ToXML Event where
 
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
     { _nveNoncurrentDays :: Int
-    } deriving (Eq, Ord, Show, Generic, Enum, Num)
+    } deriving ()
 
 -- | 'NoncurrentVersionExpiration' constructor.
 --
@@ -558,10 +558,10 @@ instance ToXML Transition where
 
 data DeleteMarkerEntry = DeleteMarkerEntry
     { _dmeIsLatest     :: Maybe Bool
-    , _dmeKey          :: Maybe ObjectKey
+    , _dmeKey          :: Maybe Text
     , _dmeLastModified :: Maybe RFC822
     , _dmeOwner        :: Maybe Owner
-    , _dmeVersionId    :: Maybe ObjectVersionId
+    , _dmeVersionId    :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DeleteMarkerEntry' constructor.
@@ -570,13 +570,13 @@ data DeleteMarkerEntry = DeleteMarkerEntry
 --
 -- * 'dmeIsLatest' @::@ 'Maybe' 'Bool'
 --
--- * 'dmeKey' @::@ 'Maybe' 'ObjectKey'
+-- * 'dmeKey' @::@ 'Maybe' 'Text'
 --
 -- * 'dmeLastModified' @::@ 'Maybe' 'UTCTime'
 --
 -- * 'dmeOwner' @::@ 'Maybe' 'Owner'
 --
--- * 'dmeVersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'dmeVersionId' @::@ 'Maybe' 'Text'
 --
 deleteMarkerEntry :: DeleteMarkerEntry
 deleteMarkerEntry = DeleteMarkerEntry
@@ -593,7 +593,7 @@ dmeIsLatest :: Lens' DeleteMarkerEntry (Maybe Bool)
 dmeIsLatest = lens _dmeIsLatest (\s a -> s { _dmeIsLatest = a })
 
 -- | The object key.
-dmeKey :: Lens' DeleteMarkerEntry (Maybe ObjectKey)
+dmeKey :: Lens' DeleteMarkerEntry (Maybe Text)
 dmeKey = lens _dmeKey (\s a -> s { _dmeKey = a })
 
 -- | Date and time the object was last modified.
@@ -605,7 +605,7 @@ dmeOwner :: Lens' DeleteMarkerEntry (Maybe Owner)
 dmeOwner = lens _dmeOwner (\s a -> s { _dmeOwner = a })
 
 -- | Version ID of an object.
-dmeVersionId :: Lens' DeleteMarkerEntry (Maybe ObjectVersionId)
+dmeVersionId :: Lens' DeleteMarkerEntry (Maybe Text)
 dmeVersionId = lens _dmeVersionId (\s a -> s { _dmeVersionId = a })
 
 instance FromXML DeleteMarkerEntry where
@@ -641,17 +641,17 @@ instance ToXML ExpirationStatus where
     toXMLRoot    = toRoot "ExpirationStatus"
 
 data Part = Part
-    { _pETag         :: Maybe ETag
+    { _pETag         :: Maybe Text
     , _pLastModified :: Maybe RFC822
     , _pPartNumber   :: Maybe Int
     , _pSize         :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Part' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pETag' @::@ 'Maybe' 'ETag'
+-- * 'pETag' @::@ 'Maybe' 'Text'
 --
 -- * 'pLastModified' @::@ 'Maybe' 'UTCTime'
 --
@@ -668,7 +668,7 @@ part = Part
     }
 
 -- | Entity tag returned when the part was uploaded.
-pETag :: Lens' Part (Maybe ETag)
+pETag :: Lens' Part (Maybe Text)
 pETag = lens _pETag (\s a -> s { _pETag = a })
 
 -- | Date and time at which the part was uploaded.
@@ -731,19 +731,19 @@ instance ToXML VersioningConfiguration where
     toXMLRoot    = toRoot "VersioningConfiguration"
 
 data Tag = Tag
-    { _tKey   :: ObjectKey
+    { _tKey   :: Text
     , _tValue :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving ()
 
 -- | 'Tag' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tKey' @::@ 'ObjectKey'
+-- * 'tKey' @::@ 'Text'
 --
 -- * 'tValue' @::@ 'Text'
 --
-tag :: ObjectKey -- ^ 'tKey'
+tag :: Text -- ^ 'tKey'
     -> Text -- ^ 'tValue'
     -> Tag
 tag p1 p2 = Tag
@@ -752,7 +752,7 @@ tag p1 p2 = Tag
     }
 
 -- | Name of the tag.
-tKey :: Lens' Tag ObjectKey
+tKey :: Lens' Tag Text
 tKey = lens _tKey (\s a -> s { _tKey = a })
 
 -- | Value of the tag.
@@ -899,7 +899,7 @@ instance ToXML RoutingRule where
 
 newtype NotificationConfiguration = NotificationConfiguration
     { _ncTopicConfiguration :: TopicConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving ()
 
 -- | 'NotificationConfiguration' constructor.
 --
@@ -927,10 +927,10 @@ instance ToXML NotificationConfiguration where
 
 data S3ServiceError = S3ServiceError
     { _sseCode      :: Maybe Text
-    , _sseKey       :: Maybe ObjectKey
+    , _sseKey       :: Maybe Text
     , _sseMessage   :: Maybe Text
-    , _sseVersionId :: Maybe ObjectVersionId
-    } deriving (Eq, Show, Generic)
+    , _sseVersionId :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'S3ServiceError' constructor.
 --
@@ -938,11 +938,11 @@ data S3ServiceError = S3ServiceError
 --
 -- * 'sseCode' @::@ 'Maybe' 'Text'
 --
--- * 'sseKey' @::@ 'Maybe' 'ObjectKey'
+-- * 'sseKey' @::@ 'Maybe' 'Text'
 --
 -- * 'sseMessage' @::@ 'Maybe' 'Text'
 --
--- * 'sseVersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'sseVersionId' @::@ 'Maybe' 'Text'
 --
 s3ServiceError :: S3ServiceError
 s3ServiceError = S3ServiceError
@@ -955,13 +955,13 @@ s3ServiceError = S3ServiceError
 sseCode :: Lens' S3ServiceError (Maybe Text)
 sseCode = lens _sseCode (\s a -> s { _sseCode = a })
 
-sseKey :: Lens' S3ServiceError (Maybe ObjectKey)
+sseKey :: Lens' S3ServiceError (Maybe Text)
 sseKey = lens _sseKey (\s a -> s { _sseKey = a })
 
 sseMessage :: Lens' S3ServiceError (Maybe Text)
 sseMessage = lens _sseMessage (\s a -> s { _sseMessage = a })
 
-sseVersionId :: Lens' S3ServiceError (Maybe ObjectVersionId)
+sseVersionId :: Lens' S3ServiceError (Maybe Text)
 sseVersionId = lens _sseVersionId (\s a -> s { _sseVersionId = a })
 
 instance FromXML S3ServiceError where
@@ -1035,9 +1035,9 @@ instance ToXML BucketVersioningStatus where
 data DeletedObject = DeletedObject
     { _doDeleteMarker          :: Maybe Bool
     , _doDeleteMarkerVersionId :: Maybe Text
-    , _doKey                   :: Maybe ObjectKey
-    , _doVersionId             :: Maybe ObjectVersionId
-    } deriving (Eq, Show, Generic)
+    , _doKey                   :: Maybe Text
+    , _doVersionId             :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeletedObject' constructor.
 --
@@ -1047,9 +1047,9 @@ data DeletedObject = DeletedObject
 --
 -- * 'doDeleteMarkerVersionId' @::@ 'Maybe' 'Text'
 --
--- * 'doKey' @::@ 'Maybe' 'ObjectKey'
+-- * 'doKey' @::@ 'Maybe' 'Text'
 --
--- * 'doVersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'doVersionId' @::@ 'Maybe' 'Text'
 --
 deletedObject :: DeletedObject
 deletedObject = DeletedObject
@@ -1066,10 +1066,10 @@ doDeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
 doDeleteMarkerVersionId =
     lens _doDeleteMarkerVersionId (\s a -> s { _doDeleteMarkerVersionId = a })
 
-doKey :: Lens' DeletedObject (Maybe ObjectKey)
+doKey :: Lens' DeletedObject (Maybe Text)
 doKey = lens _doKey (\s a -> s { _doKey = a })
 
-doVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
+doVersionId :: Lens' DeletedObject (Maybe Text)
 doVersionId = lens _doVersionId (\s a -> s { _doVersionId = a })
 
 instance FromXML DeletedObject where
@@ -1102,15 +1102,15 @@ instance ToXML ObjectVersionStorageClass where
     toXMLRoot    = toRoot "ObjectVersionStorageClass"
 
 data CopyPartResult = CopyPartResult
-    { _cprETag         :: Maybe ETag
+    { _cprETag         :: Maybe Text
     , _cprLastModified :: Maybe RFC822
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CopyPartResult' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cprETag' @::@ 'Maybe' 'ETag'
+-- * 'cprETag' @::@ 'Maybe' 'Text'
 --
 -- * 'cprLastModified' @::@ 'Maybe' 'UTCTime'
 --
@@ -1121,7 +1121,7 @@ copyPartResult = CopyPartResult
     }
 
 -- | Entity tag of the object.
-cprETag :: Lens' CopyPartResult (Maybe ETag)
+cprETag :: Lens' CopyPartResult (Maybe Text)
 cprETag = lens _cprETag (\s a -> s { _cprETag = a })
 
 -- | Date and time at which the object was uploaded.
@@ -1160,7 +1160,7 @@ instance ToXML EncodingType where
 
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration
     { _rpcPayer :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving ()
 
 -- | 'RequestPaymentConfiguration' constructor.
 --
@@ -1306,7 +1306,7 @@ instance ToXML WebsiteConfiguration where
 data NoncurrentVersionTransition = NoncurrentVersionTransition
     { _nvtNoncurrentDays :: Int
     , _nvtStorageClass   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving ()
 
 -- | 'NoncurrentVersionTransition' constructor.
 --
@@ -1381,19 +1381,19 @@ instance ToXML Initiator where
     toXMLRoot    = toRoot "Initiator"
 
 data ObjectIdentifier = ObjectIdentifier
-    { _oiKey       :: ObjectKey
-    , _oiVersionId :: Maybe ObjectVersionId
-    } deriving (Eq, Show, Generic)
+    { _oiKey       :: Text
+    , _oiVersionId :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ObjectIdentifier' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'oiKey' @::@ 'ObjectKey'
+-- * 'oiKey' @::@ 'Text'
 --
--- * 'oiVersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'oiVersionId' @::@ 'Maybe' 'Text'
 --
-objectIdentifier :: ObjectKey -- ^ 'oiKey'
+objectIdentifier :: Text -- ^ 'oiKey'
                  -> ObjectIdentifier
 objectIdentifier p1 = ObjectIdentifier
     { _oiKey       = p1
@@ -1401,11 +1401,11 @@ objectIdentifier p1 = ObjectIdentifier
     }
 
 -- | Key name of the object to delete.
-oiKey :: Lens' ObjectIdentifier ObjectKey
+oiKey :: Lens' ObjectIdentifier Text
 oiKey = lens _oiKey (\s a -> s { _oiKey = a })
 
 -- | VersionId for the specific version of the object to delete.
-oiVersionId :: Lens' ObjectIdentifier (Maybe ObjectVersionId)
+oiVersionId :: Lens' ObjectIdentifier (Maybe Text)
 oiVersionId = lens _oiVersionId (\s a -> s { _oiVersionId = a })
 
 instance FromXML ObjectIdentifier where
@@ -1418,8 +1418,8 @@ instance ToXML ObjectIdentifier where
 
 data Bucket = Bucket
     { _bCreationDate :: Maybe RFC822
-    , _bName         :: Maybe BucketName
-    } deriving (Eq, Show, Generic)
+    , _bName         :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Bucket' constructor.
 --
@@ -1427,7 +1427,7 @@ data Bucket = Bucket
 --
 -- * 'bCreationDate' @::@ 'Maybe' 'UTCTime'
 --
--- * 'bName' @::@ 'Maybe' 'BucketName'
+-- * 'bName' @::@ 'Maybe' 'Text'
 --
 bucket :: Bucket
 bucket = Bucket
@@ -1441,7 +1441,7 @@ bCreationDate = lens _bCreationDate (\s a -> s { _bCreationDate = a })
     . mapping _Time
 
 -- | The name of the bucket.
-bName :: Lens' Bucket (Maybe BucketName)
+bName :: Lens' Bucket (Maybe Text)
 bName = lens _bName (\s a -> s { _bName = a })
 
 instance FromXML Bucket where
@@ -1686,23 +1686,23 @@ instance ToXML BucketLoggingStatus where
     toXMLRoot    = toRoot "BucketLoggingStatus"
 
 newtype ErrorDocument = ErrorDocument
-    { _edKey :: ObjectKey
-    } deriving (Eq, Show, Generic)
+    { _edKey :: Text
+    } deriving ()
 
 -- | 'ErrorDocument' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'edKey' @::@ 'ObjectKey'
+-- * 'edKey' @::@ 'Text'
 --
-errorDocument :: ObjectKey -- ^ 'edKey'
+errorDocument :: Text -- ^ 'edKey'
               -> ErrorDocument
 errorDocument p1 = ErrorDocument
     { _edKey = p1
     }
 
 -- | The object key name to use when a 4XX class error occurs.
-edKey :: Lens' ErrorDocument ObjectKey
+edKey :: Lens' ErrorDocument Text
 edKey = lens _edKey (\s a -> s { _edKey = a })
 
 instance FromXML ErrorDocument where
@@ -1738,25 +1738,25 @@ instance ToXML StorageClass where
     toXMLRoot    = toRoot "StorageClass"
 
 data ObjectVersion = ObjectVersion
-    { _ovETag         :: Maybe ETag
+    { _ovETag         :: Maybe Text
     , _ovIsLatest     :: Maybe Bool
-    , _ovKey          :: Maybe ObjectKey
+    , _ovKey          :: Maybe Text
     , _ovLastModified :: Maybe RFC822
     , _ovOwner        :: Maybe Owner
     , _ovSize         :: Maybe Int
     , _ovStorageClass :: Maybe Text
-    , _ovVersionId    :: Maybe ObjectVersionId
+    , _ovVersionId    :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 -- | 'ObjectVersion' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ovETag' @::@ 'Maybe' 'ETag'
+-- * 'ovETag' @::@ 'Maybe' 'Text'
 --
 -- * 'ovIsLatest' @::@ 'Maybe' 'Bool'
 --
--- * 'ovKey' @::@ 'Maybe' 'ObjectKey'
+-- * 'ovKey' @::@ 'Maybe' 'Text'
 --
 -- * 'ovLastModified' @::@ 'Maybe' 'UTCTime'
 --
@@ -1766,7 +1766,7 @@ data ObjectVersion = ObjectVersion
 --
 -- * 'ovStorageClass' @::@ 'Maybe' 'Text'
 --
--- * 'ovVersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'ovVersionId' @::@ 'Maybe' 'Text'
 --
 objectVersion :: ObjectVersion
 objectVersion = ObjectVersion
@@ -1780,7 +1780,7 @@ objectVersion = ObjectVersion
     , _ovOwner        = Nothing
     }
 
-ovETag :: Lens' ObjectVersion (Maybe ETag)
+ovETag :: Lens' ObjectVersion (Maybe Text)
 ovETag = lens _ovETag (\s a -> s { _ovETag = a })
 
 -- | Specifies whether the object is (true) or is not (false) the latest
@@ -1789,7 +1789,7 @@ ovIsLatest :: Lens' ObjectVersion (Maybe Bool)
 ovIsLatest = lens _ovIsLatest (\s a -> s { _ovIsLatest = a })
 
 -- | The object key.
-ovKey :: Lens' ObjectVersion (Maybe ObjectKey)
+ovKey :: Lens' ObjectVersion (Maybe Text)
 ovKey = lens _ovKey (\s a -> s { _ovKey = a })
 
 -- | Date and time the object was last modified.
@@ -1809,7 +1809,7 @@ ovStorageClass :: Lens' ObjectVersion (Maybe Text)
 ovStorageClass = lens _ovStorageClass (\s a -> s { _ovStorageClass = a })
 
 -- | Version ID of an object.
-ovVersionId :: Lens' ObjectVersion (Maybe ObjectVersionId)
+ovVersionId :: Lens' ObjectVersion (Maybe Text)
 ovVersionId = lens _ovVersionId (\s a -> s { _ovVersionId = a })
 
 instance FromXML ObjectVersion where
@@ -2000,15 +2000,15 @@ instance ToXML BucketLogsPermission where
     toXMLRoot    = toRoot "BucketLogsPermission"
 
 data CompletedPart = CompletedPart
-    { _cpETag       :: Maybe ETag
+    { _cpETag       :: Maybe Text
     , _cpPartNumber :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CompletedPart' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpETag' @::@ 'Maybe' 'ETag'
+-- * 'cpETag' @::@ 'Maybe' 'Text'
 --
 -- * 'cpPartNumber' @::@ 'Maybe' 'Int'
 --
@@ -2019,7 +2019,7 @@ completedPart = CompletedPart
     }
 
 -- | Entity tag returned when the part was uploaded.
-cpETag :: Lens' CompletedPart (Maybe ETag)
+cpETag :: Lens' CompletedPart (Maybe Text)
 cpETag = lens _cpETag (\s a -> s { _cpETag = a })
 
 -- | Part number that identifies the part.
@@ -2035,14 +2035,14 @@ instance ToXML CompletedPart where
     toXMLRoot    = toRoot "CompletedPart"
 
 newtype CreateBucketConfiguration = CreateBucketConfiguration
-    { _cbcLocationConstraint :: Maybe Region
-    } deriving (Eq, Show, Generic)
+    { _cbcLocationConstraint :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateBucketConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cbcLocationConstraint' @::@ 'Maybe' 'Region'
+-- * 'cbcLocationConstraint' @::@ 'Maybe' 'Text'
 --
 createBucketConfiguration :: CreateBucketConfiguration
 createBucketConfiguration = CreateBucketConfiguration
@@ -2050,7 +2050,7 @@ createBucketConfiguration = CreateBucketConfiguration
     }
 
 -- | Specifies the region where the bucket will be created.
-cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe Region)
+cbcLocationConstraint :: Lens' CreateBucketConfiguration (Maybe Text)
 cbcLocationConstraint =
     lens _cbcLocationConstraint (\s a -> s { _cbcLocationConstraint = a })
 
@@ -2064,7 +2064,7 @@ instance ToXML CreateBucketConfiguration where
 
 newtype Tagging = Tagging
     { _tTagSet :: [Tag]
-    } deriving (Eq, Show, Generic, Monoid)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Tagging' constructor.
 --
@@ -2128,7 +2128,7 @@ instance ToXML LifecycleExpiration where
 
 newtype CORSConfiguration = CORSConfiguration
     { _corscCORSRules :: [CORSRule]
-    } deriving (Eq, Show, Generic, Monoid)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CORSConfiguration' constructor.
 --
@@ -2153,21 +2153,21 @@ instance ToXML CORSConfiguration where
     toXMLRoot    = toRoot "CORSConfiguration"
 
 data Object = Object
-    { _oETag         :: ETag
-    , _oKey          :: ObjectKey
+    { _oETag         :: Text
+    , _oKey          :: Text
     , _oLastModified :: RFC822
     , _oOwner        :: Owner
     , _oSize         :: Int
     , _oStorageClass :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving ()
 
 -- | 'Object' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'oETag' @::@ 'ETag'
+-- * 'oETag' @::@ 'Text'
 --
--- * 'oKey' @::@ 'ObjectKey'
+-- * 'oKey' @::@ 'Text'
 --
 -- * 'oLastModified' @::@ 'UTCTime'
 --
@@ -2177,9 +2177,9 @@ data Object = Object
 --
 -- * 'oStorageClass' @::@ 'Text'
 --
-object :: ObjectKey -- ^ 'oKey'
+object :: Text -- ^ 'oKey'
        -> UTCTime -- ^ 'oLastModified'
-       -> ETag -- ^ 'oETag'
+       -> Text -- ^ 'oETag'
        -> Int -- ^ 'oSize'
        -> Text -- ^ 'oStorageClass'
        -> Owner -- ^ 'oOwner'
@@ -2193,10 +2193,10 @@ object p1 p2 p3 p4 p5 p6 = Object
     , _oOwner        = p6
     }
 
-oETag :: Lens' Object ETag
+oETag :: Lens' Object Text
 oETag = lens _oETag (\s a -> s { _oETag = a })
 
-oKey :: Lens' Object ObjectKey
+oKey :: Lens' Object Text
 oKey = lens _oKey (\s a -> s { _oKey = a })
 
 oLastModified :: Lens' Object UTCTime
@@ -2250,7 +2250,7 @@ instance ToXML CommonPrefix where
 data MultipartUpload = MultipartUpload
     { _muInitiated    :: Maybe RFC822
     , _muInitiator    :: Maybe Initiator
-    , _muKey          :: Maybe ObjectKey
+    , _muKey          :: Maybe Text
     , _muOwner        :: Maybe Owner
     , _muStorageClass :: Maybe Text
     , _muUploadId     :: Maybe Text
@@ -2264,7 +2264,7 @@ data MultipartUpload = MultipartUpload
 --
 -- * 'muInitiator' @::@ 'Maybe' 'Initiator'
 --
--- * 'muKey' @::@ 'Maybe' 'ObjectKey'
+-- * 'muKey' @::@ 'Maybe' 'Text'
 --
 -- * 'muOwner' @::@ 'Maybe' 'Owner'
 --
@@ -2292,7 +2292,7 @@ muInitiator :: Lens' MultipartUpload (Maybe Initiator)
 muInitiator = lens _muInitiator (\s a -> s { _muInitiator = a })
 
 -- | Key of the object for which the multipart upload was initiated.
-muKey :: Lens' MultipartUpload (Maybe ObjectKey)
+muKey :: Lens' MultipartUpload (Maybe Text)
 muKey = lens _muKey (\s a -> s { _muKey = a })
 
 muOwner :: Lens' MultipartUpload (Maybe Owner)
@@ -2364,7 +2364,7 @@ instance ToXML TransitionStorageClass where
 
 newtype CompletedMultipartUpload = CompletedMultipartUpload
     { _cmuParts :: [CompletedPart]
-    } deriving (Eq, Show, Generic, Monoid)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CompletedMultipartUpload' constructor.
 --
@@ -2618,7 +2618,7 @@ instance ToXML Grantee where
 
 newtype LifecycleConfiguration = LifecycleConfiguration
     { _lcRules :: [Rule]
-    } deriving (Eq, Show, Generic, Monoid)
+    } deriving (Eq, Show, Generic)
 
 -- | 'LifecycleConfiguration' constructor.
 --
@@ -2713,7 +2713,7 @@ instance ToXML ServerSideEncryption where
 
 newtype IndexDocument = IndexDocument
     { _idSuffix :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving ()
 
 -- | 'IndexDocument' constructor.
 --
@@ -2744,15 +2744,15 @@ instance ToXML IndexDocument where
     toXMLRoot    = toRoot "IndexDocument"
 
 data CopyObjectResult = CopyObjectResult
-    { _corETag         :: Maybe ETag
+    { _corETag         :: Maybe Text
     , _corLastModified :: Maybe RFC822
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CopyObjectResult' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'corETag' @::@ 'Maybe' 'ETag'
+-- * 'corETag' @::@ 'Maybe' 'Text'
 --
 -- * 'corLastModified' @::@ 'Maybe' 'UTCTime'
 --
@@ -2762,7 +2762,7 @@ copyObjectResult = CopyObjectResult
     , _corLastModified = Nothing
     }
 
-corETag :: Lens' CopyObjectResult (Maybe ETag)
+corETag :: Lens' CopyObjectResult (Maybe Text)
 corETag = lens _corETag (\s a -> s { _corETag = a })
 
 corLastModified :: Lens' CopyObjectResult (Maybe UTCTime)
@@ -2814,7 +2814,7 @@ instance ToXML Delete where
 
 newtype RestoreRequest = RestoreRequest
     { _rrDays :: Int
-    } deriving (Eq, Ord, Show, Generic, Enum, Num)
+    } deriving ()
 
 -- | 'RestoreRequest' constructor.
 --

@@ -249,14 +249,16 @@ typeDefault t
 class HasType a where
     typeOf :: Lens' a Type
 
-class TypesOf a where
-    typesOf :: a -> [Type]
-
-instance TypesOf a => TypesOf [a] where
-    typesOf = nub . concatMap typesOf
-
-instance TypesOf Type where
-    typesOf = (:[])
+typesOf :: HasType a => Traversal' a Type
+typesOf = typeOf . go
+  where
+    go f = \case
+        TList      x   -> TList      <$> f x
+        TList1     x   -> TList1     <$> f x
+        TMap       k v -> TMap       <$> f k <*> f v
+        TMaybe     x   -> TMaybe     <$> f x
+        TSensitive x   -> TSensitive <$> f x
+        t              -> pure t
 
 instance DerivingOf Type where
     derivingOf = \case
@@ -330,9 +332,6 @@ instance HasName Field where
 instance HasType Field where
     typeOf = fType
 
-instance TypesOf Field where
-    typesOf = (:[]) . _fType
-
 data Data
     = Nullary !Text (HashMap Text Text)
     | Newtype !Text !Field
@@ -403,19 +402,14 @@ instance ToJSON Data where
                 pay        = find isPayload fs
 
 instance DerivingOf Data where
-    derivingOf d = f (derivingOf (typesOf d))
+    derivingOf d = f . derivingOf $ nestedTypes d
       where
         f | Newtype{} <- d = id
           | Nullary{} <- d = const [Eq', Ord', Enum', Show', Generic']
           | otherwise      = delete Monoid'
 
-instance TypesOf Data where
-    typesOf = \case
-        Newtype _ f  -> typesOf f
-        Record  _ fs -> typesOf fs
-        Product _ fs -> fs
-        Nullary _ _  -> []
-        Empty        -> []
+nestedTypes :: Data -> [Type]
+nestedTypes = toListOf (dataFields . typesOf)
 
 dataFields :: Traversal' Data Field
 dataFields f = \case

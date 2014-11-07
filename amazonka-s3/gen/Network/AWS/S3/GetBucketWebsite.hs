@@ -44,22 +44,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketWebsite = GetBucketWebsite
-    { _gbwrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    { _gbwrBucket :: Text
+    } deriving ()
 
 -- | 'GetBucketWebsite' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbwrBucket' @::@ 'BucketName'
+-- * 'gbwrBucket' @::@ 'Text'
 --
-getBucketWebsite :: BucketName -- ^ 'gbwrBucket'
+getBucketWebsite :: Text -- ^ 'gbwrBucket'
                  -> GetBucketWebsite
 getBucketWebsite p1 = GetBucketWebsite
     { _gbwrBucket = p1
     }
 
-gbwrBucket :: Lens' GetBucketWebsite BucketName
+gbwrBucket :: Lens' GetBucketWebsite Text
 gbwrBucket = lens _gbwrBucket (\s a -> s { _gbwrBucket = a })
 
 instance ToPath GetBucketWebsite where

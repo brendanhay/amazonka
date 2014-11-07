@@ -58,22 +58,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data ListObjectVersions = ListObjectVersions
-    { _lovrBucket          :: BucketName
-    , _lovrDelimiter       :: Maybe Char
+    { _lovrBucket          :: Text
+    , _lovrDelimiter       :: Maybe Text
     , _lovrEncodingType    :: Maybe Text
     , _lovrKeyMarker       :: Maybe Text
     , _lovrMaxKeys         :: Maybe Int
     , _lovrPrefix          :: Maybe Text
     , _lovrVersionIdMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListObjectVersions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lovrBucket' @::@ 'BucketName'
+-- * 'lovrBucket' @::@ 'Text'
 --
--- * 'lovrDelimiter' @::@ 'Maybe' 'Char'
+-- * 'lovrDelimiter' @::@ 'Maybe' 'Text'
 --
 -- * 'lovrEncodingType' @::@ 'Maybe' 'Text'
 --
@@ -85,7 +85,7 @@ data ListObjectVersions = ListObjectVersions
 --
 -- * 'lovrVersionIdMarker' @::@ 'Maybe' 'Text'
 --
-listObjectVersions :: BucketName -- ^ 'lovrBucket'
+listObjectVersions :: Text -- ^ 'lovrBucket'
                    -> ListObjectVersions
 listObjectVersions p1 = ListObjectVersions
     { _lovrBucket          = p1
@@ -97,11 +97,11 @@ listObjectVersions p1 = ListObjectVersions
     , _lovrVersionIdMarker = Nothing
     }
 
-lovrBucket :: Lens' ListObjectVersions BucketName
+lovrBucket :: Lens' ListObjectVersions Text
 lovrBucket = lens _lovrBucket (\s a -> s { _lovrBucket = a })
 
 -- | A delimiter is a character you use to group keys.
-lovrDelimiter :: Lens' ListObjectVersions (Maybe Char)
+lovrDelimiter :: Lens' ListObjectVersions (Maybe Text)
 lovrDelimiter = lens _lovrDelimiter (\s a -> s { _lovrDelimiter = a })
 
 lovrEncodingType :: Lens' ListObjectVersions (Maybe Text)
@@ -151,7 +151,7 @@ data ListObjectVersionsOutput = ListObjectVersionsOutput
     , _lovoIsTruncated         :: Maybe Bool
     , _lovoKeyMarker           :: Maybe Text
     , _lovoMaxKeys             :: Maybe Int
-    , _lovoName                :: Maybe BucketName
+    , _lovoName                :: Maybe Text
     , _lovoNextKeyMarker       :: Maybe Text
     , _lovoNextVersionIdMarker :: Maybe Text
     , _lovoPrefix              :: Maybe Text
@@ -175,7 +175,7 @@ data ListObjectVersionsOutput = ListObjectVersionsOutput
 --
 -- * 'lovoMaxKeys' @::@ 'Maybe' 'Int'
 --
--- * 'lovoName' @::@ 'Maybe' 'BucketName'
+-- * 'lovoName' @::@ 'Maybe' 'Text'
 --
 -- * 'lovoNextKeyMarker' @::@ 'Maybe' 'Text'
 --
@@ -230,7 +230,7 @@ lovoKeyMarker = lens _lovoKeyMarker (\s a -> s { _lovoKeyMarker = a })
 lovoMaxKeys :: Lens' ListObjectVersionsOutput (Maybe Int)
 lovoMaxKeys = lens _lovoMaxKeys (\s a -> s { _lovoMaxKeys = a })
 
-lovoName :: Lens' ListObjectVersionsOutput (Maybe BucketName)
+lovoName :: Lens' ListObjectVersionsOutput (Maybe Text)
 lovoName = lens _lovoName (\s a -> s { _lovoName = a })
 
 -- | Use this value for the key marker request parameter in a subsequent

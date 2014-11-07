@@ -70,7 +70,7 @@ import Network.AWS.S3.Types
 data PutObject = PutObject
     { _porACL                     :: Maybe Text
     , _porBody                    :: RqBody
-    , _porBucket                  :: BucketName
+    , _porBucket                  :: Text
     , _porCacheControl            :: Maybe Text
     , _porContentDisposition      :: Maybe Text
     , _porContentEncoding         :: Maybe Text
@@ -83,7 +83,7 @@ data PutObject = PutObject
     , _porGrantRead               :: Maybe Text
     , _porGrantReadACP            :: Maybe Text
     , _porGrantWriteACP           :: Maybe Text
-    , _porKey                     :: ObjectKey
+    , _porKey                     :: Text
     , _porMetadata                :: Map Text Text
     , _porSSECustomerAlgorithm    :: Maybe Text
     , _porSSECustomerKey          :: Maybe (Sensitive Text)
@@ -91,7 +91,7 @@ data PutObject = PutObject
     , _porServerSideEncryption    :: Maybe Text
     , _porStorageClass            :: Maybe Text
     , _porWebsiteRedirectLocation :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutObject' constructor.
 --
@@ -101,7 +101,7 @@ data PutObject = PutObject
 --
 -- * 'porBody' @::@ 'RqBody'
 --
--- * 'porBucket' @::@ 'BucketName'
+-- * 'porBucket' @::@ 'Text'
 --
 -- * 'porCacheControl' @::@ 'Maybe' 'Text'
 --
@@ -127,7 +127,7 @@ data PutObject = PutObject
 --
 -- * 'porGrantWriteACP' @::@ 'Maybe' 'Text'
 --
--- * 'porKey' @::@ 'ObjectKey'
+-- * 'porKey' @::@ 'Text'
 --
 -- * 'porMetadata' @::@ 'HashMap' 'Text' 'Text'
 --
@@ -144,8 +144,8 @@ data PutObject = PutObject
 -- * 'porWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
 putObject :: RqBody -- ^ 'porBody'
-          -> BucketName -- ^ 'porBucket'
-          -> ObjectKey -- ^ 'porKey'
+          -> Text -- ^ 'porBucket'
+          -> Text -- ^ 'porKey'
           -> PutObject
 putObject p1 p2 p3 = PutObject
     { _porBody                    = p1
@@ -180,7 +180,7 @@ porACL = lens _porACL (\s a -> s { _porACL = a })
 porBody :: Lens' PutObject RqBody
 porBody = lens _porBody (\s a -> s { _porBody = a })
 
-porBucket :: Lens' PutObject BucketName
+porBucket :: Lens' PutObject Text
 porBucket = lens _porBucket (\s a -> s { _porBucket = a })
 
 -- | Specifies caching behavior along the request/reply chain.
@@ -239,7 +239,7 @@ porGrantReadACP = lens _porGrantReadACP (\s a -> s { _porGrantReadACP = a })
 porGrantWriteACP :: Lens' PutObject (Maybe Text)
 porGrantWriteACP = lens _porGrantWriteACP (\s a -> s { _porGrantWriteACP = a })
 
-porKey :: Lens' PutObject ObjectKey
+porKey :: Lens' PutObject Text
 porKey = lens _porKey (\s a -> s { _porKey = a })
 
 -- | A map of metadata to store with the object in S3.
@@ -325,19 +325,19 @@ instance ToBody PutObject where
     toBody = toBody . _porBody
 
 data PutObjectOutput = PutObjectOutput
-    { _pooETag                 :: Maybe ETag
+    { _pooETag                 :: Maybe Text
     , _pooExpiration           :: Maybe RFC822
     , _pooSSECustomerAlgorithm :: Maybe Text
     , _pooSSECustomerKeyMD5    :: Maybe Text
     , _pooServerSideEncryption :: Maybe Text
-    , _pooVersionId            :: Maybe ObjectVersionId
-    } deriving (Eq, Show, Generic)
+    , _pooVersionId            :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutObjectOutput' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pooETag' @::@ 'Maybe' 'ETag'
+-- * 'pooETag' @::@ 'Maybe' 'Text'
 --
 -- * 'pooExpiration' @::@ 'Maybe' 'UTCTime'
 --
@@ -347,7 +347,7 @@ data PutObjectOutput = PutObjectOutput
 --
 -- * 'pooServerSideEncryption' @::@ 'Maybe' 'Text'
 --
--- * 'pooVersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'pooVersionId' @::@ 'Maybe' 'Text'
 --
 putObjectOutput :: PutObjectOutput
 putObjectOutput = PutObjectOutput
@@ -360,7 +360,7 @@ putObjectOutput = PutObjectOutput
     }
 
 -- | Entity tag for the uploaded object.
-pooETag :: Lens' PutObjectOutput (Maybe ETag)
+pooETag :: Lens' PutObjectOutput (Maybe Text)
 pooETag = lens _pooETag (\s a -> s { _pooETag = a })
 
 -- | If the object expiration is configured, this will contain the expiration
@@ -390,7 +390,7 @@ pooServerSideEncryption =
     lens _pooServerSideEncryption (\s a -> s { _pooServerSideEncryption = a })
 
 -- | Version of the object.
-pooVersionId :: Lens' PutObjectOutput (Maybe ObjectVersionId)
+pooVersionId :: Lens' PutObjectOutput (Maybe Text)
 pooVersionId = lens _pooVersionId (\s a -> s { _pooVersionId = a })
 
 instance AWSRequest PutObject where

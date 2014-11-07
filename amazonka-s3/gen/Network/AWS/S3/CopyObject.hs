@@ -75,7 +75,7 @@ import Network.AWS.S3.Types
 
 data CopyObject = CopyObject
     { _corACL                            :: Maybe Text
-    , _corBucket                         :: BucketName
+    , _corBucket                         :: Text
     , _corCacheControl                   :: Maybe Text
     , _corContentDisposition             :: Maybe Text
     , _corContentEncoding                :: Maybe Text
@@ -94,7 +94,7 @@ data CopyObject = CopyObject
     , _corGrantRead                      :: Maybe Text
     , _corGrantReadACP                   :: Maybe Text
     , _corGrantWriteACP                  :: Maybe Text
-    , _corKey                            :: ObjectKey
+    , _corKey                            :: Text
     , _corMetadata                       :: Map Text Text
     , _corMetadataDirective              :: Maybe Text
     , _corSSECustomerAlgorithm           :: Maybe Text
@@ -103,7 +103,7 @@ data CopyObject = CopyObject
     , _corServerSideEncryption           :: Maybe Text
     , _corStorageClass                   :: Maybe Text
     , _corWebsiteRedirectLocation        :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CopyObject' constructor.
 --
@@ -111,7 +111,7 @@ data CopyObject = CopyObject
 --
 -- * 'corACL' @::@ 'Maybe' 'Text'
 --
--- * 'corBucket' @::@ 'BucketName'
+-- * 'corBucket' @::@ 'Text'
 --
 -- * 'corCacheControl' @::@ 'Maybe' 'Text'
 --
@@ -149,7 +149,7 @@ data CopyObject = CopyObject
 --
 -- * 'corGrantWriteACP' @::@ 'Maybe' 'Text'
 --
--- * 'corKey' @::@ 'ObjectKey'
+-- * 'corKey' @::@ 'Text'
 --
 -- * 'corMetadata' @::@ 'HashMap' 'Text' 'Text'
 --
@@ -167,9 +167,9 @@ data CopyObject = CopyObject
 --
 -- * 'corWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
-copyObject :: BucketName -- ^ 'corBucket'
+copyObject :: Text -- ^ 'corBucket'
            -> Text -- ^ 'corCopySource'
-           -> ObjectKey -- ^ 'corKey'
+           -> Text -- ^ 'corKey'
            -> CopyObject
 copyObject p1 p2 p3 = CopyObject
     { _corBucket                         = p1
@@ -207,7 +207,7 @@ copyObject p1 p2 p3 = CopyObject
 corACL :: Lens' CopyObject (Maybe Text)
 corACL = lens _corACL (\s a -> s { _corACL = a })
 
-corBucket :: Lens' CopyObject BucketName
+corBucket :: Lens' CopyObject Text
 corBucket = lens _corBucket (\s a -> s { _corBucket = a })
 
 -- | Specifies caching behavior along the request/reply chain.
@@ -313,7 +313,7 @@ corGrantReadACP = lens _corGrantReadACP (\s a -> s { _corGrantReadACP = a })
 corGrantWriteACP :: Lens' CopyObject (Maybe Text)
 corGrantWriteACP = lens _corGrantWriteACP (\s a -> s { _corGrantWriteACP = a })
 
-corKey :: Lens' CopyObject ObjectKey
+corKey :: Lens' CopyObject Text
 corKey = lens _corKey (\s a -> s { _corKey = a })
 
 -- | A map of metadata to store with the object in S3.

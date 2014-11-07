@@ -60,7 +60,7 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data UploadPartCopy = UploadPartCopy
-    { _upcrBucket                         :: BucketName
+    { _upcrBucket                         :: Text
     , _upcrCopySource                     :: Text
     , _upcrCopySourceIfMatch              :: Maybe Text
     , _upcrCopySourceIfModifiedSince      :: Maybe RFC822
@@ -70,19 +70,19 @@ data UploadPartCopy = UploadPartCopy
     , _upcrCopySourceSSECustomerAlgorithm :: Maybe Text
     , _upcrCopySourceSSECustomerKey       :: Maybe (Sensitive Text)
     , _upcrCopySourceSSECustomerKeyMD5    :: Maybe Text
-    , _upcrKey                            :: ObjectKey
+    , _upcrKey                            :: Text
     , _upcrPartNumber                     :: Int
     , _upcrSSECustomerAlgorithm           :: Maybe Text
     , _upcrSSECustomerKey                 :: Maybe (Sensitive Text)
     , _upcrSSECustomerKeyMD5              :: Maybe Text
     , _upcrUploadId                       :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UploadPartCopy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upcrBucket' @::@ 'BucketName'
+-- * 'upcrBucket' @::@ 'Text'
 --
 -- * 'upcrCopySource' @::@ 'Text'
 --
@@ -102,7 +102,7 @@ data UploadPartCopy = UploadPartCopy
 --
 -- * 'upcrCopySourceSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'upcrKey' @::@ 'ObjectKey'
+-- * 'upcrKey' @::@ 'Text'
 --
 -- * 'upcrPartNumber' @::@ 'Int'
 --
@@ -114,9 +114,9 @@ data UploadPartCopy = UploadPartCopy
 --
 -- * 'upcrUploadId' @::@ 'Text'
 --
-uploadPartCopy :: BucketName -- ^ 'upcrBucket'
+uploadPartCopy :: Text -- ^ 'upcrBucket'
                -> Text -- ^ 'upcrCopySource'
-               -> ObjectKey -- ^ 'upcrKey'
+               -> Text -- ^ 'upcrKey'
                -> Int -- ^ 'upcrPartNumber'
                -> Text -- ^ 'upcrUploadId'
                -> UploadPartCopy
@@ -139,7 +139,7 @@ uploadPartCopy p1 p2 p3 p4 p5 = UploadPartCopy
     , _upcrCopySourceSSECustomerKeyMD5    = Nothing
     }
 
-upcrBucket :: Lens' UploadPartCopy BucketName
+upcrBucket :: Lens' UploadPartCopy Text
 upcrBucket = lens _upcrBucket (\s a -> s { _upcrBucket = a })
 
 -- | The name of the source bucket and key name of the source object,
@@ -206,7 +206,7 @@ upcrCopySourceSSECustomerKeyMD5 =
     lens _upcrCopySourceSSECustomerKeyMD5
         (\s a -> s { _upcrCopySourceSSECustomerKeyMD5 = a })
 
-upcrKey :: Lens' UploadPartCopy ObjectKey
+upcrKey :: Lens' UploadPartCopy Text
 upcrKey = lens _upcrKey (\s a -> s { _upcrKey = a })
 
 -- | Part number of part being copied.

@@ -41,22 +41,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketLogging = PutBucketLogging
-    { _pblr1Bucket              :: BucketName
+    { _pblr1Bucket              :: Text
     , _pblr1BucketLoggingStatus :: BucketLoggingStatus
     , _pblr1ContentMD5          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketLogging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pblr1Bucket' @::@ 'BucketName'
+-- * 'pblr1Bucket' @::@ 'Text'
 --
 -- * 'pblr1BucketLoggingStatus' @::@ 'BucketLoggingStatus'
 --
 -- * 'pblr1ContentMD5' @::@ 'Maybe' 'Text'
 --
-putBucketLogging :: BucketName -- ^ 'pblr1Bucket'
+putBucketLogging :: Text -- ^ 'pblr1Bucket'
                  -> BucketLoggingStatus -- ^ 'pblr1BucketLoggingStatus'
                  -> PutBucketLogging
 putBucketLogging p1 p2 = PutBucketLogging
@@ -65,7 +65,7 @@ putBucketLogging p1 p2 = PutBucketLogging
     , _pblr1ContentMD5          = Nothing
     }
 
-pblr1Bucket :: Lens' PutBucketLogging BucketName
+pblr1Bucket :: Lens' PutBucketLogging Text
 pblr1Bucket = lens _pblr1Bucket (\s a -> s { _pblr1Bucket = a })
 
 pblr1BucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus

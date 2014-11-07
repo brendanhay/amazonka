@@ -56,21 +56,21 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data ListObjects = ListObjects
-    { _lorBucket       :: BucketName
-    , _lorDelimiter    :: Maybe Char
+    { _lorBucket       :: Text
+    , _lorDelimiter    :: Maybe Text
     , _lorEncodingType :: Maybe Text
     , _lorMarker       :: Maybe Text
     , _lorMaxKeys      :: Maybe Int
     , _lorPrefix       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListObjects' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lorBucket' @::@ 'BucketName'
+-- * 'lorBucket' @::@ 'Text'
 --
--- * 'lorDelimiter' @::@ 'Maybe' 'Char'
+-- * 'lorDelimiter' @::@ 'Maybe' 'Text'
 --
 -- * 'lorEncodingType' @::@ 'Maybe' 'Text'
 --
@@ -80,7 +80,7 @@ data ListObjects = ListObjects
 --
 -- * 'lorPrefix' @::@ 'Maybe' 'Text'
 --
-listObjects :: BucketName -- ^ 'lorBucket'
+listObjects :: Text -- ^ 'lorBucket'
             -> ListObjects
 listObjects p1 = ListObjects
     { _lorBucket       = p1
@@ -91,11 +91,11 @@ listObjects p1 = ListObjects
     , _lorPrefix       = Nothing
     }
 
-lorBucket :: Lens' ListObjects BucketName
+lorBucket :: Lens' ListObjects Text
 lorBucket = lens _lorBucket (\s a -> s { _lorBucket = a })
 
 -- | A delimiter is a character you use to group keys.
-lorDelimiter :: Lens' ListObjects (Maybe Char)
+lorDelimiter :: Lens' ListObjects (Maybe Text)
 lorDelimiter = lens _lorDelimiter (\s a -> s { _lorDelimiter = a })
 
 lorEncodingType :: Lens' ListObjects (Maybe Text)
@@ -138,7 +138,7 @@ data ListObjectsOutput = ListObjectsOutput
     , _looIsTruncated    :: Maybe Bool
     , _looMarker         :: Maybe Text
     , _looMaxKeys        :: Maybe Int
-    , _looName           :: Maybe BucketName
+    , _looName           :: Maybe Text
     , _looNextMarker     :: Maybe Text
     , _looPrefix         :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -159,7 +159,7 @@ data ListObjectsOutput = ListObjectsOutput
 --
 -- * 'looMaxKeys' @::@ 'Maybe' 'Int'
 --
--- * 'looName' @::@ 'Maybe' 'BucketName'
+-- * 'looName' @::@ 'Maybe' 'Text'
 --
 -- * 'looNextMarker' @::@ 'Maybe' 'Text'
 --
@@ -200,7 +200,7 @@ looMarker = lens _looMarker (\s a -> s { _looMarker = a })
 looMaxKeys :: Lens' ListObjectsOutput (Maybe Int)
 looMaxKeys = lens _looMaxKeys (\s a -> s { _looMaxKeys = a })
 
-looName :: Lens' ListObjectsOutput (Maybe BucketName)
+looName :: Lens' ListObjectsOutput (Maybe Text)
 looName = lens _looName (\s a -> s { _looName = a })
 
 -- | When response is truncated (the IsTruncated element value in the response

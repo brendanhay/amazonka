@@ -41,23 +41,23 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data AbortMultipartUpload = AbortMultipartUpload
-    { _amurBucket   :: BucketName
-    , _amurKey      :: ObjectKey
+    { _amurBucket   :: Text
+    , _amurKey      :: Text
     , _amurUploadId :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving ()
 
 -- | 'AbortMultipartUpload' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'amurBucket' @::@ 'BucketName'
+-- * 'amurBucket' @::@ 'Text'
 --
--- * 'amurKey' @::@ 'ObjectKey'
+-- * 'amurKey' @::@ 'Text'
 --
 -- * 'amurUploadId' @::@ 'Text'
 --
-abortMultipartUpload :: BucketName -- ^ 'amurBucket'
-                     -> ObjectKey -- ^ 'amurKey'
+abortMultipartUpload :: Text -- ^ 'amurBucket'
+                     -> Text -- ^ 'amurKey'
                      -> Text -- ^ 'amurUploadId'
                      -> AbortMultipartUpload
 abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
@@ -66,10 +66,10 @@ abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
     , _amurUploadId = p3
     }
 
-amurBucket :: Lens' AbortMultipartUpload BucketName
+amurBucket :: Lens' AbortMultipartUpload Text
 amurBucket = lens _amurBucket (\s a -> s { _amurBucket = a })
 
-amurKey :: Lens' AbortMultipartUpload ObjectKey
+amurKey :: Lens' AbortMultipartUpload Text
 amurKey = lens _amurKey (\s a -> s { _amurKey = a })
 
 amurUploadId :: Lens' AbortMultipartUpload Text

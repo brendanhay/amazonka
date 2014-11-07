@@ -47,7 +47,7 @@ import Network.AWS.S3.Types
 data PutBucketAcl = PutBucketAcl
     { _pbarACL                 :: Maybe Text
     , _pbarAccessControlPolicy :: Maybe AccessControlPolicy
-    , _pbarBucket              :: BucketName
+    , _pbarBucket              :: Text
     , _pbarContentMD5          :: Maybe Text
     , _pbarGrantFullControl    :: Maybe Text
     , _pbarGrantRead           :: Maybe Text
@@ -64,7 +64,7 @@ data PutBucketAcl = PutBucketAcl
 --
 -- * 'pbarAccessControlPolicy' @::@ 'Maybe' 'AccessControlPolicy'
 --
--- * 'pbarBucket' @::@ 'BucketName'
+-- * 'pbarBucket' @::@ 'Text'
 --
 -- * 'pbarContentMD5' @::@ 'Maybe' 'Text'
 --
@@ -78,7 +78,7 @@ data PutBucketAcl = PutBucketAcl
 --
 -- * 'pbarGrantWriteACP' @::@ 'Maybe' 'Text'
 --
-putBucketAcl :: BucketName -- ^ 'pbarBucket'
+putBucketAcl :: Text -- ^ 'pbarBucket'
              -> PutBucketAcl
 putBucketAcl p1 = PutBucketAcl
     { _pbarBucket              = p1
@@ -100,7 +100,7 @@ pbarAccessControlPolicy :: Lens' PutBucketAcl (Maybe AccessControlPolicy)
 pbarAccessControlPolicy =
     lens _pbarAccessControlPolicy (\s a -> s { _pbarAccessControlPolicy = a })
 
-pbarBucket :: Lens' PutBucketAcl BucketName
+pbarBucket :: Lens' PutBucketAcl Text
 pbarBucket = lens _pbarBucket (\s a -> s { _pbarBucket = a })
 
 pbarContentMD5 :: Lens' PutBucketAcl (Maybe Text)

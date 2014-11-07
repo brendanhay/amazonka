@@ -47,26 +47,26 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data DeleteObject = DeleteObject
-    { _dor1Bucket    :: BucketName
-    , _dor1Key       :: ObjectKey
+    { _dor1Bucket    :: Text
+    , _dor1Key       :: Text
     , _dor1MFA       :: Maybe Text
-    , _dor1VersionId :: Maybe ObjectVersionId
-    } deriving (Eq, Show, Generic)
+    , _dor1VersionId :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteObject' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dor1Bucket' @::@ 'BucketName'
+-- * 'dor1Bucket' @::@ 'Text'
 --
--- * 'dor1Key' @::@ 'ObjectKey'
+-- * 'dor1Key' @::@ 'Text'
 --
 -- * 'dor1MFA' @::@ 'Maybe' 'Text'
 --
--- * 'dor1VersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'dor1VersionId' @::@ 'Maybe' 'Text'
 --
-deleteObject :: BucketName -- ^ 'dor1Bucket'
-             -> ObjectKey -- ^ 'dor1Key'
+deleteObject :: Text -- ^ 'dor1Bucket'
+             -> Text -- ^ 'dor1Key'
              -> DeleteObject
 deleteObject p1 p2 = DeleteObject
     { _dor1Bucket    = p1
@@ -75,10 +75,10 @@ deleteObject p1 p2 = DeleteObject
     , _dor1VersionId = Nothing
     }
 
-dor1Bucket :: Lens' DeleteObject BucketName
+dor1Bucket :: Lens' DeleteObject Text
 dor1Bucket = lens _dor1Bucket (\s a -> s { _dor1Bucket = a })
 
-dor1Key :: Lens' DeleteObject ObjectKey
+dor1Key :: Lens' DeleteObject Text
 dor1Key = lens _dor1Key (\s a -> s { _dor1Key = a })
 
 -- | The concatenation of the authentication device's serial number, a space,
@@ -87,7 +87,7 @@ dor1MFA :: Lens' DeleteObject (Maybe Text)
 dor1MFA = lens _dor1MFA (\s a -> s { _dor1MFA = a })
 
 -- | VersionId used to reference a specific version of the object.
-dor1VersionId :: Lens' DeleteObject (Maybe ObjectVersionId)
+dor1VersionId :: Lens' DeleteObject (Maybe Text)
 dor1VersionId = lens _dor1VersionId (\s a -> s { _dor1VersionId = a })
 
 instance ToPath DeleteObject where
@@ -107,8 +107,8 @@ instance ToHeaders DeleteObject where
 
 data DeleteObjectOutput = DeleteObjectOutput
     { _dooDeleteMarker :: Maybe Bool
-    , _dooVersionId    :: Maybe ObjectVersionId
-    } deriving (Eq, Show, Generic)
+    , _dooVersionId    :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteObjectOutput' constructor.
 --
@@ -116,7 +116,7 @@ data DeleteObjectOutput = DeleteObjectOutput
 --
 -- * 'dooDeleteMarker' @::@ 'Maybe' 'Bool'
 --
--- * 'dooVersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'dooVersionId' @::@ 'Maybe' 'Text'
 --
 deleteObjectOutput :: DeleteObjectOutput
 deleteObjectOutput = DeleteObjectOutput
@@ -131,7 +131,7 @@ dooDeleteMarker = lens _dooDeleteMarker (\s a -> s { _dooDeleteMarker = a })
 
 -- | Returns the version ID of the delete marker created as a result of the
 -- DELETE operation.
-dooVersionId :: Lens' DeleteObjectOutput (Maybe ObjectVersionId)
+dooVersionId :: Lens' DeleteObjectOutput (Maybe Text)
 dooVersionId = lens _dooVersionId (\s a -> s { _dooVersionId = a })
 
 instance AWSRequest DeleteObject where

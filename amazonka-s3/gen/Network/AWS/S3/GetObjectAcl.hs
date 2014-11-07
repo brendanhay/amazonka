@@ -44,23 +44,23 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data GetObjectAcl = GetObjectAcl
-    { _goarBucket    :: BucketName
-    , _goarKey       :: ObjectKey
-    , _goarVersionId :: Maybe ObjectVersionId
-    } deriving (Eq, Show, Generic)
+    { _goarBucket    :: Text
+    , _goarKey       :: Text
+    , _goarVersionId :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetObjectAcl' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'goarBucket' @::@ 'BucketName'
+-- * 'goarBucket' @::@ 'Text'
 --
--- * 'goarKey' @::@ 'ObjectKey'
+-- * 'goarKey' @::@ 'Text'
 --
--- * 'goarVersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'goarVersionId' @::@ 'Maybe' 'Text'
 --
-getObjectAcl :: BucketName -- ^ 'goarBucket'
-             -> ObjectKey -- ^ 'goarKey'
+getObjectAcl :: Text -- ^ 'goarBucket'
+             -> Text -- ^ 'goarKey'
              -> GetObjectAcl
 getObjectAcl p1 p2 = GetObjectAcl
     { _goarBucket    = p1
@@ -68,14 +68,14 @@ getObjectAcl p1 p2 = GetObjectAcl
     , _goarVersionId = Nothing
     }
 
-goarBucket :: Lens' GetObjectAcl BucketName
+goarBucket :: Lens' GetObjectAcl Text
 goarBucket = lens _goarBucket (\s a -> s { _goarBucket = a })
 
-goarKey :: Lens' GetObjectAcl ObjectKey
+goarKey :: Lens' GetObjectAcl Text
 goarKey = lens _goarKey (\s a -> s { _goarKey = a })
 
 -- | VersionId used to reference a specific version of the object.
-goarVersionId :: Lens' GetObjectAcl (Maybe ObjectVersionId)
+goarVersionId :: Lens' GetObjectAcl (Maybe Text)
 goarVersionId = lens _goarVersionId (\s a -> s { _goarVersionId = a })
 
 instance ToPath GetObjectAcl where

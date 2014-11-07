@@ -77,12 +77,12 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data GetObject = GetObject
-    { _gorBucket                     :: BucketName
+    { _gorBucket                     :: Text
     , _gorIfMatch                    :: Maybe Text
     , _gorIfModifiedSince            :: Maybe RFC822
     , _gorIfNoneMatch                :: Maybe Text
     , _gorIfUnmodifiedSince          :: Maybe RFC822
-    , _gorKey                        :: ObjectKey
+    , _gorKey                        :: Text
     , _gorRange                      :: Maybe Text
     , _gorResponseCacheControl       :: Maybe Text
     , _gorResponseContentDisposition :: Maybe Text
@@ -93,14 +93,14 @@ data GetObject = GetObject
     , _gorSSECustomerAlgorithm       :: Maybe Text
     , _gorSSECustomerKey             :: Maybe (Sensitive Text)
     , _gorSSECustomerKeyMD5          :: Maybe Text
-    , _gorVersionId                  :: Maybe ObjectVersionId
-    } deriving (Eq, Show, Generic)
+    , _gorVersionId                  :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetObject' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gorBucket' @::@ 'BucketName'
+-- * 'gorBucket' @::@ 'Text'
 --
 -- * 'gorIfMatch' @::@ 'Maybe' 'Text'
 --
@@ -110,7 +110,7 @@ data GetObject = GetObject
 --
 -- * 'gorIfUnmodifiedSince' @::@ 'Maybe' 'UTCTime'
 --
--- * 'gorKey' @::@ 'ObjectKey'
+-- * 'gorKey' @::@ 'Text'
 --
 -- * 'gorRange' @::@ 'Maybe' 'Text'
 --
@@ -132,10 +132,10 @@ data GetObject = GetObject
 --
 -- * 'gorSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'gorVersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'gorVersionId' @::@ 'Maybe' 'Text'
 --
-getObject :: BucketName -- ^ 'gorBucket'
-          -> ObjectKey -- ^ 'gorKey'
+getObject :: Text -- ^ 'gorBucket'
+          -> Text -- ^ 'gorKey'
           -> GetObject
 getObject p1 p2 = GetObject
     { _gorBucket                     = p1
@@ -157,7 +157,7 @@ getObject p1 p2 = GetObject
     , _gorSSECustomerKeyMD5          = Nothing
     }
 
-gorBucket :: Lens' GetObject BucketName
+gorBucket :: Lens' GetObject Text
 gorBucket = lens _gorBucket (\s a -> s { _gorBucket = a })
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
@@ -184,7 +184,7 @@ gorIfUnmodifiedSince =
     lens _gorIfUnmodifiedSince (\s a -> s { _gorIfUnmodifiedSince = a })
         . mapping _Time
 
-gorKey :: Lens' GetObject ObjectKey
+gorKey :: Lens' GetObject Text
 gorKey = lens _gorKey (\s a -> s { _gorKey = a })
 
 -- | Downloads the specified range bytes of an object. For more information
@@ -251,7 +251,7 @@ gorSSECustomerKeyMD5 =
     lens _gorSSECustomerKeyMD5 (\s a -> s { _gorSSECustomerKeyMD5 = a })
 
 -- | VersionId used to reference a specific version of the object.
-gorVersionId :: Lens' GetObject (Maybe ObjectVersionId)
+gorVersionId :: Lens' GetObject (Maybe Text)
 gorVersionId = lens _gorVersionId (\s a -> s { _gorVersionId = a })
 
 instance ToPath GetObject where
@@ -295,7 +295,7 @@ data GetObjectOutput = GetObjectOutput
     , _gooContentLength           :: Maybe Int
     , _gooContentType             :: Maybe Text
     , _gooDeleteMarker            :: Maybe Bool
-    , _gooETag                    :: Maybe ETag
+    , _gooETag                    :: Maybe Text
     , _gooExpiration              :: Maybe RFC822
     , _gooExpires                 :: Maybe RFC822
     , _gooLastModified            :: Maybe RFC822
@@ -305,9 +305,9 @@ data GetObjectOutput = GetObjectOutput
     , _gooSSECustomerAlgorithm    :: Maybe Text
     , _gooSSECustomerKeyMD5       :: Maybe Text
     , _gooServerSideEncryption    :: Maybe Text
-    , _gooVersionId               :: Maybe ObjectVersionId
+    , _gooVersionId               :: Maybe Text
     , _gooWebsiteRedirectLocation :: Maybe Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetObjectOutput' constructor.
 --
@@ -331,7 +331,7 @@ data GetObjectOutput = GetObjectOutput
 --
 -- * 'gooDeleteMarker' @::@ 'Maybe' 'Bool'
 --
--- * 'gooETag' @::@ 'Maybe' 'ETag'
+-- * 'gooETag' @::@ 'Maybe' 'Text'
 --
 -- * 'gooExpiration' @::@ 'Maybe' 'UTCTime'
 --
@@ -351,7 +351,7 @@ data GetObjectOutput = GetObjectOutput
 --
 -- * 'gooServerSideEncryption' @::@ 'Maybe' 'Text'
 --
--- * 'gooVersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'gooVersionId' @::@ 'Maybe' 'Text'
 --
 -- * 'gooWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
@@ -425,7 +425,7 @@ gooDeleteMarker = lens _gooDeleteMarker (\s a -> s { _gooDeleteMarker = a })
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL.
-gooETag :: Lens' GetObjectOutput (Maybe ETag)
+gooETag :: Lens' GetObjectOutput (Maybe Text)
 gooETag = lens _gooETag (\s a -> s { _gooETag = a })
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the
@@ -484,7 +484,7 @@ gooServerSideEncryption =
     lens _gooServerSideEncryption (\s a -> s { _gooServerSideEncryption = a })
 
 -- | Version of the object.
-gooVersionId :: Lens' GetObjectOutput (Maybe ObjectVersionId)
+gooVersionId :: Lens' GetObjectOutput (Maybe Text)
 gooVersionId = lens _gooVersionId (\s a -> s { _gooVersionId = a })
 
 -- | If the bucket is configured as a website, redirects requests for this

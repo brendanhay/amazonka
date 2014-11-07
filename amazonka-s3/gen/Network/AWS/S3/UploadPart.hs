@@ -59,16 +59,16 @@ import Network.AWS.S3.Types
 
 data UploadPart = UploadPart
     { _uprBody                 :: RqBody
-    , _uprBucket               :: BucketName
+    , _uprBucket               :: Text
     , _uprContentLength        :: Maybe Int
     , _uprContentMD5           :: Maybe Text
-    , _uprKey                  :: ObjectKey
+    , _uprKey                  :: Text
     , _uprPartNumber           :: Int
     , _uprSSECustomerAlgorithm :: Maybe Text
     , _uprSSECustomerKey       :: Maybe (Sensitive Text)
     , _uprSSECustomerKeyMD5    :: Maybe Text
     , _uprUploadId             :: Text
-    } deriving (Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UploadPart' constructor.
 --
@@ -76,13 +76,13 @@ data UploadPart = UploadPart
 --
 -- * 'uprBody' @::@ 'RqBody'
 --
--- * 'uprBucket' @::@ 'BucketName'
+-- * 'uprBucket' @::@ 'Text'
 --
 -- * 'uprContentLength' @::@ 'Maybe' 'Int'
 --
 -- * 'uprContentMD5' @::@ 'Maybe' 'Text'
 --
--- * 'uprKey' @::@ 'ObjectKey'
+-- * 'uprKey' @::@ 'Text'
 --
 -- * 'uprPartNumber' @::@ 'Int'
 --
@@ -95,8 +95,8 @@ data UploadPart = UploadPart
 -- * 'uprUploadId' @::@ 'Text'
 --
 uploadPart :: RqBody -- ^ 'uprBody'
-           -> BucketName -- ^ 'uprBucket'
-           -> ObjectKey -- ^ 'uprKey'
+           -> Text -- ^ 'uprBucket'
+           -> Text -- ^ 'uprKey'
            -> Int -- ^ 'uprPartNumber'
            -> Text -- ^ 'uprUploadId'
            -> UploadPart
@@ -116,7 +116,7 @@ uploadPart p1 p2 p3 p4 p5 = UploadPart
 uprBody :: Lens' UploadPart RqBody
 uprBody = lens _uprBody (\s a -> s { _uprBody = a })
 
-uprBucket :: Lens' UploadPart BucketName
+uprBucket :: Lens' UploadPart Text
 uprBucket = lens _uprBucket (\s a -> s { _uprBucket = a })
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
@@ -127,7 +127,7 @@ uprContentLength = lens _uprContentLength (\s a -> s { _uprContentLength = a })
 uprContentMD5 :: Lens' UploadPart (Maybe Text)
 uprContentMD5 = lens _uprContentMD5 (\s a -> s { _uprContentMD5 = a })
 
-uprKey :: Lens' UploadPart ObjectKey
+uprKey :: Lens' UploadPart Text
 uprKey = lens _uprKey (\s a -> s { _uprKey = a })
 
 -- | Part number of part being uploaded.
@@ -190,17 +190,17 @@ instance ToBody UploadPart where
     toBody = toBody . _uprBody
 
 data UploadPartOutput = UploadPartOutput
-    { _upoETag                 :: Maybe ETag
+    { _upoETag                 :: Maybe Text
     , _upoSSECustomerAlgorithm :: Maybe Text
     , _upoSSECustomerKeyMD5    :: Maybe Text
     , _upoServerSideEncryption :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UploadPartOutput' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upoETag' @::@ 'Maybe' 'ETag'
+-- * 'upoETag' @::@ 'Maybe' 'Text'
 --
 -- * 'upoSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
@@ -217,7 +217,7 @@ uploadPartOutput = UploadPartOutput
     }
 
 -- | Entity tag for the uploaded object.
-upoETag :: Lens' UploadPartOutput (Maybe ETag)
+upoETag :: Lens' UploadPartOutput (Maybe Text)
 upoETag = lens _upoETag (\s a -> s { _upoETag = a })
 
 -- | If server-side encryption with a customer-provided encryption key was

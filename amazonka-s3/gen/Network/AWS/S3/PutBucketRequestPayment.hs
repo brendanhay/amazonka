@@ -42,22 +42,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketRequestPayment = PutBucketRequestPayment
-    { _pbrprBucket                      :: BucketName
+    { _pbrprBucket                      :: Text
     , _pbrprContentMD5                  :: Maybe Text
     , _pbrprRequestPaymentConfiguration :: RequestPaymentConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketRequestPayment' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbrprBucket' @::@ 'BucketName'
+-- * 'pbrprBucket' @::@ 'Text'
 --
 -- * 'pbrprContentMD5' @::@ 'Maybe' 'Text'
 --
 -- * 'pbrprRequestPaymentConfiguration' @::@ 'RequestPaymentConfiguration'
 --
-putBucketRequestPayment :: BucketName -- ^ 'pbrprBucket'
+putBucketRequestPayment :: Text -- ^ 'pbrprBucket'
                         -> RequestPaymentConfiguration -- ^ 'pbrprRequestPaymentConfiguration'
                         -> PutBucketRequestPayment
 putBucketRequestPayment p1 p2 = PutBucketRequestPayment
@@ -66,7 +66,7 @@ putBucketRequestPayment p1 p2 = PutBucketRequestPayment
     , _pbrprContentMD5                  = Nothing
     }
 
-pbrprBucket :: Lens' PutBucketRequestPayment BucketName
+pbrprBucket :: Lens' PutBucketRequestPayment Text
 pbrprBucket = lens _pbrprBucket (\s a -> s { _pbrprBucket = a })
 
 pbrprContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)

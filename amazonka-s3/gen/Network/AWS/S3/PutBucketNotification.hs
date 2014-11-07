@@ -39,22 +39,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketNotification = PutBucketNotification
-    { _pbnrBucket                    :: BucketName
+    { _pbnrBucket                    :: Text
     , _pbnrContentMD5                :: Maybe Text
     , _pbnrNotificationConfiguration :: NotificationConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketNotification' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbnrBucket' @::@ 'BucketName'
+-- * 'pbnrBucket' @::@ 'Text'
 --
 -- * 'pbnrContentMD5' @::@ 'Maybe' 'Text'
 --
 -- * 'pbnrNotificationConfiguration' @::@ 'NotificationConfiguration'
 --
-putBucketNotification :: BucketName -- ^ 'pbnrBucket'
+putBucketNotification :: Text -- ^ 'pbnrBucket'
                       -> NotificationConfiguration -- ^ 'pbnrNotificationConfiguration'
                       -> PutBucketNotification
 putBucketNotification p1 p2 = PutBucketNotification
@@ -63,7 +63,7 @@ putBucketNotification p1 p2 = PutBucketNotification
     , _pbnrContentMD5                = Nothing
     }
 
-pbnrBucket :: Lens' PutBucketNotification BucketName
+pbnrBucket :: Lens' PutBucketNotification Text
 pbnrBucket = lens _pbnrBucket (\s a -> s { _pbnrBucket = a })
 
 pbnrContentMD5 :: Lens' PutBucketNotification (Maybe Text)

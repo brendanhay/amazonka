@@ -42,22 +42,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketAcl = GetBucketAcl
-    { _gbarBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    { _gbarBucket :: Text
+    } deriving ()
 
 -- | 'GetBucketAcl' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbarBucket' @::@ 'BucketName'
+-- * 'gbarBucket' @::@ 'Text'
 --
-getBucketAcl :: BucketName -- ^ 'gbarBucket'
+getBucketAcl :: Text -- ^ 'gbarBucket'
              -> GetBucketAcl
 getBucketAcl p1 = GetBucketAcl
     { _gbarBucket = p1
     }
 
-gbarBucket :: Lens' GetBucketAcl BucketName
+gbarBucket :: Lens' GetBucketAcl Text
 gbarBucket = lens _gbarBucket (\s a -> s { _gbarBucket = a })
 
 instance ToPath GetBucketAcl where

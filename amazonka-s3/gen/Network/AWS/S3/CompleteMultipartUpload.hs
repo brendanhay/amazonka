@@ -50,8 +50,8 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data CompleteMultipartUpload = CompleteMultipartUpload
-    { _cmurBucket          :: BucketName
-    , _cmurKey             :: ObjectKey
+    { _cmurBucket          :: Text
+    , _cmurKey             :: Text
     , _cmurMultipartUpload :: Maybe CompletedMultipartUpload
     , _cmurUploadId        :: Text
     } deriving (Eq, Show, Generic)
@@ -60,16 +60,16 @@ data CompleteMultipartUpload = CompleteMultipartUpload
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmurBucket' @::@ 'BucketName'
+-- * 'cmurBucket' @::@ 'Text'
 --
--- * 'cmurKey' @::@ 'ObjectKey'
+-- * 'cmurKey' @::@ 'Text'
 --
 -- * 'cmurMultipartUpload' @::@ 'Maybe' 'CompletedMultipartUpload'
 --
 -- * 'cmurUploadId' @::@ 'Text'
 --
-completeMultipartUpload :: BucketName -- ^ 'cmurBucket'
-                        -> ObjectKey -- ^ 'cmurKey'
+completeMultipartUpload :: Text -- ^ 'cmurBucket'
+                        -> Text -- ^ 'cmurKey'
                         -> Text -- ^ 'cmurUploadId'
                         -> CompleteMultipartUpload
 completeMultipartUpload p1 p2 p3 = CompleteMultipartUpload
@@ -79,10 +79,10 @@ completeMultipartUpload p1 p2 p3 = CompleteMultipartUpload
     , _cmurMultipartUpload = Nothing
     }
 
-cmurBucket :: Lens' CompleteMultipartUpload BucketName
+cmurBucket :: Lens' CompleteMultipartUpload Text
 cmurBucket = lens _cmurBucket (\s a -> s { _cmurBucket = a })
 
-cmurKey :: Lens' CompleteMultipartUpload ObjectKey
+cmurKey :: Lens' CompleteMultipartUpload Text
 cmurKey = lens _cmurKey (\s a -> s { _cmurKey = a })
 
 cmurMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
@@ -108,32 +108,32 @@ instance ToBody CompleteMultipartUpload where
     toBody = toBody . encodeXML . _cmurMultipartUpload
 
 data CompleteMultipartUploadOutput = CompleteMultipartUploadOutput
-    { _cmuoBucket               :: Maybe BucketName
-    , _cmuoETag                 :: Maybe ETag
+    { _cmuoBucket               :: Maybe Text
+    , _cmuoETag                 :: Maybe Text
     , _cmuoExpiration           :: Maybe RFC822
-    , _cmuoKey                  :: Maybe ObjectKey
+    , _cmuoKey                  :: Maybe Text
     , _cmuoLocation             :: Maybe Text
     , _cmuoServerSideEncryption :: Maybe Text
-    , _cmuoVersionId            :: Maybe ObjectVersionId
-    } deriving (Eq, Show, Generic)
+    , _cmuoVersionId            :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CompleteMultipartUploadOutput' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmuoBucket' @::@ 'Maybe' 'BucketName'
+-- * 'cmuoBucket' @::@ 'Maybe' 'Text'
 --
--- * 'cmuoETag' @::@ 'Maybe' 'ETag'
+-- * 'cmuoETag' @::@ 'Maybe' 'Text'
 --
 -- * 'cmuoExpiration' @::@ 'Maybe' 'UTCTime'
 --
--- * 'cmuoKey' @::@ 'Maybe' 'ObjectKey'
+-- * 'cmuoKey' @::@ 'Maybe' 'Text'
 --
 -- * 'cmuoLocation' @::@ 'Maybe' 'Text'
 --
 -- * 'cmuoServerSideEncryption' @::@ 'Maybe' 'Text'
 --
--- * 'cmuoVersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'cmuoVersionId' @::@ 'Maybe' 'Text'
 --
 completeMultipartUploadOutput :: CompleteMultipartUploadOutput
 completeMultipartUploadOutput = CompleteMultipartUploadOutput
@@ -146,11 +146,11 @@ completeMultipartUploadOutput = CompleteMultipartUploadOutput
     , _cmuoVersionId            = Nothing
     }
 
-cmuoBucket :: Lens' CompleteMultipartUploadOutput (Maybe BucketName)
+cmuoBucket :: Lens' CompleteMultipartUploadOutput (Maybe Text)
 cmuoBucket = lens _cmuoBucket (\s a -> s { _cmuoBucket = a })
 
 -- | Entity tag of the object.
-cmuoETag :: Lens' CompleteMultipartUploadOutput (Maybe ETag)
+cmuoETag :: Lens' CompleteMultipartUploadOutput (Maybe Text)
 cmuoETag = lens _cmuoETag (\s a -> s { _cmuoETag = a })
 
 -- | If the object expiration is configured, this will contain the expiration
@@ -160,7 +160,7 @@ cmuoExpiration :: Lens' CompleteMultipartUploadOutput (Maybe UTCTime)
 cmuoExpiration = lens _cmuoExpiration (\s a -> s { _cmuoExpiration = a })
     . mapping _Time
 
-cmuoKey :: Lens' CompleteMultipartUploadOutput (Maybe ObjectKey)
+cmuoKey :: Lens' CompleteMultipartUploadOutput (Maybe Text)
 cmuoKey = lens _cmuoKey (\s a -> s { _cmuoKey = a })
 
 cmuoLocation :: Lens' CompleteMultipartUploadOutput (Maybe Text)
@@ -173,7 +173,7 @@ cmuoServerSideEncryption =
         (\s a -> s { _cmuoServerSideEncryption = a })
 
 -- | Version of the object.
-cmuoVersionId :: Lens' CompleteMultipartUploadOutput (Maybe ObjectVersionId)
+cmuoVersionId :: Lens' CompleteMultipartUploadOutput (Maybe Text)
 cmuoVersionId = lens _cmuoVersionId (\s a -> s { _cmuoVersionId = a })
 
 instance AWSRequest CompleteMultipartUpload where

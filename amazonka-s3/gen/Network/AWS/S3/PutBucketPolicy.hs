@@ -40,22 +40,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketPolicy = PutBucketPolicy
-    { _pbprBucket     :: BucketName
+    { _pbprBucket     :: Text
     , _pbprContentMD5 :: Maybe Text
     , _pbprPolicy     :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbprBucket' @::@ 'BucketName'
+-- * 'pbprBucket' @::@ 'Text'
 --
 -- * 'pbprContentMD5' @::@ 'Maybe' 'Text'
 --
 -- * 'pbprPolicy' @::@ 'Text'
 --
-putBucketPolicy :: BucketName -- ^ 'pbprBucket'
+putBucketPolicy :: Text -- ^ 'pbprBucket'
                 -> Text -- ^ 'pbprPolicy'
                 -> PutBucketPolicy
 putBucketPolicy p1 p2 = PutBucketPolicy
@@ -64,7 +64,7 @@ putBucketPolicy p1 p2 = PutBucketPolicy
     , _pbprContentMD5 = Nothing
     }
 
-pbprBucket :: Lens' PutBucketPolicy BucketName
+pbprBucket :: Lens' PutBucketPolicy Text
 pbprBucket = lens _pbprBucket (\s a -> s { _pbprBucket = a })
 
 pbprContentMD5 :: Lens' PutBucketPolicy (Maybe Text)

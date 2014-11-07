@@ -41,17 +41,17 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketVersioning = PutBucketVersioning
-    { _pbvrBucket                  :: BucketName
+    { _pbvrBucket                  :: Text
     , _pbvrContentMD5              :: Maybe Text
     , _pbvrMFA                     :: Maybe Text
     , _pbvrVersioningConfiguration :: VersioningConfiguration
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketVersioning' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbvrBucket' @::@ 'BucketName'
+-- * 'pbvrBucket' @::@ 'Text'
 --
 -- * 'pbvrContentMD5' @::@ 'Maybe' 'Text'
 --
@@ -59,7 +59,7 @@ data PutBucketVersioning = PutBucketVersioning
 --
 -- * 'pbvrVersioningConfiguration' @::@ 'VersioningConfiguration'
 --
-putBucketVersioning :: BucketName -- ^ 'pbvrBucket'
+putBucketVersioning :: Text -- ^ 'pbvrBucket'
                     -> VersioningConfiguration -- ^ 'pbvrVersioningConfiguration'
                     -> PutBucketVersioning
 putBucketVersioning p1 p2 = PutBucketVersioning
@@ -69,7 +69,7 @@ putBucketVersioning p1 p2 = PutBucketVersioning
     , _pbvrMFA                     = Nothing
     }
 
-pbvrBucket :: Lens' PutBucketVersioning BucketName
+pbvrBucket :: Lens' PutBucketVersioning Text
 pbvrBucket = lens _pbvrBucket (\s a -> s { _pbvrBucket = a })
 
 pbvrContentMD5 :: Lens' PutBucketVersioning (Maybe Text)

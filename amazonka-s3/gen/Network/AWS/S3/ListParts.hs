@@ -55,20 +55,20 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data ListParts = ListParts
-    { _lprBucket           :: BucketName
-    , _lprKey              :: ObjectKey
+    { _lprBucket           :: Text
+    , _lprKey              :: Text
     , _lprMaxParts         :: Maybe Int
     , _lprPartNumberMarker :: Maybe Int
     , _lprUploadId         :: Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Enum, Num)
 
 -- | 'ListParts' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lprBucket' @::@ 'BucketName'
+-- * 'lprBucket' @::@ 'Text'
 --
--- * 'lprKey' @::@ 'ObjectKey'
+-- * 'lprKey' @::@ 'Text'
 --
 -- * 'lprMaxParts' @::@ 'Maybe' 'Int'
 --
@@ -76,8 +76,8 @@ data ListParts = ListParts
 --
 -- * 'lprUploadId' @::@ 'Text'
 --
-listParts :: BucketName -- ^ 'lprBucket'
-          -> ObjectKey -- ^ 'lprKey'
+listParts :: Text -- ^ 'lprBucket'
+          -> Text -- ^ 'lprKey'
           -> Text -- ^ 'lprUploadId'
           -> ListParts
 listParts p1 p2 p3 = ListParts
@@ -88,10 +88,10 @@ listParts p1 p2 p3 = ListParts
     , _lprPartNumberMarker = Nothing
     }
 
-lprBucket :: Lens' ListParts BucketName
+lprBucket :: Lens' ListParts Text
 lprBucket = lens _lprBucket (\s a -> s { _lprBucket = a })
 
-lprKey :: Lens' ListParts ObjectKey
+lprKey :: Lens' ListParts Text
 lprKey = lens _lprKey (\s a -> s { _lprKey = a })
 
 -- | Sets the maximum number of parts to return.
@@ -126,10 +126,10 @@ instance ToQuery ListParts where
 instance ToHeaders ListParts
 
 data ListPartsOutput = ListPartsOutput
-    { _lpoBucket               :: Maybe BucketName
+    { _lpoBucket               :: Maybe Text
     , _lpoInitiator            :: Maybe Initiator
     , _lpoIsTruncated          :: Maybe Bool
-    , _lpoKey                  :: Maybe ObjectKey
+    , _lpoKey                  :: Maybe Text
     , _lpoMaxParts             :: Maybe Int
     , _lpoNextPartNumberMarker :: Maybe Int
     , _lpoOwner                :: Maybe Owner
@@ -143,13 +143,13 @@ data ListPartsOutput = ListPartsOutput
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lpoBucket' @::@ 'Maybe' 'BucketName'
+-- * 'lpoBucket' @::@ 'Maybe' 'Text'
 --
 -- * 'lpoInitiator' @::@ 'Maybe' 'Initiator'
 --
 -- * 'lpoIsTruncated' @::@ 'Maybe' 'Bool'
 --
--- * 'lpoKey' @::@ 'Maybe' 'ObjectKey'
+-- * 'lpoKey' @::@ 'Maybe' 'Text'
 --
 -- * 'lpoMaxParts' @::@ 'Maybe' 'Int'
 --
@@ -181,7 +181,7 @@ listPartsOutput = ListPartsOutput
     }
 
 -- | Name of the bucket to which the multipart upload was initiated.
-lpoBucket :: Lens' ListPartsOutput (Maybe BucketName)
+lpoBucket :: Lens' ListPartsOutput (Maybe Text)
 lpoBucket = lens _lpoBucket (\s a -> s { _lpoBucket = a })
 
 -- | Identifies who initiated the multipart upload.
@@ -193,7 +193,7 @@ lpoIsTruncated :: Lens' ListPartsOutput (Maybe Bool)
 lpoIsTruncated = lens _lpoIsTruncated (\s a -> s { _lpoIsTruncated = a })
 
 -- | Object key for which the multipart upload was initiated.
-lpoKey :: Lens' ListPartsOutput (Maybe ObjectKey)
+lpoKey :: Lens' ListPartsOutput (Maybe Text)
 lpoKey = lens _lpoKey (\s a -> s { _lpoKey = a })
 
 -- | Maximum number of parts that were allowed in the response.

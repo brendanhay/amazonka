@@ -40,7 +40,7 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketLifecycle = PutBucketLifecycle
-    { _pblrBucket                 :: BucketName
+    { _pblrBucket                 :: Text
     , _pblrContentMD5             :: Maybe Text
     , _pblrLifecycleConfiguration :: Maybe LifecycleConfiguration
     } deriving (Eq, Show, Generic)
@@ -49,13 +49,13 @@ data PutBucketLifecycle = PutBucketLifecycle
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pblrBucket' @::@ 'BucketName'
+-- * 'pblrBucket' @::@ 'Text'
 --
 -- * 'pblrContentMD5' @::@ 'Maybe' 'Text'
 --
 -- * 'pblrLifecycleConfiguration' @::@ 'Maybe' 'LifecycleConfiguration'
 --
-putBucketLifecycle :: BucketName -- ^ 'pblrBucket'
+putBucketLifecycle :: Text -- ^ 'pblrBucket'
                    -> PutBucketLifecycle
 putBucketLifecycle p1 = PutBucketLifecycle
     { _pblrBucket                 = p1
@@ -63,7 +63,7 @@ putBucketLifecycle p1 = PutBucketLifecycle
     , _pblrLifecycleConfiguration = Nothing
     }
 
-pblrBucket :: Lens' PutBucketLifecycle BucketName
+pblrBucket :: Lens' PutBucketLifecycle Text
 pblrBucket = lens _pblrBucket (\s a -> s { _pblrBucket = a })
 
 pblrContentMD5 :: Lens' PutBucketLifecycle (Maybe Text)

@@ -37,22 +37,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype DeleteBucketTagging = DeleteBucketTagging
-    { _dbtrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    { _dbtrBucket :: Text
+    } deriving ()
 
 -- | 'DeleteBucketTagging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbtrBucket' @::@ 'BucketName'
+-- * 'dbtrBucket' @::@ 'Text'
 --
-deleteBucketTagging :: BucketName -- ^ 'dbtrBucket'
+deleteBucketTagging :: Text -- ^ 'dbtrBucket'
                     -> DeleteBucketTagging
 deleteBucketTagging p1 = DeleteBucketTagging
     { _dbtrBucket = p1
     }
 
-dbtrBucket :: Lens' DeleteBucketTagging BucketName
+dbtrBucket :: Lens' DeleteBucketTagging Text
 dbtrBucket = lens _dbtrBucket (\s a -> s { _dbtrBucket = a })
 
 instance ToPath DeleteBucketTagging where

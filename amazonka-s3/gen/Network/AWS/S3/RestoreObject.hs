@@ -40,26 +40,26 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data RestoreObject = RestoreObject
-    { _rorBucket         :: BucketName
-    , _rorKey            :: ObjectKey
+    { _rorBucket         :: Text
+    , _rorKey            :: Text
     , _rorRestoreRequest :: Maybe RestoreRequest
-    , _rorVersionId      :: Maybe ObjectVersionId
+    , _rorVersionId      :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 -- | 'RestoreObject' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rorBucket' @::@ 'BucketName'
+-- * 'rorBucket' @::@ 'Text'
 --
--- * 'rorKey' @::@ 'ObjectKey'
+-- * 'rorKey' @::@ 'Text'
 --
 -- * 'rorRestoreRequest' @::@ 'Maybe' 'RestoreRequest'
 --
--- * 'rorVersionId' @::@ 'Maybe' 'ObjectVersionId'
+-- * 'rorVersionId' @::@ 'Maybe' 'Text'
 --
-restoreObject :: BucketName -- ^ 'rorBucket'
-              -> ObjectKey -- ^ 'rorKey'
+restoreObject :: Text -- ^ 'rorBucket'
+              -> Text -- ^ 'rorKey'
               -> RestoreObject
 restoreObject p1 p2 = RestoreObject
     { _rorBucket         = p1
@@ -68,17 +68,17 @@ restoreObject p1 p2 = RestoreObject
     , _rorRestoreRequest = Nothing
     }
 
-rorBucket :: Lens' RestoreObject BucketName
+rorBucket :: Lens' RestoreObject Text
 rorBucket = lens _rorBucket (\s a -> s { _rorBucket = a })
 
-rorKey :: Lens' RestoreObject ObjectKey
+rorKey :: Lens' RestoreObject Text
 rorKey = lens _rorKey (\s a -> s { _rorKey = a })
 
 rorRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
 rorRestoreRequest =
     lens _rorRestoreRequest (\s a -> s { _rorRestoreRequest = a })
 
-rorVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
+rorVersionId :: Lens' RestoreObject (Maybe Text)
 rorVersionId = lens _rorVersionId (\s a -> s { _rorVersionId = a })
 
 instance ToPath RestoreObject where

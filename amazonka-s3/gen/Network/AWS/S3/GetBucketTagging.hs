@@ -41,22 +41,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketTagging = GetBucketTagging
-    { _gbtrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    { _gbtrBucket :: Text
+    } deriving ()
 
 -- | 'GetBucketTagging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbtrBucket' @::@ 'BucketName'
+-- * 'gbtrBucket' @::@ 'Text'
 --
-getBucketTagging :: BucketName -- ^ 'gbtrBucket'
+getBucketTagging :: Text -- ^ 'gbtrBucket'
                  -> GetBucketTagging
 getBucketTagging p1 = GetBucketTagging
     { _gbtrBucket = p1
     }
 
-gbtrBucket :: Lens' GetBucketTagging BucketName
+gbtrBucket :: Lens' GetBucketTagging Text
 gbtrBucket = lens _gbtrBucket (\s a -> s { _gbtrBucket = a })
 
 instance ToPath GetBucketTagging where
@@ -72,7 +72,7 @@ instance ToHeaders GetBucketTagging
 
 newtype GetBucketTaggingOutput = GetBucketTaggingOutput
     { _gbtoTagSet :: [Tag]
-    } deriving (Eq, Show, Generic, Monoid)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetBucketTaggingOutput' constructor.
 --

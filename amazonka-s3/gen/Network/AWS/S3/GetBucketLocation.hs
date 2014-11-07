@@ -41,22 +41,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketLocation = GetBucketLocation
-    { _gblrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    { _gblrBucket :: Text
+    } deriving ()
 
 -- | 'GetBucketLocation' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gblrBucket' @::@ 'BucketName'
+-- * 'gblrBucket' @::@ 'Text'
 --
-getBucketLocation :: BucketName -- ^ 'gblrBucket'
+getBucketLocation :: Text -- ^ 'gblrBucket'
                   -> GetBucketLocation
 getBucketLocation p1 = GetBucketLocation
     { _gblrBucket = p1
     }
 
-gblrBucket :: Lens' GetBucketLocation BucketName
+gblrBucket :: Lens' GetBucketLocation Text
 gblrBucket = lens _gblrBucket (\s a -> s { _gblrBucket = a })
 
 instance ToPath GetBucketLocation where
@@ -71,21 +71,21 @@ instance ToQuery GetBucketLocation where
 instance ToHeaders GetBucketLocation
 
 newtype GetBucketLocationOutput = GetBucketLocationOutput
-    { _gbloLocationConstraint :: Maybe Region
-    } deriving (Eq, Show, Generic)
+    { _gbloLocationConstraint :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketLocationOutput' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbloLocationConstraint' @::@ 'Maybe' 'Region'
+-- * 'gbloLocationConstraint' @::@ 'Maybe' 'Text'
 --
 getBucketLocationOutput :: GetBucketLocationOutput
 getBucketLocationOutput = GetBucketLocationOutput
     { _gbloLocationConstraint = Nothing
     }
 
-gbloLocationConstraint :: Lens' GetBucketLocationOutput (Maybe Region)
+gbloLocationConstraint :: Lens' GetBucketLocationOutput (Maybe Text)
 gbloLocationConstraint =
     lens _gbloLocationConstraint (\s a -> s { _gbloLocationConstraint = a })
 

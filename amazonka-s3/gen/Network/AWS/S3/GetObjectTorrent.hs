@@ -42,30 +42,30 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data GetObjectTorrent = GetObjectTorrent
-    { _gotrBucket :: BucketName
-    , _gotrKey    :: ObjectKey
-    } deriving (Eq, Show, Generic)
+    { _gotrBucket :: Text
+    , _gotrKey    :: Text
+    } deriving ()
 
 -- | 'GetObjectTorrent' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gotrBucket' @::@ 'BucketName'
+-- * 'gotrBucket' @::@ 'Text'
 --
--- * 'gotrKey' @::@ 'ObjectKey'
+-- * 'gotrKey' @::@ 'Text'
 --
-getObjectTorrent :: BucketName -- ^ 'gotrBucket'
-                 -> ObjectKey -- ^ 'gotrKey'
+getObjectTorrent :: Text -- ^ 'gotrBucket'
+                 -> Text -- ^ 'gotrKey'
                  -> GetObjectTorrent
 getObjectTorrent p1 p2 = GetObjectTorrent
     { _gotrBucket = p1
     , _gotrKey    = p2
     }
 
-gotrBucket :: Lens' GetObjectTorrent BucketName
+gotrBucket :: Lens' GetObjectTorrent Text
 gotrBucket = lens _gotrBucket (\s a -> s { _gotrBucket = a })
 
-gotrKey :: Lens' GetObjectTorrent ObjectKey
+gotrKey :: Lens' GetObjectTorrent Text
 gotrKey = lens _gotrKey (\s a -> s { _gotrKey = a })
 
 instance ToPath GetObjectTorrent where
@@ -83,7 +83,7 @@ instance ToHeaders GetObjectTorrent
 
 newtype GetObjectTorrentOutput = GetObjectTorrentOutput
     { _gotoBody :: RsBody
-    } deriving (Show, Generic)
+    } deriving ()
 
 -- | 'GetObjectTorrentOutput' constructor.
 --

@@ -71,7 +71,7 @@ import Network.AWS.S3.Types
 
 data CreateMultipartUpload = CreateMultipartUpload
     { _cmur1ACL                     :: Maybe Text
-    , _cmur1Bucket                  :: BucketName
+    , _cmur1Bucket                  :: Text
     , _cmur1CacheControl            :: Maybe Text
     , _cmur1ContentDisposition      :: Maybe Text
     , _cmur1ContentEncoding         :: Maybe Text
@@ -82,7 +82,7 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmur1GrantRead               :: Maybe Text
     , _cmur1GrantReadACP            :: Maybe Text
     , _cmur1GrantWriteACP           :: Maybe Text
-    , _cmur1Key                     :: ObjectKey
+    , _cmur1Key                     :: Text
     , _cmur1Metadata                :: Map Text Text
     , _cmur1SSECustomerAlgorithm    :: Maybe Text
     , _cmur1SSECustomerKey          :: Maybe (Sensitive Text)
@@ -90,7 +90,7 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmur1ServerSideEncryption    :: Maybe Text
     , _cmur1StorageClass            :: Maybe Text
     , _cmur1WebsiteRedirectLocation :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateMultipartUpload' constructor.
 --
@@ -98,7 +98,7 @@ data CreateMultipartUpload = CreateMultipartUpload
 --
 -- * 'cmur1ACL' @::@ 'Maybe' 'Text'
 --
--- * 'cmur1Bucket' @::@ 'BucketName'
+-- * 'cmur1Bucket' @::@ 'Text'
 --
 -- * 'cmur1CacheControl' @::@ 'Maybe' 'Text'
 --
@@ -120,7 +120,7 @@ data CreateMultipartUpload = CreateMultipartUpload
 --
 -- * 'cmur1GrantWriteACP' @::@ 'Maybe' 'Text'
 --
--- * 'cmur1Key' @::@ 'ObjectKey'
+-- * 'cmur1Key' @::@ 'Text'
 --
 -- * 'cmur1Metadata' @::@ 'HashMap' 'Text' 'Text'
 --
@@ -136,8 +136,8 @@ data CreateMultipartUpload = CreateMultipartUpload
 --
 -- * 'cmur1WebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
-createMultipartUpload :: BucketName -- ^ 'cmur1Bucket'
-                      -> ObjectKey -- ^ 'cmur1Key'
+createMultipartUpload :: Text -- ^ 'cmur1Bucket'
+                      -> Text -- ^ 'cmur1Key'
                       -> CreateMultipartUpload
 createMultipartUpload p1 p2 = CreateMultipartUpload
     { _cmur1Bucket                  = p1
@@ -166,7 +166,7 @@ createMultipartUpload p1 p2 = CreateMultipartUpload
 cmur1ACL :: Lens' CreateMultipartUpload (Maybe Text)
 cmur1ACL = lens _cmur1ACL (\s a -> s { _cmur1ACL = a })
 
-cmur1Bucket :: Lens' CreateMultipartUpload BucketName
+cmur1Bucket :: Lens' CreateMultipartUpload Text
 cmur1Bucket = lens _cmur1Bucket (\s a -> s { _cmur1Bucket = a })
 
 -- | Specifies caching behavior along the request/reply chain.
@@ -220,7 +220,7 @@ cmur1GrantWriteACP :: Lens' CreateMultipartUpload (Maybe Text)
 cmur1GrantWriteACP =
     lens _cmur1GrantWriteACP (\s a -> s { _cmur1GrantWriteACP = a })
 
-cmur1Key :: Lens' CreateMultipartUpload ObjectKey
+cmur1Key :: Lens' CreateMultipartUpload Text
 cmur1Key = lens _cmur1Key (\s a -> s { _cmur1Key = a })
 
 -- | A map of metadata to store with the object in S3.
@@ -307,21 +307,21 @@ instance ToHeaders CreateMultipartUpload where
 instance ToBody CreateMultipartUpload
 
 data CreateMultipartUploadOutput = CreateMultipartUploadOutput
-    { _cmuo1Bucket               :: Maybe BucketName
-    , _cmuo1Key                  :: Maybe ObjectKey
+    { _cmuo1Bucket               :: Maybe Text
+    , _cmuo1Key                  :: Maybe Text
     , _cmuo1SSECustomerAlgorithm :: Maybe Text
     , _cmuo1SSECustomerKeyMD5    :: Maybe Text
     , _cmuo1ServerSideEncryption :: Maybe Text
     , _cmuo1UploadId             :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateMultipartUploadOutput' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmuo1Bucket' @::@ 'Maybe' 'BucketName'
+-- * 'cmuo1Bucket' @::@ 'Maybe' 'Text'
 --
--- * 'cmuo1Key' @::@ 'Maybe' 'ObjectKey'
+-- * 'cmuo1Key' @::@ 'Maybe' 'Text'
 --
 -- * 'cmuo1SSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
@@ -342,11 +342,11 @@ createMultipartUploadOutput = CreateMultipartUploadOutput
     }
 
 -- | Name of the bucket to which the multipart upload was initiated.
-cmuo1Bucket :: Lens' CreateMultipartUploadOutput (Maybe BucketName)
+cmuo1Bucket :: Lens' CreateMultipartUploadOutput (Maybe Text)
 cmuo1Bucket = lens _cmuo1Bucket (\s a -> s { _cmuo1Bucket = a })
 
 -- | Object key for which the multipart upload was initiated.
-cmuo1Key :: Lens' CreateMultipartUploadOutput (Maybe ObjectKey)
+cmuo1Key :: Lens' CreateMultipartUploadOutput (Maybe Text)
 cmuo1Key = lens _cmuo1Key (\s a -> s { _cmuo1Key = a })
 
 -- | If server-side encryption with a customer-provided encryption key was

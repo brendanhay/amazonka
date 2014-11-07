@@ -41,22 +41,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketCors = GetBucketCors
-    { _gbcrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    { _gbcrBucket :: Text
+    } deriving ()
 
 -- | 'GetBucketCors' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbcrBucket' @::@ 'BucketName'
+-- * 'gbcrBucket' @::@ 'Text'
 --
-getBucketCors :: BucketName -- ^ 'gbcrBucket'
+getBucketCors :: Text -- ^ 'gbcrBucket'
               -> GetBucketCors
 getBucketCors p1 = GetBucketCors
     { _gbcrBucket = p1
     }
 
-gbcrBucket :: Lens' GetBucketCors BucketName
+gbcrBucket :: Lens' GetBucketCors Text
 gbcrBucket = lens _gbcrBucket (\s a -> s { _gbcrBucket = a })
 
 instance ToPath GetBucketCors where
@@ -72,7 +72,7 @@ instance ToHeaders GetBucketCors
 
 newtype GetBucketCorsOutput = GetBucketCorsOutput
     { _gbcoCORSRules :: [CORSRule]
-    } deriving (Eq, Show, Generic, Monoid)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetBucketCorsOutput' constructor.
 --

@@ -49,14 +49,14 @@ import Network.AWS.S3.Types
 data PutObjectAcl = PutObjectAcl
     { _poarACL                 :: Maybe Text
     , _poarAccessControlPolicy :: Maybe AccessControlPolicy
-    , _poarBucket              :: BucketName
+    , _poarBucket              :: Text
     , _poarContentMD5          :: Maybe Text
     , _poarGrantFullControl    :: Maybe Text
     , _poarGrantRead           :: Maybe Text
     , _poarGrantReadACP        :: Maybe Text
     , _poarGrantWrite          :: Maybe Text
     , _poarGrantWriteACP       :: Maybe Text
-    , _poarKey                 :: ObjectKey
+    , _poarKey                 :: Text
     } deriving (Eq, Show, Generic)
 
 -- | 'PutObjectAcl' constructor.
@@ -67,7 +67,7 @@ data PutObjectAcl = PutObjectAcl
 --
 -- * 'poarAccessControlPolicy' @::@ 'Maybe' 'AccessControlPolicy'
 --
--- * 'poarBucket' @::@ 'BucketName'
+-- * 'poarBucket' @::@ 'Text'
 --
 -- * 'poarContentMD5' @::@ 'Maybe' 'Text'
 --
@@ -81,10 +81,10 @@ data PutObjectAcl = PutObjectAcl
 --
 -- * 'poarGrantWriteACP' @::@ 'Maybe' 'Text'
 --
--- * 'poarKey' @::@ 'ObjectKey'
+-- * 'poarKey' @::@ 'Text'
 --
-putObjectAcl :: BucketName -- ^ 'poarBucket'
-             -> ObjectKey -- ^ 'poarKey'
+putObjectAcl :: Text -- ^ 'poarBucket'
+             -> Text -- ^ 'poarKey'
              -> PutObjectAcl
 putObjectAcl p1 p2 = PutObjectAcl
     { _poarBucket              = p1
@@ -107,7 +107,7 @@ poarAccessControlPolicy :: Lens' PutObjectAcl (Maybe AccessControlPolicy)
 poarAccessControlPolicy =
     lens _poarAccessControlPolicy (\s a -> s { _poarAccessControlPolicy = a })
 
-poarBucket :: Lens' PutObjectAcl BucketName
+poarBucket :: Lens' PutObjectAcl Text
 poarBucket = lens _poarBucket (\s a -> s { _poarBucket = a })
 
 poarContentMD5 :: Lens' PutObjectAcl (Maybe Text)
@@ -136,7 +136,7 @@ poarGrantWriteACP :: Lens' PutObjectAcl (Maybe Text)
 poarGrantWriteACP =
     lens _poarGrantWriteACP (\s a -> s { _poarGrantWriteACP = a })
 
-poarKey :: Lens' PutObjectAcl ObjectKey
+poarKey :: Lens' PutObjectAcl Text
 poarKey = lens _poarKey (\s a -> s { _poarKey = a })
 
 instance ToPath PutObjectAcl where

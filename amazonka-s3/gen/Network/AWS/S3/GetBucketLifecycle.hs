@@ -41,22 +41,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketLifecycle = GetBucketLifecycle
-    { _gblr1Bucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    { _gblr1Bucket :: Text
+    } deriving ()
 
 -- | 'GetBucketLifecycle' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gblr1Bucket' @::@ 'BucketName'
+-- * 'gblr1Bucket' @::@ 'Text'
 --
-getBucketLifecycle :: BucketName -- ^ 'gblr1Bucket'
+getBucketLifecycle :: Text -- ^ 'gblr1Bucket'
                    -> GetBucketLifecycle
 getBucketLifecycle p1 = GetBucketLifecycle
     { _gblr1Bucket = p1
     }
 
-gblr1Bucket :: Lens' GetBucketLifecycle BucketName
+gblr1Bucket :: Lens' GetBucketLifecycle Text
 gblr1Bucket = lens _gblr1Bucket (\s a -> s { _gblr1Bucket = a })
 
 instance ToPath GetBucketLifecycle where
@@ -72,7 +72,7 @@ instance ToHeaders GetBucketLifecycle
 
 newtype GetBucketLifecycleOutput = GetBucketLifecycleOutput
     { _gbloRules :: [Rule]
-    } deriving (Eq, Show, Generic, Monoid)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetBucketLifecycleOutput' constructor.
 --

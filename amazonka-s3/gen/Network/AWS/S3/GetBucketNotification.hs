@@ -41,22 +41,22 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketNotification = GetBucketNotification
-    { _gbnrBucket :: BucketName
-    } deriving (Eq, Show, Generic)
+    { _gbnrBucket :: Text
+    } deriving ()
 
 -- | 'GetBucketNotification' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbnrBucket' @::@ 'BucketName'
+-- * 'gbnrBucket' @::@ 'Text'
 --
-getBucketNotification :: BucketName -- ^ 'gbnrBucket'
+getBucketNotification :: Text -- ^ 'gbnrBucket'
                       -> GetBucketNotification
 getBucketNotification p1 = GetBucketNotification
     { _gbnrBucket = p1
     }
 
-gbnrBucket :: Lens' GetBucketNotification BucketName
+gbnrBucket :: Lens' GetBucketNotification Text
 gbnrBucket = lens _gbnrBucket (\s a -> s { _gbnrBucket = a })
 
 instance ToPath GetBucketNotification where

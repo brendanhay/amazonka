@@ -39,7 +39,7 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketCors = PutBucketCors
-    { _pbcrBucket            :: BucketName
+    { _pbcrBucket            :: Text
     , _pbcrCORSConfiguration :: Maybe CORSConfiguration
     , _pbcrContentMD5        :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -48,13 +48,13 @@ data PutBucketCors = PutBucketCors
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbcrBucket' @::@ 'BucketName'
+-- * 'pbcrBucket' @::@ 'Text'
 --
 -- * 'pbcrCORSConfiguration' @::@ 'Maybe' 'CORSConfiguration'
 --
 -- * 'pbcrContentMD5' @::@ 'Maybe' 'Text'
 --
-putBucketCors :: BucketName -- ^ 'pbcrBucket'
+putBucketCors :: Text -- ^ 'pbcrBucket'
               -> PutBucketCors
 putBucketCors p1 = PutBucketCors
     { _pbcrBucket            = p1
@@ -62,7 +62,7 @@ putBucketCors p1 = PutBucketCors
     , _pbcrContentMD5        = Nothing
     }
 
-pbcrBucket :: Lens' PutBucketCors BucketName
+pbcrBucket :: Lens' PutBucketCors Text
 pbcrBucket = lens _pbcrBucket (\s a -> s { _pbcrBucket = a })
 
 pbcrCORSConfiguration :: Lens' PutBucketCors (Maybe CORSConfiguration)

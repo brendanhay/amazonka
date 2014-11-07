@@ -36,6 +36,7 @@ import           Data.SemVer                (initial)
 import           Data.Text                  (Text)
 import qualified Data.Text                  as Text
 import           Data.Text.Manipulate
+import           Debug.Trace
 import           Gen.V2.Names
 import qualified Gen.V2.Stage1              as S1
 import           Gen.V2.Stage1              hiding (Operation)
@@ -126,7 +127,7 @@ dataTypes :: Overrides
           -> Abbrev
           -> Stage1
           -> ([Operation], HashMap Text Data)
-dataTypes o a s1 = first (sort . Map.elems) (runState run s)
+dataTypes o a s1 = (sort . Map.elems) `first` runState run s
   where
     run = Map.traverseWithKey f (s1 ^. s1Operations)
 
@@ -134,7 +135,7 @@ dataTypes o a s1 = first (sort . Map.elems) (runState run s)
 
     s = prefixes
         . filtered (o ^. oOverrides)
-        $ datas    (s1 ^. mProtocol) (s1 ^. s1Shapes)
+        $ datas (s1 ^. mProtocol) (s1 ^. s1Shapes)
 
 prefixes :: HashMap Text Data -> HashMap Text Data
 prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
@@ -240,7 +241,7 @@ filtered = flip (Map.foldlWithKey' run)
     renameTo x (Just y) m = replaced x y $
         case Map.lookup x m of
             Nothing -> m
-            Just z  -> Map.delete x (Map.insert y (ren z) m)
+            Just z  -> Map.insert y (ren z) (Map.delete x m)
       where
         ren = \case
             Newtype _ f  -> Newtype y f
@@ -254,19 +255,29 @@ filtered = flip (Map.foldlWithKey' run)
     replacedBy x (Just y) = Map.filterWithKey (const . (/= x)) . replaced x y
 
     replaced :: Text -> Text -> HashMap Text Data -> HashMap Text Data
-    replaced x y = Map.map (dataFields %~ go)
+    replaced x y = Map.map (\d -> let p = exists d in d & dataFields %~ go p)
       where
-        go :: Field -> Field
-        go f | f ^. fShape == x = f & typeOf %~ retype
-             | otherwise        = f
+        exists = any (== TType x) . nestedTypes
+
+        go True  = typeOf %~ retype
+        go False = id
 
         retype :: Type -> Type
-        retype (TMaybe _) = TMaybe (TType y)
-        retype (TList  _) = TList  (TType y)
-        retype (TList1 _) = TList1 (TType y)
-        retype (TType  _) = TType y
-        retype (TPrim  _) = TType y
-        retype z          = error $ "Unsupported retyping of: " ++ show (z, y)
+        retype (TMaybe _) = TMaybe z
+        retype (TList  _) = TList  z
+        retype (TList1 _) = TList1 z
+        retype (TType  _) = z
+        retype (TPrim  _) = z
+        retype e          = error $ "Unsupported retyping of: " ++ show (e, y)
+
+        z = TType y
+
+    named = \case
+        Newtype n _ -> n
+        Record  n _ -> n
+        Product n _ -> n
+        Nullary n _ -> n
+        Empty       -> ""
 
     sumPrefix :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
     sumPrefix _ Nothing  = id

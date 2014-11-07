@@ -480,7 +480,7 @@ instance ToXML Event where
 
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
     { _nveNoncurrentDays :: Int
-    } deriving ()
+    } deriving (Eq, Ord, Show, Generic, Enum, Num)
 
 -- | 'NoncurrentVersionExpiration' constructor.
 --
@@ -733,7 +733,7 @@ instance ToXML VersioningConfiguration where
 data Tag = Tag
     { _tKey   :: Text
     , _tValue :: Text
-    } deriving ()
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Tag' constructor.
 --
@@ -899,7 +899,7 @@ instance ToXML RoutingRule where
 
 newtype NotificationConfiguration = NotificationConfiguration
     { _ncTopicConfiguration :: TopicConfiguration
-    } deriving ()
+    } deriving (Eq, Show, Generic)
 
 -- | 'NotificationConfiguration' constructor.
 --
@@ -1160,7 +1160,7 @@ instance ToXML EncodingType where
 
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration
     { _rpcPayer :: Text
-    } deriving ()
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'RequestPaymentConfiguration' constructor.
 --
@@ -1306,7 +1306,7 @@ instance ToXML WebsiteConfiguration where
 data NoncurrentVersionTransition = NoncurrentVersionTransition
     { _nvtNoncurrentDays :: Int
     , _nvtStorageClass   :: Text
-    } deriving ()
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'NoncurrentVersionTransition' constructor.
 --
@@ -1687,7 +1687,7 @@ instance ToXML BucketLoggingStatus where
 
 newtype ErrorDocument = ErrorDocument
     { _edKey :: Text
-    } deriving ()
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ErrorDocument' constructor.
 --
@@ -2064,7 +2064,7 @@ instance ToXML CreateBucketConfiguration where
 
 newtype Tagging = Tagging
     { _tTagSet :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid)
 
 -- | 'Tagging' constructor.
 --
@@ -2128,7 +2128,7 @@ instance ToXML LifecycleExpiration where
 
 newtype CORSConfiguration = CORSConfiguration
     { _corscCORSRules :: [CORSRule]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid)
 
 -- | 'CORSConfiguration' constructor.
 --
@@ -2159,7 +2159,7 @@ data Object = Object
     , _oOwner        :: Owner
     , _oSize         :: Int
     , _oStorageClass :: Text
-    } deriving ()
+    } deriving (Eq, Show, Generic)
 
 -- | 'Object' constructor.
 --
@@ -2364,7 +2364,7 @@ instance ToXML TransitionStorageClass where
 
 newtype CompletedMultipartUpload = CompletedMultipartUpload
     { _cmuParts :: [CompletedPart]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid)
 
 -- | 'CompletedMultipartUpload' constructor.
 --
@@ -2618,7 +2618,7 @@ instance ToXML Grantee where
 
 newtype LifecycleConfiguration = LifecycleConfiguration
     { _lcRules :: [Rule]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid)
 
 -- | 'LifecycleConfiguration' constructor.
 --
@@ -2713,7 +2713,7 @@ instance ToXML ServerSideEncryption where
 
 newtype IndexDocument = IndexDocument
     { _idSuffix :: Text
-    } deriving ()
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'IndexDocument' constructor.
 --
@@ -2814,7 +2814,7 @@ instance ToXML Delete where
 
 newtype RestoreRequest = RestoreRequest
     { _rrDays :: Int
-    } deriving ()
+    } deriving (Eq, Ord, Show, Generic, Enum, Num)
 
 -- | 'RestoreRequest' constructor.
 --

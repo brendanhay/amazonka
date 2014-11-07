@@ -38,7 +38,7 @@ import Network.AWS.S3.Types
 
 newtype DeleteBucketLifecycle = DeleteBucketLifecycle
     { _dblrBucket :: Text
-    } deriving ()
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteBucketLifecycle' constructor.
 --

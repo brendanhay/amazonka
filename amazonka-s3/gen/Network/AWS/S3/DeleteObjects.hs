@@ -48,7 +48,7 @@ data DeleteObjects = DeleteObjects
     { _dorBucket :: Text
     , _dorDelete :: Delete
     , _dorMFA    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteObjects' constructor.
 --

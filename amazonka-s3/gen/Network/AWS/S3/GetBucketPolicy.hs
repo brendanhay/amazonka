@@ -42,7 +42,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketPolicy = GetBucketPolicy
     { _gbprBucket :: Text
-    } deriving ()
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketPolicy' constructor.
 --

@@ -45,7 +45,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketWebsite = GetBucketWebsite
     { _gbwrBucket :: Text
-    } deriving ()
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketWebsite' constructor.
 --

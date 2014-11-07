@@ -402,7 +402,7 @@ instance ToJSON Data where
                 pay        = find isPayload fs
 
 instance DerivingOf Data where
-    derivingOf d = f . derivingOf $ nestedTypes d
+    derivingOf d = f . derivingOf $ toListOf (dataFields . typeOf) d
       where
         f | Newtype{} <- d = id
           | Nullary{} <- d = const [Eq', Ord', Enum', Show', Generic']

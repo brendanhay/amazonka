@@ -42,7 +42,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketTagging = GetBucketTagging
     { _gbtrBucket :: Text
-    } deriving ()
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketTagging' constructor.
 --
@@ -72,7 +72,7 @@ instance ToHeaders GetBucketTagging
 
 newtype GetBucketTaggingOutput = GetBucketTaggingOutput
     { _gbtoTagSet :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic, Monoid)
 
 -- | 'GetBucketTaggingOutput' constructor.
 --

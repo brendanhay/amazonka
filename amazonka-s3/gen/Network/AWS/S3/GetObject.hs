@@ -307,7 +307,7 @@ data GetObjectOutput = GetObjectOutput
     , _gooServerSideEncryption    :: Maybe Text
     , _gooVersionId               :: Maybe Text
     , _gooWebsiteRedirectLocation :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Show, Generic)
 
 -- | 'GetObjectOutput' constructor.
 --

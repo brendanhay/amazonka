@@ -91,7 +91,7 @@ data PutObject = PutObject
     , _porServerSideEncryption    :: Maybe Text
     , _porStorageClass            :: Maybe Text
     , _porWebsiteRedirectLocation :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Show, Generic)
 
 -- | 'PutObject' constructor.
 --

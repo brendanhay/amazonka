@@ -68,7 +68,7 @@ data UploadPart = UploadPart
     , _uprSSECustomerKey       :: Maybe (Sensitive Text)
     , _uprSSECustomerKeyMD5    :: Maybe Text
     , _uprUploadId             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Show, Generic)
 
 -- | 'UploadPart' constructor.
 --

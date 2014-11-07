@@ -60,7 +60,7 @@ data ListParts = ListParts
     , _lprMaxParts         :: Maybe Int
     , _lprPartNumberMarker :: Maybe Int
     , _lprUploadId         :: Text
-    } deriving (Eq, Ord, Show, Generic, Enum, Num)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListParts' constructor.
 --

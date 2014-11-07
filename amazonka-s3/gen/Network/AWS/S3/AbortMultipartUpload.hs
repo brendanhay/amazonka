@@ -44,7 +44,7 @@ data AbortMultipartUpload = AbortMultipartUpload
     { _amurBucket   :: Text
     , _amurKey      :: Text
     , _amurUploadId :: Text
-    } deriving ()
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AbortMultipartUpload' constructor.
 --

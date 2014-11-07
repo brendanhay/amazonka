@@ -42,7 +42,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketNotification = GetBucketNotification
     { _gbnrBucket :: Text
-    } deriving ()
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketNotification' constructor.
 --

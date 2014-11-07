@@ -43,7 +43,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketLogging = GetBucketLogging
     { _gblr2Bucket :: Text
-    } deriving ()
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketLogging' constructor.
 --

@@ -9,7 +9,7 @@
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
-{% include "license.ede" %}
+{% include "_include/license.ede" %}
 
 {% if documentation %}
 {{ documentation | above(74, 0) }}
@@ -64,3 +64,33 @@ module {{ namespace }}
   {% endif %}
 {% endfor %}
     ) where
+
+import Network.AWS.Prelude
+import Network.AWS.Signing.{{ service.signature }}
+{% include "_include/imports.ede" %}
+
+{% include "_include/service.ede" %}
+
+{% case service.protocol %}
+{% when "xml" %}
+xmlOptions :: Tagged a XMLOptions
+xmlOptions = Tagged def
+  {% if xmlNamespace %}
+    { xmlNamespace = Just "{{ xmlNamespace }}"
+    }
+  {% endif %}
+
+{% endcase %}
+{% include "_include/error.ede" %}
+
+{% for type in types %}
+{% include "_include/datatype.ede" with type = type.value %}
+  {% case service.protocol %}
+  {% when "xml" %}
+
+{% include "_include/xml.ede" with type = type.value %}
+  {% endcase %}
+  {% if !type.last %}
+
+  {% endif %}
+{% endfor %}

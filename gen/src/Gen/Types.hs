@@ -319,9 +319,10 @@ instance Ord Model where
     compare a b = comparing _mName a b <> comparing _mVersion a b
 
 data Templates = Templates
-    { _tCabal    :: Template
-    , _tService  :: Template
-    , _tProtocol :: Protocol -> (Template, Template)
+    { _tCabal     :: Template
+    , _tService   :: Template
+    , _tOperation :: Template
+    , _tTypes     :: Template
     }
 
 dots :: FilePath -> Bool

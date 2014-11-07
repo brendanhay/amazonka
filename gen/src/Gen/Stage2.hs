@@ -631,14 +631,12 @@ render d Templates{..} s2 = do
 
     renderFile "Render Cabal"   lib _tCabal   (s2 ^. s2Cabal)
     renderFile "Render Service" gen _tService (s2 ^. s2Service)
-    renderFile "Render Types"   gen t         (s2 ^. s2Types)
+    renderFile "Render Types"   gen _tTypes   (s2 ^. s2Types)
 
-    mapM_ (renderFile "Render Operation" gen o) (s2 ^. s2Operations)
+    mapM_ (renderFile "Render Operation" gen _tOperation) (s2 ^. s2Operations)
 
     return lib
   where
-    (t, o) = _tProtocol (s2 ^. s2Service.svProtocol)
-
     src :: FilePath
     src = rel "src"
 

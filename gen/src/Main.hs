@@ -22,10 +22,10 @@ import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Monad.State
 import           Data.Monoid
-import           Gen.V2.IO
-import qualified Gen.V2.Stage1          as S1
-import qualified Gen.V2.Stage2          as S2
-import           Gen.V2.Transform
+import           Gen.IO
+import qualified Gen.Stage1             as S1
+import qualified Gen.Stage2             as S2
+import           Gen.Transform
 import           Options.Applicative
 import           System.Directory
 import           System.IO
@@ -130,5 +130,3 @@ main = do
 
             -- Copy static assets to the library root.
             copyAssets (o ^. assets) lib
-
-            return ()

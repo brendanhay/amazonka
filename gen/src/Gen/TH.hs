@@ -84,10 +84,9 @@ jason th = J.defaultOptions
     }
 
 lenses :: TH -> LensRules -> LensRules
-lenses th = lensField .~ const f
-  where
-    f :: Name -> [DefName]
-    f x = [TopName (mkName (text (_thLens th) (nameBase x)))]
+lenses th = set lensField $ \_ _ x ->
+    [ TopName (mkName (text (_thLens th) (nameBase x)))
+    ]
 
 text :: (Text -> Text) -> String -> String
 text f = Text.unpack . f . Text.pack

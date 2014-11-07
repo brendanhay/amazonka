@@ -56,7 +56,7 @@ MODELS ?= $(RESTS3) ec2 # $(RESTXML) $(RESTJSON) $(QUERY) $(JSON)
 
 .PHONY: gen
 
-gen: build stage1 stage2
+gen: build
 	@dist/build/amazonka-gen/amazonka-gen \
 --out=../ \
  --services=stage2 \
@@ -65,7 +65,7 @@ gen: build stage1 stage2
  --assets=assets \
  $(addprefix --model=,$(addprefix stage1/,$(MODELS)))
 
-build:
+build: stage1 stage2
 	cabal build $(addprefix -,$(findstring j,$(MAKEFLAGS)))
 
 install: add-sources
@@ -88,7 +88,7 @@ vendor/%:
 	git clone git@github.com:brendanhay/$*.git $@
 
 stage1:
-	cp -rf $@/botocore/data/aws stage1
+	cp -rf vendor/botocore/botocore/data/aws $@
 
 stage2:
 	@mkdir $@

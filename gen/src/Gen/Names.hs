@@ -13,12 +13,17 @@
 
 module Gen.Names where
 
+import           Data.CaseInsensitive (CI)
+import qualified Data.CaseInsensitive as CI
 import           Data.Char
+import qualified Data.HashSet         as Set
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Manipulate
+import           Text.Parsec.Language
+import           Text.Parsec.Token    (reservedNames)
 
 operationName :: Text -> Text
 operationName t = fromMaybe t (Text.stripSuffix "Request" t)
@@ -48,7 +53,7 @@ keyName t
     | otherwise               = t
 
 ctorName :: Text -> Text
-ctorName t = toSpinal (fromMaybe t ("'" `Text.stripSuffix` t))
+ctorName t = reserved . toSpinal . fromMaybe t $ "'" `Text.stripSuffix` t
 
 dropLower :: Text -> Text
 dropLower = Text.dropWhile (not . isUpper)
@@ -68,3 +73,10 @@ numericSuffix t
     | Text.null t                 = Text.singleton '1'
     | x <- Text.last t, isDigit x = Text.init t `Text.snoc` succ x
     | otherwise                   = t `Text.snoc` '1'
+
+reserved :: Text -> Text
+reserved x
+    | CI.mk x `Set.member` xs = x <> "'"
+    | otherwise               = x
+  where
+    xs = Set.fromList . map (CI.mk . Text.pack) $ reservedNames haskellDef

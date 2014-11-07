@@ -33,9 +33,10 @@ executable amazonka-gen
         , errors
         , filepath
         , jason
-        , lens
+        , lens                 == 4.5.*
         , mtl
         , optparse-applicative == 0.11.*
+        , parsec
         , semver
         , template-haskell
         , text

@@ -94,6 +94,7 @@ instance ToBody PutBucketNotification where
     toBody = toBody . encodeXML . _pbnrNotificationConfiguration
 
 data PutBucketNotificationResponse = PutBucketNotificationResponse
+
 -- | 'PutBucketNotificationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

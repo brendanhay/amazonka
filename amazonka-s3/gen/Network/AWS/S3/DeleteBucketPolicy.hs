@@ -69,6 +69,7 @@ instance ToQuery DeleteBucketPolicy where
 instance ToHeaders DeleteBucketPolicy
 
 data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse
+
 -- | 'DeleteBucketPolicyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

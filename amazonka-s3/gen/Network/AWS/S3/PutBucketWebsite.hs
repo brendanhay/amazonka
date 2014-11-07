@@ -94,6 +94,7 @@ instance ToBody PutBucketWebsite where
     toBody = toBody . encodeXML . _pbwrWebsiteConfiguration
 
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse
+
 -- | 'PutBucketWebsiteResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

@@ -103,6 +103,7 @@ instance ToBody RestoreObject where
     toBody = toBody . encodeXML . _rorRestoreRequest
 
 data RestoreObjectResponse = RestoreObjectResponse
+
 -- | 'RestoreObjectResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

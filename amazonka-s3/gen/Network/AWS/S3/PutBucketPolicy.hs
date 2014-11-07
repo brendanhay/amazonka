@@ -94,6 +94,7 @@ instance ToBody PutBucketPolicy where
     toBody = toBody . encodeXML . _pbprPolicy
 
 data PutBucketPolicyResponse = PutBucketPolicyResponse
+
 -- | 'PutBucketPolicyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

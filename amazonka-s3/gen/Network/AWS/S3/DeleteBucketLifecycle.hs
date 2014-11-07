@@ -69,6 +69,7 @@ instance ToQuery DeleteBucketLifecycle where
 instance ToHeaders DeleteBucketLifecycle
 
 data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
+
 -- | 'DeleteBucketLifecycleResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

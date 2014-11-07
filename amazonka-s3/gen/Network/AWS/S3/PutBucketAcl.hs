@@ -155,6 +155,7 @@ instance ToBody PutBucketAcl where
     toBody = toBody . encodeXML . _pbarAccessControlPolicy
 
 data PutBucketAclResponse = PutBucketAclResponse
+
 -- | 'PutBucketAclResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

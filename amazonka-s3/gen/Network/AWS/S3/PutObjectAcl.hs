@@ -167,6 +167,7 @@ instance ToBody PutObjectAcl where
     toBody = toBody . encodeXML . _poarAccessControlPolicy
 
 data PutObjectAclResponse = PutObjectAclResponse
+
 -- | 'PutObjectAclResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

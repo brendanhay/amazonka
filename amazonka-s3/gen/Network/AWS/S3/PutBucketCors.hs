@@ -92,6 +92,7 @@ instance ToBody PutBucketCors where
     toBody = toBody . encodeXML . _pbcrCORSConfiguration
 
 data PutBucketCorsResponse = PutBucketCorsResponse
+
 -- | 'PutBucketCorsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

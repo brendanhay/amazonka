@@ -69,6 +69,7 @@ instance ToQuery DeleteBucketCors where
 instance ToHeaders DeleteBucketCors
 
 data DeleteBucketCorsResponse = DeleteBucketCorsResponse
+
 -- | 'DeleteBucketCorsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

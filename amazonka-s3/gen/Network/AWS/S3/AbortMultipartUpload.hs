@@ -90,6 +90,7 @@ instance ToQuery AbortMultipartUpload where
 instance ToHeaders AbortMultipartUpload
 
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse
+
 -- | 'AbortMultipartUploadResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

@@ -69,6 +69,7 @@ instance ToQuery DeleteBucketTagging where
 instance ToHeaders DeleteBucketTagging
 
 data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
+
 -- | 'DeleteBucketTaggingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

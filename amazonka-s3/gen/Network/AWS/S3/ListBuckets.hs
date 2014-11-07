@@ -41,6 +41,7 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data ListBuckets = ListBuckets
+
 -- | 'ListBuckets' constructor.
 --
 -- The fields accessible through corresponding lenses are:

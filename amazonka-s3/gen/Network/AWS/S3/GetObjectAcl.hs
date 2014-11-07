@@ -103,7 +103,7 @@ data GetObjectAclOutput = GetObjectAclOutput
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'goaoGrants' @::@ '[Grant]'
+-- * 'goaoGrants' @::@ ['Grant']
 --
 -- * 'goaoOwner' @::@ 'Maybe' 'Owner'
 --

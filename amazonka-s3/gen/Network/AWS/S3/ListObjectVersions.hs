@@ -163,9 +163,9 @@ data ListObjectVersionsOutput = ListObjectVersionsOutput
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lovoCommonPrefixes' @::@ '[CommonPrefix]'
+-- * 'lovoCommonPrefixes' @::@ ['CommonPrefix']
 --
--- * 'lovoDeleteMarkers' @::@ '[DeleteMarkerEntry]'
+-- * 'lovoDeleteMarkers' @::@ ['DeleteMarkerEntry']
 --
 -- * 'lovoEncodingType' @::@ 'Maybe' 'Text'
 --
@@ -185,7 +185,7 @@ data ListObjectVersionsOutput = ListObjectVersionsOutput
 --
 -- * 'lovoVersionIdMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lovoVersions' @::@ '[ObjectVersion]'
+-- * 'lovoVersions' @::@ ['ObjectVersion']
 --
 listObjectVersionsOutput :: ListObjectVersionsOutput
 listObjectVersionsOutput = ListObjectVersionsOutput

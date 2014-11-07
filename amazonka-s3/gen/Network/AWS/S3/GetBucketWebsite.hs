@@ -90,7 +90,7 @@ data GetBucketWebsiteOutput = GetBucketWebsiteOutput
 --
 -- * 'gbwoRedirectAllRequestsTo' @::@ 'Maybe' 'RedirectAllRequestsTo'
 --
--- * 'gbwoRoutingRules' @::@ '[RoutingRule]'
+-- * 'gbwoRoutingRules' @::@ ['RoutingRule']
 --
 getBucketWebsiteOutput :: GetBucketWebsiteOutput
 getBucketWebsiteOutput = GetBucketWebsiteOutput

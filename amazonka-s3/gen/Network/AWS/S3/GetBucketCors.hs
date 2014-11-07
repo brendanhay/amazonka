@@ -78,7 +78,7 @@ newtype GetBucketCorsOutput = GetBucketCorsOutput
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbcoCORSRules' @::@ '[CORSRule]'
+-- * 'gbcoCORSRules' @::@ ['CORSRule']
 --
 getBucketCorsOutput :: GetBucketCorsOutput
 getBucketCorsOutput = GetBucketCorsOutput

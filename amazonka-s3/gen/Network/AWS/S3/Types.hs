@@ -1198,13 +1198,13 @@ data CORSRule = CORSRule
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'corsrAllowedHeaders' @::@ '[Text]'
+-- * 'corsrAllowedHeaders' @::@ ['Text']
 --
--- * 'corsrAllowedMethods' @::@ '[Text]'
+-- * 'corsrAllowedMethods' @::@ ['Text']
 --
--- * 'corsrAllowedOrigins' @::@ '[Text]'
+-- * 'corsrAllowedOrigins' @::@ ['Text']
 --
--- * 'corsrExposeHeaders' @::@ '[Text]'
+-- * 'corsrExposeHeaders' @::@ ['Text']
 --
 -- * 'corsrMaxAgeSeconds' @::@ 'Maybe' 'Int'
 --
@@ -1272,7 +1272,7 @@ data WebsiteConfiguration = WebsiteConfiguration
 --
 -- * 'wcRedirectAllRequestsTo' @::@ 'Maybe' 'RedirectAllRequestsTo'
 --
--- * 'wcRoutingRules' @::@ '[RoutingRule]'
+-- * 'wcRoutingRules' @::@ ['RoutingRule']
 --
 websiteConfiguration :: WebsiteConfiguration
 websiteConfiguration = WebsiteConfiguration
@@ -2070,7 +2070,7 @@ newtype Tagging = Tagging
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tTagSet' @::@ '[Tag]'
+-- * 'tTagSet' @::@ ['Tag']
 --
 tagging :: Tagging
 tagging = Tagging
@@ -2134,7 +2134,7 @@ newtype CORSConfiguration = CORSConfiguration
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'corscCORSRules' @::@ '[CORSRule]'
+-- * 'corscCORSRules' @::@ ['CORSRule']
 --
 corsconfiguration :: CORSConfiguration
 corsconfiguration = CORSConfiguration
@@ -2370,7 +2370,7 @@ newtype CompletedMultipartUpload = CompletedMultipartUpload
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmuParts' @::@ '[CompletedPart]'
+-- * 'cmuParts' @::@ ['CompletedPart']
 --
 completedMultipartUpload :: CompletedMultipartUpload
 completedMultipartUpload = CompletedMultipartUpload
@@ -2477,7 +2477,7 @@ data AccessControlPolicy = AccessControlPolicy
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'acpGrants' @::@ '[Grant]'
+-- * 'acpGrants' @::@ ['Grant']
 --
 -- * 'acpOwner' @::@ 'Maybe' 'Owner'
 --
@@ -2624,7 +2624,7 @@ newtype LifecycleConfiguration = LifecycleConfiguration
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcRules' @::@ '[Rule]'
+-- * 'lcRules' @::@ ['Rule']
 --
 lifecycleConfiguration :: LifecycleConfiguration
 lifecycleConfiguration = LifecycleConfiguration
@@ -2654,7 +2654,7 @@ data LoggingEnabled = LoggingEnabled
 --
 -- * 'leTargetBucket' @::@ 'Maybe' 'Text'
 --
--- * 'leTargetGrants' @::@ '[TargetGrant]'
+-- * 'leTargetGrants' @::@ ['TargetGrant']
 --
 -- * 'leTargetPrefix' @::@ 'Maybe' 'Text'
 --
@@ -2786,7 +2786,7 @@ data Delete = Delete
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dObjects' @::@ '[ObjectIdentifier]'
+-- * 'dObjects' @::@ ['ObjectIdentifier']
 --
 -- * 'dQuiet' @::@ 'Maybe' 'Bool'
 --

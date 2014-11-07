@@ -78,7 +78,7 @@ newtype GetBucketTaggingOutput = GetBucketTaggingOutput
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbtoTagSet' @::@ '[Tag]'
+-- * 'gbtoTagSet' @::@ ['Tag']
 --
 getBucketTaggingOutput :: GetBucketTaggingOutput
 getBucketTaggingOutput = GetBucketTaggingOutput

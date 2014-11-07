@@ -159,7 +159,7 @@ data ListPartsOutput = ListPartsOutput
 --
 -- * 'lpoPartNumberMarker' @::@ 'Maybe' 'Int'
 --
--- * 'lpoParts' @::@ '[Part]'
+-- * 'lpoParts' @::@ ['Part']
 --
 -- * 'lpoStorageClass' @::@ 'Maybe' 'Text'
 --

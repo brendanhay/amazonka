@@ -54,7 +54,7 @@ data ListBucketsOutput = ListBucketsOutput
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lboBuckets' @::@ '[Bucket]'
+-- * 'lboBuckets' @::@ ['Bucket']
 --
 -- * 'lboOwner' @::@ 'Maybe' 'Owner'
 --

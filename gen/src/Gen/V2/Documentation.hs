@@ -22,11 +22,13 @@ highlightType = Text.unwords . map start . Text.words
   where
     start t
         | Text.null t                     = t
+        | Just ('[', xs) <- Text.uncons t = "['" <> end xs
         | Just ('(', xs) <- Text.uncons t = "('" <> end xs
         | otherwise                       = "'"  <> end t
 
     end t
         | Text.null t        = t
+        | ']' <- Text.last t = Text.init t <> "']"
         | ')' <- Text.last t = Text.init t <> "')"
         | otherwise          = t <> "'"
 

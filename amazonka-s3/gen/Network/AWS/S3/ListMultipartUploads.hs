@@ -168,7 +168,7 @@ data ListMultipartUploadsOutput = ListMultipartUploadsOutput
 --
 -- * 'lmuoBucket' @::@ 'Maybe' 'Text'
 --
--- * 'lmuoCommonPrefixes' @::@ '[CommonPrefix]'
+-- * 'lmuoCommonPrefixes' @::@ ['CommonPrefix']
 --
 -- * 'lmuoEncodingType' @::@ 'Maybe' 'Text'
 --
@@ -186,7 +186,7 @@ data ListMultipartUploadsOutput = ListMultipartUploadsOutput
 --
 -- * 'lmuoUploadIdMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lmuoUploads' @::@ '[MultipartUpload]'
+-- * 'lmuoUploads' @::@ ['MultipartUpload']
 --
 listMultipartUploadsOutput :: ListMultipartUploadsOutput
 listMultipartUploadsOutput = ListMultipartUploadsOutput

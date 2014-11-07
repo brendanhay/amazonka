@@ -80,7 +80,7 @@ data GetBucketAclOutput = GetBucketAclOutput
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbaoGrants' @::@ '[Grant]'
+-- * 'gbaoGrants' @::@ ['Grant']
 --
 -- * 'gbaoOwner' @::@ 'Maybe' 'Owner'
 --

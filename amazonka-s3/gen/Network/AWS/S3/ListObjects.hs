@@ -147,9 +147,9 @@ data ListObjectsOutput = ListObjectsOutput
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'looCommonPrefixes' @::@ '[CommonPrefix]'
+-- * 'looCommonPrefixes' @::@ ['CommonPrefix']
 --
--- * 'looContents' @::@ '[Object]'
+-- * 'looContents' @::@ ['Object']
 --
 -- * 'looEncodingType' @::@ 'Maybe' 'Text'
 --

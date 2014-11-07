@@ -78,7 +78,7 @@ newtype GetBucketLifecycleOutput = GetBucketLifecycleOutput
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbloRules' @::@ '[Rule]'
+-- * 'gbloRules' @::@ ['Rule']
 --
 getBucketLifecycleOutput :: GetBucketLifecycleOutput
 getBucketLifecycleOutput = GetBucketLifecycleOutput

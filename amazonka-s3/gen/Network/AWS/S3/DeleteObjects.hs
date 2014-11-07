@@ -106,9 +106,9 @@ data DeleteObjectsOutput = DeleteObjectsOutput
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dooDeleted' @::@ '[S3ServiceError]'
+-- * 'dooDeleted' @::@ ['S3ServiceError']
 --
--- * 'dooErrors' @::@ '[S3ServiceError]'
+-- * 'dooErrors' @::@ ['S3ServiceError']
 --
 deleteObjectsOutput :: DeleteObjectsOutput
 deleteObjectsOutput = DeleteObjectsOutput

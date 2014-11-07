@@ -13,7 +13,6 @@
 
 module Gen.Names where
 
-import Debug.Trace
 import qualified Data.CaseInsensitive as CI
 import           Data.Char
 import qualified Data.HashSet         as Set
@@ -82,4 +81,5 @@ reserved x
     | CI.mk x `Set.member` xs = x <> "'"
     | otherwise               = x
   where
-    xs = Set.fromList . map (CI.mk . Text.pack) $ reservedNames haskellDef
+    xs = Set.fromList $
+        "head" : "filter" : map (CI.mk . Text.pack) (reservedNames haskellDef)

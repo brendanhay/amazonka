@@ -151,6 +151,7 @@ instance DerivingOf Prim where
         PInteger -> [Eq', Ord', Num', Enum']
         PDouble  -> [Eq', Ord', Num', Enum']
         PTime _  -> [Eq', Ord']
+        PBlob    -> [Eq']
         _        -> []
       where
         def = [Show', Generic']
@@ -271,7 +272,7 @@ instance DerivingOf Type where
         TList      x   -> Monoid'    : derivingOf x
         TList1     x   -> Semigroup' : derivingOf x
         TMap       k v -> Monoid'    : delete Ord' (derivingOf k `intersect` derivingOf v)
-        TMaybe     x   -> derivingOf x
+        TMaybe     x   -> delete Enum' . delete Num' $ derivingOf x
         TSensitive x   -> derivingOf x
 
 data Field = Field

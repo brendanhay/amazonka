@@ -777,6 +777,7 @@
             },
             {
                 "deriving": [
+                    "Eq",
                     "Show",
                     "Generic"
                 ],
@@ -4260,9 +4261,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Enum",
-                    "Num"
+                    "Generic"
                 ],
                 "fieldPad": 8,
                 "ctor": "icmpTypeCode",
@@ -8635,8 +8634,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Enum"
+                    "Generic"
                 ],
                 "fieldPad": 0,
                 "ctor": "vpnConnectionOptionsSpecification",
@@ -9252,9 +9250,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Enum",
-                    "Num"
+                    "Generic"
                 ],
                 "fieldPad": 7,
                 "ctor": "portRange",
@@ -9608,8 +9604,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Enum"
+                    "Generic"
                 ],
                 "fieldPad": 0,
                 "ctor": "vpnConnectionOptions",
@@ -16373,7 +16368,7 @@
                     "Generic"
                 ],
                 "fieldPad": 8,
-                "ctor": "filter",
+                "ctor": "filter'",
                 "payload": {
                     "location": "body-xml",
                     "iso": null,
@@ -16992,8 +16987,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Enum"
+                    "Generic"
                 ],
                 "fieldPad": 0,
                 "ctor": "attributeBooleanValue",
@@ -19801,6 +19795,7 @@
             },
             {
                 "deriving": [
+                    "Eq",
                     "Show",
                     "Generic"
                 ],
@@ -22113,9 +22108,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Enum",
-                    "Num"
+                    "Generic"
                 ],
                 "fieldPad": 8,
                 "ctor": "pricingDetail",
@@ -28256,8 +28249,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Enum"
+                    "Generic"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -34851,8 +34843,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Enum"
+                    "Generic"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -35461,8 +35452,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Enum"
+                    "Generic"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -43499,8 +43489,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Enum"
+                    "Generic"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -48910,6 +48899,7 @@
             "documentation": "\u003cp\u003eImports the public key from an RSA key pair that you created with a third-party tool. Compare this with \u003ca\u003eCreateKeyPair\u003c/a\u003e, in which AWS creates the key pair and gives the keys to you (AWS keeps a copy of the public key). With ImportKeyPair, you create the key pair and give AWS just the public key. The private key is never transferred between you and AWS.\u003c/p\u003e \u003cp\u003eFor more information about key pairs, see \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\"\u003eKey Pairs\u003c/a\u003e in the \u003ci\u003eAmazon Elastic Compute Cloud User Guide\u003c/i\u003e.\u003c/p\u003e",
             "request": {
                 "deriving": [
+                    "Eq",
                     "Show",
                     "Generic"
                 ],
@@ -52272,8 +52262,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Enum"
+                    "Generic"
                 ],
                 "streaming": false,
                 "fieldPad": 0,

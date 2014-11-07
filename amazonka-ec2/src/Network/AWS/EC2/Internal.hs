@@ -13,17 +13,22 @@
 module Network.AWS.EC2.Internal where
 
 import GHC.Generics
+import Network.AWS.Data
 import Network.AWS.Prelude
 
-data Error = Error
-    { _errCode    :: Text
-    , _errMessage :: Text
+data Message = Message
+    { _msgCode    :: Text
+    , _msgMessage :: Text
     } deriving (Eq, Ord, Show, Generic)
 
+instance FromXML Message
+
 data EC2ServiceError = EC2ServiceError
-    { _errErrors    :: [Error]
+    { _errErrors    :: [Message]
     , _errRequestID :: Text
     } deriving (Eq, Ord, Show, Generic)
+
+instance FromXML EC2ServiceError
 
 -- <Response>
 --     <Errors>

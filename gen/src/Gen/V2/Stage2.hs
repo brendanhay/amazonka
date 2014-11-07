@@ -48,6 +48,7 @@ import           Data.String
 import           Data.Text                (Text)
 import qualified Data.Text                as Text
 import           Data.Text.Manipulate
+import           Debug.Trace
 import           Gen.V2.IO
 import           Gen.V2.JSON              ()
 import           Gen.V2.Names
@@ -264,9 +265,9 @@ instance DerivingOf Type where
     derivingOf = \case
         TType      _   -> [Eq', Show', Generic']
         TPrim      p   -> derivingOf p
-        TList      x   -> Monoid' : derivingOf x
+        TList      x   -> Monoid'    : derivingOf x
         TList1     x   -> Semigroup' : derivingOf x
-        TMap       k v -> derivingOf k `intersect` derivingOf v
+        TMap       k v -> Monoid'    : delete Ord' (derivingOf k `intersect` derivingOf v)
         TMaybe     x   -> derivingOf x
         TSensitive x   -> derivingOf x
 
@@ -406,7 +407,7 @@ instance DerivingOf Data where
       where
         f | Newtype{} <- d = id
           | Nullary{} <- d = const [Eq', Ord', Enum', Show', Generic']
-          | otherwise      = delete Monoid'
+          | otherwise      = delete Semigroup' . delete Monoid'
 
 nestedTypes :: Data -> [Type]
 nestedTypes = toListOf (dataFields . typesOf)

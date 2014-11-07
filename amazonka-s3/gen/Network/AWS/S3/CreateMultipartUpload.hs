@@ -90,7 +90,7 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmur1ServerSideEncryption    :: Maybe Text
     , _cmur1StorageClass            :: Maybe Text
     , _cmur1WebsiteRedirectLocation :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateMultipartUpload' constructor.
 --

@@ -234,7 +234,7 @@ data HeadObjectOutput = HeadObjectOutput
     , _hooServerSideEncryption    :: Maybe Text
     , _hooVersionId               :: Maybe Text
     , _hooWebsiteRedirectLocation :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'HeadObjectOutput' constructor.
 --

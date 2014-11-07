@@ -103,7 +103,7 @@ data CopyObject = CopyObject
     , _corServerSideEncryption           :: Maybe Text
     , _corStorageClass                   :: Maybe Text
     , _corWebsiteRedirectLocation        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CopyObject' constructor.
 --

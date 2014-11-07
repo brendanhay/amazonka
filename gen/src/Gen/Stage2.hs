@@ -109,7 +109,11 @@ nameCI :: HasName a => a -> CI Text
 nameCI = CI.mk . view nameOf
 
 constructor :: HasName a => a -> Text
-constructor = uncurry (<>) . first Text.toLower . breakWord . view nameOf
+constructor = reserved
+    . uncurry (<>)
+    . first Text.toLower
+    . breakWord
+    . view nameOf
 
 data Prim
     = PBlob

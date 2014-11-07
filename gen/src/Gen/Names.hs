@@ -13,7 +13,7 @@
 
 module Gen.Names where
 
-import           Data.CaseInsensitive (CI)
+import Debug.Trace
 import qualified Data.CaseInsensitive as CI
 import           Data.Char
 import qualified Data.HashSet         as Set
@@ -53,7 +53,7 @@ keyName t
     | otherwise               = t
 
 ctorName :: Text -> Text
-ctorName t = reserved . toSpinal . fromMaybe t $ "'" `Text.stripSuffix` t
+ctorName t = toSpinal . fromMaybe t $ "'" `Text.stripSuffix` t
 
 dropLower :: Text -> Text
 dropLower = Text.dropWhile (not . isUpper)

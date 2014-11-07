@@ -1,0 +1,1551 @@
+{
+    "service": {
+        "signature": "v4",
+        "checksum": "sha256",
+        "abbrev": "DataPipeline",
+        "error": "DataPipelineError",
+        "namespace": "Network.AWS.DataPipeline",
+        "protocol": "json",
+        "imports": [
+            "Network.AWS.DataPipeline.ActivatePipeline",
+            "Network.AWS.DataPipeline.CreatePipeline",
+            "Network.AWS.DataPipeline.DeletePipeline",
+            "Network.AWS.DataPipeline.DescribeObjects",
+            "Network.AWS.DataPipeline.DescribePipelines",
+            "Network.AWS.DataPipeline.EvaluateExpression",
+            "Network.AWS.DataPipeline.GetPipelineDefinition",
+            "Network.AWS.DataPipeline.ListPipelines",
+            "Network.AWS.DataPipeline.PollForTask",
+            "Network.AWS.DataPipeline.PutPipelineDefinition",
+            "Network.AWS.DataPipeline.QueryObjects",
+            "Network.AWS.DataPipeline.ReportTaskProgress",
+            "Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat",
+            "Network.AWS.DataPipeline.SetStatus",
+            "Network.AWS.DataPipeline.SetTaskStatus",
+            "Network.AWS.DataPipeline.Types",
+            "Network.AWS.DataPipeline.ValidatePipelineDefinition"
+        ],
+        "name": "AWS Data Pipeline",
+        "version": "2012-10-29",
+        "documentation": "\u003cp\u003e This is the \u003ci\u003eAWS Data Pipeline API Reference\u003c/i\u003e. This guide provides descriptions and samples of the AWS Data Pipeline API. \u003c/p\u003e \u003cp\u003e AWS Data Pipeline is a web service that configures and manages a data-driven workflow called a pipeline. AWS Data Pipeline handles the details of scheduling and ensuring that data dependencies are met so your application can focus on processing the data.\u003c/p\u003e \u003cp\u003e The AWS Data Pipeline API implements two main sets of functionality. The first set of actions configure the pipeline in the web service. You call these actions to create a pipeline and define data sources, schedules, dependencies, and the transforms to be performed on the data. \u003c/p\u003e \u003cp\u003e The second set of actions are used by a task runner application that calls the AWS Data Pipeline API to receive the next task ready for processing. The logic for performing the task, such as querying the data, running data analysis, or converting the data from one format to another, is contained within the task runner. The task runner performs the task assigned to it by the web service, reporting progress to the web service as it does so. When the task is done, the task runner reports the final success or failure of the task to the web service. \u003c/p\u003e \u003cp\u003e AWS Data Pipeline provides an open-source implementation of a task runner called AWS Data Pipeline Task Runner. AWS Data Pipeline Task Runner provides logic for common data management scenarios, such as performing database queries and running data analysis using Amazon Elastic MapReduce (Amazon EMR). You can use AWS Data Pipeline Task Runner as your task runner, or you can write your own task runner to provide custom data management. \u003c/p\u003e \u003cp\u003e The AWS Data Pipeline API uses the Signature Version 4 protocol for signing requests. For more information about how to sign a request with this protocol, see \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/signature-version-4.html\"\u003eSignature Version 4 Signing Process\u003c/a\u003e. In the code examples in this reference, the Signature Version 4 Request parameters are represented as AuthParams. \u003c/p\u003e",
+        "xmlNamespace": "https://datapipeline.amazonaws.com/doc/2012-10-29/",
+        "endpoint": "regional",
+        "endpointPrefix": "datapipeline",
+        "targetPrefix": "DataPipeline"
+    },
+    "cabal": {
+        "library": "amazonka-datapipeline",
+        "modules": [
+            "Network.AWS.DataPipeline",
+            "Network.AWS.DataPipeline.ActivatePipeline",
+            "Network.AWS.DataPipeline.CreatePipeline",
+            "Network.AWS.DataPipeline.DeletePipeline",
+            "Network.AWS.DataPipeline.DescribeObjects",
+            "Network.AWS.DataPipeline.DescribePipelines",
+            "Network.AWS.DataPipeline.EvaluateExpression",
+            "Network.AWS.DataPipeline.GetPipelineDefinition",
+            "Network.AWS.DataPipeline.ListPipelines",
+            "Network.AWS.DataPipeline.PollForTask",
+            "Network.AWS.DataPipeline.PutPipelineDefinition",
+            "Network.AWS.DataPipeline.QueryObjects",
+            "Network.AWS.DataPipeline.ReportTaskProgress",
+            "Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat",
+            "Network.AWS.DataPipeline.SetStatus",
+            "Network.AWS.DataPipeline.SetTaskStatus",
+            "Network.AWS.DataPipeline.Types",
+            "Network.AWS.DataPipeline.ValidatePipelineDefinition"
+        ],
+        "dependencies": [],
+        "version": "0.0.0",
+        "synopsis": "",
+        "description": ""
+    },
+    "types": {
+        "PipelineObject": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "poid",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "poname",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pofields",
+                    "type": "List Field"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        },
+        "InvalidRequestException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "iremessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "Field": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "fiekey",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "fiestringValue",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "fierefValue",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Selector": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "selfieldName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "seloperator",
+                    "type": "Maybe Operator"
+                }
+            ]
+        },
+        "Operator": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "opevalues",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "opetype",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "TaskObject": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "toobjects",
+                    "type": "Map Text PipelineObject"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "totaskId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "topipelineId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "toattemptId",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "ValidationError": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "veerrors",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "veid",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "namespace": "Network.AWS.DataPipeline.Types",
+        "imports": [],
+        "PipelineDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pdpipelineId",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pdname",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pdfields",
+                    "type": "List Field"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pddescription",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "InstanceIdentity": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "iidocument",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "iisignature",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Query": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "queselectors",
+                "type": "List Selector"
+            },
+            "type": "newtype"
+        },
+        "InternalServiceError": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "isemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "PipelineDeletedException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "pdemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "PipelineIdName": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pinid",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pinname",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "PipelineNotFoundException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "pnfemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "TaskNotFoundException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "tnfemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "ValidationWarning": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vwwarnings",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vwid",
+                    "type": "Maybe Text"
+                }
+            ]
+        }
+    },
+    "operations": [
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dpopipelineDescriptionList",
+                    "type": "List PipelineDescription"
+                },
+                "wrapper": false,
+                "name": "DescribePipelinesOutput",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DataPipeline.DescribePipelines",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "DescribePipelines",
+            "method": "post",
+            "documentation": "\u003cp\u003e Retrieve metadata about one or more pipelines. The information retrieved includes the name of the pipeline, the pipeline identifier, its current state, and the user account that owns the pipeline. Using account credentials, you can retrieve metadata about pipelines that you or your IAM users have created. If you are using an IAM user account, you can retrieve metadata about only those pipelines you have read permission for. \u003c/p\u003e \u003cp\u003e To retrieve the full pipeline definition instead of metadata about the pipeline, call the \u003ca\u003eGetPipelineDefinition\u003c/a\u003e action. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dpipipelineIds",
+                    "type": "List Text"
+                },
+                "name": "DescribePipelinesInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "qooids",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "QueryObjectsOutput",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "qoomarker",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "qoohasMoreResults",
+                        "type": "Maybe Bool"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.DataPipeline.QueryObjects",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "QueryObjects",
+            "method": "post",
+            "documentation": "\u003cp\u003eQueries a pipeline for the names of objects that match a specified set of conditions.\u003c/p\u003e \u003cp\u003eThe objects returned by \u003ca\u003eQueryObjects\u003c/a\u003e are paginated and then filtered by the value you set for query. This means the action may return an empty result set with a value set for marker. If \u003ccode\u003eHasMoreResults\u003c/code\u003e is set to \u003ccode\u003eTrue\u003c/code\u003e, you should continue to call \u003ca\u003eQueryObjects\u003c/a\u003e, passing in the returned value for marker, until \u003ccode\u003eHasMoreResults\u003c/code\u003e returns \u003ccode\u003eFalse\u003c/code\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "qoipipelineId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "qoisphere",
+                        "type": "Text"
+                    }
+                ],
+                "name": "QueryObjectsInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "qoiquery",
+                        "type": "Maybe Query"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "qoimarker",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "qoilimit",
+                        "type": "Maybe Int"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.DataPipeline.DeletePipeline",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "DeletePipeline",
+            "method": "post",
+            "documentation": "\u003cp\u003e Permanently deletes a pipeline, its pipeline definition and its run history. You cannot query or restore a deleted pipeline. AWS Data Pipeline will attempt to cancel instances associated with the pipeline that are currently being processed by task runners. Deleting a pipeline cannot be undone. \u003c/p\u003e \u003cp\u003e To temporarily pause a pipeline instead of deleting it, call \u003ca\u003eSetStatus\u003c/a\u003e with the status set to Pause on individual components. Components that are paused by \u003ca\u003eSetStatus\u003c/a\u003e can be resumed. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dpipipelineId",
+                    "type": "Text"
+                },
+                "name": "DeletePipelineInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lpopipelineIdList",
+                        "type": "List PipelineIdName"
+                    }
+                ],
+                "name": "ListPipelinesOutput",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lpomarker",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lpohasMoreResults",
+                        "type": "Maybe Bool"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.DataPipeline.ListPipelines",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "ListPipelines",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a list of pipeline identifiers for all active pipelines. Identifiers are returned only for pipelines you have permission to access. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lpimarker",
+                    "type": "Maybe Text"
+                },
+                "name": "ListPipelinesInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "eeoevaluatedExpression",
+                    "type": "Text"
+                },
+                "wrapper": false,
+                "name": "EvaluateExpressionOutput",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DataPipeline.EvaluateExpression",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "EvaluateExpression",
+            "method": "post",
+            "documentation": "\u003cp\u003eEvaluates a string in the context of a specified object. A task runner can use this action to evaluate SQL queries stored in Amazon S3. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "eeipipelineId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "eeiobjectId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "eeiexpression",
+                        "type": "Text"
+                    }
+                ],
+                "name": "EvaluateExpressionInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "gpdopipelineObjects",
+                    "type": "List PipelineObject"
+                },
+                "wrapper": false,
+                "name": "GetPipelineDefinitionOutput",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DataPipeline.GetPipelineDefinition",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "GetPipelineDefinition",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns the definition of the specified pipeline. You can call \u003ca\u003eGetPipelineDefinition\u003c/a\u003e to retrieve the pipeline definition you provided using \u003ca\u003ePutPipelineDefinition\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gpdipipelineId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "GetPipelineDefinitionInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gpdiversion",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pftotaskObject",
+                    "type": "Maybe TaskObject"
+                },
+                "wrapper": false,
+                "name": "PollForTaskOutput",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DataPipeline.PollForTask",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "PollForTask",
+            "method": "post",
+            "documentation": "\u003cp\u003e Task runners call this action to receive a task to perform from AWS Data Pipeline. The task runner specifies which tasks it can perform by setting a value for the workerGroup parameter of the \u003ca\u003ePollForTask\u003c/a\u003e call. The task returned by \u003ca\u003ePollForTask\u003c/a\u003e may come from any of the pipelines that match the workerGroup value passed in by the task runner and that was launched using the IAM user credentials specified by the task runner. \u003c/p\u003e \u003cp\u003e If tasks are ready in the work queue, \u003ca\u003ePollForTask\u003c/a\u003e returns a response immediately. If no tasks are available in the queue, \u003ca\u003ePollForTask\u003c/a\u003e uses long-polling and holds on to a poll connection for up to a 90 seconds during which time the first newly scheduled task is handed to the task runner. To accomodate this, set the socket timeout in your task runner to 90 seconds. The task runner should not call \u003ca\u003ePollForTask\u003c/a\u003e again on the same \u003ccode\u003eworkerGroup\u003c/code\u003e until it receives a response, and this may take up to 90 seconds. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pftiworkerGroup",
+                        "type": "Text"
+                    }
+                ],
+                "name": "PollForTaskInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pftihostname",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pftiinstanceIdentity",
+                        "type": "Maybe InstanceIdentity"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "doopipelineObjects",
+                        "type": "List PipelineObject"
+                    }
+                ],
+                "name": "DescribeObjectsOutput",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "doomarker",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "doohasMoreResults",
+                        "type": "Maybe Bool"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.DataPipeline.DescribeObjects",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "DescribeObjects",
+            "method": "post",
+            "documentation": "\u003cp\u003e Returns the object definitions for a set of objects associated with the pipeline. Object definitions are composed of a set of fields that define the properties of the object. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "doipipelineId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "doiobjectIds",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "DescribeObjectsInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "doievaluateExpressions",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "doimarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "enum"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rtrhoterminate",
+                    "type": "Bool"
+                },
+                "wrapper": false,
+                "name": "ReportTaskRunnerHeartbeatOutput",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "ReportTaskRunnerHeartbeat",
+            "method": "post",
+            "documentation": "\u003cp\u003eTask runners call \u003ca\u003eReportTaskRunnerHeartbeat\u003c/a\u003e every 15 minutes to indicate that they are operational. In the case of AWS Data Pipeline Task Runner launched on a resource managed by AWS Data Pipeline, the web service can use this call to detect when the task runner application has failed and restart a new instance.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rtrhitaskrunnerId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "ReportTaskRunnerHeartbeatInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rtrhiworkerGroup",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rtrhihostname",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "ActivatePipelineOutput",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.DataPipeline.ActivatePipeline",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "ActivatePipeline",
+            "method": "post",
+            "documentation": "\u003cp\u003e Validates a pipeline and initiates processing. If the pipeline does not pass validation, activation fails. \u003c/p\u003e \u003cp\u003e Call this action to start processing pipeline tasks of a pipeline you've created using the \u003ca\u003eCreatePipeline\u003c/a\u003e and \u003ca\u003ePutPipelineDefinition\u003c/a\u003e actions. A pipeline cannot be modified after it has been successfully activated. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "apipipelineId",
+                    "type": "Text"
+                },
+                "name": "ActivatePipelineInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "SetTaskStatusOutput",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.DataPipeline.SetTaskStatus",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "SetTaskStatus",
+            "method": "post",
+            "documentation": "\u003cp\u003e Notifies AWS Data Pipeline that a task is completed and provides information about the final status. The task runner calls this action regardless of whether the task was sucessful. The task runner does not need to call \u003ca\u003eSetTaskStatus\u003c/a\u003e for tasks that are canceled by the web service during a call to \u003ca\u003eReportTaskProgress\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "stsitaskId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "stsitaskStatus",
+                        "type": "Text"
+                    }
+                ],
+                "name": "SetTaskStatusInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "stsierrorId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "stsierrorMessage",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "stsierrorStackTrace",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.DataPipeline.SetStatus",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "SetStatus",
+            "method": "post",
+            "documentation": "\u003cp\u003eRequests that the status of an array of physical or logical pipeline objects be updated in the pipeline. This update may not occur immediately, but is eventually consistent. The status that can be set depends on the type of object.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ssipipelineId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ssiobjectIds",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ssistatus",
+                        "type": "Text"
+                    }
+                ],
+                "name": "SetStatusInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "enum"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rtpocanceled",
+                    "type": "Bool"
+                },
+                "wrapper": false,
+                "name": "ReportTaskProgressOutput",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DataPipeline.ReportTaskProgress",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "ReportTaskProgress",
+            "method": "post",
+            "documentation": "\u003cp\u003e Updates the AWS Data Pipeline service on the progress of the calling task runner. When the task runner is assigned a task, it should call ReportTaskProgress to acknowledge that it has the task within 2 minutes. If the web service does not recieve this acknowledgement within the 2 minute window, it will assign the task in a subsequent \u003ca\u003ePollForTask\u003c/a\u003e call. After this initial acknowledgement, the task runner only needs to report progress every 15 minutes to maintain its ownership of the task. You can change this reporting time from 15 minutes by specifying a \u003ccode\u003ereportProgressTimeout\u003c/code\u003e field in your pipeline. If a task runner does not report its status after 5 minutes, AWS Data Pipeline will assume that the task runner is unable to process the task and will reassign the task in a subsequent response to \u003ca\u003ePollForTask\u003c/a\u003e. task runners should call \u003ca\u003eReportTaskProgress\u003c/a\u003e every 60 seconds. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rtpitaskId",
+                    "type": "Text"
+                },
+                "name": "ReportTaskProgressInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cpopipelineId",
+                    "type": "Text"
+                },
+                "wrapper": false,
+                "name": "CreatePipelineOutput",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DataPipeline.CreatePipeline",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "CreatePipeline",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates a new empty pipeline. When this action succeeds, you can then use the \u003ca\u003ePutPipelineDefinition\u003c/a\u003e action to populate the pipeline.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpiname",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpiuniqueId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "CreatePipelineInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpidescription",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ppdovalidationErrors",
+                        "type": "List ValidationError"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ppdovalidationWarnings",
+                        "type": "List ValidationWarning"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ppdoerrored",
+                        "type": "Bool"
+                    }
+                ],
+                "name": "PutPipelineDefinitionOutput",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": []
+            },
+            "namespace": "Network.AWS.DataPipeline.PutPipelineDefinition",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "PutPipelineDefinition",
+            "method": "post",
+            "documentation": "\u003cp\u003eAdds tasks, schedules, and preconditions that control the behavior of the pipeline. You can use PutPipelineDefinition to populate a new pipeline. \u003c/p\u003e \u003cp\u003e \u003ca\u003ePutPipelineDefinition\u003c/a\u003e also validates the configuration as it adds it to the pipeline. Changes to the pipeline are saved unless one of the following three validation errors exists in the pipeline. \u003col\u003e \u003cli\u003eAn object is missing a name or identifier field.\u003c/li\u003e \u003cli\u003eA string or reference field is empty.\u003c/li\u003e \u003cli\u003eThe number of objects in the pipeline exceeds the maximum allowed objects.\u003c/li\u003e \u003c/ol\u003e \u003c/p\u003e \u003cp\u003e Pipeline object definitions are passed to the \u003ca\u003ePutPipelineDefinition\u003c/a\u003e action and returned by the \u003ca\u003eGetPipelineDefinition\u003c/a\u003e action. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ppdipipelineId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ppdipipelineObjects",
+                        "type": "List PipelineObject"
+                    }
+                ],
+                "name": "PutPipelineDefinitionInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vpdovalidationErrors",
+                        "type": "List ValidationError"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vpdovalidationWarnings",
+                        "type": "List ValidationWarning"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vpdoerrored",
+                        "type": "Bool"
+                    }
+                ],
+                "name": "ValidatePipelineDefinitionOutput",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": []
+            },
+            "namespace": "Network.AWS.DataPipeline.ValidatePipelineDefinition",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DataPipeline.Types"
+            ],
+            "name": "ValidatePipelineDefinition",
+            "method": "post",
+            "documentation": "\u003cp\u003eTests the pipeline definition with a set of validation checks to ensure that it is well formed and can run without error. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vpdipipelineId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vpdipipelineObjects",
+                        "type": "List PipelineObject"
+                    }
+                ],
+                "name": "ValidatePipelineDefinitionInput",
+                "type": "record",
+                "optional": []
+            }
+        }
+    ]
+}

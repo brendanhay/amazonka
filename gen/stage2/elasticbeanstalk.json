@@ -1,0 +1,2999 @@
+{
+    "service": {
+        "signature": "v4",
+        "checksum": "sha256",
+        "abbrev": "ElasticBeanstalk",
+        "error": "ElasticBeanstalkError",
+        "namespace": "Network.AWS.ElasticBeanstalk",
+        "protocol": "query",
+        "imports": [
+            "Network.AWS.ElasticBeanstalk.CheckDNSAvailability",
+            "Network.AWS.ElasticBeanstalk.CreateApplication",
+            "Network.AWS.ElasticBeanstalk.CreateApplicationVersion",
+            "Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate",
+            "Network.AWS.ElasticBeanstalk.CreateEnvironment",
+            "Network.AWS.ElasticBeanstalk.CreateStorageLocation",
+            "Network.AWS.ElasticBeanstalk.DeleteApplication",
+            "Network.AWS.ElasticBeanstalk.DeleteApplicationVersion",
+            "Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate",
+            "Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration",
+            "Network.AWS.ElasticBeanstalk.DescribeApplicationVersions",
+            "Network.AWS.ElasticBeanstalk.DescribeApplications",
+            "Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions",
+            "Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings",
+            "Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources",
+            "Network.AWS.ElasticBeanstalk.DescribeEnvironments",
+            "Network.AWS.ElasticBeanstalk.DescribeEvents",
+            "Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks",
+            "Network.AWS.ElasticBeanstalk.RebuildEnvironment",
+            "Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo",
+            "Network.AWS.ElasticBeanstalk.RestartAppServer",
+            "Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo",
+            "Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs",
+            "Network.AWS.ElasticBeanstalk.TerminateEnvironment",
+            "Network.AWS.ElasticBeanstalk.Types",
+            "Network.AWS.ElasticBeanstalk.UpdateApplication",
+            "Network.AWS.ElasticBeanstalk.UpdateApplicationVersion",
+            "Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate",
+            "Network.AWS.ElasticBeanstalk.UpdateEnvironment",
+            "Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings"
+        ],
+        "name": "AWS Elastic Beanstalk",
+        "version": "2010-12-01",
+        "documentation": "\u003cfullname\u003eAWS Elastic Beanstalk\u003c/fullname\u003e \u003cp\u003e This is the AWS Elastic Beanstalk API Reference. This guide provides detailed information about AWS Elastic Beanstalk actions, data types, parameters, and errors. \u003c/p\u003e \u003cp\u003eAWS Elastic Beanstalk is a tool that makes it easy for you to create, deploy, and manage scalable, fault-tolerant applications running on Amazon Web Services cloud resources. \u003c/p\u003e \u003cp\u003e For more information about this product, go to the \u003ca href=\"http://aws.amazon.com/elasticbeanstalk/\"\u003eAWS Elastic Beanstalk\u003c/a\u003e details page. The location of the latest AWS Elastic Beanstalk WSDL is \u003ca href=\"http://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl\"\u003ehttp://elasticbeanstalk.s3.amazonaws.com/doc/2010-12-01/AWSElasticBeanstalk.wsdl\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e\u003cb\u003eEndpoints\u003c/b\u003e\u003c/p\u003e \u003cp\u003eFor a list of region-specific endpoints that AWS Elastic Beanstalk supports, go to \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region\"\u003eRegions and Endpoints\u003c/a\u003e in the \u003ci\u003eAmazon Web Services Glossary\u003c/i\u003e.\u003c/p\u003e",
+        "xmlNamespace": "http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/",
+        "endpoint": "regional",
+        "endpointPrefix": "elasticbeanstalk"
+    },
+    "cabal": {
+        "library": "amazonka-elasticbeanstalk",
+        "modules": [
+            "Network.AWS.ElasticBeanstalk",
+            "Network.AWS.ElasticBeanstalk.CheckDNSAvailability",
+            "Network.AWS.ElasticBeanstalk.CreateApplication",
+            "Network.AWS.ElasticBeanstalk.CreateApplicationVersion",
+            "Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate",
+            "Network.AWS.ElasticBeanstalk.CreateEnvironment",
+            "Network.AWS.ElasticBeanstalk.CreateStorageLocation",
+            "Network.AWS.ElasticBeanstalk.DeleteApplication",
+            "Network.AWS.ElasticBeanstalk.DeleteApplicationVersion",
+            "Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate",
+            "Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration",
+            "Network.AWS.ElasticBeanstalk.DescribeApplicationVersions",
+            "Network.AWS.ElasticBeanstalk.DescribeApplications",
+            "Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions",
+            "Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings",
+            "Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources",
+            "Network.AWS.ElasticBeanstalk.DescribeEnvironments",
+            "Network.AWS.ElasticBeanstalk.DescribeEvents",
+            "Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks",
+            "Network.AWS.ElasticBeanstalk.RebuildEnvironment",
+            "Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo",
+            "Network.AWS.ElasticBeanstalk.RestartAppServer",
+            "Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo",
+            "Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs",
+            "Network.AWS.ElasticBeanstalk.TerminateEnvironment",
+            "Network.AWS.ElasticBeanstalk.Types",
+            "Network.AWS.ElasticBeanstalk.UpdateApplication",
+            "Network.AWS.ElasticBeanstalk.UpdateApplicationVersion",
+            "Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate",
+            "Network.AWS.ElasticBeanstalk.UpdateEnvironment",
+            "Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings"
+        ],
+        "dependencies": [],
+        "version": "0.0.0",
+        "synopsis": "",
+        "description": ""
+    },
+    "types": {
+        "ApplicationDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "adVersions",
+                    "type": "List Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "adConfigurationTemplates",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "adApplicationName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "adDescription",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "adDateCreated",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "adDateUpdated",
+                    "type": "Maybe (Time RFC822)"
+                }
+            ]
+        },
+        "Tag": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "tagKey",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "tagValue",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "EventDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "edEventDate",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "edMessage",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "edApplicationName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "edVersionLabel",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "edTemplateName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "edEnvironmentName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "edRequestId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "edSeverity",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "LaunchConfiguration": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "lcName",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "AutoScalingGroup": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "asgName",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "ConfigurationOptionSetting": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cosNamespace",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cosOptionName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cosValue",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "namespace": "Network.AWS.ElasticBeanstalk.Types",
+        "ApplicationVersionDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "avdApplicationName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "avdDescription",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "avdVersionLabel",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "avdSourceBundle",
+                    "type": "Maybe S3Location"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "avdDateCreated",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "avdDateUpdated",
+                    "type": "Maybe (Time RFC822)"
+                }
+            ]
+        },
+        "OptionSpecification": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "osNamespace",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "osOptionName",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "imports": [],
+        "EnvironmentResourceDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "erdAutoScalingGroups",
+                    "type": "List AutoScalingGroup"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "erdInstances",
+                    "type": "List Instance"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "erdLaunchConfigurations",
+                    "type": "List LaunchConfiguration"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "erdLoadBalancers",
+                    "type": "List LoadBalancer"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "erdTriggers",
+                    "type": "List Trigger"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "erdQueues",
+                    "type": "List Queue"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "erdEnvironmentName",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Queue": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "queName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "queURL",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "LoadBalancerDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdListeners",
+                    "type": "List Listener"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdLoadBalancerName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdDomain",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "EnvironmentTier": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "etName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "etType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "etVersion",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "LoadBalancer": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "lbName",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "EnvironmentResourcesDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "erdLoadBalancer",
+                "type": "Maybe LoadBalancerDescription"
+            },
+            "type": "newtype"
+        },
+        "OptionRestrictionRegex": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "orrPattern",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "orrLabel",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "ConfigurationOptionDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "codValueOptions",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "codNamespace",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "codName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "codDefaultValue",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "codChangeSeverity",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "codUserDefined",
+                    "type": "Maybe Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "codValueType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "codMinValue",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "codMaxValue",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "codMaxLength",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "codRegex",
+                    "type": "Maybe OptionRestrictionRegex"
+                }
+            ]
+        },
+        "SourceConfiguration": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "scApplicationName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "scTemplateName",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "EnvironmentInfoDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "eidInfoType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "eidEc2InstanceId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "eidSampleTimestamp",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "eidMessage",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "S3Location": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "slS3Bucket",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "slS3Key",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "ValidationMessage": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vmMessage",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vmSeverity",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vmNamespace",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vmOptionName",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Trigger": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "triName",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "Listener": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lisProtocol",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lisPort",
+                    "type": "Maybe Int"
+                }
+            ]
+        },
+        "Instance": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "insId",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "SolutionStackDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ssdPermittedFileTypes",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ssdSolutionStackName",
+                    "type": "Maybe Text"
+                }
+            ]
+        }
+    },
+    "operations": [
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "admApplications",
+                    "type": "List ApplicationDescription"
+                },
+                "wrapper": false,
+                "name": "ApplicationDescriptionsMessage",
+                "resultWrapper": "DescribeApplicationsResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.DescribeApplications",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "DescribeApplications",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns the descriptions of existing applications.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "damApplicationNames",
+                    "type": "List Text"
+                },
+                "name": "DescribeApplicationsMessage",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "name": "EnvironmentDescription",
+                "resultWrapper": "UpdateEnvironmentResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1EnvironmentName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1EnvironmentId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1ApplicationName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1VersionLabel",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1SolutionStackName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1TemplateName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1Description",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1EndpointURL",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1CNAME",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1DateCreated",
+                        "type": "Maybe (Time RFC822)"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1DateUpdated",
+                        "type": "Maybe (Time RFC822)"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1Status",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1Health",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1Resources",
+                        "type": "Maybe EnvironmentResourcesDescription"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ed1Tier",
+                        "type": "Maybe EnvironmentTier"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.UpdateEnvironment",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "UpdateEnvironment",
+            "method": "post",
+            "documentation": "\u003cp\u003e Updates the environment description, deploys a new application version, updates the configuration settings to an entirely new configuration template, or updates select configuration option values in the running environment. \u003c/p\u003e \u003cp\u003e Attempting to update both the release and configuration is not allowed and AWS Elastic Beanstalk returns an \u003ccode\u003eInvalidParameterCombination\u003c/code\u003e error. \u003c/p\u003e \u003cp\u003e When updating the configuration settings to a new template or individual settings, a draft configuration is created and \u003ca\u003eDescribeConfigurationSettings\u003c/a\u003e for this environment returns two setting descriptions with different \u003ccode\u003eDeploymentStatus\u003c/code\u003e values. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uemOptionSettings",
+                        "type": "List ConfigurationOptionSetting"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uemOptionsToRemove",
+                        "type": "List OptionSpecification"
+                    }
+                ],
+                "name": "UpdateEnvironmentMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uemEnvironmentId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uemEnvironmentName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uemDescription",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uemTier",
+                        "type": "Maybe EnvironmentTier"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uemVersionLabel",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uemTemplateName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "EnvironmentDescription",
+                "resultWrapper": "TerminateEnvironmentResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.TerminateEnvironment",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "TerminateEnvironment",
+            "method": "post",
+            "documentation": "\u003cp\u003e Terminates the specified environment. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "TerminateEnvironmentMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "temEnvironmentId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "temEnvironmentName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "temTerminateResources",
+                        "type": "Maybe Bool"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "avdmApplicationVersion",
+                    "type": "Maybe ApplicationVersionDescription"
+                },
+                "wrapper": false,
+                "name": "ApplicationVersionDescriptionMessage",
+                "resultWrapper": "CreateApplicationVersionResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.CreateApplicationVersion",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "CreateApplicationVersion",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates an application version for the specified application.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cavmApplicationName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cavmVersionLabel",
+                        "type": "Text"
+                    }
+                ],
+                "name": "CreateApplicationVersionMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cavmDescription",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cavmSourceBundle",
+                        "type": "Maybe S3Location"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cavmAutoCreateApplication",
+                        "type": "Maybe Bool"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "edmEvents",
+                        "type": "List EventDescription"
+                    }
+                ],
+                "name": "EventDescriptionsMessage",
+                "resultWrapper": "DescribeEventsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "edmNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.DescribeEvents",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "DescribeEvents",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns list of event descriptions matching criteria up to the last 6 weeks.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "DescribeEventsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dem1ApplicationName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dem1VersionLabel",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dem1TemplateName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dem1EnvironmentId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dem1EnvironmentName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dem1RequestId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dem1Severity",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dem1StartTime",
+                        "type": "Maybe (Time RFC822)"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dem1EndTime",
+                        "type": "Maybe (Time RFC822)"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dem1MaxRecords",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dem1NextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "RequestEnvironmentInfo",
+            "method": "post",
+            "documentation": "\u003cp\u003e Initiates a request to compile the specified type of information of the deployed environment. \u003c/p\u003e \u003cp\u003e Setting the \u003ccode\u003eInfoType\u003c/code\u003e to \u003ccode\u003etail\u003c/code\u003e compiles the last lines from the application server log files of every Amazon EC2 instance in your environment. Use \u003ca\u003eRetrieveEnvironmentInfo\u003c/a\u003e to access the compiled information. \u003c/p\u003e \u003cp\u003eRelated Topics\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ca\u003eRetrieveEnvironmentInfo\u003c/a\u003e \u003c/li\u003e \u003c/ul\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "reim1InfoType",
+                        "type": "Text"
+                    }
+                ],
+                "name": "RequestEnvironmentInfoMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "reim1EnvironmentId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "reim1EnvironmentName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "reirmEnvironmentInfo",
+                    "type": "List EnvironmentInfoDescription"
+                },
+                "wrapper": false,
+                "name": "RetrieveEnvironmentInfoResultMessage",
+                "resultWrapper": "RetrieveEnvironmentInfoResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "RetrieveEnvironmentInfo",
+            "method": "post",
+            "documentation": "\u003cp\u003e Retrieves the compiled information from a \u003ca\u003eRequestEnvironmentInfo\u003c/a\u003e request. \u003c/p\u003e \u003cp\u003eRelated Topics\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ca\u003eRequestEnvironmentInfo\u003c/a\u003e \u003c/li\u003e \u003c/ul\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "reimInfoType",
+                        "type": "Text"
+                    }
+                ],
+                "name": "RetrieveEnvironmentInfoMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "reimEnvironmentId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "reimEnvironmentName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.DeleteApplication",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "DeleteApplication",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes the specified application along with all associated versions and configurations. The application versions will not be deleted from your Amazon S3 bucket. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "damApplicationName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "DeleteApplicationMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "damTerminateEnvByForce",
+                        "type": "Maybe Bool"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "admApplication",
+                    "type": "Maybe ApplicationDescription"
+                },
+                "wrapper": false,
+                "name": "ApplicationDescriptionMessage",
+                "resultWrapper": "UpdateApplicationResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.UpdateApplication",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "UpdateApplication",
+            "method": "post",
+            "documentation": "\u003cp\u003eUpdates the specified application to have the specified properties. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uamApplicationName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "UpdateApplicationMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uamDescription",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "ApplicationDescriptionMessage",
+                "resultWrapper": "CreateApplicationResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.CreateApplication",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "CreateApplication",
+            "method": "post",
+            "documentation": "\u003cp\u003e Creates an application that has one configuration template named \u003ccode\u003edefault\u003c/code\u003e and no application versions. \u003c/p\u003e \u003c?oxy_delete author=\"brussard\" timestamp=\"20131024T142047-0700\" content=\"&lt;note&gt; The &lt;code&gt;default&lt;/code&gt; configuration template is for a 32-bit version of the Amazon Linux operating system running the Tomcat 6 application container. &lt;/note&gt;\"\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "camApplicationName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "CreateApplicationMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "camDescription",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "DeleteConfigurationTemplate",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes the specified configuration template.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dctmApplicationName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dctmTemplateName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "DeleteConfigurationTemplateMessage",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csdOptionSettings",
+                        "type": "List ConfigurationOptionSetting"
+                    }
+                ],
+                "name": "ConfigurationSettingsDescription",
+                "resultWrapper": "UpdateConfigurationTemplateResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csdSolutionStackName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csdApplicationName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csdTemplateName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csdDescription",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csdEnvironmentName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csdDeploymentStatus",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csdDateCreated",
+                        "type": "Maybe (Time RFC822)"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csdDateUpdated",
+                        "type": "Maybe (Time RFC822)"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "UpdateConfigurationTemplate",
+            "method": "post",
+            "documentation": "\u003cp\u003e Updates the specified configuration template to have the specified properties or configuration option values. \u003c/p\u003e \u003cp\u003eRelated Topics\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ca\u003eDescribeConfigurationOptions\u003c/a\u003e \u003c/li\u003e \u003c/ul\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uctmApplicationName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uctmTemplateName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uctmOptionSettings",
+                        "type": "List ConfigurationOptionSetting"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uctmOptionsToRemove",
+                        "type": "List OptionSpecification"
+                    }
+                ],
+                "name": "UpdateConfigurationTemplateMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uctmDescription",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "erdmEnvironmentResources",
+                    "type": "Maybe EnvironmentResourceDescription"
+                },
+                "wrapper": false,
+                "name": "EnvironmentResourceDescriptionsMessage",
+                "resultWrapper": "DescribeEnvironmentResourcesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "DescribeEnvironmentResources",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns AWS resources for this environment.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "DescribeEnvironmentResourcesMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dermEnvironmentId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dermEnvironmentName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.DeleteApplicationVersion",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "DeleteApplicationVersion",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes the specified version from the specified application. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "davmApplicationName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "davmVersionLabel",
+                        "type": "Text"
+                    }
+                ],
+                "name": "DeleteApplicationVersionMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "davmDeleteSourceBundle",
+                        "type": "Maybe Bool"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "ApplicationVersionDescriptionMessage",
+                "resultWrapper": "UpdateApplicationVersionResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.UpdateApplicationVersion",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "UpdateApplicationVersion",
+            "method": "post",
+            "documentation": "\u003cp\u003e Updates the specified application version to have the specified properties. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uavmApplicationName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uavmVersionLabel",
+                        "type": "Text"
+                    }
+                ],
+                "name": "UpdateApplicationVersionMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uavmDescription",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "ConfigurationSettingsDescription",
+                "resultWrapper": "CreateConfigurationTemplateResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "CreateConfigurationTemplate",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates a configuration template. Templates are associated with a specific application and are used to deploy different versions of the application with the same configuration settings.\u003c/p\u003e \u003cp\u003eRelated Topics\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ca\u003eDescribeConfigurationOptions\u003c/a\u003e \u003c/li\u003e \u003cli\u003e \u003ca\u003eDescribeConfigurationSettings\u003c/a\u003e \u003c/li\u003e \u003cli\u003e \u003ca\u003eListAvailableSolutionStacks\u003c/a\u003e \u003c/li\u003e \u003c/ul\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cctmApplicationName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cctmTemplateName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cctmOptionSettings",
+                        "type": "List ConfigurationOptionSetting"
+                    }
+                ],
+                "name": "CreateConfigurationTemplateMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cctmSolutionStackName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cctmSourceConfiguration",
+                        "type": "Maybe SourceConfiguration"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cctmEnvironmentId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cctmDescription",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.RebuildEnvironment",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "RebuildEnvironment",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes and recreates all of the AWS resources (for example: the Auto Scaling group, load balancer, etc.) for a specified environment and forces a restart. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "RebuildEnvironmentMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "remEnvironmentId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "remEnvironmentName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "DeleteEnvironmentConfiguration",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes the draft configuration associated with the running environment. \u003c/p\u003e \u003cp\u003e Updating a running environment with any configuration changes creates a draft configuration set. You can get the draft configuration using \u003ca\u003eDescribeConfigurationSettings\u003c/a\u003e while the update is in progress or if the update fails. The \u003ccode\u003eDeploymentStatus\u003c/code\u003e for the draft configuration indicates whether the deployment is in process or has failed. The draft configuration remains in existence until it is deleted with this action. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "decmApplicationName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "decmEnvironmentName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "DeleteEnvironmentConfigurationMessage",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "SwapEnvironmentCNAMEs",
+            "method": "post",
+            "documentation": "\u003cp\u003e Swaps the CNAMEs of two environments. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "SwapEnvironmentCNAMEsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "secnamemSourceEnvironmentId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "secnamemSourceEnvironmentName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "secnamemDestinationEnvironmentId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "secnamemDestinationEnvironmentName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lassrmSolutionStacks",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lassrmSolutionStackDetails",
+                        "type": "List SolutionStackDescription"
+                    }
+                ],
+                "name": "ListAvailableSolutionStacksResultMessage",
+                "resultWrapper": "ListAvailableSolutionStacksResult",
+                "type": "record",
+                "optional": []
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "ListAvailableSolutionStacks",
+            "method": "post",
+            "documentation": "\u003cp\u003e Returns a list of the available solution stack names. \u003c/p\u003e",
+            "request": {
+                "deriving": [],
+                "name": "Empty",
+                "type": "empty"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "codOptions",
+                        "type": "List ConfigurationOptionDescription"
+                    }
+                ],
+                "name": "ConfigurationOptionsDescription",
+                "resultWrapper": "DescribeConfigurationOptionsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "codSolutionStackName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "DescribeConfigurationOptions",
+            "method": "post",
+            "documentation": "\u003cp\u003e Describes the configuration options that are used in a particular configuration template or environment, or that a specified solution stack defines. The description includes the values the options, their default values, and an indication of the required action on a running environment if an option value is changed. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcomOptions",
+                        "type": "List OptionSpecification"
+                    }
+                ],
+                "name": "DescribeConfigurationOptionsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcomApplicationName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcomTemplateName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcomEnvironmentName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcomSolutionStackName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cslrmS3Bucket",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "CreateStorageLocationResultMessage",
+                "resultWrapper": "CreateStorageLocationResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.CreateStorageLocation",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "CreateStorageLocation",
+            "method": "post",
+            "documentation": "\u003cp\u003e Creates the Amazon S3 storage location for the account. \u003c/p\u003e \u003cp\u003e This location is used to store user log files. \u003c/p\u003e",
+            "request": {
+                "deriving": [],
+                "name": "Empty",
+                "type": "empty"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csdConfigurationSettings",
+                    "type": "List ConfigurationSettingsDescription"
+                },
+                "wrapper": false,
+                "name": "ConfigurationSettingsDescriptions",
+                "resultWrapper": "DescribeConfigurationSettingsResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "DescribeConfigurationSettings",
+            "method": "post",
+            "documentation": "\u003cp\u003e Returns a description of the settings for the specified configuration set, that is, either a configuration template or the configuration set associated with a running environment. \u003c/p\u003e \u003cp\u003e When describing the settings for the configuration set associated with a running environment, it is possible to receive two sets of setting descriptions. One is the deployed configuration set, and the other is a draft configuration of an environment that is either in the process of deployment or that failed to deploy. \u003c/p\u003e \u003cp\u003eRelated Topics\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ca\u003eDeleteEnvironmentConfiguration\u003c/a\u003e \u003c/li\u003e \u003c/ul\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcsmApplicationName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "DescribeConfigurationSettingsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcsmTemplateName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcsmEnvironmentName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csvmMessages",
+                    "type": "List ValidationMessage"
+                },
+                "wrapper": false,
+                "name": "ConfigurationSettingsValidationMessages",
+                "resultWrapper": "ValidateConfigurationSettingsResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "ValidateConfigurationSettings",
+            "method": "post",
+            "documentation": "\u003cp\u003e Takes a set of configuration settings and either a configuration template or environment, and determines whether those values are valid. \u003c/p\u003e \u003cp\u003e This action returns a list of messages indicating any errors or warnings associated with the selection of option values. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vcsmApplicationName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vcsmOptionSettings",
+                        "type": "List ConfigurationOptionSetting"
+                    }
+                ],
+                "name": "ValidateConfigurationSettingsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vcsmTemplateName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vcsmEnvironmentName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.RestartAppServer",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "RestartAppServer",
+            "method": "post",
+            "documentation": "\u003cp\u003e Causes the environment to restart the application container server running on each Amazon EC2 instance. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "RestartAppServerMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rasmEnvironmentId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rasmEnvironmentName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "edmEnvironments",
+                    "type": "List EnvironmentDescription"
+                },
+                "wrapper": false,
+                "name": "EnvironmentDescriptionsMessage",
+                "resultWrapper": "DescribeEnvironmentsResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.DescribeEnvironments",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "DescribeEnvironments",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns descriptions for existing environments.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "demEnvironmentIds",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "demEnvironmentNames",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "DescribeEnvironmentsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "demApplicationName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "demVersionLabel",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "demIncludeDeleted",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "demIncludedDeletedBackTo",
+                        "type": "Maybe (Time RFC822)"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "name": "CheckDNSAvailabilityResultMessage",
+                "resultWrapper": "CheckDNSAvailabilityResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cdnsarmAvailable",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cdnsarmFullyQualifiedCNAME",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.CheckDNSAvailability",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "CheckDNSAvailability",
+            "method": "post",
+            "documentation": "\u003cp\u003e Checks if the specified CNAME is available. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cdnsamCNAMEPrefix",
+                    "type": "Text"
+                },
+                "name": "CheckDNSAvailabilityMessage",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "avdmApplicationVersions",
+                    "type": "List ApplicationVersionDescription"
+                },
+                "wrapper": false,
+                "name": "ApplicationVersionDescriptionsMessage",
+                "resultWrapper": "DescribeApplicationVersionsResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.DescribeApplicationVersions",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "DescribeApplicationVersions",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns descriptions for existing application versions.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "davm1VersionLabels",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "DescribeApplicationVersionsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "davm1ApplicationName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "EnvironmentDescription",
+                "resultWrapper": "CreateEnvironmentResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElasticBeanstalk.CreateEnvironment",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElasticBeanstalk.Types"
+            ],
+            "name": "CreateEnvironment",
+            "method": "post",
+            "documentation": "\u003cp\u003e Launches an environment for the specified application using the specified configuration. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cemApplicationName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cemEnvironmentName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cemTags",
+                        "type": "List Tag"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cemOptionSettings",
+                        "type": "List ConfigurationOptionSetting"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cemOptionsToRemove",
+                        "type": "List OptionSpecification"
+                    }
+                ],
+                "name": "CreateEnvironmentMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cemDescription",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cemCNAMEPrefix",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cemTier",
+                        "type": "Maybe EnvironmentTier"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cemVersionLabel",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cemTemplateName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cemSolutionStackName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,1881 @@
+{
+    "service": {
+        "signature": "v4",
+        "checksum": "sha256",
+        "abbrev": "SNS",
+        "error": "SNSError",
+        "namespace": "Network.AWS.SNS",
+        "protocol": "query",
+        "imports": [
+            "Network.AWS.SNS.AddPermission",
+            "Network.AWS.SNS.ConfirmSubscription",
+            "Network.AWS.SNS.CreatePlatformApplication",
+            "Network.AWS.SNS.CreatePlatformEndpoint",
+            "Network.AWS.SNS.CreateTopic",
+            "Network.AWS.SNS.DeleteEndpoint",
+            "Network.AWS.SNS.DeletePlatformApplication",
+            "Network.AWS.SNS.DeleteTopic",
+            "Network.AWS.SNS.GetEndpointAttributes",
+            "Network.AWS.SNS.GetPlatformApplicationAttributes",
+            "Network.AWS.SNS.GetSubscriptionAttributes",
+            "Network.AWS.SNS.GetTopicAttributes",
+            "Network.AWS.SNS.ListEndpointsByPlatformApplication",
+            "Network.AWS.SNS.ListPlatformApplications",
+            "Network.AWS.SNS.ListSubscriptions",
+            "Network.AWS.SNS.ListSubscriptionsByTopic",
+            "Network.AWS.SNS.ListTopics",
+            "Network.AWS.SNS.Publish",
+            "Network.AWS.SNS.RemovePermission",
+            "Network.AWS.SNS.SetEndpointAttributes",
+            "Network.AWS.SNS.SetPlatformApplicationAttributes",
+            "Network.AWS.SNS.SetSubscriptionAttributes",
+            "Network.AWS.SNS.SetTopicAttributes",
+            "Network.AWS.SNS.Subscribe",
+            "Network.AWS.SNS.Types",
+            "Network.AWS.SNS.Unsubscribe"
+        ],
+        "name": "Amazon Simple Notification Service",
+        "version": "2010-03-31",
+        "documentation": "\u003cfullname\u003eAmazon Simple Notification Service\u003c/fullname\u003e \u003cp\u003eAmazon Simple Notification Service (Amazon SNS) is a web service that enables you to build distributed web-enabled applications. Applications can use Amazon SNS to easily push real-time notification messages to interested subscribers over multiple delivery protocols. For more information about this product see \u003ca href=\"http://aws.amazon.com/sns/\"\u003ehttp://aws.amazon.com/sns\u003c/a\u003e. For detailed information about Amazon SNS features and their associated API calls, see the \u003ca href=\"http://docs.aws.amazon.com/sns/latest/dg/\"\u003eAmazon SNS Developer Guide\u003c/a\u003e. \u003c/p\u003e \u003cp\u003eWe also provide SDKs that enable you to access Amazon SNS from your preferred programming language. The SDKs contain functionality that automatically takes care of tasks such as: cryptographically signing your service requests, retrying requests, and handling error responses. For a list of available SDKs, go to \u003ca href=\"http://aws.amazon.com/tools/\"\u003eTools for Amazon Web Services\u003c/a\u003e. \u003c/p\u003e",
+        "xmlNamespace": "http://sns.amazonaws.com/doc/2010-03-31/",
+        "endpoint": "regional",
+        "endpointPrefix": "sns"
+    },
+    "cabal": {
+        "library": "amazonka-sns",
+        "modules": [
+            "Network.AWS.SNS",
+            "Network.AWS.SNS.AddPermission",
+            "Network.AWS.SNS.ConfirmSubscription",
+            "Network.AWS.SNS.CreatePlatformApplication",
+            "Network.AWS.SNS.CreatePlatformEndpoint",
+            "Network.AWS.SNS.CreateTopic",
+            "Network.AWS.SNS.DeleteEndpoint",
+            "Network.AWS.SNS.DeletePlatformApplication",
+            "Network.AWS.SNS.DeleteTopic",
+            "Network.AWS.SNS.GetEndpointAttributes",
+            "Network.AWS.SNS.GetPlatformApplicationAttributes",
+            "Network.AWS.SNS.GetSubscriptionAttributes",
+            "Network.AWS.SNS.GetTopicAttributes",
+            "Network.AWS.SNS.ListEndpointsByPlatformApplication",
+            "Network.AWS.SNS.ListPlatformApplications",
+            "Network.AWS.SNS.ListSubscriptions",
+            "Network.AWS.SNS.ListSubscriptionsByTopic",
+            "Network.AWS.SNS.ListTopics",
+            "Network.AWS.SNS.Publish",
+            "Network.AWS.SNS.RemovePermission",
+            "Network.AWS.SNS.SetEndpointAttributes",
+            "Network.AWS.SNS.SetPlatformApplicationAttributes",
+            "Network.AWS.SNS.SetSubscriptionAttributes",
+            "Network.AWS.SNS.SetTopicAttributes",
+            "Network.AWS.SNS.Subscribe",
+            "Network.AWS.SNS.Types",
+            "Network.AWS.SNS.Unsubscribe"
+        ],
+        "dependencies": [],
+        "version": "0.0.0",
+        "synopsis": "",
+        "description": ""
+    },
+    "types": {
+        "EndpointDisabledException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "edemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "AuthorizationErrorException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "aeemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "InvalidParameterException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "ipemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "SubscriptionLimitExceededException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "sleemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "PlatformApplicationDisabledException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "pademessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "InternalErrorException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "ieemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "namespace": "Network.AWS.SNS.Types",
+        "imports": [],
+        "Topic": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "topTopicArn",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "MessageAttributeValue": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mavDataType",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mavStringValue",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mavBinaryValue",
+                    "type": "Maybe Blob"
+                }
+            ]
+        },
+        "InvalidParameterValueException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "ipvemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "NotFoundException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "nfemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "PlatformApplication": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "paAttributes",
+                    "type": "Map Text Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "paPlatformApplicationArn",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "TopicLimitExceededException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "tleemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "Subscription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "subSubscriptionArn",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "subOwner",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "subProtocol",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "subEndpoint",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "subTopicArn",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Endpoint": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "endAttributes",
+                    "type": "Map Text Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "endEndpointArn",
+                    "type": "Maybe Text"
+                }
+            ]
+        }
+    },
+    "operations": [
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SNS.DeleteEndpoint",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "DeleteEndpoint",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes the endpoint from Amazon SNS. This action is idempotent. For more information, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\"\u003eUsing Amazon SNS Mobile Push Notifications\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "deiEndpointArn",
+                    "type": "Text"
+                },
+                "name": "DeleteEndpointInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SNS.RemovePermission",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "RemovePermission",
+            "method": "post",
+            "documentation": "\u003cp\u003eRemoves a statement from a topic's access control policy.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rpiTopicArn",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rpiLabel",
+                        "type": "Text"
+                    }
+                ],
+                "name": "RemovePermissionInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SNS.DeleteTopic",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "DeleteTopic",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes a topic and all its subscriptions. Deleting a topic might prevent some messages previously sent to the topic from being delivered to subscribers. This action is idempotent, so deleting a topic that does not exist does not result in an error.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dtiTopicArn",
+                    "type": "Text"
+                },
+                "name": "DeleteTopicInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ltrTopics",
+                        "type": "List Topic"
+                    }
+                ],
+                "name": "ListTopicsResponse",
+                "resultWrapper": "ListTopicsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ltrNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SNS.ListTopics",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "ListTopics",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a list of the requester's topics. Each call returns a limited list of topics, up to 100. If there are more topics, a \u003ccode\u003eNextToken\u003c/code\u003e is also returned. Use the \u003ccode\u003eNextToken\u003c/code\u003e parameter in a new \u003ccode\u003eListTopics\u003c/code\u003e call to get further results.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ltiNextToken",
+                    "type": "Maybe Text"
+                },
+                "name": "ListTopicsInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cerEndpointArn",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "CreateEndpointResponse",
+                "resultWrapper": "CreatePlatformEndpointResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SNS.CreatePlatformEndpoint",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "CreatePlatformEndpoint",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates an endpoint for a device and mobile app on one of the supported push notification services, such as GCM and APNS. \u003ccode\u003eCreatePlatformEndpoint\u003c/code\u003e requires the PlatformApplicationArn that is returned from \u003ccode\u003eCreatePlatformApplication\u003c/code\u003e. The EndpointArn that is returned when using \u003ccode\u003eCreatePlatformEndpoint\u003c/code\u003e can then be used by the \u003ccode\u003ePublish\u003c/code\u003e action to send a message to a mobile app or by the \u003ccode\u003eSubscribe\u003c/code\u003e action for subscription to a topic. The \u003ccode\u003eCreatePlatformEndpoint\u003c/code\u003e action is idempotent, so if the requester already owns an endpoint with the same device token and attributes, that endpoint's ARN is returned without creating a new endpoint. For more information, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\"\u003eUsing Amazon SNS Mobile Push Notifications\u003c/a\u003e. \u003c/p\u003e \u003cp\u003eWhen using \u003ccode\u003eCreatePlatformEndpoint\u003c/code\u003e with Baidu, two attributes must be provided: ChannelId and UserId. The token field must also contain the ChannelId. For more information, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html\"\u003eCreating an Amazon SNS Endpoint for Baidu\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpeiPlatformApplicationArn",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpeiToken",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpeiAttributes",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "name": "CreatePlatformEndpointInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpeiCustomUserData",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SNS.SetPlatformApplicationAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "SetPlatformApplicationAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eSets the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\"\u003eUsing Amazon SNS Mobile Push Notifications\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "spaaiPlatformApplicationArn",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "spaaiAttributes",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "name": "SetPlatformApplicationAttributesInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lsbtrSubscriptions",
+                        "type": "List Subscription"
+                    }
+                ],
+                "name": "ListSubscriptionsByTopicResponse",
+                "resultWrapper": "ListSubscriptionsByTopicResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lsbtrNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SNS.ListSubscriptionsByTopic",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "ListSubscriptionsByTopic",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a list of the subscriptions to a specific topic. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a \u003ccode\u003eNextToken\u003c/code\u003e is also returned. Use the \u003ccode\u003eNextToken\u003c/code\u003e parameter in a new \u003ccode\u003eListSubscriptionsByTopic\u003c/code\u003e call to get further results.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lsbtiTopicArn",
+                        "type": "Text"
+                    }
+                ],
+                "name": "ListSubscriptionsByTopicInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lsbtiNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "gtarAttributes",
+                    "type": "Map Text Text"
+                },
+                "wrapper": false,
+                "name": "GetTopicAttributesResponse",
+                "resultWrapper": "GetTopicAttributesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SNS.GetTopicAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "GetTopicAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns all of the properties of a topic. Topic properties returned might differ based on the authorization of the user. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "gtaiTopicArn",
+                    "type": "Text"
+                },
+                "name": "GetTopicAttributesInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cparPlatformApplicationArn",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "CreatePlatformApplicationResponse",
+                "resultWrapper": "CreatePlatformApplicationResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SNS.CreatePlatformApplication",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "CreatePlatformApplication",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates a platform application object for one of the supported push notification services, such as APNS and GCM, to which devices and mobile apps may register. You must specify PlatformPrincipal and PlatformCredential attributes when using the \u003ccode\u003eCreatePlatformApplication\u003c/code\u003e action. The PlatformPrincipal is received from the notification service. For APNS/APNS_SANDBOX, PlatformPrincipal is \"SSL certificate\". For GCM, PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is \"client id\". The PlatformCredential is also received from the notification service. For APNS/APNS_SANDBOX, PlatformCredential is \"private key\". For GCM, PlatformCredential is \"API key\". For ADM, PlatformCredential is \"client secret\". The PlatformApplicationArn that is returned when using \u003ccode\u003eCreatePlatformApplication\u003c/code\u003e is then used as an attribute for the \u003ccode\u003eCreatePlatformEndpoint\u003c/code\u003e action. For more information, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\"\u003eUsing Amazon SNS Mobile Push Notifications\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpaiName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpaiPlatform",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpaiAttributes",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "name": "CreatePlatformApplicationInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "gpaarAttributes",
+                    "type": "Map Text Text"
+                },
+                "wrapper": false,
+                "name": "GetPlatformApplicationAttributesResponse",
+                "resultWrapper": "GetPlatformApplicationAttributesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SNS.GetPlatformApplicationAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "GetPlatformApplicationAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eRetrieves the attributes of the platform application object for the supported push notification services, such as APNS and GCM. For more information, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\"\u003eUsing Amazon SNS Mobile Push Notifications\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "gpaaiPlatformApplicationArn",
+                    "type": "Text"
+                },
+                "name": "GetPlatformApplicationAttributesInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lebparEndpoints",
+                        "type": "List Endpoint"
+                    }
+                ],
+                "name": "ListEndpointsByPlatformApplicationResponse",
+                "resultWrapper": "ListEndpointsByPlatformApplicationResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lebparNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SNS.ListEndpointsByPlatformApplication",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "ListEndpointsByPlatformApplication",
+            "method": "post",
+            "documentation": "\u003cp\u003eLists the endpoints and endpoint attributes for devices in a supported push notification service, such as GCM and APNS. The results for \u003ccode\u003eListEndpointsByPlatformApplication\u003c/code\u003e are paginated and return a limited list of endpoints, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call \u003ccode\u003eListEndpointsByPlatformApplication\u003c/code\u003e again using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\"\u003eUsing Amazon SNS Mobile Push Notifications\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lebpaiPlatformApplicationArn",
+                        "type": "Text"
+                    }
+                ],
+                "name": "ListEndpointsByPlatformApplicationInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lebpaiNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SNS.SetTopicAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "SetTopicAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eAllows a topic owner to set an attribute of the topic to a new value.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "staiTopicArn",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "staiAttributeName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "SetTopicAttributesInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "staiAttributeValue",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SNS.DeletePlatformApplication",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "DeletePlatformApplication",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes a platform application object for one of the supported push notification services, such as APNS and GCM. For more information, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\"\u003eUsing Amazon SNS Mobile Push Notifications\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dpaiPlatformApplicationArn",
+                    "type": "Text"
+                },
+                "name": "DeletePlatformApplicationInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lparPlatformApplications",
+                        "type": "List PlatformApplication"
+                    }
+                ],
+                "name": "ListPlatformApplicationsResponse",
+                "resultWrapper": "ListPlatformApplicationsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lparNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SNS.ListPlatformApplications",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "ListPlatformApplications",
+            "method": "post",
+            "documentation": "\u003cp\u003eLists the platform application objects for the supported push notification services, such as APNS and GCM. The results for \u003ccode\u003eListPlatformApplications\u003c/code\u003e are paginated and return a limited list of applications, up to 100. If additional records are available after the first page results, then a NextToken string will be returned. To receive the next page, you call \u003ccode\u003eListPlatformApplications\u003c/code\u003e using the NextToken string received from the previous call. When there are no more records to return, NextToken will be null. For more information, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\"\u003eUsing Amazon SNS Mobile Push Notifications\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lpaiNextToken",
+                    "type": "Maybe Text"
+                },
+                "name": "ListPlatformApplicationsInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SNS.AddPermission",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "AddPermission",
+            "method": "post",
+            "documentation": "\u003cp\u003eAdds a statement to a topic's access control policy, granting access for the specified AWS accounts to the specified actions.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "apiTopicArn",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "apiLabel",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "apiAWSAccountId",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "apiActionName",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "AddPermissionInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "gearAttributes",
+                    "type": "Map Text Text"
+                },
+                "wrapper": false,
+                "name": "GetEndpointAttributesResponse",
+                "resultWrapper": "GetEndpointAttributesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SNS.GetEndpointAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "GetEndpointAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eRetrieves the endpoint attributes for a device on one of the supported push notification services, such as GCM and APNS. For more information, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\"\u003eUsing Amazon SNS Mobile Push Notifications\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "geaiEndpointArn",
+                    "type": "Text"
+                },
+                "name": "GetEndpointAttributesInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lsrSubscriptions",
+                        "type": "List Subscription"
+                    }
+                ],
+                "name": "ListSubscriptionsResponse",
+                "resultWrapper": "ListSubscriptionsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lsrNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SNS.ListSubscriptions",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "ListSubscriptions",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a list of the requester's subscriptions. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a \u003ccode\u003eNextToken\u003c/code\u003e is also returned. Use the \u003ccode\u003eNextToken\u003c/code\u003e parameter in a new \u003ccode\u003eListSubscriptions\u003c/code\u003e call to get further results.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lsiNextToken",
+                    "type": "Maybe Text"
+                },
+                "name": "ListSubscriptionsInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "gsarAttributes",
+                    "type": "Map Text Text"
+                },
+                "wrapper": false,
+                "name": "GetSubscriptionAttributesResponse",
+                "resultWrapper": "GetSubscriptionAttributesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SNS.GetSubscriptionAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "GetSubscriptionAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns all of the properties of a subscription.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "gsaiSubscriptionArn",
+                    "type": "Text"
+                },
+                "name": "GetSubscriptionAttributesInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ctrTopicArn",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "CreateTopicResponse",
+                "resultWrapper": "CreateTopicResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SNS.CreateTopic",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "CreateTopic",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates a topic to which notifications can be published. Users can create at most 3000 topics. For more information, see \u003ca href=\"http://aws.amazon.com/sns/\"\u003ehttp://aws.amazon.com/sns\u003c/a\u003e. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ctiName",
+                    "type": "Text"
+                },
+                "name": "CreateTopicInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "srSubscriptionArn",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "SubscribeResponse",
+                "resultWrapper": "SubscribeResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SNS.Subscribe",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "Subscribe",
+            "method": "post",
+            "documentation": "\u003cp\u003ePrepares to subscribe an endpoint by sending the endpoint a confirmation message. To actually create a subscription, the endpoint owner must call the \u003ccode\u003eConfirmSubscription\u003c/code\u003e action with the token from the confirmation message. Confirmation tokens are valid for three days.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "siTopicArn",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "siProtocol",
+                        "type": "Text"
+                    }
+                ],
+                "name": "SubscribeInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "siEndpoint",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SNS.Unsubscribe",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "Unsubscribe",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic's owner can unsubscribe, and an AWS signature is required. If the \u003ccode\u003eUnsubscribe\u003c/code\u003e call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the \u003ccode\u003eUnsubscribe\u003c/code\u003e request was unintended.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "uiSubscriptionArn",
+                    "type": "Text"
+                },
+                "name": "UnsubscribeInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SNS.SetEndpointAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "SetEndpointAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eSets the attributes for an endpoint for a device on one of the supported push notification services, such as GCM and APNS. For more information, see \u003ca href=\"http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html\"\u003eUsing Amazon SNS Mobile Push Notifications\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "seaiEndpointArn",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "seaiAttributes",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "name": "SetEndpointAttributesInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SNS.SetSubscriptionAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "SetSubscriptionAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eAllows a subscription owner to set an attribute of the topic to a new value.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ssaiSubscriptionArn",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ssaiAttributeName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "SetSubscriptionAttributesInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ssaiAttributeValue",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csrSubscriptionArn",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "ConfirmSubscriptionResponse",
+                "resultWrapper": "ConfirmSubscriptionResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SNS.ConfirmSubscription",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "ConfirmSubscription",
+            "method": "post",
+            "documentation": "\u003cp\u003eVerifies an endpoint owner's intent to receive messages by validating the token sent to the endpoint by an earlier \u003ccode\u003eSubscribe\u003c/code\u003e action. If the token is valid, the action creates a new subscription and returns its Amazon Resource Name (ARN). This call requires an AWS signature only when the \u003ccode\u003eAuthenticateOnUnsubscribe\u003c/code\u003e flag is set to \"true\".\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csiTopicArn",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csiToken",
+                        "type": "Text"
+                    }
+                ],
+                "name": "ConfirmSubscriptionInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csiAuthenticateOnUnsubscribe",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "prMessageId",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "PublishResponse",
+                "resultWrapper": "PublishResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SNS.Publish",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SNS.Types"
+            ],
+            "name": "Publish",
+            "method": "post",
+            "documentation": "\u003cp\u003eSends a message to all of a topic's subscribed endpoints. When a \u003ccode\u003emessageId\u003c/code\u003e is returned, the message has been saved and Amazon SNS will attempt to deliver it to the topic's subscribers shortly. The format of the outgoing message to each subscribed endpoint depends on the notification protocol selected.\u003c/p\u003e \u003cp\u003eTo use the \u003ccode\u003ePublish\u003c/code\u003e action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn. The EndpointArn is returned when making a call with the \u003ccode\u003eCreatePlatformEndpoint\u003c/code\u003e action. The second example below shows a request and response for publishing to a mobile endpoint. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "piMessage",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "piMessageAttributes",
+                        "type": "Map Text MessageAttributeValue"
+                    }
+                ],
+                "name": "PublishInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "piTopicArn",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "piTargetArn",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "piSubject",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "piMessageStructure",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        }
+    ]
+}

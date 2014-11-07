@@ -1,0 +1,2578 @@
+{
+    "service": {
+        "signature": "v4",
+        "checksum": "sha256",
+        "abbrev": "ELB",
+        "error": "ELBError",
+        "namespace": "Network.AWS.ELB",
+        "protocol": "query",
+        "imports": [
+            "Network.AWS.ELB.AddTags",
+            "Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer",
+            "Network.AWS.ELB.AttachLoadBalancerToSubnets",
+            "Network.AWS.ELB.ConfigureHealthCheck",
+            "Network.AWS.ELB.CreateAppCookieStickinessPolicy",
+            "Network.AWS.ELB.CreateLBCookieStickinessPolicy",
+            "Network.AWS.ELB.CreateLoadBalancer",
+            "Network.AWS.ELB.CreateLoadBalancerListeners",
+            "Network.AWS.ELB.CreateLoadBalancerPolicy",
+            "Network.AWS.ELB.DeleteLoadBalancer",
+            "Network.AWS.ELB.DeleteLoadBalancerListeners",
+            "Network.AWS.ELB.DeleteLoadBalancerPolicy",
+            "Network.AWS.ELB.DeregisterInstancesFromLoadBalancer",
+            "Network.AWS.ELB.DescribeInstanceHealth",
+            "Network.AWS.ELB.DescribeLoadBalancerAttributes",
+            "Network.AWS.ELB.DescribeLoadBalancerPolicies",
+            "Network.AWS.ELB.DescribeLoadBalancerPolicyTypes",
+            "Network.AWS.ELB.DescribeLoadBalancers",
+            "Network.AWS.ELB.DescribeTags",
+            "Network.AWS.ELB.DetachLoadBalancerFromSubnets",
+            "Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer",
+            "Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer",
+            "Network.AWS.ELB.ModifyLoadBalancerAttributes",
+            "Network.AWS.ELB.RegisterInstancesWithLoadBalancer",
+            "Network.AWS.ELB.RemoveTags",
+            "Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate",
+            "Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer",
+            "Network.AWS.ELB.SetLoadBalancerPoliciesOfListener",
+            "Network.AWS.ELB.Types"
+        ],
+        "name": "Elastic Load Balancing",
+        "version": "2012-06-01",
+        "documentation": "\u003cfullname\u003eElastic Load Balancing\u003c/fullname\u003e \u003cp\u003eElastic Load Balancing is a way to automatically distribute incoming web traffic across applications that run on multiple Amazon Elastic Compute Cloud (Amazon EC2) instances. \u003c/p\u003e \u003cp\u003eYou can create, access, and manage Elastic Load Balancing using the AWS Management Console or the Elastic Load Balancing API. For more information about Elastic Load Balancing interfaces, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/SvcIntro_Interfaces.html\"\u003eAccessing Elastic Load Balancing\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eThis reference guide contains documentation for the Query API and the AWS command line interface commands, to manage Elastic Load Balancing. \u003c/p\u003e \u003cp\u003eFor detailed information about Elastic Load Balancing features and their associated actions or commands, go to \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenarios.html\"\u003eManaging Load Balancers\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eThis reference guide is based on the current WSDL, which is available at: \u003ca href=\"http://ec2-downloads.s3.amazonaws.com/ElasticLoadBalancing.wsdl\"\u003e\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e\u003cb\u003eEndpoints\u003c/b\u003e\u003c/p\u003e \u003cp\u003eThe examples in this guide assume that your load balancers are created in the US East (Northern Virginia) region and use us-east-1 as the endpoint.\u003c/p\u003e \u003cp\u003eYou can create your load balancers in other AWS regions. For information about regions and endpoints supported by Elastic Load Balancing, see \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html\"\u003eRegions and Endpoints\u003c/a\u003e in the Amazon Web Services General Reference. \u003c/p\u003e",
+        "xmlNamespace": "http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/",
+        "endpoint": "regional",
+        "endpointPrefix": "elasticloadbalancing"
+    },
+    "cabal": {
+        "library": "amazonka-elb",
+        "modules": [
+            "Network.AWS.ELB",
+            "Network.AWS.ELB.AddTags",
+            "Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer",
+            "Network.AWS.ELB.AttachLoadBalancerToSubnets",
+            "Network.AWS.ELB.ConfigureHealthCheck",
+            "Network.AWS.ELB.CreateAppCookieStickinessPolicy",
+            "Network.AWS.ELB.CreateLBCookieStickinessPolicy",
+            "Network.AWS.ELB.CreateLoadBalancer",
+            "Network.AWS.ELB.CreateLoadBalancerListeners",
+            "Network.AWS.ELB.CreateLoadBalancerPolicy",
+            "Network.AWS.ELB.DeleteLoadBalancer",
+            "Network.AWS.ELB.DeleteLoadBalancerListeners",
+            "Network.AWS.ELB.DeleteLoadBalancerPolicy",
+            "Network.AWS.ELB.DeregisterInstancesFromLoadBalancer",
+            "Network.AWS.ELB.DescribeInstanceHealth",
+            "Network.AWS.ELB.DescribeLoadBalancerAttributes",
+            "Network.AWS.ELB.DescribeLoadBalancerPolicies",
+            "Network.AWS.ELB.DescribeLoadBalancerPolicyTypes",
+            "Network.AWS.ELB.DescribeLoadBalancers",
+            "Network.AWS.ELB.DescribeTags",
+            "Network.AWS.ELB.DetachLoadBalancerFromSubnets",
+            "Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer",
+            "Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer",
+            "Network.AWS.ELB.ModifyLoadBalancerAttributes",
+            "Network.AWS.ELB.RegisterInstancesWithLoadBalancer",
+            "Network.AWS.ELB.RemoveTags",
+            "Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate",
+            "Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer",
+            "Network.AWS.ELB.SetLoadBalancerPoliciesOfListener",
+            "Network.AWS.ELB.Types"
+        ],
+        "dependencies": [],
+        "version": "0.0.0",
+        "synopsis": "",
+        "description": ""
+    },
+    "types": {
+        "SourceSecurityGroup": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ssgOwnerAlias",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ssgGroupName",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "TagDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "tdTags",
+                    "type": "List1 Tag"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "tdLoadBalancerName",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Tag": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "tagKey",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "tagValue",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "PolicyAttributeTypeDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "patdAttributeName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "patdAttributeType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "patdDescription",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "patdDefaultValue",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "patdCardinality",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "HealthCheck": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "hcTarget",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "hcInterval",
+                    "type": "Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "hcTimeout",
+                    "type": "Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "hcUnhealthyThreshold",
+                    "type": "Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "hcHealthyThreshold",
+                    "type": "Int"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        },
+        "CrossZoneLoadBalancing": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "czlbEnabled",
+                "type": "Bool"
+            },
+            "type": "newtype"
+        },
+        "LoadBalancerAttributes": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbaCrossZoneLoadBalancing",
+                    "type": "Maybe CrossZoneLoadBalancing"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbaAccessLog",
+                    "type": "Maybe AccessLog"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbaConnectionDraining",
+                    "type": "Maybe ConnectionDraining"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbaConnectionSettings",
+                    "type": "Maybe ConnectionSettings"
+                }
+            ]
+        },
+        "AccessLog": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "alEnabled",
+                    "type": "Bool"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "alS3BucketName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "alEmitInterval",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "alS3BucketPrefix",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "ListenerDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ldPolicyNames",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ldListener",
+                    "type": "Maybe Listener"
+                }
+            ]
+        },
+        "namespace": "Network.AWS.ELB.Types",
+        "LBCookieStickinessPolicy": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbcspPolicyName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbcspCookieExpirationPeriod",
+                    "type": "Maybe Integer"
+                }
+            ]
+        },
+        "PolicyDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pdPolicyAttributeDescriptions",
+                    "type": "List PolicyAttributeDescription"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pdPolicyName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pdPolicyTypeName",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "imports": [],
+        "AppCookieStickinessPolicy": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "acspPolicyName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "acspCookieName",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "PolicyAttribute": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "paAttributeName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "paAttributeValue",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "LoadBalancerDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdListenerDescriptions",
+                    "type": "List ListenerDescription"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdBackendServerDescriptions",
+                    "type": "List BackendServerDescription"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdAvailabilityZones",
+                    "type": "List Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdSubnets",
+                    "type": "List Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdInstances",
+                    "type": "List Instance"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdSecurityGroups",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdLoadBalancerName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdDNSName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdCanonicalHostedZoneName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdCanonicalHostedZoneNameID",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdPolicies",
+                    "type": "Maybe Policies"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdVPCId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdHealthCheck",
+                    "type": "Maybe HealthCheck"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdSourceSecurityGroup",
+                    "type": "Maybe SourceSecurityGroup"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdCreatedTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lbdScheme",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "BackendServerDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "bsdPolicyNames",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "bsdInstancePort",
+                    "type": "Maybe Int"
+                }
+            ]
+        },
+        "PolicyAttributeDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "padAttributeName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "padAttributeValue",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "ConnectionSettings": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "csIdleTimeout",
+                "type": "Int"
+            },
+            "type": "newtype"
+        },
+        "PolicyTypeDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ptdPolicyAttributeTypeDescriptions",
+                    "type": "List PolicyAttributeTypeDescription"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ptdPolicyTypeName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ptdDescription",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Policies": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "polAppCookieStickinessPolicies",
+                    "type": "List AppCookieStickinessPolicy"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "polLBCookieStickinessPolicies",
+                    "type": "List LBCookieStickinessPolicy"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "polOtherPolicies",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        },
+        "Listener": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lisProtocol",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lisLoadBalancerPort",
+                    "type": "Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lisInstancePort",
+                    "type": "Int"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lisInstanceProtocol",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lisSSLCertificateId",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "ConnectionDraining": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cdEnabled",
+                    "type": "Bool"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cdTimeout",
+                    "type": "Maybe Int"
+                }
+            ]
+        },
+        "InstanceState": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "isInstanceId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "isState",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "isReasonCode",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "isDescription",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "TagKeyOnly": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "tkoKey",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "Instance": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "insInstanceId",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        }
+    },
+    "operations": [
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dapoLoadBalancerDescriptions",
+                        "type": "List LoadBalancerDescription"
+                    }
+                ],
+                "name": "DescribeAccessPointsOutput",
+                "resultWrapper": "DescribeLoadBalancersResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dapoNextMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ELB.DescribeLoadBalancers",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "DescribeLoadBalancers",
+            "method": "post",
+            "documentation": "\u003cp\u003e Returns detailed configuration information for all the load balancers created for the account. If you specify load balancer names, the action returns configuration information of the specified load balancers. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dapiLoadBalancerNames",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "DescribeAccessPointsInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dapiMarker",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dapiPageSize",
+                        "type": "Maybe Int"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dtoTagDescriptions",
+                    "type": "List TagDescription"
+                },
+                "wrapper": false,
+                "name": "DescribeTagsOutput",
+                "resultWrapper": "DescribeTagsResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ELB.DescribeTags",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "DescribeTags",
+            "method": "post",
+            "documentation": "\u003cp\u003eDescribes the tags associated with one or more load balancers.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "semigroup"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dtiLoadBalancerNames",
+                    "type": "List1 Text"
+                },
+                "name": "DescribeTagsInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dlbptoPolicyTypeDescriptions",
+                    "type": "List PolicyTypeDescription"
+                },
+                "wrapper": false,
+                "name": "DescribeLoadBalancerPolicyTypesOutput",
+                "resultWrapper": "DescribeLoadBalancerPolicyTypesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ELB.DescribeLoadBalancerPolicyTypes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "DescribeLoadBalancerPolicyTypes",
+            "method": "post",
+            "documentation": "\u003cp\u003e Returns meta-information on the specified load balancer policies defined by the Elastic Load Balancing service. The policy types that are returned from this action can be used in a \u003ca\u003eCreateLoadBalancerPolicy\u003c/a\u003e action to instantiate specific policy configurations that will be applied to a load balancer. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dlbptiPolicyTypeNames",
+                    "type": "List Text"
+                },
+                "name": "DescribeLoadBalancerPolicyTypesInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "asgtlboSecurityGroups",
+                    "type": "List Text"
+                },
+                "wrapper": false,
+                "name": "ApplySecurityGroupsToLoadBalancerOutput",
+                "resultWrapper": "ApplySecurityGroupsToLoadBalancerResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "ApplySecurityGroupsToLoadBalancer",
+            "method": "post",
+            "documentation": "\u003cp\u003e Associates one or more security groups with your load balancer in Amazon Virtual Private Cloud (Amazon VPC). The provided security group IDs will override any currently applied security groups. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/USVPC_ApplySG.html\"\u003eManage Security Groups in Amazon VPC\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "asgtlbiLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "asgtlbiSecurityGroups",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "ApplySecurityGroupsToLoadBalancerInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "RemoveTagsOutput",
+                "resultWrapper": "RemoveTagsResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ELB.RemoveTags",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "RemoveTags",
+            "method": "post",
+            "documentation": "\u003cp\u003eRemoves one or more tags from the specified load balancer.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rtiLoadBalancerNames",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rtiTags",
+                        "type": "List1 TagKeyOnly"
+                    }
+                ],
+                "name": "RemoveTagsInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "CreateLBCookieStickinessPolicyOutput",
+                "resultWrapper": "CreateLBCookieStickinessPolicyResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ELB.CreateLBCookieStickinessPolicy",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "CreateLBCookieStickinessPolicy",
+            "method": "post",
+            "documentation": "\u003cp\u003e Generates a stickiness policy with sticky session lifetimes controlled by the lifetime of the browser (user-agent) or a specified expiration period. This policy can be associated only with HTTP/HTTPS listeners. \u003c/p\u003e \u003cp\u003e When a load balancer implements this policy, the load balancer uses a special cookie to track the backend server instance for each request. When the load balancer receives a request, it first checks to see if this cookie is present in the request. If so, the load balancer sends the request to the application server specified in the cookie. If not, the load balancer sends the request to a server that is chosen based on the existing load balancing algorithm. \u003c/p\u003e \u003cp\u003e A cookie is inserted into the response for binding subsequent requests from the same user to that server. The validity of the cookie is based on the cookie expiration time, which is specified in the policy configuration. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsLBCookies\"\u003eEnabling Duration-Based Session Stickiness\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "clbcspiLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "clbcspiPolicyName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "CreateLBCookieStickinessPolicyInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "clbcspiCookieExpirationPeriod",
+                        "type": "Maybe Integer"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "DeleteAccessPointOutput",
+                "resultWrapper": "DeleteLoadBalancerResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ELB.DeleteLoadBalancer",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "DeleteLoadBalancer",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes the specified load balancer. \u003c/p\u003e \u003cp\u003e If attempting to recreate the load balancer, you must reconfigure all the settings. The DNS name associated with a deleted load balancer will no longer be usable. Once deleted, the name and associated DNS record of the load balancer no longer exist and traffic sent to any of its IP addresses will no longer be delivered to back-end instances. \u003c/p\u003e \u003cp\u003e To successfully call this API, you must provide the same account credentials as were used to create the load balancer. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dapiLoadBalancerName",
+                    "type": "Text"
+                },
+                "name": "DeleteAccessPointInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "depoInstances",
+                    "type": "List Instance"
+                },
+                "wrapper": false,
+                "name": "DeregisterEndPointsOutput",
+                "resultWrapper": "DeregisterInstancesFromLoadBalancerResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ELB.DeregisterInstancesFromLoadBalancer",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "DeregisterInstancesFromLoadBalancer",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deregisters instances from the load balancer. Once the instance is deregistered, it will stop receiving traffic from the load balancer. \u003c/p\u003e \u003cp\u003e In order to successfully call this API, the same account credentials as those used to create the load balancer must be provided. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html\"\u003eDe-register and Register Amazon EC2 Instances\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eYou can use \u003ca\u003eDescribeLoadBalancers\u003c/a\u003e to verify if the instance is deregistered from the load balancer.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "depiLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "depiInstances",
+                        "type": "List Instance"
+                    }
+                ],
+                "name": "DeregisterEndPointsInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "CreateLoadBalancerPolicyOutput",
+                "resultWrapper": "CreateLoadBalancerPolicyResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ELB.CreateLoadBalancerPolicy",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "CreateLoadBalancerPolicy",
+            "method": "post",
+            "documentation": "\u003cp\u003e Creates a new policy that contains the necessary attributes depending on the policy type. Policies are settings that are saved for your load balancer and that can be applied to the front-end listener, or the back-end application server, depending on your policy type. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "clbpiLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "clbpiPolicyName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "clbpiPolicyTypeName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "clbpiPolicyAttributes",
+                        "type": "List PolicyAttribute"
+                    }
+                ],
+                "name": "CreateLoadBalancerPolicyInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dlbpoPolicyDescriptions",
+                    "type": "List PolicyDescription"
+                },
+                "wrapper": false,
+                "name": "DescribeLoadBalancerPoliciesOutput",
+                "resultWrapper": "DescribeLoadBalancerPoliciesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ELB.DescribeLoadBalancerPolicies",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "DescribeLoadBalancerPolicies",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns detailed descriptions of the policies. If you specify a load balancer name, the action returns the descriptions of all the policies created for the load balancer. If you specify a policy name associated with your load balancer, the action returns the description of that policy. If you don't specify a load balancer name, the action returns descriptions of the specified sample policies, or descriptions of all the sample policies. The names of the sample policies have the \u003ccode\u003eELBSample-\u003c/code\u003e prefix. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dlbpiPolicyNames",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "DescribeLoadBalancerPoliciesInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dlbpiLoadBalancerName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "razoAvailabilityZones",
+                    "type": "List Text"
+                },
+                "wrapper": false,
+                "name": "RemoveAvailabilityZonesOutput",
+                "resultWrapper": "DisableAvailabilityZonesForLoadBalancerResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "DisableAvailabilityZonesForLoadBalancer",
+            "method": "post",
+            "documentation": "\u003cp\u003e Removes the specified EC2 Availability Zones from the set of configured Availability Zones for the load balancer. \u003c/p\u003e \u003cp\u003e There must be at least one Availability Zone registered with a load balancer at all times. Once an Availability Zone is removed, all the instances registered with the load balancer that are in the removed Availability Zone go into the \u003ci\u003eOutOfService\u003c/i\u003e state. Upon Availability Zone removal, the load balancer attempts to equally balance the traffic among its remaining usable Availability Zones. Trying to remove an Availability Zone that was not associated with the load balancer does nothing. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_ShrinkLBApp04.html\"\u003eDisable an Availability Zone from a Load-Balanced Application\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "raziLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "raziAvailabilityZones",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "RemoveAvailabilityZonesInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "aazoAvailabilityZones",
+                    "type": "List Text"
+                },
+                "wrapper": false,
+                "name": "AddAvailabilityZonesOutput",
+                "resultWrapper": "EnableAvailabilityZonesForLoadBalancerResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "EnableAvailabilityZonesForLoadBalancer",
+            "method": "post",
+            "documentation": "\u003cp\u003e Adds one or more EC2 Availability Zones to the load balancer. \u003c/p\u003e \u003cp\u003e The load balancer evenly distributes requests across all its registered Availability Zones that contain instances. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html\"\u003eExpand a Load Balanced Application to an Additional Availability Zone\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "aaziLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "aaziAvailabilityZones",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "AddAvailabilityZonesInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "SetLoadBalancerPoliciesForBackendServerOutput",
+                "resultWrapper": "SetLoadBalancerPoliciesForBackendServerResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "SetLoadBalancerPoliciesForBackendServer",
+            "method": "post",
+            "documentation": "\u003cp\u003e Replaces the current set of policies associated with a port on which the back-end server is listening with a new set of policies. After the policies have been created using \u003ca\u003eCreateLoadBalancerPolicy\u003c/a\u003e, they can be applied here as a list. At this time, only the back-end server authentication policy type can be applied to the back-end ports; this policy type is composed of multiple public key policies. \u003c/p\u003e \u003cp\u003eYou can use \u003ca\u003eDescribeLoadBalancers\u003c/a\u003e or \u003ca\u003eDescribeLoadBalancerPolicies\u003c/a\u003e action to verify that the policy has been associated with the back-end server.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "slbpfbsiLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "slbpfbsiInstancePort",
+                        "type": "Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "slbpfbsiPolicyNames",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "SetLoadBalancerPoliciesForBackendServerInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "SetLoadBalancerListenerSSLCertificateOutput",
+                "resultWrapper": "SetLoadBalancerListenerSSLCertificateResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "SetLoadBalancerListenerSSLCertificate",
+            "method": "post",
+            "documentation": "\u003cp\u003e Sets the certificate that terminates the specified listener's SSL connections. The specified certificate replaces any prior certificate that was used on the same load balancer and port. \u003c/p\u003e \u003cp\u003eFor more information on updating your SSL certificate, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html\"\u003eUpdating an SSL Certificate for a Load Balancer\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "slblsslciLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "slblsslciLoadBalancerPort",
+                        "type": "Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "slblsslciSSLCertificateId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "SetLoadBalancerListenerSSLCertificateInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "albtsoSubnets",
+                    "type": "List Text"
+                },
+                "wrapper": false,
+                "name": "AttachLoadBalancerToSubnetsOutput",
+                "resultWrapper": "AttachLoadBalancerToSubnetsResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ELB.AttachLoadBalancerToSubnets",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "AttachLoadBalancerToSubnets",
+            "method": "post",
+            "documentation": "\u003cp\u003e Adds one or more subnets to the set of configured subnets in the Amazon Virtual Private Cloud (Amazon VPC) for the load balancer. \u003c/p\u003e \u003cp\u003e The load balancers evenly distribute requests across all of the registered subnets. For more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html\"\u003eDeploy Elastic Load Balancing in Amazon VPC\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "albtsiLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "albtsiSubnets",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "AttachLoadBalancerToSubnetsInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "chcoHealthCheck",
+                    "type": "Maybe HealthCheck"
+                },
+                "wrapper": false,
+                "name": "ConfigureHealthCheckOutput",
+                "resultWrapper": "ConfigureHealthCheckResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ELB.ConfigureHealthCheck",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "ConfigureHealthCheck",
+            "method": "post",
+            "documentation": "\u003cp\u003e Specifies the health check settings to use for evaluating the health state of your back-end instances. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#healthcheck\"\u003eHealth Check\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "chciLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "chciHealthCheck",
+                        "type": "HealthCheck"
+                    }
+                ],
+                "name": "ConfigureHealthCheckInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "name": "ModifyLoadBalancerAttributesOutput",
+                "resultWrapper": "ModifyLoadBalancerAttributesResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mlbaoLoadBalancerName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mlbaoLoadBalancerAttributes",
+                        "type": "Maybe LoadBalancerAttributes"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ELB.ModifyLoadBalancerAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "ModifyLoadBalancerAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eModifies the attributes of a specified load balancer.\u003c/p\u003e \u003cp\u003eYou can modify the load balancer attributes, such as \u003ccode\u003eAccessLogs\u003c/code\u003e, \u003ccode\u003eConnectionDraining\u003c/code\u003e, and \u003ccode\u003eCrossZoneLoadBalancing\u003c/code\u003e by either enabling or disabling them. Or, you can modify the load balancer attribute \u003ccode\u003eConnectionSettings\u003c/code\u003e by specifying an idle connection timeout value for your load balancer.\u003c/p\u003e \u003cp\u003eFor more information, see the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#request-routing\"\u003eCross-Zone Load Balancing\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain\"\u003eConnection Draining\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/access-log-collection.html\"\u003eAccess Logs\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#idle-timeout\"\u003eIdle Connection Timeout\u003c/a\u003e\u003c/li\u003e \u003c/ul\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mlbaiLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mlbaiLoadBalancerAttributes",
+                        "type": "LoadBalancerAttributes"
+                    }
+                ],
+                "name": "ModifyLoadBalancerAttributesInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "CreateAppCookieStickinessPolicyOutput",
+                "resultWrapper": "CreateAppCookieStickinessPolicyResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ELB.CreateAppCookieStickinessPolicy",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "CreateAppCookieStickinessPolicy",
+            "method": "post",
+            "documentation": "\u003cp\u003e Generates a stickiness policy with sticky session lifetimes that follow that of an application-generated cookie. This policy can be associated only with HTTP/HTTPS listeners. \u003c/p\u003e \u003cp\u003e This policy is similar to the policy created by \u003ca\u003eCreateLBCookieStickinessPolicy\u003c/a\u003e, except that the lifetime of the special Elastic Load Balancing cookie follows the lifetime of the application-generated cookie specified in the policy configuration. The load balancer only inserts a new stickiness cookie when the application response includes a new application cookie. \u003c/p\u003e \u003cp\u003e If the application cookie is explicitly removed or expires, the session stops being sticky until a new application cookie is issued. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsAppCookies\"\u003eEnabling Application-Controlled Session Stickiness\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cacspiLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cacspiPolicyName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cacspiCookieName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "CreateAppCookieStickinessPolicyInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "depsoInstanceStates",
+                    "type": "List InstanceState"
+                },
+                "wrapper": false,
+                "name": "DescribeEndPointStateOutput",
+                "resultWrapper": "DescribeInstanceHealthResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ELB.DescribeInstanceHealth",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "DescribeInstanceHealth",
+            "method": "post",
+            "documentation": "\u003cp\u003e Returns the current state of the specified instances registered with the specified load balancer. If no instances are specified, the state of all the instances registered with the load balancer is returned. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "depsiLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "depsiInstances",
+                        "type": "List Instance"
+                    }
+                ],
+                "name": "DescribeEndPointStateInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "AddTagsOutput",
+                "resultWrapper": "AddTagsResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ELB.AddTags",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "AddTags",
+            "method": "post",
+            "documentation": "\u003cp\u003eAdds one or more tags for the specified load balancer. Each load balancer can have a maximum of 10 tags. Each tag consists of a key and an optional value.\u003c/p\u003e \u003cp\u003eTag keys must be unique for each load balancer. If a tag with the same key is already associated with the load balancer, this action will update the value of the key.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb\"\u003eTagging\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "atiLoadBalancerNames",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "atiTags",
+                        "type": "List1 Tag"
+                    }
+                ],
+                "name": "AddTagsInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dlbaoLoadBalancerAttributes",
+                    "type": "Maybe LoadBalancerAttributes"
+                },
+                "wrapper": false,
+                "name": "DescribeLoadBalancerAttributesOutput",
+                "resultWrapper": "DescribeLoadBalancerAttributesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ELB.DescribeLoadBalancerAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "DescribeLoadBalancerAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns detailed information about all of the attributes associated with the specified load balancer.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dlbaiLoadBalancerName",
+                    "type": "Text"
+                },
+                "name": "DescribeLoadBalancerAttributesInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "CreateLoadBalancerListenerOutput",
+                "resultWrapper": "CreateLoadBalancerListenersResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ELB.CreateLoadBalancerListeners",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "CreateLoadBalancerListeners",
+            "method": "post",
+            "documentation": "\u003cp\u003e Creates one or more listeners on a load balancer for the specified port. If a listener with the given port does not already exist, it will be created; otherwise, the properties of the new listener must match the properties of the existing listener. \u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html\"\u003eAdd a Listener to Your Load Balancer\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "clbliLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "clbliListeners",
+                        "type": "List Listener"
+                    }
+                ],
+                "name": "CreateLoadBalancerListenerInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "DeleteLoadBalancerPolicyOutput",
+                "resultWrapper": "DeleteLoadBalancerPolicyResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ELB.DeleteLoadBalancerPolicy",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "DeleteLoadBalancerPolicy",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes a policy from the load balancer. The specified policy must not be enabled for any listeners. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dlbpi1LoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dlbpi1PolicyName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "DeleteLoadBalancerPolicyInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dlbfsoSubnets",
+                    "type": "List Text"
+                },
+                "wrapper": false,
+                "name": "DetachLoadBalancerFromSubnetsOutput",
+                "resultWrapper": "DetachLoadBalancerFromSubnetsResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ELB.DetachLoadBalancerFromSubnets",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "DetachLoadBalancerFromSubnets",
+            "method": "post",
+            "documentation": "\u003cp\u003e Removes subnets from the set of configured subnets in the Amazon Virtual Private Cloud (Amazon VPC) for the load balancer. \u003c/p\u003e \u003cp\u003e After a subnet is removed all of the EC2 instances registered with the load balancer that are in the removed subnet will go into the \u003ci\u003eOutOfService\u003c/i\u003e state. When a subnet is removed, the load balancer will balance the traffic among the remaining routable subnets for the load balancer. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dlbfsiLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dlbfsiSubnets",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "DetachLoadBalancerFromSubnetsInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "repoInstances",
+                    "type": "List Instance"
+                },
+                "wrapper": false,
+                "name": "RegisterEndPointsOutput",
+                "resultWrapper": "RegisterInstancesWithLoadBalancerResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ELB.RegisterInstancesWithLoadBalancer",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "RegisterInstancesWithLoadBalancer",
+            "method": "post",
+            "documentation": "\u003cp\u003e Adds new instances to the load balancer. \u003c/p\u003e \u003cp\u003e Once the instance is registered, it starts receiving traffic and requests from the load balancer. Any instance that is not in any of the Availability Zones registered for the load balancer will be moved to the \u003ci\u003eOutOfService\u003c/i\u003e state. It will move to the \u003ci\u003eInService\u003c/i\u003e state when the Availability Zone is added to the load balancer. \u003c/p\u003e \u003cp\u003eWhen an instance registered with a load balancer is stopped and then restarted, the IP addresses associated with the instance changes. Elastic Load Balancing cannot recognize the new IP address, which prevents it from routing traffic to the instances. We recommend that you de-register your Amazon EC2 instances from your load balancer after you stop your instance, and then register the load balancer with your instance after you've restarted. To de-register your instances from load balancer, use \u003ca\u003eDeregisterInstancesFromLoadBalancer\u003c/a\u003e action.\u003c/p\u003e \u003cp\u003eFor more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html\"\u003eDe-register and Register Amazon EC2 Instances\u003c/a\u003e in the \u003ci\u003eElastic Load Balancing Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eYou can use \u003ca\u003eDescribeLoadBalancers\u003c/a\u003e or \u003ca\u003eDescribeInstanceHealth\u003c/a\u003e action to check the state of the newly registered instances.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "repiLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "repiInstances",
+                        "type": "List Instance"
+                    }
+                ],
+                "name": "RegisterEndPointsInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "capoDNSName",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "CreateAccessPointOutput",
+                "resultWrapper": "CreateLoadBalancerResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ELB.CreateLoadBalancer",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "CreateLoadBalancer",
+            "method": "post",
+            "documentation": "\u003cp\u003e Creates a new load balancer. \u003c/p\u003e \u003cp\u003e After the call has completed successfully, a new load balancer is created with a unique Domain Name Service (DNS) name. The DNS name includes the name of the AWS region in which the load balance was created. For example, if your load balancer was created in the United States, the DNS name might end with either of the following:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ci\u003eus-east-1.elb.amazonaws.com\u003c/i\u003e (for the Northern Virginia region) \u003c/li\u003e \u003cli\u003e \u003ci\u003eus-west-1.elb.amazonaws.com\u003c/i\u003e (for the Northern California region) \u003c/li\u003e \u003c/ul\u003e \u003cp\u003eFor information about the AWS regions supported by Elastic Load Balancing, see \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region\"\u003eRegions and Endpoints\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eYou can create up to 20 load balancers per region per account.\u003c/p\u003e \u003cp\u003eElastic Load Balancing supports load balancing your Amazon EC2 instances launched within any one of the following platforms:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ci\u003eEC2-Classic\u003c/i\u003e \u003cp\u003eFor information on creating and managing your load balancers in EC2-Classic, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForEC2.html\"\u003eDeploy Elastic Load Balancing in Amazon EC2-Classic\u003c/a\u003e.\u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003ci\u003eEC2-VPC\u003c/i\u003e \u003cp\u003eFor information on creating and managing your load balancers in EC2-VPC, see \u003ca href=\"http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html\"\u003eDeploy Elastic Load Balancing in Amazon VPC\u003c/a\u003e.\u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "capiLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "capiListeners",
+                        "type": "List Listener"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "capiAvailabilityZones",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "capiSubnets",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "capiSecurityGroups",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "capiTags",
+                        "type": "List1 Tag"
+                    }
+                ],
+                "name": "CreateAccessPointInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "capiScheme",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "DeleteLoadBalancerListenerOutput",
+                "resultWrapper": "DeleteLoadBalancerListenersResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ELB.DeleteLoadBalancerListeners",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "DeleteLoadBalancerListeners",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes listeners from the load balancer for the specified port. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dlbliLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dlbliLoadBalancerPorts",
+                        "type": "List Int"
+                    }
+                ],
+                "name": "DeleteLoadBalancerListenerInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "SetLoadBalancerPoliciesOfListenerOutput",
+                "resultWrapper": "SetLoadBalancerPoliciesOfListenerResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ELB.SetLoadBalancerPoliciesOfListener",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ELB.Types"
+            ],
+            "name": "SetLoadBalancerPoliciesOfListener",
+            "method": "post",
+            "documentation": "\u003cp\u003e Associates, updates, or disables a policy with a listener on the load balancer. You can associate multiple policies with a listener. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "slbpoliLoadBalancerName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "slbpoliLoadBalancerPort",
+                        "type": "Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "slbpoliPolicyNames",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "SetLoadBalancerPoliciesOfListenerInput",
+                "type": "record",
+                "optional": []
+            }
+        }
+    ]
+}

@@ -1,0 +1,1635 @@
+{
+    "service": {
+        "signature": "v4",
+        "checksum": "sha256",
+        "abbrev": "DirectConnect",
+        "error": "DirectConnectError",
+        "namespace": "Network.AWS.DirectConnect",
+        "protocol": "json",
+        "imports": [
+            "Network.AWS.DirectConnect.AllocateConnectionOnInterconnect",
+            "Network.AWS.DirectConnect.AllocatePrivateVirtualInterface",
+            "Network.AWS.DirectConnect.AllocatePublicVirtualInterface",
+            "Network.AWS.DirectConnect.ConfirmConnection",
+            "Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface",
+            "Network.AWS.DirectConnect.ConfirmPublicVirtualInterface",
+            "Network.AWS.DirectConnect.CreateConnection",
+            "Network.AWS.DirectConnect.CreateInterconnect",
+            "Network.AWS.DirectConnect.CreatePrivateVirtualInterface",
+            "Network.AWS.DirectConnect.CreatePublicVirtualInterface",
+            "Network.AWS.DirectConnect.DeleteConnection",
+            "Network.AWS.DirectConnect.DeleteInterconnect",
+            "Network.AWS.DirectConnect.DeleteVirtualInterface",
+            "Network.AWS.DirectConnect.DescribeConnections",
+            "Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect",
+            "Network.AWS.DirectConnect.DescribeInterconnects",
+            "Network.AWS.DirectConnect.DescribeLocations",
+            "Network.AWS.DirectConnect.DescribeVirtualGateways",
+            "Network.AWS.DirectConnect.DescribeVirtualInterfaces",
+            "Network.AWS.DirectConnect.Types"
+        ],
+        "name": "AWS Direct Connect",
+        "version": "2012-10-25",
+        "documentation": "\u003cp\u003eAWS Direct Connect makes it easy to establish a dedicated network connection from your premises to Amazon Web Services (AWS). Using AWS Direct Connect, you can establish private connectivity between AWS and your data center, office, or colocation environment, which in many cases can reduce your network costs, increase bandwidth throughput, and provide a more consistent network experience than Internet-based connections.\u003c/p\u003e \u003cp\u003eThe AWS Direct Connect API Reference provides descriptions, syntax, and usage examples for each of the actions and data types for AWS Direct Connect. Use the following links to get started using the \u003ci\u003eAWS Direct Connect API Reference\u003c/i\u003e:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ca href=\"http://docs.aws.amazon.com/directconnect/latest/APIReference/API_Operations.html\"\u003eActions\u003c/a\u003e: An alphabetical list of all AWS Direct Connect actions.\u003c/li\u003e \u003cli\u003e \u003ca href=\"http://docs.aws.amazon.com/directconnect/latest/APIReference/API_Types.html\"\u003eData Types\u003c/a\u003e: An alphabetical list of all AWS Direct Connect data types.\u003c/li\u003e \u003cli\u003e \u003ca href=\"http://docs.aws.amazon.com/directconnect/latest/APIReference/CommonParameters.html\"\u003eCommon Query Parameters\u003c/a\u003e: Parameters that all Query actions can use.\u003c/li\u003e \u003cli\u003e \u003ca href=\"http://docs.aws.amazon.com/directconnect/latest/APIReference/CommonErrors.html\"\u003eCommon Errors\u003c/a\u003e: Client and server errors that all actions can return.\u003c/li\u003e \u003c/ul\u003e",
+        "xmlNamespace": "https://directconnect.amazonaws.com/doc/2012-10-25/",
+        "endpoint": "regional",
+        "endpointPrefix": "directconnect",
+        "targetPrefix": "OvertureService"
+    },
+    "cabal": {
+        "library": "amazonka-directconnect",
+        "modules": [
+            "Network.AWS.DirectConnect",
+            "Network.AWS.DirectConnect.AllocateConnectionOnInterconnect",
+            "Network.AWS.DirectConnect.AllocatePrivateVirtualInterface",
+            "Network.AWS.DirectConnect.AllocatePublicVirtualInterface",
+            "Network.AWS.DirectConnect.ConfirmConnection",
+            "Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface",
+            "Network.AWS.DirectConnect.ConfirmPublicVirtualInterface",
+            "Network.AWS.DirectConnect.CreateConnection",
+            "Network.AWS.DirectConnect.CreateInterconnect",
+            "Network.AWS.DirectConnect.CreatePrivateVirtualInterface",
+            "Network.AWS.DirectConnect.CreatePublicVirtualInterface",
+            "Network.AWS.DirectConnect.DeleteConnection",
+            "Network.AWS.DirectConnect.DeleteInterconnect",
+            "Network.AWS.DirectConnect.DeleteVirtualInterface",
+            "Network.AWS.DirectConnect.DescribeConnections",
+            "Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect",
+            "Network.AWS.DirectConnect.DescribeInterconnects",
+            "Network.AWS.DirectConnect.DescribeLocations",
+            "Network.AWS.DirectConnect.DescribeVirtualGateways",
+            "Network.AWS.DirectConnect.DescribeVirtualInterfaces",
+            "Network.AWS.DirectConnect.Types"
+        ],
+        "dependencies": [],
+        "version": "0.0.0",
+        "synopsis": "",
+        "description": ""
+    },
+    "types": {
+        "Location": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "loclocationCode",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "loclocationName",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "NewPrivateVirtualInterfaceAllocation": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npviavirtualInterfaceName",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npviavlan",
+                    "type": "Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npviaasn",
+                    "type": "Int"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npviaauthKey",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npviaamazonAddress",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npviacustomerAddress",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "DirectConnectClientException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "dccemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "namespace": "Network.AWS.DirectConnect.Types",
+        "imports": [],
+        "NewPublicVirtualInterface": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvivirtualInterfaceName",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvivlan",
+                    "type": "Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npviasn",
+                    "type": "Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npviamazonAddress",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvicustomerAddress",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvirouteFilterPrefixes",
+                    "type": "List RouteFilterPrefix"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npviauthKey",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "DirectConnectServerException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "dcsemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "NewPrivateVirtualInterface": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvi1virtualInterfaceName",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvi1vlan",
+                    "type": "Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvi1asn",
+                    "type": "Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvi1virtualGatewayId",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvi1authKey",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvi1amazonAddress",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvi1customerAddress",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "NewPublicVirtualInterfaceAllocation": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvia1virtualInterfaceName",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvia1vlan",
+                    "type": "Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvia1asn",
+                    "type": "Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvia1amazonAddress",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvia1customerAddress",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvia1routeFilterPrefixes",
+                    "type": "List RouteFilterPrefix"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "npvia1authKey",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "VirtualGateway": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vgvirtualGatewayId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vgvirtualGatewayState",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "RouteFilterPrefix": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "rfpcidr",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        }
+    },
+    "operations": [
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "intinterconnects",
+                    "type": "List Interconnect"
+                },
+                "wrapper": false,
+                "name": "Interconnects",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DirectConnect.DescribeInterconnects",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "DescribeInterconnects",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a list of interconnects owned by the AWS account.\u003c/p\u003e \u003cp\u003eIf an interconnect ID is provided, it will only return this particular interconnect.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dir1interconnectId",
+                    "type": "Maybe Text"
+                },
+                "name": "DescribeInterconnectsRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "name": "Connection",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "conownerAccount",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "conconnectionId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "conconnectionName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "conconnectionState",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "conregion",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "conlocation",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "conbandwidth",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "convlan",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "conpartnerName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.DirectConnect.DeleteConnection",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "DeleteConnection",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes the connection.\u003c/p\u003e \u003cp\u003eDeleting a connection only stops the AWS Direct Connect port hour and data transfer charges. You need to cancel separately with the providers any services or charges for cross-connects or network circuits that connect you to the AWS Direct Connect location.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dcrconnectionId",
+                    "type": "Text"
+                },
+                "name": "DeleteConnectionRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Connection",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.DirectConnect.CreateConnection",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "CreateConnection",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates a new connection between the customer network and a specific AWS Direct Connect location.\u003c/p\u003e \u003cp\u003eA connection links your internal network to an AWS Direct Connect location over a standard 1 gigabit or 10 gigabit Ethernet fiber-optic cable. One end of the cable is connected to your router, the other to an AWS Direct Connect router. An AWS Direct Connect location provides access to Amazon Web Services in the region it is associated with. You can establish connections with AWS Direct Connect locations in multiple regions, but a connection in one region does not provide connectivity to other regions.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ccrlocation",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ccrbandwidth",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ccrconnectionName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "CreateConnectionRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "conconnections",
+                    "type": "List Connection"
+                },
+                "wrapper": false,
+                "name": "Connections",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DirectConnect.DescribeConnections",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "DescribeConnections",
+            "method": "post",
+            "documentation": "\u003cp\u003eDisplays all connections in this region.\u003c/p\u003e \u003cp\u003eIf a connection ID is provided, the call returns only that particular connection.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dcr1connectionId",
+                    "type": "Maybe Text"
+                },
+                "name": "DescribeConnectionsRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Connections",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "DescribeConnectionsOnInterconnect",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturn a list of connections that have been provisioned on the given interconnect.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dcoirinterconnectId",
+                    "type": "Text"
+                },
+                "name": "DescribeConnectionsOnInterconnectRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dirinterconnectState",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "DeleteInterconnectResponse",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DirectConnect.DeleteInterconnect",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "DeleteInterconnect",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes the specified interconnect.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dirinterconnectId",
+                    "type": "Text"
+                },
+                "name": "DeleteInterconnectRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cpvirvirtualInterfaceState",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "ConfirmPrivateVirtualInterfaceResponse",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "ConfirmPrivateVirtualInterface",
+            "method": "post",
+            "documentation": "\u003cp\u003eAccept ownership of a private virtual interface created by another customer.\u003c/p\u003e \u003cp\u003eAfter the virtual interface owner calls this function, the virtual interface will be created and attached to the given virtual private gateway, and will be available for handling traffic.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpvirvirtualInterfaceId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpvirvirtualGatewayId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "ConfirmPrivateVirtualInterfaceRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "loclocations",
+                    "type": "List Location"
+                },
+                "wrapper": false,
+                "name": "Locations",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DirectConnect.DescribeLocations",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "DescribeLocations",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns the list of AWS Direct Connect locations in the current AWS region. These are the locations that may be selected when calling CreateConnection or CreateInterconnect.\u003c/p\u003e",
+            "request": {
+                "deriving": [],
+                "name": "Empty",
+                "type": "empty"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "virouteFilterPrefixes",
+                        "type": "List RouteFilterPrefix"
+                    }
+                ],
+                "name": "VirtualInterface",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "viownerAccount",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vivirtualInterfaceId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vilocation",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "viconnectionId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vivirtualInterfaceType",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vivirtualInterfaceName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vivlan",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "viasn",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "viauthKey",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "viamazonAddress",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vicustomerAddress",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vivirtualInterfaceState",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vicustomerRouterConfig",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "vivirtualGatewayId",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.DirectConnect.CreatePublicVirtualInterface",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "CreatePublicVirtualInterface",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates a new public virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A public virtual interface supports sending traffic to public services of AWS such as Amazon Simple Storage Service (Amazon S3).\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpvirconnectionId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpvirnewPublicVirtualInterface",
+                        "type": "NewPublicVirtualInterface"
+                    }
+                ],
+                "name": "CreatePublicVirtualInterfaceRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "VirtualInterface",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.DirectConnect.AllocatePrivateVirtualInterface",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "AllocatePrivateVirtualInterface",
+            "method": "post",
+            "documentation": "\u003cp\u003eProvisions a private virtual interface to be owned by a different customer.\u003c/p\u003e \u003cp\u003eThe owner of a connection calls this function to provision a private virtual interface which will be owned by another AWS customer.\u003c/p\u003e \u003cp\u003eVirtual interfaces created using this function must be confirmed by the virtual interface owner by calling ConfirmPrivateVirtualInterface. Until this step has been completed, the virtual interface will be in 'Confirming' state, and will not be available for handling traffic.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "apvirconnectionId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "apvirownerAccount",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "apvirnewPrivateVirtualInterfaceAllocation",
+                        "type": "NewPrivateVirtualInterfaceAllocation"
+                    }
+                ],
+                "name": "AllocatePrivateVirtualInterfaceRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccrconnectionState",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "ConfirmConnectionResponse",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DirectConnect.ConfirmConnection",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "ConfirmConnection",
+            "method": "post",
+            "documentation": "\u003cp\u003eConfirm the creation of a hosted connection on an interconnect.\u003c/p\u003e \u003cp\u003eUpon creation, the hosted connection is initially in the 'Ordering' state, and will remain in this state until the owner calls ConfirmConnection to confirm creation of the hosted connection.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccrconnectionId",
+                    "type": "Text"
+                },
+                "name": "ConfirmConnectionRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cpvir1virtualInterfaceState",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "ConfirmPublicVirtualInterfaceResponse",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DirectConnect.ConfirmPublicVirtualInterface",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "ConfirmPublicVirtualInterface",
+            "method": "post",
+            "documentation": "\u003cp\u003eAccept ownership of a public virtual interface created by another customer.\u003c/p\u003e \u003cp\u003eAfter the virtual interface owner calls this function, the specified virtual interface will be created and made available for handling traffic.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cpvir1virtualInterfaceId",
+                    "type": "Text"
+                },
+                "name": "ConfirmPublicVirtualInterfaceRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vgvirtualGateways",
+                    "type": "List VirtualGateway"
+                },
+                "wrapper": false,
+                "name": "VirtualGateways",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DirectConnect.DescribeVirtualGateways",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "DescribeVirtualGateways",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a list of virtual private gateways owned by the AWS account.\u003c/p\u003e \u003cp\u003eYou can create one or more AWS Direct Connect private virtual interfaces linking to a virtual private gateway. A virtual private gateway can be managed via Amazon Virtual Private Cloud (VPC) console or the \u003ca href=\"http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CreateVpnGateway.html\"\u003eEC2 CreateVpnGateway\u003c/a\u003e action.\u003c/p\u003e",
+            "request": {
+                "deriving": [],
+                "name": "Empty",
+                "type": "empty"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vivirtualInterfaces",
+                    "type": "List VirtualInterface"
+                },
+                "wrapper": false,
+                "name": "VirtualInterfaces",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DirectConnect.DescribeVirtualInterfaces",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "DescribeVirtualInterfaces",
+            "method": "post",
+            "documentation": "\u003cp\u003eDisplays all virtual interfaces for an AWS account. Virtual interfaces deleted fewer than 15 minutes before DescribeVirtualInterfaces is called are also returned. If a connection ID is included then only virtual interfaces associated with this connection will be returned. If a virtual interface ID is included then only a single virtual interface will be returned.\u003c/p\u003e \u003cp\u003eA virtual interface (VLAN) transmits the traffic between the AWS Direct Connect location and the customer.\u003c/p\u003e \u003cp\u003eIf a connection ID is provided, only virtual interfaces provisioned on the specified connection will be returned. If a virtual interface ID is provided, only this particular virtual interface will be returned.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "DescribeVirtualInterfacesRequest",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dvirconnectionId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dvirvirtualInterfaceId",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dvirvirtualInterfaceState",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "DeleteVirtualInterfaceResponse",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.DirectConnect.DeleteVirtualInterface",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "DeleteVirtualInterface",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes a virtual interface.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dvir1virtualInterfaceId",
+                    "type": "Text"
+                },
+                "name": "DeleteVirtualInterfaceRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "VirtualInterface",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.DirectConnect.CreatePrivateVirtualInterface",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "CreatePrivateVirtualInterface",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates a new private virtual interface. A virtual interface is the VLAN that transports AWS Direct Connect traffic. A private virtual interface supports sending traffic to a single virtual private cloud (VPC).\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpvir1connectionId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpvir1newPrivateVirtualInterface",
+                        "type": "NewPrivateVirtualInterface"
+                    }
+                ],
+                "name": "CreatePrivateVirtualInterfaceRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "VirtualInterface",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.DirectConnect.AllocatePublicVirtualInterface",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "AllocatePublicVirtualInterface",
+            "method": "post",
+            "documentation": "\u003cp\u003eProvisions a public virtual interface to be owned by a different customer.\u003c/p\u003e \u003cp\u003eThe owner of a connection calls this function to provision a public virtual interface which will be owned by another AWS customer.\u003c/p\u003e \u003cp\u003eVirtual interfaces created using this function must be confirmed by the virtual interface owner by calling ConfirmPublicVirtualInterface. Until this step has been completed, the virtual interface will be in 'Confirming' state, and will not be available for handling traffic.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "apvir1connectionId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "apvir1ownerAccount",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "apvir1newPublicVirtualInterfaceAllocation",
+                        "type": "NewPublicVirtualInterfaceAllocation"
+                    }
+                ],
+                "name": "AllocatePublicVirtualInterfaceRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Connection",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.DirectConnect.AllocateConnectionOnInterconnect",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "AllocateConnectionOnInterconnect",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates a hosted connection on an interconnect.\u003c/p\u003e \u003cp\u003eAllocates a VLAN number and a specified amount of bandwidth for use by a hosted connection on the given interconnect.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "acoirbandwidth",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "acoirconnectionName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "acoirownerAccount",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "acoirinterconnectId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "acoirvlan",
+                        "type": "Int"
+                    }
+                ],
+                "name": "AllocateConnectionOnInterconnectRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "name": "Interconnect",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "intinterconnectId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "intinterconnectName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "intinterconnectState",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "intregion",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "intlocation",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "intbandwidth",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.DirectConnect.CreateInterconnect",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.DirectConnect.Types"
+            ],
+            "name": "CreateInterconnect",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates a new interconnect between a AWS Direct Connect partner's network and a specific AWS Direct Connect location.\u003c/p\u003e \u003cp\u003eAn interconnect is a connection which is capable of hosting other connections. The AWS Direct Connect partner can use an interconnect to provide sub-1Gbps AWS Direct Connect service to tier 2 customers who do not have their own connections. Like a standard connection, an interconnect links the AWS Direct Connect partner's network to an AWS Direct Connect location over a standard 1 Gbps or 10 Gbps Ethernet fiber-optic cable. One end is connected to the partner's router, the other to an AWS Direct Connect router.\u003c/p\u003e \u003cp\u003eFor each end customer, the AWS Direct Connect partner provisions a connection on their interconnect by calling AllocateConnectionOnInterconnect. The end customer can then connect to AWS resources by creating a virtual interface on their connection, using the VLAN assigned to them by the AWS Direct Connect partner.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cirinterconnectName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cirbandwidth",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cirlocation",
+                        "type": "Text"
+                    }
+                ],
+                "name": "CreateInterconnectRequest",
+                "type": "record",
+                "optional": []
+            }
+        }
+    ]
+}

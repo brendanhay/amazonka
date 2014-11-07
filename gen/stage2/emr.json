@@ -1,0 +1,2866 @@
+{
+    "service": {
+        "signature": "v4",
+        "checksum": "sha256",
+        "abbrev": "EMR",
+        "error": "EMRError",
+        "namespace": "Network.AWS.EMR",
+        "protocol": "json",
+        "imports": [
+            "Network.AWS.EMR.AddInstanceGroups",
+            "Network.AWS.EMR.AddJobFlowSteps",
+            "Network.AWS.EMR.AddTags",
+            "Network.AWS.EMR.DescribeCluster",
+            "Network.AWS.EMR.DescribeJobFlows",
+            "Network.AWS.EMR.DescribeStep",
+            "Network.AWS.EMR.ListBootstrapActions",
+            "Network.AWS.EMR.ListClusters",
+            "Network.AWS.EMR.ListInstanceGroups",
+            "Network.AWS.EMR.ListInstances",
+            "Network.AWS.EMR.ListSteps",
+            "Network.AWS.EMR.ModifyInstanceGroups",
+            "Network.AWS.EMR.RemoveTags",
+            "Network.AWS.EMR.RunJobFlow",
+            "Network.AWS.EMR.SetTerminationProtection",
+            "Network.AWS.EMR.SetVisibleToAllUsers",
+            "Network.AWS.EMR.TerminateJobFlows",
+            "Network.AWS.EMR.Types"
+        ],
+        "name": "Amazon Elastic MapReduce",
+        "version": "2009-03-31",
+        "documentation": "\u003cp\u003e This is the \u003ci\u003eAmazon Elastic MapReduce API Reference\u003c/i\u003e. This guide provides descriptions and samples of the Amazon Elastic MapReduce APIs.\u003c/p\u003e \u003cp\u003eAmazon Elastic MapReduce (Amazon EMR) is a web service that makes it easy to process large amounts of data efficiently. Amazon EMR uses Hadoop processing combined with several AWS products to do tasks such as web indexing, data mining, log file analysis, machine learning, scientific simulation, and data warehousing.\u003c/p\u003e",
+        "xmlNamespace": "https://elasticmapreduce.amazonaws.com/doc/2009-03-31/",
+        "endpoint": "regional",
+        "endpointPrefix": "elasticmapreduce",
+        "targetPrefix": "ElasticMapReduce"
+    },
+    "cabal": {
+        "library": "amazonka-emr",
+        "modules": [
+            "Network.AWS.EMR",
+            "Network.AWS.EMR.AddInstanceGroups",
+            "Network.AWS.EMR.AddJobFlowSteps",
+            "Network.AWS.EMR.AddTags",
+            "Network.AWS.EMR.DescribeCluster",
+            "Network.AWS.EMR.DescribeJobFlows",
+            "Network.AWS.EMR.DescribeStep",
+            "Network.AWS.EMR.ListBootstrapActions",
+            "Network.AWS.EMR.ListClusters",
+            "Network.AWS.EMR.ListInstanceGroups",
+            "Network.AWS.EMR.ListInstances",
+            "Network.AWS.EMR.ListSteps",
+            "Network.AWS.EMR.ModifyInstanceGroups",
+            "Network.AWS.EMR.RemoveTags",
+            "Network.AWS.EMR.RunJobFlow",
+            "Network.AWS.EMR.SetTerminationProtection",
+            "Network.AWS.EMR.SetVisibleToAllUsers",
+            "Network.AWS.EMR.TerminateJobFlows",
+            "Network.AWS.EMR.Types"
+        ],
+        "dependencies": [],
+        "version": "0.0.0",
+        "synopsis": "",
+        "description": ""
+    },
+    "types": {
+        "InstanceGroupConfig": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igcInstanceRole",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igcInstanceType",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igcInstanceCount",
+                    "type": "Int"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igcName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igcMarket",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igcBidPrice",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "InstanceStateChangeReason": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "iscrCode",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "iscrMessage",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "JobFlowDetail": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfdJobFlowId",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfdName",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfdExecutionStatusDetail",
+                    "type": "JobFlowExecutionStatusDetail"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfdInstances",
+                    "type": "JobFlowInstancesDetail"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfdSteps",
+                    "type": "List StepDetail"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfdBootstrapActions",
+                    "type": "List BootstrapActionDetail"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfdSupportedProducts",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfdLogUri",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfdAmiVersion",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfdVisibleToAllUsers",
+                    "type": "Maybe Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfdJobFlowRole",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfdServiceRole",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "KeyValue": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "kvKey",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "kvValue",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "SupportedProductConfig": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "spcArgs",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "spcName",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Command": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "comArgs",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "comName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "comScriptPath",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "ClusterStateChangeReason": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cscrCode",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cscrMessage",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "InvalidRequestException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ireErrorCode",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ireMessage",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Tag": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "tagKey",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "tagValue",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Application": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "appArgs",
+                    "type": "List Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "appAdditionalInfo",
+                    "type": "Map Text Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "appName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "appVersion",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "JobFlowExecutionStatusDetail": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfesdState",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfesdCreationDateTime",
+                    "type": "Time RFC822"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfesdStartDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfesdReadyDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfesdEndDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfesdLastStateChangeReason",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "InstanceGroupStatus": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igsState",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igsStateChangeReason",
+                    "type": "Maybe InstanceGroupStateChangeReason"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igsTimeline",
+                    "type": "Maybe InstanceGroupTimeline"
+                }
+            ]
+        },
+        "Cluster": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cluApplications",
+                    "type": "List Application"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cluTags",
+                    "type": "List Tag"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cluId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cluName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cluStatus",
+                    "type": "Maybe ClusterStatus"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cluEc2InstanceAttributes",
+                    "type": "Maybe Ec2InstanceAttributes"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cluLogUri",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cluRequestedAmiVersion",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cluRunningAmiVersion",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cluAutoTerminate",
+                    "type": "Maybe Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cluTerminationProtected",
+                    "type": "Maybe Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cluVisibleToAllUsers",
+                    "type": "Maybe Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cluServiceRole",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "InstanceTimeline": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "itCreationDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "itReadyDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "itEndDateTime",
+                    "type": "Maybe (Time RFC822)"
+                }
+            ]
+        },
+        "Ec2InstanceAttributes": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "eiaEc2KeyName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "eiaEc2SubnetId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "eiaEc2AvailabilityZone",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "eiaIamInstanceProfile",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "HadoopStepConfig": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "hscProperties",
+                    "type": "Map Text Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "hscArgs",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "hscJar",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "hscMainClass",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "StepDetail": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sdStepConfig",
+                    "type": "StepConfig"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sdExecutionStatusDetail",
+                    "type": "StepExecutionStatusDetail"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        },
+        "namespace": "Network.AWS.EMR.Types",
+        "InstanceGroupStateChangeReason": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igscrCode",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igscrMessage",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "StepStatus": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ssState",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ssStateChangeReason",
+                    "type": "Maybe StepStateChangeReason"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ssTimeline",
+                    "type": "Maybe StepTimeline"
+                }
+            ]
+        },
+        "StepSummary": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ssId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ssName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ssStatus",
+                    "type": "Maybe StepStatus"
+                }
+            ]
+        },
+        "imports": [],
+        "StepTimeline": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "stCreationDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "stStartDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "stEndDateTime",
+                    "type": "Maybe (Time RFC822)"
+                }
+            ]
+        },
+        "PlacementType": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "ptAvailabilityZone",
+                "type": "Text"
+            },
+            "type": "newtype"
+        },
+        "HadoopJarStepConfig": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "hjscProperties",
+                    "type": "List KeyValue"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "hjscJar",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "hjscArgs",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "hjscMainClass",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "InstanceGroupModifyConfig": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igmcInstanceGroupId",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igmcEC2InstanceIdsToTerminate",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igmcInstanceCount",
+                    "type": "Maybe Int"
+                }
+            ]
+        },
+        "InstanceGroupDetail": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igdMarket",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igdInstanceRole",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igdInstanceType",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igdInstanceRequestCount",
+                    "type": "Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igdInstanceRunningCount",
+                    "type": "Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igdState",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igdCreationDateTime",
+                    "type": "Time RFC822"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igdInstanceGroupId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igdName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igdBidPrice",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igdLastStateChangeReason",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igdStartDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igdReadyDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igdEndDateTime",
+                    "type": "Maybe (Time RFC822)"
+                }
+            ]
+        },
+        "StepStateChangeReason": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sscrCode",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sscrMessage",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Step": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "steId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "steName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "steConfig",
+                    "type": "Maybe HadoopStepConfig"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "steActionOnFailure",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "steStatus",
+                    "type": "Maybe StepStatus"
+                }
+            ]
+        },
+        "InstanceGroupTimeline": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igtCreationDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igtReadyDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igtEndDateTime",
+                    "type": "Maybe (Time RFC822)"
+                }
+            ]
+        },
+        "BootstrapActionDetail": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "badBootstrapActionConfig",
+                "type": "Maybe BootstrapActionConfig"
+            },
+            "type": "newtype"
+        },
+        "StepExecutionStatusDetail": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sesdState",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sesdCreationDateTime",
+                    "type": "Time RFC822"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sesdStartDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sesdEndDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sesdLastStateChangeReason",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "InstanceStatus": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "isState",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "isStateChangeReason",
+                    "type": "Maybe InstanceStateChangeReason"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "isTimeline",
+                    "type": "Maybe InstanceTimeline"
+                }
+            ]
+        },
+        "InternalServerException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "iseMessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "JobFlowInstancesConfig": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jficInstanceGroups",
+                    "type": "List InstanceGroupConfig"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jficMasterInstanceType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jficSlaveInstanceType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jficInstanceCount",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jficEc2KeyName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jficPlacement",
+                    "type": "Maybe PlacementType"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jficKeepJobFlowAliveWhenNoSteps",
+                    "type": "Maybe Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jficTerminationProtected",
+                    "type": "Maybe Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jficHadoopVersion",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jficEc2SubnetId",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "StepConfig": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "scName",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "scHadoopJarStep",
+                    "type": "HadoopJarStepConfig"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "scActionOnFailure",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "InstanceGroup": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igMarket",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igInstanceGroupType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igBidPrice",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igInstanceType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igRequestedInstanceCount",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igRunningInstanceCount",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "igStatus",
+                    "type": "Maybe InstanceGroupStatus"
+                }
+            ]
+        },
+        "BootstrapActionConfig": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "bacName",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "bacScriptBootstrapAction",
+                    "type": "ScriptBootstrapActionConfig"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        },
+        "ClusterSummary": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csStatus",
+                    "type": "Maybe ClusterStatus"
+                }
+            ]
+        },
+        "JobFlowInstancesDetail": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfidMasterInstanceType",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfidSlaveInstanceType",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfidInstanceCount",
+                    "type": "Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfidInstanceGroups",
+                    "type": "List InstanceGroupDetail"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfidMasterPublicDnsName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfidMasterInstanceId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfidNormalizedInstanceHours",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfidEc2KeyName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfidEc2SubnetId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfidPlacement",
+                    "type": "Maybe PlacementType"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfidKeepJobFlowAliveWhenNoSteps",
+                    "type": "Maybe Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfidTerminationProtected",
+                    "type": "Maybe Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "jfidHadoopVersion",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "ClusterStatus": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csState",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csStateChangeReason",
+                    "type": "Maybe ClusterStateChangeReason"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csTimeline",
+                    "type": "Maybe ClusterTimeline"
+                }
+            ]
+        },
+        "ClusterTimeline": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ctCreationDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ctReadyDateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ctEndDateTime",
+                    "type": "Maybe (Time RFC822)"
+                }
+            ]
+        },
+        "Instance": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "insId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "insEc2InstanceId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "insPublicDnsName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "insPublicIpAddress",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "insPrivateDnsName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "insPrivateIpAddress",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "insStatus",
+                    "type": "Maybe InstanceStatus"
+                }
+            ]
+        },
+        "ScriptBootstrapActionConfig": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sbacPath",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sbacArgs",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        }
+    },
+    "operations": [
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rjfoJobFlowId",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "RunJobFlowOutput",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.EMR.RunJobFlow",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "RunJobFlow",
+            "method": "post",
+            "documentation": "\u003cp\u003e RunJobFlow creates and starts running a new job flow. The job flow will run the steps specified. Once the job flow completes, the cluster is stopped and the HDFS partition is lost. To prevent loss of data, configure the last step of the job flow to store results in Amazon S3. If the \u003ca\u003eJobFlowInstancesConfig\u003c/a\u003e \u003ccode\u003eKeepJobFlowAliveWhenNoSteps\u003c/code\u003e parameter is set to \u003ccode\u003eTRUE\u003c/code\u003e, the job flow will transition to the WAITING state rather than shutting down once the steps have completed. \u003c/p\u003e \u003cp\u003eFor additional protection, you can set the \u003ca\u003eJobFlowInstancesConfig\u003c/a\u003e \u003ccode\u003eTerminationProtected\u003c/code\u003e parameter to \u003ccode\u003eTRUE\u003c/code\u003e to lock the job flow and prevent it from being terminated by API call, user intervention, or in the event of a job flow error.\u003c/p\u003e \u003cp\u003eA maximum of 256 steps are allowed in each job flow.\u003c/p\u003e \u003cp\u003eIf your job flow is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, go to \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html\"\u003eAdd More than 256 Steps to a Job Flow\u003c/a\u003e in the \u003ci\u003eAmazon Elastic MapReduce Developer's Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003eFor long running job flows, we recommend that you periodically store your results.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rjfiName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rjfiInstances",
+                        "type": "JobFlowInstancesConfig"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rjfiSteps",
+                        "type": "List StepConfig"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rjfiBootstrapActions",
+                        "type": "List BootstrapActionConfig"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rjfiSupportedProducts",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rjfiNewSupportedProducts",
+                        "type": "List SupportedProductConfig"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rjfiTags",
+                        "type": "List Tag"
+                    }
+                ],
+                "name": "RunJobFlowInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rjfiLogUri",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rjfiAdditionalInfo",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rjfiAmiVersion",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rjfiVisibleToAllUsers",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rjfiJobFlowRole",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rjfiServiceRole",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.EMR.SetVisibleToAllUsers",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "SetVisibleToAllUsers",
+            "method": "post",
+            "documentation": "\u003cp\u003eSets whether all AWS Identity and Access Management (IAM) users under your account can access the specified job flows. This action works on running job flows. You can also set the visibility of a job flow when you launch it using the \u003ccode\u003eVisibleToAllUsers\u003c/code\u003e parameter of \u003ca\u003eRunJobFlow\u003c/a\u003e. The SetVisibleToAllUsers action can be called only by an IAM user who created the job flow or the AWS account that owns the job flow.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "svtauiJobFlowIds",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "svtauiVisibleToAllUsers",
+                        "type": "Bool"
+                    }
+                ],
+                "name": "SetVisibleToAllUsersInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.EMR.TerminateJobFlows",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "TerminateJobFlows",
+            "method": "post",
+            "documentation": "\u003cp\u003e TerminateJobFlows shuts a list of job flows down. When a job flow is shut down, any step not yet completed is canceled and the EC2 instances on which the job flow is running are stopped. Any log files not already saved are uploaded to Amazon S3 if a LogUri was specified when the job flow was created. \u003c/p\u003e \u003cp\u003e The call to TerminateJobFlows is asynchronous. Depending on the configuration of the job flow, it may take up to 5-20 minutes for the job flow to completely terminate and release allocated resources, such as Amazon EC2 instances. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "tjfiJobFlowIds",
+                    "type": "List Text"
+                },
+                "name": "TerminateJobFlowsInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dsoStep",
+                    "type": "Maybe Step"
+                },
+                "wrapper": false,
+                "name": "DescribeStepOutput",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.EMR.DescribeStep",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "DescribeStep",
+            "method": "post",
+            "documentation": "\u003cp\u003eProvides more detail about the cluster step.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dsiClusterId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dsiStepId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "DescribeStepInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "RemoveTagsOutput",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.EMR.RemoveTags",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "RemoveTags",
+            "method": "post",
+            "documentation": "\u003cp\u003eRemoves tags from an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html\"\u003eTagging Amazon EMR Resources\u003c/a\u003e. \u003c/p\u003e \u003cp\u003eThe following example removes the stack tag with value Prod from a cluster:\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rtiResourceId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rtiTagKeys",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "RemoveTagsInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dcoCluster",
+                    "type": "Maybe Cluster"
+                },
+                "wrapper": false,
+                "name": "DescribeClusterOutput",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.EMR.DescribeCluster",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "DescribeCluster",
+            "method": "post",
+            "documentation": "\u003cp\u003eProvides cluster-level details including status, hardware and software configuration, VPC settings, and so on. For information about the cluster steps, see \u003ca\u003eListSteps\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dciClusterId",
+                    "type": "Text"
+                },
+                "name": "DescribeClusterInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.EMR.SetTerminationProtection",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "SetTerminationProtection",
+            "method": "post",
+            "documentation": "\u003cp\u003e SetTerminationProtection locks a job flow so the Amazon EC2 instances in the cluster cannot be terminated by user intervention, an API call, or in the event of a job-flow error. The cluster still terminates upon successful completion of the job flow. Calling SetTerminationProtection on a job flow is analogous to calling the Amazon EC2 DisableAPITermination API on all of the EC2 instances in a cluster.\u003c/p\u003e \u003cp\u003e SetTerminationProtection is used to prevent accidental termination of a job flow and to ensure that in the event of an error, the instances will persist so you can recover any data stored in their ephemeral instance storage.\u003c/p\u003e \u003cp\u003e To terminate a job flow that has been locked by setting SetTerminationProtection to \u003ccode\u003etrue\u003c/code\u003e, you must first unlock the job flow by a subsequent call to SetTerminationProtection in which you set the value to \u003ccode\u003efalse\u003c/code\u003e. \u003c/p\u003e \u003cp\u003e For more information, go to \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/UsingEMR_TerminationProtection.html\"\u003eProtecting a Job Flow from Termination\u003c/a\u003e in the \u003ci\u003eAmazon Elastic MapReduce Developer's Guide.\u003c/i\u003e\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "stpiJobFlowIds",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "stpiTerminationProtected",
+                        "type": "Bool"
+                    }
+                ],
+                "name": "SetTerminationProtectionInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ajfsoStepIds",
+                    "type": "List Text"
+                },
+                "wrapper": false,
+                "name": "AddJobFlowStepsOutput",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.EMR.AddJobFlowSteps",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "AddJobFlowSteps",
+            "method": "post",
+            "documentation": "\u003cp\u003e AddJobFlowSteps adds new steps to a running job flow. A maximum of 256 steps are allowed in each job flow. \u003c/p\u003e \u003cp\u003eIf your job flow is long-running (such as a Hive data warehouse) or complex, you may require more than 256 steps to process your data. You can bypass the 256-step limitation in various ways, including using the SSH shell to connect to the master node and submitting queries directly to the software running on the master node, such as Hive and Hadoop. For more information on how to do this, go to \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/AddMoreThan256Steps.html\"\u003eAdd More than 256 Steps to a Job Flow\u003c/a\u003e in the \u003ci\u003eAmazon Elastic MapReduce Developer's Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003e A step specifies the location of a JAR file stored either on the master node of the job flow or in Amazon S3. Each step is performed by the main function of the main class of the JAR file. The main class can be specified either in the manifest of the JAR or by using the MainFunction parameter of the step. \u003c/p\u003e \u003cp\u003e Elastic MapReduce executes each step in the order listed. For a step to be considered complete, the main function must exit with a zero exit code and all Hadoop jobs started while the step was running must have completed and run successfully. \u003c/p\u003e \u003cp\u003e You can only add steps to a job flow that is in one of the following states: STARTING, BOOTSTRAPPING, RUNNING, or WAITING.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ajfsiJobFlowId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ajfsiSteps",
+                        "type": "List StepConfig"
+                    }
+                ],
+                "name": "AddJobFlowStepsInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.EMR.ModifyInstanceGroups",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "ModifyInstanceGroups",
+            "method": "post",
+            "documentation": "\u003cp\u003eModifyInstanceGroups modifies the number of nodes and configuration settings of an instance group. The input parameters include the new target instance count for the group and the instance group ID. The call will either succeed or fail atomically.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "migiInstanceGroups",
+                    "type": "List InstanceGroupModifyConfig"
+                },
+                "name": "ModifyInstanceGroupsInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lsoSteps",
+                        "type": "List StepSummary"
+                    }
+                ],
+                "name": "ListStepsOutput",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lsoMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.EMR.ListSteps",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "ListSteps",
+            "method": "post",
+            "documentation": "\u003cp\u003eProvides a list of steps for the cluster. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lsiClusterId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lsiStepStates",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "ListStepsInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lsiMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "djfoJobFlows",
+                    "type": "List JobFlowDetail"
+                },
+                "wrapper": false,
+                "name": "DescribeJobFlowsOutput",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.EMR.DescribeJobFlows",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "DescribeJobFlows",
+            "method": "post",
+            "documentation": "\u003cp\u003e This API is deprecated and will eventually be removed. We recommend you use \u003ca\u003eListClusters\u003c/a\u003e, \u003ca\u003eDescribeCluster\u003c/a\u003e, \u003ca\u003eListSteps\u003c/a\u003e, \u003ca\u003eListInstanceGroups\u003c/a\u003e and \u003ca\u003eListBootstrapActions\u003c/a\u003e instead.\u003c/p\u003e \u003cp\u003e DescribeJobFlows returns a list of job flows that match all of the supplied parameters. The parameters can include a list of job flow IDs, job flow states, and restrictions on job flow creation date and time.\u003c/p\u003e \u003cp\u003e Regardless of supplied parameters, only job flows created within the last two months are returned.\u003c/p\u003e \u003cp\u003e If no parameters are supplied, then job flows matching either of the following criteria are returned:\u003c/p\u003e \u003cul\u003e \u003cli\u003eJob flows created and completed in the last two weeks\u003c/li\u003e \u003cli\u003e Job flows created within the last two months that are in one of the following states: \u003ccode\u003eRUNNING\u003c/code\u003e, \u003ccode\u003eWAITING\u003c/code\u003e, \u003ccode\u003eSHUTTING_DOWN\u003c/code\u003e, \u003ccode\u003eSTARTING\u003c/code\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003e Amazon Elastic MapReduce can return a maximum of 512 job flow descriptions. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "djfiJobFlowIds",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "djfiJobFlowStates",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "DescribeJobFlowsInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "djfiCreatedAfter",
+                        "type": "Maybe (Time RFC822)"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "djfiCreatedBefore",
+                        "type": "Maybe (Time RFC822)"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "aigoInstanceGroupIds",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "AddInstanceGroupsOutput",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "aigoJobFlowId",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.EMR.AddInstanceGroups",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "AddInstanceGroups",
+            "method": "post",
+            "documentation": "\u003cp\u003eAddInstanceGroups adds an instance group to a running cluster.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "aigiInstanceGroups",
+                        "type": "List InstanceGroupConfig"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "aigiJobFlowId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "AddInstanceGroupsInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ligoInstanceGroups",
+                        "type": "List InstanceGroup"
+                    }
+                ],
+                "name": "ListInstanceGroupsOutput",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ligoMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.EMR.ListInstanceGroups",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "ListInstanceGroups",
+            "method": "post",
+            "documentation": "\u003cp\u003eProvides all available details about the instance groups in a cluster.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ligiClusterId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "ListInstanceGroupsInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ligiMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lbaoBootstrapActions",
+                        "type": "List Command"
+                    }
+                ],
+                "name": "ListBootstrapActionsOutput",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lbaoMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.EMR.ListBootstrapActions",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "ListBootstrapActions",
+            "method": "post",
+            "documentation": "\u003cp\u003eProvides information about the bootstrap actions associated with a cluster.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lbaiClusterId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "ListBootstrapActionsInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lbaiMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "AddTagsOutput",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.EMR.AddTags",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "AddTags",
+            "method": "post",
+            "documentation": "\u003cp\u003eAdds tags to an Amazon EMR resource. Tags make it easier to associate clusters in various ways, such as grouping clusters to track your Amazon EMR resource allocation costs. For more information, see \u003ca href=\"http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html\"\u003eTagging Amazon EMR Resources\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "atiResourceId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "atiTags",
+                        "type": "List Tag"
+                    }
+                ],
+                "name": "AddTagsInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lioInstances",
+                        "type": "List Instance"
+                    }
+                ],
+                "name": "ListInstancesOutput",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lioMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.EMR.ListInstances",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "ListInstances",
+            "method": "post",
+            "documentation": "\u003cp\u003eProvides information about the cluster instances that Amazon EMR provisions on behalf of a user when it creates the cluster. For example, this operation indicates when the EC2 instances reach the Ready state, when instances become available to Amazon EMR to use for jobs, and the IP addresses for cluster instances, etc. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "liiClusterId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "liiInstanceGroupTypes",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "ListInstancesInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "liiInstanceGroupId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "liiMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lcoClusters",
+                        "type": "List ClusterSummary"
+                    }
+                ],
+                "name": "ListClustersOutput",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lcoMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.EMR.ListClusters",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.EMR.Types"
+            ],
+            "name": "ListClusters",
+            "method": "post",
+            "documentation": "\u003cp\u003eProvides the status of all clusters visible to this AWS account. Allows you to filter the list of clusters based on certain criteria; for example, filtering by cluster creation date and time or by status. This call returns a maximum of 50 clusters per call, but returns a marker to track the paging of the cluster list across multiple ListClusters calls. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lciClusterStates",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "ListClustersInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lciCreatedAfter",
+                        "type": "Maybe (Time RFC822)"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lciCreatedBefore",
+                        "type": "Maybe (Time RFC822)"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lciMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,1325 @@
+{
+    "service": {
+        "signature": "v4",
+        "checksum": "sha256",
+        "abbrev": "SES",
+        "error": "SESError",
+        "namespace": "Network.AWS.SES",
+        "protocol": "query",
+        "imports": [
+            "Network.AWS.SES.DeleteIdentity",
+            "Network.AWS.SES.DeleteVerifiedEmailAddress",
+            "Network.AWS.SES.GetIdentityDkimAttributes",
+            "Network.AWS.SES.GetIdentityNotificationAttributes",
+            "Network.AWS.SES.GetIdentityVerificationAttributes",
+            "Network.AWS.SES.GetSendQuota",
+            "Network.AWS.SES.GetSendStatistics",
+            "Network.AWS.SES.ListIdentities",
+            "Network.AWS.SES.ListVerifiedEmailAddresses",
+            "Network.AWS.SES.SendEmail",
+            "Network.AWS.SES.SendRawEmail",
+            "Network.AWS.SES.SetIdentityDkimEnabled",
+            "Network.AWS.SES.SetIdentityFeedbackForwardingEnabled",
+            "Network.AWS.SES.SetIdentityNotificationTopic",
+            "Network.AWS.SES.Types",
+            "Network.AWS.SES.VerifyDomainDkim",
+            "Network.AWS.SES.VerifyDomainIdentity",
+            "Network.AWS.SES.VerifyEmailAddress",
+            "Network.AWS.SES.VerifyEmailIdentity"
+        ],
+        "name": "Amazon Simple Email Service",
+        "version": "2010-12-01",
+        "documentation": "\u003cfullname\u003eAmazon Simple Email Service\u003c/fullname\u003e \u003cp\u003e This is the API Reference for Amazon Simple Email Service (Amazon SES). This documentation is intended to be used in conjunction with the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/Welcome.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/p\u003e",
+        "xmlNamespace": "http://ses.amazonaws.com/doc/2010-12-01/",
+        "endpoint": "regional",
+        "endpointPrefix": "email"
+    },
+    "cabal": {
+        "library": "amazonka-ses",
+        "modules": [
+            "Network.AWS.SES",
+            "Network.AWS.SES.DeleteIdentity",
+            "Network.AWS.SES.DeleteVerifiedEmailAddress",
+            "Network.AWS.SES.GetIdentityDkimAttributes",
+            "Network.AWS.SES.GetIdentityNotificationAttributes",
+            "Network.AWS.SES.GetIdentityVerificationAttributes",
+            "Network.AWS.SES.GetSendQuota",
+            "Network.AWS.SES.GetSendStatistics",
+            "Network.AWS.SES.ListIdentities",
+            "Network.AWS.SES.ListVerifiedEmailAddresses",
+            "Network.AWS.SES.SendEmail",
+            "Network.AWS.SES.SendRawEmail",
+            "Network.AWS.SES.SetIdentityDkimEnabled",
+            "Network.AWS.SES.SetIdentityFeedbackForwardingEnabled",
+            "Network.AWS.SES.SetIdentityNotificationTopic",
+            "Network.AWS.SES.Types",
+            "Network.AWS.SES.VerifyDomainDkim",
+            "Network.AWS.SES.VerifyDomainIdentity",
+            "Network.AWS.SES.VerifyEmailAddress",
+            "Network.AWS.SES.VerifyEmailIdentity"
+        ],
+        "dependencies": [],
+        "version": "0.0.0",
+        "synopsis": "",
+        "description": ""
+    },
+    "types": {
+        "Destination": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "desToAddresses",
+                    "type": "List Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "desCcAddresses",
+                    "type": "List Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "desBccAddresses",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        },
+        "IdentityDkimAttributes": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "idaDkimEnabled",
+                    "type": "Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "idaDkimVerificationStatus",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "idaDkimTokens",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        },
+        "Body": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "bodText",
+                    "type": "Maybe Content"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "bodHtml",
+                    "type": "Maybe Content"
+                }
+            ]
+        },
+        "IdentityVerificationAttributes": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ivaVerificationStatus",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ivaVerificationToken",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "SendDataPoint": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sdpTimestamp",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sdpDeliveryAttempts",
+                    "type": "Maybe Integer"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sdpBounces",
+                    "type": "Maybe Integer"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sdpComplaints",
+                    "type": "Maybe Integer"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sdpRejects",
+                    "type": "Maybe Integer"
+                }
+            ]
+        },
+        "namespace": "Network.AWS.SES.Types",
+        "imports": [],
+        "Content": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "conData",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "conCharset",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "IdentityNotificationAttributes": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "inaBounceTopic",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "inaComplaintTopic",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "inaDeliveryTopic",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "inaForwardingEnabled",
+                    "type": "Bool"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        },
+        "RawMessage": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "rmData",
+                "type": "Blob"
+            },
+            "type": "newtype"
+        },
+        "Message": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mesSubject",
+                    "type": "Content"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mesBody",
+                    "type": "Body"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        }
+    },
+    "operations": [
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "enum",
+                    "num"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "name": "GetSendQuotaResponse",
+                "resultWrapper": "GetSendQuotaResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gsqrMax24HourSend",
+                        "type": "Maybe Double"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gsqrMaxSendRate",
+                        "type": "Maybe Double"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gsqrSentLast24Hours",
+                        "type": "Maybe Double"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SES.GetSendQuota",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "GetSendQuota",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns the user's current sending limits.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [],
+                "name": "Empty",
+                "type": "empty"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ginarNotificationAttributes",
+                    "type": "Map Text IdentityNotificationAttributes"
+                },
+                "wrapper": false,
+                "name": "GetIdentityNotificationAttributesResponse",
+                "resultWrapper": "GetIdentityNotificationAttributesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SES.GetIdentityNotificationAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "GetIdentityNotificationAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eGiven a list of verified identities (email addresses and/or domains), returns a structure describing identity notification attributes.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about using notifications with Amazon SES, see the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ginarIdentities",
+                    "type": "List Text"
+                },
+                "name": "GetIdentityNotificationAttributesRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "SetIdentityDkimEnabledResponse",
+                "resultWrapper": "SetIdentityDkimEnabledResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SES.SetIdentityDkimEnabled",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "SetIdentityDkimEnabled",
+            "method": "post",
+            "documentation": "\u003cp\u003eEnables or disables Easy DKIM signing of email sent from an identity:\u003c/p\u003e \u003cul\u003e \u003cli\u003eIf Easy DKIM signing is enabled for a domain name identity (e.g., \u003ccode\u003eexample.com\u003c/code\u003e), then Amazon SES will DKIM-sign all email sent by addresses under that domain name (e.g., \u003ccode\u003euser@example.com\u003c/code\u003e).\u003c/li\u003e \u003cli\u003eIf Easy DKIM signing is enabled for an email address, then Amazon SES will DKIM-sign all email sent by that email address.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eFor email addresses (e.g., \u003ccode\u003euser@example.com\u003c/code\u003e), you can only enable Easy DKIM signing if the corresponding domain (e.g., \u003ccode\u003eexample.com\u003c/code\u003e) has been set up for Easy DKIM using the AWS Console or the \u003ccode\u003eVerifyDomainDkim\u003c/code\u003e action.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about Easy DKIM signing, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "siderIdentity",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "siderDkimEnabled",
+                        "type": "Bool"
+                    }
+                ],
+                "name": "SetIdentityDkimEnabledRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "SetIdentityFeedbackForwardingEnabledResponse",
+                "resultWrapper": "SetIdentityFeedbackForwardingEnabledResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SES.SetIdentityFeedbackForwardingEnabled",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "SetIdentityFeedbackForwardingEnabled",
+            "method": "post",
+            "documentation": "\u003cp\u003eGiven an identity (email address or domain), enables or disables whether Amazon SES forwards bounce and complaint notifications as email. Feedback forwarding can only be disabled when Amazon Simple Notification Service (Amazon SNS) topics are specified for both bounces and complaints.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about using notifications with Amazon SES, see the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "sifferIdentity",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "sifferForwardingEnabled",
+                        "type": "Bool"
+                    }
+                ],
+                "name": "SetIdentityFeedbackForwardingEnabledRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "givarVerificationAttributes",
+                    "type": "Map Text IdentityVerificationAttributes"
+                },
+                "wrapper": false,
+                "name": "GetIdentityVerificationAttributesResponse",
+                "resultWrapper": "GetIdentityVerificationAttributesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SES.GetIdentityVerificationAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "GetIdentityVerificationAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eGiven a list of identities (email addresses and/or domains), returns the verification status and (for domain identities) the verification token for each identity.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "givarIdentities",
+                    "type": "List Text"
+                },
+                "name": "GetIdentityVerificationAttributesRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vdirVerificationToken",
+                    "type": "Text"
+                },
+                "wrapper": false,
+                "name": "VerifyDomainIdentityResponse",
+                "resultWrapper": "VerifyDomainIdentityResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SES.VerifyDomainIdentity",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "VerifyDomainIdentity",
+            "method": "post",
+            "documentation": "\u003cp\u003eVerifies a domain.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vdirDomain",
+                    "type": "Text"
+                },
+                "name": "VerifyDomainIdentityRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "gidarDkimAttributes",
+                    "type": "Map Text IdentityDkimAttributes"
+                },
+                "wrapper": false,
+                "name": "GetIdentityDkimAttributesResponse",
+                "resultWrapper": "GetIdentityDkimAttributesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SES.GetIdentityDkimAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "GetIdentityDkimAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns the current status of Easy DKIM signing for an entity. For domain name identities, this action also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES has successfully verified that these tokens have been published.\u003c/p\u003e \u003cp\u003eThis action takes a list of identities as input and returns the following information for each:\u003c/p\u003e \u003cul\u003e \u003cli\u003eWhether Easy DKIM signing is enabled or disabled.\u003c/li\u003e \u003cli\u003eA set of DKIM tokens that represent the identity. If the identity is an email address, the tokens represent the domain of that address.\u003c/li\u003e \u003cli\u003eWhether Amazon SES has successfully verified the DKIM tokens published in the domain's DNS. This information is only returned for domain name identities, not for email addresses.\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "gidarIdentities",
+                    "type": "List Text"
+                },
+                "name": "GetIdentityDkimAttributesRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vddrDkimTokens",
+                    "type": "List Text"
+                },
+                "wrapper": false,
+                "name": "VerifyDomainDkimResponse",
+                "resultWrapper": "VerifyDomainDkimResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SES.VerifyDomainDkim",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "VerifyDomainDkim",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a set of DKIM tokens for a domain. DKIM \u003ci\u003etokens\u003c/i\u003e are character strings that represent your domain's identity. Using these tokens, you will need to create DNS CNAME records that point to DKIM public keys hosted by Amazon SES. Amazon Web Services will eventually detect that you have updated your DNS records; this detection process may take up to 72 hours. Upon successful detection, Amazon SES will be able to DKIM-sign email originating from that domain.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eTo enable or disable Easy DKIM signing for a domain, use the \u003ccode\u003eSetIdentityDkimEnabled\u003c/code\u003e action.\u003c/p\u003e \u003cp\u003eFor more information about creating DNS records using DKIM tokens, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vddrDomain",
+                    "type": "Text"
+                },
+                "name": "VerifyDomainDkimRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "srerMessageId",
+                    "type": "Text"
+                },
+                "wrapper": false,
+                "name": "SendRawEmailResponse",
+                "resultWrapper": "SendRawEmailResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SES.SendRawEmail",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "SendRawEmail",
+            "method": "post",
+            "documentation": "\u003cp\u003eSends an email message, with header and content specified by the client. The \u003ccode\u003eSendRawEmail\u003c/code\u003e action is useful for sending multipart MIME emails. The raw text of the message must comply with Internet email standards; otherwise, the message cannot be sent. \u003c/p\u003e \u003cimportant\u003e You can only send email from verified email addresses and domains. If you have not requested production access to Amazon SES, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/important\u003e \u003cp\u003eThe total size of the message cannot exceed 10 MB. This includes any attachments that are part of the message.\u003c/p\u003e \u003cp\u003eAmazon SES has a limit on the total number of recipients per message: The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group. \u003c/p\u003e \u003cp\u003eThe To:, CC:, and BCC: headers in the raw message can contain a group list. Note that each recipient in a group list counts towards the 50-recipient limit. \u003c/p\u003e \u003cp\u003eFor every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your \u003ci\u003esending quota\u003c/i\u003e - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "srerDestinations",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "srerRawMessage",
+                        "type": "RawMessage"
+                    }
+                ],
+                "name": "SendRawEmailRequest",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "srerSource",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "gssrSendDataPoints",
+                    "type": "List SendDataPoint"
+                },
+                "wrapper": false,
+                "name": "GetSendStatisticsResponse",
+                "resultWrapper": "GetSendStatisticsResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SES.GetSendStatistics",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "GetSendStatistics",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns the user's sending statistics. The result is a list of data points, representing the last two weeks of sending activity. \u003c/p\u003e \u003cp\u003eEach data point in the list contains statistics for a 15-minute interval.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [],
+                "name": "Empty",
+                "type": "empty"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "DeleteIdentityResponse",
+                "resultWrapper": "DeleteIdentityResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SES.DeleteIdentity",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "DeleteIdentity",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes the specified identity (email address or domain) from the list of verified identities.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dirIdentity",
+                    "type": "Text"
+                },
+                "name": "DeleteIdentityRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lir1Identities",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "ListIdentitiesResponse",
+                "resultWrapper": "ListIdentitiesResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lir1NextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SES.ListIdentities",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "ListIdentities",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a list containing all of the identities (email addresses and domains) for a specific AWS Account, regardless of verification status.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "ListIdentitiesRequest",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lirIdentityType",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lirNextToken",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lirMaxItems",
+                        "type": "Maybe Int"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "VerifyEmailIdentityResponse",
+                "resultWrapper": "VerifyEmailIdentityResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SES.VerifyEmailIdentity",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "VerifyEmailIdentity",
+            "method": "post",
+            "documentation": "\u003cp\u003eVerifies an email address. This action causes a confirmation email message to be sent to the specified address.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "veirEmailAddress",
+                    "type": "Text"
+                },
+                "name": "VerifyEmailIdentityRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SES.VerifyEmailAddress",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "VerifyEmailAddress",
+            "method": "post",
+            "documentation": "\u003cp\u003eVerifies an email address. This action causes a confirmation email message to be sent to the specified address.\u003c/p\u003e \u003cimportant\u003eThe VerifyEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The VerifyEmailIdentity action is now preferred.\u003c/important\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "vearEmailAddress",
+                    "type": "Text"
+                },
+                "name": "VerifyEmailAddressRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SES.DeleteVerifiedEmailAddress",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "DeleteVerifiedEmailAddress",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes the specified email address from the list of verified addresses.\u003c/p\u003e \u003cimportant\u003eThe DeleteVerifiedEmailAddress action is deprecated as of the May 15, 2012 release of Domain Verification. The DeleteIdentity action is now preferred.\u003c/important\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dvearEmailAddress",
+                    "type": "Text"
+                },
+                "name": "DeleteVerifiedEmailAddressRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lvearVerifiedEmailAddresses",
+                    "type": "List Text"
+                },
+                "wrapper": false,
+                "name": "ListVerifiedEmailAddressesResponse",
+                "resultWrapper": "ListVerifiedEmailAddressesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SES.ListVerifiedEmailAddresses",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "ListVerifiedEmailAddresses",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a list containing all of the email addresses that have been verified.\u003c/p\u003e \u003cimportant\u003eThe ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release of Domain Verification. The ListIdentities action is now preferred.\u003c/important\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
+            "request": {
+                "deriving": [],
+                "name": "Empty",
+                "type": "empty"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "SetIdentityNotificationTopicResponse",
+                "resultWrapper": "SetIdentityNotificationTopicResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SES.SetIdentityNotificationTopic",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "SetIdentityNotificationTopic",
+            "method": "post",
+            "documentation": "\u003cp\u003eGiven an identity (email address or domain), sets the Amazon Simple Notification Service (Amazon SNS) topic to which Amazon SES will publish bounce, complaint, and/or delivery notifications for emails sent with that identity as the \u003ccode\u003eSource\u003c/code\u003e.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e \u003cp\u003eFor more information about feedback notification, see the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "sintrIdentity",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "sintrNotificationType",
+                        "type": "Text"
+                    }
+                ],
+                "name": "SetIdentityNotificationTopicRequest",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "sintrSnsTopic",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "serMessageId",
+                    "type": "Text"
+                },
+                "wrapper": false,
+                "name": "SendEmailResponse",
+                "resultWrapper": "SendEmailResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SES.SendEmail",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SES.Types"
+            ],
+            "name": "SendEmail",
+            "method": "post",
+            "documentation": "\u003cp\u003eComposes an email message based on input data, and then immediately queues the message for sending. \u003c/p\u003e \u003cimportant\u003e You can only send email from verified email addresses and domains. If you have not requested production access to Amazon SES, you must also verify every recipient email address except for the recipients provided by the Amazon SES mailbox simulator. For more information, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/important\u003e \u003cp\u003eThe total size of the message cannot exceed 10 MB.\u003c/p\u003e \u003cp\u003eAmazon SES has a limit on the total number of recipients per message: The combined number of To:, CC: and BCC: email addresses cannot exceed 50. If you need to send an email message to a larger audience, you can divide your recipient list into groups of 50 or fewer, and then call Amazon SES repeatedly to send the message to each group. \u003c/p\u003e \u003cp\u003eFor every message that you send, the total number of recipients (To:, CC: and BCC:) is counted against your \u003ci\u003esending quota\u003c/i\u003e - the maximum number of emails you can send in a 24-hour period. For information about your sending quota, go to the \u003ca href=\"http://docs.aws.amazon.com/ses/latest/DeveloperGuide/manage-sending-limits.html\"\u003eAmazon SES Developer Guide\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "serSource",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "serDestination",
+                        "type": "Destination"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "serMessage",
+                        "type": "Message"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "serReplyToAddresses",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "SendEmailRequest",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "serReturnPath",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        }
+    ]
+}

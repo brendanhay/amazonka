@@ -1,0 +1,1179 @@
+{
+    "service": {
+        "signature": "v2",
+        "checksum": "sha256",
+        "abbrev": "SimpleDB",
+        "error": "SimpleDBError",
+        "namespace": "Network.AWS.SimpleDB",
+        "protocol": "query",
+        "imports": [
+            "Network.AWS.SimpleDB.BatchDeleteAttributes",
+            "Network.AWS.SimpleDB.BatchPutAttributes",
+            "Network.AWS.SimpleDB.CreateDomain",
+            "Network.AWS.SimpleDB.DeleteAttributes",
+            "Network.AWS.SimpleDB.DeleteDomain",
+            "Network.AWS.SimpleDB.DomainMetadata",
+            "Network.AWS.SimpleDB.GetAttributes",
+            "Network.AWS.SimpleDB.ListDomains",
+            "Network.AWS.SimpleDB.PutAttributes",
+            "Network.AWS.SimpleDB.Select",
+            "Network.AWS.SimpleDB.Types"
+        ],
+        "name": "Amazon SimpleDB",
+        "version": "2009-04-15",
+        "documentation": "Amazon SimpleDB is a web service providing the core database functions of data indexing and querying in the cloud. By offloading the time and effort associated with building and operating a web-scale database, SimpleDB provides developers the freedom to focus on application development. \u003cp\u003e A traditional, clustered relational database requires a sizable upfront capital outlay, is complex to design, and often requires extensive and repetitive database administration. Amazon SimpleDB is dramatically simpler, requiring no schema, automatically indexing your data and providing a simple API for storage and access. This approach eliminates the administrative burden of data modeling, index maintenance, and performance tuning. Developers gain access to this functionality within Amazon's proven computing environment, are able to scale instantly, and pay only for what they use. \u003c/p\u003e \u003cp\u003e Visit \u003ca href=\"http://aws.amazon.com/simpledb/\"\u003ehttp://aws.amazon.com/simpledb/\u003c/a\u003e for more information. \u003c/p\u003e",
+        "xmlNamespace": "http://sdb.amazonaws.com/doc/2009-04-15/",
+        "endpoint": "regional",
+        "endpointPrefix": "sdb"
+    },
+    "cabal": {
+        "library": "amazonka-sdb",
+        "modules": [
+            "Network.AWS.SimpleDB",
+            "Network.AWS.SimpleDB.BatchDeleteAttributes",
+            "Network.AWS.SimpleDB.BatchPutAttributes",
+            "Network.AWS.SimpleDB.CreateDomain",
+            "Network.AWS.SimpleDB.DeleteAttributes",
+            "Network.AWS.SimpleDB.DeleteDomain",
+            "Network.AWS.SimpleDB.DomainMetadata",
+            "Network.AWS.SimpleDB.GetAttributes",
+            "Network.AWS.SimpleDB.ListDomains",
+            "Network.AWS.SimpleDB.PutAttributes",
+            "Network.AWS.SimpleDB.Select",
+            "Network.AWS.SimpleDB.Types"
+        ],
+        "dependencies": [],
+        "version": "0.0.0",
+        "synopsis": "",
+        "description": ""
+    },
+    "types": {
+        "InvalidNumberValueTests": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "invtBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "Attribute": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "attName",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "attValue",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "attAlternateNameEncoding",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "attAlternateValueEncoding",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "NoSuchDomain": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "nsdBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "NumberSubmittedItemsExceeded": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "nsieBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "AttributeDoesNotExist": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "adneBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "NumberDomainAttributesExceeded": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "ndaeBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "DuplicateItemName": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "dinBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "MissingParameter": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "mpBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "InvalidNextToken": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "intBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "InvalidParameterValue": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "ipvBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "DeletableItem": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "diName",
+                    "locationName": "ItemName",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "diAttributes",
+                    "type": "List Attribute"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        },
+        "ReplaceableItem": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "riName",
+                    "locationName": "ItemName",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "riAttributes",
+                    "type": "List ReplaceableAttribute"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        },
+        "namespace": "Network.AWS.SimpleDB.Types",
+        "imports": [],
+        "UpdateCondition": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ucName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ucValue",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ucExists",
+                    "type": "Maybe Bool"
+                }
+            ]
+        },
+        "NumberItemAttributesExceeded": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "niaeBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "ReplaceableAttribute": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "raName",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "raValue",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "raReplace",
+                    "type": "Maybe Bool"
+                }
+            ]
+        },
+        "RequestTimeout": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "rtBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "Item": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "iteName",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "iteAttributes",
+                    "type": "List Attribute"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "iteAlternateNameEncoding",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "TooManyRequestedAttributes": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "tmraBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "InvalidNumberPredicates": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "inpBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "NumberDomainsExceeded": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "ndeBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "NumberSubmittedAttributesExceeded": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "nsaeBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "NumberDomainBytesExceeded": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "ndbeBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        },
+        "InvalidQueryExpression": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "iqeBoxUsage",
+                "type": "Maybe Double"
+            },
+            "type": "newtype"
+        }
+    },
+    "operations": [
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SimpleDB.BatchDeleteAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SimpleDB.Types"
+            ],
+            "name": "BatchDeleteAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003e Performs multiple DeleteAttributes operations in a single call, which reduces round trips and latencies. This enables Amazon SimpleDB to optimize requests, which generally yields better throughput. \u003c/p\u003e \u003cp\u003e The following limitations are enforced for this operation: \u003cul\u003e \u003cli\u003e1 MB request size\u003c/li\u003e \u003cli\u003e25 item limit per BatchDeleteAttributes operation\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "bdarDomainName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "bdarItems",
+                        "type": "List DeletableItem"
+                    }
+                ],
+                "name": "BatchDeleteAttributesRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SimpleDB.BatchPutAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SimpleDB.Types"
+            ],
+            "name": "BatchPutAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003e The \u003ccode\u003eBatchPutAttributes\u003c/code\u003e operation creates or replaces attributes within one or more items. By using this operation, the client can perform multiple \u003ca\u003ePutAttribute\u003c/a\u003e operation with a single call. This helps yield savings in round trips and latencies, enabling Amazon SimpleDB to optimize requests and generally produce better throughput. \u003c/p\u003e \u003cp\u003e The client may specify the item name with the \u003ccode\u003eItem.X.ItemName\u003c/code\u003e parameter. The client may specify new attributes using a combination of the \u003ccode\u003eItem.X.Attribute.Y.Name\u003c/code\u003e and \u003ccode\u003eItem.X.Attribute.Y.Value\u003c/code\u003e parameters. The client may specify the first attribute for the first item using the parameters \u003ccode\u003eItem.0.Attribute.0.Name\u003c/code\u003e and \u003ccode\u003eItem.0.Attribute.0.Value\u003c/code\u003e, and for the second attribute for the first item by the parameters \u003ccode\u003eItem.0.Attribute.1.Name\u003c/code\u003e and \u003ccode\u003eItem.0.Attribute.1.Value\u003c/code\u003e, and so on. \u003c/p\u003e \u003cp\u003e Attributes are uniquely identified within an item by their name/value combination. For example, a single item can have the attributes \u003ccode\u003e{ \"first_name\", \"first_value\" }\u003c/code\u003e and \u003ccode\u003e{ \"first_name\", \"second_value\" }\u003c/code\u003e. However, it cannot have two attribute instances where both the \u003ccode\u003eItem.X.Attribute.Y.Name\u003c/code\u003e and \u003ccode\u003eItem.X.Attribute.Y.Value\u003c/code\u003e are the same. \u003c/p\u003e \u003cp\u003e Optionally, the requester can supply the \u003ccode\u003eReplace\u003c/code\u003e parameter for each individual value. Setting this value to \u003ccode\u003etrue\u003c/code\u003e will cause the new attribute values to replace the existing attribute values. For example, if an item \u003ccode\u003eI\u003c/code\u003e has the attributes \u003ccode\u003e{ 'a', '1' }, { 'b', '2'}\u003c/code\u003e and \u003ccode\u003e{ 'b', '3' }\u003c/code\u003e and the requester does a BatchPutAttributes of \u003ccode\u003e{'I', 'b', '4' }\u003c/code\u003e with the Replace parameter set to true, the final attributes of the item will be \u003ccode\u003e{ 'a', '1' }\u003c/code\u003e and \u003ccode\u003e{ 'b', '4' }\u003c/code\u003e, replacing the previous values of the 'b' attribute with the new value. \u003c/p\u003e \u003cimportant\u003e This operation is vulnerable to exceeding the maximum URL size when making a REST request using the HTTP GET method. This operation does not support conditions using \u003ccode\u003eExpected.X.Name\u003c/code\u003e, \u003ccode\u003eExpected.X.Value\u003c/code\u003e, or \u003ccode\u003eExpected.X.Exists\u003c/code\u003e. \u003c/important\u003e \u003cp\u003e You can execute multiple \u003ccode\u003eBatchPutAttributes\u003c/code\u003e operations and other operations in parallel. However, large numbers of concurrent \u003ccode\u003eBatchPutAttributes\u003c/code\u003e calls can result in Service Unavailable (503) responses. \u003c/p\u003e \u003cp\u003e The following limitations are enforced for this operation: \u003cul\u003e \u003cli\u003e256 attribute name-value pairs per item\u003c/li\u003e \u003cli\u003e1 MB request size\u003c/li\u003e \u003cli\u003e1 billion attributes per domain\u003c/li\u003e \u003cli\u003e10 GB of total user data storage per domain\u003c/li\u003e \u003cli\u003e25 item limit per \u003ccode\u003eBatchPutAttributes\u003c/code\u003e operation\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "bparDomainName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "bparItems",
+                        "type": "List ReplaceableItem"
+                    }
+                ],
+                "name": "BatchPutAttributesRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "garAttributes",
+                    "type": "List Attribute"
+                },
+                "wrapper": false,
+                "name": "GetAttributesResult",
+                "resultWrapper": "GetAttributesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SimpleDB.GetAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SimpleDB.Types"
+            ],
+            "name": "GetAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003e Returns all of the attributes associated with the specified item. Optionally, the attributes returned can be limited to one or more attributes by specifying an attribute name parameter. \u003c/p\u003e \u003cp\u003e If the item does not exist on the replica that was accessed for this operation, an empty set is returned. The system does not return an error as it cannot guarantee the item does not exist on other replicas. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "garDomainName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "garItemName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "garAttributeNames",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "GetAttributesRequest",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "garConsistentRead",
+                        "type": "Maybe Bool"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SimpleDB.CreateDomain",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SimpleDB.Types"
+            ],
+            "name": "CreateDomain",
+            "method": "post",
+            "documentation": "\u003cp\u003e The \u003ccode\u003eCreateDomain\u003c/code\u003e operation creates a new domain. The domain name should be unique among the domains associated with the Access Key ID provided in the request. The \u003ccode\u003eCreateDomain\u003c/code\u003e operation may take 10 or more seconds to complete. \u003c/p\u003e \u003cp\u003e The client can create up to 100 domains per account. \u003c/p\u003e \u003cp\u003e If the client requires additional domains, go to \u003ca href=\"http://aws.amazon.com/contact-us/simpledb-limit-request/\"\u003e http://aws.amazon.com/contact-us/simpledb-limit-request/\u003c/a\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cdrDomainName",
+                    "type": "Text"
+                },
+                "name": "CreateDomainRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "enum",
+                    "num"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "name": "DomainMetadataResult",
+                "resultWrapper": "DomainMetadataResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dmrItemCount",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dmrItemNamesSizeBytes",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dmrAttributeNameCount",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dmrAttributeNamesSizeBytes",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dmrAttributeValueCount",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dmrAttributeValuesSizeBytes",
+                        "type": "Maybe Integer"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dmrTimestamp",
+                        "type": "Maybe Int"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SimpleDB.DomainMetadata",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SimpleDB.Types"
+            ],
+            "name": "DomainMetadata",
+            "method": "post",
+            "documentation": "\u003cp\u003e Returns information about the domain, including when the domain was created, the number of items and attributes in the domain, and the size of the attribute names and values. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dmrDomainName",
+                    "type": "Text"
+                },
+                "name": "DomainMetadataRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "sr1Items",
+                        "type": "List Item"
+                    }
+                ],
+                "name": "SelectResult",
+                "resultWrapper": "SelectResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "sr1NextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SimpleDB.Select",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SimpleDB.Types"
+            ],
+            "name": "Select",
+            "method": "post",
+            "documentation": "\u003cp\u003e The \u003ccode\u003eSelect\u003c/code\u003e operation returns a set of attributes for \u003ccode\u003eItemNames\u003c/code\u003e that match the select expression. \u003ccode\u003eSelect\u003c/code\u003e is similar to the standard SQL SELECT statement. \u003c/p\u003e \u003cp\u003e The total size of the response cannot exceed 1 MB in total size. Amazon SimpleDB automatically adjusts the number of items returned per page to enforce this limit. For example, if the client asks to retrieve 2500 items, but each individual item is 10 kB in size, the system returns 100 items and an appropriate \u003ccode\u003eNextToken\u003c/code\u003e so the client can access the next page of results. \u003c/p\u003e \u003cp\u003e For information on how to construct select expressions, see Using Select to Create Amazon SimpleDB Queries in the Developer Guide. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "srSelectExpression",
+                        "type": "Text"
+                    }
+                ],
+                "name": "SelectRequest",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "srNextToken",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "srConsistentRead",
+                        "type": "Maybe Bool"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SimpleDB.DeleteAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SimpleDB.Types"
+            ],
+            "name": "DeleteAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes one or more attributes associated with an item. If all attributes of the item are deleted, the item is deleted. \u003c/p\u003e \u003cp\u003e \u003ccode\u003eDeleteAttributes\u003c/code\u003e is an idempotent operation; running it multiple times on the same item or attribute does not result in an error response. \u003c/p\u003e \u003cp\u003e Because Amazon SimpleDB makes multiple copies of item data and uses an eventual consistency update model, performing a \u003ca\u003eGetAttributes\u003c/a\u003e or \u003ca\u003eSelect\u003c/a\u003e operation (read) immediately after a \u003ccode\u003eDeleteAttributes\u003c/code\u003e or \u003ca\u003ePutAttributes\u003c/a\u003e operation (write) might not return updated item data. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "darDomainName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "darItemName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "darAttributes",
+                        "type": "List Attribute"
+                    }
+                ],
+                "name": "DeleteAttributesRequest",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "darExpected",
+                        "type": "Maybe UpdateCondition"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SimpleDB.PutAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SimpleDB.Types"
+            ],
+            "name": "PutAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003e The PutAttributes operation creates or replaces attributes in an item. The client may specify new attributes using a combination of the \u003ccode\u003eAttribute.X.Name\u003c/code\u003e and \u003ccode\u003eAttribute.X.Value\u003c/code\u003e parameters. The client specifies the first attribute by the parameters \u003ccode\u003eAttribute.0.Name\u003c/code\u003e and \u003ccode\u003eAttribute.0.Value\u003c/code\u003e, the second attribute by the parameters \u003ccode\u003eAttribute.1.Name\u003c/code\u003e and \u003ccode\u003eAttribute.1.Value\u003c/code\u003e, and so on. \u003c/p\u003e \u003cp\u003e Attributes are uniquely identified in an item by their name/value combination. For example, a single item can have the attributes \u003ccode\u003e{ \"first_name\", \"first_value\" }\u003c/code\u003e and \u003ccode\u003e{ \"first_name\", second_value\" }\u003c/code\u003e. However, it cannot have two attribute instances where both the \u003ccode\u003eAttribute.X.Name\u003c/code\u003e and \u003ccode\u003eAttribute.X.Value\u003c/code\u003e are the same. \u003c/p\u003e \u003cp\u003e Optionally, the requestor can supply the \u003ccode\u003eReplace\u003c/code\u003e parameter for each individual attribute. Setting this value to \u003ccode\u003etrue\u003c/code\u003e causes the new attribute value to replace the existing attribute value(s). For example, if an item has the attributes \u003ccode\u003e{ 'a', '1' }\u003c/code\u003e, \u003ccode\u003e{ 'b', '2'}\u003c/code\u003e and \u003ccode\u003e{ 'b', '3' }\u003c/code\u003e and the requestor calls \u003ccode\u003ePutAttributes\u003c/code\u003e using the attributes \u003ccode\u003e{ 'b', '4' }\u003c/code\u003e with the \u003ccode\u003eReplace\u003c/code\u003e parameter set to true, the final attributes of the item are changed to \u003ccode\u003e{ 'a', '1' }\u003c/code\u003e and \u003ccode\u003e{ 'b', '4' }\u003c/code\u003e, which replaces the previous values of the 'b' attribute with the new value. \u003c/p\u003e \u003cp\u003e You cannot specify an empty string as an attribute name. \u003c/p\u003e \u003cp\u003e Because Amazon SimpleDB makes multiple copies of client data and uses an eventual consistency update model, an immediate \u003ca\u003eGetAttributes\u003c/a\u003e or \u003ca\u003eSelect\u003c/a\u003e operation (read) immediately after a \u003ca\u003ePutAttributes\u003c/a\u003e or \u003ca\u003eDeleteAttributes\u003c/a\u003e operation (write) might not return the updated data. \u003c/p\u003e \u003cp\u003e The following limitations are enforced for this operation: \u003cul\u003e \u003cli\u003e256 total attribute name-value pairs per item\u003c/li\u003e \u003cli\u003eOne billion attributes per domain\u003c/li\u003e \u003cli\u003e10 GB of total user data storage per domain\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "parDomainName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "parItemName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "parAttributes",
+                        "type": "List ReplaceableAttribute"
+                    }
+                ],
+                "name": "PutAttributesRequest",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "parExpected",
+                        "type": "Maybe UpdateCondition"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SimpleDB.DeleteDomain",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SimpleDB.Types"
+            ],
+            "name": "DeleteDomain",
+            "method": "post",
+            "documentation": "\u003cp\u003e The \u003ccode\u003eDeleteDomain\u003c/code\u003e operation deletes a domain. Any items (and their attributes) in the domain are deleted as well. The \u003ccode\u003eDeleteDomain\u003c/code\u003e operation might take 10 or more seconds to complete. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ddrDomainName",
+                    "type": "Text"
+                },
+                "name": "DeleteDomainRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ldrDomainNames",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "ListDomainsResult",
+                "resultWrapper": "ListDomainsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ldrNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SimpleDB.ListDomains",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SimpleDB.Types"
+            ],
+            "name": "ListDomains",
+            "method": "post",
+            "documentation": "\u003cp\u003e The \u003ccode\u003eListDomains\u003c/code\u003e operation lists all domains associated with the Access Key ID. It returns domain names up to the limit set by \u003ca href=\"#MaxNumberOfDomains\"\u003eMaxNumberOfDomains\u003c/a\u003e. A \u003ca href=\"#NextToken\"\u003eNextToken\u003c/a\u003e is returned if there are more than \u003ccode\u003eMaxNumberOfDomains\u003c/code\u003e domains. Calling \u003ccode\u003eListDomains\u003c/code\u003e successive times with the \u003ccode\u003eNextToken\u003c/code\u003e provided by the operation returns up to \u003ccode\u003eMaxNumberOfDomains\u003c/code\u003e more domain names with each successive operation call. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "ListDomainsRequest",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ldr1MaxNumberOfDomains",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ldr1NextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        }
+    ]
+}

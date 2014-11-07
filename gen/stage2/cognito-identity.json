@@ -1,0 +1,1164 @@
+{
+    "service": {
+        "signature": "v4",
+        "checksum": "sha256",
+        "abbrev": "CognitoIdentity",
+        "error": "CognitoIdentityError",
+        "namespace": "Network.AWS.CognitoIdentity",
+        "protocol": "json",
+        "imports": [
+            "Network.AWS.CognitoIdentity.CreateIdentityPool",
+            "Network.AWS.CognitoIdentity.DeleteIdentityPool",
+            "Network.AWS.CognitoIdentity.DescribeIdentityPool",
+            "Network.AWS.CognitoIdentity.GetId",
+            "Network.AWS.CognitoIdentity.GetOpenIdToken",
+            "Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity",
+            "Network.AWS.CognitoIdentity.ListIdentities",
+            "Network.AWS.CognitoIdentity.ListIdentityPools",
+            "Network.AWS.CognitoIdentity.LookupDeveloperIdentity",
+            "Network.AWS.CognitoIdentity.MergeDeveloperIdentities",
+            "Network.AWS.CognitoIdentity.Types",
+            "Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity",
+            "Network.AWS.CognitoIdentity.UnlinkIdentity",
+            "Network.AWS.CognitoIdentity.UpdateIdentityPool"
+        ],
+        "name": "Amazon Cognito Identity",
+        "version": "2014-06-30",
+        "documentation": "\u003cfullname\u003eAmazon Cognito\u003c/fullname\u003e \u003cp\u003eAmazon Cognito is a web service that delivers scoped temporary credentials to mobile devices and other untrusted environments. Amazon Cognito uniquely identifies a device and supplies the user with a consistent identity over the lifetime of an application.\u003c/p\u003e \u003cp\u003eUsing Amazon Cognito, you can enable authentication with one or more third-party identity providers (Facebook, Google, or Login with Amazon), and you can also choose to support unauthenticated access from your app. Cognito delivers a unique identifier for each user and acts as an OpenID token provider trusted by AWS Security Token Service (STS) to access temporary, limited-privilege AWS credentials.\u003c/p\u003e \u003cp\u003eTo provide end-user credentials, first make an unsigned call to \u003ca\u003eGetId\u003c/a\u003e. If the end user is authenticated with one of the supported identity providers, set the \u003ccode\u003eLogins\u003c/code\u003e map with the identity provider token. \u003ccode\u003eGetId\u003c/code\u003e returns a unique identifier for the user.\u003c/p\u003e \u003cp\u003eNext, make an unsigned call to \u003ca\u003eGetOpenIdToken\u003c/a\u003e, which returns the OpenID token necessary to call STS and retrieve AWS credentials. This call expects the same \u003ccode\u003eLogins\u003c/code\u003e map as the \u003ccode\u003eGetId\u003c/code\u003e call, as well as the \u003ccode\u003eIdentityID\u003c/code\u003e originally returned by \u003ccode\u003eGetId\u003c/code\u003e. The token returned by \u003ccode\u003eGetOpenIdToken\u003c/code\u003e can be passed to the STS operation \u003ca href=\"http://docs.aws.amazon.com/STS/latest/APIReference/API_AssumeRoleWithWebIdentity.html\"\u003eAssumeRoleWithWebIdentity\u003c/a\u003e to retrieve AWS credentials.\u003c/p\u003e",
+        "xmlNamespace": "https://cognito-identity.amazonaws.com/doc/2014-06-30/",
+        "endpoint": "regional",
+        "endpointPrefix": "cognito-identity",
+        "targetPrefix": "AWSCognitoIdentityService"
+    },
+    "cabal": {
+        "library": "amazonka-cognitoidentity",
+        "modules": [
+            "Network.AWS.CognitoIdentity",
+            "Network.AWS.CognitoIdentity.CreateIdentityPool",
+            "Network.AWS.CognitoIdentity.DeleteIdentityPool",
+            "Network.AWS.CognitoIdentity.DescribeIdentityPool",
+            "Network.AWS.CognitoIdentity.GetId",
+            "Network.AWS.CognitoIdentity.GetOpenIdToken",
+            "Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity",
+            "Network.AWS.CognitoIdentity.ListIdentities",
+            "Network.AWS.CognitoIdentity.ListIdentityPools",
+            "Network.AWS.CognitoIdentity.LookupDeveloperIdentity",
+            "Network.AWS.CognitoIdentity.MergeDeveloperIdentities",
+            "Network.AWS.CognitoIdentity.Types",
+            "Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity",
+            "Network.AWS.CognitoIdentity.UnlinkIdentity",
+            "Network.AWS.CognitoIdentity.UpdateIdentityPool"
+        ],
+        "dependencies": [],
+        "version": "0.0.0",
+        "synopsis": "",
+        "description": ""
+    },
+    "types": {
+        "InvalidParameterException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "ipemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "NotAuthorizedException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "naemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "IdentityDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "idLogins",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "idIdentityId",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "InternalErrorException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "ieemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "namespace": "Network.AWS.CognitoIdentity.Types",
+        "imports": [],
+        "TooManyRequestsException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "tmremessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "ResourceConflictException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "rcemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "DeveloperUserAlreadyRegisteredException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "duaremessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "ResourceNotFoundException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "rnfemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "IdentityPoolShortDescription": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ipsdIdentityPoolId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ipsdIdentityPoolName",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "LimitExceededException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "leemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        }
+    },
+    "operations": [
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "name": "GetOpenIdTokenResponse",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "goitrIdentityId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "goitrToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CognitoIdentity.GetOpenIdToken",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "name": "GetOpenIdToken",
+            "method": "post",
+            "documentation": "\u003cp\u003eGets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by \u003ca\u003eGetId\u003c/a\u003e. You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.\u003c/p\u003e \u003cp\u003eThe OpenId token is valid for 15 minutes.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "goitiIdentityId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "goitiLogins",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "name": "GetOpenIdTokenInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "name": "GetOpenIdTokenForDeveloperIdentityResponse",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "goitfdirIdentityId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "goitfdirToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "name": "GetOpenIdTokenForDeveloperIdentity",
+            "method": "post",
+            "documentation": "\u003cp\u003eRegisters (or retrieves) a Cognito \u003ccode\u003eIdentityId\u003c/code\u003e and an OpenID Connect token for a user authenticated by your backend authentication process. Supplying multiple logins will create an implicit linked account. You can only specify one developer provider as part of the \u003ccode\u003eLogins\u003c/code\u003e map, which is linked to the identity pool. The developer provider is the \"domain\" by which Cognito will refer to your users.\u003c/p\u003e \u003cp\u003eYou can use \u003ccode\u003eGetOpenIdTokenForDeveloperIdentity\u003c/code\u003e to create a new identity and to link new logins (that is, user credentials issued by a public provider or developer provider) to an existing identity. When you want to create a new identity, the \u003ccode\u003eIdentityId\u003c/code\u003e should be null. When you want to associate a new login with an existing authenticated/unauthenticated identity, you can do so by providing the existing \u003ccode\u003eIdentityId\u003c/code\u003e. This API will create the identity in the specified \u003ccode\u003eIdentityPoolId\u003c/code\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "goitfdiiIdentityPoolId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "goitfdiiLogins",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "name": "GetOpenIdTokenForDeveloperIdentityInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "goitfdiiIdentityId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "goitfdiiTokenDuration",
+                        "type": "Maybe Integer"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ipIdentityPoolId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ipIdentityPoolName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ipAllowUnauthenticatedIdentities",
+                        "type": "Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ipSupportedLoginProviders",
+                        "type": "Map Text Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ipOpenIdConnectProviderARNs",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "IdentityPool",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ipDeveloperProviderName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CognitoIdentity.DescribeIdentityPool",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "name": "DescribeIdentityPool",
+            "method": "post",
+            "documentation": "\u003cp\u003eGets details about a particular identity pool, including the pool name, ID description, creation date, and current number of users.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dipi1IdentityPoolId",
+                    "type": "Text"
+                },
+                "name": "DescribeIdentityPoolInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "girIdentityId",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "GetIdResponse",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.CognitoIdentity.GetId",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "name": "GetId",
+            "method": "post",
+            "documentation": "\u003cp\u003eGenerates (or retrieves) a Cognito ID. Supplying multiple logins will create an implicit linked account.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "giiAccountId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "giiIdentityPoolId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "giiLogins",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "name": "GetIdInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.CognitoIdentity.DeleteIdentityPool",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "name": "DeleteIdentityPool",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes a user pool. Once a pool is deleted, users will not be able to authenticate with the pool.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dipiIdentityPoolId",
+                    "type": "Text"
+                },
+                "name": "DeleteIdentityPoolInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "IdentityPool",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.CognitoIdentity.UpdateIdentityPool",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "name": "UpdateIdentityPool",
+            "method": "post",
+            "documentation": "\u003cp\u003eUpdates a user pool.\u003c/p\u003e",
+            "request": {
+                "deriving": [],
+                "name": "IdentityPool",
+                "type": "empty"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "name": "UnlinkDeveloperIdentity",
+            "method": "post",
+            "documentation": "\u003cp\u003eUnlinks a \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e from an existing identity. Unlinked developer users will be considered new identities next time they are seen. If, for a given Cognito identity, you remove all federated identities as well as the developer user identifier, the Cognito identity becomes inaccessible.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "udiiIdentityId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "udiiIdentityPoolId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "udiiDeveloperProviderName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "udiiDeveloperUserIdentifier",
+                        "type": "Text"
+                    }
+                ],
+                "name": "UnlinkDeveloperIdentityInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "liprIdentityPools",
+                        "type": "List IdentityPoolShortDescription"
+                    }
+                ],
+                "name": "ListIdentityPoolsResponse",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "liprNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CognitoIdentity.ListIdentityPools",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "name": "ListIdentityPools",
+            "method": "post",
+            "documentation": "\u003cp\u003eLists all of the Cognito identity pools registered for your account.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lipiMaxResults",
+                        "type": "Int"
+                    }
+                ],
+                "name": "ListIdentityPoolsInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lipiNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lirIdentities",
+                        "type": "List IdentityDescription"
+                    }
+                ],
+                "name": "ListIdentitiesResponse",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lirIdentityPoolId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lirNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CognitoIdentity.ListIdentities",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "name": "ListIdentities",
+            "method": "post",
+            "documentation": "\u003cp\u003eLists the identities in a pool.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "liiIdentityPoolId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "liiMaxResults",
+                        "type": "Int"
+                    }
+                ],
+                "name": "ListIdentitiesInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "liiNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ldirDeveloperUserIdentifierList",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "LookupDeveloperIdentityResponse",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ldirIdentityId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ldirNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CognitoIdentity.LookupDeveloperIdentity",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "name": "LookupDeveloperIdentity",
+            "method": "post",
+            "documentation": "\u003cp\u003eRetrieves the \u003ccode\u003eIdentityID\u003c/code\u003e associated with a \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e or the list of \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003es associated with an \u003ccode\u003eIdentityId\u003c/code\u003e for an existing identity. Either \u003ccode\u003eIdentityID\u003c/code\u003e or \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e must not be null. If you supply only one of these values, the other value will be searched in the database and returned as a part of the response. If you supply both, \u003ccode\u003eDeveloperUserIdentifier\u003c/code\u003e will be matched against \u003ccode\u003eIdentityID\u003c/code\u003e. If the values are verified against the database, the response returns both values and is the same as the request. Otherwise a \u003ccode\u003eResourceConflictException\u003c/code\u003e is thrown.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ldiiIdentityPoolId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "LookupDeveloperIdentityInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ldiiIdentityId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ldiiDeveloperUserIdentifier",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ldiiMaxResults",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ldiiNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.CognitoIdentity.UnlinkIdentity",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "name": "UnlinkIdentity",
+            "method": "post",
+            "documentation": "\u003cp\u003eUnlinks a federated identity from an existing account. Unlinked logins will be considered new identities next time they are seen. Removing the last linked login will make this identity inaccessible.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uiiIdentityId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uiiLogins",
+                        "type": "Map Text Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "uiiLoginsToRemove",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "UnlinkIdentityInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "IdentityPool",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.CognitoIdentity.CreateIdentityPool",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "name": "CreateIdentityPool",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The limit on identity pools is 60 per account.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cipiIdentityPoolName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cipiAllowUnauthenticatedIdentities",
+                        "type": "Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cipiSupportedLoginProviders",
+                        "type": "Map Text Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cipiOpenIdConnectProviderARNs",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "CreateIdentityPoolInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cipiDeveloperProviderName",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mdirIdentityId",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "MergeDeveloperIdentitiesResponse",
+                "resultWrapper": null,
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.CognitoIdentity.MergeDeveloperIdentities",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.JSON",
+                "Network.AWS.CognitoIdentity.Types"
+            ],
+            "name": "MergeDeveloperIdentities",
+            "method": "post",
+            "documentation": "\u003cp\u003eMerges two users having different \u003ccode\u003eIdentityId\u003c/code\u003es, existing in the same identity pool, and identified by the same developer provider. You can use this action to request that discrete users be merged and identified as a single user in the Cognito environment. Cognito associates the given source user (\u003ccode\u003eSourceUserIdentifier\u003c/code\u003e) with the \u003ccode\u003eIdentityId\u003c/code\u003e of the \u003ccode\u003eDestinationUserIdentifier\u003c/code\u003e. Only developer-authenticated users can be merged. If the users to be merged are associated with the same public provider, but as two different users, an exception will be thrown.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mdiiSourceUserIdentifier",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mdiiDestinationUserIdentifier",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mdiiDeveloperProviderName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mdiiIdentityPoolId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "MergeDeveloperIdentitiesInput",
+                "type": "record",
+                "optional": []
+            }
+        }
+    ]
+}

@@ -1,0 +1,4320 @@
+{
+    "service": {
+        "signature": "v4",
+        "checksum": "sha256",
+        "abbrev": "ElastiCache",
+        "error": "ElastiCacheError",
+        "namespace": "Network.AWS.ElastiCache",
+        "protocol": "query",
+        "imports": [
+            "Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress",
+            "Network.AWS.ElastiCache.CopySnapshot",
+            "Network.AWS.ElastiCache.CreateCacheCluster",
+            "Network.AWS.ElastiCache.CreateCacheParameterGroup",
+            "Network.AWS.ElastiCache.CreateCacheSecurityGroup",
+            "Network.AWS.ElastiCache.CreateCacheSubnetGroup",
+            "Network.AWS.ElastiCache.CreateReplicationGroup",
+            "Network.AWS.ElastiCache.CreateSnapshot",
+            "Network.AWS.ElastiCache.DeleteCacheCluster",
+            "Network.AWS.ElastiCache.DeleteCacheParameterGroup",
+            "Network.AWS.ElastiCache.DeleteCacheSecurityGroup",
+            "Network.AWS.ElastiCache.DeleteCacheSubnetGroup",
+            "Network.AWS.ElastiCache.DeleteReplicationGroup",
+            "Network.AWS.ElastiCache.DeleteSnapshot",
+            "Network.AWS.ElastiCache.DescribeCacheClusters",
+            "Network.AWS.ElastiCache.DescribeCacheEngineVersions",
+            "Network.AWS.ElastiCache.DescribeCacheParameterGroups",
+            "Network.AWS.ElastiCache.DescribeCacheParameters",
+            "Network.AWS.ElastiCache.DescribeCacheSecurityGroups",
+            "Network.AWS.ElastiCache.DescribeCacheSubnetGroups",
+            "Network.AWS.ElastiCache.DescribeEngineDefaultParameters",
+            "Network.AWS.ElastiCache.DescribeEvents",
+            "Network.AWS.ElastiCache.DescribeReplicationGroups",
+            "Network.AWS.ElastiCache.DescribeReservedCacheNodes",
+            "Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings",
+            "Network.AWS.ElastiCache.DescribeSnapshots",
+            "Network.AWS.ElastiCache.ModifyCacheCluster",
+            "Network.AWS.ElastiCache.ModifyCacheParameterGroup",
+            "Network.AWS.ElastiCache.ModifyCacheSubnetGroup",
+            "Network.AWS.ElastiCache.ModifyReplicationGroup",
+            "Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering",
+            "Network.AWS.ElastiCache.RebootCacheCluster",
+            "Network.AWS.ElastiCache.ResetCacheParameterGroup",
+            "Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress",
+            "Network.AWS.ElastiCache.Types"
+        ],
+        "name": "Amazon ElastiCache",
+        "version": "2014-09-30",
+        "documentation": "\u003cfullname\u003eAmazon ElastiCache\u003c/fullname\u003e \u003cp\u003eAmazon ElastiCache is a web service that makes it easier to set up, operate, and scale a distributed cache in the cloud.\u003c/p\u003e \u003cp\u003eWith ElastiCache, customers gain all of the benefits of a high-performance, in-memory cache with far less of the administrative burden of launching and managing a distributed cache. The service makes setup, scaling, and cluster failure handling much simpler than in a self-managed cache deployment.\u003c/p\u003e \u003cp\u003eIn addition, through integration with Amazon CloudWatch, customers get enhanced visibility into the key performance statistics associated with their cache and can receive alarms if a part of their cache runs hot.\u003c/p\u003e",
+        "xmlNamespace": "http://elasticache.amazonaws.com/doc/2014-09-30/",
+        "endpoint": "regional",
+        "endpointPrefix": "elasticache"
+    },
+    "cabal": {
+        "library": "amazonka-elasticache",
+        "modules": [
+            "Network.AWS.ElastiCache",
+            "Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress",
+            "Network.AWS.ElastiCache.CopySnapshot",
+            "Network.AWS.ElastiCache.CreateCacheCluster",
+            "Network.AWS.ElastiCache.CreateCacheParameterGroup",
+            "Network.AWS.ElastiCache.CreateCacheSecurityGroup",
+            "Network.AWS.ElastiCache.CreateCacheSubnetGroup",
+            "Network.AWS.ElastiCache.CreateReplicationGroup",
+            "Network.AWS.ElastiCache.CreateSnapshot",
+            "Network.AWS.ElastiCache.DeleteCacheCluster",
+            "Network.AWS.ElastiCache.DeleteCacheParameterGroup",
+            "Network.AWS.ElastiCache.DeleteCacheSecurityGroup",
+            "Network.AWS.ElastiCache.DeleteCacheSubnetGroup",
+            "Network.AWS.ElastiCache.DeleteReplicationGroup",
+            "Network.AWS.ElastiCache.DeleteSnapshot",
+            "Network.AWS.ElastiCache.DescribeCacheClusters",
+            "Network.AWS.ElastiCache.DescribeCacheEngineVersions",
+            "Network.AWS.ElastiCache.DescribeCacheParameterGroups",
+            "Network.AWS.ElastiCache.DescribeCacheParameters",
+            "Network.AWS.ElastiCache.DescribeCacheSecurityGroups",
+            "Network.AWS.ElastiCache.DescribeCacheSubnetGroups",
+            "Network.AWS.ElastiCache.DescribeEngineDefaultParameters",
+            "Network.AWS.ElastiCache.DescribeEvents",
+            "Network.AWS.ElastiCache.DescribeReplicationGroups",
+            "Network.AWS.ElastiCache.DescribeReservedCacheNodes",
+            "Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings",
+            "Network.AWS.ElastiCache.DescribeSnapshots",
+            "Network.AWS.ElastiCache.ModifyCacheCluster",
+            "Network.AWS.ElastiCache.ModifyCacheParameterGroup",
+            "Network.AWS.ElastiCache.ModifyCacheSubnetGroup",
+            "Network.AWS.ElastiCache.ModifyReplicationGroup",
+            "Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering",
+            "Network.AWS.ElastiCache.RebootCacheCluster",
+            "Network.AWS.ElastiCache.ResetCacheParameterGroup",
+            "Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress",
+            "Network.AWS.ElastiCache.Types"
+        ],
+        "dependencies": [],
+        "version": "0.0.0",
+        "synopsis": "",
+        "description": ""
+    },
+    "types": {
+        "NodeSnapshot": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "nsCacheNodeId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "nsCacheSize",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "nsCacheNodeCreateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "nsSnapshotCreateTime",
+                    "type": "Maybe (Time RFC822)"
+                }
+            ]
+        },
+        "Snapshot": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaNodeSnapshots",
+                    "type": "List NodeSnapshot"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaSnapshotName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaCacheClusterId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaSnapshotStatus",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaSnapshotSource",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaCacheNodeType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaEngine",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaEngineVersion",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaNumCacheNodes",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaPreferredAvailabilityZone",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaCacheClusterCreateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaPreferredMaintenanceWindow",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaTopicArn",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaPort",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaCacheParameterGroupName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaCacheSubnetGroupName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaVpcId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaAutoMinorVersionUpgrade",
+                    "type": "Maybe Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaSnapshotRetentionLimit",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "snaSnapshotWindow",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Event": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "eveSourceIdentifier",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "eveSourceType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "eveMessage",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "eveDate",
+                    "type": "Maybe (Time RFC822)"
+                }
+            ]
+        },
+        "NodeGroup": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ngNodeGroupMembers",
+                    "type": "List NodeGroupMember"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ngNodeGroupId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ngStatus",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ngPrimaryEndpoint",
+                    "type": "Maybe Endpoint"
+                }
+            ]
+        },
+        "CacheNodeTypeSpecificValue": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cntsvCacheNodeType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cntsvValue",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "NotificationConfiguration": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ncTopicArn",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ncTopicStatus",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "ReplicationGroupPendingModifiedValues": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rgpmvPrimaryClusterId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rgpmvAutomaticFailoverStatus",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "EC2SecurityGroup": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ecsgStatus",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ecsgEC2SecurityGroupName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ecsgEC2SecurityGroupOwnerId",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "ParameterNameValue": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pnvParameterName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pnvParameterValue",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "CacheSubnetGroup": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csgSubnets",
+                    "type": "List Subnet"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csgCacheSubnetGroupName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csgCacheSubnetGroupDescription",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csgVpcId",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "ReservedCacheNode": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnRecurringCharges",
+                    "type": "List RecurringCharge"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnReservedCacheNodeId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnReservedCacheNodesOfferingId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnCacheNodeType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnStartTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnDuration",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnFixedPrice",
+                    "type": "Maybe Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnUsagePrice",
+                    "type": "Maybe Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnCacheNodeCount",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnProductDescription",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnOfferingType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnState",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Subnet": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "subSubnetIdentifier",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "subSubnetAvailabilityZone",
+                    "type": "Maybe AvailabilityZone"
+                }
+            ]
+        },
+        "SecurityGroupMembership": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sgmSecurityGroupId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "sgmStatus",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "namespace": "Network.AWS.ElastiCache.Types",
+        "CacheCluster": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccCacheSecurityGroups",
+                    "type": "List CacheSecurityGroupMembership"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccCacheNodes",
+                    "type": "List CacheNode"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccSecurityGroups",
+                    "type": "List SecurityGroupMembership"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccCacheClusterId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccConfigurationEndpoint",
+                    "type": "Maybe Endpoint"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccClientDownloadLandingPage",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccCacheNodeType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccEngine",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccEngineVersion",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccCacheClusterStatus",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccNumCacheNodes",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccPreferredAvailabilityZone",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccCacheClusterCreateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccPreferredMaintenanceWindow",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccPendingModifiedValues",
+                    "type": "Maybe PendingModifiedValues"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccNotificationConfiguration",
+                    "type": "Maybe NotificationConfiguration"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccCacheParameterGroup",
+                    "type": "Maybe CacheParameterGroupStatus"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccCacheSubnetGroupName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccAutoMinorVersionUpgrade",
+                    "type": "Maybe Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccReplicationGroupId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccSnapshotRetentionLimit",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccSnapshotWindow",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "EngineDefaults": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "edParameters",
+                    "type": "List Parameter"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "edCacheNodeTypeSpecificParameters",
+                    "type": "List CacheNodeTypeSpecificParameter"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "edCacheParameterGroupFamily",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "edMarker",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "CacheParameterGroupStatus": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cpgsCacheNodeIdsToReboot",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cpgsCacheParameterGroupName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cpgsParameterApplyStatus",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "imports": [],
+        "InvalidParameterValueException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "ipvemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "CacheNode": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cnCacheNodeId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cnCacheNodeStatus",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cnCacheNodeCreateTime",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cnEndpoint",
+                    "type": "Maybe Endpoint"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cnParameterGroupStatus",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cnSourceCacheNodeId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cnCustomerAvailabilityZone",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "CacheSecurityGroupMembership": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csgmCacheSecurityGroupName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csgmStatus",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "AvailabilityZone": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "azName",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "NodeGroupMember": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ngmCacheClusterId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ngmCacheNodeId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ngmReadEndpoint",
+                    "type": "Maybe Endpoint"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ngmPreferredAvailabilityZone",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ngmCurrentRole",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "CacheParameterGroup": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cpgCacheParameterGroupName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cpgCacheParameterGroupFamily",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cpgDescription",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "CacheSecurityGroup": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csgEC2SecurityGroups",
+                    "type": "List EC2SecurityGroup"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csgOwnerId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csgCacheSecurityGroupName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csgDescription",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "CacheNodeTypeSpecificParameter": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cntspCacheNodeTypeSpecificValues",
+                    "type": "List CacheNodeTypeSpecificValue"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cntspParameterName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cntspDescription",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cntspSource",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cntspDataType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cntspAllowedValues",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cntspIsModifiable",
+                    "type": "Maybe Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cntspMinimumEngineVersion",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "CacheEngineVersion": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cevEngine",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cevEngineVersion",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cevCacheParameterGroupFamily",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cevCacheEngineDescription",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cevCacheEngineVersionDescription",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "ReplicationGroup": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rgMemberClusters",
+                    "type": "List Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rgNodeGroups",
+                    "type": "List NodeGroup"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rgReplicationGroupId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rgDescription",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rgStatus",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rgPendingModifiedValues",
+                    "type": "Maybe ReplicationGroupPendingModifiedValues"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rgSnapshottingClusterId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rgAutomaticFailover",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "RecurringCharge": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcRecurringChargeAmount",
+                    "type": "Maybe Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcRecurringChargeFrequency",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "ReservedCacheNodesOffering": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnoRecurringCharges",
+                    "type": "List RecurringCharge"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnoReservedCacheNodesOfferingId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnoCacheNodeType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnoDuration",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnoFixedPrice",
+                    "type": "Maybe Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnoUsagePrice",
+                    "type": "Maybe Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnoProductDescription",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcnoOfferingType",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Endpoint": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "endAddress",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "endPort",
+                    "type": "Maybe Int"
+                }
+            ]
+        },
+        "PendingModifiedValues": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pmvCacheNodeIdsToRemove",
+                    "type": "List Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pmvNumCacheNodes",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "pmvEngineVersion",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "InvalidParameterCombinationException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "ipcemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "Parameter": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "parParameterName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "parParameterValue",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "parDescription",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "parSource",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "parDataType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "parAllowedValues",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "parIsModifiable",
+                    "type": "Maybe Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "parMinimumEngineVersion",
+                    "type": "Maybe Text"
+                }
+            ]
+        }
+    },
+    "operations": [
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElastiCache.DeleteCacheSecurityGroup",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DeleteCacheSecurityGroup",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDeleteCacheSecurityGroup\u003c/i\u003e operation deletes a cache security group.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dcsgmCacheSecurityGroupName",
+                    "type": "Text"
+                },
+                "name": "DeleteCacheSecurityGroupMessage",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "crgrReplicationGroup",
+                    "type": "Maybe ReplicationGroup"
+                },
+                "wrapper": true,
+                "name": "CreateReplicationGroupResult",
+                "resultWrapper": "CreateReplicationGroupResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.CreateReplicationGroup",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "CreateReplicationGroup",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eCreateReplicationGroup\u003c/i\u003e operation creates a replication group. A replication group is a collection of cache clusters, where one of the cache clusters is a read/write primary and the others are read-only replicas. Writes to the primary are automatically propagated to the replicas.\u003c/p\u003e \u003cp\u003eWhen you create a replication group, you must specify an existing cache cluster that is in the primary role. When the replication group has been successfully created, you can add one or more read replica replicas to it, up to a total of five read replicas.\u003c/p\u003e \u003cp\u003e\u003cb\u003eNote:\u003c/b\u003e This action is valid only for Redis.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmReplicationGroupId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmReplicationGroupDescription",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmPreferredCacheClusterAZs",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmCacheSecurityGroupNames",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmSecurityGroupIds",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmSnapshotArns",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "CreateReplicationGroupMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmPrimaryClusterId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmAutomaticFailoverEnabled",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmNumCacheClusters",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmCacheNodeType",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmEngine",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmEngineVersion",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmCacheParameterGroupName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmCacheSubnetGroupName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmSnapshotName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmPreferredMaintenanceWindow",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmPort",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmNotificationTopicArn",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmAutoMinorVersionUpgrade",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmSnapshotRetentionLimit",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "crgmSnapshotWindow",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dccrCacheCluster",
+                    "type": "Maybe CacheCluster"
+                },
+                "wrapper": true,
+                "name": "DeleteCacheClusterResult",
+                "resultWrapper": "DeleteCacheClusterResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.DeleteCacheCluster",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DeleteCacheCluster",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDeleteCacheCluster\u003c/i\u003e operation deletes a previously provisioned cache cluster. \u003ci\u003eDeleteCacheCluster\u003c/i\u003e deletes all associated cache nodes, node endpoints and the cache cluster itself. When you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the cache cluster; you cannot cancel or revert this operation.\u003c/p\u003e \u003cp\u003eThis API cannot be used to delete a cache cluster that is the last read replica of a replication group that has automatic failover mode enabled.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dccmCacheClusterId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "DeleteCacheClusterMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dccmFinalSnapshotIdentifier",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rccrCacheCluster",
+                    "type": "Maybe CacheCluster"
+                },
+                "wrapper": true,
+                "name": "RebootCacheClusterResult",
+                "resultWrapper": "RebootCacheClusterResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.RebootCacheCluster",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "RebootCacheCluster",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eRebootCacheCluster\u003c/i\u003e operation reboots some, or all, of the cache nodes within a provisioned cache cluster. This API will apply any modified cache parameter groups to the cache cluster. The reboot action takes place as soon as possible, and results in a momentary outage to the cache cluster. During the reboot, the cache cluster status is set to REBOOTING.\u003c/p\u003e \u003cp\u003eThe reboot causes the contents of the cache (for each cache node being rebooted) to be lost.\u003c/p\u003e \u003cp\u003eWhen the reboot is complete, a cache cluster event is created.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rccmCacheClusterId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rccmCacheNodeIdsToReboot",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "RebootCacheClusterMessage",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rcsgirCacheSecurityGroup",
+                    "type": "Maybe CacheSecurityGroup"
+                },
+                "wrapper": true,
+                "name": "RevokeCacheSecurityGroupIngressResult",
+                "resultWrapper": "RevokeCacheSecurityGroupIngressResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "RevokeCacheSecurityGroupIngress",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eRevokeCacheSecurityGroupIngress\u003c/i\u003e operation revokes ingress from a cache security group. Use this operation to disallow access from an Amazon EC2 security group that had been previously authorized.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rcsgimCacheSecurityGroupName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rcsgimEC2SecurityGroupName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rcsgimEC2SecurityGroupOwnerId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "RevokeCacheSecurityGroupIngressMessage",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cccrCacheCluster",
+                    "type": "Maybe CacheCluster"
+                },
+                "wrapper": true,
+                "name": "CreateCacheClusterResult",
+                "resultWrapper": "CreateCacheClusterResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.CreateCacheCluster",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "CreateCacheCluster",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eCreateCacheCluster\u003c/i\u003e operation creates a cache cluster. All nodes in the cache cluster run the same protocol-compliant cache engine software, either Memcached or Redis.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmCacheClusterId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmPreferredAvailabilityZones",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmCacheSecurityGroupNames",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmSecurityGroupIds",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmSnapshotArns",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "CreateCacheClusterMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmReplicationGroupId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmAZMode",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmPreferredAvailabilityZone",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmNumCacheNodes",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmCacheNodeType",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmEngine",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmEngineVersion",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmCacheParameterGroupName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmCacheSubnetGroupName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmSnapshotName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmPreferredMaintenanceWindow",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmPort",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmNotificationTopicArn",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmAutoMinorVersionUpgrade",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmSnapshotRetentionLimit",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cccmSnapshotWindow",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "emEvents",
+                        "type": "List Event"
+                    }
+                ],
+                "name": "EventsMessage",
+                "resultWrapper": "DescribeEventsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "emMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElastiCache.DescribeEvents",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DescribeEvents",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeEvents\u003c/i\u003e operation returns events related to cache clusters, cache security groups, and cache parameter groups. You can obtain events specific to a particular cache cluster, cache security group, or cache parameter group by providing the name as a parameter.\u003c/p\u003e \u003cp\u003eBy default, only the events occurring within the last hour are returned; however, you can retrieve up to 14 days' worth of events if necessary.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "DescribeEventsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "demSourceIdentifier",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "demSourceType",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "demStartTime",
+                        "type": "Maybe (Time RFC822)"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "demEndTime",
+                        "type": "Maybe (Time RFC822)"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "demDuration",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "demMaxRecords",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "demMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dedprEngineDefaults",
+                    "type": "Maybe EngineDefaults"
+                },
+                "wrapper": true,
+                "name": "DescribeEngineDefaultParametersResult",
+                "resultWrapper": "DescribeEngineDefaultParametersResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.DescribeEngineDefaultParameters",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DescribeEngineDefaultParameters",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeEngineDefaultParameters\u003c/i\u003e operation returns the default engine and system parameter information for the specified cache engine.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dedpmCacheParameterGroupFamily",
+                        "type": "Text"
+                    }
+                ],
+                "name": "DescribeEngineDefaultParametersMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dedpmMaxRecords",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dedpmMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cpgnmCacheParameterGroupName",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "CacheParameterGroupNameMessage",
+                "resultWrapper": "ModifyCacheParameterGroupResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.ModifyCacheParameterGroup",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "ModifyCacheParameterGroup",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eModifyCacheParameterGroup\u003c/i\u003e operation modifies the parameters of a cache parameter group. You can modify up to 20 parameters in a single request by submitting a list parameter name and value pairs.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mcpgmCacheParameterGroupName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mcpgmParameterNameValues",
+                        "type": "List ParameterNameValue"
+                    }
+                ],
+                "name": "ModifyCacheParameterGroupMessage",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "drgrReplicationGroup",
+                    "type": "Maybe ReplicationGroup"
+                },
+                "wrapper": true,
+                "name": "DeleteReplicationGroupResult",
+                "resultWrapper": "DeleteReplicationGroupResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.DeleteReplicationGroup",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DeleteReplicationGroup",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDeleteReplicationGroup\u003c/i\u003e operation deletes an existing cluster. By default, this operation deletes the entire cluster, including the primary node group and all of the read replicas. You can optionally delete only the read replicas, while retaining the primary node group.\u003c/p\u003e \u003cp\u003eWhen you receive a successful response from this operation, Amazon ElastiCache immediately begins deleting the selected resources; you cannot cancel or revert this operation.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drgm1ReplicationGroupId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "DeleteReplicationGroupMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drgm1RetainPrimaryCluster",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drgm1FinalSnapshotIdentifier",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ccmCacheClusters",
+                        "type": "List CacheCluster"
+                    }
+                ],
+                "name": "CacheClusterMessage",
+                "resultWrapper": "DescribeCacheClustersResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ccmMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElastiCache.DescribeCacheClusters",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DescribeCacheClusters",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheClusters\u003c/i\u003e operation returns information about all provisioned cache clusters if no cache cluster identifier is specified, or about a specific cache cluster if a cache cluster identifier is supplied.\u003c/p\u003e \u003cp\u003eBy default, abbreviated information about the cache clusters(s) will be returned. You can use the optional \u003ci\u003eShowDetails\u003c/i\u003e flag to retrieve detailed information about the cache nodes associated with the cache clusters. These details include the DNS address and port for the cache node endpoint.\u003c/p\u003e \u003cp\u003eIf the cluster is in the CREATING state, only cluster level information will be displayed until all of the nodes are successfully provisioned.\u003c/p\u003e \u003cp\u003eIf the cluster is in the DELETING state, only cluster level information will be displayed.\u003c/p\u003e \u003cp\u003eIf cache nodes are currently being added to the cache cluster, node endpoint information and creation time for the additional nodes will not be displayed until they are completely provisioned. When the cache cluster state is \u003ci\u003eavailable\u003c/i\u003e, the cluster is ready for use.\u003c/p\u003e \u003cp\u003eIf cache nodes are currently being removed from the cache cluster, no endpoint information for the removed nodes is displayed.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "DescribeCacheClustersMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dccm1CacheClusterId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dccm1MaxRecords",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dccm1Marker",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dccm1ShowCacheNodeInfo",
+                        "type": "Maybe Bool"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "prcnorReservedCacheNode",
+                    "type": "Maybe ReservedCacheNode"
+                },
+                "wrapper": true,
+                "name": "PurchaseReservedCacheNodesOfferingResult",
+                "resultWrapper": "PurchaseReservedCacheNodesOfferingResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "PurchaseReservedCacheNodesOffering",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003ePurchaseReservedCacheNodesOffering\u003c/i\u003e operation allows you to purchase a reserved cache node offering.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "prcnomReservedCacheNodesOfferingId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "PurchaseReservedCacheNodesOfferingMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "prcnomReservedCacheNodeId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "prcnomCacheNodeCount",
+                        "type": "Maybe Int"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mrgrReplicationGroup",
+                    "type": "Maybe ReplicationGroup"
+                },
+                "wrapper": true,
+                "name": "ModifyReplicationGroupResult",
+                "resultWrapper": "ModifyReplicationGroupResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.ModifyReplicationGroup",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "ModifyReplicationGroup",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eModifyReplicationGroup\u003c/i\u003e operation modifies the settings for a replication group.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmReplicationGroupId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmCacheSecurityGroupNames",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmSecurityGroupIds",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "ModifyReplicationGroupMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmReplicationGroupDescription",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmPrimaryClusterId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmSnapshottingClusterId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmAutomaticFailoverEnabled",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmPreferredMaintenanceWindow",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmNotificationTopicArn",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmCacheParameterGroupName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmNotificationTopicStatus",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmApplyImmediately",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmEngineVersion",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmAutoMinorVersionUpgrade",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmSnapshotRetentionLimit",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mrgmSnapshotWindow",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpgdParameters",
+                        "type": "List Parameter"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpgdCacheNodeTypeSpecificParameters",
+                        "type": "List CacheNodeTypeSpecificParameter"
+                    }
+                ],
+                "name": "CacheParameterGroupDetails",
+                "resultWrapper": "DescribeCacheParametersResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpgdMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElastiCache.DescribeCacheParameters",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DescribeCacheParameters",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheParameters\u003c/i\u003e operation returns the detailed parameter list for a particular cache parameter group.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcpmCacheParameterGroupName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "DescribeCacheParametersMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcpmSource",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcpmMaxRecords",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcpmMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csgm1CacheSubnetGroups",
+                        "type": "List CacheSubnetGroup"
+                    }
+                ],
+                "name": "CacheSubnetGroupMessage",
+                "resultWrapper": "DescribeCacheSubnetGroupsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csgm1Marker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElastiCache.DescribeCacheSubnetGroups",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DescribeCacheSubnetGroups",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheSubnetGroups\u003c/i\u003e operation returns a list of cache subnet group descriptions. If a subnet group name is specified, the list will contain only the description of that group.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "DescribeCacheSubnetGroupsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcsgmCacheSubnetGroupName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcsgmMaxRecords",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcsgmMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccsgrCacheSecurityGroup",
+                    "type": "Maybe CacheSecurityGroup"
+                },
+                "wrapper": true,
+                "name": "CreateCacheSecurityGroupResult",
+                "resultWrapper": "CreateCacheSecurityGroupResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.CreateCacheSecurityGroup",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "CreateCacheSecurityGroup",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eCreateCacheSecurityGroup\u003c/i\u003e operation creates a new cache security group. Use a cache security group to control access to one or more cache clusters.\u003c/p\u003e \u003cp\u003eCache security groups are only used when you are creating a cache cluster outside of an Amazon Virtual Private Cloud (VPC). If you are creating a cache cluster inside of a VPC, use a cache subnet group instead. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateCacheSubnetGroup.html\"\u003eCreateCacheSubnetGroup\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ccsgmCacheSecurityGroupName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ccsgmDescription",
+                        "type": "Text"
+                    }
+                ],
+                "name": "CreateCacheSecurityGroupMessage",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "acsgirCacheSecurityGroup",
+                    "type": "Maybe CacheSecurityGroup"
+                },
+                "wrapper": true,
+                "name": "AuthorizeCacheSecurityGroupIngressResult",
+                "resultWrapper": "AuthorizeCacheSecurityGroupIngressResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "AuthorizeCacheSecurityGroupIngress",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eAuthorizeCacheSecurityGroupIngress\u003c/i\u003e operation allows network ingress to a cache security group. Applications using ElastiCache must be running on Amazon EC2, and Amazon EC2 security groups are used as the authorization mechanism.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "acsgimCacheSecurityGroupName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "acsgimEC2SecurityGroupName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "acsgimEC2SecurityGroupOwnerId",
+                        "type": "Text"
+                    }
+                ],
+                "name": "AuthorizeCacheSecurityGroupIngressMessage",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csrSnapshot",
+                    "type": "Maybe Snapshot"
+                },
+                "wrapper": true,
+                "name": "CopySnapshotResult",
+                "resultWrapper": "CopySnapshotResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.CopySnapshot",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "CopySnapshot",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eCopySnapshot\u003c/i\u003e operation makes a copy of an existing snapshot.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csmSourceSnapshotName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csmTargetSnapshotName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "CopySnapshotMessage",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccsgrCacheSubnetGroup",
+                    "type": "Maybe CacheSubnetGroup"
+                },
+                "wrapper": true,
+                "name": "CreateCacheSubnetGroupResult",
+                "resultWrapper": "CreateCacheSubnetGroupResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.CreateCacheSubnetGroup",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "CreateCacheSubnetGroup",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eCreateCacheSubnetGroup\u003c/i\u003e operation creates a new cache subnet group.\u003c/p\u003e \u003cp\u003eUse this parameter only when you are creating a cluster in an Amazon Virtual Private Cloud (VPC).\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ccsgmCacheSubnetGroupName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ccsgmCacheSubnetGroupDescription",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ccsgmSubnetIds",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "CreateCacheSubnetGroupMessage",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpgmCacheParameterGroups",
+                        "type": "List CacheParameterGroup"
+                    }
+                ],
+                "name": "CacheParameterGroupsMessage",
+                "resultWrapper": "DescribeCacheParameterGroupsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cpgmMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElastiCache.DescribeCacheParameterGroups",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DescribeCacheParameterGroups",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheParameterGroups\u003c/i\u003e operation returns a list of cache parameter group descriptions. If a cache parameter group name is specified, the list will contain only the descriptions for that group.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "DescribeCacheParameterGroupsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcpgmCacheParameterGroupName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcpgmMaxRecords",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcpgmMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "CacheParameterGroupNameMessage",
+                "resultWrapper": "ResetCacheParameterGroupResult",
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElastiCache.ResetCacheParameterGroup",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "ResetCacheParameterGroup",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eResetCacheParameterGroup\u003c/i\u003e operation modifies the parameters of a cache parameter group to the engine or system default value. You can reset specific parameters by submitting a list of parameter names. To reset the entire cache parameter group, specify the \u003ci\u003eResetAllParameters\u003c/i\u003e and \u003ci\u003eCacheParameterGroupName\u003c/i\u003e parameters.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rcpgmCacheParameterGroupName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rcpgmParameterNameValues",
+                        "type": "List ParameterNameValue"
+                    }
+                ],
+                "name": "ResetCacheParameterGroupMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rcpgmResetAllParameters",
+                        "type": "Maybe Bool"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dslmSnapshots",
+                        "type": "List Snapshot"
+                    }
+                ],
+                "name": "DescribeSnapshotsListMessage",
+                "resultWrapper": "DescribeSnapshotsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dslmMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElastiCache.DescribeSnapshots",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DescribeSnapshots",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeSnapshots\u003c/i\u003e operation returns information about cache cluster snapshots. By default, \u003ci\u003eDescribeSnapshots\u003c/i\u003e lists all of your snapshots; it can optionally describe a single snapshot, or just the snapshots associated with a particular cache cluster.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "DescribeSnapshotsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dsm1CacheClusterId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dsm1SnapshotName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dsm1SnapshotSource",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dsm1Marker",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dsm1MaxRecords",
+                        "type": "Maybe Int"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rgmReplicationGroups",
+                        "type": "List ReplicationGroup"
+                    }
+                ],
+                "name": "ReplicationGroupMessage",
+                "resultWrapper": "DescribeReplicationGroupsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rgmMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElastiCache.DescribeReplicationGroups",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DescribeReplicationGroups",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeReplicationGroups\u003c/i\u003e operation returns information about a particular replication group. If no identifier is specified, \u003ci\u003eDescribeReplicationGroups\u003c/i\u003e returns information about all replication groups.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "DescribeReplicationGroupsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drgmReplicationGroupId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drgmMaxRecords",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drgmMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dsrSnapshot",
+                    "type": "Maybe Snapshot"
+                },
+                "wrapper": true,
+                "name": "DeleteSnapshotResult",
+                "resultWrapper": "DeleteSnapshotResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.DeleteSnapshot",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DeleteSnapshot",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDeleteSnapshot\u003c/i\u003e operation deletes an existing snapshot. When you receive a successful response from this operation, ElastiCache immediately begins deleting the snapshot; you cannot cancel or revert this operation.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dsmSnapshotName",
+                    "type": "Text"
+                },
+                "name": "DeleteSnapshotMessage",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rcnomReservedCacheNodesOfferings",
+                        "type": "List ReservedCacheNodesOffering"
+                    }
+                ],
+                "name": "ReservedCacheNodesOfferingMessage",
+                "resultWrapper": "DescribeReservedCacheNodesOfferingsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rcnomMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DescribeReservedCacheNodesOfferings",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeReservedCacheNodesOfferings\u003c/i\u003e operation lists available reserved cache node offerings.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "DescribeReservedCacheNodesOfferingsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnomReservedCacheNodesOfferingId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnomCacheNodeType",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnomDuration",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnomProductDescription",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnomOfferingType",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnomMaxRecords",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnomMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mcsgrCacheSubnetGroup",
+                    "type": "Maybe CacheSubnetGroup"
+                },
+                "wrapper": true,
+                "name": "ModifyCacheSubnetGroupResult",
+                "resultWrapper": "ModifyCacheSubnetGroupResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.ModifyCacheSubnetGroup",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "ModifyCacheSubnetGroup",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eModifyCacheSubnetGroup\u003c/i\u003e operation modifies an existing cache subnet group.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mcsgmCacheSubnetGroupName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mcsgmSubnetIds",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "ModifyCacheSubnetGroupMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mcsgmCacheSubnetGroupDescription",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "csr1Snapshot",
+                    "type": "Maybe Snapshot"
+                },
+                "wrapper": true,
+                "name": "CreateSnapshotResult",
+                "resultWrapper": "CreateSnapshotResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.CreateSnapshot",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "CreateSnapshot",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eCreateSnapshot\u003c/i\u003e operation creates a copy of an entire cache cluster at a specific moment in time.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csmCacheClusterId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csmSnapshotName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "CreateSnapshotMessage",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElastiCache.DeleteCacheParameterGroup",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DeleteCacheParameterGroup",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDeleteCacheParameterGroup\u003c/i\u003e operation deletes the specified cache parameter group. You cannot delete a cache parameter group if it is associated with any cache clusters.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dcpgm1CacheParameterGroupName",
+                    "type": "Text"
+                },
+                "name": "DeleteCacheParameterGroupMessage",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csgmCacheSecurityGroups",
+                        "type": "List CacheSecurityGroup"
+                    }
+                ],
+                "name": "CacheSecurityGroupMessage",
+                "resultWrapper": "DescribeCacheSecurityGroupsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "csgmMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElastiCache.DescribeCacheSecurityGroups",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DescribeCacheSecurityGroups",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheSecurityGroups\u003c/i\u003e operation returns a list of cache security group descriptions. If a cache security group name is specified, the list will contain only the description of that group.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "DescribeCacheSecurityGroupsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcsgm1CacheSecurityGroupName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcsgm1MaxRecords",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcsgm1Marker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mccrCacheCluster",
+                    "type": "Maybe CacheCluster"
+                },
+                "wrapper": true,
+                "name": "ModifyCacheClusterResult",
+                "resultWrapper": "ModifyCacheClusterResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.ModifyCacheCluster",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "ModifyCacheCluster",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eModifyCacheCluster\u003c/i\u003e operation modifies the settings for a cache cluster. You can use this operation to change one or more cluster configuration parameters by specifying the parameters and the new values.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmCacheClusterId",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmCacheNodeIdsToRemove",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmNewAvailabilityZones",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmCacheSecurityGroupNames",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmSecurityGroupIds",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "ModifyCacheClusterMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmNumCacheNodes",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmAZMode",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmPreferredMaintenanceWindow",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmNotificationTopicArn",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmCacheParameterGroupName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmNotificationTopicStatus",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmApplyImmediately",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmEngineVersion",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmAutoMinorVersionUpgrade",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmSnapshotRetentionLimit",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "mccmSnapshotWindow",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cevmCacheEngineVersions",
+                        "type": "List CacheEngineVersion"
+                    }
+                ],
+                "name": "CacheEngineVersionMessage",
+                "resultWrapper": "DescribeCacheEngineVersionsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cevmMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElastiCache.DescribeCacheEngineVersions",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DescribeCacheEngineVersions",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeCacheEngineVersions\u003c/i\u003e operation returns a list of the available cache engines and their versions.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "DescribeCacheEngineVersionsMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcevmEngine",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcevmEngineVersion",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcevmCacheParameterGroupFamily",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcevmMaxRecords",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcevmMarker",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dcevmDefaultOnly",
+                        "type": "Maybe Bool"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ccpgrCacheParameterGroup",
+                    "type": "Maybe CacheParameterGroup"
+                },
+                "wrapper": true,
+                "name": "CreateCacheParameterGroupResult",
+                "resultWrapper": "CreateCacheParameterGroupResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.ElastiCache.CreateCacheParameterGroup",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "CreateCacheParameterGroup",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eCreateCacheParameterGroup\u003c/i\u003e operation creates a new cache parameter group. A cache parameter group is a collection of parameters that you apply to all of the nodes in a cache cluster.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ccpgmCacheParameterGroupName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ccpgmCacheParameterGroupFamily",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "ccpgmDescription",
+                        "type": "Text"
+                    }
+                ],
+                "name": "CreateCacheParameterGroupMessage",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rcnmReservedCacheNodes",
+                        "type": "List ReservedCacheNode"
+                    }
+                ],
+                "name": "ReservedCacheNodeMessage",
+                "resultWrapper": "DescribeReservedCacheNodesResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rcnmMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.ElastiCache.DescribeReservedCacheNodes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DescribeReservedCacheNodes",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDescribeReservedCacheNodes\u003c/i\u003e operation returns information about reserved cache nodes for this account, or about a specified reserved cache node.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "DescribeReservedCacheNodesMessage",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnmReservedCacheNodeId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnmReservedCacheNodesOfferingId",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnmCacheNodeType",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnmDuration",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnmProductDescription",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnmOfferingType",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnmMaxRecords",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "drcnmMarker",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.ElastiCache.DeleteCacheSubnetGroup",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.ElastiCache.Types"
+            ],
+            "name": "DeleteCacheSubnetGroup",
+            "method": "post",
+            "documentation": "\u003cp\u003eThe \u003ci\u003eDeleteCacheSubnetGroup\u003c/i\u003e operation deletes a cache subnet group.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dcsgm1CacheSubnetGroupName",
+                    "type": "Text"
+                },
+                "name": "DeleteCacheSubnetGroupMessage",
+                "type": "newtype"
+            }
+        }
+    ]
+}

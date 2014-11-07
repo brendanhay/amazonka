@@ -1,0 +1,1406 @@
+{
+    "service": {
+        "signature": "v4",
+        "checksum": "sha256",
+        "abbrev": "SQS",
+        "error": "SQSError",
+        "namespace": "Network.AWS.SQS",
+        "protocol": "query",
+        "imports": [
+            "Network.AWS.SQS.AddPermission",
+            "Network.AWS.SQS.ChangeMessageVisibility",
+            "Network.AWS.SQS.ChangeMessageVisibilityBatch",
+            "Network.AWS.SQS.CreateQueue",
+            "Network.AWS.SQS.DeleteMessage",
+            "Network.AWS.SQS.DeleteMessageBatch",
+            "Network.AWS.SQS.DeleteQueue",
+            "Network.AWS.SQS.GetQueueAttributes",
+            "Network.AWS.SQS.GetQueueUrl",
+            "Network.AWS.SQS.ListDeadLetterSourceQueues",
+            "Network.AWS.SQS.ListQueues",
+            "Network.AWS.SQS.ReceiveMessage",
+            "Network.AWS.SQS.RemovePermission",
+            "Network.AWS.SQS.SendMessage",
+            "Network.AWS.SQS.SendMessageBatch",
+            "Network.AWS.SQS.SetQueueAttributes",
+            "Network.AWS.SQS.Types"
+        ],
+        "name": "Amazon Simple Queue Service",
+        "version": "2012-11-05",
+        "documentation": "\u003cp\u003eWelcome to the \u003ci\u003eAmazon Simple Queue Service API Reference\u003c/i\u003e. This section describes who should read this guide, how the guide is organized, and other resources related to the Amazon Simple Queue Service (Amazon SQS).\u003c/p\u003e \u003cp\u003eAmazon SQS offers reliable and scalable hosted queues for storing messages as they travel between computers. By using Amazon SQS, you can move data between distributed components of your applications that perform different tasks without losing messages or requiring each component to be always available.\u003c/p\u003e \u003cp\u003eHelpful Links: \u003cul\u003e \u003cli\u003e\u003ca href=\"http://queue.amazonaws.com/doc/2012-11-05/QueueService.wsdl\"\u003eCurrent WSDL (2012-11-05)\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/MakingRequestsArticle.html\"\u003eMaking API Requests\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://aws.amazon.com/sqs/\"\u003eAmazon SQS product page\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html\"\u003eUsing Amazon SQS Dead Letter Queues\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/rande.html#sqs_region\"\u003eRegions and Endpoints\u003c/a\u003e\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e \u003cp\u003eWe also provide SDKs that enable you to access Amazon SQS from your preferred programming language. The SDKs contain functionality that automatically takes care of tasks such as:\u003c/p\u003e \u003cp\u003e \u003cul\u003e \u003cli\u003eCryptographically signing your service requests\u003c/li\u003e \u003cli\u003eRetrying requests\u003c/li\u003e \u003cli\u003eHandling error responses\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e \u003cp\u003eFor a list of available SDKs, go to \u003ca href=\"http://aws.amazon.com/tools/\"\u003eTools for Amazon Web Services\u003c/a\u003e.\u003c/p\u003e",
+        "xmlNamespace": "http://queue.amazonaws.com/doc/2012-11-05/",
+        "endpoint": "regional",
+        "endpointPrefix": "sqs"
+    },
+    "cabal": {
+        "library": "amazonka-sqs",
+        "modules": [
+            "Network.AWS.SQS",
+            "Network.AWS.SQS.AddPermission",
+            "Network.AWS.SQS.ChangeMessageVisibility",
+            "Network.AWS.SQS.ChangeMessageVisibilityBatch",
+            "Network.AWS.SQS.CreateQueue",
+            "Network.AWS.SQS.DeleteMessage",
+            "Network.AWS.SQS.DeleteMessageBatch",
+            "Network.AWS.SQS.DeleteQueue",
+            "Network.AWS.SQS.GetQueueAttributes",
+            "Network.AWS.SQS.GetQueueUrl",
+            "Network.AWS.SQS.ListDeadLetterSourceQueues",
+            "Network.AWS.SQS.ListQueues",
+            "Network.AWS.SQS.ReceiveMessage",
+            "Network.AWS.SQS.RemovePermission",
+            "Network.AWS.SQS.SendMessage",
+            "Network.AWS.SQS.SendMessageBatch",
+            "Network.AWS.SQS.SetQueueAttributes",
+            "Network.AWS.SQS.Types"
+        ],
+        "dependencies": [],
+        "version": "0.0.0",
+        "synopsis": "",
+        "description": ""
+    },
+    "types": {
+        "DeleteMessageBatchRequestEntry": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dmbreId",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dmbreReceiptHandle",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        },
+        "namespace": "Network.AWS.SQS.Types",
+        "imports": [],
+        "MessageAttributeValue": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mavStringListValues",
+                    "locationName": "StringListValue",
+                    "type": "List Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mavBinaryListValues",
+                    "locationName": "BinaryListValue",
+                    "type": "List Blob"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mavDataType",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mavStringValue",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mavBinaryValue",
+                    "type": "Maybe Blob"
+                }
+            ]
+        },
+        "ChangeMessageVisibilityBatchResultEntry": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "cmvbreId",
+                "type": "Text"
+            },
+            "type": "newtype"
+        },
+        "ChangeMessageVisibilityBatchRequestEntry": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cmvbre1Id",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cmvbre1ReceiptHandle",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cmvbre1VisibilityTimeout",
+                    "type": "Maybe Int"
+                }
+            ]
+        },
+        "DeleteMessageBatchResultEntry": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "dmbre1Id",
+                "type": "Text"
+            },
+            "type": "newtype"
+        },
+        "Message": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mesAttributes",
+                    "locationName": "Attribute",
+                    "type": "Map Text Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mesMessageAttributes",
+                    "locationName": "MessageAttribute",
+                    "type": "Map Text MessageAttributeValue"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mesMessageId",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mesReceiptHandle",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mesMD5OfBody",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mesBody",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mesMD5OfMessageAttributes",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "SendMessageBatchRequestEntry": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "smbreId",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "smbreMessageBody",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "smbreMessageAttributes",
+                    "locationName": "MessageAttribute",
+                    "type": "Map Text MessageAttributeValue"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "smbreDelaySeconds",
+                    "type": "Maybe Int"
+                }
+            ]
+        },
+        "SendMessageBatchResultEntry": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "smbre1Id",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "smbre1MessageId",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "smbre1MD5OfMessageBody",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "smbre1MD5OfMessageAttributes",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "BatchResultErrorEntry": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "breeId",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "breeSenderFault",
+                    "type": "Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "breeCode",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "breeMessage",
+                    "type": "Maybe Text"
+                }
+            ]
+        }
+    },
+    "operations": [
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "gqurQueueUrl",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "GetQueueUrlResult",
+                "resultWrapper": "GetQueueUrlResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SQS.GetQueueUrl",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "GetQueueUrl",
+            "method": "post",
+            "documentation": "\u003cp\u003e Returns the URL of an existing queue. This action provides a simple way to retrieve the URL of an Amazon SQS queue. \u003c/p\u003e \u003cp\u003e To access a queue that belongs to another AWS account, use the \u003ccode\u003eQueueOwnerAWSAccountId\u003c/code\u003e parameter to specify the account ID of the queue's owner. The queue's owner must grant you permission to access the queue. For more information about shared queue access, see \u003ca\u003eAddPermission\u003c/a\u003e or go to \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html\"\u003eShared Queues\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gqurQueueName",
+                        "type": "Text"
+                    }
+                ],
+                "name": "GetQueueUrlRequest",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gqurQueueOwnerAWSAccountId",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cmvbrSuccessful",
+                        "type": "List ChangeMessageVisibilityBatchResultEntry"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cmvbrFailed",
+                        "type": "List BatchResultErrorEntry"
+                    }
+                ],
+                "name": "ChangeMessageVisibilityBatchResult",
+                "resultWrapper": "ChangeMessageVisibilityBatchResult",
+                "type": "record",
+                "optional": []
+            },
+            "namespace": "Network.AWS.SQS.ChangeMessageVisibilityBatch",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "ChangeMessageVisibilityBatch",
+            "method": "post",
+            "documentation": "\u003cp\u003eChanges the visibility timeout of multiple messages. This is a batch version of \u003ca\u003eChangeMessageVisibility\u003c/a\u003e. The result of the action on each message is reported individually in the response. You can send up to 10 \u003ca\u003eChangeMessageVisibility\u003c/a\u003e requests with each \u003ccode\u003eChangeMessageVisibilityBatch\u003c/code\u003e action.\u003c/p\u003e \u003cimportant\u003eBecause the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200.\u003c/important\u003e \u003cp\u003e\u003ccode\u003e&amp;Attribute.1=this\u003c/code\u003e\u003c/p\u003e \u003cp\u003e\u003ccode\u003e&amp;Attribute.2=that\u003c/code\u003e\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cmvbrQueueUrl",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cmvbrEntries",
+                        "type": "List ChangeMessageVisibilityBatchRequestEntry"
+                    }
+                ],
+                "name": "ChangeMessageVisibilityBatchRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [],
+                "name": "SendMessageResult",
+                "resultWrapper": "SendMessageResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "smrMD5OfMessageBody",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "smrMD5OfMessageAttributes",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "smrMessageId",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.SQS.SendMessage",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "SendMessage",
+            "method": "post",
+            "documentation": "\u003cp\u003e Delivers a message to the specified queue. With Amazon SQS, you now have the ability to send large payload messages that are up to 256KB (262,144 bytes) in size. To send large payloads, you must use an AWS SDK that supports SigV4 signing. To verify whether SigV4 is supported for an AWS SDK, check the SDK release notes. \u003c/p\u003e \u003cimportant\u003e \u003cp\u003e The following list shows the characters (in Unicode) allowed in your message, according to the W3C XML specification. For more information, go to \u003ca href=\"http://www.w3.org/TR/REC-xml/#charsets\"\u003ehttp://www.w3.org/TR/REC-xml/#charsets\u003c/a\u003e If you send any characters not included in the list, your request will be rejected. \u003c/p\u003e \u003cp\u003e #x9 | #xA | #xD | [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to #x10FFFF] \u003c/p\u003e \u003c/important\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "smrQueueUrl",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "smrMessageBody",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "smrMessageAttributes",
+                        "locationName": "MessageAttribute",
+                        "type": "Map Text MessageAttributeValue"
+                    }
+                ],
+                "name": "SendMessageRequest",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "smrDelaySeconds",
+                        "type": "Maybe Int"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SQS.RemovePermission",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "RemovePermission",
+            "method": "post",
+            "documentation": "\u003cp\u003eRevokes any permissions in the queue policy that matches the specified \u003ccode\u003eLabel\u003c/code\u003e parameter. Only the owner of the queue can remove permissions.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rprQueueUrl",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rprLabel",
+                        "type": "Text"
+                    }
+                ],
+                "name": "RemovePermissionRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "gqarAttributes",
+                    "locationName": "Attribute",
+                    "type": "Map Text Text"
+                },
+                "wrapper": false,
+                "name": "GetQueueAttributesResult",
+                "resultWrapper": "GetQueueAttributesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SQS.GetQueueAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "GetQueueAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eGets attributes for the specified queue. The following attributes are supported: \u003cul\u003e \u003cli\u003e \u003ccode\u003eAll\u003c/code\u003e - returns all values.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eApproximateNumberOfMessages\u003c/code\u003e - returns the approximate number of visible messages in a queue. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html\"\u003eResources Required to Process Messages\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eApproximateNumberOfMessagesNotVisible\u003c/code\u003e - returns the approximate number of messages that are not timed-out and not deleted. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ApproximateNumber.html\"\u003eResources Required to Process Messages\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eVisibilityTimeout\u003c/code\u003e - returns the visibility timeout for the queue. For more information about visibility timeout, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html\"\u003eVisibility Timeout\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eCreatedTimestamp\u003c/code\u003e - returns the time when the queue was created (epoch time in seconds).\u003c/li\u003e \u003cli\u003e \u003ccode\u003eLastModifiedTimestamp\u003c/code\u003e - returns the time when the queue was last changed (epoch time in seconds).\u003c/li\u003e \u003cli\u003e \u003ccode\u003ePolicy\u003c/code\u003e - returns the queue's policy.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eMaximumMessageSize\u003c/code\u003e - returns the limit of how many bytes a message can contain before Amazon SQS rejects it.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eMessageRetentionPeriod\u003c/code\u003e - returns the number of seconds Amazon SQS retains a message.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eQueueArn\u003c/code\u003e - returns the queue's Amazon resource name (ARN).\u003c/li\u003e \u003cli\u003e \u003ccode\u003eApproximateNumberOfMessagesDelayed\u003c/code\u003e - returns the approximate number of messages that are pending to be added to the queue.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eDelaySeconds\u003c/code\u003e - returns the default delay on the queue in seconds.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eReceiveMessageWaitTimeSeconds\u003c/code\u003e - returns the time for which a ReceiveMessage call will wait for a message to arrive.\u003c/li\u003e \u003cli\u003e \u003ccode\u003eRedrivePolicy\u003c/code\u003e - returns the parameters for dead letter queue functionality of the source queue. For more information about RedrivePolicy and dead letter queues, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html\"\u003eUsing Amazon SQS Dead Letter Queues\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/li\u003e \u003c/ul\u003e \u003c/p\u003e \u003cp\u003e\u003ccode\u003e&amp;Attribute.1=this\u003c/code\u003e\u003c/p\u003e \u003cp\u003e\u003ccode\u003e&amp;Attribute.2=that\u003c/code\u003e\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gqarQueueUrl",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gqarAttributeNames",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "GetQueueAttributesRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lqrQueueUrls",
+                    "type": "List Text"
+                },
+                "wrapper": false,
+                "name": "ListQueuesResult",
+                "resultWrapper": "ListQueuesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SQS.ListQueues",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "ListQueues",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a list of your queues. The maximum number of queues that can be returned is 1000. If you specify a value for the optional \u003ccode\u003eQueueNamePrefix\u003c/code\u003e parameter, only queues with a name beginning with the specified value are returned.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "lqrQueueNamePrefix",
+                    "type": "Maybe Text"
+                },
+                "name": "ListQueuesRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "rmrMessages",
+                    "type": "List Message"
+                },
+                "wrapper": false,
+                "name": "ReceiveMessageResult",
+                "resultWrapper": "ReceiveMessageResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SQS.ReceiveMessage",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "ReceiveMessage",
+            "method": "post",
+            "documentation": "\u003cp\u003e Retrieves one or more messages, with a maximum limit of 10 messages, from the specified queue. Long poll support is enabled by using the \u003ccode\u003eWaitTimeSeconds\u003c/code\u003e parameter. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html\"\u003eAmazon SQS Long Poll\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e. \u003c/p\u003e \u003cp\u003e Short poll is the default behavior where a weighted random set of machines is sampled on a \u003ccode\u003eReceiveMessage\u003c/code\u003e call. This means only the messages on the sampled machines are returned. If the number of messages in the queue is small (less than 1000), it is likely you will get fewer messages than you requested per \u003ccode\u003eReceiveMessage\u003c/code\u003e call. If the number of messages in the queue is extremely small, you might not receive any messages in a particular \u003ccode\u003eReceiveMessage\u003c/code\u003e response; in which case you should repeat the request. \u003c/p\u003e \u003cp\u003e For each message returned, the response includes the following: \u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003cp\u003e Message body \u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e MD5 digest of the message body. For information about MD5, go to \u003ca href=\"http://www.faqs.org/rfcs/rfc1321.html\"\u003ehttp://www.faqs.org/rfcs/rfc1321.html\u003c/a\u003e. \u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e Message ID you received when you sent the message to the queue. \u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e Receipt handle. \u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e Message attributes. \u003c/p\u003e \u003c/li\u003e \u003cli\u003e \u003cp\u003e MD5 digest of the message attributes. \u003c/p\u003e \u003c/li\u003e \u003c/ul\u003e \u003cp\u003e The receipt handle is the identifier you must provide when deleting the message. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html\"\u003eQueue and Message Identifiers\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e. \u003c/p\u003e \u003cp\u003e You can provide the \u003ccode\u003eVisibilityTimeout\u003c/code\u003e parameter in your request, which will be applied to the messages that Amazon SQS returns in the response. If you do not include the parameter, the overall visibility timeout for the queue is used for the returned messages. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html\"\u003eVisibility Timeout\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rmrQueueUrl",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rmrAttributeNames",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rmrMessageAttributeNames",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "ReceiveMessageRequest",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rmrMaxNumberOfMessages",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rmrVisibilityTimeout",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "rmrWaitTimeSeconds",
+                        "type": "Maybe Int"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SQS.DeleteQueue",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "DeleteQueue",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes the queue specified by the \u003cb\u003equeue URL\u003c/b\u003e, regardless of whether the queue is empty. If the specified queue does not exist, Amazon SQS returns a successful response. \u003c/p\u003e \u003cimportant\u003e \u003cp\u003e Use \u003ccode\u003eDeleteQueue\u003c/code\u003e with care; once you delete your queue, any messages in the queue are no longer available. \u003c/p\u003e \u003c/important\u003e \u003cp\u003e When you delete a queue, the deletion process takes up to 60 seconds. Requests you send involving that queue during the 60 seconds might succeed. For example, a \u003ca\u003eSendMessage\u003c/a\u003e request might succeed, but after the 60 seconds, the queue and that message you sent no longer exist. Also, when you delete a queue, you must wait at least 60 seconds before creating a queue with the same name. \u003c/p\u003e \u003cp\u003e We reserve the right to delete queues that have had no activity for more than 30 days. For more information, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSConcepts.html\"\u003eHow Amazon SQS Queues Work\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dqrQueueUrl",
+                    "type": "Text"
+                },
+                "name": "DeleteQueueRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dmbrSuccessful",
+                        "type": "List DeleteMessageBatchResultEntry"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dmbrFailed",
+                        "type": "List BatchResultErrorEntry"
+                    }
+                ],
+                "name": "DeleteMessageBatchResult",
+                "resultWrapper": "DeleteMessageBatchResult",
+                "type": "record",
+                "optional": []
+            },
+            "namespace": "Network.AWS.SQS.DeleteMessageBatch",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "DeleteMessageBatch",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes multiple messages. This is a batch version of \u003ca\u003eDeleteMessage\u003c/a\u003e. The result of the delete action on each message is reported individually in the response.\u003c/p\u003e \u003cimportant\u003e \u003cp\u003e Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200. \u003c/p\u003e \u003c/important\u003e \u003cp\u003e\u003ccode\u003e&amp;Attribute.1=this\u003c/code\u003e\u003c/p\u003e \u003cp\u003e\u003ccode\u003e&amp;Attribute.2=that\u003c/code\u003e\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dmbrQueueUrl",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dmbrEntries",
+                        "type": "List DeleteMessageBatchRequestEntry"
+                    }
+                ],
+                "name": "DeleteMessageBatchRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SQS.SetQueueAttributes",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "SetQueueAttributes",
+            "method": "post",
+            "documentation": "\u003cp\u003eSets the value of one or more queue attributes. When you change a queue's attributes, the change can take up to 60 seconds for most of the attributes to propagate throughout the SQS system. Changes made to the \u003ccode\u003eMessageRetentionPeriod\u003c/code\u003e attribute can take up to 15 minutes.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "sqarQueueUrl",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "sqarAttributes",
+                        "locationName": "Attribute",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "name": "SetQueueAttributesRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ldlsqrqueueUrls",
+                    "type": "List Text"
+                },
+                "wrapper": false,
+                "name": "ListDeadLetterSourceQueuesResult",
+                "resultWrapper": "ListDeadLetterSourceQueuesResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SQS.ListDeadLetterSourceQueues",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "ListDeadLetterSourceQueues",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a list of your queues that have the RedrivePolicy queue attribute configured with a dead letter queue.\u003c/p\u003e \u003cp\u003eFor more information about using dead letter queues, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSDeadLetterQueue.html\"\u003eUsing Amazon SQS Dead Letter Queues\u003c/a\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ldlsqrQueueUrl",
+                    "type": "Text"
+                },
+                "name": "ListDeadLetterSourceQueuesRequest",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SQS.AddPermission",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "AddPermission",
+            "method": "post",
+            "documentation": "\u003cp\u003eAdds a permission to a queue for a specific \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P\"\u003eprincipal\u003c/a\u003e. This allows for sharing access to the queue.\u003c/p\u003e \u003cp\u003eWhen you create a queue, you have full control access rights for the queue. Only you (as owner of the queue) can grant or deny permissions to the queue. For more information about these permissions, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/acp-overview.html\"\u003eShared Queues\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.\u003c/p\u003e \u003cp\u003e\u003ccode\u003e&amp;Attribute.1=this\u003c/code\u003e\u003c/p\u003e \u003cp\u003e\u003ccode\u003e&amp;Attribute.2=that\u003c/code\u003e\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "aprQueueUrl",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "aprLabel",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "aprAWSAccountIds",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "aprActions",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "AddPermissionRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SQS.DeleteMessage",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "DeleteMessage",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes the specified message from the specified queue. You specify the message by using the message's \u003ccode\u003ereceipt handle\u003c/code\u003e and not the \u003ccode\u003emessage ID\u003c/code\u003e you received when you sent the message. Even if the message is locked by another reader due to the visibility timeout setting, it is still deleted from the queue. If you leave a message in the queue for longer than the queue's configured retention period, Amazon SQS automatically deletes it. \u003c/p\u003e \u003cimportant\u003e \u003cp\u003e It is possible you will receive a message even after you have deleted it. This might happen on rare occasions if one of the servers storing a copy of the message is unavailable when you request to delete the message. The copy remains on the server and might be returned to you again on a subsequent receive request. You should create your system to be idempotent so that receiving a particular message more than once is not a problem. \u003c/p\u003e \u003c/important\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dmrQueueUrl",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dmrReceiptHandle",
+                        "type": "Text"
+                    }
+                ],
+                "name": "DeleteMessageRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "cqrQueueUrl",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "name": "CreateQueueResult",
+                "resultWrapper": "CreateQueueResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.SQS.CreateQueue",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "CreateQueue",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates a new queue, or returns the URL of an existing one. When you request \u003ccode\u003eCreateQueue\u003c/code\u003e, you provide a name for the queue. To successfully create a new queue, you must provide a name that is unique within the scope of your own queues.\u003c/p\u003e \u003cp\u003eYou may pass one or more attributes in the request. If you do not provide a value for any attribute, the queue will have the default value for that attribute. Permitted attributes are the same that can be set using \u003ca\u003eSetQueueAttributes\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eIf you provide the name of an existing queue, along with the exact names and values of all the queue's attributes, \u003ccode\u003eCreateQueue\u003c/code\u003e returns the queue URL for the existing queue. If the queue name, attribute names, or attribute values do not match an existing queue, \u003ccode\u003eCreateQueue\u003c/code\u003e returns an error.\u003c/p\u003e \u003cp\u003e\u003ccode\u003e&amp;Attribute.1=this\u003c/code\u003e\u003c/p\u003e \u003cp\u003e\u003ccode\u003e&amp;Attribute.2=that\u003c/code\u003e\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cqrQueueName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cqrAttributes",
+                        "locationName": "Attribute",
+                        "type": "Map Text Text"
+                    }
+                ],
+                "name": "CreateQueueRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "smbrSuccessful",
+                        "type": "List SendMessageBatchResultEntry"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "smbrFailed",
+                        "type": "List BatchResultErrorEntry"
+                    }
+                ],
+                "name": "SendMessageBatchResult",
+                "resultWrapper": "SendMessageBatchResult",
+                "type": "record",
+                "optional": []
+            },
+            "namespace": "Network.AWS.SQS.SendMessageBatch",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "SendMessageBatch",
+            "method": "post",
+            "documentation": "\u003cp\u003eDelivers up to ten messages to the specified queue. This is a batch version of \u003ca\u003eSendMessage\u003c/a\u003e. The result of the send action on each message is reported individually in the response. The maximum allowed individual message size is 256 KB (262,144 bytes).\u003c/p\u003e \u003cp\u003eThe maximum total payload size (i.e., the sum of all a batch's individual message lengths) is also 256 KB (262,144 bytes).\u003c/p\u003e \u003cp\u003eIf the \u003ccode\u003eDelaySeconds\u003c/code\u003e parameter is not specified for an entry, the default for the queue is used.\u003c/p\u003e \u003cimportant\u003eThe following list shows the characters (in Unicode) that are allowed in your message, according to the W3C XML specification. For more information, go to \u003ca href=\"http://www.faqs.org/rfcs/rfc1321.html\"\u003ehttp://www.faqs.org/rfcs/rfc1321.html\u003c/a\u003e. If you send any characters that are not included in the list, your request will be rejected. \u003cp\u003e#x9 | #xA | #xD | [#x20 to #xD7FF] | [#xE000 to #xFFFD] | [#x10000 to #x10FFFF]\u003c/p\u003e \u003c/important\u003e \u003cimportant\u003e Because the batch request can result in a combination of successful and unsuccessful actions, you should check for batch errors even when the call returns an HTTP status code of 200. \u003c/important\u003e \u003cp\u003e\u003ccode\u003e&amp;Attribute.1=this\u003c/code\u003e\u003c/p\u003e \u003cp\u003e\u003ccode\u003e&amp;Attribute.2=that\u003c/code\u003e\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "smbrQueueUrl",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "smbrEntries",
+                        "type": "List SendMessageBatchRequestEntry"
+                    }
+                ],
+                "name": "SendMessageBatchRequest",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.SQS.ChangeMessageVisibility",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.SQS.Types"
+            ],
+            "name": "ChangeMessageVisibility",
+            "method": "post",
+            "documentation": "\u003cp\u003eChanges the visibility timeout of a specified message in a queue to a new value. The maximum allowed timeout value you can set the value to is 12 hours. This means you can't extend the timeout of a message in an existing queue to more than a total visibility timeout of 12 hours. (For more information visibility timeout, see \u003ca href=\"http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html\"\u003eVisibility Timeout\u003c/a\u003e in the \u003ci\u003eAmazon SQS Developer Guide\u003c/i\u003e.)\u003c/p\u003e \u003cp\u003eFor example, let's say you have a message and its default message visibility timeout is 30 minutes. You could call \u003ccode\u003eChangeMessageVisiblity\u003c/code\u003e with a value of two hours and the effective timeout would be two hours and 30 minutes. When that time comes near you could again extend the time out by calling ChangeMessageVisiblity, but this time the maximum allowed timeout would be 9 hours and 30 minutes.\u003c/p\u003e \u003cimportant\u003eIf you attempt to set the \u003ccode\u003eVisibilityTimeout\u003c/code\u003e to an amount more than the maximum time left, Amazon SQS returns an error. It will not automatically recalculate and increase the timeout to the maximum time remaining.\u003c/important\u003e \u003cimportant\u003eUnlike with a queue, when you change the visibility timeout for a specific message, that timeout value is applied immediately but is not saved in memory for that message. If you don't delete a message after it is received, the visibility timeout for the message the next time it is received reverts to the original timeout value, not the value you set with the \u003ccode\u003eChangeMessageVisibility\u003c/code\u003e action.\u003c/important\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cmvrQueueUrl",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cmvrReceiptHandle",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "cmvrVisibilityTimeout",
+                        "type": "Int"
+                    }
+                ],
+                "name": "ChangeMessageVisibilityRequest",
+                "type": "record",
+                "optional": []
+            }
+        }
+    ]
+}

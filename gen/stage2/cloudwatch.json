@@ -1,0 +1,1460 @@
+{
+    "service": {
+        "signature": "v4",
+        "checksum": "sha256",
+        "abbrev": "CloudWatch",
+        "error": "CloudWatchError",
+        "namespace": "Network.AWS.CloudWatch",
+        "protocol": "query",
+        "imports": [
+            "Network.AWS.CloudWatch.DeleteAlarms",
+            "Network.AWS.CloudWatch.DescribeAlarmHistory",
+            "Network.AWS.CloudWatch.DescribeAlarms",
+            "Network.AWS.CloudWatch.DescribeAlarmsForMetric",
+            "Network.AWS.CloudWatch.DisableAlarmActions",
+            "Network.AWS.CloudWatch.EnableAlarmActions",
+            "Network.AWS.CloudWatch.GetMetricStatistics",
+            "Network.AWS.CloudWatch.ListMetrics",
+            "Network.AWS.CloudWatch.PutMetricAlarm",
+            "Network.AWS.CloudWatch.PutMetricData",
+            "Network.AWS.CloudWatch.SetAlarmState",
+            "Network.AWS.CloudWatch.Types"
+        ],
+        "name": "Amazon CloudWatch",
+        "version": "2010-08-01",
+        "documentation": "\u003cp\u003eThis is the \u003ci\u003eAmazon CloudWatch API Reference\u003c/i\u003e. This guide provides detailed information about Amazon CloudWatch actions, data types, parameters, and errors. For detailed information about Amazon CloudWatch features and their associated API calls, go to the \u003ca href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide\"\u003eAmazon CloudWatch Developer Guide\u003c/a\u003e. \u003c/p\u003e \u003cp\u003eAmazon CloudWatch is a web service that enables you to publish, monitor, and manage various metrics, as well as configure alarm actions based on data from metrics. For more information about this product go to \u003ca href=\"http://aws.amazon.com/cloudwatch\"\u003ehttp://aws.amazon.com/cloudwatch\u003c/a\u003e. \u003c/p\u003e \u003cp\u003e For information about the namespace, metric names, and dimensions that other Amazon Web Services products use to send metrics to Cloudwatch, go to \u003ca href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html\"\u003eAmazon CloudWatch Metrics, Namespaces, and Dimensions Reference\u003c/a\u003e in the \u003ci\u003eAmazon CloudWatch Developer Guide\u003c/i\u003e. \u003c/p\u003e \u003cp\u003eUse the following links to get started using the \u003ci\u003eAmazon CloudWatch API Reference\u003c/i\u003e:\u003c/p\u003e \u003cul\u003e \u003cli\u003e \u003ca href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Operations.html\"\u003eActions\u003c/a\u003e: An alphabetical list of all Amazon CloudWatch actions.\u003c/li\u003e \u003cli\u003e \u003ca href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_Types.html\"\u003eData Types\u003c/a\u003e: An alphabetical list of all Amazon CloudWatch data types.\u003c/li\u003e \u003cli\u003e \u003ca href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CommonParameters.html\"\u003eCommon Parameters\u003c/a\u003e: Parameters that all Query actions can use.\u003c/li\u003e \u003cli\u003e \u003ca href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/CommonErrors.html\"\u003eCommon Errors\u003c/a\u003e: Client and server errors that all actions can return.\u003c/li\u003e \u003cli\u003e \u003ca href=\"http://docs.aws.amazon.com/general/latest/gr/index.html?rande.html\"\u003eRegions and Endpoints\u003c/a\u003e: Itemized regions and endpoints for all AWS products.\u003c/li\u003e \u003cli\u003e \u003ca href=\"http://monitoring.amazonaws.com/doc/2010-08-01/CloudWatch.wsdl\"\u003eWSDL Location\u003c/a\u003e: http://monitoring.amazonaws.com/doc/2010-08-01/CloudWatch.wsdl\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eIn addition to using the Amazon CloudWatch API, you can also use the following SDKs and third-party libraries to access Amazon CloudWatch programmatically.\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003ca href=\"http://aws.amazon.com/documentation/sdkforjava/\"\u003eAWS SDK for Java Documentation\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://aws.amazon.com/documentation/sdkfornet/\"\u003eAWS SDK for .NET Documentation\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://aws.amazon.com/documentation/sdkforphp/\"\u003eAWS SDK for PHP Documentation\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://aws.amazon.com/documentation/sdkforruby/\"\u003eAWS SDK for Ruby Documentation\u003c/a\u003e\u003c/li\u003e \u003c/ul\u003e \u003cp\u003eDevelopers in the AWS developer community also provide their own libraries, which you can find at the following AWS developer centers:\u003c/p\u003e \u003cul\u003e \u003cli\u003e\u003ca href=\"http://aws.amazon.com/java/\"\u003eAWS Java Developer Center\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://aws.amazon.com/php/\"\u003eAWS PHP Developer Center\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://aws.amazon.com/python/\"\u003eAWS Python Developer Center\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://aws.amazon.com/ruby/\"\u003eAWS Ruby Developer Center\u003c/a\u003e\u003c/li\u003e \u003cli\u003e\u003ca href=\"http://aws.amazon.com/net/\"\u003eAWS Windows and .NET Developer Center\u003c/a\u003e\u003c/li\u003e \u003c/ul\u003e",
+        "xmlNamespace": "http://monitoring.amazonaws.com/doc/2010-08-01/",
+        "endpoint": "regional",
+        "endpointPrefix": "monitoring"
+    },
+    "cabal": {
+        "library": "amazonka-cloudwatch",
+        "modules": [
+            "Network.AWS.CloudWatch",
+            "Network.AWS.CloudWatch.DeleteAlarms",
+            "Network.AWS.CloudWatch.DescribeAlarmHistory",
+            "Network.AWS.CloudWatch.DescribeAlarms",
+            "Network.AWS.CloudWatch.DescribeAlarmsForMetric",
+            "Network.AWS.CloudWatch.DisableAlarmActions",
+            "Network.AWS.CloudWatch.EnableAlarmActions",
+            "Network.AWS.CloudWatch.GetMetricStatistics",
+            "Network.AWS.CloudWatch.ListMetrics",
+            "Network.AWS.CloudWatch.PutMetricAlarm",
+            "Network.AWS.CloudWatch.PutMetricData",
+            "Network.AWS.CloudWatch.SetAlarmState",
+            "Network.AWS.CloudWatch.Types"
+        ],
+        "dependencies": [],
+        "version": "0.0.0",
+        "synopsis": "",
+        "description": ""
+    },
+    "types": {
+        "LimitExceededFault": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "lefmessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "StatisticSet": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "enum",
+                "num"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ssSampleCount",
+                    "type": "Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ssSum",
+                    "type": "Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ssMinimum",
+                    "type": "Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ssMaximum",
+                    "type": "Double"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        },
+        "MetricAlarm": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maOKActions",
+                    "type": "List Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maAlarmActions",
+                    "type": "List Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maInsufficientDataActions",
+                    "type": "List Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maDimensions",
+                    "type": "List Dimension"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maAlarmName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maAlarmArn",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maAlarmDescription",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maAlarmConfigurationUpdatedTimestamp",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maActionsEnabled",
+                    "type": "Maybe Bool"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maStateValue",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maStateReason",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maStateReasonData",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maStateUpdatedTimestamp",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maMetricName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maNamespace",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maStatistic",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maPeriod",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maUnit",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maEvaluationPeriods",
+                    "type": "Maybe Int"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maThreshold",
+                    "type": "Maybe Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "maComparisonOperator",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "MetricDatum": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mdMetricName",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mdDimensions",
+                    "type": "List Dimension"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mdTimestamp",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mdValue",
+                    "type": "Maybe Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mdStatisticValues",
+                    "type": "Maybe StatisticSet"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "mdUnit",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "InvalidNextToken": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "intmessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "Dimension": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dimName",
+                    "type": "Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dimValue",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": []
+        },
+        "InternalServiceFault": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "isfMessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "namespace": "Network.AWS.CloudWatch.Types",
+        "imports": [],
+        "InvalidParameterValueException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "ipvemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "AlarmHistoryItem": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ahiAlarmName",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ahiTimestamp",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ahiHistoryItemType",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ahiHistorySummary",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "ahiHistoryData",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Metric": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "metDimensions",
+                    "type": "List Dimension"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "metNamespace",
+                    "type": "Maybe Text"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "metMetricName",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "Datapoint": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "datTimestamp",
+                    "type": "Maybe (Time RFC822)"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "datSampleCount",
+                    "type": "Maybe Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "datAverage",
+                    "type": "Maybe Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "datSum",
+                    "type": "Maybe Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "datMinimum",
+                    "type": "Maybe Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "datMaximum",
+                    "type": "Maybe Double"
+                },
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "datUnit",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "DimensionFilter": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic"
+            ],
+            "payload": null,
+            "required": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dfName",
+                    "type": "Text"
+                }
+            ],
+            "type": "record",
+            "optional": [
+                {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dfValue",
+                    "type": "Maybe Text"
+                }
+            ]
+        },
+        "InvalidFormatFault": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "iffmessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "MissingRequiredParameterException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "mrpemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "InvalidParameterCombinationException": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "ipcemessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        },
+        "ResourceNotFound": {
+            "deriving": [
+                "eq",
+                "ord",
+                "show",
+                "generic",
+                "monoid"
+            ],
+            "field": {
+                "streaming": false,
+                "payload": false,
+                "name": "rnfmessage",
+                "type": "Maybe Text"
+            },
+            "type": "newtype"
+        }
+    },
+    "operations": [
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.CloudWatch.EnableAlarmActions",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.CloudWatch.Types"
+            ],
+            "name": "EnableAlarmActions",
+            "method": "post",
+            "documentation": "\u003cp\u003e Enables actions for the specified alarms. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "eaaiAlarmNames",
+                    "type": "List Text"
+                },
+                "name": "EnableAlarmActionsInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.CloudWatch.PutMetricData",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.CloudWatch.Types"
+            ],
+            "name": "PutMetricData",
+            "method": "post",
+            "documentation": "\u003cp\u003e Publishes metric data points to Amazon CloudWatch. Amazon Cloudwatch associates the data points with the specified metric. If the specified metric does not exist, Amazon CloudWatch creates the metric. It can take up to fifteen minutes for a new metric to appear in calls to the \u003ca\u003eListMetrics\u003c/a\u003e action.\u003c/p\u003e \u003cp\u003e The size of a \u003cfunction\u003ePutMetricData\u003c/function\u003e request is limited to 8 KB for HTTP GET requests and 40 KB for HTTP POST requests. \u003c/p\u003e \u003cimportant\u003e Although the \u003ccode\u003eValue\u003c/code\u003e parameter accepts numbers of type \u003ccode\u003eDouble\u003c/code\u003e, Amazon CloudWatch truncates values with very large exponents. Values with base-10 exponents greater than 126 (1 x 10^126) are truncated. Likewise, values with base-10 exponents less than -130 (1 x 10^-130) are also truncated. \u003c/important\u003e \u003cp\u003eData that is timestamped 24 hours or more in the past may take in excess of 48 hours to become available from submission time using \u003ccode\u003eGetMetricStatistics\u003c/code\u003e.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmdiNamespace",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmdiMetricData",
+                        "type": "List MetricDatum"
+                    }
+                ],
+                "name": "PutMetricDataInput",
+                "type": "record",
+                "optional": []
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "daoMetricAlarms",
+                        "type": "List MetricAlarm"
+                    }
+                ],
+                "name": "DescribeAlarmsOutput",
+                "resultWrapper": "DescribeAlarmsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "daoNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CloudWatch.DescribeAlarms",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.CloudWatch.Types"
+            ],
+            "name": "DescribeAlarms",
+            "method": "post",
+            "documentation": "\u003cp\u003e Retrieves alarms with the specified names. If no name is specified, all alarms for the user are returned. Alarms can be retrieved by using only a prefix for the alarm name, the alarm state, or a prefix for any action. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dai1AlarmNames",
+                        "type": "List Text"
+                    }
+                ],
+                "name": "DescribeAlarmsInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dai1AlarmNamePrefix",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dai1StateValue",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dai1ActionPrefix",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dai1MaxRecords",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dai1NextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lmoMetrics",
+                        "type": "List Metric"
+                    }
+                ],
+                "name": "ListMetricsOutput",
+                "resultWrapper": "ListMetricsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lmoNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CloudWatch.ListMetrics",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.CloudWatch.Types"
+            ],
+            "name": "ListMetrics",
+            "method": "post",
+            "documentation": "\u003cp\u003e Returns a list of valid metrics stored for the AWS account owner. Returned metrics can be used with \u003ca\u003eGetMetricStatistics\u003c/a\u003e to obtain statistical data for a given metric. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lmiDimensions",
+                        "type": "List DimensionFilter"
+                    }
+                ],
+                "name": "ListMetricsInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lmiNamespace",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lmiMetricName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "lmiNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.CloudWatch.DeleteAlarms",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.CloudWatch.Types"
+            ],
+            "name": "DeleteAlarms",
+            "method": "post",
+            "documentation": "\u003cp\u003e Deletes all specified alarms. In the event of an error, no alarms are deleted. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "daiAlarmNames",
+                    "type": "List Text"
+                },
+                "name": "DeleteAlarmsInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dahoAlarmHistoryItems",
+                        "type": "List AlarmHistoryItem"
+                    }
+                ],
+                "name": "DescribeAlarmHistoryOutput",
+                "resultWrapper": "DescribeAlarmHistoryResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dahoNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CloudWatch.DescribeAlarmHistory",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.CloudWatch.Types"
+            ],
+            "name": "DescribeAlarmHistory",
+            "method": "post",
+            "documentation": "\u003cp\u003e Retrieves history for the specified alarm. Filter alarms by date range or item type. If an alarm name is not specified, Amazon CloudWatch returns histories for all of the owner's alarms. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [],
+                "name": "DescribeAlarmHistoryInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dahiAlarmName",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dahiHistoryItemType",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dahiStartDate",
+                        "type": "Maybe (Time RFC822)"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dahiEndDate",
+                        "type": "Maybe (Time RFC822)"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dahiMaxRecords",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dahiNextToken",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "wrapper": false,
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gmsoDatapoints",
+                        "type": "List Datapoint"
+                    }
+                ],
+                "name": "GetMetricStatisticsOutput",
+                "resultWrapper": "GetMetricStatisticsResult",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gmsoLabel",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.CloudWatch.GetMetricStatistics",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.CloudWatch.Types"
+            ],
+            "name": "GetMetricStatistics",
+            "method": "post",
+            "documentation": "\u003cp\u003e Gets statistics for the specified metric. \u003c/p\u003e \u003cp\u003e The maximum number of data points returned from a single \u003ccode\u003eGetMetricStatistics\u003c/code\u003e request is 1,440, wereas the maximum number of data points that can be queried is 50,850. If you make a request that generates more than 1,440 data points, Amazon CloudWatch returns an error. In such a case, you can alter the request by narrowing the specified time range or increasing the specified period. Alternatively, you can make multiple requests across adjacent time ranges. \u003c/p\u003e \u003cp\u003e Amazon CloudWatch aggregates data points based on the length of the \u003ccode\u003eperiod\u003c/code\u003e that you specify. For example, if you request statistics with a one-minute granularity, Amazon CloudWatch aggregates data points with time stamps that fall within the same one-minute period. In such a case, the data points queried can greatly outnumber the data points returned. \u003c/p\u003e \u003cp\u003e The following examples show various statistics allowed by the data point query maximum of 50,850 when you call \u003ccode\u003eGetMetricStatistics\u003c/code\u003e on Amazon EC2 instances with detailed (one-minute) monitoring enabled: \u003c/p\u003e \u003cul\u003e \u003cli\u003eStatistics for up to 400 instances for a span of one hour\u003c/li\u003e \u003cli\u003eStatistics for up to 35 instances over a span of 24 hours\u003c/li\u003e \u003cli\u003eStatistics for up to 2 instances over a span of 2 weeks\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e For information about the namespace, metric names, and dimensions that other Amazon Web Services products use to send metrics to Cloudwatch, go to \u003ca href=\"http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/CW_Support_For_AWS.html\"\u003eAmazon CloudWatch Metrics, Namespaces, and Dimensions Reference\u003c/a\u003e in the \u003ci\u003eAmazon CloudWatch Developer Guide\u003c/i\u003e. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gmsiNamespace",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gmsiMetricName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gmsiDimensions",
+                        "type": "List Dimension"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gmsiStartTime",
+                        "type": "Time RFC822"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gmsiEndTime",
+                        "type": "Time RFC822"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gmsiPeriod",
+                        "type": "Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gmsiStatistics",
+                        "type": "List1 Text"
+                    }
+                ],
+                "name": "GetMetricStatisticsInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "gmsiUnit",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "dafmoMetricAlarms",
+                    "type": "List MetricAlarm"
+                },
+                "wrapper": false,
+                "name": "DescribeAlarmsForMetricOutput",
+                "resultWrapper": "DescribeAlarmsForMetricResult",
+                "type": "newtype"
+            },
+            "namespace": "Network.AWS.CloudWatch.DescribeAlarmsForMetric",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.CloudWatch.Types"
+            ],
+            "name": "DescribeAlarmsForMetric",
+            "method": "post",
+            "documentation": "\u003cp\u003e Retrieves all alarms for a single metric. Specify a statistic, period, or unit to filter the set of alarms further. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dafmiMetricName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dafmiNamespace",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dafmiDimensions",
+                        "type": "List Dimension"
+                    }
+                ],
+                "name": "DescribeAlarmsForMetricInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dafmiStatistic",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dafmiPeriod",
+                        "type": "Maybe Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "dafmiUnit",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.CloudWatch.DisableAlarmActions",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.CloudWatch.Types"
+            ],
+            "name": "DisableAlarmActions",
+            "method": "post",
+            "documentation": "\u003cp\u003e Disables actions for the specified alarms. When an alarm's actions are disabled the alarm's state may change, but none of the alarm's actions will execute. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic",
+                    "monoid",
+                    "monoid"
+                ],
+                "field": {
+                    "streaming": false,
+                    "payload": false,
+                    "name": "daaiAlarmNames",
+                    "type": "List Text"
+                },
+                "name": "DisableAlarmActionsInput",
+                "type": "newtype"
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.CloudWatch.PutMetricAlarm",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.CloudWatch.Types"
+            ],
+            "name": "PutMetricAlarm",
+            "method": "post",
+            "documentation": "\u003cp\u003e Creates or updates an alarm and associates it with the specified Amazon CloudWatch metric. Optionally, this operation can associate one or more Amazon Simple Notification Service resources with the alarm. \u003c/p\u003e \u003cp\u003e When this operation creates an alarm, the alarm state is immediately set to \u003ccode\u003eINSUFFICIENT_DATA\u003c/code\u003e. The alarm is evaluated and its \u003ccode\u003eStateValue\u003c/code\u003e is set appropriately. Any actions associated with the \u003ccode\u003eStateValue\u003c/code\u003e is then executed. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiAlarmName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiOKActions",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiAlarmActions",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiInsufficientDataActions",
+                        "type": "List Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiMetricName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiNamespace",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiStatistic",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiDimensions",
+                        "type": "List Dimension"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiPeriod",
+                        "type": "Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiEvaluationPeriods",
+                        "type": "Int"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiThreshold",
+                        "type": "Double"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiComparisonOperator",
+                        "type": "Text"
+                    }
+                ],
+                "name": "PutMetricAlarmInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiAlarmDescription",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiActionsEnabled",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "pmaiUnit",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        },
+        {
+            "response": {
+                "deriving": [],
+                "wrapper": false,
+                "name": "Empty",
+                "resultWrapper": null,
+                "type": "empty"
+            },
+            "namespace": "Network.AWS.CloudWatch.SetAlarmState",
+            "uri": {
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "query": []
+            },
+            "imports": [
+                "Network.AWS.Request.Query",
+                "Network.AWS.CloudWatch.Types"
+            ],
+            "name": "SetAlarmState",
+            "method": "post",
+            "documentation": "\u003cp\u003e Temporarily sets the state of an alarm. When the updated \u003ccode\u003eStateValue\u003c/code\u003e differs from the previous value, the action configured for the appropriate state is invoked. This is not a permanent change. The next periodic alarm check (in about a minute) will set the alarm to its actual state. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "eq",
+                    "ord",
+                    "show",
+                    "generic"
+                ],
+                "payload": null,
+                "required": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "sasiAlarmName",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "sasiStateValue",
+                        "type": "Text"
+                    },
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "sasiStateReason",
+                        "type": "Text"
+                    }
+                ],
+                "name": "SetAlarmStateInput",
+                "type": "record",
+                "optional": [
+                    {
+                        "streaming": false,
+                        "payload": false,
+                        "name": "sasiStateReasonData",
+                        "type": "Maybe Text"
+                    }
+                ]
+            }
+        }
+    ]
+}

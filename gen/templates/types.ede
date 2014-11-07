@@ -72,7 +72,8 @@ import Network.AWS.Signing.{{ service.signature }}
 {% include "_include/service.ede" %}
 
 {% case service.protocol %}
-{% when "xml" %}
+{% when "json" %}
+{% else %}
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
   {% if xmlNamespace %}

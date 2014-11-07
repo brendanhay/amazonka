@@ -8,6 +8,7 @@
     "operationsModules": [
     ],
     "typesModules": [
+        "Network.AWS.EC2.Internal"
     ],
     "overrides": {
         "InstanceAttributeName": {

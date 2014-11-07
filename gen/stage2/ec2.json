@@ -171,7 +171,9 @@
         "endpointPrefix": "ec2"
     },
     "cabal": {
-        "other": [],
+        "other": [
+            "Network.AWS.EC2.Internal"
+        ],
         "library": "amazonka-ec2",
         "exposed": [
             "Network.AWS.EC2",
@@ -791,8 +793,8 @@
                     "shape": "Blob",
                     "locationName": "value",
                     "documentation": null,
-                    "typeExposed": "Maybe Blob",
-                    "type": "Maybe Blob"
+                    "typeExposed": "Maybe LazyByteString",
+                    "type": "Maybe LazyByteString"
                 },
                 "payload": {
                     "location": "body-xml",
@@ -805,8 +807,8 @@
                     "shape": "Blob",
                     "locationName": "value",
                     "documentation": null,
-                    "typeExposed": "Maybe Blob",
-                    "type": "Maybe Blob"
+                    "typeExposed": "Maybe LazyByteString",
+                    "type": "Maybe LazyByteString"
                 },
                 "required": [],
                 "name": "BlobAttributeValue",
@@ -823,8 +825,8 @@
                         "shape": "Blob",
                         "locationName": "value",
                         "documentation": null,
-                        "typeExposed": "Maybe Blob",
-                        "type": "Maybe Blob"
+                        "typeExposed": "Maybe LazyByteString",
+                        "type": "Maybe LazyByteString"
                     }
                 ],
                 "fields": [
@@ -839,8 +841,8 @@
                         "shape": "Blob",
                         "locationName": "value",
                         "documentation": null,
-                        "typeExposed": "Maybe Blob",
-                        "type": "Maybe Blob"
+                        "typeExposed": "Maybe LazyByteString",
+                        "type": "Maybe LazyByteString"
                     }
                 ]
             },
@@ -19875,8 +19877,8 @@
                         "shape": "Blob",
                         "locationName": "uploadPolicy",
                         "documentation": "\u003cp\u003eA Base64-encoded Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.\u003c/p\u003e",
-                        "typeExposed": "Maybe Blob",
-                        "type": "Maybe Blob"
+                        "typeExposed": "Maybe LazyByteString",
+                        "type": "Maybe LazyByteString"
                     },
                     {
                         "location": "body-xml",
@@ -19947,8 +19949,8 @@
                         "shape": "Blob",
                         "locationName": "uploadPolicy",
                         "documentation": "\u003cp\u003eA Base64-encoded Amazon S3 upload policy that gives Amazon EC2 permission to upload items into Amazon S3 on your behalf.\u003c/p\u003e",
-                        "typeExposed": "Maybe Blob",
-                        "type": "Maybe Blob"
+                        "typeExposed": "Maybe LazyByteString",
+                        "type": "Maybe LazyByteString"
                     },
                     {
                         "location": "body-xml",
@@ -22613,7 +22615,9 @@
                 ]
             }
         ],
-        "imports": []
+        "imports": [
+            "Network.AWS.EC2.Internal"
+        ]
     },
     "operations": [
         {
@@ -48959,8 +48963,8 @@
                         "shape": "Blob",
                         "locationName": "publicKeyMaterial",
                         "documentation": "\u003cp\u003eThe public key. You must base64 encode the public key material before sending it to AWS.\u003c/p\u003e",
-                        "typeExposed": "Blob",
-                        "type": "Blob"
+                        "typeExposed": "LazyByteString",
+                        "type": "LazyByteString"
                     }
                 ],
                 "headers": [],
@@ -49024,8 +49028,8 @@
                         "shape": "Blob",
                         "locationName": "publicKeyMaterial",
                         "documentation": "\u003cp\u003eThe public key. You must base64 encode the public key material before sending it to AWS.\u003c/p\u003e",
-                        "typeExposed": "Blob",
-                        "type": "Blob"
+                        "typeExposed": "LazyByteString",
+                        "type": "LazyByteString"
                     }
                 ]
             }

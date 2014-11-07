@@ -130,7 +130,7 @@ data Prim
 -- | Primitives are rendered according to their unwrapped Iso' mappings.
 primitive :: Bool -> Prim -> Text
 primitive int = \case
-    PBlob                -> "Blob"
+    PBlob                -> "LazyByteString"
     PReq                 -> "RqBody"
     PRes                 -> "RsBody"
     -- PBool | int          -> "Boolean"

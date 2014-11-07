@@ -3,7 +3,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Gen.V2.IO
+-- Module      : Gen.IO
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -13,7 +13,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.V2.IO where
+module Gen.IO where
 
 import           Control.Applicative
 import           Control.Error
@@ -28,8 +28,8 @@ import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import qualified Data.Text.IO           as Text
 import qualified Data.Text.Lazy.IO      as LText
-import           Gen.V2.Filters
-import           Gen.V2.Types
+import           Gen.Filters
+import           Gen.Types
 import           System.Directory
 import           System.FilePath
 import           Text.EDE               (Template)

@@ -12,7 +12,7 @@
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
--- Module      : Gen.V2.Types
+-- Module      : Gen.Types
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -22,7 +22,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.V2.Types where
+module Gen.Types where
 
 import           Control.Applicative
 import           Control.Lens         (Traversal', makeLenses)
@@ -43,9 +43,9 @@ import           Data.String
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Traversable     (Traversable, traverse)
-import           Gen.V2.JSON          ()
-import           Gen.V2.Names
-import           Gen.V2.TH
+import           Gen.JSON          ()
+import           Gen.Names
+import           Gen.TH
 import           System.FilePath
 import           Text.EDE             (Template)
 

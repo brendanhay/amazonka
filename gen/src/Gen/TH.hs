@@ -4,7 +4,7 @@
 {-# LANGUAGE TemplateHaskell   #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Gen.V2.TH
+-- Module      : Gen.TH
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.V2.TH where
+module Gen.TH where
 
 import           Control.Applicative
 import           Control.Lens
@@ -22,7 +22,7 @@ import qualified Data.Aeson.TH       as A
 import qualified Data.Jason.TH       as J
 import           Data.Text           (Text)
 import qualified Data.Text           as Text
-import           Gen.V2.Names
+import           Gen.Names
 import           Language.Haskell.TH
 
 data TH = TH

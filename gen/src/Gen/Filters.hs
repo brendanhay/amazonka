@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Gen.V2.Filters
+-- Module      : Gen.Filters
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.V2.Filters where
+module Gen.Filters where
 
 import           Data.Char
 import           Data.HashMap.Strict  (HashMap)
@@ -20,7 +20,7 @@ import           Data.Monoid
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Text.Manipulate
-import           Gen.V2.Documentation
+import           Gen.Documentation
 import           Text.EDE
 import           Text.EDE.Filters
 

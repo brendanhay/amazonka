@@ -10,7 +10,7 @@
 
 {-# OPTIONS_GHC -fno-warn-type-defaults #-}
 
--- Module      : Gen.V2.Stage1
+-- Module      : Gen.Stage1
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -20,7 +20,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.V2.Stage1 where
+module Gen.Stage1 where
 
 import           Control.Applicative
 import           Control.Error
@@ -30,11 +30,11 @@ import           Data.Jason          as J
 import           Data.Jason.Types
 import           Data.Text           (Text)
 import qualified Data.Vector         as Vector
-import           Gen.V2.IO
-import           Gen.V2.JSON
-import           Gen.V2.Names
-import           Gen.V2.TH
-import           Gen.V2.Types
+import           Gen.IO
+import           Gen.JSON
+import           Gen.Names
+import           Gen.TH
+import           Gen.Types
 import           System.FilePath
 import           System.Directory
 

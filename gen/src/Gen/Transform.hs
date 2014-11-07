@@ -1,3 +1,6 @@
+{-# LANGUAGE DataKinds         #-}
+{-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -14,581 +17,383 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Gen.Transform where
+module Gen.Transform (transformS1ToS2) where
 
-import           Control.Applicative
-import           Control.Lens         hiding (indexed)
+import           Control.Applicative        ((<$>), (<*>), pure)
+import           Control.Error
+import           Control.Lens               hiding (op, ignored, filtered)
 import           Control.Monad
-import           Control.Monad.State
+import           Control.Monad.State.Strict
 import           Data.Bifunctor
-import           Data.CaseInsensitive (CI)
-import qualified Data.CaseInsensitive as CI
-import           Data.Char
-import           Data.Default.Class
-import qualified Data.HashMap.Strict  as Map
-import           Data.List
-import           Data.Maybe
-import           Data.Monoid          hiding (Sum)
-import           Data.Ord
-import           Data.String
-import           Data.Text            (Text)
-import qualified Data.Text            as Text
+import qualified Data.CaseInsensitive       as CI
+import           Data.HashMap.Strict        (HashMap)
+import qualified Data.HashMap.Strict        as Map
+import           Data.HashSet               (HashSet)
+import qualified Data.HashSet               as Set
+import           Data.List                  (sort)
+import           Data.Monoid                hiding (Product)
+import           Data.SemVer                (initial)
+import           Data.Text                  (Text)
+import qualified Data.Text                  as Text
+import           Data.Text.Manipulate
+import           Debug.Trace
 import           Gen.Names
-import           Gen.AST
-import           Text.EDE.Filters
+import qualified Gen.Stage1              as S1
+import           Gen.Stage1              hiding (Operation)
+import           Gen.Stage2
+import           Gen.Types
 
--- FIXME: When replacing/ignoring types via 'existing', it should actually merge
--- the request/response shenannigans so the correct instances are written for the type
-
--- FIXME: ResourceRecordSet/ResourceRecords is a list but the type ann it gets is Maybe [a]
-
--- FIXME: make endpoints overridable
-
--- FIXME: generate (maybe wrapped newtypes) types for base64/16 encoded bytestrings
--- ie: IAM types VirtualMFADevice
-
--- FIXME: remove error sum type record fields, and implement appropriate deserialisation
-
--- FIXME: what about target-prefix (from the model) and action for query services?
-
--- FIXME: possibly parameterise (Map k v) with an additional type to control the
--- prefixing used (specifically for metadata) unless metadata is the only usage
--- and ToHeaders can always add x-amz-meta-*
-
--- FIXME: Remove all the disparate request type classes in favour of case analysis
--- in templates
-
--- FIXME: Request shapes should take preference in the case of equality/ord
--- this ensures a minimum of overrides are needed for required fields.
-
--- FIXME: Make a way to override the endpoint when sending a request (for mocks etc)
-
--- FIXME: Fix ambiguous lens when using makeFields
--- Provide the 'length' of the prefix so lenses can be derived.
-
--- FIXME: Add documentation about where the type in the 'Types' module is used
-
--- FIXME: Add selected de/serialisation tests for the services
-
--- FIXME: Rewrite, so that each transformation step happens goddamn logically.
-
--- FIXME: Deal with result_wrapped=true in XML responses
-
--- FIXME: Route53 ResourceRecordSetRegion should be dropped in favour of Network.AWS.Types.Region
--- Likewise with RRType
-
--- FIXME: kinesis features "non_aggregate_keys" in pagination, what is it?
-
--- FIXME: kinesis pagination (DescribeStream) not correctly splitting python expressions
--- (with '.')
-
--- FIXME: add a way to correctly emit the usual deriving clauses for non-sum types
--- this is also needed so error types can have a show instance
-
-transform :: [Service] -> [Service]
-transform = map eval . sort . nub
+transformS1ToS2 :: Model -> Stage1 -> Stage2
+transformS1ToS2 m s1 = Stage2 cabal service ops types
   where
-    eval x =
-        let os  = evalState (mapM (operation x) (x^.svcOperations)) mempty
-            y   = x & svcOperations .~ os
-            z   = y & svcTypes      .~ serviceTypes y
-            p o = o & opPagination  %~ fmap (pagination z o)
-         in z & svcOperations %~ map p & svcError .~ serviceError z
+    cabal = Cabal
+        { _cLibrary      = overrides ^. oLibrary
+        , _cVersion      = initial
+        , _cSynopsis     = ""
+        , _cDescription  = ""
+        , _cDependencies = []
+        , _cExposed      = sort $
+            service ^. svNamespace : typesNamespace : operationNamespaces
+        , _cOther        = sort $
+            (overrides ^. oOperationsModules) ++ (overrides ^. oTypesModules)
+        }
 
-current :: [Service] -> [Service]
-current = mapMaybe latest . groupBy identical
+    service = Service
+        { _svName           = s1 ^. mServiceFullName
+        , _svAbbrev         = abbrev
+        , _svNamespace      = namespace [unAbbrev abbrev]
+        , _svImports        = sort (typesNamespace : operationNamespaces)
+        , _svVersion        = version
+        , _svDocumentation  = Doc (s1 ^. s1Documentation)
+        , _svProtocol       = s1 ^. mProtocol
+        , _svEndpoint       = endpoint
+        , _svEndpointPrefix = endpointPrefix
+        , _svSignature      = s1 ^. mSignatureVersion
+        , _svChecksum       = checksum
+        , _svXmlNamespace   = fromMaybe xmlNamespace (s1 ^. mXmlNamespace)
+        , _svTargetPrefix   = s1 ^. mTargetPrefix
+        , _svError          = unAbbrev abbrev <> "Error"
+        }
+
+    types = Types
+        { _tService   = service
+        , _tNamespace = typesNamespace
+        , _tImports   = overrides ^. oTypesModules
+        , _tTypes     = filter (not . isVoid) (Map.elems ts)
+        }
+
+    typesNamespace = typesNS abbrev
+
+    operationNamespaces = sort (map (view opNamespace) ops)
+
+    abbrev = maybeAbbrev (s1 ^. mServiceFullName) (s1 ^. mServiceAbbreviation)
+
+    (ops, ts) = dataTypes overrides abbrev s1
+
+    overrides = m ^. mOverrides
+
+    version = s1 ^. mApiVersion
+
+    endpointPrefix = s1 ^. mEndpointPrefix
+
+    endpoint = maybe Regional (const Global) (s1 ^. mGlobalEndpoint)
+
+    checksum = fromMaybe SHA256 (s1 ^. mChecksumFormat)
+
+    xmlNamespace = "https://"
+        <> endpointPrefix
+        <> ".amazonaws.com/doc/"
+        <> version
+        <> "/"
+
+-- errors :: Abbrev -> Stage1 -> HashMap Text Data -> Error
+-- errors (unAbbrev -> a) s1 ts = Error (a <> "Error") ds
+--   where
+--     ds = Map.fromList
+--          [ p "Service"    [TType "Status", TType (a <> "Message")]
+--          , p "Http"       [TType "HttpException"]
+--          , p "Serializer" [TType "String"]
+--          ]
+
+--     p k xs = let k' = a <> k in (k', Product k' xs)
+
+    -- es = Map.filterWithKey (const . (`elem` rs)) ts
+    -- rs = map _refShape
+    --      . concatMap (fromMaybe [] . _oErrors)
+    --      . Map.elems
+    --      $ s1 ^. s1Operations
+
+dataTypes :: Overrides
+          -> Abbrev
+          -> Stage1
+          -> ([Operation], HashMap Text Data)
+dataTypes o a s1 = (sort . Map.elems) `first` runState run s
   where
-    identical x y = EQ == comparing _svcName x y
+    run = Map.traverseWithKey f (s1 ^. s1Operations)
 
-    latest [] = Nothing
-    latest xs = Just . head $ sortBy (comparing _svcVersion) xs
+    f = operation a (s1 ^. mProtocol) (o ^. oOperationsModules)
 
-operation :: Service -> Operation -> State (HashMap Text Text) Operation
-operation svc@Service{..} o = do
-    let x = o & opService            .~ _svcName
-              & opNs                 .~ _svcNs
-              & opNamespace          .~ operationNS svc o
+    s = prefixes
+        . filtered (o ^. oOverrides)
+        $ datas (s1 ^. mProtocol) (s1 ^. s1Shapes)
 
-    let y = x & opRequest.cmnName    .~ (x^.opName)
-              & opRequest.cmnPrefix  .~ casedChars (x^.opName)
-              & opResponse.cmnName   .~ (x^.opName <> "Response")
-              & opResponse.cmnPrefix .~ casedChars (x^.opName) <> "r"
-
-    rq <- uniquify svc (y^.opRequest.typShape)
-    rs <- uniquify svc (y^.opResponse.typShape)
-    es <- traverse (uniquify svc) (y^.opErrors)
-
-    let z = y & opRequest.typShape   .~ rq
-              & opRequest.rqType     .~ shapeType True svc rq
-              & opRequest.rqHttp     %~ http rq
-              & opResponse.typShape  .~ rs
-              & opResponse           %~ response svc
-              & opErrors             .~ es
-
-    return z
-
-operationNS :: Service -> Operation -> NS
-operationNS svc o = svc^.svcNs.nsRoot <> NS [o^.opName]
-
-response :: Service -> Response -> Response
-response svc@Service{..} rs = rs' & rsStyle.~style _svcType rs'
+prefixes :: HashMap Text Data -> HashMap Text Data
+prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
   where
-    rs' = rs & rsType.~shapeType False svc (rs^.typShape)
+    run (k, x) = (k,) <$> go (prefix k) x
 
-uniquify :: Service -> Shape -> State (HashMap Text Text) Shape
-uniquify svc (renameCommon svc -> ignoreFields svc -> s')
-    | "Unknown" <- s'^.cmnName         = return s'
-    | Just _    <- existingType svc s' = return s'
-    | otherwise = case s' of
-        SStruct s@Struct{..} -> do
-            p  <- go (s^.cmnPrefix) (s^.cmnName) (s^.cmnDirection)
-            fs <- traverse (\(k, v) -> (k,) <$> uniquify svc v) _sctFields
-            return . SStruct $ s & cmnPrefix.~p & sctFields.~fs
-        SList l@List{..} -> do
-            i <- uniquify svc _lstItem
-            return . SList $ l & lstItem.~i
-        SMap m@Map{..} -> do
-            k <- uniquify svc _mapKey
-            v <- uniquify svc _mapValue
-            return . SMap $ m & mapKey.~k & mapValue.~v
-        _ -> return s'
+    prefix k = Text.toLower (fromMaybe (Text.take 1 k) (toAcronym k))
+
+    go :: Text -> Data -> State (HashSet Text) Data
+    go k v1
+        | Nullary{} <- v1 = do
+            let v2  = mapFieldNames (enumName "") v1
+                v3  = mapFieldNames (enumName k)  v2
+                fs1 = Set.fromList (fieldNames v2)
+                fs2 = Set.fromList (fieldNames v3)
+
+            p1 <- gets (Set.null . Set.intersection fs1)
+            p2 <- gets (Set.null . Set.intersection fs2)
+
+            if | p1        -> modify (mappend fs1) >> return v2
+               | p2        -> modify (mappend fs2) >> return v3
+               | otherwise -> go (numericSuffix k) v3
+
+        | otherwise       = do
+            let v2 = mapFieldNames (mappend k . upperHead) v1
+                fs = Set.fromList (fieldNames v2)
+
+            p <- gets (Set.null . Set.intersection fs)
+
+            if | p         -> modify (mappend fs) >> return v2
+               | otherwise -> go (numericSuffix k) v1
+
+operation :: Abbrev
+          -> Protocol
+          -> [NS]
+          -> Text
+          -> S1.Operation
+          -> State (HashMap Text Data) Operation
+operation a p ns n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
   where
-    go :: Text -> Text -> Direction -> State (HashMap Text Text) Text
-    go cased n d = do
-        m <- get
+    op rq rs = Operation
+        { _opName             = n
+        , _opService          = a
+        , _opProtocol         = p
+        , _opNamespace        = operationNS a (o ^. oName)
+        , _opImports          = requestNS p : typesNS a : ns
+        , _opDocumentation    = documentation (o ^. oDocumentation)
+        , _opDocumentationUrl = o ^. oDocumentationUrl
+        , _opMethod           = o ^. oHttp.hMethod
+        , _opRequest          = rq
+        , _opResponse         = rs
+        }
 
-        let upd x = put (Map.insert x n m) >> return x
+    prefixURI x = o ^. oHttp.hRequestUri & uriSegments.segVars %~ mappend x
 
-        if | Map.null m      -> upd cased
-           | check n m cased -> upd cased
-           | Just x <- resp d cased,   check n m x -> upd x
-           | Just x <- firstAcronym n, check n m x -> upd x
-           | otherwise       -> go (numericSuffix cased) n d
+    request = go (\x -> Request (prefixURI x)) True
 
-    resp DResponse x = Just (x <> "r")
-    resp _         _ = Nothing
+    response r = go (const (Response w k)) False r
+      where
+        w = fromMaybe False (join (_refWrapper <$> r))
+        k = join (_refResultWrapper <$> r)
 
-    check n m x =
+    go c rq Nothing  = return (type' c rq)
+    go c rq (Just x) = do
+        let k = x ^. refShape
+        m <- gets (^. at k)
+        case m of
+            Nothing -> return (type' c rq)
+            Just d  -> do
+                let d' = setStreaming rq d
+                    k' = operationName k
+                    t  = fromMaybe "" (fieldPrefix d')
+                modify (Map.delete k)
+                return $! c t k' (renamed k' d')
+
+    type' c True  = c "" n (Empty n)
+    type' c False = let k = n <> "Response" in c "" k (Empty k)
+
+    renamed k = \case
+        Newtype _ f  -> Newtype k f
+        Record  _ fs -> Record  k fs
+        x            -> x
+
+filtered :: HashMap Text Override -> HashMap Text Data -> HashMap Text Data
+filtered = flip (Map.foldlWithKey' run)
+  where
+    run :: HashMap Text Data -- ^ acc
+        -> Text              -- ^ key
+        -> Override          -- ^ val
+        -> HashMap Text Data
+    run r k o =
+          renameTo   k (o ^. oRenameTo)
+        . replacedBy k (o ^. oReplacedBy)
+        . sumPrefix  k (o ^. oSumPrefix)
+        . Map.adjust (dataFields %~ field) k
+        $ r
+      where
+        field = required (o ^. oRequired)
+              . renamed  (o ^. oRenamed)
+              -- . ignored  (o ^. oIgnored)
+
+    -- Types:
+
+    renameTo :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
+    renameTo _ Nothing  m = m
+    renameTo x (Just y) m = replaced x y $
         case Map.lookup x m of
-            Just n' | n == n'   -> True
-                    | otherwise -> False
-            Nothing             -> True
-
-http :: Shape -> HTTP -> HTTP
-http p h = h & hPath %~ map f & hQuery %~ map g
-  where
-    f (PVar v) = PVar (prefixed p v)
-    f c        = c
-
-    g = qpVal %~ fmap (prefixed p)
-
-style :: ServiceType -> Response -> Style
-style t rs@Response{..} =
-    case t of
-        _ | fs == 0     -> SNullary
-
-        Json            -> SJson
-        RestJson        -> SJson
-
-        _ | str, hs > 0 -> SBodyHeaders
-          | str         -> SBody
-
-          | hs == fs    -> SHeaders
-
-        _ | hs > 0      -> SXmlHeaders
-        _ | bdy         -> SXml
-        _               -> SXmlCursor
-  where
-    str = maybe False (view cmnStreaming) (rs^.typPayload)
-
-    bdy = isJust (rs^.typPayload)
-    fs  = length (rs^.typFields)
-    hs  = length (rs^.typHeaders)
-
-pagination :: Service -> Operation -> Pagination -> Pagination
-pagination svc o p = case p of
-    More m t -> More (labeled (rs^.cmnName) m) (map token t)
-    Next r t -> Next (labeled (rs^.cmnName) r) (token t)
-  where
-    token t = t
-        & tokInput  %~ labeled (rq^.cmnName)
-        & tokOutput %~ labeled (rs^.cmnName)
-
-    rq = o^.opRequest.typShape
-    rs = o^.opResponse.typShape
-
-    types = shapeType True svc rq
-          : shapeType False svc rs
-          : _svcTypes svc
-
-    labeled _ Empty        = Empty
-    labeled x (Keyed  y)   = Keyed  (applied x y)
-    labeled x (Index  y z) = Index  (applied x y) (labeled (indexed x y) z)
-    labeled x (Apply  y z) = Apply  (applied x y) (labeled y z)
-    labeled x (Choice y z) = Choice (labeled x y) (labeled x z)
-
-    indexed x y =
-        let t = getType x
-            f = getField y (_typFields t)
-          in Text.init . Text.tail . fst . typeOf $ f^.ann
-
-    applied x y =
-        let t = getType x
-            f = getField y (_typFields t)
-         in _fldPrefixed f
-
-    getType x =
-        fromMaybe (error $ "Missing type: " ++ show (x, map (view cmnName) types))
-                  (find ((x ==) . view cmnName) types)
-
-    getField y z =
-        fromMaybe (error $ "Missing field: " ++ show y)
-                  (find ((y ==) . _fldName) z)
-
-serviceNamespaces :: Service -> [NS]
-serviceNamespaces s = sort $ (s^.svcNs.nsTypes)
-    : map _opNamespace (_svcOperations s)
-
-shapeType :: Bool -> Service -> Shape -> Type'
-shapeType rq svc@Service{..} s = defaultType s
-    & typAnn      .~ annOf rq svc s
-    & typPayload  .~ bdy
-    & typFields   .~ fs
-    & typHeaders  .~ hs
-  where
-    bdy = listToMaybe $ filter ((== LBody) . view cmnLocation) fs
-    hs  = filter ((== LHeader) . view cmnLocation) fs
-    fs  = map (requireField os . upd) (fieldsOf rq svc s)
-
-    os  = overrides oRequire
-
-    upd f | f^.cmnLocation == LBody
-          , f^.cmnStreaming = f & cmnRequired.~True & anRequired.~True
-          | otherwise       = f
-
-    overrides = overridesOf svc name
-
-    name = s^.cmnName
-
-anyOverride :: CI Text
-anyOverride = "*"
-
-overridesOf :: Service -> Text -> Getting a Override a -> a
-overridesOf svc k f = view f (locate (CI.mk k) `merge` locate anyOverride)
-  where
-    locate x = Map.lookupDefault def x os
-
-    os = svc^.svcOverrides
-
-    merge x y = x
-        & oRequire %~ (nub . mappend (y^.oRequire))
-        & oIgnore  %~ (nub . mappend (y^.oIgnore))
-        & oPrefix  %~ (`mappend` (y^.oPrefix))
-        & oType    %~ (`mappend` (y^.oType))
-
-fieldsOf :: Bool -> Service -> Shape -> [Field]
-fieldsOf rq svc s = map f (shapesOf s)
-  where
-    f :: (Text, Shape) -> Field
-    f (k, v) = Field k p (shapeType rq svc v)
+            Nothing -> m
+            Just z  -> Map.insert y (ren z) (Map.delete x m)
       where
-        p = prefixed s . fromMaybe k $ Map.lookup (CI.mk k) rename
+        ren = \case
+            Newtype _ f  -> Newtype y f
+            Record  _ fs -> Record  y fs
+            Product _ fs -> Product y fs
+            Nullary _ m' -> Nullary y m'
+            Empty   _    -> Empty   y
+            Void         -> Void
 
-    rename :: HashMap (CI Text) Text
-    rename = overridesOf svc name oRename
+    replacedBy :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
+    replacedBy _ Nothing  = id
+    replacedBy x (Just y) = Map.filterWithKey (const . (/= x)) . replaced x y
 
-    name = s^.cmnName
-
-shapesOf :: Shape -> [(Text, Shape)]
-shapesOf s = case s of
-    SStruct Struct{..} -> _sctFields
-    SMap    Map{..}    -> [(_mapKey^.cmnName, _mapKey), (_mapValue^.cmnName, _mapValue)]
-    SList   List{..}   -> [(_lstItem^.cmnName, _lstItem)]
-    _                  -> []
-
-prefixed :: HasCommon a => a -> Text -> Text
-prefixed p = accessor . mappend (p^.cmnPrefix) . upperFirst
-
-annOf :: Bool -> Service -> Shape -> Ann
-annOf rq svc s = def
-    & anRaw'     .~ isRaw
-    & anCtor     .~ ctorOf s
-    & anWrap     .~ isWrapped
-    & anMonoid   .~ isMonoid s
-    & anDefault  .~ isDefault s
-    & anRequired .~ req
-    & anStrict   .~ (isStrict s && s^.cmnRequired)
-    & anDeriving .~ derivingOf s
-  where
-    (isRaw, isWrapped) = case s of
-        _ | Just x <- renameName svc (s^.cmnName) -> (x, False)
-        _ | Just x <- existingType svc s          -> (x, False)
-
-        SStruct _ -> (name, False)
-
-        SList l
-            | l^.lstMinLength > 0
-            -- This seems to be an incorrect assumption, that a list that
-            -- is 'required' is equivalient to min_length > 0 || l^.cmnRequired
-                -> let (r, w) = ann' (_lstItem l)
-                    in ("List1 " <> parens w r, True)
-
-        SList l -> ("[" <> raw (_lstItem l) <> "]", False)
-
-        SMap  m ->
-            let (kr, kw) = ann' (_mapKey m)
-                (vr, vw) = ann' (_mapValue m)
-             in ("Map " <> parens kw kr <> " " <> parens vw vr, True)
-
-        SSum _
-            | switch      -> ("Switch " <> name, True)
-            | otherwise   -> (name, False)
-
-        SPrim p
-            | body, rq   -> ("RqBody", False)
-            | body       -> ("RsBody", False)
-            | otherwise  -> (formatPrim svc p, False)
-
-    raw    = fst . ann'
-    ann' x = let y = annOf rq svc x in (_anRaw' y, _anWrap y)
-
-    switch = name `elem` switches
- 
-    name = s^.cmnName
-    req  = body || s^.cmnRequired
-    body = isBody s
-
-derivingOf :: Shape -> [Derive]
-derivingOf = sort . foldl' (flip delete) defaultDeriving . go
-  where
-    go x = nub . neq . nord $ concatMap (go . snd) (shapesOf x)
+    replaced :: Text -> Text -> HashMap Text Data -> HashMap Text Data
+    replaced x y = Map.map (\d -> let p = exists d in d & dataFields %~ go p)
       where
-        neq  = add (x^.cmnStreaming) [DEq, DOrd]
-        nord = add (not (isn't _SMap x)) [DOrd]
+        exists = any (== TType x) . nestedTypes
 
-        add True  = mappend
-        add False = const id
+        go True  = typeOf %~ retype
+        go False = id
 
-typeOf :: Ann -> (Text, Text)
-typeOf Ann{..}
-    | _anMonoid       = (raw, _anRaw')
-    | not _anRequired = let x = "Maybe " <> raw in (parens True x, x)
-    | otherwise       = (raw, _anRaw')
-  where
-    raw = parens _anWrap _anRaw'
+        retype :: Type -> Type
+        retype (TMaybe _) = TMaybe z
+        retype (TList  _) = TList  z
+        retype (TList1 _) = TList1 z
+        retype (TType  _) = z
+        retype (TPrim  _) = z
+        retype e          = error $ "Unsupported retyping of: " ++ show (e, y)
 
-parens :: (IsString m, Monoid m) => Bool -> m -> m
-parens True  x = "(" <> x <> ")"
-parens False x = x
+        z = TType y
 
-isStrict :: Shape -> Bool
-isStrict (SPrim p) = _prmType p `elem` [PInteger, PDouble, PBool]
-isStrict _         = False
-
-isBody :: HasCommon a => a -> Bool
-isBody s = s^.cmnLocation == LBody && s^.cmnStreaming
-
-existingType :: HasCommon a => Service -> a -> Maybe Text
-existingType svc x = Map.lookup (CI.mk (x^.cmnName)) (svc^.svcOverrides)
-    >>= view oExists
-
-renameCommon :: HasCommon a => Service -> a -> a
-renameCommon svc c = c &
-    case (svc^.svcName, c^.cmnName) of
-        -- FIXME: Special case for erroneous service model types
-        ("EC2", "String") -> cmnName.~"VirtualizationType"
-        (_,     n)        -> cmnName.~fromMaybe n (renameName svc n)
-
-renameName :: Service -> Text -> Maybe Text
-renameName svc x
-    | x `elem` core = Just (x `Text.snoc` '\'')
-    | otherwise = Map.lookup (CI.mk x) (svc^.svcOverrides) >>= view oName
-  where
-    core =
-        [ "Source"
-        , "Endpoint"
-        , "Service"
-        ]
-
-formatPrim :: Service -> Prim -> Text
-formatPrim Service{..} Prim{..} = Text.pack $
-    case _prmType of
-        PUTCTime               -> show _svcTimestamp
-        PByteString
-            | _svcType == Json -> "Base64"
-        _                      -> drop 1 (show _prmType)
-
-switches :: [Text]
-switches =
-    [ "BucketVersioningStatus"
-    , "ExpirationStatus"
-    , "MFADelete"
-    , "MFADeleteStatus"
-    ]
-
-ctorOf :: Shape -> Ctor
-ctorOf s =  case s of
-    SStruct Struct{..}
-        | length _sctFields == 1       -> CNewtype
-        | null _sctFields              -> CNullary
-    SSum{}
-        | (s^.cmnName) `elem` switches -> CSwitch
-        | otherwise                    -> CSum
-    _                                  -> CData
-
-isDefault :: Shape -> Bool
-isDefault s =
-    case s of
-        SStruct {} -> False
-        SList   l  -> _lstMinLength l < 1
-        SMap    {} -> False
-        SSum    {} -> False
-        SPrim   {} -> False
-
-isMonoid :: Shape -> Bool
-isMonoid s =
-    case s of
-        SStruct {} -> False
-        SList   l  -> _lstMinLength l < 1
-        SMap    {} -> True
-        SSum    {} -> False
-        SPrim   {} -> False
-
-setDirection :: Direction -> Shape -> Shape
-setDirection d s =
-    case s of
-        SStruct x@Struct{..} ->
-            SStruct (dir x { _sctFields = map (second (setDirection d)) _sctFields })
-        SList x@List{..} ->
-            SList (dir x { _lstItem = dir _lstItem })
-        SMap x@Map{..} ->
-            SMap (dir x { _mapKey = dir _mapKey, _mapValue = dir _mapValue })
-        SSum x ->
-            SSum (dir x)
-        SPrim x ->
-            SPrim (dir x)
-  where
-    dir :: HasCommon a => a -> a
-    dir = cmnDirection.~d
-
-serviceTypes :: Service -> [Type']
-serviceTypes svc@Service{..} = sort
-    . Map.elems
-    . types
-    $ execState (shapes _svcOperations) mempty
-  where
-    types :: HashMap Text Shape -> HashMap Text Type'
-    types = Map.map (override . shapeType True svc)
-
-    override :: Type' -> Type'
-    override t
-        | null candidates = t
-        | otherwise       = t & typFields %~ map (requireField candidates)
+    sumPrefix :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
+    sumPrefix _ Nothing  = id
+    sumPrefix k (Just y) = Map.adjust f k
       where
-        candidates = overridesOf svc (t^.cmnName) oRequire
+        f x@Nullary{} = mapFieldNames (mappend y) x
+        f x           = x
 
-    shapes :: [Operation] -> State (HashMap Text Shape) ()
-    shapes = mapM_ mergeCommon . mapMaybe exclude . concatMap accessors
+    -- Fields:
 
-    exclude :: Shape -> Maybe Shape
-    exclude x = maybe (Just x) (const Nothing) (existingType svc x)
+--    required :: HashSet (CI Text) -> Ann a -> Ann a
+    required s f
+        | Set.member (nameCI f) s
+        , TMaybe t <- f ^. typeOf = f & typeOf .~ t
+        | otherwise               = f
 
-    accessors :: Operation -> [Shape]
-    accessors o =
-           descend svc (_opRequest  o^.typShape)
-        ++ descend svc (_opResponse o^.typShape)
-        ++ concatMap (descend svc) (_opErrors o)
+--    ignored :: HashSet (CI Text) -> Named a -> Maybe (Named a)
+    ignored s n
+        | Set.member (nameCI n) s = Nothing
+        | otherwise               = Just n
 
-mergeCommon :: HasCommon a => a -> State (HashMap Text a) ()
-mergeCommon x = modify (Map.insertWith merge (x^.cmnName) x)
+--    renamed :: HashMap (CI Text) Text -> Named a -> Named a
+    renamed m = nameOf %~ (\n -> fromMaybe n (Map.lookup (CI.mk n) m))
+
+datas :: Protocol -> HashMap Text S1.Shape -> HashMap Text Data
+datas p m = evalState (Map.traverseWithKey solve m) mempty
   where
-    merge b a = b
-        -- & cmnXmlName       %~  (<|> a^.cmnXmlName)
-        -- & cmnLocationName  %~  (<|> a^.cmnLocationName)
-        -- & cmnDocumentation <>~ (a^.cmnDocumentation)
-        & cmnDirection     <>~ (a^.cmnDirection)
+    solve :: Text -> S1.Shape -> State (HashMap Text Type) Data
+    solve k = \case
+        Struct' x -> go <$> mapM (field pay req) (ordMap (x ^. scMembers))
+          where
+            pay = x ^. scPayload
+            req = fromMaybe [] (x ^. scRequired)
 
-descend :: Service -> Shape -> [Shape]
-descend svc s' = case s' of
-    SStruct Struct{..} -> concatMap (flat . snd) _sctFields
-    _                  -> []
-  where
-    flat s@SStruct {}     = s : descend svc s
-    flat (SList List{..}) = flat _lstItem
-    flat (SMap Map{..})   = flat _mapKey ++ flat _mapValue
-    flat (SSum x)         = [SSum (switch x)]
-    flat _                = []
+        String' x
+            | Just xs <- x ^. strEnum ->
+                return $! Nullary k (Map.fromList (map (join (,)) xs))
 
-    switch s@Sum{..}
-        | (s^.cmnName) `elem` switches = s { _sumValues = ss }
-        | otherwise                    = s { _sumValues = es }
+        _         -> return Void
       where
-        es = enumPairs svc (s^.cmnName) (Map.elems _sumValues)
+        go []  = Void
+        go [f] = Newtype k f
+        go fs  = Record  k fs
 
-        ss = Map.fromList . map f $ Map.toList _sumValues
+        -- wrapped l n = return
+        --     . Newtype
+        --     . Named k
+        --     . (TPrim PText)
+        --     $ Field l n False False
+        -- String' x -> wrapped Nothing (x ^. strLocationName)
 
-        f (_, "Enabled") = ("Enabled",  "Enabled")
-        f (_, v)         = ("Disabled", v)
+    field :: Maybe Text
+          -> [Text]
+          -> (Text, Ref)
+          -> State (HashMap Text Type) Field
+    field _ req (k, r) = do
+        t <- require req k <$> ref r
 
-enumPairs :: Service -> Text -> [Text] -> HashMap Text Text
-enumPairs svc@Service{..} n =
-    Map.fromList . map trans . filter (not . Text.null)
-  where
-    trans = first (mappend (reserve n) . rules) . join (,)
+        let l = r ^. refLocation
+            n = r ^. refLocationName
+            d = r ^. refDocumentation
+            s = fromMaybe False (r ^. refStreaming)
+--            p = pay == Just k
 
-    reserve x = fromMaybe x (overridesOf svc x oPrefix)
+        return $ Field
+            { _fName          = k
+            , _fShape         = r ^. refShape
+            , _fType          = t
+            , _fLocation      = location p s l
+            , _fLocationName  = fromMaybe k n
+            , _fDocumentation = Doc <$> d
+            }
 
-    rules x =
-        let y  = Text.replace ":" ""
-               . Text.replace "." " "
-               . Text.replace "/" " "
-               . Text.replace "(" " "
-               . Text.replace ")" " "
-               . Text.replace "_" " "
-               $ Text.replace "-" " " x
-            zs = Text.words y
+    require :: [Text] -> Text -> Type -> Type
+    require req k x
+        | k `elem` req = x
+        | otherwise    =
+            case x of
+                TPrim      {} -> TMaybe x
+                TType      {} -> TMaybe x
+                TSensitive {} -> TMaybe x
+                _             -> x
 
-         in if | length zs > 1      -> Text.concat (map Text.toTitle zs)
-               | Text.all isUpper y -> Text.toTitle y
-               | otherwise          -> upcase y
+    ref :: Ref -> State (HashMap Text Type) Type
+    ref r = do
+        let k = r ^. refShape
+            t = TType k
+        x <- gets (Map.lookup k)
+        maybe (maybe (insert k t >> return t)
+                     (prop k)
+                     (Map.lookup k m))
+              return
+              x
 
-    upcase x
-        | Text.null x = x
-        | otherwise   = toUpper (Text.head x) `Text.cons` Text.tail x
-
-serviceError :: Service -> Error
-serviceError svc@Service{..} =
-    Error (unAbbrev _svcName <> "Error") (es ++ cs) ts
-  where
-    ts = Map.fromList
-         $ map (bimap (view cmnName) custom . join (,)) cs
-        ++ map (bimap (view cmnName) (shapeType True svc) . join (,)) es
-
-    cs = [ except "Serializer" "String"
-         , except "Client"     "HttpException"
-         , except "Service"    "String"
-         ]
-
-    es = nub (concatMap _opErrors _svcOperations)
-
-    custom s = shapeType True svc s & anCtor.~CError
-
-    except k v = SStruct (Struct [(v, field)] ctor)
+    prop :: Text -> S1.Shape -> State (HashMap Text Type) Type
+    prop k s =  do
+        x <- gets (Map.lookup k)
+        maybe (go >>= insert k)
+              return
+              x
       where
-        field = SStruct . Struct mempty $ def
-            & cmnName.~v
-            & cmnRequired.~True
+        go = case s of
+            Struct' _ -> pure (TType k)
+            List'   x -> list x <$> ref (x ^. lstMember)
+            Map'    x -> TMap   <$> ref (x ^. mapKey) <*> ref (x ^. mapValue)
+            Int'    _ -> pure (TPrim PInt)
+            Long'   _ -> pure (TPrim PInteger)
+            Double' _ -> pure (TPrim PDouble)
+            Bool'   _ -> pure (TPrim PBool)
+            Time'   x -> pure (TPrim . PTime $ defaultTS (x ^. tsTimestampFormat))
+            Blob'   _ -> pure (TPrim PBlob)
+            String' x
+                | fromMaybe False (x ^. strSensitive)
+                            -> pure (TSensitive (TPrim PText))
+                | otherwise -> pure (TPrim PText)
 
-        ctor = def & cmnName.~unAbbrev _svcName <> k
+        list SList{..}
+            | fromMaybe 0 _lstMin > 0 = TList1
+            | otherwise               = TList
 
-requireField :: [CI Text] -> Field -> Field
-requireField cs f
-    | CI.mk (_fldName f) `notElem` cs = f
-    | otherwise = f & cmnRequired.~True & anRequired.~True
-
-ignoreFields :: Service -> Shape -> Shape
-ignoreFields svc (SStruct s) =
-    SStruct (s & sctFields %~ filter (\(k, _) -> CI.mk k `notElem` cs))
-  where
-    cs = overridesOf svc (s^.cmnName) oIgnore
-ignoreFields _   s = s
+    insert :: Text -> Type -> State (HashMap Text Type) Type
+    insert k t = modify (Map.insert k t) >> return t

@@ -30,7 +30,9 @@ module Network.AWS.S3.HeadBucket
     , hbrBucket
 
     -- * Response
-    , Empty
+    , HeadBucketResponse
+    -- ** Response constructor
+    , headBucketResponse
     ) where
 
 import Network.AWS.Prelude
@@ -66,10 +68,12 @@ instance ToQuery HeadBucket
 
 instance ToHeaders HeadBucket
 
+headBucketResponse :: HeadBucketResponse
+headBucketResponse = HeadBucketResponse
 
 instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3
-    type Rs HeadBucket = Empty
+    type Rs HeadBucket = HeadBucketResponse
 
     request  = head'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse HeadBucketResponse)

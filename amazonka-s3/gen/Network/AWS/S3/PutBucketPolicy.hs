@@ -32,7 +32,9 @@ module Network.AWS.S3.PutBucketPolicy
     , pbprPolicy
 
     -- * Response
-    , Empty
+    , PutBucketPolicyResponse
+    -- ** Response constructor
+    , putBucketPolicyResponse
     ) where
 
 import Network.AWS.Prelude
@@ -91,10 +93,12 @@ instance ToHeaders PutBucketPolicy where
 instance ToBody PutBucketPolicy where
     toBody = toBody . encodeXML . _pbprPolicy
 
+putBucketPolicyResponse :: PutBucketPolicyResponse
+putBucketPolicyResponse = PutBucketPolicyResponse
 
 instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3
-    type Rs PutBucketPolicy = Empty
+    type Rs PutBucketPolicy = PutBucketPolicyResponse
 
     request  = put'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse PutBucketPolicyResponse)

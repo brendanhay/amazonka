@@ -33,7 +33,9 @@ module Network.AWS.S3.AbortMultipartUpload
     , amurUploadId
 
     -- * Response
-    , Empty
+    , AbortMultipartUploadResponse
+    -- ** Response constructor
+    , abortMultipartUploadResponse
     ) where
 
 import Network.AWS.Prelude
@@ -87,10 +89,12 @@ instance ToQuery AbortMultipartUpload where
 
 instance ToHeaders AbortMultipartUpload
 
+abortMultipartUploadResponse :: AbortMultipartUploadResponse
+abortMultipartUploadResponse = AbortMultipartUploadResponse
 
 instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3
-    type Rs AbortMultipartUpload = Empty
+    type Rs AbortMultipartUpload = AbortMultipartUploadResponse
 
     request  = delete'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse AbortMultipartUploadResponse)

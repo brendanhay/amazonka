@@ -31,7 +31,9 @@ module Network.AWS.S3.PutBucketWebsite
     , pbwrWebsiteConfiguration
 
     -- * Response
-    , Empty
+    , PutBucketWebsiteResponse
+    -- ** Response constructor
+    , putBucketWebsiteResponse
     ) where
 
 import Network.AWS.Prelude
@@ -91,10 +93,12 @@ instance ToHeaders PutBucketWebsite where
 instance ToBody PutBucketWebsite where
     toBody = toBody . encodeXML . _pbwrWebsiteConfiguration
 
+putBucketWebsiteResponse :: PutBucketWebsiteResponse
+putBucketWebsiteResponse = PutBucketWebsiteResponse
 
 instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3
-    type Rs PutBucketWebsite = Empty
+    type Rs PutBucketWebsite = PutBucketWebsiteResponse
 
     request  = put'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse PutBucketWebsiteResponse)

@@ -29,7 +29,9 @@ module Network.AWS.S3.DeleteBucketLifecycle
     , dblrBucket
 
     -- * Response
-    , Empty
+    , DeleteBucketLifecycleResponse
+    -- ** Response constructor
+    , deleteBucketLifecycleResponse
     ) where
 
 import Network.AWS.Prelude
@@ -66,10 +68,12 @@ instance ToQuery DeleteBucketLifecycle where
 
 instance ToHeaders DeleteBucketLifecycle
 
+deleteBucketLifecycleResponse :: DeleteBucketLifecycleResponse
+deleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
 
 instance AWSRequest DeleteBucketLifecycle where
     type Sv DeleteBucketLifecycle = S3
-    type Rs DeleteBucketLifecycle = Empty
+    type Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
 
     request  = delete'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse DeleteBucketLifecycleResponse)

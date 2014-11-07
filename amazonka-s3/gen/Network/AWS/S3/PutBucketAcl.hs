@@ -37,7 +37,9 @@ module Network.AWS.S3.PutBucketAcl
     , pbarGrantWriteACP
 
     -- * Response
-    , Empty
+    , PutBucketAclResponse
+    -- ** Response constructor
+    , putBucketAclResponse
     ) where
 
 import Network.AWS.Prelude
@@ -152,10 +154,12 @@ instance ToHeaders PutBucketAcl where
 instance ToBody PutBucketAcl where
     toBody = toBody . encodeXML . _pbarAccessControlPolicy
 
+putBucketAclResponse :: PutBucketAclResponse
+putBucketAclResponse = PutBucketAclResponse
 
 instance AWSRequest PutBucketAcl where
     type Sv PutBucketAcl = S3
-    type Rs PutBucketAcl = Empty
+    type Rs PutBucketAcl = PutBucketAclResponse
 
     request  = put'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse PutBucketAclResponse)

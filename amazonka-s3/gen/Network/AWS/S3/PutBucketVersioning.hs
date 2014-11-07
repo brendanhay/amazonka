@@ -33,7 +33,9 @@ module Network.AWS.S3.PutBucketVersioning
     , pbvrVersioningConfiguration
 
     -- * Response
-    , Empty
+    , PutBucketVersioningResponse
+    -- ** Response constructor
+    , putBucketVersioningResponse
     ) where
 
 import Network.AWS.Prelude
@@ -103,10 +105,12 @@ instance ToHeaders PutBucketVersioning where
 instance ToBody PutBucketVersioning where
     toBody = toBody . encodeXML . _pbvrVersioningConfiguration
 
+putBucketVersioningResponse :: PutBucketVersioningResponse
+putBucketVersioningResponse = PutBucketVersioningResponse
 
 instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3
-    type Rs PutBucketVersioning = Empty
+    type Rs PutBucketVersioning = PutBucketVersioningResponse
 
     request  = put'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse PutBucketVersioningResponse)

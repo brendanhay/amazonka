@@ -79,7 +79,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         { _tService   = service
         , _tNamespace = typesNamespace
         , _tImports   = overrides ^. oTypesModules
-        , _tTypes     = filter (not . isEmpty) (Map.elems ts)
+        , _tTypes     = filter (not . isVoid) (Map.elems ts)
         }
 
     typesNamespace = typesNS abbrev
@@ -198,18 +198,21 @@ operation a p ns n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
         w = fromMaybe False (join (_refWrapper <$> r))
         k = join (_refResultWrapper <$> r)
 
-    go c _  Nothing  = return (c "" "Empty" Empty)
+    go c rq Nothing  = return (type' c rq)
     go c rq (Just x) = do
         let k = x ^. refShape
         m <- gets (^. at k)
         case m of
-            Nothing -> return (c "" k Empty)
+            Nothing -> return (type' c rq)
             Just d  -> do
                 let d' = setStreaming rq d
                     k' = operationName k
                     t  = fromMaybe "" (fieldPrefix d')
                 modify (Map.delete k)
                 return $! c t k' (renamed k' d')
+
+    type' c True  = c "" n (Empty n)
+    type' c False = let k = n <> "Response" in c "" k (Empty k)
 
     renamed k = \case
         Newtype _ f  -> Newtype k f
@@ -248,7 +251,8 @@ filtered = flip (Map.foldlWithKey' run)
             Record  _ fs -> Record  y fs
             Product _ fs -> Product y fs
             Nullary _ m' -> Nullary y m'
-            Empty        -> Empty
+            Empty   _    -> Empty   y
+            Void         -> Void
 
     replacedBy :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
     replacedBy _ Nothing  = id
@@ -271,13 +275,6 @@ filtered = flip (Map.foldlWithKey' run)
         retype e          = error $ "Unsupported retyping of: " ++ show (e, y)
 
         z = TType y
-
-    named = \case
-        Newtype n _ -> n
-        Record  n _ -> n
-        Product n _ -> n
-        Nullary n _ -> n
-        Empty       -> ""
 
     sumPrefix :: Text -> Maybe Text -> HashMap Text Data -> HashMap Text Data
     sumPrefix _ Nothing  = id
@@ -316,9 +313,9 @@ datas p m = evalState (Map.traverseWithKey solve m) mempty
             | Just xs <- x ^. strEnum ->
                 return $! Nullary k (Map.fromList (map (join (,)) xs))
 
-        _         -> return Empty
+        _         -> return Void
       where
-        go []  = Empty
+        go []  = Void
         go [f] = Newtype k f
         go fs  = Record  k fs
 

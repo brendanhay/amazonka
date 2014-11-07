@@ -32,7 +32,9 @@ module Network.AWS.S3.PutBucketLifecycle
     , pblrLifecycleConfiguration
 
     -- * Response
-    , Empty
+    , PutBucketLifecycleResponse
+    -- ** Response constructor
+    , putBucketLifecycleResponse
     ) where
 
 import Network.AWS.Prelude
@@ -91,10 +93,12 @@ instance ToHeaders PutBucketLifecycle where
 instance ToBody PutBucketLifecycle where
     toBody = toBody . encodeXML . _pblrLifecycleConfiguration
 
+putBucketLifecycleResponse :: PutBucketLifecycleResponse
+putBucketLifecycleResponse = PutBucketLifecycleResponse
 
 instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3
-    type Rs PutBucketLifecycle = Empty
+    type Rs PutBucketLifecycle = PutBucketLifecycleResponse
 
     request  = put'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse PutBucketLifecycleResponse)

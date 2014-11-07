@@ -23,7 +23,10 @@
 module Network.AWS.S3.ListBuckets
     (
     -- * Request
-      Empty
+      ListBuckets
+    -- ** Request constructor
+    , listBuckets
+
     -- * Response
     , ListBucketsOutput
     -- ** Response constructor
@@ -37,13 +40,15 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
 
+listBuckets :: ListBuckets
+listBuckets = ListBuckets
 
-instance ToPath Empty where
+instance ToPath ListBuckets where
     toPath = const "/"
 
-instance ToQuery Empty
+instance ToQuery ListBuckets
 
-instance ToHeaders Empty
+instance ToHeaders ListBuckets
 
 data ListBucketsOutput = ListBucketsOutput
     { _lboBuckets :: [Bucket]
@@ -70,9 +75,9 @@ lboBuckets = lens _lboBuckets (\s a -> s { _lboBuckets = a })
 lboOwner :: Lens' ListBucketsOutput (Maybe Owner)
 lboOwner = lens _lboOwner (\s a -> s { _lboOwner = a })
 
-instance AWSRequest Empty where
-    type Sv Empty = S3
-    type Rs Empty = ListBucketsOutput
+instance AWSRequest ListBuckets where
+    type Sv ListBuckets = S3
+    type Rs ListBuckets = ListBucketsOutput
 
     request  = get'
     response = const . xmlResponse $ \h x -> ListBucketsOutput

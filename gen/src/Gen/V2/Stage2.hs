@@ -48,7 +48,6 @@ import           Data.String
 import           Data.Text                (Text)
 import qualified Data.Text                as Text
 import           Data.Text.Manipulate
-import           Debug.Trace
 import           Gen.V2.IO
 import           Gen.V2.JSON              ()
 import           Gen.V2.Names
@@ -338,7 +337,8 @@ data Data
     | Newtype !Text !Field
     | Record  !Text [Field]
     | Product !Text [Type]
-    | Empty
+    | Empty   !Text
+    | Void
       deriving (Eq, Show)
 
 instance Ord Data where
@@ -355,14 +355,24 @@ instance Ord Data where
 instance ToJSON Data where
     toJSON d = toJSON . Derived d $
         case d of
-            Empty        -> object
-                [ "type"     .= "empty"
+            Void         -> object
+                [ "type"      .= "void"
+                ]
+
+            Empty   n    -> object
+                [ "type"      .= "empty"
+                , "name"      .= n
+                , "ctor"      .= constructor n
+                , "fieldPad"  .= (0 :: Int)
+                , "fields"    .= ([] :: [Text])
+                , "optional"  .= ([] :: [Text])
+                , "required"  .= ([] :: [Text])
                 ]
 
             Product n fs -> object
-                [ "type"     .= "product"
-                , "name"     .= n
-                , "slots"    .= map Internal fs
+                [ "type"      .= "product"
+                , "name"      .= n
+                , "slots"     .= map Internal fs
                 ]
 
             Nullary n fs -> object
@@ -402,6 +412,14 @@ instance ToJSON Data where
                 (req, opt) = parameters fs
                 pay        = find isPayload fs
 
+-- instance HasName Data where
+--     nameOf f = \case
+--         Newtype n x  -> (`Newtype` x)  <$> f n
+--         Record  n fs -> (`Record`  fs) <$> f n
+--         Product n fs -> (`Product` fs) <$> f n
+--         Nullary n m  -> (`Nullary` m)  <$> f n
+--         Empty   n    -> Empty          <$> f n
+
 instance DerivingOf Data where
     derivingOf d = f . derivingOf $ toListOf (dataFields . typeOf) d
       where
@@ -418,7 +436,8 @@ dataFields f = \case
     Record  n xs -> Record  n <$> traverse f xs
     Product n xs -> pure (Product n xs)
     Nullary n m  -> pure (Nullary n m)
-    Empty        -> pure Empty
+    Empty   n    -> pure (Empty n)
+    Void         -> pure Void
 
 fieldNames :: Data -> [Text]
 fieldNames (Nullary _ m) = Map.keys m
@@ -446,9 +465,9 @@ setStreaming rq = dataFields %~ go
         | otherwise  = TPrim PRes
     body _    x      = x
 
-isEmpty :: Data -> Bool
-isEmpty Empty = True
-isEmpty _     = False
+isVoid :: Data -> Bool
+isVoid Void = True
+isVoid _    = False
 
 data Request = Request
     { _rqUri  :: !URI

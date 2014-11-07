@@ -31,7 +31,9 @@ module Network.AWS.S3.PutBucketCors
     , pbcrContentMD5
 
     -- * Response
-    , Empty
+    , PutBucketCorsResponse
+    -- ** Response constructor
+    , putBucketCorsResponse
     ) where
 
 import Network.AWS.Prelude
@@ -89,10 +91,12 @@ instance ToHeaders PutBucketCors where
 instance ToBody PutBucketCors where
     toBody = toBody . encodeXML . _pbcrCORSConfiguration
 
+putBucketCorsResponse :: PutBucketCorsResponse
+putBucketCorsResponse = PutBucketCorsResponse
 
 instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3
-    type Rs PutBucketCors = Empty
+    type Rs PutBucketCors = PutBucketCorsResponse
 
     request  = put'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse PutBucketCorsResponse)

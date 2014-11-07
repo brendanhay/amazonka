@@ -29,7 +29,9 @@ module Network.AWS.S3.DeleteBucketTagging
     , dbtrBucket
 
     -- * Response
-    , Empty
+    , DeleteBucketTaggingResponse
+    -- ** Response constructor
+    , deleteBucketTaggingResponse
     ) where
 
 import Network.AWS.Prelude
@@ -66,10 +68,12 @@ instance ToQuery DeleteBucketTagging where
 
 instance ToHeaders DeleteBucketTagging
 
+deleteBucketTaggingResponse :: DeleteBucketTaggingResponse
+deleteBucketTaggingResponse = DeleteBucketTaggingResponse
 
 instance AWSRequest DeleteBucketTagging where
     type Sv DeleteBucketTagging = S3
-    type Rs DeleteBucketTagging = Empty
+    type Rs DeleteBucketTagging = DeleteBucketTaggingResponse
 
     request  = delete'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse DeleteBucketTaggingResponse)

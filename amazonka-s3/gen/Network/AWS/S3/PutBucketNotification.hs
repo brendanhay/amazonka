@@ -31,7 +31,9 @@ module Network.AWS.S3.PutBucketNotification
     , pbnrNotificationConfiguration
 
     -- * Response
-    , Empty
+    , PutBucketNotificationResponse
+    -- ** Response constructor
+    , putBucketNotificationResponse
     ) where
 
 import Network.AWS.Prelude
@@ -91,10 +93,12 @@ instance ToHeaders PutBucketNotification where
 instance ToBody PutBucketNotification where
     toBody = toBody . encodeXML . _pbnrNotificationConfiguration
 
+putBucketNotificationResponse :: PutBucketNotificationResponse
+putBucketNotificationResponse = PutBucketNotificationResponse
 
 instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3
-    type Rs PutBucketNotification = Empty
+    type Rs PutBucketNotification = PutBucketNotificationResponse
 
     request  = put'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse PutBucketNotificationResponse)

@@ -29,7 +29,9 @@ module Network.AWS.S3.DeleteBucketPolicy
     , dbprBucket
 
     -- * Response
-    , Empty
+    , DeleteBucketPolicyResponse
+    -- ** Response constructor
+    , deleteBucketPolicyResponse
     ) where
 
 import Network.AWS.Prelude
@@ -66,10 +68,12 @@ instance ToQuery DeleteBucketPolicy where
 
 instance ToHeaders DeleteBucketPolicy
 
+deleteBucketPolicyResponse :: DeleteBucketPolicyResponse
+deleteBucketPolicyResponse = DeleteBucketPolicyResponse
 
 instance AWSRequest DeleteBucketPolicy where
     type Sv DeleteBucketPolicy = S3
-    type Rs DeleteBucketPolicy = Empty
+    type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
 
     request  = delete'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse DeleteBucketPolicyResponse)

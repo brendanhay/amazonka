@@ -33,7 +33,9 @@ module Network.AWS.S3.PutBucketLogging
     , pblr1ContentMD5
 
     -- * Response
-    , Empty
+    , PutBucketLoggingResponse
+    -- ** Response constructor
+    , putBucketLoggingResponse
     ) where
 
 import Network.AWS.Prelude
@@ -93,10 +95,12 @@ instance ToHeaders PutBucketLogging where
 instance ToBody PutBucketLogging where
     toBody = toBody . encodeXML . _pblr1BucketLoggingStatus
 
+putBucketLoggingResponse :: PutBucketLoggingResponse
+putBucketLoggingResponse = PutBucketLoggingResponse
 
 instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3
-    type Rs PutBucketLogging = Empty
+    type Rs PutBucketLogging = PutBucketLoggingResponse
 
     request  = put'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse PutBucketLoggingResponse)

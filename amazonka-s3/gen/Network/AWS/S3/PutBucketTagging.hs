@@ -31,7 +31,9 @@ module Network.AWS.S3.PutBucketTagging
     , pbtrTagging
 
     -- * Response
-    , Empty
+    , PutBucketTaggingResponse
+    -- ** Response constructor
+    , putBucketTaggingResponse
     ) where
 
 import Network.AWS.Prelude
@@ -89,10 +91,12 @@ instance ToHeaders PutBucketTagging where
 instance ToBody PutBucketTagging where
     toBody = toBody . encodeXML . _pbtrTagging
 
+putBucketTaggingResponse :: PutBucketTaggingResponse
+putBucketTaggingResponse = PutBucketTaggingResponse
 
 instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3
-    type Rs PutBucketTagging = Empty
+    type Rs PutBucketTagging = PutBucketTaggingResponse
 
     request  = put'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse PutBucketTaggingResponse)

@@ -34,7 +34,9 @@ module Network.AWS.S3.PutBucketRequestPayment
     , pbrprRequestPaymentConfiguration
 
     -- * Response
-    , Empty
+    , PutBucketRequestPaymentResponse
+    -- ** Response constructor
+    , putBucketRequestPaymentResponse
     ) where
 
 import Network.AWS.Prelude
@@ -94,10 +96,12 @@ instance ToHeaders PutBucketRequestPayment where
 instance ToBody PutBucketRequestPayment where
     toBody = toBody . encodeXML . _pbrprRequestPaymentConfiguration
 
+putBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
+putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 
 instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3
-    type Rs PutBucketRequestPayment = Empty
+    type Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
 
     request  = put'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse PutBucketRequestPaymentResponse)

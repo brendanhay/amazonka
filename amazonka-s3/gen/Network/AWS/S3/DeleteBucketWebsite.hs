@@ -29,7 +29,9 @@ module Network.AWS.S3.DeleteBucketWebsite
     , dbwrBucket
 
     -- * Response
-    , Empty
+    , DeleteBucketWebsiteResponse
+    -- ** Response constructor
+    , deleteBucketWebsiteResponse
     ) where
 
 import Network.AWS.Prelude
@@ -66,10 +68,12 @@ instance ToQuery DeleteBucketWebsite where
 
 instance ToHeaders DeleteBucketWebsite
 
+deleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse
+deleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
 
 instance AWSRequest DeleteBucketWebsite where
     type Sv DeleteBucketWebsite = S3
-    type Rs DeleteBucketWebsite = Empty
+    type Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
 
     request  = delete'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse DeleteBucketWebsiteResponse)

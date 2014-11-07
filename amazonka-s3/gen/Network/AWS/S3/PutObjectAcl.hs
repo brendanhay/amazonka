@@ -39,7 +39,9 @@ module Network.AWS.S3.PutObjectAcl
     , poarKey
 
     -- * Response
-    , Empty
+    , PutObjectAclResponse
+    -- ** Response constructor
+    , putObjectAclResponse
     ) where
 
 import Network.AWS.Prelude
@@ -164,10 +166,12 @@ instance ToHeaders PutObjectAcl where
 instance ToBody PutObjectAcl where
     toBody = toBody . encodeXML . _poarAccessControlPolicy
 
+putObjectAclResponse :: PutObjectAclResponse
+putObjectAclResponse = PutObjectAclResponse
 
 instance AWSRequest PutObjectAcl where
     type Sv PutObjectAcl = S3
-    type Rs PutObjectAcl = Empty
+    type Rs PutObjectAcl = PutObjectAclResponse
 
     request  = put'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse PutObjectAclResponse)

@@ -32,7 +32,9 @@ module Network.AWS.S3.RestoreObject
     , rorVersionId
 
     -- * Response
-    , Empty
+    , RestoreObjectResponse
+    -- ** Response constructor
+    , restoreObjectResponse
     ) where
 
 import Network.AWS.Prelude
@@ -100,10 +102,12 @@ instance ToHeaders RestoreObject
 instance ToBody RestoreObject where
     toBody = toBody . encodeXML . _rorRestoreRequest
 
+restoreObjectResponse :: RestoreObjectResponse
+restoreObjectResponse = RestoreObjectResponse
 
 instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3
-    type Rs RestoreObject = Empty
+    type Rs RestoreObject = RestoreObjectResponse
 
     request  = post'
-    response = const (nullaryResponse Empty)
+    response = const (nullaryResponse RestoreObjectResponse)

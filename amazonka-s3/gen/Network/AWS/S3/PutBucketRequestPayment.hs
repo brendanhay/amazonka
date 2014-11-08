@@ -40,7 +40,7 @@ module Network.AWS.S3.PutBucketRequestPayment
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 data PutBucketRequestPayment = PutBucketRequestPayment
@@ -99,9 +99,6 @@ instance ToBody PutBucketRequestPayment where
 data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 
 -- | 'PutBucketRequestPaymentResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
 putBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 

@@ -1,7 +1,7 @@
 {% case request.query | length %}
 {% when 0 %}
 instance ToQuery {{ request.name }}
-
+    toQuery = const mempty
 {% when 1 %}
 instance ToQuery {{ request.name }} where
   {% for part in request.query %}

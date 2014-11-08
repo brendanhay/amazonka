@@ -467,8 +467,7 @@ instance FromText Event where
     parser = match "s3:ReducedRedundancyLostObject" S3ReducedRedundancyLostObject
 
 instance ToText Event where
-    toText = \case
-        S3ReducedRedundancyLostObject -> "s3:ReducedRedundancyLostObject"
+    toText S3ReducedRedundancyLostObject = "s3:ReducedRedundancyLostObject"
 
 instance FromXML Event where
     fromXMLOptions = xmlOptions
@@ -1090,8 +1089,7 @@ instance FromText ObjectVersionStorageClass where
     parser = match "STANDARD" OVSCStandard
 
 instance ToText ObjectVersionStorageClass where
-    toText = \case
-        OVSCStandard -> "STANDARD"
+    toText OVSCStandard = "STANDARD"
 
 instance FromXML ObjectVersionStorageClass where
     fromXMLOptions = xmlOptions
@@ -1147,8 +1145,7 @@ instance FromText EncodingType where
     parser = match "url" Url
 
 instance ToText EncodingType where
-    toText = \case
-        Url -> "url"
+    toText Url = "url"
 
 instance FromXML EncodingType where
     fromXMLOptions = xmlOptions
@@ -2351,8 +2348,7 @@ instance FromText TransitionStorageClass where
     parser = match "GLACIER" TSCGlacier
 
 instance ToText TransitionStorageClass where
-    toText = \case
-        TSCGlacier -> "GLACIER"
+    toText TSCGlacier = "GLACIER"
 
 instance FromXML TransitionStorageClass where
     fromXMLOptions = xmlOptions
@@ -2700,8 +2696,7 @@ instance FromText ServerSideEncryption where
     parser = match "AES256" AES256
 
 instance ToText ServerSideEncryption where
-    toText = \case
-        AES256 -> "AES256"
+    toText AES256 = "AES256"
 
 instance FromXML ServerSideEncryption where
     fromXMLOptions = xmlOptions

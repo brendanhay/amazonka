@@ -37,7 +37,7 @@ module Network.AWS.S3.PutBucketNotification
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 data PutBucketNotification = PutBucketNotification
@@ -96,9 +96,6 @@ instance ToBody PutBucketNotification where
 data PutBucketNotificationResponse = PutBucketNotificationResponse
 
 -- | 'PutBucketNotificationResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
 putBucketNotificationResponse :: PutBucketNotificationResponse
 putBucketNotificationResponse = PutBucketNotificationResponse
 

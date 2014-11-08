@@ -1,5 +1,5 @@
 {-# LANGUAGE BangPatterns      #-}
-{-# LANGUAGE DataKinds         #-}
+{-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns      #-}
 
@@ -44,11 +44,27 @@ say x msg = liftIO . Text.putStrLn $ "[ " <> y <> "] " <> Text.pack msg
     n = 17 - Text.length x
 
 loadTemplates :: FilePath -> Script Templates
-loadTemplates d = Templates
-    <$> load "cabal"
-    <*> load "service"
-    <*> load "operation"
-    <*> load "types"
+loadTemplates d = do
+    f  <- Templates
+        <$> load "cabal"
+        <*> load "service"
+
+    !x <- (,)
+        <$> load "types-xml"
+        <*> load "operation-xml"
+
+    !j <- (,)
+        <$> load "types-json"
+        <*> load "operation-json"
+
+    !q <- (,)
+        <$> load "types-query"
+        <*> load "operation-query"
+
+    return $! f $ \case
+        Json  -> j
+        Xml   -> x
+        Query -> q
   where
     load (path -> f) =
            say "Parse Template" f

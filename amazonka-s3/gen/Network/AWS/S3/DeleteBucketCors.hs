@@ -35,7 +35,7 @@ module Network.AWS.S3.DeleteBucketCors
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 newtype DeleteBucketCors = DeleteBucketCors
@@ -71,9 +71,6 @@ instance ToHeaders DeleteBucketCors
 data DeleteBucketCorsResponse = DeleteBucketCorsResponse
 
 -- | 'DeleteBucketCorsResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
 deleteBucketCorsResponse :: DeleteBucketCorsResponse
 deleteBucketCorsResponse = DeleteBucketCorsResponse
 

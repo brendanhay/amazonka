@@ -39,7 +39,7 @@ module Network.AWS.S3.PutBucketVersioning
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 data PutBucketVersioning = PutBucketVersioning
@@ -108,9 +108,6 @@ instance ToBody PutBucketVersioning where
 data PutBucketVersioningResponse = PutBucketVersioningResponse
 
 -- | 'PutBucketVersioningResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
 putBucketVersioningResponse :: PutBucketVersioningResponse
 putBucketVersioningResponse = PutBucketVersioningResponse
 

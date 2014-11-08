@@ -70,7 +70,7 @@ module Network.AWS.S3.CopyObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 data CopyObject = CopyObject
@@ -376,7 +376,7 @@ instance ToPath CopyObject where
         ]
 
 instance ToQuery CopyObject
-
+    toQuery = const mempty
 instance ToHeaders CopyObject where
     toHeaders CopyObject{..} = mconcat
         [ "x-amz-acl"                                                   =: _corACL

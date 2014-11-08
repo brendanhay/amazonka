@@ -88,6 +88,8 @@ module Network.AWS.Types
     , zSuffix
 
     -- * Miscellaneous
+    , Base64
+    , base64
     , Action          (..)
     , Sensitive       (..)
     , _Sensitive
@@ -102,6 +104,7 @@ import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
 import qualified Data.Attoparsec.Text         as AText
 import           Data.ByteString              (ByteString)
+import qualified Data.ByteString.Base64       as Base64
 import qualified Data.ByteString.Lazy         as LBS
 import           Data.Char
 import           Data.Conduit
@@ -421,12 +424,12 @@ instance ToQuery Action where
 -- newtype Boolean = Boolean Bool
 --     deriving (Eq, Ord, Show)
 
--- -- | Base64 encoded binary date.
--- newtype Base64 = Base64 ByteString
---     deriving (Eq, Ord, Show, Generic)
+-- | Base64 encoded binary date.
+newtype Base64 = Base64 ByteString
+    deriving (Eq, Ord, Show, Generic, FromXML, ToByteString, ToQuery)
 
--- base64 :: ByteString -> Base64
--- base64 = Base64 . Base64.encode
+base64 :: ByteString -> Base64
+base64 = Base64 . Base64.encode
 
 -- instance ToByteString Base64 where
 --     toBS (Base64 bs) = bs
@@ -435,8 +438,12 @@ instance ToQuery Action where
 --     parseJSON = withText "Base64" $
 --         return . Base64 . Base64.decodeLenient . Text.encodeUtf8
 
--- instance ToJSON Base64 where
---     toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
+instance ToJSON Base64 where
+    toJSON (Base64 bs) = toJSON (Text.decodeUtf8 bs)
+
+-- instance FromXML Base64
+
+-- instance ToQuery Base64
 
 newtype Sensitive a = Sensitive a
     deriving (Eq, Ord)

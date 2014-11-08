@@ -1,0 +1,16 @@
+{% include "_include/types-exports.ede" %}
+
+import Network.AWS.Prelude
+import Network.AWS.Signing.{{ service.signature }}
+{% include "_include/imports.ede" %}
+
+{% include "_include/service.ede" %}
+
+{% include "_include/error.ede" %}
+
+{% for type in types %}
+{% include "_include/datatype.ede" with type = type.value %}
+  {% if !type.last %}
+
+  {% endif %}
+{% endfor %}

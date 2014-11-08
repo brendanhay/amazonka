@@ -64,7 +64,7 @@ module Network.AWS.S3.PutObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 data PutObject = PutObject
@@ -296,7 +296,7 @@ instance ToPath PutObject where
         ]
 
 instance ToQuery PutObject
-
+    toQuery = const mempty
 instance ToHeaders PutObject where
     toHeaders PutObject{..} = mconcat
         [ "x-amz-acl"                                       =: _porACL

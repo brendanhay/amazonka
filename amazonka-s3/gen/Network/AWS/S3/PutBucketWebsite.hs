@@ -37,7 +37,7 @@ module Network.AWS.S3.PutBucketWebsite
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 data PutBucketWebsite = PutBucketWebsite
@@ -96,9 +96,6 @@ instance ToBody PutBucketWebsite where
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse
 
 -- | 'PutBucketWebsiteResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
 putBucketWebsiteResponse :: PutBucketWebsiteResponse
 putBucketWebsiteResponse = PutBucketWebsiteResponse
 

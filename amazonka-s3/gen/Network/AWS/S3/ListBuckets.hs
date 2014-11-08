@@ -37,15 +37,12 @@ module Network.AWS.S3.ListBuckets
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 data ListBuckets = ListBuckets
 
 -- | 'ListBuckets' constructor.
---
--- The fields accessible through corresponding lenses are:
---
 listBuckets :: ListBuckets
 listBuckets = ListBuckets
 
@@ -53,7 +50,7 @@ instance ToPath ListBuckets where
     toPath = const "/"
 
 instance ToQuery ListBuckets
-
+    toQuery = const mempty
 instance ToHeaders ListBuckets
 
 data ListBucketsOutput = ListBucketsOutput

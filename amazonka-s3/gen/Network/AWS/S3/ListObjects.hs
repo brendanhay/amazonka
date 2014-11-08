@@ -52,7 +52,7 @@ module Network.AWS.S3.ListObjects
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 data ListObjects = ListObjects

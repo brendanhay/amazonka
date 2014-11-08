@@ -38,7 +38,7 @@ module Network.AWS.S3.RestoreObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 data RestoreObject = RestoreObject
@@ -105,9 +105,6 @@ instance ToBody RestoreObject where
 data RestoreObjectResponse = RestoreObjectResponse
 
 -- | 'RestoreObjectResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
 restoreObjectResponse :: RestoreObjectResponse
 restoreObjectResponse = RestoreObjectResponse
 

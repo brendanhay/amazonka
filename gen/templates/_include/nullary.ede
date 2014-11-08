@@ -18,7 +18,13 @@ instance FromText {{ type.name }} where
     {% endfor %}
 
 instance ToText {{ type.name }} where
+  {% if (type.branches | length) == 1 %}
+    {% for branch in type.branches %}
+    toText {{ branch.key }} = "{{ branch.value }}"
+    {% endfor %}
+  {% else %}
     toText = \case
     {% for branch in type.branches %}
         {{ branch.key | justifyLeft(type.branchPad) }} -> "{{ branch.value }}"
     {% endfor %}
+  {% endif %}

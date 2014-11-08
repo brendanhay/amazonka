@@ -44,7 +44,7 @@ module Network.AWS.S3.CreateBucket
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 data CreateBucket = CreateBucket
@@ -132,7 +132,7 @@ instance ToPath CreateBucket where
         ]
 
 instance ToQuery CreateBucket
-
+    toQuery = const mempty
 instance ToHeaders CreateBucket where
     toHeaders CreateBucket{..} = mconcat
         [ "x-amz-acl"                =: _cbrACL

@@ -38,7 +38,7 @@ module Network.AWS.S3.GetObjectTorrent
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 data GetObjectTorrent = GetObjectTorrent

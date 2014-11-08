@@ -137,7 +137,11 @@ genericQuery o = gToQuery o . from
 
 class ToQuery a where
     toQuery :: a -> Query
-    toQuery = const mempty
+
+    default toQuery :: (Generic a, GToQuery (Rep a))
+                    => a
+                    -> Query
+    toQuery = genericQuery def
 
 instance ToQuery Query where
     toQuery = id

@@ -1,0 +1,27 @@
+{% include "_include/types-exports.ede" %}
+
+import Network.AWS.Prelude
+import Network.AWS.Signing.{{ service.signature }}
+{% include "_include/imports.ede" %}
+
+{% include "_include/service.ede" %}
+
+xmlOptions :: Tagged a XMLOptions
+xmlOptions = Tagged def
+{% if xmlNamespace %}
+    { xmlNamespace = Just "{{ xmlNamespace }}"
+    }
+{% endif %}
+
+{% include "_include/error.ede" %}
+
+{% for type in types %}
+{% include "_include/datatype.ede" with type = type.value %}
+
+{% include "_include/xml-from.ede" with type = type.value %}
+
+instance ToQuery {{ type.value.name }}
+  {% if !type.last %}
+
+  {% endif %}
+{% endfor %}

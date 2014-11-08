@@ -37,7 +37,7 @@ module Network.AWS.S3.DeleteBucket
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 newtype DeleteBucket = DeleteBucket
@@ -66,15 +66,12 @@ instance ToPath DeleteBucket where
         ]
 
 instance ToQuery DeleteBucket
-
+    toQuery = const mempty
 instance ToHeaders DeleteBucket
 
 data DeleteBucketResponse = DeleteBucketResponse
 
 -- | 'DeleteBucketResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
 deleteBucketResponse :: DeleteBucketResponse
 deleteBucketResponse = DeleteBucketResponse
 

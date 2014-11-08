@@ -178,7 +178,7 @@ location p _    = fromMaybe l
     l = case p of
         Json  -> BodyJson
         Xml   -> BodyXml
-        Query -> BodyXml
+        Query -> Querystring
 
 nullary stage1 ''Location
 nullary stage2 ''Location
@@ -271,8 +271,7 @@ operationNS :: Abbrev -> Text -> NS
 operationNS (Abbrev a) op = namespace [a, op]
 
 requestNS :: Protocol -> NS
-requestNS Query = "Network.AWS.Request.Query"
-requestNS _     = "Network.AWS.Request"
+requestNS p = namespace ["Request", Text.pack (show p)]
 
 data Override = Override
     { _oRenameTo          :: Maybe Text             -- ^ Rename type
@@ -319,10 +318,9 @@ instance Ord Model where
     compare a b = comparing _mName a b <> comparing _mVersion a b
 
 data Templates = Templates
-    { _tCabal     :: Template
-    , _tService   :: Template
-    , _tOperation :: Template
-    , _tTypes     :: Template
+    { _tCabal    :: Template
+    , _tService  :: Template
+    , _tProtocol :: Protocol -> (Template, Template)
     }
 
 dots :: FilePath -> Bool

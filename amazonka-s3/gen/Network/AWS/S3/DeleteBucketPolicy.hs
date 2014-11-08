@@ -35,7 +35,7 @@ module Network.AWS.S3.DeleteBucketPolicy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request
+import Network.AWS.Request.XML
 import Network.AWS.S3.Types
 
 newtype DeleteBucketPolicy = DeleteBucketPolicy
@@ -71,9 +71,6 @@ instance ToHeaders DeleteBucketPolicy
 data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse
 
 -- | 'DeleteBucketPolicyResponse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
 deleteBucketPolicyResponse :: DeleteBucketPolicyResponse
 deleteBucketPolicyResponse = DeleteBucketPolicyResponse
 

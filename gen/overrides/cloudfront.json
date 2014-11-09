@@ -4,6 +4,9 @@
     "metadata": {
         "serviceAbbreviation": "CloudFront"
     },
+    "typesModules": [
+        "Network.AWS.CloudFront.Internal"
+    ],
     "overrides": {
         "ListCloudFrontOriginAccessIdentitiesResponse": {
             "required": [

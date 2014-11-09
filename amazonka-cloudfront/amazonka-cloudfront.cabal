@@ -1,0 +1,57 @@
+name:                  amazonka-cloudfront
+version:               0.0.0
+synopsis:              
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2014 Brendan Hay
+category:              Network, AWS, Cloud
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.CloudFront
+        , Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity2014_05_31
+        , Network.AWS.CloudFront.CreateDistribution2014_05_31
+        , Network.AWS.CloudFront.CreateInvalidation2014_05_31
+        , Network.AWS.CloudFront.CreateStreamingDistribution2014_05_31
+        , Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity2014_05_31
+        , Network.AWS.CloudFront.DeleteDistribution2014_05_31
+        , Network.AWS.CloudFront.DeleteStreamingDistribution2014_05_31
+        , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity2014_05_31
+        , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig2014_05_31
+        , Network.AWS.CloudFront.GetDistribution2014_05_31
+        , Network.AWS.CloudFront.GetDistributionConfig2014_05_31
+        , Network.AWS.CloudFront.GetInvalidation2014_05_31
+        , Network.AWS.CloudFront.GetStreamingDistribution2014_05_31
+        , Network.AWS.CloudFront.GetStreamingDistributionConfig2014_05_31
+        , Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities2014_05_31
+        , Network.AWS.CloudFront.ListDistributions2014_05_31
+        , Network.AWS.CloudFront.ListInvalidations2014_05_31
+        , Network.AWS.CloudFront.ListStreamingDistributions2014_05_31
+        , Network.AWS.CloudFront.Types
+        , Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity2014_05_31
+        , Network.AWS.CloudFront.UpdateDistribution2014_05_31
+        , Network.AWS.CloudFront.UpdateStreamingDistribution2014_05_31
+
+    other-modules:
+
+    build-depends:
+          amazonka-core
+        , base          >= 4.6 && < 5

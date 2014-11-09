@@ -1,6 +1,6 @@
 name:                  amazonka-autoscaling
 version:               0.0.0
-synopsis:              Amazon Auto Scaling SDK
+synopsis:              Amazon Auto Scaling SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

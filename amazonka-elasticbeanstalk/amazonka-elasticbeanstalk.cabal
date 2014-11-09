@@ -1,6 +1,6 @@
 name:                  amazonka-elasticbeanstalk
 version:               0.0.0
-synopsis:              Amazon Elastic Beanstalk SDK
+synopsis:              Amazon Elastic Beanstalk SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

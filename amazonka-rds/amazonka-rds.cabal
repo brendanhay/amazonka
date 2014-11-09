@@ -1,6 +1,6 @@
 name:                  amazonka-rds
 version:               0.0.0
-synopsis:              Amazon Relational Database Service SDK
+synopsis:              Amazon Relational Database Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

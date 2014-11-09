@@ -1,6 +1,6 @@
 name:                  amazonka-simpledb
 version:               0.0.0
-synopsis:              Amazon SimpleDB SDK
+synopsis:              Amazon SimpleDB SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

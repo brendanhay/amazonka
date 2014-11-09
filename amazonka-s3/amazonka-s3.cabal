@@ -1,6 +1,6 @@
 name:                  amazonka-s3
 version:               0.0.0
-synopsis:              Amazon Simple Storage Service SDK
+synopsis:              Amazon Simple Storage Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

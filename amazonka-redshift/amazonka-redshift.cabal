@@ -1,6 +1,6 @@
 name:                  amazonka-redshift
 version:               0.0.0
-synopsis:              Amazon Redshift SDK
+synopsis:              Amazon Redshift SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

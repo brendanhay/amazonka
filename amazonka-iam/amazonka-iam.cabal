@@ -1,6 +1,6 @@
 name:                  amazonka-iam
 version:               0.0.0
-synopsis:              Amazon Identity and Access Management SDK
+synopsis:              Amazon Identity and Access Management SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

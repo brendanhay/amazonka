@@ -1,6 +1,6 @@
 name:                  amazonka-elb
 version:               0.0.0
-synopsis:              Amazon Elastic Load Balancing SDK
+synopsis:              Amazon Elastic Load Balancing SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

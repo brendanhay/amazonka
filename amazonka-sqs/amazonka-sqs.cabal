@@ -1,6 +1,6 @@
 name:                  amazonka-sqs
 version:               0.0.0
-synopsis:              Amazon Simple Queue Service SDK
+synopsis:              Amazon Simple Queue Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

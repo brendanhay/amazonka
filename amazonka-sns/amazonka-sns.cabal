@@ -1,6 +1,6 @@
 name:                  amazonka-sns
 version:               0.0.0
-synopsis:              Amazon Simple Notification Service SDK
+synopsis:              Amazon Simple Notification Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

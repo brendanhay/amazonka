@@ -1,6 +1,6 @@
 name:                  amazonka-cloudformation
 version:               0.0.0
-synopsis:              Amazon CloudFormation SDK
+synopsis:              Amazon CloudFormation SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

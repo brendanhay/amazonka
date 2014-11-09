@@ -1,6 +1,6 @@
 name:                  amazonka-cloudfront
 version:               0.0.0
-synopsis:              Amazon CloudFront SDK
+synopsis:              Amazon CloudFront SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

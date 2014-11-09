@@ -1,6 +1,6 @@
 name:                  amazonka-securitytoken
 version:               0.0.0
-synopsis:              Amazon Security Token Service SDK
+synopsis:              Amazon Security Token Service SDK.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

@@ -27,28 +27,28 @@ library
 
     exposed-modules:
           Network.AWS.CloudFront
-        , Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity2014_05_31
-        , Network.AWS.CloudFront.CreateDistribution2014_05_31
-        , Network.AWS.CloudFront.CreateInvalidation2014_05_31
-        , Network.AWS.CloudFront.CreateStreamingDistribution2014_05_31
-        , Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity2014_05_31
-        , Network.AWS.CloudFront.DeleteDistribution2014_05_31
-        , Network.AWS.CloudFront.DeleteStreamingDistribution2014_05_31
-        , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity2014_05_31
-        , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig2014_05_31
-        , Network.AWS.CloudFront.GetDistribution2014_05_31
-        , Network.AWS.CloudFront.GetDistributionConfig2014_05_31
-        , Network.AWS.CloudFront.GetInvalidation2014_05_31
-        , Network.AWS.CloudFront.GetStreamingDistribution2014_05_31
-        , Network.AWS.CloudFront.GetStreamingDistributionConfig2014_05_31
-        , Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities2014_05_31
-        , Network.AWS.CloudFront.ListDistributions2014_05_31
-        , Network.AWS.CloudFront.ListInvalidations2014_05_31
-        , Network.AWS.CloudFront.ListStreamingDistributions2014_05_31
+        , Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.CreateDistribution
+        , Network.AWS.CloudFront.CreateInvalidation
+        , Network.AWS.CloudFront.CreateStreamingDistribution
+        , Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.DeleteDistribution
+        , Network.AWS.CloudFront.DeleteStreamingDistribution
+        , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
+        , Network.AWS.CloudFront.GetDistribution
+        , Network.AWS.CloudFront.GetDistributionConfig
+        , Network.AWS.CloudFront.GetInvalidation
+        , Network.AWS.CloudFront.GetStreamingDistribution
+        , Network.AWS.CloudFront.GetStreamingDistributionConfig
+        , Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
+        , Network.AWS.CloudFront.ListDistributions
+        , Network.AWS.CloudFront.ListInvalidations
+        , Network.AWS.CloudFront.ListStreamingDistributions
         , Network.AWS.CloudFront.Types
-        , Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity2014_05_31
-        , Network.AWS.CloudFront.UpdateDistribution2014_05_31
-        , Network.AWS.CloudFront.UpdateStreamingDistribution2014_05_31
+        , Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
+        , Network.AWS.CloudFront.UpdateDistribution
+        , Network.AWS.CloudFront.UpdateStreamingDistribution
 
     other-modules:
 

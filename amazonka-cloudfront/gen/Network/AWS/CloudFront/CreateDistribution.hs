@@ -10,7 +10,7 @@
 -- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
 {-# OPTIONS_GHC -w #-}
 
--- Module      : Network.AWS.CloudFront.CreateDistribution2014_05_31
+-- Module      : Network.AWS.CloudFront.CreateDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Create a new distribution.
-module Network.AWS.CloudFront.CreateDistribution2014_05_31
+module Network.AWS.CloudFront.CreateDistribution
     (
     -- * Request
       CreateDistribution
@@ -119,6 +119,4 @@ instance AWSRequest CreateDistribution where
 
     request  = post
     response = const . xmlResponse $ \h x -> CreateDistributionResult
-        <$> x %| "Distribution"
-        <*> h ~:? "ETag"
-        <*> h ~:? "Location"
+record

@@ -323,23 +323,25 @@ filtered = flip (Map.foldlWithKey' run)
 
     -- Fields:
 
---    required :: HashSet (CI Text) -> Ann a -> Ann a
     required s f
         | Set.member (nameCI f) s
         , TMaybe t <- f ^. typeOf = f & typeOf .~ t
         | otherwise               = f
 
---    ignored :: HashSet (CI Text) -> Named a -> Maybe (Named a)
     ignored s n
         | Set.member (nameCI n) s = Nothing
         | otherwise               = Just n
 
---    renamed :: HashMap (CI Text) Text -> Named a -> Named a
     renamed m = nameOf %~ (\n -> fromMaybe n (Map.lookup (CI.mk n) m))
 
 datas :: Protocol -> HashMap Text S1.Shape -> HashMap Text Data
-datas p m = evalState (Map.traverseWithKey solve m) mempty
+datas p m = evalState (Map.traverseWithKey solve (Map.filter skip m)) mempty
   where
+    skip (Struct' x)
+        | Just True <- x ^. scException = False
+        | Just True <- x ^. scFault     = False
+    skip _                              = True
+
     solve :: Text -> S1.Shape -> State (HashMap Text Type) Data
     solve k = \case
         Struct' x -> go <$> mapM (field pay req) (ordMap (x ^. scMembers))

@@ -10,7 +10,7 @@
 -- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
 {-# OPTIONS_GHC -w #-}
 
--- Module      : Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity2014_05_31
+-- Module      : Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Create a new origin access identity.
-module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity2014_05_31
+module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     (
     -- * Request
       CreateCloudFrontOriginAccessIdentity
@@ -123,6 +123,4 @@ instance AWSRequest CreateCloudFrontOriginAccessIdentity where
 
     request  = post
     response = const . xmlResponse $ \h x -> CreateCloudFrontOriginAccessIdentityResult
-        <$> x %| "CloudFrontOriginAccessIdentity"
-        <*> h ~:? "ETag"
-        <*> h ~:? "Location"
+record

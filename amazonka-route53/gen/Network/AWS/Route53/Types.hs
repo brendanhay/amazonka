@@ -31,11 +31,6 @@ module Network.AWS.Route53.Types
     -- ** XML
     , xmlOptions
 
-    -- * HealthCheckVersionMismatch
-    , HealthCheckVersionMismatch
-    , healthCheckVersionMismatch
-    , hcvmMessage
-
     -- * AliasTarget
     , AliasTarget
     , aliasTarget
@@ -43,31 +38,16 @@ module Network.AWS.Route53.Types
     , atEvaluateTargetHealth
     , atHostedZoneId
 
-    -- * InvalidInput
-    , InvalidInput
-    , invalidInput
-    , iiMessage
-
     -- * ResourceRecord
     , ResourceRecord
     , resourceRecord
     , rrValue
-
-    -- * HostedZoneNotEmpty
-    , HostedZoneNotEmpty
-    , hostedZoneNotEmpty
-    , hzneMessage
 
     -- * Tag
     , Tag
     , tag
     , tagKey
     , tagValue
-
-    -- * InvalidArgument
-    , InvalidArgument
-    , invalidArgument
-    , iaMessage
 
     -- * GeoLocationDetails
     , GeoLocationDetails
@@ -90,11 +70,6 @@ module Network.AWS.Route53.Types
     -- * VPCRegion
     , VPCRegion (..)
 
-    -- * DelegationSetAlreadyReusable
-    , DelegationSetAlreadyReusable
-    , delegationSetAlreadyReusable
-    , dsarMessage
-
     -- * ChangeAction
     , ChangeAction (..)
 
@@ -113,64 +88,14 @@ module Network.AWS.Route53.Types
     , hccSearchString
     , hccType
 
-    -- * PriorRequestNotComplete
-    , PriorRequestNotComplete
-    , priorRequestNotComplete
-    , prncMessage
-
-    -- * InvalidChangeBatch
-    , InvalidChangeBatch
-    , invalidChangeBatch
-    , icbMessages
-
     -- * Change
     , Change
     , change
     , cAction
     , cResourceRecordSet
 
-    -- * DelegationSetNotReusable
-    , DelegationSetNotReusable
-    , delegationSetNotReusable
-    , dsnrMessage
-
-    -- * InvalidDomainName
-    , InvalidDomainName
-    , invalidDomainName
-    , idnMessage
-
     -- * ResourceRecordSetFailover
     , ResourceRecordSetFailover (..)
-
-    -- * HostedZoneNotFound
-    , HostedZoneNotFound
-    , hostedZoneNotFound
-    , hznfMessage
-
-    -- * DelegationSetInUse
-    , DelegationSetInUse
-    , delegationSetInUse
-    , dsiuMessage
-
-    -- * NoSuchDelegationSet
-    , NoSuchDelegationSet
-    , noSuchDelegationSet
-    , nsdsMessage
-
-    -- * HealthCheckAlreadyExists
-    , HealthCheckAlreadyExists
-    , healthCheckAlreadyExists
-    , hcaeMessage
-
-    -- * NoSuchGeoLocation
-    , NoSuchGeoLocation
-    , noSuchGeoLocation
-    , nsglMessage
-
-    -- * DelegationSetNotAvailable
-    , DelegationSetNotAvailable
-    , delegationSetNotAvailable
-    , dsnaMessage
 
     -- * HostedZone
     , HostedZone
@@ -181,22 +106,12 @@ module Network.AWS.Route53.Types
     , hzName
     , hzResourceRecordSetCount
 
-    -- * VPCAssociationNotFound
-    , VPCAssociationNotFound
-    , vpcassociationNotFound
-    , vpcanfMessage
-
     -- * ResourceTagSet
     , ResourceTagSet
     , resourceTagSet
     , rtsResourceId
     , rtsResourceType
     , rtsTags
-
-    -- * ThrottlingException
-    , ThrottlingException
-    , throttlingException
-    , teMessage
 
     -- * ChangeStatus
     , ChangeStatus (..)
@@ -216,11 +131,6 @@ module Network.AWS.Route53.Types
     -- * HealthCheckType
     , HealthCheckType (..)
 
-    -- * NoSuchChange
-    , NoSuchChange
-    , noSuchChange
-    , nscMessage
-
     -- * VPC
     , VPC
     , vpc
@@ -232,11 +142,6 @@ module Network.AWS.Route53.Types
     , hostedZoneConfig
     , hzcComment
     , hzcPrivateZone
-
-    -- * LimitsExceeded
-    , LimitsExceeded
-    , limitsExceeded
-    , leMessage
 
     -- * ResourceRecordSet
     , ResourceRecordSet
@@ -280,66 +185,6 @@ module Network.AWS.Route53.Types
     , healthCheckObservation
     , hcoIPAddress
     , hcoStatusReport
-
-    -- * IncompatibleVersion
-    , IncompatibleVersion
-    , incompatibleVersion
-    , ivMessage
-
-    -- * PublicZoneVPCAssociation
-    , PublicZoneVPCAssociation
-    , publicZoneVPCAssociation
-    , pzvpcaMessage
-
-    -- * NoSuchHostedZone
-    , NoSuchHostedZone
-    , noSuchHostedZone
-    , nshzMessage
-
-    -- * TooManyHostedZones
-    , TooManyHostedZones
-    , tooManyHostedZones
-    , tmhzMessage
-
-    -- * HealthCheckInUse
-    , HealthCheckInUse
-    , healthCheckInUse
-    , hciuMessage
-
-    -- * DelegationSetAlreadyCreated
-    , DelegationSetAlreadyCreated
-    , delegationSetAlreadyCreated
-    , dsacMessage
-
-    -- * ConflictingDomainExists
-    , ConflictingDomainExists
-    , conflictingDomainExists
-    , cdeMessage
-
-    -- * LastVPCAssociation
-    , LastVPCAssociation
-    , lastVPCAssociation
-    , lvpcaMessage
-
-    -- * TooManyHealthChecks
-    , TooManyHealthChecks
-    , tooManyHealthChecks
-    , tmhcMessage
-
-    -- * NoSuchHealthCheck
-    , NoSuchHealthCheck
-    , noSuchHealthCheck
-    , nshcMessage
-
-    -- * InvalidVPCId
-    , InvalidVPCId
-    , invalidVPCId
-    , ivpciMessage
-
-    -- * HostedZoneAlreadyExists
-    , HostedZoneAlreadyExists
-    , hostedZoneAlreadyExists
-    , hzaeMessage
     ) where
 
 import Network.AWS.Prelude
@@ -402,32 +247,6 @@ _Route53Service = prism (uncurry Route53Service) $ \case
     Route53Service s x -> Right (s, x)
     x -> Left x
 
-newtype HealthCheckVersionMismatch = HealthCheckVersionMismatch
-    { _hcvmMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'HealthCheckVersionMismatch' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hcvmMessage' @::@ 'Maybe' 'Text'
---
-healthCheckVersionMismatch :: HealthCheckVersionMismatch
-healthCheckVersionMismatch = HealthCheckVersionMismatch
-    { _hcvmMessage = Nothing
-    }
-
-hcvmMessage :: Lens' HealthCheckVersionMismatch (Maybe Text)
-hcvmMessage = lens _hcvmMessage (\s a -> s { _hcvmMessage = a })
-
-instance FromXML HealthCheckVersionMismatch where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HealthCheckVersionMismatch"
-
-instance ToXML HealthCheckVersionMismatch where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HealthCheckVersionMismatch"
-
 data AliasTarget = AliasTarget
     { _atDNSName              :: Text
     , _atEvaluateTargetHealth :: Bool
@@ -483,33 +302,6 @@ instance ToXML AliasTarget where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "AliasTarget"
 
-newtype InvalidInput = InvalidInput
-    { _iiMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidInput' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iiMessage' @::@ 'Maybe' 'Text'
---
-invalidInput :: InvalidInput
-invalidInput = InvalidInput
-    { _iiMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-iiMessage :: Lens' InvalidInput (Maybe Text)
-iiMessage = lens _iiMessage (\s a -> s { _iiMessage = a })
-
-instance FromXML InvalidInput where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidInput"
-
-instance ToXML InvalidInput where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidInput"
-
 newtype ResourceRecord = ResourceRecord
     { _rrValue :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
@@ -537,33 +329,6 @@ instance FromXML ResourceRecord where
 instance ToXML ResourceRecord where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ResourceRecord"
-
-newtype HostedZoneNotEmpty = HostedZoneNotEmpty
-    { _hzneMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'HostedZoneNotEmpty' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hzneMessage' @::@ 'Maybe' 'Text'
---
-hostedZoneNotEmpty :: HostedZoneNotEmpty
-hostedZoneNotEmpty = HostedZoneNotEmpty
-    { _hzneMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-hzneMessage :: Lens' HostedZoneNotEmpty (Maybe Text)
-hzneMessage = lens _hzneMessage (\s a -> s { _hzneMessage = a })
-
-instance FromXML HostedZoneNotEmpty where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HostedZoneNotEmpty"
-
-instance ToXML HostedZoneNotEmpty where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HostedZoneNotEmpty"
 
 data Tag = Tag
     { _tagKey   :: Maybe Text
@@ -599,33 +364,6 @@ instance FromXML Tag where
 instance ToXML Tag where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Tag"
-
-newtype InvalidArgument = InvalidArgument
-    { _iaMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidArgument' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iaMessage' @::@ 'Maybe' 'Text'
---
-invalidArgument :: InvalidArgument
-invalidArgument = InvalidArgument
-    { _iaMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-iaMessage :: Lens' InvalidArgument (Maybe Text)
-iaMessage = lens _iaMessage (\s a -> s { _iaMessage = a })
-
-instance FromXML InvalidArgument where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidArgument"
-
-instance ToXML InvalidArgument where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidArgument"
 
 data GeoLocationDetails = GeoLocationDetails
     { _gldContinentCode   :: Maybe Text
@@ -812,33 +550,6 @@ instance ToXML VPCRegion where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "VPCRegion"
 
-newtype DelegationSetAlreadyReusable = DelegationSetAlreadyReusable
-    { _dsarMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'DelegationSetAlreadyReusable' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsarMessage' @::@ 'Maybe' 'Text'
---
-delegationSetAlreadyReusable :: DelegationSetAlreadyReusable
-delegationSetAlreadyReusable = DelegationSetAlreadyReusable
-    { _dsarMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-dsarMessage :: Lens' DelegationSetAlreadyReusable (Maybe Text)
-dsarMessage = lens _dsarMessage (\s a -> s { _dsarMessage = a })
-
-instance FromXML DelegationSetAlreadyReusable where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DelegationSetAlreadyReusable"
-
-instance ToXML DelegationSetAlreadyReusable where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DelegationSetAlreadyReusable"
-
 data ChangeAction
     = Create -- ^ CREATE
     | Delete -- ^ DELETE
@@ -988,59 +699,6 @@ instance ToXML HealthCheckConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "HealthCheckConfig"
 
-newtype PriorRequestNotComplete = PriorRequestNotComplete
-    { _prncMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'PriorRequestNotComplete' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'prncMessage' @::@ 'Maybe' 'Text'
---
-priorRequestNotComplete :: PriorRequestNotComplete
-priorRequestNotComplete = PriorRequestNotComplete
-    { _prncMessage = Nothing
-    }
-
-prncMessage :: Lens' PriorRequestNotComplete (Maybe Text)
-prncMessage = lens _prncMessage (\s a -> s { _prncMessage = a })
-
-instance FromXML PriorRequestNotComplete where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PriorRequestNotComplete"
-
-instance ToXML PriorRequestNotComplete where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "PriorRequestNotComplete"
-
-newtype InvalidChangeBatch = InvalidChangeBatch
-    { _icbMessages :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
-
--- | 'InvalidChangeBatch' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'icbMessages' @::@ ['Text']
---
-invalidChangeBatch :: InvalidChangeBatch
-invalidChangeBatch = InvalidChangeBatch
-    { _icbMessages = mempty
-    }
-
--- | Descriptive message for the error response.
-icbMessages :: Lens' InvalidChangeBatch [Text]
-icbMessages = lens _icbMessages (\s a -> s { _icbMessages = a })
-
-instance FromXML InvalidChangeBatch where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidChangeBatch"
-
-instance ToXML InvalidChangeBatch where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidChangeBatch"
-
 data Change = Change
     { _cAction            :: Text
     , _cResourceRecordSet :: ResourceRecordSet
@@ -1079,60 +737,6 @@ instance ToXML Change where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Change"
 
-newtype DelegationSetNotReusable = DelegationSetNotReusable
-    { _dsnrMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'DelegationSetNotReusable' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsnrMessage' @::@ 'Maybe' 'Text'
---
-delegationSetNotReusable :: DelegationSetNotReusable
-delegationSetNotReusable = DelegationSetNotReusable
-    { _dsnrMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-dsnrMessage :: Lens' DelegationSetNotReusable (Maybe Text)
-dsnrMessage = lens _dsnrMessage (\s a -> s { _dsnrMessage = a })
-
-instance FromXML DelegationSetNotReusable where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DelegationSetNotReusable"
-
-instance ToXML DelegationSetNotReusable where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DelegationSetNotReusable"
-
-newtype InvalidDomainName = InvalidDomainName
-    { _idnMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidDomainName' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'idnMessage' @::@ 'Maybe' 'Text'
---
-invalidDomainName :: InvalidDomainName
-invalidDomainName = InvalidDomainName
-    { _idnMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-idnMessage :: Lens' InvalidDomainName (Maybe Text)
-idnMessage = lens _idnMessage (\s a -> s { _idnMessage = a })
-
-instance FromXML InvalidDomainName where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidDomainName"
-
-instance ToXML InvalidDomainName where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidDomainName"
-
 data ResourceRecordSetFailover
     = Primary   -- ^ PRIMARY
     | Secondary -- ^ SECONDARY
@@ -1156,168 +760,6 @@ instance FromXML ResourceRecordSetFailover where
 instance ToXML ResourceRecordSetFailover where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ResourceRecordSetFailover"
-
-newtype HostedZoneNotFound = HostedZoneNotFound
-    { _hznfMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'HostedZoneNotFound' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hznfMessage' @::@ 'Maybe' 'Text'
---
-hostedZoneNotFound :: HostedZoneNotFound
-hostedZoneNotFound = HostedZoneNotFound
-    { _hznfMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-hznfMessage :: Lens' HostedZoneNotFound (Maybe Text)
-hznfMessage = lens _hznfMessage (\s a -> s { _hznfMessage = a })
-
-instance FromXML HostedZoneNotFound where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HostedZoneNotFound"
-
-instance ToXML HostedZoneNotFound where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HostedZoneNotFound"
-
-newtype DelegationSetInUse = DelegationSetInUse
-    { _dsiuMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'DelegationSetInUse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsiuMessage' @::@ 'Maybe' 'Text'
---
-delegationSetInUse :: DelegationSetInUse
-delegationSetInUse = DelegationSetInUse
-    { _dsiuMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-dsiuMessage :: Lens' DelegationSetInUse (Maybe Text)
-dsiuMessage = lens _dsiuMessage (\s a -> s { _dsiuMessage = a })
-
-instance FromXML DelegationSetInUse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DelegationSetInUse"
-
-instance ToXML DelegationSetInUse where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DelegationSetInUse"
-
-newtype NoSuchDelegationSet = NoSuchDelegationSet
-    { _nsdsMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'NoSuchDelegationSet' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'nsdsMessage' @::@ 'Maybe' 'Text'
---
-noSuchDelegationSet :: NoSuchDelegationSet
-noSuchDelegationSet = NoSuchDelegationSet
-    { _nsdsMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-nsdsMessage :: Lens' NoSuchDelegationSet (Maybe Text)
-nsdsMessage = lens _nsdsMessage (\s a -> s { _nsdsMessage = a })
-
-instance FromXML NoSuchDelegationSet where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NoSuchDelegationSet"
-
-instance ToXML NoSuchDelegationSet where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "NoSuchDelegationSet"
-
-newtype HealthCheckAlreadyExists = HealthCheckAlreadyExists
-    { _hcaeMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'HealthCheckAlreadyExists' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hcaeMessage' @::@ 'Maybe' 'Text'
---
-healthCheckAlreadyExists :: HealthCheckAlreadyExists
-healthCheckAlreadyExists = HealthCheckAlreadyExists
-    { _hcaeMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-hcaeMessage :: Lens' HealthCheckAlreadyExists (Maybe Text)
-hcaeMessage = lens _hcaeMessage (\s a -> s { _hcaeMessage = a })
-
-instance FromXML HealthCheckAlreadyExists where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HealthCheckAlreadyExists"
-
-instance ToXML HealthCheckAlreadyExists where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HealthCheckAlreadyExists"
-
-newtype NoSuchGeoLocation = NoSuchGeoLocation
-    { _nsglMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'NoSuchGeoLocation' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'nsglMessage' @::@ 'Maybe' 'Text'
---
-noSuchGeoLocation :: NoSuchGeoLocation
-noSuchGeoLocation = NoSuchGeoLocation
-    { _nsglMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-nsglMessage :: Lens' NoSuchGeoLocation (Maybe Text)
-nsglMessage = lens _nsglMessage (\s a -> s { _nsglMessage = a })
-
-instance FromXML NoSuchGeoLocation where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NoSuchGeoLocation"
-
-instance ToXML NoSuchGeoLocation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "NoSuchGeoLocation"
-
-newtype DelegationSetNotAvailable = DelegationSetNotAvailable
-    { _dsnaMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'DelegationSetNotAvailable' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsnaMessage' @::@ 'Maybe' 'Text'
---
-delegationSetNotAvailable :: DelegationSetNotAvailable
-delegationSetNotAvailable = DelegationSetNotAvailable
-    { _dsnaMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-dsnaMessage :: Lens' DelegationSetNotAvailable (Maybe Text)
-dsnaMessage = lens _dsnaMessage (\s a -> s { _dsnaMessage = a })
-
-instance FromXML DelegationSetNotAvailable where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DelegationSetNotAvailable"
-
-instance ToXML DelegationSetNotAvailable where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DelegationSetNotAvailable"
 
 data HostedZone = HostedZone
     { _hzCallerReference        :: Text
@@ -1391,33 +833,6 @@ instance ToXML HostedZone where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "HostedZone"
 
-newtype VPCAssociationNotFound = VPCAssociationNotFound
-    { _vpcanfMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'VPCAssociationNotFound' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'vpcanfMessage' @::@ 'Maybe' 'Text'
---
-vpcassociationNotFound :: VPCAssociationNotFound
-vpcassociationNotFound = VPCAssociationNotFound
-    { _vpcanfMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-vpcanfMessage :: Lens' VPCAssociationNotFound (Maybe Text)
-vpcanfMessage = lens _vpcanfMessage (\s a -> s { _vpcanfMessage = a })
-
-instance FromXML VPCAssociationNotFound where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VPCAssociationNotFound"
-
-instance ToXML VPCAssociationNotFound where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "VPCAssociationNotFound"
-
 data ResourceTagSet = ResourceTagSet
     { _rtsResourceId   :: Maybe Text
     , _rtsResourceType :: Maybe Text
@@ -1463,32 +878,6 @@ instance FromXML ResourceTagSet where
 instance ToXML ResourceTagSet where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ResourceTagSet"
-
-newtype ThrottlingException = ThrottlingException
-    { _teMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'ThrottlingException' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'teMessage' @::@ 'Maybe' 'Text'
---
-throttlingException :: ThrottlingException
-throttlingException = ThrottlingException
-    { _teMessage = Nothing
-    }
-
-teMessage :: Lens' ThrottlingException (Maybe Text)
-teMessage = lens _teMessage (\s a -> s { _teMessage = a })
-
-instance FromXML ThrottlingException where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ThrottlingException"
-
-instance ToXML ThrottlingException where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ThrottlingException"
 
 data ChangeStatus
     = Insync  -- ^ INSYNC
@@ -1625,32 +1014,6 @@ instance ToXML HealthCheckType where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "HealthCheckType"
 
-newtype NoSuchChange = NoSuchChange
-    { _nscMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'NoSuchChange' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'nscMessage' @::@ 'Maybe' 'Text'
---
-noSuchChange :: NoSuchChange
-noSuchChange = NoSuchChange
-    { _nscMessage = Nothing
-    }
-
-nscMessage :: Lens' NoSuchChange (Maybe Text)
-nscMessage = lens _nscMessage (\s a -> s { _nscMessage = a })
-
-instance FromXML NoSuchChange where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NoSuchChange"
-
-instance ToXML NoSuchChange where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "NoSuchChange"
-
 data VPC = VPC
     { _vpcVPCId     :: Maybe Text
     , _vpcVPCRegion :: Maybe Text
@@ -1719,33 +1082,6 @@ instance FromXML HostedZoneConfig where
 instance ToXML HostedZoneConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "HostedZoneConfig"
-
-newtype LimitsExceeded = LimitsExceeded
-    { _leMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'LimitsExceeded' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'leMessage' @::@ 'Maybe' 'Text'
---
-limitsExceeded :: LimitsExceeded
-limitsExceeded = LimitsExceeded
-    { _leMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-leMessage :: Lens' LimitsExceeded (Maybe Text)
-leMessage = lens _leMessage (\s a -> s { _leMessage = a })
-
-instance FromXML LimitsExceeded where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LimitsExceeded"
-
-instance ToXML LimitsExceeded where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "LimitsExceeded"
 
 data ResourceRecordSet = ResourceRecordSet
     { _rrsAliasTarget     :: Maybe AliasTarget
@@ -2087,323 +1423,3 @@ instance FromXML HealthCheckObservation where
 instance ToXML HealthCheckObservation where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "HealthCheckObservation"
-
-newtype IncompatibleVersion = IncompatibleVersion
-    { _ivMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'IncompatibleVersion' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ivMessage' @::@ 'Maybe' 'Text'
---
-incompatibleVersion :: IncompatibleVersion
-incompatibleVersion = IncompatibleVersion
-    { _ivMessage = Nothing
-    }
-
-ivMessage :: Lens' IncompatibleVersion (Maybe Text)
-ivMessage = lens _ivMessage (\s a -> s { _ivMessage = a })
-
-instance FromXML IncompatibleVersion where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IncompatibleVersion"
-
-instance ToXML IncompatibleVersion where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "IncompatibleVersion"
-
-newtype PublicZoneVPCAssociation = PublicZoneVPCAssociation
-    { _pzvpcaMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'PublicZoneVPCAssociation' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pzvpcaMessage' @::@ 'Maybe' 'Text'
---
-publicZoneVPCAssociation :: PublicZoneVPCAssociation
-publicZoneVPCAssociation = PublicZoneVPCAssociation
-    { _pzvpcaMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-pzvpcaMessage :: Lens' PublicZoneVPCAssociation (Maybe Text)
-pzvpcaMessage = lens _pzvpcaMessage (\s a -> s { _pzvpcaMessage = a })
-
-instance FromXML PublicZoneVPCAssociation where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PublicZoneVPCAssociation"
-
-instance ToXML PublicZoneVPCAssociation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "PublicZoneVPCAssociation"
-
-newtype NoSuchHostedZone = NoSuchHostedZone
-    { _nshzMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'NoSuchHostedZone' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'nshzMessage' @::@ 'Maybe' 'Text'
---
-noSuchHostedZone :: NoSuchHostedZone
-noSuchHostedZone = NoSuchHostedZone
-    { _nshzMessage = Nothing
-    }
-
-nshzMessage :: Lens' NoSuchHostedZone (Maybe Text)
-nshzMessage = lens _nshzMessage (\s a -> s { _nshzMessage = a })
-
-instance FromXML NoSuchHostedZone where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NoSuchHostedZone"
-
-instance ToXML NoSuchHostedZone where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "NoSuchHostedZone"
-
-newtype TooManyHostedZones = TooManyHostedZones
-    { _tmhzMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TooManyHostedZones' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmhzMessage' @::@ 'Maybe' 'Text'
---
-tooManyHostedZones :: TooManyHostedZones
-tooManyHostedZones = TooManyHostedZones
-    { _tmhzMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-tmhzMessage :: Lens' TooManyHostedZones (Maybe Text)
-tmhzMessage = lens _tmhzMessage (\s a -> s { _tmhzMessage = a })
-
-instance FromXML TooManyHostedZones where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TooManyHostedZones"
-
-instance ToXML TooManyHostedZones where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TooManyHostedZones"
-
-newtype HealthCheckInUse = HealthCheckInUse
-    { _hciuMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'HealthCheckInUse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hciuMessage' @::@ 'Maybe' 'Text'
---
-healthCheckInUse :: HealthCheckInUse
-healthCheckInUse = HealthCheckInUse
-    { _hciuMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-hciuMessage :: Lens' HealthCheckInUse (Maybe Text)
-hciuMessage = lens _hciuMessage (\s a -> s { _hciuMessage = a })
-
-instance FromXML HealthCheckInUse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HealthCheckInUse"
-
-instance ToXML HealthCheckInUse where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HealthCheckInUse"
-
-newtype DelegationSetAlreadyCreated = DelegationSetAlreadyCreated
-    { _dsacMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'DelegationSetAlreadyCreated' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dsacMessage' @::@ 'Maybe' 'Text'
---
-delegationSetAlreadyCreated :: DelegationSetAlreadyCreated
-delegationSetAlreadyCreated = DelegationSetAlreadyCreated
-    { _dsacMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-dsacMessage :: Lens' DelegationSetAlreadyCreated (Maybe Text)
-dsacMessage = lens _dsacMessage (\s a -> s { _dsacMessage = a })
-
-instance FromXML DelegationSetAlreadyCreated where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DelegationSetAlreadyCreated"
-
-instance ToXML DelegationSetAlreadyCreated where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DelegationSetAlreadyCreated"
-
-newtype ConflictingDomainExists = ConflictingDomainExists
-    { _cdeMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'ConflictingDomainExists' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cdeMessage' @::@ 'Maybe' 'Text'
---
-conflictingDomainExists :: ConflictingDomainExists
-conflictingDomainExists = ConflictingDomainExists
-    { _cdeMessage = Nothing
-    }
-
-cdeMessage :: Lens' ConflictingDomainExists (Maybe Text)
-cdeMessage = lens _cdeMessage (\s a -> s { _cdeMessage = a })
-
-instance FromXML ConflictingDomainExists where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConflictingDomainExists"
-
-instance ToXML ConflictingDomainExists where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "ConflictingDomainExists"
-
-newtype LastVPCAssociation = LastVPCAssociation
-    { _lvpcaMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'LastVPCAssociation' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'lvpcaMessage' @::@ 'Maybe' 'Text'
---
-lastVPCAssociation :: LastVPCAssociation
-lastVPCAssociation = LastVPCAssociation
-    { _lvpcaMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-lvpcaMessage :: Lens' LastVPCAssociation (Maybe Text)
-lvpcaMessage = lens _lvpcaMessage (\s a -> s { _lvpcaMessage = a })
-
-instance FromXML LastVPCAssociation where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LastVPCAssociation"
-
-instance ToXML LastVPCAssociation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "LastVPCAssociation"
-
-newtype TooManyHealthChecks = TooManyHealthChecks
-    { _tmhcMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TooManyHealthChecks' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmhcMessage' @::@ 'Maybe' 'Text'
---
-tooManyHealthChecks :: TooManyHealthChecks
-tooManyHealthChecks = TooManyHealthChecks
-    { _tmhcMessage = Nothing
-    }
-
-tmhcMessage :: Lens' TooManyHealthChecks (Maybe Text)
-tmhcMessage = lens _tmhcMessage (\s a -> s { _tmhcMessage = a })
-
-instance FromXML TooManyHealthChecks where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TooManyHealthChecks"
-
-instance ToXML TooManyHealthChecks where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TooManyHealthChecks"
-
-newtype NoSuchHealthCheck = NoSuchHealthCheck
-    { _nshcMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'NoSuchHealthCheck' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'nshcMessage' @::@ 'Maybe' 'Text'
---
-noSuchHealthCheck :: NoSuchHealthCheck
-noSuchHealthCheck = NoSuchHealthCheck
-    { _nshcMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-nshcMessage :: Lens' NoSuchHealthCheck (Maybe Text)
-nshcMessage = lens _nshcMessage (\s a -> s { _nshcMessage = a })
-
-instance FromXML NoSuchHealthCheck where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NoSuchHealthCheck"
-
-instance ToXML NoSuchHealthCheck where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "NoSuchHealthCheck"
-
-newtype InvalidVPCId = InvalidVPCId
-    { _ivpciMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidVPCId' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ivpciMessage' @::@ 'Maybe' 'Text'
---
-invalidVPCId :: InvalidVPCId
-invalidVPCId = InvalidVPCId
-    { _ivpciMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-ivpciMessage :: Lens' InvalidVPCId (Maybe Text)
-ivpciMessage = lens _ivpciMessage (\s a -> s { _ivpciMessage = a })
-
-instance FromXML InvalidVPCId where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidVPCId"
-
-instance ToXML InvalidVPCId where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidVPCId"
-
-newtype HostedZoneAlreadyExists = HostedZoneAlreadyExists
-    { _hzaeMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'HostedZoneAlreadyExists' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'hzaeMessage' @::@ 'Maybe' 'Text'
---
-hostedZoneAlreadyExists :: HostedZoneAlreadyExists
-hostedZoneAlreadyExists = HostedZoneAlreadyExists
-    { _hzaeMessage = Nothing
-    }
-
--- | Descriptive message for the error response.
-hzaeMessage :: Lens' HostedZoneAlreadyExists (Maybe Text)
-hzaeMessage = lens _hzaeMessage (\s a -> s { _hzaeMessage = a })
-
-instance FromXML HostedZoneAlreadyExists where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HostedZoneAlreadyExists"
-
-instance ToXML HostedZoneAlreadyExists where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "HostedZoneAlreadyExists"

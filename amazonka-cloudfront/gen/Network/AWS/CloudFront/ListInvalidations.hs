@@ -10,7 +10,7 @@
 -- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
 {-# OPTIONS_GHC -w #-}
 
--- Module      : Network.AWS.CloudFront.ListInvalidations2014_05_31
+-- Module      : Network.AWS.CloudFront.ListInvalidations
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | List invalidation batches.
-module Network.AWS.CloudFront.ListInvalidations2014_05_31
+module Network.AWS.CloudFront.ListInvalidations
     (
     -- * Request
       ListInvalidations
@@ -127,4 +127,4 @@ instance AWSRequest ListInvalidations where
 
     request  = get
     response = const . xmlResponse $ \h x -> ListInvalidationsResult
-        <$> x %| "InvalidationList"
+newtype

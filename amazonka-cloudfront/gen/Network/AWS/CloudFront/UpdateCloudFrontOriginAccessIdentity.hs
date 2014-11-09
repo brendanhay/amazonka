@@ -10,7 +10,7 @@
 -- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
 {-# OPTIONS_GHC -w #-}
 
--- Module      : Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity2014_05_31
+-- Module      : Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Update an origin access identity.
-module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity2014_05_31
+module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     (
     -- * Request
       UpdateCloudFrontOriginAccessIdentity
@@ -138,5 +138,4 @@ instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
 
     request  = put
     response = const . xmlResponse $ \h x -> UpdateCloudFrontOriginAccessIdentityResult
-        <$> x %| "CloudFrontOriginAccessIdentity"
-        <*> h ~:? "ETag"
+record

@@ -39,7 +39,6 @@ import           Data.Jason.Types     hiding (Parser)
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Ord
-import           Data.String
 import           Data.Text            (Text)
 import qualified Data.Text            as Text
 import           Data.Traversable     (Traversable, traverse)
@@ -249,9 +248,6 @@ instance ToFilePath Library where
 newtype NS = NS [Text]
     deriving (Eq, Ord, Show)
 
-instance IsString NS where
-    fromString = NS . Text.split (== '.') . Text.pack
-
 instance A.ToJSON NS where
     toJSON (NS xs) = A.toJSON (Text.intercalate "." xs)
 
@@ -268,11 +264,11 @@ typesNS :: Abbrev -> NS
 typesNS (Abbrev a) = namespace [a, "Types"]
 
 operationNS :: Abbrev -> Text -> NS
-operationNS (Abbrev a) op = namespace [a, op]
+operationNS (Abbrev a) o = namespace [a, Text.dropWhileEnd (not . isAlpha) o]
 
 requestNS :: Protocol -> NS
-requestNS Query = "Network.AWS.Request.Query"
-requestNS _     = "Network.AWS.Request"
+requestNS Query = NS ["Network", "AWS", "Request", "Query"]
+requestNS _     = NS ["Network", "AWS", "Request"]
 
 data Override = Override
     { _oRenameTo   :: Maybe Text             -- ^ Rename type

@@ -10,7 +10,7 @@
 -- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
 {-# OPTIONS_GHC -w #-}
 
--- Module      : Network.AWS.CloudFront.CreateStreamingDistribution2014_05_31
+-- Module      : Network.AWS.CloudFront.CreateStreamingDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Create a new streaming distribution.
-module Network.AWS.CloudFront.CreateStreamingDistribution2014_05_31
+module Network.AWS.CloudFront.CreateStreamingDistribution
     (
     -- * Request
       CreateStreamingDistribution
@@ -123,6 +123,4 @@ instance AWSRequest CreateStreamingDistribution where
 
     request  = post
     response = const . xmlResponse $ \h x -> CreateStreamingDistributionResult
-        <$> h ~:? "ETag"
-        <*> h ~:? "Location"
-        <*> x %| "StreamingDistribution"
+record

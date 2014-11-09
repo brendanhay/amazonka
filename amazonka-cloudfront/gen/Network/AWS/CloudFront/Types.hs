@@ -64,11 +64,6 @@ module Network.AWS.CloudFront.Types
     , cfoaicCallerReference
     , cfoaicComment
 
-    -- * InvalidErrorCode
-    , InvalidErrorCode
-    , invalidErrorCode
-    , iecMessage
-
     -- * Origin
     , Origin
     , origin
@@ -102,47 +97,17 @@ module Network.AWS.CloudFront.Types
     , sdcS3Origin
     , sdcTrustedSigners
 
-    -- * TooManyCacheBehaviors
-    , TooManyCacheBehaviors
-    , tooManyCacheBehaviors
-    , tmcbMessage
-
     -- * Signer
     , Signer
     , signer
     , sAwsAccountNumber
     , sKeyPairIds
 
-    -- * TooManyCloudFrontOriginAccessIdentities
-    , TooManyCloudFrontOriginAccessIdentities
-    , tooManyCloudFrontOriginAccessIdentities
-    , tmcfoaiMessage
-
     -- * CookiePreference
     , CookiePreference
     , cookiePreference
     , cpForward
     , cpWhitelistedNames
-
-    -- * InvalidOriginAccessIdentity
-    , InvalidOriginAccessIdentity
-    , invalidOriginAccessIdentity
-    , ioaiMessage
-
-    -- * DistributionNotDisabled
-    , DistributionNotDisabled
-    , distributionNotDisabled
-    , dndMessage
-
-    -- * NoSuchStreamingDistribution
-    , NoSuchStreamingDistribution
-    , noSuchStreamingDistribution
-    , nssdMessage
-
-    -- * InconsistentQuantities
-    , InconsistentQuantities
-    , inconsistentQuantities
-    , iqMessage
 
     -- * OriginProtocolPolicy
     , OriginProtocolPolicy (..)
@@ -158,42 +123,12 @@ module Network.AWS.CloudFront.Types
     , dLastModifiedTime
     , dStatus
 
-    -- * InvalidArgument
-    , InvalidArgument
-    , invalidArgument
-    , iaMessage
-
-    -- * TooManyInvalidationsInProgress
-    , TooManyInvalidationsInProgress
-    , tooManyInvalidationsInProgress
-    , tmiipMessage
-
     -- * CloudFrontOriginAccessIdentitySummary
     , CloudFrontOriginAccessIdentitySummary
     , cloudFrontOriginAccessIdentitySummary
     , cfoaisComment
     , cfoaisId
     , cfoaisS3CanonicalUserId
-
-    -- * TooManyDistributionCNAMEs
-    , TooManyDistributionCNAMEs
-    , tooManyDistributionCNAMEs
-    , tmdcnameMessage
-
-    -- * NoSuchCloudFrontOriginAccessIdentity
-    , NoSuchCloudFrontOriginAccessIdentity
-    , noSuchCloudFrontOriginAccessIdentity
-    , nscfoaiMessage
-
-    -- * CloudFrontOriginAccessIdentityInUse
-    , CloudFrontOriginAccessIdentityInUse
-    , cloudFrontOriginAccessIdentityInUse
-    , cfoaiiuMessage
-
-    -- * TooManyStreamingDistributions
-    , TooManyStreamingDistributions
-    , tooManyStreamingDistributions
-    , tmsdMessage
 
     -- * StreamingDistributionSummary
     , StreamingDistributionSummary
@@ -209,21 +144,6 @@ module Network.AWS.CloudFront.Types
     , sdsStatus
     , sdsTrustedSigners
 
-    -- * BatchTooLarge
-    , BatchTooLarge
-    , batchTooLarge
-    , btlMessage
-
-    -- * TooManyCookieNamesInWhiteList
-    , TooManyCookieNamesInWhiteList
-    , tooManyCookieNamesInWhiteList
-    , tmcniwlMessage
-
-    -- * InvalidForwardCookies
-    , InvalidForwardCookies
-    , invalidForwardCookies
-    , ifcMessage
-
     -- * CustomOriginConfig
     , CustomOriginConfig
     , customOriginConfig
@@ -231,26 +151,11 @@ module Network.AWS.CloudFront.Types
     , cocHTTPSPort
     , cocOriginProtocolPolicy
 
-    -- * TooManyTrustedSigners
-    , TooManyTrustedSigners
-    , tooManyTrustedSigners
-    , tmtsMessage
-
-    -- * InvalidOrigin
-    , InvalidOrigin
-    , invalidOrigin
-    , ioMessage
-
     -- * Aliases
     , Aliases
     , aliases
     , aItems
     , aQuantity
-
-    -- * NoSuchInvalidation
-    , NoSuchInvalidation
-    , noSuchInvalidation
-    , nsiMessage
 
     -- * InvalidationBatch
     , InvalidationBatch
@@ -281,11 +186,6 @@ module Network.AWS.CloudFront.Types
     , dcPriceClass
     , dcRestrictions
     , dcViewerCertificate
-
-    -- * NoSuchOrigin
-    , NoSuchOrigin
-    , noSuchOrigin
-    , nsoMessage
 
     -- * CacheBehavior
     , CacheBehavior
@@ -318,41 +218,16 @@ module Network.AWS.CloudFront.Types
     -- * PriceClass
     , PriceClass (..)
 
-    -- * StreamingDistributionNotDisabled
-    , StreamingDistributionNotDisabled
-    , streamingDistributionNotDisabled
-    , sdndMessage
-
     -- * CustomErrorResponses
     , CustomErrorResponses
     , customErrorResponses
     , cerItems
     , cerQuantity
 
-    -- * TooManyHeadersInForwardedValues
-    , TooManyHeadersInForwardedValues
-    , tooManyHeadersInForwardedValues
-    , tmhifvMessage
-
     -- * S3OriginConfig
     , S3OriginConfig
     , s3OriginConfig
     , socOriginAccessIdentity
-
-    -- * TooManyStreamingDistributionCNAMEs
-    , TooManyStreamingDistributionCNAMEs
-    , tooManyStreamingDistributionCNAMEs
-    , tmsdcnameMessage
-
-    -- * InvalidRequiredProtocol
-    , InvalidRequiredProtocol
-    , invalidRequiredProtocol
-    , irpMessage
-
-    -- * TooManyDistributions
-    , TooManyDistributions
-    , tooManyDistributions
-    , tmdMessage
 
     -- * GeoRestriction
     , GeoRestriction
@@ -360,11 +235,6 @@ module Network.AWS.CloudFront.Types
     , grItems
     , grQuantity
     , grRestrictionType
-
-    -- * TooManyCertificates
-    , TooManyCertificates
-    , tooManyCertificates
-    , tmcMessage
 
     -- * S3Origin
     , S3Origin
@@ -378,27 +248,12 @@ module Network.AWS.CloudFront.Types
     , hItems
     , hQuantity
 
-    -- * DistributionAlreadyExists
-    , DistributionAlreadyExists
-    , distributionAlreadyExists
-    , daeMessage
-
-    -- * MissingBody
-    , MissingBody
-    , missingBody
-    , mbMessage
-
     -- * ViewerCertificate
     , ViewerCertificate
     , viewerCertificate
     , vcCloudFrontDefaultCertificate
     , vcIAMCertificateId
     , vcSSLSupportMethod
-
-    -- * IllegalUpdate
-    , IllegalUpdate
-    , illegalUpdate
-    , iuMessage
 
     -- * Restrictions
     , Restrictions
@@ -411,23 +266,8 @@ module Network.AWS.CloudFront.Types
     , oItems
     , oQuantity
 
-    -- * InvalidIfMatchVersion
-    , InvalidIfMatchVersion
-    , invalidIfMatchVersion
-    , iimvMessage
-
-    -- * PreconditionFailed
-    , PreconditionFailed
-    , preconditionFailed
-    , pfMessage
-
     -- * Method
     , Method (..)
-
-    -- * InvalidResponseCode
-    , InvalidResponseCode
-    , invalidResponseCode
-    , ircMessage
 
     -- * ForwardedValues
     , ForwardedValues
@@ -443,21 +283,6 @@ module Network.AWS.CloudFront.Types
     , tsItems
     , tsQuantity
 
-    -- * InvalidHeadersForS3Origin
-    , InvalidHeadersForS3Origin
-    , invalidHeadersForS3Origin
-    , ihfsoMessage
-
-    -- * CNAMEAlreadyExists
-    , CNAMEAlreadyExists
-    , cnamealreadyExists
-    , cnameaeMessage
-
-    -- * TrustedSignerDoesNotExist
-    , TrustedSignerDoesNotExist
-    , trustedSignerDoesNotExist
-    , tsdneMessage
-
     -- * ItemSelection
     , ItemSelection (..)
 
@@ -467,26 +292,6 @@ module Network.AWS.CloudFront.Types
     , slcBucket
     , slcEnabled
     , slcPrefix
-
-    -- * CloudFrontOriginAccessIdentityAlreadyExists
-    , CloudFrontOriginAccessIdentityAlreadyExists
-    , cloudFrontOriginAccessIdentityAlreadyExists
-    , cfoaiaeMessage
-
-    -- * TooManyOrigins
-    , TooManyOrigins
-    , tooManyOrigins
-    , tmoMessage
-
-    -- * InvalidRelativePath
-    , InvalidRelativePath
-    , invalidRelativePath
-    , irp1Message
-
-    -- * StreamingDistributionAlreadyExists
-    , StreamingDistributionAlreadyExists
-    , streamingDistributionAlreadyExists
-    , sdaeMessage
 
     -- * CookieNames
     , CookieNames
@@ -501,11 +306,6 @@ module Network.AWS.CloudFront.Types
     , cerErrorCode
     , cerResponseCode
     , cerResponsePagePath
-
-    -- * AccessDenied
-    , AccessDenied
-    , accessDenied
-    , adMessage
 
     -- * CacheBehaviors
     , CacheBehaviors
@@ -534,11 +334,6 @@ module Network.AWS.CloudFront.Types
     , ilNextMarker
     , ilQuantity
 
-    -- * InvalidViewerCertificate
-    , InvalidViewerCertificate
-    , invalidViewerCertificate
-    , ivcMessage
-
     -- * StreamingDistribution
     , StreamingDistribution
     , streamingDistribution
@@ -548,11 +343,6 @@ module Network.AWS.CloudFront.Types
     , sdLastModifiedTime
     , sdStatus
     , sdStreamingDistributionConfig
-
-    -- * NoSuchDistribution
-    , NoSuchDistribution
-    , noSuchDistribution
-    , nsdMessage
 
     -- * Paths
     , Paths
@@ -592,18 +382,8 @@ module Network.AWS.CloudFront.Types
     , dsStatus
     , dsViewerCertificate
 
-    -- * InvalidDefaultRootObject
-    , InvalidDefaultRootObject
-    , invalidDefaultRootObject
-    , idroMessage
-
     -- * GeoRestrictionType
     , GeoRestrictionType (..)
-
-    -- * InvalidGeoRestrictionParameter
-    , InvalidGeoRestrictionParameter
-    , invalidGeoRestrictionParameter
-    , igrpMessage
 
     -- * LoggingConfig
     , LoggingConfig
@@ -612,11 +392,6 @@ module Network.AWS.CloudFront.Types
     , lcEnabled
     , lcIncludeCookies
     , lcPrefix
-
-    -- * InvalidLocationCode
-    , InvalidLocationCode
-    , invalidLocationCode
-    , ilcMessage
     ) where
 
 import Network.AWS.Prelude
@@ -930,32 +705,6 @@ instance ToXML CloudFrontOriginAccessIdentityConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CloudFrontOriginAccessIdentityConfig"
 
-newtype InvalidErrorCode = InvalidErrorCode
-    { _iecMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidErrorCode' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iecMessage' @::@ 'Maybe' 'Text'
---
-invalidErrorCode :: InvalidErrorCode
-invalidErrorCode = InvalidErrorCode
-    { _iecMessage = Nothing
-    }
-
-iecMessage :: Lens' InvalidErrorCode (Maybe Text)
-iecMessage = lens _iecMessage (\s a -> s { _iecMessage = a })
-
-instance FromXML InvalidErrorCode where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidErrorCode"
-
-instance ToXML InvalidErrorCode where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidErrorCode"
-
 data Origin = Origin
     { _oCustomOriginConfig :: Maybe CustomOriginConfig
     , _oDomainName         :: Text
@@ -1244,32 +993,6 @@ instance ToXML StreamingDistributionConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "StreamingDistributionConfig"
 
-newtype TooManyCacheBehaviors = TooManyCacheBehaviors
-    { _tmcbMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TooManyCacheBehaviors' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmcbMessage' @::@ 'Maybe' 'Text'
---
-tooManyCacheBehaviors :: TooManyCacheBehaviors
-tooManyCacheBehaviors = TooManyCacheBehaviors
-    { _tmcbMessage = Nothing
-    }
-
-tmcbMessage :: Lens' TooManyCacheBehaviors (Maybe Text)
-tmcbMessage = lens _tmcbMessage (\s a -> s { _tmcbMessage = a })
-
-instance FromXML TooManyCacheBehaviors where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TooManyCacheBehaviors"
-
-instance ToXML TooManyCacheBehaviors where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TooManyCacheBehaviors"
-
 data Signer = Signer
     { _sAwsAccountNumber :: Maybe Text
     , _sKeyPairIds       :: Maybe KeyPairIds
@@ -1309,32 +1032,6 @@ instance FromXML Signer where
 instance ToXML Signer where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Signer"
-
-newtype TooManyCloudFrontOriginAccessIdentities = TooManyCloudFrontOriginAccessIdentities
-    { _tmcfoaiMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TooManyCloudFrontOriginAccessIdentities' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmcfoaiMessage' @::@ 'Maybe' 'Text'
---
-tooManyCloudFrontOriginAccessIdentities :: TooManyCloudFrontOriginAccessIdentities
-tooManyCloudFrontOriginAccessIdentities = TooManyCloudFrontOriginAccessIdentities
-    { _tmcfoaiMessage = Nothing
-    }
-
-tmcfoaiMessage :: Lens' TooManyCloudFrontOriginAccessIdentities (Maybe Text)
-tmcfoaiMessage = lens _tmcfoaiMessage (\s a -> s { _tmcfoaiMessage = a })
-
-instance FromXML TooManyCloudFrontOriginAccessIdentities where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TooManyCloudFrontOriginAccessIdentities"
-
-instance ToXML TooManyCloudFrontOriginAccessIdentities where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TooManyCloudFrontOriginAccessIdentities"
 
 data CookiePreference = CookiePreference
     { _cpForward          :: Text
@@ -1377,110 +1074,6 @@ instance FromXML CookiePreference where
 instance ToXML CookiePreference where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CookiePreference"
-
-newtype InvalidOriginAccessIdentity = InvalidOriginAccessIdentity
-    { _ioaiMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidOriginAccessIdentity' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ioaiMessage' @::@ 'Maybe' 'Text'
---
-invalidOriginAccessIdentity :: InvalidOriginAccessIdentity
-invalidOriginAccessIdentity = InvalidOriginAccessIdentity
-    { _ioaiMessage = Nothing
-    }
-
-ioaiMessage :: Lens' InvalidOriginAccessIdentity (Maybe Text)
-ioaiMessage = lens _ioaiMessage (\s a -> s { _ioaiMessage = a })
-
-instance FromXML InvalidOriginAccessIdentity where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidOriginAccessIdentity"
-
-instance ToXML InvalidOriginAccessIdentity where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidOriginAccessIdentity"
-
-newtype DistributionNotDisabled = DistributionNotDisabled
-    { _dndMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'DistributionNotDisabled' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'dndMessage' @::@ 'Maybe' 'Text'
---
-distributionNotDisabled :: DistributionNotDisabled
-distributionNotDisabled = DistributionNotDisabled
-    { _dndMessage = Nothing
-    }
-
-dndMessage :: Lens' DistributionNotDisabled (Maybe Text)
-dndMessage = lens _dndMessage (\s a -> s { _dndMessage = a })
-
-instance FromXML DistributionNotDisabled where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DistributionNotDisabled"
-
-instance ToXML DistributionNotDisabled where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DistributionNotDisabled"
-
-newtype NoSuchStreamingDistribution = NoSuchStreamingDistribution
-    { _nssdMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'NoSuchStreamingDistribution' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'nssdMessage' @::@ 'Maybe' 'Text'
---
-noSuchStreamingDistribution :: NoSuchStreamingDistribution
-noSuchStreamingDistribution = NoSuchStreamingDistribution
-    { _nssdMessage = Nothing
-    }
-
-nssdMessage :: Lens' NoSuchStreamingDistribution (Maybe Text)
-nssdMessage = lens _nssdMessage (\s a -> s { _nssdMessage = a })
-
-instance FromXML NoSuchStreamingDistribution where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NoSuchStreamingDistribution"
-
-instance ToXML NoSuchStreamingDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "NoSuchStreamingDistribution"
-
-newtype InconsistentQuantities = InconsistentQuantities
-    { _iqMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InconsistentQuantities' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iqMessage' @::@ 'Maybe' 'Text'
---
-inconsistentQuantities :: InconsistentQuantities
-inconsistentQuantities = InconsistentQuantities
-    { _iqMessage = Nothing
-    }
-
-iqMessage :: Lens' InconsistentQuantities (Maybe Text)
-iqMessage = lens _iqMessage (\s a -> s { _iqMessage = a })
-
-instance FromXML InconsistentQuantities where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InconsistentQuantities"
-
-instance ToXML InconsistentQuantities where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InconsistentQuantities"
 
 data OriginProtocolPolicy
     = HttpOnly    -- ^ http-only
@@ -1604,58 +1197,6 @@ instance ToXML Distribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Distribution"
 
-newtype InvalidArgument = InvalidArgument
-    { _iaMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidArgument' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iaMessage' @::@ 'Maybe' 'Text'
---
-invalidArgument :: InvalidArgument
-invalidArgument = InvalidArgument
-    { _iaMessage = Nothing
-    }
-
-iaMessage :: Lens' InvalidArgument (Maybe Text)
-iaMessage = lens _iaMessage (\s a -> s { _iaMessage = a })
-
-instance FromXML InvalidArgument where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidArgument"
-
-instance ToXML InvalidArgument where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidArgument"
-
-newtype TooManyInvalidationsInProgress = TooManyInvalidationsInProgress
-    { _tmiipMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TooManyInvalidationsInProgress' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmiipMessage' @::@ 'Maybe' 'Text'
---
-tooManyInvalidationsInProgress :: TooManyInvalidationsInProgress
-tooManyInvalidationsInProgress = TooManyInvalidationsInProgress
-    { _tmiipMessage = Nothing
-    }
-
-tmiipMessage :: Lens' TooManyInvalidationsInProgress (Maybe Text)
-tmiipMessage = lens _tmiipMessage (\s a -> s { _tmiipMessage = a })
-
-instance FromXML TooManyInvalidationsInProgress where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TooManyInvalidationsInProgress"
-
-instance ToXML TooManyInvalidationsInProgress where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TooManyInvalidationsInProgress"
-
 data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySummary
     { _cfoaisComment           :: Text
     , _cfoaisId                :: Text
@@ -1705,110 +1246,6 @@ instance FromXML CloudFrontOriginAccessIdentitySummary where
 instance ToXML CloudFrontOriginAccessIdentitySummary where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CloudFrontOriginAccessIdentitySummary"
-
-newtype TooManyDistributionCNAMEs = TooManyDistributionCNAMEs
-    { _tmdcnameMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TooManyDistributionCNAMEs' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmdcnameMessage' @::@ 'Maybe' 'Text'
---
-tooManyDistributionCNAMEs :: TooManyDistributionCNAMEs
-tooManyDistributionCNAMEs = TooManyDistributionCNAMEs
-    { _tmdcnameMessage = Nothing
-    }
-
-tmdcnameMessage :: Lens' TooManyDistributionCNAMEs (Maybe Text)
-tmdcnameMessage = lens _tmdcnameMessage (\s a -> s { _tmdcnameMessage = a })
-
-instance FromXML TooManyDistributionCNAMEs where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TooManyDistributionCNAMEs"
-
-instance ToXML TooManyDistributionCNAMEs where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TooManyDistributionCNAMEs"
-
-newtype NoSuchCloudFrontOriginAccessIdentity = NoSuchCloudFrontOriginAccessIdentity
-    { _nscfoaiMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'NoSuchCloudFrontOriginAccessIdentity' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'nscfoaiMessage' @::@ 'Maybe' 'Text'
---
-noSuchCloudFrontOriginAccessIdentity :: NoSuchCloudFrontOriginAccessIdentity
-noSuchCloudFrontOriginAccessIdentity = NoSuchCloudFrontOriginAccessIdentity
-    { _nscfoaiMessage = Nothing
-    }
-
-nscfoaiMessage :: Lens' NoSuchCloudFrontOriginAccessIdentity (Maybe Text)
-nscfoaiMessage = lens _nscfoaiMessage (\s a -> s { _nscfoaiMessage = a })
-
-instance FromXML NoSuchCloudFrontOriginAccessIdentity where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NoSuchCloudFrontOriginAccessIdentity"
-
-instance ToXML NoSuchCloudFrontOriginAccessIdentity where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "NoSuchCloudFrontOriginAccessIdentity"
-
-newtype CloudFrontOriginAccessIdentityInUse = CloudFrontOriginAccessIdentityInUse
-    { _cfoaiiuMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'CloudFrontOriginAccessIdentityInUse' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cfoaiiuMessage' @::@ 'Maybe' 'Text'
---
-cloudFrontOriginAccessIdentityInUse :: CloudFrontOriginAccessIdentityInUse
-cloudFrontOriginAccessIdentityInUse = CloudFrontOriginAccessIdentityInUse
-    { _cfoaiiuMessage = Nothing
-    }
-
-cfoaiiuMessage :: Lens' CloudFrontOriginAccessIdentityInUse (Maybe Text)
-cfoaiiuMessage = lens _cfoaiiuMessage (\s a -> s { _cfoaiiuMessage = a })
-
-instance FromXML CloudFrontOriginAccessIdentityInUse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CloudFrontOriginAccessIdentityInUse"
-
-instance ToXML CloudFrontOriginAccessIdentityInUse where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CloudFrontOriginAccessIdentityInUse"
-
-newtype TooManyStreamingDistributions = TooManyStreamingDistributions
-    { _tmsdMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TooManyStreamingDistributions' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmsdMessage' @::@ 'Maybe' 'Text'
---
-tooManyStreamingDistributions :: TooManyStreamingDistributions
-tooManyStreamingDistributions = TooManyStreamingDistributions
-    { _tmsdMessage = Nothing
-    }
-
-tmsdMessage :: Lens' TooManyStreamingDistributions (Maybe Text)
-tmsdMessage = lens _tmsdMessage (\s a -> s { _tmsdMessage = a })
-
-instance FromXML TooManyStreamingDistributions where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TooManyStreamingDistributions"
-
-instance ToXML TooManyStreamingDistributions where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TooManyStreamingDistributions"
 
 data StreamingDistributionSummary = StreamingDistributionSummary
     { _sdsAliases          :: Aliases
@@ -1938,84 +1375,6 @@ instance ToXML StreamingDistributionSummary where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "StreamingDistributionSummary"
 
-newtype BatchTooLarge = BatchTooLarge
-    { _btlMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'BatchTooLarge' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'btlMessage' @::@ 'Maybe' 'Text'
---
-batchTooLarge :: BatchTooLarge
-batchTooLarge = BatchTooLarge
-    { _btlMessage = Nothing
-    }
-
-btlMessage :: Lens' BatchTooLarge (Maybe Text)
-btlMessage = lens _btlMessage (\s a -> s { _btlMessage = a })
-
-instance FromXML BatchTooLarge where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BatchTooLarge"
-
-instance ToXML BatchTooLarge where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "BatchTooLarge"
-
-newtype TooManyCookieNamesInWhiteList = TooManyCookieNamesInWhiteList
-    { _tmcniwlMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TooManyCookieNamesInWhiteList' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmcniwlMessage' @::@ 'Maybe' 'Text'
---
-tooManyCookieNamesInWhiteList :: TooManyCookieNamesInWhiteList
-tooManyCookieNamesInWhiteList = TooManyCookieNamesInWhiteList
-    { _tmcniwlMessage = Nothing
-    }
-
-tmcniwlMessage :: Lens' TooManyCookieNamesInWhiteList (Maybe Text)
-tmcniwlMessage = lens _tmcniwlMessage (\s a -> s { _tmcniwlMessage = a })
-
-instance FromXML TooManyCookieNamesInWhiteList where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TooManyCookieNamesInWhiteList"
-
-instance ToXML TooManyCookieNamesInWhiteList where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TooManyCookieNamesInWhiteList"
-
-newtype InvalidForwardCookies = InvalidForwardCookies
-    { _ifcMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidForwardCookies' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ifcMessage' @::@ 'Maybe' 'Text'
---
-invalidForwardCookies :: InvalidForwardCookies
-invalidForwardCookies = InvalidForwardCookies
-    { _ifcMessage = Nothing
-    }
-
-ifcMessage :: Lens' InvalidForwardCookies (Maybe Text)
-ifcMessage = lens _ifcMessage (\s a -> s { _ifcMessage = a })
-
-instance FromXML InvalidForwardCookies where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidForwardCookies"
-
-instance ToXML InvalidForwardCookies where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidForwardCookies"
-
 data CustomOriginConfig = CustomOriginConfig
     { _cocHTTPPort             :: Int
     , _cocHTTPSPort            :: Int
@@ -2063,58 +1422,6 @@ instance ToXML CustomOriginConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CustomOriginConfig"
 
-newtype TooManyTrustedSigners = TooManyTrustedSigners
-    { _tmtsMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TooManyTrustedSigners' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmtsMessage' @::@ 'Maybe' 'Text'
---
-tooManyTrustedSigners :: TooManyTrustedSigners
-tooManyTrustedSigners = TooManyTrustedSigners
-    { _tmtsMessage = Nothing
-    }
-
-tmtsMessage :: Lens' TooManyTrustedSigners (Maybe Text)
-tmtsMessage = lens _tmtsMessage (\s a -> s { _tmtsMessage = a })
-
-instance FromXML TooManyTrustedSigners where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TooManyTrustedSigners"
-
-instance ToXML TooManyTrustedSigners where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TooManyTrustedSigners"
-
-newtype InvalidOrigin = InvalidOrigin
-    { _ioMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidOrigin' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ioMessage' @::@ 'Maybe' 'Text'
---
-invalidOrigin :: InvalidOrigin
-invalidOrigin = InvalidOrigin
-    { _ioMessage = Nothing
-    }
-
-ioMessage :: Lens' InvalidOrigin (Maybe Text)
-ioMessage = lens _ioMessage (\s a -> s { _ioMessage = a })
-
-instance FromXML InvalidOrigin where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidOrigin"
-
-instance ToXML InvalidOrigin where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidOrigin"
-
 data Aliases = Aliases
     { _aItems    :: [Text]
     , _aQuantity :: Int
@@ -2151,32 +1458,6 @@ instance FromXML Aliases where
 instance ToXML Aliases where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Aliases"
-
-newtype NoSuchInvalidation = NoSuchInvalidation
-    { _nsiMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'NoSuchInvalidation' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'nsiMessage' @::@ 'Maybe' 'Text'
---
-noSuchInvalidation :: NoSuchInvalidation
-noSuchInvalidation = NoSuchInvalidation
-    { _nsiMessage = Nothing
-    }
-
-nsiMessage :: Lens' NoSuchInvalidation (Maybe Text)
-nsiMessage = lens _nsiMessage (\s a -> s { _nsiMessage = a })
-
-instance FromXML NoSuchInvalidation where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NoSuchInvalidation"
-
-instance ToXML NoSuchInvalidation where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "NoSuchInvalidation"
 
 data InvalidationBatch = InvalidationBatch
     { _ibCallerReference :: Text
@@ -2438,32 +1719,6 @@ instance FromXML DistributionConfig where
 instance ToXML DistributionConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DistributionConfig"
-
-newtype NoSuchOrigin = NoSuchOrigin
-    { _nsoMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'NoSuchOrigin' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'nsoMessage' @::@ 'Maybe' 'Text'
---
-noSuchOrigin :: NoSuchOrigin
-noSuchOrigin = NoSuchOrigin
-    { _nsoMessage = Nothing
-    }
-
-nsoMessage :: Lens' NoSuchOrigin (Maybe Text)
-nsoMessage = lens _nsoMessage (\s a -> s { _nsoMessage = a })
-
-instance FromXML NoSuchOrigin where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NoSuchOrigin"
-
-instance ToXML NoSuchOrigin where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "NoSuchOrigin"
 
 data CacheBehavior = CacheBehavior
     { _cbAllowedMethods       :: Maybe AllowedMethods
@@ -2730,32 +1985,6 @@ instance ToXML PriceClass where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "PriceClass"
 
-newtype StreamingDistributionNotDisabled = StreamingDistributionNotDisabled
-    { _sdndMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'StreamingDistributionNotDisabled' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sdndMessage' @::@ 'Maybe' 'Text'
---
-streamingDistributionNotDisabled :: StreamingDistributionNotDisabled
-streamingDistributionNotDisabled = StreamingDistributionNotDisabled
-    { _sdndMessage = Nothing
-    }
-
-sdndMessage :: Lens' StreamingDistributionNotDisabled (Maybe Text)
-sdndMessage = lens _sdndMessage (\s a -> s { _sdndMessage = a })
-
-instance FromXML StreamingDistributionNotDisabled where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StreamingDistributionNotDisabled"
-
-instance ToXML StreamingDistributionNotDisabled where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "StreamingDistributionNotDisabled"
-
 data CustomErrorResponses = CustomErrorResponses
     { _cerItems    :: [CustomErrorResponse]
     , _cerQuantity :: Int
@@ -2792,32 +2021,6 @@ instance FromXML CustomErrorResponses where
 instance ToXML CustomErrorResponses where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CustomErrorResponses"
-
-newtype TooManyHeadersInForwardedValues = TooManyHeadersInForwardedValues
-    { _tmhifvMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TooManyHeadersInForwardedValues' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmhifvMessage' @::@ 'Maybe' 'Text'
---
-tooManyHeadersInForwardedValues :: TooManyHeadersInForwardedValues
-tooManyHeadersInForwardedValues = TooManyHeadersInForwardedValues
-    { _tmhifvMessage = Nothing
-    }
-
-tmhifvMessage :: Lens' TooManyHeadersInForwardedValues (Maybe Text)
-tmhifvMessage = lens _tmhifvMessage (\s a -> s { _tmhifvMessage = a })
-
-instance FromXML TooManyHeadersInForwardedValues where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TooManyHeadersInForwardedValues"
-
-instance ToXML TooManyHeadersInForwardedValues where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TooManyHeadersInForwardedValues"
 
 newtype S3OriginConfig = S3OriginConfig
     { _socOriginAccessIdentity :: Text
@@ -2858,84 +2061,6 @@ instance FromXML S3OriginConfig where
 instance ToXML S3OriginConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "S3OriginConfig"
-
-newtype TooManyStreamingDistributionCNAMEs = TooManyStreamingDistributionCNAMEs
-    { _tmsdcnameMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TooManyStreamingDistributionCNAMEs' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmsdcnameMessage' @::@ 'Maybe' 'Text'
---
-tooManyStreamingDistributionCNAMEs :: TooManyStreamingDistributionCNAMEs
-tooManyStreamingDistributionCNAMEs = TooManyStreamingDistributionCNAMEs
-    { _tmsdcnameMessage = Nothing
-    }
-
-tmsdcnameMessage :: Lens' TooManyStreamingDistributionCNAMEs (Maybe Text)
-tmsdcnameMessage = lens _tmsdcnameMessage (\s a -> s { _tmsdcnameMessage = a })
-
-instance FromXML TooManyStreamingDistributionCNAMEs where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TooManyStreamingDistributionCNAMEs"
-
-instance ToXML TooManyStreamingDistributionCNAMEs where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TooManyStreamingDistributionCNAMEs"
-
-newtype InvalidRequiredProtocol = InvalidRequiredProtocol
-    { _irpMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidRequiredProtocol' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'irpMessage' @::@ 'Maybe' 'Text'
---
-invalidRequiredProtocol :: InvalidRequiredProtocol
-invalidRequiredProtocol = InvalidRequiredProtocol
-    { _irpMessage = Nothing
-    }
-
-irpMessage :: Lens' InvalidRequiredProtocol (Maybe Text)
-irpMessage = lens _irpMessage (\s a -> s { _irpMessage = a })
-
-instance FromXML InvalidRequiredProtocol where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidRequiredProtocol"
-
-instance ToXML InvalidRequiredProtocol where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidRequiredProtocol"
-
-newtype TooManyDistributions = TooManyDistributions
-    { _tmdMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TooManyDistributions' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmdMessage' @::@ 'Maybe' 'Text'
---
-tooManyDistributions :: TooManyDistributions
-tooManyDistributions = TooManyDistributions
-    { _tmdMessage = Nothing
-    }
-
-tmdMessage :: Lens' TooManyDistributions (Maybe Text)
-tmdMessage = lens _tmdMessage (\s a -> s { _tmdMessage = a })
-
-instance FromXML TooManyDistributions where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TooManyDistributions"
-
-instance ToXML TooManyDistributions where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TooManyDistributions"
 
 data GeoRestriction = GeoRestriction
     { _grItems           :: [Text]
@@ -2999,32 +2124,6 @@ instance FromXML GeoRestriction where
 instance ToXML GeoRestriction where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GeoRestriction"
-
-newtype TooManyCertificates = TooManyCertificates
-    { _tmcMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TooManyCertificates' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmcMessage' @::@ 'Maybe' 'Text'
---
-tooManyCertificates :: TooManyCertificates
-tooManyCertificates = TooManyCertificates
-    { _tmcMessage = Nothing
-    }
-
-tmcMessage :: Lens' TooManyCertificates (Maybe Text)
-tmcMessage = lens _tmcMessage (\s a -> s { _tmcMessage = a })
-
-instance FromXML TooManyCertificates where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TooManyCertificates"
-
-instance ToXML TooManyCertificates where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TooManyCertificates"
 
 data S3Origin = S3Origin
     { _soDomainName           :: Text
@@ -3108,58 +2207,6 @@ instance ToXML Headers where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Headers"
 
-newtype DistributionAlreadyExists = DistributionAlreadyExists
-    { _daeMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'DistributionAlreadyExists' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'daeMessage' @::@ 'Maybe' 'Text'
---
-distributionAlreadyExists :: DistributionAlreadyExists
-distributionAlreadyExists = DistributionAlreadyExists
-    { _daeMessage = Nothing
-    }
-
-daeMessage :: Lens' DistributionAlreadyExists (Maybe Text)
-daeMessage = lens _daeMessage (\s a -> s { _daeMessage = a })
-
-instance FromXML DistributionAlreadyExists where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DistributionAlreadyExists"
-
-instance ToXML DistributionAlreadyExists where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "DistributionAlreadyExists"
-
-newtype MissingBody = MissingBody
-    { _mbMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'MissingBody' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'mbMessage' @::@ 'Maybe' 'Text'
---
-missingBody :: MissingBody
-missingBody = MissingBody
-    { _mbMessage = Nothing
-    }
-
-mbMessage :: Lens' MissingBody (Maybe Text)
-mbMessage = lens _mbMessage (\s a -> s { _mbMessage = a })
-
-instance FromXML MissingBody where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "MissingBody"
-
-instance ToXML MissingBody where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "MissingBody"
-
 data ViewerCertificate = ViewerCertificate
     { _vcCloudFrontDefaultCertificate :: Maybe Bool
     , _vcIAMCertificateId             :: Maybe Text
@@ -3222,32 +2269,6 @@ instance FromXML ViewerCertificate where
 instance ToXML ViewerCertificate where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "ViewerCertificate"
-
-newtype IllegalUpdate = IllegalUpdate
-    { _iuMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'IllegalUpdate' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iuMessage' @::@ 'Maybe' 'Text'
---
-illegalUpdate :: IllegalUpdate
-illegalUpdate = IllegalUpdate
-    { _iuMessage = Nothing
-    }
-
-iuMessage :: Lens' IllegalUpdate (Maybe Text)
-iuMessage = lens _iuMessage (\s a -> s { _iuMessage = a })
-
-instance FromXML IllegalUpdate where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IllegalUpdate"
-
-instance ToXML IllegalUpdate where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "IllegalUpdate"
 
 newtype Restrictions = Restrictions
     { _rGeoRestriction :: GeoRestriction
@@ -3314,58 +2335,6 @@ instance ToXML Origins where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Origins"
 
-newtype InvalidIfMatchVersion = InvalidIfMatchVersion
-    { _iimvMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidIfMatchVersion' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'iimvMessage' @::@ 'Maybe' 'Text'
---
-invalidIfMatchVersion :: InvalidIfMatchVersion
-invalidIfMatchVersion = InvalidIfMatchVersion
-    { _iimvMessage = Nothing
-    }
-
-iimvMessage :: Lens' InvalidIfMatchVersion (Maybe Text)
-iimvMessage = lens _iimvMessage (\s a -> s { _iimvMessage = a })
-
-instance FromXML InvalidIfMatchVersion where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidIfMatchVersion"
-
-instance ToXML InvalidIfMatchVersion where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidIfMatchVersion"
-
-newtype PreconditionFailed = PreconditionFailed
-    { _pfMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'PreconditionFailed' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'pfMessage' @::@ 'Maybe' 'Text'
---
-preconditionFailed :: PreconditionFailed
-preconditionFailed = PreconditionFailed
-    { _pfMessage = Nothing
-    }
-
-pfMessage :: Lens' PreconditionFailed (Maybe Text)
-pfMessage = lens _pfMessage (\s a -> s { _pfMessage = a })
-
-instance FromXML PreconditionFailed where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PreconditionFailed"
-
-instance ToXML PreconditionFailed where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "PreconditionFailed"
-
 data Method
     = Delete  -- ^ DELETE
     | Get     -- ^ GET
@@ -3404,32 +2373,6 @@ instance FromXML Method where
 instance ToXML Method where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "Method"
-
-newtype InvalidResponseCode = InvalidResponseCode
-    { _ircMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidResponseCode' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ircMessage' @::@ 'Maybe' 'Text'
---
-invalidResponseCode :: InvalidResponseCode
-invalidResponseCode = InvalidResponseCode
-    { _ircMessage = Nothing
-    }
-
-ircMessage :: Lens' InvalidResponseCode (Maybe Text)
-ircMessage = lens _ircMessage (\s a -> s { _ircMessage = a })
-
-instance FromXML InvalidResponseCode where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidResponseCode"
-
-instance ToXML InvalidResponseCode where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidResponseCode"
 
 data ForwardedValues = ForwardedValues
     { _fvCookies     :: CookiePreference
@@ -3526,84 +2469,6 @@ instance ToXML TrustedSigners where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "TrustedSigners"
 
-newtype InvalidHeadersForS3Origin = InvalidHeadersForS3Origin
-    { _ihfsoMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidHeadersForS3Origin' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ihfsoMessage' @::@ 'Maybe' 'Text'
---
-invalidHeadersForS3Origin :: InvalidHeadersForS3Origin
-invalidHeadersForS3Origin = InvalidHeadersForS3Origin
-    { _ihfsoMessage = Nothing
-    }
-
-ihfsoMessage :: Lens' InvalidHeadersForS3Origin (Maybe Text)
-ihfsoMessage = lens _ihfsoMessage (\s a -> s { _ihfsoMessage = a })
-
-instance FromXML InvalidHeadersForS3Origin where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidHeadersForS3Origin"
-
-instance ToXML InvalidHeadersForS3Origin where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidHeadersForS3Origin"
-
-newtype CNAMEAlreadyExists = CNAMEAlreadyExists
-    { _cnameaeMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'CNAMEAlreadyExists' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cnameaeMessage' @::@ 'Maybe' 'Text'
---
-cnamealreadyExists :: CNAMEAlreadyExists
-cnamealreadyExists = CNAMEAlreadyExists
-    { _cnameaeMessage = Nothing
-    }
-
-cnameaeMessage :: Lens' CNAMEAlreadyExists (Maybe Text)
-cnameaeMessage = lens _cnameaeMessage (\s a -> s { _cnameaeMessage = a })
-
-instance FromXML CNAMEAlreadyExists where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CNAMEAlreadyExists"
-
-instance ToXML CNAMEAlreadyExists where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CNAMEAlreadyExists"
-
-newtype TrustedSignerDoesNotExist = TrustedSignerDoesNotExist
-    { _tsdneMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TrustedSignerDoesNotExist' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tsdneMessage' @::@ 'Maybe' 'Text'
---
-trustedSignerDoesNotExist :: TrustedSignerDoesNotExist
-trustedSignerDoesNotExist = TrustedSignerDoesNotExist
-    { _tsdneMessage = Nothing
-    }
-
-tsdneMessage :: Lens' TrustedSignerDoesNotExist (Maybe Text)
-tsdneMessage = lens _tsdneMessage (\s a -> s { _tsdneMessage = a })
-
-instance FromXML TrustedSignerDoesNotExist where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TrustedSignerDoesNotExist"
-
-instance ToXML TrustedSignerDoesNotExist where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TrustedSignerDoesNotExist"
-
 data ItemSelection
     = All       -- ^ all
     | None      -- ^ none
@@ -3685,110 +2550,6 @@ instance FromXML StreamingLoggingConfig where
 instance ToXML StreamingLoggingConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "StreamingLoggingConfig"
-
-newtype CloudFrontOriginAccessIdentityAlreadyExists = CloudFrontOriginAccessIdentityAlreadyExists
-    { _cfoaiaeMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'CloudFrontOriginAccessIdentityAlreadyExists' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'cfoaiaeMessage' @::@ 'Maybe' 'Text'
---
-cloudFrontOriginAccessIdentityAlreadyExists :: CloudFrontOriginAccessIdentityAlreadyExists
-cloudFrontOriginAccessIdentityAlreadyExists = CloudFrontOriginAccessIdentityAlreadyExists
-    { _cfoaiaeMessage = Nothing
-    }
-
-cfoaiaeMessage :: Lens' CloudFrontOriginAccessIdentityAlreadyExists (Maybe Text)
-cfoaiaeMessage = lens _cfoaiaeMessage (\s a -> s { _cfoaiaeMessage = a })
-
-instance FromXML CloudFrontOriginAccessIdentityAlreadyExists where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CloudFrontOriginAccessIdentityAlreadyExists"
-
-instance ToXML CloudFrontOriginAccessIdentityAlreadyExists where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "CloudFrontOriginAccessIdentityAlreadyExists"
-
-newtype TooManyOrigins = TooManyOrigins
-    { _tmoMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'TooManyOrigins' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'tmoMessage' @::@ 'Maybe' 'Text'
---
-tooManyOrigins :: TooManyOrigins
-tooManyOrigins = TooManyOrigins
-    { _tmoMessage = Nothing
-    }
-
-tmoMessage :: Lens' TooManyOrigins (Maybe Text)
-tmoMessage = lens _tmoMessage (\s a -> s { _tmoMessage = a })
-
-instance FromXML TooManyOrigins where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TooManyOrigins"
-
-instance ToXML TooManyOrigins where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "TooManyOrigins"
-
-newtype InvalidRelativePath = InvalidRelativePath
-    { _irp1Message :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidRelativePath' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'irp1Message' @::@ 'Maybe' 'Text'
---
-invalidRelativePath :: InvalidRelativePath
-invalidRelativePath = InvalidRelativePath
-    { _irp1Message = Nothing
-    }
-
-irp1Message :: Lens' InvalidRelativePath (Maybe Text)
-irp1Message = lens _irp1Message (\s a -> s { _irp1Message = a })
-
-instance FromXML InvalidRelativePath where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidRelativePath"
-
-instance ToXML InvalidRelativePath where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidRelativePath"
-
-newtype StreamingDistributionAlreadyExists = StreamingDistributionAlreadyExists
-    { _sdaeMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'StreamingDistributionAlreadyExists' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'sdaeMessage' @::@ 'Maybe' 'Text'
---
-streamingDistributionAlreadyExists :: StreamingDistributionAlreadyExists
-streamingDistributionAlreadyExists = StreamingDistributionAlreadyExists
-    { _sdaeMessage = Nothing
-    }
-
-sdaeMessage :: Lens' StreamingDistributionAlreadyExists (Maybe Text)
-sdaeMessage = lens _sdaeMessage (\s a -> s { _sdaeMessage = a })
-
-instance FromXML StreamingDistributionAlreadyExists where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StreamingDistributionAlreadyExists"
-
-instance ToXML StreamingDistributionAlreadyExists where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "StreamingDistributionAlreadyExists"
 
 data CookieNames = CookieNames
     { _cnItems    :: [Text]
@@ -3891,32 +2652,6 @@ instance FromXML CustomErrorResponse where
 instance ToXML CustomErrorResponse where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "CustomErrorResponse"
-
-newtype AccessDenied = AccessDenied
-    { _adMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'AccessDenied' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'adMessage' @::@ 'Maybe' 'Text'
---
-accessDenied :: AccessDenied
-accessDenied = AccessDenied
-    { _adMessage = Nothing
-    }
-
-adMessage :: Lens' AccessDenied (Maybe Text)
-adMessage = lens _adMessage (\s a -> s { _adMessage = a })
-
-instance FromXML AccessDenied where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AccessDenied"
-
-instance ToXML AccessDenied where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "AccessDenied"
 
 data CacheBehaviors = CacheBehaviors
     { _cbItems    :: [CacheBehavior]
@@ -4144,32 +2879,6 @@ instance ToXML InvalidationList where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "InvalidationList"
 
-newtype InvalidViewerCertificate = InvalidViewerCertificate
-    { _ivcMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidViewerCertificate' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ivcMessage' @::@ 'Maybe' 'Text'
---
-invalidViewerCertificate :: InvalidViewerCertificate
-invalidViewerCertificate = InvalidViewerCertificate
-    { _ivcMessage = Nothing
-    }
-
-ivcMessage :: Lens' InvalidViewerCertificate (Maybe Text)
-ivcMessage = lens _ivcMessage (\s a -> s { _ivcMessage = a })
-
-instance FromXML InvalidViewerCertificate where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidViewerCertificate"
-
-instance ToXML InvalidViewerCertificate where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidViewerCertificate"
-
 data StreamingDistribution = StreamingDistribution
     { _sdActiveTrustedSigners        :: ActiveTrustedSigners
     , _sdDomainName                  :: Text
@@ -4257,32 +2966,6 @@ instance FromXML StreamingDistribution where
 instance ToXML StreamingDistribution where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "StreamingDistribution"
-
-newtype NoSuchDistribution = NoSuchDistribution
-    { _nsdMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'NoSuchDistribution' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'nsdMessage' @::@ 'Maybe' 'Text'
---
-noSuchDistribution :: NoSuchDistribution
-noSuchDistribution = NoSuchDistribution
-    { _nsdMessage = Nothing
-    }
-
-nsdMessage :: Lens' NoSuchDistribution (Maybe Text)
-nsdMessage = lens _nsdMessage (\s a -> s { _nsdMessage = a })
-
-instance FromXML NoSuchDistribution where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "NoSuchDistribution"
-
-instance ToXML NoSuchDistribution where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "NoSuchDistribution"
 
 data Paths = Paths
     { _pItems    :: [Text]
@@ -4577,32 +3260,6 @@ instance ToXML DistributionSummary where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "DistributionSummary"
 
-newtype InvalidDefaultRootObject = InvalidDefaultRootObject
-    { _idroMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidDefaultRootObject' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'idroMessage' @::@ 'Maybe' 'Text'
---
-invalidDefaultRootObject :: InvalidDefaultRootObject
-invalidDefaultRootObject = InvalidDefaultRootObject
-    { _idroMessage = Nothing
-    }
-
-idroMessage :: Lens' InvalidDefaultRootObject (Maybe Text)
-idroMessage = lens _idroMessage (\s a -> s { _idroMessage = a })
-
-instance FromXML InvalidDefaultRootObject where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidDefaultRootObject"
-
-instance ToXML InvalidDefaultRootObject where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidDefaultRootObject"
-
 data GeoRestrictionType
     = GRTBlacklist -- ^ blacklist
     | GRTNone      -- ^ none
@@ -4629,32 +3286,6 @@ instance FromXML GeoRestrictionType where
 instance ToXML GeoRestrictionType where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "GeoRestrictionType"
-
-newtype InvalidGeoRestrictionParameter = InvalidGeoRestrictionParameter
-    { _igrpMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidGeoRestrictionParameter' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'igrpMessage' @::@ 'Maybe' 'Text'
---
-invalidGeoRestrictionParameter :: InvalidGeoRestrictionParameter
-invalidGeoRestrictionParameter = InvalidGeoRestrictionParameter
-    { _igrpMessage = Nothing
-    }
-
-igrpMessage :: Lens' InvalidGeoRestrictionParameter (Maybe Text)
-igrpMessage = lens _igrpMessage (\s a -> s { _igrpMessage = a })
-
-instance FromXML InvalidGeoRestrictionParameter where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidGeoRestrictionParameter"
-
-instance ToXML InvalidGeoRestrictionParameter where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidGeoRestrictionParameter"
 
 data LoggingConfig = LoggingConfig
     { _lcBucket         :: Text
@@ -4725,29 +3356,3 @@ instance FromXML LoggingConfig where
 instance ToXML LoggingConfig where
     toXMLOptions = xmlOptions
     toXMLRoot    = toRoot "LoggingConfig"
-
-newtype InvalidLocationCode = InvalidLocationCode
-    { _ilcMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
-
--- | 'InvalidLocationCode' constructor.
---
--- The fields accessible through corresponding lenses are:
---
--- * 'ilcMessage' @::@ 'Maybe' 'Text'
---
-invalidLocationCode :: InvalidLocationCode
-invalidLocationCode = InvalidLocationCode
-    { _ilcMessage = Nothing
-    }
-
-ilcMessage :: Lens' InvalidLocationCode (Maybe Text)
-ilcMessage = lens _ilcMessage (\s a -> s { _ilcMessage = a })
-
-instance FromXML InvalidLocationCode where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InvalidLocationCode"
-
-instance ToXML InvalidLocationCode where
-    toXMLOptions = xmlOptions
-    toXMLRoot    = toRoot "InvalidLocationCode"

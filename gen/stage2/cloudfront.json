@@ -7,28 +7,28 @@
         "namespace": "Network.AWS.CloudFront",
         "protocol": "xml",
         "imports": [
-            "Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity2014_05_31",
-            "Network.AWS.CloudFront.CreateDistribution2014_05_31",
-            "Network.AWS.CloudFront.CreateInvalidation2014_05_31",
-            "Network.AWS.CloudFront.CreateStreamingDistribution2014_05_31",
-            "Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity2014_05_31",
-            "Network.AWS.CloudFront.DeleteDistribution2014_05_31",
-            "Network.AWS.CloudFront.DeleteStreamingDistribution2014_05_31",
-            "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity2014_05_31",
-            "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig2014_05_31",
-            "Network.AWS.CloudFront.GetDistribution2014_05_31",
-            "Network.AWS.CloudFront.GetDistributionConfig2014_05_31",
-            "Network.AWS.CloudFront.GetInvalidation2014_05_31",
-            "Network.AWS.CloudFront.GetStreamingDistribution2014_05_31",
-            "Network.AWS.CloudFront.GetStreamingDistributionConfig2014_05_31",
-            "Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities2014_05_31",
-            "Network.AWS.CloudFront.ListDistributions2014_05_31",
-            "Network.AWS.CloudFront.ListInvalidations2014_05_31",
-            "Network.AWS.CloudFront.ListStreamingDistributions2014_05_31",
+            "Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity",
+            "Network.AWS.CloudFront.CreateDistribution",
+            "Network.AWS.CloudFront.CreateInvalidation",
+            "Network.AWS.CloudFront.CreateStreamingDistribution",
+            "Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity",
+            "Network.AWS.CloudFront.DeleteDistribution",
+            "Network.AWS.CloudFront.DeleteStreamingDistribution",
+            "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity",
+            "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig",
+            "Network.AWS.CloudFront.GetDistribution",
+            "Network.AWS.CloudFront.GetDistributionConfig",
+            "Network.AWS.CloudFront.GetInvalidation",
+            "Network.AWS.CloudFront.GetStreamingDistribution",
+            "Network.AWS.CloudFront.GetStreamingDistributionConfig",
+            "Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities",
+            "Network.AWS.CloudFront.ListDistributions",
+            "Network.AWS.CloudFront.ListInvalidations",
+            "Network.AWS.CloudFront.ListStreamingDistributions",
             "Network.AWS.CloudFront.Types",
-            "Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity2014_05_31",
-            "Network.AWS.CloudFront.UpdateDistribution2014_05_31",
-            "Network.AWS.CloudFront.UpdateStreamingDistribution2014_05_31"
+            "Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity",
+            "Network.AWS.CloudFront.UpdateDistribution",
+            "Network.AWS.CloudFront.UpdateStreamingDistribution"
         ],
         "name": "Amazon CloudFront",
         "version": "2014-05-31",
@@ -42,28 +42,28 @@
         "library": "amazonka-cloudfront",
         "exposed": [
             "Network.AWS.CloudFront",
-            "Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity2014_05_31",
-            "Network.AWS.CloudFront.CreateDistribution2014_05_31",
-            "Network.AWS.CloudFront.CreateInvalidation2014_05_31",
-            "Network.AWS.CloudFront.CreateStreamingDistribution2014_05_31",
-            "Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity2014_05_31",
-            "Network.AWS.CloudFront.DeleteDistribution2014_05_31",
-            "Network.AWS.CloudFront.DeleteStreamingDistribution2014_05_31",
-            "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity2014_05_31",
-            "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig2014_05_31",
-            "Network.AWS.CloudFront.GetDistribution2014_05_31",
-            "Network.AWS.CloudFront.GetDistributionConfig2014_05_31",
-            "Network.AWS.CloudFront.GetInvalidation2014_05_31",
-            "Network.AWS.CloudFront.GetStreamingDistribution2014_05_31",
-            "Network.AWS.CloudFront.GetStreamingDistributionConfig2014_05_31",
-            "Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities2014_05_31",
-            "Network.AWS.CloudFront.ListDistributions2014_05_31",
-            "Network.AWS.CloudFront.ListInvalidations2014_05_31",
-            "Network.AWS.CloudFront.ListStreamingDistributions2014_05_31",
+            "Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity",
+            "Network.AWS.CloudFront.CreateDistribution",
+            "Network.AWS.CloudFront.CreateInvalidation",
+            "Network.AWS.CloudFront.CreateStreamingDistribution",
+            "Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity",
+            "Network.AWS.CloudFront.DeleteDistribution",
+            "Network.AWS.CloudFront.DeleteStreamingDistribution",
+            "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity",
+            "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig",
+            "Network.AWS.CloudFront.GetDistribution",
+            "Network.AWS.CloudFront.GetDistributionConfig",
+            "Network.AWS.CloudFront.GetInvalidation",
+            "Network.AWS.CloudFront.GetStreamingDistribution",
+            "Network.AWS.CloudFront.GetStreamingDistributionConfig",
+            "Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities",
+            "Network.AWS.CloudFront.ListDistributions",
+            "Network.AWS.CloudFront.ListInvalidations",
+            "Network.AWS.CloudFront.ListStreamingDistributions",
             "Network.AWS.CloudFront.Types",
-            "Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity2014_05_31",
-            "Network.AWS.CloudFront.UpdateDistribution2014_05_31",
-            "Network.AWS.CloudFront.UpdateStreamingDistribution2014_05_31"
+            "Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity",
+            "Network.AWS.CloudFront.UpdateDistribution",
+            "Network.AWS.CloudFront.UpdateStreamingDistribution"
         ],
         "dependencies": [],
         "version": "0.0.0",
@@ -79,28 +79,28 @@
             "namespace": "Network.AWS.CloudFront",
             "protocol": "xml",
             "imports": [
-                "Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity2014_05_31",
-                "Network.AWS.CloudFront.CreateDistribution2014_05_31",
-                "Network.AWS.CloudFront.CreateInvalidation2014_05_31",
-                "Network.AWS.CloudFront.CreateStreamingDistribution2014_05_31",
-                "Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity2014_05_31",
-                "Network.AWS.CloudFront.DeleteDistribution2014_05_31",
-                "Network.AWS.CloudFront.DeleteStreamingDistribution2014_05_31",
-                "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity2014_05_31",
-                "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig2014_05_31",
-                "Network.AWS.CloudFront.GetDistribution2014_05_31",
-                "Network.AWS.CloudFront.GetDistributionConfig2014_05_31",
-                "Network.AWS.CloudFront.GetInvalidation2014_05_31",
-                "Network.AWS.CloudFront.GetStreamingDistribution2014_05_31",
-                "Network.AWS.CloudFront.GetStreamingDistributionConfig2014_05_31",
-                "Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities2014_05_31",
-                "Network.AWS.CloudFront.ListDistributions2014_05_31",
-                "Network.AWS.CloudFront.ListInvalidations2014_05_31",
-                "Network.AWS.CloudFront.ListStreamingDistributions2014_05_31",
+                "Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity",
+                "Network.AWS.CloudFront.CreateDistribution",
+                "Network.AWS.CloudFront.CreateInvalidation",
+                "Network.AWS.CloudFront.CreateStreamingDistribution",
+                "Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity",
+                "Network.AWS.CloudFront.DeleteDistribution",
+                "Network.AWS.CloudFront.DeleteStreamingDistribution",
+                "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity",
+                "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig",
+                "Network.AWS.CloudFront.GetDistribution",
+                "Network.AWS.CloudFront.GetDistributionConfig",
+                "Network.AWS.CloudFront.GetInvalidation",
+                "Network.AWS.CloudFront.GetStreamingDistribution",
+                "Network.AWS.CloudFront.GetStreamingDistributionConfig",
+                "Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities",
+                "Network.AWS.CloudFront.ListDistributions",
+                "Network.AWS.CloudFront.ListInvalidations",
+                "Network.AWS.CloudFront.ListStreamingDistributions",
                 "Network.AWS.CloudFront.Types",
-                "Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity2014_05_31",
-                "Network.AWS.CloudFront.UpdateDistribution2014_05_31",
-                "Network.AWS.CloudFront.UpdateStreamingDistribution2014_05_31"
+                "Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity",
+                "Network.AWS.CloudFront.UpdateDistribution",
+                "Network.AWS.CloudFront.UpdateStreamingDistribution"
             ],
             "name": "Amazon CloudFront",
             "version": "2014-05-31",
@@ -641,79 +641,6 @@
                         "documentation": "Any comments you want to include about the origin access identity.",
                         "typeExposed": "Text",
                         "type": "Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "invalidErrorCode",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "iecMessage",
-                    "name": "_iecMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "iecMessage",
-                    "name": "_iecMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InvalidErrorCode",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "iecMessage",
-                        "name": "_iecMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "iecMessage",
-                        "name": "_iecMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
                     }
                 ]
             },
@@ -1334,79 +1261,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "tooManyCacheBehaviors",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmcbMessage",
-                    "name": "_tmcbMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmcbMessage",
-                    "name": "_tmcbMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "TooManyCacheBehaviors",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmcbMessage",
-                        "name": "_tmcbMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmcbMessage",
-                        "name": "_tmcbMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
                     "Show",
                     "Generic"
                 ],
@@ -1487,79 +1341,6 @@
                         "documentation": "A complex type that lists the active CloudFront key pairs, if any, that are associated with AwsAccountNumber.",
                         "typeExposed": "Maybe KeyPairIds",
                         "type": "Maybe KeyPairIds"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "tooManyCloudFrontOriginAccessIdentities",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmcfoaiMessage",
-                    "name": "_tmcfoaiMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmcfoaiMessage",
-                    "name": "_tmcfoaiMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "TooManyCloudFrontOriginAccessIdentities",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmcfoaiMessage",
-                        "name": "_tmcfoaiMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmcfoaiMessage",
-                        "name": "_tmcfoaiMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
                     }
                 ]
             },
@@ -1647,298 +1428,6 @@
                         "documentation": "A complex type that specifies the whitelisted cookies, if any, that you want CloudFront to forward to your origin that is associated with this cache behavior.",
                         "typeExposed": "Maybe CookieNames",
                         "type": "Maybe CookieNames"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "invalidOriginAccessIdentity",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ioaiMessage",
-                    "name": "_ioaiMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ioaiMessage",
-                    "name": "_ioaiMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InvalidOriginAccessIdentity",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "ioaiMessage",
-                        "name": "_ioaiMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "ioaiMessage",
-                        "name": "_ioaiMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "distributionNotDisabled",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dndMessage",
-                    "name": "_dndMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "dndMessage",
-                    "name": "_dndMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "DistributionNotDisabled",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "dndMessage",
-                        "name": "_dndMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "dndMessage",
-                        "name": "_dndMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "noSuchStreamingDistribution",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "nssdMessage",
-                    "name": "_nssdMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "nssdMessage",
-                    "name": "_nssdMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "NoSuchStreamingDistribution",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "nssdMessage",
-                        "name": "_nssdMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "nssdMessage",
-                        "name": "_nssdMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "inconsistentQuantities",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "iqMessage",
-                    "name": "_iqMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "iqMessage",
-                    "name": "_iqMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InconsistentQuantities",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "iqMessage",
-                        "name": "_iqMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "iqMessage",
-                        "name": "_iqMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
                     }
                 ]
             },
@@ -2192,152 +1681,6 @@
                     "Show",
                     "Generic"
                 ],
-                "fieldPad": 0,
-                "ctor": "invalidArgument",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "iaMessage",
-                    "name": "_iaMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "iaMessage",
-                    "name": "_iaMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InvalidArgument",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "iaMessage",
-                        "name": "_iaMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "iaMessage",
-                        "name": "_iaMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "tooManyInvalidationsInProgress",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmiipMessage",
-                    "name": "_tmiipMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmiipMessage",
-                    "name": "_tmiipMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "TooManyInvalidationsInProgress",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmiipMessage",
-                        "name": "_tmiipMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmiipMessage",
-                        "name": "_tmiipMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
                 "fieldPad": 24,
                 "ctor": "cloudFrontOriginAccessIdentitySummary",
                 "payload": {
@@ -2443,298 +1786,6 @@
                         "documentation": "The Amazon S3 canonical user ID for the origin access identity, which you use when giving the origin access identity read permission to an object in Amazon S3.",
                         "typeExposed": "Text",
                         "type": "Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "tooManyDistributionCNAMEs",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmdcnameMessage",
-                    "name": "_tmdcnameMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmdcnameMessage",
-                    "name": "_tmdcnameMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "TooManyDistributionCNAMEs",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmdcnameMessage",
-                        "name": "_tmdcnameMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmdcnameMessage",
-                        "name": "_tmdcnameMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "noSuchCloudFrontOriginAccessIdentity",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "nscfoaiMessage",
-                    "name": "_nscfoaiMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "nscfoaiMessage",
-                    "name": "_nscfoaiMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "NoSuchCloudFrontOriginAccessIdentity",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "nscfoaiMessage",
-                        "name": "_nscfoaiMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "nscfoaiMessage",
-                        "name": "_nscfoaiMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "cloudFrontOriginAccessIdentityInUse",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cfoaiiuMessage",
-                    "name": "_cfoaiiuMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cfoaiiuMessage",
-                    "name": "_cfoaiiuMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "CloudFrontOriginAccessIdentityInUse",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "cfoaiiuMessage",
-                        "name": "_cfoaiiuMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "cfoaiiuMessage",
-                        "name": "_cfoaiiuMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "tooManyStreamingDistributions",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmsdMessage",
-                    "name": "_tmsdMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmsdMessage",
-                    "name": "_tmsdMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "TooManyStreamingDistributions",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmsdMessage",
-                        "name": "_tmsdMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmsdMessage",
-                        "name": "_tmsdMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
                     }
                 ]
             },
@@ -3055,225 +2106,6 @@
                     "Show",
                     "Generic"
                 ],
-                "fieldPad": 0,
-                "ctor": "batchTooLarge",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "btlMessage",
-                    "name": "_btlMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "btlMessage",
-                    "name": "_btlMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "BatchTooLarge",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "btlMessage",
-                        "name": "_btlMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "btlMessage",
-                        "name": "_btlMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "tooManyCookieNamesInWhiteList",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmcniwlMessage",
-                    "name": "_tmcniwlMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmcniwlMessage",
-                    "name": "_tmcniwlMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "TooManyCookieNamesInWhiteList",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmcniwlMessage",
-                        "name": "_tmcniwlMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmcniwlMessage",
-                        "name": "_tmcniwlMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "invalidForwardCookies",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ifcMessage",
-                    "name": "_ifcMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ifcMessage",
-                    "name": "_ifcMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InvalidForwardCookies",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "ifcMessage",
-                        "name": "_ifcMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "ifcMessage",
-                        "name": "_ifcMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
                 "fieldPad": 24,
                 "ctor": "customOriginConfig",
                 "payload": {
@@ -3389,152 +2221,6 @@
                     "Show",
                     "Generic"
                 ],
-                "fieldPad": 0,
-                "ctor": "tooManyTrustedSigners",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmtsMessage",
-                    "name": "_tmtsMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmtsMessage",
-                    "name": "_tmtsMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "TooManyTrustedSigners",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmtsMessage",
-                        "name": "_tmtsMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmtsMessage",
-                        "name": "_tmtsMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "invalidOrigin",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ioMessage",
-                    "name": "_ioMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ioMessage",
-                    "name": "_ioMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InvalidOrigin",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "ioMessage",
-                        "name": "_ioMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "ioMessage",
-                        "name": "_ioMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
                 "fieldPad": 10,
                 "ctor": "aliases",
                 "payload": {
@@ -3613,79 +2299,6 @@
                         "documentation": "The number of CNAMEs, if any, for this distribution.",
                         "typeExposed": "Int",
                         "type": "Int"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "noSuchInvalidation",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "nsiMessage",
-                    "name": "_nsiMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "nsiMessage",
-                    "name": "_nsiMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "NoSuchInvalidation",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "nsiMessage",
-                        "name": "_nsiMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "nsiMessage",
-                        "name": "_nsiMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
                     }
                 ]
             },
@@ -4288,79 +2901,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "noSuchOrigin",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "nsoMessage",
-                    "name": "_nsoMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "nsoMessage",
-                    "name": "_nsoMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "NoSuchOrigin",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "nsoMessage",
-                        "name": "_nsoMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "nsoMessage",
-                        "name": "_nsoMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
                     "Show",
                     "Generic"
                 ],
@@ -4921,79 +3461,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "streamingDistributionNotDisabled",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "sdndMessage",
-                    "name": "_sdndMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "sdndMessage",
-                    "name": "_sdndMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "StreamingDistributionNotDisabled",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "sdndMessage",
-                        "name": "_sdndMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "sdndMessage",
-                        "name": "_sdndMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
                     "Show",
                     "Generic"
                 ],
@@ -5083,79 +3550,6 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "tooManyHeadersInForwardedValues",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmhifvMessage",
-                    "name": "_tmhifvMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmhifvMessage",
-                    "name": "_tmhifvMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "TooManyHeadersInForwardedValues",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmhifvMessage",
-                        "name": "_tmhifvMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmhifvMessage",
-                        "name": "_tmhifvMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
                     "Generic",
                     "Monoid"
                 ],
@@ -5222,225 +3616,6 @@
                         "documentation": "The CloudFront origin access identity to associate with the origin. Use an origin access identity to configure the origin so that end users can only access objects in an Amazon S3 bucket through CloudFront. If you want end users to be able to access objects using either the CloudFront URL or the Amazon S3 URL, specify an empty OriginAccessIdentity element. To delete the origin access identity from an existing distribution, update the distribution configuration and include an empty OriginAccessIdentity element. To replace the origin access identity, update the distribution configuration and specify the new origin access identity. Use the format origin-access-identity/cloudfront/Id where Id is the value that CloudFront returned in the Id element when you created the origin access identity.",
                         "typeExposed": "Text",
                         "type": "Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "tooManyStreamingDistributionCNAMEs",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmsdcnameMessage",
-                    "name": "_tmsdcnameMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmsdcnameMessage",
-                    "name": "_tmsdcnameMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "TooManyStreamingDistributionCNAMEs",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmsdcnameMessage",
-                        "name": "_tmsdcnameMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmsdcnameMessage",
-                        "name": "_tmsdcnameMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "invalidRequiredProtocol",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "irpMessage",
-                    "name": "_irpMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "irpMessage",
-                    "name": "_irpMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InvalidRequiredProtocol",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "irpMessage",
-                        "name": "_irpMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "irpMessage",
-                        "name": "_irpMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "tooManyDistributions",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmdMessage",
-                    "name": "_tmdMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmdMessage",
-                    "name": "_tmdMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "TooManyDistributions",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmdMessage",
-                        "name": "_tmdMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmdMessage",
-                        "name": "_tmdMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
                     }
                 ]
             },
@@ -5557,79 +3732,6 @@
                         "documentation": "The method that you want to use to restrict distribution of your content by country: - none: No geo restriction is enabled, meaning access to content is not restricted by client geo location. - blacklist: The Location elements specify the countries in which you do not want CloudFront to distribute your content. - whitelist: The Location elements specify the countries in which you want CloudFront to distribute your content.",
                         "typeExposed": "Text",
                         "type": "Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "tooManyCertificates",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmcMessage",
-                    "name": "_tmcMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmcMessage",
-                    "name": "_tmcMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "TooManyCertificates",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmcMessage",
-                        "name": "_tmcMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmcMessage",
-                        "name": "_tmcMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
                     }
                 ]
             },
@@ -5815,152 +3917,6 @@
                     "Show",
                     "Generic"
                 ],
-                "fieldPad": 0,
-                "ctor": "distributionAlreadyExists",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "daeMessage",
-                    "name": "_daeMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "daeMessage",
-                    "name": "_daeMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "DistributionAlreadyExists",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "daeMessage",
-                        "name": "_daeMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "daeMessage",
-                        "name": "_daeMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "missingBody",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "mbMessage",
-                    "name": "_mbMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "mbMessage",
-                    "name": "_mbMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "MissingBody",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "mbMessage",
-                        "name": "_mbMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "mbMessage",
-                        "name": "_mbMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
                 "fieldPad": 31,
                 "ctor": "viewerCertificate",
                 "payload": {
@@ -6064,79 +4020,6 @@
                         "shape": "SSLSupportMethod",
                         "locationName": "SSLSupportMethod",
                         "documentation": "If you specify a value for IAMCertificateId, you must also specify how you want CloudFront to serve HTTPS requests. Valid values are vip and sni-only. If you specify vip, CloudFront uses dedicated IP addresses for your content and can respond to HTTPS requests from any viewer. However, you must request permission to use this feature, and you incur additional monthly charges. If you specify sni-only, CloudFront can only respond to HTTPS requests from viewers that support Server Name Indication (SNI). All modern browsers support SNI, but some browsers still in use don't support SNI. Do not specify a value for SSLSupportMethod if you specified true for CloudFrontDefaultCertificate.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "illegalUpdate",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "iuMessage",
-                    "name": "_iuMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "iuMessage",
-                    "name": "_iuMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "IllegalUpdate",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "iuMessage",
-                        "name": "_iuMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "iuMessage",
-                        "name": "_iuMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -6304,152 +4187,6 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "invalidIfMatchVersion",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "iimvMessage",
-                    "name": "_iimvMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "iimvMessage",
-                    "name": "_iimvMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InvalidIfMatchVersion",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "iimvMessage",
-                        "name": "_iimvMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "iimvMessage",
-                        "name": "_iimvMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "preconditionFailed",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "pfMessage",
-                    "name": "_pfMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "pfMessage",
-                    "name": "_pfMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "PreconditionFailed",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "pfMessage",
-                        "name": "_pfMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "pfMessage",
-                        "name": "_pfMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
                     "Enum",
                     "Show",
                     "Generic"
@@ -6467,79 +4204,6 @@
                 "name": "Method",
                 "type": "nullary",
                 "branchPad": 7
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "invalidResponseCode",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ircMessage",
-                    "name": "_ircMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ircMessage",
-                    "name": "_ircMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InvalidResponseCode",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "ircMessage",
-                        "name": "_ircMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "ircMessage",
-                        "name": "_ircMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
             },
             {
                 "deriving": [
@@ -6776,225 +4440,6 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "invalidHeadersForS3Origin",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ihfsoMessage",
-                    "name": "_ihfsoMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ihfsoMessage",
-                    "name": "_ihfsoMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InvalidHeadersForS3Origin",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "ihfsoMessage",
-                        "name": "_ihfsoMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "ihfsoMessage",
-                        "name": "_ihfsoMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "cnamealreadyExists",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cnameaeMessage",
-                    "name": "_cnameaeMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cnameaeMessage",
-                    "name": "_cnameaeMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "CNAMEAlreadyExists",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "cnameaeMessage",
-                        "name": "_cnameaeMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "cnameaeMessage",
-                        "name": "_cnameaeMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "trustedSignerDoesNotExist",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tsdneMessage",
-                    "name": "_tsdneMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tsdneMessage",
-                    "name": "_tsdneMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "TrustedSignerDoesNotExist",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tsdneMessage",
-                        "name": "_tsdneMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tsdneMessage",
-                        "name": "_tsdneMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
                     "Enum",
                     "Show",
                     "Generic"
@@ -7121,298 +4566,6 @@
                         "documentation": "An optional string that you want CloudFront to prefix to the access log filenames for this streaming distribution, for example, myprefix/. If you want to enable logging, but you do not want to specify a prefix, you still must include an empty Prefix element in the Logging element.",
                         "typeExposed": "Text",
                         "type": "Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "cloudFrontOriginAccessIdentityAlreadyExists",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cfoaiaeMessage",
-                    "name": "_cfoaiaeMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "cfoaiaeMessage",
-                    "name": "_cfoaiaeMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "CloudFrontOriginAccessIdentityAlreadyExists",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "cfoaiaeMessage",
-                        "name": "_cfoaiaeMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "cfoaiaeMessage",
-                        "name": "_cfoaiaeMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "tooManyOrigins",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmoMessage",
-                    "name": "_tmoMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "tmoMessage",
-                    "name": "_tmoMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "TooManyOrigins",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmoMessage",
-                        "name": "_tmoMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "tmoMessage",
-                        "name": "_tmoMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "invalidRelativePath",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "irp1Message",
-                    "name": "_irp1Message",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "irp1Message",
-                    "name": "_irp1Message",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InvalidRelativePath",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "irp1Message",
-                        "name": "_irp1Message",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "irp1Message",
-                        "name": "_irp1Message",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "streamingDistributionAlreadyExists",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "sdaeMessage",
-                    "name": "_sdaeMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "sdaeMessage",
-                    "name": "_sdaeMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "StreamingDistributionAlreadyExists",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "sdaeMessage",
-                        "name": "_sdaeMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "sdaeMessage",
-                        "name": "_sdaeMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
                     }
                 ]
             },
@@ -7643,79 +4796,6 @@
                         "shape": "string",
                         "locationName": "ResponsePagePath",
                         "documentation": "The path of the custom error page (for example, /custom_404.html). The path is relative to the distribution and must begin with a slash (/). If the path includes any non-ASCII characters or unsafe characters as defined in RFC 1783 (http://www.ietf.org/rfc/rfc1738.txt), URL encode those characters. Do not URL encode any other characters in the path, or CloudFront will not return the custom error page to the viewer.",
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "accessDenied",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "adMessage",
-                    "name": "_adMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "adMessage",
-                    "name": "_adMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "AccessDenied",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "adMessage",
-                        "name": "_adMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "adMessage",
-                        "name": "_adMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -8237,79 +5317,6 @@
             {
                 "deriving": [
                     "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "invalidViewerCertificate",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ivcMessage",
-                    "name": "_ivcMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ivcMessage",
-                    "name": "_ivcMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InvalidViewerCertificate",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "ivcMessage",
-                        "name": "_ivcMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "ivcMessage",
-                        "name": "_ivcMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
                     "Show",
                     "Generic"
                 ],
@@ -8503,79 +5510,6 @@
                         "documentation": "The current configuration information for the streaming distribution.",
                         "typeExposed": "StreamingDistributionConfig",
                         "type": "StreamingDistributionConfig"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "noSuchDistribution",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "nsdMessage",
-                    "name": "_nsdMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "nsdMessage",
-                    "name": "_nsdMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "NoSuchDistribution",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "nsdMessage",
-                        "name": "_nsdMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "nsdMessage",
-                        "name": "_nsdMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
                     }
                 ]
             },
@@ -9323,79 +6257,6 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "invalidDefaultRootObject",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "idroMessage",
-                    "name": "_idroMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "idroMessage",
-                    "name": "_idroMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InvalidDefaultRootObject",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "idroMessage",
-                        "name": "_idroMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "idroMessage",
-                        "name": "_idroMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
                     "Enum",
                     "Show",
                     "Generic"
@@ -9409,79 +6270,6 @@
                 "name": "GeoRestrictionType",
                 "type": "nullary",
                 "branchPad": 12
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "invalidGeoRestrictionParameter",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "igrpMessage",
-                    "name": "_igrpMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "igrpMessage",
-                    "name": "_igrpMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InvalidGeoRestrictionParameter",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "igrpMessage",
-                        "name": "_igrpMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "igrpMessage",
-                        "name": "_igrpMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
             },
             {
                 "deriving": [
@@ -9625,79 +6413,6 @@
                         "type": "Text"
                     }
                 ]
-            },
-            {
-                "deriving": [
-                    "Eq",
-                    "Ord",
-                    "Show",
-                    "Generic"
-                ],
-                "fieldPad": 0,
-                "ctor": "invalidLocationCode",
-                "field": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ilcMessage",
-                    "name": "_ilcMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "payload": {
-                    "location": "body-xml",
-                    "iso": null,
-                    "lensMapping": null,
-                    "default": "Nothing",
-                    "required": false,
-                    "lens": "ilcMessage",
-                    "name": "_ilcMessage",
-                    "shape": "string",
-                    "locationName": "Message",
-                    "documentation": null,
-                    "typeExposed": "Maybe Text",
-                    "type": "Maybe Text"
-                },
-                "required": [],
-                "name": "InvalidLocationCode",
-                "type": "newtype",
-                "optional": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "ilcMessage",
-                        "name": "_ilcMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ],
-                "fields": [
-                    {
-                        "location": "body-xml",
-                        "iso": null,
-                        "lensMapping": null,
-                        "default": "Nothing",
-                        "required": false,
-                        "lens": "ilcMessage",
-                        "name": "_ilcMessage",
-                        "shape": "string",
-                        "locationName": "Message",
-                        "documentation": null,
-                        "typeExposed": "Maybe Text",
-                        "type": "Maybe Text"
-                    }
-                ]
             }
         ],
         "imports": []
@@ -9823,7 +6538,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity2014_05_31",
+            "namespace": "Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -10037,7 +6752,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.CreateDistribution2014_05_31",
+            "namespace": "Network.AWS.CloudFront.CreateDistribution",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -10223,7 +6938,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.CreateInvalidation2014_05_31",
+            "namespace": "Network.AWS.CloudFront.CreateInvalidation",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -10459,7 +7174,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.CreateStreamingDistribution2014_05_31",
+            "namespace": "Network.AWS.CloudFront.CreateStreamingDistribution",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -10569,7 +7284,7 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity2014_05_31",
+            "namespace": "Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -10692,7 +7407,7 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.CloudFront.DeleteDistribution2014_05_31",
+            "namespace": "Network.AWS.CloudFront.DeleteDistribution",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -10815,7 +7530,7 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.CloudFront.DeleteStreamingDistribution2014_05_31",
+            "namespace": "Network.AWS.CloudFront.DeleteStreamingDistribution",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -11014,7 +7729,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity2014_05_31",
+            "namespace": "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -11193,7 +7908,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig2014_05_31",
+            "namespace": "Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -11376,7 +8091,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.GetDistribution2014_05_31",
+            "namespace": "Network.AWS.CloudFront.GetDistribution",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -11555,7 +8270,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.GetDistributionConfig2014_05_31",
+            "namespace": "Network.AWS.CloudFront.GetDistributionConfig",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -11724,7 +8439,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.GetInvalidation2014_05_31",
+            "namespace": "Network.AWS.CloudFront.GetInvalidation",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -11924,7 +8639,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.GetStreamingDistribution2014_05_31",
+            "namespace": "Network.AWS.CloudFront.GetStreamingDistribution",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -12103,7 +8818,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.GetStreamingDistributionConfig2014_05_31",
+            "namespace": "Network.AWS.CloudFront.GetStreamingDistributionConfig",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -12272,7 +8987,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities2014_05_31",
+            "namespace": "Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -12457,7 +9172,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.ListDistributions2014_05_31",
+            "namespace": "Network.AWS.CloudFront.ListDistributions",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -12642,7 +9357,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.ListInvalidations2014_05_31",
+            "namespace": "Network.AWS.CloudFront.ListInvalidations",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -12864,7 +9579,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.ListStreamingDistributions2014_05_31",
+            "namespace": "Network.AWS.CloudFront.ListStreamingDistributions",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -13063,7 +9778,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity2014_05_31",
+            "namespace": "Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -13306,7 +10021,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.UpdateDistribution2014_05_31",
+            "namespace": "Network.AWS.CloudFront.UpdateDistribution",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",
@@ -13549,7 +10264,7 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.CloudFront.UpdateStreamingDistribution2014_05_31",
+            "namespace": "Network.AWS.CloudFront.UpdateStreamingDistribution",
             "protocol": "xml",
             "imports": [
                 "Network.AWS.Request",

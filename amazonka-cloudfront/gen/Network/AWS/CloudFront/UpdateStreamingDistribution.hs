@@ -10,7 +10,7 @@
 -- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
 {-# OPTIONS_GHC -w #-}
 
--- Module      : Network.AWS.CloudFront.UpdateStreamingDistribution2014_05_31
+-- Module      : Network.AWS.CloudFront.UpdateStreamingDistribution
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -21,7 +21,7 @@
 -- Portability : non-portable (GHC extensions)
 
 -- | Update a streaming distribution.
-module Network.AWS.CloudFront.UpdateStreamingDistribution2014_05_31
+module Network.AWS.CloudFront.UpdateStreamingDistribution
     (
     -- * Request
       UpdateStreamingDistribution
@@ -138,5 +138,4 @@ instance AWSRequest UpdateStreamingDistribution where
 
     request  = put
     response = const . xmlResponse $ \h x -> UpdateStreamingDistributionResult
-        <$> h ~:? "ETag"
-        <*> x %| "StreamingDistribution"
+record

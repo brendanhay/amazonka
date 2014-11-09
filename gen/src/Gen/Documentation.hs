@@ -12,7 +12,6 @@
 
 module Gen.Documentation where
 
-import           Data.Char
 import           Data.Monoid
 import           Data.Text   (Text)
 import qualified Data.Text   as Text
@@ -31,6 +30,11 @@ highlightType = Text.unwords . map start . Text.words
         | ']' <- Text.last t = Text.init t <> "']"
         | ')' <- Text.last t = Text.init t <> "')"
         | otherwise          = t <> "'"
+
+wrapDescription :: Text -> Text
+wrapDescription = Text.intercalate "\n" . map (indent <>) . wrapLines 72
+  where
+    indent = Text.replicate 4 (Text.singleton ' ')
 
 wrapHaddock :: Text -> Text -> Int -> Int -> Text
 wrapHaddock start t n i

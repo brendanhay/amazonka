@@ -48,10 +48,10 @@ transformS1ToS2 :: Model -> Stage1 -> Stage2
 transformS1ToS2 m s1 = Stage2 cabal service ops types
   where
     cabal = Cabal
-        { _cLibrary      = overrides ^. oLibrary
+        { _cName         = name
+        , _cLibrary      = overrides ^. oLibrary
         , _cVersion      = initial
-        , _cSynopsis     = ""
-        , _cDescription  = ""
+        , _cDescription  = Doc (s1 ^. s1Documentation)
         , _cDependencies = []
         , _cExposed      = sort $
             service ^. svNamespace : typesNamespace : operationNamespaces
@@ -60,7 +60,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         }
 
     service = Service
-        { _svName           = s1 ^. mServiceFullName
+        { _svName           = name
         , _svAbbrev         = abbrev
         , _svNamespace      = namespace [unAbbrev abbrev]
         , _svImports        = sort (typesNamespace : operationNamespaces)
@@ -86,6 +86,8 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
     typesNamespace = typesNS abbrev
 
     operationNamespaces = sort (map (view opNamespace) ops)
+
+    name = "Amazon " <> stripAWS (s1 ^. mServiceFullName)
 
     abbrev = s1 ^. mServiceAbbreviation
 

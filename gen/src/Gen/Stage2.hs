@@ -585,9 +585,9 @@ instance ToFilePath Service where
     toFilePath = toFilePath . _svNamespace
 
 data Cabal = Cabal
-    { _cLibrary      :: !Library
+    { _cName         :: !Text
+    , _cLibrary      :: !Library
     , _cVersion      :: !Version
-    , _cSynopsis     :: !Doc
     , _cDescription  :: !Doc
     , _cDependencies :: [Version]
     , _cExposed      :: [NS]

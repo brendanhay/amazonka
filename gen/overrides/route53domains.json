@@ -1,3 +1,7 @@
 {
-    "library": "amazonka-route53-domains"
+    "library": "amazonka-route53-domains",
+    "documentation": "Pending",
+    "metadata": {
+    	"serviceAbbreviation": "Route53Domains"
+    }
 }

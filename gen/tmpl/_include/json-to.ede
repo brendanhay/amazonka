@@ -1,4 +1,0 @@
-{% if scope.direction.request %}
-
-instance ToJSON {{ scope.name }}
-{% endif %}

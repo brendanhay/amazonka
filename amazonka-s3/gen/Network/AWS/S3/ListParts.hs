@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.ListParts
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,11 +28,11 @@ module Network.AWS.S3.ListParts
     -- ** Request constructor
     , listParts
     -- ** Request lenses
-    , lprBucket
-    , lprKey
-    , lprMaxParts
-    , lprPartNumberMarker
-    , lprUploadId
+    , lpBucket
+    , lpKey
+    , lpMaxParts
+    , lpPartNumberMarker
+    , lpUploadId
 
     -- * Response
     , ListPartsOutput
@@ -51,76 +53,76 @@ module Network.AWS.S3.ListParts
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data ListParts = ListParts
-    { _lprBucket           :: Text
-    , _lprKey              :: Text
-    , _lprMaxParts         :: Maybe Int
-    , _lprPartNumberMarker :: Maybe Int
-    , _lprUploadId         :: Text
+    { _lpBucket           :: Text
+    , _lpKey              :: Text
+    , _lpMaxParts         :: Maybe Int
+    , _lpPartNumberMarker :: Maybe Int
+    , _lpUploadId         :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListParts' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lprBucket' @::@ 'Text'
+-- * 'lpBucket' @::@ 'Text'
 --
--- * 'lprKey' @::@ 'Text'
+-- * 'lpKey' @::@ 'Text'
 --
--- * 'lprMaxParts' @::@ 'Maybe' 'Int'
+-- * 'lpMaxParts' @::@ 'Maybe' 'Int'
 --
--- * 'lprPartNumberMarker' @::@ 'Maybe' 'Int'
+-- * 'lpPartNumberMarker' @::@ 'Maybe' 'Int'
 --
--- * 'lprUploadId' @::@ 'Text'
+-- * 'lpUploadId' @::@ 'Text'
 --
-listParts :: Text -- ^ 'lprBucket'
-          -> Text -- ^ 'lprKey'
-          -> Text -- ^ 'lprUploadId'
+listParts :: Text -- ^ 'lpBucket'
+          -> Text -- ^ 'lpKey'
+          -> Text -- ^ 'lpUploadId'
           -> ListParts
 listParts p1 p2 p3 = ListParts
-    { _lprBucket           = p1
-    , _lprKey              = p2
-    , _lprUploadId         = p3
-    , _lprMaxParts         = Nothing
-    , _lprPartNumberMarker = Nothing
+    { _lpBucket           = p1
+    , _lpKey              = p2
+    , _lpUploadId         = p3
+    , _lpMaxParts         = Nothing
+    , _lpPartNumberMarker = Nothing
     }
 
-lprBucket :: Lens' ListParts Text
-lprBucket = lens _lprBucket (\s a -> s { _lprBucket = a })
+lpBucket :: Lens' ListParts Text
+lpBucket = lens _lpBucket (\s a -> s { _lpBucket = a })
 
-lprKey :: Lens' ListParts Text
-lprKey = lens _lprKey (\s a -> s { _lprKey = a })
+lpKey :: Lens' ListParts Text
+lpKey = lens _lpKey (\s a -> s { _lpKey = a })
 
 -- | Sets the maximum number of parts to return.
-lprMaxParts :: Lens' ListParts (Maybe Int)
-lprMaxParts = lens _lprMaxParts (\s a -> s { _lprMaxParts = a })
+lpMaxParts :: Lens' ListParts (Maybe Int)
+lpMaxParts = lens _lpMaxParts (\s a -> s { _lpMaxParts = a })
 
 -- | Specifies the part after which listing should begin. Only parts with
 -- higher part numbers will be listed.
-lprPartNumberMarker :: Lens' ListParts (Maybe Int)
-lprPartNumberMarker =
-    lens _lprPartNumberMarker (\s a -> s { _lprPartNumberMarker = a })
+lpPartNumberMarker :: Lens' ListParts (Maybe Int)
+lpPartNumberMarker =
+    lens _lpPartNumberMarker (\s a -> s { _lpPartNumberMarker = a })
 
 -- | Upload ID identifying the multipart upload whose parts are being listed.
-lprUploadId :: Lens' ListParts Text
-lprUploadId = lens _lprUploadId (\s a -> s { _lprUploadId = a })
+lpUploadId :: Lens' ListParts Text
+lpUploadId = lens _lpUploadId (\s a -> s { _lpUploadId = a })
 
 instance ToPath ListParts where
     toPath ListParts{..} = mconcat
         [ "/"
-        , toText _lprBucket
+        , toText _lpBucket
         , "/"
-        , toText _lprKey
+        , toText _lpKey
         ]
 
 instance ToQuery ListParts where
     toQuery ListParts{..} = mconcat
-        [ "max-parts"          =? _lprMaxParts
-        , "part-number-marker" =? _lprPartNumberMarker
-        , "uploadId"           =? _lprUploadId
+        [ "max-parts"          =? _lpMaxParts
+        , "part-number-marker" =? _lpPartNumberMarker
+        , "uploadId"           =? _lpUploadId
         ]
 
 instance ToHeaders ListParts
@@ -230,7 +232,7 @@ instance AWSRequest ListParts where
     type Sv ListParts = S3
     type Rs ListParts = ListPartsOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> ListPartsOutput
         <$> x %| "Bucket"
         <*> x %| "Initiator"

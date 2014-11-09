@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketWebsite
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.DeleteBucketWebsite
     -- ** Request constructor
     , deleteBucketWebsite
     -- ** Request lenses
-    , dbwrBucket
+    , dbwBucket
 
     -- * Response
     , DeleteBucketWebsiteResponse
@@ -35,32 +37,32 @@ module Network.AWS.S3.DeleteBucketWebsite
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype DeleteBucketWebsite = DeleteBucketWebsite
-    { _dbwrBucket :: Text
+    { _dbwBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteBucketWebsite' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbwrBucket' @::@ 'Text'
+-- * 'dbwBucket' @::@ 'Text'
 --
-deleteBucketWebsite :: Text -- ^ 'dbwrBucket'
+deleteBucketWebsite :: Text -- ^ 'dbwBucket'
                     -> DeleteBucketWebsite
 deleteBucketWebsite p1 = DeleteBucketWebsite
-    { _dbwrBucket = p1
+    { _dbwBucket = p1
     }
 
-dbwrBucket :: Lens' DeleteBucketWebsite Text
-dbwrBucket = lens _dbwrBucket (\s a -> s { _dbwrBucket = a })
+dbwBucket :: Lens' DeleteBucketWebsite Text
+dbwBucket = lens _dbwBucket (\s a -> s { _dbwBucket = a })
 
 instance ToPath DeleteBucketWebsite where
     toPath DeleteBucketWebsite{..} = mconcat
         [ "/"
-        , toText _dbwrBucket
+        , toText _dbwBucket
         ]
 
 instance ToQuery DeleteBucketWebsite where
@@ -78,5 +80,5 @@ instance AWSRequest DeleteBucketWebsite where
     type Sv DeleteBucketWebsite = S3
     type Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
 
-    request  = delete'
+    request  = delete
     response = const (nullaryResponse DeleteBucketWebsiteResponse)

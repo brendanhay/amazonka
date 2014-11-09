@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketNotification
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,9 +28,9 @@ module Network.AWS.S3.PutBucketNotification
     -- ** Request constructor
     , putBucketNotification
     -- ** Request lenses
-    , pbnrBucket
-    , pbnrContentMD5
-    , pbnrNotificationConfiguration
+    , pbnBucket
+    , pbnContentMD5
+    , pbnNotificationConfiguration
 
     -- * Response
     , PutBucketNotificationResponse
@@ -37,49 +39,49 @@ module Network.AWS.S3.PutBucketNotification
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketNotification = PutBucketNotification
-    { _pbnrBucket                    :: Text
-    , _pbnrContentMD5                :: Maybe Text
-    , _pbnrNotificationConfiguration :: NotificationConfiguration
+    { _pbnBucket                    :: Text
+    , _pbnContentMD5                :: Maybe Text
+    , _pbnNotificationConfiguration :: NotificationConfiguration
     } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketNotification' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbnrBucket' @::@ 'Text'
+-- * 'pbnBucket' @::@ 'Text'
 --
--- * 'pbnrContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pbnContentMD5' @::@ 'Maybe' 'Text'
 --
--- * 'pbnrNotificationConfiguration' @::@ 'NotificationConfiguration'
+-- * 'pbnNotificationConfiguration' @::@ 'NotificationConfiguration'
 --
-putBucketNotification :: Text -- ^ 'pbnrBucket'
-                      -> NotificationConfiguration -- ^ 'pbnrNotificationConfiguration'
+putBucketNotification :: Text -- ^ 'pbnBucket'
+                      -> NotificationConfiguration -- ^ 'pbnNotificationConfiguration'
                       -> PutBucketNotification
 putBucketNotification p1 p2 = PutBucketNotification
-    { _pbnrBucket                    = p1
-    , _pbnrNotificationConfiguration = p2
-    , _pbnrContentMD5                = Nothing
+    { _pbnBucket                    = p1
+    , _pbnNotificationConfiguration = p2
+    , _pbnContentMD5                = Nothing
     }
 
-pbnrBucket :: Lens' PutBucketNotification Text
-pbnrBucket = lens _pbnrBucket (\s a -> s { _pbnrBucket = a })
+pbnBucket :: Lens' PutBucketNotification Text
+pbnBucket = lens _pbnBucket (\s a -> s { _pbnBucket = a })
 
-pbnrContentMD5 :: Lens' PutBucketNotification (Maybe Text)
-pbnrContentMD5 = lens _pbnrContentMD5 (\s a -> s { _pbnrContentMD5 = a })
+pbnContentMD5 :: Lens' PutBucketNotification (Maybe Text)
+pbnContentMD5 = lens _pbnContentMD5 (\s a -> s { _pbnContentMD5 = a })
 
-pbnrNotificationConfiguration :: Lens' PutBucketNotification NotificationConfiguration
-pbnrNotificationConfiguration =
-    lens _pbnrNotificationConfiguration
-        (\s a -> s { _pbnrNotificationConfiguration = a })
+pbnNotificationConfiguration :: Lens' PutBucketNotification NotificationConfiguration
+pbnNotificationConfiguration =
+    lens _pbnNotificationConfiguration
+        (\s a -> s { _pbnNotificationConfiguration = a })
 
 instance ToPath PutBucketNotification where
     toPath PutBucketNotification{..} = mconcat
         [ "/"
-        , toText _pbnrBucket
+        , toText _pbnBucket
         ]
 
 instance ToQuery PutBucketNotification where
@@ -87,11 +89,11 @@ instance ToQuery PutBucketNotification where
 
 instance ToHeaders PutBucketNotification where
     toHeaders PutBucketNotification{..} = mconcat
-        [ "Content-MD5" =: _pbnrContentMD5
+        [ "Content-MD5" =: _pbnContentMD5
         ]
 
 instance ToBody PutBucketNotification where
-    toBody = toBody . encodeXML . _pbnrNotificationConfiguration
+    toBody = toBody . encodeXML . _pbnNotificationConfiguration
 
 data PutBucketNotificationResponse = PutBucketNotificationResponse
 
@@ -103,5 +105,5 @@ instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3
     type Rs PutBucketNotification = PutBucketNotificationResponse
 
-    request  = put'
+    request  = put
     response = const (nullaryResponse PutBucketNotificationResponse)

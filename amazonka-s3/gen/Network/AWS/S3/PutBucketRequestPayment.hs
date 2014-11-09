@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketRequestPayment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -29,9 +31,9 @@ module Network.AWS.S3.PutBucketRequestPayment
     -- ** Request constructor
     , putBucketRequestPayment
     -- ** Request lenses
-    , pbrprBucket
-    , pbrprContentMD5
-    , pbrprRequestPaymentConfiguration
+    , pbrpBucket
+    , pbrpContentMD5
+    , pbrpRequestPaymentConfiguration
 
     -- * Response
     , PutBucketRequestPaymentResponse
@@ -40,49 +42,49 @@ module Network.AWS.S3.PutBucketRequestPayment
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketRequestPayment = PutBucketRequestPayment
-    { _pbrprBucket                      :: Text
-    , _pbrprContentMD5                  :: Maybe Text
-    , _pbrprRequestPaymentConfiguration :: RequestPaymentConfiguration
+    { _pbrpBucket                      :: Text
+    , _pbrpContentMD5                  :: Maybe Text
+    , _pbrpRequestPaymentConfiguration :: RequestPaymentConfiguration
     } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketRequestPayment' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbrprBucket' @::@ 'Text'
+-- * 'pbrpBucket' @::@ 'Text'
 --
--- * 'pbrprContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pbrpContentMD5' @::@ 'Maybe' 'Text'
 --
--- * 'pbrprRequestPaymentConfiguration' @::@ 'RequestPaymentConfiguration'
+-- * 'pbrpRequestPaymentConfiguration' @::@ 'RequestPaymentConfiguration'
 --
-putBucketRequestPayment :: Text -- ^ 'pbrprBucket'
-                        -> RequestPaymentConfiguration -- ^ 'pbrprRequestPaymentConfiguration'
+putBucketRequestPayment :: Text -- ^ 'pbrpBucket'
+                        -> RequestPaymentConfiguration -- ^ 'pbrpRequestPaymentConfiguration'
                         -> PutBucketRequestPayment
 putBucketRequestPayment p1 p2 = PutBucketRequestPayment
-    { _pbrprBucket                      = p1
-    , _pbrprRequestPaymentConfiguration = p2
-    , _pbrprContentMD5                  = Nothing
+    { _pbrpBucket                      = p1
+    , _pbrpRequestPaymentConfiguration = p2
+    , _pbrpContentMD5                  = Nothing
     }
 
-pbrprBucket :: Lens' PutBucketRequestPayment Text
-pbrprBucket = lens _pbrprBucket (\s a -> s { _pbrprBucket = a })
+pbrpBucket :: Lens' PutBucketRequestPayment Text
+pbrpBucket = lens _pbrpBucket (\s a -> s { _pbrpBucket = a })
 
-pbrprContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
-pbrprContentMD5 = lens _pbrprContentMD5 (\s a -> s { _pbrprContentMD5 = a })
+pbrpContentMD5 :: Lens' PutBucketRequestPayment (Maybe Text)
+pbrpContentMD5 = lens _pbrpContentMD5 (\s a -> s { _pbrpContentMD5 = a })
 
-pbrprRequestPaymentConfiguration :: Lens' PutBucketRequestPayment RequestPaymentConfiguration
-pbrprRequestPaymentConfiguration =
-    lens _pbrprRequestPaymentConfiguration
-        (\s a -> s { _pbrprRequestPaymentConfiguration = a })
+pbrpRequestPaymentConfiguration :: Lens' PutBucketRequestPayment RequestPaymentConfiguration
+pbrpRequestPaymentConfiguration =
+    lens _pbrpRequestPaymentConfiguration
+        (\s a -> s { _pbrpRequestPaymentConfiguration = a })
 
 instance ToPath PutBucketRequestPayment where
     toPath PutBucketRequestPayment{..} = mconcat
         [ "/"
-        , toText _pbrprBucket
+        , toText _pbrpBucket
         ]
 
 instance ToQuery PutBucketRequestPayment where
@@ -90,11 +92,11 @@ instance ToQuery PutBucketRequestPayment where
 
 instance ToHeaders PutBucketRequestPayment where
     toHeaders PutBucketRequestPayment{..} = mconcat
-        [ "Content-MD5" =: _pbrprContentMD5
+        [ "Content-MD5" =: _pbrpContentMD5
         ]
 
 instance ToBody PutBucketRequestPayment where
-    toBody = toBody . encodeXML . _pbrprRequestPaymentConfiguration
+    toBody = toBody . encodeXML . _pbrpRequestPaymentConfiguration
 
 data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 
@@ -106,5 +108,5 @@ instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3
     type Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
 
-    request  = put'
+    request  = put
     response = const (nullaryResponse PutBucketRequestPaymentResponse)

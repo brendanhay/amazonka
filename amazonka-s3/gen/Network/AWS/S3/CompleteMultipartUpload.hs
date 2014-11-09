@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.CompleteMultipartUpload
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,10 +28,10 @@ module Network.AWS.S3.CompleteMultipartUpload
     -- ** Request constructor
     , completeMultipartUpload
     -- ** Request lenses
-    , cmurBucket
-    , cmurKey
-    , cmurMultipartUpload
-    , cmurUploadId
+    , cmuBucket
+    , cmuKey
+    , cmuMultipartUpload
+    , cmuUploadId
 
     -- * Response
     , CompleteMultipartUploadOutput
@@ -46,66 +48,67 @@ module Network.AWS.S3.CompleteMultipartUpload
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data CompleteMultipartUpload = CompleteMultipartUpload
-    { _cmurBucket          :: Text
-    , _cmurKey             :: Text
-    , _cmurMultipartUpload :: Maybe CompletedMultipartUpload
-    , _cmurUploadId        :: Text
+    { _cmuBucket          :: Text
+    , _cmuKey             :: Text
+    , _cmuMultipartUpload :: Maybe CompletedMultipartUpload
+    , _cmuUploadId        :: Text
     } deriving (Eq, Show, Generic)
 
 -- | 'CompleteMultipartUpload' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmurBucket' @::@ 'Text'
+-- * 'cmuBucket' @::@ 'Text'
 --
--- * 'cmurKey' @::@ 'Text'
+-- * 'cmuKey' @::@ 'Text'
 --
--- * 'cmurMultipartUpload' @::@ 'Maybe' 'CompletedMultipartUpload'
+-- * 'cmuMultipartUpload' @::@ 'Maybe' 'CompletedMultipartUpload'
 --
--- * 'cmurUploadId' @::@ 'Text'
+-- * 'cmuUploadId' @::@ 'Text'
 --
-completeMultipartUpload :: Text -- ^ 'cmurBucket'
-                        -> Text -- ^ 'cmurKey'
-                        -> Text -- ^ 'cmurUploadId'
+completeMultipartUpload :: Text -- ^ 'cmuBucket'
+                        -> Text -- ^ 'cmuKey'
+                        -> Text -- ^ 'cmuUploadId'
                         -> CompleteMultipartUpload
 completeMultipartUpload p1 p2 p3 = CompleteMultipartUpload
-    { _cmurBucket          = p1
-    , _cmurKey             = p2
-    , _cmurUploadId        = p3
-    , _cmurMultipartUpload = Nothing
+    { _cmuBucket          = p1
+    , _cmuKey             = p2
+    , _cmuUploadId        = p3
+    , _cmuMultipartUpload = Nothing
     }
 
-cmurBucket :: Lens' CompleteMultipartUpload Text
-cmurBucket = lens _cmurBucket (\s a -> s { _cmurBucket = a })
+cmuBucket :: Lens' CompleteMultipartUpload Text
+cmuBucket = lens _cmuBucket (\s a -> s { _cmuBucket = a })
 
-cmurKey :: Lens' CompleteMultipartUpload Text
-cmurKey = lens _cmurKey (\s a -> s { _cmurKey = a })
+cmuKey :: Lens' CompleteMultipartUpload Text
+cmuKey = lens _cmuKey (\s a -> s { _cmuKey = a })
 
-cmurMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
-cmurMultipartUpload =
-    lens _cmurMultipartUpload (\s a -> s { _cmurMultipartUpload = a })
+cmuMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
+cmuMultipartUpload =
+    lens _cmuMultipartUpload (\s a -> s { _cmuMultipartUpload = a })
 
-cmurUploadId :: Lens' CompleteMultipartUpload Text
-cmurUploadId = lens _cmurUploadId (\s a -> s { _cmurUploadId = a })
+cmuUploadId :: Lens' CompleteMultipartUpload Text
+cmuUploadId = lens _cmuUploadId (\s a -> s { _cmuUploadId = a })
 
 instance ToPath CompleteMultipartUpload where
     toPath CompleteMultipartUpload{..} = mconcat
         [ "/"
-        , toText _cmurBucket
+        , toText _cmuBucket
         , "/"
-        , toText _cmurKey
+        , toText _cmuKey
         ]
 
 instance ToQuery CompleteMultipartUpload where
+    toQuery x = "uploadId" =? _cmuUploadId x
 
 instance ToHeaders CompleteMultipartUpload
 
 instance ToBody CompleteMultipartUpload where
-    toBody = toBody . encodeXML . _cmurMultipartUpload
+    toBody = toBody . encodeXML . _cmuMultipartUpload
 
 data CompleteMultipartUploadOutput = CompleteMultipartUploadOutput
     { _cmuoBucket               :: Maybe Text
@@ -180,7 +183,7 @@ instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3
     type Rs CompleteMultipartUpload = CompleteMultipartUploadOutput
 
-    request  = post'
+    request  = post
     response = const . xmlResponse $ \h x -> CompleteMultipartUploadOutput
         <$> x %| "Bucket"
         <*> x %| "ETag"

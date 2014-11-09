@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketLifecycle
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.GetBucketLifecycle
     -- ** Request constructor
     , getBucketLifecycle
     -- ** Request lenses
-    , gblr1Bucket
+    , gbl1Bucket
 
     -- * Response
     , GetBucketLifecycleOutput
@@ -37,32 +39,32 @@ module Network.AWS.S3.GetBucketLifecycle
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketLifecycle = GetBucketLifecycle
-    { _gblr1Bucket :: Text
+    { _gbl1Bucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketLifecycle' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gblr1Bucket' @::@ 'Text'
+-- * 'gbl1Bucket' @::@ 'Text'
 --
-getBucketLifecycle :: Text -- ^ 'gblr1Bucket'
+getBucketLifecycle :: Text -- ^ 'gbl1Bucket'
                    -> GetBucketLifecycle
 getBucketLifecycle p1 = GetBucketLifecycle
-    { _gblr1Bucket = p1
+    { _gbl1Bucket = p1
     }
 
-gblr1Bucket :: Lens' GetBucketLifecycle Text
-gblr1Bucket = lens _gblr1Bucket (\s a -> s { _gblr1Bucket = a })
+gbl1Bucket :: Lens' GetBucketLifecycle Text
+gbl1Bucket = lens _gbl1Bucket (\s a -> s { _gbl1Bucket = a })
 
 instance ToPath GetBucketLifecycle where
     toPath GetBucketLifecycle{..} = mconcat
         [ "/"
-        , toText _gblr1Bucket
+        , toText _gbl1Bucket
         ]
 
 instance ToQuery GetBucketLifecycle where
@@ -92,6 +94,6 @@ instance AWSRequest GetBucketLifecycle where
     type Sv GetBucketLifecycle = S3
     type Rs GetBucketLifecycle = GetBucketLifecycleOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> GetBucketLifecycleOutput
         <$> x %| "Rule"

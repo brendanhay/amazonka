@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteBucket
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,7 +30,7 @@ module Network.AWS.S3.DeleteBucket
     -- ** Request constructor
     , deleteBucket
     -- ** Request lenses
-    , dbrBucket
+    , dbBucket
 
     -- * Response
     , DeleteBucketResponse
@@ -37,32 +39,32 @@ module Network.AWS.S3.DeleteBucket
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype DeleteBucket = DeleteBucket
-    { _dbrBucket :: Text
+    { _dbBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteBucket' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbrBucket' @::@ 'Text'
+-- * 'dbBucket' @::@ 'Text'
 --
-deleteBucket :: Text -- ^ 'dbrBucket'
+deleteBucket :: Text -- ^ 'dbBucket'
              -> DeleteBucket
 deleteBucket p1 = DeleteBucket
-    { _dbrBucket = p1
+    { _dbBucket = p1
     }
 
-dbrBucket :: Lens' DeleteBucket Text
-dbrBucket = lens _dbrBucket (\s a -> s { _dbrBucket = a })
+dbBucket :: Lens' DeleteBucket Text
+dbBucket = lens _dbBucket (\s a -> s { _dbBucket = a })
 
 instance ToPath DeleteBucket where
     toPath DeleteBucket{..} = mconcat
         [ "/"
-        , toText _dbrBucket
+        , toText _dbBucket
         ]
 
 instance ToQuery DeleteBucket
@@ -79,5 +81,5 @@ instance AWSRequest DeleteBucket where
     type Sv DeleteBucket = S3
     type Rs DeleteBucket = DeleteBucketResponse
 
-    request  = delete'
+    request  = delete
     response = const (nullaryResponse DeleteBucketResponse)

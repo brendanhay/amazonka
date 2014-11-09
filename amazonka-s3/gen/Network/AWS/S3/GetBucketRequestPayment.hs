@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketRequestPayment
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.GetBucketRequestPayment
     -- ** Request constructor
     , getBucketRequestPayment
     -- ** Request lenses
-    , gbrprBucket
+    , gbrpBucket
 
     -- * Response
     , GetBucketRequestPaymentOutput
@@ -37,32 +39,32 @@ module Network.AWS.S3.GetBucketRequestPayment
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketRequestPayment = GetBucketRequestPayment
-    { _gbrprBucket :: Text
+    { _gbrpBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketRequestPayment' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbrprBucket' @::@ 'Text'
+-- * 'gbrpBucket' @::@ 'Text'
 --
-getBucketRequestPayment :: Text -- ^ 'gbrprBucket'
+getBucketRequestPayment :: Text -- ^ 'gbrpBucket'
                         -> GetBucketRequestPayment
 getBucketRequestPayment p1 = GetBucketRequestPayment
-    { _gbrprBucket = p1
+    { _gbrpBucket = p1
     }
 
-gbrprBucket :: Lens' GetBucketRequestPayment Text
-gbrprBucket = lens _gbrprBucket (\s a -> s { _gbrprBucket = a })
+gbrpBucket :: Lens' GetBucketRequestPayment Text
+gbrpBucket = lens _gbrpBucket (\s a -> s { _gbrpBucket = a })
 
 instance ToPath GetBucketRequestPayment where
     toPath GetBucketRequestPayment{..} = mconcat
         [ "/"
-        , toText _gbrprBucket
+        , toText _gbrpBucket
         ]
 
 instance ToQuery GetBucketRequestPayment where
@@ -72,7 +74,7 @@ instance ToHeaders GetBucketRequestPayment
 
 newtype GetBucketRequestPaymentOutput = GetBucketRequestPaymentOutput
     { _gbrpoPayer :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetBucketRequestPaymentOutput' constructor.
 --
@@ -93,6 +95,6 @@ instance AWSRequest GetBucketRequestPayment where
     type Sv GetBucketRequestPayment = S3
     type Rs GetBucketRequestPayment = GetBucketRequestPaymentOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> GetBucketRequestPaymentOutput
         <$> x %| "Payer"

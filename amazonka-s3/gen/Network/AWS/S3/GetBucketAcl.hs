@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketAcl
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.GetBucketAcl
     -- ** Request constructor
     , getBucketAcl
     -- ** Request lenses
-    , gbarBucket
+    , gbaBucket
 
     -- * Response
     , GetBucketAclOutput
@@ -38,32 +40,32 @@ module Network.AWS.S3.GetBucketAcl
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketAcl = GetBucketAcl
-    { _gbarBucket :: Text
+    { _gbaBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketAcl' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbarBucket' @::@ 'Text'
+-- * 'gbaBucket' @::@ 'Text'
 --
-getBucketAcl :: Text -- ^ 'gbarBucket'
+getBucketAcl :: Text -- ^ 'gbaBucket'
              -> GetBucketAcl
 getBucketAcl p1 = GetBucketAcl
-    { _gbarBucket = p1
+    { _gbaBucket = p1
     }
 
-gbarBucket :: Lens' GetBucketAcl Text
-gbarBucket = lens _gbarBucket (\s a -> s { _gbarBucket = a })
+gbaBucket :: Lens' GetBucketAcl Text
+gbaBucket = lens _gbaBucket (\s a -> s { _gbaBucket = a })
 
 instance ToPath GetBucketAcl where
     toPath GetBucketAcl{..} = mconcat
         [ "/"
-        , toText _gbarBucket
+        , toText _gbaBucket
         ]
 
 instance ToQuery GetBucketAcl where
@@ -101,7 +103,7 @@ instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
     type Rs GetBucketAcl = GetBucketAclOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> GetBucketAclOutput
         <$> x %| "AccessControlList"
         <*> x %| "Owner"

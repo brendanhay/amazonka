@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetObjectTorrent
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,8 +28,8 @@ module Network.AWS.S3.GetObjectTorrent
     -- ** Request constructor
     , getObjectTorrent
     -- ** Request lenses
-    , gotrBucket
-    , gotrKey
+    , gotBucket
+    , gotKey
 
     -- * Response
     , GetObjectTorrentOutput
@@ -38,42 +40,42 @@ module Network.AWS.S3.GetObjectTorrent
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data GetObjectTorrent = GetObjectTorrent
-    { _gotrBucket :: Text
-    , _gotrKey    :: Text
+    { _gotBucket :: Text
+    , _gotKey    :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetObjectTorrent' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gotrBucket' @::@ 'Text'
+-- * 'gotBucket' @::@ 'Text'
 --
--- * 'gotrKey' @::@ 'Text'
+-- * 'gotKey' @::@ 'Text'
 --
-getObjectTorrent :: Text -- ^ 'gotrBucket'
-                 -> Text -- ^ 'gotrKey'
+getObjectTorrent :: Text -- ^ 'gotBucket'
+                 -> Text -- ^ 'gotKey'
                  -> GetObjectTorrent
 getObjectTorrent p1 p2 = GetObjectTorrent
-    { _gotrBucket = p1
-    , _gotrKey    = p2
+    { _gotBucket = p1
+    , _gotKey    = p2
     }
 
-gotrBucket :: Lens' GetObjectTorrent Text
-gotrBucket = lens _gotrBucket (\s a -> s { _gotrBucket = a })
+gotBucket :: Lens' GetObjectTorrent Text
+gotBucket = lens _gotBucket (\s a -> s { _gotBucket = a })
 
-gotrKey :: Lens' GetObjectTorrent Text
-gotrKey = lens _gotrKey (\s a -> s { _gotrKey = a })
+gotKey :: Lens' GetObjectTorrent Text
+gotKey = lens _gotKey (\s a -> s { _gotKey = a })
 
 instance ToPath GetObjectTorrent where
     toPath GetObjectTorrent{..} = mconcat
         [ "/"
-        , toText _gotrBucket
+        , toText _gotBucket
         , "/"
-        , toText _gotrKey
+        , toText _gotKey
         ]
 
 instance ToQuery GetObjectTorrent where
@@ -104,6 +106,6 @@ instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3
     type Rs GetObjectTorrent = GetObjectTorrentOutput
 
-    request  = get'
+    request  = get
     response = const . bodyResponse $ \h b -> GetObjectTorrentOutput
         <$> pure (RsBody b)

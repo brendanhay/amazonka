@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.UploadPart
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -31,16 +33,16 @@ module Network.AWS.S3.UploadPart
     -- ** Request constructor
     , uploadPart
     -- ** Request lenses
-    , uprBody
-    , uprBucket
-    , uprContentLength
-    , uprContentMD5
-    , uprKey
-    , uprPartNumber
-    , uprSSECustomerAlgorithm
-    , uprSSECustomerKey
-    , uprSSECustomerKeyMD5
-    , uprUploadId
+    , upBody
+    , upBucket
+    , upContentLength
+    , upContentMD5
+    , upKey
+    , upPartNumber
+    , upSSECustomerAlgorithm
+    , upSSECustomerKey
+    , upSSECustomerKeyMD5
+    , upUploadId
 
     -- * Response
     , UploadPartOutput
@@ -54,91 +56,91 @@ module Network.AWS.S3.UploadPart
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data UploadPart = UploadPart
-    { _uprBody                 :: RqBody
-    , _uprBucket               :: Text
-    , _uprContentLength        :: Maybe Int
-    , _uprContentMD5           :: Maybe Text
-    , _uprKey                  :: Text
-    , _uprPartNumber           :: Int
-    , _uprSSECustomerAlgorithm :: Maybe Text
-    , _uprSSECustomerKey       :: Maybe (Sensitive Text)
-    , _uprSSECustomerKeyMD5    :: Maybe Text
-    , _uprUploadId             :: Text
+    { _upBody                 :: RqBody
+    , _upBucket               :: Text
+    , _upContentLength        :: Maybe Int
+    , _upContentMD5           :: Maybe Text
+    , _upKey                  :: Text
+    , _upPartNumber           :: Int
+    , _upSSECustomerAlgorithm :: Maybe Text
+    , _upSSECustomerKey       :: Maybe (Sensitive Text)
+    , _upSSECustomerKeyMD5    :: Maybe Text
+    , _upUploadId             :: Text
     } deriving (Show, Generic)
 
 -- | 'UploadPart' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uprBody' @::@ 'RqBody'
+-- * 'upBody' @::@ 'RqBody'
 --
--- * 'uprBucket' @::@ 'Text'
+-- * 'upBucket' @::@ 'Text'
 --
--- * 'uprContentLength' @::@ 'Maybe' 'Int'
+-- * 'upContentLength' @::@ 'Maybe' 'Int'
 --
--- * 'uprContentMD5' @::@ 'Maybe' 'Text'
+-- * 'upContentMD5' @::@ 'Maybe' 'Text'
 --
--- * 'uprKey' @::@ 'Text'
+-- * 'upKey' @::@ 'Text'
 --
--- * 'uprPartNumber' @::@ 'Int'
+-- * 'upPartNumber' @::@ 'Int'
 --
--- * 'uprSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+-- * 'upSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
--- * 'uprSSECustomerKey' @::@ 'Maybe' 'Text'
+-- * 'upSSECustomerKey' @::@ 'Maybe' 'Text'
 --
--- * 'uprSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+-- * 'upSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'uprUploadId' @::@ 'Text'
+-- * 'upUploadId' @::@ 'Text'
 --
-uploadPart :: RqBody -- ^ 'uprBody'
-           -> Text -- ^ 'uprBucket'
-           -> Text -- ^ 'uprKey'
-           -> Int -- ^ 'uprPartNumber'
-           -> Text -- ^ 'uprUploadId'
+uploadPart :: RqBody -- ^ 'upBody'
+           -> Text -- ^ 'upBucket'
+           -> Text -- ^ 'upKey'
+           -> Int -- ^ 'upPartNumber'
+           -> Text -- ^ 'upUploadId'
            -> UploadPart
 uploadPart p1 p2 p3 p4 p5 = UploadPart
-    { _uprBody                 = p1
-    , _uprBucket               = p2
-    , _uprKey                  = p3
-    , _uprPartNumber           = p4
-    , _uprUploadId             = p5
-    , _uprContentLength        = Nothing
-    , _uprContentMD5           = Nothing
-    , _uprSSECustomerAlgorithm = Nothing
-    , _uprSSECustomerKey       = Nothing
-    , _uprSSECustomerKeyMD5    = Nothing
+    { _upBody                 = p1
+    , _upBucket               = p2
+    , _upKey                  = p3
+    , _upPartNumber           = p4
+    , _upUploadId             = p5
+    , _upContentLength        = Nothing
+    , _upContentMD5           = Nothing
+    , _upSSECustomerAlgorithm = Nothing
+    , _upSSECustomerKey       = Nothing
+    , _upSSECustomerKeyMD5    = Nothing
     }
 
-uprBody :: Lens' UploadPart RqBody
-uprBody = lens _uprBody (\s a -> s { _uprBody = a })
+upBody :: Lens' UploadPart RqBody
+upBody = lens _upBody (\s a -> s { _upBody = a })
 
-uprBucket :: Lens' UploadPart Text
-uprBucket = lens _uprBucket (\s a -> s { _uprBucket = a })
+upBucket :: Lens' UploadPart Text
+upBucket = lens _upBucket (\s a -> s { _upBucket = a })
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
 -- body cannot be determined automatically.
-uprContentLength :: Lens' UploadPart (Maybe Int)
-uprContentLength = lens _uprContentLength (\s a -> s { _uprContentLength = a })
+upContentLength :: Lens' UploadPart (Maybe Int)
+upContentLength = lens _upContentLength (\s a -> s { _upContentLength = a })
 
-uprContentMD5 :: Lens' UploadPart (Maybe Text)
-uprContentMD5 = lens _uprContentMD5 (\s a -> s { _uprContentMD5 = a })
+upContentMD5 :: Lens' UploadPart (Maybe Text)
+upContentMD5 = lens _upContentMD5 (\s a -> s { _upContentMD5 = a })
 
-uprKey :: Lens' UploadPart Text
-uprKey = lens _uprKey (\s a -> s { _uprKey = a })
+upKey :: Lens' UploadPart Text
+upKey = lens _upKey (\s a -> s { _upKey = a })
 
 -- | Part number of part being uploaded.
-uprPartNumber :: Lens' UploadPart Int
-uprPartNumber = lens _uprPartNumber (\s a -> s { _uprPartNumber = a })
+upPartNumber :: Lens' UploadPart Int
+upPartNumber = lens _upPartNumber (\s a -> s { _upPartNumber = a })
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
-uprSSECustomerAlgorithm :: Lens' UploadPart (Maybe Text)
-uprSSECustomerAlgorithm =
-    lens _uprSSECustomerAlgorithm (\s a -> s { _uprSSECustomerAlgorithm = a })
+upSSECustomerAlgorithm :: Lens' UploadPart (Maybe Text)
+upSSECustomerAlgorithm =
+    lens _upSSECustomerAlgorithm (\s a -> s { _upSSECustomerAlgorithm = a })
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
@@ -147,47 +149,46 @@ uprSSECustomerAlgorithm =
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
 -- This must be the same encryption key specified in the initiate multipart
 -- upload request.
-uprSSECustomerKey :: Lens' UploadPart (Maybe Text)
-uprSSECustomerKey =
-    lens _uprSSECustomerKey (\s a -> s { _uprSSECustomerKey = a })
-        . mapping _Sensitive
+upSSECustomerKey :: Lens' UploadPart (Maybe Text)
+upSSECustomerKey = lens _upSSECustomerKey (\s a -> s { _upSSECustomerKey = a })
+    . mapping _Sensitive
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-uprSSECustomerKeyMD5 :: Lens' UploadPart (Maybe Text)
-uprSSECustomerKeyMD5 =
-    lens _uprSSECustomerKeyMD5 (\s a -> s { _uprSSECustomerKeyMD5 = a })
+upSSECustomerKeyMD5 :: Lens' UploadPart (Maybe Text)
+upSSECustomerKeyMD5 =
+    lens _upSSECustomerKeyMD5 (\s a -> s { _upSSECustomerKeyMD5 = a })
 
 -- | Upload ID identifying the multipart upload whose part is being uploaded.
-uprUploadId :: Lens' UploadPart Text
-uprUploadId = lens _uprUploadId (\s a -> s { _uprUploadId = a })
+upUploadId :: Lens' UploadPart Text
+upUploadId = lens _upUploadId (\s a -> s { _upUploadId = a })
 
 instance ToPath UploadPart where
     toPath UploadPart{..} = mconcat
         [ "/"
-        , toText _uprBucket
+        , toText _upBucket
         , "/"
-        , toText _uprKey
+        , toText _upKey
         ]
 
 instance ToQuery UploadPart where
     toQuery UploadPart{..} = mconcat
-        [ "partNumber" =? _uprPartNumber
-        , "uploadId"   =? _uprUploadId
+        [ "partNumber" =? _upPartNumber
+        , "uploadId"   =? _upUploadId
         ]
 
 instance ToHeaders UploadPart where
     toHeaders UploadPart{..} = mconcat
-        [ "Content-Length"                                  =: _uprContentLength
-        , "Content-MD5"                                     =: _uprContentMD5
-        , "x-amz-server-side-encryption-customer-algorithm" =: _uprSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key"       =: _uprSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5"   =: _uprSSECustomerKeyMD5
+        [ "Content-Length"                                  =: _upContentLength
+        , "Content-MD5"                                     =: _upContentMD5
+        , "x-amz-server-side-encryption-customer-algorithm" =: _upSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key"       =: _upSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5"   =: _upSSECustomerKeyMD5
         ]
 
 instance ToBody UploadPart where
-    toBody = toBody . _uprBody
+    toBody = toBody . _upBody
 
 data UploadPartOutput = UploadPartOutput
     { _upoETag                 :: Maybe Text
@@ -243,7 +244,7 @@ instance AWSRequest UploadPart where
     type Sv UploadPart = S3
     type Rs UploadPart = UploadPartOutput
 
-    request  = put'
+    request  = put
     response = const . xmlResponse $ \h x -> UploadPartOutput
         <$> h ~:? "ETag"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"

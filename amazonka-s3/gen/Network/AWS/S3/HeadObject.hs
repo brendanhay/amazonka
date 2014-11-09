@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.HeadObject
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,17 +30,17 @@ module Network.AWS.S3.HeadObject
     -- ** Request constructor
     , headObject
     -- ** Request lenses
-    , horBucket
-    , horIfMatch
-    , horIfModifiedSince
-    , horIfNoneMatch
-    , horIfUnmodifiedSince
-    , horKey
-    , horRange
-    , horSSECustomerAlgorithm
-    , horSSECustomerKey
-    , horSSECustomerKeyMD5
-    , horVersionId
+    , hoBucket
+    , hoIfMatch
+    , hoIfModifiedSince
+    , hoIfNoneMatch
+    , hoIfUnmodifiedSince
+    , hoKey
+    , hoRange
+    , hoSSECustomerAlgorithm
+    , hoSSECustomerKey
+    , hoSSECustomerKeyMD5
+    , hoVersionId
 
     -- * Response
     , HeadObjectOutput
@@ -68,149 +70,149 @@ module Network.AWS.S3.HeadObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data HeadObject = HeadObject
-    { _horBucket               :: Text
-    , _horIfMatch              :: Maybe Text
-    , _horIfModifiedSince      :: Maybe RFC822
-    , _horIfNoneMatch          :: Maybe Text
-    , _horIfUnmodifiedSince    :: Maybe RFC822
-    , _horKey                  :: Text
-    , _horRange                :: Maybe Text
-    , _horSSECustomerAlgorithm :: Maybe Text
-    , _horSSECustomerKey       :: Maybe (Sensitive Text)
-    , _horSSECustomerKeyMD5    :: Maybe Text
-    , _horVersionId            :: Maybe Text
+    { _hoBucket               :: Text
+    , _hoIfMatch              :: Maybe Text
+    , _hoIfModifiedSince      :: Maybe RFC822
+    , _hoIfNoneMatch          :: Maybe Text
+    , _hoIfUnmodifiedSince    :: Maybe RFC822
+    , _hoKey                  :: Text
+    , _hoRange                :: Maybe Text
+    , _hoSSECustomerAlgorithm :: Maybe Text
+    , _hoSSECustomerKey       :: Maybe (Sensitive Text)
+    , _hoSSECustomerKeyMD5    :: Maybe Text
+    , _hoVersionId            :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'HeadObject' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'horBucket' @::@ 'Text'
+-- * 'hoBucket' @::@ 'Text'
 --
--- * 'horIfMatch' @::@ 'Maybe' 'Text'
+-- * 'hoIfMatch' @::@ 'Maybe' 'Text'
 --
--- * 'horIfModifiedSince' @::@ 'Maybe' 'UTCTime'
+-- * 'hoIfModifiedSince' @::@ 'Maybe' 'UTCTime'
 --
--- * 'horIfNoneMatch' @::@ 'Maybe' 'Text'
+-- * 'hoIfNoneMatch' @::@ 'Maybe' 'Text'
 --
--- * 'horIfUnmodifiedSince' @::@ 'Maybe' 'UTCTime'
+-- * 'hoIfUnmodifiedSince' @::@ 'Maybe' 'UTCTime'
 --
--- * 'horKey' @::@ 'Text'
+-- * 'hoKey' @::@ 'Text'
 --
--- * 'horRange' @::@ 'Maybe' 'Text'
+-- * 'hoRange' @::@ 'Maybe' 'Text'
 --
--- * 'horSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+-- * 'hoSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
--- * 'horSSECustomerKey' @::@ 'Maybe' 'Text'
+-- * 'hoSSECustomerKey' @::@ 'Maybe' 'Text'
 --
--- * 'horSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+-- * 'hoSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'horVersionId' @::@ 'Maybe' 'Text'
+-- * 'hoVersionId' @::@ 'Maybe' 'Text'
 --
-headObject :: Text -- ^ 'horBucket'
-           -> Text -- ^ 'horKey'
+headObject :: Text -- ^ 'hoBucket'
+           -> Text -- ^ 'hoKey'
            -> HeadObject
 headObject p1 p2 = HeadObject
-    { _horBucket               = p1
-    , _horKey                  = p2
-    , _horIfMatch              = Nothing
-    , _horIfModifiedSince      = Nothing
-    , _horIfNoneMatch          = Nothing
-    , _horIfUnmodifiedSince    = Nothing
-    , _horRange                = Nothing
-    , _horVersionId            = Nothing
-    , _horSSECustomerAlgorithm = Nothing
-    , _horSSECustomerKey       = Nothing
-    , _horSSECustomerKeyMD5    = Nothing
+    { _hoBucket               = p1
+    , _hoKey                  = p2
+    , _hoIfMatch              = Nothing
+    , _hoIfModifiedSince      = Nothing
+    , _hoIfNoneMatch          = Nothing
+    , _hoIfUnmodifiedSince    = Nothing
+    , _hoRange                = Nothing
+    , _hoVersionId            = Nothing
+    , _hoSSECustomerAlgorithm = Nothing
+    , _hoSSECustomerKey       = Nothing
+    , _hoSSECustomerKeyMD5    = Nothing
     }
 
-horBucket :: Lens' HeadObject Text
-horBucket = lens _horBucket (\s a -> s { _horBucket = a })
+hoBucket :: Lens' HeadObject Text
+hoBucket = lens _hoBucket (\s a -> s { _hoBucket = a })
 
 -- | Return the object only if its entity tag (ETag) is the same as the one
 -- specified, otherwise return a 412 (precondition failed).
-horIfMatch :: Lens' HeadObject (Maybe Text)
-horIfMatch = lens _horIfMatch (\s a -> s { _horIfMatch = a })
+hoIfMatch :: Lens' HeadObject (Maybe Text)
+hoIfMatch = lens _hoIfMatch (\s a -> s { _hoIfMatch = a })
 
 -- | Return the object only if it has been modified since the specified time,
 -- otherwise return a 304 (not modified).
-horIfModifiedSince :: Lens' HeadObject (Maybe UTCTime)
-horIfModifiedSince =
-    lens _horIfModifiedSince (\s a -> s { _horIfModifiedSince = a })
+hoIfModifiedSince :: Lens' HeadObject (Maybe UTCTime)
+hoIfModifiedSince =
+    lens _hoIfModifiedSince (\s a -> s { _hoIfModifiedSince = a })
         . mapping _Time
 
 -- | Return the object only if its entity tag (ETag) is different from the one
 -- specified, otherwise return a 304 (not modified).
-horIfNoneMatch :: Lens' HeadObject (Maybe Text)
-horIfNoneMatch = lens _horIfNoneMatch (\s a -> s { _horIfNoneMatch = a })
+hoIfNoneMatch :: Lens' HeadObject (Maybe Text)
+hoIfNoneMatch = lens _hoIfNoneMatch (\s a -> s { _hoIfNoneMatch = a })
 
 -- | Return the object only if it has not been modified since the specified
 -- time, otherwise return a 412 (precondition failed).
-horIfUnmodifiedSince :: Lens' HeadObject (Maybe UTCTime)
-horIfUnmodifiedSince =
-    lens _horIfUnmodifiedSince (\s a -> s { _horIfUnmodifiedSince = a })
+hoIfUnmodifiedSince :: Lens' HeadObject (Maybe UTCTime)
+hoIfUnmodifiedSince =
+    lens _hoIfUnmodifiedSince (\s a -> s { _hoIfUnmodifiedSince = a })
         . mapping _Time
 
-horKey :: Lens' HeadObject Text
-horKey = lens _horKey (\s a -> s { _horKey = a })
+hoKey :: Lens' HeadObject Text
+hoKey = lens _hoKey (\s a -> s { _hoKey = a })
 
 -- | Downloads the specified range bytes of an object. For more information
 -- about the HTTP Range header, go to
 -- http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.35.
-horRange :: Lens' HeadObject (Maybe Text)
-horRange = lens _horRange (\s a -> s { _horRange = a })
+hoRange :: Lens' HeadObject (Maybe Text)
+hoRange = lens _hoRange (\s a -> s { _hoRange = a })
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
-horSSECustomerAlgorithm :: Lens' HeadObject (Maybe Text)
-horSSECustomerAlgorithm =
-    lens _horSSECustomerAlgorithm (\s a -> s { _horSSECustomerAlgorithm = a })
+hoSSECustomerAlgorithm :: Lens' HeadObject (Maybe Text)
+hoSSECustomerAlgorithm =
+    lens _hoSSECustomerAlgorithm (\s a -> s { _hoSSECustomerAlgorithm = a })
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
-horSSECustomerKey :: Lens' HeadObject (Maybe Text)
-horSSECustomerKey =
-    lens _horSSECustomerKey (\s a -> s { _horSSECustomerKey = a })
-        . mapping _Sensitive
+hoSSECustomerKey :: Lens' HeadObject (Maybe Text)
+hoSSECustomerKey = lens _hoSSECustomerKey (\s a -> s { _hoSSECustomerKey = a })
+    . mapping _Sensitive
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-horSSECustomerKeyMD5 :: Lens' HeadObject (Maybe Text)
-horSSECustomerKeyMD5 =
-    lens _horSSECustomerKeyMD5 (\s a -> s { _horSSECustomerKeyMD5 = a })
+hoSSECustomerKeyMD5 :: Lens' HeadObject (Maybe Text)
+hoSSECustomerKeyMD5 =
+    lens _hoSSECustomerKeyMD5 (\s a -> s { _hoSSECustomerKeyMD5 = a })
 
 -- | VersionId used to reference a specific version of the object.
-horVersionId :: Lens' HeadObject (Maybe Text)
-horVersionId = lens _horVersionId (\s a -> s { _horVersionId = a })
+hoVersionId :: Lens' HeadObject (Maybe Text)
+hoVersionId = lens _hoVersionId (\s a -> s { _hoVersionId = a })
 
 instance ToPath HeadObject where
     toPath HeadObject{..} = mconcat
         [ "/"
-        , toText _horBucket
+        , toText _hoBucket
         , "/"
-        , toText _horKey
+        , toText _hoKey
         ]
 
 instance ToQuery HeadObject where
+    toQuery x = "versionId" =? _hoVersionId x
 
 instance ToHeaders HeadObject where
     toHeaders HeadObject{..} = mconcat
-        [ "If-Match"                                        =: _horIfMatch
-        , "If-Modified-Since"                               =: _horIfModifiedSince
-        , "If-None-Match"                                   =: _horIfNoneMatch
-        , "If-Unmodified-Since"                             =: _horIfUnmodifiedSince
-        , "Range"                                           =: _horRange
-        , "x-amz-server-side-encryption-customer-algorithm" =: _horSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key"       =: _horSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5"   =: _horSSECustomerKeyMD5
+        [ "If-Match"                                        =: _hoIfMatch
+        , "If-Modified-Since"                               =: _hoIfModifiedSince
+        , "If-None-Match"                                   =: _hoIfNoneMatch
+        , "If-Unmodified-Since"                             =: _hoIfUnmodifiedSince
+        , "Range"                                           =: _hoRange
+        , "x-amz-server-side-encryption-customer-algorithm" =: _hoSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key"       =: _hoSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5"   =: _hoSSECustomerKeyMD5
         ]
 
 data HeadObjectOutput = HeadObjectOutput
@@ -418,7 +420,7 @@ instance AWSRequest HeadObject where
     type Sv HeadObject = S3
     type Rs HeadObject = HeadObjectOutput
 
-    request  = head'
+    request  = head
     response = const . xmlResponse $ \h x -> HeadObjectOutput
         <$> h ~:? "accept-ranges"
         <*> h ~:? "Cache-Control"

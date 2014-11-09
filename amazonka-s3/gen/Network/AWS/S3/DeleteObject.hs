@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteObject
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,10 +30,10 @@ module Network.AWS.S3.DeleteObject
     -- ** Request constructor
     , deleteObject
     -- ** Request lenses
-    , dor1Bucket
-    , dor1Key
-    , dor1MFA
-    , dor1VersionId
+    , do1Bucket
+    , do1Key
+    , do1MFA
+    , do1VersionId
 
     -- * Response
     , DeleteObjectOutput
@@ -43,66 +45,67 @@ module Network.AWS.S3.DeleteObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data DeleteObject = DeleteObject
-    { _dor1Bucket    :: Text
-    , _dor1Key       :: Text
-    , _dor1MFA       :: Maybe Text
-    , _dor1VersionId :: Maybe Text
+    { _do1Bucket    :: Text
+    , _do1Key       :: Text
+    , _do1MFA       :: Maybe Text
+    , _do1VersionId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteObject' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dor1Bucket' @::@ 'Text'
+-- * 'do1Bucket' @::@ 'Text'
 --
--- * 'dor1Key' @::@ 'Text'
+-- * 'do1Key' @::@ 'Text'
 --
--- * 'dor1MFA' @::@ 'Maybe' 'Text'
+-- * 'do1MFA' @::@ 'Maybe' 'Text'
 --
--- * 'dor1VersionId' @::@ 'Maybe' 'Text'
+-- * 'do1VersionId' @::@ 'Maybe' 'Text'
 --
-deleteObject :: Text -- ^ 'dor1Bucket'
-             -> Text -- ^ 'dor1Key'
+deleteObject :: Text -- ^ 'do1Bucket'
+             -> Text -- ^ 'do1Key'
              -> DeleteObject
 deleteObject p1 p2 = DeleteObject
-    { _dor1Bucket    = p1
-    , _dor1Key       = p2
-    , _dor1MFA       = Nothing
-    , _dor1VersionId = Nothing
+    { _do1Bucket    = p1
+    , _do1Key       = p2
+    , _do1MFA       = Nothing
+    , _do1VersionId = Nothing
     }
 
-dor1Bucket :: Lens' DeleteObject Text
-dor1Bucket = lens _dor1Bucket (\s a -> s { _dor1Bucket = a })
+do1Bucket :: Lens' DeleteObject Text
+do1Bucket = lens _do1Bucket (\s a -> s { _do1Bucket = a })
 
-dor1Key :: Lens' DeleteObject Text
-dor1Key = lens _dor1Key (\s a -> s { _dor1Key = a })
+do1Key :: Lens' DeleteObject Text
+do1Key = lens _do1Key (\s a -> s { _do1Key = a })
 
 -- | The concatenation of the authentication device's serial number, a space,
 -- and the value that is displayed on your authentication device.
-dor1MFA :: Lens' DeleteObject (Maybe Text)
-dor1MFA = lens _dor1MFA (\s a -> s { _dor1MFA = a })
+do1MFA :: Lens' DeleteObject (Maybe Text)
+do1MFA = lens _do1MFA (\s a -> s { _do1MFA = a })
 
 -- | VersionId used to reference a specific version of the object.
-dor1VersionId :: Lens' DeleteObject (Maybe Text)
-dor1VersionId = lens _dor1VersionId (\s a -> s { _dor1VersionId = a })
+do1VersionId :: Lens' DeleteObject (Maybe Text)
+do1VersionId = lens _do1VersionId (\s a -> s { _do1VersionId = a })
 
 instance ToPath DeleteObject where
     toPath DeleteObject{..} = mconcat
         [ "/"
-        , toText _dor1Bucket
+        , toText _do1Bucket
         , "/"
-        , toText _dor1Key
+        , toText _do1Key
         ]
 
 instance ToQuery DeleteObject where
+    toQuery x = "versionId" =? _do1VersionId x
 
 instance ToHeaders DeleteObject where
     toHeaders DeleteObject{..} = mconcat
-        [ "x-amz-mfa" =: _dor1MFA
+        [ "x-amz-mfa" =: _do1MFA
         ]
 
 data DeleteObjectOutput = DeleteObjectOutput
@@ -138,7 +141,7 @@ instance AWSRequest DeleteObject where
     type Sv DeleteObject = S3
     type Rs DeleteObject = DeleteObjectOutput
 
-    request  = delete'
+    request  = delete
     response = const . xmlResponse $ \h x -> DeleteObjectOutput
         <$> h ~:? "x-amz-delete-marker"
         <*> h ~:? "x-amz-version-id"

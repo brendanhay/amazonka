@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketLifecycle
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,9 +29,9 @@ module Network.AWS.S3.PutBucketLifecycle
     -- ** Request constructor
     , putBucketLifecycle
     -- ** Request lenses
-    , pblrBucket
-    , pblrContentMD5
-    , pblrLifecycleConfiguration
+    , pblBucket
+    , pblContentMD5
+    , pblLifecycleConfiguration
 
     -- * Response
     , PutBucketLifecycleResponse
@@ -38,48 +40,48 @@ module Network.AWS.S3.PutBucketLifecycle
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketLifecycle = PutBucketLifecycle
-    { _pblrBucket                 :: Text
-    , _pblrContentMD5             :: Maybe Text
-    , _pblrLifecycleConfiguration :: Maybe LifecycleConfiguration
+    { _pblBucket                 :: Text
+    , _pblContentMD5             :: Maybe Text
+    , _pblLifecycleConfiguration :: Maybe LifecycleConfiguration
     } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketLifecycle' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pblrBucket' @::@ 'Text'
+-- * 'pblBucket' @::@ 'Text'
 --
--- * 'pblrContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pblContentMD5' @::@ 'Maybe' 'Text'
 --
--- * 'pblrLifecycleConfiguration' @::@ 'Maybe' 'LifecycleConfiguration'
+-- * 'pblLifecycleConfiguration' @::@ 'Maybe' 'LifecycleConfiguration'
 --
-putBucketLifecycle :: Text -- ^ 'pblrBucket'
+putBucketLifecycle :: Text -- ^ 'pblBucket'
                    -> PutBucketLifecycle
 putBucketLifecycle p1 = PutBucketLifecycle
-    { _pblrBucket                 = p1
-    , _pblrContentMD5             = Nothing
-    , _pblrLifecycleConfiguration = Nothing
+    { _pblBucket                 = p1
+    , _pblContentMD5             = Nothing
+    , _pblLifecycleConfiguration = Nothing
     }
 
-pblrBucket :: Lens' PutBucketLifecycle Text
-pblrBucket = lens _pblrBucket (\s a -> s { _pblrBucket = a })
+pblBucket :: Lens' PutBucketLifecycle Text
+pblBucket = lens _pblBucket (\s a -> s { _pblBucket = a })
 
-pblrContentMD5 :: Lens' PutBucketLifecycle (Maybe Text)
-pblrContentMD5 = lens _pblrContentMD5 (\s a -> s { _pblrContentMD5 = a })
+pblContentMD5 :: Lens' PutBucketLifecycle (Maybe Text)
+pblContentMD5 = lens _pblContentMD5 (\s a -> s { _pblContentMD5 = a })
 
-pblrLifecycleConfiguration :: Lens' PutBucketLifecycle (Maybe LifecycleConfiguration)
-pblrLifecycleConfiguration =
-    lens _pblrLifecycleConfiguration
-        (\s a -> s { _pblrLifecycleConfiguration = a })
+pblLifecycleConfiguration :: Lens' PutBucketLifecycle (Maybe LifecycleConfiguration)
+pblLifecycleConfiguration =
+    lens _pblLifecycleConfiguration
+        (\s a -> s { _pblLifecycleConfiguration = a })
 
 instance ToPath PutBucketLifecycle where
     toPath PutBucketLifecycle{..} = mconcat
         [ "/"
-        , toText _pblrBucket
+        , toText _pblBucket
         ]
 
 instance ToQuery PutBucketLifecycle where
@@ -87,11 +89,11 @@ instance ToQuery PutBucketLifecycle where
 
 instance ToHeaders PutBucketLifecycle where
     toHeaders PutBucketLifecycle{..} = mconcat
-        [ "Content-MD5" =: _pblrContentMD5
+        [ "Content-MD5" =: _pblContentMD5
         ]
 
 instance ToBody PutBucketLifecycle where
-    toBody = toBody . encodeXML . _pblrLifecycleConfiguration
+    toBody = toBody . encodeXML . _pblLifecycleConfiguration
 
 data PutBucketLifecycleResponse = PutBucketLifecycleResponse
 
@@ -103,5 +105,5 @@ instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3
     type Rs PutBucketLifecycle = PutBucketLifecycleResponse
 
-    request  = put'
+    request  = put
     response = const (nullaryResponse PutBucketLifecycleResponse)

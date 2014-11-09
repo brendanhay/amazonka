@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketTagging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,9 +28,9 @@ module Network.AWS.S3.PutBucketTagging
     -- ** Request constructor
     , putBucketTagging
     -- ** Request lenses
-    , pbtrBucket
-    , pbtrContentMD5
-    , pbtrTagging
+    , pbtBucket
+    , pbtContentMD5
+    , pbtTagging
 
     -- * Response
     , PutBucketTaggingResponse
@@ -37,47 +39,47 @@ module Network.AWS.S3.PutBucketTagging
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketTagging = PutBucketTagging
-    { _pbtrBucket     :: Text
-    , _pbtrContentMD5 :: Maybe Text
-    , _pbtrTagging    :: Tagging
+    { _pbtBucket     :: Text
+    , _pbtContentMD5 :: Maybe Text
+    , _pbtTagging    :: Tagging
     } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketTagging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbtrBucket' @::@ 'Text'
+-- * 'pbtBucket' @::@ 'Text'
 --
--- * 'pbtrContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pbtContentMD5' @::@ 'Maybe' 'Text'
 --
--- * 'pbtrTagging' @::@ 'Tagging'
+-- * 'pbtTagging' @::@ 'Tagging'
 --
-putBucketTagging :: Text -- ^ 'pbtrBucket'
-                 -> Tagging -- ^ 'pbtrTagging'
+putBucketTagging :: Text -- ^ 'pbtBucket'
+                 -> Tagging -- ^ 'pbtTagging'
                  -> PutBucketTagging
 putBucketTagging p1 p2 = PutBucketTagging
-    { _pbtrBucket     = p1
-    , _pbtrTagging    = p2
-    , _pbtrContentMD5 = Nothing
+    { _pbtBucket     = p1
+    , _pbtTagging    = p2
+    , _pbtContentMD5 = Nothing
     }
 
-pbtrBucket :: Lens' PutBucketTagging Text
-pbtrBucket = lens _pbtrBucket (\s a -> s { _pbtrBucket = a })
+pbtBucket :: Lens' PutBucketTagging Text
+pbtBucket = lens _pbtBucket (\s a -> s { _pbtBucket = a })
 
-pbtrContentMD5 :: Lens' PutBucketTagging (Maybe Text)
-pbtrContentMD5 = lens _pbtrContentMD5 (\s a -> s { _pbtrContentMD5 = a })
+pbtContentMD5 :: Lens' PutBucketTagging (Maybe Text)
+pbtContentMD5 = lens _pbtContentMD5 (\s a -> s { _pbtContentMD5 = a })
 
-pbtrTagging :: Lens' PutBucketTagging Tagging
-pbtrTagging = lens _pbtrTagging (\s a -> s { _pbtrTagging = a })
+pbtTagging :: Lens' PutBucketTagging Tagging
+pbtTagging = lens _pbtTagging (\s a -> s { _pbtTagging = a })
 
 instance ToPath PutBucketTagging where
     toPath PutBucketTagging{..} = mconcat
         [ "/"
-        , toText _pbtrBucket
+        , toText _pbtBucket
         ]
 
 instance ToQuery PutBucketTagging where
@@ -85,11 +87,11 @@ instance ToQuery PutBucketTagging where
 
 instance ToHeaders PutBucketTagging where
     toHeaders PutBucketTagging{..} = mconcat
-        [ "Content-MD5" =: _pbtrContentMD5
+        [ "Content-MD5" =: _pbtContentMD5
         ]
 
 instance ToBody PutBucketTagging where
-    toBody = toBody . encodeXML . _pbtrTagging
+    toBody = toBody . encodeXML . _pbtTagging
 
 data PutBucketTaggingResponse = PutBucketTaggingResponse
 
@@ -101,5 +103,5 @@ instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3
     type Rs PutBucketTagging = PutBucketTaggingResponse
 
-    request  = put'
+    request  = put
     response = const (nullaryResponse PutBucketTaggingResponse)

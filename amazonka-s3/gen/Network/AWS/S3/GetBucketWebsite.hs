@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketWebsite
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.GetBucketWebsite
     -- ** Request constructor
     , getBucketWebsite
     -- ** Request lenses
-    , gbwrBucket
+    , gbwBucket
 
     -- * Response
     , GetBucketWebsiteOutput
@@ -40,32 +42,32 @@ module Network.AWS.S3.GetBucketWebsite
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketWebsite = GetBucketWebsite
-    { _gbwrBucket :: Text
+    { _gbwBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketWebsite' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbwrBucket' @::@ 'Text'
+-- * 'gbwBucket' @::@ 'Text'
 --
-getBucketWebsite :: Text -- ^ 'gbwrBucket'
+getBucketWebsite :: Text -- ^ 'gbwBucket'
                  -> GetBucketWebsite
 getBucketWebsite p1 = GetBucketWebsite
-    { _gbwrBucket = p1
+    { _gbwBucket = p1
     }
 
-gbwrBucket :: Lens' GetBucketWebsite Text
-gbwrBucket = lens _gbwrBucket (\s a -> s { _gbwrBucket = a })
+gbwBucket :: Lens' GetBucketWebsite Text
+gbwBucket = lens _gbwBucket (\s a -> s { _gbwBucket = a })
 
 instance ToPath GetBucketWebsite where
     toPath GetBucketWebsite{..} = mconcat
         [ "/"
-        , toText _gbwrBucket
+        , toText _gbwBucket
         ]
 
 instance ToQuery GetBucketWebsite where
@@ -120,7 +122,7 @@ instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
     type Rs GetBucketWebsite = GetBucketWebsiteOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> GetBucketWebsiteOutput
         <$> x %| "ErrorDocument"
         <*> x %| "IndexDocument"

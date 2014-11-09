@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.UploadPartCopy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,22 +28,22 @@ module Network.AWS.S3.UploadPartCopy
     -- ** Request constructor
     , uploadPartCopy
     -- ** Request lenses
-    , upcrBucket
-    , upcrCopySource
-    , upcrCopySourceIfMatch
-    , upcrCopySourceIfModifiedSince
-    , upcrCopySourceIfNoneMatch
-    , upcrCopySourceIfUnmodifiedSince
-    , upcrCopySourceRange
-    , upcrCopySourceSSECustomerAlgorithm
-    , upcrCopySourceSSECustomerKey
-    , upcrCopySourceSSECustomerKeyMD5
-    , upcrKey
-    , upcrPartNumber
-    , upcrSSECustomerAlgorithm
-    , upcrSSECustomerKey
-    , upcrSSECustomerKeyMD5
-    , upcrUploadId
+    , upcBucket
+    , upcCopySource
+    , upcCopySourceIfMatch
+    , upcCopySourceIfModifiedSince
+    , upcCopySourceIfNoneMatch
+    , upcCopySourceIfUnmodifiedSince
+    , upcCopySourceRange
+    , upcCopySourceSSECustomerAlgorithm
+    , upcCopySourceSSECustomerKey
+    , upcCopySourceSSECustomerKeyMD5
+    , upcKey
+    , upcPartNumber
+    , upcSSECustomerAlgorithm
+    , upcSSECustomerKey
+    , upcSSECustomerKeyMD5
+    , upcUploadId
 
     -- * Response
     , UploadPartCopyOutput
@@ -56,121 +58,121 @@ module Network.AWS.S3.UploadPartCopy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data UploadPartCopy = UploadPartCopy
-    { _upcrBucket                         :: Text
-    , _upcrCopySource                     :: Text
-    , _upcrCopySourceIfMatch              :: Maybe Text
-    , _upcrCopySourceIfModifiedSince      :: Maybe RFC822
-    , _upcrCopySourceIfNoneMatch          :: Maybe Text
-    , _upcrCopySourceIfUnmodifiedSince    :: Maybe RFC822
-    , _upcrCopySourceRange                :: Maybe Text
-    , _upcrCopySourceSSECustomerAlgorithm :: Maybe Text
-    , _upcrCopySourceSSECustomerKey       :: Maybe (Sensitive Text)
-    , _upcrCopySourceSSECustomerKeyMD5    :: Maybe Text
-    , _upcrKey                            :: Text
-    , _upcrPartNumber                     :: Int
-    , _upcrSSECustomerAlgorithm           :: Maybe Text
-    , _upcrSSECustomerKey                 :: Maybe (Sensitive Text)
-    , _upcrSSECustomerKeyMD5              :: Maybe Text
-    , _upcrUploadId                       :: Text
+    { _upcBucket                         :: Text
+    , _upcCopySource                     :: Text
+    , _upcCopySourceIfMatch              :: Maybe Text
+    , _upcCopySourceIfModifiedSince      :: Maybe RFC822
+    , _upcCopySourceIfNoneMatch          :: Maybe Text
+    , _upcCopySourceIfUnmodifiedSince    :: Maybe RFC822
+    , _upcCopySourceRange                :: Maybe Text
+    , _upcCopySourceSSECustomerAlgorithm :: Maybe Text
+    , _upcCopySourceSSECustomerKey       :: Maybe (Sensitive Text)
+    , _upcCopySourceSSECustomerKeyMD5    :: Maybe Text
+    , _upcKey                            :: Text
+    , _upcPartNumber                     :: Int
+    , _upcSSECustomerAlgorithm           :: Maybe Text
+    , _upcSSECustomerKey                 :: Maybe (Sensitive Text)
+    , _upcSSECustomerKeyMD5              :: Maybe Text
+    , _upcUploadId                       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UploadPartCopy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upcrBucket' @::@ 'Text'
+-- * 'upcBucket' @::@ 'Text'
 --
--- * 'upcrCopySource' @::@ 'Text'
+-- * 'upcCopySource' @::@ 'Text'
 --
--- * 'upcrCopySourceIfMatch' @::@ 'Maybe' 'Text'
+-- * 'upcCopySourceIfMatch' @::@ 'Maybe' 'Text'
 --
--- * 'upcrCopySourceIfModifiedSince' @::@ 'Maybe' 'UTCTime'
+-- * 'upcCopySourceIfModifiedSince' @::@ 'Maybe' 'UTCTime'
 --
--- * 'upcrCopySourceIfNoneMatch' @::@ 'Maybe' 'Text'
+-- * 'upcCopySourceIfNoneMatch' @::@ 'Maybe' 'Text'
 --
--- * 'upcrCopySourceIfUnmodifiedSince' @::@ 'Maybe' 'UTCTime'
+-- * 'upcCopySourceIfUnmodifiedSince' @::@ 'Maybe' 'UTCTime'
 --
--- * 'upcrCopySourceRange' @::@ 'Maybe' 'Text'
+-- * 'upcCopySourceRange' @::@ 'Maybe' 'Text'
 --
--- * 'upcrCopySourceSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+-- * 'upcCopySourceSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
--- * 'upcrCopySourceSSECustomerKey' @::@ 'Maybe' 'Text'
+-- * 'upcCopySourceSSECustomerKey' @::@ 'Maybe' 'Text'
 --
--- * 'upcrCopySourceSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+-- * 'upcCopySourceSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'upcrKey' @::@ 'Text'
+-- * 'upcKey' @::@ 'Text'
 --
--- * 'upcrPartNumber' @::@ 'Int'
+-- * 'upcPartNumber' @::@ 'Int'
 --
--- * 'upcrSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+-- * 'upcSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
--- * 'upcrSSECustomerKey' @::@ 'Maybe' 'Text'
+-- * 'upcSSECustomerKey' @::@ 'Maybe' 'Text'
 --
--- * 'upcrSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+-- * 'upcSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'upcrUploadId' @::@ 'Text'
+-- * 'upcUploadId' @::@ 'Text'
 --
-uploadPartCopy :: Text -- ^ 'upcrBucket'
-               -> Text -- ^ 'upcrCopySource'
-               -> Text -- ^ 'upcrKey'
-               -> Int -- ^ 'upcrPartNumber'
-               -> Text -- ^ 'upcrUploadId'
+uploadPartCopy :: Text -- ^ 'upcBucket'
+               -> Text -- ^ 'upcCopySource'
+               -> Text -- ^ 'upcKey'
+               -> Int -- ^ 'upcPartNumber'
+               -> Text -- ^ 'upcUploadId'
                -> UploadPartCopy
 uploadPartCopy p1 p2 p3 p4 p5 = UploadPartCopy
-    { _upcrBucket                         = p1
-    , _upcrCopySource                     = p2
-    , _upcrKey                            = p3
-    , _upcrPartNumber                     = p4
-    , _upcrUploadId                       = p5
-    , _upcrCopySourceIfMatch              = Nothing
-    , _upcrCopySourceIfModifiedSince      = Nothing
-    , _upcrCopySourceIfNoneMatch          = Nothing
-    , _upcrCopySourceIfUnmodifiedSince    = Nothing
-    , _upcrCopySourceRange                = Nothing
-    , _upcrSSECustomerAlgorithm           = Nothing
-    , _upcrSSECustomerKey                 = Nothing
-    , _upcrSSECustomerKeyMD5              = Nothing
-    , _upcrCopySourceSSECustomerAlgorithm = Nothing
-    , _upcrCopySourceSSECustomerKey       = Nothing
-    , _upcrCopySourceSSECustomerKeyMD5    = Nothing
+    { _upcBucket                         = p1
+    , _upcCopySource                     = p2
+    , _upcKey                            = p3
+    , _upcPartNumber                     = p4
+    , _upcUploadId                       = p5
+    , _upcCopySourceIfMatch              = Nothing
+    , _upcCopySourceIfModifiedSince      = Nothing
+    , _upcCopySourceIfNoneMatch          = Nothing
+    , _upcCopySourceIfUnmodifiedSince    = Nothing
+    , _upcCopySourceRange                = Nothing
+    , _upcSSECustomerAlgorithm           = Nothing
+    , _upcSSECustomerKey                 = Nothing
+    , _upcSSECustomerKeyMD5              = Nothing
+    , _upcCopySourceSSECustomerAlgorithm = Nothing
+    , _upcCopySourceSSECustomerKey       = Nothing
+    , _upcCopySourceSSECustomerKeyMD5    = Nothing
     }
 
-upcrBucket :: Lens' UploadPartCopy Text
-upcrBucket = lens _upcrBucket (\s a -> s { _upcrBucket = a })
+upcBucket :: Lens' UploadPartCopy Text
+upcBucket = lens _upcBucket (\s a -> s { _upcBucket = a })
 
 -- | The name of the source bucket and key name of the source object,
 -- separated by a slash (/). Must be URL-encoded.
-upcrCopySource :: Lens' UploadPartCopy Text
-upcrCopySource = lens _upcrCopySource (\s a -> s { _upcrCopySource = a })
+upcCopySource :: Lens' UploadPartCopy Text
+upcCopySource = lens _upcCopySource (\s a -> s { _upcCopySource = a })
 
 -- | Copies the object if its entity tag (ETag) matches the specified tag.
-upcrCopySourceIfMatch :: Lens' UploadPartCopy (Maybe Text)
-upcrCopySourceIfMatch =
-    lens _upcrCopySourceIfMatch (\s a -> s { _upcrCopySourceIfMatch = a })
+upcCopySourceIfMatch :: Lens' UploadPartCopy (Maybe Text)
+upcCopySourceIfMatch =
+    lens _upcCopySourceIfMatch (\s a -> s { _upcCopySourceIfMatch = a })
 
 -- | Copies the object if it has been modified since the specified time.
-upcrCopySourceIfModifiedSince :: Lens' UploadPartCopy (Maybe UTCTime)
-upcrCopySourceIfModifiedSince =
-    lens _upcrCopySourceIfModifiedSince
-        (\s a -> s { _upcrCopySourceIfModifiedSince = a })
+upcCopySourceIfModifiedSince :: Lens' UploadPartCopy (Maybe UTCTime)
+upcCopySourceIfModifiedSince =
+    lens _upcCopySourceIfModifiedSince
+        (\s a -> s { _upcCopySourceIfModifiedSince = a })
             . mapping _Time
 
 -- | Copies the object if its entity tag (ETag) is different than the
 -- specified ETag.
-upcrCopySourceIfNoneMatch :: Lens' UploadPartCopy (Maybe Text)
-upcrCopySourceIfNoneMatch =
-    lens _upcrCopySourceIfNoneMatch
-        (\s a -> s { _upcrCopySourceIfNoneMatch = a })
+upcCopySourceIfNoneMatch :: Lens' UploadPartCopy (Maybe Text)
+upcCopySourceIfNoneMatch =
+    lens _upcCopySourceIfNoneMatch
+        (\s a -> s { _upcCopySourceIfNoneMatch = a })
 
 -- | Copies the object if it hasn't been modified since the specified time.
-upcrCopySourceIfUnmodifiedSince :: Lens' UploadPartCopy (Maybe UTCTime)
-upcrCopySourceIfUnmodifiedSince =
-    lens _upcrCopySourceIfUnmodifiedSince
-        (\s a -> s { _upcrCopySourceIfUnmodifiedSince = a })
+upcCopySourceIfUnmodifiedSince :: Lens' UploadPartCopy (Maybe UTCTime)
+upcCopySourceIfUnmodifiedSince =
+    lens _upcCopySourceIfUnmodifiedSince
+        (\s a -> s { _upcCopySourceIfUnmodifiedSince = a })
             . mapping _Time
 
 -- | The range of bytes to copy from the source object. The range value must
@@ -178,47 +180,46 @@ upcrCopySourceIfUnmodifiedSince =
 -- zero-based byte offsets to copy. For example, bytes=0-9 indicates that
 -- you want to copy the first ten bytes of the source. You can copy a range
 -- only if the source object is greater than 5 GB.
-upcrCopySourceRange :: Lens' UploadPartCopy (Maybe Text)
-upcrCopySourceRange =
-    lens _upcrCopySourceRange (\s a -> s { _upcrCopySourceRange = a })
+upcCopySourceRange :: Lens' UploadPartCopy (Maybe Text)
+upcCopySourceRange =
+    lens _upcCopySourceRange (\s a -> s { _upcCopySourceRange = a })
 
 -- | Specifies the algorithm to use when decrypting the source object (e.g.,
 -- AES256).
-upcrCopySourceSSECustomerAlgorithm :: Lens' UploadPartCopy (Maybe Text)
-upcrCopySourceSSECustomerAlgorithm =
-    lens _upcrCopySourceSSECustomerAlgorithm
-        (\s a -> s { _upcrCopySourceSSECustomerAlgorithm = a })
+upcCopySourceSSECustomerAlgorithm :: Lens' UploadPartCopy (Maybe Text)
+upcCopySourceSSECustomerAlgorithm =
+    lens _upcCopySourceSSECustomerAlgorithm
+        (\s a -> s { _upcCopySourceSSECustomerAlgorithm = a })
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use to
 -- decrypt the source object. The encryption key provided in this header
 -- must be one that was used when the source object was created.
-upcrCopySourceSSECustomerKey :: Lens' UploadPartCopy (Maybe Text)
-upcrCopySourceSSECustomerKey =
-    lens _upcrCopySourceSSECustomerKey
-        (\s a -> s { _upcrCopySourceSSECustomerKey = a })
+upcCopySourceSSECustomerKey :: Lens' UploadPartCopy (Maybe Text)
+upcCopySourceSSECustomerKey =
+    lens _upcCopySourceSSECustomerKey
+        (\s a -> s { _upcCopySourceSSECustomerKey = a })
             . mapping _Sensitive
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-upcrCopySourceSSECustomerKeyMD5 :: Lens' UploadPartCopy (Maybe Text)
-upcrCopySourceSSECustomerKeyMD5 =
-    lens _upcrCopySourceSSECustomerKeyMD5
-        (\s a -> s { _upcrCopySourceSSECustomerKeyMD5 = a })
+upcCopySourceSSECustomerKeyMD5 :: Lens' UploadPartCopy (Maybe Text)
+upcCopySourceSSECustomerKeyMD5 =
+    lens _upcCopySourceSSECustomerKeyMD5
+        (\s a -> s { _upcCopySourceSSECustomerKeyMD5 = a })
 
-upcrKey :: Lens' UploadPartCopy Text
-upcrKey = lens _upcrKey (\s a -> s { _upcrKey = a })
+upcKey :: Lens' UploadPartCopy Text
+upcKey = lens _upcKey (\s a -> s { _upcKey = a })
 
 -- | Part number of part being copied.
-upcrPartNumber :: Lens' UploadPartCopy Int
-upcrPartNumber = lens _upcrPartNumber (\s a -> s { _upcrPartNumber = a })
+upcPartNumber :: Lens' UploadPartCopy Int
+upcPartNumber = lens _upcPartNumber (\s a -> s { _upcPartNumber = a })
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
-upcrSSECustomerAlgorithm :: Lens' UploadPartCopy (Maybe Text)
-upcrSSECustomerAlgorithm =
-    lens _upcrSSECustomerAlgorithm
-        (\s a -> s { _upcrSSECustomerAlgorithm = a })
+upcSSECustomerAlgorithm :: Lens' UploadPartCopy (Maybe Text)
+upcSSECustomerAlgorithm =
+    lens _upcSSECustomerAlgorithm (\s a -> s { _upcSSECustomerAlgorithm = a })
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
@@ -227,50 +228,50 @@ upcrSSECustomerAlgorithm =
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
 -- This must be the same encryption key specified in the initiate multipart
 -- upload request.
-upcrSSECustomerKey :: Lens' UploadPartCopy (Maybe Text)
-upcrSSECustomerKey =
-    lens _upcrSSECustomerKey (\s a -> s { _upcrSSECustomerKey = a })
+upcSSECustomerKey :: Lens' UploadPartCopy (Maybe Text)
+upcSSECustomerKey =
+    lens _upcSSECustomerKey (\s a -> s { _upcSSECustomerKey = a })
         . mapping _Sensitive
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-upcrSSECustomerKeyMD5 :: Lens' UploadPartCopy (Maybe Text)
-upcrSSECustomerKeyMD5 =
-    lens _upcrSSECustomerKeyMD5 (\s a -> s { _upcrSSECustomerKeyMD5 = a })
+upcSSECustomerKeyMD5 :: Lens' UploadPartCopy (Maybe Text)
+upcSSECustomerKeyMD5 =
+    lens _upcSSECustomerKeyMD5 (\s a -> s { _upcSSECustomerKeyMD5 = a })
 
 -- | Upload ID identifying the multipart upload whose part is being copied.
-upcrUploadId :: Lens' UploadPartCopy Text
-upcrUploadId = lens _upcrUploadId (\s a -> s { _upcrUploadId = a })
+upcUploadId :: Lens' UploadPartCopy Text
+upcUploadId = lens _upcUploadId (\s a -> s { _upcUploadId = a })
 
 instance ToPath UploadPartCopy where
     toPath UploadPartCopy{..} = mconcat
         [ "/"
-        , toText _upcrBucket
+        , toText _upcBucket
         , "/"
-        , toText _upcrKey
+        , toText _upcKey
         ]
 
 instance ToQuery UploadPartCopy where
     toQuery UploadPartCopy{..} = mconcat
-        [ "partNumber" =? _upcrPartNumber
-        , "uploadId"   =? _upcrUploadId
+        [ "partNumber" =? _upcPartNumber
+        , "uploadId"   =? _upcUploadId
         ]
 
 instance ToHeaders UploadPartCopy where
     toHeaders UploadPartCopy{..} = mconcat
-        [ "x-amz-copy-source"                                           =: _upcrCopySource
-        , "x-amz-copy-source-if-match"                                  =: _upcrCopySourceIfMatch
-        , "x-amz-copy-source-if-modified-since"                         =: _upcrCopySourceIfModifiedSince
-        , "x-amz-copy-source-if-none-match"                             =: _upcrCopySourceIfNoneMatch
-        , "x-amz-copy-source-if-unmodified-since"                       =: _upcrCopySourceIfUnmodifiedSince
-        , "x-amz-copy-source-range"                                     =: _upcrCopySourceRange
-        , "x-amz-server-side-encryption-customer-algorithm"             =: _upcrSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key"                   =: _upcrSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5"               =: _upcrSSECustomerKeyMD5
-        , "x-amz-copy-source-server-side-encryption-customer-algorithm" =: _upcrCopySourceSSECustomerAlgorithm
-        , "x-amz-copy-source-server-side-encryption-customer-key"       =: _upcrCopySourceSSECustomerKey
-        , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _upcrCopySourceSSECustomerKeyMD5
+        [ "x-amz-copy-source"                                           =: _upcCopySource
+        , "x-amz-copy-source-if-match"                                  =: _upcCopySourceIfMatch
+        , "x-amz-copy-source-if-modified-since"                         =: _upcCopySourceIfModifiedSince
+        , "x-amz-copy-source-if-none-match"                             =: _upcCopySourceIfNoneMatch
+        , "x-amz-copy-source-if-unmodified-since"                       =: _upcCopySourceIfUnmodifiedSince
+        , "x-amz-copy-source-range"                                     =: _upcCopySourceRange
+        , "x-amz-server-side-encryption-customer-algorithm"             =: _upcSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key"                   =: _upcSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5"               =: _upcSSECustomerKeyMD5
+        , "x-amz-copy-source-server-side-encryption-customer-algorithm" =: _upcCopySourceSSECustomerAlgorithm
+        , "x-amz-copy-source-server-side-encryption-customer-key"       =: _upcCopySourceSSECustomerKey
+        , "x-amz-copy-source-server-side-encryption-customer-key-MD5"   =: _upcCopySourceSSECustomerKeyMD5
         ]
 
 instance ToBody UploadPartCopy
@@ -341,7 +342,7 @@ instance AWSRequest UploadPartCopy where
     type Sv UploadPartCopy = S3
     type Rs UploadPartCopy = UploadPartCopyOutput
 
-    request  = put'
+    request  = put
     response = const . xmlResponse $ \h x -> UploadPartCopyOutput
         <$> x %| "CopyPartResult"
         <*> h ~:? "x-amz-copy-source-version-id"

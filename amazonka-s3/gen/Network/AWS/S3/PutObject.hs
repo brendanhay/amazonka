@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutObject
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,29 +28,29 @@ module Network.AWS.S3.PutObject
     -- ** Request constructor
     , putObject
     -- ** Request lenses
-    , porACL
-    , porBody
-    , porBucket
-    , porCacheControl
-    , porContentDisposition
-    , porContentEncoding
-    , porContentLanguage
-    , porContentLength
-    , porContentMD5
-    , porContentType
-    , porExpires
-    , porGrantFullControl
-    , porGrantRead
-    , porGrantReadACP
-    , porGrantWriteACP
-    , porKey
-    , porMetadata
-    , porSSECustomerAlgorithm
-    , porSSECustomerKey
-    , porSSECustomerKeyMD5
-    , porServerSideEncryption
-    , porStorageClass
-    , porWebsiteRedirectLocation
+    , poACL
+    , poBody
+    , poBucket
+    , poCacheControl
+    , poContentDisposition
+    , poContentEncoding
+    , poContentLanguage
+    , poContentLength
+    , poContentMD5
+    , poContentType
+    , poExpires
+    , poGrantFullControl
+    , poGrantRead
+    , poGrantReadACP
+    , poGrantWriteACP
+    , poKey
+    , poMetadata
+    , poSSECustomerAlgorithm
+    , poSSECustomerKey
+    , poSSECustomerKeyMD5
+    , poServerSideEncryption
+    , poStorageClass
+    , poWebsiteRedirectLocation
 
     -- * Response
     , PutObjectOutput
@@ -64,265 +66,264 @@ module Network.AWS.S3.PutObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutObject = PutObject
-    { _porACL                     :: Maybe Text
-    , _porBody                    :: RqBody
-    , _porBucket                  :: Text
-    , _porCacheControl            :: Maybe Text
-    , _porContentDisposition      :: Maybe Text
-    , _porContentEncoding         :: Maybe Text
-    , _porContentLanguage         :: Maybe Text
-    , _porContentLength           :: Maybe Int
-    , _porContentMD5              :: Maybe Text
-    , _porContentType             :: Maybe Text
-    , _porExpires                 :: Maybe RFC822
-    , _porGrantFullControl        :: Maybe Text
-    , _porGrantRead               :: Maybe Text
-    , _porGrantReadACP            :: Maybe Text
-    , _porGrantWriteACP           :: Maybe Text
-    , _porKey                     :: Text
-    , _porMetadata                :: Map Text Text
-    , _porSSECustomerAlgorithm    :: Maybe Text
-    , _porSSECustomerKey          :: Maybe (Sensitive Text)
-    , _porSSECustomerKeyMD5       :: Maybe Text
-    , _porServerSideEncryption    :: Maybe Text
-    , _porStorageClass            :: Maybe Text
-    , _porWebsiteRedirectLocation :: Maybe Text
+    { _poACL                     :: Maybe Text
+    , _poBody                    :: RqBody
+    , _poBucket                  :: Text
+    , _poCacheControl            :: Maybe Text
+    , _poContentDisposition      :: Maybe Text
+    , _poContentEncoding         :: Maybe Text
+    , _poContentLanguage         :: Maybe Text
+    , _poContentLength           :: Maybe Int
+    , _poContentMD5              :: Maybe Text
+    , _poContentType             :: Maybe Text
+    , _poExpires                 :: Maybe RFC822
+    , _poGrantFullControl        :: Maybe Text
+    , _poGrantRead               :: Maybe Text
+    , _poGrantReadACP            :: Maybe Text
+    , _poGrantWriteACP           :: Maybe Text
+    , _poKey                     :: Text
+    , _poMetadata                :: Map Text Text
+    , _poSSECustomerAlgorithm    :: Maybe Text
+    , _poSSECustomerKey          :: Maybe (Sensitive Text)
+    , _poSSECustomerKeyMD5       :: Maybe Text
+    , _poServerSideEncryption    :: Maybe Text
+    , _poStorageClass            :: Maybe Text
+    , _poWebsiteRedirectLocation :: Maybe Text
     } deriving (Show, Generic)
 
 -- | 'PutObject' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'porACL' @::@ 'Maybe' 'Text'
+-- * 'poACL' @::@ 'Maybe' 'Text'
 --
--- * 'porBody' @::@ 'RqBody'
+-- * 'poBody' @::@ 'RqBody'
 --
--- * 'porBucket' @::@ 'Text'
+-- * 'poBucket' @::@ 'Text'
 --
--- * 'porCacheControl' @::@ 'Maybe' 'Text'
+-- * 'poCacheControl' @::@ 'Maybe' 'Text'
 --
--- * 'porContentDisposition' @::@ 'Maybe' 'Text'
+-- * 'poContentDisposition' @::@ 'Maybe' 'Text'
 --
--- * 'porContentEncoding' @::@ 'Maybe' 'Text'
+-- * 'poContentEncoding' @::@ 'Maybe' 'Text'
 --
--- * 'porContentLanguage' @::@ 'Maybe' 'Text'
+-- * 'poContentLanguage' @::@ 'Maybe' 'Text'
 --
--- * 'porContentLength' @::@ 'Maybe' 'Int'
+-- * 'poContentLength' @::@ 'Maybe' 'Int'
 --
--- * 'porContentMD5' @::@ 'Maybe' 'Text'
+-- * 'poContentMD5' @::@ 'Maybe' 'Text'
 --
--- * 'porContentType' @::@ 'Maybe' 'Text'
+-- * 'poContentType' @::@ 'Maybe' 'Text'
 --
--- * 'porExpires' @::@ 'Maybe' 'UTCTime'
+-- * 'poExpires' @::@ 'Maybe' 'UTCTime'
 --
--- * 'porGrantFullControl' @::@ 'Maybe' 'Text'
+-- * 'poGrantFullControl' @::@ 'Maybe' 'Text'
 --
--- * 'porGrantRead' @::@ 'Maybe' 'Text'
+-- * 'poGrantRead' @::@ 'Maybe' 'Text'
 --
--- * 'porGrantReadACP' @::@ 'Maybe' 'Text'
+-- * 'poGrantReadACP' @::@ 'Maybe' 'Text'
 --
--- * 'porGrantWriteACP' @::@ 'Maybe' 'Text'
+-- * 'poGrantWriteACP' @::@ 'Maybe' 'Text'
 --
--- * 'porKey' @::@ 'Text'
+-- * 'poKey' @::@ 'Text'
 --
--- * 'porMetadata' @::@ 'HashMap' 'Text' 'Text'
+-- * 'poMetadata' @::@ 'HashMap' 'Text' 'Text'
 --
--- * 'porSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+-- * 'poSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
--- * 'porSSECustomerKey' @::@ 'Maybe' 'Text'
+-- * 'poSSECustomerKey' @::@ 'Maybe' 'Text'
 --
--- * 'porSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+-- * 'poSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'porServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'poServerSideEncryption' @::@ 'Maybe' 'Text'
 --
--- * 'porStorageClass' @::@ 'Maybe' 'Text'
+-- * 'poStorageClass' @::@ 'Maybe' 'Text'
 --
--- * 'porWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
+-- * 'poWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
-putObject :: RqBody -- ^ 'porBody'
-          -> Text -- ^ 'porBucket'
-          -> Text -- ^ 'porKey'
+putObject :: RqBody -- ^ 'poBody'
+          -> Text -- ^ 'poBucket'
+          -> Text -- ^ 'poKey'
           -> PutObject
 putObject p1 p2 p3 = PutObject
-    { _porBody                    = p1
-    , _porBucket                  = p2
-    , _porKey                     = p3
-    , _porACL                     = Nothing
-    , _porCacheControl            = Nothing
-    , _porContentDisposition      = Nothing
-    , _porContentEncoding         = Nothing
-    , _porContentLanguage         = Nothing
-    , _porContentLength           = Nothing
-    , _porContentMD5              = Nothing
-    , _porContentType             = Nothing
-    , _porExpires                 = Nothing
-    , _porGrantFullControl        = Nothing
-    , _porGrantRead               = Nothing
-    , _porGrantReadACP            = Nothing
-    , _porGrantWriteACP           = Nothing
-    , _porMetadata                = mempty
-    , _porServerSideEncryption    = Nothing
-    , _porStorageClass            = Nothing
-    , _porWebsiteRedirectLocation = Nothing
-    , _porSSECustomerAlgorithm    = Nothing
-    , _porSSECustomerKey          = Nothing
-    , _porSSECustomerKeyMD5       = Nothing
+    { _poBody                    = p1
+    , _poBucket                  = p2
+    , _poKey                     = p3
+    , _poACL                     = Nothing
+    , _poCacheControl            = Nothing
+    , _poContentDisposition      = Nothing
+    , _poContentEncoding         = Nothing
+    , _poContentLanguage         = Nothing
+    , _poContentLength           = Nothing
+    , _poContentMD5              = Nothing
+    , _poContentType             = Nothing
+    , _poExpires                 = Nothing
+    , _poGrantFullControl        = Nothing
+    , _poGrantRead               = Nothing
+    , _poGrantReadACP            = Nothing
+    , _poGrantWriteACP           = Nothing
+    , _poMetadata                = mempty
+    , _poServerSideEncryption    = Nothing
+    , _poStorageClass            = Nothing
+    , _poWebsiteRedirectLocation = Nothing
+    , _poSSECustomerAlgorithm    = Nothing
+    , _poSSECustomerKey          = Nothing
+    , _poSSECustomerKeyMD5       = Nothing
     }
 
 -- | The canned ACL to apply to the object.
-porACL :: Lens' PutObject (Maybe Text)
-porACL = lens _porACL (\s a -> s { _porACL = a })
+poACL :: Lens' PutObject (Maybe Text)
+poACL = lens _poACL (\s a -> s { _poACL = a })
 
-porBody :: Lens' PutObject RqBody
-porBody = lens _porBody (\s a -> s { _porBody = a })
+poBody :: Lens' PutObject RqBody
+poBody = lens _poBody (\s a -> s { _poBody = a })
 
-porBucket :: Lens' PutObject Text
-porBucket = lens _porBucket (\s a -> s { _porBucket = a })
+poBucket :: Lens' PutObject Text
+poBucket = lens _poBucket (\s a -> s { _poBucket = a })
 
 -- | Specifies caching behavior along the request/reply chain.
-porCacheControl :: Lens' PutObject (Maybe Text)
-porCacheControl = lens _porCacheControl (\s a -> s { _porCacheControl = a })
+poCacheControl :: Lens' PutObject (Maybe Text)
+poCacheControl = lens _poCacheControl (\s a -> s { _poCacheControl = a })
 
 -- | Specifies presentational information for the object.
-porContentDisposition :: Lens' PutObject (Maybe Text)
-porContentDisposition =
-    lens _porContentDisposition (\s a -> s { _porContentDisposition = a })
+poContentDisposition :: Lens' PutObject (Maybe Text)
+poContentDisposition =
+    lens _poContentDisposition (\s a -> s { _poContentDisposition = a })
 
 -- | Specifies what content encodings have been applied to the object and thus
 -- what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
-porContentEncoding :: Lens' PutObject (Maybe Text)
-porContentEncoding =
-    lens _porContentEncoding (\s a -> s { _porContentEncoding = a })
+poContentEncoding :: Lens' PutObject (Maybe Text)
+poContentEncoding =
+    lens _poContentEncoding (\s a -> s { _poContentEncoding = a })
 
 -- | The language the content is in.
-porContentLanguage :: Lens' PutObject (Maybe Text)
-porContentLanguage =
-    lens _porContentLanguage (\s a -> s { _porContentLanguage = a })
+poContentLanguage :: Lens' PutObject (Maybe Text)
+poContentLanguage =
+    lens _poContentLanguage (\s a -> s { _poContentLanguage = a })
 
 -- | Size of the body in bytes. This parameter is useful when the size of the
 -- body cannot be determined automatically.
-porContentLength :: Lens' PutObject (Maybe Int)
-porContentLength = lens _porContentLength (\s a -> s { _porContentLength = a })
+poContentLength :: Lens' PutObject (Maybe Int)
+poContentLength = lens _poContentLength (\s a -> s { _poContentLength = a })
 
-porContentMD5 :: Lens' PutObject (Maybe Text)
-porContentMD5 = lens _porContentMD5 (\s a -> s { _porContentMD5 = a })
+poContentMD5 :: Lens' PutObject (Maybe Text)
+poContentMD5 = lens _poContentMD5 (\s a -> s { _poContentMD5 = a })
 
 -- | A standard MIME type describing the format of the object data.
-porContentType :: Lens' PutObject (Maybe Text)
-porContentType = lens _porContentType (\s a -> s { _porContentType = a })
+poContentType :: Lens' PutObject (Maybe Text)
+poContentType = lens _poContentType (\s a -> s { _poContentType = a })
 
 -- | The date and time at which the object is no longer cacheable.
-porExpires :: Lens' PutObject (Maybe UTCTime)
-porExpires = lens _porExpires (\s a -> s { _porExpires = a })
+poExpires :: Lens' PutObject (Maybe UTCTime)
+poExpires = lens _poExpires (\s a -> s { _poExpires = a })
     . mapping _Time
 
 -- | Gives the grantee READ, READ_ACP, and WRITE_ACP permissions on the
 -- object.
-porGrantFullControl :: Lens' PutObject (Maybe Text)
-porGrantFullControl =
-    lens _porGrantFullControl (\s a -> s { _porGrantFullControl = a })
+poGrantFullControl :: Lens' PutObject (Maybe Text)
+poGrantFullControl =
+    lens _poGrantFullControl (\s a -> s { _poGrantFullControl = a })
 
 -- | Allows grantee to read the object data and its metadata.
-porGrantRead :: Lens' PutObject (Maybe Text)
-porGrantRead = lens _porGrantRead (\s a -> s { _porGrantRead = a })
+poGrantRead :: Lens' PutObject (Maybe Text)
+poGrantRead = lens _poGrantRead (\s a -> s { _poGrantRead = a })
 
 -- | Allows grantee to read the object ACL.
-porGrantReadACP :: Lens' PutObject (Maybe Text)
-porGrantReadACP = lens _porGrantReadACP (\s a -> s { _porGrantReadACP = a })
+poGrantReadACP :: Lens' PutObject (Maybe Text)
+poGrantReadACP = lens _poGrantReadACP (\s a -> s { _poGrantReadACP = a })
 
 -- | Allows grantee to write the ACL for the applicable object.
-porGrantWriteACP :: Lens' PutObject (Maybe Text)
-porGrantWriteACP = lens _porGrantWriteACP (\s a -> s { _porGrantWriteACP = a })
+poGrantWriteACP :: Lens' PutObject (Maybe Text)
+poGrantWriteACP = lens _poGrantWriteACP (\s a -> s { _poGrantWriteACP = a })
 
-porKey :: Lens' PutObject Text
-porKey = lens _porKey (\s a -> s { _porKey = a })
+poKey :: Lens' PutObject Text
+poKey = lens _poKey (\s a -> s { _poKey = a })
 
 -- | A map of metadata to store with the object in S3.
-porMetadata :: Lens' PutObject (HashMap Text Text)
-porMetadata = lens _porMetadata (\s a -> s { _porMetadata = a })
+poMetadata :: Lens' PutObject (HashMap Text Text)
+poMetadata = lens _poMetadata (\s a -> s { _poMetadata = a })
     . _Map
 
 -- | Specifies the algorithm to use to when encrypting the object (e.g.,
 -- AES256).
-porSSECustomerAlgorithm :: Lens' PutObject (Maybe Text)
-porSSECustomerAlgorithm =
-    lens _porSSECustomerAlgorithm (\s a -> s { _porSSECustomerAlgorithm = a })
+poSSECustomerAlgorithm :: Lens' PutObject (Maybe Text)
+poSSECustomerAlgorithm =
+    lens _poSSECustomerAlgorithm (\s a -> s { _poSSECustomerAlgorithm = a })
 
 -- | Specifies the customer-provided encryption key for Amazon S3 to use in
 -- encrypting data. This value is used to store the object and then it is
 -- discarded; Amazon does not store the encryption key. The key must be
 -- appropriate for use with the algorithm specified in the
 -- x-amz-server-side&#x200B;-encryption&#x200B;-customer-algorithm header.
-porSSECustomerKey :: Lens' PutObject (Maybe Text)
-porSSECustomerKey =
-    lens _porSSECustomerKey (\s a -> s { _porSSECustomerKey = a })
-        . mapping _Sensitive
+poSSECustomerKey :: Lens' PutObject (Maybe Text)
+poSSECustomerKey = lens _poSSECustomerKey (\s a -> s { _poSSECustomerKey = a })
+    . mapping _Sensitive
 
 -- | Specifies the 128-bit MD5 digest of the encryption key according to RFC
 -- 1321. Amazon S3 uses this header for a message integrity check to ensure
 -- the encryption key was transmitted without error.
-porSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
-porSSECustomerKeyMD5 =
-    lens _porSSECustomerKeyMD5 (\s a -> s { _porSSECustomerKeyMD5 = a })
+poSSECustomerKeyMD5 :: Lens' PutObject (Maybe Text)
+poSSECustomerKeyMD5 =
+    lens _poSSECustomerKeyMD5 (\s a -> s { _poSSECustomerKeyMD5 = a })
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-porServerSideEncryption :: Lens' PutObject (Maybe Text)
-porServerSideEncryption =
-    lens _porServerSideEncryption (\s a -> s { _porServerSideEncryption = a })
+poServerSideEncryption :: Lens' PutObject (Maybe Text)
+poServerSideEncryption =
+    lens _poServerSideEncryption (\s a -> s { _poServerSideEncryption = a })
 
 -- | The type of storage to use for the object. Defaults to 'STANDARD'.
-porStorageClass :: Lens' PutObject (Maybe Text)
-porStorageClass = lens _porStorageClass (\s a -> s { _porStorageClass = a })
+poStorageClass :: Lens' PutObject (Maybe Text)
+poStorageClass = lens _poStorageClass (\s a -> s { _poStorageClass = a })
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL. Amazon
 -- S3 stores the value of this header in the object metadata.
-porWebsiteRedirectLocation :: Lens' PutObject (Maybe Text)
-porWebsiteRedirectLocation =
-    lens _porWebsiteRedirectLocation
-        (\s a -> s { _porWebsiteRedirectLocation = a })
+poWebsiteRedirectLocation :: Lens' PutObject (Maybe Text)
+poWebsiteRedirectLocation =
+    lens _poWebsiteRedirectLocation
+        (\s a -> s { _poWebsiteRedirectLocation = a })
 
 instance ToPath PutObject where
     toPath PutObject{..} = mconcat
         [ "/"
-        , toText _porBucket
+        , toText _poBucket
         , "/"
-        , toText _porKey
+        , toText _poKey
         ]
 
 instance ToQuery PutObject
     toQuery = const mempty
 instance ToHeaders PutObject where
     toHeaders PutObject{..} = mconcat
-        [ "x-amz-acl"                                       =: _porACL
-        , "Cache-Control"                                   =: _porCacheControl
-        , "Content-Disposition"                             =: _porContentDisposition
-        , "Content-Encoding"                                =: _porContentEncoding
-        , "Content-Language"                                =: _porContentLanguage
-        , "Content-Length"                                  =: _porContentLength
-        , "Content-MD5"                                     =: _porContentMD5
-        , "Content-Type"                                    =: _porContentType
-        , "Expires"                                         =: _porExpires
-        , "x-amz-grant-full-control"                        =: _porGrantFullControl
-        , "x-amz-grant-read"                                =: _porGrantRead
-        , "x-amz-grant-read-acp"                            =: _porGrantReadACP
-        , "x-amz-grant-write-acp"                           =: _porGrantWriteACP
-        , "x-amz-meta-"                                     =: _porMetadata
-        , "x-amz-server-side-encryption"                    =: _porServerSideEncryption
-        , "x-amz-storage-class"                             =: _porStorageClass
-        , "x-amz-website-redirect-location"                 =: _porWebsiteRedirectLocation
-        , "x-amz-server-side-encryption-customer-algorithm" =: _porSSECustomerAlgorithm
-        , "x-amz-server-side-encryption-customer-key"       =: _porSSECustomerKey
-        , "x-amz-server-side-encryption-customer-key-MD5"   =: _porSSECustomerKeyMD5
+        [ "x-amz-acl"                                       =: _poACL
+        , "Cache-Control"                                   =: _poCacheControl
+        , "Content-Disposition"                             =: _poContentDisposition
+        , "Content-Encoding"                                =: _poContentEncoding
+        , "Content-Language"                                =: _poContentLanguage
+        , "Content-Length"                                  =: _poContentLength
+        , "Content-MD5"                                     =: _poContentMD5
+        , "Content-Type"                                    =: _poContentType
+        , "Expires"                                         =: _poExpires
+        , "x-amz-grant-full-control"                        =: _poGrantFullControl
+        , "x-amz-grant-read"                                =: _poGrantRead
+        , "x-amz-grant-read-acp"                            =: _poGrantReadACP
+        , "x-amz-grant-write-acp"                           =: _poGrantWriteACP
+        , "x-amz-meta-"                                     =: _poMetadata
+        , "x-amz-server-side-encryption"                    =: _poServerSideEncryption
+        , "x-amz-storage-class"                             =: _poStorageClass
+        , "x-amz-website-redirect-location"                 =: _poWebsiteRedirectLocation
+        , "x-amz-server-side-encryption-customer-algorithm" =: _poSSECustomerAlgorithm
+        , "x-amz-server-side-encryption-customer-key"       =: _poSSECustomerKey
+        , "x-amz-server-side-encryption-customer-key-MD5"   =: _poSSECustomerKeyMD5
         ]
 
 instance ToBody PutObject where
-    toBody = toBody . _porBody
+    toBody = toBody . _poBody
 
 data PutObjectOutput = PutObjectOutput
     { _pooETag                 :: Maybe Text
@@ -397,7 +398,7 @@ instance AWSRequest PutObject where
     type Sv PutObject = S3
     type Rs PutObject = PutObjectOutput
 
-    request  = put'
+    request  = put
     response = const . xmlResponse $ \h x -> PutObjectOutput
         <$> h ~:? "ETag"
         <*> h ~:? "x-amz-expiration"

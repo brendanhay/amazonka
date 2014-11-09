@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.GetBucketPolicy
     -- ** Request constructor
     , getBucketPolicy
     -- ** Request lenses
-    , gbprBucket
+    , gbpBucket
 
     -- * Response
     , GetBucketPolicyOutput
@@ -37,32 +39,32 @@ module Network.AWS.S3.GetBucketPolicy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketPolicy = GetBucketPolicy
-    { _gbprBucket :: Text
+    { _gbpBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbprBucket' @::@ 'Text'
+-- * 'gbpBucket' @::@ 'Text'
 --
-getBucketPolicy :: Text -- ^ 'gbprBucket'
+getBucketPolicy :: Text -- ^ 'gbpBucket'
                 -> GetBucketPolicy
 getBucketPolicy p1 = GetBucketPolicy
-    { _gbprBucket = p1
+    { _gbpBucket = p1
     }
 
-gbprBucket :: Lens' GetBucketPolicy Text
-gbprBucket = lens _gbprBucket (\s a -> s { _gbprBucket = a })
+gbpBucket :: Lens' GetBucketPolicy Text
+gbpBucket = lens _gbpBucket (\s a -> s { _gbpBucket = a })
 
 instance ToPath GetBucketPolicy where
     toPath GetBucketPolicy{..} = mconcat
         [ "/"
-        , toText _gbprBucket
+        , toText _gbpBucket
         ]
 
 instance ToQuery GetBucketPolicy where
@@ -72,7 +74,7 @@ instance ToHeaders GetBucketPolicy
 
 newtype GetBucketPolicyOutput = GetBucketPolicyOutput
     { _gbpoPolicy :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetBucketPolicyOutput' constructor.
 --
@@ -93,6 +95,6 @@ instance AWSRequest GetBucketPolicy where
     type Sv GetBucketPolicy = S3
     type Rs GetBucketPolicy = GetBucketPolicyOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> GetBucketPolicyOutput
         <$> x %| "Policy"

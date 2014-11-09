@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketWebsite
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,9 +28,9 @@ module Network.AWS.S3.PutBucketWebsite
     -- ** Request constructor
     , putBucketWebsite
     -- ** Request lenses
-    , pbwrBucket
-    , pbwrContentMD5
-    , pbwrWebsiteConfiguration
+    , pbwBucket
+    , pbwContentMD5
+    , pbwWebsiteConfiguration
 
     -- * Response
     , PutBucketWebsiteResponse
@@ -37,49 +39,48 @@ module Network.AWS.S3.PutBucketWebsite
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketWebsite = PutBucketWebsite
-    { _pbwrBucket               :: Text
-    , _pbwrContentMD5           :: Maybe Text
-    , _pbwrWebsiteConfiguration :: WebsiteConfiguration
+    { _pbwBucket               :: Text
+    , _pbwContentMD5           :: Maybe Text
+    , _pbwWebsiteConfiguration :: WebsiteConfiguration
     } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketWebsite' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbwrBucket' @::@ 'Text'
+-- * 'pbwBucket' @::@ 'Text'
 --
--- * 'pbwrContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pbwContentMD5' @::@ 'Maybe' 'Text'
 --
--- * 'pbwrWebsiteConfiguration' @::@ 'WebsiteConfiguration'
+-- * 'pbwWebsiteConfiguration' @::@ 'WebsiteConfiguration'
 --
-putBucketWebsite :: Text -- ^ 'pbwrBucket'
-                 -> WebsiteConfiguration -- ^ 'pbwrWebsiteConfiguration'
+putBucketWebsite :: Text -- ^ 'pbwBucket'
+                 -> WebsiteConfiguration -- ^ 'pbwWebsiteConfiguration'
                  -> PutBucketWebsite
 putBucketWebsite p1 p2 = PutBucketWebsite
-    { _pbwrBucket               = p1
-    , _pbwrWebsiteConfiguration = p2
-    , _pbwrContentMD5           = Nothing
+    { _pbwBucket               = p1
+    , _pbwWebsiteConfiguration = p2
+    , _pbwContentMD5           = Nothing
     }
 
-pbwrBucket :: Lens' PutBucketWebsite Text
-pbwrBucket = lens _pbwrBucket (\s a -> s { _pbwrBucket = a })
+pbwBucket :: Lens' PutBucketWebsite Text
+pbwBucket = lens _pbwBucket (\s a -> s { _pbwBucket = a })
 
-pbwrContentMD5 :: Lens' PutBucketWebsite (Maybe Text)
-pbwrContentMD5 = lens _pbwrContentMD5 (\s a -> s { _pbwrContentMD5 = a })
+pbwContentMD5 :: Lens' PutBucketWebsite (Maybe Text)
+pbwContentMD5 = lens _pbwContentMD5 (\s a -> s { _pbwContentMD5 = a })
 
-pbwrWebsiteConfiguration :: Lens' PutBucketWebsite WebsiteConfiguration
-pbwrWebsiteConfiguration =
-    lens _pbwrWebsiteConfiguration
-        (\s a -> s { _pbwrWebsiteConfiguration = a })
+pbwWebsiteConfiguration :: Lens' PutBucketWebsite WebsiteConfiguration
+pbwWebsiteConfiguration =
+    lens _pbwWebsiteConfiguration (\s a -> s { _pbwWebsiteConfiguration = a })
 
 instance ToPath PutBucketWebsite where
     toPath PutBucketWebsite{..} = mconcat
         [ "/"
-        , toText _pbwrBucket
+        , toText _pbwBucket
         ]
 
 instance ToQuery PutBucketWebsite where
@@ -87,11 +88,11 @@ instance ToQuery PutBucketWebsite where
 
 instance ToHeaders PutBucketWebsite where
     toHeaders PutBucketWebsite{..} = mconcat
-        [ "Content-MD5" =: _pbwrContentMD5
+        [ "Content-MD5" =: _pbwContentMD5
         ]
 
 instance ToBody PutBucketWebsite where
-    toBody = toBody . encodeXML . _pbwrWebsiteConfiguration
+    toBody = toBody . encodeXML . _pbwWebsiteConfiguration
 
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse
 
@@ -103,5 +104,5 @@ instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3
     type Rs PutBucketWebsite = PutBucketWebsiteResponse
 
-    request  = put'
+    request  = put
     response = const (nullaryResponse PutBucketWebsiteResponse)

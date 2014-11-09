@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.ListObjects
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,12 +30,12 @@ module Network.AWS.S3.ListObjects
     -- ** Request constructor
     , listObjects
     -- ** Request lenses
-    , lorBucket
-    , lorDelimiter
-    , lorEncodingType
-    , lorMarker
-    , lorMaxKeys
-    , lorPrefix
+    , loBucket
+    , loDelimiter
+    , loEncodingType
+    , loMarker
+    , loMaxKeys
+    , loPrefix
 
     -- * Response
     , ListObjectsOutput
@@ -52,81 +54,81 @@ module Network.AWS.S3.ListObjects
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data ListObjects = ListObjects
-    { _lorBucket       :: Text
-    , _lorDelimiter    :: Maybe Text
-    , _lorEncodingType :: Maybe Text
-    , _lorMarker       :: Maybe Text
-    , _lorMaxKeys      :: Maybe Int
-    , _lorPrefix       :: Maybe Text
+    { _loBucket       :: Text
+    , _loDelimiter    :: Maybe Text
+    , _loEncodingType :: Maybe Text
+    , _loMarker       :: Maybe Text
+    , _loMaxKeys      :: Maybe Int
+    , _loPrefix       :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListObjects' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lorBucket' @::@ 'Text'
+-- * 'loBucket' @::@ 'Text'
 --
--- * 'lorDelimiter' @::@ 'Maybe' 'Text'
+-- * 'loDelimiter' @::@ 'Maybe' 'Text'
 --
--- * 'lorEncodingType' @::@ 'Maybe' 'Text'
+-- * 'loEncodingType' @::@ 'Maybe' 'Text'
 --
--- * 'lorMarker' @::@ 'Maybe' 'Text'
+-- * 'loMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lorMaxKeys' @::@ 'Maybe' 'Int'
+-- * 'loMaxKeys' @::@ 'Maybe' 'Int'
 --
--- * 'lorPrefix' @::@ 'Maybe' 'Text'
+-- * 'loPrefix' @::@ 'Maybe' 'Text'
 --
-listObjects :: Text -- ^ 'lorBucket'
+listObjects :: Text -- ^ 'loBucket'
             -> ListObjects
 listObjects p1 = ListObjects
-    { _lorBucket       = p1
-    , _lorDelimiter    = Nothing
-    , _lorEncodingType = Nothing
-    , _lorMarker       = Nothing
-    , _lorMaxKeys      = Nothing
-    , _lorPrefix       = Nothing
+    { _loBucket       = p1
+    , _loDelimiter    = Nothing
+    , _loEncodingType = Nothing
+    , _loMarker       = Nothing
+    , _loMaxKeys      = Nothing
+    , _loPrefix       = Nothing
     }
 
-lorBucket :: Lens' ListObjects Text
-lorBucket = lens _lorBucket (\s a -> s { _lorBucket = a })
+loBucket :: Lens' ListObjects Text
+loBucket = lens _loBucket (\s a -> s { _loBucket = a })
 
 -- | A delimiter is a character you use to group keys.
-lorDelimiter :: Lens' ListObjects (Maybe Text)
-lorDelimiter = lens _lorDelimiter (\s a -> s { _lorDelimiter = a })
+loDelimiter :: Lens' ListObjects (Maybe Text)
+loDelimiter = lens _loDelimiter (\s a -> s { _loDelimiter = a })
 
-lorEncodingType :: Lens' ListObjects (Maybe Text)
-lorEncodingType = lens _lorEncodingType (\s a -> s { _lorEncodingType = a })
+loEncodingType :: Lens' ListObjects (Maybe Text)
+loEncodingType = lens _loEncodingType (\s a -> s { _loEncodingType = a })
 
 -- | Specifies the key to start with when listing objects in a bucket.
-lorMarker :: Lens' ListObjects (Maybe Text)
-lorMarker = lens _lorMarker (\s a -> s { _lorMarker = a })
+loMarker :: Lens' ListObjects (Maybe Text)
+loMarker = lens _loMarker (\s a -> s { _loMarker = a })
 
 -- | Sets the maximum number of keys returned in the response. The response
 -- might contain fewer keys but will never contain more.
-lorMaxKeys :: Lens' ListObjects (Maybe Int)
-lorMaxKeys = lens _lorMaxKeys (\s a -> s { _lorMaxKeys = a })
+loMaxKeys :: Lens' ListObjects (Maybe Int)
+loMaxKeys = lens _loMaxKeys (\s a -> s { _loMaxKeys = a })
 
 -- | Limits the response to keys that begin with the specified prefix.
-lorPrefix :: Lens' ListObjects (Maybe Text)
-lorPrefix = lens _lorPrefix (\s a -> s { _lorPrefix = a })
+loPrefix :: Lens' ListObjects (Maybe Text)
+loPrefix = lens _loPrefix (\s a -> s { _loPrefix = a })
 
 instance ToPath ListObjects where
     toPath ListObjects{..} = mconcat
         [ "/"
-        , toText _lorBucket
+        , toText _loBucket
         ]
 
 instance ToQuery ListObjects where
     toQuery ListObjects{..} = mconcat
-        [ "delimiter"     =? _lorDelimiter
-        , "encoding-type" =? _lorEncodingType
-        , "marker"        =? _lorMarker
-        , "max-keys"      =? _lorMaxKeys
-        , "prefix"        =? _lorPrefix
+        [ "delimiter"     =? _loDelimiter
+        , "encoding-type" =? _loEncodingType
+        , "marker"        =? _loMarker
+        , "max-keys"      =? _loMaxKeys
+        , "prefix"        =? _loPrefix
         ]
 
 instance ToHeaders ListObjects
@@ -221,7 +223,7 @@ instance AWSRequest ListObjects where
     type Sv ListObjects = S3
     type Rs ListObjects = ListObjectsOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> ListObjectsOutput
         <$> x %| "CommonPrefixes"
         <*> x %| "Contents"

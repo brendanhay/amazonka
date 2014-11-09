@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketVersioning
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.GetBucketVersioning
     -- ** Request constructor
     , getBucketVersioning
     -- ** Request lenses
-    , gbvrBucket
+    , gbvBucket
 
     -- * Response
     , GetBucketVersioningOutput
@@ -38,32 +40,32 @@ module Network.AWS.S3.GetBucketVersioning
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketVersioning = GetBucketVersioning
-    { _gbvrBucket :: Text
+    { _gbvBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketVersioning' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbvrBucket' @::@ 'Text'
+-- * 'gbvBucket' @::@ 'Text'
 --
-getBucketVersioning :: Text -- ^ 'gbvrBucket'
+getBucketVersioning :: Text -- ^ 'gbvBucket'
                     -> GetBucketVersioning
 getBucketVersioning p1 = GetBucketVersioning
-    { _gbvrBucket = p1
+    { _gbvBucket = p1
     }
 
-gbvrBucket :: Lens' GetBucketVersioning Text
-gbvrBucket = lens _gbvrBucket (\s a -> s { _gbvrBucket = a })
+gbvBucket :: Lens' GetBucketVersioning Text
+gbvBucket = lens _gbvBucket (\s a -> s { _gbvBucket = a })
 
 instance ToPath GetBucketVersioning where
     toPath GetBucketVersioning{..} = mconcat
         [ "/"
-        , toText _gbvrBucket
+        , toText _gbvBucket
         ]
 
 instance ToQuery GetBucketVersioning where
@@ -105,7 +107,7 @@ instance AWSRequest GetBucketVersioning where
     type Sv GetBucketVersioning = S3
     type Rs GetBucketVersioning = GetBucketVersioningOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> GetBucketVersioningOutput
         <$> x %| "MfaDelete"
         <*> x %| "Status"

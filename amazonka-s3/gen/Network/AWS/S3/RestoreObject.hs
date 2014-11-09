@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.RestoreObject
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,10 +28,10 @@ module Network.AWS.S3.RestoreObject
     -- ** Request constructor
     , restoreObject
     -- ** Request lenses
-    , rorBucket
-    , rorKey
-    , rorRestoreRequest
-    , rorVersionId
+    , roBucket
+    , roKey
+    , roRestoreRequest
+    , roVersionId
 
     -- * Response
     , RestoreObjectResponse
@@ -38,69 +40,68 @@ module Network.AWS.S3.RestoreObject
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data RestoreObject = RestoreObject
-    { _rorBucket         :: Text
-    , _rorKey            :: Text
-    , _rorRestoreRequest :: Maybe RestoreRequest
-    , _rorVersionId      :: Maybe Text
+    { _roBucket         :: Text
+    , _roKey            :: Text
+    , _roRestoreRequest :: Maybe RestoreRequest
+    , _roVersionId      :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 -- | 'RestoreObject' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rorBucket' @::@ 'Text'
+-- * 'roBucket' @::@ 'Text'
 --
--- * 'rorKey' @::@ 'Text'
+-- * 'roKey' @::@ 'Text'
 --
--- * 'rorRestoreRequest' @::@ 'Maybe' 'RestoreRequest'
+-- * 'roRestoreRequest' @::@ 'Maybe' 'RestoreRequest'
 --
--- * 'rorVersionId' @::@ 'Maybe' 'Text'
+-- * 'roVersionId' @::@ 'Maybe' 'Text'
 --
-restoreObject :: Text -- ^ 'rorBucket'
-              -> Text -- ^ 'rorKey'
+restoreObject :: Text -- ^ 'roBucket'
+              -> Text -- ^ 'roKey'
               -> RestoreObject
 restoreObject p1 p2 = RestoreObject
-    { _rorBucket         = p1
-    , _rorKey            = p2
-    , _rorVersionId      = Nothing
-    , _rorRestoreRequest = Nothing
+    { _roBucket         = p1
+    , _roKey            = p2
+    , _roVersionId      = Nothing
+    , _roRestoreRequest = Nothing
     }
 
-rorBucket :: Lens' RestoreObject Text
-rorBucket = lens _rorBucket (\s a -> s { _rorBucket = a })
+roBucket :: Lens' RestoreObject Text
+roBucket = lens _roBucket (\s a -> s { _roBucket = a })
 
-rorKey :: Lens' RestoreObject Text
-rorKey = lens _rorKey (\s a -> s { _rorKey = a })
+roKey :: Lens' RestoreObject Text
+roKey = lens _roKey (\s a -> s { _roKey = a })
 
-rorRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
-rorRestoreRequest =
-    lens _rorRestoreRequest (\s a -> s { _rorRestoreRequest = a })
+roRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
+roRestoreRequest = lens _roRestoreRequest (\s a -> s { _roRestoreRequest = a })
 
-rorVersionId :: Lens' RestoreObject (Maybe Text)
-rorVersionId = lens _rorVersionId (\s a -> s { _rorVersionId = a })
+roVersionId :: Lens' RestoreObject (Maybe Text)
+roVersionId = lens _roVersionId (\s a -> s { _roVersionId = a })
 
 instance ToPath RestoreObject where
     toPath RestoreObject{..} = mconcat
         [ "/"
-        , toText _rorBucket
+        , toText _roBucket
         , "/"
-        , toText _rorKey
+        , toText _roKey
         ]
 
 instance ToQuery RestoreObject where
     toQuery RestoreObject{..} = mconcat
         [ "restore"
-        , "versionId" =? _rorVersionId
+        , "versionId" =? _roVersionId
         ]
 
 instance ToHeaders RestoreObject
 
 instance ToBody RestoreObject where
-    toBody = toBody . encodeXML . _rorRestoreRequest
+    toBody = toBody . encodeXML . _roRestoreRequest
 
 data RestoreObjectResponse = RestoreObjectResponse
 
@@ -112,5 +113,5 @@ instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3
     type Rs RestoreObject = RestoreObjectResponse
 
-    request  = post'
+    request  = post
     response = const (nullaryResponse RestoreObjectResponse)

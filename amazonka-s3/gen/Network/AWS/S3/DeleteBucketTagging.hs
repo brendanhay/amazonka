@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketTagging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.DeleteBucketTagging
     -- ** Request constructor
     , deleteBucketTagging
     -- ** Request lenses
-    , dbtrBucket
+    , dbtBucket
 
     -- * Response
     , DeleteBucketTaggingResponse
@@ -35,32 +37,32 @@ module Network.AWS.S3.DeleteBucketTagging
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype DeleteBucketTagging = DeleteBucketTagging
-    { _dbtrBucket :: Text
+    { _dbtBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteBucketTagging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbtrBucket' @::@ 'Text'
+-- * 'dbtBucket' @::@ 'Text'
 --
-deleteBucketTagging :: Text -- ^ 'dbtrBucket'
+deleteBucketTagging :: Text -- ^ 'dbtBucket'
                     -> DeleteBucketTagging
 deleteBucketTagging p1 = DeleteBucketTagging
-    { _dbtrBucket = p1
+    { _dbtBucket = p1
     }
 
-dbtrBucket :: Lens' DeleteBucketTagging Text
-dbtrBucket = lens _dbtrBucket (\s a -> s { _dbtrBucket = a })
+dbtBucket :: Lens' DeleteBucketTagging Text
+dbtBucket = lens _dbtBucket (\s a -> s { _dbtBucket = a })
 
 instance ToPath DeleteBucketTagging where
     toPath DeleteBucketTagging{..} = mconcat
         [ "/"
-        , toText _dbtrBucket
+        , toText _dbtBucket
         ]
 
 instance ToQuery DeleteBucketTagging where
@@ -78,5 +80,5 @@ instance AWSRequest DeleteBucketTagging where
     type Sv DeleteBucketTagging = S3
     type Rs DeleteBucketTagging = DeleteBucketTaggingResponse
 
-    request  = delete'
+    request  = delete
     response = const (nullaryResponse DeleteBucketTaggingResponse)

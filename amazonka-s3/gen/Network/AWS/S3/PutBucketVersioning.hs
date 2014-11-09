@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketVersioning
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,10 +29,10 @@ module Network.AWS.S3.PutBucketVersioning
     -- ** Request constructor
     , putBucketVersioning
     -- ** Request lenses
-    , pbvrBucket
-    , pbvrContentMD5
-    , pbvrMFA
-    , pbvrVersioningConfiguration
+    , pbvBucket
+    , pbvContentMD5
+    , pbvMFA
+    , pbvVersioningConfiguration
 
     -- * Response
     , PutBucketVersioningResponse
@@ -39,58 +41,58 @@ module Network.AWS.S3.PutBucketVersioning
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketVersioning = PutBucketVersioning
-    { _pbvrBucket                  :: Text
-    , _pbvrContentMD5              :: Maybe Text
-    , _pbvrMFA                     :: Maybe Text
-    , _pbvrVersioningConfiguration :: VersioningConfiguration
+    { _pbvBucket                  :: Text
+    , _pbvContentMD5              :: Maybe Text
+    , _pbvMFA                     :: Maybe Text
+    , _pbvVersioningConfiguration :: VersioningConfiguration
     } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketVersioning' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbvrBucket' @::@ 'Text'
+-- * 'pbvBucket' @::@ 'Text'
 --
--- * 'pbvrContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pbvContentMD5' @::@ 'Maybe' 'Text'
 --
--- * 'pbvrMFA' @::@ 'Maybe' 'Text'
+-- * 'pbvMFA' @::@ 'Maybe' 'Text'
 --
--- * 'pbvrVersioningConfiguration' @::@ 'VersioningConfiguration'
+-- * 'pbvVersioningConfiguration' @::@ 'VersioningConfiguration'
 --
-putBucketVersioning :: Text -- ^ 'pbvrBucket'
-                    -> VersioningConfiguration -- ^ 'pbvrVersioningConfiguration'
+putBucketVersioning :: Text -- ^ 'pbvBucket'
+                    -> VersioningConfiguration -- ^ 'pbvVersioningConfiguration'
                     -> PutBucketVersioning
 putBucketVersioning p1 p2 = PutBucketVersioning
-    { _pbvrBucket                  = p1
-    , _pbvrVersioningConfiguration = p2
-    , _pbvrContentMD5              = Nothing
-    , _pbvrMFA                     = Nothing
+    { _pbvBucket                  = p1
+    , _pbvVersioningConfiguration = p2
+    , _pbvContentMD5              = Nothing
+    , _pbvMFA                     = Nothing
     }
 
-pbvrBucket :: Lens' PutBucketVersioning Text
-pbvrBucket = lens _pbvrBucket (\s a -> s { _pbvrBucket = a })
+pbvBucket :: Lens' PutBucketVersioning Text
+pbvBucket = lens _pbvBucket (\s a -> s { _pbvBucket = a })
 
-pbvrContentMD5 :: Lens' PutBucketVersioning (Maybe Text)
-pbvrContentMD5 = lens _pbvrContentMD5 (\s a -> s { _pbvrContentMD5 = a })
+pbvContentMD5 :: Lens' PutBucketVersioning (Maybe Text)
+pbvContentMD5 = lens _pbvContentMD5 (\s a -> s { _pbvContentMD5 = a })
 
 -- | The concatenation of the authentication device's serial number, a space,
 -- and the value that is displayed on your authentication device.
-pbvrMFA :: Lens' PutBucketVersioning (Maybe Text)
-pbvrMFA = lens _pbvrMFA (\s a -> s { _pbvrMFA = a })
+pbvMFA :: Lens' PutBucketVersioning (Maybe Text)
+pbvMFA = lens _pbvMFA (\s a -> s { _pbvMFA = a })
 
-pbvrVersioningConfiguration :: Lens' PutBucketVersioning VersioningConfiguration
-pbvrVersioningConfiguration =
-    lens _pbvrVersioningConfiguration
-        (\s a -> s { _pbvrVersioningConfiguration = a })
+pbvVersioningConfiguration :: Lens' PutBucketVersioning VersioningConfiguration
+pbvVersioningConfiguration =
+    lens _pbvVersioningConfiguration
+        (\s a -> s { _pbvVersioningConfiguration = a })
 
 instance ToPath PutBucketVersioning where
     toPath PutBucketVersioning{..} = mconcat
         [ "/"
-        , toText _pbvrBucket
+        , toText _pbvBucket
         ]
 
 instance ToQuery PutBucketVersioning where
@@ -98,12 +100,12 @@ instance ToQuery PutBucketVersioning where
 
 instance ToHeaders PutBucketVersioning where
     toHeaders PutBucketVersioning{..} = mconcat
-        [ "Content-MD5" =: _pbvrContentMD5
-        , "x-amz-mfa"   =: _pbvrMFA
+        [ "Content-MD5" =: _pbvContentMD5
+        , "x-amz-mfa"   =: _pbvMFA
         ]
 
 instance ToBody PutBucketVersioning where
-    toBody = toBody . encodeXML . _pbvrVersioningConfiguration
+    toBody = toBody . encodeXML . _pbvVersioningConfiguration
 
 data PutBucketVersioningResponse = PutBucketVersioningResponse
 
@@ -115,5 +117,5 @@ instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3
     type Rs PutBucketVersioning = PutBucketVersioningResponse
 
-    request  = put'
+    request  = put
     response = const (nullaryResponse PutBucketVersioningResponse)

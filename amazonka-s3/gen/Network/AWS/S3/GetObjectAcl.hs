@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetObjectAcl
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,9 +28,9 @@ module Network.AWS.S3.GetObjectAcl
     -- ** Request constructor
     , getObjectAcl
     -- ** Request lenses
-    , goarBucket
-    , goarKey
-    , goarVersionId
+    , goaBucket
+    , goaKey
+    , goaVersionId
 
     -- * Response
     , GetObjectAclOutput
@@ -40,56 +42,56 @@ module Network.AWS.S3.GetObjectAcl
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data GetObjectAcl = GetObjectAcl
-    { _goarBucket    :: Text
-    , _goarKey       :: Text
-    , _goarVersionId :: Maybe Text
+    { _goaBucket    :: Text
+    , _goaKey       :: Text
+    , _goaVersionId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetObjectAcl' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'goarBucket' @::@ 'Text'
+-- * 'goaBucket' @::@ 'Text'
 --
--- * 'goarKey' @::@ 'Text'
+-- * 'goaKey' @::@ 'Text'
 --
--- * 'goarVersionId' @::@ 'Maybe' 'Text'
+-- * 'goaVersionId' @::@ 'Maybe' 'Text'
 --
-getObjectAcl :: Text -- ^ 'goarBucket'
-             -> Text -- ^ 'goarKey'
+getObjectAcl :: Text -- ^ 'goaBucket'
+             -> Text -- ^ 'goaKey'
              -> GetObjectAcl
 getObjectAcl p1 p2 = GetObjectAcl
-    { _goarBucket    = p1
-    , _goarKey       = p2
-    , _goarVersionId = Nothing
+    { _goaBucket    = p1
+    , _goaKey       = p2
+    , _goaVersionId = Nothing
     }
 
-goarBucket :: Lens' GetObjectAcl Text
-goarBucket = lens _goarBucket (\s a -> s { _goarBucket = a })
+goaBucket :: Lens' GetObjectAcl Text
+goaBucket = lens _goaBucket (\s a -> s { _goaBucket = a })
 
-goarKey :: Lens' GetObjectAcl Text
-goarKey = lens _goarKey (\s a -> s { _goarKey = a })
+goaKey :: Lens' GetObjectAcl Text
+goaKey = lens _goaKey (\s a -> s { _goaKey = a })
 
 -- | VersionId used to reference a specific version of the object.
-goarVersionId :: Lens' GetObjectAcl (Maybe Text)
-goarVersionId = lens _goarVersionId (\s a -> s { _goarVersionId = a })
+goaVersionId :: Lens' GetObjectAcl (Maybe Text)
+goaVersionId = lens _goaVersionId (\s a -> s { _goaVersionId = a })
 
 instance ToPath GetObjectAcl where
     toPath GetObjectAcl{..} = mconcat
         [ "/"
-        , toText _goarBucket
+        , toText _goaBucket
         , "/"
-        , toText _goarKey
+        , toText _goaKey
         ]
 
 instance ToQuery GetObjectAcl where
     toQuery GetObjectAcl{..} = mconcat
         [ "acl"
-        , "versionId" =? _goarVersionId
+        , "versionId" =? _goaVersionId
         ]
 
 instance ToHeaders GetObjectAcl
@@ -124,7 +126,7 @@ instance AWSRequest GetObjectAcl where
     type Sv GetObjectAcl = S3
     type Rs GetObjectAcl = GetObjectAclOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> GetObjectAclOutput
         <$> x %| "AccessControlList"
         <*> x %| "Owner"

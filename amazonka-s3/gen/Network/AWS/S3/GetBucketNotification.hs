@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketNotification
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.GetBucketNotification
     -- ** Request constructor
     , getBucketNotification
     -- ** Request lenses
-    , gbnrBucket
+    , gbnBucket
 
     -- * Response
     , GetBucketNotificationOutput
@@ -37,32 +39,32 @@ module Network.AWS.S3.GetBucketNotification
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketNotification = GetBucketNotification
-    { _gbnrBucket :: Text
+    { _gbnBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketNotification' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbnrBucket' @::@ 'Text'
+-- * 'gbnBucket' @::@ 'Text'
 --
-getBucketNotification :: Text -- ^ 'gbnrBucket'
+getBucketNotification :: Text -- ^ 'gbnBucket'
                       -> GetBucketNotification
 getBucketNotification p1 = GetBucketNotification
-    { _gbnrBucket = p1
+    { _gbnBucket = p1
     }
 
-gbnrBucket :: Lens' GetBucketNotification Text
-gbnrBucket = lens _gbnrBucket (\s a -> s { _gbnrBucket = a })
+gbnBucket :: Lens' GetBucketNotification Text
+gbnBucket = lens _gbnBucket (\s a -> s { _gbnBucket = a })
 
 instance ToPath GetBucketNotification where
     toPath GetBucketNotification{..} = mconcat
         [ "/"
-        , toText _gbnrBucket
+        , toText _gbnBucket
         ]
 
 instance ToQuery GetBucketNotification where
@@ -93,6 +95,6 @@ instance AWSRequest GetBucketNotification where
     type Sv GetBucketNotification = S3
     type Rs GetBucketNotification = GetBucketNotificationOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> GetBucketNotificationOutput
         <$> x %| "TopicConfiguration"

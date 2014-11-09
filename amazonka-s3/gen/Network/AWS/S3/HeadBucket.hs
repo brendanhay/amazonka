@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.HeadBucket
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,7 +29,7 @@ module Network.AWS.S3.HeadBucket
     -- ** Request constructor
     , headBucket
     -- ** Request lenses
-    , hbrBucket
+    , hbBucket
 
     -- * Response
     , HeadBucketResponse
@@ -36,32 +38,32 @@ module Network.AWS.S3.HeadBucket
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype HeadBucket = HeadBucket
-    { _hbrBucket :: Text
+    { _hbBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'HeadBucket' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'hbrBucket' @::@ 'Text'
+-- * 'hbBucket' @::@ 'Text'
 --
-headBucket :: Text -- ^ 'hbrBucket'
+headBucket :: Text -- ^ 'hbBucket'
            -> HeadBucket
 headBucket p1 = HeadBucket
-    { _hbrBucket = p1
+    { _hbBucket = p1
     }
 
-hbrBucket :: Lens' HeadBucket Text
-hbrBucket = lens _hbrBucket (\s a -> s { _hbrBucket = a })
+hbBucket :: Lens' HeadBucket Text
+hbBucket = lens _hbBucket (\s a -> s { _hbBucket = a })
 
 instance ToPath HeadBucket where
     toPath HeadBucket{..} = mconcat
         [ "/"
-        , toText _hbrBucket
+        , toText _hbBucket
         ]
 
 instance ToQuery HeadBucket
@@ -78,5 +80,5 @@ instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3
     type Rs HeadBucket = HeadBucketResponse
 
-    request  = head'
+    request  = head
     response = const (nullaryResponse HeadBucketResponse)

@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketLogging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,7 +29,7 @@ module Network.AWS.S3.GetBucketLogging
     -- ** Request constructor
     , getBucketLogging
     -- ** Request lenses
-    , gblr2Bucket
+    , gbl2Bucket
 
     -- * Response
     , GetBucketLoggingOutput
@@ -38,32 +40,32 @@ module Network.AWS.S3.GetBucketLogging
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketLogging = GetBucketLogging
-    { _gblr2Bucket :: Text
+    { _gbl2Bucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketLogging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gblr2Bucket' @::@ 'Text'
+-- * 'gbl2Bucket' @::@ 'Text'
 --
-getBucketLogging :: Text -- ^ 'gblr2Bucket'
+getBucketLogging :: Text -- ^ 'gbl2Bucket'
                  -> GetBucketLogging
 getBucketLogging p1 = GetBucketLogging
-    { _gblr2Bucket = p1
+    { _gbl2Bucket = p1
     }
 
-gblr2Bucket :: Lens' GetBucketLogging Text
-gblr2Bucket = lens _gblr2Bucket (\s a -> s { _gblr2Bucket = a })
+gbl2Bucket :: Lens' GetBucketLogging Text
+gbl2Bucket = lens _gbl2Bucket (\s a -> s { _gbl2Bucket = a })
 
 instance ToPath GetBucketLogging where
     toPath GetBucketLogging{..} = mconcat
         [ "/"
-        , toText _gblr2Bucket
+        , toText _gbl2Bucket
         ]
 
 instance ToQuery GetBucketLogging where
@@ -94,6 +96,6 @@ instance AWSRequest GetBucketLogging where
     type Sv GetBucketLogging = S3
     type Rs GetBucketLogging = GetBucketLoggingOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> GetBucketLoggingOutput
         <$> x %| "LoggingEnabled"

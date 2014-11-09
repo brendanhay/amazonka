@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketCors
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.GetBucketCors
     -- ** Request constructor
     , getBucketCors
     -- ** Request lenses
-    , gbcrBucket
+    , gbcBucket
 
     -- * Response
     , GetBucketCorsOutput
@@ -37,32 +39,32 @@ module Network.AWS.S3.GetBucketCors
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketCors = GetBucketCors
-    { _gbcrBucket :: Text
+    { _gbcBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketCors' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbcrBucket' @::@ 'Text'
+-- * 'gbcBucket' @::@ 'Text'
 --
-getBucketCors :: Text -- ^ 'gbcrBucket'
+getBucketCors :: Text -- ^ 'gbcBucket'
               -> GetBucketCors
 getBucketCors p1 = GetBucketCors
-    { _gbcrBucket = p1
+    { _gbcBucket = p1
     }
 
-gbcrBucket :: Lens' GetBucketCors Text
-gbcrBucket = lens _gbcrBucket (\s a -> s { _gbcrBucket = a })
+gbcBucket :: Lens' GetBucketCors Text
+gbcBucket = lens _gbcBucket (\s a -> s { _gbcBucket = a })
 
 instance ToPath GetBucketCors where
     toPath GetBucketCors{..} = mconcat
         [ "/"
-        , toText _gbcrBucket
+        , toText _gbcBucket
         ]
 
 instance ToQuery GetBucketCors where
@@ -92,6 +94,6 @@ instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
     type Rs GetBucketCors = GetBucketCorsOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> GetBucketCorsOutput
         <$> x %| "CORSRule"

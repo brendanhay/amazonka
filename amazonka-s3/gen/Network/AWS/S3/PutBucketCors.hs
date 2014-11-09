@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketCors
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,9 +28,9 @@ module Network.AWS.S3.PutBucketCors
     -- ** Request constructor
     , putBucketCors
     -- ** Request lenses
-    , pbcrBucket
-    , pbcrCORSConfiguration
-    , pbcrContentMD5
+    , pbcBucket
+    , pbcCORSConfiguration
+    , pbcContentMD5
 
     -- * Response
     , PutBucketCorsResponse
@@ -37,47 +39,47 @@ module Network.AWS.S3.PutBucketCors
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketCors = PutBucketCors
-    { _pbcrBucket            :: Text
-    , _pbcrCORSConfiguration :: Maybe CORSConfiguration
-    , _pbcrContentMD5        :: Maybe Text
+    { _pbcBucket            :: Text
+    , _pbcCORSConfiguration :: Maybe CORSConfiguration
+    , _pbcContentMD5        :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketCors' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbcrBucket' @::@ 'Text'
+-- * 'pbcBucket' @::@ 'Text'
 --
--- * 'pbcrCORSConfiguration' @::@ 'Maybe' 'CORSConfiguration'
+-- * 'pbcCORSConfiguration' @::@ 'Maybe' 'CORSConfiguration'
 --
--- * 'pbcrContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pbcContentMD5' @::@ 'Maybe' 'Text'
 --
-putBucketCors :: Text -- ^ 'pbcrBucket'
+putBucketCors :: Text -- ^ 'pbcBucket'
               -> PutBucketCors
 putBucketCors p1 = PutBucketCors
-    { _pbcrBucket            = p1
-    , _pbcrCORSConfiguration = Nothing
-    , _pbcrContentMD5        = Nothing
+    { _pbcBucket            = p1
+    , _pbcCORSConfiguration = Nothing
+    , _pbcContentMD5        = Nothing
     }
 
-pbcrBucket :: Lens' PutBucketCors Text
-pbcrBucket = lens _pbcrBucket (\s a -> s { _pbcrBucket = a })
+pbcBucket :: Lens' PutBucketCors Text
+pbcBucket = lens _pbcBucket (\s a -> s { _pbcBucket = a })
 
-pbcrCORSConfiguration :: Lens' PutBucketCors (Maybe CORSConfiguration)
-pbcrCORSConfiguration =
-    lens _pbcrCORSConfiguration (\s a -> s { _pbcrCORSConfiguration = a })
+pbcCORSConfiguration :: Lens' PutBucketCors (Maybe CORSConfiguration)
+pbcCORSConfiguration =
+    lens _pbcCORSConfiguration (\s a -> s { _pbcCORSConfiguration = a })
 
-pbcrContentMD5 :: Lens' PutBucketCors (Maybe Text)
-pbcrContentMD5 = lens _pbcrContentMD5 (\s a -> s { _pbcrContentMD5 = a })
+pbcContentMD5 :: Lens' PutBucketCors (Maybe Text)
+pbcContentMD5 = lens _pbcContentMD5 (\s a -> s { _pbcContentMD5 = a })
 
 instance ToPath PutBucketCors where
     toPath PutBucketCors{..} = mconcat
         [ "/"
-        , toText _pbcrBucket
+        , toText _pbcBucket
         ]
 
 instance ToQuery PutBucketCors where
@@ -85,11 +87,11 @@ instance ToQuery PutBucketCors where
 
 instance ToHeaders PutBucketCors where
     toHeaders PutBucketCors{..} = mconcat
-        [ "Content-MD5" =: _pbcrContentMD5
+        [ "Content-MD5" =: _pbcContentMD5
         ]
 
 instance ToBody PutBucketCors where
-    toBody = toBody . encodeXML . _pbcrCORSConfiguration
+    toBody = toBody . encodeXML . _pbcCORSConfiguration
 
 data PutBucketCorsResponse = PutBucketCorsResponse
 
@@ -101,5 +103,5 @@ instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3
     type Rs PutBucketCors = PutBucketCorsResponse
 
-    request  = put'
+    request  = put
     response = const (nullaryResponse PutBucketCorsResponse)

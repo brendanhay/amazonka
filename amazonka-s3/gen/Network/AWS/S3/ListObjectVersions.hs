@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.ListObjectVersions
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,13 +28,13 @@ module Network.AWS.S3.ListObjectVersions
     -- ** Request constructor
     , listObjectVersions
     -- ** Request lenses
-    , lovrBucket
-    , lovrDelimiter
-    , lovrEncodingType
-    , lovrKeyMarker
-    , lovrMaxKeys
-    , lovrPrefix
-    , lovrVersionIdMarker
+    , lovBucket
+    , lovDelimiter
+    , lovEncodingType
+    , lovKeyMarker
+    , lovMaxKeys
+    , lovPrefix
+    , lovVersionIdMarker
 
     -- * Response
     , ListObjectVersionsOutput
@@ -54,92 +56,92 @@ module Network.AWS.S3.ListObjectVersions
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data ListObjectVersions = ListObjectVersions
-    { _lovrBucket          :: Text
-    , _lovrDelimiter       :: Maybe Text
-    , _lovrEncodingType    :: Maybe Text
-    , _lovrKeyMarker       :: Maybe Text
-    , _lovrMaxKeys         :: Maybe Int
-    , _lovrPrefix          :: Maybe Text
-    , _lovrVersionIdMarker :: Maybe Text
+    { _lovBucket          :: Text
+    , _lovDelimiter       :: Maybe Text
+    , _lovEncodingType    :: Maybe Text
+    , _lovKeyMarker       :: Maybe Text
+    , _lovMaxKeys         :: Maybe Int
+    , _lovPrefix          :: Maybe Text
+    , _lovVersionIdMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListObjectVersions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lovrBucket' @::@ 'Text'
+-- * 'lovBucket' @::@ 'Text'
 --
--- * 'lovrDelimiter' @::@ 'Maybe' 'Text'
+-- * 'lovDelimiter' @::@ 'Maybe' 'Text'
 --
--- * 'lovrEncodingType' @::@ 'Maybe' 'Text'
+-- * 'lovEncodingType' @::@ 'Maybe' 'Text'
 --
--- * 'lovrKeyMarker' @::@ 'Maybe' 'Text'
+-- * 'lovKeyMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lovrMaxKeys' @::@ 'Maybe' 'Int'
+-- * 'lovMaxKeys' @::@ 'Maybe' 'Int'
 --
--- * 'lovrPrefix' @::@ 'Maybe' 'Text'
+-- * 'lovPrefix' @::@ 'Maybe' 'Text'
 --
--- * 'lovrVersionIdMarker' @::@ 'Maybe' 'Text'
+-- * 'lovVersionIdMarker' @::@ 'Maybe' 'Text'
 --
-listObjectVersions :: Text -- ^ 'lovrBucket'
+listObjectVersions :: Text -- ^ 'lovBucket'
                    -> ListObjectVersions
 listObjectVersions p1 = ListObjectVersions
-    { _lovrBucket          = p1
-    , _lovrDelimiter       = Nothing
-    , _lovrEncodingType    = Nothing
-    , _lovrKeyMarker       = Nothing
-    , _lovrMaxKeys         = Nothing
-    , _lovrPrefix          = Nothing
-    , _lovrVersionIdMarker = Nothing
+    { _lovBucket          = p1
+    , _lovDelimiter       = Nothing
+    , _lovEncodingType    = Nothing
+    , _lovKeyMarker       = Nothing
+    , _lovMaxKeys         = Nothing
+    , _lovPrefix          = Nothing
+    , _lovVersionIdMarker = Nothing
     }
 
-lovrBucket :: Lens' ListObjectVersions Text
-lovrBucket = lens _lovrBucket (\s a -> s { _lovrBucket = a })
+lovBucket :: Lens' ListObjectVersions Text
+lovBucket = lens _lovBucket (\s a -> s { _lovBucket = a })
 
 -- | A delimiter is a character you use to group keys.
-lovrDelimiter :: Lens' ListObjectVersions (Maybe Text)
-lovrDelimiter = lens _lovrDelimiter (\s a -> s { _lovrDelimiter = a })
+lovDelimiter :: Lens' ListObjectVersions (Maybe Text)
+lovDelimiter = lens _lovDelimiter (\s a -> s { _lovDelimiter = a })
 
-lovrEncodingType :: Lens' ListObjectVersions (Maybe Text)
-lovrEncodingType = lens _lovrEncodingType (\s a -> s { _lovrEncodingType = a })
+lovEncodingType :: Lens' ListObjectVersions (Maybe Text)
+lovEncodingType = lens _lovEncodingType (\s a -> s { _lovEncodingType = a })
 
 -- | Specifies the key to start with when listing objects in a bucket.
-lovrKeyMarker :: Lens' ListObjectVersions (Maybe Text)
-lovrKeyMarker = lens _lovrKeyMarker (\s a -> s { _lovrKeyMarker = a })
+lovKeyMarker :: Lens' ListObjectVersions (Maybe Text)
+lovKeyMarker = lens _lovKeyMarker (\s a -> s { _lovKeyMarker = a })
 
 -- | Sets the maximum number of keys returned in the response. The response
 -- might contain fewer keys but will never contain more.
-lovrMaxKeys :: Lens' ListObjectVersions (Maybe Int)
-lovrMaxKeys = lens _lovrMaxKeys (\s a -> s { _lovrMaxKeys = a })
+lovMaxKeys :: Lens' ListObjectVersions (Maybe Int)
+lovMaxKeys = lens _lovMaxKeys (\s a -> s { _lovMaxKeys = a })
 
 -- | Limits the response to keys that begin with the specified prefix.
-lovrPrefix :: Lens' ListObjectVersions (Maybe Text)
-lovrPrefix = lens _lovrPrefix (\s a -> s { _lovrPrefix = a })
+lovPrefix :: Lens' ListObjectVersions (Maybe Text)
+lovPrefix = lens _lovPrefix (\s a -> s { _lovPrefix = a })
 
 -- | Specifies the object version you want to start listing from.
-lovrVersionIdMarker :: Lens' ListObjectVersions (Maybe Text)
-lovrVersionIdMarker =
-    lens _lovrVersionIdMarker (\s a -> s { _lovrVersionIdMarker = a })
+lovVersionIdMarker :: Lens' ListObjectVersions (Maybe Text)
+lovVersionIdMarker =
+    lens _lovVersionIdMarker (\s a -> s { _lovVersionIdMarker = a })
 
 instance ToPath ListObjectVersions where
     toPath ListObjectVersions{..} = mconcat
         [ "/"
-        , toText _lovrBucket
+        , toText _lovBucket
         ]
 
 instance ToQuery ListObjectVersions where
     toQuery ListObjectVersions{..} = mconcat
         [ "versions"
-        , "delimiter"         =? _lovrDelimiter
-        , "encoding-type"     =? _lovrEncodingType
-        , "key-marker"        =? _lovrKeyMarker
-        , "max-keys"          =? _lovrMaxKeys
-        , "prefix"            =? _lovrPrefix
-        , "version-id-marker" =? _lovrVersionIdMarker
+        , "delimiter"         =? _lovDelimiter
+        , "encoding-type"     =? _lovEncodingType
+        , "key-marker"        =? _lovKeyMarker
+        , "max-keys"          =? _lovMaxKeys
+        , "prefix"            =? _lovPrefix
+        , "version-id-marker" =? _lovVersionIdMarker
         ]
 
 instance ToHeaders ListObjectVersions
@@ -259,7 +261,7 @@ instance AWSRequest ListObjectVersions where
     type Sv ListObjectVersions = S3
     type Rs ListObjectVersions = ListObjectVersionsOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> ListObjectVersionsOutput
         <$> x %| "CommonPrefixes"
         <*> x %| "DeleteMarker"

@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketCors
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.DeleteBucketCors
     -- ** Request constructor
     , deleteBucketCors
     -- ** Request lenses
-    , dbcrBucket
+    , dbcBucket
 
     -- * Response
     , DeleteBucketCorsResponse
@@ -35,32 +37,32 @@ module Network.AWS.S3.DeleteBucketCors
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype DeleteBucketCors = DeleteBucketCors
-    { _dbcrBucket :: Text
+    { _dbcBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteBucketCors' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbcrBucket' @::@ 'Text'
+-- * 'dbcBucket' @::@ 'Text'
 --
-deleteBucketCors :: Text -- ^ 'dbcrBucket'
+deleteBucketCors :: Text -- ^ 'dbcBucket'
                  -> DeleteBucketCors
 deleteBucketCors p1 = DeleteBucketCors
-    { _dbcrBucket = p1
+    { _dbcBucket = p1
     }
 
-dbcrBucket :: Lens' DeleteBucketCors Text
-dbcrBucket = lens _dbcrBucket (\s a -> s { _dbcrBucket = a })
+dbcBucket :: Lens' DeleteBucketCors Text
+dbcBucket = lens _dbcBucket (\s a -> s { _dbcBucket = a })
 
 instance ToPath DeleteBucketCors where
     toPath DeleteBucketCors{..} = mconcat
         [ "/"
-        , toText _dbcrBucket
+        , toText _dbcBucket
         ]
 
 instance ToQuery DeleteBucketCors where
@@ -78,5 +80,5 @@ instance AWSRequest DeleteBucketCors where
     type Sv DeleteBucketCors = S3
     type Rs DeleteBucketCors = DeleteBucketCorsResponse
 
-    request  = delete'
+    request  = delete
     response = const (nullaryResponse DeleteBucketCorsResponse)

@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.AbortMultipartUpload
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,9 +30,9 @@ module Network.AWS.S3.AbortMultipartUpload
     -- ** Request constructor
     , abortMultipartUpload
     -- ** Request lenses
-    , amurBucket
-    , amurKey
-    , amurUploadId
+    , amuBucket
+    , amuKey
+    , amuUploadId
 
     -- * Response
     , AbortMultipartUploadResponse
@@ -39,53 +41,54 @@ module Network.AWS.S3.AbortMultipartUpload
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data AbortMultipartUpload = AbortMultipartUpload
-    { _amurBucket   :: Text
-    , _amurKey      :: Text
-    , _amurUploadId :: Text
+    { _amuBucket   :: Text
+    , _amuKey      :: Text
+    , _amuUploadId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AbortMultipartUpload' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'amurBucket' @::@ 'Text'
+-- * 'amuBucket' @::@ 'Text'
 --
--- * 'amurKey' @::@ 'Text'
+-- * 'amuKey' @::@ 'Text'
 --
--- * 'amurUploadId' @::@ 'Text'
+-- * 'amuUploadId' @::@ 'Text'
 --
-abortMultipartUpload :: Text -- ^ 'amurBucket'
-                     -> Text -- ^ 'amurKey'
-                     -> Text -- ^ 'amurUploadId'
+abortMultipartUpload :: Text -- ^ 'amuBucket'
+                     -> Text -- ^ 'amuKey'
+                     -> Text -- ^ 'amuUploadId'
                      -> AbortMultipartUpload
 abortMultipartUpload p1 p2 p3 = AbortMultipartUpload
-    { _amurBucket   = p1
-    , _amurKey      = p2
-    , _amurUploadId = p3
+    { _amuBucket   = p1
+    , _amuKey      = p2
+    , _amuUploadId = p3
     }
 
-amurBucket :: Lens' AbortMultipartUpload Text
-amurBucket = lens _amurBucket (\s a -> s { _amurBucket = a })
+amuBucket :: Lens' AbortMultipartUpload Text
+amuBucket = lens _amuBucket (\s a -> s { _amuBucket = a })
 
-amurKey :: Lens' AbortMultipartUpload Text
-amurKey = lens _amurKey (\s a -> s { _amurKey = a })
+amuKey :: Lens' AbortMultipartUpload Text
+amuKey = lens _amuKey (\s a -> s { _amuKey = a })
 
-amurUploadId :: Lens' AbortMultipartUpload Text
-amurUploadId = lens _amurUploadId (\s a -> s { _amurUploadId = a })
+amuUploadId :: Lens' AbortMultipartUpload Text
+amuUploadId = lens _amuUploadId (\s a -> s { _amuUploadId = a })
 
 instance ToPath AbortMultipartUpload where
     toPath AbortMultipartUpload{..} = mconcat
         [ "/"
-        , toText _amurBucket
+        , toText _amuBucket
         , "/"
-        , toText _amurKey
+        , toText _amuKey
         ]
 
 instance ToQuery AbortMultipartUpload where
+    toQuery x = "uploadId" =? _amuUploadId x
 
 instance ToHeaders AbortMultipartUpload
 
@@ -99,5 +102,5 @@ instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3
     type Rs AbortMultipartUpload = AbortMultipartUploadResponse
 
-    request  = delete'
+    request  = delete
     response = const (nullaryResponse AbortMultipartUploadResponse)

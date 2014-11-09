@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,9 +29,9 @@ module Network.AWS.S3.PutBucketPolicy
     -- ** Request constructor
     , putBucketPolicy
     -- ** Request lenses
-    , pbprBucket
-    , pbprContentMD5
-    , pbprPolicy
+    , pbpBucket
+    , pbpContentMD5
+    , pbpPolicy
 
     -- * Response
     , PutBucketPolicyResponse
@@ -38,48 +40,48 @@ module Network.AWS.S3.PutBucketPolicy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketPolicy = PutBucketPolicy
-    { _pbprBucket     :: Text
-    , _pbprContentMD5 :: Maybe Text
-    , _pbprPolicy     :: Text
+    { _pbpBucket     :: Text
+    , _pbpContentMD5 :: Maybe Text
+    , _pbpPolicy     :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbprBucket' @::@ 'Text'
+-- * 'pbpBucket' @::@ 'Text'
 --
--- * 'pbprContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pbpContentMD5' @::@ 'Maybe' 'Text'
 --
--- * 'pbprPolicy' @::@ 'Text'
+-- * 'pbpPolicy' @::@ 'Text'
 --
-putBucketPolicy :: Text -- ^ 'pbprBucket'
-                -> Text -- ^ 'pbprPolicy'
+putBucketPolicy :: Text -- ^ 'pbpBucket'
+                -> Text -- ^ 'pbpPolicy'
                 -> PutBucketPolicy
 putBucketPolicy p1 p2 = PutBucketPolicy
-    { _pbprBucket     = p1
-    , _pbprPolicy     = p2
-    , _pbprContentMD5 = Nothing
+    { _pbpBucket     = p1
+    , _pbpPolicy     = p2
+    , _pbpContentMD5 = Nothing
     }
 
-pbprBucket :: Lens' PutBucketPolicy Text
-pbprBucket = lens _pbprBucket (\s a -> s { _pbprBucket = a })
+pbpBucket :: Lens' PutBucketPolicy Text
+pbpBucket = lens _pbpBucket (\s a -> s { _pbpBucket = a })
 
-pbprContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
-pbprContentMD5 = lens _pbprContentMD5 (\s a -> s { _pbprContentMD5 = a })
+pbpContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
+pbpContentMD5 = lens _pbpContentMD5 (\s a -> s { _pbpContentMD5 = a })
 
 -- | The bucket policy as a JSON document.
-pbprPolicy :: Lens' PutBucketPolicy Text
-pbprPolicy = lens _pbprPolicy (\s a -> s { _pbprPolicy = a })
+pbpPolicy :: Lens' PutBucketPolicy Text
+pbpPolicy = lens _pbpPolicy (\s a -> s { _pbpPolicy = a })
 
 instance ToPath PutBucketPolicy where
     toPath PutBucketPolicy{..} = mconcat
         [ "/"
-        , toText _pbprBucket
+        , toText _pbpBucket
         ]
 
 instance ToQuery PutBucketPolicy where
@@ -87,11 +89,11 @@ instance ToQuery PutBucketPolicy where
 
 instance ToHeaders PutBucketPolicy where
     toHeaders PutBucketPolicy{..} = mconcat
-        [ "Content-MD5" =: _pbprContentMD5
+        [ "Content-MD5" =: _pbpContentMD5
         ]
 
 instance ToBody PutBucketPolicy where
-    toBody = toBody . encodeXML . _pbprPolicy
+    toBody = toBody . encodeXML . _pbpPolicy
 
 data PutBucketPolicyResponse = PutBucketPolicyResponse
 
@@ -103,5 +105,5 @@ instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3
     type Rs PutBucketPolicy = PutBucketPolicyResponse
 
-    request  = put'
+    request  = put
     response = const (nullaryResponse PutBucketPolicyResponse)

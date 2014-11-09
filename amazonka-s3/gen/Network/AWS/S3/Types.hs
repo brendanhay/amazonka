@@ -383,14 +383,14 @@ module Network.AWS.S3.Types
 
     -- * Delete
     , Delete
-    , delete
+    , delete'
     , dObjects
     , dQuiet
 
     -- * RestoreRequest
     , RestoreRequest
     , restoreRequest
-    , rrDays
+    , rDays
 
     -- * Common
     , module Network.AWS.S3.Internal
@@ -2033,7 +2033,7 @@ instance ToXML CompletedPart where
 
 newtype CreateBucketConfiguration = CreateBucketConfiguration
     { _cbcLocationConstraint :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateBucketConfiguration' constructor.
 --
@@ -2220,7 +2220,7 @@ instance ToXML Object where
 
 newtype CommonPrefix = CommonPrefix
     { _cpPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CommonPrefix' constructor.
 --
@@ -2785,8 +2785,8 @@ data Delete = Delete
 --
 -- * 'dQuiet' @::@ 'Maybe' 'Bool'
 --
-delete :: Delete
-delete = Delete
+delete' :: Delete
+delete' = Delete
     { _dObjects = mempty
     , _dQuiet   = Nothing
     }
@@ -2808,24 +2808,24 @@ instance ToXML Delete where
     toXMLRoot    = toRoot "Delete"
 
 newtype RestoreRequest = RestoreRequest
-    { _rrDays :: Int
+    { _rDays :: Int
     } deriving (Eq, Ord, Show, Generic, Enum, Num)
 
 -- | 'RestoreRequest' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrDays' @::@ 'Int'
+-- * 'rDays' @::@ 'Int'
 --
-restoreRequest :: Int -- ^ 'rrDays'
+restoreRequest :: Int -- ^ 'rDays'
                -> RestoreRequest
 restoreRequest p1 = RestoreRequest
-    { _rrDays = p1
+    { _rDays = p1
     }
 
 -- | Lifetime of the active copy in days.
-rrDays :: Lens' RestoreRequest Int
-rrDays = lens _rrDays (\s a -> s { _rrDays = a })
+rDays :: Lens' RestoreRequest Int
+rDays = lens _rDays (\s a -> s { _rDays = a })
 
 instance FromXML RestoreRequest where
     fromXMLOptions = xmlOptions

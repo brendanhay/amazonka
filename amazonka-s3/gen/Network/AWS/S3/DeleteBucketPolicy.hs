@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketPolicy
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.DeleteBucketPolicy
     -- ** Request constructor
     , deleteBucketPolicy
     -- ** Request lenses
-    , dbprBucket
+    , dbpBucket
 
     -- * Response
     , DeleteBucketPolicyResponse
@@ -35,32 +37,32 @@ module Network.AWS.S3.DeleteBucketPolicy
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype DeleteBucketPolicy = DeleteBucketPolicy
-    { _dbprBucket :: Text
+    { _dbpBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteBucketPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbprBucket' @::@ 'Text'
+-- * 'dbpBucket' @::@ 'Text'
 --
-deleteBucketPolicy :: Text -- ^ 'dbprBucket'
+deleteBucketPolicy :: Text -- ^ 'dbpBucket'
                    -> DeleteBucketPolicy
 deleteBucketPolicy p1 = DeleteBucketPolicy
-    { _dbprBucket = p1
+    { _dbpBucket = p1
     }
 
-dbprBucket :: Lens' DeleteBucketPolicy Text
-dbprBucket = lens _dbprBucket (\s a -> s { _dbprBucket = a })
+dbpBucket :: Lens' DeleteBucketPolicy Text
+dbpBucket = lens _dbpBucket (\s a -> s { _dbpBucket = a })
 
 instance ToPath DeleteBucketPolicy where
     toPath DeleteBucketPolicy{..} = mconcat
         [ "/"
-        , toText _dbprBucket
+        , toText _dbpBucket
         ]
 
 instance ToQuery DeleteBucketPolicy where
@@ -78,5 +80,5 @@ instance AWSRequest DeleteBucketPolicy where
     type Sv DeleteBucketPolicy = S3
     type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
 
-    request  = delete'
+    request  = delete
     response = const (nullaryResponse DeleteBucketPolicyResponse)

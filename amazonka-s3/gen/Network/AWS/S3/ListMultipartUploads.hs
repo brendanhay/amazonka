@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.ListMultipartUploads
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,13 +28,13 @@ module Network.AWS.S3.ListMultipartUploads
     -- ** Request constructor
     , listMultipartUploads
     -- ** Request lenses
-    , lmurBucket
-    , lmurDelimiter
-    , lmurEncodingType
-    , lmurKeyMarker
-    , lmurMaxUploads
-    , lmurPrefix
-    , lmurUploadIdMarker
+    , lmuBucket
+    , lmuDelimiter
+    , lmuEncodingType
+    , lmuKeyMarker
+    , lmuMaxUploads
+    , lmuPrefix
+    , lmuUploadIdMarker
 
     -- * Response
     , ListMultipartUploadsOutput
@@ -53,97 +55,97 @@ module Network.AWS.S3.ListMultipartUploads
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data ListMultipartUploads = ListMultipartUploads
-    { _lmurBucket         :: Text
-    , _lmurDelimiter      :: Maybe Text
-    , _lmurEncodingType   :: Maybe Text
-    , _lmurKeyMarker      :: Maybe Text
-    , _lmurMaxUploads     :: Maybe Int
-    , _lmurPrefix         :: Maybe Text
-    , _lmurUploadIdMarker :: Maybe Text
+    { _lmuBucket         :: Text
+    , _lmuDelimiter      :: Maybe Text
+    , _lmuEncodingType   :: Maybe Text
+    , _lmuKeyMarker      :: Maybe Text
+    , _lmuMaxUploads     :: Maybe Int
+    , _lmuPrefix         :: Maybe Text
+    , _lmuUploadIdMarker :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListMultipartUploads' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lmurBucket' @::@ 'Text'
+-- * 'lmuBucket' @::@ 'Text'
 --
--- * 'lmurDelimiter' @::@ 'Maybe' 'Text'
+-- * 'lmuDelimiter' @::@ 'Maybe' 'Text'
 --
--- * 'lmurEncodingType' @::@ 'Maybe' 'Text'
+-- * 'lmuEncodingType' @::@ 'Maybe' 'Text'
 --
--- * 'lmurKeyMarker' @::@ 'Maybe' 'Text'
+-- * 'lmuKeyMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lmurMaxUploads' @::@ 'Maybe' 'Int'
+-- * 'lmuMaxUploads' @::@ 'Maybe' 'Int'
 --
--- * 'lmurPrefix' @::@ 'Maybe' 'Text'
+-- * 'lmuPrefix' @::@ 'Maybe' 'Text'
 --
--- * 'lmurUploadIdMarker' @::@ 'Maybe' 'Text'
+-- * 'lmuUploadIdMarker' @::@ 'Maybe' 'Text'
 --
-listMultipartUploads :: Text -- ^ 'lmurBucket'
+listMultipartUploads :: Text -- ^ 'lmuBucket'
                      -> ListMultipartUploads
 listMultipartUploads p1 = ListMultipartUploads
-    { _lmurBucket         = p1
-    , _lmurDelimiter      = Nothing
-    , _lmurEncodingType   = Nothing
-    , _lmurKeyMarker      = Nothing
-    , _lmurMaxUploads     = Nothing
-    , _lmurPrefix         = Nothing
-    , _lmurUploadIdMarker = Nothing
+    { _lmuBucket         = p1
+    , _lmuDelimiter      = Nothing
+    , _lmuEncodingType   = Nothing
+    , _lmuKeyMarker      = Nothing
+    , _lmuMaxUploads     = Nothing
+    , _lmuPrefix         = Nothing
+    , _lmuUploadIdMarker = Nothing
     }
 
-lmurBucket :: Lens' ListMultipartUploads Text
-lmurBucket = lens _lmurBucket (\s a -> s { _lmurBucket = a })
+lmuBucket :: Lens' ListMultipartUploads Text
+lmuBucket = lens _lmuBucket (\s a -> s { _lmuBucket = a })
 
 -- | Character you use to group keys.
-lmurDelimiter :: Lens' ListMultipartUploads (Maybe Text)
-lmurDelimiter = lens _lmurDelimiter (\s a -> s { _lmurDelimiter = a })
+lmuDelimiter :: Lens' ListMultipartUploads (Maybe Text)
+lmuDelimiter = lens _lmuDelimiter (\s a -> s { _lmuDelimiter = a })
 
-lmurEncodingType :: Lens' ListMultipartUploads (Maybe Text)
-lmurEncodingType = lens _lmurEncodingType (\s a -> s { _lmurEncodingType = a })
+lmuEncodingType :: Lens' ListMultipartUploads (Maybe Text)
+lmuEncodingType = lens _lmuEncodingType (\s a -> s { _lmuEncodingType = a })
 
 -- | Together with upload-id-marker, this parameter specifies the multipart
 -- upload after which listing should begin.
-lmurKeyMarker :: Lens' ListMultipartUploads (Maybe Text)
-lmurKeyMarker = lens _lmurKeyMarker (\s a -> s { _lmurKeyMarker = a })
+lmuKeyMarker :: Lens' ListMultipartUploads (Maybe Text)
+lmuKeyMarker = lens _lmuKeyMarker (\s a -> s { _lmuKeyMarker = a })
 
 -- | Sets the maximum number of multipart uploads, from 1 to 1,000, to return
 -- in the response body. 1,000 is the maximum number of uploads that can be
 -- returned in a response.
-lmurMaxUploads :: Lens' ListMultipartUploads (Maybe Int)
-lmurMaxUploads = lens _lmurMaxUploads (\s a -> s { _lmurMaxUploads = a })
+lmuMaxUploads :: Lens' ListMultipartUploads (Maybe Int)
+lmuMaxUploads = lens _lmuMaxUploads (\s a -> s { _lmuMaxUploads = a })
 
 -- | Lists in-progress uploads only for those keys that begin with the
 -- specified prefix.
-lmurPrefix :: Lens' ListMultipartUploads (Maybe Text)
-lmurPrefix = lens _lmurPrefix (\s a -> s { _lmurPrefix = a })
+lmuPrefix :: Lens' ListMultipartUploads (Maybe Text)
+lmuPrefix = lens _lmuPrefix (\s a -> s { _lmuPrefix = a })
 
 -- | Together with key-marker, specifies the multipart upload after which
 -- listing should begin. If key-marker is not specified, the
 -- upload-id-marker parameter is ignored.
-lmurUploadIdMarker :: Lens' ListMultipartUploads (Maybe Text)
-lmurUploadIdMarker =
-    lens _lmurUploadIdMarker (\s a -> s { _lmurUploadIdMarker = a })
+lmuUploadIdMarker :: Lens' ListMultipartUploads (Maybe Text)
+lmuUploadIdMarker =
+    lens _lmuUploadIdMarker (\s a -> s { _lmuUploadIdMarker = a })
 
 instance ToPath ListMultipartUploads where
     toPath ListMultipartUploads{..} = mconcat
         [ "/"
-        , toText _lmurBucket
+        , toText _lmuBucket
         ]
 
 instance ToQuery ListMultipartUploads where
     toQuery ListMultipartUploads{..} = mconcat
         [ "uploads"
-        , "delimiter"        =? _lmurDelimiter
-        , "encoding-type"    =? _lmurEncodingType
-        , "key-marker"       =? _lmurKeyMarker
-        , "max-uploads"      =? _lmurMaxUploads
-        , "prefix"           =? _lmurPrefix
-        , "upload-id-marker" =? _lmurUploadIdMarker
+        , "delimiter"        =? _lmuDelimiter
+        , "encoding-type"    =? _lmuEncodingType
+        , "key-marker"       =? _lmuKeyMarker
+        , "max-uploads"      =? _lmuMaxUploads
+        , "prefix"           =? _lmuPrefix
+        , "upload-id-marker" =? _lmuUploadIdMarker
         ]
 
 instance ToHeaders ListMultipartUploads
@@ -261,7 +263,7 @@ instance AWSRequest ListMultipartUploads where
     type Sv ListMultipartUploads = S3
     type Rs ListMultipartUploads = ListMultipartUploadsOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> ListMultipartUploadsOutput
         <$> x %| "Bucket"
         <*> x %| "CommonPrefixes"

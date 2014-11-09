@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketTagging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.GetBucketTagging
     -- ** Request constructor
     , getBucketTagging
     -- ** Request lenses
-    , gbtrBucket
+    , gbtBucket
 
     -- * Response
     , GetBucketTaggingOutput
@@ -37,32 +39,32 @@ module Network.AWS.S3.GetBucketTagging
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketTagging = GetBucketTagging
-    { _gbtrBucket :: Text
+    { _gbtBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketTagging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbtrBucket' @::@ 'Text'
+-- * 'gbtBucket' @::@ 'Text'
 --
-getBucketTagging :: Text -- ^ 'gbtrBucket'
+getBucketTagging :: Text -- ^ 'gbtBucket'
                  -> GetBucketTagging
 getBucketTagging p1 = GetBucketTagging
-    { _gbtrBucket = p1
+    { _gbtBucket = p1
     }
 
-gbtrBucket :: Lens' GetBucketTagging Text
-gbtrBucket = lens _gbtrBucket (\s a -> s { _gbtrBucket = a })
+gbtBucket :: Lens' GetBucketTagging Text
+gbtBucket = lens _gbtBucket (\s a -> s { _gbtBucket = a })
 
 instance ToPath GetBucketTagging where
     toPath GetBucketTagging{..} = mconcat
         [ "/"
-        , toText _gbtrBucket
+        , toText _gbtBucket
         ]
 
 instance ToQuery GetBucketTagging where
@@ -92,6 +94,6 @@ instance AWSRequest GetBucketTagging where
     type Sv GetBucketTagging = S3
     type Rs GetBucketTagging = GetBucketTaggingOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> GetBucketTaggingOutput
         <$> x %| "TagSet"

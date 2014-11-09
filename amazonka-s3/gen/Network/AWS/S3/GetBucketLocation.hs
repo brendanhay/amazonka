@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.GetBucketLocation
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.GetBucketLocation
     -- ** Request constructor
     , getBucketLocation
     -- ** Request lenses
-    , gblrBucket
+    , gblBucket
 
     -- * Response
     , GetBucketLocationOutput
@@ -37,32 +39,32 @@ module Network.AWS.S3.GetBucketLocation
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype GetBucketLocation = GetBucketLocation
-    { _gblrBucket :: Text
+    { _gblBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketLocation' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gblrBucket' @::@ 'Text'
+-- * 'gblBucket' @::@ 'Text'
 --
-getBucketLocation :: Text -- ^ 'gblrBucket'
+getBucketLocation :: Text -- ^ 'gblBucket'
                   -> GetBucketLocation
 getBucketLocation p1 = GetBucketLocation
-    { _gblrBucket = p1
+    { _gblBucket = p1
     }
 
-gblrBucket :: Lens' GetBucketLocation Text
-gblrBucket = lens _gblrBucket (\s a -> s { _gblrBucket = a })
+gblBucket :: Lens' GetBucketLocation Text
+gblBucket = lens _gblBucket (\s a -> s { _gblBucket = a })
 
 instance ToPath GetBucketLocation where
     toPath GetBucketLocation{..} = mconcat
         [ "/"
-        , toText _gblrBucket
+        , toText _gblBucket
         ]
 
 instance ToQuery GetBucketLocation where
@@ -72,7 +74,7 @@ instance ToHeaders GetBucketLocation
 
 newtype GetBucketLocationOutput = GetBucketLocationOutput
     { _gbloLocationConstraint :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetBucketLocationOutput' constructor.
 --
@@ -93,6 +95,6 @@ instance AWSRequest GetBucketLocation where
     type Sv GetBucketLocation = S3
     type Rs GetBucketLocation = GetBucketLocationOutput
 
-    request  = get'
+    request  = get
     response = const . xmlResponse $ \h x -> GetBucketLocationOutput
         <$> x %| "LocationConstraint"

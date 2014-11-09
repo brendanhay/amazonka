@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteObjects
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -27,9 +29,9 @@ module Network.AWS.S3.DeleteObjects
     -- ** Request constructor
     , deleteObjects
     -- ** Request lenses
-    , dorBucket
-    , dorDelete
-    , dorMFA
+    , doBucket
+    , doDelete
+    , doMFA
 
     -- * Response
     , DeleteObjectsOutput
@@ -41,49 +43,49 @@ module Network.AWS.S3.DeleteObjects
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data DeleteObjects = DeleteObjects
-    { _dorBucket :: Text
-    , _dorDelete :: Delete
-    , _dorMFA    :: Maybe Text
+    { _doBucket :: Text
+    , _doDelete :: Delete
+    , _doMFA    :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DeleteObjects' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dorBucket' @::@ 'Text'
+-- * 'doBucket' @::@ 'Text'
 --
--- * 'dorDelete' @::@ 'Delete'
+-- * 'doDelete' @::@ 'Delete'
 --
--- * 'dorMFA' @::@ 'Maybe' 'Text'
+-- * 'doMFA' @::@ 'Maybe' 'Text'
 --
-deleteObjects :: Text -- ^ 'dorBucket'
-              -> Delete -- ^ 'dorDelete'
+deleteObjects :: Text -- ^ 'doBucket'
+              -> Delete -- ^ 'doDelete'
               -> DeleteObjects
 deleteObjects p1 p2 = DeleteObjects
-    { _dorBucket = p1
-    , _dorDelete = p2
-    , _dorMFA    = Nothing
+    { _doBucket = p1
+    , _doDelete = p2
+    , _doMFA    = Nothing
     }
 
-dorBucket :: Lens' DeleteObjects Text
-dorBucket = lens _dorBucket (\s a -> s { _dorBucket = a })
+doBucket :: Lens' DeleteObjects Text
+doBucket = lens _doBucket (\s a -> s { _doBucket = a })
 
-dorDelete :: Lens' DeleteObjects Delete
-dorDelete = lens _dorDelete (\s a -> s { _dorDelete = a })
+doDelete :: Lens' DeleteObjects Delete
+doDelete = lens _doDelete (\s a -> s { _doDelete = a })
 
 -- | The concatenation of the authentication device's serial number, a space,
 -- and the value that is displayed on your authentication device.
-dorMFA :: Lens' DeleteObjects (Maybe Text)
-dorMFA = lens _dorMFA (\s a -> s { _dorMFA = a })
+doMFA :: Lens' DeleteObjects (Maybe Text)
+doMFA = lens _doMFA (\s a -> s { _doMFA = a })
 
 instance ToPath DeleteObjects where
     toPath DeleteObjects{..} = mconcat
         [ "/"
-        , toText _dorBucket
+        , toText _doBucket
         ]
 
 instance ToQuery DeleteObjects where
@@ -91,11 +93,11 @@ instance ToQuery DeleteObjects where
 
 instance ToHeaders DeleteObjects where
     toHeaders DeleteObjects{..} = mconcat
-        [ "x-amz-mfa" =: _dorMFA
+        [ "x-amz-mfa" =: _doMFA
         ]
 
 instance ToBody DeleteObjects where
-    toBody = toBody . encodeXML . _dorDelete
+    toBody = toBody . encodeXML . _doDelete
 
 data DeleteObjectsOutput = DeleteObjectsOutput
     { _dooDeleted :: [S3ServiceError]
@@ -126,7 +128,7 @@ instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
     type Rs DeleteObjects = DeleteObjectsOutput
 
-    request  = post'
+    request  = post
     response = const . xmlResponse $ \h x -> DeleteObjectsOutput
         <$> x %| "Deleted"
         <*> x %| "Error"

@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketLifecycle
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -26,7 +28,7 @@ module Network.AWS.S3.DeleteBucketLifecycle
     -- ** Request constructor
     , deleteBucketLifecycle
     -- ** Request lenses
-    , dblrBucket
+    , dblBucket
 
     -- * Response
     , DeleteBucketLifecycleResponse
@@ -35,32 +37,32 @@ module Network.AWS.S3.DeleteBucketLifecycle
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 newtype DeleteBucketLifecycle = DeleteBucketLifecycle
-    { _dblrBucket :: Text
+    { _dblBucket :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteBucketLifecycle' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dblrBucket' @::@ 'Text'
+-- * 'dblBucket' @::@ 'Text'
 --
-deleteBucketLifecycle :: Text -- ^ 'dblrBucket'
+deleteBucketLifecycle :: Text -- ^ 'dblBucket'
                       -> DeleteBucketLifecycle
 deleteBucketLifecycle p1 = DeleteBucketLifecycle
-    { _dblrBucket = p1
+    { _dblBucket = p1
     }
 
-dblrBucket :: Lens' DeleteBucketLifecycle Text
-dblrBucket = lens _dblrBucket (\s a -> s { _dblrBucket = a })
+dblBucket :: Lens' DeleteBucketLifecycle Text
+dblBucket = lens _dblBucket (\s a -> s { _dblBucket = a })
 
 instance ToPath DeleteBucketLifecycle where
     toPath DeleteBucketLifecycle{..} = mconcat
         [ "/"
-        , toText _dblrBucket
+        , toText _dblBucket
         ]
 
 instance ToQuery DeleteBucketLifecycle where
@@ -78,5 +80,5 @@ instance AWSRequest DeleteBucketLifecycle where
     type Sv DeleteBucketLifecycle = S3
     type Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
 
-    request  = delete'
+    request  = delete
     response = const (nullaryResponse DeleteBucketLifecycleResponse)

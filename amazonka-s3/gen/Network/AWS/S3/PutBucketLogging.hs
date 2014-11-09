@@ -7,6 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 -- Module      : Network.AWS.S3.PutBucketLogging
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -28,9 +30,9 @@ module Network.AWS.S3.PutBucketLogging
     -- ** Request constructor
     , putBucketLogging
     -- ** Request lenses
-    , pblr1Bucket
-    , pblr1BucketLoggingStatus
-    , pblr1ContentMD5
+    , pbl1Bucket
+    , pbl1BucketLoggingStatus
+    , pbl1ContentMD5
 
     -- * Response
     , PutBucketLoggingResponse
@@ -39,49 +41,48 @@ module Network.AWS.S3.PutBucketLogging
     ) where
 
 import Network.AWS.Prelude
-import Network.AWS.Request.XML
+import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketLogging = PutBucketLogging
-    { _pblr1Bucket              :: Text
-    , _pblr1BucketLoggingStatus :: BucketLoggingStatus
-    , _pblr1ContentMD5          :: Maybe Text
+    { _pbl1Bucket              :: Text
+    , _pbl1BucketLoggingStatus :: BucketLoggingStatus
+    , _pbl1ContentMD5          :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketLogging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pblr1Bucket' @::@ 'Text'
+-- * 'pbl1Bucket' @::@ 'Text'
 --
--- * 'pblr1BucketLoggingStatus' @::@ 'BucketLoggingStatus'
+-- * 'pbl1BucketLoggingStatus' @::@ 'BucketLoggingStatus'
 --
--- * 'pblr1ContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pbl1ContentMD5' @::@ 'Maybe' 'Text'
 --
-putBucketLogging :: Text -- ^ 'pblr1Bucket'
-                 -> BucketLoggingStatus -- ^ 'pblr1BucketLoggingStatus'
+putBucketLogging :: Text -- ^ 'pbl1Bucket'
+                 -> BucketLoggingStatus -- ^ 'pbl1BucketLoggingStatus'
                  -> PutBucketLogging
 putBucketLogging p1 p2 = PutBucketLogging
-    { _pblr1Bucket              = p1
-    , _pblr1BucketLoggingStatus = p2
-    , _pblr1ContentMD5          = Nothing
+    { _pbl1Bucket              = p1
+    , _pbl1BucketLoggingStatus = p2
+    , _pbl1ContentMD5          = Nothing
     }
 
-pblr1Bucket :: Lens' PutBucketLogging Text
-pblr1Bucket = lens _pblr1Bucket (\s a -> s { _pblr1Bucket = a })
+pbl1Bucket :: Lens' PutBucketLogging Text
+pbl1Bucket = lens _pbl1Bucket (\s a -> s { _pbl1Bucket = a })
 
-pblr1BucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
-pblr1BucketLoggingStatus =
-    lens _pblr1BucketLoggingStatus
-        (\s a -> s { _pblr1BucketLoggingStatus = a })
+pbl1BucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
+pbl1BucketLoggingStatus =
+    lens _pbl1BucketLoggingStatus (\s a -> s { _pbl1BucketLoggingStatus = a })
 
-pblr1ContentMD5 :: Lens' PutBucketLogging (Maybe Text)
-pblr1ContentMD5 = lens _pblr1ContentMD5 (\s a -> s { _pblr1ContentMD5 = a })
+pbl1ContentMD5 :: Lens' PutBucketLogging (Maybe Text)
+pbl1ContentMD5 = lens _pbl1ContentMD5 (\s a -> s { _pbl1ContentMD5 = a })
 
 instance ToPath PutBucketLogging where
     toPath PutBucketLogging{..} = mconcat
         [ "/"
-        , toText _pblr1Bucket
+        , toText _pbl1Bucket
         ]
 
 instance ToQuery PutBucketLogging where
@@ -89,11 +90,11 @@ instance ToQuery PutBucketLogging where
 
 instance ToHeaders PutBucketLogging where
     toHeaders PutBucketLogging{..} = mconcat
-        [ "Content-MD5" =: _pblr1ContentMD5
+        [ "Content-MD5" =: _pbl1ContentMD5
         ]
 
 instance ToBody PutBucketLogging where
-    toBody = toBody . encodeXML . _pblr1BucketLoggingStatus
+    toBody = toBody . encodeXML . _pbl1BucketLoggingStatus
 
 data PutBucketLoggingResponse = PutBucketLoggingResponse
 
@@ -105,5 +106,5 @@ instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3
     type Rs PutBucketLogging = PutBucketLoggingResponse
 
-    request  = put'
+    request  = put
     response = const (nullaryResponse PutBucketLoggingResponse)

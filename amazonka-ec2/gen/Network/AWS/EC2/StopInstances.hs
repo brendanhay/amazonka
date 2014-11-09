@@ -133,4 +133,4 @@ instance AWSRequest StopInstances where
 
     request  = post "StopInstances"
     response = const . xmlResponse $ \h x -> StopInstancesResult
-        <$> x %| "instancesSet"
+newtype

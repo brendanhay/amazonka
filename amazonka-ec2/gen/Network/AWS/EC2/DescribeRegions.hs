@@ -111,4 +111,4 @@ instance AWSRequest DescribeRegions where
 
     request  = post "DescribeRegions"
     response = const . xmlResponse $ \h x -> DescribeRegionsResult
-        <$> x %| "regionInfo"
+newtype

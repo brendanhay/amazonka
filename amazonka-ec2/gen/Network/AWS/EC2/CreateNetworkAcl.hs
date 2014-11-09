@@ -103,4 +103,4 @@ instance AWSRequest CreateNetworkAcl where
 
     request  = post "CreateNetworkAcl"
     response = const . xmlResponse $ \h x -> CreateNetworkAclResult
-        <$> x %| "networkAcl"
+newtype

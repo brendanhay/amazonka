@@ -128,5 +128,4 @@ instance AWSRequest ImportKeyPair where
 
     request  = post "ImportKeyPair"
     response = const . xmlResponse $ \h x -> ImportKeyPairResult
-        <$> x %| "keyFingerprint"
-        <*> x %| "keyName"
+record

@@ -97,4 +97,4 @@ instance AWSRequest GetBucketLocation where
 
     request  = get
     response = const . xmlResponse $ \h x -> GetBucketLocationOutput
-        <$> x %| "LocationConstraint"
+newtype

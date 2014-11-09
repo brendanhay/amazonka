@@ -128,4 +128,4 @@ instance AWSRequest DescribeVpnGateways where
 
     request  = post "DescribeVpnGateways"
     response = const . xmlResponse $ \h x -> DescribeVpnGatewaysResult
-        <$> x %| "vpnGatewaySet"
+newtype

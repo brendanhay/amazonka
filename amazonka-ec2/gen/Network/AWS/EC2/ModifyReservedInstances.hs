@@ -118,4 +118,4 @@ instance AWSRequest ModifyReservedInstances where
 
     request  = post "ModifyReservedInstances"
     response = const . xmlResponse $ \h x -> ModifyReservedInstancesResult
-        <$> x %| "reservedInstancesModificationId"
+newtype

@@ -93,4 +93,4 @@ instance AWSRequest DescribeSpotDatafeedSubscription where
 
     request  = post "DescribeSpotDatafeedSubscription"
     response = const . xmlResponse $ \h x -> DescribeSpotDatafeedSubscriptionResult
-        <$> x %| "spotDatafeedSubscription"
+newtype

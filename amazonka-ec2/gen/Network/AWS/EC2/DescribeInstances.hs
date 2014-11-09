@@ -272,5 +272,4 @@ instance AWSRequest DescribeInstances where
 
     request  = post "DescribeInstances"
     response = const . xmlResponse $ \h x -> DescribeInstancesResult
-        <$> x %| "nextToken"
-        <*> x %| "reservationSet"
+record

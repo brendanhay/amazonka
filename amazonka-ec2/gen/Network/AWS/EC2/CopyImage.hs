@@ -144,4 +144,4 @@ instance AWSRequest CopyImage where
 
     request  = post "CopyImage"
     response = const . xmlResponse $ \h x -> CopyImageResult
-        <$> x %| "imageId"
+newtype

@@ -132,4 +132,4 @@ instance AWSRequest ImportVolume where
 
     request  = post "ImportVolume"
     response = const . xmlResponse $ \h x -> ImportVolumeResult
-        <$> x %| "conversionTask"
+newtype

@@ -103,4 +103,4 @@ instance AWSRequest CreateRouteTable where
 
     request  = post "CreateRouteTable"
     response = const . xmlResponse $ \h x -> CreateRouteTableResult
-        <$> x %| "routeTable"
+newtype

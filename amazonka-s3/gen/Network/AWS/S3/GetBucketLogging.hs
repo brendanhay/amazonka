@@ -98,4 +98,4 @@ instance AWSRequest GetBucketLogging where
 
     request  = get
     response = const . xmlResponse $ \h x -> GetBucketLoggingOutput
-        <$> x %| "LoggingEnabled"
+newtype

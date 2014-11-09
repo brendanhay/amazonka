@@ -219,5 +219,4 @@ instance AWSRequest DescribeInstanceStatus where
 
     request  = post "DescribeInstanceStatus"
     response = const . xmlResponse $ \h x -> DescribeInstanceStatusResult
-        <$> x %| "instanceStatusSet"
-        <*> x %| "nextToken"
+record

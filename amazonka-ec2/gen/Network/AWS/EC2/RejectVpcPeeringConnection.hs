@@ -106,4 +106,4 @@ instance AWSRequest RejectVpcPeeringConnection where
 
     request  = post "RejectVpcPeeringConnection"
     response = const . xmlResponse $ \h x -> RejectVpcPeeringConnectionResult
-        <$> x %| "return"
+newtype

@@ -100,4 +100,4 @@ instance AWSRequest CancelBundleTask where
 
     request  = post "CancelBundleTask"
     response = const . xmlResponse $ \h x -> CancelBundleTaskResult
-        <$> x %| "bundleInstanceTask"
+newtype

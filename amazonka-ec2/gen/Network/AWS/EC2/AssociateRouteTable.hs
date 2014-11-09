@@ -117,4 +117,4 @@ instance AWSRequest AssociateRouteTable where
 
     request  = post "AssociateRouteTable"
     response = const . xmlResponse $ \h x -> AssociateRouteTableResult
-        <$> x %| "associationId"
+newtype

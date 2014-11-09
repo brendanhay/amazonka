@@ -177,4 +177,4 @@ instance AWSRequest DescribeSpotInstanceRequests where
 
     request  = post "DescribeSpotInstanceRequests"
     response = const . xmlResponse $ \h x -> DescribeSpotInstanceRequestsResult
-        <$> x %| "spotInstanceRequestSet"
+newtype

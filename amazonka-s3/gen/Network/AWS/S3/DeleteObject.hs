@@ -143,5 +143,4 @@ instance AWSRequest DeleteObject where
 
     request  = delete
     response = const . xmlResponse $ \h x -> DeleteObjectOutput
-        <$> h ~:? "x-amz-delete-marker"
-        <*> h ~:? "x-amz-version-id"
+record

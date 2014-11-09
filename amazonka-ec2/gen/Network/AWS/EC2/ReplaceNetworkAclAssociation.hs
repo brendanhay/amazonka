@@ -116,4 +116,4 @@ instance AWSRequest ReplaceNetworkAclAssociation where
 
     request  = post "ReplaceNetworkAclAssociation"
     response = const . xmlResponse $ \h x -> ReplaceNetworkAclAssociationResult
-        <$> x %| "newAssociationId"
+newtype

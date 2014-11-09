@@ -94,4 +94,4 @@ instance AWSRequest CreateInternetGateway where
 
     request  = post "CreateInternetGateway"
     response = const . xmlResponse $ \h x -> CreateInternetGatewayResult
-        <$> x %| "internetGateway"
+newtype

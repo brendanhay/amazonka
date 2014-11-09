@@ -131,4 +131,4 @@ instance AWSRequest DescribeAddresses where
 
     request  = post "DescribeAddresses"
     response = const . xmlResponse $ \h x -> DescribeAddressesResult
-        <$> x %| "addressesSet"
+newtype

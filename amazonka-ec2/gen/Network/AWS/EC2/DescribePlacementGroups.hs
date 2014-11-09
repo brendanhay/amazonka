@@ -114,4 +114,4 @@ instance AWSRequest DescribePlacementGroups where
 
     request  = post "DescribePlacementGroups"
     response = const . xmlResponse $ \h x -> DescribePlacementGroupsResult
-        <$> x %| "placementGroupSet"
+newtype

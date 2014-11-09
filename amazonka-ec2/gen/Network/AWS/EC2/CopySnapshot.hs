@@ -159,4 +159,4 @@ instance AWSRequest CopySnapshot where
 
     request  = post "CopySnapshot"
     response = const . xmlResponse $ \h x -> CopySnapshotResult
-        <$> x %| "snapshotId"
+newtype

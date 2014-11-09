@@ -96,4 +96,4 @@ instance AWSRequest GetBucketLifecycle where
 
     request  = get
     response = const . xmlResponse $ \h x -> GetBucketLifecycleOutput
-        <$> x %| "Rule"
+newtype

@@ -133,6 +133,4 @@ instance AWSRequest DescribeSnapshotAttribute where
 
     request  = post "DescribeSnapshotAttribute"
     response = const . xmlResponse $ \h x -> DescribeSnapshotAttributeResult
-        <$> x %| "createVolumePermission"
-        <*> x %| "productCodes"
-        <*> x %| "snapshotId"
+record

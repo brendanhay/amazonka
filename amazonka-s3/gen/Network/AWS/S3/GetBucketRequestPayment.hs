@@ -97,4 +97,4 @@ instance AWSRequest GetBucketRequestPayment where
 
     request  = get
     response = const . xmlResponse $ \h x -> GetBucketRequestPaymentOutput
-        <$> x %| "Payer"
+newtype

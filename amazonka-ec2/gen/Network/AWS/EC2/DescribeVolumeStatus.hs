@@ -176,5 +176,4 @@ instance AWSRequest DescribeVolumeStatus where
 
     request  = post "DescribeVolumeStatus"
     response = const . xmlResponse $ \h x -> DescribeVolumeStatusResult
-        <$> x %| "nextToken"
-        <*> x %| "volumeStatusSet"
+record

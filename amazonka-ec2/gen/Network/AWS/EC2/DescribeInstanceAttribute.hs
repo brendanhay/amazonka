@@ -241,17 +241,4 @@ instance AWSRequest DescribeInstanceAttribute where
 
     request  = post "DescribeInstanceAttribute"
     response = const . xmlResponse $ \h x -> InstanceAttribute
-        <$> x %| "blockDeviceMapping"
-        <*> x %| "disableApiTermination"
-        <*> x %| "ebsOptimized"
-        <*> x %| "groupSet"
-        <*> x %| "instanceId"
-        <*> x %| "instanceInitiatedShutdownBehavior"
-        <*> x %| "instanceType"
-        <*> x %| "kernel"
-        <*> x %| "productCodes"
-        <*> x %| "ramdisk"
-        <*> x %| "rootDeviceName"
-        <*> x %| "sourceDestCheck"
-        <*> x %| "sriovNetSupport"
-        <*> x %| "userData"
+record

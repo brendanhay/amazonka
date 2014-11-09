@@ -163,4 +163,4 @@ instance AWSRequest CreateNetworkInterface where
 
     request  = post "CreateNetworkInterface"
     response = const . xmlResponse $ \h x -> CreateNetworkInterfaceResult
-        <$> x %| "networkInterface"
+newtype

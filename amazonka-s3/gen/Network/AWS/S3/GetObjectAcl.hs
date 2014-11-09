@@ -128,5 +128,4 @@ instance AWSRequest GetObjectAcl where
 
     request  = get
     response = const . xmlResponse $ \h x -> GetObjectAclOutput
-        <$> x %| "AccessControlList"
-        <*> x %| "Owner"
+record

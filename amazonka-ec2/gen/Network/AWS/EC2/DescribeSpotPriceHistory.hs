@@ -204,5 +204,4 @@ instance AWSRequest DescribeSpotPriceHistory where
 
     request  = post "DescribeSpotPriceHistory"
     response = const . xmlResponse $ \h x -> DescribeSpotPriceHistoryResult
-        <$> x %| "nextToken"
-        <*> x %| "spotPriceHistorySet"
+record

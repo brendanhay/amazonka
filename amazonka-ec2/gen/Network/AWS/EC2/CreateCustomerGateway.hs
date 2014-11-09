@@ -134,4 +134,4 @@ instance AWSRequest CreateCustomerGateway where
 
     request  = post "CreateCustomerGateway"
     response = const . xmlResponse $ \h x -> CreateCustomerGatewayResult
-        <$> x %| "customerGateway"
+newtype

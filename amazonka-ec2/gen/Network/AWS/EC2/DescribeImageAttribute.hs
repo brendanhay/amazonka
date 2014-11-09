@@ -176,11 +176,4 @@ instance AWSRequest DescribeImageAttribute where
 
     request  = post "DescribeImageAttribute"
     response = const . xmlResponse $ \h x -> ImageAttribute
-        <$> x %| "blockDeviceMapping"
-        <*> x %| "description"
-        <*> x %| "imageId"
-        <*> x %| "kernel"
-        <*> x %| "launchPermission"
-        <*> x %| "productCodes"
-        <*> x %| "ramdisk"
-        <*> x %| "sriovNetSupport"
+record

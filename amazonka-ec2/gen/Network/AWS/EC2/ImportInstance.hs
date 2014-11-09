@@ -131,4 +131,4 @@ instance AWSRequest ImportInstance where
 
     request  = post "ImportInstance"
     response = const . xmlResponse $ \h x -> ImportInstanceResult
-        <$> x %| "conversionTask"
+newtype

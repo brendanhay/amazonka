@@ -203,4 +203,4 @@ instance AWSRequest RequestSpotInstances where
 
     request  = post "RequestSpotInstances"
     response = const . xmlResponse $ \h x -> RequestSpotInstancesResult
-        <$> x %| "spotInstanceRequestSet"
+newtype

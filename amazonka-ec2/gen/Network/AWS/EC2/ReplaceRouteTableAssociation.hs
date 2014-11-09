@@ -118,4 +118,4 @@ instance AWSRequest ReplaceRouteTableAssociation where
 
     request  = post "ReplaceRouteTableAssociation"
     response = const . xmlResponse $ \h x -> ReplaceRouteTableAssociationResult
-        <$> x %| "newAssociationId"
+newtype

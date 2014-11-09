@@ -96,4 +96,4 @@ instance AWSRequest GetBucketTagging where
 
     request  = get
     response = const . xmlResponse $ \h x -> GetBucketTaggingOutput
-        <$> x %| "TagSet"
+newtype

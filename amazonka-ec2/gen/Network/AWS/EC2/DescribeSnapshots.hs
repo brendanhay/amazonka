@@ -170,4 +170,4 @@ instance AWSRequest DescribeSnapshots where
 
     request  = post "DescribeSnapshots"
     response = const . xmlResponse $ \h x -> DescribeSnapshotsResult
-        <$> x %| "snapshotSet"
+newtype

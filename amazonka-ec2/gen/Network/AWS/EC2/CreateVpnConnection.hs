@@ -143,4 +143,4 @@ instance AWSRequest CreateVpnConnection where
 
     request  = post "CreateVpnConnection"
     response = const . xmlResponse $ \h x -> CreateVpnConnectionResult
-        <$> x %| "vpnConnection"
+newtype

@@ -128,4 +128,4 @@ instance AWSRequest DescribeSubnets where
 
     request  = post "DescribeSubnets"
     response = const . xmlResponse $ \h x -> DescribeSubnetsResult
-        <$> x %| "subnetSet"
+newtype

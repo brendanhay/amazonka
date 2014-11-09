@@ -151,4 +151,4 @@ instance AWSRequest CreateImage where
 
     request  = post "CreateImage"
     response = const . xmlResponse $ \h x -> CreateImageResult
-        <$> x %| "imageId"
+newtype

@@ -133,4 +133,4 @@ instance AWSRequest DescribeVpcPeeringConnections where
 
     request  = post "DescribeVpcPeeringConnections"
     response = const . xmlResponse $ \h x -> DescribeVpcPeeringConnectionsResult
-        <$> x %| "vpcPeeringConnectionSet"
+newtype

@@ -139,4 +139,4 @@ instance AWSRequest DescribeRouteTables where
 
     request  = post "DescribeRouteTables"
     response = const . xmlResponse $ \h x -> DescribeRouteTablesResult
-        <$> x %| "routeTableSet"
+newtype

@@ -105,5 +105,4 @@ instance AWSRequest GetBucketAcl where
 
     request  = get
     response = const . xmlResponse $ \h x -> GetBucketAclOutput
-        <$> x %| "AccessControlList"
-        <*> x %| "Owner"
+record

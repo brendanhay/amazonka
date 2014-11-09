@@ -185,10 +185,4 @@ instance AWSRequest CompleteMultipartUpload where
 
     request  = post
     response = const . xmlResponse $ \h x -> CompleteMultipartUploadOutput
-        <$> x %| "Bucket"
-        <*> x %| "ETag"
-        <*> h ~:? "x-amz-expiration"
-        <*> x %| "Key"
-        <*> x %| "Location"
-        <*> h ~:? "x-amz-server-side-encryption"
-        <*> h ~:? "x-amz-version-id"
+record

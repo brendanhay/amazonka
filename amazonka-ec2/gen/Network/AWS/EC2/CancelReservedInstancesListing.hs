@@ -98,4 +98,4 @@ instance AWSRequest CancelReservedInstancesListing where
 
     request  = post "CancelReservedInstancesListing"
     response = const . xmlResponse $ \h x -> CancelReservedInstancesListingResult
-        <$> x %| "reservedInstancesListingsSet"
+newtype

@@ -401,9 +401,4 @@ instance AWSRequest PutObject where
 
     request  = put
     response = const . xmlResponse $ \h x -> PutObjectOutput
-        <$> h ~:? "ETag"
-        <*> h ~:? "x-amz-expiration"
-        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~:? "x-amz-server-side-encryption"
-        <*> h ~:? "x-amz-version-id"
+record

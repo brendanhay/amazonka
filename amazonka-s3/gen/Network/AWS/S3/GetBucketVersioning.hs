@@ -109,5 +109,4 @@ instance AWSRequest GetBucketVersioning where
 
     request  = get
     response = const . xmlResponse $ \h x -> GetBucketVersioningOutput
-        <$> x %| "MfaDelete"
-        <*> x %| "Status"
+record

@@ -128,6 +128,4 @@ instance AWSRequest GetPasswordData where
 
     request  = post "GetPasswordData"
     response = const . xmlResponse $ \h x -> GetPasswordDataResult
-        <$> x %| "instanceId"
-        <*> x %| "passwordData"
-        <*> x %| "timestamp"
+record

@@ -102,4 +102,4 @@ instance AWSRequest UnmonitorInstances where
 
     request  = post "UnmonitorInstances"
     response = const . xmlResponse $ \h x -> UnmonitorInstancesResult
-        <$> x %| "instancesSet"
+newtype

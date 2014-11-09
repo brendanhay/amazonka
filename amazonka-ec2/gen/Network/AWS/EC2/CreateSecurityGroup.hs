@@ -141,4 +141,4 @@ instance AWSRequest CreateSecurityGroup where
 
     request  = post "CreateSecurityGroup"
     response = const . xmlResponse $ \h x -> CreateSecurityGroupResult
-        <$> x %| "groupId"
+newtype

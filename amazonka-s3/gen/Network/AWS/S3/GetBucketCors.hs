@@ -96,4 +96,4 @@ instance AWSRequest GetBucketCors where
 
     request  = get
     response = const . xmlResponse $ \h x -> GetBucketCorsOutput
-        <$> x %| "CORSRule"
+newtype

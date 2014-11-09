@@ -130,5 +130,4 @@ instance AWSRequest DeleteObjects where
 
     request  = post
     response = const . xmlResponse $ \h x -> DeleteObjectsOutput
-        <$> x %| "Deleted"
-        <*> x %| "Error"
+record

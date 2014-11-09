@@ -1,6 +1,6 @@
 name:                  amazonka-core
 version:               0.0.0
-synopsis:              Comprehensive Amazon Web Services SDK.
+synopsis:              Core functionality, serialisation primitives, and data types for Amazon Web Service SDKs.
 homepage:              https://github.com/brendanhay/amazonka
 license:               OtherLicense
 license-file:          LICENSE

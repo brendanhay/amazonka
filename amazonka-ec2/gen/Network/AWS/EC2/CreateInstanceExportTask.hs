@@ -123,4 +123,4 @@ instance AWSRequest CreateInstanceExportTask where
 
     request  = post "CreateInstanceExportTask"
     response = const . xmlResponse $ \h x -> CreateInstanceExportTaskResult
-        <$> x %| "exportTask"
+newtype

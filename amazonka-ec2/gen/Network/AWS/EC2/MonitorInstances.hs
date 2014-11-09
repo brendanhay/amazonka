@@ -102,4 +102,4 @@ instance AWSRequest MonitorInstances where
 
     request  = post "MonitorInstances"
     response = const . xmlResponse $ \h x -> MonitorInstancesResult
-        <$> x %| "instancesSet"
+newtype

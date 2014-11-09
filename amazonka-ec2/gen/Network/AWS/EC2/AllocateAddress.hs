@@ -122,6 +122,4 @@ instance AWSRequest AllocateAddress where
 
     request  = post "AllocateAddress"
     response = const . xmlResponse $ \h x -> AllocateAddressResult
-        <$> x %| "allocationId"
-        <*> x %| "domain"
-        <*> x %| "publicIp"
+record

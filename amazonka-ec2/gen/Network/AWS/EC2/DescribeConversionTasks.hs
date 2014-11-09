@@ -110,4 +110,4 @@ instance AWSRequest DescribeConversionTasks where
 
     request  = post "DescribeConversionTasks"
     response = const . xmlResponse $ \h x -> DescribeConversionTasksResult
-        <$> x %| "conversionTasks"
+newtype

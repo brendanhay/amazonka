@@ -97,4 +97,4 @@ instance AWSRequest GetBucketPolicy where
 
     request  = get
     response = const . xmlResponse $ \h x -> GetBucketPolicyOutput
-        <$> x %| "Policy"
+newtype

@@ -164,4 +164,4 @@ instance AWSRequest DescribeNetworkInterfaces where
 
     request  = post "DescribeNetworkInterfaces"
     response = const . xmlResponse $ \h x -> DescribeNetworkInterfacesResult
-        <$> x %| "networkInterfaceSet"
+newtype

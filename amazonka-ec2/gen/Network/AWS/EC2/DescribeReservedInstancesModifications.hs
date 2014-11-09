@@ -146,5 +146,4 @@ instance AWSRequest DescribeReservedInstancesModifications where
 
     request  = post "DescribeReservedInstancesModifications"
     response = const . xmlResponse $ \h x -> DescribeReservedInstancesModificationsResult
-        <$> x %| "nextToken"
-        <*> x %| "reservedInstancesModificationsSet"
+record

@@ -123,4 +123,4 @@ instance AWSRequest CreateVpc where
 
     request  = post "CreateVpc"
     response = const . xmlResponse $ \h x -> CreateVpcResult
-        <$> x %| "vpc"
+newtype

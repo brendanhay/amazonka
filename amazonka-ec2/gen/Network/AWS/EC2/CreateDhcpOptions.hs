@@ -123,4 +123,4 @@ instance AWSRequest CreateDhcpOptions where
 
     request  = post "CreateDhcpOptions"
     response = const . xmlResponse $ \h x -> CreateDhcpOptionsResult
-        <$> x %| "dhcpOptions"
+newtype

@@ -1,0 +1,107 @@
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
+
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
+
+-- Module      : Network.AWS.SNS.ListSubscriptions
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+
+-- | Returns a list of the requester's subscriptions. Each call returns a
+-- limited list of subscriptions, up to 100. If there are more subscriptions,
+-- a NextToken is also returned. Use the NextToken parameter in a new
+-- ListSubscriptions call to get further results.
+module Network.AWS.SNS.ListSubscriptions
+    (
+    -- * Request
+      ListSubscriptionsInput
+    -- ** Request constructor
+    , listSubscriptionsInput
+    -- ** Request lenses
+    , lsiNextToken
+
+    -- * Response
+    , ListSubscriptionsResponse
+    -- ** Response constructor
+    , listSubscriptionsResponse
+    -- ** Response lenses
+    , lsrNextToken
+    , lsrSubscriptions
+    ) where
+
+import Network.AWS.Prelude
+import Network.AWS.Request.Query
+import Network.AWS.SNS.Types
+
+newtype ListSubscriptionsInput = ListSubscriptionsInput
+    { _lsiNextToken :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'ListSubscriptionsInput' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lsiNextToken' @::@ 'Maybe' 'Text'
+--
+listSubscriptionsInput :: ListSubscriptionsInput
+listSubscriptionsInput = ListSubscriptionsInput
+    { _lsiNextToken = Nothing
+    }
+
+-- | Token returned by the previous ListSubscriptions request.
+lsiNextToken :: Lens' ListSubscriptionsInput (Maybe Text)
+lsiNextToken = lens _lsiNextToken (\s a -> s { _lsiNextToken = a })
+
+instance ToPath ListSubscriptionsInput where
+    toPath = const "/"
+
+instance ToQuery ListSubscriptionsInput
+
+data ListSubscriptionsResponse = ListSubscriptionsResponse
+    { _lsrNextToken     :: Maybe Text
+    , _lsrSubscriptions :: [Subscription]
+    } deriving (Eq, Show, Generic)
+
+-- | 'ListSubscriptionsResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'lsrNextToken' @::@ 'Maybe' 'Text'
+--
+-- * 'lsrSubscriptions' @::@ ['Subscription']
+--
+listSubscriptionsResponse :: ListSubscriptionsResponse
+listSubscriptionsResponse = ListSubscriptionsResponse
+    { _lsrSubscriptions = mempty
+    , _lsrNextToken     = Nothing
+    }
+
+-- | Token to pass along to the next ListSubscriptions request. This element
+-- is returned if there are more subscriptions to retrieve.
+lsrNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
+lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })
+
+-- | A list of subscriptions.
+lsrSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
+lsrSubscriptions = lens _lsrSubscriptions (\s a -> s { _lsrSubscriptions = a })
+
+instance AWSRequest ListSubscriptionsInput where
+    type Sv ListSubscriptionsInput = SNS
+    type Rs ListSubscriptionsInput = ListSubscriptionsResponse
+
+    request  = post "ListSubscriptions"
+    response = const . xmlResponse $ \h x -> ListSubscriptionsResponse
+record

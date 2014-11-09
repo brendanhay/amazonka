@@ -234,14 +234,4 @@ instance AWSRequest ListParts where
 
     request  = get
     response = const . xmlResponse $ \h x -> ListPartsOutput
-        <$> x %| "Bucket"
-        <*> x %| "Initiator"
-        <*> x %| "IsTruncated"
-        <*> x %| "Key"
-        <*> x %| "MaxParts"
-        <*> x %| "NextPartNumberMarker"
-        <*> x %| "Owner"
-        <*> x %| "PartNumberMarker"
-        <*> x %| "Part"
-        <*> x %| "StorageClass"
-        <*> x %| "UploadId"
+record

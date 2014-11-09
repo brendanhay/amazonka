@@ -110,4 +110,4 @@ instance AWSRequest DescribeKeyPairs where
 
     request  = post "DescribeKeyPairs"
     response = const . xmlResponse $ \h x -> DescribeKeyPairsResult
-        <$> x %| "keySet"
+newtype

@@ -118,4 +118,4 @@ instance AWSRequest DescribeAvailabilityZones where
 
     request  = post "DescribeAvailabilityZones"
     response = const . xmlResponse $ \h x -> DescribeAvailabilityZonesResult
-        <$> x %| "availabilityZoneInfo"
+newtype

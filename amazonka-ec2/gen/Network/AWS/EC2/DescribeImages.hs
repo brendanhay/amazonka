@@ -166,4 +166,4 @@ instance AWSRequest DescribeImages where
 
     request  = post "DescribeImages"
     response = const . xmlResponse $ \h x -> DescribeImagesResult
-        <$> x %| "imagesSet"
+newtype

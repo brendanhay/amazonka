@@ -135,4 +135,4 @@ instance AWSRequest PurchaseReservedInstancesOffering where
 
     request  = post "PurchaseReservedInstancesOffering"
     response = const . xmlResponse $ \h x -> PurchaseReservedInstancesOfferingResult
-        <$> x %| "reservedInstancesId"
+newtype

@@ -126,6 +126,4 @@ instance AWSRequest CreateKeyPair where
 
     request  = post "CreateKeyPair"
     response = const . xmlResponse $ \h x -> KeyPair
-        <$> x %| "keyFingerprint"
-        <*> x %| "keyMaterial"
-        <*> x %| "keyName"
+record

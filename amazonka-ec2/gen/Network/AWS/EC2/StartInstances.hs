@@ -122,4 +122,4 @@ instance AWSRequest StartInstances where
 
     request  = post "StartInstances"
     response = const . xmlResponse $ \h x -> StartInstancesResult
-        <$> x %| "instancesSet"
+newtype

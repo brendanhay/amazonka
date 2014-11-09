@@ -201,4 +201,4 @@ instance AWSRequest RegisterImage where
 
     request  = post "RegisterImage"
     response = const . xmlResponse $ \h x -> RegisterImageResult
-        <$> x %| "imageId"
+newtype

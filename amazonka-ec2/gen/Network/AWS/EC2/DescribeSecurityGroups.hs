@@ -139,4 +139,4 @@ instance AWSRequest DescribeSecurityGroups where
 
     request  = post "DescribeSecurityGroups"
     response = const . xmlResponse $ \h x -> DescribeSecurityGroupsResult
-        <$> x %| "securityGroupInfo"
+newtype

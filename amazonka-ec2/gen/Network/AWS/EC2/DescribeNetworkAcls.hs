@@ -134,4 +134,4 @@ instance AWSRequest DescribeNetworkAcls where
 
     request  = post "DescribeNetworkAcls"
     response = const . xmlResponse $ \h x -> DescribeNetworkAclsResult
-        <$> x %| "networkAclSet"
+newtype

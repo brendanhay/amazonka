@@ -114,4 +114,4 @@ instance AWSRequest TerminateInstances where
 
     request  = post "TerminateInstances"
     response = const . xmlResponse $ \h x -> TerminateInstancesResult
-        <$> x %| "instancesSet"
+newtype

@@ -75,8 +75,8 @@ module Network.AWS.S3.Types
     -- * Tag
     , Tag
     , tag
-    , tKey
-    , tValue
+    , tagKey
+    , tagValue
 
     -- * ObjectStorageClass
     , ObjectStorageClass (..)
@@ -730,33 +730,33 @@ instance ToXML VersioningConfiguration where
     toXMLRoot    = toRoot "VersioningConfiguration"
 
 data Tag = Tag
-    { _tKey   :: Text
-    , _tValue :: Text
+    { _tagKey   :: Text
+    , _tagValue :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Tag' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tKey' @::@ 'Text'
+-- * 'tagKey' @::@ 'Text'
 --
--- * 'tValue' @::@ 'Text'
+-- * 'tagValue' @::@ 'Text'
 --
-tag :: Text -- ^ 'tKey'
-    -> Text -- ^ 'tValue'
+tag :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
     -> Tag
 tag p1 p2 = Tag
-    { _tKey   = p1
-    , _tValue = p2
+    { _tagKey   = p1
+    , _tagValue = p2
     }
 
 -- | Name of the tag.
-tKey :: Lens' Tag Text
-tKey = lens _tKey (\s a -> s { _tKey = a })
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
 -- | Value of the tag.
-tValue :: Lens' Tag Text
-tValue = lens _tValue (\s a -> s { _tValue = a })
+tagValue :: Lens' Tag Text
+tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     fromXMLOptions = xmlOptions

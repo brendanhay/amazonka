@@ -90,4 +90,4 @@ instance AWSRequest DescribeExportTasks where
 
     request  = post "DescribeExportTasks"
     response = const . xmlResponse $ \h x -> DescribeExportTasksResult
-        <$> x %| "exportTaskSet"
+newtype

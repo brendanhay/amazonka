@@ -123,4 +123,4 @@ instance AWSRequest DescribeInternetGateways where
 
     request  = post "DescribeInternetGateways"
     response = const . xmlResponse $ \h x -> DescribeInternetGatewaysResult
-        <$> x %| "internetGatewaySet"
+newtype

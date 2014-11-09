@@ -87,5 +87,4 @@ instance AWSRequest ListBuckets where
 
     request  = get
     response = const . xmlResponse $ \h x -> ListBucketsOutput
-        <$> x %| "Buckets"
-        <*> x %| "Owner"
+record

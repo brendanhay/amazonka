@@ -130,6 +130,4 @@ instance AWSRequest DescribeVolumeAttribute where
 
     request  = post "DescribeVolumeAttribute"
     response = const . xmlResponse $ \h x -> DescribeVolumeAttributeResult
-        <$> x %| "autoEnableIO"
-        <*> x %| "productCodes"
-        <*> x %| "volumeId"
+record

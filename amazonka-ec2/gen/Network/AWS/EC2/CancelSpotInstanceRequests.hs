@@ -110,4 +110,4 @@ instance AWSRequest CancelSpotInstanceRequests where
 
     request  = post "CancelSpotInstanceRequests"
     response = const . xmlResponse $ \h x -> CancelSpotInstanceRequestsResult
-        <$> x %| "spotInstanceRequestSet"
+newtype

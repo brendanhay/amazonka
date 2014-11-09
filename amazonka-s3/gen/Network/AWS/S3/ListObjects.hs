@@ -225,12 +225,4 @@ instance AWSRequest ListObjects where
 
     request  = get
     response = const . xmlResponse $ \h x -> ListObjectsOutput
-        <$> x %| "CommonPrefixes"
-        <*> x %| "Contents"
-        <*> x %| "EncodingType"
-        <*> x %| "IsTruncated"
-        <*> x %| "Marker"
-        <*> x %| "MaxKeys"
-        <*> x %| "Name"
-        <*> x %| "NextMarker"
-        <*> x %| "Prefix"
+record

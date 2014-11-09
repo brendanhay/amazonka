@@ -105,4 +105,4 @@ instance AWSRequest DeleteVpcPeeringConnection where
 
     request  = post "DeleteVpcPeeringConnection"
     response = const . xmlResponse $ \h x -> DeleteVpcPeeringConnectionResult
-        <$> x %| "return"
+newtype

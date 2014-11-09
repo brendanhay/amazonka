@@ -113,4 +113,4 @@ instance AWSRequest AttachVpnGateway where
 
     request  = post "AttachVpnGateway"
     response = const . xmlResponse $ \h x -> AttachVpnGatewayResult
-        <$> x %| "attachment"
+newtype

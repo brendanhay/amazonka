@@ -149,8 +149,4 @@ instance AWSRequest DescribeNetworkInterfaceAttribute where
 
     request  = post "DescribeNetworkInterfaceAttribute"
     response = const . xmlResponse $ \h x -> DescribeNetworkInterfaceAttributeResult
-        <$> x %| "attachment"
-        <*> x %| "description"
-        <*> x %| "groupSet"
-        <*> x %| "networkInterfaceId"
-        <*> x %| "sourceDestCheck"
+record

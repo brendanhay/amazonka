@@ -253,5 +253,4 @@ instance AWSRequest DescribeReservedInstancesOfferings where
 
     request  = post "DescribeReservedInstancesOfferings"
     response = const . xmlResponse $ \h x -> DescribeReservedInstancesOfferingsResult
-        <$> x %| "nextToken"
-        <*> x %| "reservedInstancesOfferingsSet"
+record

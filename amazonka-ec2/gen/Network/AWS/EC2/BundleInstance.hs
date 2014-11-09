@@ -116,4 +116,4 @@ instance AWSRequest BundleInstance where
 
     request  = post "BundleInstance"
     response = const . xmlResponse $ \h x -> BundleInstanceResult
-        <$> x %| "bundleInstanceTask"
+newtype

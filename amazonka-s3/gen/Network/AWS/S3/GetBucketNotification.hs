@@ -97,4 +97,4 @@ instance AWSRequest GetBucketNotification where
 
     request  = get
     response = const . xmlResponse $ \h x -> GetBucketNotificationOutput
-        <$> x %| "TopicConfiguration"
+newtype

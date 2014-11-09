@@ -263,15 +263,4 @@ instance AWSRequest ListObjectVersions where
 
     request  = get
     response = const . xmlResponse $ \h x -> ListObjectVersionsOutput
-        <$> x %| "CommonPrefixes"
-        <*> x %| "DeleteMarker"
-        <*> x %| "EncodingType"
-        <*> x %| "IsTruncated"
-        <*> x %| "KeyMarker"
-        <*> x %| "MaxKeys"
-        <*> x %| "Name"
-        <*> x %| "NextKeyMarker"
-        <*> x %| "NextVersionIdMarker"
-        <*> x %| "Prefix"
-        <*> x %| "VersionIdMarker"
-        <*> x %| "Version"
+record

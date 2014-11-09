@@ -106,4 +106,4 @@ instance AWSRequest AcceptVpcPeeringConnection where
 
     request  = post "AcceptVpcPeeringConnection"
     response = const . xmlResponse $ \h x -> AcceptVpcPeeringConnectionResult
-        <$> x %| "vpcPeeringConnection"
+newtype

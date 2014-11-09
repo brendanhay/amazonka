@@ -122,4 +122,4 @@ instance AWSRequest DescribeVpcs where
 
     request  = post "DescribeVpcs"
     response = const . xmlResponse $ \h x -> DescribeVpcsResult
-        <$> x %| "vpcSet"
+newtype

@@ -133,4 +133,4 @@ instance AWSRequest DescribeReservedInstancesListings where
 
     request  = post "DescribeReservedInstancesListings"
     response = const . xmlResponse $ \h x -> DescribeReservedInstancesListingsResult
-        <$> x %| "reservedInstancesListingsSet"
+newtype

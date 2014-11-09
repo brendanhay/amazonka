@@ -108,4 +108,4 @@ instance AWSRequest GetObjectTorrent where
 
     request  = get
     response = const . bodyResponse $ \h b -> GetObjectTorrentOutput
-        <$> pure (RsBody b)
+newtype

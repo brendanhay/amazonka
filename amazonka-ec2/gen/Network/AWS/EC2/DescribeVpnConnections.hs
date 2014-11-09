@@ -132,4 +132,4 @@ instance AWSRequest DescribeVpnConnections where
 
     request  = post "DescribeVpnConnections"
     response = const . xmlResponse $ \h x -> DescribeVpnConnectionsResult
-        <$> x %| "vpnConnectionSet"
+newtype

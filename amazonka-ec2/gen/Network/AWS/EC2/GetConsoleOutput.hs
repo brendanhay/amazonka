@@ -131,6 +131,4 @@ instance AWSRequest GetConsoleOutput where
 
     request  = post "GetConsoleOutput"
     response = const . xmlResponse $ \h x -> GetConsoleOutputResult
-        <$> x %| "instanceId"
-        <*> x %| "output"
-        <*> x %| "timestamp"
+record

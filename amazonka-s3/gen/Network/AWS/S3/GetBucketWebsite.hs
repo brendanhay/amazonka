@@ -124,7 +124,4 @@ instance AWSRequest GetBucketWebsite where
 
     request  = get
     response = const . xmlResponse $ \h x -> GetBucketWebsiteOutput
-        <$> x %| "ErrorDocument"
-        <*> x %| "IndexDocument"
-        <*> x %| "RedirectAllRequestsTo"
-        <*> x %| "RoutingRules"
+record

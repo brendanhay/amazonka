@@ -134,6 +134,4 @@ instance AWSRequest DescribeVpcAttribute where
 
     request  = post "DescribeVpcAttribute"
     response = const . xmlResponse $ \h x -> DescribeVpcAttributeResult
-        <$> x %| "enableDnsHostnames"
-        <*> x %| "enableDnsSupport"
-        <*> x %| "vpcId"
+record

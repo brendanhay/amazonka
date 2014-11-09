@@ -138,5 +138,4 @@ instance AWSRequest DescribeTags where
 
     request  = post "DescribeTags"
     response = const . xmlResponse $ \h x -> DescribeTagsResult
-        <$> x %| "nextToken"
-        <*> x %| "tagSet"
+record

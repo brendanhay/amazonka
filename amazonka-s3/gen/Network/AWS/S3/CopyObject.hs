@@ -485,9 +485,4 @@ instance AWSRequest CopyObject where
 
     request  = put
     response = const . xmlResponse $ \h x -> CopyObjectOutput
-        <$> x %| "CopyObjectResult"
-        <*> h ~:? "x-amz-copy-source-version-id"
-        <*> h ~:? "x-amz-expiration"
-        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~:? "x-amz-server-side-encryption"
+record

@@ -246,7 +246,4 @@ instance AWSRequest UploadPart where
 
     request  = put
     response = const . xmlResponse $ \h x -> UploadPartOutput
-        <$> h ~:? "ETag"
-        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~:? "x-amz-server-side-encryption"
+record

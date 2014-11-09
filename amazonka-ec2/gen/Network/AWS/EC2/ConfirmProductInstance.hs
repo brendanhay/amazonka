@@ -114,4 +114,4 @@ instance AWSRequest ConfirmProductInstance where
 
     request  = post "ConfirmProductInstance"
     response = const . xmlResponse $ \h x -> ConfirmProductInstanceResult
-        <$> x %| "ownerId"
+newtype

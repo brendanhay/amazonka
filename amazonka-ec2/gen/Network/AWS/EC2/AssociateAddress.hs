@@ -168,4 +168,4 @@ instance AWSRequest AssociateAddress where
 
     request  = post "AssociateAddress"
     response = const . xmlResponse $ \h x -> AssociateAddressResult
-        <$> x %| "associationId"
+newtype

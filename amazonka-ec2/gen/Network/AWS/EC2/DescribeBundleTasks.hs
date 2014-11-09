@@ -117,4 +117,4 @@ instance AWSRequest DescribeBundleTasks where
 
     request  = post "DescribeBundleTasks"
     response = const . xmlResponse $ \h x -> DescribeBundleTasksResult
-        <$> x %| "bundleInstanceTasksSet"
+newtype

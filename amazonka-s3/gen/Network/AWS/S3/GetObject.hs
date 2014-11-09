@@ -502,24 +502,4 @@ instance AWSRequest GetObject where
 
     request  = get
     response = const . bodyResponse $ \h b -> GetObjectOutput
-        <$> h ~:? "accept-ranges"
-        <*> pure (RsBody b)
-        <*> h ~:? "Cache-Control"
-        <*> h ~:? "Content-Disposition"
-        <*> h ~:? "Content-Encoding"
-        <*> h ~:? "Content-Language"
-        <*> h ~:? "Content-Length"
-        <*> h ~:? "Content-Type"
-        <*> h ~:? "x-amz-delete-marker"
-        <*> h ~:? "ETag"
-        <*> h ~:? "x-amz-expiration"
-        <*> h ~:? "Expires"
-        <*> h ~:? "Last-Modified"
-        <*> h ~:: "x-amz-meta-"
-        <*> h ~:? "x-amz-missing-meta"
-        <*> h ~:? "x-amz-restore"
-        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~:? "x-amz-server-side-encryption"
-        <*> h ~:? "x-amz-version-id"
-        <*> h ~:? "x-amz-website-redirect-location"
+record

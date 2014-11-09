@@ -379,9 +379,4 @@ instance AWSRequest CreateMultipartUpload where
 
     request  = post
     response = const . xmlResponse $ \h x -> CreateMultipartUploadOutput
-        <$> x %| "Bucket"
-        <*> x %| "Key"
-        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
-        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
-        <*> h ~:? "x-amz-server-side-encryption"
-        <*> x %| "UploadId"
+record

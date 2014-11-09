@@ -121,4 +121,4 @@ instance AWSRequest AttachNetworkInterface where
 
     request  = post "AttachNetworkInterface"
     response = const . xmlResponse $ \h x -> AttachNetworkInterfaceResult
-        <$> x %| "attachmentId"
+newtype

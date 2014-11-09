@@ -139,4 +139,4 @@ instance AWSRequest CreateSubnet where
 
     request  = post "CreateSubnet"
     response = const . xmlResponse $ \h x -> CreateSubnetResult
-        <$> x %| "subnet"
+newtype

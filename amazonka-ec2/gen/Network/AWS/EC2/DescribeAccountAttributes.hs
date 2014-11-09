@@ -101,4 +101,4 @@ instance AWSRequest DescribeAccountAttributes where
 
     request  = post "DescribeAccountAttributes"
     response = const . xmlResponse $ \h x -> DescribeAccountAttributesResult
-        <$> x %| "accountAttributeSet"
+newtype

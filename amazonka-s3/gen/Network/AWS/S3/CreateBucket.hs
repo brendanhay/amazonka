@@ -173,4 +173,4 @@ instance AWSRequest CreateBucket where
 
     request  = put
     response = const . xmlResponse $ \h x -> CreateBucketOutput
-        <$> h ~:? "Location"
+newtype

@@ -147,4 +147,4 @@ instance AWSRequest CreateReservedInstancesListing where
 
     request  = post "CreateReservedInstancesListing"
     response = const . xmlResponse $ \h x -> CreateReservedInstancesListingResult
-        <$> x %| "reservedInstancesListingsSet"
+newtype

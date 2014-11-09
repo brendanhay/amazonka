@@ -127,4 +127,4 @@ instance AWSRequest DescribeCustomerGateways where
 
     request  = post "DescribeCustomerGateways"
     response = const . xmlResponse $ \h x -> DescribeCustomerGatewaysResult
-        <$> x %| "customerGatewaySet"
+newtype

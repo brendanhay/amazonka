@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Network.AWS.Request
+-- Module      : Network.AWS.Request.Internal
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.Request
+module Network.AWS.Request.Internal
     (
     -- * Requests
       get
@@ -37,25 +37,19 @@ import           Network.AWS.Types
 import qualified Network.HTTP.Client.Internal as HTTP
 import qualified Network.HTTP.Types           as HTTP
 import           Network.HTTP.Types.Method
-import           Prelude                      hiding (head)
-
-get :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-get x = def
+get' :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+get' x = def
     & rqPath    .~ Text.encodeUtf8 (toPath x)
     & rqQuery   .~ toQuery x
     & rqHeaders .~ toHeaders x
-{-# INLINE get #-}
+{-# INLINE get' #-}
 
-head :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-head x = get x & rqMethod .~ HEAD
-{-# INLINE head #-}
-
-delete :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
-delete x = get x & rqMethod .~ DELETE
-{-# INLINE delete #-}
+head' :: (ToPath a, ToQuery a, ToHeaders a) => a -> Request a
+head' x = get' x & rqMethod .~ HEAD
+{-# INLINE head' #-}
 
 post :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a
-post x = put x & rqMethod .~ POST
+post x = put x & rqMethd .~ POST
 {-# INLINE post #-}
 
 put :: (ToPath a, ToQuery a, ToHeaders a, ToBody a) => a -> Request a

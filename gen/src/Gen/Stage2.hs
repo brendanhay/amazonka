@@ -97,7 +97,7 @@ instance DerivingOf a => DerivingOf [a] where
 data Derived a = Derived !a !Value
 
 instance (DerivingOf a, ToJSON a) => ToJSON (Derived a) where
-    toJSON (Derived x v) = rewrap ("deriving", toJSON (derivingOf x)) v
+    toJSON (Derived x v) = rewrap ("deriving", toJSON (nub (derivingOf x))) v
 
 class HasName a where
     nameOf :: Lens' a Text
@@ -272,7 +272,7 @@ instance DerivingOf Type where
         TList      x   -> Monoid'    : derivingOf x
         TList1     x   -> Semigroup' : derivingOf x
         TMap       k v -> Monoid'    : delete Ord' (derivingOf k `intersect` derivingOf v)
-        TMaybe     x   -> delete Enum' . delete Num' $ derivingOf x
+        TMaybe     x   -> delete Monoid' . delete Enum' . delete Num' $ derivingOf x
         TSensitive x   -> derivingOf x
 
 data Field = Field
@@ -417,14 +417,6 @@ instance ToJSON Data where
                 (req, opt) = parameters fs
                 pay        = find isPayload fs
 
--- instance HasName Data where
---     nameOf f = \case
---         Newtype n x  -> (`Newtype` x)  <$> f n
---         Record  n fs -> (`Record`  fs) <$> f n
---         Product n fs -> (`Product` fs) <$> f n
---         Nullary n m  -> (`Nullary` m)  <$> f n
---         Empty   n    -> Empty          <$> f n
-
 instance DerivingOf Data where
     derivingOf d = f . derivingOf $ toListOf (dataFields . typeOf) d
       where
@@ -433,7 +425,7 @@ instance DerivingOf Data where
           | otherwise      = delete Semigroup' . delete Monoid'
 
 nestedTypes :: Data -> [Type]
-nestedTypes = toListOf (dataFields . typesOf)
+nestedTypes = concatMap universe . toListOf (dataFields . typesOf)
 
 dataFields :: Traversal' Data Field
 dataFields f = \case
@@ -475,13 +467,14 @@ isVoid Void = True
 isVoid _    = False
 
 data Request = Request
-    { _rqUri  :: !URI
-    , _rqName :: !Text
-    , _rqData :: !Data
+    { _rqUri    :: !URI
+    , _rqName   :: !Text
+    , _rqShared :: !Bool
+    , _rqData   :: !Data
     } deriving (Eq, Show)
 
 instance ToJSON Request where
-    toJSON (Request u n d) = Object (operationJSON n d <> x)
+    toJSON (Request u n s d) = Object (operationJSON n d <> x)
       where
         Object x = object
             [ "path"      .= _uriPath u
@@ -489,6 +482,7 @@ instance ToJSON Request where
             , "headerPad" .= pad hdr
             , "query"     .= (map toJSON (_uriQuery u) ++ map pair qry)
             , "queryPad"  .= pad qry
+            , "shared"    .= s
             ]
 
         pad [] = 0
@@ -509,15 +503,17 @@ data Response = Response
     { _rsWrapper       :: !Bool
     , _rsResultWrapper :: Maybe Text
     , _rsName          :: !Text
+    , _rsShared        :: !Bool
     , _rsData          :: !Data
     } deriving (Eq, Show)
 
 instance ToJSON Response where
-    toJSON (Response w r n d) = Object (operationJSON n d <> x)
+    toJSON (Response w r n s d) = Object (operationJSON n d <> x)
       where
         Object x = object
             [ "resultWrapper" .= r
             , "wrapper"       .= w
+            , "shared"        .= s
             ]
 
 operationJSON :: Text -> Data -> Object

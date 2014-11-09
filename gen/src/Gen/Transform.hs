@@ -20,6 +20,7 @@
 module Gen.Transform (transformS1ToS2) where
 
 import           Control.Applicative        ((<$>), (<*>), pure)
+import           Control.Arrow              ((&&&))
 import           Control.Error
 import           Control.Lens               hiding (op, ignored, filtered)
 import           Control.Monad
@@ -30,7 +31,7 @@ import           Data.HashMap.Strict        (HashMap)
 import qualified Data.HashMap.Strict        as Map
 import           Data.HashSet               (HashSet)
 import qualified Data.HashSet               as Set
-import           Data.List                  (sort)
+import           Data.List                  (sort, group)
 import           Data.Monoid                hiding (Product)
 import           Data.SemVer                (initial)
 import           Data.Text                  (Text)
@@ -38,8 +39,8 @@ import qualified Data.Text                  as Text
 import           Data.Text.Manipulate
 import           Debug.Trace
 import           Gen.Names
-import qualified Gen.Stage1              as S1
-import           Gen.Stage1              hiding (Operation)
+import qualified Gen.Stage1                 as S1
+import           Gen.Stage1                 hiding (Operation)
 import           Gen.Stage2
 import           Gen.Types
 
@@ -106,22 +107,30 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         <> version
         <> "/"
 
--- errors :: Abbrev -> Stage1 -> HashMap Text Data -> Error
--- errors (unAbbrev -> a) s1 ts = Error (a <> "Error") ds
---   where
---     ds = Map.fromList
---          [ p "Service"    [TType "Status", TType (a <> "Message")]
---          , p "Http"       [TType "HttpException"]
---          , p "Serializer" [TType "String"]
---          ]
+shared :: Stage1 -> State (HashMap Text Data) (HashSet Text)
+shared s1 = do
+    s <- get
+    return . go . snd $ execState (mapM_ run (Map.elems $ s1 ^. s1Operations)) (s, mempty)
+  where
+    go   = Set.fromList . mapMaybe snd . filter ((> 1) . fst) . freq
+    freq = map (length &&& headMay) . group . sort
 
---     p k xs = let k' = a <> k in (k', Product k' xs)
+    run o = do
+        ins (o ^. oInput)
+        ins (o ^. oOutput)
 
-    -- es = Map.filterWithKey (const . (`elem` rs)) ts
-    -- rs = map _refShape
-    --      . concatMap (fromMaybe [] . _oErrors)
-    --      . Map.elems
-    --      $ s1 ^. s1Operations
+    ins :: Maybe Ref -> State (HashMap Text Data, [Text]) ()
+    ins Nothing  = return ()
+    ins (Just r) = do
+        let k = r ^. refShape
+        md <- gets (Map.lookup k . fst)
+        maybe (return ())
+              (\d -> modify $ second . (++) $ k : mapMaybe name (nestedTypes d))
+              md
+
+    name :: Type -> Maybe Text
+    name (TType k) = Just k
+    name _         = Nothing
 
 dataTypes :: Overrides
           -> Abbrev
@@ -129,7 +138,7 @@ dataTypes :: Overrides
           -> ([Operation], HashMap Text Data)
 dataTypes o a s1 = (sort . Map.elems) `first` runState run s
   where
-    run = Map.traverseWithKey f (s1 ^. s1Operations)
+    run = shared s1 >>= \ss -> Map.traverseWithKey (f ss) (s1 ^. s1Operations)
 
     f = operation a (s1 ^. mProtocol) (o ^. oOperationsModules)
 
@@ -142,7 +151,8 @@ prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
   where
     run (k, x) = (k,) <$> go k (prefix k) x
 
-    prefix k = Text.toLower (fromMaybe (Text.take 1 k) (toAcronym k))
+    prefix k = Text.toLower (fromMaybe (Text.take 1 k) (toAcronym (suffix k)))
+    suffix k = fromMaybe k ("Request" `Text.stripSuffix` k)
 
     names = Set.fromList (Map.keys m)
 
@@ -184,17 +194,20 @@ prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
 operation :: Abbrev
           -> Protocol
           -> [NS]
+          -> HashSet Text
           -> Text
           -> S1.Operation
           -> State (HashMap Text Data) Operation
-operation a p ns n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
+operation a proto ns ss n o = op
+    <$> request  (o ^. oInput)
+    <*> response (o ^. oOutput)
   where
     op rq rs = Operation
         { _opName             = n
         , _opService          = a
-        , _opProtocol         = p
+        , _opProtocol         = proto
         , _opNamespace        = operationNS a (o ^. oName)
-        , _opImports          = requestNS p : typesNS a : ns
+        , _opImports          = requestNS proto : typesNS a : ns
         , _opDocumentation    = documentation (o ^. oDocumentation)
         , _opDocumentationUrl = o ^. oDocumentationUrl
         , _opMethod           = o ^. oHttp.hMethod
@@ -211,9 +224,14 @@ operation a p ns n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
         w = fromMaybe False (join (_refWrapper <$> r))
         k = join (_refResultWrapper <$> r)
 
+    go :: (Text -> Text -> Bool -> Data -> a)
+       -> Bool
+       -> Maybe Ref
+       -> State (HashMap Text Data) a
     go c rq Nothing  = return (type' c rq)
     go c rq (Just x) = do
         let k = x ^. refShape
+            p = k `Set.member` ss
         m <- gets (^. at k)
         case m of
             Nothing -> return (type' c rq)
@@ -221,11 +239,12 @@ operation a p ns n o = op <$> request (o ^. oInput) <*> response (o ^. oOutput)
                 let d' = setStreaming rq d
                     k' = operationName k
                     t  = fromMaybe "" (fieldPrefix d')
-                modify (Map.delete k)
-                return $! c t k' (renamed k' d')
+                unless p $
+                    modify (Map.delete k)
+                return $! c t k' p (renamed k' d')
 
-    type' c True  = c "" n (Empty n)
-    type' c False = let k = n <> "Response" in c "" k (Empty k)
+    type' c True  = c "" n False (Empty n)
+    type' c False = let k = n <> "Response" in c "" k False (Empty k)
 
     renamed k = \case
         Newtype _ f  -> Newtype k f

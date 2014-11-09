@@ -271,16 +271,16 @@ operationNS :: Abbrev -> Text -> NS
 operationNS (Abbrev a) op = namespace [a, op]
 
 requestNS :: Protocol -> NS
-requestNS p = namespace ["Request", Text.pack (show p)]
+requestNS Query = "Network.AWS.Request.Query"
+requestNS _     = "Network.AWS.Request"
 
 data Override = Override
-    { _oRenameTo          :: Maybe Text             -- ^ Rename type
-    , _oReplacedBy        :: Maybe Text             -- ^ Existing type that supplants this type
-    , _oSumPrefix         :: Maybe Text             -- ^ Sum constructor prefix
-    , _oRequired          :: HashSet (CI Text)      -- ^ Required fields
-    , _oIgnored           :: HashSet (CI Text)      -- ^ Ignored fields
-    , _oRenamed           :: HashMap (CI Text) Text -- ^ Rename fields
---    , _oTyped           :: HashMap (CI Text) Text -- ^ Field types
+    { _oRenameTo   :: Maybe Text             -- ^ Rename type
+    , _oReplacedBy :: Maybe Text             -- ^ Existing type that supplants this type
+    , _oSumPrefix  :: Maybe Text             -- ^ Sum constructor prefix
+    , _oRequired   :: HashSet (CI Text)      -- ^ Required fields
+    , _oIgnored    :: HashSet (CI Text)      -- ^ Ignored fields
+    , _oRenamed    :: HashMap (CI Text) Text -- ^ Rename fields
     } deriving (Eq, Show)
 
 makeLenses ''Override
@@ -293,7 +293,6 @@ instance FromJSON Override where
         <*> o .:? "required" .!= mempty
         <*> o .:? "ignored"  .!= mempty
         <*> o .:? "renamed"  .!= mempty
---        <*> o .:? "typed"    .!= mempty
 
 data Overrides = Overrides
     { _oLibrary           :: !Library
@@ -302,7 +301,14 @@ data Overrides = Overrides
     , _oOverrides         :: HashMap Text Override
     } deriving (Eq, Show)
 
-record stage1 ''Overrides
+makeLenses ''Overrides
+
+instance FromJSON Overrides where
+    parseJSON = withObject "overrides" $ \o -> Overrides
+        <$> o .:  "library"
+        <*> o .:? "operationsModules" .!= mempty
+        <*> o .:? "typesModules"      .!= mempty
+        <*> o .:? "overrides"         .!= mempty
 
 data Model = Model
     { _mName      :: String

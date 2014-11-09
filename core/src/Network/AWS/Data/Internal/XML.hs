@@ -58,6 +58,9 @@ infixl 6 %|, %|?
     hush (Left  _) = Nothing
     hush (Right x) = Just x
 
+decodeCursor :: FromXML a => Cursor -> Either String a
+decodeCursor = const (Left "not implemented")
+
 decodeXML :: forall a. FromXML a => ByteString -> Either String a
 decodeXML = either failure success . parseLBS def
   where

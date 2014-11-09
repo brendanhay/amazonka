@@ -87,7 +87,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
 
     operationNamespaces = sort (map (view opNamespace) ops)
 
-    abbrev = maybeAbbrev (s1 ^. mServiceFullName) (s1 ^. mServiceAbbreviation)
+    abbrev = s1 ^. mServiceAbbreviation
 
     (ops, ts) = dataTypes overrides abbrev s1
 
@@ -106,6 +106,21 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         <> ".amazonaws.com/doc/"
         <> version
         <> "/"
+
+
+dataTypes :: Overrides
+          -> Abbrev
+          -> Stage1
+          -> ([Operation], HashMap Text Data)
+dataTypes o a s1 = (sort . Map.elems) `first` runState run s
+  where
+    run = shared s1 >>= \ss -> Map.traverseWithKey (f ss) (s1 ^. s1Operations)
+
+    f = operation a (s1 ^. mProtocol) (o ^. oOperationsModules)
+
+    s = prefixes
+        . filtered (o ^. oOverrides)
+        $ datas (s1 ^. mProtocol) (s1 ^. s1Shapes)
 
 shared :: Stage1 -> State (HashMap Text Data) (HashSet Text)
 shared s1 = do
@@ -132,26 +147,16 @@ shared s1 = do
     name (TType k) = Just k
     name _         = Nothing
 
-dataTypes :: Overrides
-          -> Abbrev
-          -> Stage1
-          -> ([Operation], HashMap Text Data)
-dataTypes o a s1 = (sort . Map.elems) `first` runState run s
-  where
-    run = shared s1 >>= \ss -> Map.traverseWithKey (f ss) (s1 ^. s1Operations)
-
-    f = operation a (s1 ^. mProtocol) (o ^. oOperationsModules)
-
-    s = prefixes
-        . filtered (o ^. oOverrides)
-        $ datas (s1 ^. mProtocol) (s1 ^. s1Shapes)
-
 prefixes :: HashMap Text Data -> HashMap Text Data
 prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
   where
     run (k, x) = (k,) <$> go k (prefix k) x
 
-    prefix k = Text.toLower (fromMaybe (Text.take 1 k) (toAcronym (suffix k)))
+    prefix k = Text.toLower (fromMaybe def (toAcronym (suffix k)))
+      where
+        def | Text.length k <= 3 = k
+            | otherwise          = Text.take 1 k
+
     suffix k = fromMaybe k ("Request" `Text.stripSuffix` k)
 
     names = Set.fromList (Map.keys m)
@@ -234,8 +239,9 @@ operation a proto ns ss n o = op
             p = k `Set.member` ss
         m <- gets (^. at k)
         case m of
-            Nothing -> return (type' c rq)
-            Just d  -> do
+            Nothing   -> return (type' c rq)
+            Just Void -> return (type' c rq)
+            Just d    -> do
                 let d' = setStreaming rq d
                     k' = operationName k
                     t  = fromMaybe "" (fieldPrefix d')

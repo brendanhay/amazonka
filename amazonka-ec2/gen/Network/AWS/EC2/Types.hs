@@ -217,8 +217,8 @@ module Network.AWS.EC2.Types
     -- * Tag
     , Tag
     , tag
-    , tKey
-    , tValue
+    , tagKey
+    , tagValue
 
     -- * AccountAttributeName
     , AccountAttributeName (..)
@@ -958,13 +958,13 @@ module Network.AWS.EC2.Types
     -- * Vpc
     , Vpc
     , vpc
-    , v1CidrBlock
-    , v1DhcpOptionsId
-    , v1InstanceTenancy
-    , v1IsDefault
-    , v1State
-    , v1Tags
-    , v1VpcId
+    , vpcCidrBlock
+    , vpcDhcpOptionsId
+    , vpcInstanceTenancy
+    , vpcIsDefault
+    , vpcState
+    , vpcTags
+    , vpcVpcId
 
     -- * InstanceStatus
     , InstanceStatus
@@ -1246,12 +1246,12 @@ module Network.AWS.EC2.Types
     -- * VpcPeeringConnection
     , VpcPeeringConnection
     , vpcPeeringConnection
-    , vpcAccepterVpcInfo
-    , vpcExpirationTime
-    , vpcRequesterVpcInfo
-    , vpcStatus
-    , vpcTags
-    , vpcVpcPeeringConnectionId
+    , vpc1AccepterVpcInfo
+    , vpc1ExpirationTime
+    , vpc1RequesterVpcInfo
+    , vpc1Status
+    , vpc1Tags
+    , vpc1VpcPeeringConnectionId
 
     -- * S3Storage
     , S3Storage
@@ -2744,35 +2744,35 @@ instance FromXML DhcpConfiguration where
 instance ToQuery DhcpConfiguration
 
 data Tag = Tag
-    { _tKey   :: Text
-    , _tValue :: Text
+    { _tagKey   :: Text
+    , _tagValue :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Tag' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tKey' @::@ 'Text'
+-- * 'tagKey' @::@ 'Text'
 --
--- * 'tValue' @::@ 'Text'
+-- * 'tagValue' @::@ 'Text'
 --
-tag :: Text -- ^ 'tKey'
-    -> Text -- ^ 'tValue'
+tag :: Text -- ^ 'tagKey'
+    -> Text -- ^ 'tagValue'
     -> Tag
 tag p1 p2 = Tag
-    { _tKey   = p1
-    , _tValue = p2
+    { _tagKey   = p1
+    , _tagValue = p2
     }
 
 -- | The key of the tag. Constraints: Tag keys are case-sensitive and accept a
 -- maximum of 127 Unicode characters. May not begin with aws:.
-tKey :: Lens' Tag Text
-tKey = lens _tKey (\s a -> s { _tKey = a })
+tagKey :: Lens' Tag Text
+tagKey = lens _tagKey (\s a -> s { _tagKey = a })
 
 -- | The value of the tag. Constraints: Tag values are case-sensitive and
 -- accept a maximum of 255 Unicode characters.
-tValue :: Lens' Tag Text
-tValue = lens _tValue (\s a -> s { _tValue = a })
+tagValue :: Lens' Tag Text
+tagValue = lens _tagValue (\s a -> s { _tagValue = a })
 
 instance FromXML Tag where
     fromXMLOptions = xmlOptions
@@ -7957,73 +7957,73 @@ instance FromXML ReservedInstanceLimitPrice where
 instance ToQuery ReservedInstanceLimitPrice
 
 data Vpc = Vpc
-    { _v1CidrBlock       :: Maybe Text
-    , _v1DhcpOptionsId   :: Maybe Text
-    , _v1InstanceTenancy :: Maybe Text
-    , _v1IsDefault       :: Maybe Bool
-    , _v1State           :: Maybe Text
-    , _v1Tags            :: [Tag]
-    , _v1VpcId           :: Maybe Text
+    { _vpcCidrBlock       :: Maybe Text
+    , _vpcDhcpOptionsId   :: Maybe Text
+    , _vpcInstanceTenancy :: Maybe Text
+    , _vpcIsDefault       :: Maybe Bool
+    , _vpcState           :: Maybe Text
+    , _vpcTags            :: [Tag]
+    , _vpcVpcId           :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 -- | 'Vpc' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'v1CidrBlock' @::@ 'Maybe' 'Text'
+-- * 'vpcCidrBlock' @::@ 'Maybe' 'Text'
 --
--- * 'v1DhcpOptionsId' @::@ 'Maybe' 'Text'
+-- * 'vpcDhcpOptionsId' @::@ 'Maybe' 'Text'
 --
--- * 'v1InstanceTenancy' @::@ 'Maybe' 'Text'
+-- * 'vpcInstanceTenancy' @::@ 'Maybe' 'Text'
 --
--- * 'v1IsDefault' @::@ 'Maybe' 'Bool'
+-- * 'vpcIsDefault' @::@ 'Maybe' 'Bool'
 --
--- * 'v1State' @::@ 'Maybe' 'Text'
+-- * 'vpcState' @::@ 'Maybe' 'Text'
 --
--- * 'v1Tags' @::@ ['Tag']
+-- * 'vpcTags' @::@ ['Tag']
 --
--- * 'v1VpcId' @::@ 'Maybe' 'Text'
+-- * 'vpcVpcId' @::@ 'Maybe' 'Text'
 --
 vpc :: Vpc
 vpc = Vpc
-    { _v1VpcId           = Nothing
-    , _v1State           = Nothing
-    , _v1CidrBlock       = Nothing
-    , _v1DhcpOptionsId   = Nothing
-    , _v1Tags            = mempty
-    , _v1InstanceTenancy = Nothing
-    , _v1IsDefault       = Nothing
+    { _vpcVpcId           = Nothing
+    , _vpcState           = Nothing
+    , _vpcCidrBlock       = Nothing
+    , _vpcDhcpOptionsId   = Nothing
+    , _vpcTags            = mempty
+    , _vpcInstanceTenancy = Nothing
+    , _vpcIsDefault       = Nothing
     }
 
 -- | The CIDR block for the VPC.
-v1CidrBlock :: Lens' Vpc (Maybe Text)
-v1CidrBlock = lens _v1CidrBlock (\s a -> s { _v1CidrBlock = a })
+vpcCidrBlock :: Lens' Vpc (Maybe Text)
+vpcCidrBlock = lens _vpcCidrBlock (\s a -> s { _vpcCidrBlock = a })
 
 -- | The ID of the set of DHCP options you've associated with the VPC (or
 -- default if the default options are associated with the VPC).
-v1DhcpOptionsId :: Lens' Vpc (Maybe Text)
-v1DhcpOptionsId = lens _v1DhcpOptionsId (\s a -> s { _v1DhcpOptionsId = a })
+vpcDhcpOptionsId :: Lens' Vpc (Maybe Text)
+vpcDhcpOptionsId = lens _vpcDhcpOptionsId (\s a -> s { _vpcDhcpOptionsId = a })
 
 -- | The allowed tenancy of instances launched into the VPC.
-v1InstanceTenancy :: Lens' Vpc (Maybe Text)
-v1InstanceTenancy =
-    lens _v1InstanceTenancy (\s a -> s { _v1InstanceTenancy = a })
+vpcInstanceTenancy :: Lens' Vpc (Maybe Text)
+vpcInstanceTenancy =
+    lens _vpcInstanceTenancy (\s a -> s { _vpcInstanceTenancy = a })
 
 -- | Indicates whether the VPC is the default VPC.
-v1IsDefault :: Lens' Vpc (Maybe Bool)
-v1IsDefault = lens _v1IsDefault (\s a -> s { _v1IsDefault = a })
+vpcIsDefault :: Lens' Vpc (Maybe Bool)
+vpcIsDefault = lens _vpcIsDefault (\s a -> s { _vpcIsDefault = a })
 
 -- | The current state of the VPC.
-v1State :: Lens' Vpc (Maybe Text)
-v1State = lens _v1State (\s a -> s { _v1State = a })
+vpcState :: Lens' Vpc (Maybe Text)
+vpcState = lens _vpcState (\s a -> s { _vpcState = a })
 
 -- | Any tags assigned to the VPC.
-v1Tags :: Lens' Vpc [Tag]
-v1Tags = lens _v1Tags (\s a -> s { _v1Tags = a })
+vpcTags :: Lens' Vpc [Tag]
+vpcTags = lens _vpcTags (\s a -> s { _vpcTags = a })
 
 -- | The ID of the VPC.
-v1VpcId :: Lens' Vpc (Maybe Text)
-v1VpcId = lens _v1VpcId (\s a -> s { _v1VpcId = a })
+vpcVpcId :: Lens' Vpc (Maybe Text)
+vpcVpcId = lens _vpcVpcId (\s a -> s { _vpcVpcId = a })
 
 instance FromXML Vpc where
     fromXMLOptions = xmlOptions
@@ -9945,69 +9945,69 @@ instance FromXML SpotInstanceType where
 instance ToQuery SpotInstanceType
 
 data VpcPeeringConnection = VpcPeeringConnection
-    { _vpcAccepterVpcInfo        :: Maybe VpcPeeringConnectionVpcInfo
-    , _vpcExpirationTime         :: Maybe RFC822
-    , _vpcRequesterVpcInfo       :: Maybe VpcPeeringConnectionVpcInfo
-    , _vpcStatus                 :: Maybe VpcPeeringConnectionStateReason
-    , _vpcTags                   :: [Tag]
-    , _vpcVpcPeeringConnectionId :: Maybe Text
+    { _vpc1AccepterVpcInfo        :: Maybe VpcPeeringConnectionVpcInfo
+    , _vpc1ExpirationTime         :: Maybe RFC822
+    , _vpc1RequesterVpcInfo       :: Maybe VpcPeeringConnectionVpcInfo
+    , _vpc1Status                 :: Maybe VpcPeeringConnectionStateReason
+    , _vpc1Tags                   :: [Tag]
+    , _vpc1VpcPeeringConnectionId :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 -- | 'VpcPeeringConnection' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vpcAccepterVpcInfo' @::@ 'Maybe' 'VpcPeeringConnectionVpcInfo'
+-- * 'vpc1AccepterVpcInfo' @::@ 'Maybe' 'VpcPeeringConnectionVpcInfo'
 --
--- * 'vpcExpirationTime' @::@ 'Maybe' 'UTCTime'
+-- * 'vpc1ExpirationTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'vpcRequesterVpcInfo' @::@ 'Maybe' 'VpcPeeringConnectionVpcInfo'
+-- * 'vpc1RequesterVpcInfo' @::@ 'Maybe' 'VpcPeeringConnectionVpcInfo'
 --
--- * 'vpcStatus' @::@ 'Maybe' 'VpcPeeringConnectionStateReason'
+-- * 'vpc1Status' @::@ 'Maybe' 'VpcPeeringConnectionStateReason'
 --
--- * 'vpcTags' @::@ ['Tag']
+-- * 'vpc1Tags' @::@ ['Tag']
 --
--- * 'vpcVpcPeeringConnectionId' @::@ 'Maybe' 'Text'
+-- * 'vpc1VpcPeeringConnectionId' @::@ 'Maybe' 'Text'
 --
 vpcPeeringConnection :: VpcPeeringConnection
 vpcPeeringConnection = VpcPeeringConnection
-    { _vpcAccepterVpcInfo        = Nothing
-    , _vpcExpirationTime         = Nothing
-    , _vpcRequesterVpcInfo       = Nothing
-    , _vpcStatus                 = Nothing
-    , _vpcTags                   = mempty
-    , _vpcVpcPeeringConnectionId = Nothing
+    { _vpc1AccepterVpcInfo        = Nothing
+    , _vpc1ExpirationTime         = Nothing
+    , _vpc1RequesterVpcInfo       = Nothing
+    , _vpc1Status                 = Nothing
+    , _vpc1Tags                   = mempty
+    , _vpc1VpcPeeringConnectionId = Nothing
     }
 
 -- | The information of the peer VPC.
-vpcAccepterVpcInfo :: Lens' VpcPeeringConnection (Maybe VpcPeeringConnectionVpcInfo)
-vpcAccepterVpcInfo =
-    lens _vpcAccepterVpcInfo (\s a -> s { _vpcAccepterVpcInfo = a })
+vpc1AccepterVpcInfo :: Lens' VpcPeeringConnection (Maybe VpcPeeringConnectionVpcInfo)
+vpc1AccepterVpcInfo =
+    lens _vpc1AccepterVpcInfo (\s a -> s { _vpc1AccepterVpcInfo = a })
 
 -- | The time that an unaccepted VPC peering connection will expire.
-vpcExpirationTime :: Lens' VpcPeeringConnection (Maybe UTCTime)
-vpcExpirationTime =
-    lens _vpcExpirationTime (\s a -> s { _vpcExpirationTime = a })
+vpc1ExpirationTime :: Lens' VpcPeeringConnection (Maybe UTCTime)
+vpc1ExpirationTime =
+    lens _vpc1ExpirationTime (\s a -> s { _vpc1ExpirationTime = a })
         . mapping _Time
 
 -- | The information of the requester VPC.
-vpcRequesterVpcInfo :: Lens' VpcPeeringConnection (Maybe VpcPeeringConnectionVpcInfo)
-vpcRequesterVpcInfo =
-    lens _vpcRequesterVpcInfo (\s a -> s { _vpcRequesterVpcInfo = a })
+vpc1RequesterVpcInfo :: Lens' VpcPeeringConnection (Maybe VpcPeeringConnectionVpcInfo)
+vpc1RequesterVpcInfo =
+    lens _vpc1RequesterVpcInfo (\s a -> s { _vpc1RequesterVpcInfo = a })
 
 -- | The status of the VPC peering connection.
-vpcStatus :: Lens' VpcPeeringConnection (Maybe VpcPeeringConnectionStateReason)
-vpcStatus = lens _vpcStatus (\s a -> s { _vpcStatus = a })
+vpc1Status :: Lens' VpcPeeringConnection (Maybe VpcPeeringConnectionStateReason)
+vpc1Status = lens _vpc1Status (\s a -> s { _vpc1Status = a })
 
 -- | Any tags assigned to the resource.
-vpcTags :: Lens' VpcPeeringConnection [Tag]
-vpcTags = lens _vpcTags (\s a -> s { _vpcTags = a })
+vpc1Tags :: Lens' VpcPeeringConnection [Tag]
+vpc1Tags = lens _vpc1Tags (\s a -> s { _vpc1Tags = a })
 
 -- | The ID of the VPC peering connection.
-vpcVpcPeeringConnectionId :: Lens' VpcPeeringConnection (Maybe Text)
-vpcVpcPeeringConnectionId =
-    lens _vpcVpcPeeringConnectionId
-        (\s a -> s { _vpcVpcPeeringConnectionId = a })
+vpc1VpcPeeringConnectionId :: Lens' VpcPeeringConnection (Maybe Text)
+vpc1VpcPeeringConnectionId =
+    lens _vpc1VpcPeeringConnectionId
+        (\s a -> s { _vpc1VpcPeeringConnectionId = a })
 
 instance FromXML VpcPeeringConnection where
     fromXMLOptions = xmlOptions

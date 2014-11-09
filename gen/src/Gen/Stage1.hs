@@ -229,7 +229,7 @@ record (stage1 & thField .~ keyPython) ''Waiter
 
 data Metadata = Metadata
     { _mServiceFullName     :: !Text
-    , _mServiceAbbreviation :: Maybe Abbrev
+    , _mServiceAbbreviation :: !Abbrev
     , _mApiVersion          :: !Text
     , _mEndpointPrefix      :: !Text
     , _mGlobalEndpoint      :: Maybe Text

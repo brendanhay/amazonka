@@ -82,4 +82,7 @@ reserved x
     | otherwise               = x
   where
     xs = Set.fromList $
-        "head" : "filter" : map (CI.mk . Text.pack) (reservedNames haskellDef)
+         "head"
+       : "delete"
+       : "filter"
+       : map (CI.mk . Text.pack) (reservedNames haskellDef)

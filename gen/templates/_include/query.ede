@@ -4,12 +4,14 @@ instance ToQuery {{ request.name }}
     toQuery = const mempty
 {% when 1 %}
 instance ToQuery {{ request.name }} where
-  {% for part in request.query %}
-    {% case part.value.type %}
+  {% for qry in request.query %}
+    {% case qry.value.type %}
     {% when "var" %}
-    toQuery {{ request.name }}{..} = toText {{ part.value.value }}
+    toQuery {{ request.name }}{..} = toText {{ qry.value.value }}
     {% when "const" %}
-    toQuery = const "{{ part.value.value }}"
+    toQuery = const "{{ qry.value.value }}"
+    {% when "field" %}
+    toQuery rq = "{{ qry.value.locationName }}" =? {{ qry.value.field }} rq
     {% endcase %}
   {% endfor %}
 

@@ -7,7 +7,8 @@
 {-# LANGUAGE TypeFamilies               #-}
 
 -- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
-{-# OPTIONS_GHC -fno-warn-unused-binds  #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
 
 {% include "license.ede" %}
 

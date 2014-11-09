@@ -375,8 +375,9 @@ instance ToPath CopyObject where
         , toText _coKey
         ]
 
-instance ToQuery CopyObject
+instance ToQuery CopyObject where
     toQuery = const mempty
+
 instance ToHeaders CopyObject where
     toHeaders CopyObject{..} = mconcat
         [ "x-amz-acl"                                                   =: _coACL

@@ -66,8 +66,9 @@ instance ToPath HeadBucket where
         , toText _hbBucket
         ]
 
-instance ToQuery HeadBucket
+instance ToQuery HeadBucket where
     toQuery = const mempty
+
 instance ToHeaders HeadBucket
 
 data HeadBucketResponse = HeadBucketResponse

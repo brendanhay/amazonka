@@ -103,7 +103,7 @@ instance ToPath CompleteMultipartUpload where
         ]
 
 instance ToQuery CompleteMultipartUpload where
-    toQuery x = "uploadId" =? _cmuUploadId x
+    toQuery rq = "uploadId" =? _cmuUploadId rq
 
 instance ToHeaders CompleteMultipartUpload
 

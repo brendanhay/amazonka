@@ -51,8 +51,9 @@ listBuckets = ListBuckets
 instance ToPath ListBuckets where
     toPath = const "/"
 
-instance ToQuery ListBuckets
+instance ToQuery ListBuckets where
     toQuery = const mempty
+
 instance ToHeaders ListBuckets
 
 data ListBucketsOutput = ListBucketsOutput

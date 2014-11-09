@@ -201,7 +201,7 @@ instance ToPath HeadObject where
         ]
 
 instance ToQuery HeadObject where
-    toQuery x = "versionId" =? _hoVersionId x
+    toQuery rq = "versionId" =? _hoVersionId rq
 
 instance ToHeaders HeadObject where
     toHeaders HeadObject{..} = mconcat

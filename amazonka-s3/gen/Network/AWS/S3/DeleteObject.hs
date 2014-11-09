@@ -101,7 +101,7 @@ instance ToPath DeleteObject where
         ]
 
 instance ToQuery DeleteObject where
-    toQuery x = "versionId" =? _do1VersionId x
+    toQuery rq = "versionId" =? _do1VersionId rq
 
 instance ToHeaders DeleteObject where
     toHeaders DeleteObject{..} = mconcat

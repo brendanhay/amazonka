@@ -67,8 +67,9 @@ instance ToPath DeleteBucket where
         , toText _dbBucket
         ]
 
-instance ToQuery DeleteBucket
+instance ToQuery DeleteBucket where
     toQuery = const mempty
+
 instance ToHeaders DeleteBucket
 
 data DeleteBucketResponse = DeleteBucketResponse

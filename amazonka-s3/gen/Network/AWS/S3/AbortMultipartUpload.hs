@@ -88,7 +88,7 @@ instance ToPath AbortMultipartUpload where
         ]
 
 instance ToQuery AbortMultipartUpload where
-    toQuery x = "uploadId" =? _amuUploadId x
+    toQuery rq = "uploadId" =? _amuUploadId rq
 
 instance ToHeaders AbortMultipartUpload
 

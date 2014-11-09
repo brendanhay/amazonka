@@ -296,8 +296,9 @@ instance ToPath PutObject where
         , toText _poKey
         ]
 
-instance ToQuery PutObject
+instance ToQuery PutObject where
     toQuery = const mempty
+
 instance ToHeaders PutObject where
     toHeaders PutObject{..} = mconcat
         [ "x-amz-acl"                                       =: _poACL

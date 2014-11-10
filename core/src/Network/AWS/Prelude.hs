@@ -20,10 +20,12 @@ module Network.AWS.Prelude
     -- * Primitives
     , Base64
     , ByteString
-    , LazyByteString
+    , ClientRequest
+    , ClientResponse
     , Exception
     , HashMap
     , HttpException
+    , LazyByteString
     , NonEmpty
     , RequestBody
     , Response
@@ -38,7 +40,6 @@ module Network.AWS.Prelude
     , FromJSON        (..)
     , ToJSON          (..)
     , AWSError        (..)
-    , AWSServiceError (..)
     , AWSService      (..)
     , AWSRequest      (..)
     , AWSPager        (..)
@@ -52,7 +53,7 @@ module Network.AWS.Prelude
     , Service         (..)
 
     -- * Errors
-    , Error           (..)
+    , ServiceError    (..)
 
     -- * HTTP
     , Status
@@ -61,35 +62,35 @@ module Network.AWS.Prelude
     , module Lens
     ) where
 
-import           Control.Applicative          as Export
-import           Control.Exception            (Exception)
-import           Control.Monad.Catch          (MonadCatch(..))
-import           Control.Monad.Except         (MonadError(..))
-import           Control.Monad.Identity       as Export
-import           Control.Monad.Reader         (MonadReader(..))
-import           Control.Monad.State          (State)
-import           Control.Monad.Trans.Resource (MonadResource(..))
-import           Data.Aeson                   (FromJSON(..), ToJSON(..))
-import           Data.Bifunctor               as Export
-import           Data.ByteString              (ByteString)
-import qualified Data.ByteString.Lazy         as LBS
-import           Data.Default.Class           as Export
-import           Data.HashMap.Strict          (HashMap)
-import           Data.Hashable                as Export
-import           Data.List.NonEmpty           (NonEmpty)
-import           Data.Maybe                   as Export
-import           Data.Monoid                  as Export hiding (All, Sum)
-import           Data.Tagged                  as Export
-import           Data.Text                    (Text)
-import           Data.Typeable                (Typeable)
-import           GHC.Generics                 (Generic)
-import           Network.AWS.Data             as Export hiding (Query)
-import           Network.AWS.Response         as Export
-import           Network.AWS.Types
-import           Network.HTTP.Client          (HttpException, RequestBody, Response)
-import           Network.HTTP.Types.Status    (Status)
-import           Prelude                      as Export hiding (head, error)
-import           Control.Lens                 as Lens
+import Control.Applicative          as Export
+import Control.Exception            (Exception)
+import Control.Monad.Catch          (MonadCatch(..))
+import Control.Monad.Except         (MonadError(..))
+import Control.Monad.Identity       as Export
+import Control.Monad.Reader         (MonadReader(..))
+import Control.Monad.State          (State)
+import Control.Monad.Trans.Resource (MonadResource(..))
+import Data.Aeson                   (FromJSON(..), ToJSON(..))
+import Data.Bifunctor               as Export
+import Data.ByteString              (ByteString)
+import Data.Default.Class           as Export
+import Data.HashMap.Strict          (HashMap)
+import Data.Hashable                as Export
+import Data.List.NonEmpty           (NonEmpty)
+import Data.Maybe                   as Export
+import Data.Monoid                  as Export hiding (All, Sum)
+import Data.Tagged                  as Export
+import Data.Text                    (Text)
+import Data.Typeable                (Typeable)
+import GHC.Generics                 (Generic)
+import Network.AWS.Data             as Export hiding (Query)
+import Network.AWS.Response         as Export
+import Network.AWS.Types
+import Network.HTTP.Client          (HttpException, RequestBody)
+import Network.HTTP.Types.Status    (Status)
+import Prelude                      as Export hiding (head, error)
+
+import Control.Lens as Lens
     ( Lens'
     , Prism'
     , (<&>)
@@ -111,5 +112,3 @@ import           Control.Lens                 as Lens
     , to
     , mapping
     )
-
-type LazyByteString = LBS.ByteString

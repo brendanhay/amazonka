@@ -52,7 +52,7 @@ import           Network.AWS.Auth
 import           Network.AWS.Data
 import qualified Network.AWS.Signing.Internal as Sign
 import           Network.AWS.Types
-import           Network.HTTP.Conduit
+import           Network.HTTP.Conduit         hiding (Response)
 
 -- | The environment containing the parameters required to make AWS requests.
 data Env = Env
@@ -84,7 +84,7 @@ newEnv r c m = Env r None m `liftM` getAuth m c
 send :: (MonadCatch m, MonadResource m, AWSRequest a)
      => Env
      -> a
-     -> m (Either (Er (Sv a)) (Rs a))
+     -> m (Response a)
 send Env{..} x@(request -> rq) = go `catch` er >>= response x
   where
     go = do
@@ -110,7 +110,7 @@ send Env{..} x@(request -> rq) = go `catch` er >>= response x
 paginate :: (MonadCatch m, MonadResource m, AWSPager a)
          => Env
          -> a
-         -> Source m (Either (Er (Sv a)) (Rs a))
+         -> Source m (Response a)
 paginate e = go
   where
     go rq = do

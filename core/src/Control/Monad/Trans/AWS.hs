@@ -51,6 +51,7 @@ module Control.Monad.Trans.AWS
     , within
 
     -- * Errors
+    , Error
     , hoistEither
     , throwAWSError
     , verify
@@ -89,6 +90,9 @@ import qualified Network.AWS                  as AWS
 import           Network.AWS.Auth
 import qualified Network.AWS.Types            as Types
 import           Network.AWS.Types            hiding (debug)
+
+-- | The top-level error type.
+type Error = ServiceError String
 
 -- | A convenient alias for 'AWST' 'IO'.
 type AWS = AWST IO
@@ -278,7 +282,7 @@ sendCatch :: ( MonadCatch m
              , AWSRequest a
              )
           => a
-          -> m (Either (Er (Sv a)) (Rs a))
+          -> m (Response a)
 sendCatch rq = scoped (`AWS.send` rq)
 
 -- | Send a data type which is an instance of 'AWSPager' and paginate while
@@ -310,15 +314,8 @@ paginateCatch :: ( MonadCatch m
                  , AWSPager a
                  )
               => a
-              -> Source m (Either (Er (Sv a)) (Rs a))
+              -> Source m (Response a)
 paginateCatch rq = scoped (`AWS.paginate` rq)
-
--- | Wait for an asynchronous computation initiated by 'async' to complete and
--- raise any returned error case using 'hoistEither'.
--- wait :: (MonadBaseControl IO m, MonadError Error m, AWSError e)
---      => Async (StM m (Either e a))
---      -> m a
--- wait = Async.wait >=> hoistEither
 
 -- | Presign a URL with expiry to be used at a later time.
 --

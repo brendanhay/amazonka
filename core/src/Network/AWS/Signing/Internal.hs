@@ -30,7 +30,7 @@ sign :: (MonadIO m, AWSRequest a, AWSSigner (Sg (Sv a)))
      -> UTCTime   -- ^ Signing time.
      -> m (Signed a (Sg (Sv a)))
 sign a r rq t = withAuth a $ \e -> return $
-    signed service e r rq defaultTimeLocale t
+    signed e r rq defaultTimeLocale t
 
 presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
         => Auth      -- ^ AWS authentication credentials.
@@ -40,7 +40,10 @@ presign :: (MonadIO m, AWSRequest a, AWSPresigner (Sg (Sv a)))
         -> Int       -- ^ Expiry time in seconds.
         -> m (Signed a (Sg (Sv a)))
 presign a r rq t x = withAuth a $ \e -> return $
-    presigned service e r rq defaultTimeLocale t x
+    presigned e r rq defaultTimeLocale t x
 
 hmacSHA256 :: ByteString -> ByteString -> ByteString
 hmacSHA256 = HMAC.hmac SHA256.hash 64
+
+serviceOf :: AWSService (Sv a) => Request a -> Service (Sv a)
+serviceOf = const service

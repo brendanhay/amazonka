@@ -55,7 +55,7 @@ instance Show (Meta V3) where
         ]
 
 instance AWSSigner V3 where
-    signed s AuthEnv{..} r Request{..} l t = Signed meta rq
+    signed AuthEnv{..} r x@Request{..} l t = Signed meta rq
       where
         meta = Meta
             { _mSignature = signature
@@ -70,7 +70,7 @@ instance AWSSigner V3 where
             & requestHeaders .~ headers
             & requestBody    .~ _bdyBody _rqBody
 
-        host' = toBS (endpoint s r)
+        host' = toBS (endpoint (serviceOf x) r)
 
         headers = sortBy (comparing fst)
             . hdr hAMZAuth authorisation

@@ -1,3 +1,4 @@
+{-# LANGUAGE DefaultSignatures          #-}
 {-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
@@ -24,75 +25,81 @@
 
 module Network.AWS.Types
     (
-    -- * Errors
-      AWSError        (..)
-    , AWSServiceError (..)
-    , Error           (..)
-    , _ServiceError
-    , _HttpError
-    , _SerializerError
-    , _Nested
-
     -- * Authentication
     -- ** Credentials
-    , AccessKey       (..)
-    , SecretKey       (..)
-    , SecurityToken   (..)
+      AccessKey     (..)
+    , SecretKey     (..)
+    , SecurityToken (..)
     -- ** Environment
-    , AuthEnv         (..)
-    , Auth            (..)
+    , AuthEnv       (..)
+    , Auth          (..)
     , withAuth
 
     -- * Logger
-    , Logger          (..)
+    , Logger        (..)
     , debug
 
     -- * Services
-    , AWSService      (..)
-    , Service         (..)
-    -- ** Endpoints
-    , Endpoint        (..)
-    , Host            (..)
+    , Abbrev
+    , AWSService    (..)
+    , Service       (..)
+
+    -- * Endpoints
+    , Endpoint      (..)
+    , Host          (..)
     , endpoint
 
+    -- * Errors
+    , ServiceError  (..)
+    , _HttpError
+    , _SerializerError
+    , _ServiceError
+    , _Errors
+
+    , AWSError
+    , awsError
+
     -- * Signing
-    , AWSSigner       (..)
-    , AWSPresigner    (..)
-    , Signed          (..)
+    , AWSSigner     (..)
+    , AWSPresigner  (..)
+    , Signed        (..)
     , Meta
     , sgMeta
     , sgRequest
 
     -- * Requests
-    , AWSRequest      (..)
-    , AWSPager        (..)
-    , Request         (..)
+    , AWSRequest    (..)
+    , AWSPager      (..)
+    , Request       (..)
     , rqMethod
     , rqHeaders
     , rqPath
     , rqQuery
     , rqBody
-    -- * Responses
-    , Empty           (..)
 
-    -- ** HTTP Client
+    -- * Responses
+    , Response
+    , Empty         (..)
+
+    -- * Regions
+    , Region        (..)
+    , Zone          (..)
+    , zRegion
+    , zSuffix
+
+    -- * Shared
+    , LazyByteString
+    , Base64
+    , base64
+    , Action        (..)
+    , Sensitive     (..)
+    , _Sensitive
+
+    -- * Convenience
     , ClientRequest
     , ClientResponse
     , ResponseBody
     , clientRequest
-
-    -- * Regions
-    , Region          (..)
-    , Zone            (..)
-    , zRegion
-    , zSuffix
-
-    -- * Miscellaneous
-    , Base64
-    , base64
-    , Action          (..)
-    , Sensitive       (..)
-    , _Sensitive
     ) where
 
 import           Control.Applicative
@@ -120,67 +127,76 @@ import           Data.Typeable
 import           GHC.Generics
 import           Network.AWS.Data
 import qualified Network.HTTP.Client          as Client
-import           Network.HTTP.Client          hiding (Request)
+import           Network.HTTP.Client          hiding (Request, Response)
 import           Network.HTTP.Types.Header
 import           Network.HTTP.Types.Method
 import           Network.HTTP.Types.Status    (Status)
 import           System.Locale
+
+type LazyByteString = LBS.ByteString
 
 -- | Abbreviated service name.
 type Abbrev = Text
 
 -- | An error type representing the subset of errors that can be directly
 -- attributed to this library.
-data Error
+data ServiceError a
     = HttpError       HttpException
     | SerializerError Abbrev String
-    | ServiceError    Abbrev Status String
-    | Nested          [Error]
+    | ServiceError    Abbrev Status a
+    | Errors          [ServiceError a]
       deriving (Show, Typeable)
 
-instance Exception Error
+instance (Show a, Typeable a) => Exception (ServiceError a)
 
-instance Monoid Error where
-    mempty      = Nested []
-    mappend a b = Nested (f a <> f b)
+instance Monoid (ServiceError a) where
+    mempty      = Errors []
+    mappend a b = Errors (f a <> f b)
       where
-        f (Nested xs) = xs
+        f (Errors xs) = xs
         f x           = [x]
 
--- | Convert from a specific error to the more general 'Error' type.
 class AWSError a where
-    awsError :: a -> Error
+    awsError :: a -> ServiceError String
 
-instance AWSError Error where
-    awsError = id
-
-instance AWSError HttpException where
-    awsError = HttpError
-
--- | Convert from service specific errors to the more general service error.
-class (Typeable a, AWSError a) => AWSServiceError a where
-    httpError       :: HttpException -> a
-    serializerError :: String        -> a
-    serviceError    :: Status        -> Maybe (LBS.ByteString -> a)
+instance Show a => AWSError (ServiceError a) where
+    awsError = \case
+        HttpError       e     -> HttpError e
+        SerializerError a e   -> SerializerError a e
+        ServiceError    a s x -> ServiceError a s (show x)
+        Errors          xs    -> Errors (map awsError xs)
 
 -- | The properties (such as endpoint) for a service, as well as it's
 -- associated signing algorithm and error types.
-class (AWSSigner (Sg a), AWSServiceError (Er a)) => AWSService a where
+class (AWSSigner (Sg a), Show (Er a)) => AWSService a where
+    -- | Signing algorithm supported by the service.
     type Sg a :: *
+
+    -- | The general service error.
     type Er a :: *
 
     service :: Service a
+    handle  :: Service a
+            -> Status
+            -> Maybe (LazyByteString -> ServiceError (Er a))
 
--- | Specify how a data type can be de/serialised.
+-- | An alias for the common response 'Either' containing a service error in the
+-- 'Left' case, or the expected response in the 'Right'.
+type Response a = Either (ServiceError (Er (Sv a))) (Rs a)
+
+-- | Specify how a request can be de/serialised.
 class (AWSService (Sv a), AWSSigner (Sg (Sv a))) => AWSRequest a where
+    -- | The service definition for a request.
     type Sv a :: *
+
+    -- | The successful, expected response associated with a request.
     type Rs a :: *
 
     request  :: a -> Request a
     response :: MonadResource m
              => a
              -> Either HttpException ClientResponse
-             -> m (Either (Er (Sv a)) (Rs a))
+             -> m (Response a)
 
 -- | Specify how an 'AWSRequest' and it's associated 'Rs' response can generate
 -- a subsequent request, if available.
@@ -189,7 +205,7 @@ class AWSRequest a => AWSPager a where
 
 -- | Signing metadata data specific to a signing algorithm.
 --
--- Note: this is used for test and debug purposes, or is otherwise ignored.
+-- /Note:/ this is used for test and debug purposes, or is otherwise ignored.
 data family Meta v :: *
 
 -- | A signed 'ClientRequest' and associated metadata specific to the signing
@@ -215,9 +231,8 @@ instance ToText (Signed a v) where
         ]
 
 class AWSSigner v where
-    signed :: v ~ Sg (Sv a)
-           => Service (Sv a)
-           -> AuthEnv
+    signed :: (AWSService (Sv a), v ~ Sg (Sv a))
+           => AuthEnv
            -> Region
            -> Request a
            -> TimeLocale
@@ -225,9 +240,8 @@ class AWSSigner v where
            -> Signed a v
 
 class AWSPresigner v where
-    presigned :: v ~ Sg (Sv a)
-              => Service (Sv a)
-              -> AuthEnv
+    presigned :: (AWSService (Sv a), v ~ Sg (Sv a))
+              => AuthEnv
               -> Region
               -> Request a
               -> TimeLocale
@@ -325,10 +339,12 @@ endpoint Service{..} reg =
 
 -- | Attributes specific to an AWS service.
 data Service a = Service
-    { _svcEndpoint :: !Endpoint
+    { _svcAbbrev   :: !Text
+    , _svcEndpoint :: !Endpoint
     , _svcPrefix   :: ByteString
     , _svcVersion  :: ByteString
     , _svcTarget   :: Maybe ByteString
+    , _svcCheck    :: Status -> Bool
     }
 
 -- | An unsigned request.
@@ -461,7 +477,7 @@ data Empty = Empty
 type ClientRequest = Client.Request
 
 -- | A convenience alias encapsulating the common 'Response'.
-type ClientResponse = Response ResponseBody
+type ClientResponse = Client.Response ResponseBody
 
 -- | A convenience alias encapsulating the common 'Response' body.
 type ResponseBody = ResumableSource (ResourceT IO) ByteString
@@ -475,7 +491,7 @@ clientRequest = def
     , Client.checkStatus = \_ _ _ -> Nothing
     }
 
-makePrisms ''Error
+makePrisms ''ServiceError
 makeLenses ''Request
 makeLenses ''Zone
 makePrisms ''Sensitive

@@ -25,7 +25,7 @@ cloudWatch = Service Regional version4 "cloudwatch" "2010-08-01"
 
 -- | XML namespace to annotate CloudWatch elements with.
 cloudWatchNS :: ByteString
-cloudWatchNS = "https://cloudwatch.amazonaws.com/doc/" <> svcVersion cloudWatch <> "/"
+cloudWatchNS = "https://monitoring.amazonaws.com/doc/" <> svcVersion cloudWatch <> "/"
 
 -- | Helper to define CloudWatch namespaced XML elements.
 cloudWatchElem :: ByteString -> NName ByteString

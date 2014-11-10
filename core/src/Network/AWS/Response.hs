@@ -61,11 +61,12 @@ alwaysFail = const False
 
 xmlError :: FromXML (Er a)
          => Service a
+         -> (Status -> Bool)
          -> Status
          -> Maybe (LBS.ByteString -> ServiceError (Er a))
-xmlError Service{..} s
-    | _svcCheck s = Nothing
-    | otherwise   = Just (either failure success . decodeXML)
+xmlError Service{..} chk s
+    | chk s     = Nothing
+    | otherwise = Just (either failure success . decodeXML)
   where
     success = ServiceError _svcAbbrev s
     failure = SerializerError _svcAbbrev

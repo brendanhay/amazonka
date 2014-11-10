@@ -344,7 +344,6 @@ data Service a = Service
     , _svcPrefix   :: ByteString
     , _svcVersion  :: ByteString
     , _svcTarget   :: Maybe ByteString
-    , _svcCheck    :: Status -> Bool
     }
 
 -- | An unsigned request.

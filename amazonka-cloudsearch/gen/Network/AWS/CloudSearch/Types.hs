@@ -305,6 +305,7 @@ instance AWSService CloudSearch where
 
     service = Service
         { _svcEndpoint = Regional
+        , _svcAbbrev   = "CloudSearch"
         , _svcPrefix   = "cloudsearch"
         , _svcVersion  = "2013-01-01"
         , _svcTarget   = Nothing

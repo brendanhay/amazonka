@@ -7,6 +7,7 @@ instance AWSService {{ service.abbrev }} where
 
     service = Service
         { _svcEndpoint = {{ service.endpoint }}
+        , _svcAbbrev   = "{{ service.abbrev }}"
         , _svcPrefix   = "{{ service.endpointPrefix }}"
         , _svcVersion  = "{{ service.version }}"
         , _svcTarget   = {% if targetPrefix %}Just "{{ service.targetPrefix }}"{% else %}Nothing{% endif %}

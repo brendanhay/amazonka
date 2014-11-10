@@ -223,6 +223,7 @@ instance AWSService ELB where
 
     service = Service
         { _svcEndpoint = Regional
+        , _svcAbbrev   = "ELB"
         , _svcPrefix   = "elasticloadbalancing"
         , _svcVersion  = "2012-06-01"
         , _svcTarget   = Nothing

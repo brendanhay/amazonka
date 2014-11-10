@@ -280,6 +280,7 @@ instance AWSService ElasticBeanstalk where
 
     service = Service
         { _svcEndpoint = Regional
+        , _svcAbbrev   = "ElasticBeanstalk"
         , _svcPrefix   = "elasticbeanstalk"
         , _svcVersion  = "2010-12-01"
         , _svcTarget   = Nothing

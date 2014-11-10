@@ -85,6 +85,7 @@ instance AWSService SimpleDB where
 
     service = Service
         { _svcEndpoint = Regional
+        , _svcAbbrev   = "SimpleDB"
         , _svcPrefix   = "sdb"
         , _svcVersion  = "2009-04-15"
         , _svcTarget   = Nothing

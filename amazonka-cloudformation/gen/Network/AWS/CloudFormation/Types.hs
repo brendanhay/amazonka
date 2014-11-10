@@ -165,6 +165,7 @@ instance AWSService CloudFormation where
 
     service = Service
         { _svcEndpoint = Regional
+        , _svcAbbrev   = "CloudFormation"
         , _svcPrefix   = "cloudformation"
         , _svcVersion  = "2010-05-15"
         , _svcTarget   = Nothing

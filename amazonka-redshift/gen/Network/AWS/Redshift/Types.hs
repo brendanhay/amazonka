@@ -371,6 +371,7 @@ instance AWSService Redshift where
 
     service = Service
         { _svcEndpoint = Regional
+        , _svcAbbrev   = "Redshift"
         , _svcPrefix   = "redshift"
         , _svcVersion  = "2012-12-01"
         , _svcTarget   = Nothing

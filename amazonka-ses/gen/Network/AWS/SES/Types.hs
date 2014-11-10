@@ -113,6 +113,7 @@ instance AWSService SES where
 
     service = Service
         { _svcEndpoint = Regional
+        , _svcAbbrev   = "SES"
         , _svcPrefix   = "email"
         , _svcVersion  = "2010-12-01"
         , _svcTarget   = Nothing

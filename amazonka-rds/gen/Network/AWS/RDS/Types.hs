@@ -427,6 +427,7 @@ instance AWSService RDS where
 
     service = Service
         { _svcEndpoint = Regional
+        , _svcAbbrev   = "RDS"
         , _svcPrefix   = "rds"
         , _svcVersion  = "2014-09-01"
         , _svcTarget   = Nothing

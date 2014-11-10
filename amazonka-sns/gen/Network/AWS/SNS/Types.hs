@@ -77,6 +77,7 @@ instance AWSService SNS where
 
     service = Service
         { _svcEndpoint = Regional
+        , _svcAbbrev   = "SNS"
         , _svcPrefix   = "sns"
         , _svcVersion  = "2010-03-31"
         , _svcTarget   = Nothing

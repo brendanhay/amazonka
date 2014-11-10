@@ -55,6 +55,7 @@ instance AWSService ImportExport where
 
     service = Service
         { _svcEndpoint = Global
+        , _svcAbbrev   = "ImportExport"
         , _svcPrefix   = "importexport"
         , _svcVersion  = "2010-06-01"
         , _svcTarget   = Nothing

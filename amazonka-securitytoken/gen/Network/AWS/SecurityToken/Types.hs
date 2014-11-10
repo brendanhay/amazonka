@@ -64,6 +64,7 @@ instance AWSService SecurityToken where
 
     service = Service
         { _svcEndpoint = Global
+        , _svcAbbrev   = "SecurityToken"
         , _svcPrefix   = "sts"
         , _svcVersion  = "2011-06-15"
         , _svcTarget   = Nothing

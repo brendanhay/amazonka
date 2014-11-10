@@ -190,6 +190,7 @@ instance AWSService IAM where
 
     service = Service
         { _svcEndpoint = Global
+        , _svcAbbrev   = "IAM"
         , _svcPrefix   = "iam"
         , _svcVersion  = "2010-05-08"
         , _svcTarget   = Nothing

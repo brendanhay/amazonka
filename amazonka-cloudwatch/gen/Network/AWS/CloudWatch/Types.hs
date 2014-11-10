@@ -141,6 +141,7 @@ instance AWSService CloudWatch where
 
     service = Service
         { _svcEndpoint = Regional
+        , _svcAbbrev   = "CloudWatch"
         , _svcPrefix   = "monitoring"
         , _svcVersion  = "2010-08-01"
         , _svcTarget   = Nothing

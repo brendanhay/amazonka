@@ -409,6 +409,7 @@ instance AWSService S3 where
 
     service = Service
         { _svcEndpoint = Global
+        , _svcAbbrev   = "S3"
         , _svcPrefix   = "s3"
         , _svcVersion  = "2006-03-01"
         , _svcTarget   = Nothing

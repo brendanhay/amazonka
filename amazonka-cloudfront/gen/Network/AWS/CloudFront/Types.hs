@@ -410,6 +410,7 @@ instance AWSService CloudFront where
 
     service = Service
         { _svcEndpoint = Global
+        , _svcAbbrev   = "CloudFront"
         , _svcPrefix   = "cloudfront"
         , _svcVersion  = "2014-05-31"
         , _svcTarget   = Nothing

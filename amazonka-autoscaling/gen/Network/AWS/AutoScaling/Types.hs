@@ -250,10 +250,14 @@ module Network.AWS.AutoScaling.Types
 
     -- * ScalingActivityStatusCode
     , ScalingActivityStatusCode (..)
+
+    -- * Common
+    , module Network.AWS.AutoScaling.Internal
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import Network.AWS.AutoScaling.Internal
 
 -- | Supported version (@2011-01-01@) of the Amazon Auto Scaling.
 data AutoScaling deriving (Typeable)
@@ -264,6 +268,7 @@ instance AWSService AutoScaling where
 
     service = Service
         { _svcEndpoint = Regional
+        , _svcAbbrev   = "AutoScaling"
         , _svcPrefix   = "autoscaling"
         , _svcVersion  = "2011-01-01"
         , _svcTarget   = Nothing

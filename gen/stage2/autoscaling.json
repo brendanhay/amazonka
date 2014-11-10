@@ -62,7 +62,9 @@
         "endpointPrefix": "autoscaling"
     },
     "cabal": {
-        "other": [],
+        "other": [
+            "Network.AWS.AutoScaling.Internal"
+        ],
         "library": "amazonka-autoscaling",
         "exposed": [
             "Network.AWS.AutoScaling",
@@ -4140,7 +4142,9 @@
                 "branchPad": 31
             }
         ],
-        "imports": []
+        "imports": [
+            "Network.AWS.AutoScaling.Internal"
+        ]
     },
     "operations": [
         {

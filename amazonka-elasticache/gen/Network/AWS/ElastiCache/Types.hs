@@ -339,6 +339,7 @@ instance AWSService ElastiCache where
 
     service = Service
         { _svcEndpoint = Regional
+        , _svcAbbrev   = "ElastiCache"
         , _svcPrefix   = "elasticache"
         , _svcVersion  = "2014-09-30"
         , _svcTarget   = Nothing

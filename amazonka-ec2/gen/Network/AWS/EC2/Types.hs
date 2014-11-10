@@ -1409,6 +1409,7 @@ instance AWSService EC2 where
 
     service = Service
         { _svcEndpoint = Regional
+        , _svcAbbrev   = "EC2"
         , _svcPrefix   = "ec2"
         , _svcVersion  = "2014-09-01"
         , _svcTarget   = Nothing

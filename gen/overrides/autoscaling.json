@@ -4,6 +4,9 @@
     "metadata": {
         "serviceAbbreviation": "AutoScaling"
     },
+    "typesModules": [
+        "Network.AWS.AutoScaling.Internal"
+    ],
     "overrides": {
         "Filter": {
             "required": [

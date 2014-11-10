@@ -114,6 +114,7 @@ instance AWSService SQS where
 
     service = Service
         { _svcEndpoint = Regional
+        , _svcAbbrev   = "SQS"
         , _svcPrefix   = "sqs"
         , _svcVersion  = "2012-11-05"
         , _svcTarget   = Nothing

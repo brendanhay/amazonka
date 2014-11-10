@@ -199,6 +199,7 @@ instance AWSService Route53 where
 
     service = Service
         { _svcEndpoint = Global
+        , _svcAbbrev   = "Route53"
         , _svcPrefix   = "route53"
         , _svcVersion  = "2013-04-01"
         , _svcTarget   = Nothing

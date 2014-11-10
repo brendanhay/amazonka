@@ -21,11 +21,11 @@ import Network.AWS.Internal
 
 -- | Currently supported version of the CloudWatch service.
 cloudWatch :: Service
-cloudWatch = Service Regional version4 "cloudwatch" "2010-08-01"
+cloudWatch = Service Regional version4 "monitoring" "2010-08-01"
 
 -- | XML namespace to annotate CloudWatch elements with.
 cloudWatchNS :: ByteString
-cloudWatchNS = "https://monitoring.amazonaws.com/doc/" <> svcVersion cloudWatch <> "/"
+cloudWatchNS = "http://monitoring.amazonaws.com/doc/" <> svcVersion cloudWatch <> "/"
 
 -- | Helper to define CloudWatch namespaced XML elements.
 cloudWatchElem :: ByteString -> NName ByteString

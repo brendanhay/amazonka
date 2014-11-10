@@ -3,14 +3,21 @@
 import Network.AWS.Prelude
 {% include "_include/imports.ede" %}
 
-{% include "_include/datatype.ede" with type = request %}
+{% if request.shared %}
+  {% include "_include/datatype.ede" with type = request %}
+{% else %}
+  {% include "_include/constructor.ede" with type = request %}
+{% endif %}
 
 {% include "_include/path.ede" %}
 {% include "_include/query.ede" %}
 {% include "_include/headers.ede" %}
 {% include "_include/body.ede" %}
+{% if !response.shared %}
 {% include "_include/datatype.ede" with type = response %}
 
+{% include "_include/xml-from.ede" with type = response %}
+{% endif %}
 instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
     type Rs {{ request.name }} = {{ response.name }}

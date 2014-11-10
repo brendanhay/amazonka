@@ -5836,7 +5836,12 @@
             "method": "post",
             "documentation": "\u003cp\u003e Creates the Amazon S3 storage location for the account. \u003c/p\u003e \u003cp\u003e This location is used to store user log files. \u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createStorageLocation",
@@ -5860,7 +5865,12 @@
         {
             "service": "ElasticBeanstalk",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteApplicationResponse",
@@ -5983,7 +5993,12 @@
         {
             "service": "ElasticBeanstalk",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteApplicationVersionResponse",
@@ -6139,7 +6154,12 @@
         {
             "service": "ElasticBeanstalk",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteConfigurationTemplateResponse",
@@ -6261,7 +6281,12 @@
         {
             "service": "ElasticBeanstalk",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteEnvironmentConfigurationResponse",
@@ -8158,8 +8183,7 @@
                 "deriving": [
                     "Eq",
                     "Show",
-                    "Generic",
-                    "Monoid"
+                    "Generic"
                 ],
                 "streaming": false,
                 "fieldPad": 27,
@@ -8242,7 +8266,12 @@
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of the available solution stack names. \u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listAvailableSolutionStacks",
@@ -8266,7 +8295,12 @@
         {
             "service": "ElasticBeanstalk",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "rebuildEnvironmentResponse",
@@ -8388,7 +8422,12 @@
         {
             "service": "ElasticBeanstalk",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "requestEnvironmentInfoResponse",
@@ -8544,7 +8583,12 @@
         {
             "service": "ElasticBeanstalk",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "restartAppServerResponse",
@@ -8872,7 +8916,12 @@
         {
             "service": "ElasticBeanstalk",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "swapEnvironmentCNAMEsResponse",

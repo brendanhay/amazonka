@@ -1193,7 +1193,12 @@
         {
             "service": "SQS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "addPermissionResponse",
@@ -1382,7 +1387,12 @@
         {
             "service": "SQS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "changeMessageVisibilityResponse",
@@ -1894,7 +1904,12 @@
         {
             "service": "SQS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteMessageResponse",
@@ -2201,7 +2216,12 @@
         {
             "service": "SQS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteQueueResponse",
@@ -3265,7 +3285,12 @@
         {
             "service": "SQS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "removePermissionResponse",
@@ -3852,7 +3877,12 @@
         {
             "service": "SQS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setQueueAttributesResponse",

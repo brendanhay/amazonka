@@ -596,7 +596,12 @@
         {
             "service": "SNS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "addPermissionResponse",
@@ -1588,7 +1593,12 @@
         {
             "service": "SNS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteEndpointResponse",
@@ -1692,7 +1702,12 @@
         {
             "service": "SNS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deletePlatformApplicationResponse",
@@ -1796,7 +1811,12 @@
         {
             "service": "SNS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteTopicResponse",
@@ -3690,7 +3710,12 @@
         {
             "service": "SNS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "removePermissionResponse",
@@ -3812,7 +3837,12 @@
         {
             "service": "SNS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setEndpointAttributesResponse",
@@ -3934,7 +3964,12 @@
         {
             "service": "SNS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setPlatformApplicationAttributesResponse",
@@ -4056,7 +4091,12 @@
         {
             "service": "SNS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setSubscriptionAttributesResponse",
@@ -4212,7 +4252,12 @@
         {
             "service": "SNS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setTopicAttributesResponse",
@@ -4574,7 +4619,12 @@
         {
             "service": "SNS",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "unsubscribeResponse",

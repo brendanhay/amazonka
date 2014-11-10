@@ -7894,7 +7894,12 @@
             "method": "post",
             "documentation": "\u003cp\u003eLists all search domains owned by an account.\u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listDomainNames",

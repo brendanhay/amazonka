@@ -7271,7 +7271,12 @@
         {
             "service": "CloudFront",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteCloudFrontOriginAccessIdentity2014_05_31Response",
@@ -7393,7 +7398,12 @@
         {
             "service": "CloudFront",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteDistribution2014_05_31Response",
@@ -7515,7 +7525,12 @@
         {
             "service": "CloudFront",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteStreamingDistribution2014_05_31Response",

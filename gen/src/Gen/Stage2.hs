@@ -418,11 +418,12 @@ instance ToJSON Data where
                 pay        = find isPayload fs
 
 instance DerivingOf Data where
-    derivingOf d = f . derivingOf $ toListOf (dataFields . typeOf) d
+    derivingOf d = f . nub . derivingOf $ toListOf (dataFields . typeOf) d
       where
-        f | Newtype{} <- d = id
-          | Nullary{} <- d = const [Eq', Ord', Enum', Show', Generic']
-          | otherwise      = delete Semigroup' . delete Monoid'
+        f | Newtype {} <- d = id
+          | Nullary {} <- d = const [Eq', Ord', Enum', Show', Generic']
+          | Empty   {} <- d = const [Eq', Ord', Show', Generic']
+          | otherwise       = delete Semigroup' . delete Monoid'
 
 nestedTypes :: Data -> [Type]
 nestedTypes = concatMap universe . toListOf (dataFields . typesOf)

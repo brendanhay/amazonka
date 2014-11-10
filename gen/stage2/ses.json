@@ -107,8 +107,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Monoid"
+                    "Generic"
                 ],
                 "fieldPad": 14,
                 "ctor": "destination",
@@ -1013,7 +1012,12 @@
         {
             "service": "SES",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteIdentityResponse",
@@ -1117,7 +1121,12 @@
         {
             "service": "SES",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteVerifiedEmailAddressResponse",
@@ -1798,7 +1807,12 @@
             "method": "post",
             "documentation": "\u003cp\u003eReturns the user's current sending limits.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getSendQuota",
@@ -1895,7 +1909,12 @@
             "method": "post",
             "documentation": "\u003cp\u003eReturns the user's sending statistics. The result is a list of data points, representing the last two weeks of sending activity. \u003c/p\u003e \u003cp\u003eEach data point in the list contains statistics for a 15-minute interval.\u003c/p\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getSendStatistics",
@@ -2212,7 +2231,12 @@
             "method": "post",
             "documentation": "\u003cp\u003eReturns a list containing all of the email addresses that have been verified.\u003c/p\u003e \u003cimportant\u003eThe ListVerifiedEmailAddresses action is deprecated as of the May 15, 2012 release of Domain Verification. The ListIdentities action is now preferred.\u003c/important\u003e \u003cp\u003eThis action is throttled at one request per second.\u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listVerifiedEmailAddresses",
@@ -2714,7 +2738,12 @@
         {
             "service": "SES",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setIdentityDkimEnabledResponse",
@@ -2836,7 +2865,12 @@
         {
             "service": "SES",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setIdentityFeedbackForwardingEnabledResponse",
@@ -2958,7 +2992,12 @@
         {
             "service": "SES",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setIdentityNotificationTopicResponse",
@@ -3424,7 +3463,12 @@
         {
             "service": "SES",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "verifyEmailAddressResponse",
@@ -3528,7 +3572,12 @@
         {
             "service": "SES",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "verifyEmailIdentityResponse",

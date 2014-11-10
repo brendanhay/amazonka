@@ -8150,7 +8150,12 @@
         {
             "service": "ElastiCache",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteCacheParameterGroupResponse",
@@ -8254,7 +8259,12 @@
         {
             "service": "ElastiCache",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteCacheSecurityGroupResponse",
@@ -8358,7 +8368,12 @@
         {
             "service": "ElastiCache",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteCacheSubnetGroupResponse",

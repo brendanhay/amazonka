@@ -9262,7 +9262,12 @@
         {
             "service": "Redshift",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteClusterParameterGroupResponse",
@@ -9366,7 +9371,12 @@
         {
             "service": "Redshift",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteClusterSecurityGroupResponse",
@@ -9642,7 +9652,12 @@
         {
             "service": "Redshift",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteClusterSubnetGroupResponse",
@@ -9746,7 +9761,12 @@
         {
             "service": "Redshift",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteEventSubscriptionResponse",
@@ -9850,7 +9870,12 @@
         {
             "service": "Redshift",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteHsmClientCertificateResponse",
@@ -9954,7 +9979,12 @@
         {
             "service": "Redshift",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteHsmConfigurationResponse",

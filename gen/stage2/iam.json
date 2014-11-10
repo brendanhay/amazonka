@@ -2680,7 +2680,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "addClientIDToOpenIDConnectProviderResponse",
@@ -2802,7 +2807,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "addRoleToInstanceProfileResponse",
@@ -2924,7 +2934,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "addUserToGroupResponse",
@@ -3046,7 +3061,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "changePasswordResponse",
@@ -3320,7 +3340,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createAccountAliasResponse",
@@ -4900,7 +4925,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deactivateMFADeviceResponse",
@@ -5022,7 +5052,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteAccessKeyResponse",
@@ -5145,7 +5180,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteAccountAliasResponse",
@@ -5249,7 +5289,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteAccountPasswordPolicyResponse",
@@ -5272,7 +5317,12 @@
             "method": "post",
             "documentation": "\u003cp\u003eDeletes the password policy for the AWS account.\u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteAccountPasswordPolicy",
@@ -5296,7 +5346,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteGroupResponse",
@@ -5400,7 +5455,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteGroupPolicyResponse",
@@ -5522,7 +5582,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteInstanceProfileResponse",
@@ -5626,7 +5691,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteLoginProfileResponse",
@@ -5730,7 +5800,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteOpenIDConnectProviderResponse",
@@ -5834,7 +5909,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteRoleResponse",
@@ -5938,7 +6018,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteRolePolicyResponse",
@@ -6060,7 +6145,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteSAMLProviderResponse",
@@ -6164,7 +6254,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteServerCertificateResponse",
@@ -6268,7 +6363,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteSigningCertificateResponse",
@@ -6391,7 +6491,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteUserResponse",
@@ -6495,7 +6600,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteUserPolicyResponse",
@@ -6617,7 +6727,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteVirtualMFADeviceResponse",
@@ -6721,7 +6836,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "enableMFADeviceResponse",
@@ -6996,7 +7116,12 @@
             "method": "post",
             "documentation": "\u003cp\u003e Generates a credential report for the AWS account. For more information about the credential report, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\"\u003eGetting Credential Reports\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "generateCredentialReport",
@@ -7092,7 +7217,12 @@
             "method": "post",
             "documentation": "\u003cp\u003e Retrieves the password policy for the AWS account. For more information about using a password policy, go to \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingPasswordPolicies.html\"\u003eManaging an IAM Password Policy\u003c/a\u003e. \u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getAccountPasswordPolicy",
@@ -7189,7 +7319,12 @@
             "method": "post",
             "documentation": "\u003cp\u003eRetrieves account level information about account entity usage and IAM quotas.\u003c/p\u003e \u003cp\u003e For information about limitations on IAM entities, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/LimitationsOnEntities.html\"\u003eLimitations on IAM Entities\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getAccountSummary",
@@ -7327,7 +7462,12 @@
             "method": "post",
             "documentation": "\u003cp\u003e Retrieves a credential report for the AWS account. For more information about the credential report, see \u003ca href=\"http://docs.aws.amazon.com/IAM/latest/UserGuide/credential-reports.html\"\u003eGetting Credential Reports\u003c/a\u003e in the \u003ci\u003eUsing IAM\u003c/i\u003e guide. \u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getCredentialReport",
@@ -11466,7 +11606,12 @@
             "method": "post",
             "documentation": "\u003cp\u003eLists information about the OpenID Connect providers in the AWS account. \u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listOpenIDConnectProviders",
@@ -12057,7 +12202,12 @@
             "method": "post",
             "documentation": "\u003cp\u003eLists the SAML providers in the account.\u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listSAMLProviders",
@@ -13313,7 +13463,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putGroupPolicyResponse",
@@ -13468,7 +13623,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putRolePolicyResponse",
@@ -13623,7 +13783,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putUserPolicyResponse",
@@ -13778,7 +13943,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "removeClientIDFromOpenIDConnectProviderResponse",
@@ -13900,7 +14070,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "removeRoleFromInstanceProfileResponse",
@@ -14022,7 +14197,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "removeUserFromGroupResponse",
@@ -14144,7 +14324,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "resyncMFADeviceResponse",
@@ -14332,7 +14517,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateAccessKeyResponse",
@@ -14488,7 +14678,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateAccountPasswordPolicyResponse",
@@ -14841,7 +15036,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateAssumeRolePolicyResponse",
@@ -14963,7 +15163,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateGroupResponse",
@@ -15119,7 +15324,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateLoginProfileResponse",
@@ -15275,7 +15485,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateOpenIDConnectProviderThumbprintResponse",
@@ -15570,7 +15785,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateServerCertificateResponse",
@@ -15726,7 +15946,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateSigningCertificateResponse",
@@ -15882,7 +16107,12 @@
         {
             "service": "IAM",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateUserResponse",

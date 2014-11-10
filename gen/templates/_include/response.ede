@@ -1,6 +1,6 @@
 {% case response.type %}
 {% when "empty" %}
-    response = const (nullaryResponse {{ response.name }})
+    response = nullaryResponse {{ response.name }}
 {% else %}
   {% if response.streaming %}
     response = bodyResponse $ \h b -> {{ response.name }}

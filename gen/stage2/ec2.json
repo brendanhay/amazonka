@@ -22324,7 +22324,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "assignPrivateIpAddressesResponse",
@@ -22850,7 +22855,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "associateDhcpOptionsResponse",
@@ -23212,7 +23222,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "attachInternetGatewayResponse",
@@ -24177,7 +24192,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "authorizeSecurityGroupEgressResponse",
@@ -24530,7 +24550,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "authorizeSecurityGroupIngressResponse",
@@ -25291,7 +25316,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "cancelConversionTaskResponse",
@@ -25447,7 +25477,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "cancelExportTaskResponse",
@@ -28181,7 +28216,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createNetworkAclEntryResponse",
@@ -28870,7 +28910,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createPlacementGroupResponse",
@@ -29264,7 +29309,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createRouteResponse",
@@ -30877,7 +30927,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createTagsResponse",
@@ -32346,7 +32401,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createVpnConnectionRouteResponse",
@@ -32673,7 +32733,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteCustomerGatewayResponse",
@@ -32796,7 +32861,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteDhcpOptionsResponse",
@@ -32919,7 +32989,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteInternetGatewayResponse",
@@ -33042,7 +33117,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteKeyPairResponse",
@@ -33165,7 +33245,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteNetworkAclResponse",
@@ -33288,7 +33373,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteNetworkAclEntryResponse",
@@ -33477,7 +33567,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteNetworkInterfaceResponse",
@@ -33600,7 +33695,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deletePlacementGroupResponse",
@@ -33723,7 +33823,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteRouteResponse",
@@ -33879,7 +33984,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteRouteTableResponse",
@@ -34002,7 +34112,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteSecurityGroupResponse",
@@ -34157,7 +34272,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteSnapshotResponse",
@@ -34280,7 +34400,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteSpotDatafeedSubscriptionResponse",
@@ -34383,7 +34508,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteSubnetResponse",
@@ -34506,7 +34636,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteTagsResponse",
@@ -34660,7 +34795,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteVolumeResponse",
@@ -34783,7 +34923,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteVpcResponse",
@@ -35079,7 +35224,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteVpnConnectionResponse",
@@ -35202,7 +35352,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteVpnConnectionRouteResponse",
@@ -35324,7 +35479,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteVpnGatewayResponse",
@@ -35447,7 +35607,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deregisterImageResponse",
@@ -45788,7 +45953,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "detachInternetGatewayResponse",
@@ -45944,7 +46114,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "detachNetworkInterfaceResponse",
@@ -46498,7 +46673,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "detachVpnGatewayResponse",
@@ -46654,7 +46834,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "disableVgwRoutePropagationResponse",
@@ -46776,7 +46961,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "disassociateAddressResponse",
@@ -46931,7 +47121,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "disassociateRouteTableResponse",
@@ -47054,7 +47249,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "enableVgwRoutePropagationResponse",
@@ -47176,7 +47376,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "enableVolumeIOResponse",
@@ -48488,7 +48693,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "modifyImageAttributeResponse",
@@ -48874,7 +49084,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "modifyInstanceAttributeResponse",
@@ -49425,7 +49640,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "modifyNetworkInterfaceAttributeResponse",
@@ -49883,7 +50103,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "modifySnapshotAttributeResponse",
@@ -50170,7 +50395,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "modifySubnetAttributeResponse",
@@ -50292,7 +50522,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "modifyVolumeAttributeResponse",
@@ -50447,7 +50682,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "modifyVpcAttributeResponse",
@@ -51012,7 +51252,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "rebootInstancesResponse",
@@ -51776,7 +52021,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "releaseAddressResponse",
@@ -52137,7 +52387,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "replaceNetworkAclEntryResponse",
@@ -52490,7 +52745,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "replaceRouteResponse",
@@ -52984,7 +53244,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "reportInstanceStatusResponse",
@@ -53675,7 +53940,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "resetImageAttributeResponse",
@@ -53831,7 +54101,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "resetInstanceAttributeResponse",
@@ -53987,7 +54262,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "resetNetworkInterfaceAttributeResponse",
@@ -54143,7 +54423,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "resetSnapshotAttributeResponse",
@@ -54299,7 +54584,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "revokeSecurityGroupEgressResponse",
@@ -54652,7 +54942,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "revokeSecurityGroupIngressResponse",
@@ -56581,7 +56876,12 @@
         {
             "service": "EC2",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "unassignPrivateIpAddressesResponse",

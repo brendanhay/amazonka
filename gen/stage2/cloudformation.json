@@ -2306,7 +2306,12 @@
         {
             "service": "CloudFormation",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "cancelUpdateStackResponse",
@@ -2912,7 +2917,12 @@
         {
             "service": "CloudFormation",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteStackResponse",
@@ -4645,7 +4655,12 @@
         {
             "service": "CloudFormation",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setStackPolicyResponse",

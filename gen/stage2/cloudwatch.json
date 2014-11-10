@@ -1750,7 +1750,12 @@
         {
             "service": "CloudWatch",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteAlarmsResponse",
@@ -2792,7 +2797,12 @@
         {
             "service": "CloudWatch",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "disableAlarmActionsResponse",
@@ -2896,7 +2906,12 @@
         {
             "service": "CloudWatch",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "enableAlarmActionsResponse",
@@ -3633,7 +3648,12 @@
         {
             "service": "CloudWatch",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putMetricAlarmResponse",
@@ -4184,7 +4204,12 @@
         {
             "service": "CloudWatch",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putMetricDataResponse",
@@ -4306,7 +4331,12 @@
         {
             "service": "CloudWatch",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setAlarmStateResponse",

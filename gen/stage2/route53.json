@@ -3057,7 +3057,12 @@
         {
             "service": "Route53",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "changeTagsForResourceResponse",
@@ -4017,7 +4022,12 @@
         {
             "service": "Route53",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteHealthCheckResponse",
@@ -4283,7 +4293,12 @@
         {
             "service": "Route53",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteReusableDelegationSetResponse",
@@ -4858,7 +4873,12 @@
             "method": "get",
             "documentation": "\u003cp\u003e To retrieve a list of the IP ranges used by Amazon Route 53 health checkers to check the health of your resources, send a \u003ccode\u003eGET\u003c/code\u003e request to the \u003ccode\u003e2013-04-01/checkeripranges\u003c/code\u003e resource. You can use these IP addresses to configure router and firewall rules to allow health checkers to check the health of your resources.\u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getCheckerIpRanges",
@@ -5351,7 +5371,12 @@
             "method": "get",
             "documentation": "\u003cp\u003e To retrieve a count of all your health checks, send a \u003ccode\u003eGET\u003c/code\u003e request to the \u003ccode\u003e2013-04-01/healthcheckcount\u003c/code\u003e resource.\u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getHealthCheckCount",

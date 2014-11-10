@@ -4150,7 +4150,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "attachInstancesResponse",
@@ -4177,8 +4182,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Monoid"
+                    "Generic"
                 ],
                 "streaming": false,
                 "fieldPad": 24,
@@ -4274,7 +4278,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "completeLifecycleActionResponse",
@@ -4462,7 +4471,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createAutoScalingGroupResponse",
@@ -5013,7 +5027,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createLaunchConfigurationResponse",
@@ -5597,7 +5616,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createOrUpdateTagsResponse",
@@ -5700,7 +5724,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteAutoScalingGroupResponse",
@@ -5823,7 +5852,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteLaunchConfigurationResponse",
@@ -5927,7 +5961,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteLifecycleHookResponse",
@@ -6049,7 +6088,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteNotificationConfigurationResponse",
@@ -6171,7 +6215,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deletePolicyResponse",
@@ -6294,7 +6343,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteScheduledActionResponse",
@@ -6417,7 +6471,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteTagsResponse",
@@ -6607,7 +6666,12 @@
             "method": "post",
             "documentation": "\u003cp\u003e Returns the limits for the Auto Scaling resources currently allowed for your AWS account. \u003c/p\u003e \u003cp\u003eYour AWS account comes with default limits on resources for Auto Scaling. There is a default limit of \u003ccode\u003e20\u003c/code\u003e Auto Scaling groups and \u003ccode\u003e100\u003c/code\u003e launch configurations per region.\u003c/p\u003e \u003cp\u003eIf you reach the limits for the number of Auto Scaling groups or the launch configurations, you can go to the \u003ca href=\"https://aws.amazon.com/support/\"\u003eSupport Center\u003c/a\u003e and place a request to raise the limits.\u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeAccountLimits",
@@ -6704,7 +6768,12 @@
             "method": "post",
             "documentation": "\u003cp\u003e Returns policy adjustment types for use in the \u003ca\u003ePutScalingPolicy\u003c/a\u003e action. \u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeAdjustmentTypes",
@@ -7238,7 +7307,12 @@
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of all notification types that are supported by Auto Scaling. \u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeAutoScalingNotificationTypes",
@@ -7554,7 +7628,12 @@
             "method": "post",
             "documentation": "\u003cp\u003eDescribes the available types of lifecycle hooks.\u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeLifecycleHookTypes",
@@ -7837,7 +7916,12 @@
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of metrics and a corresponding list of granularities for each metric. \u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeMetricCollectionTypes",
@@ -8654,7 +8738,12 @@
             "method": "post",
             "documentation": "\u003cp\u003eReturns scaling process types for use in the \u003ca\u003eResumeProcesses\u003c/a\u003e and \u003ca\u003eSuspendProcesses\u003c/a\u003e actions.\u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeScalingProcessTypes",
@@ -9286,7 +9375,12 @@
             "method": "post",
             "documentation": "\u003cp\u003e Returns a list of all termination policies supported by Auto Scaling. \u003c/p\u003e",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeTerminationPolicyTypes",
@@ -9516,7 +9610,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "disableMetricsCollectionResponse",
@@ -9639,7 +9738,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "enableMetricsCollectionResponse",
@@ -10001,7 +10105,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "executePolicyResponse",
@@ -10234,8 +10343,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Monoid"
+                    "Generic"
                 ],
                 "streaming": false,
                 "fieldPad": 25,
@@ -10331,7 +10439,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putLifecycleHookResponse",
@@ -10652,7 +10765,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putNotificationConfigurationResponse",
@@ -11113,7 +11231,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putScheduledUpdateGroupActionResponse",
@@ -11467,7 +11590,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "recordLifecycleActionHeartbeatResponse",
@@ -11622,7 +11750,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "resumeProcessesResponse",
@@ -11745,7 +11878,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setDesiredCapacityResponse",
@@ -11901,7 +12039,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setInstanceHealthResponse",
@@ -12057,7 +12200,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "suspendProcessesResponse",
@@ -12351,7 +12499,12 @@
         {
             "service": "AutoScaling",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateAutoScalingGroupResponse",

@@ -18,11 +18,6 @@ module {{ namespace }}
     (
     -- * Service
       {{ service.abbrev }}
-    -- ** Errors
-    , {{ service.error }} (..)
-    , _{{ service.abbrev }}Http
-    , _{{ service.abbrev }}Serializer
-    , _{{ service.abbrev }}Service
 {% case service.protocol %}
 {% when "json" %}
 {% else %}
@@ -58,9 +53,7 @@ module {{ namespace }}
   {% if module.first %}
 
     -- * Common
-    , module {{ module.value }}
-  {% else %}
-    , module {{ module.value }}
   {% endif %}
+    , module {{ module.value }}
 {% endfor %}
     ) where

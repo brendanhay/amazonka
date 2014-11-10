@@ -2858,7 +2858,12 @@
         {
             "service": "ELB",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "addTagsResponse",
@@ -3498,7 +3503,12 @@
         {
             "service": "ELB",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createAppCookieStickinessPolicyResponse",
@@ -3653,7 +3663,12 @@
         {
             "service": "ELB",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createLBCookieStickinessPolicyResponse",
@@ -4146,7 +4161,12 @@
         {
             "service": "ELB",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createLoadBalancerListenersResponse",
@@ -4268,7 +4288,12 @@
         {
             "service": "ELB",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createLoadBalancerPolicyResponse",
@@ -4456,7 +4481,12 @@
         {
             "service": "ELB",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteLoadBalancerResponse",
@@ -4560,7 +4590,12 @@
         {
             "service": "ELB",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteLoadBalancerListenersResponse",
@@ -4683,7 +4718,12 @@
         {
             "service": "ELB",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteLoadBalancerPolicyResponse",
@@ -6879,7 +6919,12 @@
         {
             "service": "ELB",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "removeTagsResponse",
@@ -7001,7 +7046,12 @@
         {
             "service": "ELB",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setLoadBalancerListenerSSLCertificateResponse",
@@ -7156,7 +7206,12 @@
         {
             "service": "ELB",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setLoadBalancerPoliciesForBackendServerResponse",
@@ -7312,7 +7367,12 @@
         {
             "service": "ELB",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setLoadBalancerPoliciesOfListenerResponse",

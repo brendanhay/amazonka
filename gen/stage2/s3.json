@@ -5502,7 +5502,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "abortMultipartUploadResponse",
@@ -8571,7 +8576,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteBucketResponse",
@@ -8674,7 +8684,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteBucketCorsResponse",
@@ -8782,7 +8797,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteBucketLifecycleResponse",
@@ -8890,7 +8910,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteBucketPolicyResponse",
@@ -8998,7 +9023,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteBucketTaggingResponse",
@@ -9106,7 +9136,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteBucketWebsiteResponse",
@@ -13349,7 +13384,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "headBucketResponse",
@@ -14543,7 +14583,12 @@
             "documentation": "Returns a list of all buckets owned by the authenticated sender of the request.",
             "documentationUrl": "http://docs.amazonwebservices.com/AmazonS3/latest/API/RESTServiceGET.html",
             "request": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listBuckets",
@@ -16915,7 +16960,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putBucketAclResponse",
@@ -17281,7 +17331,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putBucketCorsResponse",
@@ -17449,7 +17504,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putBucketLifecycleResponse",
@@ -17617,7 +17677,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putBucketLoggingResponse",
@@ -17785,7 +17850,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putBucketNotificationResponse",
@@ -17953,7 +18023,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putBucketPolicyResponse",
@@ -18122,7 +18197,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putBucketRequestPaymentResponse",
@@ -18290,7 +18370,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putBucketTaggingResponse",
@@ -18458,7 +18543,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putBucketVersioningResponse",
@@ -18659,7 +18749,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putBucketWebsiteResponse",
@@ -19828,7 +19923,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putObjectAclResponse",
@@ -20230,7 +20330,12 @@
         {
             "service": "S3",
             "response": {
-                "deriving": [],
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "restoreObjectResponse",

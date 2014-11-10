@@ -60,54 +60,54 @@ alwaysFail :: Status -> Bool
 alwaysFail = const False
 
 xmlError :: FromXML (Er a)
-         => Service a
-         -> (Status -> Bool)
+         => (Status -> Bool)
+         -> Service a
          -> Status
          -> Maybe (LBS.ByteString -> ServiceError (Er a))
-xmlError Service{..} chk s
-    | chk s     = Nothing
+xmlError f Service{..} s
+    | f s       = Nothing
     | otherwise = Just (either failure success . decodeXML)
   where
     success = ServiceError _svcAbbrev s
     failure = SerializerError _svcAbbrev
 
 xmlResponse :: (MonadResource m, AWSService (Sv a), FromXML (Rs a))
-            => a
-            -> (ResponseHeaders -> Cursor -> Either String (Rs a))
+            => (ResponseHeaders -> Cursor -> Either String (Rs a))
+            -> a
             -> Either HttpException ClientResponse
             -> m (Response a)
-xmlResponse rq = deserialise rq (bimap show fromDocument . XML.parseLBS def)
+xmlResponse = deserialise (bimap show fromDocument . XML.parseLBS def)
 
 jsonResponse :: (MonadResource m, AWSService (Sv a), FromJSON (Rs a))
-             => a
-             -> (ResponseHeaders -> Object -> Either String (Rs a))
+             => (ResponseHeaders -> Object -> Either String (Rs a))
+             -> a
              -> Either HttpException ClientResponse
              -> m (Response a)
-jsonResponse rq = deserialise rq eitherDecode'
+jsonResponse = deserialise eitherDecode'
 
 bodyResponse :: (MonadResource m, AWSService (Sv a))
-             => a
-             -> (ResponseHeaders -> ResponseBody -> Either String (Rs a))
+             => (ResponseHeaders -> ResponseBody -> Either String (Rs a))
+             -> a
              -> Either HttpException ClientResponse
              -> m (Response a)
-bodyResponse rq f = receive rq $ \a hs bdy ->
+bodyResponse f = receive $ \a hs bdy ->
     return (SerializerError a `first` f hs bdy)
 
 nullaryResponse :: (MonadResource m, AWSService (Sv a))
-                => a
-                -> Rs a
+                => Rs a
+                -> a
                 -> Either HttpException ClientResponse
                 -> m (Response a)
-nullaryResponse rq rs = receive rq $ \_ _ bdy ->
+nullaryResponse rs = receive $ \_ _ bdy ->
     liftResourceT (bdy $$+- return (Right rs))
 
 deserialise :: (AWSService (Sv a), MonadResource m)
-            => a
-            -> (LazyByteString -> Either String b)
+            => (LazyByteString -> Either String b)
             -> (ResponseHeaders -> b -> Either String (Rs a))
+            -> a
             -> Either HttpException ClientResponse
             -> m (Response a)
-deserialise rq g f = receive rq $ \a hs bdy -> do
+deserialise g f = receive $ \a hs bdy -> do
     lbs <- sinkLbs bdy
     return $! case g lbs of
         Left  e -> Left (SerializerError a e)
@@ -117,11 +117,11 @@ deserialise rq g f = receive rq $ \a hs bdy -> do
                 Right x -> Right x
 
 receive :: forall m a. (MonadResource m, AWSService (Sv a))
-        => a
-        -> (Abbrev -> ResponseHeaders -> ResponseBody -> m (Response a))
+        => (Abbrev -> ResponseHeaders -> ResponseBody -> m (Response a))
+        -> a
         -> Either HttpException ClientResponse
         -> m (Response a)
-receive _ f = either httpFailure success
+receive f = const (either httpFailure success)
   where
     success rs =
         maybe (f (_svcAbbrev svc) hs bdy)

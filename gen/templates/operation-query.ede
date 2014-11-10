@@ -11,6 +11,7 @@ instance ToQuery {{ request.name }}
 {% if !response.shared %}
 {% include "_include/datatype.ede" with type = response %}
 
+{% include "_include/xml-from.ede" with type = response %}
 {% endif %}
 instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}

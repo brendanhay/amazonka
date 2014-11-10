@@ -264,5 +264,12 @@ instance AWSRequest AssumeRoleWithSAML where
     type Rs AssumeRoleWithSAML = AssumeRoleWithSAMLResponse
 
     request  = post "AssumeRoleWithSAML"
-    response = const . xmlResponse $ \h x -> AssumeRoleWithSAMLResponse
-record
+    response = xmlResponse $ \h x -> AssumeRoleWithSAMLResponse
+        <$> x %| "AssumedRoleUser"
+        <*> x %| "Audience"
+        <*> x %| "Credentials"
+        <*> x %| "Issuer"
+        <*> x %| "NameQualifier"
+        <*> x %| "PackedPolicySize"
+        <*> x %| "Subject"
+        <*> x %| "SubjectType"

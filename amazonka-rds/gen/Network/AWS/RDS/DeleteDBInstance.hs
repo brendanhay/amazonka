@@ -33,7 +33,7 @@ module Network.AWS.RDS.DeleteDBInstance
     -- * Request
       DeleteDBInstanceMessage
     -- ** Request constructor
-    , deleteDBInstanceMessage
+    , deleteDBInstance
     -- ** Request lenses
     , ddbim1DBInstanceIdentifier
     , ddbim1FinalDBSnapshotIdentifier
@@ -42,7 +42,7 @@ module Network.AWS.RDS.DeleteDBInstance
     -- * Response
     , DeleteDBInstanceResult
     -- ** Response constructor
-    , deleteDBInstanceResult
+    , deleteDBInstanceResponse
     -- ** Response lenses
     , ddbirDBInstance
     ) where
@@ -67,9 +67,9 @@ data DeleteDBInstanceMessage = DeleteDBInstanceMessage
 --
 -- * 'ddbim1SkipFinalSnapshot' @::@ 'Maybe' 'Bool'
 --
-deleteDBInstanceMessage :: Text -- ^ 'ddbim1DBInstanceIdentifier'
-                        -> DeleteDBInstanceMessage
-deleteDBInstanceMessage p1 = DeleteDBInstanceMessage
+deleteDBInstance :: Text -- ^ 'ddbim1DBInstanceIdentifier'
+                 -> DeleteDBInstanceMessage
+deleteDBInstance p1 = DeleteDBInstanceMessage
     { _ddbim1DBInstanceIdentifier      = p1
     , _ddbim1SkipFinalSnapshot         = Nothing
     , _ddbim1FinalDBSnapshotIdentifier = Nothing
@@ -117,8 +117,8 @@ newtype DeleteDBInstanceResult = DeleteDBInstanceResult
 --
 -- * 'ddbirDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-deleteDBInstanceResult :: DeleteDBInstanceResult
-deleteDBInstanceResult = DeleteDBInstanceResult
+deleteDBInstanceResponse :: DeleteDBInstanceResult
+deleteDBInstanceResponse = DeleteDBInstanceResult
     { _ddbirDBInstance = Nothing
     }
 
@@ -130,5 +130,5 @@ instance AWSRequest DeleteDBInstanceMessage where
     type Rs DeleteDBInstanceMessage = DeleteDBInstanceResult
 
     request  = post "DeleteDBInstance"
-    response = const . xmlResponse $ \h x -> DeleteDBInstanceResult
-newtype
+    response = xmlResponse $ \h x -> DeleteDBInstanceResult
+        <$> x %| "DBInstance"

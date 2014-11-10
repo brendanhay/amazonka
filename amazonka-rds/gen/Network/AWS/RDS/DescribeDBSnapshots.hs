@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeDBSnapshots
     -- * Request
       DescribeDBSnapshotsMessage
     -- ** Request constructor
-    , describeDBSnapshotsMessage
+    , describeDBSnapshots
     -- ** Request lenses
     , ddbsmDBInstanceIdentifier
     , ddbsmDBSnapshotIdentifier
@@ -38,7 +38,7 @@ module Network.AWS.RDS.DescribeDBSnapshots
     -- * Response
     , DBSnapshotMessage
     -- ** Response constructor
-    , dbsnapshotMessage
+    , describeDBSnapshotsResponse
     -- ** Response lenses
     , dbsmDBSnapshots
     , dbsmMarker
@@ -73,8 +73,8 @@ data DescribeDBSnapshotsMessage = DescribeDBSnapshotsMessage
 --
 -- * 'ddbsmSnapshotType' @::@ 'Maybe' 'Text'
 --
-describeDBSnapshotsMessage :: DescribeDBSnapshotsMessage
-describeDBSnapshotsMessage = DescribeDBSnapshotsMessage
+describeDBSnapshots :: DescribeDBSnapshotsMessage
+describeDBSnapshots = DescribeDBSnapshotsMessage
     { _ddbsmDBInstanceIdentifier = Nothing
     , _ddbsmDBSnapshotIdentifier = Nothing
     , _ddbsmSnapshotType         = Nothing
@@ -146,8 +146,8 @@ data DBSnapshotMessage = DBSnapshotMessage
 --
 -- * 'dbsmMarker' @::@ 'Maybe' 'Text'
 --
-dbsnapshotMessage :: DBSnapshotMessage
-dbsnapshotMessage = DBSnapshotMessage
+describeDBSnapshotsResponse :: DBSnapshotMessage
+describeDBSnapshotsResponse = DBSnapshotMessage
     { _dbsmMarker      = Nothing
     , _dbsmDBSnapshots = mempty
     }
@@ -167,5 +167,6 @@ instance AWSRequest DescribeDBSnapshotsMessage where
     type Rs DescribeDBSnapshotsMessage = DBSnapshotMessage
 
     request  = post "DescribeDBSnapshots"
-    response = const . xmlResponse $ \h x -> DBSnapshotMessage
-record
+    response = xmlResponse $ \h x -> DBSnapshotMessage
+        <$> x %| "DBSnapshots"
+        <*> x %| "Marker"

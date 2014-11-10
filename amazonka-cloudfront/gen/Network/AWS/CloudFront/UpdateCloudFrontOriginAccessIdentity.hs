@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     -- * Request
       UpdateCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , updateCloudFrontOriginAccessIdentity
+    , updateCloudFrontOriginAccessIdentity2014_05_31
     -- ** Request lenses
     , ucfoaiCloudFrontOriginAccessIdentityConfig
     , ucfoaiId
@@ -35,7 +35,7 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     -- * Response
     , UpdateCloudFrontOriginAccessIdentityResult
     -- ** Response constructor
-    , updateCloudFrontOriginAccessIdentityResult
+    , updateCloudFrontOriginAccessIdentity2014_05_31Response
     -- ** Response lenses
     , ucfoairCloudFrontOriginAccessIdentity
     , ucfoairETag
@@ -61,10 +61,10 @@ data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
 --
 -- * 'ucfoaiIfMatch' @::@ 'Maybe' 'Text'
 --
-updateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
-                                     -> Text -- ^ 'ucfoaiId'
-                                     -> UpdateCloudFrontOriginAccessIdentity
-updateCloudFrontOriginAccessIdentity p1 p2 = UpdateCloudFrontOriginAccessIdentity
+updateCloudFrontOriginAccessIdentity2014_05_31 :: CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
+                                               -> Text -- ^ 'ucfoaiId'
+                                               -> UpdateCloudFrontOriginAccessIdentity
+updateCloudFrontOriginAccessIdentity2014_05_31 p1 p2 = UpdateCloudFrontOriginAccessIdentity
     { _ucfoaiCloudFrontOriginAccessIdentityConfig = p1
     , _ucfoaiId                                   = p2
     , _ucfoaiIfMatch                              = Nothing
@@ -116,8 +116,8 @@ data UpdateCloudFrontOriginAccessIdentityResult = UpdateCloudFrontOriginAccessId
 --
 -- * 'ucfoairETag' @::@ 'Maybe' 'Text'
 --
-updateCloudFrontOriginAccessIdentityResult :: UpdateCloudFrontOriginAccessIdentityResult
-updateCloudFrontOriginAccessIdentityResult = UpdateCloudFrontOriginAccessIdentityResult
+updateCloudFrontOriginAccessIdentity2014_05_31Response :: UpdateCloudFrontOriginAccessIdentityResult
+updateCloudFrontOriginAccessIdentity2014_05_31Response = UpdateCloudFrontOriginAccessIdentityResult
     { _ucfoairCloudFrontOriginAccessIdentity = Nothing
     , _ucfoairETag                           = Nothing
     }
@@ -137,5 +137,6 @@ instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
     type Rs UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentityResult
 
     request  = put
-    response = const . xmlResponse $ \h x -> UpdateCloudFrontOriginAccessIdentityResult
-record
+    response = xmlResponse $ \h x -> UpdateCloudFrontOriginAccessIdentityResult
+        <$> x %| "CloudFrontOriginAccessIdentity"
+        <*> h ~:? "ETag"

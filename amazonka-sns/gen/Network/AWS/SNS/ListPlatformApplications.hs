@@ -33,7 +33,7 @@ module Network.AWS.SNS.ListPlatformApplications
     -- * Request
       ListPlatformApplicationsInput
     -- ** Request constructor
-    , listPlatformApplicationsInput
+    , listPlatformApplications
     -- ** Request lenses
     , lpaiNextToken
 
@@ -60,8 +60,8 @@ newtype ListPlatformApplicationsInput = ListPlatformApplicationsInput
 --
 -- * 'lpaiNextToken' @::@ 'Maybe' 'Text'
 --
-listPlatformApplicationsInput :: ListPlatformApplicationsInput
-listPlatformApplicationsInput = ListPlatformApplicationsInput
+listPlatformApplications :: ListPlatformApplicationsInput
+listPlatformApplications = ListPlatformApplicationsInput
     { _lpaiNextToken = Nothing
     }
 
@@ -112,5 +112,6 @@ instance AWSRequest ListPlatformApplicationsInput where
     type Rs ListPlatformApplicationsInput = ListPlatformApplicationsResponse
 
     request  = post "ListPlatformApplications"
-    response = const . xmlResponse $ \h x -> ListPlatformApplicationsResponse
-record
+    response = xmlResponse $ \h x -> ListPlatformApplicationsResponse
+        <$> x %| "NextToken"
+        <*> x %| "PlatformApplications"

@@ -96,5 +96,5 @@ instance AWSRequest GetServerCertificate where
     type Rs GetServerCertificate = GetServerCertificateResponse
 
     request  = post "GetServerCertificate"
-    response = const . xmlResponse $ \h x -> GetServerCertificateResponse
-newtype
+    response = xmlResponse $ \h x -> GetServerCertificateResponse
+        <$> x %| "ServerCertificate"

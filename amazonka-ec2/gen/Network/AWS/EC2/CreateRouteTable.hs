@@ -37,7 +37,7 @@ module Network.AWS.EC2.CreateRouteTable
     -- * Response
     , CreateRouteTableResult
     -- ** Response constructor
-    , createRouteTableResult
+    , createRouteTableResponse
     -- ** Response lenses
     , crtrRouteTable
     ) where
@@ -88,8 +88,8 @@ newtype CreateRouteTableResult = CreateRouteTableResult
 --
 -- * 'crtrRouteTable' @::@ 'Maybe' 'RouteTable'
 --
-createRouteTableResult :: CreateRouteTableResult
-createRouteTableResult = CreateRouteTableResult
+createRouteTableResponse :: CreateRouteTableResult
+createRouteTableResponse = CreateRouteTableResult
     { _crtrRouteTable = Nothing
     }
 
@@ -102,5 +102,5 @@ instance AWSRequest CreateRouteTable where
     type Rs CreateRouteTable = CreateRouteTableResult
 
     request  = post "CreateRouteTable"
-    response = const . xmlResponse $ \h x -> CreateRouteTableResult
-newtype
+    response = xmlResponse $ \h x -> CreateRouteTableResult
+        <$> x %| "routeTable"

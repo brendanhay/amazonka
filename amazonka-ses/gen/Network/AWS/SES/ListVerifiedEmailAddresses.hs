@@ -80,5 +80,5 @@ instance AWSRequest ListVerifiedEmailAddresses where
     type Rs ListVerifiedEmailAddresses = ListVerifiedEmailAddressesResponse
 
     request  = post "ListVerifiedEmailAddresses"
-    response = const . xmlResponse $ \h x -> ListVerifiedEmailAddressesResponse
-newtype
+    response = xmlResponse $ \h x -> ListVerifiedEmailAddressesResponse
+        <$> x %| "VerifiedEmailAddresses"

@@ -57,7 +57,7 @@ module Network.AWS.EC2.CreateDhcpOptions
     -- * Response
     , CreateDhcpOptionsResult
     -- ** Response constructor
-    , createDhcpOptionsResult
+    , createDhcpOptionsResponse
     -- ** Response lenses
     , cdorDhcpOptions
     ) where
@@ -108,8 +108,8 @@ newtype CreateDhcpOptionsResult = CreateDhcpOptionsResult
 --
 -- * 'cdorDhcpOptions' @::@ 'Maybe' 'DhcpOptions'
 --
-createDhcpOptionsResult :: CreateDhcpOptionsResult
-createDhcpOptionsResult = CreateDhcpOptionsResult
+createDhcpOptionsResponse :: CreateDhcpOptionsResult
+createDhcpOptionsResponse = CreateDhcpOptionsResult
     { _cdorDhcpOptions = Nothing
     }
 
@@ -122,5 +122,5 @@ instance AWSRequest CreateDhcpOptions where
     type Rs CreateDhcpOptions = CreateDhcpOptionsResult
 
     request  = post "CreateDhcpOptions"
-    response = const . xmlResponse $ \h x -> CreateDhcpOptionsResult
-newtype
+    response = xmlResponse $ \h x -> CreateDhcpOptionsResult
+        <$> x %| "dhcpOptions"

@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeTags
     -- * Response
     , DescribeTagsResult
     -- ** Response constructor
-    , describeTagsResult
+    , describeTagsResponse
     -- ** Response lenses
     , dtrNextToken
     , dtrTags
@@ -117,8 +117,8 @@ data DescribeTagsResult = DescribeTagsResult
 --
 -- * 'dtrTags' @::@ ['TagDescription']
 --
-describeTagsResult :: DescribeTagsResult
-describeTagsResult = DescribeTagsResult
+describeTagsResponse :: DescribeTagsResult
+describeTagsResponse = DescribeTagsResult
     { _dtrTags      = mempty
     , _dtrNextToken = Nothing
     }
@@ -137,5 +137,6 @@ instance AWSRequest DescribeTags where
     type Rs DescribeTags = DescribeTagsResult
 
     request  = post "DescribeTags"
-    response = const . xmlResponse $ \h x -> DescribeTagsResult
-record
+    response = xmlResponse $ \h x -> DescribeTagsResult
+        <$> x %| "nextToken"
+        <*> x %| "tagSet"

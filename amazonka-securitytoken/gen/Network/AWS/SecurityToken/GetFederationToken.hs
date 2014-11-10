@@ -208,5 +208,7 @@ instance AWSRequest GetFederationToken where
     type Rs GetFederationToken = GetFederationTokenResponse
 
     request  = post "GetFederationToken"
-    response = const . xmlResponse $ \h x -> GetFederationTokenResponse
-record
+    response = xmlResponse $ \h x -> GetFederationTokenResponse
+        <$> x %| "Credentials"
+        <*> x %| "FederatedUser"
+        <*> x %| "PackedPolicySize"

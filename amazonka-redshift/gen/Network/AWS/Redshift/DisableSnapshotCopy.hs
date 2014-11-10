@@ -27,14 +27,14 @@ module Network.AWS.Redshift.DisableSnapshotCopy
     -- * Request
       DisableSnapshotCopyMessage
     -- ** Request constructor
-    , disableSnapshotCopyMessage
+    , disableSnapshotCopy
     -- ** Request lenses
     , dscmClusterIdentifier
 
     -- * Response
     , DisableSnapshotCopyResult
     -- ** Response constructor
-    , disableSnapshotCopyResult
+    , disableSnapshotCopyResponse
     -- ** Response lenses
     , dscrCluster
     ) where
@@ -53,9 +53,9 @@ newtype DisableSnapshotCopyMessage = DisableSnapshotCopyMessage
 --
 -- * 'dscmClusterIdentifier' @::@ 'Text'
 --
-disableSnapshotCopyMessage :: Text -- ^ 'dscmClusterIdentifier'
-                           -> DisableSnapshotCopyMessage
-disableSnapshotCopyMessage p1 = DisableSnapshotCopyMessage
+disableSnapshotCopy :: Text -- ^ 'dscmClusterIdentifier'
+                    -> DisableSnapshotCopyMessage
+disableSnapshotCopy p1 = DisableSnapshotCopyMessage
     { _dscmClusterIdentifier = p1
     }
 
@@ -82,8 +82,8 @@ newtype DisableSnapshotCopyResult = DisableSnapshotCopyResult
 --
 -- * 'dscrCluster' @::@ 'Maybe' 'Cluster'
 --
-disableSnapshotCopyResult :: DisableSnapshotCopyResult
-disableSnapshotCopyResult = DisableSnapshotCopyResult
+disableSnapshotCopyResponse :: DisableSnapshotCopyResult
+disableSnapshotCopyResponse = DisableSnapshotCopyResult
     { _dscrCluster = Nothing
     }
 
@@ -95,5 +95,5 @@ instance AWSRequest DisableSnapshotCopyMessage where
     type Rs DisableSnapshotCopyMessage = DisableSnapshotCopyResult
 
     request  = post "DisableSnapshotCopy"
-    response = const . xmlResponse $ \h x -> DisableSnapshotCopyResult
-newtype
+    response = xmlResponse $ \h x -> DisableSnapshotCopyResult
+        <$> x %| "Cluster"

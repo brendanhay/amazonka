@@ -143,5 +143,7 @@ instance AWSRequest ListRoles where
     type Rs ListRoles = ListRolesResponse
 
     request  = post "ListRoles"
-    response = const . xmlResponse $ \h x -> ListRolesResponse
-record
+    response = xmlResponse $ \h x -> ListRolesResponse
+        <$> x %| "IsTruncated"
+        <*> x %| "Marker"
+        <*> x %| "Roles"

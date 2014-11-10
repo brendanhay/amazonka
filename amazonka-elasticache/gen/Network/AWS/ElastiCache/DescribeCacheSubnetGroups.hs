@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     -- * Request
       DescribeCacheSubnetGroupsMessage
     -- ** Request constructor
-    , describeCacheSubnetGroupsMessage
+    , describeCacheSubnetGroups
     -- ** Request lenses
     , dcsgmCacheSubnetGroupName
     , dcsgmMarker
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     -- * Response
     , CacheSubnetGroupMessage
     -- ** Response constructor
-    , cacheSubnetGroupMessage
+    , describeCacheSubnetGroupsResponse
     -- ** Response lenses
     , csgm1CacheSubnetGroups
     , csgm1Marker
@@ -63,8 +63,8 @@ data DescribeCacheSubnetGroupsMessage = DescribeCacheSubnetGroupsMessage
 --
 -- * 'dcsgmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeCacheSubnetGroupsMessage :: DescribeCacheSubnetGroupsMessage
-describeCacheSubnetGroupsMessage = DescribeCacheSubnetGroupsMessage
+describeCacheSubnetGroups :: DescribeCacheSubnetGroupsMessage
+describeCacheSubnetGroups = DescribeCacheSubnetGroupsMessage
     { _dcsgmCacheSubnetGroupName = Nothing
     , _dcsgmMaxRecords           = Nothing
     , _dcsgmMarker               = Nothing
@@ -108,8 +108,8 @@ data CacheSubnetGroupMessage = CacheSubnetGroupMessage
 --
 -- * 'csgm1Marker' @::@ 'Maybe' 'Text'
 --
-cacheSubnetGroupMessage :: CacheSubnetGroupMessage
-cacheSubnetGroupMessage = CacheSubnetGroupMessage
+describeCacheSubnetGroupsResponse :: CacheSubnetGroupMessage
+describeCacheSubnetGroupsResponse = CacheSubnetGroupMessage
     { _csgm1Marker            = Nothing
     , _csgm1CacheSubnetGroups = mempty
     }
@@ -129,5 +129,6 @@ instance AWSRequest DescribeCacheSubnetGroupsMessage where
     type Rs DescribeCacheSubnetGroupsMessage = CacheSubnetGroupMessage
 
     request  = post "DescribeCacheSubnetGroups"
-    response = const . xmlResponse $ \h x -> CacheSubnetGroupMessage
-record
+    response = xmlResponse $ \h x -> CacheSubnetGroupMessage
+        <$> x %| "CacheSubnetGroups"
+        <*> x %| "Marker"

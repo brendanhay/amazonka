@@ -36,7 +36,7 @@ module Network.AWS.S3.DeleteObjects
     -- * Response
     , DeleteObjectsOutput
     -- ** Response constructor
-    , deleteObjectsOutput
+    , deleteObjectsResponse
     -- ** Response lenses
     , dooDeleted
     , dooErrors
@@ -112,8 +112,8 @@ data DeleteObjectsOutput = DeleteObjectsOutput
 --
 -- * 'dooErrors' @::@ ['S3ServiceError']
 --
-deleteObjectsOutput :: DeleteObjectsOutput
-deleteObjectsOutput = DeleteObjectsOutput
+deleteObjectsResponse :: DeleteObjectsOutput
+deleteObjectsResponse = DeleteObjectsOutput
     { _dooDeleted = mempty
     , _dooErrors  = mempty
     }
@@ -129,5 +129,6 @@ instance AWSRequest DeleteObjects where
     type Rs DeleteObjects = DeleteObjectsOutput
 
     request  = post
-    response = const . xmlResponse $ \h x -> DeleteObjectsOutput
-record
+    response = xmlResponse $ \h x -> DeleteObjectsOutput
+        <$> x %| "Deleted"
+        <*> x %| "Error"

@@ -39,7 +39,7 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     -- * Request
       CreateAppCookieStickinessPolicyInput
     -- ** Request constructor
-    , createAppCookieStickinessPolicyInput
+    , createAppCookieStickinessPolicy
     -- ** Request lenses
     , cacspiCookieName
     , cacspiLoadBalancerName
@@ -71,11 +71,11 @@ data CreateAppCookieStickinessPolicyInput = CreateAppCookieStickinessPolicyInput
 --
 -- * 'cacspiPolicyName' @::@ 'Text'
 --
-createAppCookieStickinessPolicyInput :: Text -- ^ 'cacspiLoadBalancerName'
-                                     -> Text -- ^ 'cacspiPolicyName'
-                                     -> Text -- ^ 'cacspiCookieName'
-                                     -> CreateAppCookieStickinessPolicyInput
-createAppCookieStickinessPolicyInput p1 p2 p3 = CreateAppCookieStickinessPolicyInput
+createAppCookieStickinessPolicy :: Text -- ^ 'cacspiLoadBalancerName'
+                                -> Text -- ^ 'cacspiPolicyName'
+                                -> Text -- ^ 'cacspiCookieName'
+                                -> CreateAppCookieStickinessPolicyInput
+createAppCookieStickinessPolicy p1 p2 p3 = CreateAppCookieStickinessPolicyInput
     { _cacspiLoadBalancerName = p1
     , _cacspiPolicyName       = p2
     , _cacspiCookieName       = p3

@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketWebsite
     -- * Response
     , GetBucketWebsiteOutput
     -- ** Response constructor
-    , getBucketWebsiteOutput
+    , getBucketWebsiteResponse
     -- ** Response lenses
     , gbwoErrorDocument
     , gbwoIndexDocument
@@ -94,8 +94,8 @@ data GetBucketWebsiteOutput = GetBucketWebsiteOutput
 --
 -- * 'gbwoRoutingRules' @::@ ['RoutingRule']
 --
-getBucketWebsiteOutput :: GetBucketWebsiteOutput
-getBucketWebsiteOutput = GetBucketWebsiteOutput
+getBucketWebsiteResponse :: GetBucketWebsiteOutput
+getBucketWebsiteResponse = GetBucketWebsiteOutput
     { _gbwoRedirectAllRequestsTo = Nothing
     , _gbwoIndexDocument         = Nothing
     , _gbwoErrorDocument         = Nothing
@@ -123,5 +123,8 @@ instance AWSRequest GetBucketWebsite where
     type Rs GetBucketWebsite = GetBucketWebsiteOutput
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetBucketWebsiteOutput
-record
+    response = xmlResponse $ \h x -> GetBucketWebsiteOutput
+        <$> x %| "ErrorDocument"
+        <*> x %| "IndexDocument"
+        <*> x %| "RedirectAllRequestsTo"
+        <*> x %| "RoutingRules"

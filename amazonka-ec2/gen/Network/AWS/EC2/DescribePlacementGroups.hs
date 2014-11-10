@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribePlacementGroups
     -- * Response
     , DescribePlacementGroupsResult
     -- ** Response constructor
-    , describePlacementGroupsResult
+    , describePlacementGroupsResponse
     -- ** Response lenses
     , dpgrPlacementGroups
     ) where
@@ -98,8 +98,8 @@ newtype DescribePlacementGroupsResult = DescribePlacementGroupsResult
 --
 -- * 'dpgrPlacementGroups' @::@ ['PlacementGroup']
 --
-describePlacementGroupsResult :: DescribePlacementGroupsResult
-describePlacementGroupsResult = DescribePlacementGroupsResult
+describePlacementGroupsResponse :: DescribePlacementGroupsResult
+describePlacementGroupsResponse = DescribePlacementGroupsResult
     { _dpgrPlacementGroups = mempty
     }
 
@@ -113,5 +113,5 @@ instance AWSRequest DescribePlacementGroups where
     type Rs DescribePlacementGroups = DescribePlacementGroupsResult
 
     request  = post "DescribePlacementGroups"
-    response = const . xmlResponse $ \h x -> DescribePlacementGroupsResult
-newtype
+    response = xmlResponse $ \h x -> DescribePlacementGroupsResult
+        <$> x %| "placementGroupSet"

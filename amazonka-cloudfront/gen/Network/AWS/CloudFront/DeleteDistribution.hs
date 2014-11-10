@@ -26,15 +26,15 @@ module Network.AWS.CloudFront.DeleteDistribution
     -- * Request
       DeleteDistribution
     -- ** Request constructor
-    , deleteDistribution
+    , deleteDistribution2014_05_31
     -- ** Request lenses
     , ddId
     , ddIfMatch
 
     -- * Response
-    , DeleteDistributionResponse
+    , DeleteDistribution2014_05_31Response
     -- ** Response constructor
-    , deleteDistributionResponse
+    , deleteDistribution2014_05_31Response
     ) where
 
 import Network.AWS.Prelude
@@ -54,9 +54,9 @@ data DeleteDistribution = DeleteDistribution
 --
 -- * 'ddIfMatch' @::@ 'Maybe' 'Text'
 --
-deleteDistribution :: Text -- ^ 'ddId'
-                   -> DeleteDistribution
-deleteDistribution p1 = DeleteDistribution
+deleteDistribution2014_05_31 :: Text -- ^ 'ddId'
+                             -> DeleteDistribution
+deleteDistribution2014_05_31 p1 = DeleteDistribution
     { _ddId      = p1
     , _ddIfMatch = Nothing
     }
@@ -84,15 +84,15 @@ instance ToHeaders DeleteDistribution where
         [ "If-Match" =: _ddIfMatch
         ]
 
-data DeleteDistributionResponse = DeleteDistributionResponse
+data DeleteDistribution2014_05_31Response = DeleteDistribution2014_05_31Response
 
--- | 'DeleteDistributionResponse' constructor.
-deleteDistributionResponse :: DeleteDistributionResponse
-deleteDistributionResponse = DeleteDistributionResponse
+-- | 'DeleteDistribution2014_05_31Response' constructor.
+deleteDistribution2014_05_31Response :: DeleteDistribution2014_05_31Response
+deleteDistribution2014_05_31Response = DeleteDistribution2014_05_31Response
 
 instance AWSRequest DeleteDistribution where
     type Sv DeleteDistribution = CloudFront
-    type Rs DeleteDistribution = DeleteDistributionResponse
+    type Rs DeleteDistribution = DeleteDistribution2014_05_31Response
 
     request  = delete
-    response = const (nullaryResponse DeleteDistributionResponse)
+    response = const (nullaryResponse DeleteDistribution2014_05_31Response)

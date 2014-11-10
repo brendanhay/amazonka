@@ -109,5 +109,5 @@ instance AWSRequest UploadSigningCertificate where
     type Rs UploadSigningCertificate = UploadSigningCertificateResponse
 
     request  = post "UploadSigningCertificate"
-    response = const . xmlResponse $ \h x -> UploadSigningCertificateResponse
-newtype
+    response = xmlResponse $ \h x -> UploadSigningCertificateResponse
+        <$> x %| "Certificate"

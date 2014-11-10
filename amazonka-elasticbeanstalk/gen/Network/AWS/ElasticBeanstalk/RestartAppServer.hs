@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.RestartAppServer
     -- * Request
       RestartAppServerMessage
     -- ** Request constructor
-    , restartAppServerMessage
+    , restartAppServer
     -- ** Request lenses
     , rasmEnvironmentId
     , rasmEnvironmentName
@@ -55,8 +55,8 @@ data RestartAppServerMessage = RestartAppServerMessage
 --
 -- * 'rasmEnvironmentName' @::@ 'Maybe' 'Text'
 --
-restartAppServerMessage :: RestartAppServerMessage
-restartAppServerMessage = RestartAppServerMessage
+restartAppServer :: RestartAppServerMessage
+restartAppServer = RestartAppServerMessage
     { _rasmEnvironmentId   = Nothing
     , _rasmEnvironmentName = Nothing
     }

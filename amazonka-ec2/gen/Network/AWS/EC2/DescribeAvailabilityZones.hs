@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     -- * Response
     , DescribeAvailabilityZonesResult
     -- ** Response constructor
-    , describeAvailabilityZonesResult
+    , describeAvailabilityZonesResponse
     -- ** Response lenses
     , dazrAvailabilityZones
     ) where
@@ -102,8 +102,8 @@ newtype DescribeAvailabilityZonesResult = DescribeAvailabilityZonesResult
 --
 -- * 'dazrAvailabilityZones' @::@ ['AvailabilityZone']
 --
-describeAvailabilityZonesResult :: DescribeAvailabilityZonesResult
-describeAvailabilityZonesResult = DescribeAvailabilityZonesResult
+describeAvailabilityZonesResponse :: DescribeAvailabilityZonesResult
+describeAvailabilityZonesResponse = DescribeAvailabilityZonesResult
     { _dazrAvailabilityZones = mempty
     }
 
@@ -117,5 +117,5 @@ instance AWSRequest DescribeAvailabilityZones where
     type Rs DescribeAvailabilityZones = DescribeAvailabilityZonesResult
 
     request  = post "DescribeAvailabilityZones"
-    response = const . xmlResponse $ \h x -> DescribeAvailabilityZonesResult
-newtype
+    response = xmlResponse $ \h x -> DescribeAvailabilityZonesResult
+        <$> x %| "availabilityZoneInfo"

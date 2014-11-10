@@ -84,5 +84,5 @@ instance AWSRequest GetCheckerIpRanges where
     type Rs GetCheckerIpRanges = GetCheckerIpRangesResponse
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetCheckerIpRangesResponse
-newtype
+    response = xmlResponse $ \h x -> GetCheckerIpRangesResponse
+        <$> x %| "CheckerIpRanges"

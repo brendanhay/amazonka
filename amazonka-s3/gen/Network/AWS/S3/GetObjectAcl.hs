@@ -35,7 +35,7 @@ module Network.AWS.S3.GetObjectAcl
     -- * Response
     , GetObjectAclOutput
     -- ** Response constructor
-    , getObjectAclOutput
+    , getObjectAclResponse
     -- ** Response lenses
     , goaoGrants
     , goaoOwner
@@ -109,8 +109,8 @@ data GetObjectAclOutput = GetObjectAclOutput
 --
 -- * 'goaoOwner' @::@ 'Maybe' 'Owner'
 --
-getObjectAclOutput :: GetObjectAclOutput
-getObjectAclOutput = GetObjectAclOutput
+getObjectAclResponse :: GetObjectAclOutput
+getObjectAclResponse = GetObjectAclOutput
     { _goaoOwner  = Nothing
     , _goaoGrants = mempty
     }
@@ -127,5 +127,6 @@ instance AWSRequest GetObjectAcl where
     type Rs GetObjectAcl = GetObjectAclOutput
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetObjectAclOutput
-record
+    response = xmlResponse $ \h x -> GetObjectAclOutput
+        <$> x %| "AccessControlList"
+        <*> x %| "Owner"

@@ -30,7 +30,7 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     -- * Request
       DescribeClusterSnapshotsMessage
     -- ** Request constructor
-    , describeClusterSnapshotsMessage
+    , describeClusterSnapshots
     -- ** Request lenses
     , dcsm1ClusterIdentifier
     , dcsm1EndTime
@@ -44,7 +44,7 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     -- * Response
     , SnapshotMessage
     -- ** Response constructor
-    , snapshotMessage
+    , describeClusterSnapshotsResponse
     -- ** Response lenses
     , smMarker
     , smSnapshots
@@ -85,8 +85,8 @@ data DescribeClusterSnapshotsMessage = DescribeClusterSnapshotsMessage
 --
 -- * 'dcsm1StartTime' @::@ 'Maybe' 'UTCTime'
 --
-describeClusterSnapshotsMessage :: DescribeClusterSnapshotsMessage
-describeClusterSnapshotsMessage = DescribeClusterSnapshotsMessage
+describeClusterSnapshots :: DescribeClusterSnapshotsMessage
+describeClusterSnapshots = DescribeClusterSnapshotsMessage
     { _dcsm1ClusterIdentifier  = Nothing
     , _dcsm1SnapshotIdentifier = Nothing
     , _dcsm1SnapshotType       = Nothing
@@ -175,8 +175,8 @@ data SnapshotMessage = SnapshotMessage
 --
 -- * 'smSnapshots' @::@ ['Snapshot']
 --
-snapshotMessage :: SnapshotMessage
-snapshotMessage = SnapshotMessage
+describeClusterSnapshotsResponse :: SnapshotMessage
+describeClusterSnapshotsResponse = SnapshotMessage
     { _smMarker    = Nothing
     , _smSnapshots = mempty
     }
@@ -199,5 +199,6 @@ instance AWSRequest DescribeClusterSnapshotsMessage where
     type Rs DescribeClusterSnapshotsMessage = SnapshotMessage
 
     request  = post "DescribeClusterSnapshots"
-    response = const . xmlResponse $ \h x -> SnapshotMessage
-record
+    response = xmlResponse $ \h x -> SnapshotMessage
+        <$> x %| "Marker"
+        <*> x %| "Snapshots"

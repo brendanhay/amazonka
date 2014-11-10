@@ -96,5 +96,5 @@ instance AWSRequest GetUser where
     type Rs GetUser = GetUserResponse
 
     request  = post "GetUser"
-    response = const . xmlResponse $ \h x -> GetUserResponse
-newtype
+    response = xmlResponse $ \h x -> GetUserResponse
+        <$> x %| "User"

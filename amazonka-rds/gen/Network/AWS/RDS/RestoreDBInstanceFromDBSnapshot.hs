@@ -29,7 +29,7 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     -- * Request
       RestoreDBInstanceFromDBSnapshotMessage
     -- ** Request constructor
-    , restoreDBInstanceFromDBSnapshotMessage
+    , restoreDBInstanceFromDBSnapshot
     -- ** Request lenses
     , rdbifdbsmAutoMinorVersionUpgrade
     , rdbifdbsmAvailabilityZone
@@ -53,7 +53,7 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
     -- * Response
     , RestoreDBInstanceFromDBSnapshotResult
     -- ** Response constructor
-    , restoreDBInstanceFromDBSnapshotResult
+    , restoreDBInstanceFromDBSnapshotResponse
     -- ** Response lenses
     , rdbifdbsrDBInstance
     ) where
@@ -123,10 +123,10 @@ data RestoreDBInstanceFromDBSnapshotMessage = RestoreDBInstanceFromDBSnapshotMes
 --
 -- * 'rdbifdbsmTdeCredentialPassword' @::@ 'Maybe' 'Text'
 --
-restoreDBInstanceFromDBSnapshotMessage :: Text -- ^ 'rdbifdbsmDBInstanceIdentifier'
-                                       -> Text -- ^ 'rdbifdbsmDBSnapshotIdentifier'
-                                       -> RestoreDBInstanceFromDBSnapshotMessage
-restoreDBInstanceFromDBSnapshotMessage p1 p2 = RestoreDBInstanceFromDBSnapshotMessage
+restoreDBInstanceFromDBSnapshot :: Text -- ^ 'rdbifdbsmDBInstanceIdentifier'
+                                -> Text -- ^ 'rdbifdbsmDBSnapshotIdentifier'
+                                -> RestoreDBInstanceFromDBSnapshotMessage
+restoreDBInstanceFromDBSnapshot p1 p2 = RestoreDBInstanceFromDBSnapshotMessage
     { _rdbifdbsmDBInstanceIdentifier    = p1
     , _rdbifdbsmDBSnapshotIdentifier    = p2
     , _rdbifdbsmDBInstanceClass         = Nothing
@@ -304,8 +304,8 @@ newtype RestoreDBInstanceFromDBSnapshotResult = RestoreDBInstanceFromDBSnapshotR
 --
 -- * 'rdbifdbsrDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-restoreDBInstanceFromDBSnapshotResult :: RestoreDBInstanceFromDBSnapshotResult
-restoreDBInstanceFromDBSnapshotResult = RestoreDBInstanceFromDBSnapshotResult
+restoreDBInstanceFromDBSnapshotResponse :: RestoreDBInstanceFromDBSnapshotResult
+restoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResult
     { _rdbifdbsrDBInstance = Nothing
     }
 
@@ -318,5 +318,5 @@ instance AWSRequest RestoreDBInstanceFromDBSnapshotMessage where
     type Rs RestoreDBInstanceFromDBSnapshotMessage = RestoreDBInstanceFromDBSnapshotResult
 
     request  = post "RestoreDBInstanceFromDBSnapshot"
-    response = const . xmlResponse $ \h x -> RestoreDBInstanceFromDBSnapshotResult
-newtype
+    response = xmlResponse $ \h x -> RestoreDBInstanceFromDBSnapshotResult
+        <$> x %| "DBInstance"

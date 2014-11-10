@@ -118,48 +118,10 @@ instance AWSService SES where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'SES' errors returned by the
--- Amazon Simple Email Service.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data SESError
-    = SESHttp       HttpException
-    | SESSerializer String
-    | SESService    Status SESServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception SESError
-
-instance AWSError SESError where
-    awsError = \case
-        SESHttp       ex  -> HttpError       ex
-        SESSerializer e   -> SerializerError "SES" e
-        SESService    s x -> ServiceError    "SES" s (show x)
-
-instance AWSServiceError SESError where
-    httpError       = SESHttp
-    serializerError = SESSerializer
-    serviceError    = xmlError httpStatus SESService
-
-_SESHttp :: Prism' SESError HttpException
-_SESHttp = prism SESHttp $ \case
-    SESHttp ex -> Right ex
-    x -> Left x
-
-_SESSerializer :: Prism' SESError String
-_SESSerializer = prism SESSerializer $ \case
-    SESSerializer e -> Right e
-    x -> Left x
-
-_SESService :: Prism' SESError (Status, SESServiceError)
-_SESService = prism (uncurry SESService) $ \case
-    SESService s x -> Right (s, x)
-    x -> Left x
 
 data Destination = Destination
     { _dBccAddresses :: [Text]

@@ -170,48 +170,10 @@ instance AWSService CloudFormation where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'CloudFormation' errors returned by the
--- Amazon CloudFormation.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data CloudFormationError
-    = CloudFormationHttp       HttpException
-    | CloudFormationSerializer String
-    | CloudFormationService    Status CloudFormationServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception CloudFormationError
-
-instance AWSError CloudFormationError where
-    awsError = \case
-        CloudFormationHttp       ex  -> HttpError       ex
-        CloudFormationSerializer e   -> SerializerError "CloudFormation" e
-        CloudFormationService    s x -> ServiceError    "CloudFormation" s (show x)
-
-instance AWSServiceError CloudFormationError where
-    httpError       = CloudFormationHttp
-    serializerError = CloudFormationSerializer
-    serviceError    = xmlError httpStatus CloudFormationService
-
-_CloudFormationHttp :: Prism' CloudFormationError HttpException
-_CloudFormationHttp = prism CloudFormationHttp $ \case
-    CloudFormationHttp ex -> Right ex
-    x -> Left x
-
-_CloudFormationSerializer :: Prism' CloudFormationError String
-_CloudFormationSerializer = prism CloudFormationSerializer $ \case
-    CloudFormationSerializer e -> Right e
-    x -> Left x
-
-_CloudFormationService :: Prism' CloudFormationError (Status, CloudFormationServiceError)
-_CloudFormationService = prism (uncurry CloudFormationService) $ \case
-    CloudFormationService s x -> Right (s, x)
-    x -> Left x
 
 data Tag = Tag
     { _tagKey   :: Maybe Text

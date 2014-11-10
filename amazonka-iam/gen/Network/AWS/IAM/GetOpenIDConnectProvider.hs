@@ -132,5 +132,8 @@ instance AWSRequest GetOpenIDConnectProvider where
     type Rs GetOpenIDConnectProvider = GetOpenIDConnectProviderResponse
 
     request  = post "GetOpenIDConnectProvider"
-    response = const . xmlResponse $ \h x -> GetOpenIDConnectProviderResponse
-record
+    response = xmlResponse $ \h x -> GetOpenIDConnectProviderResponse
+        <$> x %| "ClientIDList"
+        <*> x %| "CreateDate"
+        <*> x %| "ThumbprintList"
+        <*> x %| "Url"

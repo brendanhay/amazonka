@@ -125,5 +125,7 @@ instance AWSRequest GetGroupPolicy where
     type Rs GetGroupPolicy = GetGroupPolicyResponse
 
     request  = post "GetGroupPolicy"
-    response = const . xmlResponse $ \h x -> GetGroupPolicyResponse
-record
+    response = xmlResponse $ \h x -> GetGroupPolicyResponse
+        <$> x %| "GroupName"
+        <*> x %| "PolicyDocument"
+        <*> x %| "PolicyName"

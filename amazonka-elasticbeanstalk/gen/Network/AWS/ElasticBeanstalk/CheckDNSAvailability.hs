@@ -26,14 +26,14 @@ module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     -- * Request
       CheckDNSAvailabilityMessage
     -- ** Request constructor
-    , checkDNSAvailabilityMessage
+    , checkDNSAvailability
     -- ** Request lenses
     , cdnsamCNAMEPrefix
 
     -- * Response
     , CheckDNSAvailabilityResultMessage
     -- ** Response constructor
-    , checkDNSAvailabilityResultMessage
+    , checkDNSAvailabilityResponse
     -- ** Response lenses
     , cdnsarmAvailable
     , cdnsarmFullyQualifiedCNAME
@@ -53,9 +53,9 @@ newtype CheckDNSAvailabilityMessage = CheckDNSAvailabilityMessage
 --
 -- * 'cdnsamCNAMEPrefix' @::@ 'Text'
 --
-checkDNSAvailabilityMessage :: Text -- ^ 'cdnsamCNAMEPrefix'
-                            -> CheckDNSAvailabilityMessage
-checkDNSAvailabilityMessage p1 = CheckDNSAvailabilityMessage
+checkDNSAvailability :: Text -- ^ 'cdnsamCNAMEPrefix'
+                     -> CheckDNSAvailabilityMessage
+checkDNSAvailability p1 = CheckDNSAvailabilityMessage
     { _cdnsamCNAMEPrefix = p1
     }
 
@@ -82,8 +82,8 @@ data CheckDNSAvailabilityResultMessage = CheckDNSAvailabilityResultMessage
 --
 -- * 'cdnsarmFullyQualifiedCNAME' @::@ 'Maybe' 'Text'
 --
-checkDNSAvailabilityResultMessage :: CheckDNSAvailabilityResultMessage
-checkDNSAvailabilityResultMessage = CheckDNSAvailabilityResultMessage
+checkDNSAvailabilityResponse :: CheckDNSAvailabilityResultMessage
+checkDNSAvailabilityResponse = CheckDNSAvailabilityResultMessage
     { _cdnsarmAvailable           = Nothing
     , _cdnsarmFullyQualifiedCNAME = Nothing
     }
@@ -106,5 +106,6 @@ instance AWSRequest CheckDNSAvailabilityMessage where
     type Rs CheckDNSAvailabilityMessage = CheckDNSAvailabilityResultMessage
 
     request  = post "CheckDNSAvailability"
-    response = const . xmlResponse $ \h x -> CheckDNSAvailabilityResultMessage
-record
+    response = xmlResponse $ \h x -> CheckDNSAvailabilityResultMessage
+        <$> x %| "Available"
+        <*> x %| "FullyQualifiedCNAME"

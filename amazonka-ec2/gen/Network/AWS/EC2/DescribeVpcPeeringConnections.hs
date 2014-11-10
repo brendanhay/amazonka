@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeVpcPeeringConnections
     -- * Response
     , DescribeVpcPeeringConnectionsResult
     -- ** Response constructor
-    , describeVpcPeeringConnectionsResult
+    , describeVpcPeeringConnectionsResponse
     -- ** Response lenses
     , dvpcrVpcPeeringConnections
     ) where
@@ -116,8 +116,8 @@ newtype DescribeVpcPeeringConnectionsResult = DescribeVpcPeeringConnectionsResul
 --
 -- * 'dvpcrVpcPeeringConnections' @::@ ['VpcPeeringConnection']
 --
-describeVpcPeeringConnectionsResult :: DescribeVpcPeeringConnectionsResult
-describeVpcPeeringConnectionsResult = DescribeVpcPeeringConnectionsResult
+describeVpcPeeringConnectionsResponse :: DescribeVpcPeeringConnectionsResult
+describeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResult
     { _dvpcrVpcPeeringConnections = mempty
     }
 
@@ -132,5 +132,5 @@ instance AWSRequest DescribeVpcPeeringConnections where
     type Rs DescribeVpcPeeringConnections = DescribeVpcPeeringConnectionsResult
 
     request  = post "DescribeVpcPeeringConnections"
-    response = const . xmlResponse $ \h x -> DescribeVpcPeeringConnectionsResult
-newtype
+    response = xmlResponse $ \h x -> DescribeVpcPeeringConnectionsResult
+        <$> x %| "vpcPeeringConnectionSet"

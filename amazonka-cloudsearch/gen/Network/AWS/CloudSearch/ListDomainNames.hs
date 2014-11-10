@@ -76,5 +76,5 @@ instance AWSRequest ListDomainNames where
     type Rs ListDomainNames = ListDomainNamesResponse
 
     request  = post "ListDomainNames"
-    response = const . xmlResponse $ \h x -> ListDomainNamesResponse
-newtype
+    response = xmlResponse $ \h x -> ListDomainNamesResponse
+        <$> x %| "DomainNames"

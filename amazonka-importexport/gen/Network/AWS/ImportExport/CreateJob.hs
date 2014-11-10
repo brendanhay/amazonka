@@ -30,7 +30,7 @@ module Network.AWS.ImportExport.CreateJob
     -- * Request
       CreateJobInput
     -- ** Request constructor
-    , createJobInput
+    , createJob
     -- ** Request lenses
     , cjiJobType
     , cjiManifest
@@ -40,7 +40,7 @@ module Network.AWS.ImportExport.CreateJob
     -- * Response
     , CreateJobOutput
     -- ** Response constructor
-    , createJobOutput
+    , createJobResponse
     -- ** Response lenses
     , cjoAwsShippingAddress
     , cjoJobId
@@ -73,11 +73,11 @@ data CreateJobInput = CreateJobInput
 --
 -- * 'cjiValidateOnly' @::@ 'Bool'
 --
-createJobInput :: Text -- ^ 'cjiJobType'
-               -> Text -- ^ 'cjiManifest'
-               -> Bool -- ^ 'cjiValidateOnly'
-               -> CreateJobInput
-createJobInput p1 p2 p3 = CreateJobInput
+createJob :: Text -- ^ 'cjiJobType'
+          -> Text -- ^ 'cjiManifest'
+          -> Bool -- ^ 'cjiValidateOnly'
+          -> CreateJobInput
+createJob p1 p2 p3 = CreateJobInput
     { _cjiJobType          = p1
     , _cjiManifest         = p2
     , _cjiValidateOnly     = p3
@@ -127,8 +127,8 @@ data CreateJobOutput = CreateJobOutput
 --
 -- * 'cjoWarningMessage' @::@ 'Maybe' 'Text'
 --
-createJobOutput :: CreateJobOutput
-createJobOutput = CreateJobOutput
+createJobResponse :: CreateJobOutput
+createJobResponse = CreateJobOutput
     { _cjoJobId                 = Nothing
     , _cjoJobType               = Nothing
     , _cjoAwsShippingAddress    = Nothing
@@ -164,5 +164,10 @@ instance AWSRequest CreateJobInput where
     type Rs CreateJobInput = CreateJobOutput
 
     request  = post "CreateJob"
-    response = const . xmlResponse $ \h x -> CreateJobOutput
-record
+    response = xmlResponse $ \h x -> CreateJobOutput
+        <$> x %| "AwsShippingAddress"
+        <*> x %| "JobId"
+        <*> x %| "JobType"
+        <*> x %| "Signature"
+        <*> x %| "SignatureFileContents"
+        <*> x %| "WarningMessage"

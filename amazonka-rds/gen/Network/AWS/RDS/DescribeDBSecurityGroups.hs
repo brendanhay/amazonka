@@ -28,7 +28,7 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     -- * Request
       DescribeDBSecurityGroupsMessage
     -- ** Request constructor
-    , describeDBSecurityGroupsMessage
+    , describeDBSecurityGroups
     -- ** Request lenses
     , ddbsgm1DBSecurityGroupName
     , ddbsgm1Filters
@@ -38,7 +38,7 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     -- * Response
     , DBSecurityGroupMessage
     -- ** Response constructor
-    , dbsecurityGroupMessage
+    , describeDBSecurityGroupsResponse
     -- ** Response lenses
     , dbsgmDBSecurityGroups
     , dbsgmMarker
@@ -67,8 +67,8 @@ data DescribeDBSecurityGroupsMessage = DescribeDBSecurityGroupsMessage
 --
 -- * 'ddbsgm1MaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBSecurityGroupsMessage :: DescribeDBSecurityGroupsMessage
-describeDBSecurityGroupsMessage = DescribeDBSecurityGroupsMessage
+describeDBSecurityGroups :: DescribeDBSecurityGroupsMessage
+describeDBSecurityGroups = DescribeDBSecurityGroupsMessage
     { _ddbsgm1DBSecurityGroupName = Nothing
     , _ddbsgm1Filters             = mempty
     , _ddbsgm1MaxRecords          = Nothing
@@ -118,8 +118,8 @@ data DBSecurityGroupMessage = DBSecurityGroupMessage
 --
 -- * 'dbsgmMarker' @::@ 'Maybe' 'Text'
 --
-dbsecurityGroupMessage :: DBSecurityGroupMessage
-dbsecurityGroupMessage = DBSecurityGroupMessage
+describeDBSecurityGroupsResponse :: DBSecurityGroupMessage
+describeDBSecurityGroupsResponse = DBSecurityGroupMessage
     { _dbsgmMarker           = Nothing
     , _dbsgmDBSecurityGroups = mempty
     }
@@ -140,5 +140,6 @@ instance AWSRequest DescribeDBSecurityGroupsMessage where
     type Rs DescribeDBSecurityGroupsMessage = DBSecurityGroupMessage
 
     request  = post "DescribeDBSecurityGroups"
-    response = const . xmlResponse $ \h x -> DBSecurityGroupMessage
-record
+    response = xmlResponse $ \h x -> DBSecurityGroupMessage
+        <$> x %| "DBSecurityGroups"
+        <*> x %| "Marker"

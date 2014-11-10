@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.CreateSnapshot
     -- * Request
       CreateSnapshotMessage
     -- ** Request constructor
-    , createSnapshotMessage
+    , createSnapshot
     -- ** Request lenses
     , csmCacheClusterId
     , csmSnapshotName
@@ -35,7 +35,7 @@ module Network.AWS.ElastiCache.CreateSnapshot
     -- * Response
     , CreateSnapshotResult
     -- ** Response constructor
-    , createSnapshotResult
+    , createSnapshotResponse
     -- ** Response lenses
     , csr1Snapshot
     ) where
@@ -57,10 +57,10 @@ data CreateSnapshotMessage = CreateSnapshotMessage
 --
 -- * 'csmSnapshotName' @::@ 'Text'
 --
-createSnapshotMessage :: Text -- ^ 'csmCacheClusterId'
-                      -> Text -- ^ 'csmSnapshotName'
-                      -> CreateSnapshotMessage
-createSnapshotMessage p1 p2 = CreateSnapshotMessage
+createSnapshot :: Text -- ^ 'csmCacheClusterId'
+               -> Text -- ^ 'csmSnapshotName'
+               -> CreateSnapshotMessage
+createSnapshot p1 p2 = CreateSnapshotMessage
     { _csmCacheClusterId = p1
     , _csmSnapshotName   = p2
     }
@@ -90,8 +90,8 @@ newtype CreateSnapshotResult = CreateSnapshotResult
 --
 -- * 'csr1Snapshot' @::@ 'Maybe' 'Snapshot'
 --
-createSnapshotResult :: CreateSnapshotResult
-createSnapshotResult = CreateSnapshotResult
+createSnapshotResponse :: CreateSnapshotResult
+createSnapshotResponse = CreateSnapshotResult
     { _csr1Snapshot = Nothing
     }
 
@@ -103,5 +103,5 @@ instance AWSRequest CreateSnapshotMessage where
     type Rs CreateSnapshotMessage = CreateSnapshotResult
 
     request  = post "CreateSnapshot"
-    response = const . xmlResponse $ \h x -> CreateSnapshotResult
-newtype
+    response = xmlResponse $ \h x -> CreateSnapshotResult
+        <$> x %| "Snapshot"

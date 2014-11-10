@@ -30,7 +30,7 @@ module Network.AWS.Redshift.ResetClusterParameterGroup
     -- * Request
       ResetClusterParameterGroupMessage
     -- ** Request constructor
-    , resetClusterParameterGroupMessage
+    , resetClusterParameterGroup
     -- ** Request lenses
     , rcpgmParameterGroupName
     , rcpgmParameters
@@ -39,7 +39,7 @@ module Network.AWS.Redshift.ResetClusterParameterGroup
     -- * Response
     , ClusterParameterGroupNameMessage
     -- ** Response constructor
-    , clusterParameterGroupNameMessage
+    , resetClusterParameterGroupResponse
     -- ** Response lenses
     , cpgnmParameterGroupName
     , cpgnmParameterGroupStatus
@@ -65,9 +65,9 @@ data ResetClusterParameterGroupMessage = ResetClusterParameterGroupMessage
 --
 -- * 'rcpgmResetAllParameters' @::@ 'Maybe' 'Bool'
 --
-resetClusterParameterGroupMessage :: Text -- ^ 'rcpgmParameterGroupName'
-                                  -> ResetClusterParameterGroupMessage
-resetClusterParameterGroupMessage p1 = ResetClusterParameterGroupMessage
+resetClusterParameterGroup :: Text -- ^ 'rcpgmParameterGroupName'
+                           -> ResetClusterParameterGroupMessage
+resetClusterParameterGroup p1 = ResetClusterParameterGroupMessage
     { _rcpgmParameterGroupName = p1
     , _rcpgmResetAllParameters = Nothing
     , _rcpgmParameters         = mempty
@@ -100,4 +100,4 @@ instance AWSRequest ResetClusterParameterGroupMessage where
     type Rs ResetClusterParameterGroupMessage = ClusterParameterGroupNameMessage
 
     request  = post "ResetClusterParameterGroup"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

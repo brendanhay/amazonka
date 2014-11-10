@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     -- * Request
       DescribeCacheParametersMessage
     -- ** Request constructor
-    , describeCacheParametersMessage
+    , describeCacheParameters
     -- ** Request lenses
     , dcpmCacheParameterGroupName
     , dcpmMarker
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     -- * Response
     , CacheParameterGroupDetails
     -- ** Response constructor
-    , cacheParameterGroupDetails
+    , describeCacheParametersResponse
     -- ** Response lenses
     , cpgdCacheNodeTypeSpecificParameters
     , cpgdMarker
@@ -67,9 +67,9 @@ data DescribeCacheParametersMessage = DescribeCacheParametersMessage
 --
 -- * 'dcpmSource' @::@ 'Maybe' 'Text'
 --
-describeCacheParametersMessage :: Text -- ^ 'dcpmCacheParameterGroupName'
-                               -> DescribeCacheParametersMessage
-describeCacheParametersMessage p1 = DescribeCacheParametersMessage
+describeCacheParameters :: Text -- ^ 'dcpmCacheParameterGroupName'
+                        -> DescribeCacheParametersMessage
+describeCacheParameters p1 = DescribeCacheParametersMessage
     { _dcpmCacheParameterGroupName = p1
     , _dcpmSource                  = Nothing
     , _dcpmMaxRecords              = Nothing
@@ -122,8 +122,8 @@ data CacheParameterGroupDetails = CacheParameterGroupDetails
 --
 -- * 'cpgdParameters' @::@ ['Parameter']
 --
-cacheParameterGroupDetails :: CacheParameterGroupDetails
-cacheParameterGroupDetails = CacheParameterGroupDetails
+describeCacheParametersResponse :: CacheParameterGroupDetails
+describeCacheParametersResponse = CacheParameterGroupDetails
     { _cpgdMarker                          = Nothing
     , _cpgdParameters                      = mempty
     , _cpgdCacheNodeTypeSpecificParameters = mempty
@@ -149,5 +149,7 @@ instance AWSRequest DescribeCacheParametersMessage where
     type Rs DescribeCacheParametersMessage = CacheParameterGroupDetails
 
     request  = post "DescribeCacheParameters"
-    response = const . xmlResponse $ \h x -> CacheParameterGroupDetails
-record
+    response = xmlResponse $ \h x -> CacheParameterGroupDetails
+        <$> x %| "CacheNodeTypeSpecificParameters"
+        <*> x %| "Marker"
+        <*> x %| "Parameters"

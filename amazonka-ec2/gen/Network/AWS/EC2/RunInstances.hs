@@ -73,7 +73,7 @@ module Network.AWS.EC2.RunInstances
     -- * Response
     , Reservation
     -- ** Response constructor
-    , reservation
+    , runInstancesResponse
     -- ** Response lenses
     , rGroups
     , rInstances
@@ -346,4 +346,4 @@ instance AWSRequest RunInstances where
     type Rs RunInstances = Reservation
 
     request  = post "RunInstances"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

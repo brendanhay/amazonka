@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     -- * Request
       RetrieveEnvironmentInfoMessage
     -- ** Request constructor
-    , retrieveEnvironmentInfoMessage
+    , retrieveEnvironmentInfo
     -- ** Request lenses
     , reimEnvironmentId
     , reimEnvironmentName
@@ -36,7 +36,7 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     -- * Response
     , RetrieveEnvironmentInfoResultMessage
     -- ** Response constructor
-    , retrieveEnvironmentInfoResultMessage
+    , retrieveEnvironmentInfoResponse
     -- ** Response lenses
     , reirmEnvironmentInfo
     ) where
@@ -61,9 +61,9 @@ data RetrieveEnvironmentInfoMessage = RetrieveEnvironmentInfoMessage
 --
 -- * 'reimInfoType' @::@ 'Text'
 --
-retrieveEnvironmentInfoMessage :: Text -- ^ 'reimInfoType'
-                               -> RetrieveEnvironmentInfoMessage
-retrieveEnvironmentInfoMessage p1 = RetrieveEnvironmentInfoMessage
+retrieveEnvironmentInfo :: Text -- ^ 'reimInfoType'
+                        -> RetrieveEnvironmentInfoMessage
+retrieveEnvironmentInfo p1 = RetrieveEnvironmentInfoMessage
     { _reimInfoType        = p1
     , _reimEnvironmentId   = Nothing
     , _reimEnvironmentName = Nothing
@@ -104,8 +104,8 @@ newtype RetrieveEnvironmentInfoResultMessage = RetrieveEnvironmentInfoResultMess
 --
 -- * 'reirmEnvironmentInfo' @::@ ['EnvironmentInfoDescription']
 --
-retrieveEnvironmentInfoResultMessage :: RetrieveEnvironmentInfoResultMessage
-retrieveEnvironmentInfoResultMessage = RetrieveEnvironmentInfoResultMessage
+retrieveEnvironmentInfoResponse :: RetrieveEnvironmentInfoResultMessage
+retrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResultMessage
     { _reirmEnvironmentInfo = mempty
     }
 
@@ -119,5 +119,5 @@ instance AWSRequest RetrieveEnvironmentInfoMessage where
     type Rs RetrieveEnvironmentInfoMessage = RetrieveEnvironmentInfoResultMessage
 
     request  = post "RetrieveEnvironmentInfo"
-    response = const . xmlResponse $ \h x -> RetrieveEnvironmentInfoResultMessage
-newtype
+    response = xmlResponse $ \h x -> RetrieveEnvironmentInfoResultMessage
+        <$> x %| "EnvironmentInfo"

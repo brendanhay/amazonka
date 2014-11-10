@@ -46,7 +46,7 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     -- * Request
       RegisterEndPointsInput
     -- ** Request constructor
-    , registerEndPointsInput
+    , registerInstancesWithLoadBalancer
     -- ** Request lenses
     , repiInstances
     , repiLoadBalancerName
@@ -54,7 +54,7 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     -- * Response
     , RegisterEndPointsOutput
     -- ** Response constructor
-    , registerEndPointsOutput
+    , registerInstancesWithLoadBalancerResponse
     -- ** Response lenses
     , repoInstances
     ) where
@@ -76,9 +76,9 @@ data RegisterEndPointsInput = RegisterEndPointsInput
 --
 -- * 'repiLoadBalancerName' @::@ 'Text'
 --
-registerEndPointsInput :: Text -- ^ 'repiLoadBalancerName'
-                       -> RegisterEndPointsInput
-registerEndPointsInput p1 = RegisterEndPointsInput
+registerInstancesWithLoadBalancer :: Text -- ^ 'repiLoadBalancerName'
+                                  -> RegisterEndPointsInput
+registerInstancesWithLoadBalancer p1 = RegisterEndPointsInput
     { _repiLoadBalancerName = p1
     , _repiInstances        = mempty
     }
@@ -108,8 +108,8 @@ newtype RegisterEndPointsOutput = RegisterEndPointsOutput
 --
 -- * 'repoInstances' @::@ ['Instance']
 --
-registerEndPointsOutput :: RegisterEndPointsOutput
-registerEndPointsOutput = RegisterEndPointsOutput
+registerInstancesWithLoadBalancerResponse :: RegisterEndPointsOutput
+registerInstancesWithLoadBalancerResponse = RegisterEndPointsOutput
     { _repoInstances = mempty
     }
 
@@ -122,5 +122,5 @@ instance AWSRequest RegisterEndPointsInput where
     type Rs RegisterEndPointsInput = RegisterEndPointsOutput
 
     request  = post "RegisterInstancesWithLoadBalancer"
-    response = const . xmlResponse $ \h x -> RegisterEndPointsOutput
-newtype
+    response = xmlResponse $ \h x -> RegisterEndPointsOutput
+        <$> x %| "Instances"

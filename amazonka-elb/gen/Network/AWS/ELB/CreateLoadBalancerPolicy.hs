@@ -29,7 +29,7 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
     -- * Request
       CreateLoadBalancerPolicyInput
     -- ** Request constructor
-    , createLoadBalancerPolicyInput
+    , createLoadBalancerPolicy
     -- ** Request lenses
     , clbpiLoadBalancerName
     , clbpiPolicyAttributes
@@ -65,11 +65,11 @@ data CreateLoadBalancerPolicyInput = CreateLoadBalancerPolicyInput
 --
 -- * 'clbpiPolicyTypeName' @::@ 'Text'
 --
-createLoadBalancerPolicyInput :: Text -- ^ 'clbpiLoadBalancerName'
-                              -> Text -- ^ 'clbpiPolicyName'
-                              -> Text -- ^ 'clbpiPolicyTypeName'
-                              -> CreateLoadBalancerPolicyInput
-createLoadBalancerPolicyInput p1 p2 p3 = CreateLoadBalancerPolicyInput
+createLoadBalancerPolicy :: Text -- ^ 'clbpiLoadBalancerName'
+                         -> Text -- ^ 'clbpiPolicyName'
+                         -> Text -- ^ 'clbpiPolicyTypeName'
+                         -> CreateLoadBalancerPolicyInput
+createLoadBalancerPolicy p1 p2 p3 = CreateLoadBalancerPolicyInput
     { _clbpiLoadBalancerName = p1
     , _clbpiPolicyName       = p2
     , _clbpiPolicyTypeName   = p3

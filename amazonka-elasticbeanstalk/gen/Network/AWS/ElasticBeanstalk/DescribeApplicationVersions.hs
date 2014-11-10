@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     -- * Request
       DescribeApplicationVersionsMessage
     -- ** Request constructor
-    , describeApplicationVersionsMessage
+    , describeApplicationVersions
     -- ** Request lenses
     , davm1ApplicationName
     , davm1VersionLabels
@@ -34,7 +34,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     -- * Response
     , ApplicationVersionDescriptionsMessage
     -- ** Response constructor
-    , applicationVersionDescriptionsMessage
+    , describeApplicationVersionsResponse
     -- ** Response lenses
     , avdmApplicationVersions
     ) where
@@ -56,8 +56,8 @@ data DescribeApplicationVersionsMessage = DescribeApplicationVersionsMessage
 --
 -- * 'davm1VersionLabels' @::@ ['Text']
 --
-describeApplicationVersionsMessage :: DescribeApplicationVersionsMessage
-describeApplicationVersionsMessage = DescribeApplicationVersionsMessage
+describeApplicationVersions :: DescribeApplicationVersionsMessage
+describeApplicationVersions = DescribeApplicationVersionsMessage
     { _davm1ApplicationName = Nothing
     , _davm1VersionLabels   = mempty
     }
@@ -89,8 +89,8 @@ newtype ApplicationVersionDescriptionsMessage = ApplicationVersionDescriptionsMe
 --
 -- * 'avdmApplicationVersions' @::@ ['ApplicationVersionDescription']
 --
-applicationVersionDescriptionsMessage :: ApplicationVersionDescriptionsMessage
-applicationVersionDescriptionsMessage = ApplicationVersionDescriptionsMessage
+describeApplicationVersionsResponse :: ApplicationVersionDescriptionsMessage
+describeApplicationVersionsResponse = ApplicationVersionDescriptionsMessage
     { _avdmApplicationVersions = mempty
     }
 
@@ -104,5 +104,5 @@ instance AWSRequest DescribeApplicationVersionsMessage where
     type Rs DescribeApplicationVersionsMessage = ApplicationVersionDescriptionsMessage
 
     request  = post "DescribeApplicationVersions"
-    response = const . xmlResponse $ \h x -> ApplicationVersionDescriptionsMessage
-newtype
+    response = xmlResponse $ \h x -> ApplicationVersionDescriptionsMessage
+        <$> x %| "ApplicationVersions"

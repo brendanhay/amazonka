@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     -- * Request
       TerminateEnvironmentMessage
     -- ** Request constructor
-    , terminateEnvironmentMessage
+    , terminateEnvironment
     -- ** Request lenses
     , temEnvironmentId
     , temEnvironmentName
@@ -35,7 +35,7 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     -- * Response
     , EnvironmentDescription
     -- ** Response constructor
-    , environmentDescription
+    , terminateEnvironmentResponse
     -- ** Response lenses
     , ed1ApplicationName
     , ed1CNAME
@@ -74,8 +74,8 @@ data TerminateEnvironmentMessage = TerminateEnvironmentMessage
 --
 -- * 'temTerminateResources' @::@ 'Maybe' 'Bool'
 --
-terminateEnvironmentMessage :: TerminateEnvironmentMessage
-terminateEnvironmentMessage = TerminateEnvironmentMessage
+terminateEnvironment :: TerminateEnvironmentMessage
+terminateEnvironment = TerminateEnvironmentMessage
     { _temEnvironmentId      = Nothing
     , _temEnvironmentName    = Nothing
     , _temTerminateResources = Nothing
@@ -118,4 +118,4 @@ instance AWSRequest TerminateEnvironmentMessage where
     type Rs TerminateEnvironmentMessage = EnvironmentDescription
 
     request  = post "TerminateEnvironment"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

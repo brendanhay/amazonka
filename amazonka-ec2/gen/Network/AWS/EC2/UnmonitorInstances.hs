@@ -36,7 +36,7 @@ module Network.AWS.EC2.UnmonitorInstances
     -- * Response
     , UnmonitorInstancesResult
     -- ** Response constructor
-    , unmonitorInstancesResult
+    , unmonitorInstancesResponse
     -- ** Response lenses
     , uirInstanceMonitorings
     ) where
@@ -86,8 +86,8 @@ newtype UnmonitorInstancesResult = UnmonitorInstancesResult
 --
 -- * 'uirInstanceMonitorings' @::@ ['InstanceMonitoring']
 --
-unmonitorInstancesResult :: UnmonitorInstancesResult
-unmonitorInstancesResult = UnmonitorInstancesResult
+unmonitorInstancesResponse :: UnmonitorInstancesResult
+unmonitorInstancesResponse = UnmonitorInstancesResult
     { _uirInstanceMonitorings = mempty
     }
 
@@ -101,5 +101,5 @@ instance AWSRequest UnmonitorInstances where
     type Rs UnmonitorInstances = UnmonitorInstancesResult
 
     request  = post "UnmonitorInstances"
-    response = const . xmlResponse $ \h x -> UnmonitorInstancesResult
-newtype
+    response = xmlResponse $ \h x -> UnmonitorInstancesResult
+        <$> x %| "instancesSet"

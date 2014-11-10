@@ -33,7 +33,7 @@ module Network.AWS.EC2.DescribeExportTasks
     -- * Response
     , DescribeExportTasksResult
     -- ** Response constructor
-    , describeExportTasksResult
+    , describeExportTasksResponse
     -- ** Response lenses
     , detrExportTasks
     ) where
@@ -76,8 +76,8 @@ newtype DescribeExportTasksResult = DescribeExportTasksResult
 --
 -- * 'detrExportTasks' @::@ ['ExportTask']
 --
-describeExportTasksResult :: DescribeExportTasksResult
-describeExportTasksResult = DescribeExportTasksResult
+describeExportTasksResponse :: DescribeExportTasksResult
+describeExportTasksResponse = DescribeExportTasksResult
     { _detrExportTasks = mempty
     }
 
@@ -89,5 +89,5 @@ instance AWSRequest DescribeExportTasks where
     type Rs DescribeExportTasks = DescribeExportTasksResult
 
     request  = post "DescribeExportTasks"
-    response = const . xmlResponse $ \h x -> DescribeExportTasksResult
-newtype
+    response = xmlResponse $ \h x -> DescribeExportTasksResult
+        <$> x %| "exportTaskSet"

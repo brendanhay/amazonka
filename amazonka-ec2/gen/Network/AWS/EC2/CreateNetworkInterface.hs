@@ -41,7 +41,7 @@ module Network.AWS.EC2.CreateNetworkInterface
     -- * Response
     , CreateNetworkInterfaceResult
     -- ** Response constructor
-    , createNetworkInterfaceResult
+    , createNetworkInterfaceResponse
     -- ** Response lenses
     , cnirNetworkInterface
     ) where
@@ -147,8 +147,8 @@ newtype CreateNetworkInterfaceResult = CreateNetworkInterfaceResult
 --
 -- * 'cnirNetworkInterface' @::@ 'Maybe' 'NetworkInterface'
 --
-createNetworkInterfaceResult :: CreateNetworkInterfaceResult
-createNetworkInterfaceResult = CreateNetworkInterfaceResult
+createNetworkInterfaceResponse :: CreateNetworkInterfaceResult
+createNetworkInterfaceResponse = CreateNetworkInterfaceResult
     { _cnirNetworkInterface = Nothing
     }
 
@@ -162,5 +162,5 @@ instance AWSRequest CreateNetworkInterface where
     type Rs CreateNetworkInterface = CreateNetworkInterfaceResult
 
     request  = post "CreateNetworkInterface"
-    response = const . xmlResponse $ \h x -> CreateNetworkInterfaceResult
-newtype
+    response = xmlResponse $ \h x -> CreateNetworkInterfaceResult
+        <$> x %| "networkInterface"

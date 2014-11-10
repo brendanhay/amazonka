@@ -257,5 +257,7 @@ instance AWSRequest AssumeRole where
     type Rs AssumeRole = AssumeRoleResponse
 
     request  = post "AssumeRole"
-    response = const . xmlResponse $ \h x -> AssumeRoleResponse
-record
+    response = xmlResponse $ \h x -> AssumeRoleResponse
+        <$> x %| "AssumedRoleUser"
+        <*> x %| "Credentials"
+        <*> x %| "PackedPolicySize"

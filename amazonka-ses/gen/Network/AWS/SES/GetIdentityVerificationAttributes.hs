@@ -95,5 +95,5 @@ instance AWSRequest GetIdentityVerificationAttributes where
     type Rs GetIdentityVerificationAttributes = GetIdentityVerificationAttributesResponse
 
     request  = post "GetIdentityVerificationAttributes"
-    response = const . xmlResponse $ \h x -> GetIdentityVerificationAttributesResponse
-newtype
+    response = xmlResponse $ \h x -> GetIdentityVerificationAttributesResponse
+        <$> x %| "VerificationAttributes"

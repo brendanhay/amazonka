@@ -30,7 +30,7 @@ module Network.AWS.ELB.DescribeLoadBalancers
     -- * Request
       DescribeAccessPointsInput
     -- ** Request constructor
-    , describeAccessPointsInput
+    , describeLoadBalancers
     -- ** Request lenses
     , dapiLoadBalancerNames
     , dapiMarker
@@ -39,7 +39,7 @@ module Network.AWS.ELB.DescribeLoadBalancers
     -- * Response
     , DescribeAccessPointsOutput
     -- ** Response constructor
-    , describeAccessPointsOutput
+    , describeLoadBalancersResponse
     -- ** Response lenses
     , dapoLoadBalancerDescriptions
     , dapoNextMarker
@@ -65,8 +65,8 @@ data DescribeAccessPointsInput = DescribeAccessPointsInput
 --
 -- * 'dapiPageSize' @::@ 'Maybe' 'Int'
 --
-describeAccessPointsInput :: DescribeAccessPointsInput
-describeAccessPointsInput = DescribeAccessPointsInput
+describeLoadBalancers :: DescribeAccessPointsInput
+describeLoadBalancers = DescribeAccessPointsInput
     { _dapiLoadBalancerNames = mempty
     , _dapiMarker            = Nothing
     , _dapiPageSize          = Nothing
@@ -105,8 +105,8 @@ data DescribeAccessPointsOutput = DescribeAccessPointsOutput
 --
 -- * 'dapoNextMarker' @::@ 'Maybe' 'Text'
 --
-describeAccessPointsOutput :: DescribeAccessPointsOutput
-describeAccessPointsOutput = DescribeAccessPointsOutput
+describeLoadBalancersResponse :: DescribeAccessPointsOutput
+describeLoadBalancersResponse = DescribeAccessPointsOutput
     { _dapoLoadBalancerDescriptions = mempty
     , _dapoNextMarker               = Nothing
     }
@@ -127,5 +127,6 @@ instance AWSRequest DescribeAccessPointsInput where
     type Rs DescribeAccessPointsInput = DescribeAccessPointsOutput
 
     request  = post "DescribeLoadBalancers"
-    response = const . xmlResponse $ \h x -> DescribeAccessPointsOutput
-record
+    response = xmlResponse $ \h x -> DescribeAccessPointsOutput
+        <$> x %| "LoadBalancerDescriptions"
+        <*> x %| "NextMarker"

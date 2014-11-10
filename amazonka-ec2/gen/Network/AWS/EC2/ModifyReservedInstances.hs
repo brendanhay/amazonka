@@ -39,7 +39,7 @@ module Network.AWS.EC2.ModifyReservedInstances
     -- * Response
     , ModifyReservedInstancesResult
     -- ** Response constructor
-    , modifyReservedInstancesResult
+    , modifyReservedInstancesResponse
     -- ** Response lenses
     , mrirReservedInstancesModificationId
     ) where
@@ -101,8 +101,8 @@ newtype ModifyReservedInstancesResult = ModifyReservedInstancesResult
 --
 -- * 'mrirReservedInstancesModificationId' @::@ 'Maybe' 'Text'
 --
-modifyReservedInstancesResult :: ModifyReservedInstancesResult
-modifyReservedInstancesResult = ModifyReservedInstancesResult
+modifyReservedInstancesResponse :: ModifyReservedInstancesResult
+modifyReservedInstancesResponse = ModifyReservedInstancesResult
     { _mrirReservedInstancesModificationId = Nothing
     }
 
@@ -117,5 +117,5 @@ instance AWSRequest ModifyReservedInstances where
     type Rs ModifyReservedInstances = ModifyReservedInstancesResult
 
     request  = post "ModifyReservedInstances"
-    response = const . xmlResponse $ \h x -> ModifyReservedInstancesResult
-newtype
+    response = xmlResponse $ \h x -> ModifyReservedInstancesResult
+        <$> x %| "reservedInstancesModificationId"

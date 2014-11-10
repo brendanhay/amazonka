@@ -30,7 +30,7 @@ module Network.AWS.SNS.ConfirmSubscription
     -- * Request
       ConfirmSubscriptionInput
     -- ** Request constructor
-    , confirmSubscriptionInput
+    , confirmSubscription
     -- ** Request lenses
     , csiAuthenticateOnUnsubscribe
     , csiToken
@@ -64,10 +64,10 @@ data ConfirmSubscriptionInput = ConfirmSubscriptionInput
 --
 -- * 'csiTopicArn' @::@ 'Text'
 --
-confirmSubscriptionInput :: Text -- ^ 'csiTopicArn'
-                         -> Text -- ^ 'csiToken'
-                         -> ConfirmSubscriptionInput
-confirmSubscriptionInput p1 p2 = ConfirmSubscriptionInput
+confirmSubscription :: Text -- ^ 'csiTopicArn'
+                    -> Text -- ^ 'csiToken'
+                    -> ConfirmSubscriptionInput
+confirmSubscription p1 p2 = ConfirmSubscriptionInput
     { _csiTopicArn                  = p1
     , _csiToken                     = p2
     , _csiAuthenticateOnUnsubscribe = Nothing
@@ -120,5 +120,5 @@ instance AWSRequest ConfirmSubscriptionInput where
     type Rs ConfirmSubscriptionInput = ConfirmSubscriptionResponse
 
     request  = post "ConfirmSubscription"
-    response = const . xmlResponse $ \h x -> ConfirmSubscriptionResponse
-newtype
+    response = xmlResponse $ \h x -> ConfirmSubscriptionResponse
+        <$> x %| "SubscriptionArn"

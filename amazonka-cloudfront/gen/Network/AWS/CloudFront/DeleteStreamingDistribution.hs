@@ -26,15 +26,15 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
     -- * Request
       DeleteStreamingDistribution
     -- ** Request constructor
-    , deleteStreamingDistribution
+    , deleteStreamingDistribution2014_05_31
     -- ** Request lenses
     , dsdId
     , dsdIfMatch
 
     -- * Response
-    , DeleteStreamingDistributionResponse
+    , DeleteStreamingDistribution2014_05_31Response
     -- ** Response constructor
-    , deleteStreamingDistributionResponse
+    , deleteStreamingDistribution2014_05_31Response
     ) where
 
 import Network.AWS.Prelude
@@ -54,9 +54,9 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution
 --
 -- * 'dsdIfMatch' @::@ 'Maybe' 'Text'
 --
-deleteStreamingDistribution :: Text -- ^ 'dsdId'
-                            -> DeleteStreamingDistribution
-deleteStreamingDistribution p1 = DeleteStreamingDistribution
+deleteStreamingDistribution2014_05_31 :: Text -- ^ 'dsdId'
+                                      -> DeleteStreamingDistribution
+deleteStreamingDistribution2014_05_31 p1 = DeleteStreamingDistribution
     { _dsdId      = p1
     , _dsdIfMatch = Nothing
     }
@@ -84,15 +84,15 @@ instance ToHeaders DeleteStreamingDistribution where
         [ "If-Match" =: _dsdIfMatch
         ]
 
-data DeleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
+data DeleteStreamingDistribution2014_05_31Response = DeleteStreamingDistribution2014_05_31Response
 
--- | 'DeleteStreamingDistributionResponse' constructor.
-deleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse
-deleteStreamingDistributionResponse = DeleteStreamingDistributionResponse
+-- | 'DeleteStreamingDistribution2014_05_31Response' constructor.
+deleteStreamingDistribution2014_05_31Response :: DeleteStreamingDistribution2014_05_31Response
+deleteStreamingDistribution2014_05_31Response = DeleteStreamingDistribution2014_05_31Response
 
 instance AWSRequest DeleteStreamingDistribution where
     type Sv DeleteStreamingDistribution = CloudFront
-    type Rs DeleteStreamingDistribution = DeleteStreamingDistributionResponse
+    type Rs DeleteStreamingDistribution = DeleteStreamingDistribution2014_05_31Response
 
     request  = delete
-    response = const (nullaryResponse DeleteStreamingDistributionResponse)
+    response = const (nullaryResponse DeleteStreamingDistribution2014_05_31Response)

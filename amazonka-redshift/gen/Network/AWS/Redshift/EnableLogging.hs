@@ -27,7 +27,7 @@ module Network.AWS.Redshift.EnableLogging
     -- * Request
       EnableLoggingMessage
     -- ** Request constructor
-    , enableLoggingMessage
+    , enableLogging
     -- ** Request lenses
     , elmBucketName
     , elmClusterIdentifier
@@ -36,7 +36,7 @@ module Network.AWS.Redshift.EnableLogging
     -- * Response
     , LoggingStatus
     -- ** Response constructor
-    , loggingStatus
+    , enableLoggingResponse
     -- ** Response lenses
     , lsBucketName
     , lsLastFailureMessage
@@ -66,10 +66,10 @@ data EnableLoggingMessage = EnableLoggingMessage
 --
 -- * 'elmS3KeyPrefix' @::@ 'Maybe' 'Text'
 --
-enableLoggingMessage :: Text -- ^ 'elmClusterIdentifier'
-                     -> Text -- ^ 'elmBucketName'
-                     -> EnableLoggingMessage
-enableLoggingMessage p1 p2 = EnableLoggingMessage
+enableLogging :: Text -- ^ 'elmClusterIdentifier'
+              -> Text -- ^ 'elmBucketName'
+              -> EnableLoggingMessage
+enableLogging p1 p2 = EnableLoggingMessage
     { _elmClusterIdentifier = p1
     , _elmBucketName        = p2
     , _elmS3KeyPrefix       = Nothing
@@ -104,4 +104,4 @@ instance AWSRequest EnableLoggingMessage where
     type Rs EnableLoggingMessage = LoggingStatus
 
     request  = post "EnableLogging"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

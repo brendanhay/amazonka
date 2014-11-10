@@ -126,5 +126,7 @@ instance AWSRequest GetRolePolicy where
     type Rs GetRolePolicy = GetRolePolicyResponse
 
     request  = post "GetRolePolicy"
-    response = const . xmlResponse $ \h x -> GetRolePolicyResponse
-record
+    response = xmlResponse $ \h x -> GetRolePolicyResponse
+        <$> x %| "PolicyDocument"
+        <*> x %| "PolicyName"
+        <*> x %| "RoleName"

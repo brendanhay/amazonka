@@ -30,7 +30,7 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
     -- * Request
       ResetCacheParameterGroupMessage
     -- ** Request constructor
-    , resetCacheParameterGroupMessage
+    , resetCacheParameterGroup
     -- ** Request lenses
     , rcpgmCacheParameterGroupName
     , rcpgmParameterNameValues
@@ -39,7 +39,7 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
     -- * Response
     , CacheParameterGroupNameMessage
     -- ** Response constructor
-    , cacheParameterGroupNameMessage
+    , resetCacheParameterGroupResponse
     -- ** Response lenses
     , cpgnmCacheParameterGroupName
     ) where
@@ -64,9 +64,9 @@ data ResetCacheParameterGroupMessage = ResetCacheParameterGroupMessage
 --
 -- * 'rcpgmResetAllParameters' @::@ 'Maybe' 'Bool'
 --
-resetCacheParameterGroupMessage :: Text -- ^ 'rcpgmCacheParameterGroupName'
-                                -> ResetCacheParameterGroupMessage
-resetCacheParameterGroupMessage p1 = ResetCacheParameterGroupMessage
+resetCacheParameterGroup :: Text -- ^ 'rcpgmCacheParameterGroupName'
+                         -> ResetCacheParameterGroupMessage
+resetCacheParameterGroup p1 = ResetCacheParameterGroupMessage
     { _rcpgmCacheParameterGroupName = p1
     , _rcpgmResetAllParameters      = Nothing
     , _rcpgmParameterNameValues     = mempty
@@ -103,4 +103,4 @@ instance AWSRequest ResetCacheParameterGroupMessage where
     type Rs ResetCacheParameterGroupMessage = CacheParameterGroupNameMessage
 
     request  = post "ResetCacheParameterGroup"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

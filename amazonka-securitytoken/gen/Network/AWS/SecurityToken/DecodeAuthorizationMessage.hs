@@ -110,5 +110,5 @@ instance AWSRequest DecodeAuthorizationMessage where
     type Rs DecodeAuthorizationMessage = DecodeAuthorizationMessageResponse
 
     request  = post "DecodeAuthorizationMessage"
-    response = const . xmlResponse $ \h x -> DecodeAuthorizationMessageResponse
-newtype
+    response = xmlResponse $ \h x -> DecodeAuthorizationMessageResponse
+        <$> x %| "DecodedMessage"

@@ -310,48 +310,10 @@ instance AWSService CloudSearch where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'CloudSearch' errors returned by the
--- Amazon CloudSearch.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data CloudSearchError
-    = CloudSearchHttp       HttpException
-    | CloudSearchSerializer String
-    | CloudSearchService    Status CloudSearchServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception CloudSearchError
-
-instance AWSError CloudSearchError where
-    awsError = \case
-        CloudSearchHttp       ex  -> HttpError       ex
-        CloudSearchSerializer e   -> SerializerError "CloudSearch" e
-        CloudSearchService    s x -> ServiceError    "CloudSearch" s (show x)
-
-instance AWSServiceError CloudSearchError where
-    httpError       = CloudSearchHttp
-    serializerError = CloudSearchSerializer
-    serviceError    = xmlError httpStatus CloudSearchService
-
-_CloudSearchHttp :: Prism' CloudSearchError HttpException
-_CloudSearchHttp = prism CloudSearchHttp $ \case
-    CloudSearchHttp ex -> Right ex
-    x -> Left x
-
-_CloudSearchSerializer :: Prism' CloudSearchError String
-_CloudSearchSerializer = prism CloudSearchSerializer $ \case
-    CloudSearchSerializer e -> Right e
-    x -> Left x
-
-_CloudSearchService :: Prism' CloudSearchError (Status, CloudSearchServiceError)
-_CloudSearchService = prism (uncurry CloudSearchService) $ \case
-    CloudSearchService s x -> Right (s, x)
-    x -> Left x
 
 data DomainStatus = DomainStatus
     { _dsARN                    :: Maybe Text

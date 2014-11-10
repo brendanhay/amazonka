@@ -31,7 +31,7 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     -- * Request
       PutMetricAlarmInput
     -- ** Request constructor
-    , putMetricAlarmInput
+    , putMetricAlarm
     -- ** Request lenses
     , pmaiActionsEnabled
     , pmaiAlarmActions
@@ -111,16 +111,16 @@ data PutMetricAlarmInput = PutMetricAlarmInput
 --
 -- * 'pmaiUnit' @::@ 'Maybe' 'Text'
 --
-putMetricAlarmInput :: Text -- ^ 'pmaiAlarmName'
-                    -> Text -- ^ 'pmaiMetricName'
-                    -> Text -- ^ 'pmaiNamespace'
-                    -> Text -- ^ 'pmaiStatistic'
-                    -> Int -- ^ 'pmaiPeriod'
-                    -> Int -- ^ 'pmaiEvaluationPeriods'
-                    -> Double -- ^ 'pmaiThreshold'
-                    -> Text -- ^ 'pmaiComparisonOperator'
-                    -> PutMetricAlarmInput
-putMetricAlarmInput p1 p2 p3 p4 p5 p6 p7 p8 = PutMetricAlarmInput
+putMetricAlarm :: Text -- ^ 'pmaiAlarmName'
+               -> Text -- ^ 'pmaiMetricName'
+               -> Text -- ^ 'pmaiNamespace'
+               -> Text -- ^ 'pmaiStatistic'
+               -> Int -- ^ 'pmaiPeriod'
+               -> Int -- ^ 'pmaiEvaluationPeriods'
+               -> Double -- ^ 'pmaiThreshold'
+               -> Text -- ^ 'pmaiComparisonOperator'
+               -> PutMetricAlarmInput
+putMetricAlarm p1 p2 p3 p4 p5 p6 p7 p8 = PutMetricAlarmInput
     { _pmaiAlarmName               = p1
     , _pmaiMetricName              = p2
     , _pmaiNamespace               = p3

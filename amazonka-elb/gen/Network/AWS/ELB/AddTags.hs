@@ -31,7 +31,7 @@ module Network.AWS.ELB.AddTags
     -- * Request
       AddTagsInput
     -- ** Request constructor
-    , addTagsInput
+    , addTags
     -- ** Request lenses
     , atiLoadBalancerNames
     , atiTags
@@ -59,9 +59,9 @@ data AddTagsInput = AddTagsInput
 --
 -- * 'atiTags' @::@ 'NonEmpty' 'Tag'
 --
-addTagsInput :: List1 Tag -- ^ 'atiTags'
-             -> AddTagsInput
-addTagsInput p1 = AddTagsInput
+addTags :: List1 Tag -- ^ 'atiTags'
+        -> AddTagsInput
+addTags p1 = AddTagsInput
     { _atiTags              = withIso _List1 (const id) p1
     , _atiLoadBalancerNames = mempty
     }

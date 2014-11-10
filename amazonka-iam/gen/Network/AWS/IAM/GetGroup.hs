@@ -147,5 +147,8 @@ instance AWSRequest GetGroup where
     type Rs GetGroup = GetGroupResponse
 
     request  = post "GetGroup"
-    response = const . xmlResponse $ \h x -> GetGroupResponse
-record
+    response = xmlResponse $ \h x -> GetGroupResponse
+        <$> x %| "Group"
+        <*> x %| "IsTruncated"
+        <*> x %| "Marker"
+        <*> x %| "Users"

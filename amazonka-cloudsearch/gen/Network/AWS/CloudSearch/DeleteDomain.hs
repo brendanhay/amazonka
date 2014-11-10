@@ -92,5 +92,5 @@ instance AWSRequest DeleteDomain where
     type Rs DeleteDomain = DeleteDomainResponse
 
     request  = post "DeleteDomain"
-    response = const . xmlResponse $ \h x -> DeleteDomainResponse
-newtype
+    response = xmlResponse $ \h x -> DeleteDomainResponse
+        <$> x %| "DomainStatus"

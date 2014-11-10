@@ -102,5 +102,5 @@ instance AWSRequest DefineExpression where
     type Rs DefineExpression = DefineExpressionResponse
 
     request  = post "DefineExpression"
-    response = const . xmlResponse $ \h x -> DefineExpressionResponse
-newtype
+    response = xmlResponse $ \h x -> DefineExpressionResponse
+        <$> x %| "Expression"

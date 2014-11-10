@@ -249,5 +249,10 @@ instance AWSRequest ListResourceRecordSets where
     type Rs ListResourceRecordSets = ListResourceRecordSetsResponse
 
     request  = get
-    response = const . xmlResponse $ \h x -> ListResourceRecordSetsResponse
-record
+    response = xmlResponse $ \h x -> ListResourceRecordSetsResponse
+        <$> x %| "IsTruncated"
+        <*> x %| "MaxItems"
+        <*> x %| "NextRecordIdentifier"
+        <*> x %| "NextRecordName"
+        <*> x %| "NextRecordType"
+        <*> x %| "ResourceRecordSets"

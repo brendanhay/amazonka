@@ -36,7 +36,7 @@ module Network.AWS.EC2.AllocateAddress
     -- * Response
     , AllocateAddressResult
     -- ** Response constructor
-    , allocateAddressResult
+    , allocateAddressResponse
     -- ** Response lenses
     , aarAllocationId
     , aarDomain
@@ -95,8 +95,8 @@ data AllocateAddressResult = AllocateAddressResult
 --
 -- * 'aarPublicIp' @::@ 'Maybe' 'Text'
 --
-allocateAddressResult :: AllocateAddressResult
-allocateAddressResult = AllocateAddressResult
+allocateAddressResponse :: AllocateAddressResult
+allocateAddressResponse = AllocateAddressResult
     { _aarPublicIp     = Nothing
     , _aarDomain       = Nothing
     , _aarAllocationId = Nothing
@@ -121,5 +121,7 @@ instance AWSRequest AllocateAddress where
     type Rs AllocateAddress = AllocateAddressResult
 
     request  = post "AllocateAddress"
-    response = const . xmlResponse $ \h x -> AllocateAddressResult
-record
+    response = xmlResponse $ \h x -> AllocateAddressResult
+        <$> x %| "allocationId"
+        <*> x %| "domain"
+        <*> x %| "publicIp"

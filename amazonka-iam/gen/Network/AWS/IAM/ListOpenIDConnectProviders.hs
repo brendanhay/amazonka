@@ -77,5 +77,5 @@ instance AWSRequest ListOpenIDConnectProviders where
     type Rs ListOpenIDConnectProviders = ListOpenIDConnectProvidersResponse
 
     request  = post "ListOpenIDConnectProviders"
-    response = const . xmlResponse $ \h x -> ListOpenIDConnectProvidersResponse
-newtype
+    response = xmlResponse $ \h x -> ListOpenIDConnectProvidersResponse
+        <$> x %| "OpenIDConnectProviderList"

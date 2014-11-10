@@ -47,7 +47,7 @@ module Network.AWS.EC2.RequestSpotInstances
     -- * Response
     , RequestSpotInstancesResult
     -- ** Response constructor
-    , requestSpotInstancesResult
+    , requestSpotInstancesResponse
     -- ** Response lenses
     , rsirSpotInstanceRequests
     ) where
@@ -186,8 +186,8 @@ newtype RequestSpotInstancesResult = RequestSpotInstancesResult
 --
 -- * 'rsirSpotInstanceRequests' @::@ ['SpotInstanceRequest']
 --
-requestSpotInstancesResult :: RequestSpotInstancesResult
-requestSpotInstancesResult = RequestSpotInstancesResult
+requestSpotInstancesResponse :: RequestSpotInstancesResult
+requestSpotInstancesResponse = RequestSpotInstancesResult
     { _rsirSpotInstanceRequests = mempty
     }
 
@@ -202,5 +202,5 @@ instance AWSRequest RequestSpotInstances where
     type Rs RequestSpotInstances = RequestSpotInstancesResult
 
     request  = post "RequestSpotInstances"
-    response = const . xmlResponse $ \h x -> RequestSpotInstancesResult
-newtype
+    response = xmlResponse $ \h x -> RequestSpotInstancesResult
+        <$> x %| "spotInstanceRequestSet"

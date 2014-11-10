@@ -29,7 +29,7 @@ module Network.AWS.SNS.ListSubscriptions
     -- * Request
       ListSubscriptionsInput
     -- ** Request constructor
-    , listSubscriptionsInput
+    , listSubscriptions
     -- ** Request lenses
     , lsiNextToken
 
@@ -56,8 +56,8 @@ newtype ListSubscriptionsInput = ListSubscriptionsInput
 --
 -- * 'lsiNextToken' @::@ 'Maybe' 'Text'
 --
-listSubscriptionsInput :: ListSubscriptionsInput
-listSubscriptionsInput = ListSubscriptionsInput
+listSubscriptions :: ListSubscriptionsInput
+listSubscriptions = ListSubscriptionsInput
     { _lsiNextToken = Nothing
     }
 
@@ -103,5 +103,6 @@ instance AWSRequest ListSubscriptionsInput where
     type Rs ListSubscriptionsInput = ListSubscriptionsResponse
 
     request  = post "ListSubscriptions"
-    response = const . xmlResponse $ \h x -> ListSubscriptionsResponse
-record
+    response = xmlResponse $ \h x -> ListSubscriptionsResponse
+        <$> x %| "NextToken"
+        <*> x %| "Subscriptions"

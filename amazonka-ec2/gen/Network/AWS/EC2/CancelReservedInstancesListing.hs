@@ -35,7 +35,7 @@ module Network.AWS.EC2.CancelReservedInstancesListing
     -- * Response
     , CancelReservedInstancesListingResult
     -- ** Response constructor
-    , cancelReservedInstancesListingResult
+    , cancelReservedInstancesListingResponse
     -- ** Response lenses
     , crilrReservedInstancesListings
     ) where
@@ -81,8 +81,8 @@ newtype CancelReservedInstancesListingResult = CancelReservedInstancesListingRes
 --
 -- * 'crilrReservedInstancesListings' @::@ ['ReservedInstancesListing']
 --
-cancelReservedInstancesListingResult :: CancelReservedInstancesListingResult
-cancelReservedInstancesListingResult = CancelReservedInstancesListingResult
+cancelReservedInstancesListingResponse :: CancelReservedInstancesListingResult
+cancelReservedInstancesListingResponse = CancelReservedInstancesListingResult
     { _crilrReservedInstancesListings = mempty
     }
 
@@ -97,5 +97,5 @@ instance AWSRequest CancelReservedInstancesListing where
     type Rs CancelReservedInstancesListing = CancelReservedInstancesListingResult
 
     request  = post "CancelReservedInstancesListing"
-    response = const . xmlResponse $ \h x -> CancelReservedInstancesListingResult
-newtype
+    response = xmlResponse $ \h x -> CancelReservedInstancesListingResult
+        <$> x %| "reservedInstancesListingsSet"

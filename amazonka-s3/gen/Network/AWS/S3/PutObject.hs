@@ -55,7 +55,7 @@ module Network.AWS.S3.PutObject
     -- * Response
     , PutObjectOutput
     -- ** Response constructor
-    , putObjectOutput
+    , putObjectResponse
     -- ** Response lenses
     , pooETag
     , pooExpiration
@@ -351,8 +351,8 @@ data PutObjectOutput = PutObjectOutput
 --
 -- * 'pooVersionId' @::@ 'Maybe' 'Text'
 --
-putObjectOutput :: PutObjectOutput
-putObjectOutput = PutObjectOutput
+putObjectResponse :: PutObjectOutput
+putObjectResponse = PutObjectOutput
     { _pooExpiration           = Nothing
     , _pooETag                 = Nothing
     , _pooServerSideEncryption = Nothing
@@ -400,5 +400,10 @@ instance AWSRequest PutObject where
     type Rs PutObject = PutObjectOutput
 
     request  = put
-    response = const . xmlResponse $ \h x -> PutObjectOutput
-record
+    response = xmlResponse $ \h x -> PutObjectOutput
+        <$> h ~:? "ETag"
+        <*> h ~:? "x-amz-expiration"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption"
+        <*> h ~:? "x-amz-version-id"

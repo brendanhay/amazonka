@@ -30,7 +30,7 @@ module Network.AWS.ImportExport.ListJobs
     -- * Request
       ListJobsInput
     -- ** Request constructor
-    , listJobsInput
+    , listJobs
     -- ** Request lenses
     , ljiMarker
     , ljiMaxJobs
@@ -38,7 +38,7 @@ module Network.AWS.ImportExport.ListJobs
     -- * Response
     , ListJobsOutput
     -- ** Response constructor
-    , listJobsOutput
+    , listJobsResponse
     -- ** Response lenses
     , ljoIsTruncated
     , ljoJobs
@@ -61,8 +61,8 @@ data ListJobsInput = ListJobsInput
 --
 -- * 'ljiMaxJobs' @::@ 'Maybe' 'Int'
 --
-listJobsInput :: ListJobsInput
-listJobsInput = ListJobsInput
+listJobs :: ListJobsInput
+listJobs = ListJobsInput
     { _ljiMaxJobs = Nothing
     , _ljiMarker  = Nothing
     }
@@ -91,8 +91,8 @@ data ListJobsOutput = ListJobsOutput
 --
 -- * 'ljoJobs' @::@ ['Job']
 --
-listJobsOutput :: ListJobsOutput
-listJobsOutput = ListJobsOutput
+listJobsResponse :: ListJobsOutput
+listJobsResponse = ListJobsOutput
     { _ljoJobs        = mempty
     , _ljoIsTruncated = Nothing
     }
@@ -108,5 +108,6 @@ instance AWSRequest ListJobsInput where
     type Rs ListJobsInput = ListJobsOutput
 
     request  = post "ListJobs"
-    response = const . xmlResponse $ \h x -> ListJobsOutput
-record
+    response = xmlResponse $ \h x -> ListJobsOutput
+        <$> x %| "IsTruncated"
+        <*> x %| "Jobs"

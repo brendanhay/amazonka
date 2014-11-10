@@ -113,5 +113,5 @@ instance AWSRequest ListTagsForResource where
     type Rs ListTagsForResource = ListTagsForResourceResponse
 
     request  = get
-    response = const . xmlResponse $ \h x -> ListTagsForResourceResponse
-newtype
+    response = xmlResponse $ \h x -> ListTagsForResourceResponse
+        <$> x %| "ResourceTagSet"

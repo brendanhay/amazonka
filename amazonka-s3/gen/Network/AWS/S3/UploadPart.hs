@@ -47,7 +47,7 @@ module Network.AWS.S3.UploadPart
     -- * Response
     , UploadPartOutput
     -- ** Response constructor
-    , uploadPartOutput
+    , uploadPartResponse
     -- ** Response lenses
     , upoETag
     , upoSSECustomerAlgorithm
@@ -209,8 +209,8 @@ data UploadPartOutput = UploadPartOutput
 --
 -- * 'upoServerSideEncryption' @::@ 'Maybe' 'Text'
 --
-uploadPartOutput :: UploadPartOutput
-uploadPartOutput = UploadPartOutput
+uploadPartResponse :: UploadPartOutput
+uploadPartResponse = UploadPartOutput
     { _upoServerSideEncryption = Nothing
     , _upoETag                 = Nothing
     , _upoSSECustomerAlgorithm = Nothing
@@ -245,5 +245,8 @@ instance AWSRequest UploadPart where
     type Rs UploadPart = UploadPartOutput
 
     request  = put
-    response = const . xmlResponse $ \h x -> UploadPartOutput
-record
+    response = xmlResponse $ \h x -> UploadPartOutput
+        <$> h ~:? "ETag"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption"

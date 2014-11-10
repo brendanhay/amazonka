@@ -108,5 +108,5 @@ instance AWSRequest CreateInstanceProfile where
     type Rs CreateInstanceProfile = CreateInstanceProfileResponse
 
     request  = post "CreateInstanceProfile"
-    response = const . xmlResponse $ \h x -> CreateInstanceProfileResponse
-newtype
+    response = xmlResponse $ \h x -> CreateInstanceProfileResponse
+        <$> x %| "InstanceProfile"

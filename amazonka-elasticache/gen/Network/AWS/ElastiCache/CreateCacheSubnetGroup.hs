@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     -- * Request
       CreateCacheSubnetGroupMessage
     -- ** Request constructor
-    , createCacheSubnetGroupMessage
+    , createCacheSubnetGroup
     -- ** Request lenses
     , ccsgmCacheSubnetGroupDescription
     , ccsgmCacheSubnetGroupName
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     -- * Response
     , CreateCacheSubnetGroupResult
     -- ** Response constructor
-    , createCacheSubnetGroupResult
+    , createCacheSubnetGroupResponse
     -- ** Response lenses
     , ccsgrCacheSubnetGroup
     ) where
@@ -62,10 +62,10 @@ data CreateCacheSubnetGroupMessage = CreateCacheSubnetGroupMessage
 --
 -- * 'ccsgmSubnetIds' @::@ ['Text']
 --
-createCacheSubnetGroupMessage :: Text -- ^ 'ccsgmCacheSubnetGroupName'
-                              -> Text -- ^ 'ccsgmCacheSubnetGroupDescription'
-                              -> CreateCacheSubnetGroupMessage
-createCacheSubnetGroupMessage p1 p2 = CreateCacheSubnetGroupMessage
+createCacheSubnetGroup :: Text -- ^ 'ccsgmCacheSubnetGroupName'
+                       -> Text -- ^ 'ccsgmCacheSubnetGroupDescription'
+                       -> CreateCacheSubnetGroupMessage
+createCacheSubnetGroup p1 p2 = CreateCacheSubnetGroupMessage
     { _ccsgmCacheSubnetGroupName        = p1
     , _ccsgmCacheSubnetGroupDescription = p2
     , _ccsgmSubnetIds                   = mempty
@@ -104,8 +104,8 @@ newtype CreateCacheSubnetGroupResult = CreateCacheSubnetGroupResult
 --
 -- * 'ccsgrCacheSubnetGroup' @::@ 'Maybe' 'CacheSubnetGroup'
 --
-createCacheSubnetGroupResult :: CreateCacheSubnetGroupResult
-createCacheSubnetGroupResult = CreateCacheSubnetGroupResult
+createCacheSubnetGroupResponse :: CreateCacheSubnetGroupResult
+createCacheSubnetGroupResponse = CreateCacheSubnetGroupResult
     { _ccsgrCacheSubnetGroup = Nothing
     }
 
@@ -118,5 +118,5 @@ instance AWSRequest CreateCacheSubnetGroupMessage where
     type Rs CreateCacheSubnetGroupMessage = CreateCacheSubnetGroupResult
 
     request  = post "CreateCacheSubnetGroup"
-    response = const . xmlResponse $ \h x -> CreateCacheSubnetGroupResult
-newtype
+    response = xmlResponse $ \h x -> CreateCacheSubnetGroupResult
+        <$> x %| "CacheSubnetGroup"

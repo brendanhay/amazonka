@@ -27,7 +27,7 @@ module Network.AWS.RDS.CopyDBSnapshot
     -- * Request
       CopyDBSnapshotMessage
     -- ** Request constructor
-    , copyDBSnapshotMessage
+    , copyDBSnapshot
     -- ** Request lenses
     , cdbsmSourceDBSnapshotIdentifier
     , cdbsmTags
@@ -36,7 +36,7 @@ module Network.AWS.RDS.CopyDBSnapshot
     -- * Response
     , CopyDBSnapshotResult
     -- ** Response constructor
-    , copyDBSnapshotResult
+    , copyDBSnapshotResponse
     -- ** Response lenses
     , cdbsr1DBSnapshot
     ) where
@@ -61,10 +61,10 @@ data CopyDBSnapshotMessage = CopyDBSnapshotMessage
 --
 -- * 'cdbsmTargetDBSnapshotIdentifier' @::@ 'Text'
 --
-copyDBSnapshotMessage :: Text -- ^ 'cdbsmSourceDBSnapshotIdentifier'
-                      -> Text -- ^ 'cdbsmTargetDBSnapshotIdentifier'
-                      -> CopyDBSnapshotMessage
-copyDBSnapshotMessage p1 p2 = CopyDBSnapshotMessage
+copyDBSnapshot :: Text -- ^ 'cdbsmSourceDBSnapshotIdentifier'
+               -> Text -- ^ 'cdbsmTargetDBSnapshotIdentifier'
+               -> CopyDBSnapshotMessage
+copyDBSnapshot p1 p2 = CopyDBSnapshotMessage
     { _cdbsmSourceDBSnapshotIdentifier = p1
     , _cdbsmTargetDBSnapshotIdentifier = p2
     , _cdbsmTags                       = mempty
@@ -110,8 +110,8 @@ newtype CopyDBSnapshotResult = CopyDBSnapshotResult
 --
 -- * 'cdbsr1DBSnapshot' @::@ 'Maybe' 'DBSnapshot'
 --
-copyDBSnapshotResult :: CopyDBSnapshotResult
-copyDBSnapshotResult = CopyDBSnapshotResult
+copyDBSnapshotResponse :: CopyDBSnapshotResult
+copyDBSnapshotResponse = CopyDBSnapshotResult
     { _cdbsr1DBSnapshot = Nothing
     }
 
@@ -123,5 +123,5 @@ instance AWSRequest CopyDBSnapshotMessage where
     type Rs CopyDBSnapshotMessage = CopyDBSnapshotResult
 
     request  = post "CopyDBSnapshot"
-    response = const . xmlResponse $ \h x -> CopyDBSnapshotResult
-newtype
+    response = xmlResponse $ \h x -> CopyDBSnapshotResult
+        <$> x %| "DBSnapshot"

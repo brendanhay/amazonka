@@ -56,7 +56,7 @@ module Network.AWS.EC2.StopInstances
     -- * Response
     , StopInstancesResult
     -- ** Response constructor
-    , stopInstancesResult
+    , stopInstancesResponse
     -- ** Response lenses
     , sirStoppingInstances
     ) where
@@ -117,8 +117,8 @@ newtype StopInstancesResult = StopInstancesResult
 --
 -- * 'sirStoppingInstances' @::@ ['InstanceStateChange']
 --
-stopInstancesResult :: StopInstancesResult
-stopInstancesResult = StopInstancesResult
+stopInstancesResponse :: StopInstancesResult
+stopInstancesResponse = StopInstancesResult
     { _sirStoppingInstances = mempty
     }
 
@@ -132,5 +132,5 @@ instance AWSRequest StopInstances where
     type Rs StopInstances = StopInstancesResult
 
     request  = post "StopInstances"
-    response = const . xmlResponse $ \h x -> StopInstancesResult
-newtype
+    response = xmlResponse $ \h x -> StopInstancesResult
+        <$> x %| "instancesSet"

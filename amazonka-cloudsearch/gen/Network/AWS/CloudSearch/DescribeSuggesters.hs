@@ -117,5 +117,5 @@ instance AWSRequest DescribeSuggesters where
     type Rs DescribeSuggesters = DescribeSuggestersResponse
 
     request  = post "DescribeSuggesters"
-    response = const . xmlResponse $ \h x -> DescribeSuggestersResponse
-newtype
+    response = xmlResponse $ \h x -> DescribeSuggestersResponse
+        <$> x %| "Suggesters"

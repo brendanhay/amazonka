@@ -38,7 +38,7 @@ module Network.AWS.EC2.BundleInstance
     -- * Response
     , BundleInstanceResult
     -- ** Response constructor
-    , bundleInstanceResult
+    , bundleInstanceResponse
     -- ** Response lenses
     , birBundleTask
     ) where
@@ -101,8 +101,8 @@ newtype BundleInstanceResult = BundleInstanceResult
 --
 -- * 'birBundleTask' @::@ 'Maybe' 'BundleTask'
 --
-bundleInstanceResult :: BundleInstanceResult
-bundleInstanceResult = BundleInstanceResult
+bundleInstanceResponse :: BundleInstanceResult
+bundleInstanceResponse = BundleInstanceResult
     { _birBundleTask = Nothing
     }
 
@@ -115,5 +115,5 @@ instance AWSRequest BundleInstance where
     type Rs BundleInstance = BundleInstanceResult
 
     request  = post "BundleInstance"
-    response = const . xmlResponse $ \h x -> BundleInstanceResult
-newtype
+    response = xmlResponse $ \h x -> BundleInstanceResult
+        <$> x %| "bundleInstanceTask"

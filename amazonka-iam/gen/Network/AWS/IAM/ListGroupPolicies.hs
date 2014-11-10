@@ -139,5 +139,7 @@ instance AWSRequest ListGroupPolicies where
     type Rs ListGroupPolicies = ListGroupPoliciesResponse
 
     request  = post "ListGroupPolicies"
-    response = const . xmlResponse $ \h x -> ListGroupPoliciesResponse
-record
+    response = xmlResponse $ \h x -> ListGroupPoliciesResponse
+        <$> x %| "IsTruncated"
+        <*> x %| "Marker"
+        <*> x %| "PolicyNames"

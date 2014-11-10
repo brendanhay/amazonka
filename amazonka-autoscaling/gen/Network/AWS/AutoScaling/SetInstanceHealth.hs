@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.SetInstanceHealth
     -- * Request
       SetInstanceHealthQuery
     -- ** Request constructor
-    , setInstanceHealthQuery
+    , setInstanceHealth
     -- ** Request lenses
     , sihqHealthStatus
     , sihqInstanceId
@@ -60,10 +60,10 @@ data SetInstanceHealthQuery = SetInstanceHealthQuery
 --
 -- * 'sihqShouldRespectGracePeriod' @::@ 'Maybe' 'Bool'
 --
-setInstanceHealthQuery :: Text -- ^ 'sihqInstanceId'
-                       -> Text -- ^ 'sihqHealthStatus'
-                       -> SetInstanceHealthQuery
-setInstanceHealthQuery p1 p2 = SetInstanceHealthQuery
+setInstanceHealth :: Text -- ^ 'sihqInstanceId'
+                  -> Text -- ^ 'sihqHealthStatus'
+                  -> SetInstanceHealthQuery
+setInstanceHealth p1 p2 = SetInstanceHealthQuery
     { _sihqInstanceId               = p1
     , _sihqHealthStatus             = p2
     , _sihqShouldRespectGracePeriod = Nothing

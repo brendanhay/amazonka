@@ -279,5 +279,10 @@ instance AWSRequest AssumeRoleWithWebIdentity where
     type Rs AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentityResponse
 
     request  = post "AssumeRoleWithWebIdentity"
-    response = const . xmlResponse $ \h x -> AssumeRoleWithWebIdentityResponse
-record
+    response = xmlResponse $ \h x -> AssumeRoleWithWebIdentityResponse
+        <$> x %| "AssumedRoleUser"
+        <*> x %| "Audience"
+        <*> x %| "Credentials"
+        <*> x %| "PackedPolicySize"
+        <*> x %| "Provider"
+        <*> x %| "SubjectFromWebIdentityToken"

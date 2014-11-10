@@ -178,5 +178,9 @@ instance AWSRequest ListHostedZones where
     type Rs ListHostedZones = ListHostedZonesResponse
 
     request  = get
-    response = const . xmlResponse $ \h x -> ListHostedZonesResponse
-record
+    response = xmlResponse $ \h x -> ListHostedZonesResponse
+        <$> x %| "HostedZones"
+        <*> x %| "IsTruncated"
+        <*> x %| "Marker"
+        <*> x %| "MaxItems"
+        <*> x %| "NextMarker"

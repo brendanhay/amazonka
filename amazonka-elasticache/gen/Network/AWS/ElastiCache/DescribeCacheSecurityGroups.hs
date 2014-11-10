@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     -- * Request
       DescribeCacheSecurityGroupsMessage
     -- ** Request constructor
-    , describeCacheSecurityGroupsMessage
+    , describeCacheSecurityGroups
     -- ** Request lenses
     , dcsgm1CacheSecurityGroupName
     , dcsgm1Marker
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     -- * Response
     , CacheSecurityGroupMessage
     -- ** Response constructor
-    , cacheSecurityGroupMessage
+    , describeCacheSecurityGroupsResponse
     -- ** Response lenses
     , csgmCacheSecurityGroups
     , csgmMarker
@@ -63,8 +63,8 @@ data DescribeCacheSecurityGroupsMessage = DescribeCacheSecurityGroupsMessage
 --
 -- * 'dcsgm1MaxRecords' @::@ 'Maybe' 'Int'
 --
-describeCacheSecurityGroupsMessage :: DescribeCacheSecurityGroupsMessage
-describeCacheSecurityGroupsMessage = DescribeCacheSecurityGroupsMessage
+describeCacheSecurityGroups :: DescribeCacheSecurityGroupsMessage
+describeCacheSecurityGroups = DescribeCacheSecurityGroupsMessage
     { _dcsgm1CacheSecurityGroupName = Nothing
     , _dcsgm1MaxRecords             = Nothing
     , _dcsgm1Marker                 = Nothing
@@ -108,8 +108,8 @@ data CacheSecurityGroupMessage = CacheSecurityGroupMessage
 --
 -- * 'csgmMarker' @::@ 'Maybe' 'Text'
 --
-cacheSecurityGroupMessage :: CacheSecurityGroupMessage
-cacheSecurityGroupMessage = CacheSecurityGroupMessage
+describeCacheSecurityGroupsResponse :: CacheSecurityGroupMessage
+describeCacheSecurityGroupsResponse = CacheSecurityGroupMessage
     { _csgmMarker              = Nothing
     , _csgmCacheSecurityGroups = mempty
     }
@@ -129,5 +129,6 @@ instance AWSRequest DescribeCacheSecurityGroupsMessage where
     type Rs DescribeCacheSecurityGroupsMessage = CacheSecurityGroupMessage
 
     request  = post "DescribeCacheSecurityGroups"
-    response = const . xmlResponse $ \h x -> CacheSecurityGroupMessage
-record
+    response = xmlResponse $ \h x -> CacheSecurityGroupMessage
+        <$> x %| "CacheSecurityGroups"
+        <*> x %| "Marker"

@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.DescribeStackResource
     -- * Request
       DescribeStackResourceInput
     -- ** Request constructor
-    , describeStackResourceInput
+    , describeStackResource
     -- ** Request lenses
     , dsri1LogicalResourceId
     , dsri1StackName
@@ -36,7 +36,7 @@ module Network.AWS.CloudFormation.DescribeStackResource
     -- * Response
     , DescribeStackResourceOutput
     -- ** Response constructor
-    , describeStackResourceOutput
+    , describeStackResourceResponse
     -- ** Response lenses
     , dsroStackResourceDetail
     ) where
@@ -58,10 +58,10 @@ data DescribeStackResourceInput = DescribeStackResourceInput
 --
 -- * 'dsri1StackName' @::@ 'Text'
 --
-describeStackResourceInput :: Text -- ^ 'dsri1StackName'
-                           -> Text -- ^ 'dsri1LogicalResourceId'
-                           -> DescribeStackResourceInput
-describeStackResourceInput p1 p2 = DescribeStackResourceInput
+describeStackResource :: Text -- ^ 'dsri1StackName'
+                      -> Text -- ^ 'dsri1LogicalResourceId'
+                      -> DescribeStackResourceInput
+describeStackResource p1 p2 = DescribeStackResourceInput
     { _dsri1StackName         = p1
     , _dsri1LogicalResourceId = p2
     }
@@ -94,8 +94,8 @@ newtype DescribeStackResourceOutput = DescribeStackResourceOutput
 --
 -- * 'dsroStackResourceDetail' @::@ 'Maybe' 'StackResourceDetail'
 --
-describeStackResourceOutput :: DescribeStackResourceOutput
-describeStackResourceOutput = DescribeStackResourceOutput
+describeStackResourceResponse :: DescribeStackResourceOutput
+describeStackResourceResponse = DescribeStackResourceOutput
     { _dsroStackResourceDetail = Nothing
     }
 
@@ -110,5 +110,5 @@ instance AWSRequest DescribeStackResourceInput where
     type Rs DescribeStackResourceInput = DescribeStackResourceOutput
 
     request  = post "DescribeStackResource"
-    response = const . xmlResponse $ \h x -> DescribeStackResourceOutput
-newtype
+    response = xmlResponse $ \h x -> DescribeStackResourceOutput
+        <$> x %| "StackResourceDetail"

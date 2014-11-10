@@ -32,7 +32,7 @@ module Network.AWS.EC2.CancelConversionTask
     -- * Request
       CancelConversion
     -- ** Request constructor
-    , cancelConversion
+    , cancelConversionTask
     -- ** Request lenses
     , ccConversionTaskId
     , ccDryRun
@@ -64,9 +64,9 @@ data CancelConversion = CancelConversion
 --
 -- * 'ccReasonMessage' @::@ 'Maybe' 'Text'
 --
-cancelConversion :: Text -- ^ 'ccConversionTaskId'
-                 -> CancelConversion
-cancelConversion p1 = CancelConversion
+cancelConversionTask :: Text -- ^ 'ccConversionTaskId'
+                     -> CancelConversion
+cancelConversionTask p1 = CancelConversion
     { _ccConversionTaskId = p1
     , _ccDryRun           = Nothing
     , _ccReasonMessage    = Nothing

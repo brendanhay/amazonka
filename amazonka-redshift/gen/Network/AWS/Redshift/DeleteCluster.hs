@@ -38,7 +38,7 @@ module Network.AWS.Redshift.DeleteCluster
     -- * Request
       DeleteClusterMessage
     -- ** Request constructor
-    , deleteClusterMessage
+    , deleteCluster
     -- ** Request lenses
     , dcmClusterIdentifier
     , dcmFinalClusterSnapshotIdentifier
@@ -47,7 +47,7 @@ module Network.AWS.Redshift.DeleteCluster
     -- * Response
     , DeleteClusterResult
     -- ** Response constructor
-    , deleteClusterResult
+    , deleteClusterResponse
     -- ** Response lenses
     , dcrCluster
     ) where
@@ -72,9 +72,9 @@ data DeleteClusterMessage = DeleteClusterMessage
 --
 -- * 'dcmSkipFinalClusterSnapshot' @::@ 'Maybe' 'Bool'
 --
-deleteClusterMessage :: Text -- ^ 'dcmClusterIdentifier'
-                     -> DeleteClusterMessage
-deleteClusterMessage p1 = DeleteClusterMessage
+deleteCluster :: Text -- ^ 'dcmClusterIdentifier'
+              -> DeleteClusterMessage
+deleteCluster p1 = DeleteClusterMessage
     { _dcmClusterIdentifier              = p1
     , _dcmSkipFinalClusterSnapshot       = Nothing
     , _dcmFinalClusterSnapshotIdentifier = Nothing
@@ -122,8 +122,8 @@ newtype DeleteClusterResult = DeleteClusterResult
 --
 -- * 'dcrCluster' @::@ 'Maybe' 'Cluster'
 --
-deleteClusterResult :: DeleteClusterResult
-deleteClusterResult = DeleteClusterResult
+deleteClusterResponse :: DeleteClusterResult
+deleteClusterResponse = DeleteClusterResult
     { _dcrCluster = Nothing
     }
 
@@ -135,5 +135,5 @@ instance AWSRequest DeleteClusterMessage where
     type Rs DeleteClusterMessage = DeleteClusterResult
 
     request  = post "DeleteCluster"
-    response = const . xmlResponse $ \h x -> DeleteClusterResult
-newtype
+    response = xmlResponse $ \h x -> DeleteClusterResult
+        <$> x %| "Cluster"

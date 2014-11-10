@@ -39,7 +39,7 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     -- * Response
     , InstanceAttribute
     -- ** Response constructor
-    , instanceAttribute
+    , describeInstanceAttributeResponse
     -- ** Response lenses
     , iaBlockDeviceMappings
     , iaDisableApiTermination
@@ -151,8 +151,8 @@ data InstanceAttribute = InstanceAttribute
 --
 -- * 'iaUserData' @::@ 'Maybe' 'AttributeValue'
 --
-instanceAttribute :: InstanceAttribute
-instanceAttribute = InstanceAttribute
+describeInstanceAttributeResponse :: InstanceAttribute
+describeInstanceAttributeResponse = InstanceAttribute
     { _iaInstanceId                        = Nothing
     , _iaInstanceType                      = Nothing
     , _iaKernelId                          = Nothing
@@ -240,5 +240,18 @@ instance AWSRequest DescribeInstanceAttribute where
     type Rs DescribeInstanceAttribute = InstanceAttribute
 
     request  = post "DescribeInstanceAttribute"
-    response = const . xmlResponse $ \h x -> InstanceAttribute
-record
+    response = xmlResponse $ \h x -> InstanceAttribute
+        <$> x %| "blockDeviceMapping"
+        <*> x %| "disableApiTermination"
+        <*> x %| "ebsOptimized"
+        <*> x %| "groupSet"
+        <*> x %| "instanceId"
+        <*> x %| "instanceInitiatedShutdownBehavior"
+        <*> x %| "instanceType"
+        <*> x %| "kernel"
+        <*> x %| "productCodes"
+        <*> x %| "ramdisk"
+        <*> x %| "rootDeviceName"
+        <*> x %| "sourceDestCheck"
+        <*> x %| "sriovNetSupport"
+        <*> x %| "userData"

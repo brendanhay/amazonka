@@ -285,48 +285,10 @@ instance AWSService ElasticBeanstalk where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'ElasticBeanstalk' errors returned by the
--- Amazon Elastic Beanstalk.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data ElasticBeanstalkError
-    = ElasticBeanstalkHttp       HttpException
-    | ElasticBeanstalkSerializer String
-    | ElasticBeanstalkService    Status ElasticBeanstalkServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception ElasticBeanstalkError
-
-instance AWSError ElasticBeanstalkError where
-    awsError = \case
-        ElasticBeanstalkHttp       ex  -> HttpError       ex
-        ElasticBeanstalkSerializer e   -> SerializerError "ElasticBeanstalk" e
-        ElasticBeanstalkService    s x -> ServiceError    "ElasticBeanstalk" s (show x)
-
-instance AWSServiceError ElasticBeanstalkError where
-    httpError       = ElasticBeanstalkHttp
-    serializerError = ElasticBeanstalkSerializer
-    serviceError    = xmlError httpStatus ElasticBeanstalkService
-
-_ElasticBeanstalkHttp :: Prism' ElasticBeanstalkError HttpException
-_ElasticBeanstalkHttp = prism ElasticBeanstalkHttp $ \case
-    ElasticBeanstalkHttp ex -> Right ex
-    x -> Left x
-
-_ElasticBeanstalkSerializer :: Prism' ElasticBeanstalkError String
-_ElasticBeanstalkSerializer = prism ElasticBeanstalkSerializer $ \case
-    ElasticBeanstalkSerializer e -> Right e
-    x -> Left x
-
-_ElasticBeanstalkService :: Prism' ElasticBeanstalkError (Status, ElasticBeanstalkServiceError)
-_ElasticBeanstalkService = prism (uncurry ElasticBeanstalkService) $ \case
-    ElasticBeanstalkService s x -> Right (s, x)
-    x -> Left x
 
 data ApplicationDescription = ApplicationDescription
     { _adApplicationName        :: Maybe Text

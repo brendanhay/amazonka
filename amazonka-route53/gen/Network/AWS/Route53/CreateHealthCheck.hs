@@ -131,5 +131,6 @@ instance AWSRequest CreateHealthCheck where
     type Rs CreateHealthCheck = CreateHealthCheckResponse
 
     request  = post
-    response = const . xmlResponse $ \h x -> CreateHealthCheckResponse
-record
+    response = xmlResponse $ \h x -> CreateHealthCheckResponse
+        <$> x %| "HealthCheck"
+        <*> h ~:| "Location"

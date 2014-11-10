@@ -26,7 +26,7 @@ module Network.AWS.Redshift.ModifyEventSubscription
     -- * Request
       ModifyEventSubscriptionMessage
     -- ** Request constructor
-    , modifyEventSubscriptionMessage
+    , modifyEventSubscription
     -- ** Request lenses
     , mesmEnabled
     , mesmEventCategories
@@ -39,7 +39,7 @@ module Network.AWS.Redshift.ModifyEventSubscription
     -- * Response
     , ModifyEventSubscriptionResult
     -- ** Response constructor
-    , modifyEventSubscriptionResult
+    , modifyEventSubscriptionResponse
     -- ** Response lenses
     , mesrEventSubscription
     ) where
@@ -76,9 +76,9 @@ data ModifyEventSubscriptionMessage = ModifyEventSubscriptionMessage
 --
 -- * 'mesmSubscriptionName' @::@ 'Text'
 --
-modifyEventSubscriptionMessage :: Text -- ^ 'mesmSubscriptionName'
-                               -> ModifyEventSubscriptionMessage
-modifyEventSubscriptionMessage p1 = ModifyEventSubscriptionMessage
+modifyEventSubscription :: Text -- ^ 'mesmSubscriptionName'
+                        -> ModifyEventSubscriptionMessage
+modifyEventSubscription p1 = ModifyEventSubscriptionMessage
     { _mesmSubscriptionName = p1
     , _mesmSnsTopicArn      = Nothing
     , _mesmSourceType       = Nothing
@@ -149,8 +149,8 @@ newtype ModifyEventSubscriptionResult = ModifyEventSubscriptionResult
 --
 -- * 'mesrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-modifyEventSubscriptionResult :: ModifyEventSubscriptionResult
-modifyEventSubscriptionResult = ModifyEventSubscriptionResult
+modifyEventSubscriptionResponse :: ModifyEventSubscriptionResult
+modifyEventSubscriptionResponse = ModifyEventSubscriptionResult
     { _mesrEventSubscription = Nothing
     }
 
@@ -163,5 +163,5 @@ instance AWSRequest ModifyEventSubscriptionMessage where
     type Rs ModifyEventSubscriptionMessage = ModifyEventSubscriptionResult
 
     request  = post "ModifyEventSubscription"
-    response = const . xmlResponse $ \h x -> ModifyEventSubscriptionResult
-newtype
+    response = xmlResponse $ \h x -> ModifyEventSubscriptionResult
+        <$> x %| "EventSubscription"

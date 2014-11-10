@@ -143,5 +143,7 @@ instance AWSRequest ListUsers where
     type Rs ListUsers = ListUsersResponse
 
     request  = post "ListUsers"
-    response = const . xmlResponse $ \h x -> ListUsersResponse
-record
+    response = xmlResponse $ \h x -> ListUsersResponse
+        <$> x %| "IsTruncated"
+        <*> x %| "Marker"
+        <*> x %| "Users"

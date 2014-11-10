@@ -45,7 +45,7 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     -- * Response
     , DescribeSpotInstanceRequestsResult
     -- ** Response constructor
-    , describeSpotInstanceRequestsResult
+    , describeSpotInstanceRequestsResponse
     -- ** Response lenses
     , dsirrSpotInstanceRequests
     ) where
@@ -160,8 +160,8 @@ newtype DescribeSpotInstanceRequestsResult = DescribeSpotInstanceRequestsResult
 --
 -- * 'dsirrSpotInstanceRequests' @::@ ['SpotInstanceRequest']
 --
-describeSpotInstanceRequestsResult :: DescribeSpotInstanceRequestsResult
-describeSpotInstanceRequestsResult = DescribeSpotInstanceRequestsResult
+describeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResult
+describeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResult
     { _dsirrSpotInstanceRequests = mempty
     }
 
@@ -176,5 +176,5 @@ instance AWSRequest DescribeSpotInstanceRequests where
     type Rs DescribeSpotInstanceRequests = DescribeSpotInstanceRequestsResult
 
     request  = post "DescribeSpotInstanceRequests"
-    response = const . xmlResponse $ \h x -> DescribeSpotInstanceRequestsResult
-newtype
+    response = xmlResponse $ \h x -> DescribeSpotInstanceRequestsResult
+        <$> x %| "spotInstanceRequestSet"

@@ -43,7 +43,7 @@ module Network.AWS.RDS.CreateDBParameterGroup
     -- * Request
       CreateDBParameterGroupMessage
     -- ** Request constructor
-    , createDBParameterGroupMessage
+    , createDBParameterGroup
     -- ** Request lenses
     , cdbpgmDBParameterGroupFamily
     , cdbpgmDBParameterGroupName
@@ -53,7 +53,7 @@ module Network.AWS.RDS.CreateDBParameterGroup
     -- * Response
     , CreateDBParameterGroupResult
     -- ** Response constructor
-    , createDBParameterGroupResult
+    , createDBParameterGroupResponse
     -- ** Response lenses
     , cdbpgr1DBParameterGroup
     ) where
@@ -81,11 +81,11 @@ data CreateDBParameterGroupMessage = CreateDBParameterGroupMessage
 --
 -- * 'cdbpgmTags' @::@ ['Tag']
 --
-createDBParameterGroupMessage :: Text -- ^ 'cdbpgmDBParameterGroupName'
-                              -> Text -- ^ 'cdbpgmDBParameterGroupFamily'
-                              -> Text -- ^ 'cdbpgmDescription'
-                              -> CreateDBParameterGroupMessage
-createDBParameterGroupMessage p1 p2 p3 = CreateDBParameterGroupMessage
+createDBParameterGroup :: Text -- ^ 'cdbpgmDBParameterGroupName'
+                       -> Text -- ^ 'cdbpgmDBParameterGroupFamily'
+                       -> Text -- ^ 'cdbpgmDescription'
+                       -> CreateDBParameterGroupMessage
+createDBParameterGroup p1 p2 p3 = CreateDBParameterGroupMessage
     { _cdbpgmDBParameterGroupName   = p1
     , _cdbpgmDBParameterGroupFamily = p2
     , _cdbpgmDescription            = p3
@@ -132,8 +132,8 @@ newtype CreateDBParameterGroupResult = CreateDBParameterGroupResult
 --
 -- * 'cdbpgr1DBParameterGroup' @::@ 'Maybe' 'DBParameterGroup'
 --
-createDBParameterGroupResult :: CreateDBParameterGroupResult
-createDBParameterGroupResult = CreateDBParameterGroupResult
+createDBParameterGroupResponse :: CreateDBParameterGroupResult
+createDBParameterGroupResponse = CreateDBParameterGroupResult
     { _cdbpgr1DBParameterGroup = Nothing
     }
 
@@ -146,5 +146,5 @@ instance AWSRequest CreateDBParameterGroupMessage where
     type Rs CreateDBParameterGroupMessage = CreateDBParameterGroupResult
 
     request  = post "CreateDBParameterGroup"
-    response = const . xmlResponse $ \h x -> CreateDBParameterGroupResult
-newtype
+    response = xmlResponse $ \h x -> CreateDBParameterGroupResult
+        <$> x %| "DBParameterGroup"

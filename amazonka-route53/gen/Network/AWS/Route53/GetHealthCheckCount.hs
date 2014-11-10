@@ -81,5 +81,5 @@ instance AWSRequest GetHealthCheckCount where
     type Rs GetHealthCheckCount = GetHealthCheckCountResponse
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetHealthCheckCountResponse
-newtype
+    response = xmlResponse $ \h x -> GetHealthCheckCountResponse
+        <$> x %| "HealthCheckCount"

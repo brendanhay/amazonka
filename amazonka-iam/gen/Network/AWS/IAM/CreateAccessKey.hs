@@ -102,5 +102,5 @@ instance AWSRequest CreateAccessKey where
     type Rs CreateAccessKey = CreateAccessKeyResponse
 
     request  = post "CreateAccessKey"
-    response = const . xmlResponse $ \h x -> CreateAccessKeyResponse
-newtype
+    response = xmlResponse $ \h x -> CreateAccessKeyResponse
+        <$> x %| "AccessKey"

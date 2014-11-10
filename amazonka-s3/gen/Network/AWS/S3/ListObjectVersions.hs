@@ -39,7 +39,7 @@ module Network.AWS.S3.ListObjectVersions
     -- * Response
     , ListObjectVersionsOutput
     -- ** Response constructor
-    , listObjectVersionsOutput
+    , listObjectVersionsResponse
     -- ** Response lenses
     , lovoCommonPrefixes
     , lovoDeleteMarkers
@@ -189,8 +189,8 @@ data ListObjectVersionsOutput = ListObjectVersionsOutput
 --
 -- * 'lovoVersions' @::@ ['ObjectVersion']
 --
-listObjectVersionsOutput :: ListObjectVersionsOutput
-listObjectVersionsOutput = ListObjectVersionsOutput
+listObjectVersionsResponse :: ListObjectVersionsOutput
+listObjectVersionsResponse = ListObjectVersionsOutput
     { _lovoIsTruncated         = Nothing
     , _lovoKeyMarker           = Nothing
     , _lovoVersionIdMarker     = Nothing
@@ -262,5 +262,16 @@ instance AWSRequest ListObjectVersions where
     type Rs ListObjectVersions = ListObjectVersionsOutput
 
     request  = get
-    response = const . xmlResponse $ \h x -> ListObjectVersionsOutput
-record
+    response = xmlResponse $ \h x -> ListObjectVersionsOutput
+        <$> x %| "CommonPrefixes"
+        <*> x %| "DeleteMarker"
+        <*> x %| "EncodingType"
+        <*> x %| "IsTruncated"
+        <*> x %| "KeyMarker"
+        <*> x %| "MaxKeys"
+        <*> x %| "Name"
+        <*> x %| "NextKeyMarker"
+        <*> x %| "NextVersionIdMarker"
+        <*> x %| "Prefix"
+        <*> x %| "VersionIdMarker"
+        <*> x %| "Version"

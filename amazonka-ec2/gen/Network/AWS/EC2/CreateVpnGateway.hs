@@ -39,7 +39,7 @@ module Network.AWS.EC2.CreateVpnGateway
     -- * Response
     , CreateVpnGatewayResult
     -- ** Response constructor
-    , createVpnGatewayResult
+    , createVpnGatewayResponse
     -- ** Response lenses
     , cvgrVpnGateway
     ) where
@@ -99,8 +99,8 @@ newtype CreateVpnGatewayResult = CreateVpnGatewayResult
 --
 -- * 'cvgrVpnGateway' @::@ 'Maybe' 'VpnGateway'
 --
-createVpnGatewayResult :: CreateVpnGatewayResult
-createVpnGatewayResult = CreateVpnGatewayResult
+createVpnGatewayResponse :: CreateVpnGatewayResult
+createVpnGatewayResponse = CreateVpnGatewayResult
     { _cvgrVpnGateway = Nothing
     }
 
@@ -113,5 +113,5 @@ instance AWSRequest CreateVpnGateway where
     type Rs CreateVpnGateway = CreateVpnGatewayResult
 
     request  = post "CreateVpnGateway"
-    response = const . xmlResponse $ \h x -> CreateVpnGatewayResult
-newtype
+    response = xmlResponse $ \h x -> CreateVpnGatewayResult
+        <$> x %| "vpnGateway"

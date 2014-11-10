@@ -97,5 +97,7 @@ instance AWSRequest GetSendQuota where
     type Rs GetSendQuota = GetSendQuotaResponse
 
     request  = post "GetSendQuota"
-    response = const . xmlResponse $ \h x -> GetSendQuotaResponse
-record
+    response = xmlResponse $ \h x -> GetSendQuotaResponse
+        <$> x %| "Max24HourSend"
+        <*> x %| "MaxSendRate"
+        <*> x %| "SentLast24Hours"

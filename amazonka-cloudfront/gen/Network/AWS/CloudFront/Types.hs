@@ -415,48 +415,10 @@ instance AWSService CloudFront where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'CloudFront' errors returned by the
--- Amazon CloudFront.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data CloudFrontError
-    = CloudFrontHttp       HttpException
-    | CloudFrontSerializer String
-    | CloudFrontService    Status CloudFrontServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception CloudFrontError
-
-instance AWSError CloudFrontError where
-    awsError = \case
-        CloudFrontHttp       ex  -> HttpError       ex
-        CloudFrontSerializer e   -> SerializerError "CloudFront" e
-        CloudFrontService    s x -> ServiceError    "CloudFront" s (show x)
-
-instance AWSServiceError CloudFrontError where
-    httpError       = CloudFrontHttp
-    serializerError = CloudFrontSerializer
-    serviceError    = xmlError httpStatus CloudFrontService
-
-_CloudFrontHttp :: Prism' CloudFrontError HttpException
-_CloudFrontHttp = prism CloudFrontHttp $ \case
-    CloudFrontHttp ex -> Right ex
-    x -> Left x
-
-_CloudFrontSerializer :: Prism' CloudFrontError String
-_CloudFrontSerializer = prism CloudFrontSerializer $ \case
-    CloudFrontSerializer e -> Right e
-    x -> Left x
-
-_CloudFrontService :: Prism' CloudFrontError (Status, CloudFrontServiceError)
-_CloudFrontService = prism (uncurry CloudFrontService) $ \case
-    CloudFrontService s x -> Right (s, x)
-    x -> Left x
 
 data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
     { _cfoailIsTruncated :: Bool

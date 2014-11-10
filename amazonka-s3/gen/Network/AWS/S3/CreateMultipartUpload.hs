@@ -57,7 +57,7 @@ module Network.AWS.S3.CreateMultipartUpload
     -- * Response
     , CreateMultipartUploadOutput
     -- ** Response constructor
-    , createMultipartUploadOutput
+    , createMultipartUploadResponse
     -- ** Response lenses
     , cmuo1Bucket
     , cmuo1Key
@@ -330,8 +330,8 @@ data CreateMultipartUploadOutput = CreateMultipartUploadOutput
 --
 -- * 'cmuo1UploadId' @::@ 'Maybe' 'Text'
 --
-createMultipartUploadOutput :: CreateMultipartUploadOutput
-createMultipartUploadOutput = CreateMultipartUploadOutput
+createMultipartUploadResponse :: CreateMultipartUploadOutput
+createMultipartUploadResponse = CreateMultipartUploadOutput
     { _cmuo1Bucket               = Nothing
     , _cmuo1Key                  = Nothing
     , _cmuo1UploadId             = Nothing
@@ -378,5 +378,10 @@ instance AWSRequest CreateMultipartUpload where
     type Rs CreateMultipartUpload = CreateMultipartUploadOutput
 
     request  = post
-    response = const . xmlResponse $ \h x -> CreateMultipartUploadOutput
-record
+    response = xmlResponse $ \h x -> CreateMultipartUploadOutput
+        <$> x %| "Bucket"
+        <*> x %| "Key"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption"
+        <*> x %| "UploadId"

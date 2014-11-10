@@ -138,5 +138,7 @@ instance AWSRequest ListGroups where
     type Rs ListGroups = ListGroupsResponse
 
     request  = post "ListGroups"
-    response = const . xmlResponse $ \h x -> ListGroupsResponse
-record
+    response = xmlResponse $ \h x -> ListGroupsResponse
+        <$> x %| "Groups"
+        <*> x %| "IsTruncated"
+        <*> x %| "Marker"

@@ -108,5 +108,5 @@ instance AWSRequest VerifyDomainDkim where
     type Rs VerifyDomainDkim = VerifyDomainDkimResponse
 
     request  = post "VerifyDomainDkim"
-    response = const . xmlResponse $ \h x -> VerifyDomainDkimResponse
-newtype
+    response = xmlResponse $ \h x -> VerifyDomainDkimResponse
+        <$> x %| "DkimTokens"

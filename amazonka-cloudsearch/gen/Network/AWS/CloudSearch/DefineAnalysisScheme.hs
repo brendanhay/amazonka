@@ -104,5 +104,5 @@ instance AWSRequest DefineAnalysisScheme where
     type Rs DefineAnalysisScheme = DefineAnalysisSchemeResponse
 
     request  = post "DefineAnalysisScheme"
-    response = const . xmlResponse $ \h x -> DefineAnalysisSchemeResponse
-newtype
+    response = xmlResponse $ \h x -> DefineAnalysisSchemeResponse
+        <$> x %| "AnalysisScheme"

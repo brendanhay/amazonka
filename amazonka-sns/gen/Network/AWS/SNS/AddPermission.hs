@@ -27,7 +27,7 @@ module Network.AWS.SNS.AddPermission
     -- * Request
       AddPermissionInput
     -- ** Request constructor
-    , addPermissionInput
+    , addPermission
     -- ** Request lenses
     , apiAWSAccountId
     , apiActionName
@@ -63,10 +63,10 @@ data AddPermissionInput = AddPermissionInput
 --
 -- * 'apiTopicArn' @::@ 'Text'
 --
-addPermissionInput :: Text -- ^ 'apiTopicArn'
-                   -> Text -- ^ 'apiLabel'
-                   -> AddPermissionInput
-addPermissionInput p1 p2 = AddPermissionInput
+addPermission :: Text -- ^ 'apiTopicArn'
+              -> Text -- ^ 'apiLabel'
+              -> AddPermissionInput
+addPermission p1 p2 = AddPermissionInput
     { _apiTopicArn     = p1
     , _apiLabel        = p2
     , _apiAWSAccountId = mempty

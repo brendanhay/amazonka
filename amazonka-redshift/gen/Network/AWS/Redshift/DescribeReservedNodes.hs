@@ -26,7 +26,7 @@ module Network.AWS.Redshift.DescribeReservedNodes
     -- * Request
       DescribeReservedNodesMessage
     -- ** Request constructor
-    , describeReservedNodesMessage
+    , describeReservedNodes
     -- ** Request lenses
     , drnmMarker
     , drnmMaxRecords
@@ -35,7 +35,7 @@ module Network.AWS.Redshift.DescribeReservedNodes
     -- * Response
     , ReservedNodesMessage
     -- ** Response constructor
-    , reservedNodesMessage
+    , describeReservedNodesResponse
     -- ** Response lenses
     , rnmMarker
     , rnmReservedNodes
@@ -61,8 +61,8 @@ data DescribeReservedNodesMessage = DescribeReservedNodesMessage
 --
 -- * 'drnmReservedNodeId' @::@ 'Maybe' 'Text'
 --
-describeReservedNodesMessage :: DescribeReservedNodesMessage
-describeReservedNodesMessage = DescribeReservedNodesMessage
+describeReservedNodes :: DescribeReservedNodesMessage
+describeReservedNodes = DescribeReservedNodesMessage
     { _drnmReservedNodeId = Nothing
     , _drnmMaxRecords     = Nothing
     , _drnmMarker         = Nothing
@@ -108,8 +108,8 @@ data ReservedNodesMessage = ReservedNodesMessage
 --
 -- * 'rnmReservedNodes' @::@ ['ReservedNode']
 --
-reservedNodesMessage :: ReservedNodesMessage
-reservedNodesMessage = ReservedNodesMessage
+describeReservedNodesResponse :: ReservedNodesMessage
+describeReservedNodesResponse = ReservedNodesMessage
     { _rnmMarker        = Nothing
     , _rnmReservedNodes = mempty
     }
@@ -132,5 +132,6 @@ instance AWSRequest DescribeReservedNodesMessage where
     type Rs DescribeReservedNodesMessage = ReservedNodesMessage
 
     request  = post "DescribeReservedNodes"
-    response = const . xmlResponse $ \h x -> ReservedNodesMessage
-record
+    response = xmlResponse $ \h x -> ReservedNodesMessage
+        <$> x %| "Marker"
+        <*> x %| "ReservedNodes"

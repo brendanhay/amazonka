@@ -34,7 +34,7 @@ module Network.AWS.SNS.Publish
     -- * Request
       PublishInput
     -- ** Request constructor
-    , publishInput
+    , publish
     -- ** Request lenses
     , piMessage
     , piMessageAttributes
@@ -80,9 +80,9 @@ data PublishInput = PublishInput
 --
 -- * 'piTopicArn' @::@ 'Maybe' 'Text'
 --
-publishInput :: Text -- ^ 'piMessage'
-             -> PublishInput
-publishInput p1 = PublishInput
+publish :: Text -- ^ 'piMessage'
+        -> PublishInput
+publish p1 = PublishInput
     { _piMessage           = p1
     , _piTopicArn          = Nothing
     , _piTargetArn         = Nothing
@@ -182,5 +182,5 @@ instance AWSRequest PublishInput where
     type Rs PublishInput = PublishResponse
 
     request  = post "Publish"
-    response = const . xmlResponse $ \h x -> PublishResponse
-newtype
+    response = xmlResponse $ \h x -> PublishResponse
+        <$> x %| "MessageId"

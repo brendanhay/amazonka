@@ -26,15 +26,15 @@ module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     -- * Request
       DeleteCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , deleteCloudFrontOriginAccessIdentity
+    , deleteCloudFrontOriginAccessIdentity2014_05_31
     -- ** Request lenses
     , dcfoaiId
     , dcfoaiIfMatch
 
     -- * Response
-    , DeleteCloudFrontOriginAccessIdentityResponse
+    , DeleteCloudFrontOriginAccessIdentity2014_05_31Response
     -- ** Response constructor
-    , deleteCloudFrontOriginAccessIdentityResponse
+    , deleteCloudFrontOriginAccessIdentity2014_05_31Response
     ) where
 
 import Network.AWS.Prelude
@@ -54,9 +54,9 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
 --
 -- * 'dcfoaiIfMatch' @::@ 'Maybe' 'Text'
 --
-deleteCloudFrontOriginAccessIdentity :: Text -- ^ 'dcfoaiId'
-                                     -> DeleteCloudFrontOriginAccessIdentity
-deleteCloudFrontOriginAccessIdentity p1 = DeleteCloudFrontOriginAccessIdentity
+deleteCloudFrontOriginAccessIdentity2014_05_31 :: Text -- ^ 'dcfoaiId'
+                                               -> DeleteCloudFrontOriginAccessIdentity
+deleteCloudFrontOriginAccessIdentity2014_05_31 p1 = DeleteCloudFrontOriginAccessIdentity
     { _dcfoaiId      = p1
     , _dcfoaiIfMatch = Nothing
     }
@@ -84,15 +84,15 @@ instance ToHeaders DeleteCloudFrontOriginAccessIdentity where
         [ "If-Match" =: _dcfoaiIfMatch
         ]
 
-data DeleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
+data DeleteCloudFrontOriginAccessIdentity2014_05_31Response = DeleteCloudFrontOriginAccessIdentity2014_05_31Response
 
--- | 'DeleteCloudFrontOriginAccessIdentityResponse' constructor.
-deleteCloudFrontOriginAccessIdentityResponse :: DeleteCloudFrontOriginAccessIdentityResponse
-deleteCloudFrontOriginAccessIdentityResponse = DeleteCloudFrontOriginAccessIdentityResponse
+-- | 'DeleteCloudFrontOriginAccessIdentity2014_05_31Response' constructor.
+deleteCloudFrontOriginAccessIdentity2014_05_31Response :: DeleteCloudFrontOriginAccessIdentity2014_05_31Response
+deleteCloudFrontOriginAccessIdentity2014_05_31Response = DeleteCloudFrontOriginAccessIdentity2014_05_31Response
 
 instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
     type Sv DeleteCloudFrontOriginAccessIdentity = CloudFront
-    type Rs DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentityResponse
+    type Rs DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity2014_05_31Response
 
     request  = delete
-    response = const (nullaryResponse DeleteCloudFrontOriginAccessIdentityResponse)
+    response = const (nullaryResponse DeleteCloudFrontOriginAccessIdentity2014_05_31Response)

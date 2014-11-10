@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     -- * Request
       CreateApplicationVersionMessage
     -- ** Request constructor
-    , createApplicationVersionMessage
+    , createApplicationVersion
     -- ** Request lenses
     , cavmApplicationName
     , cavmAutoCreateApplication
@@ -37,7 +37,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     -- * Response
     , ApplicationVersionDescriptionMessage
     -- ** Response constructor
-    , applicationVersionDescriptionMessage
+    , createApplicationVersionResponse
     -- ** Response lenses
     , avdmApplicationVersion
     ) where
@@ -68,10 +68,10 @@ data CreateApplicationVersionMessage = CreateApplicationVersionMessage
 --
 -- * 'cavmVersionLabel' @::@ 'Text'
 --
-createApplicationVersionMessage :: Text -- ^ 'cavmApplicationName'
-                                -> Text -- ^ 'cavmVersionLabel'
-                                -> CreateApplicationVersionMessage
-createApplicationVersionMessage p1 p2 = CreateApplicationVersionMessage
+createApplicationVersion :: Text -- ^ 'cavmApplicationName'
+                         -> Text -- ^ 'cavmVersionLabel'
+                         -> CreateApplicationVersionMessage
+createApplicationVersion p1 p2 = CreateApplicationVersionMessage
     { _cavmApplicationName       = p1
     , _cavmVersionLabel          = p2
     , _cavmDescription           = Nothing
@@ -131,4 +131,4 @@ instance AWSRequest CreateApplicationVersionMessage where
     type Rs CreateApplicationVersionMessage = ApplicationVersionDescriptionMessage
 
     request  = post "CreateApplicationVersion"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

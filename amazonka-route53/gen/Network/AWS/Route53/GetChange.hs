@@ -106,5 +106,5 @@ instance AWSRequest GetChange where
     type Rs GetChange = GetChangeResponse
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetChangeResponse
-newtype
+    response = xmlResponse $ \h x -> GetChangeResponse
+        <$> x %| "ChangeInfo"

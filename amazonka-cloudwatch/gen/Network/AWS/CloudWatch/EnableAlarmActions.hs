@@ -26,7 +26,7 @@ module Network.AWS.CloudWatch.EnableAlarmActions
     -- * Request
       EnableAlarmActionsInput
     -- ** Request constructor
-    , enableAlarmActionsInput
+    , enableAlarmActions
     -- ** Request lenses
     , eaaiAlarmNames
 
@@ -50,8 +50,8 @@ newtype EnableAlarmActionsInput = EnableAlarmActionsInput
 --
 -- * 'eaaiAlarmNames' @::@ ['Text']
 --
-enableAlarmActionsInput :: EnableAlarmActionsInput
-enableAlarmActionsInput = EnableAlarmActionsInput
+enableAlarmActions :: EnableAlarmActionsInput
+enableAlarmActions = EnableAlarmActionsInput
     { _eaaiAlarmNames = mempty
     }
 

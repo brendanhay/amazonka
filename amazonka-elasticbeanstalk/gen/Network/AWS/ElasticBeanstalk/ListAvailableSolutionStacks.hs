@@ -31,7 +31,7 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     -- * Response
     , ListAvailableSolutionStacksResultMessage
     -- ** Response constructor
-    , listAvailableSolutionStacksResultMessage
+    , listAvailableSolutionStacksResponse
     -- ** Response lenses
     , lassrmSolutionStackDetails
     , lassrmSolutionStacks
@@ -65,8 +65,8 @@ data ListAvailableSolutionStacksResultMessage = ListAvailableSolutionStacksResul
 --
 -- * 'lassrmSolutionStacks' @::@ ['Text']
 --
-listAvailableSolutionStacksResultMessage :: ListAvailableSolutionStacksResultMessage
-listAvailableSolutionStacksResultMessage = ListAvailableSolutionStacksResultMessage
+listAvailableSolutionStacksResponse :: ListAvailableSolutionStacksResultMessage
+listAvailableSolutionStacksResponse = ListAvailableSolutionStacksResultMessage
     { _lassrmSolutionStacks       = mempty
     , _lassrmSolutionStackDetails = mempty
     }
@@ -87,5 +87,6 @@ instance AWSRequest ListAvailableSolutionStacks where
     type Rs ListAvailableSolutionStacks = ListAvailableSolutionStacksResultMessage
 
     request  = post "ListAvailableSolutionStacks"
-    response = const . xmlResponse $ \h x -> ListAvailableSolutionStacksResultMessage
-record
+    response = xmlResponse $ \h x -> ListAvailableSolutionStacksResultMessage
+        <$> x %| "SolutionStackDetails"
+        <*> x %| "SolutionStacks"

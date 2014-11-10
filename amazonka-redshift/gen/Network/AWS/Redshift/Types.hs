@@ -376,48 +376,10 @@ instance AWSService Redshift where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'Redshift' errors returned by the
--- Amazon Redshift.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data RedshiftError
-    = RedshiftHttp       HttpException
-    | RedshiftSerializer String
-    | RedshiftService    Status RedshiftServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception RedshiftError
-
-instance AWSError RedshiftError where
-    awsError = \case
-        RedshiftHttp       ex  -> HttpError       ex
-        RedshiftSerializer e   -> SerializerError "Redshift" e
-        RedshiftService    s x -> ServiceError    "Redshift" s (show x)
-
-instance AWSServiceError RedshiftError where
-    httpError       = RedshiftHttp
-    serializerError = RedshiftSerializer
-    serviceError    = xmlError httpStatus RedshiftService
-
-_RedshiftHttp :: Prism' RedshiftError HttpException
-_RedshiftHttp = prism RedshiftHttp $ \case
-    RedshiftHttp ex -> Right ex
-    x -> Left x
-
-_RedshiftSerializer :: Prism' RedshiftError String
-_RedshiftSerializer = prism RedshiftSerializer $ \case
-    RedshiftSerializer e -> Right e
-    x -> Left x
-
-_RedshiftService :: Prism' RedshiftError (Status, RedshiftServiceError)
-_RedshiftService = prism (uncurry RedshiftService) $ \case
-    RedshiftService s x -> Right (s, x)
-    x -> Left x
 
 data Snapshot = Snapshot
     { _sAccountsWithRestoreAccess              :: [AccountWithRestoreAccess]

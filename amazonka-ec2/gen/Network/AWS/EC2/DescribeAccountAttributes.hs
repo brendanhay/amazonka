@@ -34,7 +34,7 @@ module Network.AWS.EC2.DescribeAccountAttributes
     -- * Response
     , DescribeAccountAttributesResult
     -- ** Response constructor
-    , describeAccountAttributesResult
+    , describeAccountAttributesResponse
     -- ** Response lenses
     , daarAccountAttributes
     ) where
@@ -85,8 +85,8 @@ newtype DescribeAccountAttributesResult = DescribeAccountAttributesResult
 --
 -- * 'daarAccountAttributes' @::@ ['AccountAttribute']
 --
-describeAccountAttributesResult :: DescribeAccountAttributesResult
-describeAccountAttributesResult = DescribeAccountAttributesResult
+describeAccountAttributesResponse :: DescribeAccountAttributesResult
+describeAccountAttributesResponse = DescribeAccountAttributesResult
     { _daarAccountAttributes = mempty
     }
 
@@ -100,5 +100,5 @@ instance AWSRequest DescribeAccountAttributes where
     type Rs DescribeAccountAttributes = DescribeAccountAttributesResult
 
     request  = post "DescribeAccountAttributes"
-    response = const . xmlResponse $ \h x -> DescribeAccountAttributesResult
-newtype
+    response = xmlResponse $ \h x -> DescribeAccountAttributesResult
+        <$> x %| "accountAttributeSet"

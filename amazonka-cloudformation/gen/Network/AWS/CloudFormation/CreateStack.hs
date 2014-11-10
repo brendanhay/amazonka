@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.CreateStack
     -- * Request
       CreateStackInput
     -- ** Request constructor
-    , createStackInput
+    , createStack
     -- ** Request lenses
     , csiCapabilities
     , csiDisableRollback
@@ -46,7 +46,7 @@ module Network.AWS.CloudFormation.CreateStack
     -- * Response
     , CreateStackOutput
     -- ** Response constructor
-    , createStackOutput
+    , createStackResponse
     -- ** Response lenses
     , csoStackId
     ) where
@@ -98,9 +98,9 @@ data CreateStackInput = CreateStackInput
 --
 -- * 'csiTimeoutInMinutes' @::@ 'Maybe' 'Int'
 --
-createStackInput :: Text -- ^ 'csiStackName'
-                 -> CreateStackInput
-createStackInput p1 = CreateStackInput
+createStack :: Text -- ^ 'csiStackName'
+            -> CreateStackInput
+createStack p1 = CreateStackInput
     { _csiStackName        = p1
     , _csiTemplateBody     = Nothing
     , _csiTemplateURL      = Nothing
@@ -217,8 +217,8 @@ newtype CreateStackOutput = CreateStackOutput
 --
 -- * 'csoStackId' @::@ 'Maybe' 'Text'
 --
-createStackOutput :: CreateStackOutput
-createStackOutput = CreateStackOutput
+createStackResponse :: CreateStackOutput
+createStackResponse = CreateStackOutput
     { _csoStackId = Nothing
     }
 
@@ -231,5 +231,5 @@ instance AWSRequest CreateStackInput where
     type Rs CreateStackInput = CreateStackOutput
 
     request  = post "CreateStack"
-    response = const . xmlResponse $ \h x -> CreateStackOutput
-newtype
+    response = xmlResponse $ \h x -> CreateStackOutput
+        <$> x %| "StackId"

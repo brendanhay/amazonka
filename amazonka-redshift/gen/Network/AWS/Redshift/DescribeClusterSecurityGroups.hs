@@ -30,7 +30,7 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     -- * Request
       DescribeClusterSecurityGroupsMessage
     -- ** Request constructor
-    , describeClusterSecurityGroupsMessage
+    , describeClusterSecurityGroups
     -- ** Request lenses
     , dcsgm2ClusterSecurityGroupName
     , dcsgm2Marker
@@ -39,7 +39,7 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     -- * Response
     , ClusterSecurityGroupMessage
     -- ** Response constructor
-    , clusterSecurityGroupMessage
+    , describeClusterSecurityGroupsResponse
     -- ** Response lenses
     , csgm1ClusterSecurityGroups
     , csgm1Marker
@@ -65,8 +65,8 @@ data DescribeClusterSecurityGroupsMessage = DescribeClusterSecurityGroupsMessage
 --
 -- * 'dcsgm2MaxRecords' @::@ 'Maybe' 'Int'
 --
-describeClusterSecurityGroupsMessage :: DescribeClusterSecurityGroupsMessage
-describeClusterSecurityGroupsMessage = DescribeClusterSecurityGroupsMessage
+describeClusterSecurityGroups :: DescribeClusterSecurityGroupsMessage
+describeClusterSecurityGroups = DescribeClusterSecurityGroupsMessage
     { _dcsgm2ClusterSecurityGroupName = Nothing
     , _dcsgm2MaxRecords               = Nothing
     , _dcsgm2Marker                   = Nothing
@@ -118,8 +118,8 @@ data ClusterSecurityGroupMessage = ClusterSecurityGroupMessage
 --
 -- * 'csgm1Marker' @::@ 'Maybe' 'Text'
 --
-clusterSecurityGroupMessage :: ClusterSecurityGroupMessage
-clusterSecurityGroupMessage = ClusterSecurityGroupMessage
+describeClusterSecurityGroupsResponse :: ClusterSecurityGroupMessage
+describeClusterSecurityGroupsResponse = ClusterSecurityGroupMessage
     { _csgm1Marker                = Nothing
     , _csgm1ClusterSecurityGroups = mempty
     }
@@ -144,5 +144,6 @@ instance AWSRequest DescribeClusterSecurityGroupsMessage where
     type Rs DescribeClusterSecurityGroupsMessage = ClusterSecurityGroupMessage
 
     request  = post "DescribeClusterSecurityGroups"
-    response = const . xmlResponse $ \h x -> ClusterSecurityGroupMessage
-record
+    response = xmlResponse $ \h x -> ClusterSecurityGroupMessage
+        <$> x %| "ClusterSecurityGroups"
+        <*> x %| "Marker"

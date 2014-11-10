@@ -27,14 +27,14 @@ module Network.AWS.Redshift.DisableLogging
     -- * Request
       DisableLoggingMessage
     -- ** Request constructor
-    , disableLoggingMessage
+    , disableLogging
     -- ** Request lenses
     , dlmClusterIdentifier
 
     -- * Response
     , LoggingStatus
     -- ** Response constructor
-    , loggingStatus
+    , disableLoggingResponse
     -- ** Response lenses
     , lsBucketName
     , lsLastFailureMessage
@@ -58,9 +58,9 @@ newtype DisableLoggingMessage = DisableLoggingMessage
 --
 -- * 'dlmClusterIdentifier' @::@ 'Text'
 --
-disableLoggingMessage :: Text -- ^ 'dlmClusterIdentifier'
-                      -> DisableLoggingMessage
-disableLoggingMessage p1 = DisableLoggingMessage
+disableLogging :: Text -- ^ 'dlmClusterIdentifier'
+               -> DisableLoggingMessage
+disableLogging p1 = DisableLoggingMessage
     { _dlmClusterIdentifier = p1
     }
 
@@ -80,4 +80,4 @@ instance AWSRequest DisableLoggingMessage where
     type Rs DisableLoggingMessage = LoggingStatus
 
     request  = post "DisableLogging"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

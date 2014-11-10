@@ -45,7 +45,7 @@ module Network.AWS.SQS.SendMessage
     -- * Response
     , SendMessageResult
     -- ** Response constructor
-    , sendMessageResult
+    , sendMessageResponse
     -- ** Response lenses
     , smrMD5OfMessageAttributes
     , smrMD5OfMessageBody
@@ -129,8 +129,8 @@ data SendMessageResult = SendMessageResult
 --
 -- * 'smrMessageId' @::@ 'Maybe' 'Text'
 --
-sendMessageResult :: SendMessageResult
-sendMessageResult = SendMessageResult
+sendMessageResponse :: SendMessageResult
+sendMessageResponse = SendMessageResult
     { _smrMD5OfMessageBody       = Nothing
     , _smrMD5OfMessageAttributes = Nothing
     , _smrMessageId              = Nothing
@@ -164,5 +164,7 @@ instance AWSRequest SendMessage where
     type Rs SendMessage = SendMessageResult
 
     request  = post "SendMessage"
-    response = const . xmlResponse $ \h x -> SendMessageResult
-record
+    response = xmlResponse $ \h x -> SendMessageResult
+        <$> x %| "MD5OfMessageAttributes"
+        <*> x %| "MD5OfMessageBody"
+        <*> x %| "MessageId"

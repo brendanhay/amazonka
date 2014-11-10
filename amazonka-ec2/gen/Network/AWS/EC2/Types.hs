@@ -1414,48 +1414,10 @@ instance AWSService EC2 where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'EC2' errors returned by the
--- Amazon Elastic Compute Cloud.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data EC2Error
-    = EC2Http       HttpException
-    | EC2Serializer String
-    | EC2Service    Status EC2ServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception EC2Error
-
-instance AWSError EC2Error where
-    awsError = \case
-        EC2Http       ex  -> HttpError       ex
-        EC2Serializer e   -> SerializerError "EC2" e
-        EC2Service    s x -> ServiceError    "EC2" s (show x)
-
-instance AWSServiceError EC2Error where
-    httpError       = EC2Http
-    serializerError = EC2Serializer
-    serviceError    = xmlError httpStatus EC2Service
-
-_EC2Http :: Prism' EC2Error HttpException
-_EC2Http = prism EC2Http $ \case
-    EC2Http ex -> Right ex
-    x -> Left x
-
-_EC2Serializer :: Prism' EC2Error String
-_EC2Serializer = prism EC2Serializer $ \case
-    EC2Serializer e -> Right e
-    x -> Left x
-
-_EC2Service :: Prism' EC2Error (Status, EC2ServiceError)
-_EC2Service = prism (uncurry EC2Service) $ \case
-    EC2Service s x -> Right (s, x)
-    x -> Left x
 
 data ImageAttributeName
     = ImageBlockDeviceMapping -- ^ blockDeviceMapping

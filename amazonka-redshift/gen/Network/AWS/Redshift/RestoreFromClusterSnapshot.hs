@@ -35,7 +35,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     -- * Request
       RestoreFromClusterSnapshotMessage
     -- ** Request constructor
-    , restoreFromClusterSnapshotMessage
+    , restoreFromClusterSnapshot
     -- ** Request lenses
     , rfcsmAllowVersionUpgrade
     , rfcsmAutomatedSnapshotRetentionPeriod
@@ -58,7 +58,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     -- * Response
     , RestoreFromClusterSnapshotResult
     -- ** Response constructor
-    , restoreFromClusterSnapshotResult
+    , restoreFromClusterSnapshotResponse
     -- ** Response lenses
     , rfcsrCluster
     ) where
@@ -125,10 +125,10 @@ data RestoreFromClusterSnapshotMessage = RestoreFromClusterSnapshotMessage
 --
 -- * 'rfcsmVpcSecurityGroupIds' @::@ ['Text']
 --
-restoreFromClusterSnapshotMessage :: Text -- ^ 'rfcsmClusterIdentifier'
-                                  -> Text -- ^ 'rfcsmSnapshotIdentifier'
-                                  -> RestoreFromClusterSnapshotMessage
-restoreFromClusterSnapshotMessage p1 p2 = RestoreFromClusterSnapshotMessage
+restoreFromClusterSnapshot :: Text -- ^ 'rfcsmClusterIdentifier'
+                           -> Text -- ^ 'rfcsmSnapshotIdentifier'
+                           -> RestoreFromClusterSnapshotMessage
+restoreFromClusterSnapshot p1 p2 = RestoreFromClusterSnapshotMessage
     { _rfcsmClusterIdentifier                = p1
     , _rfcsmSnapshotIdentifier               = p2
     , _rfcsmSnapshotClusterIdentifier        = Nothing
@@ -293,8 +293,8 @@ newtype RestoreFromClusterSnapshotResult = RestoreFromClusterSnapshotResult
 --
 -- * 'rfcsrCluster' @::@ 'Maybe' 'Cluster'
 --
-restoreFromClusterSnapshotResult :: RestoreFromClusterSnapshotResult
-restoreFromClusterSnapshotResult = RestoreFromClusterSnapshotResult
+restoreFromClusterSnapshotResponse :: RestoreFromClusterSnapshotResult
+restoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResult
     { _rfcsrCluster = Nothing
     }
 
@@ -306,5 +306,5 @@ instance AWSRequest RestoreFromClusterSnapshotMessage where
     type Rs RestoreFromClusterSnapshotMessage = RestoreFromClusterSnapshotResult
 
     request  = post "RestoreFromClusterSnapshot"
-    response = const . xmlResponse $ \h x -> RestoreFromClusterSnapshotResult
-newtype
+    response = xmlResponse $ \h x -> RestoreFromClusterSnapshotResult
+        <$> x %| "Cluster"

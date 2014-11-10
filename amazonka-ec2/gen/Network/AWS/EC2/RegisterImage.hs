@@ -52,7 +52,7 @@ module Network.AWS.EC2.RegisterImage
     -- * Response
     , RegisterImageResult
     -- ** Response constructor
-    , registerImageResult
+    , registerImageResponse
     -- ** Response lenses
     , rirImageId
     ) where
@@ -186,8 +186,8 @@ newtype RegisterImageResult = RegisterImageResult
 --
 -- * 'rirImageId' @::@ 'Maybe' 'Text'
 --
-registerImageResult :: RegisterImageResult
-registerImageResult = RegisterImageResult
+registerImageResponse :: RegisterImageResult
+registerImageResponse = RegisterImageResult
     { _rirImageId = Nothing
     }
 
@@ -200,5 +200,5 @@ instance AWSRequest RegisterImage where
     type Rs RegisterImage = RegisterImageResult
 
     request  = post "RegisterImage"
-    response = const . xmlResponse $ \h x -> RegisterImageResult
-newtype
+    response = xmlResponse $ \h x -> RegisterImageResult
+        <$> x %| "imageId"

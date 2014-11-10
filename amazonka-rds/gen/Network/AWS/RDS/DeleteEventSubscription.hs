@@ -26,14 +26,14 @@ module Network.AWS.RDS.DeleteEventSubscription
     -- * Request
       DeleteEventSubscriptionMessage
     -- ** Request constructor
-    , deleteEventSubscriptionMessage
+    , deleteEventSubscription
     -- ** Request lenses
     , desm1SubscriptionName
 
     -- * Response
     , DeleteEventSubscriptionResult
     -- ** Response constructor
-    , deleteEventSubscriptionResult
+    , deleteEventSubscriptionResponse
     -- ** Response lenses
     , desrEventSubscription
     ) where
@@ -52,9 +52,9 @@ newtype DeleteEventSubscriptionMessage = DeleteEventSubscriptionMessage
 --
 -- * 'desm1SubscriptionName' @::@ 'Text'
 --
-deleteEventSubscriptionMessage :: Text -- ^ 'desm1SubscriptionName'
-                               -> DeleteEventSubscriptionMessage
-deleteEventSubscriptionMessage p1 = DeleteEventSubscriptionMessage
+deleteEventSubscription :: Text -- ^ 'desm1SubscriptionName'
+                        -> DeleteEventSubscriptionMessage
+deleteEventSubscription p1 = DeleteEventSubscriptionMessage
     { _desm1SubscriptionName = p1
     }
 
@@ -78,8 +78,8 @@ newtype DeleteEventSubscriptionResult = DeleteEventSubscriptionResult
 --
 -- * 'desrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-deleteEventSubscriptionResult :: DeleteEventSubscriptionResult
-deleteEventSubscriptionResult = DeleteEventSubscriptionResult
+deleteEventSubscriptionResponse :: DeleteEventSubscriptionResult
+deleteEventSubscriptionResponse = DeleteEventSubscriptionResult
     { _desrEventSubscription = Nothing
     }
 
@@ -92,5 +92,5 @@ instance AWSRequest DeleteEventSubscriptionMessage where
     type Rs DeleteEventSubscriptionMessage = DeleteEventSubscriptionResult
 
     request  = post "DeleteEventSubscription"
-    response = const . xmlResponse $ \h x -> DeleteEventSubscriptionResult
-newtype
+    response = xmlResponse $ \h x -> DeleteEventSubscriptionResult
+        <$> x %| "EventSubscription"

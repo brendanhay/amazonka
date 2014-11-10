@@ -28,7 +28,7 @@ module Network.AWS.Redshift.DescribeHsmConfigurations
     -- * Request
       DescribeHsmConfigurationsMessage
     -- ** Request constructor
-    , describeHsmConfigurationsMessage
+    , describeHsmConfigurations
     -- ** Request lenses
     , dhcmHsmConfigurationIdentifier
     , dhcmMarker
@@ -37,7 +37,7 @@ module Network.AWS.Redshift.DescribeHsmConfigurations
     -- * Response
     , HsmConfigurationMessage
     -- ** Response constructor
-    , hsmConfigurationMessage
+    , describeHsmConfigurationsResponse
     -- ** Response lenses
     , hcmHsmConfigurations
     , hcmMarker
@@ -63,8 +63,8 @@ data DescribeHsmConfigurationsMessage = DescribeHsmConfigurationsMessage
 --
 -- * 'dhcmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeHsmConfigurationsMessage :: DescribeHsmConfigurationsMessage
-describeHsmConfigurationsMessage = DescribeHsmConfigurationsMessage
+describeHsmConfigurations :: DescribeHsmConfigurationsMessage
+describeHsmConfigurations = DescribeHsmConfigurationsMessage
     { _dhcmHsmConfigurationIdentifier = Nothing
     , _dhcmMaxRecords                 = Nothing
     , _dhcmMarker                     = Nothing
@@ -113,8 +113,8 @@ data HsmConfigurationMessage = HsmConfigurationMessage
 --
 -- * 'hcmMarker' @::@ 'Maybe' 'Text'
 --
-hsmConfigurationMessage :: HsmConfigurationMessage
-hsmConfigurationMessage = HsmConfigurationMessage
+describeHsmConfigurationsResponse :: HsmConfigurationMessage
+describeHsmConfigurationsResponse = HsmConfigurationMessage
     { _hcmMarker            = Nothing
     , _hcmHsmConfigurations = mempty
     }
@@ -138,5 +138,6 @@ instance AWSRequest DescribeHsmConfigurationsMessage where
     type Rs DescribeHsmConfigurationsMessage = HsmConfigurationMessage
 
     request  = post "DescribeHsmConfigurations"
-    response = const . xmlResponse $ \h x -> HsmConfigurationMessage
-record
+    response = xmlResponse $ \h x -> HsmConfigurationMessage
+        <$> x %| "HsmConfigurations"
+        <*> x %| "Marker"

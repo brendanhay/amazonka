@@ -28,7 +28,7 @@ module Network.AWS.SNS.GetEndpointAttributes
     -- * Request
       GetEndpointAttributesInput
     -- ** Request constructor
-    , getEndpointAttributesInput
+    , getEndpointAttributes
     -- ** Request lenses
     , geaiEndpointArn
 
@@ -54,9 +54,9 @@ newtype GetEndpointAttributesInput = GetEndpointAttributesInput
 --
 -- * 'geaiEndpointArn' @::@ 'Text'
 --
-getEndpointAttributesInput :: Text -- ^ 'geaiEndpointArn'
-                           -> GetEndpointAttributesInput
-getEndpointAttributesInput p1 = GetEndpointAttributesInput
+getEndpointAttributes :: Text -- ^ 'geaiEndpointArn'
+                      -> GetEndpointAttributesInput
+getEndpointAttributes p1 = GetEndpointAttributesInput
     { _geaiEndpointArn = p1
     }
 
@@ -103,5 +103,5 @@ instance AWSRequest GetEndpointAttributesInput where
     type Rs GetEndpointAttributesInput = GetEndpointAttributesResponse
 
     request  = post "GetEndpointAttributes"
-    response = const . xmlResponse $ \h x -> GetEndpointAttributesResponse
-newtype
+    response = xmlResponse $ \h x -> GetEndpointAttributesResponse
+        <$> x %| "Attributes"

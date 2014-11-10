@@ -104,5 +104,5 @@ instance AWSRequest DefineSuggester where
     type Rs DefineSuggester = DefineSuggesterResponse
 
     request  = post "DefineSuggester"
-    response = const . xmlResponse $ \h x -> DefineSuggesterResponse
-newtype
+    response = xmlResponse $ \h x -> DefineSuggesterResponse
+        <$> x %| "Suggester"

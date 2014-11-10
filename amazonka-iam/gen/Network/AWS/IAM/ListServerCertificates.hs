@@ -144,5 +144,7 @@ instance AWSRequest ListServerCertificates where
     type Rs ListServerCertificates = ListServerCertificatesResponse
 
     request  = post "ListServerCertificates"
-    response = const . xmlResponse $ \h x -> ListServerCertificatesResponse
-record
+    response = xmlResponse $ \h x -> ListServerCertificatesResponse
+        <$> x %| "IsTruncated"
+        <*> x %| "Marker"
+        <*> x %| "ServerCertificateMetadataList"

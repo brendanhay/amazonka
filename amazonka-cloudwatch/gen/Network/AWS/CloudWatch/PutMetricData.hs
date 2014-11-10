@@ -37,7 +37,7 @@ module Network.AWS.CloudWatch.PutMetricData
     -- * Request
       PutMetricDataInput
     -- ** Request constructor
-    , putMetricDataInput
+    , putMetricData
     -- ** Request lenses
     , pmdiMetricData
     , pmdiNamespace
@@ -65,9 +65,9 @@ data PutMetricDataInput = PutMetricDataInput
 --
 -- * 'pmdiNamespace' @::@ 'Text'
 --
-putMetricDataInput :: Text -- ^ 'pmdiNamespace'
-                   -> PutMetricDataInput
-putMetricDataInput p1 = PutMetricDataInput
+putMetricData :: Text -- ^ 'pmdiNamespace'
+              -> PutMetricDataInput
+putMetricData p1 = PutMetricDataInput
     { _pmdiNamespace  = p1
     , _pmdiMetricData = mempty
     }

@@ -34,7 +34,7 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     -- * Request
       DescribeOrderableClusterOptionsMessage
     -- ** Request constructor
-    , describeOrderableClusterOptionsMessage
+    , describeOrderableClusterOptions
     -- ** Request lenses
     , docomClusterVersion
     , docomMarker
@@ -44,7 +44,7 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     -- * Response
     , OrderableClusterOptionsMessage
     -- ** Response constructor
-    , orderableClusterOptionsMessage
+    , describeOrderableClusterOptionsResponse
     -- ** Response lenses
     , ocomMarker
     , ocomOrderableClusterOptions
@@ -73,8 +73,8 @@ data DescribeOrderableClusterOptionsMessage = DescribeOrderableClusterOptionsMes
 --
 -- * 'docomNodeType' @::@ 'Maybe' 'Text'
 --
-describeOrderableClusterOptionsMessage :: DescribeOrderableClusterOptionsMessage
-describeOrderableClusterOptionsMessage = DescribeOrderableClusterOptionsMessage
+describeOrderableClusterOptions :: DescribeOrderableClusterOptionsMessage
+describeOrderableClusterOptions = DescribeOrderableClusterOptionsMessage
     { _docomClusterVersion = Nothing
     , _docomNodeType       = Nothing
     , _docomMaxRecords     = Nothing
@@ -129,8 +129,8 @@ data OrderableClusterOptionsMessage = OrderableClusterOptionsMessage
 --
 -- * 'ocomOrderableClusterOptions' @::@ ['OrderableClusterOption']
 --
-orderableClusterOptionsMessage :: OrderableClusterOptionsMessage
-orderableClusterOptionsMessage = OrderableClusterOptionsMessage
+describeOrderableClusterOptionsResponse :: OrderableClusterOptionsMessage
+describeOrderableClusterOptionsResponse = OrderableClusterOptionsMessage
     { _ocomOrderableClusterOptions = mempty
     , _ocomMarker                  = Nothing
     }
@@ -156,5 +156,6 @@ instance AWSRequest DescribeOrderableClusterOptionsMessage where
     type Rs DescribeOrderableClusterOptionsMessage = OrderableClusterOptionsMessage
 
     request  = post "DescribeOrderableClusterOptions"
-    response = const . xmlResponse $ \h x -> OrderableClusterOptionsMessage
-record
+    response = xmlResponse $ \h x -> OrderableClusterOptionsMessage
+        <$> x %| "Marker"
+        <*> x %| "OrderableClusterOptions"

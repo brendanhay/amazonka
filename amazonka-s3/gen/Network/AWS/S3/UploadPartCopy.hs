@@ -48,7 +48,7 @@ module Network.AWS.S3.UploadPartCopy
     -- * Response
     , UploadPartCopyOutput
     -- ** Response constructor
-    , uploadPartCopyOutput
+    , uploadPartCopyResponse
     -- ** Response lenses
     , upcoCopyPartResult
     , upcoCopySourceVersionId
@@ -298,8 +298,8 @@ data UploadPartCopyOutput = UploadPartCopyOutput
 --
 -- * 'upcoServerSideEncryption' @::@ 'Maybe' 'Text'
 --
-uploadPartCopyOutput :: UploadPartCopyOutput
-uploadPartCopyOutput = UploadPartCopyOutput
+uploadPartCopyResponse :: UploadPartCopyOutput
+uploadPartCopyResponse = UploadPartCopyOutput
     { _upcoCopySourceVersionId  = Nothing
     , _upcoCopyPartResult       = Nothing
     , _upcoServerSideEncryption = Nothing
@@ -343,5 +343,9 @@ instance AWSRequest UploadPartCopy where
     type Rs UploadPartCopy = UploadPartCopyOutput
 
     request  = put
-    response = const . xmlResponse $ \h x -> UploadPartCopyOutput
-record
+    response = xmlResponse $ \h x -> UploadPartCopyOutput
+        <$> x %| "CopyPartResult"
+        <*> h ~:? "x-amz-copy-source-version-id"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption"

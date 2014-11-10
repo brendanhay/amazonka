@@ -104,5 +104,5 @@ instance AWSRequest DeleteIndexField where
     type Rs DeleteIndexField = DeleteIndexFieldResponse
 
     request  = post "DeleteIndexField"
-    response = const . xmlResponse $ \h x -> DeleteIndexFieldResponse
-newtype
+    response = xmlResponse $ \h x -> DeleteIndexFieldResponse
+        <$> x %| "IndexField"

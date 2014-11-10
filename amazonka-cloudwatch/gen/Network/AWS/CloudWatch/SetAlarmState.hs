@@ -29,7 +29,7 @@ module Network.AWS.CloudWatch.SetAlarmState
     -- * Request
       SetAlarmStateInput
     -- ** Request constructor
-    , setAlarmStateInput
+    , setAlarmState
     -- ** Request lenses
     , sasiAlarmName
     , sasiStateReason
@@ -65,11 +65,11 @@ data SetAlarmStateInput = SetAlarmStateInput
 --
 -- * 'sasiStateValue' @::@ 'Text'
 --
-setAlarmStateInput :: Text -- ^ 'sasiAlarmName'
-                   -> Text -- ^ 'sasiStateValue'
-                   -> Text -- ^ 'sasiStateReason'
-                   -> SetAlarmStateInput
-setAlarmStateInput p1 p2 p3 = SetAlarmStateInput
+setAlarmState :: Text -- ^ 'sasiAlarmName'
+              -> Text -- ^ 'sasiStateValue'
+              -> Text -- ^ 'sasiStateReason'
+              -> SetAlarmStateInput
+setAlarmState p1 p2 p3 = SetAlarmStateInput
     { _sasiAlarmName       = p1
     , _sasiStateValue      = p2
     , _sasiStateReason     = p3

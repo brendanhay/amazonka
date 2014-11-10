@@ -107,5 +107,5 @@ instance AWSRequest DescribeAvailabilityOptions where
     type Rs DescribeAvailabilityOptions = DescribeAvailabilityOptionsResponse
 
     request  = post "DescribeAvailabilityOptions"
-    response = const . xmlResponse $ \h x -> DescribeAvailabilityOptionsResponse
-newtype
+    response = xmlResponse $ \h x -> DescribeAvailabilityOptionsResponse
+        <$> x %| "AvailabilityOptions"

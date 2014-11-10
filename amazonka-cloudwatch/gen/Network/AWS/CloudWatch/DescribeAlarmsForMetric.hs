@@ -27,7 +27,7 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     -- * Request
       DescribeAlarmsForMetricInput
     -- ** Request constructor
-    , describeAlarmsForMetricInput
+    , describeAlarmsForMetric
     -- ** Request lenses
     , dafmiDimensions
     , dafmiMetricName
@@ -39,7 +39,7 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     -- * Response
     , DescribeAlarmsForMetricOutput
     -- ** Response constructor
-    , describeAlarmsForMetricOutput
+    , describeAlarmsForMetricResponse
     -- ** Response lenses
     , dafmoMetricAlarms
     ) where
@@ -73,10 +73,10 @@ data DescribeAlarmsForMetricInput = DescribeAlarmsForMetricInput
 --
 -- * 'dafmiUnit' @::@ 'Maybe' 'Text'
 --
-describeAlarmsForMetricInput :: Text -- ^ 'dafmiMetricName'
-                             -> Text -- ^ 'dafmiNamespace'
-                             -> DescribeAlarmsForMetricInput
-describeAlarmsForMetricInput p1 p2 = DescribeAlarmsForMetricInput
+describeAlarmsForMetric :: Text -- ^ 'dafmiMetricName'
+                        -> Text -- ^ 'dafmiNamespace'
+                        -> DescribeAlarmsForMetricInput
+describeAlarmsForMetric p1 p2 = DescribeAlarmsForMetricInput
     { _dafmiMetricName = p1
     , _dafmiNamespace  = p2
     , _dafmiStatistic  = Nothing
@@ -124,8 +124,8 @@ newtype DescribeAlarmsForMetricOutput = DescribeAlarmsForMetricOutput
 --
 -- * 'dafmoMetricAlarms' @::@ ['MetricAlarm']
 --
-describeAlarmsForMetricOutput :: DescribeAlarmsForMetricOutput
-describeAlarmsForMetricOutput = DescribeAlarmsForMetricOutput
+describeAlarmsForMetricResponse :: DescribeAlarmsForMetricOutput
+describeAlarmsForMetricResponse = DescribeAlarmsForMetricOutput
     { _dafmoMetricAlarms = mempty
     }
 
@@ -139,5 +139,5 @@ instance AWSRequest DescribeAlarmsForMetricInput where
     type Rs DescribeAlarmsForMetricInput = DescribeAlarmsForMetricOutput
 
     request  = post "DescribeAlarmsForMetric"
-    response = const . xmlResponse $ \h x -> DescribeAlarmsForMetricOutput
-newtype
+    response = xmlResponse $ \h x -> DescribeAlarmsForMetricOutput
+        <$> x %| "MetricAlarms"

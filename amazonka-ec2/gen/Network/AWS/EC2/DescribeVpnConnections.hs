@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeVpnConnections
     -- * Response
     , DescribeVpnConnectionsResult
     -- ** Response constructor
-    , describeVpnConnectionsResult
+    , describeVpnConnectionsResponse
     -- ** Response lenses
     , dvcrVpnConnections
     ) where
@@ -116,8 +116,8 @@ newtype DescribeVpnConnectionsResult = DescribeVpnConnectionsResult
 --
 -- * 'dvcrVpnConnections' @::@ ['VpnConnection']
 --
-describeVpnConnectionsResult :: DescribeVpnConnectionsResult
-describeVpnConnectionsResult = DescribeVpnConnectionsResult
+describeVpnConnectionsResponse :: DescribeVpnConnectionsResult
+describeVpnConnectionsResponse = DescribeVpnConnectionsResult
     { _dvcrVpnConnections = mempty
     }
 
@@ -131,5 +131,5 @@ instance AWSRequest DescribeVpnConnections where
     type Rs DescribeVpnConnections = DescribeVpnConnectionsResult
 
     request  = post "DescribeVpnConnections"
-    response = const . xmlResponse $ \h x -> DescribeVpnConnectionsResult
-newtype
+    response = xmlResponse $ \h x -> DescribeVpnConnectionsResult
+        <$> x %| "vpnConnectionSet"

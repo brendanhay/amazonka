@@ -28,7 +28,7 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     -- * Request
       DescribeEventSubscriptionsMessage
     -- ** Request constructor
-    , describeEventSubscriptionsMessage
+    , describeEventSubscriptions
     -- ** Request lenses
     , desmMarker
     , desmMaxRecords
@@ -37,7 +37,7 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     -- * Response
     , EventSubscriptionsMessage
     -- ** Response constructor
-    , eventSubscriptionsMessage
+    , describeEventSubscriptionsResponse
     -- ** Response lenses
     , esmEventSubscriptionsList
     , esmMarker
@@ -63,8 +63,8 @@ data DescribeEventSubscriptionsMessage = DescribeEventSubscriptionsMessage
 --
 -- * 'desmSubscriptionName' @::@ 'Maybe' 'Text'
 --
-describeEventSubscriptionsMessage :: DescribeEventSubscriptionsMessage
-describeEventSubscriptionsMessage = DescribeEventSubscriptionsMessage
+describeEventSubscriptions :: DescribeEventSubscriptionsMessage
+describeEventSubscriptions = DescribeEventSubscriptionsMessage
     { _desmSubscriptionName = Nothing
     , _desmMaxRecords       = Nothing
     , _desmMarker           = Nothing
@@ -111,8 +111,8 @@ data EventSubscriptionsMessage = EventSubscriptionsMessage
 --
 -- * 'esmMarker' @::@ 'Maybe' 'Text'
 --
-eventSubscriptionsMessage :: EventSubscriptionsMessage
-eventSubscriptionsMessage = EventSubscriptionsMessage
+describeEventSubscriptionsResponse :: EventSubscriptionsMessage
+describeEventSubscriptionsResponse = EventSubscriptionsMessage
     { _esmMarker                 = Nothing
     , _esmEventSubscriptionsList = mempty
     }
@@ -137,5 +137,6 @@ instance AWSRequest DescribeEventSubscriptionsMessage where
     type Rs DescribeEventSubscriptionsMessage = EventSubscriptionsMessage
 
     request  = post "DescribeEventSubscriptions"
-    response = const . xmlResponse $ \h x -> EventSubscriptionsMessage
-record
+    response = xmlResponse $ \h x -> EventSubscriptionsMessage
+        <$> x %| "EventSubscriptionsList"
+        <*> x %| "Marker"

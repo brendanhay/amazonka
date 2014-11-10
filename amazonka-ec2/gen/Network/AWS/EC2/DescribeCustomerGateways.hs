@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeCustomerGateways
     -- * Response
     , DescribeCustomerGatewaysResult
     -- ** Response constructor
-    , describeCustomerGatewaysResult
+    , describeCustomerGatewaysResponse
     -- ** Response lenses
     , dcgrCustomerGateways
     ) where
@@ -111,8 +111,8 @@ newtype DescribeCustomerGatewaysResult = DescribeCustomerGatewaysResult
 --
 -- * 'dcgrCustomerGateways' @::@ ['CustomerGateway']
 --
-describeCustomerGatewaysResult :: DescribeCustomerGatewaysResult
-describeCustomerGatewaysResult = DescribeCustomerGatewaysResult
+describeCustomerGatewaysResponse :: DescribeCustomerGatewaysResult
+describeCustomerGatewaysResponse = DescribeCustomerGatewaysResult
     { _dcgrCustomerGateways = mempty
     }
 
@@ -126,5 +126,5 @@ instance AWSRequest DescribeCustomerGateways where
     type Rs DescribeCustomerGateways = DescribeCustomerGatewaysResult
 
     request  = post "DescribeCustomerGateways"
-    response = const . xmlResponse $ \h x -> DescribeCustomerGatewaysResult
-newtype
+    response = xmlResponse $ \h x -> DescribeCustomerGatewaysResult
+        <$> x %| "customerGatewaySet"

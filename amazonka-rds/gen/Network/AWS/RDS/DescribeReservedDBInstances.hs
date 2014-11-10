@@ -27,7 +27,7 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     -- * Request
       DescribeReservedDBInstancesMessage
     -- ** Request constructor
-    , describeReservedDBInstancesMessage
+    , describeReservedDBInstances
     -- ** Request lenses
     , drdbimDBInstanceClass
     , drdbimDuration
@@ -43,7 +43,7 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     -- * Response
     , ReservedDBInstanceMessage
     -- ** Response constructor
-    , reservedDBInstanceMessage
+    , describeReservedDBInstancesResponse
     -- ** Response lenses
     , rdbimMarker
     , rdbimReservedDBInstances
@@ -90,8 +90,8 @@ data DescribeReservedDBInstancesMessage = DescribeReservedDBInstancesMessage
 --
 -- * 'drdbimReservedDBInstancesOfferingId' @::@ 'Maybe' 'Text'
 --
-describeReservedDBInstancesMessage :: DescribeReservedDBInstancesMessage
-describeReservedDBInstancesMessage = DescribeReservedDBInstancesMessage
+describeReservedDBInstances :: DescribeReservedDBInstancesMessage
+describeReservedDBInstances = DescribeReservedDBInstancesMessage
     { _drdbimReservedDBInstanceId          = Nothing
     , _drdbimReservedDBInstancesOfferingId = Nothing
     , _drdbimDBInstanceClass               = Nothing
@@ -184,8 +184,8 @@ data ReservedDBInstanceMessage = ReservedDBInstanceMessage
 --
 -- * 'rdbimReservedDBInstances' @::@ ['ReservedDBInstance']
 --
-reservedDBInstanceMessage :: ReservedDBInstanceMessage
-reservedDBInstanceMessage = ReservedDBInstanceMessage
+describeReservedDBInstancesResponse :: ReservedDBInstanceMessage
+describeReservedDBInstancesResponse = ReservedDBInstanceMessage
     { _rdbimMarker              = Nothing
     , _rdbimReservedDBInstances = mempty
     }
@@ -207,5 +207,6 @@ instance AWSRequest DescribeReservedDBInstancesMessage where
     type Rs DescribeReservedDBInstancesMessage = ReservedDBInstanceMessage
 
     request  = post "DescribeReservedDBInstances"
-    response = const . xmlResponse $ \h x -> ReservedDBInstanceMessage
-record
+    response = xmlResponse $ \h x -> ReservedDBInstanceMessage
+        <$> x %| "Marker"
+        <*> x %| "ReservedDBInstances"

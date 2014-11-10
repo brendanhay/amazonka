@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     -- * Response
     , DescribeReservedInstancesModificationsResult
     -- ** Response constructor
-    , describeReservedInstancesModificationsResult
+    , describeReservedInstancesModificationsResponse
     -- ** Response lenses
     , drimrNextToken
     , drimrReservedInstancesModifications
@@ -124,8 +124,8 @@ data DescribeReservedInstancesModificationsResult = DescribeReservedInstancesMod
 --
 -- * 'drimrReservedInstancesModifications' @::@ ['ReservedInstancesModification']
 --
-describeReservedInstancesModificationsResult :: DescribeReservedInstancesModificationsResult
-describeReservedInstancesModificationsResult = DescribeReservedInstancesModificationsResult
+describeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResult
+describeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResult
     { _drimrReservedInstancesModifications = mempty
     , _drimrNextToken                      = Nothing
     }
@@ -145,5 +145,6 @@ instance AWSRequest DescribeReservedInstancesModifications where
     type Rs DescribeReservedInstancesModifications = DescribeReservedInstancesModificationsResult
 
     request  = post "DescribeReservedInstancesModifications"
-    response = const . xmlResponse $ \h x -> DescribeReservedInstancesModificationsResult
-record
+    response = xmlResponse $ \h x -> DescribeReservedInstancesModificationsResult
+        <$> x %| "nextToken"
+        <*> x %| "reservedInstancesModificationsSet"

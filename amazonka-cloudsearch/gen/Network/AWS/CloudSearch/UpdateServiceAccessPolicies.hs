@@ -106,5 +106,5 @@ instance AWSRequest UpdateServiceAccessPolicies where
     type Rs UpdateServiceAccessPolicies = UpdateServiceAccessPoliciesResponse
 
     request  = post "UpdateServiceAccessPolicies"
-    response = const . xmlResponse $ \h x -> UpdateServiceAccessPoliciesResponse
-newtype
+    response = xmlResponse $ \h x -> UpdateServiceAccessPoliciesResponse
+        <$> x %| "AccessPolicies"

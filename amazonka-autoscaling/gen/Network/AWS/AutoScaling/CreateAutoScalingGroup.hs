@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     -- * Request
       CreateAutoScalingGroupType
     -- ** Request constructor
-    , createAutoScalingGroupType
+    , createAutoScalingGroup
     -- ** Request lenses
     , casgtAutoScalingGroupName
     , casgtAvailabilityZones
@@ -108,12 +108,12 @@ data CreateAutoScalingGroupType = CreateAutoScalingGroupType
 --
 -- * 'casgtVPCZoneIdentifier' @::@ 'Maybe' 'Text'
 --
-createAutoScalingGroupType :: Text -- ^ 'casgtAutoScalingGroupName'
-                           -> Int -- ^ 'casgtMinSize'
-                           -> Int -- ^ 'casgtMaxSize'
-                           -> NonEmpty Text -- ^ 'casgtAvailabilityZones'
-                           -> CreateAutoScalingGroupType
-createAutoScalingGroupType p1 p2 p3 p4 = CreateAutoScalingGroupType
+createAutoScalingGroup :: Text -- ^ 'casgtAutoScalingGroupName'
+                       -> Int -- ^ 'casgtMinSize'
+                       -> Int -- ^ 'casgtMaxSize'
+                       -> NonEmpty Text -- ^ 'casgtAvailabilityZones'
+                       -> CreateAutoScalingGroupType
+createAutoScalingGroup p1 p2 p3 p4 = CreateAutoScalingGroupType
     { _casgtAutoScalingGroupName    = p1
     , _casgtMinSize                 = p2
     , _casgtMaxSize                 = p3

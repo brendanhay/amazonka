@@ -50,7 +50,7 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     -- * Response
     , DescribeReservedInstancesListingsResult
     -- ** Response constructor
-    , describeReservedInstancesListingsResult
+    , describeReservedInstancesListingsResponse
     -- ** Response lenses
     , drilrReservedInstancesListings
     ) where
@@ -116,8 +116,8 @@ newtype DescribeReservedInstancesListingsResult = DescribeReservedInstancesListi
 --
 -- * 'drilrReservedInstancesListings' @::@ ['ReservedInstancesListing']
 --
-describeReservedInstancesListingsResult :: DescribeReservedInstancesListingsResult
-describeReservedInstancesListingsResult = DescribeReservedInstancesListingsResult
+describeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResult
+describeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResult
     { _drilrReservedInstancesListings = mempty
     }
 
@@ -132,5 +132,5 @@ instance AWSRequest DescribeReservedInstancesListings where
     type Rs DescribeReservedInstancesListings = DescribeReservedInstancesListingsResult
 
     request  = post "DescribeReservedInstancesListings"
-    response = const . xmlResponse $ \h x -> DescribeReservedInstancesListingsResult
-newtype
+    response = xmlResponse $ \h x -> DescribeReservedInstancesListingsResult
+        <$> x %| "reservedInstancesListingsSet"

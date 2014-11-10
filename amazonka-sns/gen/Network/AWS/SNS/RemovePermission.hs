@@ -26,7 +26,7 @@ module Network.AWS.SNS.RemovePermission
     -- * Request
       RemovePermissionInput
     -- ** Request constructor
-    , removePermissionInput
+    , removePermission
     -- ** Request lenses
     , rpiLabel
     , rpiTopicArn
@@ -54,10 +54,10 @@ data RemovePermissionInput = RemovePermissionInput
 --
 -- * 'rpiTopicArn' @::@ 'Text'
 --
-removePermissionInput :: Text -- ^ 'rpiTopicArn'
-                      -> Text -- ^ 'rpiLabel'
-                      -> RemovePermissionInput
-removePermissionInput p1 p2 = RemovePermissionInput
+removePermission :: Text -- ^ 'rpiTopicArn'
+                 -> Text -- ^ 'rpiLabel'
+                 -> RemovePermissionInput
+removePermission p1 p2 = RemovePermissionInput
     { _rpiTopicArn = p1
     , _rpiLabel    = p2
     }

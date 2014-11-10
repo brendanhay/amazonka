@@ -27,7 +27,7 @@ module Network.AWS.SNS.GetTopicAttributes
     -- * Request
       GetTopicAttributesInput
     -- ** Request constructor
-    , getTopicAttributesInput
+    , getTopicAttributes
     -- ** Request lenses
     , gtaiTopicArn
 
@@ -53,9 +53,9 @@ newtype GetTopicAttributesInput = GetTopicAttributesInput
 --
 -- * 'gtaiTopicArn' @::@ 'Text'
 --
-getTopicAttributesInput :: Text -- ^ 'gtaiTopicArn'
-                        -> GetTopicAttributesInput
-getTopicAttributesInput p1 = GetTopicAttributesInput
+getTopicAttributes :: Text -- ^ 'gtaiTopicArn'
+                   -> GetTopicAttributesInput
+getTopicAttributes p1 = GetTopicAttributesInput
     { _gtaiTopicArn = p1
     }
 
@@ -104,5 +104,5 @@ instance AWSRequest GetTopicAttributesInput where
     type Rs GetTopicAttributesInput = GetTopicAttributesResponse
 
     request  = post "GetTopicAttributes"
-    response = const . xmlResponse $ \h x -> GetTopicAttributesResponse
-newtype
+    response = xmlResponse $ \h x -> GetTopicAttributesResponse
+        <$> x %| "Attributes"

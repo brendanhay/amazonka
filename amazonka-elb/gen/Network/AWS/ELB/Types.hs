@@ -228,48 +228,10 @@ instance AWSService ELB where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'ELB' errors returned by the
--- Amazon Elastic Load Balancing.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data ELBError
-    = ELBHttp       HttpException
-    | ELBSerializer String
-    | ELBService    Status ELBServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception ELBError
-
-instance AWSError ELBError where
-    awsError = \case
-        ELBHttp       ex  -> HttpError       ex
-        ELBSerializer e   -> SerializerError "ELB" e
-        ELBService    s x -> ServiceError    "ELB" s (show x)
-
-instance AWSServiceError ELBError where
-    httpError       = ELBHttp
-    serializerError = ELBSerializer
-    serviceError    = xmlError httpStatus ELBService
-
-_ELBHttp :: Prism' ELBError HttpException
-_ELBHttp = prism ELBHttp $ \case
-    ELBHttp ex -> Right ex
-    x -> Left x
-
-_ELBSerializer :: Prism' ELBError String
-_ELBSerializer = prism ELBSerializer $ \case
-    ELBSerializer e -> Right e
-    x -> Left x
-
-_ELBService :: Prism' ELBError (Status, ELBServiceError)
-_ELBService = prism (uncurry ELBService) $ \case
-    ELBService s x -> Right (s, x)
-    x -> Left x
 
 data SourceSecurityGroup = SourceSecurityGroup
     { _ssgGroupName  :: Maybe Text

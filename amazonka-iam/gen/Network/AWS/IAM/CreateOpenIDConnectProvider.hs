@@ -150,5 +150,5 @@ instance AWSRequest CreateOpenIDConnectProvider where
     type Rs CreateOpenIDConnectProvider = CreateOpenIDConnectProviderResponse
 
     request  = post "CreateOpenIDConnectProvider"
-    response = const . xmlResponse $ \h x -> CreateOpenIDConnectProviderResponse
-newtype
+    response = xmlResponse $ \h x -> CreateOpenIDConnectProviderResponse
+        <$> x %| "OpenIDConnectProviderArn"

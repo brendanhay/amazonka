@@ -93,5 +93,5 @@ instance AWSRequest CreateDomain where
     type Rs CreateDomain = CreateDomainResponse
 
     request  = post "CreateDomain"
-    response = const . xmlResponse $ \h x -> CreateDomainResponse
-newtype
+    response = xmlResponse $ \h x -> CreateDomainResponse
+        <$> x %| "DomainStatus"

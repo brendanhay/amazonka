@@ -102,5 +102,5 @@ instance AWSRequest DeleteSuggester where
     type Rs DeleteSuggester = DeleteSuggesterResponse
 
     request  = post "DeleteSuggester"
-    response = const . xmlResponse $ \h x -> DeleteSuggesterResponse
-newtype
+    response = xmlResponse $ \h x -> DeleteSuggesterResponse
+        <$> x %| "Suggester"

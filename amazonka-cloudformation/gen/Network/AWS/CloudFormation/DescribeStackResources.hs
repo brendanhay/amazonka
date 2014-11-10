@@ -35,7 +35,7 @@ module Network.AWS.CloudFormation.DescribeStackResources
     -- * Request
       DescribeStackResourcesInput
     -- ** Request constructor
-    , describeStackResourcesInput
+    , describeStackResources
     -- ** Request lenses
     , dsriLogicalResourceId
     , dsriPhysicalResourceId
@@ -44,7 +44,7 @@ module Network.AWS.CloudFormation.DescribeStackResources
     -- * Response
     , DescribeStackResourcesOutput
     -- ** Response constructor
-    , describeStackResourcesOutput
+    , describeStackResourcesResponse
     -- ** Response lenses
     , dsroStackResources
     ) where
@@ -69,8 +69,8 @@ data DescribeStackResourcesInput = DescribeStackResourcesInput
 --
 -- * 'dsriStackName' @::@ 'Maybe' 'Text'
 --
-describeStackResourcesInput :: DescribeStackResourcesInput
-describeStackResourcesInput = DescribeStackResourcesInput
+describeStackResources :: DescribeStackResourcesInput
+describeStackResources = DescribeStackResourcesInput
     { _dsriStackName          = Nothing
     , _dsriLogicalResourceId  = Nothing
     , _dsriPhysicalResourceId = Nothing
@@ -118,8 +118,8 @@ newtype DescribeStackResourcesOutput = DescribeStackResourcesOutput
 --
 -- * 'dsroStackResources' @::@ ['StackResource']
 --
-describeStackResourcesOutput :: DescribeStackResourcesOutput
-describeStackResourcesOutput = DescribeStackResourcesOutput
+describeStackResourcesResponse :: DescribeStackResourcesOutput
+describeStackResourcesResponse = DescribeStackResourcesOutput
     { _dsroStackResources = mempty
     }
 
@@ -133,5 +133,5 @@ instance AWSRequest DescribeStackResourcesInput where
     type Rs DescribeStackResourcesInput = DescribeStackResourcesOutput
 
     request  = post "DescribeStackResources"
-    response = const . xmlResponse $ \h x -> DescribeStackResourcesOutput
-newtype
+    response = xmlResponse $ \h x -> DescribeStackResourcesOutput
+        <$> x %| "StackResources"

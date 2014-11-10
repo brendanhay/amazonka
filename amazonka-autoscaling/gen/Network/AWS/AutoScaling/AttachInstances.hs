@@ -29,7 +29,7 @@ module Network.AWS.AutoScaling.AttachInstances
     -- * Request
       AttachInstancesQuery
     -- ** Request constructor
-    , attachInstancesQuery
+    , attachInstances
     -- ** Request lenses
     , aiqAutoScalingGroupName
     , aiqInstanceIds
@@ -57,9 +57,9 @@ data AttachInstancesQuery = AttachInstancesQuery
 --
 -- * 'aiqInstanceIds' @::@ ['Text']
 --
-attachInstancesQuery :: Text -- ^ 'aiqAutoScalingGroupName'
-                     -> AttachInstancesQuery
-attachInstancesQuery p1 = AttachInstancesQuery
+attachInstances :: Text -- ^ 'aiqAutoScalingGroupName'
+                -> AttachInstancesQuery
+attachInstances p1 = AttachInstancesQuery
     { _aiqAutoScalingGroupName = p1
     , _aiqInstanceIds          = mempty
     }

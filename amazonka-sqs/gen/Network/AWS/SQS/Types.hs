@@ -119,48 +119,10 @@ instance AWSService SQS where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'SQS' errors returned by the
--- Amazon Simple Queue Service.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data SQSError
-    = SQSHttp       HttpException
-    | SQSSerializer String
-    | SQSService    Status SQSServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception SQSError
-
-instance AWSError SQSError where
-    awsError = \case
-        SQSHttp       ex  -> HttpError       ex
-        SQSSerializer e   -> SerializerError "SQS" e
-        SQSService    s x -> ServiceError    "SQS" s (show x)
-
-instance AWSServiceError SQSError where
-    httpError       = SQSHttp
-    serializerError = SQSSerializer
-    serviceError    = xmlError httpStatus SQSService
-
-_SQSHttp :: Prism' SQSError HttpException
-_SQSHttp = prism SQSHttp $ \case
-    SQSHttp ex -> Right ex
-    x -> Left x
-
-_SQSSerializer :: Prism' SQSError String
-_SQSSerializer = prism SQSSerializer $ \case
-    SQSSerializer e -> Right e
-    x -> Left x
-
-_SQSService :: Prism' SQSError (Status, SQSServiceError)
-_SQSService = prism (uncurry SQSService) $ \case
-    SQSService s x -> Right (s, x)
-    x -> Left x
 
 data QueueAttributeName
     = ApproximateNumberOfMessages           -- ^ ApproximateNumberOfMessages

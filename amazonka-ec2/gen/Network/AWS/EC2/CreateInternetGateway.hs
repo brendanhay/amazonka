@@ -36,7 +36,7 @@ module Network.AWS.EC2.CreateInternetGateway
     -- * Response
     , CreateInternetGatewayResult
     -- ** Response constructor
-    , createInternetGatewayResult
+    , createInternetGatewayResponse
     -- ** Response lenses
     , cigrInternetGateway
     ) where
@@ -78,8 +78,8 @@ newtype CreateInternetGatewayResult = CreateInternetGatewayResult
 --
 -- * 'cigrInternetGateway' @::@ 'Maybe' 'InternetGateway'
 --
-createInternetGatewayResult :: CreateInternetGatewayResult
-createInternetGatewayResult = CreateInternetGatewayResult
+createInternetGatewayResponse :: CreateInternetGatewayResult
+createInternetGatewayResponse = CreateInternetGatewayResult
     { _cigrInternetGateway = Nothing
     }
 
@@ -93,5 +93,5 @@ instance AWSRequest CreateInternetGateway where
     type Rs CreateInternetGateway = CreateInternetGatewayResult
 
     request  = post "CreateInternetGateway"
-    response = const . xmlResponse $ \h x -> CreateInternetGatewayResult
-newtype
+    response = xmlResponse $ \h x -> CreateInternetGatewayResult
+        <$> x %| "internetGateway"

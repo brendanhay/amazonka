@@ -116,5 +116,5 @@ instance AWSRequest CreateVirtualMFADevice where
     type Rs CreateVirtualMFADevice = CreateVirtualMFADeviceResponse
 
     request  = post "CreateVirtualMFADevice"
-    response = const . xmlResponse $ \h x -> CreateVirtualMFADeviceResponse
-newtype
+    response = xmlResponse $ \h x -> CreateVirtualMFADeviceResponse
+        <$> x %| "VirtualMFADevice"

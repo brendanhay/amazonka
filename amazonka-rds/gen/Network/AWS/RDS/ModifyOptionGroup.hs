@@ -26,7 +26,7 @@ module Network.AWS.RDS.ModifyOptionGroup
     -- * Request
       ModifyOptionGroupMessage
     -- ** Request constructor
-    , modifyOptionGroupMessage
+    , modifyOptionGroup
     -- ** Request lenses
     , mogmApplyImmediately
     , mogmOptionGroupName
@@ -36,7 +36,7 @@ module Network.AWS.RDS.ModifyOptionGroup
     -- * Response
     , ModifyOptionGroupResult
     -- ** Response constructor
-    , modifyOptionGroupResult
+    , modifyOptionGroupResponse
     -- ** Response lenses
     , mogrOptionGroup
     ) where
@@ -64,9 +64,9 @@ data ModifyOptionGroupMessage = ModifyOptionGroupMessage
 --
 -- * 'mogmOptionsToRemove' @::@ ['Text']
 --
-modifyOptionGroupMessage :: Text -- ^ 'mogmOptionGroupName'
-                         -> ModifyOptionGroupMessage
-modifyOptionGroupMessage p1 = ModifyOptionGroupMessage
+modifyOptionGroup :: Text -- ^ 'mogmOptionGroupName'
+                  -> ModifyOptionGroupMessage
+modifyOptionGroup p1 = ModifyOptionGroupMessage
     { _mogmOptionGroupName  = p1
     , _mogmOptionsToInclude = mempty
     , _mogmOptionsToRemove  = mempty
@@ -115,8 +115,8 @@ newtype ModifyOptionGroupResult = ModifyOptionGroupResult
 --
 -- * 'mogrOptionGroup' @::@ 'Maybe' 'OptionGroup'
 --
-modifyOptionGroupResult :: ModifyOptionGroupResult
-modifyOptionGroupResult = ModifyOptionGroupResult
+modifyOptionGroupResponse :: ModifyOptionGroupResult
+modifyOptionGroupResponse = ModifyOptionGroupResult
     { _mogrOptionGroup = Nothing
     }
 
@@ -128,5 +128,5 @@ instance AWSRequest ModifyOptionGroupMessage where
     type Rs ModifyOptionGroupMessage = ModifyOptionGroupResult
 
     request  = post "ModifyOptionGroup"
-    response = const . xmlResponse $ \h x -> ModifyOptionGroupResult
-newtype
+    response = xmlResponse $ \h x -> ModifyOptionGroupResult
+        <$> x %| "OptionGroup"

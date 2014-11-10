@@ -145,5 +145,7 @@ instance AWSRequest ListSigningCertificates where
     type Rs ListSigningCertificates = ListSigningCertificatesResponse
 
     request  = post "ListSigningCertificates"
-    response = const . xmlResponse $ \h x -> ListSigningCertificatesResponse
-record
+    response = xmlResponse $ \h x -> ListSigningCertificatesResponse
+        <$> x %| "Certificates"
+        <*> x %| "IsTruncated"
+        <*> x %| "Marker"

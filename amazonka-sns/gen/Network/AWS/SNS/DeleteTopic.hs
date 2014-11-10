@@ -29,7 +29,7 @@ module Network.AWS.SNS.DeleteTopic
     -- * Request
       DeleteTopicInput
     -- ** Request constructor
-    , deleteTopicInput
+    , deleteTopic
     -- ** Request lenses
     , dtiTopicArn
 
@@ -53,9 +53,9 @@ newtype DeleteTopicInput = DeleteTopicInput
 --
 -- * 'dtiTopicArn' @::@ 'Text'
 --
-deleteTopicInput :: Text -- ^ 'dtiTopicArn'
-                 -> DeleteTopicInput
-deleteTopicInput p1 = DeleteTopicInput
+deleteTopic :: Text -- ^ 'dtiTopicArn'
+            -> DeleteTopicInput
+deleteTopic p1 = DeleteTopicInput
     { _dtiTopicArn = p1
     }
 

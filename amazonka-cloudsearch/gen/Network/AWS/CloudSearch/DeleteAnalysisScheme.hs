@@ -104,5 +104,5 @@ instance AWSRequest DeleteAnalysisScheme where
     type Rs DeleteAnalysisScheme = DeleteAnalysisSchemeResponse
 
     request  = post "DeleteAnalysisScheme"
-    response = const . xmlResponse $ \h x -> DeleteAnalysisSchemeResponse
-newtype
+    response = xmlResponse $ \h x -> DeleteAnalysisSchemeResponse
+        <$> x %| "AnalysisScheme"

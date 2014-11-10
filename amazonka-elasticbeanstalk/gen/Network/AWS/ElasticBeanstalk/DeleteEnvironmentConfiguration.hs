@@ -32,7 +32,7 @@ module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     -- * Request
       DeleteEnvironmentConfigurationMessage
     -- ** Request constructor
-    , deleteEnvironmentConfigurationMessage
+    , deleteEnvironmentConfiguration
     -- ** Request lenses
     , decmApplicationName
     , decmEnvironmentName
@@ -60,10 +60,10 @@ data DeleteEnvironmentConfigurationMessage = DeleteEnvironmentConfigurationMessa
 --
 -- * 'decmEnvironmentName' @::@ 'Text'
 --
-deleteEnvironmentConfigurationMessage :: Text -- ^ 'decmApplicationName'
-                                      -> Text -- ^ 'decmEnvironmentName'
-                                      -> DeleteEnvironmentConfigurationMessage
-deleteEnvironmentConfigurationMessage p1 p2 = DeleteEnvironmentConfigurationMessage
+deleteEnvironmentConfiguration :: Text -- ^ 'decmApplicationName'
+                               -> Text -- ^ 'decmEnvironmentName'
+                               -> DeleteEnvironmentConfigurationMessage
+deleteEnvironmentConfiguration p1 p2 = DeleteEnvironmentConfigurationMessage
     { _decmApplicationName = p1
     , _decmEnvironmentName = p2
     }

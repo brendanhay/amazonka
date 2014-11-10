@@ -118,5 +118,5 @@ instance AWSRequest DescribeAnalysisSchemes where
     type Rs DescribeAnalysisSchemes = DescribeAnalysisSchemesResponse
 
     request  = post "DescribeAnalysisSchemes"
-    response = const . xmlResponse $ \h x -> DescribeAnalysisSchemesResponse
-newtype
+    response = xmlResponse $ \h x -> DescribeAnalysisSchemesResponse
+        <$> x %| "AnalysisSchemes"

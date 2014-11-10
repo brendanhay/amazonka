@@ -119,5 +119,7 @@ instance AWSRequest GetSAMLProvider where
     type Rs GetSAMLProvider = GetSAMLProviderResponse
 
     request  = post "GetSAMLProvider"
-    response = const . xmlResponse $ \h x -> GetSAMLProviderResponse
-record
+    response = xmlResponse $ \h x -> GetSAMLProviderResponse
+        <$> x %| "CreateDate"
+        <*> x %| "SAMLMetadataDocument"
+        <*> x %| "ValidUntil"

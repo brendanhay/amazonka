@@ -36,7 +36,7 @@ module Network.AWS.S3.CompleteMultipartUpload
     -- * Response
     , CompleteMultipartUploadOutput
     -- ** Response constructor
-    , completeMultipartUploadOutput
+    , completeMultipartUploadResponse
     -- ** Response lenses
     , cmuoBucket
     , cmuoETag
@@ -138,8 +138,8 @@ data CompleteMultipartUploadOutput = CompleteMultipartUploadOutput
 --
 -- * 'cmuoVersionId' @::@ 'Maybe' 'Text'
 --
-completeMultipartUploadOutput :: CompleteMultipartUploadOutput
-completeMultipartUploadOutput = CompleteMultipartUploadOutput
+completeMultipartUploadResponse :: CompleteMultipartUploadOutput
+completeMultipartUploadResponse = CompleteMultipartUploadOutput
     { _cmuoLocation             = Nothing
     , _cmuoBucket               = Nothing
     , _cmuoKey                  = Nothing
@@ -184,5 +184,11 @@ instance AWSRequest CompleteMultipartUpload where
     type Rs CompleteMultipartUpload = CompleteMultipartUploadOutput
 
     request  = post
-    response = const . xmlResponse $ \h x -> CompleteMultipartUploadOutput
-record
+    response = xmlResponse $ \h x -> CompleteMultipartUploadOutput
+        <$> x %| "Bucket"
+        <*> x %| "ETag"
+        <*> h ~:? "x-amz-expiration"
+        <*> x %| "Key"
+        <*> x %| "Location"
+        <*> h ~:? "x-amz-server-side-encryption"
+        <*> h ~:? "x-amz-version-id"

@@ -33,7 +33,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     -- * Request
       DescribeConfigurationSettingsMessage
     -- ** Request constructor
-    , describeConfigurationSettingsMessage
+    , describeConfigurationSettings
     -- ** Request lenses
     , dcsmApplicationName
     , dcsmEnvironmentName
@@ -42,7 +42,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     -- * Response
     , ConfigurationSettingsDescriptions
     -- ** Response constructor
-    , configurationSettingsDescriptions
+    , describeConfigurationSettingsResponse
     -- ** Response lenses
     , csdConfigurationSettings
     ) where
@@ -67,9 +67,9 @@ data DescribeConfigurationSettingsMessage = DescribeConfigurationSettingsMessage
 --
 -- * 'dcsmTemplateName' @::@ 'Maybe' 'Text'
 --
-describeConfigurationSettingsMessage :: Text -- ^ 'dcsmApplicationName'
-                                     -> DescribeConfigurationSettingsMessage
-describeConfigurationSettingsMessage p1 = DescribeConfigurationSettingsMessage
+describeConfigurationSettings :: Text -- ^ 'dcsmApplicationName'
+                              -> DescribeConfigurationSettingsMessage
+describeConfigurationSettings p1 = DescribeConfigurationSettingsMessage
     { _dcsmApplicationName = p1
     , _dcsmTemplateName    = Nothing
     , _dcsmEnvironmentName = Nothing
@@ -112,8 +112,8 @@ newtype ConfigurationSettingsDescriptions = ConfigurationSettingsDescriptions
 --
 -- * 'csdConfigurationSettings' @::@ ['ConfigurationSettingsDescription']
 --
-configurationSettingsDescriptions :: ConfigurationSettingsDescriptions
-configurationSettingsDescriptions = ConfigurationSettingsDescriptions
+describeConfigurationSettingsResponse :: ConfigurationSettingsDescriptions
+describeConfigurationSettingsResponse = ConfigurationSettingsDescriptions
     { _csdConfigurationSettings = mempty
     }
 
@@ -128,5 +128,5 @@ instance AWSRequest DescribeConfigurationSettingsMessage where
     type Rs DescribeConfigurationSettingsMessage = ConfigurationSettingsDescriptions
 
     request  = post "DescribeConfigurationSettings"
-    response = const . xmlResponse $ \h x -> ConfigurationSettingsDescriptions
-newtype
+    response = xmlResponse $ \h x -> ConfigurationSettingsDescriptions
+        <$> x %| "ConfigurationSettings"

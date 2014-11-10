@@ -134,5 +134,5 @@ instance AWSRequest ChangeResourceRecordSets where
     type Rs ChangeResourceRecordSets = ChangeResourceRecordSetsResponse
 
     request  = post
-    response = const . xmlResponse $ \h x -> ChangeResourceRecordSetsResponse
-newtype
+    response = xmlResponse $ \h x -> ChangeResourceRecordSetsResponse
+        <$> x %| "ChangeInfo"

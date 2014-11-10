@@ -105,5 +105,5 @@ instance AWSRequest GetIdentityDkimAttributes where
     type Rs GetIdentityDkimAttributes = GetIdentityDkimAttributesResponse
 
     request  = post "GetIdentityDkimAttributes"
-    response = const . xmlResponse $ \h x -> GetIdentityDkimAttributesResponse
-newtype
+    response = xmlResponse $ \h x -> GetIdentityDkimAttributesResponse
+        <$> x %| "DkimAttributes"

@@ -26,14 +26,14 @@ module Network.AWS.CloudFront.CreateDistribution
     -- * Request
       CreateDistribution
     -- ** Request constructor
-    , createDistribution
+    , createDistribution2014_05_31
     -- ** Request lenses
     , cdDistributionConfig
 
     -- * Response
     , CreateDistributionResult
     -- ** Response constructor
-    , createDistributionResult
+    , createDistribution2014_05_31Response
     -- ** Response lenses
     , cdrDistribution
     , cdrETag
@@ -54,9 +54,9 @@ newtype CreateDistribution = CreateDistribution
 --
 -- * 'cdDistributionConfig' @::@ 'DistributionConfig'
 --
-createDistribution :: DistributionConfig -- ^ 'cdDistributionConfig'
-                   -> CreateDistribution
-createDistribution p1 = CreateDistribution
+createDistribution2014_05_31 :: DistributionConfig -- ^ 'cdDistributionConfig'
+                             -> CreateDistribution
+createDistribution2014_05_31 p1 = CreateDistribution
     { _cdDistributionConfig = p1
     }
 
@@ -92,8 +92,8 @@ data CreateDistributionResult = CreateDistributionResult
 --
 -- * 'cdrLocation' @::@ 'Maybe' 'Text'
 --
-createDistributionResult :: CreateDistributionResult
-createDistributionResult = CreateDistributionResult
+createDistribution2014_05_31Response :: CreateDistributionResult
+createDistribution2014_05_31Response = CreateDistributionResult
     { _cdrDistribution = Nothing
     , _cdrLocation     = Nothing
     , _cdrETag         = Nothing
@@ -118,5 +118,7 @@ instance AWSRequest CreateDistribution where
     type Rs CreateDistribution = CreateDistributionResult
 
     request  = post
-    response = const . xmlResponse $ \h x -> CreateDistributionResult
-record
+    response = xmlResponse $ \h x -> CreateDistributionResult
+        <$> x %| "Distribution"
+        <*> h ~:? "ETag"
+        <*> h ~:? "Location"

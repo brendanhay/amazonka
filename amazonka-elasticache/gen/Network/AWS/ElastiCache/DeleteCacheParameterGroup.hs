@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     -- * Request
       DeleteCacheParameterGroupMessage
     -- ** Request constructor
-    , deleteCacheParameterGroupMessage
+    , deleteCacheParameterGroup
     -- ** Request lenses
     , dcpgm1CacheParameterGroupName
 
@@ -52,9 +52,9 @@ newtype DeleteCacheParameterGroupMessage = DeleteCacheParameterGroupMessage
 --
 -- * 'dcpgm1CacheParameterGroupName' @::@ 'Text'
 --
-deleteCacheParameterGroupMessage :: Text -- ^ 'dcpgm1CacheParameterGroupName'
-                                 -> DeleteCacheParameterGroupMessage
-deleteCacheParameterGroupMessage p1 = DeleteCacheParameterGroupMessage
+deleteCacheParameterGroup :: Text -- ^ 'dcpgm1CacheParameterGroupName'
+                          -> DeleteCacheParameterGroupMessage
+deleteCacheParameterGroup p1 = DeleteCacheParameterGroupMessage
     { _dcpgm1CacheParameterGroupName = p1
     }
 

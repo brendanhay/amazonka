@@ -32,7 +32,7 @@ module Network.AWS.ElastiCache.DeleteCacheCluster
     -- * Request
       DeleteCacheClusterMessage
     -- ** Request constructor
-    , deleteCacheClusterMessage
+    , deleteCacheCluster
     -- ** Request lenses
     , dccmCacheClusterId
     , dccmFinalSnapshotIdentifier
@@ -40,7 +40,7 @@ module Network.AWS.ElastiCache.DeleteCacheCluster
     -- * Response
     , DeleteCacheClusterResult
     -- ** Response constructor
-    , deleteCacheClusterResult
+    , deleteCacheClusterResponse
     -- ** Response lenses
     , dccrCacheCluster
     ) where
@@ -62,9 +62,9 @@ data DeleteCacheClusterMessage = DeleteCacheClusterMessage
 --
 -- * 'dccmFinalSnapshotIdentifier' @::@ 'Maybe' 'Text'
 --
-deleteCacheClusterMessage :: Text -- ^ 'dccmCacheClusterId'
-                          -> DeleteCacheClusterMessage
-deleteCacheClusterMessage p1 = DeleteCacheClusterMessage
+deleteCacheCluster :: Text -- ^ 'dccmCacheClusterId'
+                   -> DeleteCacheClusterMessage
+deleteCacheCluster p1 = DeleteCacheClusterMessage
     { _dccmCacheClusterId          = p1
     , _dccmFinalSnapshotIdentifier = Nothing
     }
@@ -98,8 +98,8 @@ newtype DeleteCacheClusterResult = DeleteCacheClusterResult
 --
 -- * 'dccrCacheCluster' @::@ 'Maybe' 'CacheCluster'
 --
-deleteCacheClusterResult :: DeleteCacheClusterResult
-deleteCacheClusterResult = DeleteCacheClusterResult
+deleteCacheClusterResponse :: DeleteCacheClusterResult
+deleteCacheClusterResponse = DeleteCacheClusterResult
     { _dccrCacheCluster = Nothing
     }
 
@@ -111,5 +111,5 @@ instance AWSRequest DeleteCacheClusterMessage where
     type Rs DeleteCacheClusterMessage = DeleteCacheClusterResult
 
     request  = post "DeleteCacheCluster"
-    response = const . xmlResponse $ \h x -> DeleteCacheClusterResult
-newtype
+    response = xmlResponse $ \h x -> DeleteCacheClusterResult
+        <$> x %| "CacheCluster"

@@ -28,14 +28,14 @@ module Network.AWS.CloudFormation.GetTemplate
     -- * Request
       GetTemplateInput
     -- ** Request constructor
-    , getTemplateInput
+    , getTemplate
     -- ** Request lenses
     , gtiStackName
 
     -- * Response
     , GetTemplateOutput
     -- ** Response constructor
-    , getTemplateOutput
+    , getTemplateResponse
     -- ** Response lenses
     , gtoTemplateBody
     ) where
@@ -54,9 +54,9 @@ newtype GetTemplateInput = GetTemplateInput
 --
 -- * 'gtiStackName' @::@ 'Text'
 --
-getTemplateInput :: Text -- ^ 'gtiStackName'
-                 -> GetTemplateInput
-getTemplateInput p1 = GetTemplateInput
+getTemplate :: Text -- ^ 'gtiStackName'
+            -> GetTemplateInput
+getTemplate p1 = GetTemplateInput
     { _gtiStackName = p1
     }
 
@@ -82,8 +82,8 @@ newtype GetTemplateOutput = GetTemplateOutput
 --
 -- * 'gtoTemplateBody' @::@ 'Maybe' 'Text'
 --
-getTemplateOutput :: GetTemplateOutput
-getTemplateOutput = GetTemplateOutput
+getTemplateResponse :: GetTemplateOutput
+getTemplateResponse = GetTemplateOutput
     { _gtoTemplateBody = Nothing
     }
 
@@ -97,5 +97,5 @@ instance AWSRequest GetTemplateInput where
     type Rs GetTemplateInput = GetTemplateOutput
 
     request  = post "GetTemplate"
-    response = const . xmlResponse $ \h x -> GetTemplateOutput
-newtype
+    response = xmlResponse $ \h x -> GetTemplateOutput
+        <$> x %| "TemplateBody"

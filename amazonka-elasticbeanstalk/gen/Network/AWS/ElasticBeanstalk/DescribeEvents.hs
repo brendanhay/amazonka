@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     -- * Request
       DescribeEventsMessage
     -- ** Request constructor
-    , describeEventsMessage
+    , describeEvents
     -- ** Request lenses
     , dem1ApplicationName
     , dem1EndTime
@@ -44,7 +44,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     -- * Response
     , EventDescriptionsMessage
     -- ** Response constructor
-    , eventDescriptionsMessage
+    , describeEventsResponse
     -- ** Response lenses
     , edmEvents
     , edmNextToken
@@ -94,8 +94,8 @@ data DescribeEventsMessage = DescribeEventsMessage
 --
 -- * 'dem1VersionLabel' @::@ 'Maybe' 'Text'
 --
-describeEventsMessage :: DescribeEventsMessage
-describeEventsMessage = DescribeEventsMessage
+describeEvents :: DescribeEventsMessage
+describeEvents = DescribeEventsMessage
     { _dem1ApplicationName = Nothing
     , _dem1VersionLabel    = Nothing
     , _dem1TemplateName    = Nothing
@@ -187,8 +187,8 @@ data EventDescriptionsMessage = EventDescriptionsMessage
 --
 -- * 'edmNextToken' @::@ 'Maybe' 'Text'
 --
-eventDescriptionsMessage :: EventDescriptionsMessage
-eventDescriptionsMessage = EventDescriptionsMessage
+describeEventsResponse :: EventDescriptionsMessage
+describeEventsResponse = EventDescriptionsMessage
     { _edmEvents    = mempty
     , _edmNextToken = Nothing
     }
@@ -208,5 +208,6 @@ instance AWSRequest DescribeEventsMessage where
     type Rs DescribeEventsMessage = EventDescriptionsMessage
 
     request  = post "DescribeEvents"
-    response = const . xmlResponse $ \h x -> EventDescriptionsMessage
-record
+    response = xmlResponse $ \h x -> EventDescriptionsMessage
+        <$> x %| "Events"
+        <*> x %| "NextToken"

@@ -29,7 +29,7 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     -- * Request
       DescribeClusterSubnetGroupsMessage
     -- ** Request constructor
-    , describeClusterSubnetGroupsMessage
+    , describeClusterSubnetGroups
     -- ** Request lenses
     , dcsgm1ClusterSubnetGroupName
     , dcsgm1Marker
@@ -38,7 +38,7 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     -- * Response
     , ClusterSubnetGroupMessage
     -- ** Response constructor
-    , clusterSubnetGroupMessage
+    , describeClusterSubnetGroupsResponse
     -- ** Response lenses
     , csgmClusterSubnetGroups
     , csgmMarker
@@ -64,8 +64,8 @@ data DescribeClusterSubnetGroupsMessage = DescribeClusterSubnetGroupsMessage
 --
 -- * 'dcsgm1MaxRecords' @::@ 'Maybe' 'Int'
 --
-describeClusterSubnetGroupsMessage :: DescribeClusterSubnetGroupsMessage
-describeClusterSubnetGroupsMessage = DescribeClusterSubnetGroupsMessage
+describeClusterSubnetGroups :: DescribeClusterSubnetGroupsMessage
+describeClusterSubnetGroups = DescribeClusterSubnetGroupsMessage
     { _dcsgm1ClusterSubnetGroupName = Nothing
     , _dcsgm1MaxRecords             = Nothing
     , _dcsgm1Marker                 = Nothing
@@ -112,8 +112,8 @@ data ClusterSubnetGroupMessage = ClusterSubnetGroupMessage
 --
 -- * 'csgmMarker' @::@ 'Maybe' 'Text'
 --
-clusterSubnetGroupMessage :: ClusterSubnetGroupMessage
-clusterSubnetGroupMessage = ClusterSubnetGroupMessage
+describeClusterSubnetGroupsResponse :: ClusterSubnetGroupMessage
+describeClusterSubnetGroupsResponse = ClusterSubnetGroupMessage
     { _csgmMarker              = Nothing
     , _csgmClusterSubnetGroups = mempty
     }
@@ -137,5 +137,6 @@ instance AWSRequest DescribeClusterSubnetGroupsMessage where
     type Rs DescribeClusterSubnetGroupsMessage = ClusterSubnetGroupMessage
 
     request  = post "DescribeClusterSubnetGroups"
-    response = const . xmlResponse $ \h x -> ClusterSubnetGroupMessage
-record
+    response = xmlResponse $ \h x -> ClusterSubnetGroupMessage
+        <$> x %| "ClusterSubnetGroups"
+        <*> x %| "Marker"

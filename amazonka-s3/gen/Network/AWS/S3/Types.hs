@@ -414,48 +414,10 @@ instance AWSService S3 where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'S3' errors returned by the
--- Amazon Simple Storage Service.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data S3Error
-    = S3Http       HttpException
-    | S3Serializer String
-    | S3Service    Status S3ServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception S3Error
-
-instance AWSError S3Error where
-    awsError = \case
-        S3Http       ex  -> HttpError       ex
-        S3Serializer e   -> SerializerError "S3" e
-        S3Service    s x -> ServiceError    "S3" s (show x)
-
-instance AWSServiceError S3Error where
-    httpError       = S3Http
-    serializerError = S3Serializer
-    serviceError    = xmlError httpStatus S3Service
-
-_S3Http :: Prism' S3Error HttpException
-_S3Http = prism S3Http $ \case
-    S3Http ex -> Right ex
-    x -> Left x
-
-_S3Serializer :: Prism' S3Error String
-_S3Serializer = prism S3Serializer $ \case
-    S3Serializer e -> Right e
-    x -> Left x
-
-_S3Service :: Prism' S3Error (Status, S3ServiceError)
-_S3Service = prism (uncurry S3Service) $ \case
-    S3Service s x -> Right (s, x)
-    x -> Left x
 
 data Event
     = S3ReducedRedundancyLostObject -- ^ s3:ReducedRedundancyLostObject

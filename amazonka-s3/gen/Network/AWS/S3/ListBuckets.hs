@@ -32,7 +32,7 @@ module Network.AWS.S3.ListBuckets
     -- * Response
     , ListBucketsOutput
     -- ** Response constructor
-    , listBucketsOutput
+    , listBucketsResponse
     -- ** Response lenses
     , lboBuckets
     , lboOwner
@@ -69,8 +69,8 @@ data ListBucketsOutput = ListBucketsOutput
 --
 -- * 'lboOwner' @::@ 'Maybe' 'Owner'
 --
-listBucketsOutput :: ListBucketsOutput
-listBucketsOutput = ListBucketsOutput
+listBucketsResponse :: ListBucketsOutput
+listBucketsResponse = ListBucketsOutput
     { _lboBuckets = mempty
     , _lboOwner   = Nothing
     }
@@ -86,5 +86,6 @@ instance AWSRequest ListBuckets where
     type Rs ListBuckets = ListBucketsOutput
 
     request  = get
-    response = const . xmlResponse $ \h x -> ListBucketsOutput
-record
+    response = xmlResponse $ \h x -> ListBucketsOutput
+        <$> x %| "Buckets"
+        <*> x %| "Owner"

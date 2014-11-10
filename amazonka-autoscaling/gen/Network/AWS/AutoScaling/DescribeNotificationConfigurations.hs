@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     -- * Request
       DescribeNotificationConfigurationsType
     -- ** Request constructor
-    , describeNotificationConfigurationsType
+    , describeNotificationConfigurations
     -- ** Request lenses
     , dnctAutoScalingGroupNames
     , dnctMaxRecords
@@ -36,7 +36,7 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     -- * Response
     , DescribeNotificationConfigurationsAnswer
     -- ** Response constructor
-    , describeNotificationConfigurationsAnswer
+    , describeNotificationConfigurationsResponse
     -- ** Response lenses
     , dncaNextToken
     , dncaNotificationConfigurations
@@ -62,8 +62,8 @@ data DescribeNotificationConfigurationsType = DescribeNotificationConfigurations
 --
 -- * 'dnctNextToken' @::@ 'Maybe' 'Text'
 --
-describeNotificationConfigurationsType :: DescribeNotificationConfigurationsType
-describeNotificationConfigurationsType = DescribeNotificationConfigurationsType
+describeNotificationConfigurations :: DescribeNotificationConfigurationsType
+describeNotificationConfigurations = DescribeNotificationConfigurationsType
     { _dnctAutoScalingGroupNames = mempty
     , _dnctNextToken             = Nothing
     , _dnctMaxRecords            = Nothing
@@ -102,8 +102,8 @@ data DescribeNotificationConfigurationsAnswer = DescribeNotificationConfiguratio
 --
 -- * 'dncaNotificationConfigurations' @::@ ['NotificationConfiguration']
 --
-describeNotificationConfigurationsAnswer :: DescribeNotificationConfigurationsAnswer
-describeNotificationConfigurationsAnswer = DescribeNotificationConfigurationsAnswer
+describeNotificationConfigurationsResponse :: DescribeNotificationConfigurationsAnswer
+describeNotificationConfigurationsResponse = DescribeNotificationConfigurationsAnswer
     { _dncaNotificationConfigurations = mempty
     , _dncaNextToken                  = Nothing
     }
@@ -124,5 +124,6 @@ instance AWSRequest DescribeNotificationConfigurationsType where
     type Rs DescribeNotificationConfigurationsType = DescribeNotificationConfigurationsAnswer
 
     request  = post "DescribeNotificationConfigurations"
-    response = const . xmlResponse $ \h x -> DescribeNotificationConfigurationsAnswer
-record
+    response = xmlResponse $ \h x -> DescribeNotificationConfigurationsAnswer
+        <$> x %| "NextToken"
+        <*> x %| "NotificationConfigurations"

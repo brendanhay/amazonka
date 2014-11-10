@@ -37,7 +37,7 @@ module Network.AWS.EC2.DeleteVpcPeeringConnection
     -- * Response
     , DeleteVpcPeeringConnectionResult
     -- ** Response constructor
-    , deleteVpcPeeringConnectionResult
+    , deleteVpcPeeringConnectionResponse
     -- ** Response lenses
     , dvpcrReturn
     ) where
@@ -90,8 +90,8 @@ newtype DeleteVpcPeeringConnectionResult = DeleteVpcPeeringConnectionResult
 --
 -- * 'dvpcrReturn' @::@ 'Maybe' 'Bool'
 --
-deleteVpcPeeringConnectionResult :: DeleteVpcPeeringConnectionResult
-deleteVpcPeeringConnectionResult = DeleteVpcPeeringConnectionResult
+deleteVpcPeeringConnectionResponse :: DeleteVpcPeeringConnectionResult
+deleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResult
     { _dvpcrReturn = Nothing
     }
 
@@ -104,5 +104,5 @@ instance AWSRequest DeleteVpcPeeringConnection where
     type Rs DeleteVpcPeeringConnection = DeleteVpcPeeringConnectionResult
 
     request  = post "DeleteVpcPeeringConnection"
-    response = const . xmlResponse $ \h x -> DeleteVpcPeeringConnectionResult
-newtype
+    response = xmlResponse $ \h x -> DeleteVpcPeeringConnectionResult
+        <$> x %| "return"

@@ -41,7 +41,7 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
     -- * Response
     , ReplaceRouteTableAssociationResult
     -- ** Response constructor
-    , replaceRouteTableAssociationResult
+    , replaceRouteTableAssociationResponse
     -- ** Response lenses
     , rrtarNewAssociationId
     ) where
@@ -102,8 +102,8 @@ newtype ReplaceRouteTableAssociationResult = ReplaceRouteTableAssociationResult
 --
 -- * 'rrtarNewAssociationId' @::@ 'Maybe' 'Text'
 --
-replaceRouteTableAssociationResult :: ReplaceRouteTableAssociationResult
-replaceRouteTableAssociationResult = ReplaceRouteTableAssociationResult
+replaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResult
+replaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResult
     { _rrtarNewAssociationId = Nothing
     }
 
@@ -117,5 +117,5 @@ instance AWSRequest ReplaceRouteTableAssociation where
     type Rs ReplaceRouteTableAssociation = ReplaceRouteTableAssociationResult
 
     request  = post "ReplaceRouteTableAssociation"
-    response = const . xmlResponse $ \h x -> ReplaceRouteTableAssociationResult
-newtype
+    response = xmlResponse $ \h x -> ReplaceRouteTableAssociationResult
+        <$> x %| "newAssociationId"

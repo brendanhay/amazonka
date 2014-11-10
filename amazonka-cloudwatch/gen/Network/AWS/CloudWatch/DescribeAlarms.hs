@@ -28,7 +28,7 @@ module Network.AWS.CloudWatch.DescribeAlarms
     -- * Request
       DescribeAlarmsInput
     -- ** Request constructor
-    , describeAlarmsInput
+    , describeAlarms
     -- ** Request lenses
     , dai1ActionPrefix
     , dai1AlarmNamePrefix
@@ -40,7 +40,7 @@ module Network.AWS.CloudWatch.DescribeAlarms
     -- * Response
     , DescribeAlarmsOutput
     -- ** Response constructor
-    , describeAlarmsOutput
+    , describeAlarmsResponse
     -- ** Response lenses
     , daoMetricAlarms
     , daoNextToken
@@ -75,8 +75,8 @@ data DescribeAlarmsInput = DescribeAlarmsInput
 --
 -- * 'dai1StateValue' @::@ 'Maybe' 'Text'
 --
-describeAlarmsInput :: DescribeAlarmsInput
-describeAlarmsInput = DescribeAlarmsInput
+describeAlarms :: DescribeAlarmsInput
+describeAlarms = DescribeAlarmsInput
     { _dai1AlarmNames      = mempty
     , _dai1AlarmNamePrefix = Nothing
     , _dai1StateValue      = Nothing
@@ -130,8 +130,8 @@ data DescribeAlarmsOutput = DescribeAlarmsOutput
 --
 -- * 'daoNextToken' @::@ 'Maybe' 'Text'
 --
-describeAlarmsOutput :: DescribeAlarmsOutput
-describeAlarmsOutput = DescribeAlarmsOutput
+describeAlarmsResponse :: DescribeAlarmsOutput
+describeAlarmsResponse = DescribeAlarmsOutput
     { _daoMetricAlarms = mempty
     , _daoNextToken    = Nothing
     }
@@ -149,5 +149,6 @@ instance AWSRequest DescribeAlarmsInput where
     type Rs DescribeAlarmsInput = DescribeAlarmsOutput
 
     request  = post "DescribeAlarms"
-    response = const . xmlResponse $ \h x -> DescribeAlarmsOutput
-record
+    response = xmlResponse $ \h x -> DescribeAlarmsOutput
+        <$> x %| "MetricAlarms"
+        <*> x %| "NextToken"

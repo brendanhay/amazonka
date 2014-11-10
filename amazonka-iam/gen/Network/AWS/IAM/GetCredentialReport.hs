@@ -98,5 +98,7 @@ instance AWSRequest GetCredentialReport where
     type Rs GetCredentialReport = GetCredentialReportResponse
 
     request  = post "GetCredentialReport"
-    response = const . xmlResponse $ \h x -> GetCredentialReportResponse
-record
+    response = xmlResponse $ \h x -> GetCredentialReportResponse
+        <$> x %| "Content"
+        <*> x %| "GeneratedTime"
+        <*> x %| "ReportFormat"

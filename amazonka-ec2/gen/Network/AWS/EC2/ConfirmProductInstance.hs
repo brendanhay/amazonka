@@ -38,7 +38,7 @@ module Network.AWS.EC2.ConfirmProductInstance
     -- * Response
     , ConfirmProductInstanceResult
     -- ** Response constructor
-    , confirmProductInstanceResult
+    , confirmProductInstanceResponse
     -- ** Response lenses
     , cpirOwnerId
     ) where
@@ -98,8 +98,8 @@ newtype ConfirmProductInstanceResult = ConfirmProductInstanceResult
 --
 -- * 'cpirOwnerId' @::@ 'Maybe' 'Text'
 --
-confirmProductInstanceResult :: ConfirmProductInstanceResult
-confirmProductInstanceResult = ConfirmProductInstanceResult
+confirmProductInstanceResponse :: ConfirmProductInstanceResult
+confirmProductInstanceResponse = ConfirmProductInstanceResult
     { _cpirOwnerId = Nothing
     }
 
@@ -113,5 +113,5 @@ instance AWSRequest ConfirmProductInstance where
     type Rs ConfirmProductInstance = ConfirmProductInstanceResult
 
     request  = post "ConfirmProductInstance"
-    response = const . xmlResponse $ \h x -> ConfirmProductInstanceResult
-newtype
+    response = xmlResponse $ \h x -> ConfirmProductInstanceResult
+        <$> x %| "ownerId"

@@ -26,7 +26,7 @@ module Network.AWS.RDS.DeleteDBSecurityGroup
     -- * Request
       DeleteDBSecurityGroupMessage
     -- ** Request constructor
-    , deleteDBSecurityGroupMessage
+    , deleteDBSecurityGroup
     -- ** Request lenses
     , ddbsgmDBSecurityGroupName
 
@@ -50,9 +50,9 @@ newtype DeleteDBSecurityGroupMessage = DeleteDBSecurityGroupMessage
 --
 -- * 'ddbsgmDBSecurityGroupName' @::@ 'Text'
 --
-deleteDBSecurityGroupMessage :: Text -- ^ 'ddbsgmDBSecurityGroupName'
-                             -> DeleteDBSecurityGroupMessage
-deleteDBSecurityGroupMessage p1 = DeleteDBSecurityGroupMessage
+deleteDBSecurityGroup :: Text -- ^ 'ddbsgmDBSecurityGroupName'
+                      -> DeleteDBSecurityGroupMessage
+deleteDBSecurityGroup p1 = DeleteDBSecurityGroupMessage
     { _ddbsgmDBSecurityGroupName = p1
     }
 

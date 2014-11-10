@@ -146,48 +146,10 @@ instance AWSService CloudWatch where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'CloudWatch' errors returned by the
--- Amazon CloudWatch.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data CloudWatchError
-    = CloudWatchHttp       HttpException
-    | CloudWatchSerializer String
-    | CloudWatchService    Status CloudWatchServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception CloudWatchError
-
-instance AWSError CloudWatchError where
-    awsError = \case
-        CloudWatchHttp       ex  -> HttpError       ex
-        CloudWatchSerializer e   -> SerializerError "CloudWatch" e
-        CloudWatchService    s x -> ServiceError    "CloudWatch" s (show x)
-
-instance AWSServiceError CloudWatchError where
-    httpError       = CloudWatchHttp
-    serializerError = CloudWatchSerializer
-    serviceError    = xmlError httpStatus CloudWatchService
-
-_CloudWatchHttp :: Prism' CloudWatchError HttpException
-_CloudWatchHttp = prism CloudWatchHttp $ \case
-    CloudWatchHttp ex -> Right ex
-    x -> Left x
-
-_CloudWatchSerializer :: Prism' CloudWatchError String
-_CloudWatchSerializer = prism CloudWatchSerializer $ \case
-    CloudWatchSerializer e -> Right e
-    x -> Left x
-
-_CloudWatchService :: Prism' CloudWatchError (Status, CloudWatchServiceError)
-_CloudWatchService = prism (uncurry CloudWatchService) $ \case
-    CloudWatchService s x -> Right (s, x)
-    x -> Left x
 
 data StatisticSet = StatisticSet
     { _ssMaximum     :: Double

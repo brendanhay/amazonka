@@ -132,5 +132,7 @@ instance AWSRequest ListAccountAliases where
     type Rs ListAccountAliases = ListAccountAliasesResponse
 
     request  = post "ListAccountAliases"
-    response = const . xmlResponse $ \h x -> ListAccountAliasesResponse
-record
+    response = xmlResponse $ \h x -> ListAccountAliasesResponse
+        <$> x %| "AccountAliases"
+        <*> x %| "IsTruncated"
+        <*> x %| "Marker"

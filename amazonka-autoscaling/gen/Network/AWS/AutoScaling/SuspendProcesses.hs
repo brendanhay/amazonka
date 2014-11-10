@@ -33,7 +33,7 @@ module Network.AWS.AutoScaling.SuspendProcesses
     -- * Request
       ScalingProcessQuery
     -- ** Request constructor
-    , scalingProcessQuery
+    , suspendProcesses
     -- ** Request lenses
     , spqAutoScalingGroupName
     , spqScalingProcesses
@@ -61,9 +61,9 @@ data ScalingProcessQuery = ScalingProcessQuery
 --
 -- * 'spqScalingProcesses' @::@ ['Text']
 --
-scalingProcessQuery :: Text -- ^ 'spqAutoScalingGroupName'
-                    -> ScalingProcessQuery
-scalingProcessQuery p1 = ScalingProcessQuery
+suspendProcesses :: Text -- ^ 'spqAutoScalingGroupName'
+                 -> ScalingProcessQuery
+suspendProcesses p1 = ScalingProcessQuery
     { _spqAutoScalingGroupName = p1
     , _spqScalingProcesses     = mempty
     }

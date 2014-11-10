@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     -- * Request
       DescribeReservedDBInstancesOfferingsMessage
     -- ** Request constructor
-    , describeReservedDBInstancesOfferingsMessage
+    , describeReservedDBInstancesOfferings
     -- ** Request lenses
     , drdbiomDBInstanceClass
     , drdbiomDuration
@@ -41,7 +41,7 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     -- * Response
     , ReservedDBInstancesOfferingMessage
     -- ** Response constructor
-    , reservedDBInstancesOfferingMessage
+    , describeReservedDBInstancesOfferingsResponse
     -- ** Response lenses
     , rdbiomMarker
     , rdbiomReservedDBInstancesOfferings
@@ -85,8 +85,8 @@ data DescribeReservedDBInstancesOfferingsMessage = DescribeReservedDBInstancesOf
 --
 -- * 'drdbiomReservedDBInstancesOfferingId' @::@ 'Maybe' 'Text'
 --
-describeReservedDBInstancesOfferingsMessage :: DescribeReservedDBInstancesOfferingsMessage
-describeReservedDBInstancesOfferingsMessage = DescribeReservedDBInstancesOfferingsMessage
+describeReservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferingsMessage
+describeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferingsMessage
     { _drdbiomReservedDBInstancesOfferingId = Nothing
     , _drdbiomDBInstanceClass               = Nothing
     , _drdbiomDuration                      = Nothing
@@ -173,8 +173,8 @@ data ReservedDBInstancesOfferingMessage = ReservedDBInstancesOfferingMessage
 --
 -- * 'rdbiomReservedDBInstancesOfferings' @::@ ['ReservedDBInstancesOffering']
 --
-reservedDBInstancesOfferingMessage :: ReservedDBInstancesOfferingMessage
-reservedDBInstancesOfferingMessage = ReservedDBInstancesOfferingMessage
+describeReservedDBInstancesOfferingsResponse :: ReservedDBInstancesOfferingMessage
+describeReservedDBInstancesOfferingsResponse = ReservedDBInstancesOfferingMessage
     { _rdbiomMarker                       = Nothing
     , _rdbiomReservedDBInstancesOfferings = mempty
     }
@@ -196,5 +196,6 @@ instance AWSRequest DescribeReservedDBInstancesOfferingsMessage where
     type Rs DescribeReservedDBInstancesOfferingsMessage = ReservedDBInstancesOfferingMessage
 
     request  = post "DescribeReservedDBInstancesOfferings"
-    response = const . xmlResponse $ \h x -> ReservedDBInstancesOfferingMessage
-record
+    response = xmlResponse $ \h x -> ReservedDBInstancesOfferingMessage
+        <$> x %| "Marker"
+        <*> x %| "ReservedDBInstancesOfferings"

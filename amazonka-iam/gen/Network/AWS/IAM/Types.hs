@@ -195,48 +195,10 @@ instance AWSService IAM where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'IAM' errors returned by the
--- Amazon Identity and Access Management.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data IAMError
-    = IAMHttp       HttpException
-    | IAMSerializer String
-    | IAMService    Status IAMServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception IAMError
-
-instance AWSError IAMError where
-    awsError = \case
-        IAMHttp       ex  -> HttpError       ex
-        IAMSerializer e   -> SerializerError "IAM" e
-        IAMService    s x -> ServiceError    "IAM" s (show x)
-
-instance AWSServiceError IAMError where
-    httpError       = IAMHttp
-    serializerError = IAMSerializer
-    serviceError    = xmlError httpStatus IAMService
-
-_IAMHttp :: Prism' IAMError HttpException
-_IAMHttp = prism IAMHttp $ \case
-    IAMHttp ex -> Right ex
-    x -> Left x
-
-_IAMSerializer :: Prism' IAMError String
-_IAMSerializer = prism IAMSerializer $ \case
-    IAMSerializer e -> Right e
-    x -> Left x
-
-_IAMService :: Prism' IAMError (Status, IAMServiceError)
-_IAMService = prism (uncurry IAMService) $ \case
-    IAMService s x -> Right (s, x)
-    x -> Left x
 
 data assignmentStatusType
     = Any        -- ^ Any

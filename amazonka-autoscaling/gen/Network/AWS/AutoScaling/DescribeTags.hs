@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeTags
     -- * Request
       DescribeTagsType
     -- ** Request constructor
-    , describeTagsType
+    , describeTags
     -- ** Request lenses
     , dttFilters
     , dttMaxRecords
@@ -41,7 +41,7 @@ module Network.AWS.AutoScaling.DescribeTags
     -- * Response
     , TagsType
     -- ** Response constructor
-    , tagsType
+    , describeTagsResponse
     -- ** Response lenses
     , ttNextToken
     , ttTags
@@ -67,8 +67,8 @@ data DescribeTagsType = DescribeTagsType
 --
 -- * 'dttNextToken' @::@ 'Maybe' 'Text'
 --
-describeTagsType :: DescribeTagsType
-describeTagsType = DescribeTagsType
+describeTags :: DescribeTagsType
+describeTags = DescribeTagsType
     { _dttFilters    = mempty
     , _dttNextToken  = Nothing
     , _dttMaxRecords = Nothing
@@ -107,8 +107,8 @@ data TagsType = TagsType
 --
 -- * 'ttTags' @::@ ['TagDescription']
 --
-tagsType :: TagsType
-tagsType = TagsType
+describeTagsResponse :: TagsType
+describeTagsResponse = TagsType
     { _ttTags      = mempty
     , _ttNextToken = Nothing
     }
@@ -126,5 +126,6 @@ instance AWSRequest DescribeTagsType where
     type Rs DescribeTagsType = TagsType
 
     request  = post "DescribeTags"
-    response = const . xmlResponse $ \h x -> TagsType
-record
+    response = xmlResponse $ \h x -> TagsType
+        <$> x %| "NextToken"
+        <*> x %| "Tags"

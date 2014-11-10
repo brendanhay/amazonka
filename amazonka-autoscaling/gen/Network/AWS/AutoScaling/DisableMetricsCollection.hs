@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.DisableMetricsCollection
     -- * Request
       DisableMetricsCollectionQuery
     -- ** Request constructor
-    , disableMetricsCollectionQuery
+    , disableMetricsCollection
     -- ** Request lenses
     , dmcqAutoScalingGroupName
     , dmcqMetrics
@@ -56,9 +56,9 @@ data DisableMetricsCollectionQuery = DisableMetricsCollectionQuery
 --
 -- * 'dmcqMetrics' @::@ ['Text']
 --
-disableMetricsCollectionQuery :: Text -- ^ 'dmcqAutoScalingGroupName'
-                              -> DisableMetricsCollectionQuery
-disableMetricsCollectionQuery p1 = DisableMetricsCollectionQuery
+disableMetricsCollection :: Text -- ^ 'dmcqAutoScalingGroupName'
+                         -> DisableMetricsCollectionQuery
+disableMetricsCollection p1 = DisableMetricsCollectionQuery
     { _dmcqAutoScalingGroupName = p1
     , _dmcqMetrics              = mempty
     }

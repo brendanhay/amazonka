@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeDBLogFiles
     -- * Request
       DescribeDBLogFilesMessage
     -- ** Request constructor
-    , describeDBLogFilesMessage
+    , describeDBLogFiles
     -- ** Request lenses
     , ddblfmDBInstanceIdentifier
     , ddblfmFileLastWritten
@@ -77,9 +77,9 @@ data DescribeDBLogFilesMessage = DescribeDBLogFilesMessage
 --
 -- * 'ddblfmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBLogFilesMessage :: Text -- ^ 'ddblfmDBInstanceIdentifier'
-                          -> DescribeDBLogFilesMessage
-describeDBLogFilesMessage p1 = DescribeDBLogFilesMessage
+describeDBLogFiles :: Text -- ^ 'ddblfmDBInstanceIdentifier'
+                   -> DescribeDBLogFilesMessage
+describeDBLogFiles p1 = DescribeDBLogFilesMessage
     { _ddblfmDBInstanceIdentifier = p1
     , _ddblfmFilenameContains     = Nothing
     , _ddblfmFileLastWritten      = Nothing
@@ -171,5 +171,6 @@ instance AWSRequest DescribeDBLogFilesMessage where
     type Rs DescribeDBLogFilesMessage = DescribeDBLogFilesResponse
 
     request  = post "DescribeDBLogFiles"
-    response = const . xmlResponse $ \h x -> DescribeDBLogFilesResponse
-record
+    response = xmlResponse $ \h x -> DescribeDBLogFilesResponse
+        <$> x %| "DescribeDBLogFiles"
+        <*> x %| "Marker"

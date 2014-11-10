@@ -46,7 +46,7 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     -- * Request
       GetMetricStatisticsInput
     -- ** Request constructor
-    , getMetricStatisticsInput
+    , getMetricStatistics
     -- ** Request lenses
     , gmsiDimensions
     , gmsiEndTime
@@ -60,7 +60,7 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     -- * Response
     , GetMetricStatisticsOutput
     -- ** Response constructor
-    , getMetricStatisticsOutput
+    , getMetricStatisticsResponse
     -- ** Response lenses
     , gmsoDatapoints
     , gmsoLabel
@@ -101,14 +101,14 @@ data GetMetricStatisticsInput = GetMetricStatisticsInput
 --
 -- * 'gmsiUnit' @::@ 'Maybe' 'Text'
 --
-getMetricStatisticsInput :: Text -- ^ 'gmsiNamespace'
-                         -> Text -- ^ 'gmsiMetricName'
-                         -> UTCTime -- ^ 'gmsiStartTime'
-                         -> UTCTime -- ^ 'gmsiEndTime'
-                         -> Int -- ^ 'gmsiPeriod'
-                         -> NonEmpty Text -- ^ 'gmsiStatistics'
-                         -> GetMetricStatisticsInput
-getMetricStatisticsInput p1 p2 p3 p4 p5 p6 = GetMetricStatisticsInput
+getMetricStatistics :: Text -- ^ 'gmsiNamespace'
+                    -> Text -- ^ 'gmsiMetricName'
+                    -> UTCTime -- ^ 'gmsiStartTime'
+                    -> UTCTime -- ^ 'gmsiEndTime'
+                    -> Int -- ^ 'gmsiPeriod'
+                    -> NonEmpty Text -- ^ 'gmsiStatistics'
+                    -> GetMetricStatisticsInput
+getMetricStatistics p1 p2 p3 p4 p5 p6 = GetMetricStatisticsInput
     { _gmsiNamespace  = p1
     , _gmsiMetricName = p2
     , _gmsiStartTime  = withIso _Time (const id) p3
@@ -181,8 +181,8 @@ data GetMetricStatisticsOutput = GetMetricStatisticsOutput
 --
 -- * 'gmsoLabel' @::@ 'Maybe' 'Text'
 --
-getMetricStatisticsOutput :: GetMetricStatisticsOutput
-getMetricStatisticsOutput = GetMetricStatisticsOutput
+getMetricStatisticsResponse :: GetMetricStatisticsOutput
+getMetricStatisticsResponse = GetMetricStatisticsOutput
     { _gmsoLabel      = Nothing
     , _gmsoDatapoints = mempty
     }
@@ -200,5 +200,6 @@ instance AWSRequest GetMetricStatisticsInput where
     type Rs GetMetricStatisticsInput = GetMetricStatisticsOutput
 
     request  = post "GetMetricStatistics"
-    response = const . xmlResponse $ \h x -> GetMetricStatisticsOutput
-record
+    response = xmlResponse $ \h x -> GetMetricStatisticsOutput
+        <$> x %| "Datapoints"
+        <*> x %| "Label"

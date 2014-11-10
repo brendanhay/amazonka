@@ -30,7 +30,7 @@ module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     -- * Request
       PutScheduledUpdateGroupActionType
     -- ** Request constructor
-    , putScheduledUpdateGroupActionType
+    , putScheduledUpdateGroupAction
     -- ** Request lenses
     , psugatAutoScalingGroupName
     , psugatDesiredCapacity
@@ -86,10 +86,10 @@ data PutScheduledUpdateGroupActionType = PutScheduledUpdateGroupActionType
 --
 -- * 'psugatTime' @::@ 'Maybe' 'UTCTime'
 --
-putScheduledUpdateGroupActionType :: Text -- ^ 'psugatAutoScalingGroupName'
-                                  -> Text -- ^ 'psugatScheduledActionName'
-                                  -> PutScheduledUpdateGroupActionType
-putScheduledUpdateGroupActionType p1 p2 = PutScheduledUpdateGroupActionType
+putScheduledUpdateGroupAction :: Text -- ^ 'psugatAutoScalingGroupName'
+                              -> Text -- ^ 'psugatScheduledActionName'
+                              -> PutScheduledUpdateGroupActionType
+putScheduledUpdateGroupAction p1 p2 = PutScheduledUpdateGroupActionType
     { _psugatAutoScalingGroupName = p1
     , _psugatScheduledActionName  = p2
     , _psugatTime                 = Nothing

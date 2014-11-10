@@ -143,5 +143,7 @@ instance AWSRequest ListInstanceProfilesForRole where
     type Rs ListInstanceProfilesForRole = ListInstanceProfilesForRoleResponse
 
     request  = post "ListInstanceProfilesForRole"
-    response = const . xmlResponse $ \h x -> ListInstanceProfilesForRoleResponse
-record
+    response = xmlResponse $ \h x -> ListInstanceProfilesForRoleResponse
+        <$> x %| "InstanceProfiles"
+        <*> x %| "IsTruncated"
+        <*> x %| "Marker"

@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     -- * Request
       SwapEnvironmentCNAMEsMessage
     -- ** Request constructor
-    , swapEnvironmentCNAMEsMessage
+    , swapEnvironmentCNAMEs
     -- ** Request lenses
     , secnamemDestinationEnvironmentId
     , secnamemDestinationEnvironmentName
@@ -62,8 +62,8 @@ data SwapEnvironmentCNAMEsMessage = SwapEnvironmentCNAMEsMessage
 --
 -- * 'secnamemSourceEnvironmentName' @::@ 'Maybe' 'Text'
 --
-swapEnvironmentCNAMEsMessage :: SwapEnvironmentCNAMEsMessage
-swapEnvironmentCNAMEsMessage = SwapEnvironmentCNAMEsMessage
+swapEnvironmentCNAMEs :: SwapEnvironmentCNAMEsMessage
+swapEnvironmentCNAMEs = SwapEnvironmentCNAMEsMessage
     { _secnamemSourceEnvironmentId        = Nothing
     , _secnamemSourceEnvironmentName      = Nothing
     , _secnamemDestinationEnvironmentId   = Nothing

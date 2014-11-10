@@ -30,7 +30,7 @@ module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     -- * Request
       SetLoadBalancerListenerSSLCertificateInput
     -- ** Request constructor
-    , setLoadBalancerListenerSSLCertificateInput
+    , setLoadBalancerListenerSSLCertificate
     -- ** Request lenses
     , slblsslciLoadBalancerName
     , slblsslciLoadBalancerPort
@@ -62,11 +62,11 @@ data SetLoadBalancerListenerSSLCertificateInput = SetLoadBalancerListenerSSLCert
 --
 -- * 'slblsslciSSLCertificateId' @::@ 'Text'
 --
-setLoadBalancerListenerSSLCertificateInput :: Text -- ^ 'slblsslciLoadBalancerName'
-                                           -> Int -- ^ 'slblsslciLoadBalancerPort'
-                                           -> Text -- ^ 'slblsslciSSLCertificateId'
-                                           -> SetLoadBalancerListenerSSLCertificateInput
-setLoadBalancerListenerSSLCertificateInput p1 p2 p3 = SetLoadBalancerListenerSSLCertificateInput
+setLoadBalancerListenerSSLCertificate :: Text -- ^ 'slblsslciLoadBalancerName'
+                                      -> Int -- ^ 'slblsslciLoadBalancerPort'
+                                      -> Text -- ^ 'slblsslciSSLCertificateId'
+                                      -> SetLoadBalancerListenerSSLCertificateInput
+setLoadBalancerListenerSSLCertificate p1 p2 p3 = SetLoadBalancerListenerSSLCertificateInput
     { _slblsslciLoadBalancerName = p1
     , _slblsslciLoadBalancerPort = p2
     , _slblsslciSSLCertificateId = p3

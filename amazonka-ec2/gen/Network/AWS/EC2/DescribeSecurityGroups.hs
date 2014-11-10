@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeSecurityGroups
     -- * Response
     , DescribeSecurityGroupsResult
     -- ** Response constructor
-    , describeSecurityGroupsResult
+    , describeSecurityGroupsResponse
     -- ** Response lenses
     , dsgrSecurityGroups
     ) where
@@ -123,8 +123,8 @@ newtype DescribeSecurityGroupsResult = DescribeSecurityGroupsResult
 --
 -- * 'dsgrSecurityGroups' @::@ ['SecurityGroup']
 --
-describeSecurityGroupsResult :: DescribeSecurityGroupsResult
-describeSecurityGroupsResult = DescribeSecurityGroupsResult
+describeSecurityGroupsResponse :: DescribeSecurityGroupsResult
+describeSecurityGroupsResponse = DescribeSecurityGroupsResult
     { _dsgrSecurityGroups = mempty
     }
 
@@ -138,5 +138,5 @@ instance AWSRequest DescribeSecurityGroups where
     type Rs DescribeSecurityGroups = DescribeSecurityGroupsResult
 
     request  = post "DescribeSecurityGroups"
-    response = const . xmlResponse $ \h x -> DescribeSecurityGroupsResult
-newtype
+    response = xmlResponse $ \h x -> DescribeSecurityGroupsResult
+        <$> x %| "securityGroupInfo"

@@ -104,5 +104,5 @@ instance AWSRequest CreateUser where
     type Rs CreateUser = CreateUserResponse
 
     request  = post "CreateUser"
-    response = const . xmlResponse $ \h x -> CreateUserResponse
-newtype
+    response = xmlResponse $ \h x -> CreateUserResponse
+        <$> x %| "User"

@@ -26,7 +26,7 @@ module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
     -- * Request
       DeleteCacheSubnetGroupMessage
     -- ** Request constructor
-    , deleteCacheSubnetGroupMessage
+    , deleteCacheSubnetGroup
     -- ** Request lenses
     , dcsgm1CacheSubnetGroupName
 
@@ -50,9 +50,9 @@ newtype DeleteCacheSubnetGroupMessage = DeleteCacheSubnetGroupMessage
 --
 -- * 'dcsgm1CacheSubnetGroupName' @::@ 'Text'
 --
-deleteCacheSubnetGroupMessage :: Text -- ^ 'dcsgm1CacheSubnetGroupName'
-                              -> DeleteCacheSubnetGroupMessage
-deleteCacheSubnetGroupMessage p1 = DeleteCacheSubnetGroupMessage
+deleteCacheSubnetGroup :: Text -- ^ 'dcsgm1CacheSubnetGroupName'
+                       -> DeleteCacheSubnetGroupMessage
+deleteCacheSubnetGroup p1 = DeleteCacheSubnetGroupMessage
     { _dcsgm1CacheSubnetGroupName = p1
     }
 

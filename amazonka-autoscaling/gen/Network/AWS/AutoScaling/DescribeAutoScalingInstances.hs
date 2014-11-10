@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     -- * Request
       DescribeAutoScalingInstancesType
     -- ** Request constructor
-    , describeAutoScalingInstancesType
+    , describeAutoScalingInstances
     -- ** Request lenses
     , dasitInstanceIds
     , dasitMaxRecords
@@ -40,7 +40,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     -- * Response
     , AutoScalingInstancesType
     -- ** Response constructor
-    , autoScalingInstancesType
+    , describeAutoScalingInstancesResponse
     -- ** Response lenses
     , asitAutoScalingInstances
     , asitNextToken
@@ -66,8 +66,8 @@ data DescribeAutoScalingInstancesType = DescribeAutoScalingInstancesType
 --
 -- * 'dasitNextToken' @::@ 'Maybe' 'Text'
 --
-describeAutoScalingInstancesType :: DescribeAutoScalingInstancesType
-describeAutoScalingInstancesType = DescribeAutoScalingInstancesType
+describeAutoScalingInstances :: DescribeAutoScalingInstancesType
+describeAutoScalingInstances = DescribeAutoScalingInstancesType
     { _dasitInstanceIds = mempty
     , _dasitMaxRecords  = Nothing
     , _dasitNextToken   = Nothing
@@ -108,8 +108,8 @@ data AutoScalingInstancesType = AutoScalingInstancesType
 --
 -- * 'asitNextToken' @::@ 'Maybe' 'Text'
 --
-autoScalingInstancesType :: AutoScalingInstancesType
-autoScalingInstancesType = AutoScalingInstancesType
+describeAutoScalingInstancesResponse :: AutoScalingInstancesType
+describeAutoScalingInstancesResponse = AutoScalingInstancesType
     { _asitAutoScalingInstances = mempty
     , _asitNextToken            = Nothing
     }
@@ -129,5 +129,6 @@ instance AWSRequest DescribeAutoScalingInstancesType where
     type Rs DescribeAutoScalingInstancesType = AutoScalingInstancesType
 
     request  = post "DescribeAutoScalingInstances"
-    response = const . xmlResponse $ \h x -> AutoScalingInstancesType
-record
+    response = xmlResponse $ \h x -> AutoScalingInstancesType
+        <$> x %| "AutoScalingInstances"
+        <*> x %| "NextToken"

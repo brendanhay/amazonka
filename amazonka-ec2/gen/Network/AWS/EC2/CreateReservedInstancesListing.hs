@@ -51,7 +51,7 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     -- * Response
     , CreateReservedInstancesListingResult
     -- ** Response constructor
-    , createReservedInstancesListingResult
+    , createReservedInstancesListingResponse
     -- ** Response lenses
     , crilr1ReservedInstancesListings
     ) where
@@ -130,8 +130,8 @@ newtype CreateReservedInstancesListingResult = CreateReservedInstancesListingRes
 --
 -- * 'crilr1ReservedInstancesListings' @::@ ['ReservedInstancesListing']
 --
-createReservedInstancesListingResult :: CreateReservedInstancesListingResult
-createReservedInstancesListingResult = CreateReservedInstancesListingResult
+createReservedInstancesListingResponse :: CreateReservedInstancesListingResult
+createReservedInstancesListingResponse = CreateReservedInstancesListingResult
     { _crilr1ReservedInstancesListings = mempty
     }
 
@@ -146,5 +146,5 @@ instance AWSRequest CreateReservedInstancesListing where
     type Rs CreateReservedInstancesListing = CreateReservedInstancesListingResult
 
     request  = post "CreateReservedInstancesListing"
-    response = const . xmlResponse $ \h x -> CreateReservedInstancesListingResult
-newtype
+    response = xmlResponse $ \h x -> CreateReservedInstancesListingResult
+        <$> x %| "reservedInstancesListingsSet"

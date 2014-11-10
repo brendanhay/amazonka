@@ -38,7 +38,7 @@ module Network.AWS.SNS.CreatePlatformEndpoint
     -- * Request
       CreatePlatformEndpointInput
     -- ** Request constructor
-    , createPlatformEndpointInput
+    , createPlatformEndpoint
     -- ** Request lenses
     , cpeiAttributes
     , cpeiCustomUserData
@@ -48,7 +48,7 @@ module Network.AWS.SNS.CreatePlatformEndpoint
     -- * Response
     , CreateEndpointResponse
     -- ** Response constructor
-    , createEndpointResponse
+    , createPlatformEndpointResponse
     -- ** Response lenses
     , cerEndpointArn
     ) where
@@ -76,10 +76,10 @@ data CreatePlatformEndpointInput = CreatePlatformEndpointInput
 --
 -- * 'cpeiToken' @::@ 'Text'
 --
-createPlatformEndpointInput :: Text -- ^ 'cpeiPlatformApplicationArn'
-                            -> Text -- ^ 'cpeiToken'
-                            -> CreatePlatformEndpointInput
-createPlatformEndpointInput p1 p2 = CreatePlatformEndpointInput
+createPlatformEndpoint :: Text -- ^ 'cpeiPlatformApplicationArn'
+                       -> Text -- ^ 'cpeiToken'
+                       -> CreatePlatformEndpointInput
+createPlatformEndpoint p1 p2 = CreatePlatformEndpointInput
     { _cpeiPlatformApplicationArn = p1
     , _cpeiToken                  = p2
     , _cpeiCustomUserData         = Nothing
@@ -128,8 +128,8 @@ newtype CreateEndpointResponse = CreateEndpointResponse
 --
 -- * 'cerEndpointArn' @::@ 'Maybe' 'Text'
 --
-createEndpointResponse :: CreateEndpointResponse
-createEndpointResponse = CreateEndpointResponse
+createPlatformEndpointResponse :: CreateEndpointResponse
+createPlatformEndpointResponse = CreateEndpointResponse
     { _cerEndpointArn = Nothing
     }
 
@@ -142,5 +142,5 @@ instance AWSRequest CreatePlatformEndpointInput where
     type Rs CreatePlatformEndpointInput = CreateEndpointResponse
 
     request  = post "CreatePlatformEndpoint"
-    response = const . xmlResponse $ \h x -> CreateEndpointResponse
-newtype
+    response = xmlResponse $ \h x -> CreateEndpointResponse
+        <$> x %| "EndpointArn"

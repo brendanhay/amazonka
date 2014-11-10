@@ -140,5 +140,7 @@ instance AWSRequest ListMFADevices where
     type Rs ListMFADevices = ListMFADevicesResponse
 
     request  = post "ListMFADevices"
-    response = const . xmlResponse $ \h x -> ListMFADevicesResponse
-record
+    response = xmlResponse $ \h x -> ListMFADevicesResponse
+        <$> x %| "IsTruncated"
+        <*> x %| "MFADevices"
+        <*> x %| "Marker"

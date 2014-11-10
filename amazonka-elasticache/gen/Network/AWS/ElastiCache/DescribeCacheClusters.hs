@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     -- * Request
       DescribeCacheClustersMessage
     -- ** Request constructor
-    , describeCacheClustersMessage
+    , describeCacheClusters
     -- ** Request lenses
     , dccm1CacheClusterId
     , dccm1Marker
@@ -51,7 +51,7 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     -- * Response
     , CacheClusterMessage
     -- ** Response constructor
-    , cacheClusterMessage
+    , describeCacheClustersResponse
     -- ** Response lenses
     , ccmCacheClusters
     , ccmMarker
@@ -80,8 +80,8 @@ data DescribeCacheClustersMessage = DescribeCacheClustersMessage
 --
 -- * 'dccm1ShowCacheNodeInfo' @::@ 'Maybe' 'Bool'
 --
-describeCacheClustersMessage :: DescribeCacheClustersMessage
-describeCacheClustersMessage = DescribeCacheClustersMessage
+describeCacheClusters :: DescribeCacheClustersMessage
+describeCacheClusters = DescribeCacheClustersMessage
     { _dccm1CacheClusterId    = Nothing
     , _dccm1MaxRecords        = Nothing
     , _dccm1Marker            = Nothing
@@ -133,8 +133,8 @@ data CacheClusterMessage = CacheClusterMessage
 --
 -- * 'ccmMarker' @::@ 'Maybe' 'Text'
 --
-cacheClusterMessage :: CacheClusterMessage
-cacheClusterMessage = CacheClusterMessage
+describeCacheClustersResponse :: CacheClusterMessage
+describeCacheClustersResponse = CacheClusterMessage
     { _ccmMarker        = Nothing
     , _ccmCacheClusters = mempty
     }
@@ -153,5 +153,6 @@ instance AWSRequest DescribeCacheClustersMessage where
     type Rs DescribeCacheClustersMessage = CacheClusterMessage
 
     request  = post "DescribeCacheClusters"
-    response = const . xmlResponse $ \h x -> CacheClusterMessage
-record
+    response = xmlResponse $ \h x -> CacheClusterMessage
+        <$> x %| "CacheClusters"
+        <*> x %| "Marker"

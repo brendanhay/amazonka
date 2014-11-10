@@ -134,5 +134,5 @@ instance AWSRequest AssociateVPCWithHostedZone where
     type Rs AssociateVPCWithHostedZone = AssociateVPCWithHostedZoneResponse
 
     request  = post
-    response = const . xmlResponse $ \h x -> AssociateVPCWithHostedZoneResponse
-newtype
+    response = xmlResponse $ \h x -> AssociateVPCWithHostedZoneResponse
+        <$> x %| "ChangeInfo"

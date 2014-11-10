@@ -107,5 +107,5 @@ instance AWSRequest UpdateScalingParameters where
     type Rs UpdateScalingParameters = UpdateScalingParametersResponse
 
     request  = post "UpdateScalingParameters"
-    response = const . xmlResponse $ \h x -> UpdateScalingParametersResponse
-newtype
+    response = xmlResponse $ \h x -> UpdateScalingParametersResponse
+        <$> x %| "ScalingParameters"

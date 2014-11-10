@@ -36,7 +36,7 @@ module Network.AWS.EC2.AttachNetworkInterface
     -- * Response
     , AttachNetworkInterfaceResult
     -- ** Response constructor
-    , attachNetworkInterfaceResult
+    , attachNetworkInterfaceResponse
     -- ** Response lenses
     , anirAttachmentId
     ) where
@@ -106,8 +106,8 @@ newtype AttachNetworkInterfaceResult = AttachNetworkInterfaceResult
 --
 -- * 'anirAttachmentId' @::@ 'Maybe' 'Text'
 --
-attachNetworkInterfaceResult :: AttachNetworkInterfaceResult
-attachNetworkInterfaceResult = AttachNetworkInterfaceResult
+attachNetworkInterfaceResponse :: AttachNetworkInterfaceResult
+attachNetworkInterfaceResponse = AttachNetworkInterfaceResult
     { _anirAttachmentId = Nothing
     }
 
@@ -120,5 +120,5 @@ instance AWSRequest AttachNetworkInterface where
     type Rs AttachNetworkInterface = AttachNetworkInterfaceResult
 
     request  = post "AttachNetworkInterface"
-    response = const . xmlResponse $ \h x -> AttachNetworkInterfaceResult
-newtype
+    response = xmlResponse $ \h x -> AttachNetworkInterfaceResult
+        <$> x %| "attachmentId"

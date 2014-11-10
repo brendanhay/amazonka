@@ -97,5 +97,5 @@ instance AWSRequest GetRole where
     type Rs GetRole = GetRoleResponse
 
     request  = post "GetRole"
-    response = const . xmlResponse $ \h x -> GetRoleResponse
-newtype
+    response = xmlResponse $ \h x -> GetRoleResponse
+        <$> x %| "Role"

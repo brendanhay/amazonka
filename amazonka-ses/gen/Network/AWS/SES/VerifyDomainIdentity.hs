@@ -94,5 +94,5 @@ instance AWSRequest VerifyDomainIdentity where
     type Rs VerifyDomainIdentity = VerifyDomainIdentityResponse
 
     request  = post "VerifyDomainIdentity"
-    response = const . xmlResponse $ \h x -> VerifyDomainIdentityResponse
-newtype
+    response = xmlResponse $ \h x -> VerifyDomainIdentityResponse
+        <$> x %| "VerificationToken"

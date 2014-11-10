@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeKeyPairs
     -- * Response
     , DescribeKeyPairsResult
     -- ** Response constructor
-    , describeKeyPairsResult
+    , describeKeyPairsResponse
     -- ** Response lenses
     , dkprKeyPairs
     ) where
@@ -95,8 +95,8 @@ newtype DescribeKeyPairsResult = DescribeKeyPairsResult
 --
 -- * 'dkprKeyPairs' @::@ ['KeyPairInfo']
 --
-describeKeyPairsResult :: DescribeKeyPairsResult
-describeKeyPairsResult = DescribeKeyPairsResult
+describeKeyPairsResponse :: DescribeKeyPairsResult
+describeKeyPairsResponse = DescribeKeyPairsResult
     { _dkprKeyPairs = mempty
     }
 
@@ -109,5 +109,5 @@ instance AWSRequest DescribeKeyPairs where
     type Rs DescribeKeyPairs = DescribeKeyPairsResult
 
     request  = post "DescribeKeyPairs"
-    response = const . xmlResponse $ \h x -> DescribeKeyPairsResult
-newtype
+    response = xmlResponse $ \h x -> DescribeKeyPairsResult
+        <$> x %| "keySet"

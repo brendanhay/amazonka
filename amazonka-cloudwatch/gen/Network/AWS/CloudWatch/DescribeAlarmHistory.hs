@@ -28,7 +28,7 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     -- * Request
       DescribeAlarmHistoryInput
     -- ** Request constructor
-    , describeAlarmHistoryInput
+    , describeAlarmHistory
     -- ** Request lenses
     , dahiAlarmName
     , dahiEndDate
@@ -40,7 +40,7 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     -- * Response
     , DescribeAlarmHistoryOutput
     -- ** Response constructor
-    , describeAlarmHistoryOutput
+    , describeAlarmHistoryResponse
     -- ** Response lenses
     , dahoAlarmHistoryItems
     , dahoNextToken
@@ -75,8 +75,8 @@ data DescribeAlarmHistoryInput = DescribeAlarmHistoryInput
 --
 -- * 'dahiStartDate' @::@ 'Maybe' 'UTCTime'
 --
-describeAlarmHistoryInput :: DescribeAlarmHistoryInput
-describeAlarmHistoryInput = DescribeAlarmHistoryInput
+describeAlarmHistory :: DescribeAlarmHistoryInput
+describeAlarmHistory = DescribeAlarmHistoryInput
     { _dahiAlarmName       = Nothing
     , _dahiHistoryItemType = Nothing
     , _dahiStartDate       = Nothing
@@ -131,8 +131,8 @@ data DescribeAlarmHistoryOutput = DescribeAlarmHistoryOutput
 --
 -- * 'dahoNextToken' @::@ 'Maybe' 'Text'
 --
-describeAlarmHistoryOutput :: DescribeAlarmHistoryOutput
-describeAlarmHistoryOutput = DescribeAlarmHistoryOutput
+describeAlarmHistoryResponse :: DescribeAlarmHistoryOutput
+describeAlarmHistoryResponse = DescribeAlarmHistoryOutput
     { _dahoAlarmHistoryItems = mempty
     , _dahoNextToken         = Nothing
     }
@@ -151,5 +151,6 @@ instance AWSRequest DescribeAlarmHistoryInput where
     type Rs DescribeAlarmHistoryInput = DescribeAlarmHistoryOutput
 
     request  = post "DescribeAlarmHistory"
-    response = const . xmlResponse $ \h x -> DescribeAlarmHistoryOutput
-record
+    response = xmlResponse $ \h x -> DescribeAlarmHistoryOutput
+        <$> x %| "AlarmHistoryItems"
+        <*> x %| "NextToken"

@@ -38,7 +38,7 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     -- * Response
     , CreateSpotDatafeedSubscriptionResult
     -- ** Response constructor
-    , createSpotDatafeedSubscriptionResult
+    , createSpotDatafeedSubscriptionResponse
     -- ** Response lenses
     , csdsrSpotDatafeedSubscription
     ) where
@@ -98,8 +98,8 @@ newtype CreateSpotDatafeedSubscriptionResult = CreateSpotDatafeedSubscriptionRes
 --
 -- * 'csdsrSpotDatafeedSubscription' @::@ 'Maybe' 'SpotDatafeedSubscription'
 --
-createSpotDatafeedSubscriptionResult :: CreateSpotDatafeedSubscriptionResult
-createSpotDatafeedSubscriptionResult = CreateSpotDatafeedSubscriptionResult
+createSpotDatafeedSubscriptionResponse :: CreateSpotDatafeedSubscriptionResult
+createSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResult
     { _csdsrSpotDatafeedSubscription = Nothing
     }
 
@@ -114,5 +114,5 @@ instance AWSRequest CreateSpotDatafeedSubscription where
     type Rs CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscriptionResult
 
     request  = post "CreateSpotDatafeedSubscription"
-    response = const . xmlResponse $ \h x -> CreateSpotDatafeedSubscriptionResult
-newtype
+    response = xmlResponse $ \h x -> CreateSpotDatafeedSubscriptionResult
+        <$> x %| "spotDatafeedSubscription"

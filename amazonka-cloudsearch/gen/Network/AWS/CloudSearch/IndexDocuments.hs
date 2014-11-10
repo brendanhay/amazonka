@@ -92,5 +92,5 @@ instance AWSRequest IndexDocuments where
     type Rs IndexDocuments = IndexDocumentsResponse
 
     request  = post "IndexDocuments"
-    response = const . xmlResponse $ \h x -> IndexDocumentsResponse
-newtype
+    response = xmlResponse $ \h x -> IndexDocumentsResponse
+        <$> x %| "FieldNames"

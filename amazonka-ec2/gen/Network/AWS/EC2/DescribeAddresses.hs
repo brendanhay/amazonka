@@ -39,7 +39,7 @@ module Network.AWS.EC2.DescribeAddresses
     -- * Response
     , DescribeAddressesResult
     -- ** Response constructor
-    , describeAddressesResult
+    , describeAddressesResponse
     -- ** Response lenses
     , darAddresses
     ) where
@@ -116,8 +116,8 @@ newtype DescribeAddressesResult = DescribeAddressesResult
 --
 -- * 'darAddresses' @::@ ['Address']
 --
-describeAddressesResult :: DescribeAddressesResult
-describeAddressesResult = DescribeAddressesResult
+describeAddressesResponse :: DescribeAddressesResult
+describeAddressesResponse = DescribeAddressesResult
     { _darAddresses = mempty
     }
 
@@ -130,5 +130,5 @@ instance AWSRequest DescribeAddresses where
     type Rs DescribeAddresses = DescribeAddressesResult
 
     request  = post "DescribeAddresses"
-    response = const . xmlResponse $ \h x -> DescribeAddressesResult
-newtype
+    response = xmlResponse $ \h x -> DescribeAddressesResult
+        <$> x %| "addressesSet"

@@ -35,7 +35,7 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
     -- * Response
     , ListDeadLetterSourceQueuesResult
     -- ** Response constructor
-    , listDeadLetterSourceQueuesResult
+    , listDeadLetterSourceQueuesResponse
     -- ** Response lenses
     , ldlsqrQueueUrls
     ) where
@@ -79,8 +79,8 @@ newtype ListDeadLetterSourceQueuesResult = ListDeadLetterSourceQueuesResult
 --
 -- * 'ldlsqrQueueUrls' @::@ ['Text']
 --
-listDeadLetterSourceQueuesResult :: ListDeadLetterSourceQueuesResult
-listDeadLetterSourceQueuesResult = ListDeadLetterSourceQueuesResult
+listDeadLetterSourceQueuesResponse :: ListDeadLetterSourceQueuesResult
+listDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResult
     { _ldlsqrQueueUrls = mempty
     }
 
@@ -94,5 +94,5 @@ instance AWSRequest ListDeadLetterSourceQueues where
     type Rs ListDeadLetterSourceQueues = ListDeadLetterSourceQueuesResult
 
     request  = post "ListDeadLetterSourceQueues"
-    response = const . xmlResponse $ \h x -> ListDeadLetterSourceQueuesResult
-newtype
+    response = xmlResponse $ \h x -> ListDeadLetterSourceQueuesResult
+        <$> x %| "queueUrls"

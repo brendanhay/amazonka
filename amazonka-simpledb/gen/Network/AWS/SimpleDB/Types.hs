@@ -90,48 +90,10 @@ instance AWSService SimpleDB where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'SimpleDB' errors returned by the
--- Amazon SimpleDB.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data SimpleDBError
-    = SimpleDBHttp       HttpException
-    | SimpleDBSerializer String
-    | SimpleDBService    Status SimpleDBServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception SimpleDBError
-
-instance AWSError SimpleDBError where
-    awsError = \case
-        SimpleDBHttp       ex  -> HttpError       ex
-        SimpleDBSerializer e   -> SerializerError "SimpleDB" e
-        SimpleDBService    s x -> ServiceError    "SimpleDB" s (show x)
-
-instance AWSServiceError SimpleDBError where
-    httpError       = SimpleDBHttp
-    serializerError = SimpleDBSerializer
-    serviceError    = xmlError httpStatus SimpleDBService
-
-_SimpleDBHttp :: Prism' SimpleDBError HttpException
-_SimpleDBHttp = prism SimpleDBHttp $ \case
-    SimpleDBHttp ex -> Right ex
-    x -> Left x
-
-_SimpleDBSerializer :: Prism' SimpleDBError String
-_SimpleDBSerializer = prism SimpleDBSerializer $ \case
-    SimpleDBSerializer e -> Right e
-    x -> Left x
-
-_SimpleDBService :: Prism' SimpleDBError (Status, SimpleDBServiceError)
-_SimpleDBService = prism (uncurry SimpleDBService) $ \case
-    SimpleDBService s x -> Right (s, x)
-    x -> Left x
 
 data Attribute = Attribute
     { _aAlternateNameEncoding  :: Maybe Text

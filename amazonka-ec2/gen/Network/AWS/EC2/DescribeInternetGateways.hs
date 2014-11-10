@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeInternetGateways
     -- * Response
     , DescribeInternetGatewaysResult
     -- ** Response constructor
-    , describeInternetGatewaysResult
+    , describeInternetGatewaysResponse
     -- ** Response lenses
     , digrInternetGateways
     ) where
@@ -107,8 +107,8 @@ newtype DescribeInternetGatewaysResult = DescribeInternetGatewaysResult
 --
 -- * 'digrInternetGateways' @::@ ['InternetGateway']
 --
-describeInternetGatewaysResult :: DescribeInternetGatewaysResult
-describeInternetGatewaysResult = DescribeInternetGatewaysResult
+describeInternetGatewaysResponse :: DescribeInternetGatewaysResult
+describeInternetGatewaysResponse = DescribeInternetGatewaysResult
     { _digrInternetGateways = mempty
     }
 
@@ -122,5 +122,5 @@ instance AWSRequest DescribeInternetGateways where
     type Rs DescribeInternetGateways = DescribeInternetGatewaysResult
 
     request  = post "DescribeInternetGateways"
-    response = const . xmlResponse $ \h x -> DescribeInternetGatewaysResult
-newtype
+    response = xmlResponse $ \h x -> DescribeInternetGatewaysResult
+        <$> x %| "internetGatewaySet"

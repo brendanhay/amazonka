@@ -102,5 +102,5 @@ instance AWSRequest GetReusableDelegationSet where
     type Rs GetReusableDelegationSet = GetReusableDelegationSetResponse
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetReusableDelegationSetResponse
-newtype
+    response = xmlResponse $ \h x -> GetReusableDelegationSetResponse
+        <$> x %| "DelegationSet"

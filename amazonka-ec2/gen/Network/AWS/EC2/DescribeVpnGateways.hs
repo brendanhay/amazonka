@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeVpnGateways
     -- * Response
     , DescribeVpnGatewaysResult
     -- ** Response constructor
-    , describeVpnGatewaysResult
+    , describeVpnGatewaysResponse
     -- ** Response lenses
     , dvgrVpnGateways
     ) where
@@ -113,8 +113,8 @@ newtype DescribeVpnGatewaysResult = DescribeVpnGatewaysResult
 --
 -- * 'dvgrVpnGateways' @::@ ['VpnGateway']
 --
-describeVpnGatewaysResult :: DescribeVpnGatewaysResult
-describeVpnGatewaysResult = DescribeVpnGatewaysResult
+describeVpnGatewaysResponse :: DescribeVpnGatewaysResult
+describeVpnGatewaysResponse = DescribeVpnGatewaysResult
     { _dvgrVpnGateways = mempty
     }
 
@@ -127,5 +127,5 @@ instance AWSRequest DescribeVpnGateways where
     type Rs DescribeVpnGateways = DescribeVpnGatewaysResult
 
     request  = post "DescribeVpnGateways"
-    response = const . xmlResponse $ \h x -> DescribeVpnGatewaysResult
-newtype
+    response = xmlResponse $ \h x -> DescribeVpnGatewaysResult
+        <$> x %| "vpnGatewaySet"

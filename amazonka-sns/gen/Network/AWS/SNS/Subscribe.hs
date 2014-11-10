@@ -29,7 +29,7 @@ module Network.AWS.SNS.Subscribe
     -- * Request
       SubscribeInput
     -- ** Request constructor
-    , subscribeInput
+    , subscribe
     -- ** Request lenses
     , siEndpoint
     , siProtocol
@@ -63,10 +63,10 @@ data SubscribeInput = SubscribeInput
 --
 -- * 'siTopicArn' @::@ 'Text'
 --
-subscribeInput :: Text -- ^ 'siTopicArn'
-               -> Text -- ^ 'siProtocol'
-               -> SubscribeInput
-subscribeInput p1 p2 = SubscribeInput
+subscribe :: Text -- ^ 'siTopicArn'
+          -> Text -- ^ 'siProtocol'
+          -> SubscribeInput
+subscribe p1 p2 = SubscribeInput
     { _siTopicArn = p1
     , _siProtocol = p2
     , _siEndpoint = Nothing
@@ -129,5 +129,5 @@ instance AWSRequest SubscribeInput where
     type Rs SubscribeInput = SubscribeResponse
 
     request  = post "Subscribe"
-    response = const . xmlResponse $ \h x -> SubscribeResponse
-newtype
+    response = xmlResponse $ \h x -> SubscribeResponse
+        <$> x %| "SubscriptionArn"

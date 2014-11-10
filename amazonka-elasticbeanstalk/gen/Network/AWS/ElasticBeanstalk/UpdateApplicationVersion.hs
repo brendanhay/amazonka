@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     -- * Request
       UpdateApplicationVersionMessage
     -- ** Request constructor
-    , updateApplicationVersionMessage
+    , updateApplicationVersion
     -- ** Request lenses
     , uavmApplicationName
     , uavmDescription
@@ -35,7 +35,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     -- * Response
     , ApplicationVersionDescriptionMessage
     -- ** Response constructor
-    , applicationVersionDescriptionMessage
+    , updateApplicationVersionResponse
     -- ** Response lenses
     , avdmApplicationVersion
     ) where
@@ -60,10 +60,10 @@ data UpdateApplicationVersionMessage = UpdateApplicationVersionMessage
 --
 -- * 'uavmVersionLabel' @::@ 'Text'
 --
-updateApplicationVersionMessage :: Text -- ^ 'uavmApplicationName'
-                                -> Text -- ^ 'uavmVersionLabel'
-                                -> UpdateApplicationVersionMessage
-updateApplicationVersionMessage p1 p2 = UpdateApplicationVersionMessage
+updateApplicationVersion :: Text -- ^ 'uavmApplicationName'
+                         -> Text -- ^ 'uavmVersionLabel'
+                         -> UpdateApplicationVersionMessage
+updateApplicationVersion p1 p2 = UpdateApplicationVersionMessage
     { _uavmApplicationName = p1
     , _uavmVersionLabel    = p2
     , _uavmDescription     = Nothing
@@ -96,4 +96,4 @@ instance AWSRequest UpdateApplicationVersionMessage where
     type Rs UpdateApplicationVersionMessage = ApplicationVersionDescriptionMessage
 
     request  = post "UpdateApplicationVersion"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

@@ -41,7 +41,7 @@ module Network.AWS.SimpleDB.GetAttributes
     -- * Response
     , GetAttributesResult
     -- ** Response constructor
-    , getAttributesResult
+    , getAttributesResponse
     -- ** Response lenses
     , garAttributes
     ) where
@@ -114,8 +114,8 @@ newtype GetAttributesResult = GetAttributesResult
 --
 -- * 'garAttributes' @::@ ['Attribute']
 --
-getAttributesResult :: GetAttributesResult
-getAttributesResult = GetAttributesResult
+getAttributesResponse :: GetAttributesResult
+getAttributesResponse = GetAttributesResult
     { _garAttributes = mempty
     }
 
@@ -128,5 +128,5 @@ instance AWSRequest GetAttributes where
     type Rs GetAttributes = GetAttributesResult
 
     request  = post "GetAttributes"
-    response = const . xmlResponse $ \h x -> GetAttributesResult
-newtype
+    response = xmlResponse $ \h x -> GetAttributesResult
+        <$> x %| "Attributes"

@@ -122,5 +122,6 @@ instance AWSRequest ListIdentities where
     type Rs ListIdentities = ListIdentitiesResponse
 
     request  = post "ListIdentities"
-    response = const . xmlResponse $ \h x -> ListIdentitiesResponse
-record
+    response = xmlResponse $ \h x -> ListIdentitiesResponse
+        <$> x %| "Identities"
+        <*> x %| "NextToken"

@@ -218,5 +218,10 @@ instance AWSRequest ListGeoLocations where
     type Rs ListGeoLocations = ListGeoLocationsResponse
 
     request  = get
-    response = const . xmlResponse $ \h x -> ListGeoLocationsResponse
-record
+    response = xmlResponse $ \h x -> ListGeoLocationsResponse
+        <$> x %| "GeoLocationDetailsList"
+        <*> x %| "IsTruncated"
+        <*> x %| "MaxItems"
+        <*> x %| "NextContinentCode"
+        <*> x %| "NextCountryCode"
+        <*> x %| "NextSubdivisionCode"

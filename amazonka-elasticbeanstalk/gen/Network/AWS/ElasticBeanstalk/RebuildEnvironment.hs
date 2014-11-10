@@ -28,7 +28,7 @@ module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     -- * Request
       RebuildEnvironmentMessage
     -- ** Request constructor
-    , rebuildEnvironmentMessage
+    , rebuildEnvironment
     -- ** Request lenses
     , remEnvironmentId
     , remEnvironmentName
@@ -56,8 +56,8 @@ data RebuildEnvironmentMessage = RebuildEnvironmentMessage
 --
 -- * 'remEnvironmentName' @::@ 'Maybe' 'Text'
 --
-rebuildEnvironmentMessage :: RebuildEnvironmentMessage
-rebuildEnvironmentMessage = RebuildEnvironmentMessage
+rebuildEnvironment :: RebuildEnvironmentMessage
+rebuildEnvironment = RebuildEnvironmentMessage
     { _remEnvironmentId   = Nothing
     , _remEnvironmentName = Nothing
     }

@@ -47,7 +47,7 @@ module Network.AWS.EC2.CreateCustomerGateway
     -- * Response
     , CreateCustomerGatewayResult
     -- ** Response constructor
-    , createCustomerGatewayResult
+    , createCustomerGatewayResponse
     -- ** Response lenses
     , ccgrCustomerGateway
     ) where
@@ -118,8 +118,8 @@ newtype CreateCustomerGatewayResult = CreateCustomerGatewayResult
 --
 -- * 'ccgrCustomerGateway' @::@ 'Maybe' 'CustomerGateway'
 --
-createCustomerGatewayResult :: CreateCustomerGatewayResult
-createCustomerGatewayResult = CreateCustomerGatewayResult
+createCustomerGatewayResponse :: CreateCustomerGatewayResult
+createCustomerGatewayResponse = CreateCustomerGatewayResult
     { _ccgrCustomerGateway = Nothing
     }
 
@@ -133,5 +133,5 @@ instance AWSRequest CreateCustomerGateway where
     type Rs CreateCustomerGateway = CreateCustomerGatewayResult
 
     request  = post "CreateCustomerGateway"
-    response = const . xmlResponse $ \h x -> CreateCustomerGatewayResult
-newtype
+    response = xmlResponse $ \h x -> CreateCustomerGatewayResult
+        <$> x %| "customerGateway"

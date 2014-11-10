@@ -42,7 +42,7 @@ module Network.AWS.EC2.CreateVpc
     -- * Response
     , CreateVpcResult
     -- ** Response constructor
-    , createVpcResult
+    , createVpcResponse
     -- ** Response lenses
     , cvrVpc
     ) where
@@ -108,8 +108,8 @@ newtype CreateVpcResult = CreateVpcResult
 --
 -- * 'cvrVpc' @::@ 'Maybe' 'Vpc'
 --
-createVpcResult :: CreateVpcResult
-createVpcResult = CreateVpcResult
+createVpcResponse :: CreateVpcResult
+createVpcResponse = CreateVpcResult
     { _cvrVpc = Nothing
     }
 
@@ -122,5 +122,5 @@ instance AWSRequest CreateVpc where
     type Rs CreateVpc = CreateVpcResult
 
     request  = post "CreateVpc"
-    response = const . xmlResponse $ \h x -> CreateVpcResult
-newtype
+    response = xmlResponse $ \h x -> CreateVpcResult
+        <$> x %| "vpc"

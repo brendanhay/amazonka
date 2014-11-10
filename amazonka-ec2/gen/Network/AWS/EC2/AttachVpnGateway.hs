@@ -37,7 +37,7 @@ module Network.AWS.EC2.AttachVpnGateway
     -- * Response
     , AttachVpnGatewayResult
     -- ** Response constructor
-    , attachVpnGatewayResult
+    , attachVpnGatewayResponse
     -- ** Response lenses
     , avgrVpcAttachment
     ) where
@@ -97,8 +97,8 @@ newtype AttachVpnGatewayResult = AttachVpnGatewayResult
 --
 -- * 'avgrVpcAttachment' @::@ 'Maybe' 'VpcAttachment'
 --
-attachVpnGatewayResult :: AttachVpnGatewayResult
-attachVpnGatewayResult = AttachVpnGatewayResult
+attachVpnGatewayResponse :: AttachVpnGatewayResult
+attachVpnGatewayResponse = AttachVpnGatewayResult
     { _avgrVpcAttachment = Nothing
     }
 
@@ -112,5 +112,5 @@ instance AWSRequest AttachVpnGateway where
     type Rs AttachVpnGateway = AttachVpnGatewayResult
 
     request  = post "AttachVpnGateway"
-    response = const . xmlResponse $ \h x -> AttachVpnGatewayResult
-newtype
+    response = xmlResponse $ \h x -> AttachVpnGatewayResult
+        <$> x %| "attachment"

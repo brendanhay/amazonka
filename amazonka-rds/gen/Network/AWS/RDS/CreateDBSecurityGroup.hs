@@ -27,7 +27,7 @@ module Network.AWS.RDS.CreateDBSecurityGroup
     -- * Request
       CreateDBSecurityGroupMessage
     -- ** Request constructor
-    , createDBSecurityGroupMessage
+    , createDBSecurityGroup
     -- ** Request lenses
     , cdbsgm1DBSecurityGroupDescription
     , cdbsgm1DBSecurityGroupName
@@ -36,7 +36,7 @@ module Network.AWS.RDS.CreateDBSecurityGroup
     -- * Response
     , CreateDBSecurityGroupResult
     -- ** Response constructor
-    , createDBSecurityGroupResult
+    , createDBSecurityGroupResponse
     -- ** Response lenses
     , cdbsgrDBSecurityGroup
     ) where
@@ -61,10 +61,10 @@ data CreateDBSecurityGroupMessage = CreateDBSecurityGroupMessage
 --
 -- * 'cdbsgm1Tags' @::@ ['Tag']
 --
-createDBSecurityGroupMessage :: Text -- ^ 'cdbsgm1DBSecurityGroupName'
-                             -> Text -- ^ 'cdbsgm1DBSecurityGroupDescription'
-                             -> CreateDBSecurityGroupMessage
-createDBSecurityGroupMessage p1 p2 = CreateDBSecurityGroupMessage
+createDBSecurityGroup :: Text -- ^ 'cdbsgm1DBSecurityGroupName'
+                      -> Text -- ^ 'cdbsgm1DBSecurityGroupDescription'
+                      -> CreateDBSecurityGroupMessage
+createDBSecurityGroup p1 p2 = CreateDBSecurityGroupMessage
     { _cdbsgm1DBSecurityGroupName        = p1
     , _cdbsgm1DBSecurityGroupDescription = p2
     , _cdbsgm1Tags                       = mempty
@@ -104,8 +104,8 @@ newtype CreateDBSecurityGroupResult = CreateDBSecurityGroupResult
 --
 -- * 'cdbsgrDBSecurityGroup' @::@ 'Maybe' 'DBSecurityGroup'
 --
-createDBSecurityGroupResult :: CreateDBSecurityGroupResult
-createDBSecurityGroupResult = CreateDBSecurityGroupResult
+createDBSecurityGroupResponse :: CreateDBSecurityGroupResult
+createDBSecurityGroupResponse = CreateDBSecurityGroupResult
     { _cdbsgrDBSecurityGroup = Nothing
     }
 
@@ -118,5 +118,5 @@ instance AWSRequest CreateDBSecurityGroupMessage where
     type Rs CreateDBSecurityGroupMessage = CreateDBSecurityGroupResult
 
     request  = post "CreateDBSecurityGroup"
-    response = const . xmlResponse $ \h x -> CreateDBSecurityGroupResult
-newtype
+    response = xmlResponse $ \h x -> CreateDBSecurityGroupResult
+        <$> x %| "DBSecurityGroup"

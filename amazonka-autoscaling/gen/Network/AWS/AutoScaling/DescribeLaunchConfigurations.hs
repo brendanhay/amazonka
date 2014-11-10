@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     -- * Request
       LaunchConfigurationNamesType
     -- ** Request constructor
-    , launchConfigurationNamesType
+    , describeLaunchConfigurations
     -- ** Request lenses
     , lcntLaunchConfigurationNames
     , lcntMaxRecords
@@ -37,7 +37,7 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     -- * Response
     , LaunchConfigurationsType
     -- ** Response constructor
-    , launchConfigurationsType
+    , describeLaunchConfigurationsResponse
     -- ** Response lenses
     , lctLaunchConfigurations
     , lctNextToken
@@ -63,8 +63,8 @@ data LaunchConfigurationNamesType = LaunchConfigurationNamesType
 --
 -- * 'lcntNextToken' @::@ 'Maybe' 'Text'
 --
-launchConfigurationNamesType :: LaunchConfigurationNamesType
-launchConfigurationNamesType = LaunchConfigurationNamesType
+describeLaunchConfigurations :: LaunchConfigurationNamesType
+describeLaunchConfigurations = LaunchConfigurationNamesType
     { _lcntLaunchConfigurationNames = mempty
     , _lcntNextToken                = Nothing
     , _lcntMaxRecords               = Nothing
@@ -102,8 +102,8 @@ data LaunchConfigurationsType = LaunchConfigurationsType
 --
 -- * 'lctNextToken' @::@ 'Maybe' 'Text'
 --
-launchConfigurationsType :: LaunchConfigurationsType
-launchConfigurationsType = LaunchConfigurationsType
+describeLaunchConfigurationsResponse :: LaunchConfigurationsType
+describeLaunchConfigurationsResponse = LaunchConfigurationsType
     { _lctLaunchConfigurations = mempty
     , _lctNextToken            = Nothing
     }
@@ -122,5 +122,6 @@ instance AWSRequest LaunchConfigurationNamesType where
     type Rs LaunchConfigurationNamesType = LaunchConfigurationsType
 
     request  = post "DescribeLaunchConfigurations"
-    response = const . xmlResponse $ \h x -> LaunchConfigurationsType
-record
+    response = xmlResponse $ \h x -> LaunchConfigurationsType
+        <$> x %| "LaunchConfigurations"
+        <*> x %| "NextToken"

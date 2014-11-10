@@ -34,7 +34,7 @@ module Network.AWS.S3.GetObjectTorrent
     -- * Response
     , GetObjectTorrentOutput
     -- ** Response constructor
-    , getObjectTorrentOutput
+    , getObjectTorrentResponse
     -- ** Response lenses
     , gotoBody
     ) where
@@ -93,9 +93,9 @@ newtype GetObjectTorrentOutput = GetObjectTorrentOutput
 --
 -- * 'gotoBody' @::@ 'RsBody'
 --
-getObjectTorrentOutput :: RsBody -- ^ 'gotoBody'
-                       -> GetObjectTorrentOutput
-getObjectTorrentOutput p1 = GetObjectTorrentOutput
+getObjectTorrentResponse :: RsBody -- ^ 'gotoBody'
+                         -> GetObjectTorrentOutput
+getObjectTorrentResponse p1 = GetObjectTorrentOutput
     { _gotoBody = p1
     }
 
@@ -107,5 +107,5 @@ instance AWSRequest GetObjectTorrent where
     type Rs GetObjectTorrent = GetObjectTorrentOutput
 
     request  = get
-    response = const . bodyResponse $ \h b -> GetObjectTorrentOutput
-newtype
+    response = bodyResponse $ \h b -> GetObjectTorrentOutput
+        <$> pure (RsBody b)

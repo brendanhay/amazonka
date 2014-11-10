@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeImages
     -- * Response
     , DescribeImagesResult
     -- ** Response constructor
-    , describeImagesResult
+    , describeImagesResponse
     -- ** Response lenses
     , dirImages
     ) where
@@ -151,8 +151,8 @@ newtype DescribeImagesResult = DescribeImagesResult
 --
 -- * 'dirImages' @::@ ['Image']
 --
-describeImagesResult :: DescribeImagesResult
-describeImagesResult = DescribeImagesResult
+describeImagesResponse :: DescribeImagesResult
+describeImagesResponse = DescribeImagesResult
     { _dirImages = mempty
     }
 
@@ -165,5 +165,5 @@ instance AWSRequest DescribeImages where
     type Rs DescribeImages = DescribeImagesResult
 
     request  = post "DescribeImages"
-    response = const . xmlResponse $ \h x -> DescribeImagesResult
-newtype
+    response = xmlResponse $ \h x -> DescribeImagesResult
+        <$> x %| "imagesSet"

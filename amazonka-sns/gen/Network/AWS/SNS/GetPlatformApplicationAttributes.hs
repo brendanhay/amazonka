@@ -28,7 +28,7 @@ module Network.AWS.SNS.GetPlatformApplicationAttributes
     -- * Request
       GetPlatformApplicationAttributesInput
     -- ** Request constructor
-    , getPlatformApplicationAttributesInput
+    , getPlatformApplicationAttributes
     -- ** Request lenses
     , gpaaiPlatformApplicationArn
 
@@ -54,9 +54,9 @@ newtype GetPlatformApplicationAttributesInput = GetPlatformApplicationAttributes
 --
 -- * 'gpaaiPlatformApplicationArn' @::@ 'Text'
 --
-getPlatformApplicationAttributesInput :: Text -- ^ 'gpaaiPlatformApplicationArn'
-                                      -> GetPlatformApplicationAttributesInput
-getPlatformApplicationAttributesInput p1 = GetPlatformApplicationAttributesInput
+getPlatformApplicationAttributes :: Text -- ^ 'gpaaiPlatformApplicationArn'
+                                 -> GetPlatformApplicationAttributesInput
+getPlatformApplicationAttributes p1 = GetPlatformApplicationAttributesInput
     { _gpaaiPlatformApplicationArn = p1
     }
 
@@ -103,5 +103,5 @@ instance AWSRequest GetPlatformApplicationAttributesInput where
     type Rs GetPlatformApplicationAttributesInput = GetPlatformApplicationAttributesResponse
 
     request  = post "GetPlatformApplicationAttributes"
-    response = const . xmlResponse $ \h x -> GetPlatformApplicationAttributesResponse
-newtype
+    response = xmlResponse $ \h x -> GetPlatformApplicationAttributesResponse
+        <$> x %| "Attributes"

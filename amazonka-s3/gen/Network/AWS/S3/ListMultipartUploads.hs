@@ -39,7 +39,7 @@ module Network.AWS.S3.ListMultipartUploads
     -- * Response
     , ListMultipartUploadsOutput
     -- ** Response constructor
-    , listMultipartUploadsOutput
+    , listMultipartUploadsResponse
     -- ** Response lenses
     , lmuoBucket
     , lmuoCommonPrefixes
@@ -190,8 +190,8 @@ data ListMultipartUploadsOutput = ListMultipartUploadsOutput
 --
 -- * 'lmuoUploads' @::@ ['MultipartUpload']
 --
-listMultipartUploadsOutput :: ListMultipartUploadsOutput
-listMultipartUploadsOutput = ListMultipartUploadsOutput
+listMultipartUploadsResponse :: ListMultipartUploadsOutput
+listMultipartUploadsResponse = ListMultipartUploadsOutput
     { _lmuoBucket             = Nothing
     , _lmuoKeyMarker          = Nothing
     , _lmuoUploadIdMarker     = Nothing
@@ -264,5 +264,15 @@ instance AWSRequest ListMultipartUploads where
     type Rs ListMultipartUploads = ListMultipartUploadsOutput
 
     request  = get
-    response = const . xmlResponse $ \h x -> ListMultipartUploadsOutput
-record
+    response = xmlResponse $ \h x -> ListMultipartUploadsOutput
+        <$> x %| "Bucket"
+        <*> x %| "CommonPrefixes"
+        <*> x %| "EncodingType"
+        <*> x %| "IsTruncated"
+        <*> x %| "KeyMarker"
+        <*> x %| "MaxUploads"
+        <*> x %| "NextKeyMarker"
+        <*> x %| "NextUploadIdMarker"
+        <*> x %| "Prefix"
+        <*> x %| "UploadIdMarker"
+        <*> x %| "Upload"

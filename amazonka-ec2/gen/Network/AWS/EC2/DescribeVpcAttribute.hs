@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeVpcAttribute
     -- * Response
     , DescribeVpcAttributeResult
     -- ** Response constructor
-    , describeVpcAttributeResult
+    , describeVpcAttributeResponse
     -- ** Response lenses
     , dvarEnableDnsHostnames
     , dvarEnableDnsSupport
@@ -103,8 +103,8 @@ data DescribeVpcAttributeResult = DescribeVpcAttributeResult
 --
 -- * 'dvarVpcId' @::@ 'Maybe' 'Text'
 --
-describeVpcAttributeResult :: DescribeVpcAttributeResult
-describeVpcAttributeResult = DescribeVpcAttributeResult
+describeVpcAttributeResponse :: DescribeVpcAttributeResult
+describeVpcAttributeResponse = DescribeVpcAttributeResult
     { _dvarVpcId              = Nothing
     , _dvarEnableDnsSupport   = Nothing
     , _dvarEnableDnsHostnames = Nothing
@@ -133,5 +133,7 @@ instance AWSRequest DescribeVpcAttribute where
     type Rs DescribeVpcAttribute = DescribeVpcAttributeResult
 
     request  = post "DescribeVpcAttribute"
-    response = const . xmlResponse $ \h x -> DescribeVpcAttributeResult
-record
+    response = xmlResponse $ \h x -> DescribeVpcAttributeResult
+        <$> x %| "enableDnsHostnames"
+        <*> x %| "enableDnsSupport"
+        <*> x %| "vpcId"

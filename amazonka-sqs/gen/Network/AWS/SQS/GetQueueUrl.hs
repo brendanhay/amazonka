@@ -40,7 +40,7 @@ module Network.AWS.SQS.GetQueueUrl
     -- * Response
     , GetQueueUrlResult
     -- ** Response constructor
-    , getQueueUrlResult
+    , getQueueUrlResponse
     -- ** Response lenses
     , gqurQueueUrl
     ) where
@@ -95,8 +95,8 @@ newtype GetQueueUrlResult = GetQueueUrlResult
 --
 -- * 'gqurQueueUrl' @::@ 'Maybe' 'Text'
 --
-getQueueUrlResult :: GetQueueUrlResult
-getQueueUrlResult = GetQueueUrlResult
+getQueueUrlResponse :: GetQueueUrlResult
+getQueueUrlResponse = GetQueueUrlResult
     { _gqurQueueUrl = Nothing
     }
 
@@ -109,5 +109,5 @@ instance AWSRequest GetQueueUrl where
     type Rs GetQueueUrl = GetQueueUrlResult
 
     request  = post "GetQueueUrl"
-    response = const . xmlResponse $ \h x -> GetQueueUrlResult
-newtype
+    response = xmlResponse $ \h x -> GetQueueUrlResult
+        <$> x %| "QueueUrl"

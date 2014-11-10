@@ -63,7 +63,7 @@ module Network.AWS.EC2.DescribeSnapshots
     -- * Response
     , DescribeSnapshotsResult
     -- ** Response constructor
-    , describeSnapshotsResult
+    , describeSnapshotsResponse
     -- ** Response lenses
     , dsrSnapshots
     ) where
@@ -156,8 +156,8 @@ newtype DescribeSnapshotsResult = DescribeSnapshotsResult
 --
 -- * 'dsrSnapshots' @::@ ['Snapshot']
 --
-describeSnapshotsResult :: DescribeSnapshotsResult
-describeSnapshotsResult = DescribeSnapshotsResult
+describeSnapshotsResponse :: DescribeSnapshotsResult
+describeSnapshotsResponse = DescribeSnapshotsResult
     { _dsrSnapshots = mempty
     }
 
@@ -169,5 +169,5 @@ instance AWSRequest DescribeSnapshots where
     type Rs DescribeSnapshots = DescribeSnapshotsResult
 
     request  = post "DescribeSnapshots"
-    response = const . xmlResponse $ \h x -> DescribeSnapshotsResult
-newtype
+    response = xmlResponse $ \h x -> DescribeSnapshotsResult
+        <$> x %| "snapshotSet"

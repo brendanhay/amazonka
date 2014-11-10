@@ -32,7 +32,7 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     -- * Request
       DescribeClusterParameterGroupsMessage
     -- ** Request constructor
-    , describeClusterParameterGroupsMessage
+    , describeClusterParameterGroups
     -- ** Request lenses
     , dcpgm1Marker
     , dcpgm1MaxRecords
@@ -41,7 +41,7 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
     -- * Response
     , ClusterParameterGroupsMessage
     -- ** Response constructor
-    , clusterParameterGroupsMessage
+    , describeClusterParameterGroupsResponse
     -- ** Response lenses
     , cpgmMarker
     , cpgmParameterGroups
@@ -67,8 +67,8 @@ data DescribeClusterParameterGroupsMessage = DescribeClusterParameterGroupsMessa
 --
 -- * 'dcpgm1ParameterGroupName' @::@ 'Maybe' 'Text'
 --
-describeClusterParameterGroupsMessage :: DescribeClusterParameterGroupsMessage
-describeClusterParameterGroupsMessage = DescribeClusterParameterGroupsMessage
+describeClusterParameterGroups :: DescribeClusterParameterGroupsMessage
+describeClusterParameterGroups = DescribeClusterParameterGroupsMessage
     { _dcpgm1ParameterGroupName = Nothing
     , _dcpgm1MaxRecords         = Nothing
     , _dcpgm1Marker             = Nothing
@@ -117,8 +117,8 @@ data ClusterParameterGroupsMessage = ClusterParameterGroupsMessage
 --
 -- * 'cpgmParameterGroups' @::@ ['ClusterParameterGroup']
 --
-clusterParameterGroupsMessage :: ClusterParameterGroupsMessage
-clusterParameterGroupsMessage = ClusterParameterGroupsMessage
+describeClusterParameterGroupsResponse :: ClusterParameterGroupsMessage
+describeClusterParameterGroupsResponse = ClusterParameterGroupsMessage
     { _cpgmMarker          = Nothing
     , _cpgmParameterGroups = mempty
     }
@@ -143,5 +143,6 @@ instance AWSRequest DescribeClusterParameterGroupsMessage where
     type Rs DescribeClusterParameterGroupsMessage = ClusterParameterGroupsMessage
 
     request  = post "DescribeClusterParameterGroups"
-    response = const . xmlResponse $ \h x -> ClusterParameterGroupsMessage
-record
+    response = xmlResponse $ \h x -> ClusterParameterGroupsMessage
+        <$> x %| "Marker"
+        <*> x %| "ParameterGroups"

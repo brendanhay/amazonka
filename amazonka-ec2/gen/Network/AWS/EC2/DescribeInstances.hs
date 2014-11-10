@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeInstances
     -- * Response
     , DescribeInstancesResult
     -- ** Response constructor
-    , describeInstancesResult
+    , describeInstancesResponse
     -- ** Response lenses
     , dirNextToken
     , dirReservations
@@ -251,8 +251,8 @@ data DescribeInstancesResult = DescribeInstancesResult
 --
 -- * 'dirReservations' @::@ ['Reservation']
 --
-describeInstancesResult :: DescribeInstancesResult
-describeInstancesResult = DescribeInstancesResult
+describeInstancesResponse :: DescribeInstancesResult
+describeInstancesResponse = DescribeInstancesResult
     { _dirReservations = mempty
     , _dirNextToken    = Nothing
     }
@@ -271,5 +271,6 @@ instance AWSRequest DescribeInstances where
     type Rs DescribeInstances = DescribeInstancesResult
 
     request  = post "DescribeInstances"
-    response = const . xmlResponse $ \h x -> DescribeInstancesResult
-record
+    response = xmlResponse $ \h x -> DescribeInstancesResult
+        <$> x %| "nextToken"
+        <*> x %| "reservationSet"

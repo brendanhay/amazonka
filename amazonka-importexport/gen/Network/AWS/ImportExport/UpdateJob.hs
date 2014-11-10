@@ -30,7 +30,7 @@ module Network.AWS.ImportExport.UpdateJob
     -- * Request
       UpdateJobInput
     -- ** Request constructor
-    , updateJobInput
+    , updateJob
     -- ** Request lenses
     , ujiJobId
     , ujiJobType
@@ -40,7 +40,7 @@ module Network.AWS.ImportExport.UpdateJob
     -- * Response
     , UpdateJobOutput
     -- ** Response constructor
-    , updateJobOutput
+    , updateJobResponse
     -- ** Response lenses
     , ujoSuccess
     , ujoWarningMessage
@@ -69,12 +69,12 @@ data UpdateJobInput = UpdateJobInput
 --
 -- * 'ujiValidateOnly' @::@ 'Bool'
 --
-updateJobInput :: Text -- ^ 'ujiJobId'
-               -> Text -- ^ 'ujiManifest'
-               -> Text -- ^ 'ujiJobType'
-               -> Bool -- ^ 'ujiValidateOnly'
-               -> UpdateJobInput
-updateJobInput p1 p2 p3 p4 = UpdateJobInput
+updateJob :: Text -- ^ 'ujiJobId'
+          -> Text -- ^ 'ujiManifest'
+          -> Text -- ^ 'ujiJobType'
+          -> Bool -- ^ 'ujiValidateOnly'
+          -> UpdateJobInput
+updateJob p1 p2 p3 p4 = UpdateJobInput
     { _ujiJobId        = p1
     , _ujiManifest     = p2
     , _ujiJobType      = p3
@@ -111,8 +111,8 @@ data UpdateJobOutput = UpdateJobOutput
 --
 -- * 'ujoWarningMessage' @::@ 'Maybe' 'Text'
 --
-updateJobOutput :: UpdateJobOutput
-updateJobOutput = UpdateJobOutput
+updateJobResponse :: UpdateJobOutput
+updateJobResponse = UpdateJobOutput
     { _ujoSuccess        = Nothing
     , _ujoWarningMessage = Nothing
     }
@@ -129,5 +129,6 @@ instance AWSRequest UpdateJobInput where
     type Rs UpdateJobInput = UpdateJobOutput
 
     request  = post "UpdateJob"
-    response = const . xmlResponse $ \h x -> UpdateJobOutput
-record
+    response = xmlResponse $ \h x -> UpdateJobOutput
+        <$> x %| "Success"
+        <*> x %| "WarningMessage"

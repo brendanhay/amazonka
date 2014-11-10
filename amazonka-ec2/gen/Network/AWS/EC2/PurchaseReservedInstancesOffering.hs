@@ -45,7 +45,7 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     -- * Response
     , PurchaseReservedInstancesOfferingResult
     -- ** Response constructor
-    , purchaseReservedInstancesOfferingResult
+    , purchaseReservedInstancesOfferingResponse
     -- ** Response lenses
     , priorReservedInstancesId
     ) where
@@ -118,8 +118,8 @@ newtype PurchaseReservedInstancesOfferingResult = PurchaseReservedInstancesOffer
 --
 -- * 'priorReservedInstancesId' @::@ 'Maybe' 'Text'
 --
-purchaseReservedInstancesOfferingResult :: PurchaseReservedInstancesOfferingResult
-purchaseReservedInstancesOfferingResult = PurchaseReservedInstancesOfferingResult
+purchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResult
+purchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResult
     { _priorReservedInstancesId = Nothing
     }
 
@@ -134,5 +134,5 @@ instance AWSRequest PurchaseReservedInstancesOffering where
     type Rs PurchaseReservedInstancesOffering = PurchaseReservedInstancesOfferingResult
 
     request  = post "PurchaseReservedInstancesOffering"
-    response = const . xmlResponse $ \h x -> PurchaseReservedInstancesOfferingResult
-newtype
+    response = xmlResponse $ \h x -> PurchaseReservedInstancesOfferingResult
+        <$> x %| "reservedInstancesId"

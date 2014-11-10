@@ -41,7 +41,7 @@ module Network.AWS.EC2.AssociateRouteTable
     -- * Response
     , AssociateRouteTableResult
     -- ** Response constructor
-    , associateRouteTableResult
+    , associateRouteTableResponse
     -- ** Response lenses
     , artrAssociationId
     ) where
@@ -101,8 +101,8 @@ newtype AssociateRouteTableResult = AssociateRouteTableResult
 --
 -- * 'artrAssociationId' @::@ 'Maybe' 'Text'
 --
-associateRouteTableResult :: AssociateRouteTableResult
-associateRouteTableResult = AssociateRouteTableResult
+associateRouteTableResponse :: AssociateRouteTableResult
+associateRouteTableResponse = AssociateRouteTableResult
     { _artrAssociationId = Nothing
     }
 
@@ -116,5 +116,5 @@ instance AWSRequest AssociateRouteTable where
     type Rs AssociateRouteTable = AssociateRouteTableResult
 
     request  = post "AssociateRouteTable"
-    response = const . xmlResponse $ \h x -> AssociateRouteTableResult
-newtype
+    response = xmlResponse $ \h x -> AssociateRouteTableResult
+        <$> x %| "associationId"

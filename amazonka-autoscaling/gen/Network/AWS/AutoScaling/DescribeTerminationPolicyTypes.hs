@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     -- * Response
     , DescribeTerminationPolicyTypesAnswer
     -- ** Response constructor
-    , describeTerminationPolicyTypesAnswer
+    , describeTerminationPolicyTypesResponse
     -- ** Response lenses
     , dtptaTerminationPolicyTypes
     ) where
@@ -61,8 +61,8 @@ newtype DescribeTerminationPolicyTypesAnswer = DescribeTerminationPolicyTypesAns
 --
 -- * 'dtptaTerminationPolicyTypes' @::@ ['Text']
 --
-describeTerminationPolicyTypesAnswer :: DescribeTerminationPolicyTypesAnswer
-describeTerminationPolicyTypesAnswer = DescribeTerminationPolicyTypesAnswer
+describeTerminationPolicyTypesResponse :: DescribeTerminationPolicyTypesAnswer
+describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesAnswer
     { _dtptaTerminationPolicyTypes = mempty
     }
 
@@ -79,5 +79,5 @@ instance AWSRequest DescribeTerminationPolicyTypes where
     type Rs DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypesAnswer
 
     request  = post "DescribeTerminationPolicyTypes"
-    response = const . xmlResponse $ \h x -> DescribeTerminationPolicyTypesAnswer
-newtype
+    response = xmlResponse $ \h x -> DescribeTerminationPolicyTypesAnswer
+        <$> x %| "TerminationPolicyTypes"

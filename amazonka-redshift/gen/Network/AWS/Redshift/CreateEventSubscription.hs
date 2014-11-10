@@ -45,7 +45,7 @@ module Network.AWS.Redshift.CreateEventSubscription
     -- * Request
       CreateEventSubscriptionMessage
     -- ** Request constructor
-    , createEventSubscriptionMessage
+    , createEventSubscription
     -- ** Request lenses
     , cesmEnabled
     , cesmEventCategories
@@ -58,7 +58,7 @@ module Network.AWS.Redshift.CreateEventSubscription
     -- * Response
     , CreateEventSubscriptionResult
     -- ** Response constructor
-    , createEventSubscriptionResult
+    , createEventSubscriptionResponse
     -- ** Response lenses
     , cesrEventSubscription
     ) where
@@ -95,10 +95,10 @@ data CreateEventSubscriptionMessage = CreateEventSubscriptionMessage
 --
 -- * 'cesmSubscriptionName' @::@ 'Text'
 --
-createEventSubscriptionMessage :: Text -- ^ 'cesmSubscriptionName'
-                               -> Text -- ^ 'cesmSnsTopicArn'
-                               -> CreateEventSubscriptionMessage
-createEventSubscriptionMessage p1 p2 = CreateEventSubscriptionMessage
+createEventSubscription :: Text -- ^ 'cesmSubscriptionName'
+                        -> Text -- ^ 'cesmSnsTopicArn'
+                        -> CreateEventSubscriptionMessage
+createEventSubscription p1 p2 = CreateEventSubscriptionMessage
     { _cesmSubscriptionName = p1
     , _cesmSnsTopicArn      = p2
     , _cesmSourceType       = Nothing
@@ -173,8 +173,8 @@ newtype CreateEventSubscriptionResult = CreateEventSubscriptionResult
 --
 -- * 'cesrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-createEventSubscriptionResult :: CreateEventSubscriptionResult
-createEventSubscriptionResult = CreateEventSubscriptionResult
+createEventSubscriptionResponse :: CreateEventSubscriptionResult
+createEventSubscriptionResponse = CreateEventSubscriptionResult
     { _cesrEventSubscription = Nothing
     }
 
@@ -187,5 +187,5 @@ instance AWSRequest CreateEventSubscriptionMessage where
     type Rs CreateEventSubscriptionMessage = CreateEventSubscriptionResult
 
     request  = post "CreateEventSubscription"
-    response = const . xmlResponse $ \h x -> CreateEventSubscriptionResult
-newtype
+    response = xmlResponse $ \h x -> CreateEventSubscriptionResult
+        <$> x %| "EventSubscription"

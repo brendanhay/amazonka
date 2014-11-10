@@ -37,7 +37,7 @@ module Network.AWS.S3.ListParts
     -- * Response
     , ListPartsOutput
     -- ** Response constructor
-    , listPartsOutput
+    , listPartsResponse
     -- ** Response lenses
     , lpoBucket
     , lpoInitiator
@@ -167,8 +167,8 @@ data ListPartsOutput = ListPartsOutput
 --
 -- * 'lpoUploadId' @::@ 'Maybe' 'Text'
 --
-listPartsOutput :: ListPartsOutput
-listPartsOutput = ListPartsOutput
+listPartsResponse :: ListPartsOutput
+listPartsResponse = ListPartsOutput
     { _lpoBucket               = Nothing
     , _lpoKey                  = Nothing
     , _lpoUploadId             = Nothing
@@ -233,5 +233,15 @@ instance AWSRequest ListParts where
     type Rs ListParts = ListPartsOutput
 
     request  = get
-    response = const . xmlResponse $ \h x -> ListPartsOutput
-record
+    response = xmlResponse $ \h x -> ListPartsOutput
+        <$> x %| "Bucket"
+        <*> x %| "Initiator"
+        <*> x %| "IsTruncated"
+        <*> x %| "Key"
+        <*> x %| "MaxParts"
+        <*> x %| "NextPartNumberMarker"
+        <*> x %| "Owner"
+        <*> x %| "PartNumberMarker"
+        <*> x %| "Part"
+        <*> x %| "StorageClass"
+        <*> x %| "UploadId"

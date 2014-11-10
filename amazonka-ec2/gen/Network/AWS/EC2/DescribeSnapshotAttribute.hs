@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     -- * Response
     , DescribeSnapshotAttributeResult
     -- ** Response constructor
-    , describeSnapshotAttributeResult
+    , describeSnapshotAttributeResponse
     -- ** Response lenses
     , dsarCreateVolumePermissions
     , dsarProductCodes
@@ -106,8 +106,8 @@ data DescribeSnapshotAttributeResult = DescribeSnapshotAttributeResult
 --
 -- * 'dsarSnapshotId' @::@ 'Maybe' 'Text'
 --
-describeSnapshotAttributeResult :: DescribeSnapshotAttributeResult
-describeSnapshotAttributeResult = DescribeSnapshotAttributeResult
+describeSnapshotAttributeResponse :: DescribeSnapshotAttributeResult
+describeSnapshotAttributeResponse = DescribeSnapshotAttributeResult
     { _dsarSnapshotId              = Nothing
     , _dsarCreateVolumePermissions = mempty
     , _dsarProductCodes            = mempty
@@ -132,5 +132,7 @@ instance AWSRequest DescribeSnapshotAttribute where
     type Rs DescribeSnapshotAttribute = DescribeSnapshotAttributeResult
 
     request  = post "DescribeSnapshotAttribute"
-    response = const . xmlResponse $ \h x -> DescribeSnapshotAttributeResult
-record
+    response = xmlResponse $ \h x -> DescribeSnapshotAttributeResult
+        <$> x %| "createVolumePermission"
+        <*> x %| "productCodes"
+        <*> x %| "snapshotId"

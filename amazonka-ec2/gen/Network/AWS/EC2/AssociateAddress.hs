@@ -50,7 +50,7 @@ module Network.AWS.EC2.AssociateAddress
     -- * Response
     , AssociateAddressResult
     -- ** Response constructor
-    , associateAddressResult
+    , associateAddressResponse
     -- ** Response lenses
     , aarAssociationId
     ) where
@@ -152,8 +152,8 @@ newtype AssociateAddressResult = AssociateAddressResult
 --
 -- * 'aarAssociationId' @::@ 'Maybe' 'Text'
 --
-associateAddressResult :: AssociateAddressResult
-associateAddressResult = AssociateAddressResult
+associateAddressResponse :: AssociateAddressResult
+associateAddressResponse = AssociateAddressResult
     { _aarAssociationId = Nothing
     }
 
@@ -167,5 +167,5 @@ instance AWSRequest AssociateAddress where
     type Rs AssociateAddress = AssociateAddressResult
 
     request  = post "AssociateAddress"
-    response = const . xmlResponse $ \h x -> AssociateAddressResult
-newtype
+    response = xmlResponse $ \h x -> AssociateAddressResult
+        <$> x %| "associationId"

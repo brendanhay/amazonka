@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketAcl
     -- * Response
     , GetBucketAclOutput
     -- ** Response constructor
-    , getBucketAclOutput
+    , getBucketAclResponse
     -- ** Response lenses
     , gbaoGrants
     , gbaoOwner
@@ -86,8 +86,8 @@ data GetBucketAclOutput = GetBucketAclOutput
 --
 -- * 'gbaoOwner' @::@ 'Maybe' 'Owner'
 --
-getBucketAclOutput :: GetBucketAclOutput
-getBucketAclOutput = GetBucketAclOutput
+getBucketAclResponse :: GetBucketAclOutput
+getBucketAclResponse = GetBucketAclOutput
     { _gbaoOwner  = Nothing
     , _gbaoGrants = mempty
     }
@@ -104,5 +104,6 @@ instance AWSRequest GetBucketAcl where
     type Rs GetBucketAcl = GetBucketAclOutput
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetBucketAclOutput
-record
+    response = xmlResponse $ \h x -> GetBucketAclOutput
+        <$> x %| "AccessControlList"
+        <*> x %| "Owner"

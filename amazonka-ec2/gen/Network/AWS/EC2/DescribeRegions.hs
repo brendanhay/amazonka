@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeRegions
     -- * Response
     , DescribeRegionsResult
     -- ** Response constructor
-    , describeRegionsResult
+    , describeRegionsResponse
     -- ** Response lenses
     , drrRegions
     ) where
@@ -96,8 +96,8 @@ newtype DescribeRegionsResult = DescribeRegionsResult
 --
 -- * 'drrRegions' @::@ ['Region']
 --
-describeRegionsResult :: DescribeRegionsResult
-describeRegionsResult = DescribeRegionsResult
+describeRegionsResponse :: DescribeRegionsResult
+describeRegionsResponse = DescribeRegionsResult
     { _drrRegions = mempty
     }
 
@@ -110,5 +110,5 @@ instance AWSRequest DescribeRegions where
     type Rs DescribeRegions = DescribeRegionsResult
 
     request  = post "DescribeRegions"
-    response = const . xmlResponse $ \h x -> DescribeRegionsResult
-newtype
+    response = xmlResponse $ \h x -> DescribeRegionsResult
+        <$> x %| "regionInfo"

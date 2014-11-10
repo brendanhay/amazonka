@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     -- * Response
     , DescribeNetworkInterfacesResult
     -- ** Response constructor
-    , describeNetworkInterfacesResult
+    , describeNetworkInterfacesResponse
     -- ** Response lenses
     , dnirNetworkInterfaces
     ) where
@@ -148,8 +148,8 @@ newtype DescribeNetworkInterfacesResult = DescribeNetworkInterfacesResult
 --
 -- * 'dnirNetworkInterfaces' @::@ ['NetworkInterface']
 --
-describeNetworkInterfacesResult :: DescribeNetworkInterfacesResult
-describeNetworkInterfacesResult = DescribeNetworkInterfacesResult
+describeNetworkInterfacesResponse :: DescribeNetworkInterfacesResult
+describeNetworkInterfacesResponse = DescribeNetworkInterfacesResult
     { _dnirNetworkInterfaces = mempty
     }
 
@@ -163,5 +163,5 @@ instance AWSRequest DescribeNetworkInterfaces where
     type Rs DescribeNetworkInterfaces = DescribeNetworkInterfacesResult
 
     request  = post "DescribeNetworkInterfaces"
-    response = const . xmlResponse $ \h x -> DescribeNetworkInterfacesResult
-newtype
+    response = xmlResponse $ \h x -> DescribeNetworkInterfacesResult
+        <$> x %| "networkInterfaceSet"

@@ -36,7 +36,7 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     -- * Request
       RemoveAvailabilityZonesInput
     -- ** Request constructor
-    , removeAvailabilityZonesInput
+    , disableAvailabilityZonesForLoadBalancer
     -- ** Request lenses
     , raziAvailabilityZones
     , raziLoadBalancerName
@@ -44,7 +44,7 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     -- * Response
     , RemoveAvailabilityZonesOutput
     -- ** Response constructor
-    , removeAvailabilityZonesOutput
+    , disableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
     , razoAvailabilityZones
     ) where
@@ -66,9 +66,9 @@ data RemoveAvailabilityZonesInput = RemoveAvailabilityZonesInput
 --
 -- * 'raziLoadBalancerName' @::@ 'Text'
 --
-removeAvailabilityZonesInput :: Text -- ^ 'raziLoadBalancerName'
-                             -> RemoveAvailabilityZonesInput
-removeAvailabilityZonesInput p1 = RemoveAvailabilityZonesInput
+disableAvailabilityZonesForLoadBalancer :: Text -- ^ 'raziLoadBalancerName'
+                                        -> RemoveAvailabilityZonesInput
+disableAvailabilityZonesForLoadBalancer p1 = RemoveAvailabilityZonesInput
     { _raziLoadBalancerName  = p1
     , _raziAvailabilityZones = mempty
     }
@@ -100,8 +100,8 @@ newtype RemoveAvailabilityZonesOutput = RemoveAvailabilityZonesOutput
 --
 -- * 'razoAvailabilityZones' @::@ ['Text']
 --
-removeAvailabilityZonesOutput :: RemoveAvailabilityZonesOutput
-removeAvailabilityZonesOutput = RemoveAvailabilityZonesOutput
+disableAvailabilityZonesForLoadBalancerResponse :: RemoveAvailabilityZonesOutput
+disableAvailabilityZonesForLoadBalancerResponse = RemoveAvailabilityZonesOutput
     { _razoAvailabilityZones = mempty
     }
 
@@ -115,5 +115,5 @@ instance AWSRequest RemoveAvailabilityZonesInput where
     type Rs RemoveAvailabilityZonesInput = RemoveAvailabilityZonesOutput
 
     request  = post "DisableAvailabilityZonesForLoadBalancer"
-    response = const . xmlResponse $ \h x -> RemoveAvailabilityZonesOutput
-newtype
+    response = xmlResponse $ \h x -> RemoveAvailabilityZonesOutput
+        <$> x %| "AvailabilityZones"

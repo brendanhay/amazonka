@@ -47,7 +47,7 @@ module Network.AWS.EC2.CreateVpnConnection
     -- * Response
     , CreateVpnConnectionResult
     -- ** Response constructor
-    , createVpnConnectionResult
+    , createVpnConnectionResponse
     -- ** Response lenses
     , cvcrVpnConnection
     ) where
@@ -127,8 +127,8 @@ newtype CreateVpnConnectionResult = CreateVpnConnectionResult
 --
 -- * 'cvcrVpnConnection' @::@ 'Maybe' 'VpnConnection'
 --
-createVpnConnectionResult :: CreateVpnConnectionResult
-createVpnConnectionResult = CreateVpnConnectionResult
+createVpnConnectionResponse :: CreateVpnConnectionResult
+createVpnConnectionResponse = CreateVpnConnectionResult
     { _cvcrVpnConnection = Nothing
     }
 
@@ -142,5 +142,5 @@ instance AWSRequest CreateVpnConnection where
     type Rs CreateVpnConnection = CreateVpnConnectionResult
 
     request  = post "CreateVpnConnection"
-    response = const . xmlResponse $ \h x -> CreateVpnConnectionResult
-newtype
+    response = xmlResponse $ \h x -> CreateVpnConnectionResult
+        <$> x %| "vpnConnection"

@@ -106,5 +106,5 @@ instance AWSRequest GetHealthCheckLastFailureReason where
     type Rs GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReasonResponse
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetHealthCheckLastFailureReasonResponse
-newtype
+    response = xmlResponse $ \h x -> GetHealthCheckLastFailureReasonResponse
+        <$> x %| "HealthCheckObservations"

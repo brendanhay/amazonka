@@ -39,7 +39,7 @@ module Network.AWS.SNS.CreatePlatformApplication
     -- * Request
       CreatePlatformApplicationInput
     -- ** Request constructor
-    , createPlatformApplicationInput
+    , createPlatformApplication
     -- ** Request lenses
     , cpaiAttributes
     , cpaiName
@@ -73,10 +73,10 @@ data CreatePlatformApplicationInput = CreatePlatformApplicationInput
 --
 -- * 'cpaiPlatform' @::@ 'Text'
 --
-createPlatformApplicationInput :: Text -- ^ 'cpaiName'
-                               -> Text -- ^ 'cpaiPlatform'
-                               -> CreatePlatformApplicationInput
-createPlatformApplicationInput p1 p2 = CreatePlatformApplicationInput
+createPlatformApplication :: Text -- ^ 'cpaiName'
+                          -> Text -- ^ 'cpaiPlatform'
+                          -> CreatePlatformApplicationInput
+createPlatformApplication p1 p2 = CreatePlatformApplicationInput
     { _cpaiName       = p1
     , _cpaiPlatform   = p2
     , _cpaiAttributes = mempty
@@ -130,5 +130,5 @@ instance AWSRequest CreatePlatformApplicationInput where
     type Rs CreatePlatformApplicationInput = CreatePlatformApplicationResponse
 
     request  = post "CreatePlatformApplication"
-    response = const . xmlResponse $ \h x -> CreatePlatformApplicationResponse
-newtype
+    response = xmlResponse $ \h x -> CreatePlatformApplicationResponse
+        <$> x %| "PlatformApplicationArn"

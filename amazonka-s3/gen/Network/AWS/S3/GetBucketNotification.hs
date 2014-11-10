@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketNotification
     -- * Response
     , GetBucketNotificationOutput
     -- ** Response constructor
-    , getBucketNotificationOutput
+    , getBucketNotificationResponse
     -- ** Response lenses
     , gbnoTopicConfiguration
     ) where
@@ -82,8 +82,8 @@ newtype GetBucketNotificationOutput = GetBucketNotificationOutput
 --
 -- * 'gbnoTopicConfiguration' @::@ 'Maybe' 'TopicConfiguration'
 --
-getBucketNotificationOutput :: GetBucketNotificationOutput
-getBucketNotificationOutput = GetBucketNotificationOutput
+getBucketNotificationResponse :: GetBucketNotificationOutput
+getBucketNotificationResponse = GetBucketNotificationOutput
     { _gbnoTopicConfiguration = Nothing
     }
 
@@ -96,5 +96,5 @@ instance AWSRequest GetBucketNotification where
     type Rs GetBucketNotification = GetBucketNotificationOutput
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetBucketNotificationOutput
-newtype
+    response = xmlResponse $ \h x -> GetBucketNotificationOutput
+        <$> x %| "TopicConfiguration"

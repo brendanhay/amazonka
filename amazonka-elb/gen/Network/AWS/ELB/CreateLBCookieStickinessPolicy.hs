@@ -39,7 +39,7 @@ module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     -- * Request
       CreateLBCookieStickinessPolicyInput
     -- ** Request constructor
-    , createLBCookieStickinessPolicyInput
+    , createLBCookieStickinessPolicy
     -- ** Request lenses
     , clbcspiCookieExpirationPeriod
     , clbcspiLoadBalancerName
@@ -71,10 +71,10 @@ data CreateLBCookieStickinessPolicyInput = CreateLBCookieStickinessPolicyInput
 --
 -- * 'clbcspiPolicyName' @::@ 'Text'
 --
-createLBCookieStickinessPolicyInput :: Text -- ^ 'clbcspiLoadBalancerName'
-                                    -> Text -- ^ 'clbcspiPolicyName'
-                                    -> CreateLBCookieStickinessPolicyInput
-createLBCookieStickinessPolicyInput p1 p2 = CreateLBCookieStickinessPolicyInput
+createLBCookieStickinessPolicy :: Text -- ^ 'clbcspiLoadBalancerName'
+                               -> Text -- ^ 'clbcspiPolicyName'
+                               -> CreateLBCookieStickinessPolicyInput
+createLBCookieStickinessPolicy p1 p2 = CreateLBCookieStickinessPolicyInput
     { _clbcspiLoadBalancerName       = p1
     , _clbcspiPolicyName             = p2
     , _clbcspiCookieExpirationPeriod = Nothing

@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeNetworkAcls
     -- * Response
     , DescribeNetworkAclsResult
     -- ** Response constructor
-    , describeNetworkAclsResult
+    , describeNetworkAclsResponse
     -- ** Response lenses
     , dnarNetworkAcls
     ) where
@@ -119,8 +119,8 @@ newtype DescribeNetworkAclsResult = DescribeNetworkAclsResult
 --
 -- * 'dnarNetworkAcls' @::@ ['NetworkAcl']
 --
-describeNetworkAclsResult :: DescribeNetworkAclsResult
-describeNetworkAclsResult = DescribeNetworkAclsResult
+describeNetworkAclsResponse :: DescribeNetworkAclsResult
+describeNetworkAclsResponse = DescribeNetworkAclsResult
     { _dnarNetworkAcls = mempty
     }
 
@@ -133,5 +133,5 @@ instance AWSRequest DescribeNetworkAcls where
     type Rs DescribeNetworkAcls = DescribeNetworkAclsResult
 
     request  = post "DescribeNetworkAcls"
-    response = const . xmlResponse $ \h x -> DescribeNetworkAclsResult
-newtype
+    response = xmlResponse $ \h x -> DescribeNetworkAclsResult
+        <$> x %| "networkAclSet"

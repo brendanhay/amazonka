@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeRouteTables
     -- * Response
     , DescribeRouteTablesResult
     -- ** Response constructor
-    , describeRouteTablesResult
+    , describeRouteTablesResponse
     -- ** Response lenses
     , drtrRouteTables
     ) where
@@ -124,8 +124,8 @@ newtype DescribeRouteTablesResult = DescribeRouteTablesResult
 --
 -- * 'drtrRouteTables' @::@ ['RouteTable']
 --
-describeRouteTablesResult :: DescribeRouteTablesResult
-describeRouteTablesResult = DescribeRouteTablesResult
+describeRouteTablesResponse :: DescribeRouteTablesResult
+describeRouteTablesResponse = DescribeRouteTablesResult
     { _drtrRouteTables = mempty
     }
 
@@ -138,5 +138,5 @@ instance AWSRequest DescribeRouteTables where
     type Rs DescribeRouteTables = DescribeRouteTablesResult
 
     request  = post "DescribeRouteTables"
-    response = const . xmlResponse $ \h x -> DescribeRouteTablesResult
-newtype
+    response = xmlResponse $ \h x -> DescribeRouteTablesResult
+        <$> x %| "routeTableSet"

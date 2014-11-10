@@ -108,5 +108,5 @@ instance AWSRequest DeleteHostedZone where
     type Rs DeleteHostedZone = DeleteHostedZoneResponse
 
     request  = delete
-    response = const . xmlResponse $ \h x -> DeleteHostedZoneResponse
-newtype
+    response = xmlResponse $ \h x -> DeleteHostedZoneResponse
+        <$> x %| "ChangeInfo"

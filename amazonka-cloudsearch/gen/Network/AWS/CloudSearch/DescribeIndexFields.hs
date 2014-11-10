@@ -116,5 +116,5 @@ instance AWSRequest DescribeIndexFields where
     type Rs DescribeIndexFields = DescribeIndexFieldsResponse
 
     request  = post "DescribeIndexFields"
-    response = const . xmlResponse $ \h x -> DescribeIndexFieldsResponse
-newtype
+    response = xmlResponse $ \h x -> DescribeIndexFieldsResponse
+        <$> x %| "IndexFields"

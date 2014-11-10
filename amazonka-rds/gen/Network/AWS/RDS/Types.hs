@@ -432,48 +432,10 @@ instance AWSService RDS where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'RDS' errors returned by the
--- Amazon Relational Database Service.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data RDSError
-    = RDSHttp       HttpException
-    | RDSSerializer String
-    | RDSService    Status RDSServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception RDSError
-
-instance AWSError RDSError where
-    awsError = \case
-        RDSHttp       ex  -> HttpError       ex
-        RDSSerializer e   -> SerializerError "RDS" e
-        RDSService    s x -> ServiceError    "RDS" s (show x)
-
-instance AWSServiceError RDSError where
-    httpError       = RDSHttp
-    serializerError = RDSSerializer
-    serviceError    = xmlError httpStatus RDSService
-
-_RDSHttp :: Prism' RDSError HttpException
-_RDSHttp = prism RDSHttp $ \case
-    RDSHttp ex -> Right ex
-    x -> Left x
-
-_RDSSerializer :: Prism' RDSError String
-_RDSSerializer = prism RDSSerializer $ \case
-    RDSSerializer e -> Right e
-    x -> Left x
-
-_RDSService :: Prism' RDSError (Status, RDSServiceError)
-_RDSService = prism (uncurry RDSService) $ \case
-    RDSService s x -> Right (s, x)
-    x -> Left x
 
 data OptionGroup = OptionGroup
     { _ogAllowsVpcAndNonVpcInstanceMemberships :: Maybe Bool

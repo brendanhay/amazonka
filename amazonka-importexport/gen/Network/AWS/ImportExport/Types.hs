@@ -60,48 +60,10 @@ instance AWSService ImportExport where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'ImportExport' errors returned by the
--- Amazon Import/Export.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data ImportExportError
-    = ImportExportHttp       HttpException
-    | ImportExportSerializer String
-    | ImportExportService    Status ImportExportServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception ImportExportError
-
-instance AWSError ImportExportError where
-    awsError = \case
-        ImportExportHttp       ex  -> HttpError       ex
-        ImportExportSerializer e   -> SerializerError "ImportExport" e
-        ImportExportService    s x -> ServiceError    "ImportExport" s (show x)
-
-instance AWSServiceError ImportExportError where
-    httpError       = ImportExportHttp
-    serializerError = ImportExportSerializer
-    serviceError    = xmlError httpStatus ImportExportService
-
-_ImportExportHttp :: Prism' ImportExportError HttpException
-_ImportExportHttp = prism ImportExportHttp $ \case
-    ImportExportHttp ex -> Right ex
-    x -> Left x
-
-_ImportExportSerializer :: Prism' ImportExportError String
-_ImportExportSerializer = prism ImportExportSerializer $ \case
-    ImportExportSerializer e -> Right e
-    x -> Left x
-
-_ImportExportService :: Prism' ImportExportError (Status, ImportExportServiceError)
-_ImportExportService = prism (uncurry ImportExportService) $ \case
-    ImportExportService s x -> Right (s, x)
-    x -> Left x
 
 data JobType
     = Export -- ^ Export

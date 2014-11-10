@@ -30,7 +30,7 @@ module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     -- * Request
       RequestEnvironmentInfoMessage
     -- ** Request constructor
-    , requestEnvironmentInfoMessage
+    , requestEnvironmentInfo
     -- ** Request lenses
     , reim1EnvironmentId
     , reim1EnvironmentName
@@ -62,9 +62,9 @@ data RequestEnvironmentInfoMessage = RequestEnvironmentInfoMessage
 --
 -- * 'reim1InfoType' @::@ 'Text'
 --
-requestEnvironmentInfoMessage :: Text -- ^ 'reim1InfoType'
-                              -> RequestEnvironmentInfoMessage
-requestEnvironmentInfoMessage p1 = RequestEnvironmentInfoMessage
+requestEnvironmentInfo :: Text -- ^ 'reim1InfoType'
+                       -> RequestEnvironmentInfoMessage
+requestEnvironmentInfo p1 = RequestEnvironmentInfoMessage
     { _reim1InfoType        = p1
     , _reim1EnvironmentId   = Nothing
     , _reim1EnvironmentName = Nothing

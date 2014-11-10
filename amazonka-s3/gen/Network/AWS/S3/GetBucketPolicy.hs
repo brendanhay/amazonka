@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketPolicy
     -- * Response
     , GetBucketPolicyOutput
     -- ** Response constructor
-    , getBucketPolicyOutput
+    , getBucketPolicyResponse
     -- ** Response lenses
     , gbpoPolicy
     ) where
@@ -82,8 +82,8 @@ newtype GetBucketPolicyOutput = GetBucketPolicyOutput
 --
 -- * 'gbpoPolicy' @::@ 'Maybe' 'Text'
 --
-getBucketPolicyOutput :: GetBucketPolicyOutput
-getBucketPolicyOutput = GetBucketPolicyOutput
+getBucketPolicyResponse :: GetBucketPolicyOutput
+getBucketPolicyResponse = GetBucketPolicyOutput
     { _gbpoPolicy = Nothing
     }
 
@@ -96,5 +96,5 @@ instance AWSRequest GetBucketPolicy where
     type Rs GetBucketPolicy = GetBucketPolicyOutput
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetBucketPolicyOutput
-newtype
+    response = xmlResponse $ \h x -> GetBucketPolicyOutput
+        <$> x %| "Policy"

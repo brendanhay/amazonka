@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     -- * Request
       DeleteApplicationVersionMessage
     -- ** Request constructor
-    , deleteApplicationVersionMessage
+    , deleteApplicationVersion
     -- ** Request lenses
     , davmApplicationName
     , davmDeleteSourceBundle
@@ -58,10 +58,10 @@ data DeleteApplicationVersionMessage = DeleteApplicationVersionMessage
 --
 -- * 'davmVersionLabel' @::@ 'Text'
 --
-deleteApplicationVersionMessage :: Text -- ^ 'davmApplicationName'
-                                -> Text -- ^ 'davmVersionLabel'
-                                -> DeleteApplicationVersionMessage
-deleteApplicationVersionMessage p1 p2 = DeleteApplicationVersionMessage
+deleteApplicationVersion :: Text -- ^ 'davmApplicationName'
+                         -> Text -- ^ 'davmVersionLabel'
+                         -> DeleteApplicationVersionMessage
+deleteApplicationVersion p1 p2 = DeleteApplicationVersionMessage
     { _davmApplicationName    = p1
     , _davmVersionLabel       = p2
     , _davmDeleteSourceBundle = Nothing

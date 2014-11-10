@@ -96,5 +96,5 @@ instance AWSRequest GetIdentityNotificationAttributes where
     type Rs GetIdentityNotificationAttributes = GetIdentityNotificationAttributesResponse
 
     request  = post "GetIdentityNotificationAttributes"
-    response = const . xmlResponse $ \h x -> GetIdentityNotificationAttributesResponse
-newtype
+    response = xmlResponse $ \h x -> GetIdentityNotificationAttributesResponse
+        <$> x %| "NotificationAttributes"

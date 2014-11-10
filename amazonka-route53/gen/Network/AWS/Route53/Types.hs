@@ -204,48 +204,10 @@ instance AWSService Route53 where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'Route53' errors returned by the
--- Amazon Route 53.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data Route53Error
-    = Route53Http       HttpException
-    | Route53Serializer String
-    | Route53Service    Status Route53ServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception Route53Error
-
-instance AWSError Route53Error where
-    awsError = \case
-        Route53Http       ex  -> HttpError       ex
-        Route53Serializer e   -> SerializerError "Route53" e
-        Route53Service    s x -> ServiceError    "Route53" s (show x)
-
-instance AWSServiceError Route53Error where
-    httpError       = Route53Http
-    serializerError = Route53Serializer
-    serviceError    = xmlError httpStatus Route53Service
-
-_Route53Http :: Prism' Route53Error HttpException
-_Route53Http = prism Route53Http $ \case
-    Route53Http ex -> Right ex
-    x -> Left x
-
-_Route53Serializer :: Prism' Route53Error String
-_Route53Serializer = prism Route53Serializer $ \case
-    Route53Serializer e -> Right e
-    x -> Left x
-
-_Route53Service :: Prism' Route53Error (Status, Route53ServiceError)
-_Route53Service = prism (uncurry Route53Service) $ \case
-    Route53Service s x -> Right (s, x)
-    x -> Left x
 
 data AliasTarget = AliasTarget
     { _atDNSName              :: Text

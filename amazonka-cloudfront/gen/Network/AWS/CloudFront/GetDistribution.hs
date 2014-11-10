@@ -26,14 +26,14 @@ module Network.AWS.CloudFront.GetDistribution
     -- * Request
       GetDistribution
     -- ** Request constructor
-    , getDistribution
+    , getDistribution2014_05_31
     -- ** Request lenses
     , gdId
 
     -- * Response
     , GetDistributionResult
     -- ** Response constructor
-    , getDistributionResult
+    , getDistribution2014_05_31Response
     -- ** Response lenses
     , gdrDistribution
     , gdrETag
@@ -53,9 +53,9 @@ newtype GetDistribution = GetDistribution
 --
 -- * 'gdId' @::@ 'Text'
 --
-getDistribution :: Text -- ^ 'gdId'
-                -> GetDistribution
-getDistribution p1 = GetDistribution
+getDistribution2014_05_31 :: Text -- ^ 'gdId'
+                          -> GetDistribution
+getDistribution2014_05_31 p1 = GetDistribution
     { _gdId = p1
     }
 
@@ -87,8 +87,8 @@ data GetDistributionResult = GetDistributionResult
 --
 -- * 'gdrETag' @::@ 'Maybe' 'Text'
 --
-getDistributionResult :: GetDistributionResult
-getDistributionResult = GetDistributionResult
+getDistribution2014_05_31Response :: GetDistributionResult
+getDistribution2014_05_31Response = GetDistributionResult
     { _gdrDistribution = Nothing
     , _gdrETag         = Nothing
     }
@@ -107,5 +107,6 @@ instance AWSRequest GetDistribution where
     type Rs GetDistribution = GetDistributionResult
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetDistributionResult
-record
+    response = xmlResponse $ \h x -> GetDistributionResult
+        <$> x %| "Distribution"
+        <*> h ~:? "ETag"

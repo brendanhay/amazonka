@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.ExitStandby
     -- * Request
       ExitStandbyQuery
     -- ** Request constructor
-    , exitStandbyQuery
+    , exitStandby
     -- ** Request lenses
     , esq1AutoScalingGroupName
     , esq1InstanceIds
@@ -36,7 +36,7 @@ module Network.AWS.AutoScaling.ExitStandby
     -- * Response
     , ExitStandbyAnswer
     -- ** Response constructor
-    , exitStandbyAnswer
+    , exitStandbyResponse
     -- ** Response lenses
     , esa1Activities
     ) where
@@ -58,9 +58,9 @@ data ExitStandbyQuery = ExitStandbyQuery
 --
 -- * 'esq1InstanceIds' @::@ ['Text']
 --
-exitStandbyQuery :: Text -- ^ 'esq1AutoScalingGroupName'
-                 -> ExitStandbyQuery
-exitStandbyQuery p1 = ExitStandbyQuery
+exitStandby :: Text -- ^ 'esq1AutoScalingGroupName'
+            -> ExitStandbyQuery
+exitStandby p1 = ExitStandbyQuery
     { _esq1AutoScalingGroupName = p1
     , _esq1InstanceIds          = mempty
     }
@@ -92,8 +92,8 @@ newtype ExitStandbyAnswer = ExitStandbyAnswer
 --
 -- * 'esa1Activities' @::@ ['Activity']
 --
-exitStandbyAnswer :: ExitStandbyAnswer
-exitStandbyAnswer = ExitStandbyAnswer
+exitStandbyResponse :: ExitStandbyAnswer
+exitStandbyResponse = ExitStandbyAnswer
     { _esa1Activities = mempty
     }
 
@@ -107,5 +107,5 @@ instance AWSRequest ExitStandbyQuery where
     type Rs ExitStandbyQuery = ExitStandbyAnswer
 
     request  = post "ExitStandby"
-    response = const . xmlResponse $ \h x -> ExitStandbyAnswer
-newtype
+    response = xmlResponse $ \h x -> ExitStandbyAnswer
+        <$> x %| "Activities"

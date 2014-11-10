@@ -28,7 +28,7 @@ module Network.AWS.ELB.ConfigureHealthCheck
     -- * Request
       ConfigureHealthCheckInput
     -- ** Request constructor
-    , configureHealthCheckInput
+    , configureHealthCheck
     -- ** Request lenses
     , chciHealthCheck
     , chciLoadBalancerName
@@ -36,7 +36,7 @@ module Network.AWS.ELB.ConfigureHealthCheck
     -- * Response
     , ConfigureHealthCheckOutput
     -- ** Response constructor
-    , configureHealthCheckOutput
+    , configureHealthCheckResponse
     -- ** Response lenses
     , chcoHealthCheck
     ) where
@@ -58,10 +58,10 @@ data ConfigureHealthCheckInput = ConfigureHealthCheckInput
 --
 -- * 'chciLoadBalancerName' @::@ 'Text'
 --
-configureHealthCheckInput :: Text -- ^ 'chciLoadBalancerName'
-                          -> HealthCheck -- ^ 'chciHealthCheck'
-                          -> ConfigureHealthCheckInput
-configureHealthCheckInput p1 p2 = ConfigureHealthCheckInput
+configureHealthCheck :: Text -- ^ 'chciLoadBalancerName'
+                     -> HealthCheck -- ^ 'chciHealthCheck'
+                     -> ConfigureHealthCheckInput
+configureHealthCheck p1 p2 = ConfigureHealthCheckInput
     { _chciLoadBalancerName = p1
     , _chciHealthCheck      = p2
     }
@@ -92,8 +92,8 @@ newtype ConfigureHealthCheckOutput = ConfigureHealthCheckOutput
 --
 -- * 'chcoHealthCheck' @::@ 'Maybe' 'HealthCheck'
 --
-configureHealthCheckOutput :: ConfigureHealthCheckOutput
-configureHealthCheckOutput = ConfigureHealthCheckOutput
+configureHealthCheckResponse :: ConfigureHealthCheckOutput
+configureHealthCheckResponse = ConfigureHealthCheckOutput
     { _chcoHealthCheck = Nothing
     }
 
@@ -106,5 +106,5 @@ instance AWSRequest ConfigureHealthCheckInput where
     type Rs ConfigureHealthCheckInput = ConfigureHealthCheckOutput
 
     request  = post "ConfigureHealthCheck"
-    response = const . xmlResponse $ \h x -> ConfigureHealthCheckOutput
-newtype
+    response = xmlResponse $ \h x -> ConfigureHealthCheckOutput
+        <$> x %| "HealthCheck"

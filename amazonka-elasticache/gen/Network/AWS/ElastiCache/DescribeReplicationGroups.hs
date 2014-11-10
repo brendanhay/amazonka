@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     -- * Request
       DescribeReplicationGroupsMessage
     -- ** Request constructor
-    , describeReplicationGroupsMessage
+    , describeReplicationGroups
     -- ** Request lenses
     , drgmMarker
     , drgmMaxRecords
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     -- * Response
     , ReplicationGroupMessage
     -- ** Response constructor
-    , replicationGroupMessage
+    , describeReplicationGroupsResponse
     -- ** Response lenses
     , rgmMarker
     , rgmReplicationGroups
@@ -63,8 +63,8 @@ data DescribeReplicationGroupsMessage = DescribeReplicationGroupsMessage
 --
 -- * 'drgmReplicationGroupId' @::@ 'Maybe' 'Text'
 --
-describeReplicationGroupsMessage :: DescribeReplicationGroupsMessage
-describeReplicationGroupsMessage = DescribeReplicationGroupsMessage
+describeReplicationGroups :: DescribeReplicationGroupsMessage
+describeReplicationGroups = DescribeReplicationGroupsMessage
     { _drgmReplicationGroupId = Nothing
     , _drgmMaxRecords         = Nothing
     , _drgmMarker             = Nothing
@@ -109,8 +109,8 @@ data ReplicationGroupMessage = ReplicationGroupMessage
 --
 -- * 'rgmReplicationGroups' @::@ ['ReplicationGroup']
 --
-replicationGroupMessage :: ReplicationGroupMessage
-replicationGroupMessage = ReplicationGroupMessage
+describeReplicationGroupsResponse :: ReplicationGroupMessage
+describeReplicationGroupsResponse = ReplicationGroupMessage
     { _rgmMarker            = Nothing
     , _rgmReplicationGroups = mempty
     }
@@ -130,5 +130,6 @@ instance AWSRequest DescribeReplicationGroupsMessage where
     type Rs DescribeReplicationGroupsMessage = ReplicationGroupMessage
 
     request  = post "DescribeReplicationGroups"
-    response = const . xmlResponse $ \h x -> ReplicationGroupMessage
-record
+    response = xmlResponse $ \h x -> ReplicationGroupMessage
+        <$> x %| "Marker"
+        <*> x %| "ReplicationGroups"

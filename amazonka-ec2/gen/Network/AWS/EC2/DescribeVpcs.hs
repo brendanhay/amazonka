@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeVpcs
     -- * Response
     , DescribeVpcsResult
     -- ** Response constructor
-    , describeVpcsResult
+    , describeVpcsResponse
     -- ** Response lenses
     , dvrVpcs
     ) where
@@ -107,8 +107,8 @@ newtype DescribeVpcsResult = DescribeVpcsResult
 --
 -- * 'dvrVpcs' @::@ ['Vpc']
 --
-describeVpcsResult :: DescribeVpcsResult
-describeVpcsResult = DescribeVpcsResult
+describeVpcsResponse :: DescribeVpcsResult
+describeVpcsResponse = DescribeVpcsResult
     { _dvrVpcs = mempty
     }
 
@@ -121,5 +121,5 @@ instance AWSRequest DescribeVpcs where
     type Rs DescribeVpcs = DescribeVpcsResult
 
     request  = post "DescribeVpcs"
-    response = const . xmlResponse $ \h x -> DescribeVpcsResult
-newtype
+    response = xmlResponse $ \h x -> DescribeVpcsResult
+        <$> x %| "vpcSet"

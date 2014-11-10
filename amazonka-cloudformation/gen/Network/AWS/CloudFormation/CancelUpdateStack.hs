@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.CancelUpdateStack
     -- * Request
       CancelUpdateStackInput
     -- ** Request constructor
-    , cancelUpdateStackInput
+    , cancelUpdateStack
     -- ** Request lenses
     , cusiStackName
 
@@ -52,9 +52,9 @@ newtype CancelUpdateStackInput = CancelUpdateStackInput
 --
 -- * 'cusiStackName' @::@ 'Text'
 --
-cancelUpdateStackInput :: Text -- ^ 'cusiStackName'
-                       -> CancelUpdateStackInput
-cancelUpdateStackInput p1 = CancelUpdateStackInput
+cancelUpdateStack :: Text -- ^ 'cusiStackName'
+                  -> CancelUpdateStackInput
+cancelUpdateStack p1 = CancelUpdateStackInput
     { _cusiStackName = p1
     }
 

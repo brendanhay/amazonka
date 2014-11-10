@@ -48,7 +48,7 @@ module Network.AWS.EC2.StartInstances
     -- * Response
     , StartInstancesResult
     -- ** Response constructor
-    , startInstancesResult
+    , startInstancesResponse
     -- ** Response lenses
     , sirStartingInstances
     ) where
@@ -106,8 +106,8 @@ newtype StartInstancesResult = StartInstancesResult
 --
 -- * 'sirStartingInstances' @::@ ['InstanceStateChange']
 --
-startInstancesResult :: StartInstancesResult
-startInstancesResult = StartInstancesResult
+startInstancesResponse :: StartInstancesResult
+startInstancesResponse = StartInstancesResult
     { _sirStartingInstances = mempty
     }
 
@@ -121,5 +121,5 @@ instance AWSRequest StartInstances where
     type Rs StartInstances = StartInstancesResult
 
     request  = post "StartInstances"
-    response = const . xmlResponse $ \h x -> StartInstancesResult
-newtype
+    response = xmlResponse $ \h x -> StartInstancesResult
+        <$> x %| "instancesSet"

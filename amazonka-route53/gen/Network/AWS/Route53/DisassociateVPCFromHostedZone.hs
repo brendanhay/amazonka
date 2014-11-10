@@ -133,5 +133,5 @@ instance AWSRequest DisassociateVPCFromHostedZone where
     type Rs DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZoneResponse
 
     request  = post
-    response = const . xmlResponse $ \h x -> DisassociateVPCFromHostedZoneResponse
-newtype
+    response = xmlResponse $ \h x -> DisassociateVPCFromHostedZoneResponse
+        <$> x %| "ChangeInfo"

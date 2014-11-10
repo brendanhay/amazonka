@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.ResumeProcesses
     -- * Request
       ScalingProcessQuery
     -- ** Request constructor
-    , scalingProcessQuery
+    , resumeProcesses
     -- ** Request lenses
     , spqAutoScalingGroupName
     , spqScalingProcesses
@@ -56,9 +56,9 @@ data ScalingProcessQuery = ScalingProcessQuery
 --
 -- * 'spqScalingProcesses' @::@ ['Text']
 --
-scalingProcessQuery :: Text -- ^ 'spqAutoScalingGroupName'
-                    -> ScalingProcessQuery
-scalingProcessQuery p1 = ScalingProcessQuery
+resumeProcesses :: Text -- ^ 'spqAutoScalingGroupName'
+                -> ScalingProcessQuery
+resumeProcesses p1 = ScalingProcessQuery
     { _spqAutoScalingGroupName = p1
     , _spqScalingProcesses     = mempty
     }

@@ -148,5 +148,5 @@ instance AWSRequest GetSessionToken where
     type Rs GetSessionToken = GetSessionTokenResponse
 
     request  = post "GetSessionToken"
-    response = const . xmlResponse $ \h x -> GetSessionTokenResponse
-newtype
+    response = xmlResponse $ \h x -> GetSessionTokenResponse
+        <$> x %| "Credentials"

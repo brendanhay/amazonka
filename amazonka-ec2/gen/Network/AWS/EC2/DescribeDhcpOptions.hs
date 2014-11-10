@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeDhcpOptions
     -- * Response
     , DescribeDhcpOptionsResult
     -- ** Response constructor
-    , describeDhcpOptionsResult
+    , describeDhcpOptionsResponse
     -- ** Response lenses
     , ddorDhcpOptions
     ) where
@@ -108,8 +108,8 @@ newtype DescribeDhcpOptionsResult = DescribeDhcpOptionsResult
 --
 -- * 'ddorDhcpOptions' @::@ ['DhcpOptions']
 --
-describeDhcpOptionsResult :: DescribeDhcpOptionsResult
-describeDhcpOptionsResult = DescribeDhcpOptionsResult
+describeDhcpOptionsResponse :: DescribeDhcpOptionsResult
+describeDhcpOptionsResponse = DescribeDhcpOptionsResult
     { _ddorDhcpOptions = mempty
     }
 
@@ -122,5 +122,5 @@ instance AWSRequest DescribeDhcpOptions where
     type Rs DescribeDhcpOptions = DescribeDhcpOptionsResult
 
     request  = post "DescribeDhcpOptions"
-    response = const . xmlResponse $ \h x -> DescribeDhcpOptionsResult
-newtype
+    response = xmlResponse $ \h x -> DescribeDhcpOptionsResult
+        <$> x %| "dhcpOptionsSet"

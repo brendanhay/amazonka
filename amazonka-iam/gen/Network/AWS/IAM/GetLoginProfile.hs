@@ -94,5 +94,5 @@ instance AWSRequest GetLoginProfile where
     type Rs GetLoginProfile = GetLoginProfileResponse
 
     request  = post "GetLoginProfile"
-    response = const . xmlResponse $ \h x -> GetLoginProfileResponse
-newtype
+    response = xmlResponse $ \h x -> GetLoginProfileResponse
+        <$> x %| "LoginProfile"

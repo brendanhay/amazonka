@@ -44,7 +44,7 @@ module Network.AWS.SQS.CreateQueue
     -- * Response
     , CreateQueueResult
     -- ** Response constructor
-    , createQueueResult
+    , createQueueResponse
     -- ** Response lenses
     , cqrQueueUrl
     ) where
@@ -117,8 +117,8 @@ newtype CreateQueueResult = CreateQueueResult
 --
 -- * 'cqrQueueUrl' @::@ 'Maybe' 'Text'
 --
-createQueueResult :: CreateQueueResult
-createQueueResult = CreateQueueResult
+createQueueResponse :: CreateQueueResult
+createQueueResponse = CreateQueueResult
     { _cqrQueueUrl = Nothing
     }
 
@@ -131,5 +131,5 @@ instance AWSRequest CreateQueue where
     type Rs CreateQueue = CreateQueueResult
 
     request  = post "CreateQueue"
-    response = const . xmlResponse $ \h x -> CreateQueueResult
-newtype
+    response = xmlResponse $ \h x -> CreateQueueResult
+        <$> x %| "QueueUrl"

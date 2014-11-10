@@ -44,7 +44,7 @@ module Network.AWS.EC2.CreateImage
     -- * Response
     , CreateImageResult
     -- ** Response constructor
-    , createImageResult
+    , createImageResponse
     -- ** Response lenses
     , cirImageId
     ) where
@@ -136,8 +136,8 @@ newtype CreateImageResult = CreateImageResult
 --
 -- * 'cirImageId' @::@ 'Maybe' 'Text'
 --
-createImageResult :: CreateImageResult
-createImageResult = CreateImageResult
+createImageResponse :: CreateImageResult
+createImageResponse = CreateImageResult
     { _cirImageId = Nothing
     }
 
@@ -150,5 +150,5 @@ instance AWSRequest CreateImage where
     type Rs CreateImage = CreateImageResult
 
     request  = post "CreateImage"
-    response = const . xmlResponse $ \h x -> CreateImageResult
-newtype
+    response = xmlResponse $ \h x -> CreateImageResult
+        <$> x %| "imageId"

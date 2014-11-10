@@ -26,14 +26,14 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
     -- * Request
       GetCloudFrontOriginAccessIdentityConfig
     -- ** Request constructor
-    , getCloudFrontOriginAccessIdentityConfig
+    , getCloudFrontOriginAccessIdentityConfig2014_05_31
     -- ** Request lenses
     , gcfoaicId
 
     -- * Response
     , GetCloudFrontOriginAccessIdentityConfigResult
     -- ** Response constructor
-    , getCloudFrontOriginAccessIdentityConfigResult
+    , getCloudFrontOriginAccessIdentityConfig2014_05_31Response
     -- ** Response lenses
     , gcfoaicrCloudFrontOriginAccessIdentityConfig
     , gcfoaicrETag
@@ -53,9 +53,9 @@ newtype GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdent
 --
 -- * 'gcfoaicId' @::@ 'Text'
 --
-getCloudFrontOriginAccessIdentityConfig :: Text -- ^ 'gcfoaicId'
-                                        -> GetCloudFrontOriginAccessIdentityConfig
-getCloudFrontOriginAccessIdentityConfig p1 = GetCloudFrontOriginAccessIdentityConfig
+getCloudFrontOriginAccessIdentityConfig2014_05_31 :: Text -- ^ 'gcfoaicId'
+                                                  -> GetCloudFrontOriginAccessIdentityConfig
+getCloudFrontOriginAccessIdentityConfig2014_05_31 p1 = GetCloudFrontOriginAccessIdentityConfig
     { _gcfoaicId = p1
     }
 
@@ -88,8 +88,8 @@ data GetCloudFrontOriginAccessIdentityConfigResult = GetCloudFrontOriginAccessId
 --
 -- * 'gcfoaicrETag' @::@ 'Maybe' 'Text'
 --
-getCloudFrontOriginAccessIdentityConfigResult :: GetCloudFrontOriginAccessIdentityConfigResult
-getCloudFrontOriginAccessIdentityConfigResult = GetCloudFrontOriginAccessIdentityConfigResult
+getCloudFrontOriginAccessIdentityConfig2014_05_31Response :: GetCloudFrontOriginAccessIdentityConfigResult
+getCloudFrontOriginAccessIdentityConfig2014_05_31Response = GetCloudFrontOriginAccessIdentityConfigResult
     { _gcfoaicrCloudFrontOriginAccessIdentityConfig = Nothing
     , _gcfoaicrETag                                 = Nothing
     }
@@ -109,5 +109,6 @@ instance AWSRequest GetCloudFrontOriginAccessIdentityConfig where
     type Rs GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfigResult
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetCloudFrontOriginAccessIdentityConfigResult
-record
+    response = xmlResponse $ \h x -> GetCloudFrontOriginAccessIdentityConfigResult
+        <$> x %| "CloudFrontOriginAccessIdentityConfig"
+        <*> h ~:? "ETag"

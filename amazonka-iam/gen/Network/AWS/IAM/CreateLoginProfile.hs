@@ -118,5 +118,5 @@ instance AWSRequest CreateLoginProfile where
     type Rs CreateLoginProfile = CreateLoginProfileResponse
 
     request  = post "CreateLoginProfile"
-    response = const . xmlResponse $ \h x -> CreateLoginProfileResponse
-newtype
+    response = xmlResponse $ \h x -> CreateLoginProfileResponse
+        <$> x %| "LoginProfile"

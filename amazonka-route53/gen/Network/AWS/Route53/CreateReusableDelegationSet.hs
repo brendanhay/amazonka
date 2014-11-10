@@ -134,5 +134,6 @@ instance AWSRequest CreateReusableDelegationSet where
     type Rs CreateReusableDelegationSet = CreateReusableDelegationSetResponse
 
     request  = post
-    response = const . xmlResponse $ \h x -> CreateReusableDelegationSetResponse
-record
+    response = xmlResponse $ \h x -> CreateReusableDelegationSetResponse
+        <$> x %| "DelegationSet"
+        <*> h ~:| "Location"

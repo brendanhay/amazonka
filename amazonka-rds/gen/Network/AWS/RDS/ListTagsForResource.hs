@@ -27,7 +27,7 @@ module Network.AWS.RDS.ListTagsForResource
     -- * Request
       ListTagsForResourceMessage
     -- ** Request constructor
-    , listTagsForResourceMessage
+    , listTagsForResource
     -- ** Request lenses
     , ltfrmFilters
     , ltfrmResourceName
@@ -35,7 +35,7 @@ module Network.AWS.RDS.ListTagsForResource
     -- * Response
     , TagListMessage
     -- ** Response constructor
-    , tagListMessage
+    , listTagsForResourceResponse
     -- ** Response lenses
     , tlmTagList
     ) where
@@ -57,9 +57,9 @@ data ListTagsForResourceMessage = ListTagsForResourceMessage
 --
 -- * 'ltfrmResourceName' @::@ 'Text'
 --
-listTagsForResourceMessage :: Text -- ^ 'ltfrmResourceName'
-                           -> ListTagsForResourceMessage
-listTagsForResourceMessage p1 = ListTagsForResourceMessage
+listTagsForResource :: Text -- ^ 'ltfrmResourceName'
+                    -> ListTagsForResourceMessage
+listTagsForResource p1 = ListTagsForResourceMessage
     { _ltfrmResourceName = p1
     , _ltfrmFilters      = mempty
     }
@@ -90,8 +90,8 @@ newtype TagListMessage = TagListMessage
 --
 -- * 'tlmTagList' @::@ ['Tag']
 --
-tagListMessage :: TagListMessage
-tagListMessage = TagListMessage
+listTagsForResourceResponse :: TagListMessage
+listTagsForResourceResponse = TagListMessage
     { _tlmTagList = mempty
     }
 
@@ -104,5 +104,5 @@ instance AWSRequest ListTagsForResourceMessage where
     type Rs ListTagsForResourceMessage = TagListMessage
 
     request  = post "ListTagsForResource"
-    response = const . xmlResponse $ \h x -> TagListMessage
-newtype
+    response = xmlResponse $ \h x -> TagListMessage
+        <$> x %| "TagList"

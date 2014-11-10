@@ -34,7 +34,7 @@ module Network.AWS.EC2.CancelBundleTask
     -- * Response
     , CancelBundleTaskResult
     -- ** Response constructor
-    , cancelBundleTaskResult
+    , cancelBundleTaskResponse
     -- ** Response lenses
     , cbtrBundleTask
     ) where
@@ -85,8 +85,8 @@ newtype CancelBundleTaskResult = CancelBundleTaskResult
 --
 -- * 'cbtrBundleTask' @::@ 'Maybe' 'BundleTask'
 --
-cancelBundleTaskResult :: CancelBundleTaskResult
-cancelBundleTaskResult = CancelBundleTaskResult
+cancelBundleTaskResponse :: CancelBundleTaskResult
+cancelBundleTaskResponse = CancelBundleTaskResult
     { _cbtrBundleTask = Nothing
     }
 
@@ -99,5 +99,5 @@ instance AWSRequest CancelBundleTask where
     type Rs CancelBundleTask = CancelBundleTaskResult
 
     request  = post "CancelBundleTask"
-    response = const . xmlResponse $ \h x -> CancelBundleTaskResult
-newtype
+    response = xmlResponse $ \h x -> CancelBundleTaskResult
+        <$> x %| "bundleInstanceTask"

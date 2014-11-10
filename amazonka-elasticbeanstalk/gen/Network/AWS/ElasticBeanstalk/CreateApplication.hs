@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     -- * Request
       CreateApplicationMessage
     -- ** Request constructor
-    , createApplicationMessage
+    , createApplication
     -- ** Request lenses
     , camApplicationName
     , camDescription
@@ -35,7 +35,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     -- * Response
     , ApplicationDescriptionMessage
     -- ** Response constructor
-    , applicationDescriptionMessage
+    , createApplicationResponse
     -- ** Response lenses
     , admApplication
     ) where
@@ -57,9 +57,9 @@ data CreateApplicationMessage = CreateApplicationMessage
 --
 -- * 'camDescription' @::@ 'Maybe' 'Text'
 --
-createApplicationMessage :: Text -- ^ 'camApplicationName'
-                         -> CreateApplicationMessage
-createApplicationMessage p1 = CreateApplicationMessage
+createApplication :: Text -- ^ 'camApplicationName'
+                  -> CreateApplicationMessage
+createApplication p1 = CreateApplicationMessage
     { _camApplicationName = p1
     , _camDescription     = Nothing
     }
@@ -85,4 +85,4 @@ instance AWSRequest CreateApplicationMessage where
     type Rs CreateApplicationMessage = ApplicationDescriptionMessage
 
     request  = post "CreateApplication"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

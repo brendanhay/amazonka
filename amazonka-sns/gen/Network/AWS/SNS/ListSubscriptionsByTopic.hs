@@ -29,7 +29,7 @@ module Network.AWS.SNS.ListSubscriptionsByTopic
     -- * Request
       ListSubscriptionsByTopicInput
     -- ** Request constructor
-    , listSubscriptionsByTopicInput
+    , listSubscriptionsByTopic
     -- ** Request lenses
     , lsbtiNextToken
     , lsbtiTopicArn
@@ -60,9 +60,9 @@ data ListSubscriptionsByTopicInput = ListSubscriptionsByTopicInput
 --
 -- * 'lsbtiTopicArn' @::@ 'Text'
 --
-listSubscriptionsByTopicInput :: Text -- ^ 'lsbtiTopicArn'
-                              -> ListSubscriptionsByTopicInput
-listSubscriptionsByTopicInput p1 = ListSubscriptionsByTopicInput
+listSubscriptionsByTopic :: Text -- ^ 'lsbtiTopicArn'
+                         -> ListSubscriptionsByTopicInput
+listSubscriptionsByTopic p1 = ListSubscriptionsByTopicInput
     { _lsbtiTopicArn  = p1
     , _lsbtiNextToken = Nothing
     }
@@ -114,5 +114,6 @@ instance AWSRequest ListSubscriptionsByTopicInput where
     type Rs ListSubscriptionsByTopicInput = ListSubscriptionsByTopicResponse
 
     request  = post "ListSubscriptionsByTopic"
-    response = const . xmlResponse $ \h x -> ListSubscriptionsByTopicResponse
-record
+    response = xmlResponse $ \h x -> ListSubscriptionsByTopicResponse
+        <$> x %| "NextToken"
+        <*> x %| "Subscriptions"

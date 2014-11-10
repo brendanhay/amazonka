@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     -- * Request
       ModifyCacheParameterGroupMessage
     -- ** Request constructor
-    , modifyCacheParameterGroupMessage
+    , modifyCacheParameterGroup
     -- ** Request lenses
     , mcpgmCacheParameterGroupName
     , mcpgmParameterNameValues
@@ -36,7 +36,7 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     -- * Response
     , CacheParameterGroupNameMessage
     -- ** Response constructor
-    , cacheParameterGroupNameMessage
+    , modifyCacheParameterGroupResponse
     -- ** Response lenses
     , cpgnmCacheParameterGroupName
     ) where
@@ -58,9 +58,9 @@ data ModifyCacheParameterGroupMessage = ModifyCacheParameterGroupMessage
 --
 -- * 'mcpgmParameterNameValues' @::@ ['ParameterNameValue']
 --
-modifyCacheParameterGroupMessage :: Text -- ^ 'mcpgmCacheParameterGroupName'
-                                 -> ModifyCacheParameterGroupMessage
-modifyCacheParameterGroupMessage p1 = ModifyCacheParameterGroupMessage
+modifyCacheParameterGroup :: Text -- ^ 'mcpgmCacheParameterGroupName'
+                          -> ModifyCacheParameterGroupMessage
+modifyCacheParameterGroup p1 = ModifyCacheParameterGroupMessage
     { _mcpgmCacheParameterGroupName = p1
     , _mcpgmParameterNameValues     = mempty
     }
@@ -89,4 +89,4 @@ instance AWSRequest ModifyCacheParameterGroupMessage where
     type Rs ModifyCacheParameterGroupMessage = CacheParameterGroupNameMessage
 
     request  = post "ModifyCacheParameterGroup"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

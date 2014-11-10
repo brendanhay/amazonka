@@ -55,7 +55,7 @@ module Network.AWS.EC2.CreateSnapshot
     -- * Response
     , Snapshot
     -- ** Response constructor
-    , snapshot
+    , createSnapshotResponse
     -- ** Response lenses
     , sDescription
     , sEncrypted
@@ -119,4 +119,4 @@ instance AWSRequest CreateSnapshot where
     type Rs CreateSnapshot = Snapshot
 
     request  = post "CreateSnapshot"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

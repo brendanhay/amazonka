@@ -130,5 +130,5 @@ instance AWSRequest GetGeoLocation where
     type Rs GetGeoLocation = GetGeoLocationResponse
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetGeoLocationResponse
-newtype
+    response = xmlResponse $ \h x -> GetGeoLocationResponse
+        <$> x %| "GeoLocationDetails"

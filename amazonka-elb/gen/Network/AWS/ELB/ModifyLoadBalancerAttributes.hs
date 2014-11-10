@@ -32,7 +32,7 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     -- * Request
       ModifyLoadBalancerAttributesInput
     -- ** Request constructor
-    , modifyLoadBalancerAttributesInput
+    , modifyLoadBalancerAttributes
     -- ** Request lenses
     , mlbaiLoadBalancerAttributes
     , mlbaiLoadBalancerName
@@ -40,7 +40,7 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     -- * Response
     , ModifyLoadBalancerAttributesOutput
     -- ** Response constructor
-    , modifyLoadBalancerAttributesOutput
+    , modifyLoadBalancerAttributesResponse
     -- ** Response lenses
     , mlbaoLoadBalancerAttributes
     , mlbaoLoadBalancerName
@@ -63,10 +63,10 @@ data ModifyLoadBalancerAttributesInput = ModifyLoadBalancerAttributesInput
 --
 -- * 'mlbaiLoadBalancerName' @::@ 'Text'
 --
-modifyLoadBalancerAttributesInput :: Text -- ^ 'mlbaiLoadBalancerName'
-                                  -> LoadBalancerAttributes -- ^ 'mlbaiLoadBalancerAttributes'
-                                  -> ModifyLoadBalancerAttributesInput
-modifyLoadBalancerAttributesInput p1 p2 = ModifyLoadBalancerAttributesInput
+modifyLoadBalancerAttributes :: Text -- ^ 'mlbaiLoadBalancerName'
+                             -> LoadBalancerAttributes -- ^ 'mlbaiLoadBalancerAttributes'
+                             -> ModifyLoadBalancerAttributesInput
+modifyLoadBalancerAttributes p1 p2 = ModifyLoadBalancerAttributesInput
     { _mlbaiLoadBalancerName       = p1
     , _mlbaiLoadBalancerAttributes = p2
     }
@@ -100,8 +100,8 @@ data ModifyLoadBalancerAttributesOutput = ModifyLoadBalancerAttributesOutput
 --
 -- * 'mlbaoLoadBalancerName' @::@ 'Maybe' 'Text'
 --
-modifyLoadBalancerAttributesOutput :: ModifyLoadBalancerAttributesOutput
-modifyLoadBalancerAttributesOutput = ModifyLoadBalancerAttributesOutput
+modifyLoadBalancerAttributesResponse :: ModifyLoadBalancerAttributesOutput
+modifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesOutput
     { _mlbaoLoadBalancerName       = Nothing
     , _mlbaoLoadBalancerAttributes = Nothing
     }
@@ -121,5 +121,6 @@ instance AWSRequest ModifyLoadBalancerAttributesInput where
     type Rs ModifyLoadBalancerAttributesInput = ModifyLoadBalancerAttributesOutput
 
     request  = post "ModifyLoadBalancerAttributes"
-    response = const . xmlResponse $ \h x -> ModifyLoadBalancerAttributesOutput
-record
+    response = xmlResponse $ \h x -> ModifyLoadBalancerAttributesOutput
+        <$> x %| "LoadBalancerAttributes"
+        <*> x %| "LoadBalancerName"

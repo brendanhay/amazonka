@@ -42,7 +42,7 @@ module Network.AWS.EC2.CreateKeyPair
     -- * Response
     , KeyPair
     -- ** Response constructor
-    , keyPair
+    , createKeyPairResponse
     -- ** Response lenses
     , kpKeyFingerprint
     , kpKeyMaterial
@@ -101,8 +101,8 @@ data KeyPair = KeyPair
 --
 -- * 'kpKeyName' @::@ 'Maybe' 'Text'
 --
-keyPair :: KeyPair
-keyPair = KeyPair
+createKeyPairResponse :: KeyPair
+createKeyPairResponse = KeyPair
     { _kpKeyName        = Nothing
     , _kpKeyFingerprint = Nothing
     , _kpKeyMaterial    = Nothing
@@ -125,5 +125,7 @@ instance AWSRequest CreateKeyPair where
     type Rs CreateKeyPair = KeyPair
 
     request  = post "CreateKeyPair"
-    response = const . xmlResponse $ \h x -> KeyPair
-record
+    response = xmlResponse $ \h x -> KeyPair
+        <$> x %| "keyFingerprint"
+        <*> x %| "keyMaterial"
+        <*> x %| "keyName"

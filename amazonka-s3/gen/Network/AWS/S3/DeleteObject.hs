@@ -38,7 +38,7 @@ module Network.AWS.S3.DeleteObject
     -- * Response
     , DeleteObjectOutput
     -- ** Response constructor
-    , deleteObjectOutput
+    , deleteObjectResponse
     -- ** Response lenses
     , dooDeleteMarker
     , dooVersionId
@@ -121,8 +121,8 @@ data DeleteObjectOutput = DeleteObjectOutput
 --
 -- * 'dooVersionId' @::@ 'Maybe' 'Text'
 --
-deleteObjectOutput :: DeleteObjectOutput
-deleteObjectOutput = DeleteObjectOutput
+deleteObjectResponse :: DeleteObjectOutput
+deleteObjectResponse = DeleteObjectOutput
     { _dooDeleteMarker = Nothing
     , _dooVersionId    = Nothing
     }
@@ -142,5 +142,6 @@ instance AWSRequest DeleteObject where
     type Rs DeleteObject = DeleteObjectOutput
 
     request  = delete
-    response = const . xmlResponse $ \h x -> DeleteObjectOutput
-record
+    response = xmlResponse $ \h x -> DeleteObjectOutput
+        <$> h ~:? "x-amz-delete-marker"
+        <*> h ~:? "x-amz-version-id"

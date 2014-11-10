@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketCors
     -- * Response
     , GetBucketCorsOutput
     -- ** Response constructor
-    , getBucketCorsOutput
+    , getBucketCorsResponse
     -- ** Response lenses
     , gbcoCORSRules
     ) where
@@ -82,8 +82,8 @@ newtype GetBucketCorsOutput = GetBucketCorsOutput
 --
 -- * 'gbcoCORSRules' @::@ ['CORSRule']
 --
-getBucketCorsOutput :: GetBucketCorsOutput
-getBucketCorsOutput = GetBucketCorsOutput
+getBucketCorsResponse :: GetBucketCorsOutput
+getBucketCorsResponse = GetBucketCorsOutput
     { _gbcoCORSRules = mempty
     }
 
@@ -95,5 +95,5 @@ instance AWSRequest GetBucketCors where
     type Rs GetBucketCors = GetBucketCorsOutput
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetBucketCorsOutput
-newtype
+    response = xmlResponse $ \h x -> GetBucketCorsOutput
+        <$> x %| "CORSRule"

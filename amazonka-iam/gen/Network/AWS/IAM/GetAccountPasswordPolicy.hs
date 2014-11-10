@@ -77,5 +77,5 @@ instance AWSRequest GetAccountPasswordPolicy where
     type Rs GetAccountPasswordPolicy = GetAccountPasswordPolicyResponse
 
     request  = post "GetAccountPasswordPolicy"
-    response = const . xmlResponse $ \h x -> GetAccountPasswordPolicyResponse
-newtype
+    response = xmlResponse $ \h x -> GetAccountPasswordPolicyResponse
+        <$> x %| "PasswordPolicy"

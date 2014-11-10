@@ -49,7 +49,7 @@ module Network.AWS.S3.GetObject
     -- * Response
     , GetObjectOutput
     -- ** Response constructor
-    , getObjectOutput
+    , getObjectResponse
     -- ** Response lenses
     , gooAcceptRanges
     , gooBody
@@ -356,9 +356,9 @@ data GetObjectOutput = GetObjectOutput
 --
 -- * 'gooWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
-getObjectOutput :: RsBody -- ^ 'gooBody'
-                -> GetObjectOutput
-getObjectOutput p1 = GetObjectOutput
+getObjectResponse :: RsBody -- ^ 'gooBody'
+                  -> GetObjectOutput
+getObjectResponse p1 = GetObjectOutput
     { _gooBody                    = p1
     , _gooDeleteMarker            = Nothing
     , _gooAcceptRanges            = Nothing
@@ -501,5 +501,25 @@ instance AWSRequest GetObject where
     type Rs GetObject = GetObjectOutput
 
     request  = get
-    response = const . bodyResponse $ \h b -> GetObjectOutput
-record
+    response = bodyResponse $ \h b -> GetObjectOutput
+        <$> h ~:? "accept-ranges"
+        <*> pure (RsBody b)
+        <*> h ~:? "Cache-Control"
+        <*> h ~:? "Content-Disposition"
+        <*> h ~:? "Content-Encoding"
+        <*> h ~:? "Content-Language"
+        <*> h ~:? "Content-Length"
+        <*> h ~:? "Content-Type"
+        <*> h ~:? "x-amz-delete-marker"
+        <*> h ~:? "ETag"
+        <*> h ~:? "x-amz-expiration"
+        <*> h ~:? "Expires"
+        <*> h ~:? "Last-Modified"
+        <*> h ~:: "x-amz-meta-"
+        <*> h ~:? "x-amz-missing-meta"
+        <*> h ~:? "x-amz-restore"
+        <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
+        <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"
+        <*> h ~:? "x-amz-server-side-encryption"
+        <*> h ~:? "x-amz-version-id"
+        <*> h ~:? "x-amz-website-redirect-location"

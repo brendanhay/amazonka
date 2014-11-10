@@ -40,7 +40,7 @@ module Network.AWS.RDS.RebootDBInstance
     -- * Request
       RebootDBInstanceMessage
     -- ** Request constructor
-    , rebootDBInstanceMessage
+    , rebootDBInstance
     -- ** Request lenses
     , rdbimDBInstanceIdentifier
     , rdbimForceFailover
@@ -48,7 +48,7 @@ module Network.AWS.RDS.RebootDBInstance
     -- * Response
     , RebootDBInstanceResult
     -- ** Response constructor
-    , rebootDBInstanceResult
+    , rebootDBInstanceResponse
     -- ** Response lenses
     , rdbirDBInstance
     ) where
@@ -70,9 +70,9 @@ data RebootDBInstanceMessage = RebootDBInstanceMessage
 --
 -- * 'rdbimForceFailover' @::@ 'Maybe' 'Bool'
 --
-rebootDBInstanceMessage :: Text -- ^ 'rdbimDBInstanceIdentifier'
-                        -> RebootDBInstanceMessage
-rebootDBInstanceMessage p1 = RebootDBInstanceMessage
+rebootDBInstance :: Text -- ^ 'rdbimDBInstanceIdentifier'
+                 -> RebootDBInstanceMessage
+rebootDBInstance p1 = RebootDBInstanceMessage
     { _rdbimDBInstanceIdentifier = p1
     , _rdbimForceFailover        = Nothing
     }
@@ -108,8 +108,8 @@ newtype RebootDBInstanceResult = RebootDBInstanceResult
 --
 -- * 'rdbirDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-rebootDBInstanceResult :: RebootDBInstanceResult
-rebootDBInstanceResult = RebootDBInstanceResult
+rebootDBInstanceResponse :: RebootDBInstanceResult
+rebootDBInstanceResponse = RebootDBInstanceResult
     { _rdbirDBInstance = Nothing
     }
 
@@ -121,5 +121,5 @@ instance AWSRequest RebootDBInstanceMessage where
     type Rs RebootDBInstanceMessage = RebootDBInstanceResult
 
     request  = post "RebootDBInstance"
-    response = const . xmlResponse $ \h x -> RebootDBInstanceResult
-newtype
+    response = xmlResponse $ \h x -> RebootDBInstanceResult
+        <$> x %| "DBInstance"

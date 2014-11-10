@@ -33,7 +33,7 @@ module Network.AWS.Redshift.CreateClusterParameterGroup
     -- * Request
       CreateClusterParameterGroupMessage
     -- ** Request constructor
-    , createClusterParameterGroupMessage
+    , createClusterParameterGroup
     -- ** Request lenses
     , ccpgmDescription
     , ccpgmParameterGroupFamily
@@ -42,7 +42,7 @@ module Network.AWS.Redshift.CreateClusterParameterGroup
     -- * Response
     , CreateClusterParameterGroupResult
     -- ** Response constructor
-    , createClusterParameterGroupResult
+    , createClusterParameterGroupResponse
     -- ** Response lenses
     , ccpgrClusterParameterGroup
     ) where
@@ -67,11 +67,11 @@ data CreateClusterParameterGroupMessage = CreateClusterParameterGroupMessage
 --
 -- * 'ccpgmParameterGroupName' @::@ 'Text'
 --
-createClusterParameterGroupMessage :: Text -- ^ 'ccpgmParameterGroupName'
-                                   -> Text -- ^ 'ccpgmParameterGroupFamily'
-                                   -> Text -- ^ 'ccpgmDescription'
-                                   -> CreateClusterParameterGroupMessage
-createClusterParameterGroupMessage p1 p2 p3 = CreateClusterParameterGroupMessage
+createClusterParameterGroup :: Text -- ^ 'ccpgmParameterGroupName'
+                            -> Text -- ^ 'ccpgmParameterGroupFamily'
+                            -> Text -- ^ 'ccpgmDescription'
+                            -> CreateClusterParameterGroupMessage
+createClusterParameterGroup p1 p2 p3 = CreateClusterParameterGroupMessage
     { _ccpgmParameterGroupName   = p1
     , _ccpgmParameterGroupFamily = p2
     , _ccpgmDescription          = p3
@@ -118,8 +118,8 @@ newtype CreateClusterParameterGroupResult = CreateClusterParameterGroupResult
 --
 -- * 'ccpgrClusterParameterGroup' @::@ 'Maybe' 'ClusterParameterGroup'
 --
-createClusterParameterGroupResult :: CreateClusterParameterGroupResult
-createClusterParameterGroupResult = CreateClusterParameterGroupResult
+createClusterParameterGroupResponse :: CreateClusterParameterGroupResult
+createClusterParameterGroupResponse = CreateClusterParameterGroupResult
     { _ccpgrClusterParameterGroup = Nothing
     }
 
@@ -133,5 +133,5 @@ instance AWSRequest CreateClusterParameterGroupMessage where
     type Rs CreateClusterParameterGroupMessage = CreateClusterParameterGroupResult
 
     request  = post "CreateClusterParameterGroup"
-    response = const . xmlResponse $ \h x -> CreateClusterParameterGroupResult
-newtype
+    response = xmlResponse $ \h x -> CreateClusterParameterGroupResult
+        <$> x %| "ClusterParameterGroup"

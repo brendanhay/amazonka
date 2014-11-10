@@ -43,7 +43,7 @@ module Network.AWS.EC2.GetPasswordData
     -- * Response
     , GetPasswordDataResult
     -- ** Response constructor
-    , getPasswordDataResult
+    , getPasswordDataResponse
     -- ** Response lenses
     , gpdrInstanceId
     , gpdrPasswordData
@@ -102,8 +102,8 @@ data GetPasswordDataResult = GetPasswordDataResult
 --
 -- * 'gpdrTimestamp' @::@ 'Maybe' 'UTCTime'
 --
-getPasswordDataResult :: GetPasswordDataResult
-getPasswordDataResult = GetPasswordDataResult
+getPasswordDataResponse :: GetPasswordDataResult
+getPasswordDataResponse = GetPasswordDataResult
     { _gpdrInstanceId   = Nothing
     , _gpdrTimestamp    = Nothing
     , _gpdrPasswordData = Nothing
@@ -127,5 +127,7 @@ instance AWSRequest GetPasswordData where
     type Rs GetPasswordData = GetPasswordDataResult
 
     request  = post "GetPasswordData"
-    response = const . xmlResponse $ \h x -> GetPasswordDataResult
-record
+    response = xmlResponse $ \h x -> GetPasswordDataResult
+        <$> x %| "instanceId"
+        <*> x %| "passwordData"
+        <*> x %| "timestamp"

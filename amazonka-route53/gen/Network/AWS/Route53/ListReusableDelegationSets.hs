@@ -172,5 +172,9 @@ instance AWSRequest ListReusableDelegationSets where
     type Rs ListReusableDelegationSets = ListReusableDelegationSetsResponse
 
     request  = get
-    response = const . xmlResponse $ \h x -> ListReusableDelegationSetsResponse
-record
+    response = xmlResponse $ \h x -> ListReusableDelegationSetsResponse
+        <$> x %| "DelegationSets"
+        <*> x %| "IsTruncated"
+        <*> x %| "Marker"
+        <*> x %| "MaxItems"
+        <*> x %| "NextMarker"

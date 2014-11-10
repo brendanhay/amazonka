@@ -104,5 +104,5 @@ instance AWSRequest CreateGroup where
     type Rs CreateGroup = CreateGroupResponse
 
     request  = post "CreateGroup"
-    response = const . xmlResponse $ \h x -> CreateGroupResponse
-newtype
+    response = xmlResponse $ \h x -> CreateGroupResponse
+        <$> x %| "Group"

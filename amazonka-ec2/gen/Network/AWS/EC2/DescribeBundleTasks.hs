@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeBundleTasks
     -- * Response
     , DescribeBundleTasksResult
     -- ** Response constructor
-    , describeBundleTasksResult
+    , describeBundleTasksResponse
     -- ** Response lenses
     , dbtrBundleTasks
     ) where
@@ -102,8 +102,8 @@ newtype DescribeBundleTasksResult = DescribeBundleTasksResult
 --
 -- * 'dbtrBundleTasks' @::@ ['BundleTask']
 --
-describeBundleTasksResult :: DescribeBundleTasksResult
-describeBundleTasksResult = DescribeBundleTasksResult
+describeBundleTasksResponse :: DescribeBundleTasksResult
+describeBundleTasksResponse = DescribeBundleTasksResult
     { _dbtrBundleTasks = mempty
     }
 
@@ -116,5 +116,5 @@ instance AWSRequest DescribeBundleTasks where
     type Rs DescribeBundleTasks = DescribeBundleTasksResult
 
     request  = post "DescribeBundleTasks"
-    response = const . xmlResponse $ \h x -> DescribeBundleTasksResult
-newtype
+    response = xmlResponse $ \h x -> DescribeBundleTasksResult
+        <$> x %| "bundleInstanceTasksSet"

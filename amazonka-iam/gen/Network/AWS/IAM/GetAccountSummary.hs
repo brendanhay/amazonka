@@ -99,5 +99,5 @@ instance AWSRequest GetAccountSummary where
     type Rs GetAccountSummary = GetAccountSummaryResponse
 
     request  = post "GetAccountSummary"
-    response = const . xmlResponse $ \h x -> GetAccountSummaryResponse
-newtype
+    response = xmlResponse $ \h x -> GetAccountSummaryResponse
+        <$> x %| "SummaryMap"

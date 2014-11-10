@@ -41,7 +41,7 @@ module Network.AWS.EC2.ImportInstance
     -- * Response
     , ImportInstanceResult
     -- ** Response constructor
-    , importInstanceResult
+    , importInstanceResponse
     -- ** Response lenses
     , iirConversionTask
     ) where
@@ -116,8 +116,8 @@ newtype ImportInstanceResult = ImportInstanceResult
 --
 -- * 'iirConversionTask' @::@ 'Maybe' 'ConversionTask'
 --
-importInstanceResult :: ImportInstanceResult
-importInstanceResult = ImportInstanceResult
+importInstanceResponse :: ImportInstanceResult
+importInstanceResponse = ImportInstanceResult
     { _iirConversionTask = Nothing
     }
 
@@ -130,5 +130,5 @@ instance AWSRequest ImportInstance where
     type Rs ImportInstance = ImportInstanceResult
 
     request  = post "ImportInstance"
-    response = const . xmlResponse $ \h x -> ImportInstanceResult
-newtype
+    response = xmlResponse $ \h x -> ImportInstanceResult
+        <$> x %| "conversionTask"

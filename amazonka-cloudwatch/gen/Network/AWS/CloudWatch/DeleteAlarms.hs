@@ -27,7 +27,7 @@ module Network.AWS.CloudWatch.DeleteAlarms
     -- * Request
       DeleteAlarmsInput
     -- ** Request constructor
-    , deleteAlarmsInput
+    , deleteAlarms
     -- ** Request lenses
     , daiAlarmNames
 
@@ -51,8 +51,8 @@ newtype DeleteAlarmsInput = DeleteAlarmsInput
 --
 -- * 'daiAlarmNames' @::@ ['Text']
 --
-deleteAlarmsInput :: DeleteAlarmsInput
-deleteAlarmsInput = DeleteAlarmsInput
+deleteAlarms :: DeleteAlarmsInput
+deleteAlarms = DeleteAlarmsInput
     { _daiAlarmNames = mempty
     }
 

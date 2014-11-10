@@ -96,5 +96,5 @@ instance AWSRequest DescribeDomains where
     type Rs DescribeDomains = DescribeDomainsResponse
 
     request  = post "DescribeDomains"
-    response = const . xmlResponse $ \h x -> DescribeDomainsResponse
-newtype
+    response = xmlResponse $ \h x -> DescribeDomainsResponse
+        <$> x %| "DomainStatusList"

@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeReservedInstances
     -- * Response
     , DescribeReservedInstancesResult
     -- ** Response constructor
-    , describeReservedInstancesResult
+    , describeReservedInstancesResponse
     -- ** Response lenses
     , drirReservedInstances
     ) where
@@ -130,8 +130,8 @@ newtype DescribeReservedInstancesResult = DescribeReservedInstancesResult
 --
 -- * 'drirReservedInstances' @::@ ['ReservedInstances']
 --
-describeReservedInstancesResult :: DescribeReservedInstancesResult
-describeReservedInstancesResult = DescribeReservedInstancesResult
+describeReservedInstancesResponse :: DescribeReservedInstancesResult
+describeReservedInstancesResponse = DescribeReservedInstancesResult
     { _drirReservedInstances = mempty
     }
 
@@ -145,5 +145,5 @@ instance AWSRequest DescribeReservedInstances where
     type Rs DescribeReservedInstances = DescribeReservedInstancesResult
 
     request  = post "DescribeReservedInstances"
-    response = const . xmlResponse $ \h x -> DescribeReservedInstancesResult
-newtype
+    response = xmlResponse $ \h x -> DescribeReservedInstancesResult
+        <$> x %| "reservedInstancesSet"

@@ -43,7 +43,7 @@ module Network.AWS.SimpleDB.Select
     -- * Response
     , SelectResult
     -- ** Response constructor
-    , selectResult
+    , selectResponse
     -- ** Response lenses
     , srItems
     , srNextToken
@@ -113,8 +113,8 @@ data SelectResult = SelectResult
 --
 -- * 'srNextToken' @::@ 'Maybe' 'Text'
 --
-selectResult :: SelectResult
-selectResult = SelectResult
+selectResponse :: SelectResult
+selectResponse = SelectResult
     { _srItems     = mempty
     , _srNextToken = Nothing
     }
@@ -134,5 +134,6 @@ instance AWSRequest Select where
     type Rs Select = SelectResult
 
     request  = post "Select"
-    response = const . xmlResponse $ \h x -> SelectResult
-record
+    response = xmlResponse $ \h x -> SelectResult
+        <$> x %| "Items"
+        <*> x %| "NextToken"

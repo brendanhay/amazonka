@@ -55,7 +55,7 @@ module Network.AWS.EC2.AttachVolume
     -- * Response
     , VolumeAttachment
     -- ** Response constructor
-    , volumeAttachment
+    , attachVolumeResponse
     -- ** Response lenses
     , vaAttachTime
     , vaDeleteOnTermination
@@ -126,4 +126,4 @@ instance AWSRequest AttachVolume where
     type Rs AttachVolume = VolumeAttachment
 
     request  = post "AttachVolume"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

@@ -30,7 +30,7 @@ module Network.AWS.CloudFormation.ListStacks
     -- * Request
       ListStacksInput
     -- ** Request constructor
-    , listStacksInput
+    , listStacks
     -- ** Request lenses
     , lsiNextToken
     , lsiStackStatusFilter
@@ -38,7 +38,7 @@ module Network.AWS.CloudFormation.ListStacks
     -- * Response
     , ListStacksOutput
     -- ** Response constructor
-    , listStacksOutput
+    , listStacksResponse
     -- ** Response lenses
     , lsoNextToken
     , lsoStackSummaries
@@ -61,8 +61,8 @@ data ListStacksInput = ListStacksInput
 --
 -- * 'lsiStackStatusFilter' @::@ ['Text']
 --
-listStacksInput :: ListStacksInput
-listStacksInput = ListStacksInput
+listStacks :: ListStacksInput
+listStacks = ListStacksInput
     { _lsiNextToken         = Nothing
     , _lsiStackStatusFilter = mempty
     }
@@ -98,8 +98,8 @@ data ListStacksOutput = ListStacksOutput
 --
 -- * 'lsoStackSummaries' @::@ ['StackSummary']
 --
-listStacksOutput :: ListStacksOutput
-listStacksOutput = ListStacksOutput
+listStacksResponse :: ListStacksOutput
+listStacksResponse = ListStacksOutput
     { _lsoStackSummaries = mempty
     , _lsoNextToken      = Nothing
     }
@@ -120,5 +120,6 @@ instance AWSRequest ListStacksInput where
     type Rs ListStacksInput = ListStacksOutput
 
     request  = post "ListStacks"
-    response = const . xmlResponse $ \h x -> ListStacksOutput
-record
+    response = xmlResponse $ \h x -> ListStacksOutput
+        <$> x %| "NextToken"
+        <*> x %| "StackSummaries"

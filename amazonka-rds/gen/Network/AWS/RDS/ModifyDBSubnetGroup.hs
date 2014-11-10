@@ -27,7 +27,7 @@ module Network.AWS.RDS.ModifyDBSubnetGroup
     -- * Request
       ModifyDBSubnetGroupMessage
     -- ** Request constructor
-    , modifyDBSubnetGroupMessage
+    , modifyDBSubnetGroup
     -- ** Request lenses
     , mdbsgmDBSubnetGroupDescription
     , mdbsgmDBSubnetGroupName
@@ -36,7 +36,7 @@ module Network.AWS.RDS.ModifyDBSubnetGroup
     -- * Response
     , ModifyDBSubnetGroupResult
     -- ** Response constructor
-    , modifyDBSubnetGroupResult
+    , modifyDBSubnetGroupResponse
     -- ** Response lenses
     , mdbsgrDBSubnetGroup
     ) where
@@ -61,9 +61,9 @@ data ModifyDBSubnetGroupMessage = ModifyDBSubnetGroupMessage
 --
 -- * 'mdbsgmSubnetIds' @::@ ['Text']
 --
-modifyDBSubnetGroupMessage :: Text -- ^ 'mdbsgmDBSubnetGroupName'
-                           -> ModifyDBSubnetGroupMessage
-modifyDBSubnetGroupMessage p1 = ModifyDBSubnetGroupMessage
+modifyDBSubnetGroup :: Text -- ^ 'mdbsgmDBSubnetGroupName'
+                    -> ModifyDBSubnetGroupMessage
+modifyDBSubnetGroup p1 = ModifyDBSubnetGroupMessage
     { _mdbsgmDBSubnetGroupName        = p1
     , _mdbsgmDBSubnetGroupDescription = Nothing
     , _mdbsgmSubnetIds                = mempty
@@ -101,8 +101,8 @@ newtype ModifyDBSubnetGroupResult = ModifyDBSubnetGroupResult
 --
 -- * 'mdbsgrDBSubnetGroup' @::@ 'Maybe' 'DBSubnetGroup'
 --
-modifyDBSubnetGroupResult :: ModifyDBSubnetGroupResult
-modifyDBSubnetGroupResult = ModifyDBSubnetGroupResult
+modifyDBSubnetGroupResponse :: ModifyDBSubnetGroupResult
+modifyDBSubnetGroupResponse = ModifyDBSubnetGroupResult
     { _mdbsgrDBSubnetGroup = Nothing
     }
 
@@ -115,5 +115,5 @@ instance AWSRequest ModifyDBSubnetGroupMessage where
     type Rs ModifyDBSubnetGroupMessage = ModifyDBSubnetGroupResult
 
     request  = post "ModifyDBSubnetGroup"
-    response = const . xmlResponse $ \h x -> ModifyDBSubnetGroupResult
-newtype
+    response = xmlResponse $ \h x -> ModifyDBSubnetGroupResult
+        <$> x %| "DBSubnetGroup"

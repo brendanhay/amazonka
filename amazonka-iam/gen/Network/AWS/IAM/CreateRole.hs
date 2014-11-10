@@ -121,5 +121,5 @@ instance AWSRequest CreateRole where
     type Rs CreateRole = CreateRoleResponse
 
     request  = post "CreateRole"
-    response = const . xmlResponse $ \h x -> CreateRoleResponse
-newtype
+    response = xmlResponse $ \h x -> CreateRoleResponse
+        <$> x %| "Role"

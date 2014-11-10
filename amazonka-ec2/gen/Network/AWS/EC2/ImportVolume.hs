@@ -41,7 +41,7 @@ module Network.AWS.EC2.ImportVolume
     -- * Response
     , ImportVolumeResult
     -- ** Response constructor
-    , importVolumeResult
+    , importVolumeResponse
     -- ** Response lenses
     , ivrConversionTask
     ) where
@@ -117,8 +117,8 @@ newtype ImportVolumeResult = ImportVolumeResult
 --
 -- * 'ivrConversionTask' @::@ 'Maybe' 'ConversionTask'
 --
-importVolumeResult :: ImportVolumeResult
-importVolumeResult = ImportVolumeResult
+importVolumeResponse :: ImportVolumeResult
+importVolumeResponse = ImportVolumeResult
     { _ivrConversionTask = Nothing
     }
 
@@ -131,5 +131,5 @@ instance AWSRequest ImportVolume where
     type Rs ImportVolume = ImportVolumeResult
 
     request  = post "ImportVolume"
-    response = const . xmlResponse $ \h x -> ImportVolumeResult
-newtype
+    response = xmlResponse $ \h x -> ImportVolumeResult
+        <$> x %| "conversionTask"

@@ -28,7 +28,7 @@ module Network.AWS.CloudWatch.ListMetrics
     -- * Request
       ListMetricsInput
     -- ** Request constructor
-    , listMetricsInput
+    , listMetrics
     -- ** Request lenses
     , lmiDimensions
     , lmiMetricName
@@ -38,7 +38,7 @@ module Network.AWS.CloudWatch.ListMetrics
     -- * Response
     , ListMetricsOutput
     -- ** Response constructor
-    , listMetricsOutput
+    , listMetricsResponse
     -- ** Response lenses
     , lmoMetrics
     , lmoNextToken
@@ -67,8 +67,8 @@ data ListMetricsInput = ListMetricsInput
 --
 -- * 'lmiNextToken' @::@ 'Maybe' 'Text'
 --
-listMetricsInput :: ListMetricsInput
-listMetricsInput = ListMetricsInput
+listMetrics :: ListMetricsInput
+listMetrics = ListMetricsInput
     { _lmiNamespace  = Nothing
     , _lmiMetricName = Nothing
     , _lmiDimensions = mempty
@@ -110,8 +110,8 @@ data ListMetricsOutput = ListMetricsOutput
 --
 -- * 'lmoNextToken' @::@ 'Maybe' 'Text'
 --
-listMetricsOutput :: ListMetricsOutput
-listMetricsOutput = ListMetricsOutput
+listMetricsResponse :: ListMetricsOutput
+listMetricsResponse = ListMetricsOutput
     { _lmoMetrics   = mempty
     , _lmoNextToken = Nothing
     }
@@ -129,5 +129,6 @@ instance AWSRequest ListMetricsInput where
     type Rs ListMetricsInput = ListMetricsOutput
 
     request  = post "ListMetrics"
-    response = const . xmlResponse $ \h x -> ListMetricsOutput
-record
+    response = xmlResponse $ \h x -> ListMetricsOutput
+        <$> x %| "Metrics"
+        <*> x %| "NextToken"

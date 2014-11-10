@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     -- * Response
     , DescribeAutoScalingNotificationTypesAnswer
     -- ** Response constructor
-    , describeAutoScalingNotificationTypesAnswer
+    , describeAutoScalingNotificationTypesResponse
     -- ** Response lenses
     , dasntaAutoScalingNotificationTypes
     ) where
@@ -62,8 +62,8 @@ newtype DescribeAutoScalingNotificationTypesAnswer = DescribeAutoScalingNotifica
 --
 -- * 'dasntaAutoScalingNotificationTypes' @::@ ['Text']
 --
-describeAutoScalingNotificationTypesAnswer :: DescribeAutoScalingNotificationTypesAnswer
-describeAutoScalingNotificationTypesAnswer = DescribeAutoScalingNotificationTypesAnswer
+describeAutoScalingNotificationTypesResponse :: DescribeAutoScalingNotificationTypesAnswer
+describeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesAnswer
     { _dasntaAutoScalingNotificationTypes = mempty
     }
 
@@ -81,5 +81,5 @@ instance AWSRequest DescribeAutoScalingNotificationTypes where
     type Rs DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypesAnswer
 
     request  = post "DescribeAutoScalingNotificationTypes"
-    response = const . xmlResponse $ \h x -> DescribeAutoScalingNotificationTypesAnswer
-newtype
+    response = xmlResponse $ \h x -> DescribeAutoScalingNotificationTypesAnswer
+        <$> x %| "AutoScalingNotificationTypes"

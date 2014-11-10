@@ -36,7 +36,7 @@ module Network.AWS.AutoScaling.DescribeAccountLimits
     -- * Response
     , DescribeAccountLimitsAnswer
     -- ** Response constructor
-    , describeAccountLimitsAnswer
+    , describeAccountLimitsResponse
     -- ** Response lenses
     , dalaMaxNumberOfAutoScalingGroups
     , dalaMaxNumberOfLaunchConfigurations
@@ -70,8 +70,8 @@ data DescribeAccountLimitsAnswer = DescribeAccountLimitsAnswer
 --
 -- * 'dalaMaxNumberOfLaunchConfigurations' @::@ 'Maybe' 'Int'
 --
-describeAccountLimitsAnswer :: DescribeAccountLimitsAnswer
-describeAccountLimitsAnswer = DescribeAccountLimitsAnswer
+describeAccountLimitsResponse :: DescribeAccountLimitsAnswer
+describeAccountLimitsResponse = DescribeAccountLimitsAnswer
     { _dalaMaxNumberOfAutoScalingGroups    = Nothing
     , _dalaMaxNumberOfLaunchConfigurations = Nothing
     }
@@ -93,5 +93,6 @@ instance AWSRequest DescribeAccountLimits where
     type Rs DescribeAccountLimits = DescribeAccountLimitsAnswer
 
     request  = post "DescribeAccountLimits"
-    response = const . xmlResponse $ \h x -> DescribeAccountLimitsAnswer
-record
+    response = xmlResponse $ \h x -> DescribeAccountLimitsAnswer
+        <$> x %| "MaxNumberOfAutoScalingGroups"
+        <*> x %| "MaxNumberOfLaunchConfigurations"

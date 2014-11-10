@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.CreateInvalidation
     -- * Request
       CreateInvalidation
     -- ** Request constructor
-    , createInvalidation
+    , createInvalidation2014_05_31
     -- ** Request lenses
     , ciDistributionId
     , ciInvalidationBatch
@@ -34,7 +34,7 @@ module Network.AWS.CloudFront.CreateInvalidation
     -- * Response
     , CreateInvalidationResult
     -- ** Response constructor
-    , createInvalidationResult
+    , createInvalidation2014_05_31Response
     -- ** Response lenses
     , cirInvalidation
     , cirLocation
@@ -57,10 +57,10 @@ data CreateInvalidation = CreateInvalidation
 --
 -- * 'ciInvalidationBatch' @::@ 'InvalidationBatch'
 --
-createInvalidation :: Text -- ^ 'ciDistributionId'
-                   -> InvalidationBatch -- ^ 'ciInvalidationBatch'
-                   -> CreateInvalidation
-createInvalidation p1 p2 = CreateInvalidation
+createInvalidation2014_05_31 :: Text -- ^ 'ciDistributionId'
+                             -> InvalidationBatch -- ^ 'ciInvalidationBatch'
+                             -> CreateInvalidation
+createInvalidation2014_05_31 p1 p2 = CreateInvalidation
     { _ciDistributionId    = p1
     , _ciInvalidationBatch = p2
     }
@@ -102,8 +102,8 @@ data CreateInvalidationResult = CreateInvalidationResult
 --
 -- * 'cirLocation' @::@ 'Maybe' 'Text'
 --
-createInvalidationResult :: CreateInvalidationResult
-createInvalidationResult = CreateInvalidationResult
+createInvalidation2014_05_31Response :: CreateInvalidationResult
+createInvalidation2014_05_31Response = CreateInvalidationResult
     { _cirLocation     = Nothing
     , _cirInvalidation = Nothing
     }
@@ -122,5 +122,6 @@ instance AWSRequest CreateInvalidation where
     type Rs CreateInvalidation = CreateInvalidationResult
 
     request  = post
-    response = const . xmlResponse $ \h x -> CreateInvalidationResult
-record
+    response = xmlResponse $ \h x -> CreateInvalidationResult
+        <$> x %| "Invalidation"
+        <*> h ~:? "Location"

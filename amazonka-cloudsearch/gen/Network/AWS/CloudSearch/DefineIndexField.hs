@@ -107,5 +107,5 @@ instance AWSRequest DefineIndexField where
     type Rs DefineIndexField = DefineIndexFieldResponse
 
     request  = post "DefineIndexField"
-    response = const . xmlResponse $ \h x -> DefineIndexFieldResponse
-newtype
+    response = xmlResponse $ \h x -> DefineIndexFieldResponse
+        <$> x %| "IndexField"

@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     -- * Request
       ModifyCacheClusterMessage
     -- ** Request constructor
-    , modifyCacheClusterMessage
+    , modifyCacheCluster
     -- ** Request lenses
     , mccmAZMode
     , mccmApplyImmediately
@@ -50,7 +50,7 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     -- * Response
     , ModifyCacheClusterResult
     -- ** Response constructor
-    , modifyCacheClusterResult
+    , modifyCacheClusterResponse
     -- ** Response lenses
     , mccrCacheCluster
     ) where
@@ -114,9 +114,9 @@ data ModifyCacheClusterMessage = ModifyCacheClusterMessage
 --
 -- * 'mccmSnapshotWindow' @::@ 'Maybe' 'Text'
 --
-modifyCacheClusterMessage :: Text -- ^ 'mccmCacheClusterId'
-                          -> ModifyCacheClusterMessage
-modifyCacheClusterMessage p1 = ModifyCacheClusterMessage
+modifyCacheCluster :: Text -- ^ 'mccmCacheClusterId'
+                   -> ModifyCacheClusterMessage
+modifyCacheCluster p1 = ModifyCacheClusterMessage
     { _mccmCacheClusterId             = p1
     , _mccmNumCacheNodes              = Nothing
     , _mccmCacheNodeIdsToRemove       = mempty
@@ -336,8 +336,8 @@ newtype ModifyCacheClusterResult = ModifyCacheClusterResult
 --
 -- * 'mccrCacheCluster' @::@ 'Maybe' 'CacheCluster'
 --
-modifyCacheClusterResult :: ModifyCacheClusterResult
-modifyCacheClusterResult = ModifyCacheClusterResult
+modifyCacheClusterResponse :: ModifyCacheClusterResult
+modifyCacheClusterResponse = ModifyCacheClusterResult
     { _mccrCacheCluster = Nothing
     }
 
@@ -349,5 +349,5 @@ instance AWSRequest ModifyCacheClusterMessage where
     type Rs ModifyCacheClusterMessage = ModifyCacheClusterResult
 
     request  = post "ModifyCacheCluster"
-    response = const . xmlResponse $ \h x -> ModifyCacheClusterResult
-newtype
+    response = xmlResponse $ \h x -> ModifyCacheClusterResult
+        <$> x %| "CacheCluster"

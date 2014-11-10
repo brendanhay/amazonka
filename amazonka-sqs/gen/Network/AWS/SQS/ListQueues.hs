@@ -36,7 +36,7 @@ module Network.AWS.SQS.ListQueues
     -- * Response
     , ListQueuesResult
     -- ** Response constructor
-    , listQueuesResult
+    , listQueuesResponse
     -- ** Response lenses
     , lqrQueueUrls
     ) where
@@ -81,8 +81,8 @@ newtype ListQueuesResult = ListQueuesResult
 --
 -- * 'lqrQueueUrls' @::@ ['Text']
 --
-listQueuesResult :: ListQueuesResult
-listQueuesResult = ListQueuesResult
+listQueuesResponse :: ListQueuesResult
+listQueuesResponse = ListQueuesResult
     { _lqrQueueUrls = mempty
     }
 
@@ -95,5 +95,5 @@ instance AWSRequest ListQueues where
     type Rs ListQueues = ListQueuesResult
 
     request  = post "ListQueues"
-    response = const . xmlResponse $ \h x -> ListQueuesResult
-newtype
+    response = xmlResponse $ \h x -> ListQueuesResult
+        <$> x %| "QueueUrls"

@@ -46,7 +46,7 @@ module Network.AWS.EC2.DetachVolume
     -- * Response
     , VolumeAttachment
     -- ** Response constructor
-    , volumeAttachment
+    , detachVolumeResponse
     -- ** Response lenses
     , vaAttachTime
     , vaDeleteOnTermination
@@ -127,4 +127,4 @@ instance AWSRequest DetachVolume where
     type Rs DetachVolume = VolumeAttachment
 
     request  = post "DetachVolume"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

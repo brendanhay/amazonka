@@ -26,14 +26,14 @@ module Network.AWS.Redshift.RotateEncryptionKey
     -- * Request
       RotateEncryptionKeyMessage
     -- ** Request constructor
-    , rotateEncryptionKeyMessage
+    , rotateEncryptionKey
     -- ** Request lenses
     , rekmClusterIdentifier
 
     -- * Response
     , RotateEncryptionKeyResult
     -- ** Response constructor
-    , rotateEncryptionKeyResult
+    , rotateEncryptionKeyResponse
     -- ** Response lenses
     , rekrCluster
     ) where
@@ -52,9 +52,9 @@ newtype RotateEncryptionKeyMessage = RotateEncryptionKeyMessage
 --
 -- * 'rekmClusterIdentifier' @::@ 'Text'
 --
-rotateEncryptionKeyMessage :: Text -- ^ 'rekmClusterIdentifier'
-                           -> RotateEncryptionKeyMessage
-rotateEncryptionKeyMessage p1 = RotateEncryptionKeyMessage
+rotateEncryptionKey :: Text -- ^ 'rekmClusterIdentifier'
+                    -> RotateEncryptionKeyMessage
+rotateEncryptionKey p1 = RotateEncryptionKeyMessage
     { _rekmClusterIdentifier = p1
     }
 
@@ -80,8 +80,8 @@ newtype RotateEncryptionKeyResult = RotateEncryptionKeyResult
 --
 -- * 'rekrCluster' @::@ 'Maybe' 'Cluster'
 --
-rotateEncryptionKeyResult :: RotateEncryptionKeyResult
-rotateEncryptionKeyResult = RotateEncryptionKeyResult
+rotateEncryptionKeyResponse :: RotateEncryptionKeyResult
+rotateEncryptionKeyResponse = RotateEncryptionKeyResult
     { _rekrCluster = Nothing
     }
 
@@ -93,5 +93,5 @@ instance AWSRequest RotateEncryptionKeyMessage where
     type Rs RotateEncryptionKeyMessage = RotateEncryptionKeyResult
 
     request  = post "RotateEncryptionKey"
-    response = const . xmlResponse $ \h x -> RotateEncryptionKeyResult
-newtype
+    response = xmlResponse $ \h x -> RotateEncryptionKeyResult
+        <$> x %| "Cluster"

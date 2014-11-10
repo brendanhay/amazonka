@@ -28,7 +28,7 @@ module Network.AWS.Redshift.CreateClusterSnapshot
     -- * Request
       CreateClusterSnapshotMessage
     -- ** Request constructor
-    , createClusterSnapshotMessage
+    , createClusterSnapshot
     -- ** Request lenses
     , ccsmClusterIdentifier
     , ccsmSnapshotIdentifier
@@ -36,7 +36,7 @@ module Network.AWS.Redshift.CreateClusterSnapshot
     -- * Response
     , CreateClusterSnapshotResult
     -- ** Response constructor
-    , createClusterSnapshotResult
+    , createClusterSnapshotResponse
     -- ** Response lenses
     , ccsr1Snapshot
     ) where
@@ -58,10 +58,10 @@ data CreateClusterSnapshotMessage = CreateClusterSnapshotMessage
 --
 -- * 'ccsmSnapshotIdentifier' @::@ 'Text'
 --
-createClusterSnapshotMessage :: Text -- ^ 'ccsmSnapshotIdentifier'
-                             -> Text -- ^ 'ccsmClusterIdentifier'
-                             -> CreateClusterSnapshotMessage
-createClusterSnapshotMessage p1 p2 = CreateClusterSnapshotMessage
+createClusterSnapshot :: Text -- ^ 'ccsmSnapshotIdentifier'
+                      -> Text -- ^ 'ccsmClusterIdentifier'
+                      -> CreateClusterSnapshotMessage
+createClusterSnapshot p1 p2 = CreateClusterSnapshotMessage
     { _ccsmSnapshotIdentifier = p1
     , _ccsmClusterIdentifier  = p2
     }
@@ -96,8 +96,8 @@ newtype CreateClusterSnapshotResult = CreateClusterSnapshotResult
 --
 -- * 'ccsr1Snapshot' @::@ 'Maybe' 'Snapshot'
 --
-createClusterSnapshotResult :: CreateClusterSnapshotResult
-createClusterSnapshotResult = CreateClusterSnapshotResult
+createClusterSnapshotResponse :: CreateClusterSnapshotResult
+createClusterSnapshotResponse = CreateClusterSnapshotResult
     { _ccsr1Snapshot = Nothing
     }
 
@@ -109,5 +109,5 @@ instance AWSRequest CreateClusterSnapshotMessage where
     type Rs CreateClusterSnapshotMessage = CreateClusterSnapshotResult
 
     request  = post "CreateClusterSnapshot"
-    response = const . xmlResponse $ \h x -> CreateClusterSnapshotResult
-newtype
+    response = xmlResponse $ \h x -> CreateClusterSnapshotResult
+        <$> x %| "Snapshot"

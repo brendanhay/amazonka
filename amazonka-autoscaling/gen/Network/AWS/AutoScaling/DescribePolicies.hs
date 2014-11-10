@@ -29,7 +29,7 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- * Request
       DescribePoliciesType
     -- ** Request constructor
-    , describePoliciesType
+    , describePolicies
     -- ** Request lenses
     , dptAutoScalingGroupName
     , dptMaxRecords
@@ -39,7 +39,7 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- * Response
     , PoliciesType
     -- ** Response constructor
-    , policiesType
+    , describePoliciesResponse
     -- ** Response lenses
     , ptNextToken
     , ptScalingPolicies
@@ -68,8 +68,8 @@ data DescribePoliciesType = DescribePoliciesType
 --
 -- * 'dptPolicyNames' @::@ ['Text']
 --
-describePoliciesType :: DescribePoliciesType
-describePoliciesType = DescribePoliciesType
+describePolicies :: DescribePoliciesType
+describePolicies = DescribePoliciesType
     { _dptAutoScalingGroupName = Nothing
     , _dptPolicyNames          = mempty
     , _dptNextToken            = Nothing
@@ -116,8 +116,8 @@ data PoliciesType = PoliciesType
 --
 -- * 'ptScalingPolicies' @::@ ['ScalingPolicy']
 --
-policiesType :: PoliciesType
-policiesType = PoliciesType
+describePoliciesResponse :: PoliciesType
+describePoliciesResponse = PoliciesType
     { _ptScalingPolicies = mempty
     , _ptNextToken       = Nothing
     }
@@ -136,5 +136,6 @@ instance AWSRequest DescribePoliciesType where
     type Rs DescribePoliciesType = PoliciesType
 
     request  = post "DescribePolicies"
-    response = const . xmlResponse $ \h x -> PoliciesType
-record
+    response = xmlResponse $ \h x -> PoliciesType
+        <$> x %| "NextToken"
+        <*> x %| "ScalingPolicies"

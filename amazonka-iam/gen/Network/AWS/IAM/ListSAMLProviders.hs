@@ -76,5 +76,5 @@ instance AWSRequest ListSAMLProviders where
     type Rs ListSAMLProviders = ListSAMLProvidersResponse
 
     request  = post "ListSAMLProviders"
-    response = const . xmlResponse $ \h x -> ListSAMLProvidersResponse
-newtype
+    response = xmlResponse $ \h x -> ListSAMLProvidersResponse
+        <$> x %| "SAMLProviderList"

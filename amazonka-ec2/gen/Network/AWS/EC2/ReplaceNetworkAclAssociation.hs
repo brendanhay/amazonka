@@ -38,7 +38,7 @@ module Network.AWS.EC2.ReplaceNetworkAclAssociation
     -- * Response
     , ReplaceNetworkAclAssociationResult
     -- ** Response constructor
-    , replaceNetworkAclAssociationResult
+    , replaceNetworkAclAssociationResponse
     -- ** Response lenses
     , rnaarNewAssociationId
     ) where
@@ -100,8 +100,8 @@ newtype ReplaceNetworkAclAssociationResult = ReplaceNetworkAclAssociationResult
 --
 -- * 'rnaarNewAssociationId' @::@ 'Maybe' 'Text'
 --
-replaceNetworkAclAssociationResult :: ReplaceNetworkAclAssociationResult
-replaceNetworkAclAssociationResult = ReplaceNetworkAclAssociationResult
+replaceNetworkAclAssociationResponse :: ReplaceNetworkAclAssociationResult
+replaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResult
     { _rnaarNewAssociationId = Nothing
     }
 
@@ -115,5 +115,5 @@ instance AWSRequest ReplaceNetworkAclAssociation where
     type Rs ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociationResult
 
     request  = post "ReplaceNetworkAclAssociation"
-    response = const . xmlResponse $ \h x -> ReplaceNetworkAclAssociationResult
-newtype
+    response = xmlResponse $ \h x -> ReplaceNetworkAclAssociationResult
+        <$> x %| "newAssociationId"

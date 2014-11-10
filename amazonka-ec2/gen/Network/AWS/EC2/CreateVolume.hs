@@ -49,7 +49,7 @@ module Network.AWS.EC2.CreateVolume
     -- * Response
     , Volume
     -- ** Response constructor
-    , volume
+    , createVolumeResponse
     -- ** Response lenses
     , vAttachments
     , vAvailabilityZone
@@ -154,4 +154,4 @@ instance AWSRequest CreateVolume where
     type Rs CreateVolume = Volume
 
     request  = post "CreateVolume"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

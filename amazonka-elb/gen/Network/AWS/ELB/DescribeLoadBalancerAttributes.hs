@@ -27,14 +27,14 @@ module Network.AWS.ELB.DescribeLoadBalancerAttributes
     -- * Request
       DescribeLoadBalancerAttributesInput
     -- ** Request constructor
-    , describeLoadBalancerAttributesInput
+    , describeLoadBalancerAttributes
     -- ** Request lenses
     , dlbaiLoadBalancerName
 
     -- * Response
     , DescribeLoadBalancerAttributesOutput
     -- ** Response constructor
-    , describeLoadBalancerAttributesOutput
+    , describeLoadBalancerAttributesResponse
     -- ** Response lenses
     , dlbaoLoadBalancerAttributes
     ) where
@@ -53,9 +53,9 @@ newtype DescribeLoadBalancerAttributesInput = DescribeLoadBalancerAttributesInpu
 --
 -- * 'dlbaiLoadBalancerName' @::@ 'Text'
 --
-describeLoadBalancerAttributesInput :: Text -- ^ 'dlbaiLoadBalancerName'
-                                    -> DescribeLoadBalancerAttributesInput
-describeLoadBalancerAttributesInput p1 = DescribeLoadBalancerAttributesInput
+describeLoadBalancerAttributes :: Text -- ^ 'dlbaiLoadBalancerName'
+                               -> DescribeLoadBalancerAttributesInput
+describeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributesInput
     { _dlbaiLoadBalancerName = p1
     }
 
@@ -79,8 +79,8 @@ newtype DescribeLoadBalancerAttributesOutput = DescribeLoadBalancerAttributesOut
 --
 -- * 'dlbaoLoadBalancerAttributes' @::@ 'Maybe' 'LoadBalancerAttributes'
 --
-describeLoadBalancerAttributesOutput :: DescribeLoadBalancerAttributesOutput
-describeLoadBalancerAttributesOutput = DescribeLoadBalancerAttributesOutput
+describeLoadBalancerAttributesResponse :: DescribeLoadBalancerAttributesOutput
+describeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesOutput
     { _dlbaoLoadBalancerAttributes = Nothing
     }
 
@@ -95,5 +95,5 @@ instance AWSRequest DescribeLoadBalancerAttributesInput where
     type Rs DescribeLoadBalancerAttributesInput = DescribeLoadBalancerAttributesOutput
 
     request  = post "DescribeLoadBalancerAttributes"
-    response = const . xmlResponse $ \h x -> DescribeLoadBalancerAttributesOutput
-newtype
+    response = xmlResponse $ \h x -> DescribeLoadBalancerAttributesOutput
+        <$> x %| "LoadBalancerAttributes"

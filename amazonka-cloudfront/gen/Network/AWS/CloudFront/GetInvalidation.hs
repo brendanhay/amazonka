@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.GetInvalidation
     -- * Request
       GetInvalidation
     -- ** Request constructor
-    , getInvalidation
+    , getInvalidation2014_05_31
     -- ** Request lenses
     , giDistributionId
     , giId
@@ -34,7 +34,7 @@ module Network.AWS.CloudFront.GetInvalidation
     -- * Response
     , GetInvalidationResult
     -- ** Response constructor
-    , getInvalidationResult
+    , getInvalidation2014_05_31Response
     -- ** Response lenses
     , girInvalidation
     ) where
@@ -56,10 +56,10 @@ data GetInvalidation = GetInvalidation
 --
 -- * 'giId' @::@ 'Text'
 --
-getInvalidation :: Text -- ^ 'giDistributionId'
-                -> Text -- ^ 'giId'
-                -> GetInvalidation
-getInvalidation p1 p2 = GetInvalidation
+getInvalidation2014_05_31 :: Text -- ^ 'giDistributionId'
+                          -> Text -- ^ 'giId'
+                          -> GetInvalidation
+getInvalidation2014_05_31 p1 p2 = GetInvalidation
     { _giDistributionId = p1
     , _giId             = p2
     }
@@ -95,8 +95,8 @@ newtype GetInvalidationResult = GetInvalidationResult
 --
 -- * 'girInvalidation' @::@ 'Maybe' 'Invalidation'
 --
-getInvalidationResult :: GetInvalidationResult
-getInvalidationResult = GetInvalidationResult
+getInvalidation2014_05_31Response :: GetInvalidationResult
+getInvalidation2014_05_31Response = GetInvalidationResult
     { _girInvalidation = Nothing
     }
 
@@ -109,5 +109,5 @@ instance AWSRequest GetInvalidation where
     type Rs GetInvalidation = GetInvalidationResult
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetInvalidationResult
-newtype
+    response = xmlResponse $ \h x -> GetInvalidationResult
+        <$> x %| "Invalidation"

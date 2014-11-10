@@ -145,5 +145,5 @@ instance AWSRequest UploadServerCertificate where
     type Rs UploadServerCertificate = UploadServerCertificateResponse
 
     request  = post "UploadServerCertificate"
-    response = const . xmlResponse $ \h x -> UploadServerCertificateResponse
-newtype
+    response = xmlResponse $ \h x -> UploadServerCertificateResponse
+        <$> x %| "ServerCertificateMetadata"

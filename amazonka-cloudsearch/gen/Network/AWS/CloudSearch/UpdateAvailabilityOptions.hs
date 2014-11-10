@@ -110,5 +110,5 @@ instance AWSRequest UpdateAvailabilityOptions where
     type Rs UpdateAvailabilityOptions = UpdateAvailabilityOptionsResponse
 
     request  = post "UpdateAvailabilityOptions"
-    response = const . xmlResponse $ \h x -> UpdateAvailabilityOptionsResponse
-newtype
+    response = xmlResponse $ \h x -> UpdateAvailabilityOptionsResponse
+        <$> x %| "AvailabilityOptions"

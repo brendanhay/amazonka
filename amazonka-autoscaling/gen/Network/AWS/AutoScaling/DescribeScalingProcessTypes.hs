@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     -- * Response
     , ProcessesType
     -- ** Response constructor
-    , processesType
+    , describeScalingProcessTypesResponse
     -- ** Response lenses
     , ptProcesses
     ) where
@@ -62,8 +62,8 @@ newtype ProcessesType = ProcessesType
 --
 -- * 'ptProcesses' @::@ ['ProcessType']
 --
-processesType :: ProcessesType
-processesType = ProcessesType
+describeScalingProcessTypesResponse :: ProcessesType
+describeScalingProcessTypesResponse = ProcessesType
     { _ptProcesses = mempty
     }
 
@@ -76,5 +76,5 @@ instance AWSRequest DescribeScalingProcessTypes where
     type Rs DescribeScalingProcessTypes = ProcessesType
 
     request  = post "DescribeScalingProcessTypes"
-    response = const . xmlResponse $ \h x -> ProcessesType
-newtype
+    response = xmlResponse $ \h x -> ProcessesType
+        <$> x %| "Processes"

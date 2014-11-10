@@ -82,48 +82,10 @@ instance AWSService SNS where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'SNS' errors returned by the
--- Amazon Simple Notification Service.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data SNSError
-    = SNSHttp       HttpException
-    | SNSSerializer String
-    | SNSService    Status SNSServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception SNSError
-
-instance AWSError SNSError where
-    awsError = \case
-        SNSHttp       ex  -> HttpError       ex
-        SNSSerializer e   -> SerializerError "SNS" e
-        SNSService    s x -> ServiceError    "SNS" s (show x)
-
-instance AWSServiceError SNSError where
-    httpError       = SNSHttp
-    serializerError = SNSSerializer
-    serviceError    = xmlError httpStatus SNSService
-
-_SNSHttp :: Prism' SNSError HttpException
-_SNSHttp = prism SNSHttp $ \case
-    SNSHttp ex -> Right ex
-    x -> Left x
-
-_SNSSerializer :: Prism' SNSError String
-_SNSSerializer = prism SNSSerializer $ \case
-    SNSSerializer e -> Right e
-    x -> Left x
-
-_SNSService :: Prism' SNSError (Status, SNSServiceError)
-_SNSService = prism (uncurry SNSService) $ \case
-    SNSService s x -> Right (s, x)
-    x -> Left x
 
 newtype Topic = Topic
     { _tTopicArn :: Maybe Text

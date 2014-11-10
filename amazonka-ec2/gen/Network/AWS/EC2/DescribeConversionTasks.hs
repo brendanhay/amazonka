@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeConversionTasks
     -- * Response
     , DescribeConversionTasksResult
     -- ** Response constructor
-    , describeConversionTasksResult
+    , describeConversionTasksResponse
     -- ** Response lenses
     , dctrConversionTasks
     ) where
@@ -95,8 +95,8 @@ newtype DescribeConversionTasksResult = DescribeConversionTasksResult
 --
 -- * 'dctrConversionTasks' @::@ ['ConversionTask']
 --
-describeConversionTasksResult :: DescribeConversionTasksResult
-describeConversionTasksResult = DescribeConversionTasksResult
+describeConversionTasksResponse :: DescribeConversionTasksResult
+describeConversionTasksResponse = DescribeConversionTasksResult
     { _dctrConversionTasks = mempty
     }
 
@@ -109,5 +109,5 @@ instance AWSRequest DescribeConversionTasks where
     type Rs DescribeConversionTasks = DescribeConversionTasksResult
 
     request  = post "DescribeConversionTasks"
-    response = const . xmlResponse $ \h x -> DescribeConversionTasksResult
-newtype
+    response = xmlResponse $ \h x -> DescribeConversionTasksResult
+        <$> x %| "conversionTasks"

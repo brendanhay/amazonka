@@ -26,7 +26,7 @@ module Network.AWS.Redshift.DeleteHsmConfiguration
     -- * Request
       DeleteHsmConfigurationMessage
     -- ** Request constructor
-    , deleteHsmConfigurationMessage
+    , deleteHsmConfiguration
     -- ** Request lenses
     , dhcm1HsmConfigurationIdentifier
 
@@ -50,9 +50,9 @@ newtype DeleteHsmConfigurationMessage = DeleteHsmConfigurationMessage
 --
 -- * 'dhcm1HsmConfigurationIdentifier' @::@ 'Text'
 --
-deleteHsmConfigurationMessage :: Text -- ^ 'dhcm1HsmConfigurationIdentifier'
-                              -> DeleteHsmConfigurationMessage
-deleteHsmConfigurationMessage p1 = DeleteHsmConfigurationMessage
+deleteHsmConfiguration :: Text -- ^ 'dhcm1HsmConfigurationIdentifier'
+                       -> DeleteHsmConfigurationMessage
+deleteHsmConfiguration p1 = DeleteHsmConfigurationMessage
     { _dhcm1HsmConfigurationIdentifier = p1
     }
 

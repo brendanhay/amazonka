@@ -124,5 +124,5 @@ instance AWSRequest CreateSAMLProvider where
     type Rs CreateSAMLProvider = CreateSAMLProviderResponse
 
     request  = post "CreateSAMLProvider"
-    response = const . xmlResponse $ \h x -> CreateSAMLProviderResponse
-newtype
+    response = xmlResponse $ \h x -> CreateSAMLProviderResponse
+        <$> x %| "SAMLProviderArn"

@@ -53,7 +53,7 @@ module Network.AWS.EC2.CreateSecurityGroup
     -- * Response
     , CreateSecurityGroupResult
     -- ** Response constructor
-    , createSecurityGroupResult
+    , createSecurityGroupResponse
     -- ** Response lenses
     , csgrGroupId
     ) where
@@ -126,8 +126,8 @@ newtype CreateSecurityGroupResult = CreateSecurityGroupResult
 --
 -- * 'csgrGroupId' @::@ 'Maybe' 'Text'
 --
-createSecurityGroupResult :: CreateSecurityGroupResult
-createSecurityGroupResult = CreateSecurityGroupResult
+createSecurityGroupResponse :: CreateSecurityGroupResult
+createSecurityGroupResponse = CreateSecurityGroupResult
     { _csgrGroupId = Nothing
     }
 
@@ -140,5 +140,5 @@ instance AWSRequest CreateSecurityGroup where
     type Rs CreateSecurityGroup = CreateSecurityGroupResult
 
     request  = post "CreateSecurityGroup"
-    response = const . xmlResponse $ \h x -> CreateSecurityGroupResult
-newtype
+    response = xmlResponse $ \h x -> CreateSecurityGroupResult
+        <$> x %| "groupId"

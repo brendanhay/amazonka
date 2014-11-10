@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     -- * Request
       DescribeScheduledActionsType
     -- ** Request constructor
-    , describeScheduledActionsType
+    , describeScheduledActions
     -- ** Request lenses
     , dsat2AutoScalingGroupName
     , dsat2EndTime
@@ -40,7 +40,7 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     -- * Response
     , ScheduledActionsType
     -- ** Response constructor
-    , scheduledActionsType
+    , describeScheduledActionsResponse
     -- ** Response lenses
     , satNextToken
     , satScheduledUpdateGroupActions
@@ -75,8 +75,8 @@ data DescribeScheduledActionsType = DescribeScheduledActionsType
 --
 -- * 'dsat2StartTime' @::@ 'Maybe' 'UTCTime'
 --
-describeScheduledActionsType :: DescribeScheduledActionsType
-describeScheduledActionsType = DescribeScheduledActionsType
+describeScheduledActions :: DescribeScheduledActionsType
+describeScheduledActions = DescribeScheduledActionsType
     { _dsat2AutoScalingGroupName = Nothing
     , _dsat2ScheduledActionNames = mempty
     , _dsat2StartTime            = Nothing
@@ -139,8 +139,8 @@ data ScheduledActionsType = ScheduledActionsType
 --
 -- * 'satScheduledUpdateGroupActions' @::@ ['ScheduledUpdateGroupAction']
 --
-scheduledActionsType :: ScheduledActionsType
-scheduledActionsType = ScheduledActionsType
+describeScheduledActionsResponse :: ScheduledActionsType
+describeScheduledActionsResponse = ScheduledActionsType
     { _satScheduledUpdateGroupActions = mempty
     , _satNextToken                   = Nothing
     }
@@ -160,5 +160,6 @@ instance AWSRequest DescribeScheduledActionsType where
     type Rs DescribeScheduledActionsType = ScheduledActionsType
 
     request  = post "DescribeScheduledActions"
-    response = const . xmlResponse $ \h x -> ScheduledActionsType
-record
+    response = xmlResponse $ \h x -> ScheduledActionsType
+        <$> x %| "NextToken"
+        <*> x %| "ScheduledUpdateGroupActions"

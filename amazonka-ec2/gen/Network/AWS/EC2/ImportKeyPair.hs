@@ -41,7 +41,7 @@ module Network.AWS.EC2.ImportKeyPair
     -- * Response
     , ImportKeyPairResult
     -- ** Response constructor
-    , importKeyPairResult
+    , importKeyPairResponse
     -- ** Response lenses
     , ikprKeyFingerprint
     , ikprKeyName
@@ -107,8 +107,8 @@ data ImportKeyPairResult = ImportKeyPairResult
 --
 -- * 'ikprKeyName' @::@ 'Maybe' 'Text'
 --
-importKeyPairResult :: ImportKeyPairResult
-importKeyPairResult = ImportKeyPairResult
+importKeyPairResponse :: ImportKeyPairResult
+importKeyPairResponse = ImportKeyPairResult
     { _ikprKeyName        = Nothing
     , _ikprKeyFingerprint = Nothing
     }
@@ -127,5 +127,6 @@ instance AWSRequest ImportKeyPair where
     type Rs ImportKeyPair = ImportKeyPairResult
 
     request  = post "ImportKeyPair"
-    response = const . xmlResponse $ \h x -> ImportKeyPairResult
-record
+    response = xmlResponse $ \h x -> ImportKeyPairResult
+        <$> x %| "keyFingerprint"
+        <*> x %| "keyName"

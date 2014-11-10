@@ -29,7 +29,7 @@ module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     -- * Request
       RevokeDBSecurityGroupIngressMessage
     -- ** Request constructor
-    , revokeDBSecurityGroupIngressMessage
+    , revokeDBSecurityGroupIngress
     -- ** Request lenses
     , rdbsgimCIDRIP
     , rdbsgimDBSecurityGroupName
@@ -40,7 +40,7 @@ module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     -- * Response
     , RevokeDBSecurityGroupIngressResult
     -- ** Response constructor
-    , revokeDBSecurityGroupIngressResult
+    , revokeDBSecurityGroupIngressResponse
     -- ** Response lenses
     , rdbsgirDBSecurityGroup
     ) where
@@ -71,9 +71,9 @@ data RevokeDBSecurityGroupIngressMessage = RevokeDBSecurityGroupIngressMessage
 --
 -- * 'rdbsgimEC2SecurityGroupOwnerId' @::@ 'Maybe' 'Text'
 --
-revokeDBSecurityGroupIngressMessage :: Text -- ^ 'rdbsgimDBSecurityGroupName'
-                                    -> RevokeDBSecurityGroupIngressMessage
-revokeDBSecurityGroupIngressMessage p1 = RevokeDBSecurityGroupIngressMessage
+revokeDBSecurityGroupIngress :: Text -- ^ 'rdbsgimDBSecurityGroupName'
+                             -> RevokeDBSecurityGroupIngressMessage
+revokeDBSecurityGroupIngress p1 = RevokeDBSecurityGroupIngressMessage
     { _rdbsgimDBSecurityGroupName     = p1
     , _rdbsgimCIDRIP                  = Nothing
     , _rdbsgimEC2SecurityGroupName    = Nothing
@@ -136,8 +136,8 @@ newtype RevokeDBSecurityGroupIngressResult = RevokeDBSecurityGroupIngressResult
 --
 -- * 'rdbsgirDBSecurityGroup' @::@ 'Maybe' 'DBSecurityGroup'
 --
-revokeDBSecurityGroupIngressResult :: RevokeDBSecurityGroupIngressResult
-revokeDBSecurityGroupIngressResult = RevokeDBSecurityGroupIngressResult
+revokeDBSecurityGroupIngressResponse :: RevokeDBSecurityGroupIngressResult
+revokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResult
     { _rdbsgirDBSecurityGroup = Nothing
     }
 
@@ -150,5 +150,5 @@ instance AWSRequest RevokeDBSecurityGroupIngressMessage where
     type Rs RevokeDBSecurityGroupIngressMessage = RevokeDBSecurityGroupIngressResult
 
     request  = post "RevokeDBSecurityGroupIngress"
-    response = const . xmlResponse $ \h x -> RevokeDBSecurityGroupIngressResult
-newtype
+    response = xmlResponse $ \h x -> RevokeDBSecurityGroupIngressResult
+        <$> x %| "DBSecurityGroup"

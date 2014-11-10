@@ -344,48 +344,10 @@ instance AWSService ElastiCache where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'ElastiCache' errors returned by the
--- Amazon ElastiCache.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data ElastiCacheError
-    = ElastiCacheHttp       HttpException
-    | ElastiCacheSerializer String
-    | ElastiCacheService    Status ElastiCacheServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception ElastiCacheError
-
-instance AWSError ElastiCacheError where
-    awsError = \case
-        ElastiCacheHttp       ex  -> HttpError       ex
-        ElastiCacheSerializer e   -> SerializerError "ElastiCache" e
-        ElastiCacheService    s x -> ServiceError    "ElastiCache" s (show x)
-
-instance AWSServiceError ElastiCacheError where
-    httpError       = ElastiCacheHttp
-    serializerError = ElastiCacheSerializer
-    serviceError    = xmlError httpStatus ElastiCacheService
-
-_ElastiCacheHttp :: Prism' ElastiCacheError HttpException
-_ElastiCacheHttp = prism ElastiCacheHttp $ \case
-    ElastiCacheHttp ex -> Right ex
-    x -> Left x
-
-_ElastiCacheSerializer :: Prism' ElastiCacheError String
-_ElastiCacheSerializer = prism ElastiCacheSerializer $ \case
-    ElastiCacheSerializer e -> Right e
-    x -> Left x
-
-_ElastiCacheService :: Prism' ElastiCacheError (Status, ElastiCacheServiceError)
-_ElastiCacheService = prism (uncurry ElastiCacheService) $ \case
-    ElastiCacheService s x -> Right (s, x)
-    x -> Left x
 
 data NodeSnapshot = NodeSnapshot
     { _nsCacheNodeCreateTime :: Maybe RFC822

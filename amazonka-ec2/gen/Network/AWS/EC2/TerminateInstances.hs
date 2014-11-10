@@ -48,7 +48,7 @@ module Network.AWS.EC2.TerminateInstances
     -- * Response
     , TerminateInstancesResult
     -- ** Response constructor
-    , terminateInstancesResult
+    , terminateInstancesResponse
     -- ** Response lenses
     , tirTerminatingInstances
     ) where
@@ -98,8 +98,8 @@ newtype TerminateInstancesResult = TerminateInstancesResult
 --
 -- * 'tirTerminatingInstances' @::@ ['InstanceStateChange']
 --
-terminateInstancesResult :: TerminateInstancesResult
-terminateInstancesResult = TerminateInstancesResult
+terminateInstancesResponse :: TerminateInstancesResult
+terminateInstancesResponse = TerminateInstancesResult
     { _tirTerminatingInstances = mempty
     }
 
@@ -113,5 +113,5 @@ instance AWSRequest TerminateInstances where
     type Rs TerminateInstances = TerminateInstancesResult
 
     request  = post "TerminateInstances"
-    response = const . xmlResponse $ \h x -> TerminateInstancesResult
-newtype
+    response = xmlResponse $ \h x -> TerminateInstancesResult
+        <$> x %| "instancesSet"

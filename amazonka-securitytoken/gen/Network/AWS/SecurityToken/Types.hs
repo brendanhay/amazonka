@@ -69,48 +69,10 @@ instance AWSService SecurityToken where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'SecurityToken' errors returned by the
--- Amazon Security Token Service.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data SecurityTokenError
-    = SecurityTokenHttp       HttpException
-    | SecurityTokenSerializer String
-    | SecurityTokenService    Status SecurityTokenServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception SecurityTokenError
-
-instance AWSError SecurityTokenError where
-    awsError = \case
-        SecurityTokenHttp       ex  -> HttpError       ex
-        SecurityTokenSerializer e   -> SerializerError "SecurityToken" e
-        SecurityTokenService    s x -> ServiceError    "SecurityToken" s (show x)
-
-instance AWSServiceError SecurityTokenError where
-    httpError       = SecurityTokenHttp
-    serializerError = SecurityTokenSerializer
-    serviceError    = xmlError httpStatus SecurityTokenService
-
-_SecurityTokenHttp :: Prism' SecurityTokenError HttpException
-_SecurityTokenHttp = prism SecurityTokenHttp $ \case
-    SecurityTokenHttp ex -> Right ex
-    x -> Left x
-
-_SecurityTokenSerializer :: Prism' SecurityTokenError String
-_SecurityTokenSerializer = prism SecurityTokenSerializer $ \case
-    SecurityTokenSerializer e -> Right e
-    x -> Left x
-
-_SecurityTokenService :: Prism' SecurityTokenError (Status, SecurityTokenServiceError)
-_SecurityTokenService = prism (uncurry SecurityTokenService) $ \case
-    SecurityTokenService s x -> Right (s, x)
-    x -> Left x
 
 data Credentials = Credentials
     { _cAccessKeyId     :: Text

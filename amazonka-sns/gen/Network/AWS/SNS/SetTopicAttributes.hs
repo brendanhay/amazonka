@@ -26,7 +26,7 @@ module Network.AWS.SNS.SetTopicAttributes
     -- * Request
       SetTopicAttributesInput
     -- ** Request constructor
-    , setTopicAttributesInput
+    , setTopicAttributes
     -- ** Request lenses
     , staiAttributeName
     , staiAttributeValue
@@ -58,10 +58,10 @@ data SetTopicAttributesInput = SetTopicAttributesInput
 --
 -- * 'staiTopicArn' @::@ 'Text'
 --
-setTopicAttributesInput :: Text -- ^ 'staiTopicArn'
-                        -> Text -- ^ 'staiAttributeName'
-                        -> SetTopicAttributesInput
-setTopicAttributesInput p1 p2 = SetTopicAttributesInput
+setTopicAttributes :: Text -- ^ 'staiTopicArn'
+                   -> Text -- ^ 'staiAttributeName'
+                   -> SetTopicAttributesInput
+setTopicAttributes p1 p2 = SetTopicAttributesInput
     { _staiTopicArn       = p1
     , _staiAttributeName  = p2
     , _staiAttributeValue = Nothing

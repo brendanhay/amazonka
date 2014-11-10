@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketTagging
     -- * Response
     , GetBucketTaggingOutput
     -- ** Response constructor
-    , getBucketTaggingOutput
+    , getBucketTaggingResponse
     -- ** Response lenses
     , gbtoTagSet
     ) where
@@ -82,8 +82,8 @@ newtype GetBucketTaggingOutput = GetBucketTaggingOutput
 --
 -- * 'gbtoTagSet' @::@ ['Tag']
 --
-getBucketTaggingOutput :: GetBucketTaggingOutput
-getBucketTaggingOutput = GetBucketTaggingOutput
+getBucketTaggingResponse :: GetBucketTaggingOutput
+getBucketTaggingResponse = GetBucketTaggingOutput
     { _gbtoTagSet = mempty
     }
 
@@ -95,5 +95,5 @@ instance AWSRequest GetBucketTagging where
     type Rs GetBucketTagging = GetBucketTaggingOutput
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetBucketTaggingOutput
-newtype
+    response = xmlResponse $ \h x -> GetBucketTaggingOutput
+        <$> x %| "TagSet"

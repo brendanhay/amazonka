@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeImageAttribute
     -- * Response
     , ImageAttribute
     -- ** Response constructor
-    , imageAttribute
+    , describeImageAttributeResponse
     -- ** Response lenses
     , ia1BlockDeviceMappings
     , ia1Description
@@ -124,8 +124,8 @@ data ImageAttribute = ImageAttribute
 --
 -- * 'ia1SriovNetSupport' @::@ 'Maybe' 'AttributeValue'
 --
-imageAttribute :: ImageAttribute
-imageAttribute = ImageAttribute
+describeImageAttributeResponse :: ImageAttribute
+describeImageAttributeResponse = ImageAttribute
     { _ia1ImageId             = Nothing
     , _ia1LaunchPermissions   = mempty
     , _ia1ProductCodes        = mempty
@@ -175,5 +175,12 @@ instance AWSRequest DescribeImageAttribute where
     type Rs DescribeImageAttribute = ImageAttribute
 
     request  = post "DescribeImageAttribute"
-    response = const . xmlResponse $ \h x -> ImageAttribute
-record
+    response = xmlResponse $ \h x -> ImageAttribute
+        <$> x %| "blockDeviceMapping"
+        <*> x %| "description"
+        <*> x %| "imageId"
+        <*> x %| "kernel"
+        <*> x %| "launchPermission"
+        <*> x %| "productCodes"
+        <*> x %| "ramdisk"
+        <*> x %| "sriovNetSupport"

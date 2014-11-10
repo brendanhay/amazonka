@@ -79,5 +79,5 @@ instance AWSRequest GetSendStatistics where
     type Rs GetSendStatistics = GetSendStatisticsResponse
 
     request  = post "GetSendStatistics"
-    response = const . xmlResponse $ \h x -> GetSendStatisticsResponse
-newtype
+    response = xmlResponse $ \h x -> GetSendStatisticsResponse
+        <$> x %| "SendDataPoints"

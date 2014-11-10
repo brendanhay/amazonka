@@ -27,7 +27,7 @@ module Network.AWS.SNS.DeleteEndpoint
     -- * Request
       DeleteEndpointInput
     -- ** Request constructor
-    , deleteEndpointInput
+    , deleteEndpoint
     -- ** Request lenses
     , deiEndpointArn
 
@@ -51,9 +51,9 @@ newtype DeleteEndpointInput = DeleteEndpointInput
 --
 -- * 'deiEndpointArn' @::@ 'Text'
 --
-deleteEndpointInput :: Text -- ^ 'deiEndpointArn'
-                    -> DeleteEndpointInput
-deleteEndpointInput p1 = DeleteEndpointInput
+deleteEndpoint :: Text -- ^ 'deiEndpointArn'
+               -> DeleteEndpointInput
+deleteEndpoint p1 = DeleteEndpointInput
     { _deiEndpointArn = p1
     }
 

@@ -169,5 +169,9 @@ instance AWSRequest ListHealthChecks where
     type Rs ListHealthChecks = ListHealthChecksResponse
 
     request  = get
-    response = const . xmlResponse $ \h x -> ListHealthChecksResponse
-record
+    response = xmlResponse $ \h x -> ListHealthChecksResponse
+        <$> x %| "HealthChecks"
+        <*> x %| "IsTruncated"
+        <*> x %| "Marker"
+        <*> x %| "MaxItems"
+        <*> x %| "NextMarker"

@@ -27,7 +27,7 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     -- * Request
       CreateDBSubnetGroupMessage
     -- ** Request constructor
-    , createDBSubnetGroupMessage
+    , createDBSubnetGroup
     -- ** Request lenses
     , cdbsgmDBSubnetGroupDescription
     , cdbsgmDBSubnetGroupName
@@ -37,7 +37,7 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     -- * Response
     , CreateDBSubnetGroupResult
     -- ** Response constructor
-    , createDBSubnetGroupResult
+    , createDBSubnetGroupResponse
     -- ** Response lenses
     , cdbsgrDBSubnetGroup
     ) where
@@ -65,10 +65,10 @@ data CreateDBSubnetGroupMessage = CreateDBSubnetGroupMessage
 --
 -- * 'cdbsgmTags' @::@ ['Tag']
 --
-createDBSubnetGroupMessage :: Text -- ^ 'cdbsgmDBSubnetGroupName'
-                           -> Text -- ^ 'cdbsgmDBSubnetGroupDescription'
-                           -> CreateDBSubnetGroupMessage
-createDBSubnetGroupMessage p1 p2 = CreateDBSubnetGroupMessage
+createDBSubnetGroup :: Text -- ^ 'cdbsgmDBSubnetGroupName'
+                    -> Text -- ^ 'cdbsgmDBSubnetGroupDescription'
+                    -> CreateDBSubnetGroupMessage
+createDBSubnetGroup p1 p2 = CreateDBSubnetGroupMessage
     { _cdbsgmDBSubnetGroupName        = p1
     , _cdbsgmDBSubnetGroupDescription = p2
     , _cdbsgmSubnetIds                = mempty
@@ -110,8 +110,8 @@ newtype CreateDBSubnetGroupResult = CreateDBSubnetGroupResult
 --
 -- * 'cdbsgrDBSubnetGroup' @::@ 'Maybe' 'DBSubnetGroup'
 --
-createDBSubnetGroupResult :: CreateDBSubnetGroupResult
-createDBSubnetGroupResult = CreateDBSubnetGroupResult
+createDBSubnetGroupResponse :: CreateDBSubnetGroupResult
+createDBSubnetGroupResponse = CreateDBSubnetGroupResult
     { _cdbsgrDBSubnetGroup = Nothing
     }
 
@@ -124,5 +124,5 @@ instance AWSRequest CreateDBSubnetGroupMessage where
     type Rs CreateDBSubnetGroupMessage = CreateDBSubnetGroupResult
 
     request  = post "CreateDBSubnetGroup"
-    response = const . xmlResponse $ \h x -> CreateDBSubnetGroupResult
-newtype
+    response = xmlResponse $ \h x -> CreateDBSubnetGroupResult
+        <$> x %| "DBSubnetGroup"

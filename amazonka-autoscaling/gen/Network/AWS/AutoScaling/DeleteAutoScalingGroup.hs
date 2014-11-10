@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     -- * Request
       DeleteAutoScalingGroupType
     -- ** Request constructor
-    , deleteAutoScalingGroupType
+    , deleteAutoScalingGroup
     -- ** Request lenses
     , dasgtAutoScalingGroupName
     , dasgtForceDelete
@@ -55,9 +55,9 @@ data DeleteAutoScalingGroupType = DeleteAutoScalingGroupType
 --
 -- * 'dasgtForceDelete' @::@ 'Maybe' 'Bool'
 --
-deleteAutoScalingGroupType :: Text -- ^ 'dasgtAutoScalingGroupName'
-                           -> DeleteAutoScalingGroupType
-deleteAutoScalingGroupType p1 = DeleteAutoScalingGroupType
+deleteAutoScalingGroup :: Text -- ^ 'dasgtAutoScalingGroupName'
+                       -> DeleteAutoScalingGroupType
+deleteAutoScalingGroup p1 = DeleteAutoScalingGroupType
     { _dasgtAutoScalingGroupName = p1
     , _dasgtForceDelete          = Nothing
     }

@@ -38,7 +38,7 @@ module Network.AWS.RDS.ModifyDBParameterGroup
     -- * Request
       ModifyDBParameterGroupMessage
     -- ** Request constructor
-    , modifyDBParameterGroupMessage
+    , modifyDBParameterGroup
     -- ** Request lenses
     , mdbpgmDBParameterGroupName
     , mdbpgmParameters
@@ -46,7 +46,7 @@ module Network.AWS.RDS.ModifyDBParameterGroup
     -- * Response
     , DBParameterGroupNameMessage
     -- ** Response constructor
-    , dbparameterGroupNameMessage
+    , modifyDBParameterGroupResponse
     -- ** Response lenses
     , dbpgnmDBParameterGroupName
     ) where
@@ -68,9 +68,9 @@ data ModifyDBParameterGroupMessage = ModifyDBParameterGroupMessage
 --
 -- * 'mdbpgmParameters' @::@ ['Parameter']
 --
-modifyDBParameterGroupMessage :: Text -- ^ 'mdbpgmDBParameterGroupName'
-                              -> ModifyDBParameterGroupMessage
-modifyDBParameterGroupMessage p1 = ModifyDBParameterGroupMessage
+modifyDBParameterGroup :: Text -- ^ 'mdbpgmDBParameterGroupName'
+                       -> ModifyDBParameterGroupMessage
+modifyDBParameterGroup p1 = ModifyDBParameterGroupMessage
     { _mdbpgmDBParameterGroupName = p1
     , _mdbpgmParameters           = mempty
     }
@@ -102,4 +102,4 @@ instance AWSRequest ModifyDBParameterGroupMessage where
     type Rs ModifyDBParameterGroupMessage = DBParameterGroupNameMessage
 
     request  = post "ModifyDBParameterGroup"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

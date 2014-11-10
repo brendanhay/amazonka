@@ -30,7 +30,7 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
     -- * Request
       CreateLaunchConfigurationType
     -- ** Request constructor
-    , createLaunchConfigurationType
+    , createLaunchConfiguration
     -- ** Request lenses
     , clctAssociatePublicIpAddress
     , clctBlockDeviceMappings
@@ -114,9 +114,9 @@ data CreateLaunchConfigurationType = CreateLaunchConfigurationType
 --
 -- * 'clctUserData' @::@ 'Maybe' 'Text'
 --
-createLaunchConfigurationType :: Text -- ^ 'clctLaunchConfigurationName'
-                              -> CreateLaunchConfigurationType
-createLaunchConfigurationType p1 = CreateLaunchConfigurationType
+createLaunchConfiguration :: Text -- ^ 'clctLaunchConfigurationName'
+                          -> CreateLaunchConfigurationType
+createLaunchConfiguration p1 = CreateLaunchConfigurationType
     { _clctLaunchConfigurationName  = p1
     , _clctImageId                  = Nothing
     , _clctKeyName                  = Nothing

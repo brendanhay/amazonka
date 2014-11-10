@@ -33,7 +33,7 @@ module Network.AWS.Redshift.CreateHsmConfiguration
     -- * Request
       CreateHsmConfigurationMessage
     -- ** Request constructor
-    , createHsmConfigurationMessage
+    , createHsmConfiguration
     -- ** Request lenses
     , chcmDescription
     , chcmHsmConfigurationIdentifier
@@ -45,7 +45,7 @@ module Network.AWS.Redshift.CreateHsmConfiguration
     -- * Response
     , CreateHsmConfigurationResult
     -- ** Response constructor
-    , createHsmConfigurationResult
+    , createHsmConfigurationResponse
     -- ** Response lenses
     , chcrHsmConfiguration
     ) where
@@ -79,14 +79,14 @@ data CreateHsmConfigurationMessage = CreateHsmConfigurationMessage
 --
 -- * 'chcmHsmServerPublicCertificate' @::@ 'Text'
 --
-createHsmConfigurationMessage :: Text -- ^ 'chcmHsmConfigurationIdentifier'
-                              -> Text -- ^ 'chcmDescription'
-                              -> Text -- ^ 'chcmHsmIpAddress'
-                              -> Text -- ^ 'chcmHsmPartitionName'
-                              -> Text -- ^ 'chcmHsmPartitionPassword'
-                              -> Text -- ^ 'chcmHsmServerPublicCertificate'
-                              -> CreateHsmConfigurationMessage
-createHsmConfigurationMessage p1 p2 p3 p4 p5 p6 = CreateHsmConfigurationMessage
+createHsmConfiguration :: Text -- ^ 'chcmHsmConfigurationIdentifier'
+                       -> Text -- ^ 'chcmDescription'
+                       -> Text -- ^ 'chcmHsmIpAddress'
+                       -> Text -- ^ 'chcmHsmPartitionName'
+                       -> Text -- ^ 'chcmHsmPartitionPassword'
+                       -> Text -- ^ 'chcmHsmServerPublicCertificate'
+                       -> CreateHsmConfigurationMessage
+createHsmConfiguration p1 p2 p3 p4 p5 p6 = CreateHsmConfigurationMessage
     { _chcmHsmConfigurationIdentifier = p1
     , _chcmDescription                = p2
     , _chcmHsmIpAddress               = p3
@@ -145,8 +145,8 @@ newtype CreateHsmConfigurationResult = CreateHsmConfigurationResult
 --
 -- * 'chcrHsmConfiguration' @::@ 'Maybe' 'HsmConfiguration'
 --
-createHsmConfigurationResult :: CreateHsmConfigurationResult
-createHsmConfigurationResult = CreateHsmConfigurationResult
+createHsmConfigurationResponse :: CreateHsmConfigurationResult
+createHsmConfigurationResponse = CreateHsmConfigurationResult
     { _chcrHsmConfiguration = Nothing
     }
 
@@ -159,5 +159,5 @@ instance AWSRequest CreateHsmConfigurationMessage where
     type Rs CreateHsmConfigurationMessage = CreateHsmConfigurationResult
 
     request  = post "CreateHsmConfiguration"
-    response = const . xmlResponse $ \h x -> CreateHsmConfigurationResult
-newtype
+    response = xmlResponse $ \h x -> CreateHsmConfigurationResult
+        <$> x %| "HsmConfiguration"

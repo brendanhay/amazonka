@@ -36,7 +36,7 @@ module Network.AWS.EC2.MonitorInstances
     -- * Response
     , MonitorInstancesResult
     -- ** Response constructor
-    , monitorInstancesResult
+    , monitorInstancesResponse
     -- ** Response lenses
     , mirInstanceMonitorings
     ) where
@@ -86,8 +86,8 @@ newtype MonitorInstancesResult = MonitorInstancesResult
 --
 -- * 'mirInstanceMonitorings' @::@ ['InstanceMonitoring']
 --
-monitorInstancesResult :: MonitorInstancesResult
-monitorInstancesResult = MonitorInstancesResult
+monitorInstancesResponse :: MonitorInstancesResult
+monitorInstancesResponse = MonitorInstancesResult
     { _mirInstanceMonitorings = mempty
     }
 
@@ -101,5 +101,5 @@ instance AWSRequest MonitorInstances where
     type Rs MonitorInstances = MonitorInstancesResult
 
     request  = post "MonitorInstances"
-    response = const . xmlResponse $ \h x -> MonitorInstancesResult
-newtype
+    response = xmlResponse $ \h x -> MonitorInstancesResult
+        <$> x %| "instancesSet"

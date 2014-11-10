@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     -- * Response
     , DescribeLifecycleHookTypesAnswer
     -- ** Response constructor
-    , describeLifecycleHookTypesAnswer
+    , describeLifecycleHookTypesResponse
     -- ** Response lenses
     , dlhtaLifecycleHookTypes
     ) where
@@ -61,8 +61,8 @@ newtype DescribeLifecycleHookTypesAnswer = DescribeLifecycleHookTypesAnswer
 --
 -- * 'dlhtaLifecycleHookTypes' @::@ ['Text']
 --
-describeLifecycleHookTypesAnswer :: DescribeLifecycleHookTypesAnswer
-describeLifecycleHookTypesAnswer = DescribeLifecycleHookTypesAnswer
+describeLifecycleHookTypesResponse :: DescribeLifecycleHookTypesAnswer
+describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesAnswer
     { _dlhtaLifecycleHookTypes = mempty
     }
 
@@ -78,5 +78,5 @@ instance AWSRequest DescribeLifecycleHookTypes where
     type Rs DescribeLifecycleHookTypes = DescribeLifecycleHookTypesAnswer
 
     request  = post "DescribeLifecycleHookTypes"
-    response = const . xmlResponse $ \h x -> DescribeLifecycleHookTypesAnswer
-newtype
+    response = xmlResponse $ \h x -> DescribeLifecycleHookTypesAnswer
+        <$> x %| "LifecycleHookTypes"

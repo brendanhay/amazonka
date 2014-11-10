@@ -37,7 +37,7 @@ module Network.AWS.EC2.CreateNetworkAcl
     -- * Response
     , CreateNetworkAclResult
     -- ** Response constructor
-    , createNetworkAclResult
+    , createNetworkAclResponse
     -- ** Response lenses
     , cnarNetworkAcl
     ) where
@@ -88,8 +88,8 @@ newtype CreateNetworkAclResult = CreateNetworkAclResult
 --
 -- * 'cnarNetworkAcl' @::@ 'Maybe' 'NetworkAcl'
 --
-createNetworkAclResult :: CreateNetworkAclResult
-createNetworkAclResult = CreateNetworkAclResult
+createNetworkAclResponse :: CreateNetworkAclResult
+createNetworkAclResponse = CreateNetworkAclResult
     { _cnarNetworkAcl = Nothing
     }
 
@@ -102,5 +102,5 @@ instance AWSRequest CreateNetworkAcl where
     type Rs CreateNetworkAcl = CreateNetworkAclResult
 
     request  = post "CreateNetworkAcl"
-    response = const . xmlResponse $ \h x -> CreateNetworkAclResult
-newtype
+    response = xmlResponse $ \h x -> CreateNetworkAclResult
+        <$> x %| "networkAcl"

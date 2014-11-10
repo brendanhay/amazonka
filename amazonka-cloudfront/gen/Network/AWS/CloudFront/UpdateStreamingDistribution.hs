@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     -- * Request
       UpdateStreamingDistribution
     -- ** Request constructor
-    , updateStreamingDistribution
+    , updateStreamingDistribution2014_05_31
     -- ** Request lenses
     , usdId
     , usdIfMatch
@@ -35,7 +35,7 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     -- * Response
     , UpdateStreamingDistributionResult
     -- ** Response constructor
-    , updateStreamingDistributionResult
+    , updateStreamingDistribution2014_05_31Response
     -- ** Response lenses
     , usdrETag
     , usdrStreamingDistribution
@@ -61,10 +61,10 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution
 --
 -- * 'usdStreamingDistributionConfig' @::@ 'StreamingDistributionConfig'
 --
-updateStreamingDistribution :: StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
-                            -> Text -- ^ 'usdId'
-                            -> UpdateStreamingDistribution
-updateStreamingDistribution p1 p2 = UpdateStreamingDistribution
+updateStreamingDistribution2014_05_31 :: StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
+                                      -> Text -- ^ 'usdId'
+                                      -> UpdateStreamingDistribution
+updateStreamingDistribution2014_05_31 p1 p2 = UpdateStreamingDistribution
     { _usdStreamingDistributionConfig = p1
     , _usdId                          = p2
     , _usdIfMatch                     = Nothing
@@ -116,8 +116,8 @@ data UpdateStreamingDistributionResult = UpdateStreamingDistributionResult
 --
 -- * 'usdrStreamingDistribution' @::@ 'Maybe' 'StreamingDistribution'
 --
-updateStreamingDistributionResult :: UpdateStreamingDistributionResult
-updateStreamingDistributionResult = UpdateStreamingDistributionResult
+updateStreamingDistribution2014_05_31Response :: UpdateStreamingDistributionResult
+updateStreamingDistribution2014_05_31Response = UpdateStreamingDistributionResult
     { _usdrStreamingDistribution = Nothing
     , _usdrETag                  = Nothing
     }
@@ -137,5 +137,6 @@ instance AWSRequest UpdateStreamingDistribution where
     type Rs UpdateStreamingDistribution = UpdateStreamingDistributionResult
 
     request  = put
-    response = const . xmlResponse $ \h x -> UpdateStreamingDistributionResult
-record
+    response = xmlResponse $ \h x -> UpdateStreamingDistributionResult
+        <$> h ~:? "ETag"
+        <*> x %| "StreamingDistribution"

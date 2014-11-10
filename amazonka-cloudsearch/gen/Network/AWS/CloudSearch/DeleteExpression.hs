@@ -102,5 +102,5 @@ instance AWSRequest DeleteExpression where
     type Rs DeleteExpression = DeleteExpressionResponse
 
     request  = post "DeleteExpression"
-    response = const . xmlResponse $ \h x -> DeleteExpressionResponse
-newtype
+    response = xmlResponse $ \h x -> DeleteExpressionResponse
+        <$> x %| "Expression"

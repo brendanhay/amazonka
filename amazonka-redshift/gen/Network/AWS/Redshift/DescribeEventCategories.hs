@@ -28,14 +28,14 @@ module Network.AWS.Redshift.DescribeEventCategories
     -- * Request
       DescribeEventCategoriesMessage
     -- ** Request constructor
-    , describeEventCategoriesMessage
+    , describeEventCategories
     -- ** Request lenses
     , decmSourceType
 
     -- * Response
     , EventCategoriesMessage
     -- ** Response constructor
-    , eventCategoriesMessage
+    , describeEventCategoriesResponse
     -- ** Response lenses
     , ecmEventCategoriesMapList
     ) where
@@ -54,8 +54,8 @@ newtype DescribeEventCategoriesMessage = DescribeEventCategoriesMessage
 --
 -- * 'decmSourceType' @::@ 'Maybe' 'Text'
 --
-describeEventCategoriesMessage :: DescribeEventCategoriesMessage
-describeEventCategoriesMessage = DescribeEventCategoriesMessage
+describeEventCategories :: DescribeEventCategoriesMessage
+describeEventCategories = DescribeEventCategoriesMessage
     { _decmSourceType = Nothing
     }
 
@@ -80,8 +80,8 @@ newtype EventCategoriesMessage = EventCategoriesMessage
 --
 -- * 'ecmEventCategoriesMapList' @::@ ['EventCategoriesMap']
 --
-eventCategoriesMessage :: EventCategoriesMessage
-eventCategoriesMessage = EventCategoriesMessage
+describeEventCategoriesResponse :: EventCategoriesMessage
+describeEventCategoriesResponse = EventCategoriesMessage
     { _ecmEventCategoriesMapList = mempty
     }
 
@@ -96,5 +96,5 @@ instance AWSRequest DescribeEventCategoriesMessage where
     type Rs DescribeEventCategoriesMessage = EventCategoriesMessage
 
     request  = post "DescribeEventCategories"
-    response = const . xmlResponse $ \h x -> EventCategoriesMessage
-newtype
+    response = xmlResponse $ \h x -> EventCategoriesMessage
+        <$> x %| "EventCategoriesMapList"

@@ -26,7 +26,7 @@ module Network.AWS.AutoScaling.SetDesiredCapacity
     -- * Request
       SetDesiredCapacityType
     -- ** Request constructor
-    , setDesiredCapacityType
+    , setDesiredCapacity
     -- ** Request lenses
     , sdctAutoScalingGroupName
     , sdctDesiredCapacity
@@ -58,10 +58,10 @@ data SetDesiredCapacityType = SetDesiredCapacityType
 --
 -- * 'sdctHonorCooldown' @::@ 'Maybe' 'Bool'
 --
-setDesiredCapacityType :: Text -- ^ 'sdctAutoScalingGroupName'
-                       -> Int -- ^ 'sdctDesiredCapacity'
-                       -> SetDesiredCapacityType
-setDesiredCapacityType p1 p2 = SetDesiredCapacityType
+setDesiredCapacity :: Text -- ^ 'sdctAutoScalingGroupName'
+                   -> Int -- ^ 'sdctDesiredCapacity'
+                   -> SetDesiredCapacityType
+setDesiredCapacity p1 p2 = SetDesiredCapacityType
     { _sdctAutoScalingGroupName = p1
     , _sdctDesiredCapacity      = p2
     , _sdctHonorCooldown        = Nothing

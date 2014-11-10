@@ -126,5 +126,7 @@ instance AWSRequest GetHostedZone where
     type Rs GetHostedZone = GetHostedZoneResponse
 
     request  = get
-    response = const . xmlResponse $ \h x -> GetHostedZoneResponse
-record
+    response = xmlResponse $ \h x -> GetHostedZoneResponse
+        <$> x %| "DelegationSet"
+        <*> x %| "HostedZone"
+        <*> x %| "VPCs"

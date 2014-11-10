@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     -- * Request
       ListCloudFrontOriginAccessIdentities
     -- ** Request constructor
-    , listCloudFrontOriginAccessIdentities
+    , listCloudFrontOriginAccessIdentities2014_05_31
     -- ** Request lenses
     , lcfoaiMarker
     , lcfoaiMaxItems
@@ -34,7 +34,7 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     -- * Response
     , ListCloudFrontOriginAccessIdentitiesResult
     -- ** Response constructor
-    , listCloudFrontOriginAccessIdentitiesResult
+    , listCloudFrontOriginAccessIdentities2014_05_31Response
     -- ** Response lenses
     , lcfoairCloudFrontOriginAccessIdentityList
     ) where
@@ -56,8 +56,8 @@ data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
 --
 -- * 'lcfoaiMaxItems' @::@ 'Maybe' 'Text'
 --
-listCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
-listCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
+listCloudFrontOriginAccessIdentities2014_05_31 :: ListCloudFrontOriginAccessIdentities
+listCloudFrontOriginAccessIdentities2014_05_31 = ListCloudFrontOriginAccessIdentities
     { _lcfoaiMarker   = Nothing
     , _lcfoaiMaxItems = Nothing
     }
@@ -96,8 +96,8 @@ newtype ListCloudFrontOriginAccessIdentitiesResult = ListCloudFrontOriginAccessI
 --
 -- * 'lcfoairCloudFrontOriginAccessIdentityList' @::@ 'Maybe' 'CloudFrontOriginAccessIdentityList'
 --
-listCloudFrontOriginAccessIdentitiesResult :: ListCloudFrontOriginAccessIdentitiesResult
-listCloudFrontOriginAccessIdentitiesResult = ListCloudFrontOriginAccessIdentitiesResult
+listCloudFrontOriginAccessIdentities2014_05_31Response :: ListCloudFrontOriginAccessIdentitiesResult
+listCloudFrontOriginAccessIdentities2014_05_31Response = ListCloudFrontOriginAccessIdentitiesResult
     { _lcfoairCloudFrontOriginAccessIdentityList = Nothing
     }
 
@@ -112,5 +112,5 @@ instance AWSRequest ListCloudFrontOriginAccessIdentities where
     type Rs ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentitiesResult
 
     request  = get
-    response = const . xmlResponse $ \h x -> ListCloudFrontOriginAccessIdentitiesResult
-newtype
+    response = xmlResponse $ \h x -> ListCloudFrontOriginAccessIdentitiesResult
+        <$> x %| "CloudFrontOriginAccessIdentityList"

@@ -140,5 +140,5 @@ instance AWSRequest SendRawEmail where
     type Rs SendRawEmail = SendRawEmailResponse
 
     request  = post "SendRawEmail"
-    response = const . xmlResponse $ \h x -> SendRawEmailResponse
-newtype
+    response = xmlResponse $ \h x -> SendRawEmailResponse
+        <$> x %| "MessageId"

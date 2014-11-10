@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     -- * Response
     , DescribeVolumeAttributeResult
     -- ** Response constructor
-    , describeVolumeAttributeResult
+    , describeVolumeAttributeResponse
     -- ** Response lenses
     , dvarAutoEnableIO
     , dvarProductCodes
@@ -105,8 +105,8 @@ data DescribeVolumeAttributeResult = DescribeVolumeAttributeResult
 --
 -- * 'dvarVolumeId' @::@ 'Maybe' 'Text'
 --
-describeVolumeAttributeResult :: DescribeVolumeAttributeResult
-describeVolumeAttributeResult = DescribeVolumeAttributeResult
+describeVolumeAttributeResponse :: DescribeVolumeAttributeResult
+describeVolumeAttributeResponse = DescribeVolumeAttributeResult
     { _dvarVolumeId     = Nothing
     , _dvarAutoEnableIO = Nothing
     , _dvarProductCodes = mempty
@@ -129,5 +129,7 @@ instance AWSRequest DescribeVolumeAttribute where
     type Rs DescribeVolumeAttribute = DescribeVolumeAttributeResult
 
     request  = post "DescribeVolumeAttribute"
-    response = const . xmlResponse $ \h x -> DescribeVolumeAttributeResult
-record
+    response = xmlResponse $ \h x -> DescribeVolumeAttributeResult
+        <$> x %| "autoEnableIO"
+        <*> x %| "productCodes"
+        <*> x %| "volumeId"

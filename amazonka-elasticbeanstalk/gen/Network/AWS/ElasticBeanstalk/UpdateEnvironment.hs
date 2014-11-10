@@ -34,7 +34,7 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     -- * Request
       UpdateEnvironmentMessage
     -- ** Request constructor
-    , updateEnvironmentMessage
+    , updateEnvironment
     -- ** Request lenses
     , uemDescription
     , uemEnvironmentId
@@ -48,7 +48,7 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     -- * Response
     , EnvironmentDescription
     -- ** Response constructor
-    , environmentDescription
+    , updateEnvironmentResponse
     -- ** Response lenses
     , ed1ApplicationName
     , ed1CNAME
@@ -102,8 +102,8 @@ data UpdateEnvironmentMessage = UpdateEnvironmentMessage
 --
 -- * 'uemVersionLabel' @::@ 'Maybe' 'Text'
 --
-updateEnvironmentMessage :: UpdateEnvironmentMessage
-updateEnvironmentMessage = UpdateEnvironmentMessage
+updateEnvironment :: UpdateEnvironmentMessage
+updateEnvironment = UpdateEnvironmentMessage
     { _uemEnvironmentId   = Nothing
     , _uemEnvironmentName = Nothing
     , _uemDescription     = Nothing
@@ -179,4 +179,4 @@ instance AWSRequest UpdateEnvironmentMessage where
     type Rs UpdateEnvironmentMessage = EnvironmentDescription
 
     request  = post "UpdateEnvironment"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

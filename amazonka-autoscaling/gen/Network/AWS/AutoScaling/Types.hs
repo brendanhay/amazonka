@@ -269,48 +269,10 @@ instance AWSService AutoScaling where
         , _svcTarget   = Nothing
         }
 
+    handle = xmlError alwaysFail
+
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-
--- | A sum type representing possible 'AutoScaling' errors returned by the
--- Amazon Auto Scaling.
---
--- These typically include 'HTTPException's thrown by the underlying HTTP
--- mechanisms, serialisation errors, and typed errors as specified by the
--- service description where applicable.
-data AutoScalingError
-    = AutoScalingHttp       HttpException
-    | AutoScalingSerializer String
-    | AutoScalingService    Status AutoScalingServiceError
-      deriving (Show, Typeable, Generic)
-
-instance Exception AutoScalingError
-
-instance AWSError AutoScalingError where
-    awsError = \case
-        AutoScalingHttp       ex  -> HttpError       ex
-        AutoScalingSerializer e   -> SerializerError "AutoScaling" e
-        AutoScalingService    s x -> ServiceError    "AutoScaling" s (show x)
-
-instance AWSServiceError AutoScalingError where
-    httpError       = AutoScalingHttp
-    serializerError = AutoScalingSerializer
-    serviceError    = xmlError httpStatus AutoScalingService
-
-_AutoScalingHttp :: Prism' AutoScalingError HttpException
-_AutoScalingHttp = prism AutoScalingHttp $ \case
-    AutoScalingHttp ex -> Right ex
-    x -> Left x
-
-_AutoScalingSerializer :: Prism' AutoScalingError String
-_AutoScalingSerializer = prism AutoScalingSerializer $ \case
-    AutoScalingSerializer e -> Right e
-    x -> Left x
-
-_AutoScalingService :: Prism' AutoScalingError (Status, AutoScalingServiceError)
-_AutoScalingService = prism (uncurry AutoScalingService) $ \case
-    AutoScalingService s x -> Right (s, x)
-    x -> Left x
 
 data TagDescription = TagDescription
     { _tdKey               :: Text

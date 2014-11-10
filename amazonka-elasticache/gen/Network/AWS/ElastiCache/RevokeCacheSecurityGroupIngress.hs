@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     -- * Request
       RevokeCacheSecurityGroupIngressMessage
     -- ** Request constructor
-    , revokeCacheSecurityGroupIngressMessage
+    , revokeCacheSecurityGroupIngress
     -- ** Request lenses
     , rcsgimCacheSecurityGroupName
     , rcsgimEC2SecurityGroupName
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     -- * Response
     , RevokeCacheSecurityGroupIngressResult
     -- ** Response constructor
-    , revokeCacheSecurityGroupIngressResult
+    , revokeCacheSecurityGroupIngressResponse
     -- ** Response lenses
     , rcsgirCacheSecurityGroup
     ) where
@@ -62,11 +62,11 @@ data RevokeCacheSecurityGroupIngressMessage = RevokeCacheSecurityGroupIngressMes
 --
 -- * 'rcsgimEC2SecurityGroupOwnerId' @::@ 'Text'
 --
-revokeCacheSecurityGroupIngressMessage :: Text -- ^ 'rcsgimCacheSecurityGroupName'
-                                       -> Text -- ^ 'rcsgimEC2SecurityGroupName'
-                                       -> Text -- ^ 'rcsgimEC2SecurityGroupOwnerId'
-                                       -> RevokeCacheSecurityGroupIngressMessage
-revokeCacheSecurityGroupIngressMessage p1 p2 p3 = RevokeCacheSecurityGroupIngressMessage
+revokeCacheSecurityGroupIngress :: Text -- ^ 'rcsgimCacheSecurityGroupName'
+                                -> Text -- ^ 'rcsgimEC2SecurityGroupName'
+                                -> Text -- ^ 'rcsgimEC2SecurityGroupOwnerId'
+                                -> RevokeCacheSecurityGroupIngressMessage
+revokeCacheSecurityGroupIngress p1 p2 p3 = RevokeCacheSecurityGroupIngressMessage
     { _rcsgimCacheSecurityGroupName  = p1
     , _rcsgimEC2SecurityGroupName    = p2
     , _rcsgimEC2SecurityGroupOwnerId = p3
@@ -107,8 +107,8 @@ newtype RevokeCacheSecurityGroupIngressResult = RevokeCacheSecurityGroupIngressR
 --
 -- * 'rcsgirCacheSecurityGroup' @::@ 'Maybe' 'CacheSecurityGroup'
 --
-revokeCacheSecurityGroupIngressResult :: RevokeCacheSecurityGroupIngressResult
-revokeCacheSecurityGroupIngressResult = RevokeCacheSecurityGroupIngressResult
+revokeCacheSecurityGroupIngressResponse :: RevokeCacheSecurityGroupIngressResult
+revokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResult
     { _rcsgirCacheSecurityGroup = Nothing
     }
 
@@ -122,5 +122,5 @@ instance AWSRequest RevokeCacheSecurityGroupIngressMessage where
     type Rs RevokeCacheSecurityGroupIngressMessage = RevokeCacheSecurityGroupIngressResult
 
     request  = post "RevokeCacheSecurityGroupIngress"
-    response = const . xmlResponse $ \h x -> RevokeCacheSecurityGroupIngressResult
-newtype
+    response = xmlResponse $ \h x -> RevokeCacheSecurityGroupIngressResult
+        <$> x %| "CacheSecurityGroup"

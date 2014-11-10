@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeSubnets
     -- * Response
     , DescribeSubnetsResult
     -- ** Response constructor
-    , describeSubnetsResult
+    , describeSubnetsResponse
     -- ** Response lenses
     , dsrSubnets
     ) where
@@ -113,8 +113,8 @@ newtype DescribeSubnetsResult = DescribeSubnetsResult
 --
 -- * 'dsrSubnets' @::@ ['Subnet']
 --
-describeSubnetsResult :: DescribeSubnetsResult
-describeSubnetsResult = DescribeSubnetsResult
+describeSubnetsResponse :: DescribeSubnetsResult
+describeSubnetsResponse = DescribeSubnetsResult
     { _dsrSubnets = mempty
     }
 
@@ -127,5 +127,5 @@ instance AWSRequest DescribeSubnets where
     type Rs DescribeSubnets = DescribeSubnetsResult
 
     request  = post "DescribeSubnets"
-    response = const . xmlResponse $ \h x -> DescribeSubnetsResult
-newtype
+    response = xmlResponse $ \h x -> DescribeSubnetsResult
+        <$> x %| "subnetSet"

@@ -27,7 +27,7 @@ module Network.AWS.RDS.RemoveTagsFromResource
     -- * Request
       RemoveTagsFromResourceMessage
     -- ** Request constructor
-    , removeTagsFromResourceMessage
+    , removeTagsFromResource
     -- ** Request lenses
     , rtfrmResourceName
     , rtfrmTagKeys
@@ -55,9 +55,9 @@ data RemoveTagsFromResourceMessage = RemoveTagsFromResourceMessage
 --
 -- * 'rtfrmTagKeys' @::@ ['Text']
 --
-removeTagsFromResourceMessage :: Text -- ^ 'rtfrmResourceName'
-                              -> RemoveTagsFromResourceMessage
-removeTagsFromResourceMessage p1 = RemoveTagsFromResourceMessage
+removeTagsFromResource :: Text -- ^ 'rtfrmResourceName'
+                       -> RemoveTagsFromResourceMessage
+removeTagsFromResource p1 = RemoveTagsFromResourceMessage
     { _rtfrmResourceName = p1
     , _rtfrmTagKeys      = mempty
     }

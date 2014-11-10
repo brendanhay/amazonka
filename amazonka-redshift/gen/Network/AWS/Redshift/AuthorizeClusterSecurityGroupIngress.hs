@@ -36,7 +36,7 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     -- * Request
       AuthorizeClusterSecurityGroupIngressMessage
     -- ** Request constructor
-    , authorizeClusterSecurityGroupIngressMessage
+    , authorizeClusterSecurityGroupIngress
     -- ** Request lenses
     , acsgimCIDRIP
     , acsgimClusterSecurityGroupName
@@ -46,7 +46,7 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     -- * Response
     , AuthorizeClusterSecurityGroupIngressResult
     -- ** Response constructor
-    , authorizeClusterSecurityGroupIngressResult
+    , authorizeClusterSecurityGroupIngressResponse
     -- ** Response lenses
     , acsgirClusterSecurityGroup
     ) where
@@ -74,9 +74,9 @@ data AuthorizeClusterSecurityGroupIngressMessage = AuthorizeClusterSecurityGroup
 --
 -- * 'acsgimEC2SecurityGroupOwnerId' @::@ 'Maybe' 'Text'
 --
-authorizeClusterSecurityGroupIngressMessage :: Text -- ^ 'acsgimClusterSecurityGroupName'
-                                            -> AuthorizeClusterSecurityGroupIngressMessage
-authorizeClusterSecurityGroupIngressMessage p1 = AuthorizeClusterSecurityGroupIngressMessage
+authorizeClusterSecurityGroupIngress :: Text -- ^ 'acsgimClusterSecurityGroupName'
+                                     -> AuthorizeClusterSecurityGroupIngressMessage
+authorizeClusterSecurityGroupIngress p1 = AuthorizeClusterSecurityGroupIngressMessage
     { _acsgimClusterSecurityGroupName = p1
     , _acsgimCIDRIP                   = Nothing
     , _acsgimEC2SecurityGroupName     = Nothing
@@ -122,8 +122,8 @@ newtype AuthorizeClusterSecurityGroupIngressResult = AuthorizeClusterSecurityGro
 --
 -- * 'acsgirClusterSecurityGroup' @::@ 'Maybe' 'ClusterSecurityGroup'
 --
-authorizeClusterSecurityGroupIngressResult :: AuthorizeClusterSecurityGroupIngressResult
-authorizeClusterSecurityGroupIngressResult = AuthorizeClusterSecurityGroupIngressResult
+authorizeClusterSecurityGroupIngressResponse :: AuthorizeClusterSecurityGroupIngressResult
+authorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResult
     { _acsgirClusterSecurityGroup = Nothing
     }
 
@@ -137,5 +137,5 @@ instance AWSRequest AuthorizeClusterSecurityGroupIngressMessage where
     type Rs AuthorizeClusterSecurityGroupIngressMessage = AuthorizeClusterSecurityGroupIngressResult
 
     request  = post "AuthorizeClusterSecurityGroupIngress"
-    response = const . xmlResponse $ \h x -> AuthorizeClusterSecurityGroupIngressResult
-newtype
+    response = xmlResponse $ \h x -> AuthorizeClusterSecurityGroupIngressResult
+        <$> x %| "ClusterSecurityGroup"

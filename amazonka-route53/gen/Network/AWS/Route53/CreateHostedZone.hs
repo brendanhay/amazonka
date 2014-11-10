@@ -212,5 +212,9 @@ instance AWSRequest CreateHostedZone where
     type Rs CreateHostedZone = CreateHostedZoneResponse
 
     request  = post
-    response = const . xmlResponse $ \h x -> CreateHostedZoneResponse
-record
+    response = xmlResponse $ \h x -> CreateHostedZoneResponse
+        <$> x %| "ChangeInfo"
+        <*> x %| "DelegationSet"
+        <*> x %| "HostedZone"
+        <*> h ~:| "Location"
+        <*> x %| "VPC"

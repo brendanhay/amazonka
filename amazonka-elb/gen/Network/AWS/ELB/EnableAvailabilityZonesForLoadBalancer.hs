@@ -32,7 +32,7 @@ module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     -- * Request
       AddAvailabilityZonesInput
     -- ** Request constructor
-    , addAvailabilityZonesInput
+    , enableAvailabilityZonesForLoadBalancer
     -- ** Request lenses
     , aaziAvailabilityZones
     , aaziLoadBalancerName
@@ -40,7 +40,7 @@ module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     -- * Response
     , AddAvailabilityZonesOutput
     -- ** Response constructor
-    , addAvailabilityZonesOutput
+    , enableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
     , aazoAvailabilityZones
     ) where
@@ -62,9 +62,9 @@ data AddAvailabilityZonesInput = AddAvailabilityZonesInput
 --
 -- * 'aaziLoadBalancerName' @::@ 'Text'
 --
-addAvailabilityZonesInput :: Text -- ^ 'aaziLoadBalancerName'
-                          -> AddAvailabilityZonesInput
-addAvailabilityZonesInput p1 = AddAvailabilityZonesInput
+enableAvailabilityZonesForLoadBalancer :: Text -- ^ 'aaziLoadBalancerName'
+                                       -> AddAvailabilityZonesInput
+enableAvailabilityZonesForLoadBalancer p1 = AddAvailabilityZonesInput
     { _aaziLoadBalancerName  = p1
     , _aaziAvailabilityZones = mempty
     }
@@ -95,8 +95,8 @@ newtype AddAvailabilityZonesOutput = AddAvailabilityZonesOutput
 --
 -- * 'aazoAvailabilityZones' @::@ ['Text']
 --
-addAvailabilityZonesOutput :: AddAvailabilityZonesOutput
-addAvailabilityZonesOutput = AddAvailabilityZonesOutput
+enableAvailabilityZonesForLoadBalancerResponse :: AddAvailabilityZonesOutput
+enableAvailabilityZonesForLoadBalancerResponse = AddAvailabilityZonesOutput
     { _aazoAvailabilityZones = mempty
     }
 
@@ -110,5 +110,5 @@ instance AWSRequest AddAvailabilityZonesInput where
     type Rs AddAvailabilityZonesInput = AddAvailabilityZonesOutput
 
     request  = post "EnableAvailabilityZonesForLoadBalancer"
-    response = const . xmlResponse $ \h x -> AddAvailabilityZonesOutput
-newtype
+    response = xmlResponse $ \h x -> AddAvailabilityZonesOutput
+        <$> x %| "AvailabilityZones"

@@ -29,14 +29,14 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     -- * Request
       DescribeLoadBalancerPolicyTypesInput
     -- ** Request constructor
-    , describeLoadBalancerPolicyTypesInput
+    , describeLoadBalancerPolicyTypes
     -- ** Request lenses
     , dlbptiPolicyTypeNames
 
     -- * Response
     , DescribeLoadBalancerPolicyTypesOutput
     -- ** Response constructor
-    , describeLoadBalancerPolicyTypesOutput
+    , describeLoadBalancerPolicyTypesResponse
     -- ** Response lenses
     , dlbptoPolicyTypeDescriptions
     ) where
@@ -55,8 +55,8 @@ newtype DescribeLoadBalancerPolicyTypesInput = DescribeLoadBalancerPolicyTypesIn
 --
 -- * 'dlbptiPolicyTypeNames' @::@ ['Text']
 --
-describeLoadBalancerPolicyTypesInput :: DescribeLoadBalancerPolicyTypesInput
-describeLoadBalancerPolicyTypesInput = DescribeLoadBalancerPolicyTypesInput
+describeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypesInput
+describeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypesInput
     { _dlbptiPolicyTypeNames = mempty
     }
 
@@ -82,8 +82,8 @@ newtype DescribeLoadBalancerPolicyTypesOutput = DescribeLoadBalancerPolicyTypesO
 --
 -- * 'dlbptoPolicyTypeDescriptions' @::@ ['PolicyTypeDescription']
 --
-describeLoadBalancerPolicyTypesOutput :: DescribeLoadBalancerPolicyTypesOutput
-describeLoadBalancerPolicyTypesOutput = DescribeLoadBalancerPolicyTypesOutput
+describeLoadBalancerPolicyTypesResponse :: DescribeLoadBalancerPolicyTypesOutput
+describeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesOutput
     { _dlbptoPolicyTypeDescriptions = mempty
     }
 
@@ -100,5 +100,5 @@ instance AWSRequest DescribeLoadBalancerPolicyTypesInput where
     type Rs DescribeLoadBalancerPolicyTypesInput = DescribeLoadBalancerPolicyTypesOutput
 
     request  = post "DescribeLoadBalancerPolicyTypes"
-    response = const . xmlResponse $ \h x -> DescribeLoadBalancerPolicyTypesOutput
-newtype
+    response = xmlResponse $ \h x -> DescribeLoadBalancerPolicyTypesOutput
+        <$> x %| "PolicyTypeDescriptions"

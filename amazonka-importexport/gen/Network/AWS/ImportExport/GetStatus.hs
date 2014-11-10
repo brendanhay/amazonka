@@ -29,14 +29,14 @@ module Network.AWS.ImportExport.GetStatus
     -- * Request
       GetStatusInput
     -- ** Request constructor
-    , getStatusInput
+    , getStatus
     -- ** Request lenses
     , gsiJobId
 
     -- * Response
     , GetStatusOutput
     -- ** Response constructor
-    , getStatusOutput
+    , getStatusResponse
     -- ** Response lenses
     , gsoAwsShippingAddress
     , gsoCarrier
@@ -70,9 +70,9 @@ newtype GetStatusInput = GetStatusInput
 --
 -- * 'gsiJobId' @::@ 'Text'
 --
-getStatusInput :: Text -- ^ 'gsiJobId'
-               -> GetStatusInput
-getStatusInput p1 = GetStatusInput
+getStatus :: Text -- ^ 'gsiJobId'
+          -> GetStatusInput
+getStatus p1 = GetStatusInput
     { _gsiJobId = p1
     }
 
@@ -139,8 +139,8 @@ data GetStatusOutput = GetStatusOutput
 --
 -- * 'gsoTrackingNumber' @::@ 'Maybe' 'Text'
 --
-getStatusOutput :: GetStatusOutput
-getStatusOutput = GetStatusOutput
+getStatusResponse :: GetStatusOutput
+getStatusResponse = GetStatusOutput
     { _gsoJobId                 = Nothing
     , _gsoJobType               = Nothing
     , _gsoAwsShippingAddress    = Nothing
@@ -220,5 +220,20 @@ instance AWSRequest GetStatusInput where
     type Rs GetStatusInput = GetStatusOutput
 
     request  = post "GetStatus"
-    response = const . xmlResponse $ \h x -> GetStatusOutput
-record
+    response = xmlResponse $ \h x -> GetStatusOutput
+        <$> x %| "AwsShippingAddress"
+        <*> x %| "Carrier"
+        <*> x %| "CreationDate"
+        <*> x %| "CurrentManifest"
+        <*> x %| "ErrorCount"
+        <*> x %| "JobId"
+        <*> x %| "JobType"
+        <*> x %| "LocationCode"
+        <*> x %| "LocationMessage"
+        <*> x %| "LogBucket"
+        <*> x %| "LogKey"
+        <*> x %| "ProgressCode"
+        <*> x %| "ProgressMessage"
+        <*> x %| "Signature"
+        <*> x %| "SignatureFileContents"
+        <*> x %| "TrackingNumber"

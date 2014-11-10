@@ -30,7 +30,7 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
     -- * Request
       RevokeSnapshotAccessMessage
     -- ** Request constructor
-    , revokeSnapshotAccessMessage
+    , revokeSnapshotAccess
     -- ** Request lenses
     , rsamAccountWithRestoreAccess
     , rsamSnapshotClusterIdentifier
@@ -39,7 +39,7 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
     -- * Response
     , RevokeSnapshotAccessResult
     -- ** Response constructor
-    , revokeSnapshotAccessResult
+    , revokeSnapshotAccessResponse
     -- ** Response lenses
     , rsarSnapshot
     ) where
@@ -64,10 +64,10 @@ data RevokeSnapshotAccessMessage = RevokeSnapshotAccessMessage
 --
 -- * 'rsamSnapshotIdentifier' @::@ 'Text'
 --
-revokeSnapshotAccessMessage :: Text -- ^ 'rsamSnapshotIdentifier'
-                            -> Text -- ^ 'rsamAccountWithRestoreAccess'
-                            -> RevokeSnapshotAccessMessage
-revokeSnapshotAccessMessage p1 p2 = RevokeSnapshotAccessMessage
+revokeSnapshotAccess :: Text -- ^ 'rsamSnapshotIdentifier'
+                     -> Text -- ^ 'rsamAccountWithRestoreAccess'
+                     -> RevokeSnapshotAccessMessage
+revokeSnapshotAccess p1 p2 = RevokeSnapshotAccessMessage
     { _rsamSnapshotIdentifier        = p1
     , _rsamAccountWithRestoreAccess  = p2
     , _rsamSnapshotClusterIdentifier = Nothing
@@ -109,8 +109,8 @@ newtype RevokeSnapshotAccessResult = RevokeSnapshotAccessResult
 --
 -- * 'rsarSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-revokeSnapshotAccessResult :: RevokeSnapshotAccessResult
-revokeSnapshotAccessResult = RevokeSnapshotAccessResult
+revokeSnapshotAccessResponse :: RevokeSnapshotAccessResult
+revokeSnapshotAccessResponse = RevokeSnapshotAccessResult
     { _rsarSnapshot = Nothing
     }
 
@@ -122,5 +122,5 @@ instance AWSRequest RevokeSnapshotAccessMessage where
     type Rs RevokeSnapshotAccessMessage = RevokeSnapshotAccessResult
 
     request  = post "RevokeSnapshotAccess"
-    response = const . xmlResponse $ \h x -> RevokeSnapshotAccessResult
-newtype
+    response = xmlResponse $ \h x -> RevokeSnapshotAccessResult
+        <$> x %| "Snapshot"

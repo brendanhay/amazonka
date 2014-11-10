@@ -90,5 +90,5 @@ instance AWSRequest BuildSuggesters where
     type Rs BuildSuggesters = BuildSuggestersResponse
 
     request  = post "BuildSuggesters"
-    response = const . xmlResponse $ \h x -> BuildSuggestersResponse
-newtype
+    response = xmlResponse $ \h x -> BuildSuggestersResponse
+        <$> x %| "FieldNames"

@@ -27,7 +27,7 @@ module Network.AWS.ELB.DeleteLoadBalancerPolicy
     -- * Request
       DeleteLoadBalancerPolicyInput
     -- ** Request constructor
-    , deleteLoadBalancerPolicyInput
+    , deleteLoadBalancerPolicy
     -- ** Request lenses
     , dlbpi1LoadBalancerName
     , dlbpi1PolicyName
@@ -55,10 +55,10 @@ data DeleteLoadBalancerPolicyInput = DeleteLoadBalancerPolicyInput
 --
 -- * 'dlbpi1PolicyName' @::@ 'Text'
 --
-deleteLoadBalancerPolicyInput :: Text -- ^ 'dlbpi1LoadBalancerName'
-                              -> Text -- ^ 'dlbpi1PolicyName'
-                              -> DeleteLoadBalancerPolicyInput
-deleteLoadBalancerPolicyInput p1 p2 = DeleteLoadBalancerPolicyInput
+deleteLoadBalancerPolicy :: Text -- ^ 'dlbpi1LoadBalancerName'
+                         -> Text -- ^ 'dlbpi1PolicyName'
+                         -> DeleteLoadBalancerPolicyInput
+deleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicyInput
     { _dlbpi1LoadBalancerName = p1
     , _dlbpi1PolicyName       = p2
     }

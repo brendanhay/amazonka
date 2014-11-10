@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.DeleteLifecycleHook
     -- * Request
       DeleteLifecycleHookType
     -- ** Request constructor
-    , deleteLifecycleHookType
+    , deleteLifecycleHook
     -- ** Request lenses
     , dlhtAutoScalingGroupName
     , dlhtLifecycleHookName
@@ -56,10 +56,10 @@ data DeleteLifecycleHookType = DeleteLifecycleHookType
 --
 -- * 'dlhtLifecycleHookName' @::@ 'Text'
 --
-deleteLifecycleHookType :: Text -- ^ 'dlhtLifecycleHookName'
-                        -> Text -- ^ 'dlhtAutoScalingGroupName'
-                        -> DeleteLifecycleHookType
-deleteLifecycleHookType p1 p2 = DeleteLifecycleHookType
+deleteLifecycleHook :: Text -- ^ 'dlhtLifecycleHookName'
+                    -> Text -- ^ 'dlhtAutoScalingGroupName'
+                    -> DeleteLifecycleHookType
+deleteLifecycleHook p1 p2 = DeleteLifecycleHookType
     { _dlhtLifecycleHookName    = p1
     , _dlhtAutoScalingGroupName = p2
     }

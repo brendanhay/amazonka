@@ -110,5 +110,5 @@ instance AWSRequest UpdateSAMLProvider where
     type Rs UpdateSAMLProvider = UpdateSAMLProviderResponse
 
     request  = post "UpdateSAMLProvider"
-    response = const . xmlResponse $ \h x -> UpdateSAMLProviderResponse
-newtype
+    response = xmlResponse $ \h x -> UpdateSAMLProviderResponse
+        <$> x %| "SAMLProviderArn"

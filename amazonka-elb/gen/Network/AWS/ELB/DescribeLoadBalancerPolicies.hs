@@ -32,7 +32,7 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     -- * Request
       DescribeLoadBalancerPoliciesInput
     -- ** Request constructor
-    , describeLoadBalancerPoliciesInput
+    , describeLoadBalancerPolicies
     -- ** Request lenses
     , dlbpiLoadBalancerName
     , dlbpiPolicyNames
@@ -40,7 +40,7 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     -- * Response
     , DescribeLoadBalancerPoliciesOutput
     -- ** Response constructor
-    , describeLoadBalancerPoliciesOutput
+    , describeLoadBalancerPoliciesResponse
     -- ** Response lenses
     , dlbpoPolicyDescriptions
     ) where
@@ -62,8 +62,8 @@ data DescribeLoadBalancerPoliciesInput = DescribeLoadBalancerPoliciesInput
 --
 -- * 'dlbpiPolicyNames' @::@ ['Text']
 --
-describeLoadBalancerPoliciesInput :: DescribeLoadBalancerPoliciesInput
-describeLoadBalancerPoliciesInput = DescribeLoadBalancerPoliciesInput
+describeLoadBalancerPolicies :: DescribeLoadBalancerPoliciesInput
+describeLoadBalancerPolicies = DescribeLoadBalancerPoliciesInput
     { _dlbpiLoadBalancerName = Nothing
     , _dlbpiPolicyNames      = mempty
     }
@@ -96,8 +96,8 @@ newtype DescribeLoadBalancerPoliciesOutput = DescribeLoadBalancerPoliciesOutput
 --
 -- * 'dlbpoPolicyDescriptions' @::@ ['PolicyDescription']
 --
-describeLoadBalancerPoliciesOutput :: DescribeLoadBalancerPoliciesOutput
-describeLoadBalancerPoliciesOutput = DescribeLoadBalancerPoliciesOutput
+describeLoadBalancerPoliciesResponse :: DescribeLoadBalancerPoliciesOutput
+describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesOutput
     { _dlbpoPolicyDescriptions = mempty
     }
 
@@ -111,5 +111,5 @@ instance AWSRequest DescribeLoadBalancerPoliciesInput where
     type Rs DescribeLoadBalancerPoliciesInput = DescribeLoadBalancerPoliciesOutput
 
     request  = post "DescribeLoadBalancerPolicies"
-    response = const . xmlResponse $ \h x -> DescribeLoadBalancerPoliciesOutput
-newtype
+    response = xmlResponse $ \h x -> DescribeLoadBalancerPoliciesOutput
+        <$> x %| "PolicyDescriptions"

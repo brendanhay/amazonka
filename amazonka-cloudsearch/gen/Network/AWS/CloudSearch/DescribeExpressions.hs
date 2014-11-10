@@ -117,5 +117,5 @@ instance AWSRequest DescribeExpressions where
     type Rs DescribeExpressions = DescribeExpressionsResponse
 
     request  = post "DescribeExpressions"
-    response = const . xmlResponse $ \h x -> DescribeExpressionsResponse
-newtype
+    response = xmlResponse $ \h x -> DescribeExpressionsResponse
+        <$> x %| "Expressions"

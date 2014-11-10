@@ -125,5 +125,7 @@ instance AWSRequest GetUserPolicy where
     type Rs GetUserPolicy = GetUserPolicyResponse
 
     request  = post "GetUserPolicy"
-    response = const . xmlResponse $ \h x -> GetUserPolicyResponse
-record
+    response = xmlResponse $ \h x -> GetUserPolicyResponse
+        <$> x %| "PolicyDocument"
+        <*> x %| "PolicyName"
+        <*> x %| "UserName"

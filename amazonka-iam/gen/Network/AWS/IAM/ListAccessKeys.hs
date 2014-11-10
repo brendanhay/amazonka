@@ -143,5 +143,7 @@ instance AWSRequest ListAccessKeys where
     type Rs ListAccessKeys = ListAccessKeysResponse
 
     request  = post "ListAccessKeys"
-    response = const . xmlResponse $ \h x -> ListAccessKeysResponse
-record
+    response = xmlResponse $ \h x -> ListAccessKeysResponse
+        <$> x %| "AccessKeyMetadata"
+        <*> x %| "IsTruncated"
+        <*> x %| "Marker"

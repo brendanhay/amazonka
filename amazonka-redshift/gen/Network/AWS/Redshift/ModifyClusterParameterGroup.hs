@@ -28,7 +28,7 @@ module Network.AWS.Redshift.ModifyClusterParameterGroup
     -- * Request
       ModifyClusterParameterGroupMessage
     -- ** Request constructor
-    , modifyClusterParameterGroupMessage
+    , modifyClusterParameterGroup
     -- ** Request lenses
     , mcpgmParameterGroupName
     , mcpgmParameters
@@ -36,7 +36,7 @@ module Network.AWS.Redshift.ModifyClusterParameterGroup
     -- * Response
     , ClusterParameterGroupNameMessage
     -- ** Response constructor
-    , clusterParameterGroupNameMessage
+    , modifyClusterParameterGroupResponse
     -- ** Response lenses
     , cpgnmParameterGroupName
     , cpgnmParameterGroupStatus
@@ -59,9 +59,9 @@ data ModifyClusterParameterGroupMessage = ModifyClusterParameterGroupMessage
 --
 -- * 'mcpgmParameters' @::@ ['Parameter']
 --
-modifyClusterParameterGroupMessage :: Text -- ^ 'mcpgmParameterGroupName'
-                                   -> ModifyClusterParameterGroupMessage
-modifyClusterParameterGroupMessage p1 = ModifyClusterParameterGroupMessage
+modifyClusterParameterGroup :: Text -- ^ 'mcpgmParameterGroupName'
+                            -> ModifyClusterParameterGroupMessage
+modifyClusterParameterGroup p1 = ModifyClusterParameterGroupMessage
     { _mcpgmParameterGroupName = p1
     , _mcpgmParameters         = mempty
     }
@@ -90,4 +90,4 @@ instance AWSRequest ModifyClusterParameterGroupMessage where
     type Rs ModifyClusterParameterGroupMessage = ClusterParameterGroupNameMessage
 
     request  = post "ModifyClusterParameterGroup"
-    response = const . xmlResponse $ const decodeCursor
+    response = xmlResponse $ const decodeCursor

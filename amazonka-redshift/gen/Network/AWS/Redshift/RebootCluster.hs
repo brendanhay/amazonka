@@ -31,14 +31,14 @@ module Network.AWS.Redshift.RebootCluster
     -- * Request
       RebootClusterMessage
     -- ** Request constructor
-    , rebootClusterMessage
+    , rebootCluster
     -- ** Request lenses
     , rcmClusterIdentifier
 
     -- * Response
     , RebootClusterResult
     -- ** Response constructor
-    , rebootClusterResult
+    , rebootClusterResponse
     -- ** Response lenses
     , rcrCluster
     ) where
@@ -57,9 +57,9 @@ newtype RebootClusterMessage = RebootClusterMessage
 --
 -- * 'rcmClusterIdentifier' @::@ 'Text'
 --
-rebootClusterMessage :: Text -- ^ 'rcmClusterIdentifier'
-                     -> RebootClusterMessage
-rebootClusterMessage p1 = RebootClusterMessage
+rebootCluster :: Text -- ^ 'rcmClusterIdentifier'
+              -> RebootClusterMessage
+rebootCluster p1 = RebootClusterMessage
     { _rcmClusterIdentifier = p1
     }
 
@@ -83,8 +83,8 @@ newtype RebootClusterResult = RebootClusterResult
 --
 -- * 'rcrCluster' @::@ 'Maybe' 'Cluster'
 --
-rebootClusterResult :: RebootClusterResult
-rebootClusterResult = RebootClusterResult
+rebootClusterResponse :: RebootClusterResult
+rebootClusterResponse = RebootClusterResult
     { _rcrCluster = Nothing
     }
 
@@ -96,5 +96,5 @@ instance AWSRequest RebootClusterMessage where
     type Rs RebootClusterMessage = RebootClusterResult
 
     request  = post "RebootCluster"
-    response = const . xmlResponse $ \h x -> RebootClusterResult
-newtype
+    response = xmlResponse $ \h x -> RebootClusterResult
+        <$> x %| "Cluster"

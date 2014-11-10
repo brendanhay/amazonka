@@ -33,7 +33,7 @@ module Network.AWS.CloudFormation.UpdateStack
     -- * Request
       UpdateStackInput
     -- ** Request constructor
-    , updateStackInput
+    , updateStack
     -- ** Request lenses
     , usiCapabilities
     , usiNotificationARNs
@@ -50,7 +50,7 @@ module Network.AWS.CloudFormation.UpdateStack
     -- * Response
     , UpdateStackOutput
     -- ** Response constructor
-    , updateStackOutput
+    , updateStackResponse
     -- ** Response lenses
     , usoStackId
     ) where
@@ -99,9 +99,9 @@ data UpdateStackInput = UpdateStackInput
 --
 -- * 'usiUsePreviousTemplate' @::@ 'Maybe' 'Bool'
 --
-updateStackInput :: Text -- ^ 'usiStackName'
-                 -> UpdateStackInput
-updateStackInput p1 = UpdateStackInput
+updateStack :: Text -- ^ 'usiStackName'
+            -> UpdateStackInput
+updateStack p1 = UpdateStackInput
     { _usiStackName                   = p1
     , _usiTemplateBody                = Nothing
     , _usiTemplateURL                 = Nothing
@@ -221,8 +221,8 @@ newtype UpdateStackOutput = UpdateStackOutput
 --
 -- * 'usoStackId' @::@ 'Maybe' 'Text'
 --
-updateStackOutput :: UpdateStackOutput
-updateStackOutput = UpdateStackOutput
+updateStackResponse :: UpdateStackOutput
+updateStackResponse = UpdateStackOutput
     { _usoStackId = Nothing
     }
 
@@ -235,5 +235,5 @@ instance AWSRequest UpdateStackInput where
     type Rs UpdateStackInput = UpdateStackOutput
 
     request  = post "UpdateStack"
-    response = const . xmlResponse $ \h x -> UpdateStackOutput
-newtype
+    response = xmlResponse $ \h x -> UpdateStackOutput
+        <$> x %| "StackId"

@@ -41,7 +41,7 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     -- * Response
     , CancelSpotInstanceRequestsResult
     -- ** Response constructor
-    , cancelSpotInstanceRequestsResult
+    , cancelSpotInstanceRequestsResponse
     -- ** Response lenses
     , csirrCancelledSpotInstanceRequests
     ) where
@@ -93,8 +93,8 @@ newtype CancelSpotInstanceRequestsResult = CancelSpotInstanceRequestsResult
 --
 -- * 'csirrCancelledSpotInstanceRequests' @::@ ['CancelledSpotInstanceRequest']
 --
-cancelSpotInstanceRequestsResult :: CancelSpotInstanceRequestsResult
-cancelSpotInstanceRequestsResult = CancelSpotInstanceRequestsResult
+cancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResult
+cancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResult
     { _csirrCancelledSpotInstanceRequests = mempty
     }
 
@@ -109,5 +109,5 @@ instance AWSRequest CancelSpotInstanceRequests where
     type Rs CancelSpotInstanceRequests = CancelSpotInstanceRequestsResult
 
     request  = post "CancelSpotInstanceRequests"
-    response = const . xmlResponse $ \h x -> CancelSpotInstanceRequestsResult
-newtype
+    response = xmlResponse $ \h x -> CancelSpotInstanceRequestsResult
+        <$> x %| "spotInstanceRequestSet"

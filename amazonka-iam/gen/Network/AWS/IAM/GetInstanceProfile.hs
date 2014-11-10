@@ -97,5 +97,5 @@ instance AWSRequest GetInstanceProfile where
     type Rs GetInstanceProfile = GetInstanceProfileResponse
 
     request  = post "GetInstanceProfile"
-    response = const . xmlResponse $ \h x -> GetInstanceProfileResponse
-newtype
+    response = xmlResponse $ \h x -> GetInstanceProfileResponse
+        <$> x %| "InstanceProfile"

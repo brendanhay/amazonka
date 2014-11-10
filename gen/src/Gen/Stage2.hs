@@ -467,22 +467,23 @@ isVoid Void = True
 isVoid _    = False
 
 data Request = Request
-    { _rqUri    :: !URI
-    , _rqName   :: !Text
-    , _rqShared :: !Bool
-    , _rqData   :: !Data
+    { _rqUri       :: !URI
+    , _rqOperation :: !Text
+    , _rqName      :: !Text
+    , _rqShared    :: !Bool
+    , _rqData      :: !Data
     } deriving (Eq, Show)
 
 instance ToJSON Request where
-    toJSON (Request u n s d) = Object (operationJSON n d <> x)
+    toJSON Request{..} =
+        Object (operationJSON _rqOperation _rqName _rqData <> x)
       where
         Object x = object
-            [ "path"      .= _uriPath u
+            [ "path"      .= _uriPath _rqUri
             , "headers"   .= map pair hdr
             , "headerPad" .= pad hdr
-            , "query"     .= (map toJSON (_uriQuery u) ++ map pair qry)
+            , "query"     .= (map toJSON (_uriQuery _rqUri) ++ map pair qry)
             , "queryPad"  .= pad qry
-            , "shared"    .= s
             ]
 
         pad [] = 0
@@ -491,7 +492,7 @@ instance ToJSON Request where
         hdr = locations isHeader
         qry = locations isQuery
 
-        locations p = filter p (toListOf dataFields d)
+        locations p = filter p (toListOf dataFields _rqData)
 
         pair f = object
             [ "type"         .= "field"
@@ -502,26 +503,29 @@ instance ToJSON Request where
 data Response = Response
     { _rsWrapper       :: !Bool
     , _rsResultWrapper :: Maybe Text
+    , _rsOperation     :: !Text
     , _rsName          :: !Text
     , _rsShared        :: !Bool
     , _rsData          :: !Data
     } deriving (Eq, Show)
 
 instance ToJSON Response where
-    toJSON (Response w r n s d) = Object (operationJSON n d <> x)
+    toJSON Response{..} =
+        Object (operationJSON _rsOperation _rsName _rsData <> x)
       where
         Object x = object
-            [ "resultWrapper" .= r
-            , "wrapper"       .= w
-            , "shared"        .= s
+            [ "resultWrapper" .= _rsResultWrapper
+            , "wrapper"       .= _rsWrapper
+            , "shared"        .= _rsShared
             ]
 
-operationJSON :: Text -> Data -> Object
-operationJSON n d = x <> y
+operationJSON :: Text -> Text -> Data -> Object
+operationJSON c n d = y <> x
   where
     Object x = toJSON d
     Object y = object
         [ "name"      .= n
+        , "ctor"      .= constructor c
         , "streaming" .= stream
         ]
 

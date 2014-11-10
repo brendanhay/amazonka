@@ -21946,7 +21946,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "acceptVpcPeeringConnectionResult",
+                "ctor": "acceptVpcPeeringConnectionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -22029,7 +22029,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "AcceptVpcPeeringConnection",
@@ -22119,7 +22118,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "allocateAddressResult",
+                "ctor": "allocateAddressResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -22244,7 +22243,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 7,
                 "name": "AllocateAddress",
@@ -22382,7 +22380,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 31,
                 "name": "AssignPrivateIpAddresses",
@@ -22524,7 +22521,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "associateAddressResult",
+                "ctor": "associateAddressResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -22607,7 +22604,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "AssociateAddress",
@@ -22924,7 +22920,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "AssociateDhcpOptions",
@@ -23019,7 +23014,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "associateRouteTableResult",
+                "ctor": "associateRouteTableResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -23131,7 +23126,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "AssociateRouteTable",
@@ -23288,7 +23282,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "AttachInternetGateway",
@@ -23383,7 +23376,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "attachNetworkInterfaceResult",
+                "ctor": "attachNetworkInterfaceResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -23509,7 +23502,6 @@
                         "type": "Int"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "AttachNetworkInterface",
@@ -23623,7 +23615,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "volumeAttachment",
+                "ctor": "attachVolumeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -23875,7 +23867,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "AttachVolume",
@@ -23988,7 +23979,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "attachVpnGatewayResult",
+                "ctor": "attachVpnGatewayResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -24100,7 +24091,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "AttachVpnGateway",
@@ -24242,7 +24232,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 27,
                 "name": "AuthorizeSecurityGroupEgress",
@@ -24581,7 +24570,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 27,
                 "name": "AuthorizeSecurityGroupIngress",
@@ -24934,7 +24922,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "bundleInstanceResult",
+                "ctor": "bundleInstanceResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -25045,7 +25033,6 @@
                         "type": "Storage"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "BundleInstance",
@@ -25139,7 +25126,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "cancelBundleTaskResult",
+                "ctor": "cancelBundleTaskResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -25237,7 +25224,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "CancelBundleTask",
@@ -25336,7 +25322,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "cancelConversion",
+                "ctor": "cancelConversionTask",
                 "headerPad": 0,
                 "path": [
                     {
@@ -25361,7 +25347,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "CancelConversion",
@@ -25533,7 +25518,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "CancelExportTask",
@@ -25575,7 +25559,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "cancelReservedInstancesListingResult",
+                "ctor": "cancelReservedInstancesListingResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -25688,7 +25672,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 27,
                 "name": "CancelReservedInstancesListing",
@@ -25730,7 +25713,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "cancelSpotInstanceRequestsResult",
+                "ctor": "cancelSpotInstanceRequestsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -25813,7 +25796,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 22,
                 "name": "CancelSpotInstanceRequests",
@@ -25903,7 +25885,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "confirmProductInstanceResult",
+                "ctor": "confirmProductInstanceResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -26015,7 +25997,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "ConfirmProductInstance",
@@ -26110,7 +26091,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "copyImageResult",
+                "ctor": "copyImageResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -26236,7 +26217,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "CopyImage",
@@ -26416,7 +26396,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "copySnapshotResult",
+                "ctor": "copySnapshotResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -26528,7 +26508,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "CopySnapshot",
@@ -26721,7 +26700,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createCustomerGatewayResult",
+                "ctor": "createCustomerGatewayResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -26847,7 +26826,6 @@
                         "type": "Int"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "CreateCustomerGateway",
@@ -26960,7 +26938,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createDhcpOptionsResult",
+                "ctor": "createDhcpOptionsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -27042,7 +27020,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "CreateDhcpOptions",
@@ -27132,7 +27109,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createImageResult",
+                "ctor": "createImageResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -27243,7 +27220,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "CreateImage",
@@ -27436,7 +27412,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createInstanceExportTaskResult",
+                "ctor": "createInstanceExportTaskResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -27533,7 +27509,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "CreateInstanceExportTask",
@@ -27674,7 +27649,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createInternetGatewayResult",
+                "ctor": "createInternetGatewayResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -27771,7 +27746,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 7,
                 "name": "CreateInternetGateway",
@@ -27828,7 +27802,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "keyPair",
+                "ctor": "createKeyPairResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -27968,7 +27942,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 8,
                 "name": "CreateKeyPair",
@@ -28043,7 +28016,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createNetworkAclResult",
+                "ctor": "createNetworkAclResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -28141,7 +28114,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 7,
                 "name": "CreateNetworkAcl",
@@ -28334,7 +28306,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "CreateNetworkAclEntry",
@@ -28570,7 +28541,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createNetworkInterfaceResult",
+                "ctor": "createNetworkInterfaceResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -28667,7 +28638,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 31,
                 "name": "CreateNetworkInterface",
@@ -28970,7 +28940,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "CreatePlacementGroup",
@@ -29065,7 +29034,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createReservedInstancesListingResult",
+                "ctor": "createReservedInstancesListingResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -29190,7 +29159,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 20,
                 "name": "CreateReservedInstancesListing",
@@ -29366,7 +29334,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "CreateRoute",
@@ -29592,7 +29559,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createRouteTableResult",
+                "ctor": "createRouteTableResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -29690,7 +29657,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 7,
                 "name": "CreateRouteTable",
@@ -29766,7 +29732,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createSecurityGroupResult",
+                "ctor": "createSecurityGroupResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -29878,7 +29844,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "CreateSecurityGroup",
@@ -30005,7 +29970,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 13,
-                "ctor": "snapshot",
+                "ctor": "createSnapshotResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -30369,7 +30334,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "CreateSnapshot",
@@ -30477,7 +30441,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createSpotDatafeedSubscriptionResult",
+                "ctor": "createSpotDatafeedSubscriptionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -30575,7 +30539,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 7,
                 "name": "CreateSpotDatafeedSubscription",
@@ -30683,7 +30646,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createSubnetResult",
+                "ctor": "createSubnetResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -30795,7 +30758,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "CreateSubnet",
@@ -30955,7 +30917,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "CreateTags",
@@ -31077,7 +31038,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 18,
-                "ctor": "volume",
+                "ctor": "createVolumeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -31441,7 +31402,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "CreateVolume",
@@ -31681,7 +31641,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createVpcResult",
+                "ctor": "createVpcResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -31779,7 +31739,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "CreateVpc",
@@ -31887,7 +31846,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createVpcPeeringConnectionResult",
+                "ctor": "createVpcPeeringConnectionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -31970,7 +31929,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "CreateVpcPeeringConnection",
@@ -32125,7 +32083,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createVpnConnectionResult",
+                "ctor": "createVpnConnectionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -32250,7 +32208,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "CreateVpnConnection",
@@ -32459,7 +32416,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "CreateVpnConnectionRoute",
@@ -32519,7 +32475,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createVpnGatewayResult",
+                "ctor": "createVpnGatewayResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -32617,7 +32573,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "CreateVpnGateway",
@@ -32774,7 +32729,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "DeleteCustomerGateway",
@@ -32898,7 +32852,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "DeleteDhcpOptions",
@@ -33022,7 +32975,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "DeleteInternetGateway",
@@ -33146,7 +33098,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 8,
                 "name": "DeleteKeyPair",
@@ -33270,7 +33221,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DeleteNetworkAcl",
@@ -33422,7 +33372,6 @@
                         "type": "Bool"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DeleteNetworkAclEntry",
@@ -33584,7 +33533,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "DeleteNetworkInterface",
@@ -33708,7 +33656,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "DeletePlacementGroup",
@@ -33846,7 +33793,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "DeleteRoute",
@@ -33989,7 +33935,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DeleteRouteTable",
@@ -34098,7 +34043,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "DeleteSecurityGroup",
@@ -34269,7 +34213,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DeleteSnapshot",
@@ -34392,7 +34335,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 7,
                 "name": "DeleteSpotDatafeedSubscription",
@@ -34497,7 +34439,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "DeleteSubnet",
@@ -34605,7 +34546,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DeleteTags",
@@ -34776,7 +34716,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "DeleteVolume",
@@ -34900,7 +34839,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 7,
                 "name": "DeleteVpc",
@@ -34976,7 +34914,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteVpcPeeringConnectionResult",
+                "ctor": "deleteVpcPeeringConnectionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -35074,7 +35012,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "DeleteVpcPeeringConnection",
@@ -35198,7 +35135,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "DeleteVpnConnection",
@@ -35336,7 +35272,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "DeleteVpnConnectionRoute",
@@ -35445,7 +35380,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DeleteVpnGateway",
@@ -35569,7 +35503,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 8,
                 "name": "DeregisterImage",
@@ -35645,7 +35578,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeAccountAttributesResult",
+                "ctor": "describeAccountAttributesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -35728,7 +35661,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "DescribeAccountAttributes",
@@ -35818,7 +35750,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeAddressesResult",
+                "ctor": "describeAddressesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -35900,7 +35832,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DescribeAddresses",
@@ -36056,7 +35987,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeAvailabilityZonesResult",
+                "ctor": "describeAvailabilityZonesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -36138,7 +36069,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "DescribeAvailabilityZones",
@@ -36261,7 +36191,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeBundleTasksResult",
+                "ctor": "describeBundleTasksResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -36343,7 +36273,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "DescribeBundleTasks",
@@ -36466,7 +36395,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeConversionTasksResult",
+                "ctor": "describeConversionTasksResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -36548,7 +36477,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "DescribeConversionTasks",
@@ -36671,7 +36599,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeCustomerGatewaysResult",
+                "ctor": "describeCustomerGatewaysResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -36753,7 +36681,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "DescribeCustomerGateways",
@@ -36876,7 +36803,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeDhcpOptionsResult",
+                "ctor": "describeDhcpOptionsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -36958,7 +36885,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "DescribeDhcpOptions",
@@ -37081,7 +37007,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeExportTasksResult",
+                "ctor": "describeExportTasksResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -37179,7 +37105,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DescribeExportTasks",
@@ -37235,7 +37160,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "imageAttribute",
+                "ctor": "describeImageAttributeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -37529,7 +37454,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "DescribeImageAttribute",
@@ -37624,7 +37548,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeImagesResult",
+                "ctor": "describeImagesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -37706,7 +37630,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DescribeImages",
@@ -37894,7 +37817,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 36,
-                "ctor": "instanceAttribute",
+                "ctor": "describeInstanceAttributeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -38356,7 +38279,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DescribeInstanceAttribute",
@@ -38450,7 +38372,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "describeInstanceStatusResult",
+                "ctor": "describeInstanceStatusResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -38546,7 +38468,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 20,
                 "name": "DescribeInstanceStatus",
@@ -38767,7 +38688,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "describeInstancesResult",
+                "ctor": "describeInstancesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -38863,7 +38784,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DescribeInstances",
@@ -39052,7 +38972,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeInternetGatewaysResult",
+                "ctor": "describeInternetGatewaysResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -39134,7 +39054,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "DescribeInternetGateways",
@@ -39257,7 +39176,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeKeyPairsResult",
+                "ctor": "describeKeyPairsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -39339,7 +39258,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 8,
                 "name": "DescribeKeyPairs",
@@ -39462,7 +39380,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeNetworkAclsResult",
+                "ctor": "describeNetworkAclsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -39544,7 +39462,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DescribeNetworkAcls",
@@ -39666,7 +39583,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "describeNetworkInterfaceAttributeResult",
+                "ctor": "describeNetworkInterfaceAttributeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -39862,7 +39779,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "DescribeNetworkInterfaceAttribute",
@@ -39971,7 +39887,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeNetworkInterfacesResult",
+                "ctor": "describeNetworkInterfacesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -40053,7 +39969,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "DescribeNetworkInterfaces",
@@ -40176,7 +40091,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describePlacementGroupsResult",
+                "ctor": "describePlacementGroupsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -40258,7 +40173,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "DescribePlacementGroups",
@@ -40381,7 +40295,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeRegionsResult",
+                "ctor": "describeRegionsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -40463,7 +40377,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DescribeRegions",
@@ -40586,7 +40499,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeReservedInstancesResult",
+                "ctor": "describeReservedInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -40668,7 +40581,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 20,
                 "name": "DescribeReservedInstances",
@@ -40824,7 +40736,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeReservedInstancesListingsResult",
+                "ctor": "describeReservedInstancesListingsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -40906,7 +40818,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 27,
                 "name": "DescribeReservedInstancesListings",
@@ -41028,7 +40939,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 36,
-                "ctor": "describeReservedInstancesModificationsResult",
+                "ctor": "describeReservedInstancesModificationsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -41124,7 +41035,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 32,
                 "name": "DescribeReservedInstancesModifications",
@@ -41246,7 +41156,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 32,
-                "ctor": "describeReservedInstancesOfferingsResult",
+                "ctor": "describeReservedInstancesOfferingsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -41342,7 +41252,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 28,
                 "name": "DescribeReservedInstancesOfferings",
@@ -41828,7 +41737,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeRouteTablesResult",
+                "ctor": "describeRouteTablesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -41910,7 +41819,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DescribeRouteTables",
@@ -42033,7 +41941,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeSecurityGroupsResult",
+                "ctor": "describeSecurityGroupsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -42115,7 +42023,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "DescribeSecurityGroups",
@@ -42270,7 +42177,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "describeSnapshotAttributeResult",
+                "ctor": "describeSnapshotAttributeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -42424,7 +42331,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DescribeSnapshotAttribute",
@@ -42519,7 +42425,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeSnapshotsResult",
+                "ctor": "describeSnapshotsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -42601,7 +42507,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DescribeSnapshots",
@@ -42789,7 +42694,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeSpotDatafeedSubscriptionResult",
+                "ctor": "describeSpotDatafeedSubscriptionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -42886,7 +42791,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 7,
                 "name": "DescribeSpotDatafeedSubscription",
@@ -42943,7 +42847,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeSpotInstanceRequestsResult",
+                "ctor": "describeSpotInstanceRequestsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -43025,7 +42929,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 22,
                 "name": "DescribeSpotInstanceRequests",
@@ -43147,7 +43050,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "describeSpotPriceHistoryResult",
+                "ctor": "describeSpotPriceHistoryResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -43243,7 +43146,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "DescribeSpotPriceHistory",
@@ -43564,7 +43466,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeSubnetsResult",
+                "ctor": "describeSubnetsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -43646,7 +43548,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "DescribeSubnets",
@@ -43768,7 +43669,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 13,
-                "ctor": "describeTagsResult",
+                "ctor": "describeTagsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -43864,7 +43765,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DescribeTags",
@@ -44019,7 +43919,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "describeVolumeAttributeResult",
+                "ctor": "describeVolumeAttributeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -44159,7 +44059,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "DescribeVolumeAttribute",
@@ -44267,7 +44166,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "describeVolumeStatusResult",
+                "ctor": "describeVolumeStatusResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -44363,7 +44262,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DescribeVolumeStatus",
@@ -44551,7 +44449,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 13,
-                "ctor": "describeVolumesResult",
+                "ctor": "describeVolumesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -44647,7 +44545,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DescribeVolumes",
@@ -44835,7 +44732,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "describeVpcAttributeResult",
+                "ctor": "describeVpcAttributeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -44975,7 +44872,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "DescribeVpcAttribute",
@@ -45084,7 +44980,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeVpcPeeringConnectionsResult",
+                "ctor": "describeVpcPeeringConnectionsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -45166,7 +45062,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "DescribeVpcPeeringConnections",
@@ -45289,7 +45184,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeVpcsResult",
+                "ctor": "describeVpcsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -45371,7 +45266,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 7,
                 "name": "DescribeVpcs",
@@ -45494,7 +45388,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeVpnConnectionsResult",
+                "ctor": "describeVpnConnectionsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -45576,7 +45470,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "DescribeVpnConnections",
@@ -45699,7 +45592,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeVpnGatewaysResult",
+                "ctor": "describeVpnGatewaysResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -45781,7 +45674,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DescribeVpnGateways",
@@ -45966,7 +45858,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "DetachInternetGateway",
@@ -46109,7 +46000,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DetachNetworkInterface",
@@ -46218,7 +46108,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "volumeAttachment",
+                "ctor": "detachVolumeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -46442,7 +46332,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DetachVolume",
@@ -46679,7 +46568,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DetachVpnGateway",
@@ -46836,7 +46724,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DisableVgwRoutePropagation",
@@ -46930,7 +46817,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "DisassociateAddress",
@@ -47101,7 +46987,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "DisassociateRouteTable",
@@ -47239,7 +47124,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "EnableVgwRoutePropagation",
@@ -47348,7 +47232,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "EnableVolumeIO",
@@ -47424,7 +47307,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 15,
-                "ctor": "getConsoleOutputResult",
+                "ctor": "getConsoleOutputResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -47564,7 +47447,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "GetConsoleOutput",
@@ -47640,7 +47522,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "getPasswordDataResult",
+                "ctor": "getPasswordDataResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -47780,7 +47662,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "GetPasswordData",
@@ -47855,7 +47736,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "importInstanceResult",
+                "ctor": "importInstanceResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -47952,7 +47833,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 20,
                 "name": "ImportInstance",
@@ -48127,7 +48007,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "importKeyPairResult",
+                "ctor": "importKeyPairResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -48252,7 +48132,6 @@
                         "type": "Base64"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "ImportKeyPair",
@@ -48346,7 +48225,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "importVolumeResult",
+                "ctor": "importVolumeResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -48471,7 +48350,6 @@
                         "type": "VolumeDetail"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "ImportVolume",
@@ -48665,7 +48543,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "ModifyImageAttribute",
@@ -49052,7 +48929,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 34,
                 "name": "ModifyInstanceAttribute",
@@ -49604,7 +49480,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "ModifyNetworkInterfaceAttribute",
@@ -49812,7 +49687,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "modifyReservedInstancesResult",
+                "ctor": "modifyReservedInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -49894,7 +49769,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 42,
                 "name": "ModifyReservedInstances",
@@ -50064,7 +49938,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "ModifySnapshotAttribute",
@@ -50352,7 +50225,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 20,
                 "name": "ModifySubnetAttribute",
@@ -50475,7 +50347,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "ModifyVolumeAttribute",
@@ -50631,7 +50502,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "ModifyVpcAttribute",
@@ -50740,7 +50610,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "monitorInstancesResult",
+                "ctor": "monitorInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -50823,7 +50693,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "MonitorInstances",
@@ -50913,7 +50782,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "purchaseReservedInstancesOfferingResult",
+                "ctor": "purchaseReservedInstancesOfferingResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -51024,7 +50893,6 @@
                         "type": "Int"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 28,
                 "name": "PurchaseReservedInstancesOffering",
@@ -51185,7 +51053,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "RebootInstances",
@@ -51275,7 +51142,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "registerImageResult",
+                "ctor": "registerImageResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -51372,7 +51239,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "RegisterImage",
@@ -51745,7 +51611,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "rejectVpcPeeringConnectionResult",
+                "ctor": "rejectVpcPeeringConnectionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -51843,7 +51709,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "RejectVpcPeeringConnection",
@@ -51952,7 +51817,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "ReleaseAddress",
@@ -52075,7 +51939,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "replaceNetworkAclAssociationResult",
+                "ctor": "replaceNetworkAclAssociationResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -52187,7 +52051,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "ReplaceNetworkAclAssociation",
@@ -52399,7 +52262,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "ReplaceNetworkAclEntry",
@@ -52698,7 +52560,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "ReplaceRoute",
@@ -52925,7 +52786,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "replaceRouteTableAssociationResult",
+                "ctor": "replaceRouteTableAssociationResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -53037,7 +52898,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "ReplaceRouteTableAssociation",
@@ -53180,7 +53040,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "ReportInstanceStatus",
@@ -53421,7 +53280,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "requestSpotInstancesResult",
+                "ctor": "requestSpotInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -53518,7 +53377,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 22,
                 "name": "RequestSpotInstances",
@@ -53887,7 +53745,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "ResetImageAttribute",
@@ -54044,7 +53901,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "ResetInstanceAttribute",
@@ -54187,7 +54043,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "ResetNetworkInterfaceAttribute",
@@ -54358,7 +54213,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "ResetSnapshotAttribute",
@@ -54500,7 +54354,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 27,
                 "name": "RevokeSecurityGroupEgress",
@@ -54839,7 +54692,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 27,
                 "name": "RevokeSecurityGroupIngress",
@@ -55192,7 +55044,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 15,
-                "ctor": "reservation",
+                "ctor": "runInstancesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -55415,7 +55267,6 @@
                         "type": "Int"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 34,
                 "name": "RunInstances",
@@ -56156,7 +56007,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "startInstancesResult",
+                "ctor": "startInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -56239,7 +56090,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "StartInstances",
@@ -56362,7 +56212,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "stopInstancesResult",
+                "ctor": "stopInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -56445,7 +56295,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "StopInstances",
@@ -56568,7 +56417,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "terminateInstancesResult",
+                "ctor": "terminateInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -56651,7 +56500,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "TerminateInstances",
@@ -56789,7 +56637,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "UnassignPrivateIpAddresses",
@@ -56865,7 +56712,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "unmonitorInstancesResult",
+                "ctor": "unmonitorInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -56948,7 +56795,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "UnmonitorInstances",

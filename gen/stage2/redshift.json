@@ -6040,7 +6040,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "authorizeClusterSecurityGroupIngressResult",
+                "ctor": "authorizeClusterSecurityGroupIngressResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6113,7 +6113,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "authorizeClusterSecurityGroupIngressMessage",
+                "ctor": "authorizeClusterSecurityGroupIngress",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6138,7 +6138,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "AuthorizeClusterSecurityGroupIngressMessage",
@@ -6279,7 +6278,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "authorizeSnapshotAccessResult",
+                "ctor": "authorizeSnapshotAccessResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6352,7 +6351,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 30,
-                "ctor": "authorizeSnapshotAccessMessage",
+                "ctor": "authorizeSnapshotAccess",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6391,7 +6390,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 26,
                 "name": "AuthorizeSnapshotAccessMessage",
@@ -6485,7 +6483,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "copyClusterSnapshotResult",
+                "ctor": "copyClusterSnapshotResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6558,7 +6556,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 36,
-                "ctor": "copyClusterSnapshotMessage",
+                "ctor": "copyClusterSnapshot",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6597,7 +6595,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 32,
                 "name": "CopyClusterSnapshotMessage",
@@ -6691,7 +6688,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createClusterResult",
+                "ctor": "createClusterResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6764,7 +6761,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 36,
-                "ctor": "createClusterMessage",
+                "ctor": "createCluster",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6831,7 +6828,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 33,
                 "name": "CreateClusterMessage",
@@ -7524,7 +7520,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createClusterParameterGroupResult",
+                "ctor": "createClusterParameterGroupResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7597,7 +7593,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "createClusterParameterGroupMessage",
+                "ctor": "createClusterParameterGroup",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7650,7 +7646,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "CreateClusterParameterGroupMessage",
@@ -7729,7 +7724,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createClusterSecurityGroupResult",
+                "ctor": "createClusterSecurityGroupResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7802,7 +7797,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 30,
-                "ctor": "createClusterSecurityGroupMessage",
+                "ctor": "createClusterSecurityGroup",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7841,7 +7836,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "CreateClusterSecurityGroupMessage",
@@ -7901,7 +7895,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createClusterSnapshotResult",
+                "ctor": "createClusterSnapshotResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7974,7 +7968,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "createClusterSnapshotMessage",
+                "ctor": "createClusterSnapshot",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8013,7 +8007,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "CreateClusterSnapshotMessage",
@@ -8073,7 +8066,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createClusterSubnetGroupResult",
+                "ctor": "createClusterSubnetGroupResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8146,7 +8139,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "createClusterSubnetGroupMessage",
+                "ctor": "createClusterSubnetGroup",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8185,7 +8178,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "CreateClusterSubnetGroupMessage",
@@ -8279,7 +8271,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createEventSubscriptionResult",
+                "ctor": "createEventSubscriptionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8352,7 +8344,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "createEventSubscriptionMessage",
+                "ctor": "createEventSubscription",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8391,7 +8383,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "CreateEventSubscriptionMessage",
@@ -8617,7 +8608,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createHsmClientCertificateResult",
+                "ctor": "createHsmClientCertificateResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8691,7 +8682,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createHsmClientCertificateMessage",
+                "ctor": "createHsmClientCertificate",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -8730,7 +8721,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 31,
                 "name": "CreateHsmClientCertificateMessage",
@@ -8771,7 +8761,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createHsmConfigurationResult",
+                "ctor": "createHsmConfigurationResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8844,7 +8834,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "createHsmConfigurationMessage",
+                "ctor": "createHsmConfiguration",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8939,7 +8929,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 27,
                 "name": "CreateHsmConfigurationMessage",
@@ -9075,7 +9064,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteClusterResult",
+                "ctor": "deleteClusterResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -9148,7 +9137,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 34,
-                "ctor": "deleteClusterMessage",
+                "ctor": "deleteCluster",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9173,7 +9162,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 31,
                 "name": "DeleteClusterMessage",
@@ -9306,7 +9294,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteClusterParameterGroupMessage",
+                "ctor": "deleteClusterParameterGroup",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -9345,7 +9333,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "DeleteClusterParameterGroupMessage",
@@ -9411,7 +9398,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteClusterSecurityGroupMessage",
+                "ctor": "deleteClusterSecurityGroup",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -9450,7 +9437,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "DeleteClusterSecurityGroupMessage",
@@ -9491,7 +9477,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteClusterSnapshotResult",
+                "ctor": "deleteClusterSnapshotResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -9564,7 +9550,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 30,
-                "ctor": "deleteClusterSnapshotMessage",
+                "ctor": "deleteClusterSnapshot",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9589,7 +9575,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 26,
                 "name": "DeleteClusterSnapshotMessage",
@@ -9689,7 +9674,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteClusterSubnetGroupMessage",
+                "ctor": "deleteClusterSubnetGroup",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -9728,7 +9713,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "DeleteClusterSubnetGroupMessage",
@@ -9794,7 +9778,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteEventSubscriptionMessage",
+                "ctor": "deleteEventSubscription",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -9833,7 +9817,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "DeleteEventSubscriptionMessage",
@@ -9899,7 +9882,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteHsmClientCertificateMessage",
+                "ctor": "deleteHsmClientCertificate",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -9938,7 +9921,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 31,
                 "name": "DeleteHsmClientCertificateMessage",
@@ -10004,7 +9986,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteHsmConfigurationMessage",
+                "ctor": "deleteHsmConfiguration",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -10043,7 +10025,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 27,
                 "name": "DeleteHsmConfigurationMessage",
@@ -10084,7 +10065,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "clusterParameterGroupsMessage",
+                "ctor": "describeClusterParameterGroupsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -10171,7 +10152,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "describeClusterParameterGroupsMessage",
+                "ctor": "describeClusterParameterGroups",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10181,7 +10162,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "DescribeClusterParameterGroupsMessage",
@@ -10303,7 +10283,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 15,
-                "ctor": "clusterParameterGroupDetails",
+                "ctor": "describeClusterParametersResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -10390,7 +10370,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "describeClusterParametersMessage",
+                "ctor": "describeClusterParameters",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10415,7 +10395,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "DescribeClusterParametersMessage",
@@ -10556,7 +10535,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "clusterSecurityGroupMessage",
+                "ctor": "describeClusterSecurityGroupsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -10643,7 +10622,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "describeClusterSecurityGroupsMessage",
+                "ctor": "describeClusterSecurityGroups",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10653,7 +10632,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "DescribeClusterSecurityGroupsMessage",
@@ -10775,7 +10753,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 12,
-                "ctor": "snapshotMessage",
+                "ctor": "describeClusterSnapshotsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -10862,7 +10840,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "describeClusterSnapshotsMessage",
+                "ctor": "describeClusterSnapshots",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10872,7 +10850,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "DescribeClusterSnapshotsMessage",
@@ -11159,7 +11136,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "clusterSubnetGroupMessage",
+                "ctor": "describeClusterSubnetGroupsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -11246,7 +11223,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "describeClusterSubnetGroupsMessage",
+                "ctor": "describeClusterSubnetGroups",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11256,7 +11233,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "DescribeClusterSubnetGroupsMessage",
@@ -11378,7 +11354,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "clusterVersionsMessage",
+                "ctor": "describeClusterVersionsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -11465,7 +11441,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 32,
-                "ctor": "describeClusterVersionsMessage",
+                "ctor": "describeClusterVersions",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11475,7 +11451,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 28,
                 "name": "DescribeClusterVersionsMessage",
@@ -11630,7 +11605,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "clustersMessage",
+                "ctor": "describeClustersResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -11717,7 +11692,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "describeClustersMessage",
+                "ctor": "describeClusters",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11727,7 +11702,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "DescribeClustersMessage",
@@ -11849,7 +11823,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeDefaultClusterParametersResult",
+                "ctor": "describeDefaultClusterParametersResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -11922,7 +11896,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "describeDefaultClusterParametersMessage",
+                "ctor": "describeDefaultClusterParameters",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11947,7 +11921,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "DescribeDefaultClusterParametersMessage",
@@ -12056,7 +12029,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "eventCategoriesMessage",
+                "ctor": "describeEventCategoriesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -12129,7 +12102,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeEventCategoriesMessage",
+                "ctor": "describeEventCategories",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -12153,7 +12126,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DescribeEventCategoriesMessage",
@@ -12209,7 +12181,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "eventSubscriptionsMessage",
+                "ctor": "describeEventSubscriptionsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -12296,7 +12268,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "describeEventSubscriptionsMessage",
+                "ctor": "describeEventSubscriptions",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12306,7 +12278,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "DescribeEventSubscriptionsMessage",
@@ -12428,7 +12399,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 9,
-                "ctor": "eventsMessage",
+                "ctor": "describeEventsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -12515,7 +12486,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "describeEventsMessage",
+                "ctor": "describeEvents",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12525,7 +12496,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "DescribeEventsMessage",
@@ -12779,7 +12749,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "hsmClientCertificateMessage",
+                "ctor": "describeHsmClientCertificatesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -12866,7 +12836,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 36,
-                "ctor": "describeHsmClientCertificatesMessage",
+                "ctor": "describeHsmClientCertificates",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12876,7 +12846,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 31,
                 "name": "DescribeHsmClientCertificatesMessage",
@@ -12998,7 +12967,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "hsmConfigurationMessage",
+                "ctor": "describeHsmConfigurationsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -13085,7 +13054,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "describeHsmConfigurationsMessage",
+                "ctor": "describeHsmConfigurations",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13095,7 +13064,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 27,
                 "name": "DescribeHsmConfigurationsMessage",
@@ -13218,7 +13186,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "loggingStatus",
+                "ctor": "describeLoggingStatusResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -13418,7 +13386,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeLoggingStatusMessage",
+                "ctor": "describeLoggingStatus",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -13457,7 +13425,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "DescribeLoggingStatusMessage",
@@ -13498,7 +13465,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "orderableClusterOptionsMessage",
+                "ctor": "describeOrderableClusterOptionsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -13585,7 +13552,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "describeOrderableClusterOptionsMessage",
+                "ctor": "describeOrderableClusterOptions",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13595,7 +13562,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "DescribeOrderableClusterOptionsMessage",
@@ -13750,7 +13716,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "reservedNodeOfferingsMessage",
+                "ctor": "describeReservedNodeOfferingsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -13837,7 +13803,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "describeReservedNodeOfferingsMessage",
+                "ctor": "describeReservedNodeOfferings",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13847,7 +13813,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "DescribeReservedNodeOfferingsMessage",
@@ -13969,7 +13934,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "reservedNodesMessage",
+                "ctor": "describeReservedNodesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -14056,7 +14021,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "describeReservedNodesMessage",
+                "ctor": "describeReservedNodes",
                 "headerPad": 0,
                 "path": [
                     {
@@ -14066,7 +14031,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "DescribeReservedNodesMessage",
@@ -14189,7 +14153,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 38,
-                "ctor": "resizeProgressMessage",
+                "ctor": "describeResizeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -14557,7 +14521,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeResizeMessage",
+                "ctor": "describeResize",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -14596,7 +14560,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "DescribeResizeMessage",
@@ -14638,7 +14601,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "loggingStatus",
+                "ctor": "disableLoggingResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -14838,7 +14801,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "disableLoggingMessage",
+                "ctor": "disableLogging",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -14877,7 +14840,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "DisableLoggingMessage",
@@ -14918,7 +14880,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "disableSnapshotCopyResult",
+                "ctor": "disableSnapshotCopyResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -14992,7 +14954,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "disableSnapshotCopyMessage",
+                "ctor": "disableSnapshotCopy",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -15031,7 +14993,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "DisableSnapshotCopyMessage",
@@ -15073,7 +15034,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "loggingStatus",
+                "ctor": "enableLoggingResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -15272,7 +15233,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "enableLoggingMessage",
+                "ctor": "enableLogging",
                 "headerPad": 0,
                 "path": [
                     {
@@ -15311,7 +15272,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "EnableLoggingMessage",
@@ -15405,7 +15365,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "enableSnapshotCopyResult",
+                "ctor": "enableSnapshotCopyResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -15478,7 +15438,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "enableSnapshotCopyMessage",
+                "ctor": "enableSnapshotCopy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -15517,7 +15477,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "EnableSnapshotCopyMessage",
@@ -15611,7 +15570,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "modifyClusterResult",
+                "ctor": "modifyClusterResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -15684,7 +15643,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 36,
-                "ctor": "modifyClusterMessage",
+                "ctor": "modifyCluster",
                 "headerPad": 0,
                 "path": [
                     {
@@ -15709,7 +15668,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 33,
                 "name": "ModifyClusterMessage",
@@ -16214,7 +16172,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "clusterParameterGroupNameMessage",
+                "ctor": "modifyClusterParameterGroupResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -16300,7 +16258,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "modifyClusterParameterGroupMessage",
+                "ctor": "modifyClusterParameterGroup",
                 "headerPad": 0,
                 "path": [
                     {
@@ -16325,7 +16283,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "ModifyClusterParameterGroupMessage",
@@ -16400,7 +16357,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "modifyClusterSubnetGroupResult",
+                "ctor": "modifyClusterSubnetGroupResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -16473,7 +16430,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "modifyClusterSubnetGroupMessage",
+                "ctor": "modifyClusterSubnetGroup",
                 "headerPad": 0,
                 "path": [
                     {
@@ -16498,7 +16455,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "ModifyClusterSubnetGroupMessage",
@@ -16606,7 +16562,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "modifyEventSubscriptionResult",
+                "ctor": "modifyEventSubscriptionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -16679,7 +16635,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "modifyEventSubscriptionMessage",
+                "ctor": "modifyEventSubscription",
                 "headerPad": 0,
                 "path": [
                     {
@@ -16704,7 +16660,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "ModifyEventSubscriptionMessage",
@@ -16944,7 +16899,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "modifySnapshotCopyRetentionPeriodResult",
+                "ctor": "modifySnapshotCopyRetentionPeriodResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -17017,7 +16972,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "modifySnapshotCopyRetentionPeriodMessage",
+                "ctor": "modifySnapshotCopyRetentionPeriod",
                 "headerPad": 0,
                 "path": [
                     {
@@ -17056,7 +17011,6 @@
                         "type": "Int"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "ModifySnapshotCopyRetentionPeriodMessage",
@@ -17116,7 +17070,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "purchaseReservedNodeOfferingResult",
+                "ctor": "purchaseReservedNodeOfferingResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -17189,7 +17143,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "purchaseReservedNodeOfferingMessage",
+                "ctor": "purchaseReservedNodeOffering",
                 "headerPad": 0,
                 "path": [
                     {
@@ -17214,7 +17168,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "PurchaseReservedNodeOfferingMessage",
@@ -17289,7 +17242,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "rebootClusterResult",
+                "ctor": "rebootClusterResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -17363,7 +17316,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "rebootClusterMessage",
+                "ctor": "rebootCluster",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -17402,7 +17355,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "RebootClusterMessage",
@@ -17444,7 +17396,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "clusterParameterGroupNameMessage",
+                "ctor": "resetClusterParameterGroupResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -17530,7 +17482,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "resetClusterParameterGroupMessage",
+                "ctor": "resetClusterParameterGroup",
                 "headerPad": 0,
                 "path": [
                     {
@@ -17555,7 +17507,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "ResetClusterParameterGroupMessage",
@@ -17663,7 +17614,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "restoreFromClusterSnapshotResult",
+                "ctor": "restoreFromClusterSnapshotResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -17736,7 +17687,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 38,
-                "ctor": "restoreFromClusterSnapshotMessage",
+                "ctor": "restoreFromClusterSnapshot",
                 "headerPad": 0,
                 "path": [
                     {
@@ -17775,7 +17726,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 33,
                 "name": "RestoreFromClusterSnapshotMessage",
@@ -18331,7 +18281,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "revokeClusterSecurityGroupIngressResult",
+                "ctor": "revokeClusterSecurityGroupIngressResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -18404,7 +18354,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "revokeClusterSecurityGroupIngressMessage",
+                "ctor": "revokeClusterSecurityGroupIngress",
                 "headerPad": 0,
                 "path": [
                     {
@@ -18429,7 +18379,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "RevokeClusterSecurityGroupIngressMessage",
@@ -18570,7 +18519,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "revokeSnapshotAccessResult",
+                "ctor": "revokeSnapshotAccessResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -18643,7 +18592,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 30,
-                "ctor": "revokeSnapshotAccessMessage",
+                "ctor": "revokeSnapshotAccess",
                 "headerPad": 0,
                 "path": [
                     {
@@ -18682,7 +18631,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 26,
                 "name": "RevokeSnapshotAccessMessage",
@@ -18776,7 +18724,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "rotateEncryptionKeyResult",
+                "ctor": "rotateEncryptionKeyResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -18850,7 +18798,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "rotateEncryptionKeyMessage",
+                "ctor": "rotateEncryptionKey",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -18889,7 +18837,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "RotateEncryptionKeyMessage",

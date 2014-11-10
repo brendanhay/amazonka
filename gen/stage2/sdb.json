@@ -726,7 +726,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "BatchDeleteAttributes",
@@ -849,7 +848,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "BatchPutAttributes",
@@ -988,7 +986,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "CreateDomain",
@@ -1091,7 +1088,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DeleteAttributes",
@@ -1282,7 +1278,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DeleteDomain",
@@ -1324,7 +1319,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "domainMetadataResult",
+                "ctor": "domainMetadataResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1591,7 +1586,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DomainMetadata",
@@ -1633,7 +1627,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getAttributesResult",
+                "ctor": "getAttributesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -1745,7 +1739,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "GetAttributes",
@@ -1873,7 +1866,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 15,
-                "ctor": "listDomainsResult",
+                "ctor": "listDomainsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1970,7 +1963,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "ListDomains",
@@ -2121,7 +2113,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "PutAttributes",
@@ -2248,7 +2239,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 12,
-                "ctor": "selectResult",
+                "ctor": "selectResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -2360,7 +2351,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "Select",

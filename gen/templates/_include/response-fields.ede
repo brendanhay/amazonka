@@ -1,1 +1,14 @@
-{{ response.type }}
+{% for field in response.fields %}
+  {% case field.value.location %}
+  {% when "headers" %}
+        {% include "applicative.ede" %} h ~:: "{{ field.value.locationName }}"
+  {% when "header" %}
+        {% include "applicative.ede" %} h {% if field.value.required %}~:|{% else %}~:?{% endif %} "{{ field.value.locationName }}"
+  {% when "body-json" %}
+        {% include "applicative.ede" %} o .: "{{ field.value.locationName }}"
+  {% when "body" %}
+        {% include "applicative.ede" %} pure (RsBody b)
+   {% else %}
+        {% include "applicative.ede" %} x %| "{{ field.value.locationName }}"
+  {% endcase %}
+{% endfor %}

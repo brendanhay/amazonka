@@ -8,8 +8,5 @@ data {{ type.name }} = {{ type.name }}
 {% else %}
 {% include "record.ede" %}
 {% endcase %}
-{% if type.value.documentation %}
-{{ type.value.documentation | above(76, 0) }}
-{% endif %}
 {% include "constructor.ede" %}
 {% include "lenses.ede" %}

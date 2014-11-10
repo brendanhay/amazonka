@@ -5599,7 +5599,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "AbortMultipartUpload",
@@ -5669,7 +5668,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "completeMultipartUploadOutput",
+                "ctor": "completeMultipartUploadResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -5987,7 +5986,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "CompleteMultipartUpload",
@@ -6085,7 +6083,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "copyObjectOutput",
+                "ctor": "copyObjectResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -6362,7 +6360,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_coACL",
@@ -7291,7 +7288,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createBucketOutput",
+                "ctor": "createBucketResponse",
                 "field": {
                     "location": "header",
                     "iso": null,
@@ -7406,7 +7403,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_cbACL",
@@ -7670,7 +7666,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "createMultipartUploadOutput",
+                "ctor": "createMultipartUploadResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -7933,7 +7929,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_cmu1ACL",
@@ -8652,7 +8647,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DeleteBucket",
@@ -8756,7 +8750,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DeleteBucketCors",
@@ -8865,7 +8858,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DeleteBucketLifecycle",
@@ -8974,7 +8966,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DeleteBucketPolicy",
@@ -9083,7 +9074,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DeleteBucketTagging",
@@ -9192,7 +9182,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DeleteBucketWebsite",
@@ -9233,7 +9222,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "deleteObjectOutput",
+                "ctor": "deleteObjectResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -9372,7 +9361,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_do1MFA",
@@ -9490,7 +9478,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "deleteObjectsOutput",
+                "ctor": "deleteObjectsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -9646,7 +9634,6 @@
                         "type": "Delete"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_doMFA",
@@ -9735,7 +9722,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "getBucketAclOutput",
+                "ctor": "getBucketAclResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -9880,7 +9867,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetBucketAcl",
@@ -9921,7 +9907,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getBucketCorsOutput",
+                "ctor": "getBucketCorsResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -10052,7 +10038,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetBucketCors",
@@ -10093,7 +10078,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getBucketLifecycleOutput",
+                "ctor": "getBucketLifecycleResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -10224,7 +10209,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetBucketLifecycle",
@@ -10265,7 +10249,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getBucketLocationOutput",
+                "ctor": "getBucketLocationResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -10396,7 +10380,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetBucketLocation",
@@ -10436,7 +10419,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getBucketLoggingOutput",
+                "ctor": "getBucketLoggingResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -10567,7 +10550,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetBucketLogging",
@@ -10607,7 +10589,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getBucketNotificationOutput",
+                "ctor": "getBucketNotificationResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -10738,7 +10720,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetBucketNotification",
@@ -10779,7 +10760,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getBucketPolicyOutput",
+                "ctor": "getBucketPolicyResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -10910,7 +10891,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetBucketPolicy",
@@ -10951,7 +10931,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getBucketRequestPaymentOutput",
+                "ctor": "getBucketRequestPaymentResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -11082,7 +11062,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetBucketRequestPayment",
@@ -11123,7 +11102,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getBucketTaggingOutput",
+                "ctor": "getBucketTaggingResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -11254,7 +11233,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetBucketTagging",
@@ -11295,7 +11273,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 14,
-                "ctor": "getBucketVersioningOutput",
+                "ctor": "getBucketVersioningResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -11440,7 +11418,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetBucketVersioning",
@@ -11480,7 +11457,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "getBucketWebsiteOutput",
+                "ctor": "getBucketWebsiteResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -11681,7 +11658,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetBucketWebsite",
@@ -11720,7 +11696,7 @@
                 ],
                 "streaming": true,
                 "fieldPad": 27,
-                "ctor": "getObjectOutput",
+                "ctor": "getObjectResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body",
@@ -12405,7 +12381,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_goIfMatch",
@@ -12952,7 +12927,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "getObjectAclOutput",
+                "ctor": "getObjectAclResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -13104,7 +13079,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "GetObjectAcl",
@@ -13191,7 +13165,7 @@
                 ],
                 "streaming": true,
                 "fieldPad": 0,
-                "ctor": "getObjectTorrentOutput",
+                "ctor": "getObjectTorrentResponse",
                 "field": {
                     "location": "body",
                     "iso": null,
@@ -13329,7 +13303,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetObjectTorrent",
@@ -13452,7 +13425,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "HeadBucket",
@@ -13487,7 +13459,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "headObjectOutput",
+                "ctor": "headObjectResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -14130,7 +14102,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_hoIfMatch",
@@ -14479,7 +14450,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "listBucketsOutput",
+                "ctor": "listBucketsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -14584,7 +14555,6 @@
                     }
                 ],
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "ListBuckets",
@@ -14604,7 +14574,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "listMultipartUploadsOutput",
+                "ctor": "listMultipartUploadsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -14986,7 +14956,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "ListMultipartUploads",
@@ -15225,7 +15194,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "listObjectVersionsOutput",
+                "ctor": "listObjectVersionsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -15635,7 +15604,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "ListObjectVersions",
@@ -15874,7 +15842,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 18,
-                "ctor": "listObjectsOutput",
+                "ctor": "listObjectsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -16200,7 +16168,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "ListObjects",
@@ -16402,7 +16369,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "listPartsOutput",
+                "ctor": "listPartsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -16820,7 +16787,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "ListParts",
@@ -17022,7 +16988,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_pbaACL",
@@ -17389,7 +17354,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_pbcContentMD5",
@@ -17558,7 +17522,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_pblContentMD5",
@@ -17741,7 +17704,6 @@
                         "type": "BucketLoggingStatus"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_pbl1ContentMD5",
@@ -17910,7 +17872,6 @@
                         "type": "NotificationConfiguration"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_pbnContentMD5",
@@ -18080,7 +18041,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_pbpContentMD5",
@@ -18249,7 +18209,6 @@
                         "type": "RequestPaymentConfiguration"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_pbrpContentMD5",
@@ -18418,7 +18377,6 @@
                         "type": "Tagging"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_pbtContentMD5",
@@ -18587,7 +18545,6 @@
                         "type": "VersioningConfiguration"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_pbvContentMD5",
@@ -18789,7 +18746,6 @@
                         "type": "WebsiteConfiguration"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_pbwContentMD5",
@@ -18879,7 +18835,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "putObjectOutput",
+                "ctor": "putObjectResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -19155,7 +19111,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_poACL",
@@ -19968,7 +19923,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_poaACL",
@@ -20371,7 +20325,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "RestoreObject",
@@ -20488,7 +20441,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "uploadPartOutput",
+                "ctor": "uploadPartResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -20736,7 +20689,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_upContentLength",
@@ -21005,7 +20957,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "uploadPartCopyOutput",
+                "ctor": "uploadPartCopyResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -21283,7 +21235,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [
                     {
                         "field": "_upcCopySource",

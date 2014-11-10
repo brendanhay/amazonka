@@ -225,7 +225,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "cancelJobOutput",
+                "ctor": "cancelJobResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -299,7 +299,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "cancelJobInput",
+                "ctor": "cancelJob",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -338,7 +338,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 6,
                 "name": "CancelJobInput",
@@ -384,7 +383,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "createJobOutput",
+                "ctor": "createJobResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -583,7 +582,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "createJobInput",
+                "ctor": "createJob",
                 "headerPad": 0,
                 "path": [
                     {
@@ -636,7 +635,6 @@
                         "type": "Bool"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "CreateJobInput",
@@ -754,7 +752,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "getStatusOutput",
+                "ctor": "getStatusResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1234,7 +1232,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getStatusInput",
+                "ctor": "getStatus",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1273,7 +1271,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 6,
                 "name": "GetStatusInput",
@@ -1318,7 +1315,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 15,
-                "ctor": "listJobsOutput",
+                "ctor": "listJobsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1405,7 +1402,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "listJobsInput",
+                "ctor": "listJobs",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1415,7 +1412,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 8,
                 "name": "ListJobsInput",
@@ -1509,7 +1505,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 18,
-                "ctor": "updateJobOutput",
+                "ctor": "updateJobResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1596,7 +1592,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "updateJobInput",
+                "ctor": "updateJob",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1663,7 +1659,6 @@
                         "type": "Bool"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "UpdateJobInput",

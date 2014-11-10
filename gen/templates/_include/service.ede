@@ -11,3 +11,5 @@ instance AWSService {{ service.abbrev }} where
         , _svcVersion  = "{{ service.version }}"
         , _svcTarget   = {% if targetPrefix %}Just "{{ service.targetPrefix }}"{% else %}Nothing{% endif %}
         }
+
+    handle = xmlError alwaysFail

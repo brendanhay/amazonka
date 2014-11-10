@@ -109,7 +109,6 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         <> version
         <> "/"
 
-
 dataTypes :: Overrides
           -> Abbrev
           -> Stage1
@@ -224,12 +223,17 @@ operation a proto ns ss n o = op
 
     prefixURI x = o ^. oHttp.hRequestUri & uriSegments.segVars %~ mappend x
 
-    request = go (\x -> Request (prefixURI x)) True
+    request = go (\x -> Request (prefixURI x) rqName) True
 
-    response r = go (const (Response w k)) False r
+    response r = go (const (Response w k rsName) ) False r
       where
         w = fromMaybe False (join (_refWrapper <$> r))
         k = join (_refResultWrapper <$> r)
+
+    rqName = name
+    rsName = name <> "Response"
+
+    name = o ^. oName
 
     go :: (Text -> Text -> Bool -> Data -> a)
        -> Bool
@@ -251,8 +255,8 @@ operation a proto ns ss n o = op
                     modify (Map.delete k)
                 return $! c t k' p (renamed k' d')
 
-    type' c True  = c "" n False (Empty n)
-    type' c False = let k = n <> "Response" in c "" k False (Empty k)
+    type' c True  = c "" rqName False (Empty rqName)
+    type' c False = c "" rsName False (Empty rsName)
 
     renamed k = \case
         Newtype _ f  -> Newtype k f

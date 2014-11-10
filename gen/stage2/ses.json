@@ -1084,7 +1084,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "DeleteIdentity",
@@ -1189,7 +1188,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DeleteVerifiedEmailAddress",
@@ -1329,7 +1327,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "GetIdentityDkimAttributes",
@@ -1484,7 +1481,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "GetIdentityNotificationAttributes",
@@ -1639,7 +1635,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "GetIdentityVerificationAttributes",
@@ -1815,7 +1810,6 @@
                     }
                 ],
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetSendQuota",
@@ -1913,7 +1907,6 @@
                     }
                 ],
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetSendStatistics",
@@ -2031,7 +2024,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "ListIdentities",
@@ -2232,7 +2224,6 @@
                     }
                 ],
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "ListVerifiedEmailAddresses",
@@ -2379,7 +2370,6 @@
                         "type": "Message"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "SendEmail",
@@ -2624,7 +2614,6 @@
                         "type": "RawMessage"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "SendRawEmail",
@@ -2795,7 +2784,6 @@
                         "type": "Bool"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "SetIdentityDkimEnabled",
@@ -2918,7 +2906,6 @@
                         "type": "Bool"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "SetIdentityFeedbackForwardingEnabled",
@@ -3041,7 +3028,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "SetIdentityNotificationTopic",
@@ -3250,7 +3236,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 7,
                 "name": "VerifyDomainDkim",
@@ -3406,7 +3391,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 7,
                 "name": "VerifyDomainIdentity",
@@ -3511,7 +3495,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "VerifyEmailAddress",
@@ -3616,7 +3599,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "VerifyEmailIdentity",

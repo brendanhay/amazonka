@@ -512,7 +512,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "AssumeRole",
@@ -1046,7 +1045,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "AssumeRoleWithSAML",
@@ -1444,7 +1442,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "AssumeRoleWithWebIdentity",
@@ -1737,7 +1734,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "DecodeAuthorizationMessage",
@@ -1918,7 +1914,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "GetFederationToken",
@@ -2109,7 +2104,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "GetSessionToken",

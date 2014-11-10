@@ -13,8 +13,6 @@ xmlOptions = Tagged def
     }
 {% endif %}
 
-{% include "_include/error.ede" %}
-
 {% for type in types %}
 {% include "_include/datatype.ede" with type = type.value %}
 

@@ -2794,7 +2794,6 @@
                         "type": "VPC"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "AssociateVPCWithHostedZone",
@@ -3017,7 +3016,6 @@
                         "type": "ChangeBatch"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "ChangeResourceRecordSets",
@@ -3181,7 +3179,6 @@
                         "type": "List1 Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "ChangeTagsForResource",
@@ -3409,7 +3406,6 @@
                         "type": "HealthCheckConfig"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "CreateHealthCheck",
@@ -3694,7 +3690,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "CreateHostedZone",
@@ -3966,7 +3961,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "CreateReusableDelegationSet",
@@ -4098,7 +4092,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DeleteHealthCheck",
@@ -4263,7 +4256,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DeleteHostedZone",
@@ -4366,7 +4358,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DeleteReusableDelegationSet",
@@ -4546,7 +4537,6 @@
                         "type": "VPC"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DisassociateVPCFromHostedZone",
@@ -4754,7 +4744,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetChange",
@@ -4881,7 +4870,6 @@
                     }
                 ],
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetCheckerIpRanges",
@@ -4997,7 +4985,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "GetGeoLocation",
@@ -5249,7 +5236,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetHealthCheck",
@@ -5377,7 +5363,6 @@
                     }
                 ],
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetHealthCheckCount",
@@ -5532,7 +5517,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetHealthCheckLastFailureReason",
@@ -5702,7 +5686,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetHealthCheckStatus",
@@ -5910,7 +5893,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetHostedZone",
@@ -6075,7 +6057,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetReusableDelegationSet",
@@ -6333,7 +6314,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "ListGeoLocations",
@@ -6683,7 +6663,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "ListHealthChecks",
@@ -6967,7 +6946,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "ListHostedZones",
@@ -7335,7 +7313,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "ListResourceRecordSets",
@@ -7699,7 +7676,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "ListReusableDelegationSets",
@@ -7925,7 +7901,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "ListTagsForResource",
@@ -8117,7 +8092,6 @@
                         "type": "List1 Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "ListTagsForResources",
@@ -8294,7 +8268,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "UpdateHealthCheck",

@@ -4488,7 +4488,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "BuildSuggesters",
@@ -4642,7 +4641,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "CreateDomain",
@@ -4794,7 +4792,6 @@
                         "type": "AnalysisScheme"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "DefineAnalysisScheme",
@@ -4965,7 +4962,6 @@
                         "type": "Expression"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DefineExpression",
@@ -5136,7 +5132,6 @@
                         "type": "IndexField"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DefineIndexField",
@@ -5307,7 +5302,6 @@
                         "type": "Suggester"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DefineSuggester",
@@ -5479,7 +5473,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "DeleteAnalysisScheme",
@@ -5652,7 +5645,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DeleteDomain",
@@ -5805,7 +5797,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "DeleteExpression",
@@ -5977,7 +5968,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "DeleteIndexField",
@@ -6149,7 +6139,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "DeleteSuggester",
@@ -6308,7 +6297,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 20,
                 "name": "DescribeAnalysisSchemes",
@@ -6514,7 +6502,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DescribeAvailabilityOptions",
@@ -6688,7 +6675,6 @@
                 ],
                 "payload": null,
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "DescribeDomains",
@@ -6843,7 +6829,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "DescribeExpressions",
@@ -7050,7 +7035,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DescribeIndexFields",
@@ -7271,7 +7255,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DescribeScalingParameters",
@@ -7410,7 +7393,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DescribeServiceAccessPolicies",
@@ -7584,7 +7566,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "DescribeSuggesters",
@@ -7807,7 +7788,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "IndexDocuments",
@@ -7926,7 +7906,6 @@
                     }
                 ],
                 "required": [],
-                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "ListDomainNames",
@@ -8058,7 +8037,6 @@
                         "type": "Bool"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "UpdateAvailabilityOptions",
@@ -8229,7 +8207,6 @@
                         "type": "ScalingParameters"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "UpdateScalingParameters",
@@ -8401,7 +8378,6 @@
                         "type": "Text"
                     }
                 ],
-                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "UpdateServiceAccessPolicies",

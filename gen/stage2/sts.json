@@ -359,6 +359,7 @@
                 "streaming": false,
                 "fieldPad": 20,
                 "ctor": "assumeRoleResponse",
+                "dataCtor": "assumeRoleResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -474,6 +475,7 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "assumeRole",
+                "dataCtor": "assumeRole",
                 "headerPad": 0,
                 "path": [
                     {
@@ -512,6 +514,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "AssumeRole",
@@ -738,6 +741,7 @@
                 "streaming": false,
                 "fieldPad": 25,
                 "ctor": "assumeRoleWithSAMLResponse",
+                "dataCtor": "assumeRoleWithSAMLResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -993,6 +997,7 @@
                 "streaming": false,
                 "fieldPad": 23,
                 "ctor": "assumeRoleWithSAML",
+                "dataCtor": "assumeRoleWithSAML",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1045,6 +1050,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "AssumeRoleWithSAML",
@@ -1191,6 +1197,7 @@
                 "streaming": false,
                 "fieldPad": 34,
                 "ctor": "assumeRoleWithWebIdentityResponse",
+                "dataCtor": "assumeRoleWithWebIdentityResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1390,6 +1397,7 @@
                 "streaming": false,
                 "fieldPad": 22,
                 "ctor": "assumeRoleWithWebIdentity",
+                "dataCtor": "assumeRoleWithWebIdentity",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1442,6 +1450,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "AssumeRoleWithWebIdentity",
@@ -1622,6 +1631,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "decodeAuthorizationMessageResponse",
+                "dataCtor": "decodeAuthorizationMessageResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -1696,6 +1706,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "decodeAuthorizationMessage",
+                "dataCtor": "decodeAuthorizationMessage",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1734,6 +1745,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "DecodeAuthorizationMessage",
@@ -1775,6 +1787,7 @@
                 "streaming": false,
                 "fieldPad": 21,
                 "ctor": "getFederationTokenResponse",
+                "dataCtor": "getFederationTokenResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1890,6 +1903,7 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "getFederationToken",
+                "dataCtor": "getFederationToken",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1914,6 +1928,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "GetFederationToken",
@@ -2022,6 +2037,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getSessionTokenResponse",
+                "dataCtor": "getSessionTokenResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -2095,6 +2111,7 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "getSessionToken",
+                "dataCtor": "getSessionToken",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2104,6 +2121,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "GetSessionToken",

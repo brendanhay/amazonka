@@ -680,6 +680,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "batchDeleteAttributesResponse",
+                "dataCtor": "batchDeleteAttributesResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -707,6 +708,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "batchDeleteAttributes",
+                "dataCtor": "batchDeleteAttributes",
                 "headerPad": 0,
                 "path": [
                     {
@@ -731,6 +733,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "BatchDeleteAttributes",
@@ -807,6 +810,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "batchPutAttributesResponse",
+                "dataCtor": "batchPutAttributesResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -834,6 +838,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "batchPutAttributes",
+                "dataCtor": "batchPutAttributes",
                 "headerPad": 0,
                 "path": [
                     {
@@ -858,6 +863,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "BatchPutAttributes",
@@ -934,6 +940,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createDomainResponse",
+                "dataCtor": "createDomainResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -963,6 +970,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createDomain",
+                "dataCtor": "createDomain",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1001,6 +1009,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "CreateDomain",
@@ -1043,6 +1052,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteAttributesResponse",
+                "dataCtor": "deleteAttributesResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -1070,6 +1080,7 @@
                 "streaming": false,
                 "fieldPad": 13,
                 "ctor": "deleteAttributes",
+                "dataCtor": "deleteAttributes",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1108,6 +1119,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DeleteAttributes",
@@ -1236,6 +1248,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteDomainResponse",
+                "dataCtor": "deleteDomainResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -1265,6 +1278,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteDomain",
+                "dataCtor": "deleteDomain",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1303,6 +1317,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DeleteDomain",
@@ -1345,6 +1360,7 @@
                 "streaming": false,
                 "fieldPad": 28,
                 "ctor": "domainMetadataResponse",
+                "dataCtor": "domainMetadataResult",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1573,6 +1589,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "domainMetadata",
+                "dataCtor": "domainMetadata",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1611,6 +1628,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DomainMetadata",
@@ -1653,6 +1671,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getAttributesResponse",
+                "dataCtor": "getAttributesResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -1726,6 +1745,7 @@
                 "streaming": false,
                 "fieldPad": 17,
                 "ctor": "getAttributes",
+                "dataCtor": "getAttributes",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1764,6 +1784,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "GetAttributes",
@@ -1892,6 +1913,7 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "listDomainsResponse",
+                "dataCtor": "listDomainsResult",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1979,6 +2001,7 @@
                 "streaming": false,
                 "fieldPad": 21,
                 "ctor": "listDomains",
+                "dataCtor": "listDomains",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1988,6 +2011,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 19,
                 "name": "ListDomains",
@@ -2078,6 +2102,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putAttributesResponse",
+                "dataCtor": "putAttributesResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -2105,6 +2130,7 @@
                 "streaming": false,
                 "fieldPad": 13,
                 "ctor": "putAttributes",
+                "dataCtor": "putAttributes",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2143,6 +2169,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "PutAttributes",
@@ -2270,6 +2297,7 @@
                 "streaming": false,
                 "fieldPad": 12,
                 "ctor": "selectResponse",
+                "dataCtor": "selectResult",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -2357,6 +2385,7 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "select",
+                "dataCtor": "select",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2381,6 +2410,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "Select",

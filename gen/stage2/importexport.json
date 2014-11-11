@@ -226,6 +226,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "cancelJobResponse",
+                "dataCtor": "cancelJobOutput",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -300,6 +301,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "cancelJob",
+                "dataCtor": "cancelJobInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -338,6 +340,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 6,
                 "name": "CancelJobInput",
@@ -384,6 +387,7 @@
                 "streaming": false,
                 "fieldPad": 25,
                 "ctor": "createJobResponse",
+                "dataCtor": "createJobOutput",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -583,6 +587,7 @@
                 "streaming": false,
                 "fieldPad": 20,
                 "ctor": "createJob",
+                "dataCtor": "createJobInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -635,6 +640,7 @@
                         "type": "Bool"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "CreateJobInput",
@@ -753,6 +759,7 @@
                 "streaming": false,
                 "fieldPad": 25,
                 "ctor": "getStatusResponse",
+                "dataCtor": "getStatusOutput",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1233,6 +1240,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getStatus",
+                "dataCtor": "getStatusInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1271,6 +1279,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 6,
                 "name": "GetStatusInput",
@@ -1316,6 +1325,7 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "listJobsResponse",
+                "dataCtor": "listJobsOutput",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1403,6 +1413,7 @@
                 "streaming": false,
                 "fieldPad": 11,
                 "ctor": "listJobs",
+                "dataCtor": "listJobsInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1412,6 +1423,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 8,
                 "name": "ListJobsInput",
@@ -1506,6 +1518,7 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "updateJobResponse",
+                "dataCtor": "updateJobOutput",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1593,6 +1606,7 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "updateJob",
+                "dataCtor": "updateJobInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1659,6 +1673,7 @@
                         "type": "Bool"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "UpdateJobInput",

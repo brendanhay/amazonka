@@ -428,14 +428,25 @@ instance DerivingOf Data where
 nestedTypes :: Data -> [Type]
 nestedTypes = concatMap universe . toListOf (dataFields . typesOf)
 
+dataRename :: Text -> Data -> Data
+dataRename k = \case
+    Nullary _ m  -> Nullary k m
+    Newtype _ f  -> Newtype k f
+    Record  _ fs -> Record  k fs
+    Product _ fs -> Product k fs
+    Empty   _    -> Empty   k
+    x            -> x
+
 dataFields :: Traversal' Data Field
-dataFields f = \case
-    Newtype n x  -> Newtype n <$> f x
-    Record  n xs -> Record  n <$> traverse f xs
-    Product n xs -> pure (Product n xs)
-    Nullary n m  -> pure (Nullary n m)
-    Empty   n    -> pure (Empty n)
-    Void         -> pure Void
+dataFields f = go
+  where
+    go = \case
+        Newtype n x  -> Newtype n <$> f x
+        Record  n xs -> Record  n <$> traverse f xs
+        Product n xs -> pure (Product n xs)
+        Nullary n m  -> pure (Nullary n m)
+        Empty   n    -> pure (Empty n)
+        Void         -> pure Void
 
 fieldNames :: Data -> [Text]
 fieldNames (Nullary _ m) = Map.keys m
@@ -468,16 +479,14 @@ isVoid Void = True
 isVoid _    = False
 
 data Request = Request
-    { _rqUri       :: !URI
-    , _rqOperation :: !Text
-    , _rqName      :: !Text
-    , _rqShared    :: !Bool
-    , _rqData      :: !Data
+    { _rqUri    :: !URI
+    , _rqName   :: !Text
+    , _rqShared :: !Bool
+    , _rqData   :: !Data
     } deriving (Eq, Show)
 
 instance ToJSON Request where
-    toJSON Request{..} =
-        Object (operationJSON _rqOperation _rqName _rqData <> x)
+    toJSON Request{..} = Object (operationJSON _rqName _rqData <> x)
       where
         Object x = object
             [ "path"      .= _uriPath _rqUri
@@ -485,6 +494,7 @@ instance ToJSON Request where
             , "headerPad" .= pad hdr
             , "query"     .= (map toJSON (_uriQuery _rqUri) ++ map pair qry)
             , "queryPad"  .= pad qry
+            , "shared"    .= _rqShared
             ]
 
         pad [] = 0
@@ -504,15 +514,13 @@ instance ToJSON Request where
 data Response = Response
     { _rsWrapper       :: !Bool
     , _rsResultWrapper :: Maybe Text
-    , _rsOperation     :: !Text
     , _rsName          :: !Text
     , _rsShared        :: !Bool
     , _rsData          :: !Data
     } deriving (Eq, Show)
 
 instance ToJSON Response where
-    toJSON Response{..} =
-        Object (operationJSON _rsOperation _rsName _rsData <> x)
+    toJSON Response{..} = Object (operationJSON _rsName _rsData <> x)
       where
         Object x = object
             [ "resultWrapper" .= _rsResultWrapper
@@ -520,13 +528,12 @@ instance ToJSON Response where
             , "shared"        .= _rsShared
             ]
 
-operationJSON :: Text -> Text -> Data -> Object
-operationJSON c n d = y <> x
+operationJSON :: Text -> Data -> Object
+operationJSON n d = y <> x
   where
     Object x = toJSON d
     Object y = object
         [ "name"      .= n
-        , "ctor"      .= constructor c
         , "streaming" .= stream
         ]
 

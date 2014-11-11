@@ -2,32 +2,8 @@
 {% when "void" %}
 {% when "nullary" %}
 {% else %}
-  {% if type.documentation %}
-{{ type.documentation | above(74, 0) }}
-  {% else %}
--- | '{{ type.name }}' constructor.
-  {% endif %}
-  {% for field in type.fields %}
-    {% if field.first %}
---
--- The fields accessible through corresponding lenses are:
---
-    {% endif %}
--- * '{{ field.value.lens }}' @::@ {{ field.value.typeExposed | highlight }}
---
-  {% endfor %}
-  {% for req in type.required %}
-    {% if req.first %}
-{{ type.ctor }} :: {{ req.value.type }} -- ^ '{{ req.value.lens }}'
-    {% else %}
-{{ " " | justifyLeft(type.ctor | length) }} -> {{ req.value.typeExposed }} -- ^ '{{ req.value.lens }}'
-    {% endif %}
-    {% if req.last %}
-{{ " " | justifyLeft(type.ctor | length) }} -> {{ type.name }}
-    {% endif %}
-  {% else %}
-{{ type.ctor }} :: {{ type.name }}
-  {% endfor %}
+  {% include "constructor-documentation.ede" %}
+  {% include "constructor-signature.ede" %}
 {{ type.ctor }}{% for req in type.required %} p{{ req.index }}{% endfor %} = {{ type.name }}
   {% for req in type.required %}
     {% if req.first %}{ {% else %}, {% endif %}{{ req.value.name | justifyLeft(type.fieldPad) }} = {% include "iso.ede" with field = req.value %}p{{ req.index }}

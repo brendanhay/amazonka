@@ -113,43 +113,73 @@ dataTypes :: Overrides
           -> Abbrev
           -> Stage1
           -> ([Operation], HashMap Text Data)
-dataTypes o a s1 = (sort . Map.elems) `first` runState run s
+dataTypes o a s1 = (sort . Map.elems) `first` runState run ds
   where
-    run = shared s1 >>= \ss -> Map.traverseWithKey (f ss) (s1 ^. s1Operations)
+    run = Map.traverseWithKey
+        (operation a proto (o ^. oOperationsModules) ss)
+        (s1' ^. s1Operations)
 
-    f = operation a (s1 ^. mProtocol) (o ^. oOperationsModules)
+    (s1', prefixed -> ds) = runState (requests s1 ss) datas
 
-    s = prefixes
-        . filtered (o ^. oOverrides)
-        $ datas (s1 ^. mProtocol) (s1 ^. s1Shapes)
+    ss = evalState (shared s1) datas
 
+    datas = overriden (o ^. oOverrides) $ shapes proto (s1 ^. s1Shapes)
+
+    proto = s1 ^. mProtocol
+
+-- | Insert a new request datatype for any shared input, and update
+-- the operations accordingly.
+requests :: Stage1 -> HashSet Text -> State (HashMap Text Data) Stage1
+requests s1 ss = do
+    os <- Map.traverseWithKey go (s1 ^. s1Operations)
+    return $! s1 & s1Operations .~ os
+  where
+    go :: Text -> S1.Operation -> State (HashMap Text Data) S1.Operation
+    go k o
+        | Just r <- o ^. oInput
+        , n      <- r ^. refShape
+        , Set.member n ss = gets (Map.lookup n) >>= rename k o r
+        | otherwise       = return o
+
+    rename :: Text
+           -> S1.Operation
+           -> Ref
+           -> Maybe Data
+           -> State (HashMap Text Data) S1.Operation
+    rename _ o _ Nothing  = return o
+    rename k o r (Just d) = do
+        modify (Map.insert k (dataRename k d))
+        return (o & oInput ?~ (r & refShape .~ k))
+
+-- | Find any datatypes that are shared as operation inputs/outputs.
 shared :: Stage1 -> State (HashMap Text Data) (HashSet Text)
 shared s1 = do
-    s <- get
-    return . go . snd $ execState (mapM_ run (Map.elems $ s1 ^. s1Operations)) (s, mempty)
+    xs <- forM ops $ \o ->
+        (++) <$> ins (o ^. oInput)
+             <*> ins (o ^. oOutput)
+    return $! occur (freq (concat xs))
   where
-    go   = Set.fromList . mapMaybe snd . filter ((> 1) . fst) . freq
-    freq = map (length &&& headMay) . group . sort
+    ops = Map.elems (s1 ^. s1Operations)
 
-    run o = do
-        ins (o ^. oInput)
-        ins (o ^. oOutput)
+    occur = Set.fromList . mapMaybe snd . filter ((> 1) . fst)
+    freq  = map (length &&& headMay) . group . sort
 
-    ins :: Maybe Ref -> State (HashMap Text Data, [Text]) ()
-    ins Nothing  = return ()
+    ins :: Maybe Ref -> State (HashMap Text Data) [Text]
+    ins Nothing  = return []
     ins (Just r) = do
         let k = r ^. refShape
-        md <- gets (Map.lookup k . fst)
-        maybe (return ())
-              (\d -> modify $ second . (++) $ k : mapMaybe name (nestedTypes d))
-              md
+        md <- gets (Map.lookup k)
+        return $!
+            maybe []
+                  (\d -> k : mapMaybe name (nestedTypes d))
+                  md
 
     name :: Type -> Maybe Text
     name (TType k) = Just k
     name _         = Nothing
 
-prefixes :: HashMap Text Data -> HashMap Text Data
-prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
+prefixed :: HashMap Text Data -> HashMap Text Data
+prefixed m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
   where
     run (k, x) = (k,) <$> go k (prefix k) x
 
@@ -178,6 +208,7 @@ prefixes m = Map.fromList $ evalState (mapM run (Map.toList m)) mempty
             let p1 = Set.null (Set.intersection fs1 s)
                 p2 = Set.null (Set.intersection fs2 s)
                 p3 = Set.null (Set.intersection fs3 s)
+
                 d1 = Set.null (Set.intersection fs1 names)
                 d2 = Set.null (Set.intersection fs2 names)
                 d3 = Set.null (Set.intersection fs3 names)
@@ -223,9 +254,9 @@ operation a proto ns ss n o = op
 
     prefixURI x = o ^. oHttp.hRequestUri & uriSegments.segVars %~ mappend x
 
-    request = go (\x -> Request (prefixURI x) rqName) True
+    request = go (\x -> Request (prefixURI x)) True
 
-    response r = go (const (Response w k rsName) ) False r
+    response r = go (const (Response w k)) False r
       where
         w = fromMaybe False (join (_refWrapper <$> r))
         k = join (_refResultWrapper <$> r)
@@ -239,32 +270,27 @@ operation a proto ns ss n o = op
        -> Bool
        -> Maybe Ref
        -> State (HashMap Text Data) a
-    go c rq Nothing  = return (type' c rq)
+    go c rq Nothing  = return $! placeholder c rq
     go c rq (Just x) = do
         let k = x ^. refShape
-            p = k `Set.member` ss
+            p = Set.member k ss
         m <- gets (^. at k)
         case m of
-            Nothing   -> return (type' c rq)
-            Just Void -> return (type' c rq)
+            Nothing   -> return $! placeholder c rq
+            Just Void -> return $! placeholder c rq
             Just d    -> do
                 let d' = setStreaming rq d
                     k' = operationName k
                     t  = fromMaybe "" (fieldPrefix d')
                 unless p $
                     modify (Map.delete k)
-                return $! c t k' p (renamed k' d')
+                return $! c t k' p (dataRename k' d')
 
-    type' c True  = c "" rqName False (Empty rqName)
-    type' c False = c "" rsName False (Empty rsName)
+    placeholder c True  = c "" rqName False (Empty rqName)
+    placeholder c False = c "" rsName False (Empty rsName)
 
-    renamed k = \case
-        Newtype _ f  -> Newtype k f
-        Record  _ fs -> Record  k fs
-        x            -> x
-
-filtered :: HashMap Text Override -> HashMap Text Data -> HashMap Text Data
-filtered = flip (Map.foldlWithKey' run)
+overriden :: HashMap Text Override -> HashMap Text Data -> HashMap Text Data
+overriden = flip (Map.foldlWithKey' run)
   where
     run :: HashMap Text Data -- ^ acc
         -> Text              -- ^ key
@@ -279,7 +305,6 @@ filtered = flip (Map.foldlWithKey' run)
       where
         field = required (o ^. oRequired)
               . renamed  (o ^. oRenamed)
-              -- . ignored  (o ^. oIgnored)
 
     -- Types:
 
@@ -340,8 +365,8 @@ filtered = flip (Map.foldlWithKey' run)
 
     renamed m = nameOf %~ (\n -> fromMaybe n (Map.lookup (CI.mk n) m))
 
-datas :: Protocol -> HashMap Text S1.Shape -> HashMap Text Data
-datas p m = evalState (Map.traverseWithKey solve (Map.filter skip m)) mempty
+shapes :: Protocol -> HashMap Text S1.Shape -> HashMap Text Data
+shapes p m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
   where
     skip (Struct' x)
         | Just True <- x ^. scException = False

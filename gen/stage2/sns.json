@@ -605,6 +605,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "addPermissionResponse",
+                "dataCtor": "addPermissionResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -633,6 +634,7 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "addPermission",
+                "dataCtor": "addPermissionInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -671,6 +673,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "AddPermissionInput",
@@ -799,6 +802,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "confirmSubscriptionResponse",
+                "dataCtor": "confirmSubscriptionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -872,6 +876,7 @@
                 "streaming": false,
                 "fieldPad": 29,
                 "ctor": "confirmSubscription",
+                "dataCtor": "confirmSubscriptionInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -910,6 +915,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 26,
                 "name": "ConfirmSubscriptionInput",
@@ -1005,6 +1011,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createPlatformApplicationResponse",
+                "dataCtor": "createPlatformApplicationResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -1077,6 +1084,7 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "createPlatformApplication",
+                "dataCtor": "createPlatformApplicationInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1115,6 +1123,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "CreatePlatformApplicationInput",
@@ -1210,6 +1219,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createPlatformEndpointResponse",
+                "dataCtor": "createEndpointResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -1282,6 +1292,7 @@
                 "streaming": false,
                 "fieldPad": 27,
                 "ctor": "createPlatformEndpoint",
+                "dataCtor": "createPlatformEndpointInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1320,6 +1331,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "CreatePlatformEndpointInput",
@@ -1448,6 +1460,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createTopicResponse",
+                "dataCtor": "createTopicResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -1522,6 +1535,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createTopic",
+                "dataCtor": "createTopicInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1560,6 +1574,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 5,
                 "name": "CreateTopicInput",
@@ -1602,6 +1617,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteEndpointResponse",
+                "dataCtor": "deleteEndpointResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -1631,6 +1647,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteEndpoint",
+                "dataCtor": "deleteEndpointInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1669,6 +1686,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "DeleteEndpointInput",
@@ -1711,6 +1729,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deletePlatformApplicationResponse",
+                "dataCtor": "deletePlatformApplicationResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -1740,6 +1759,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deletePlatformApplication",
+                "dataCtor": "deletePlatformApplicationInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1778,6 +1798,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "DeletePlatformApplicationInput",
@@ -1820,6 +1841,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteTopicResponse",
+                "dataCtor": "deleteTopicResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -1849,6 +1871,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteTopic",
+                "dataCtor": "deleteTopicInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1887,6 +1910,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "DeleteTopicInput",
@@ -1929,6 +1953,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getEndpointAttributesResponse",
+                "dataCtor": "getEndpointAttributesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": "_Map",
@@ -2003,6 +2028,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getEndpointAttributes",
+                "dataCtor": "getEndpointAttributesInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2041,6 +2067,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "GetEndpointAttributesInput",
@@ -2083,6 +2110,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getPlatformApplicationAttributesResponse",
+                "dataCtor": "getPlatformApplicationAttributesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": "_Map",
@@ -2157,6 +2185,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getPlatformApplicationAttributes",
+                "dataCtor": "getPlatformApplicationAttributesInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2195,6 +2224,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "GetPlatformApplicationAttributesInput",
@@ -2237,6 +2267,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getSubscriptionAttributesResponse",
+                "dataCtor": "getSubscriptionAttributesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": "_Map",
@@ -2311,6 +2342,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getSubscriptionAttributes",
+                "dataCtor": "getSubscriptionAttributesInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2349,6 +2381,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "GetSubscriptionAttributesInput",
@@ -2391,6 +2424,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getTopicAttributesResponse",
+                "dataCtor": "getTopicAttributesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": "_Map",
@@ -2465,6 +2499,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getTopicAttributes",
+                "dataCtor": "getTopicAttributesInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2503,6 +2538,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "GetTopicAttributesInput",
@@ -2544,6 +2580,7 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "listEndpointsByPlatformApplicationResponse",
+                "dataCtor": "listEndpointsByPlatformApplicationResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -2631,6 +2668,7 @@
                 "streaming": false,
                 "fieldPad": 29,
                 "ctor": "listEndpointsByPlatformApplication",
+                "dataCtor": "listEndpointsByPlatformApplicationInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2655,6 +2693,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "ListEndpointsByPlatformApplicationInput",
@@ -2730,6 +2769,7 @@
                 "streaming": false,
                 "fieldPad": 25,
                 "ctor": "listPlatformApplicationsResponse",
+                "dataCtor": "listPlatformApplicationsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -2817,6 +2857,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listPlatformApplications",
+                "dataCtor": "listPlatformApplicationsInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2840,6 +2881,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "ListPlatformApplicationsInput",
@@ -2896,6 +2938,7 @@
                 "streaming": false,
                 "fieldPad": 17,
                 "ctor": "listSubscriptionsResponse",
+                "dataCtor": "listSubscriptionsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -2983,6 +3026,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listSubscriptions",
+                "dataCtor": "listSubscriptionsInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -3006,6 +3050,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "ListSubscriptionsInput",
@@ -3062,6 +3107,7 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "listSubscriptionsByTopicResponse",
+                "dataCtor": "listSubscriptionsByTopicResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -3149,6 +3195,7 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "listSubscriptionsByTopic",
+                "dataCtor": "listSubscriptionsByTopicInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3173,6 +3220,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "ListSubscriptionsByTopicInput",
@@ -3248,6 +3296,7 @@
                 "streaming": false,
                 "fieldPad": 13,
                 "ctor": "listTopicsResponse",
+                "dataCtor": "listTopicsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -3335,6 +3384,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listTopics",
+                "dataCtor": "listTopicsInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -3358,6 +3408,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "ListTopicsInput",
@@ -3415,6 +3466,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "publishResponse",
+                "dataCtor": "publishResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3487,6 +3539,7 @@
                 "streaming": false,
                 "fieldPad": 20,
                 "ctor": "publish",
+                "dataCtor": "publishInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3511,6 +3564,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "PublishInput",
@@ -3719,6 +3773,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "removePermissionResponse",
+                "dataCtor": "removePermissionResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -3747,6 +3802,7 @@
                 "streaming": false,
                 "fieldPad": 12,
                 "ctor": "removePermission",
+                "dataCtor": "removePermissionInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3785,6 +3841,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "RemovePermissionInput",
@@ -3846,6 +3903,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setEndpointAttributesResponse",
+                "dataCtor": "setEndpointAttributesResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -3873,6 +3931,7 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "setEndpointAttributes",
+                "dataCtor": "setEndpointAttributesInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3897,6 +3956,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "SetEndpointAttributesInput",
@@ -3973,6 +4033,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setPlatformApplicationAttributesResponse",
+                "dataCtor": "setPlatformApplicationAttributesResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -4000,6 +4061,7 @@
                 "streaming": false,
                 "fieldPad": 28,
                 "ctor": "setPlatformApplicationAttributes",
+                "dataCtor": "setPlatformApplicationAttributesInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4024,6 +4086,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "SetPlatformApplicationAttributesInput",
@@ -4100,6 +4163,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setSubscriptionAttributesResponse",
+                "dataCtor": "setSubscriptionAttributesResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -4128,6 +4192,7 @@
                 "streaming": false,
                 "fieldPad": 20,
                 "ctor": "setSubscriptionAttributes",
+                "dataCtor": "setSubscriptionAttributesInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4166,6 +4231,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "SetSubscriptionAttributesInput",
@@ -4261,6 +4327,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setTopicAttributesResponse",
+                "dataCtor": "setTopicAttributesResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -4289,6 +4356,7 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "setTopicAttributes",
+                "dataCtor": "setTopicAttributesInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4327,6 +4395,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "SetTopicAttributesInput",
@@ -4422,6 +4491,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "subscribeResponse",
+                "dataCtor": "subscribeResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4495,6 +4565,7 @@
                 "streaming": false,
                 "fieldPad": 11,
                 "ctor": "subscribe",
+                "dataCtor": "subscribeInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4533,6 +4604,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "SubscribeInput",
@@ -4628,6 +4700,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "unsubscribeResponse",
+                "dataCtor": "unsubscribeResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -4657,6 +4730,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "unsubscribe",
+                "dataCtor": "unsubscribeInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -4695,6 +4769,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "UnsubscribeInput",

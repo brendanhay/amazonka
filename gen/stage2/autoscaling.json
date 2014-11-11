@@ -1811,7 +1811,7 @@
                     "Show",
                     "Generic"
                 ],
-                "fieldPad": 23,
+                "fieldPad": 24,
                 "ctor": "scalingPolicy",
                 "payload": null,
                 "required": [],
@@ -1824,8 +1824,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "spAutoScalingGroupName",
-                        "name": "_spAutoScalingGroupName",
+                        "lens": "sp1AutoScalingGroupName",
+                        "name": "_sp1AutoScalingGroupName",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "AutoScalingGroupName",
                         "documentation": "\u003cp\u003e The name of the Auto Scaling group associated with this scaling policy. \u003c/p\u003e",
@@ -1838,8 +1838,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "spPolicyName",
-                        "name": "_spPolicyName",
+                        "lens": "sp1PolicyName",
+                        "name": "_sp1PolicyName",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "PolicyName",
                         "documentation": "\u003cp\u003e The name of the scaling policy. \u003c/p\u003e",
@@ -1852,8 +1852,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "spScalingAdjustment",
-                        "name": "_spScalingAdjustment",
+                        "lens": "sp1ScalingAdjustment",
+                        "name": "_sp1ScalingAdjustment",
                         "shape": "PolicyIncrement",
                         "locationName": "ScalingAdjustment",
                         "documentation": "\u003cp\u003e The number associated with the specified adjustment type. A positive value adds to the current capacity and a negative value removes from the current capacity. \u003c/p\u003e",
@@ -1866,8 +1866,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "spAdjustmentType",
-                        "name": "_spAdjustmentType",
+                        "lens": "sp1AdjustmentType",
+                        "name": "_sp1AdjustmentType",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "AdjustmentType",
                         "documentation": "\u003cp\u003e Specifies whether the \u003ccode\u003eScalingAdjustment\u003c/code\u003e is an absolute number or a percentage of the current capacity. Valid values are \u003ccode\u003eChangeInCapacity\u003c/code\u003e, \u003ccode\u003eExactCapacity\u003c/code\u003e, and \u003ccode\u003ePercentChangeInCapacity\u003c/code\u003e. \u003c/p\u003e",
@@ -1880,8 +1880,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "spCooldown",
-                        "name": "_spCooldown",
+                        "lens": "sp1Cooldown",
+                        "name": "_sp1Cooldown",
                         "shape": "Cooldown",
                         "locationName": "Cooldown",
                         "documentation": "\u003cp\u003e The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. \u003c/p\u003e",
@@ -1894,8 +1894,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "spPolicyARN",
-                        "name": "_spPolicyARN",
+                        "lens": "sp1PolicyARN",
+                        "name": "_sp1PolicyARN",
                         "shape": "ResourceName",
                         "locationName": "PolicyARN",
                         "documentation": "\u003cp\u003e The Amazon Resource Name (ARN) of the policy. \u003c/p\u003e",
@@ -1908,8 +1908,8 @@
                         "lensMapping": null,
                         "default": "mempty",
                         "required": true,
-                        "lens": "spAlarms",
-                        "name": "_spAlarms",
+                        "lens": "sp1Alarms",
+                        "name": "_sp1Alarms",
                         "shape": "Alarms",
                         "locationName": "Alarms",
                         "documentation": "\u003cp\u003e A list of CloudWatch Alarms related to the policy. \u003c/p\u003e",
@@ -1922,8 +1922,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "spMinAdjustmentStep",
-                        "name": "_spMinAdjustmentStep",
+                        "lens": "sp1MinAdjustmentStep",
+                        "name": "_sp1MinAdjustmentStep",
                         "shape": "MinAdjustmentStep",
                         "locationName": "MinAdjustmentStep",
                         "documentation": "\u003cp\u003e Changes the \u003ccode\u003eDesiredCapacity\u003c/code\u003e of the Auto Scaling group by at least the specified number of instances. \u003c/p\u003e",
@@ -1938,8 +1938,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "spAdjustmentType",
-                        "name": "_spAdjustmentType",
+                        "lens": "sp1AdjustmentType",
+                        "name": "_sp1AdjustmentType",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "AdjustmentType",
                         "documentation": "\u003cp\u003e Specifies whether the \u003ccode\u003eScalingAdjustment\u003c/code\u003e is an absolute number or a percentage of the current capacity. Valid values are \u003ccode\u003eChangeInCapacity\u003c/code\u003e, \u003ccode\u003eExactCapacity\u003c/code\u003e, and \u003ccode\u003ePercentChangeInCapacity\u003c/code\u003e. \u003c/p\u003e",
@@ -1952,8 +1952,8 @@
                         "lensMapping": null,
                         "default": "mempty",
                         "required": true,
-                        "lens": "spAlarms",
-                        "name": "_spAlarms",
+                        "lens": "sp1Alarms",
+                        "name": "_sp1Alarms",
                         "shape": "Alarms",
                         "locationName": "Alarms",
                         "documentation": "\u003cp\u003e A list of CloudWatch Alarms related to the policy. \u003c/p\u003e",
@@ -1966,8 +1966,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "spAutoScalingGroupName",
-                        "name": "_spAutoScalingGroupName",
+                        "lens": "sp1AutoScalingGroupName",
+                        "name": "_sp1AutoScalingGroupName",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "AutoScalingGroupName",
                         "documentation": "\u003cp\u003e The name of the Auto Scaling group associated with this scaling policy. \u003c/p\u003e",
@@ -1980,8 +1980,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "spCooldown",
-                        "name": "_spCooldown",
+                        "lens": "sp1Cooldown",
+                        "name": "_sp1Cooldown",
                         "shape": "Cooldown",
                         "locationName": "Cooldown",
                         "documentation": "\u003cp\u003e The amount of time, in seconds, after a scaling activity completes before any further trigger-related scaling activities can start. \u003c/p\u003e",
@@ -1994,8 +1994,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "spMinAdjustmentStep",
-                        "name": "_spMinAdjustmentStep",
+                        "lens": "sp1MinAdjustmentStep",
+                        "name": "_sp1MinAdjustmentStep",
                         "shape": "MinAdjustmentStep",
                         "locationName": "MinAdjustmentStep",
                         "documentation": "\u003cp\u003e Changes the \u003ccode\u003eDesiredCapacity\u003c/code\u003e of the Auto Scaling group by at least the specified number of instances. \u003c/p\u003e",
@@ -2008,8 +2008,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "spPolicyARN",
-                        "name": "_spPolicyARN",
+                        "lens": "sp1PolicyARN",
+                        "name": "_sp1PolicyARN",
                         "shape": "ResourceName",
                         "locationName": "PolicyARN",
                         "documentation": "\u003cp\u003e The Amazon Resource Name (ARN) of the policy. \u003c/p\u003e",
@@ -2022,8 +2022,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "spPolicyName",
-                        "name": "_spPolicyName",
+                        "lens": "sp1PolicyName",
+                        "name": "_sp1PolicyName",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "PolicyName",
                         "documentation": "\u003cp\u003e The name of the scaling policy. \u003c/p\u003e",
@@ -2036,8 +2036,8 @@
                         "lensMapping": null,
                         "default": "Nothing",
                         "required": false,
-                        "lens": "spScalingAdjustment",
-                        "name": "_spScalingAdjustment",
+                        "lens": "sp1ScalingAdjustment",
+                        "name": "_sp1ScalingAdjustment",
                         "shape": "PolicyIncrement",
                         "locationName": "ScalingAdjustment",
                         "documentation": "\u003cp\u003e The number associated with the specified adjustment type. A positive value adds to the current capacity and a negative value removes from the current capacity. \u003c/p\u003e",
@@ -4186,7 +4186,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "attachInstances",
+                "ctor": "attachInstancesQuery",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4211,6 +4211,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "AttachInstancesQuery",
@@ -4314,7 +4315,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "completeLifecycleAction",
+                "ctor": "completeLifecycleActionType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4381,6 +4382,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 22,
                 "name": "CompleteLifecycleActionType",
@@ -4506,7 +4508,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "createAutoScalingGroup",
+                "ctor": "createAutoScalingGroupType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4573,6 +4575,7 @@
                         "type": "List1 Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 24,
                 "name": "CreateAutoScalingGroupType",
@@ -5062,7 +5065,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "createLaunchConfiguration",
+                "ctor": "createLaunchConfigurationType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5087,6 +5090,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "CreateLaunchConfigurationType",
@@ -5652,7 +5656,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createOrUpdateTags",
+                "ctor": "createOrUpdateTagsType",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -5676,6 +5680,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 5,
                 "name": "CreateOrUpdateTagsType",
@@ -5760,7 +5765,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "deleteAutoScalingGroup",
+                "ctor": "deleteAutoScalingGroupType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5785,6 +5790,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "DeleteAutoScalingGroupType",
@@ -5889,7 +5895,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteLaunchConfiguration",
+                "ctor": "launchConfigurationNameType",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -5928,6 +5934,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 24,
                 "name": "LaunchConfigurationNameType",
@@ -5997,7 +6004,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "deleteLifecycleHook",
+                "ctor": "deleteLifecycleHookType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6036,6 +6043,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "DeleteLifecycleHookType",
@@ -6124,7 +6132,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "deleteNotificationConfiguration",
+                "ctor": "deleteNotificationConfigurationType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6163,6 +6171,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "DeleteNotificationConfigurationType",
@@ -6251,7 +6260,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "deletePolicy",
+                "ctor": "deletePolicyType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6276,6 +6285,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "DeletePolicyType",
@@ -6379,7 +6389,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "deleteScheduledAction",
+                "ctor": "deleteScheduledActionType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6404,6 +6414,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "DeleteScheduledActionType",
@@ -6507,7 +6518,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteTags",
+                "ctor": "deleteTagsType",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -6531,6 +6542,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 5,
                 "name": "DeleteTagsType",
@@ -6587,7 +6599,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 36,
-                "ctor": "describeAccountLimitsResponse",
+                "ctor": "describeAccountLimitsAnswer",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -6683,6 +6695,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DescribeAccountLimits",
@@ -6703,7 +6716,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeAdjustmentTypesResponse",
+                "ctor": "describeAdjustmentTypesAnswer",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6785,6 +6798,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DescribeAdjustmentTypes",
@@ -6804,7 +6818,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "describeAutoScalingGroupsResponse",
+                "ctor": "autoScalingGroupsType",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -6891,7 +6905,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "describeAutoScalingGroups",
+                "ctor": "autoScalingGroupNamesType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6901,6 +6915,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 22,
                 "name": "AutoScalingGroupNamesType",
@@ -7022,7 +7037,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "describeAutoScalingInstancesResponse",
+                "ctor": "autoScalingInstancesType",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -7109,7 +7124,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "describeAutoScalingInstances",
+                "ctor": "describeAutoScalingInstancesType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7119,6 +7134,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "DescribeAutoScalingInstancesType",
@@ -7242,7 +7258,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeAutoScalingNotificationTypesResponse",
+                "ctor": "describeAutoScalingNotificationTypesAnswer",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7324,6 +7340,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DescribeAutoScalingNotificationTypes",
@@ -7343,7 +7360,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "describeLaunchConfigurationsResponse",
+                "ctor": "launchConfigurationsType",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -7430,7 +7447,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "describeLaunchConfigurations",
+                "ctor": "launchConfigurationNamesType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7440,6 +7457,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "LaunchConfigurationNamesType",
@@ -7563,7 +7581,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeLifecycleHookTypesResponse",
+                "ctor": "describeLifecycleHookTypesAnswer",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7645,6 +7663,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DescribeLifecycleHookTypes",
@@ -7665,7 +7684,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeLifecycleHooksResponse",
+                "ctor": "describeLifecycleHooksAnswer",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7738,7 +7757,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "describeLifecycleHooks",
+                "ctor": "describeLifecycleHooksType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7763,6 +7782,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "DescribeLifecycleHooksType",
@@ -7837,7 +7857,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "describeMetricCollectionTypesResponse",
+                "ctor": "describeMetricCollectionTypesAnswer",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -7933,6 +7953,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DescribeMetricCollectionTypes",
@@ -7952,7 +7973,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "describeNotificationConfigurationsResponse",
+                "ctor": "describeNotificationConfigurationsAnswer",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -8039,7 +8060,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "describeNotificationConfigurations",
+                "ctor": "describeNotificationConfigurationsType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8049,6 +8070,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 22,
                 "name": "DescribeNotificationConfigurationsType",
@@ -8170,7 +8192,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 18,
-                "ctor": "describePoliciesResponse",
+                "ctor": "policiesType",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -8257,7 +8279,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "describePolicies",
+                "ctor": "describePoliciesType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8267,6 +8289,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "DescribePoliciesType",
@@ -8421,7 +8444,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 13,
-                "ctor": "describeScalingActivitiesResponse",
+                "ctor": "activitiesType",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -8508,7 +8531,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "describeScalingActivities",
+                "ctor": "describeScalingActivitiesType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8518,6 +8541,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "DescribeScalingActivitiesType",
@@ -8673,7 +8697,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeScalingProcessTypesResponse",
+                "ctor": "processesType",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8755,6 +8779,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DescribeScalingProcessTypes",
@@ -8774,7 +8799,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "describeScheduledActionsResponse",
+                "ctor": "scheduledActionsType",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -8861,7 +8886,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "describeScheduledActions",
+                "ctor": "describeScheduledActionsType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8871,6 +8896,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "DescribeScheduledActionsType",
@@ -9091,7 +9117,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 12,
-                "ctor": "describeTagsResponse",
+                "ctor": "tagsType",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -9177,7 +9203,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 14,
-                "ctor": "describeTags",
+                "ctor": "describeTagsType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9187,6 +9213,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DescribeTagsType",
@@ -9310,7 +9337,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeTerminationPolicyTypesResponse",
+                "ctor": "describeTerminationPolicyTypesAnswer",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -9392,6 +9419,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DescribeTerminationPolicyTypes",
@@ -9412,7 +9440,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "detachInstancesResponse",
+                "ctor": "detachInstancesAnswer",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -9485,7 +9513,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 34,
-                "ctor": "detachInstances",
+                "ctor": "detachInstancesQuery",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9524,6 +9552,7 @@
                         "type": "Bool"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 31,
                 "name": "DetachInstancesQuery",
@@ -9646,7 +9675,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "disableMetricsCollection",
+                "ctor": "disableMetricsCollectionQuery",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9671,6 +9700,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "DisableMetricsCollectionQuery",
@@ -9774,7 +9804,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "enableMetricsCollection",
+                "ctor": "enableMetricsCollectionQuery",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9813,6 +9843,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "EnableMetricsCollectionQuery",
@@ -9907,7 +9938,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "enterStandbyResponse",
+                "ctor": "enterStandbyAnswer",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -9980,7 +10011,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 34,
-                "ctor": "enterStandby",
+                "ctor": "enterStandbyQuery",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10019,6 +10050,7 @@
                         "type": "Bool"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 31,
                 "name": "EnterStandbyQuery",
@@ -10141,7 +10173,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "executePolicy",
+                "ctor": "executePolicyType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10166,6 +10198,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "ExecutePolicyType",
@@ -10274,7 +10307,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "exitStandbyResponse",
+                "ctor": "exitStandbyAnswer",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -10347,7 +10380,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "exitStandby",
+                "ctor": "exitStandbyQuery",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10372,6 +10405,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "ExitStandbyQuery",
@@ -10475,7 +10509,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "putLifecycleHook",
+                "ctor": "putLifecycleHookType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10514,6 +10548,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 22,
                 "name": "PutLifecycleHookType",
@@ -10801,7 +10836,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "putNotificationConfiguration",
+                "ctor": "putNotificationConfigurationType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10840,6 +10875,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "PutNotificationConfigurationType",
@@ -10934,7 +10970,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "putScalingPolicyResponse",
+                "ctor": "policyARNType",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -11007,7 +11043,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "putScalingPolicy",
+                "ctor": "putScalingPolicyType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11074,6 +11110,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "PutScalingPolicyType",
@@ -11267,7 +11304,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "putScheduledUpdateGroupAction",
+                "ctor": "putScheduledUpdateGroupActionType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11306,6 +11343,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "PutScheduledUpdateGroupActionType",
@@ -11626,7 +11664,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "recordLifecycleActionHeartbeat",
+                "ctor": "recordLifecycleActionHeartbeatType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11679,6 +11717,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "RecordLifecycleActionHeartbeatType",
@@ -11785,7 +11824,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "fieldPad": 24,
+                "fieldPad": 23,
                 "ctor": "resumeProcesses",
                 "headerPad": 0,
                 "path": [
@@ -11802,8 +11841,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "spqAutoScalingGroupName",
-                        "name": "_spqAutoScalingGroupName",
+                        "lens": "rpAutoScalingGroupName",
+                        "name": "_rpAutoScalingGroupName",
                         "shape": "ResourceName",
                         "locationName": "AutoScalingGroupName",
                         "documentation": "\u003cp\u003e The name or Amazon Resource Name (ARN) of the Auto Scaling group. \u003c/p\u003e",
@@ -11811,17 +11850,18 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
-                "name": "ScalingProcessQuery",
+                "name": "ResumeProcesses",
                 "query": [
                     {
-                        "field": "_spqAutoScalingGroupName",
+                        "field": "_rpAutoScalingGroupName",
                         "locationName": "AutoScalingGroupName",
                         "type": "field"
                     },
                     {
-                        "field": "_spqScalingProcesses",
+                        "field": "_rpScalingProcesses",
                         "locationName": "ScalingProcesses",
                         "type": "field"
                     }
@@ -11834,8 +11874,8 @@
                         "lensMapping": null,
                         "default": "mempty",
                         "required": true,
-                        "lens": "spqScalingProcesses",
-                        "name": "_spqScalingProcesses",
+                        "lens": "rpScalingProcesses",
+                        "name": "_rpScalingProcesses",
                         "shape": "ProcessNames",
                         "locationName": "ScalingProcesses",
                         "documentation": "\u003cp\u003e The processes that you want to suspend or resume, which can include one or more of the following: \u003c/p\u003e \u003cul\u003e \u003cli\u003eLaunch\u003c/li\u003e \u003cli\u003eTerminate\u003c/li\u003e \u003cli\u003eHealthCheck\u003c/li\u003e \u003cli\u003eReplaceUnhealthy\u003c/li\u003e \u003cli\u003eAZRebalance\u003c/li\u003e \u003cli\u003eAlarmNotification\u003c/li\u003e \u003cli\u003eScheduledActions\u003c/li\u003e \u003cli\u003eAddToLoadBalancer\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e To suspend all process types, omit this parameter. \u003c/p\u003e",
@@ -11850,8 +11890,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "spqAutoScalingGroupName",
-                        "name": "_spqAutoScalingGroupName",
+                        "lens": "rpAutoScalingGroupName",
+                        "name": "_rpAutoScalingGroupName",
                         "shape": "ResourceName",
                         "locationName": "AutoScalingGroupName",
                         "documentation": "\u003cp\u003e The name or Amazon Resource Name (ARN) of the Auto Scaling group. \u003c/p\u003e",
@@ -11864,8 +11904,8 @@
                         "lensMapping": null,
                         "default": "mempty",
                         "required": true,
-                        "lens": "spqScalingProcesses",
-                        "name": "_spqScalingProcesses",
+                        "lens": "rpScalingProcesses",
+                        "name": "_rpScalingProcesses",
                         "shape": "ProcessNames",
                         "locationName": "ScalingProcesses",
                         "documentation": "\u003cp\u003e The processes that you want to suspend or resume, which can include one or more of the following: \u003c/p\u003e \u003cul\u003e \u003cli\u003eLaunch\u003c/li\u003e \u003cli\u003eTerminate\u003c/li\u003e \u003cli\u003eHealthCheck\u003c/li\u003e \u003cli\u003eReplaceUnhealthy\u003c/li\u003e \u003cli\u003eAZRebalance\u003c/li\u003e \u003cli\u003eAlarmNotification\u003c/li\u003e \u003cli\u003eScheduledActions\u003c/li\u003e \u003cli\u003eAddToLoadBalancer\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e To suspend all process types, omit this parameter. \u003c/p\u003e",
@@ -11914,7 +11954,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "setDesiredCapacity",
+                "ctor": "setDesiredCapacityType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11953,6 +11993,7 @@
                         "type": "Int"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "SetDesiredCapacityType",
@@ -12075,7 +12116,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "setInstanceHealth",
+                "ctor": "setInstanceHealthQuery",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12114,6 +12155,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "SetInstanceHealthQuery",
@@ -12235,7 +12277,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "fieldPad": 24,
+                "fieldPad": 23,
                 "ctor": "suspendProcesses",
                 "headerPad": 0,
                 "path": [
@@ -12252,8 +12294,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "spqAutoScalingGroupName",
-                        "name": "_spqAutoScalingGroupName",
+                        "lens": "spAutoScalingGroupName",
+                        "name": "_spAutoScalingGroupName",
                         "shape": "ResourceName",
                         "locationName": "AutoScalingGroupName",
                         "documentation": "\u003cp\u003e The name or Amazon Resource Name (ARN) of the Auto Scaling group. \u003c/p\u003e",
@@ -12261,17 +12303,18 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
-                "name": "ScalingProcessQuery",
+                "name": "SuspendProcesses",
                 "query": [
                     {
-                        "field": "_spqAutoScalingGroupName",
+                        "field": "_spAutoScalingGroupName",
                         "locationName": "AutoScalingGroupName",
                         "type": "field"
                     },
                     {
-                        "field": "_spqScalingProcesses",
+                        "field": "_spScalingProcesses",
                         "locationName": "ScalingProcesses",
                         "type": "field"
                     }
@@ -12284,8 +12327,8 @@
                         "lensMapping": null,
                         "default": "mempty",
                         "required": true,
-                        "lens": "spqScalingProcesses",
-                        "name": "_spqScalingProcesses",
+                        "lens": "spScalingProcesses",
+                        "name": "_spScalingProcesses",
                         "shape": "ProcessNames",
                         "locationName": "ScalingProcesses",
                         "documentation": "\u003cp\u003e The processes that you want to suspend or resume, which can include one or more of the following: \u003c/p\u003e \u003cul\u003e \u003cli\u003eLaunch\u003c/li\u003e \u003cli\u003eTerminate\u003c/li\u003e \u003cli\u003eHealthCheck\u003c/li\u003e \u003cli\u003eReplaceUnhealthy\u003c/li\u003e \u003cli\u003eAZRebalance\u003c/li\u003e \u003cli\u003eAlarmNotification\u003c/li\u003e \u003cli\u003eScheduledActions\u003c/li\u003e \u003cli\u003eAddToLoadBalancer\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e To suspend all process types, omit this parameter. \u003c/p\u003e",
@@ -12300,8 +12343,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "spqAutoScalingGroupName",
-                        "name": "_spqAutoScalingGroupName",
+                        "lens": "spAutoScalingGroupName",
+                        "name": "_spAutoScalingGroupName",
                         "shape": "ResourceName",
                         "locationName": "AutoScalingGroupName",
                         "documentation": "\u003cp\u003e The name or Amazon Resource Name (ARN) of the Auto Scaling group. \u003c/p\u003e",
@@ -12314,8 +12357,8 @@
                         "lensMapping": null,
                         "default": "mempty",
                         "required": true,
-                        "lens": "spqScalingProcesses",
-                        "name": "_spqScalingProcesses",
+                        "lens": "spScalingProcesses",
+                        "name": "_spScalingProcesses",
                         "shape": "ProcessNames",
                         "locationName": "ScalingProcesses",
                         "documentation": "\u003cp\u003e The processes that you want to suspend or resume, which can include one or more of the following: \u003c/p\u003e \u003cul\u003e \u003cli\u003eLaunch\u003c/li\u003e \u003cli\u003eTerminate\u003c/li\u003e \u003cli\u003eHealthCheck\u003c/li\u003e \u003cli\u003eReplaceUnhealthy\u003c/li\u003e \u003cli\u003eAZRebalance\u003c/li\u003e \u003cli\u003eAlarmNotification\u003c/li\u003e \u003cli\u003eScheduledActions\u003c/li\u003e \u003cli\u003eAddToLoadBalancer\u003c/li\u003e \u003c/ul\u003e \u003cp\u003e To suspend all process types, omit this parameter. \u003c/p\u003e",
@@ -12335,7 +12378,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "terminateInstanceInAutoScalingGroupResponse",
+                "ctor": "activityType",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -12408,7 +12451,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 38,
-                "ctor": "terminateInstanceInAutoScalingGroup",
+                "ctor": "terminateInstanceInAutoScalingGroupType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12447,6 +12490,7 @@
                         "type": "Bool"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 31,
                 "name": "TerminateInstanceInAutoScalingGroupType",
@@ -12535,7 +12579,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "updateAutoScalingGroup",
+                "ctor": "updateAutoScalingGroupType",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12574,6 +12618,7 @@
                         "type": "List1 Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 24,
                 "name": "UpdateAutoScalingGroupType",

@@ -1202,6 +1202,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "addPermissionResponse",
+                "dataCtor": "addPermissionResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -1230,6 +1231,7 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "addPermission",
+                "dataCtor": "addPermission",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1268,6 +1270,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "AddPermission",
@@ -1396,6 +1399,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "changeMessageVisibilityResponse",
+                "dataCtor": "changeMessageVisibilityResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -1424,6 +1428,7 @@
                 "streaming": false,
                 "fieldPad": 21,
                 "ctor": "changeMessageVisibility",
+                "dataCtor": "changeMessageVisibility",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1476,6 +1481,7 @@
                         "type": "Int"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "ChangeMessageVisibility",
@@ -1555,6 +1561,7 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "changeMessageVisibilityBatchResponse",
+                "dataCtor": "changeMessageVisibilityBatchResult",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1641,6 +1648,7 @@
                 "streaming": false,
                 "fieldPad": 13,
                 "ctor": "changeMessageVisibilityBatch",
+                "dataCtor": "changeMessageVisibilityBatch",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1665,6 +1673,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "ChangeMessageVisibilityBatch",
@@ -1741,6 +1750,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createQueueResponse",
+                "dataCtor": "createQueueResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -1813,6 +1823,7 @@
                 "streaming": false,
                 "fieldPad": 13,
                 "ctor": "createQueue",
+                "dataCtor": "createQueue",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1837,6 +1848,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "CreateQueue",
@@ -1913,6 +1925,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteMessageResponse",
+                "dataCtor": "deleteMessageResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -1941,6 +1954,7 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "deleteMessage",
+                "dataCtor": "deleteMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1979,6 +1993,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "DeleteMessage",
@@ -2039,6 +2054,7 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "deleteMessageBatchResponse",
+                "dataCtor": "deleteMessageBatchResult",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -2125,6 +2141,7 @@
                 "streaming": false,
                 "fieldPad": 12,
                 "ctor": "deleteMessageBatch",
+                "dataCtor": "deleteMessageBatch",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2149,6 +2166,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "DeleteMessageBatch",
@@ -2225,6 +2243,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteQueueResponse",
+                "dataCtor": "deleteQueueResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -2254,6 +2273,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteQueue",
+                "dataCtor": "deleteQueue",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2292,6 +2312,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "DeleteQueue",
@@ -2334,6 +2355,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getQueueAttributesResponse",
+                "dataCtor": "getQueueAttributesResult",
                 "field": {
                     "location": "querystring",
                     "iso": "_Map",
@@ -2407,6 +2429,7 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "getQueueAttributes",
+                "dataCtor": "getQueueAttributes",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2431,6 +2454,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "GetQueueAttributes",
@@ -2507,6 +2531,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getQueueUrlResponse",
+                "dataCtor": "getQueueUrlResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -2580,6 +2605,7 @@
                 "streaming": false,
                 "fieldPad": 26,
                 "ctor": "getQueueUrl",
+                "dataCtor": "getQueueUrl",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2604,6 +2630,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 23,
                 "name": "GetQueueUrl",
@@ -2681,6 +2708,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listDeadLetterSourceQueuesResponse",
+                "dataCtor": "listDeadLetterSourceQueuesResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -2755,6 +2783,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listDeadLetterSourceQueues",
+                "dataCtor": "listDeadLetterSourceQueues",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2793,6 +2822,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "ListDeadLetterSourceQueues",
@@ -2836,6 +2866,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listQueuesResponse",
+                "dataCtor": "listQueuesResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -2909,6 +2940,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listQueues",
+                "dataCtor": "listQueues",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2932,6 +2964,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "ListQueues",
@@ -2989,6 +3022,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "receiveMessageResponse",
+                "dataCtor": "receiveMessageResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3062,6 +3096,7 @@
                 "streaming": false,
                 "fieldPad": 24,
                 "ctor": "receiveMessage",
+                "dataCtor": "receiveMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3086,6 +3121,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 22,
                 "name": "ReceiveMessage",
@@ -3294,6 +3330,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "removePermissionResponse",
+                "dataCtor": "removePermissionResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -3322,6 +3359,7 @@
                 "streaming": false,
                 "fieldPad": 11,
                 "ctor": "removePermission",
+                "dataCtor": "removePermission",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3360,6 +3398,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "RemovePermission",
@@ -3421,6 +3460,7 @@
                 "streaming": false,
                 "fieldPad": 26,
                 "ctor": "sendMessageResponse",
+                "dataCtor": "sendMessageResult",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -3535,6 +3575,7 @@
                 "streaming": false,
                 "fieldPad": 20,
                 "ctor": "sendMessage",
+                "dataCtor": "sendMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3573,6 +3614,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "SendMessage",
@@ -3700,6 +3742,7 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "sendMessageBatchResponse",
+                "dataCtor": "sendMessageBatchResult",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -3786,6 +3829,7 @@
                 "streaming": false,
                 "fieldPad": 12,
                 "ctor": "sendMessageBatch",
+                "dataCtor": "sendMessageBatch",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3810,6 +3854,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "SendMessageBatch",
@@ -3886,6 +3931,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setQueueAttributesResponse",
+                "dataCtor": "setQueueAttributesResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -3913,6 +3959,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "setQueueAttributes",
+                "dataCtor": "setQueueAttributes",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3937,6 +3984,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "SetQueueAttributes",

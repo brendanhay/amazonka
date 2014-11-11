@@ -1021,6 +1021,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteIdentityResponse",
+                "dataCtor": "deleteIdentityResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -1050,6 +1051,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteIdentity",
+                "dataCtor": "deleteIdentity",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1088,6 +1090,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "DeleteIdentity",
@@ -1130,6 +1133,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteVerifiedEmailAddressResponse",
+                "dataCtor": "deleteVerifiedEmailAddressResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -1159,6 +1163,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteVerifiedEmailAddress",
+                "dataCtor": "deleteVerifiedEmailAddress",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1197,6 +1202,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DeleteVerifiedEmailAddress",
@@ -1239,6 +1245,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getIdentityDkimAttributesResponse",
+                "dataCtor": "getIdentityDkimAttributesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": "_Map",
@@ -1313,6 +1320,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getIdentityDkimAttributes",
+                "dataCtor": "getIdentityDkimAttributes",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1336,6 +1344,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "GetIdentityDkimAttributes",
@@ -1393,6 +1402,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getIdentityNotificationAttributesResponse",
+                "dataCtor": "getIdentityNotificationAttributesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": "_Map",
@@ -1467,6 +1477,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getIdentityNotificationAttributes",
+                "dataCtor": "getIdentityNotificationAttributes",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1490,6 +1501,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "GetIdentityNotificationAttributes",
@@ -1547,6 +1559,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getIdentityVerificationAttributesResponse",
+                "dataCtor": "getIdentityVerificationAttributesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": "_Map",
@@ -1621,6 +1634,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getIdentityVerificationAttributes",
+                "dataCtor": "getIdentityVerificationAttributes",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1644,6 +1658,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "GetIdentityVerificationAttributes",
@@ -1701,6 +1716,7 @@
                 "streaming": false,
                 "fieldPad": 20,
                 "ctor": "getSendQuotaResponse",
+                "dataCtor": "getSendQuotaResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1816,6 +1832,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getSendQuota",
+                "dataCtor": "getSendQuota",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1824,6 +1841,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetSendQuota",
@@ -1845,6 +1863,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getSendStatisticsResponse",
+                "dataCtor": "getSendStatisticsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -1918,6 +1937,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getSendStatistics",
+                "dataCtor": "getSendStatistics",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1926,6 +1946,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetSendStatistics",
@@ -1947,6 +1968,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "listIdentitiesResponse",
+                "dataCtor": "listIdentitiesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -2034,6 +2056,7 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "listIdentities",
+                "dataCtor": "listIdentities",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2043,6 +2066,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "ListIdentities",
@@ -2167,6 +2191,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listVerifiedEmailAddressesResponse",
+                "dataCtor": "listVerifiedEmailAddressesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -2240,6 +2265,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listVerifiedEmailAddresses",
+                "dataCtor": "listVerifiedEmailAddresses",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2248,6 +2274,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "ListVerifiedEmailAddresses",
@@ -2270,6 +2297,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "sendEmailResponse",
+                "dataCtor": "sendEmailResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -2342,6 +2370,7 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "sendEmail",
+                "dataCtor": "sendEmail",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2394,6 +2423,7 @@
                         "type": "Message"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "SendEmail",
@@ -2542,6 +2572,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "sendRawEmailResponse",
+                "dataCtor": "sendRawEmailResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -2614,6 +2645,7 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "sendRawEmail",
+                "dataCtor": "sendRawEmail",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2638,6 +2670,7 @@
                         "type": "RawMessage"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "SendRawEmail",
@@ -2747,6 +2780,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setIdentityDkimEnabledResponse",
+                "dataCtor": "setIdentityDkimEnabledResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -2775,6 +2809,7 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "setIdentityDkimEnabled",
+                "dataCtor": "setIdentityDkimEnabled",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2813,6 +2848,7 @@
                         "type": "Bool"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "SetIdentityDkimEnabled",
@@ -2874,6 +2910,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setIdentityFeedbackForwardingEnabledResponse",
+                "dataCtor": "setIdentityFeedbackForwardingEnabledResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -2902,6 +2939,7 @@
                 "streaming": false,
                 "fieldPad": 23,
                 "ctor": "setIdentityFeedbackForwardingEnabled",
+                "dataCtor": "setIdentityFeedbackForwardingEnabled",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2940,6 +2978,7 @@
                         "type": "Bool"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 18,
                 "name": "SetIdentityFeedbackForwardingEnabled",
@@ -3001,6 +3040,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setIdentityNotificationTopicResponse",
+                "dataCtor": "setIdentityNotificationTopicResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -3029,6 +3069,7 @@
                 "streaming": false,
                 "fieldPad": 21,
                 "ctor": "setIdentityNotificationTopic",
+                "dataCtor": "setIdentityNotificationTopic",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3067,6 +3108,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "SetIdentityNotificationTopic",
@@ -3163,6 +3205,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "verifyDomainDkimResponse",
+                "dataCtor": "verifyDomainDkimResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3237,6 +3280,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "verifyDomainDkim",
+                "dataCtor": "verifyDomainDkim",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -3275,6 +3319,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 7,
                 "name": "VerifyDomainDkim",
@@ -3318,6 +3363,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "verifyDomainIdentityResponse",
+                "dataCtor": "verifyDomainIdentityResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3392,6 +3438,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "verifyDomainIdentity",
+                "dataCtor": "verifyDomainIdentity",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -3430,6 +3477,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 7,
                 "name": "VerifyDomainIdentity",
@@ -3472,6 +3520,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "verifyEmailAddressResponse",
+                "dataCtor": "verifyEmailAddressResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -3501,6 +3550,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "verifyEmailAddress",
+                "dataCtor": "verifyEmailAddress",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -3539,6 +3589,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "VerifyEmailAddress",
@@ -3581,6 +3632,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "verifyEmailIdentityResponse",
+                "dataCtor": "verifyEmailIdentityResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -3610,6 +3662,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "verifyEmailIdentity",
+                "dataCtor": "verifyEmailIdentity",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -3648,6 +3701,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "VerifyEmailIdentity",

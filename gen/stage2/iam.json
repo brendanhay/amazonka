@@ -2689,6 +2689,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "addClientIDToOpenIDConnectProviderResponse",
+                "dataCtor": "addClientIDToOpenIDConnectProviderResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -2717,6 +2718,7 @@
                 "streaming": false,
                 "fieldPad": 35,
                 "ctor": "addClientIDToOpenIDConnectProvider",
+                "dataCtor": "addClientIDToOpenIDConnectProvider",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2755,6 +2757,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "AddClientIDToOpenIDConnectProvider",
@@ -2816,6 +2819,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "addRoleToInstanceProfileResponse",
+                "dataCtor": "addRoleToInstanceProfileResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -2844,6 +2848,7 @@
                 "streaming": false,
                 "fieldPad": 25,
                 "ctor": "addRoleToInstanceProfile",
+                "dataCtor": "addRoleToInstanceProfile",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2882,6 +2887,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 20,
                 "name": "AddRoleToInstanceProfile",
@@ -2943,6 +2949,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "addUserToGroupResponse",
+                "dataCtor": "addUserToGroupResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -2971,6 +2978,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "addUserToGroup",
+                "dataCtor": "addUserToGroup",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3009,6 +3017,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "AddUserToGroup",
@@ -3070,6 +3079,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "changePasswordResponse",
+                "dataCtor": "changePasswordResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -3098,6 +3108,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "changePassword",
+                "dataCtor": "changePassword",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3136,6 +3147,7 @@
                         "type": "Sensitive Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "ChangePassword",
@@ -3196,6 +3208,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createAccessKeyResponse",
+                "dataCtor": "createAccessKeyResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3269,6 +3282,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createAccessKey",
+                "dataCtor": "createAccessKey",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -3292,6 +3306,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "CreateAccessKey",
@@ -3349,6 +3364,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createAccountAliasResponse",
+                "dataCtor": "createAccountAliasResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -3378,6 +3394,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createAccountAlias",
+                "dataCtor": "createAccountAlias",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -3416,6 +3433,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "CreateAccountAlias",
@@ -3457,6 +3475,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createGroupResponse",
+                "dataCtor": "createGroupResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3530,6 +3549,7 @@
                 "streaming": false,
                 "fieldPad": 12,
                 "ctor": "createGroup",
+                "dataCtor": "createGroup",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3554,6 +3574,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "CreateGroup",
@@ -3629,6 +3650,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createInstanceProfileResponse",
+                "dataCtor": "createInstanceProfileResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3702,6 +3724,7 @@
                 "streaming": false,
                 "fieldPad": 23,
                 "ctor": "createInstanceProfile",
+                "dataCtor": "createInstanceProfile",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3726,6 +3749,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 20,
                 "name": "CreateInstanceProfile",
@@ -3801,6 +3825,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createLoginProfileResponse",
+                "dataCtor": "createLoginProfileResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3874,6 +3899,7 @@
                 "streaming": false,
                 "fieldPad": 25,
                 "ctor": "createLoginProfile",
+                "dataCtor": "createLoginProfile",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3912,6 +3938,7 @@
                         "type": "Sensitive Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 22,
                 "name": "CreateLoginProfile",
@@ -4007,6 +4034,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createOpenIDConnectProviderResponse",
+                "dataCtor": "createOpenIDConnectProviderResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4080,6 +4108,7 @@
                 "streaming": false,
                 "fieldPad": 21,
                 "ctor": "createOpenIDConnectProvider",
+                "dataCtor": "createOpenIDConnectProvider",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4104,6 +4133,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "CreateOpenIDConnectProvider",
@@ -4212,6 +4242,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createRoleResponse",
+                "dataCtor": "createRoleResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4285,6 +4316,7 @@
                 "streaming": false,
                 "fieldPad": 27,
                 "ctor": "createRole",
+                "dataCtor": "createRole",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4323,6 +4355,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "CreateRole",
@@ -4418,6 +4451,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createSAMLProviderResponse",
+                "dataCtor": "createSAMLProviderResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4491,6 +4525,7 @@
                 "streaming": false,
                 "fieldPad": 27,
                 "ctor": "createSAMLProvider",
+                "dataCtor": "createSAMLProvider",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4529,6 +4564,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "CreateSAMLProvider",
@@ -4589,6 +4625,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createUserResponse",
+                "dataCtor": "createUserResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4662,6 +4699,7 @@
                 "streaming": false,
                 "fieldPad": 11,
                 "ctor": "createUser",
+                "dataCtor": "createUser",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4686,6 +4724,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "CreateUser",
@@ -4761,6 +4800,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createVirtualMFADeviceResponse",
+                "dataCtor": "createVirtualMFADeviceResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4834,6 +4874,7 @@
                 "streaming": false,
                 "fieldPad": 27,
                 "ctor": "createVirtualMFADevice",
+                "dataCtor": "createVirtualMFADevice",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4858,6 +4899,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "CreateVirtualMFADevice",
@@ -4934,6 +4976,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deactivateMFADeviceResponse",
+                "dataCtor": "deactivateMFADeviceResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -4962,6 +5005,7 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "deactivateMFADevice",
+                "dataCtor": "deactivateMFADevice",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5000,6 +5044,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DeactivateMFADevice",
@@ -5061,6 +5106,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteAccessKeyResponse",
+                "dataCtor": "deleteAccessKeyResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -5089,6 +5135,7 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "deleteAccessKey",
+                "dataCtor": "deleteAccessKey",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5113,6 +5160,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "DeleteAccessKey",
@@ -5189,6 +5237,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteAccountAliasResponse",
+                "dataCtor": "deleteAccountAliasResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -5218,6 +5267,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteAccountAlias",
+                "dataCtor": "deleteAccountAlias",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -5256,6 +5306,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DeleteAccountAlias",
@@ -5298,6 +5349,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteAccountPasswordPolicyResponse",
+                "dataCtor": "deleteAccountPasswordPolicyResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -5326,6 +5378,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteAccountPasswordPolicy",
+                "dataCtor": "deleteAccountPasswordPolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5334,6 +5387,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "DeleteAccountPasswordPolicy",
@@ -5355,6 +5409,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteGroupResponse",
+                "dataCtor": "deleteGroupResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -5384,6 +5439,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteGroup",
+                "dataCtor": "deleteGroup",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -5422,6 +5478,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "DeleteGroup",
@@ -5464,6 +5521,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteGroupPolicyResponse",
+                "dataCtor": "deleteGroupPolicyResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -5492,6 +5550,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "deleteGroupPolicy",
+                "dataCtor": "deleteGroupPolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5530,6 +5589,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DeleteGroupPolicy",
@@ -5591,6 +5651,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteInstanceProfileResponse",
+                "dataCtor": "deleteInstanceProfileResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -5620,6 +5681,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteInstanceProfile",
+                "dataCtor": "deleteInstanceProfile",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -5658,6 +5720,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 20,
                 "name": "DeleteInstanceProfile",
@@ -5700,6 +5763,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteLoginProfileResponse",
+                "dataCtor": "deleteLoginProfileResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -5729,6 +5793,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteLoginProfile",
+                "dataCtor": "deleteLoginProfile",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -5767,6 +5832,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "DeleteLoginProfile",
@@ -5809,6 +5875,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteOpenIDConnectProviderResponse",
+                "dataCtor": "deleteOpenIDConnectProviderResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -5838,6 +5905,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteOpenIDConnectProvider",
+                "dataCtor": "deleteOpenIDConnectProvider",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -5876,6 +5944,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "DeleteOpenIDConnectProvider",
@@ -5918,6 +5987,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteRoleResponse",
+                "dataCtor": "deleteRoleResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -5947,6 +6017,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteRole",
+                "dataCtor": "deleteRole",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -5985,6 +6056,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "DeleteRole",
@@ -6027,6 +6099,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteRolePolicyResponse",
+                "dataCtor": "deleteRolePolicyResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -6055,6 +6128,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "deleteRolePolicy",
+                "dataCtor": "deleteRolePolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6093,6 +6167,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DeleteRolePolicy",
@@ -6154,6 +6229,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteSAMLProviderResponse",
+                "dataCtor": "deleteSAMLProviderResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -6183,6 +6259,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteSAMLProvider",
+                "dataCtor": "deleteSAMLProvider",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -6221,6 +6298,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "DeleteSAMLProvider",
@@ -6263,6 +6341,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteServerCertificateResponse",
+                "dataCtor": "deleteServerCertificateResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -6292,6 +6371,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteServerCertificate",
+                "dataCtor": "deleteServerCertificate",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -6330,6 +6410,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 22,
                 "name": "DeleteServerCertificate",
@@ -6372,6 +6453,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteSigningCertificateResponse",
+                "dataCtor": "deleteSigningCertificateResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -6400,6 +6482,7 @@
                 "streaming": false,
                 "fieldPad": 17,
                 "ctor": "deleteSigningCertificate",
+                "dataCtor": "deleteSigningCertificate",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6424,6 +6507,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "DeleteSigningCertificate",
@@ -6500,6 +6584,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteUserResponse",
+                "dataCtor": "deleteUserResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -6529,6 +6614,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteUser",
+                "dataCtor": "deleteUser",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -6567,6 +6653,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "DeleteUser",
@@ -6609,6 +6696,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteUserPolicyResponse",
+                "dataCtor": "deleteUserPolicyResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -6637,6 +6725,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "deleteUserPolicy",
+                "dataCtor": "deleteUserPolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6675,6 +6764,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "DeleteUserPolicy",
@@ -6736,6 +6826,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteVirtualMFADeviceResponse",
+                "dataCtor": "deleteVirtualMFADeviceResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -6765,6 +6856,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteVirtualMFADevice",
+                "dataCtor": "deleteVirtualMFADevice",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -6803,6 +6895,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "DeleteVirtualMFADevice",
@@ -6845,6 +6938,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "enableMFADeviceResponse",
+                "dataCtor": "enableMFADeviceResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -6873,6 +6967,7 @@
                 "streaming": false,
                 "fieldPad": 25,
                 "ctor": "enableMFADevice",
+                "dataCtor": "enableMFADevice",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6939,6 +7034,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 20,
                 "name": "EnableMFADevice",
@@ -7038,6 +7134,7 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "generateCredentialReportResponse",
+                "dataCtor": "generateCredentialReportResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -7125,6 +7222,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "generateCredentialReport",
+                "dataCtor": "generateCredentialReport",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7133,6 +7231,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GenerateCredentialReport",
@@ -7153,6 +7252,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getAccountPasswordPolicyResponse",
+                "dataCtor": "getAccountPasswordPolicyResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7226,6 +7326,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getAccountPasswordPolicy",
+                "dataCtor": "getAccountPasswordPolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7234,6 +7335,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetAccountPasswordPolicy",
@@ -7255,6 +7357,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getAccountSummaryResponse",
+                "dataCtor": "getAccountSummaryResponse",
                 "field": {
                     "location": "querystring",
                     "iso": "_Map",
@@ -7328,6 +7431,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getAccountSummary",
+                "dataCtor": "getAccountSummary",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7336,6 +7440,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetAccountSummary",
@@ -7356,6 +7461,7 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "getCredentialReportResponse",
+                "dataCtor": "getCredentialReportResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -7471,6 +7577,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getCredentialReport",
+                "dataCtor": "getCredentialReport",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7479,6 +7586,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "GetCredentialReport",
@@ -7499,6 +7607,7 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "getGroupResponse",
+                "dataCtor": "getGroupResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [
@@ -7643,6 +7752,7 @@
                 "streaming": false,
                 "fieldPad": 12,
                 "ctor": "getGroup",
+                "dataCtor": "getGroup",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7667,6 +7777,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "GetGroup",
@@ -7776,6 +7887,7 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "getGroupPolicyResponse",
+                "dataCtor": "getGroupPolicyResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [
@@ -7891,6 +8003,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "getGroupPolicy",
+                "dataCtor": "getGroupPolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7929,6 +8042,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "GetGroupPolicy",
@@ -7989,6 +8103,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getInstanceProfileResponse",
+                "dataCtor": "getInstanceProfileResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8063,6 +8178,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getInstanceProfile",
+                "dataCtor": "getInstanceProfile",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -8101,6 +8217,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 20,
                 "name": "GetInstanceProfile",
@@ -8142,6 +8259,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getLoginProfileResponse",
+                "dataCtor": "getLoginProfileResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8216,6 +8334,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getLoginProfile",
+                "dataCtor": "getLoginProfile",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -8254,6 +8373,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "GetLoginProfile",
@@ -8296,6 +8416,7 @@
                 "streaming": false,
                 "fieldPad": 22,
                 "ctor": "getOpenIDConnectProviderResponse",
+                "dataCtor": "getOpenIDConnectProviderResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -8440,6 +8561,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getOpenIDConnectProvider",
+                "dataCtor": "getOpenIDConnectProvider",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -8478,6 +8600,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "GetOpenIDConnectProvider",
@@ -8519,6 +8642,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getRoleResponse",
+                "dataCtor": "getRoleResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8593,6 +8717,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getRole",
+                "dataCtor": "getRole",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -8631,6 +8756,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "GetRole",
@@ -8673,6 +8799,7 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "getRolePolicyResponse",
+                "dataCtor": "getRolePolicyResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [
@@ -8788,6 +8915,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "getRolePolicy",
+                "dataCtor": "getRolePolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8826,6 +8954,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "GetRolePolicy",
@@ -8887,6 +9016,7 @@
                 "streaming": false,
                 "fieldPad": 28,
                 "ctor": "getSAMLProviderResponse",
+                "dataCtor": "getSAMLProviderResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -9003,6 +9133,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getSAMLProvider",
+                "dataCtor": "getSAMLProvider",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -9041,6 +9172,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "GetSAMLProvider",
@@ -9082,6 +9214,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getServerCertificateResponse",
+                "dataCtor": "getServerCertificateResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -9156,6 +9289,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getServerCertificate",
+                "dataCtor": "getServerCertificate",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -9194,6 +9328,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 22,
                 "name": "GetServerCertificate",
@@ -9235,6 +9370,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getUserResponse",
+                "dataCtor": "getUserResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -9308,6 +9444,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getUser",
+                "dataCtor": "getUser",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -9331,6 +9468,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "GetUser",
@@ -9388,6 +9526,7 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "getUserPolicyResponse",
+                "dataCtor": "getUserPolicyResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [
@@ -9503,6 +9642,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "getUserPolicy",
+                "dataCtor": "getUserPolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9541,6 +9681,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "GetUserPolicy",
@@ -9601,6 +9742,7 @@
                 "streaming": false,
                 "fieldPad": 22,
                 "ctor": "listAccessKeysResponse",
+                "dataCtor": "listAccessKeysResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -9716,6 +9858,7 @@
                 "streaming": false,
                 "fieldPad": 12,
                 "ctor": "listAccessKeys",
+                "dataCtor": "listAccessKeys",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9725,6 +9868,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "ListAccessKeys",
@@ -9848,6 +9992,7 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "listAccountAliasesResponse",
+                "dataCtor": "listAccountAliasesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -9963,6 +10108,7 @@
                 "streaming": false,
                 "fieldPad": 12,
                 "ctor": "listAccountAliases",
+                "dataCtor": "listAccountAliases",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9972,6 +10118,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "ListAccountAliases",
@@ -10062,6 +10209,7 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "listGroupPoliciesResponse",
+                "dataCtor": "listGroupPoliciesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -10177,6 +10325,7 @@
                 "streaming": false,
                 "fieldPad": 13,
                 "ctor": "listGroupPolicies",
+                "dataCtor": "listGroupPolicies",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10201,6 +10350,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "ListGroupPolicies",
@@ -10309,6 +10459,7 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "listGroupsResponse",
+                "dataCtor": "listGroupsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -10424,6 +10575,7 @@
                 "streaming": false,
                 "fieldPad": 13,
                 "ctor": "listGroups",
+                "dataCtor": "listGroups",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10433,6 +10585,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "ListGroups",
@@ -10555,6 +10708,7 @@
                 "streaming": false,
                 "fieldPad": 17,
                 "ctor": "listGroupsForUserResponse",
+                "dataCtor": "listGroupsForUserResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -10670,6 +10824,7 @@
                 "streaming": false,
                 "fieldPad": 13,
                 "ctor": "listGroupsForUser",
+                "dataCtor": "listGroupsForUser",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10694,6 +10849,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "ListGroupsForUser",
@@ -10802,6 +10958,7 @@
                 "streaming": false,
                 "fieldPad": 21,
                 "ctor": "listInstanceProfilesResponse",
+                "dataCtor": "listInstanceProfilesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -10917,6 +11074,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "listInstanceProfiles",
+                "dataCtor": "listInstanceProfiles",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10926,6 +11084,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "ListInstanceProfiles",
@@ -11048,6 +11207,7 @@
                 "streaming": false,
                 "fieldPad": 23,
                 "ctor": "listInstanceProfilesForRoleResponse",
+                "dataCtor": "listInstanceProfilesForRoleResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -11163,6 +11323,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "listInstanceProfilesForRole",
+                "dataCtor": "listInstanceProfilesForRole",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11187,6 +11348,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "ListInstanceProfilesForRole",
@@ -11295,6 +11457,7 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "listMFADevicesResponse",
+                "dataCtor": "listMFADevicesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -11410,6 +11573,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "listMFADevices",
+                "dataCtor": "listMFADevices",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11419,6 +11583,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "ListMFADevices",
@@ -11542,6 +11707,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listOpenIDConnectProvidersResponse",
+                "dataCtor": "listOpenIDConnectProvidersResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -11615,6 +11781,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listOpenIDConnectProviders",
+                "dataCtor": "listOpenIDConnectProviders",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11623,6 +11790,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "ListOpenIDConnectProviders",
@@ -11644,6 +11812,7 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "listRolePoliciesResponse",
+                "dataCtor": "listRolePoliciesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -11759,6 +11928,7 @@
                 "streaming": false,
                 "fieldPad": 12,
                 "ctor": "listRolePolicies",
+                "dataCtor": "listRolePolicies",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11783,6 +11953,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "ListRolePolicies",
@@ -11891,6 +12062,7 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "listRolesResponse",
+                "dataCtor": "listRolesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -12006,6 +12178,7 @@
                 "streaming": false,
                 "fieldPad": 13,
                 "ctor": "listRoles",
+                "dataCtor": "listRoles",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12015,6 +12188,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "ListRoles",
@@ -12138,6 +12312,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listSAMLProvidersResponse",
+                "dataCtor": "listSAMLProvidersResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -12211,6 +12386,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listSAMLProviders",
+                "dataCtor": "listSAMLProviders",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12219,6 +12395,7 @@
                     }
                 ],
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 0,
                 "name": "ListSAMLProviders",
@@ -12239,6 +12416,7 @@
                 "streaming": false,
                 "fieldPad": 34,
                 "ctor": "listServerCertificatesResponse",
+                "dataCtor": "listServerCertificatesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -12354,6 +12532,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "listServerCertificates",
+                "dataCtor": "listServerCertificates",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12363,6 +12542,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "ListServerCertificates",
@@ -12485,6 +12665,7 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "listSigningCertificatesResponse",
+                "dataCtor": "listSigningCertificatesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -12600,6 +12781,7 @@
                 "streaming": false,
                 "fieldPad": 13,
                 "ctor": "listSigningCertificates",
+                "dataCtor": "listSigningCertificates",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12609,6 +12791,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "ListSigningCertificates",
@@ -12732,6 +12915,7 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "listUserPoliciesResponse",
+                "dataCtor": "listUserPoliciesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -12847,6 +13031,7 @@
                 "streaming": false,
                 "fieldPad": 12,
                 "ctor": "listUserPolicies",
+                "dataCtor": "listUserPolicies",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12871,6 +13056,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 9,
                 "name": "ListUserPolicies",
@@ -12979,6 +13165,7 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "listUsersResponse",
+                "dataCtor": "listUsersResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -13094,6 +13281,7 @@
                 "streaming": false,
                 "fieldPad": 13,
                 "ctor": "listUsers",
+                "dataCtor": "listUsers",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13103,6 +13291,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 11,
                 "name": "ListUsers",
@@ -13225,6 +13414,7 @@
                 "streaming": false,
                 "fieldPad": 25,
                 "ctor": "listVirtualMFADevicesResponse",
+                "dataCtor": "listVirtualMFADevicesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -13340,6 +13530,7 @@
                 "streaming": false,
                 "fieldPad": 23,
                 "ctor": "listVirtualMFADevices",
+                "dataCtor": "listVirtualMFADevices",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13349,6 +13540,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 17,
                 "name": "ListVirtualMFADevices",
@@ -13472,6 +13664,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putGroupPolicyResponse",
+                "dataCtor": "putGroupPolicyResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -13500,6 +13693,7 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "putGroupPolicy",
+                "dataCtor": "putGroupPolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13552,6 +13746,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "PutGroupPolicy",
@@ -13632,6 +13827,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putRolePolicyResponse",
+                "dataCtor": "putRolePolicyResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -13660,6 +13856,7 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "putRolePolicy",
+                "dataCtor": "putRolePolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13712,6 +13909,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "PutRolePolicy",
@@ -13792,6 +13990,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "putUserPolicyResponse",
+                "dataCtor": "putUserPolicyResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -13820,6 +14019,7 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "putUserPolicy",
+                "dataCtor": "putUserPolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13872,6 +14072,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "PutUserPolicy",
@@ -13952,6 +14153,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "removeClientIDFromOpenIDConnectProviderResponse",
+                "dataCtor": "removeClientIDFromOpenIDConnectProviderResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -13980,6 +14182,7 @@
                 "streaming": false,
                 "fieldPad": 35,
                 "ctor": "removeClientIDFromOpenIDConnectProvider",
+                "dataCtor": "removeClientIDFromOpenIDConnectProvider",
                 "headerPad": 0,
                 "path": [
                     {
@@ -14018,6 +14221,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "RemoveClientIDFromOpenIDConnectProvider",
@@ -14079,6 +14283,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "removeRoleFromInstanceProfileResponse",
+                "dataCtor": "removeRoleFromInstanceProfileResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -14107,6 +14312,7 @@
                 "streaming": false,
                 "fieldPad": 25,
                 "ctor": "removeRoleFromInstanceProfile",
+                "dataCtor": "removeRoleFromInstanceProfile",
                 "headerPad": 0,
                 "path": [
                     {
@@ -14145,6 +14351,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 20,
                 "name": "RemoveRoleFromInstanceProfile",
@@ -14206,6 +14413,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "removeUserFromGroupResponse",
+                "dataCtor": "removeUserFromGroupResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -14234,6 +14442,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "removeUserFromGroup",
+                "dataCtor": "removeUserFromGroup",
                 "headerPad": 0,
                 "path": [
                     {
@@ -14272,6 +14481,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 10,
                 "name": "RemoveUserFromGroup",
@@ -14333,6 +14543,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "resyncMFADeviceResponse",
+                "dataCtor": "resyncMFADeviceResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -14361,6 +14572,7 @@
                 "streaming": false,
                 "fieldPad": 25,
                 "ctor": "resyncMFADevice",
+                "dataCtor": "resyncMFADevice",
                 "headerPad": 0,
                 "path": [
                     {
@@ -14427,6 +14639,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 20,
                 "name": "ResyncMFADevice",
@@ -14526,6 +14739,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateAccessKeyResponse",
+                "dataCtor": "updateAccessKeyResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -14554,6 +14768,7 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "updateAccessKey",
+                "dataCtor": "updateAccessKey",
                 "headerPad": 0,
                 "path": [
                     {
@@ -14592,6 +14807,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "UpdateAccessKey",
@@ -14687,6 +14903,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateAccountPasswordPolicyResponse",
+                "dataCtor": "updateAccountPasswordPolicyResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -14715,6 +14932,7 @@
                 "streaming": false,
                 "fieldPad": 31,
                 "ctor": "updateAccountPasswordPolicy",
+                "dataCtor": "updateAccountPasswordPolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -14724,6 +14942,7 @@
                 ],
                 "payload": null,
                 "required": [],
+                "shared": false,
                 "headers": [],
                 "queryPad": 27,
                 "name": "UpdateAccountPasswordPolicy",
@@ -15045,6 +15264,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateAssumeRolePolicyResponse",
+                "dataCtor": "updateAssumeRolePolicyResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -15073,6 +15293,7 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "updateAssumeRolePolicy",
+                "dataCtor": "updateAssumeRolePolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -15111,6 +15332,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 15,
                 "name": "UpdateAssumeRolePolicy",
@@ -15172,6 +15394,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateGroupResponse",
+                "dataCtor": "updateGroupResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -15200,6 +15423,7 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "updateGroup",
+                "dataCtor": "updateGroup",
                 "headerPad": 0,
                 "path": [
                     {
@@ -15224,6 +15448,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 13,
                 "name": "UpdateGroup",
@@ -15333,6 +15558,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateLoginProfileResponse",
+                "dataCtor": "updateLoginProfileResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -15361,6 +15587,7 @@
                 "streaming": false,
                 "fieldPad": 25,
                 "ctor": "updateLoginProfile",
+                "dataCtor": "updateLoginProfile",
                 "headerPad": 0,
                 "path": [
                     {
@@ -15385,6 +15612,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 22,
                 "name": "UpdateLoginProfile",
@@ -15494,6 +15722,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateOpenIDConnectProviderThumbprintResponse",
+                "dataCtor": "updateOpenIDConnectProviderThumbprintResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -15522,6 +15751,7 @@
                 "streaming": false,
                 "fieldPad": 32,
                 "ctor": "updateOpenIDConnectProviderThumbprint",
+                "dataCtor": "updateOpenIDConnectProviderThumbprint",
                 "headerPad": 0,
                 "path": [
                     {
@@ -15546,6 +15776,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "UpdateOpenIDConnectProviderThumbprint",
@@ -15622,6 +15853,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateSAMLProviderResponse",
+                "dataCtor": "updateSAMLProviderResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -15695,6 +15927,7 @@
                 "streaming": false,
                 "fieldPad": 27,
                 "ctor": "updateSAMLProvider",
+                "dataCtor": "updateSAMLProvider",
                 "headerPad": 0,
                 "path": [
                     {
@@ -15733,6 +15966,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 21,
                 "name": "UpdateSAMLProvider",
@@ -15794,6 +16028,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateServerCertificateResponse",
+                "dataCtor": "updateServerCertificateResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -15822,6 +16057,7 @@
                 "streaming": false,
                 "fieldPad": 29,
                 "ctor": "updateServerCertificate",
+                "dataCtor": "updateServerCertificate",
                 "headerPad": 0,
                 "path": [
                     {
@@ -15846,6 +16082,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 25,
                 "name": "UpdateServerCertificate",
@@ -15955,6 +16192,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateSigningCertificateResponse",
+                "dataCtor": "updateSigningCertificateResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -15983,6 +16221,7 @@
                 "streaming": false,
                 "fieldPad": 17,
                 "ctor": "updateSigningCertificate",
+                "dataCtor": "updateSigningCertificate",
                 "headerPad": 0,
                 "path": [
                     {
@@ -16021,6 +16260,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 14,
                 "name": "UpdateSigningCertificate",
@@ -16116,6 +16356,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateUserResponse",
+                "dataCtor": "updateUserResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -16144,6 +16385,7 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "updateUser",
+                "dataCtor": "updateUser",
                 "headerPad": 0,
                 "path": [
                     {
@@ -16168,6 +16410,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 12,
                 "name": "UpdateUser",
@@ -16276,6 +16519,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "uploadServerCertificateResponse",
+                "dataCtor": "uploadServerCertificateResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -16349,6 +16593,7 @@
                 "streaming": false,
                 "fieldPad": 25,
                 "ctor": "uploadServerCertificate",
+                "dataCtor": "uploadServerCertificate",
                 "headerPad": 0,
                 "path": [
                     {
@@ -16401,6 +16646,7 @@
                         "type": "Sensitive Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 22,
                 "name": "UploadServerCertificate",
@@ -16547,6 +16793,7 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "uploadSigningCertificateResponse",
+                "dataCtor": "uploadSigningCertificateResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -16620,6 +16867,7 @@
                 "streaming": false,
                 "fieldPad": 20,
                 "ctor": "uploadSigningCertificate",
+                "dataCtor": "uploadSigningCertificate",
                 "headerPad": 0,
                 "path": [
                     {
@@ -16644,6 +16892,7 @@
                         "type": "Text"
                     }
                 ],
+                "shared": false,
                 "headers": [],
                 "queryPad": 16,
                 "name": "UploadSigningCertificate",

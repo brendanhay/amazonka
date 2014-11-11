@@ -3,11 +3,7 @@
 import Network.AWS.Prelude
 {% include "_include/imports.ede" %}
 
-{% if request.shared %}
-  {% include "_include/datatype.ede" with type = request %}
-{% else %}
-  {% include "_include/constructor.ede" with type = request %}
-{% endif %}
+{% include "_include/datatype.ede" with type = request %}
 
 {% include "_include/path.ede" %}
 {% include "_include/query.ede" %}

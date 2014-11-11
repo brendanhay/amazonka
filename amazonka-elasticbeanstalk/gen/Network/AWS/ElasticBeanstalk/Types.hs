@@ -285,6 +285,8 @@ instance AWSService ElasticBeanstalk where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://elasticbeanstalk.amazonaws.com/docs/2010-12-01/"
+    }
 
 data ApplicationDescription = ApplicationDescription
     { _adApplicationName        :: Maybe Text

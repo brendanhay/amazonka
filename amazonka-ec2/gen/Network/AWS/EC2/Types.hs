@@ -1414,6 +1414,8 @@ instance AWSService EC2 where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://ec2.amazonaws.com/doc/2014-09-01"
+    }
 
 data ImageAttributeName
     = ImageBlockDeviceMapping -- ^ blockDeviceMapping

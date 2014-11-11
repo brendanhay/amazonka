@@ -310,6 +310,8 @@ instance AWSService CloudSearch where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://cloudsearch.amazonaws.com/doc/2013-01-01/"
+    }
 
 data DomainStatus = DomainStatus
     { _dsARN                    :: Maybe Text

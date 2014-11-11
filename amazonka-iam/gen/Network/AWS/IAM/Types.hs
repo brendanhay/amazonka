@@ -195,6 +195,8 @@ instance AWSService IAM where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "https://iam.amazonaws.com/doc/2010-05-08/"
+    }
 
 data assignmentStatusType
     = Any        -- ^ Any

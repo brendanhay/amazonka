@@ -60,6 +60,8 @@ instance AWSService ImportExport where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://importexport.amazonaws.com/doc/2010-06-01/"
+    }
 
 data JobType
     = Export -- ^ Export

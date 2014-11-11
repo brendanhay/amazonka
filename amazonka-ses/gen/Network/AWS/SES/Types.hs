@@ -118,6 +118,8 @@ instance AWSService SES where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://ses.amazonaws.com/doc/2010-12-01/"
+    }
 
 data Destination = Destination
     { _dBccAddresses :: [Text]

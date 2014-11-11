@@ -69,6 +69,8 @@ instance AWSService SecurityToken where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "https://sts.amazonaws.com/doc/2011-06-15/"
+    }
 
 data Credentials = Credentials
     { _cAccessKeyId     :: Text

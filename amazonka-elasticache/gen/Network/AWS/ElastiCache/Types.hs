@@ -344,6 +344,8 @@ instance AWSService ElastiCache where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://elasticache.amazonaws.com/doc/2014-09-30/"
+    }
 
 data NodeSnapshot = NodeSnapshot
     { _nsCacheNodeCreateTime :: Maybe RFC822

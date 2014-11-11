@@ -273,6 +273,8 @@ instance AWSService AutoScaling where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://autoscaling.amazonaws.com/doc/2011-01-01/"
+    }
 
 data TagDescription = TagDescription
     { _tdKey               :: Text

@@ -146,6 +146,8 @@ instance AWSService CloudWatch where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://monitoring.amazonaws.com/doc/2010-08-01/"
+    }
 
 data StatisticSet = StatisticSet
     { _ssMaximum     :: Double

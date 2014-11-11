@@ -119,6 +119,8 @@ instance AWSService SQS where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://queue.amazonaws.com/doc/2012-11-05/"
+    }
 
 data QueueAttributeName
     = ApproximateNumberOfMessages           -- ^ ApproximateNumberOfMessages

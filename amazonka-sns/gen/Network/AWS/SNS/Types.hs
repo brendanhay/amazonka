@@ -82,6 +82,8 @@ instance AWSService SNS where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://sns.amazonaws.com/doc/2010-03-31/"
+    }
 
 newtype Topic = Topic
     { _tTopicArn :: Maybe Text

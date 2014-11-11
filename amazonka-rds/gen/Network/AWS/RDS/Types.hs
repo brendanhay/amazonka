@@ -432,6 +432,8 @@ instance AWSService RDS where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://rds.amazonaws.com/doc/2014-09-01/"
+    }
 
 data OptionGroup = OptionGroup
     { _ogAllowsVpcAndNonVpcInstanceMemberships :: Maybe Bool

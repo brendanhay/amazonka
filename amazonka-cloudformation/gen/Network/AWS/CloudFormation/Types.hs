@@ -170,6 +170,8 @@ instance AWSService CloudFormation where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://cloudformation.amazonaws.com/doc/2010-05-15/"
+    }
 
 data Tag = Tag
     { _tagKey   :: Maybe Text

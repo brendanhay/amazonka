@@ -228,6 +228,8 @@ instance AWSService ELB where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://elasticloadbalancing.amazonaws.com/doc/2012-06-01/"
+    }
 
 data SourceSecurityGroup = SourceSecurityGroup
     { _ssgGroupName  :: Maybe Text

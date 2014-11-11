@@ -8,8 +8,8 @@ import Network.AWS.Signing.{{ service.signature }}
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
-{% if xmlNamespace %}
-    { xmlNamespace = Just "{{ xmlNamespace }}"
+{% if service.xmlNamespace %}
+    { xmlNamespace = Just "{{ service.xmlNamespace }}"
     }
 {% endif %}
 

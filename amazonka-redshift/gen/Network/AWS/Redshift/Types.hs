@@ -376,6 +376,8 @@ instance AWSService Redshift where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://redshift.amazonaws.com/doc/2012-12-01/"
+    }
 
 data Snapshot = Snapshot
     { _sAccountsWithRestoreAccess              :: [AccountWithRestoreAccess]

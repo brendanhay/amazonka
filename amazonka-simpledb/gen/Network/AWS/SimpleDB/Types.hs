@@ -90,6 +90,8 @@ instance AWSService SimpleDB where
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def
+    { xmlNamespace = Just "http://sdb.amazonaws.com/doc/2009-04-15/"
+    }
 
 data Attribute = Attribute
     { _aAlternateNameEncoding  :: Maybe Text

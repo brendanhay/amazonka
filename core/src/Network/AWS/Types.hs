@@ -166,6 +166,9 @@ instance Show a => AWSError (ServiceError a) where
         ServiceError    a s x -> ServiceError a s (show x)
         Errors          xs    -> Errors (map awsError xs)
 
+-- FIXME: how to deal with the xml namespaces during deserialisation?
+
+
 -- | The properties (such as endpoint) for a service, as well as it's
 -- associated signing algorithm and error types.
 class (AWSSigner (Sg a), Show (Er a)) => AWSService a where

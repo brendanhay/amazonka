@@ -31,6 +31,7 @@ library
         , Network.AWS.Auth
         , Network.AWS.Data
         , Network.AWS.EC2.Metadata
+        , Network.AWS.Error
         , Network.AWS.Prelude
         , Network.AWS.Request
         , Network.AWS.Request.Query

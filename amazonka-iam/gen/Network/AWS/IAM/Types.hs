@@ -23,11 +23,6 @@ module Network.AWS.IAM.Types
     (
     -- * Service
       IAM
-    -- ** Errors
-    , IAMError (..)
-    , _IAMHttp
-    , _IAMSerializer
-    , _IAMService
     -- ** XML
     , xmlOptions
 

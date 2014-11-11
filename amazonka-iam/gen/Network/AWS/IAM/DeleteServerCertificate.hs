@@ -69,21 +69,24 @@ dscServerCertificateName :: Lens' DeleteServerCertificate Text
 dscServerCertificateName =
     lens _dscServerCertificateName
         (\s a -> s { _dscServerCertificateName = a })
+instance ToQuery DeleteServerCertificate
 
 instance ToPath DeleteServerCertificate where
     toPath = const "/"
 
-instance ToQuery DeleteServerCertificate
-
 data DeleteServerCertificateResponse = DeleteServerCertificateResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteServerCertificateResponse' constructor.
 deleteServerCertificateResponse :: DeleteServerCertificateResponse
 deleteServerCertificateResponse = DeleteServerCertificateResponse
+instance FromXML DeleteServerCertificateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteServerCertificateResponse"
 
 instance AWSRequest DeleteServerCertificate where
     type Sv DeleteServerCertificate = IAM
     type Rs DeleteServerCertificate = DeleteServerCertificateResponse
 
     request  = post "DeleteServerCertificate"
-    response = const (nullaryResponse DeleteServerCertificateResponse)
+    response = nullaryResponse DeleteServerCertificateResponse

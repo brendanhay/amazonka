@@ -30,7 +30,7 @@ module Network.AWS.ELB.CreateLoadBalancerListeners
     -- * Request
       CreateLoadBalancerListenerInput
     -- ** Request constructor
-    , createLoadBalancerListeners
+    , createLoadBalancerListenerInput
     -- ** Request lenses
     , clbliListeners
     , clbliLoadBalancerName
@@ -58,9 +58,9 @@ data CreateLoadBalancerListenerInput = CreateLoadBalancerListenerInput
 --
 -- * 'clbliLoadBalancerName' @::@ 'Text'
 --
-createLoadBalancerListeners :: Text -- ^ 'clbliLoadBalancerName'
-                            -> CreateLoadBalancerListenerInput
-createLoadBalancerListeners p1 = CreateLoadBalancerListenerInput
+createLoadBalancerListenerInput :: Text -- ^ 'clbliLoadBalancerName'
+                                -> CreateLoadBalancerListenerInput
+createLoadBalancerListenerInput p1 = CreateLoadBalancerListenerInput
     { _clbliLoadBalancerName = p1
     , _clbliListeners        = mempty
     }
@@ -74,21 +74,24 @@ clbliListeners = lens _clbliListeners (\s a -> s { _clbliListeners = a })
 clbliLoadBalancerName :: Lens' CreateLoadBalancerListenerInput Text
 clbliLoadBalancerName =
     lens _clbliLoadBalancerName (\s a -> s { _clbliLoadBalancerName = a })
+instance ToQuery CreateLoadBalancerListenerInput
 
 instance ToPath CreateLoadBalancerListenerInput where
     toPath = const "/"
 
-instance ToQuery CreateLoadBalancerListenerInput
-
 data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateLoadBalancerListenersResponse' constructor.
 createLoadBalancerListenersResponse :: CreateLoadBalancerListenersResponse
 createLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
+instance FromXML CreateLoadBalancerListenersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateLoadBalancerListenersResponse"
 
 instance AWSRequest CreateLoadBalancerListenerInput where
     type Sv CreateLoadBalancerListenerInput = ELB
     type Rs CreateLoadBalancerListenerInput = CreateLoadBalancerListenersResponse
 
     request  = post "CreateLoadBalancerListeners"
-    response = const (nullaryResponse CreateLoadBalancerListenersResponse)
+    response = nullaryResponse CreateLoadBalancerListenersResponse

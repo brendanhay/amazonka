@@ -38,7 +38,7 @@ module Network.AWS.Redshift.DeleteCluster
     -- * Request
       DeleteClusterMessage
     -- ** Request constructor
-    , deleteCluster
+    , deleteClusterMessage
     -- ** Request lenses
     , dcmClusterIdentifier
     , dcmFinalClusterSnapshotIdentifier
@@ -47,7 +47,7 @@ module Network.AWS.Redshift.DeleteCluster
     -- * Response
     , DeleteClusterResult
     -- ** Response constructor
-    , deleteClusterResponse
+    , deleteClusterResult
     -- ** Response lenses
     , dcrCluster
     ) where
@@ -72,9 +72,9 @@ data DeleteClusterMessage = DeleteClusterMessage
 --
 -- * 'dcmSkipFinalClusterSnapshot' @::@ 'Maybe' 'Bool'
 --
-deleteCluster :: Text -- ^ 'dcmClusterIdentifier'
-              -> DeleteClusterMessage
-deleteCluster p1 = DeleteClusterMessage
+deleteClusterMessage :: Text -- ^ 'dcmClusterIdentifier'
+                     -> DeleteClusterMessage
+deleteClusterMessage p1 = DeleteClusterMessage
     { _dcmClusterIdentifier              = p1
     , _dcmSkipFinalClusterSnapshot       = Nothing
     , _dcmFinalClusterSnapshotIdentifier = Nothing
@@ -106,11 +106,10 @@ dcmSkipFinalClusterSnapshot :: Lens' DeleteClusterMessage (Maybe Bool)
 dcmSkipFinalClusterSnapshot =
     lens _dcmSkipFinalClusterSnapshot
         (\s a -> s { _dcmSkipFinalClusterSnapshot = a })
+instance ToQuery DeleteClusterMessage
 
 instance ToPath DeleteClusterMessage where
     toPath = const "/"
-
-instance ToQuery DeleteClusterMessage
 
 newtype DeleteClusterResult = DeleteClusterResult
     { _dcrCluster :: Maybe Cluster
@@ -122,13 +121,16 @@ newtype DeleteClusterResult = DeleteClusterResult
 --
 -- * 'dcrCluster' @::@ 'Maybe' 'Cluster'
 --
-deleteClusterResponse :: DeleteClusterResult
-deleteClusterResponse = DeleteClusterResult
+deleteClusterResult :: DeleteClusterResult
+deleteClusterResult = DeleteClusterResult
     { _dcrCluster = Nothing
     }
 
 dcrCluster :: Lens' DeleteClusterResult (Maybe Cluster)
 dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
+instance FromXML DeleteClusterResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteClusterResult"
 
 instance AWSRequest DeleteClusterMessage where
     type Sv DeleteClusterMessage = Redshift

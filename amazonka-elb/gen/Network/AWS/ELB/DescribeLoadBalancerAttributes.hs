@@ -27,14 +27,14 @@ module Network.AWS.ELB.DescribeLoadBalancerAttributes
     -- * Request
       DescribeLoadBalancerAttributesInput
     -- ** Request constructor
-    , describeLoadBalancerAttributes
+    , describeLoadBalancerAttributesInput
     -- ** Request lenses
     , dlbaiLoadBalancerName
 
     -- * Response
     , DescribeLoadBalancerAttributesOutput
     -- ** Response constructor
-    , describeLoadBalancerAttributesResponse
+    , describeLoadBalancerAttributesOutput
     -- ** Response lenses
     , dlbaoLoadBalancerAttributes
     ) where
@@ -53,9 +53,9 @@ newtype DescribeLoadBalancerAttributesInput = DescribeLoadBalancerAttributesInpu
 --
 -- * 'dlbaiLoadBalancerName' @::@ 'Text'
 --
-describeLoadBalancerAttributes :: Text -- ^ 'dlbaiLoadBalancerName'
-                               -> DescribeLoadBalancerAttributesInput
-describeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributesInput
+describeLoadBalancerAttributesInput :: Text -- ^ 'dlbaiLoadBalancerName'
+                                    -> DescribeLoadBalancerAttributesInput
+describeLoadBalancerAttributesInput p1 = DescribeLoadBalancerAttributesInput
     { _dlbaiLoadBalancerName = p1
     }
 
@@ -63,11 +63,10 @@ describeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributesInput
 dlbaiLoadBalancerName :: Lens' DescribeLoadBalancerAttributesInput Text
 dlbaiLoadBalancerName =
     lens _dlbaiLoadBalancerName (\s a -> s { _dlbaiLoadBalancerName = a })
+instance ToQuery DescribeLoadBalancerAttributesInput
 
 instance ToPath DescribeLoadBalancerAttributesInput where
     toPath = const "/"
-
-instance ToQuery DescribeLoadBalancerAttributesInput
 
 newtype DescribeLoadBalancerAttributesOutput = DescribeLoadBalancerAttributesOutput
     { _dlbaoLoadBalancerAttributes :: Maybe LoadBalancerAttributes
@@ -79,8 +78,8 @@ newtype DescribeLoadBalancerAttributesOutput = DescribeLoadBalancerAttributesOut
 --
 -- * 'dlbaoLoadBalancerAttributes' @::@ 'Maybe' 'LoadBalancerAttributes'
 --
-describeLoadBalancerAttributesResponse :: DescribeLoadBalancerAttributesOutput
-describeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesOutput
+describeLoadBalancerAttributesOutput :: DescribeLoadBalancerAttributesOutput
+describeLoadBalancerAttributesOutput = DescribeLoadBalancerAttributesOutput
     { _dlbaoLoadBalancerAttributes = Nothing
     }
 
@@ -89,6 +88,9 @@ dlbaoLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesOutput (Maybe
 dlbaoLoadBalancerAttributes =
     lens _dlbaoLoadBalancerAttributes
         (\s a -> s { _dlbaoLoadBalancerAttributes = a })
+instance FromXML DescribeLoadBalancerAttributesOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeLoadBalancerAttributesOutput"
 
 instance AWSRequest DescribeLoadBalancerAttributesInput where
     type Sv DescribeLoadBalancerAttributesInput = ELB

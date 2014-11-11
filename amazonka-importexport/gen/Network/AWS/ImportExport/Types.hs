@@ -23,11 +23,6 @@ module Network.AWS.ImportExport.Types
     (
     -- * Service
       ImportExport
-    -- ** Errors
-    , ImportExportError (..)
-    , _ImportExportHttp
-    , _ImportExportSerializer
-    , _ImportExportService
     -- ** XML
     , xmlOptions
 

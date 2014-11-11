@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     -- * Request
       DeleteCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , deleteCloudFrontOriginAccessIdentity2014_05_31
+    , deleteCloudFrontOriginAccessIdentity
     -- ** Request lenses
     , dcfoaiId
     , dcfoaiIfMatch
@@ -54,9 +54,9 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
 --
 -- * 'dcfoaiIfMatch' @::@ 'Maybe' 'Text'
 --
-deleteCloudFrontOriginAccessIdentity2014_05_31 :: Text -- ^ 'dcfoaiId'
-                                               -> DeleteCloudFrontOriginAccessIdentity
-deleteCloudFrontOriginAccessIdentity2014_05_31 p1 = DeleteCloudFrontOriginAccessIdentity
+deleteCloudFrontOriginAccessIdentity :: Text -- ^ 'dcfoaiId'
+                                     -> DeleteCloudFrontOriginAccessIdentity
+deleteCloudFrontOriginAccessIdentity p1 = DeleteCloudFrontOriginAccessIdentity
     { _dcfoaiId      = p1
     , _dcfoaiIfMatch = Nothing
     }
@@ -85,14 +85,18 @@ instance ToHeaders DeleteCloudFrontOriginAccessIdentity where
         ]
 
 data DeleteCloudFrontOriginAccessIdentity2014_05_31Response = DeleteCloudFrontOriginAccessIdentity2014_05_31Response
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteCloudFrontOriginAccessIdentity2014_05_31Response' constructor.
 deleteCloudFrontOriginAccessIdentity2014_05_31Response :: DeleteCloudFrontOriginAccessIdentity2014_05_31Response
 deleteCloudFrontOriginAccessIdentity2014_05_31Response = DeleteCloudFrontOriginAccessIdentity2014_05_31Response
 
+instance FromXML DeleteCloudFrontOriginAccessIdentity2014_05_31Response where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteCloudFrontOriginAccessIdentity2014_05_31Response"
 instance AWSRequest DeleteCloudFrontOriginAccessIdentity where
     type Sv DeleteCloudFrontOriginAccessIdentity = CloudFront
     type Rs DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity2014_05_31Response
 
     request  = delete
-    response = const (nullaryResponse DeleteCloudFrontOriginAccessIdentity2014_05_31Response)
+    response = nullaryResponse DeleteCloudFrontOriginAccessIdentity2014_05_31Response

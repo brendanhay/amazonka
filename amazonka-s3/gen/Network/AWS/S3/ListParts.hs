@@ -37,7 +37,7 @@ module Network.AWS.S3.ListParts
     -- * Response
     , ListPartsOutput
     -- ** Response constructor
-    , listPartsResponse
+    , listPartsOutput
     -- ** Response lenses
     , lpoBucket
     , lpoInitiator
@@ -167,8 +167,8 @@ data ListPartsOutput = ListPartsOutput
 --
 -- * 'lpoUploadId' @::@ 'Maybe' 'Text'
 --
-listPartsResponse :: ListPartsOutput
-listPartsResponse = ListPartsOutput
+listPartsOutput :: ListPartsOutput
+listPartsOutput = ListPartsOutput
     { _lpoBucket               = Nothing
     , _lpoKey                  = Nothing
     , _lpoUploadId             = Nothing
@@ -228,6 +228,9 @@ lpoStorageClass = lens _lpoStorageClass (\s a -> s { _lpoStorageClass = a })
 lpoUploadId :: Lens' ListPartsOutput (Maybe Text)
 lpoUploadId = lens _lpoUploadId (\s a -> s { _lpoUploadId = a })
 
+instance FromXML ListPartsOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListPartsOutput"
 instance AWSRequest ListParts where
     type Sv ListParts = S3
     type Rs ListParts = ListPartsOutput

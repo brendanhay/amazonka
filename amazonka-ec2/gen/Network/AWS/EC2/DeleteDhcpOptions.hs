@@ -70,21 +70,24 @@ ddoDhcpOptionsId = lens _ddoDhcpOptionsId (\s a -> s { _ddoDhcpOptionsId = a })
 
 ddoDryRun :: Lens' DeleteDhcpOptions (Maybe Bool)
 ddoDryRun = lens _ddoDryRun (\s a -> s { _ddoDryRun = a })
+instance ToQuery DeleteDhcpOptions
 
 instance ToPath DeleteDhcpOptions where
     toPath = const "/"
 
-instance ToQuery DeleteDhcpOptions
-
 data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteDhcpOptionsResponse' constructor.
 deleteDhcpOptionsResponse :: DeleteDhcpOptionsResponse
 deleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
+instance FromXML DeleteDhcpOptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteDhcpOptionsResponse"
 
 instance AWSRequest DeleteDhcpOptions where
     type Sv DeleteDhcpOptions = EC2
     type Rs DeleteDhcpOptions = DeleteDhcpOptionsResponse
 
     request  = post "DeleteDhcpOptions"
-    response = const (nullaryResponse DeleteDhcpOptionsResponse)
+    response = nullaryResponse DeleteDhcpOptionsResponse

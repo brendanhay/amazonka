@@ -72,21 +72,24 @@ dscCertificateId = lens _dscCertificateId (\s a -> s { _dscCertificateId = a })
 -- | The name of the user the signing certificate belongs to.
 dscUserName :: Lens' DeleteSigningCertificate (Maybe Text)
 dscUserName = lens _dscUserName (\s a -> s { _dscUserName = a })
+instance ToQuery DeleteSigningCertificate
 
 instance ToPath DeleteSigningCertificate where
     toPath = const "/"
 
-instance ToQuery DeleteSigningCertificate
-
 data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSigningCertificateResponse' constructor.
 deleteSigningCertificateResponse :: DeleteSigningCertificateResponse
 deleteSigningCertificateResponse = DeleteSigningCertificateResponse
+instance FromXML DeleteSigningCertificateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteSigningCertificateResponse"
 
 instance AWSRequest DeleteSigningCertificate where
     type Sv DeleteSigningCertificate = IAM
     type Rs DeleteSigningCertificate = DeleteSigningCertificateResponse
 
     request  = post "DeleteSigningCertificate"
-    response = const (nullaryResponse DeleteSigningCertificateResponse)
+    response = nullaryResponse DeleteSigningCertificateResponse

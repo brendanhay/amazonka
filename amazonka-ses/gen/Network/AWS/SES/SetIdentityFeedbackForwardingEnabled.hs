@@ -82,21 +82,24 @@ siffeForwardingEnabled =
 -- forwarding. Examples: user@example.com, example.com.
 siffeIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
 siffeIdentity = lens _siffeIdentity (\s a -> s { _siffeIdentity = a })
+instance ToQuery SetIdentityFeedbackForwardingEnabled
 
 instance ToPath SetIdentityFeedbackForwardingEnabled where
     toPath = const "/"
 
-instance ToQuery SetIdentityFeedbackForwardingEnabled
-
 data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetIdentityFeedbackForwardingEnabledResponse' constructor.
 setIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse
 setIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
+instance FromXML SetIdentityFeedbackForwardingEnabledResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SetIdentityFeedbackForwardingEnabledResponse"
 
 instance AWSRequest SetIdentityFeedbackForwardingEnabled where
     type Sv SetIdentityFeedbackForwardingEnabled = SES
     type Rs SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabledResponse
 
     request  = post "SetIdentityFeedbackForwardingEnabled"
-    response = const (nullaryResponse SetIdentityFeedbackForwardingEnabledResponse)
+    response = nullaryResponse SetIdentityFeedbackForwardingEnabledResponse

@@ -32,7 +32,7 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     -- * Request
       DescribeLoadBalancerPoliciesInput
     -- ** Request constructor
-    , describeLoadBalancerPolicies
+    , describeLoadBalancerPoliciesInput
     -- ** Request lenses
     , dlbpiLoadBalancerName
     , dlbpiPolicyNames
@@ -40,7 +40,7 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     -- * Response
     , DescribeLoadBalancerPoliciesOutput
     -- ** Response constructor
-    , describeLoadBalancerPoliciesResponse
+    , describeLoadBalancerPoliciesOutput
     -- ** Response lenses
     , dlbpoPolicyDescriptions
     ) where
@@ -62,8 +62,8 @@ data DescribeLoadBalancerPoliciesInput = DescribeLoadBalancerPoliciesInput
 --
 -- * 'dlbpiPolicyNames' @::@ ['Text']
 --
-describeLoadBalancerPolicies :: DescribeLoadBalancerPoliciesInput
-describeLoadBalancerPolicies = DescribeLoadBalancerPoliciesInput
+describeLoadBalancerPoliciesInput :: DescribeLoadBalancerPoliciesInput
+describeLoadBalancerPoliciesInput = DescribeLoadBalancerPoliciesInput
     { _dlbpiLoadBalancerName = Nothing
     , _dlbpiPolicyNames      = mempty
     }
@@ -80,11 +80,10 @@ dlbpiLoadBalancerName =
 -- Balancing sample policy names.
 dlbpiPolicyNames :: Lens' DescribeLoadBalancerPoliciesInput [Text]
 dlbpiPolicyNames = lens _dlbpiPolicyNames (\s a -> s { _dlbpiPolicyNames = a })
+instance ToQuery DescribeLoadBalancerPoliciesInput
 
 instance ToPath DescribeLoadBalancerPoliciesInput where
     toPath = const "/"
-
-instance ToQuery DescribeLoadBalancerPoliciesInput
 
 newtype DescribeLoadBalancerPoliciesOutput = DescribeLoadBalancerPoliciesOutput
     { _dlbpoPolicyDescriptions :: [PolicyDescription]
@@ -96,8 +95,8 @@ newtype DescribeLoadBalancerPoliciesOutput = DescribeLoadBalancerPoliciesOutput
 --
 -- * 'dlbpoPolicyDescriptions' @::@ ['PolicyDescription']
 --
-describeLoadBalancerPoliciesResponse :: DescribeLoadBalancerPoliciesOutput
-describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesOutput
+describeLoadBalancerPoliciesOutput :: DescribeLoadBalancerPoliciesOutput
+describeLoadBalancerPoliciesOutput = DescribeLoadBalancerPoliciesOutput
     { _dlbpoPolicyDescriptions = mempty
     }
 
@@ -105,6 +104,9 @@ describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesOutput
 dlbpoPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesOutput [PolicyDescription]
 dlbpoPolicyDescriptions =
     lens _dlbpoPolicyDescriptions (\s a -> s { _dlbpoPolicyDescriptions = a })
+instance FromXML DescribeLoadBalancerPoliciesOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeLoadBalancerPoliciesOutput"
 
 instance AWSRequest DescribeLoadBalancerPoliciesInput where
     type Sv DescribeLoadBalancerPoliciesInput = ELB

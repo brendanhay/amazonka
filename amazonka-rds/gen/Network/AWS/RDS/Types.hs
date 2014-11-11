@@ -23,11 +23,6 @@ module Network.AWS.RDS.Types
     (
     -- * Service
       RDS
-    -- ** Errors
-    , RDSError (..)
-    , _RDSHttp
-    , _RDSSerializer
-    , _RDSService
     -- ** XML
     , xmlOptions
 

@@ -26,7 +26,7 @@ module Network.AWS.Redshift.DeleteHsmClientCertificate
     -- * Request
       DeleteHsmClientCertificateMessage
     -- ** Request constructor
-    , deleteHsmClientCertificate
+    , deleteHsmClientCertificateMessage
     -- ** Request lenses
     , dhccm1HsmClientCertificateIdentifier
 
@@ -50,9 +50,9 @@ newtype DeleteHsmClientCertificateMessage = DeleteHsmClientCertificateMessage
 --
 -- * 'dhccm1HsmClientCertificateIdentifier' @::@ 'Text'
 --
-deleteHsmClientCertificate :: Text -- ^ 'dhccm1HsmClientCertificateIdentifier'
-                           -> DeleteHsmClientCertificateMessage
-deleteHsmClientCertificate p1 = DeleteHsmClientCertificateMessage
+deleteHsmClientCertificateMessage :: Text -- ^ 'dhccm1HsmClientCertificateIdentifier'
+                                  -> DeleteHsmClientCertificateMessage
+deleteHsmClientCertificateMessage p1 = DeleteHsmClientCertificateMessage
     { _dhccm1HsmClientCertificateIdentifier = p1
     }
 
@@ -61,21 +61,24 @@ dhccm1HsmClientCertificateIdentifier :: Lens' DeleteHsmClientCertificateMessage 
 dhccm1HsmClientCertificateIdentifier =
     lens _dhccm1HsmClientCertificateIdentifier
         (\s a -> s { _dhccm1HsmClientCertificateIdentifier = a })
+instance ToQuery DeleteHsmClientCertificateMessage
 
 instance ToPath DeleteHsmClientCertificateMessage where
     toPath = const "/"
 
-instance ToQuery DeleteHsmClientCertificateMessage
-
 data DeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteHsmClientCertificateResponse' constructor.
 deleteHsmClientCertificateResponse :: DeleteHsmClientCertificateResponse
 deleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
+instance FromXML DeleteHsmClientCertificateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteHsmClientCertificateResponse"
 
 instance AWSRequest DeleteHsmClientCertificateMessage where
     type Sv DeleteHsmClientCertificateMessage = Redshift
     type Rs DeleteHsmClientCertificateMessage = DeleteHsmClientCertificateResponse
 
     request  = post "DeleteHsmClientCertificate"
-    response = const (nullaryResponse DeleteHsmClientCertificateResponse)
+    response = nullaryResponse DeleteHsmClientCertificateResponse

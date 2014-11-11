@@ -86,21 +86,24 @@ adoDryRun = lens _adoDryRun (\s a -> s { _adoDryRun = a })
 -- | The ID of the VPC.
 adoVpcId :: Lens' AssociateDhcpOptions Text
 adoVpcId = lens _adoVpcId (\s a -> s { _adoVpcId = a })
+instance ToQuery AssociateDhcpOptions
 
 instance ToPath AssociateDhcpOptions where
     toPath = const "/"
 
-instance ToQuery AssociateDhcpOptions
-
 data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'AssociateDhcpOptionsResponse' constructor.
 associateDhcpOptionsResponse :: AssociateDhcpOptionsResponse
 associateDhcpOptionsResponse = AssociateDhcpOptionsResponse
+instance FromXML AssociateDhcpOptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AssociateDhcpOptionsResponse"
 
 instance AWSRequest AssociateDhcpOptions where
     type Sv AssociateDhcpOptions = EC2
     type Rs AssociateDhcpOptions = AssociateDhcpOptionsResponse
 
     request  = post "AssociateDhcpOptions"
-    response = const (nullaryResponse AssociateDhcpOptionsResponse)
+    response = nullaryResponse AssociateDhcpOptionsResponse

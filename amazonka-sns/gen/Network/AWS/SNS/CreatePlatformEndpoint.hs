@@ -38,7 +38,7 @@ module Network.AWS.SNS.CreatePlatformEndpoint
     -- * Request
       CreatePlatformEndpointInput
     -- ** Request constructor
-    , createPlatformEndpoint
+    , createPlatformEndpointInput
     -- ** Request lenses
     , cpeiAttributes
     , cpeiCustomUserData
@@ -48,7 +48,7 @@ module Network.AWS.SNS.CreatePlatformEndpoint
     -- * Response
     , CreateEndpointResponse
     -- ** Response constructor
-    , createPlatformEndpointResponse
+    , createEndpointResponse
     -- ** Response lenses
     , cerEndpointArn
     ) where
@@ -76,10 +76,10 @@ data CreatePlatformEndpointInput = CreatePlatformEndpointInput
 --
 -- * 'cpeiToken' @::@ 'Text'
 --
-createPlatformEndpoint :: Text -- ^ 'cpeiPlatformApplicationArn'
-                       -> Text -- ^ 'cpeiToken'
-                       -> CreatePlatformEndpointInput
-createPlatformEndpoint p1 p2 = CreatePlatformEndpointInput
+createPlatformEndpointInput :: Text -- ^ 'cpeiPlatformApplicationArn'
+                            -> Text -- ^ 'cpeiToken'
+                            -> CreatePlatformEndpointInput
+createPlatformEndpointInput p1 p2 = CreatePlatformEndpointInput
     { _cpeiPlatformApplicationArn = p1
     , _cpeiToken                  = p2
     , _cpeiCustomUserData         = Nothing
@@ -112,11 +112,10 @@ cpeiPlatformApplicationArn =
 -- ID.
 cpeiToken :: Lens' CreatePlatformEndpointInput Text
 cpeiToken = lens _cpeiToken (\s a -> s { _cpeiToken = a })
+instance ToQuery CreatePlatformEndpointInput
 
 instance ToPath CreatePlatformEndpointInput where
     toPath = const "/"
-
-instance ToQuery CreatePlatformEndpointInput
 
 newtype CreateEndpointResponse = CreateEndpointResponse
     { _cerEndpointArn :: Maybe Text
@@ -128,14 +127,17 @@ newtype CreateEndpointResponse = CreateEndpointResponse
 --
 -- * 'cerEndpointArn' @::@ 'Maybe' 'Text'
 --
-createPlatformEndpointResponse :: CreateEndpointResponse
-createPlatformEndpointResponse = CreateEndpointResponse
+createEndpointResponse :: CreateEndpointResponse
+createEndpointResponse = CreateEndpointResponse
     { _cerEndpointArn = Nothing
     }
 
 -- | EndpointArn returned from CreateEndpoint action.
 cerEndpointArn :: Lens' CreateEndpointResponse (Maybe Text)
 cerEndpointArn = lens _cerEndpointArn (\s a -> s { _cerEndpointArn = a })
+instance FromXML CreateEndpointResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateEndpointResponse"
 
 instance AWSRequest CreatePlatformEndpointInput where
     type Sv CreatePlatformEndpointInput = SNS

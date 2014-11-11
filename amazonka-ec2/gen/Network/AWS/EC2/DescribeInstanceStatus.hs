@@ -84,7 +84,7 @@ module Network.AWS.EC2.DescribeInstanceStatus
     -- * Response
     , DescribeInstanceStatusResult
     -- ** Response constructor
-    , describeInstanceStatusResponse
+    , describeInstanceStatusResult
     -- ** Response lenses
     , disrInstanceStatuses
     , disrNextToken
@@ -179,11 +179,10 @@ disMaxResults = lens _disMaxResults (\s a -> s { _disMaxResults = a })
 -- from a prior call.).
 disNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
 disNextToken = lens _disNextToken (\s a -> s { _disNextToken = a })
+instance ToQuery DescribeInstanceStatus
 
 instance ToPath DescribeInstanceStatus where
     toPath = const "/"
-
-instance ToQuery DescribeInstanceStatus
 
 data DescribeInstanceStatusResult = DescribeInstanceStatusResult
     { _disrInstanceStatuses :: [InstanceStatus]
@@ -198,8 +197,8 @@ data DescribeInstanceStatusResult = DescribeInstanceStatusResult
 --
 -- * 'disrNextToken' @::@ 'Maybe' 'Text'
 --
-describeInstanceStatusResponse :: DescribeInstanceStatusResult
-describeInstanceStatusResponse = DescribeInstanceStatusResult
+describeInstanceStatusResult :: DescribeInstanceStatusResult
+describeInstanceStatusResult = DescribeInstanceStatusResult
     { _disrInstanceStatuses = mempty
     , _disrNextToken        = Nothing
     }
@@ -212,6 +211,9 @@ disrInstanceStatuses =
 -- | The next paginated set of results to return.
 disrNextToken :: Lens' DescribeInstanceStatusResult (Maybe Text)
 disrNextToken = lens _disrNextToken (\s a -> s { _disrNextToken = a })
+instance FromXML DescribeInstanceStatusResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeInstanceStatusResult"
 
 instance AWSRequest DescribeInstanceStatus where
     type Sv DescribeInstanceStatus = EC2

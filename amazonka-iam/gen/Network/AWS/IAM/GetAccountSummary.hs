@@ -43,15 +43,15 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
 
 data GetAccountSummary = GetAccountSummary
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetAccountSummary' constructor.
 getAccountSummary :: GetAccountSummary
 getAccountSummary = GetAccountSummary
+instance ToQuery GetAccountSummary
 
 instance ToPath GetAccountSummary where
     toPath = const "/"
-
-instance ToQuery GetAccountSummary
 
 newtype GetAccountSummaryResponse = GetAccountSummaryResponse
     { _gasrSummaryMap :: Map Text Int
@@ -93,6 +93,9 @@ getAccountSummaryResponse = GetAccountSummaryResponse
 gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap Text Int)
 gasrSummaryMap = lens _gasrSummaryMap (\s a -> s { _gasrSummaryMap = a })
     . _Map
+instance FromXML GetAccountSummaryResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetAccountSummaryResponse"
 
 instance AWSRequest GetAccountSummary where
     type Sv GetAccountSummary = IAM

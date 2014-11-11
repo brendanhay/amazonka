@@ -82,21 +82,24 @@ uuNewUserName = lens _uuNewUserName (\s a -> s { _uuNewUserName = a })
 -- is the original user name.
 uuUserName :: Lens' UpdateUser Text
 uuUserName = lens _uuUserName (\s a -> s { _uuUserName = a })
+instance ToQuery UpdateUser
 
 instance ToPath UpdateUser where
     toPath = const "/"
 
-instance ToQuery UpdateUser
-
 data UpdateUserResponse = UpdateUserResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateUserResponse' constructor.
 updateUserResponse :: UpdateUserResponse
 updateUserResponse = UpdateUserResponse
+instance FromXML UpdateUserResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateUserResponse"
 
 instance AWSRequest UpdateUser where
     type Sv UpdateUser = IAM
     type Rs UpdateUser = UpdateUserResponse
 
     request  = post "UpdateUser"
-    response = const (nullaryResponse UpdateUserResponse)
+    response = nullaryResponse UpdateUserResponse

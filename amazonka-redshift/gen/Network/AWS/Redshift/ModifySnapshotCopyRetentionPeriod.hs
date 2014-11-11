@@ -27,7 +27,7 @@ module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     -- * Request
       ModifySnapshotCopyRetentionPeriodMessage
     -- ** Request constructor
-    , modifySnapshotCopyRetentionPeriod
+    , modifySnapshotCopyRetentionPeriodMessage
     -- ** Request lenses
     , mscrpmClusterIdentifier
     , mscrpmRetentionPeriod
@@ -35,7 +35,7 @@ module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     -- * Response
     , ModifySnapshotCopyRetentionPeriodResult
     -- ** Response constructor
-    , modifySnapshotCopyRetentionPeriodResponse
+    , modifySnapshotCopyRetentionPeriodResult
     -- ** Response lenses
     , mscrprCluster
     ) where
@@ -57,10 +57,10 @@ data ModifySnapshotCopyRetentionPeriodMessage = ModifySnapshotCopyRetentionPerio
 --
 -- * 'mscrpmRetentionPeriod' @::@ 'Int'
 --
-modifySnapshotCopyRetentionPeriod :: Text -- ^ 'mscrpmClusterIdentifier'
-                                  -> Int -- ^ 'mscrpmRetentionPeriod'
-                                  -> ModifySnapshotCopyRetentionPeriodMessage
-modifySnapshotCopyRetentionPeriod p1 p2 = ModifySnapshotCopyRetentionPeriodMessage
+modifySnapshotCopyRetentionPeriodMessage :: Text -- ^ 'mscrpmClusterIdentifier'
+                                         -> Int -- ^ 'mscrpmRetentionPeriod'
+                                         -> ModifySnapshotCopyRetentionPeriodMessage
+modifySnapshotCopyRetentionPeriodMessage p1 p2 = ModifySnapshotCopyRetentionPeriodMessage
     { _mscrpmClusterIdentifier = p1
     , _mscrpmRetentionPeriod   = p2
     }
@@ -82,11 +82,10 @@ mscrpmClusterIdentifier =
 mscrpmRetentionPeriod :: Lens' ModifySnapshotCopyRetentionPeriodMessage Int
 mscrpmRetentionPeriod =
     lens _mscrpmRetentionPeriod (\s a -> s { _mscrpmRetentionPeriod = a })
+instance ToQuery ModifySnapshotCopyRetentionPeriodMessage
 
 instance ToPath ModifySnapshotCopyRetentionPeriodMessage where
     toPath = const "/"
-
-instance ToQuery ModifySnapshotCopyRetentionPeriodMessage
 
 newtype ModifySnapshotCopyRetentionPeriodResult = ModifySnapshotCopyRetentionPeriodResult
     { _mscrprCluster :: Maybe Cluster
@@ -98,13 +97,16 @@ newtype ModifySnapshotCopyRetentionPeriodResult = ModifySnapshotCopyRetentionPer
 --
 -- * 'mscrprCluster' @::@ 'Maybe' 'Cluster'
 --
-modifySnapshotCopyRetentionPeriodResponse :: ModifySnapshotCopyRetentionPeriodResult
-modifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResult
+modifySnapshotCopyRetentionPeriodResult :: ModifySnapshotCopyRetentionPeriodResult
+modifySnapshotCopyRetentionPeriodResult = ModifySnapshotCopyRetentionPeriodResult
     { _mscrprCluster = Nothing
     }
 
 mscrprCluster :: Lens' ModifySnapshotCopyRetentionPeriodResult (Maybe Cluster)
 mscrprCluster = lens _mscrprCluster (\s a -> s { _mscrprCluster = a })
+instance FromXML ModifySnapshotCopyRetentionPeriodResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifySnapshotCopyRetentionPeriodResult"
 
 instance AWSRequest ModifySnapshotCopyRetentionPeriodMessage where
     type Sv ModifySnapshotCopyRetentionPeriodMessage = Redshift

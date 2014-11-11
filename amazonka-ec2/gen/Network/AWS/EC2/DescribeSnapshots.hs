@@ -63,7 +63,7 @@ module Network.AWS.EC2.DescribeSnapshots
     -- * Response
     , DescribeSnapshotsResult
     -- ** Response constructor
-    , describeSnapshotsResponse
+    , describeSnapshotsResult
     -- ** Response lenses
     , dsrSnapshots
     ) where
@@ -140,11 +140,10 @@ ds1RestorableByUserIds =
 -- launch permissions.
 ds1SnapshotIds :: Lens' DescribeSnapshots [Text]
 ds1SnapshotIds = lens _ds1SnapshotIds (\s a -> s { _ds1SnapshotIds = a })
+instance ToQuery DescribeSnapshots
 
 instance ToPath DescribeSnapshots where
     toPath = const "/"
-
-instance ToQuery DescribeSnapshots
 
 newtype DescribeSnapshotsResult = DescribeSnapshotsResult
     { _dsrSnapshots :: [Snapshot]
@@ -156,13 +155,16 @@ newtype DescribeSnapshotsResult = DescribeSnapshotsResult
 --
 -- * 'dsrSnapshots' @::@ ['Snapshot']
 --
-describeSnapshotsResponse :: DescribeSnapshotsResult
-describeSnapshotsResponse = DescribeSnapshotsResult
+describeSnapshotsResult :: DescribeSnapshotsResult
+describeSnapshotsResult = DescribeSnapshotsResult
     { _dsrSnapshots = mempty
     }
 
 dsrSnapshots :: Lens' DescribeSnapshotsResult [Snapshot]
 dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a })
+instance FromXML DescribeSnapshotsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSnapshotsResult"
 
 instance AWSRequest DescribeSnapshots where
     type Sv DescribeSnapshots = EC2

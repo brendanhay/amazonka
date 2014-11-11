@@ -80,11 +80,10 @@ laaMarker = lens _laaMarker (\s a -> s { _laaMarker = a })
 -- defaults to 100.
 laaMaxItems :: Lens' ListAccountAliases (Maybe Int)
 laaMaxItems = lens _laaMaxItems (\s a -> s { _laaMaxItems = a })
+instance ToQuery ListAccountAliases
 
 instance ToPath ListAccountAliases where
     toPath = const "/"
-
-instance ToQuery ListAccountAliases
 
 data ListAccountAliasesResponse = ListAccountAliasesResponse
     { _laarAccountAliases :: [Text]
@@ -126,6 +125,9 @@ laarIsTruncated = lens _laarIsTruncated (\s a -> s { _laarIsTruncated = a })
 -- to the value of the Marker element in the response you just received.
 laarMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
 laarMarker = lens _laarMarker (\s a -> s { _laarMarker = a })
+instance FromXML ListAccountAliasesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListAccountAliasesResponse"
 
 instance AWSRequest ListAccountAliases where
     type Sv ListAccountAliases = IAM

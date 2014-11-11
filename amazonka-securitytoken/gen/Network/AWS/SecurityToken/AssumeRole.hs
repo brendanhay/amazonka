@@ -201,11 +201,10 @@ arSerialNumber = lens _arSerialNumber (\s a -> s { _arSerialNumber = a })
 -- "access denied" error.
 arTokenCode :: Lens' AssumeRole (Maybe Text)
 arTokenCode = lens _arTokenCode (\s a -> s { _arTokenCode = a })
+instance ToQuery AssumeRole
 
 instance ToPath AssumeRole where
     toPath = const "/"
-
-instance ToQuery AssumeRole
 
 data AssumeRoleResponse = AssumeRoleResponse
     { _arrAssumedRoleUser  :: Maybe AssumedRoleUser
@@ -251,6 +250,9 @@ arrCredentials = lens _arrCredentials (\s a -> s { _arrCredentials = a })
 arrPackedPolicySize :: Lens' AssumeRoleResponse (Maybe Int)
 arrPackedPolicySize =
     lens _arrPackedPolicySize (\s a -> s { _arrPackedPolicySize = a })
+instance FromXML AssumeRoleResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AssumeRoleResponse"
 
 instance AWSRequest AssumeRole where
     type Sv AssumeRole = SecurityToken

@@ -30,7 +30,7 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
     -- * Request
       ResetCacheParameterGroupMessage
     -- ** Request constructor
-    , resetCacheParameterGroup
+    , resetCacheParameterGroupMessage
     -- ** Request lenses
     , rcpgmCacheParameterGroupName
     , rcpgmParameterNameValues
@@ -39,7 +39,7 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
     -- * Response
     , CacheParameterGroupNameMessage
     -- ** Response constructor
-    , resetCacheParameterGroupResponse
+    , cacheParameterGroupNameMessage
     -- ** Response lenses
     , cpgnmCacheParameterGroupName
     ) where
@@ -64,9 +64,9 @@ data ResetCacheParameterGroupMessage = ResetCacheParameterGroupMessage
 --
 -- * 'rcpgmResetAllParameters' @::@ 'Maybe' 'Bool'
 --
-resetCacheParameterGroup :: Text -- ^ 'rcpgmCacheParameterGroupName'
-                         -> ResetCacheParameterGroupMessage
-resetCacheParameterGroup p1 = ResetCacheParameterGroupMessage
+resetCacheParameterGroupMessage :: Text -- ^ 'rcpgmCacheParameterGroupName'
+                                -> ResetCacheParameterGroupMessage
+resetCacheParameterGroupMessage p1 = ResetCacheParameterGroupMessage
     { _rcpgmCacheParameterGroupName = p1
     , _rcpgmResetAllParameters      = Nothing
     , _rcpgmParameterNameValues     = mempty
@@ -92,11 +92,10 @@ rcpgmParameterNameValues =
 rcpgmResetAllParameters :: Lens' ResetCacheParameterGroupMessage (Maybe Bool)
 rcpgmResetAllParameters =
     lens _rcpgmResetAllParameters (\s a -> s { _rcpgmResetAllParameters = a })
+instance ToQuery ResetCacheParameterGroupMessage
 
 instance ToPath ResetCacheParameterGroupMessage where
     toPath = const "/"
-
-instance ToQuery ResetCacheParameterGroupMessage
 
 instance AWSRequest ResetCacheParameterGroupMessage where
     type Sv ResetCacheParameterGroupMessage = ElastiCache

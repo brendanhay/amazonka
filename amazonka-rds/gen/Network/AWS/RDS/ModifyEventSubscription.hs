@@ -31,7 +31,7 @@ module Network.AWS.RDS.ModifyEventSubscription
     -- * Request
       ModifyEventSubscriptionMessage
     -- ** Request constructor
-    , modifyEventSubscription
+    , modifyEventSubscriptionMessage
     -- ** Request lenses
     , mesmEnabled
     , mesmEventCategories
@@ -42,7 +42,7 @@ module Network.AWS.RDS.ModifyEventSubscription
     -- * Response
     , ModifyEventSubscriptionResult
     -- ** Response constructor
-    , modifyEventSubscriptionResponse
+    , modifyEventSubscriptionResult
     -- ** Response lenses
     , mesrEventSubscription
     ) where
@@ -73,9 +73,9 @@ data ModifyEventSubscriptionMessage = ModifyEventSubscriptionMessage
 --
 -- * 'mesmSubscriptionName' @::@ 'Text'
 --
-modifyEventSubscription :: Text -- ^ 'mesmSubscriptionName'
-                        -> ModifyEventSubscriptionMessage
-modifyEventSubscription p1 = ModifyEventSubscriptionMessage
+modifyEventSubscriptionMessage :: Text -- ^ 'mesmSubscriptionName'
+                               -> ModifyEventSubscriptionMessage
+modifyEventSubscriptionMessage p1 = ModifyEventSubscriptionMessage
     { _mesmSubscriptionName = p1
     , _mesmSnsTopicArn      = Nothing
     , _mesmSourceType       = Nothing
@@ -113,11 +113,10 @@ mesmSourceType = lens _mesmSourceType (\s a -> s { _mesmSourceType = a })
 mesmSubscriptionName :: Lens' ModifyEventSubscriptionMessage Text
 mesmSubscriptionName =
     lens _mesmSubscriptionName (\s a -> s { _mesmSubscriptionName = a })
+instance ToQuery ModifyEventSubscriptionMessage
 
 instance ToPath ModifyEventSubscriptionMessage where
     toPath = const "/"
-
-instance ToQuery ModifyEventSubscriptionMessage
 
 newtype ModifyEventSubscriptionResult = ModifyEventSubscriptionResult
     { _mesrEventSubscription :: Maybe EventSubscription
@@ -129,14 +128,17 @@ newtype ModifyEventSubscriptionResult = ModifyEventSubscriptionResult
 --
 -- * 'mesrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-modifyEventSubscriptionResponse :: ModifyEventSubscriptionResult
-modifyEventSubscriptionResponse = ModifyEventSubscriptionResult
+modifyEventSubscriptionResult :: ModifyEventSubscriptionResult
+modifyEventSubscriptionResult = ModifyEventSubscriptionResult
     { _mesrEventSubscription = Nothing
     }
 
 mesrEventSubscription :: Lens' ModifyEventSubscriptionResult (Maybe EventSubscription)
 mesrEventSubscription =
     lens _mesrEventSubscription (\s a -> s { _mesrEventSubscription = a })
+instance FromXML ModifyEventSubscriptionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyEventSubscriptionResult"
 
 instance AWSRequest ModifyEventSubscriptionMessage where
     type Sv ModifyEventSubscriptionMessage = RDS

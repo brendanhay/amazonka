@@ -88,11 +88,10 @@ ggMarker = lens _ggMarker (\s a -> s { _ggMarker = a })
 -- parameter is optional. If you do not include it, it defaults to 100.
 ggMaxItems :: Lens' GetGroup (Maybe Int)
 ggMaxItems = lens _ggMaxItems (\s a -> s { _ggMaxItems = a })
+instance ToQuery GetGroup
 
 instance ToPath GetGroup where
     toPath = const "/"
-
-instance ToQuery GetGroup
 
 data GetGroupResponse = GetGroupResponse
     { _ggrGroup       :: Group
@@ -141,6 +140,9 @@ ggrMarker = lens _ggrMarker (\s a -> s { _ggrMarker = a })
 -- | A list of users in the group.
 ggrUsers :: Lens' GetGroupResponse [User]
 ggrUsers = lens _ggrUsers (\s a -> s { _ggrUsers = a })
+instance FromXML GetGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetGroupResponse"
 
 instance AWSRequest GetGroup where
     type Sv GetGroup = IAM

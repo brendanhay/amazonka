@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.DescribeLifecycleHooks
     -- * Request
       DescribeLifecycleHooksType
     -- ** Request constructor
-    , describeLifecycleHooks
+    , describeLifecycleHooksType
     -- ** Request lenses
     , dlht1AutoScalingGroupName
     , dlht1LifecycleHookNames
@@ -35,7 +35,7 @@ module Network.AWS.AutoScaling.DescribeLifecycleHooks
     -- * Response
     , DescribeLifecycleHooksAnswer
     -- ** Response constructor
-    , describeLifecycleHooksResponse
+    , describeLifecycleHooksAnswer
     -- ** Response lenses
     , dlhaLifecycleHooks
     ) where
@@ -57,9 +57,9 @@ data DescribeLifecycleHooksType = DescribeLifecycleHooksType
 --
 -- * 'dlht1LifecycleHookNames' @::@ ['Text']
 --
-describeLifecycleHooks :: Text -- ^ 'dlht1AutoScalingGroupName'
-                       -> DescribeLifecycleHooksType
-describeLifecycleHooks p1 = DescribeLifecycleHooksType
+describeLifecycleHooksType :: Text -- ^ 'dlht1AutoScalingGroupName'
+                           -> DescribeLifecycleHooksType
+describeLifecycleHooksType p1 = DescribeLifecycleHooksType
     { _dlht1AutoScalingGroupName = p1
     , _dlht1LifecycleHookNames   = mempty
     }
@@ -74,11 +74,10 @@ dlht1AutoScalingGroupName =
 dlht1LifecycleHookNames :: Lens' DescribeLifecycleHooksType [Text]
 dlht1LifecycleHookNames =
     lens _dlht1LifecycleHookNames (\s a -> s { _dlht1LifecycleHookNames = a })
+instance ToQuery DescribeLifecycleHooksType
 
 instance ToPath DescribeLifecycleHooksType where
     toPath = const "/"
-
-instance ToQuery DescribeLifecycleHooksType
 
 newtype DescribeLifecycleHooksAnswer = DescribeLifecycleHooksAnswer
     { _dlhaLifecycleHooks :: [LifecycleHook]
@@ -90,8 +89,8 @@ newtype DescribeLifecycleHooksAnswer = DescribeLifecycleHooksAnswer
 --
 -- * 'dlhaLifecycleHooks' @::@ ['LifecycleHook']
 --
-describeLifecycleHooksResponse :: DescribeLifecycleHooksAnswer
-describeLifecycleHooksResponse = DescribeLifecycleHooksAnswer
+describeLifecycleHooksAnswer :: DescribeLifecycleHooksAnswer
+describeLifecycleHooksAnswer = DescribeLifecycleHooksAnswer
     { _dlhaLifecycleHooks = mempty
     }
 
@@ -100,6 +99,9 @@ describeLifecycleHooksResponse = DescribeLifecycleHooksAnswer
 dlhaLifecycleHooks :: Lens' DescribeLifecycleHooksAnswer [LifecycleHook]
 dlhaLifecycleHooks =
     lens _dlhaLifecycleHooks (\s a -> s { _dlhaLifecycleHooks = a })
+instance FromXML DescribeLifecycleHooksAnswer where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeLifecycleHooksAnswer"
 
 instance AWSRequest DescribeLifecycleHooksType where
     type Sv DescribeLifecycleHooksType = AutoScaling

@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.ListInvalidations
     -- * Request
       ListInvalidations
     -- ** Request constructor
-    , listInvalidations2014_05_31
+    , listInvalidations
     -- ** Request lenses
     , liDistributionId
     , liMarker
@@ -35,7 +35,7 @@ module Network.AWS.CloudFront.ListInvalidations
     -- * Response
     , ListInvalidationsResult
     -- ** Response constructor
-    , listInvalidations2014_05_31Response
+    , listInvalidationsResult
     -- ** Response lenses
     , lirInvalidationList
     ) where
@@ -60,9 +60,9 @@ data ListInvalidations = ListInvalidations
 --
 -- * 'liMaxItems' @::@ 'Maybe' 'Text'
 --
-listInvalidations2014_05_31 :: Text -- ^ 'liDistributionId'
-                            -> ListInvalidations
-listInvalidations2014_05_31 p1 = ListInvalidations
+listInvalidations :: Text -- ^ 'liDistributionId'
+                  -> ListInvalidations
+listInvalidations p1 = ListInvalidations
     { _liDistributionId = p1
     , _liMarker         = Nothing
     , _liMaxItems       = Nothing
@@ -111,8 +111,8 @@ newtype ListInvalidationsResult = ListInvalidationsResult
 --
 -- * 'lirInvalidationList' @::@ 'Maybe' 'InvalidationList'
 --
-listInvalidations2014_05_31Response :: ListInvalidationsResult
-listInvalidations2014_05_31Response = ListInvalidationsResult
+listInvalidationsResult :: ListInvalidationsResult
+listInvalidationsResult = ListInvalidationsResult
     { _lirInvalidationList = Nothing
     }
 
@@ -121,6 +121,9 @@ lirInvalidationList :: Lens' ListInvalidationsResult (Maybe InvalidationList)
 lirInvalidationList =
     lens _lirInvalidationList (\s a -> s { _lirInvalidationList = a })
 
+instance FromXML ListInvalidationsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListInvalidationsResult"
 instance AWSRequest ListInvalidations where
     type Sv ListInvalidations = CloudFront
     type Rs ListInvalidations = ListInvalidationsResult

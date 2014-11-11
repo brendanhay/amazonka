@@ -90,11 +90,10 @@ lrpMaxItems = lens _lrpMaxItems (\s a -> s { _lrpMaxItems = a })
 -- | The name of the role to list policies for.
 lrpRoleName :: Lens' ListRolePolicies Text
 lrpRoleName = lens _lrpRoleName (\s a -> s { _lrpRoleName = a })
+instance ToQuery ListRolePolicies
 
 instance ToPath ListRolePolicies where
     toPath = const "/"
-
-instance ToQuery ListRolePolicies
 
 data ListRolePoliciesResponse = ListRolePoliciesResponse
     { _lrprIsTruncated :: Maybe Bool
@@ -134,6 +133,9 @@ lrprMarker = lens _lrprMarker (\s a -> s { _lrprMarker = a })
 -- | A list of policy names.
 lrprPolicyNames :: Lens' ListRolePoliciesResponse [Text]
 lrprPolicyNames = lens _lrprPolicyNames (\s a -> s { _lrprPolicyNames = a })
+instance FromXML ListRolePoliciesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListRolePoliciesResponse"
 
 instance AWSRequest ListRolePolicies where
     type Sv ListRolePolicies = IAM

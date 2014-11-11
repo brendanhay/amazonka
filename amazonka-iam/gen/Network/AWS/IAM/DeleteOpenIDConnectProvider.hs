@@ -68,21 +68,24 @@ doidcpOpenIDConnectProviderArn :: Lens' DeleteOpenIDConnectProvider Text
 doidcpOpenIDConnectProviderArn =
     lens _doidcpOpenIDConnectProviderArn
         (\s a -> s { _doidcpOpenIDConnectProviderArn = a })
+instance ToQuery DeleteOpenIDConnectProvider
 
 instance ToPath DeleteOpenIDConnectProvider where
     toPath = const "/"
 
-instance ToQuery DeleteOpenIDConnectProvider
-
 data DeleteOpenIDConnectProviderResponse = DeleteOpenIDConnectProviderResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteOpenIDConnectProviderResponse' constructor.
 deleteOpenIDConnectProviderResponse :: DeleteOpenIDConnectProviderResponse
 deleteOpenIDConnectProviderResponse = DeleteOpenIDConnectProviderResponse
+instance FromXML DeleteOpenIDConnectProviderResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteOpenIDConnectProviderResponse"
 
 instance AWSRequest DeleteOpenIDConnectProvider where
     type Sv DeleteOpenIDConnectProvider = IAM
     type Rs DeleteOpenIDConnectProvider = DeleteOpenIDConnectProviderResponse
 
     request  = post "DeleteOpenIDConnectProvider"
-    response = const (nullaryResponse DeleteOpenIDConnectProviderResponse)
+    response = nullaryResponse DeleteOpenIDConnectProviderResponse

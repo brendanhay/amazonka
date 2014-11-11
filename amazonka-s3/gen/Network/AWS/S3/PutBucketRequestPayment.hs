@@ -99,14 +99,18 @@ instance ToBody PutBucketRequestPayment where
     toBody = toBody . encodeXML . _pbrpRequestPaymentConfiguration
 
 data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketRequestPaymentResponse' constructor.
 putBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 
+instance FromXML PutBucketRequestPaymentResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutBucketRequestPaymentResponse"
 instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3
     type Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse
 
     request  = put
-    response = const (nullaryResponse PutBucketRequestPaymentResponse)
+    response = nullaryResponse PutBucketRequestPaymentResponse

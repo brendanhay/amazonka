@@ -80,21 +80,24 @@ da1DryRun = lens _da1DryRun (\s a -> s { _da1DryRun = a })
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
 da1PublicIp :: Lens' DisassociateAddress (Maybe Text)
 da1PublicIp = lens _da1PublicIp (\s a -> s { _da1PublicIp = a })
+instance ToQuery DisassociateAddress
 
 instance ToPath DisassociateAddress where
     toPath = const "/"
 
-instance ToQuery DisassociateAddress
-
 data DisassociateAddressResponse = DisassociateAddressResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DisassociateAddressResponse' constructor.
 disassociateAddressResponse :: DisassociateAddressResponse
 disassociateAddressResponse = DisassociateAddressResponse
+instance FromXML DisassociateAddressResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DisassociateAddressResponse"
 
 instance AWSRequest DisassociateAddress where
     type Sv DisassociateAddress = EC2
     type Rs DisassociateAddress = DisassociateAddressResponse
 
     request  = post "DisassociateAddress"
-    response = const (nullaryResponse DisassociateAddressResponse)
+    response = nullaryResponse DisassociateAddressResponse

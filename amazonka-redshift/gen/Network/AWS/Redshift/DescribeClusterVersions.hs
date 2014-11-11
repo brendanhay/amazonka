@@ -30,7 +30,7 @@ module Network.AWS.Redshift.DescribeClusterVersions
     -- * Request
       DescribeClusterVersionsMessage
     -- ** Request constructor
-    , describeClusterVersions
+    , describeClusterVersionsMessage
     -- ** Request lenses
     , dcvmClusterParameterGroupFamily
     , dcvmClusterVersion
@@ -40,7 +40,7 @@ module Network.AWS.Redshift.DescribeClusterVersions
     -- * Response
     , ClusterVersionsMessage
     -- ** Response constructor
-    , describeClusterVersionsResponse
+    , clusterVersionsMessage
     -- ** Response lenses
     , cvmClusterVersions
     , cvmMarker
@@ -69,8 +69,8 @@ data DescribeClusterVersionsMessage = DescribeClusterVersionsMessage
 --
 -- * 'dcvmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeClusterVersions :: DescribeClusterVersionsMessage
-describeClusterVersions = DescribeClusterVersionsMessage
+describeClusterVersionsMessage :: DescribeClusterVersionsMessage
+describeClusterVersionsMessage = DescribeClusterVersionsMessage
     { _dcvmClusterVersion              = Nothing
     , _dcvmClusterParameterGroupFamily = Nothing
     , _dcvmMaxRecords                  = Nothing
@@ -107,11 +107,10 @@ dcvmMarker = lens _dcvmMarker (\s a -> s { _dcvmMarker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcvmMaxRecords :: Lens' DescribeClusterVersionsMessage (Maybe Int)
 dcvmMaxRecords = lens _dcvmMaxRecords (\s a -> s { _dcvmMaxRecords = a })
+instance ToQuery DescribeClusterVersionsMessage
 
 instance ToPath DescribeClusterVersionsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeClusterVersionsMessage
 
 data ClusterVersionsMessage = ClusterVersionsMessage
     { _cvmClusterVersions :: [ClusterVersion]
@@ -126,8 +125,8 @@ data ClusterVersionsMessage = ClusterVersionsMessage
 --
 -- * 'cvmMarker' @::@ 'Maybe' 'Text'
 --
-describeClusterVersionsResponse :: ClusterVersionsMessage
-describeClusterVersionsResponse = ClusterVersionsMessage
+clusterVersionsMessage :: ClusterVersionsMessage
+clusterVersionsMessage = ClusterVersionsMessage
     { _cvmMarker          = Nothing
     , _cvmClusterVersions = mempty
     }
@@ -145,6 +144,9 @@ cvmClusterVersions =
 -- request.
 cvmMarker :: Lens' ClusterVersionsMessage (Maybe Text)
 cvmMarker = lens _cvmMarker (\s a -> s { _cvmMarker = a })
+instance FromXML ClusterVersionsMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ClusterVersionsMessage"
 
 instance AWSRequest DescribeClusterVersionsMessage where
     type Sv DescribeClusterVersionsMessage = Redshift

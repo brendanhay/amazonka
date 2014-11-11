@@ -36,7 +36,7 @@ module Network.AWS.S3.CompleteMultipartUpload
     -- * Response
     , CompleteMultipartUploadOutput
     -- ** Response constructor
-    , completeMultipartUploadResponse
+    , completeMultipartUploadOutput
     -- ** Response lenses
     , cmuoBucket
     , cmuoETag
@@ -138,8 +138,8 @@ data CompleteMultipartUploadOutput = CompleteMultipartUploadOutput
 --
 -- * 'cmuoVersionId' @::@ 'Maybe' 'Text'
 --
-completeMultipartUploadResponse :: CompleteMultipartUploadOutput
-completeMultipartUploadResponse = CompleteMultipartUploadOutput
+completeMultipartUploadOutput :: CompleteMultipartUploadOutput
+completeMultipartUploadOutput = CompleteMultipartUploadOutput
     { _cmuoLocation             = Nothing
     , _cmuoBucket               = Nothing
     , _cmuoKey                  = Nothing
@@ -179,6 +179,9 @@ cmuoServerSideEncryption =
 cmuoVersionId :: Lens' CompleteMultipartUploadOutput (Maybe Text)
 cmuoVersionId = lens _cmuoVersionId (\s a -> s { _cmuoVersionId = a })
 
+instance FromXML CompleteMultipartUploadOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CompleteMultipartUploadOutput"
 instance AWSRequest CompleteMultipartUpload where
     type Sv CompleteMultipartUpload = S3
     type Rs CompleteMultipartUpload = CompleteMultipartUploadOutput

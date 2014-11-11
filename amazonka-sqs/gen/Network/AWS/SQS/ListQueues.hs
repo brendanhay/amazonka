@@ -36,7 +36,7 @@ module Network.AWS.SQS.ListQueues
     -- * Response
     , ListQueuesResult
     -- ** Response constructor
-    , listQueuesResponse
+    , listQueuesResult
     -- ** Response lenses
     , lqrQueueUrls
     ) where
@@ -65,11 +65,10 @@ listQueues = ListQueues
 lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
 lqQueueNamePrefix =
     lens _lqQueueNamePrefix (\s a -> s { _lqQueueNamePrefix = a })
+instance ToQuery ListQueues
 
 instance ToPath ListQueues where
     toPath = const "/"
-
-instance ToQuery ListQueues
 
 newtype ListQueuesResult = ListQueuesResult
     { _lqrQueueUrls :: [Text]
@@ -81,14 +80,17 @@ newtype ListQueuesResult = ListQueuesResult
 --
 -- * 'lqrQueueUrls' @::@ ['Text']
 --
-listQueuesResponse :: ListQueuesResult
-listQueuesResponse = ListQueuesResult
+listQueuesResult :: ListQueuesResult
+listQueuesResult = ListQueuesResult
     { _lqrQueueUrls = mempty
     }
 
 -- | A list of queue URLs, up to 1000 entries.
 lqrQueueUrls :: Lens' ListQueuesResult [Text]
 lqrQueueUrls = lens _lqrQueueUrls (\s a -> s { _lqrQueueUrls = a })
+instance FromXML ListQueuesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListQueuesResult"
 
 instance AWSRequest ListQueues where
     type Sv ListQueues = SQS

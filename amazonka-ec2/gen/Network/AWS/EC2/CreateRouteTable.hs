@@ -37,7 +37,7 @@ module Network.AWS.EC2.CreateRouteTable
     -- * Response
     , CreateRouteTableResult
     -- ** Response constructor
-    , createRouteTableResponse
+    , createRouteTableResult
     -- ** Response lenses
     , crtrRouteTable
     ) where
@@ -72,11 +72,10 @@ crtDryRun = lens _crtDryRun (\s a -> s { _crtDryRun = a })
 -- | The ID of the VPC.
 crtVpcId :: Lens' CreateRouteTable Text
 crtVpcId = lens _crtVpcId (\s a -> s { _crtVpcId = a })
+instance ToQuery CreateRouteTable
 
 instance ToPath CreateRouteTable where
     toPath = const "/"
-
-instance ToQuery CreateRouteTable
 
 newtype CreateRouteTableResult = CreateRouteTableResult
     { _crtrRouteTable :: Maybe RouteTable
@@ -88,14 +87,17 @@ newtype CreateRouteTableResult = CreateRouteTableResult
 --
 -- * 'crtrRouteTable' @::@ 'Maybe' 'RouteTable'
 --
-createRouteTableResponse :: CreateRouteTableResult
-createRouteTableResponse = CreateRouteTableResult
+createRouteTableResult :: CreateRouteTableResult
+createRouteTableResult = CreateRouteTableResult
     { _crtrRouteTable = Nothing
     }
 
 -- | Information about the route table.
 crtrRouteTable :: Lens' CreateRouteTableResult (Maybe RouteTable)
 crtrRouteTable = lens _crtrRouteTable (\s a -> s { _crtrRouteTable = a })
+instance FromXML CreateRouteTableResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateRouteTableResult"
 
 instance AWSRequest CreateRouteTable where
     type Sv CreateRouteTable = EC2

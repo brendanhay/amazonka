@@ -29,7 +29,7 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     -- * Request
       DescribeClusterSubnetGroupsMessage
     -- ** Request constructor
-    , describeClusterSubnetGroups
+    , describeClusterSubnetGroupsMessage
     -- ** Request lenses
     , dcsgm1ClusterSubnetGroupName
     , dcsgm1Marker
@@ -38,7 +38,7 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     -- * Response
     , ClusterSubnetGroupMessage
     -- ** Response constructor
-    , describeClusterSubnetGroupsResponse
+    , clusterSubnetGroupMessage
     -- ** Response lenses
     , csgmClusterSubnetGroups
     , csgmMarker
@@ -64,8 +64,8 @@ data DescribeClusterSubnetGroupsMessage = DescribeClusterSubnetGroupsMessage
 --
 -- * 'dcsgm1MaxRecords' @::@ 'Maybe' 'Int'
 --
-describeClusterSubnetGroups :: DescribeClusterSubnetGroupsMessage
-describeClusterSubnetGroups = DescribeClusterSubnetGroupsMessage
+describeClusterSubnetGroupsMessage :: DescribeClusterSubnetGroupsMessage
+describeClusterSubnetGroupsMessage = DescribeClusterSubnetGroupsMessage
     { _dcsgm1ClusterSubnetGroupName = Nothing
     , _dcsgm1MaxRecords             = Nothing
     , _dcsgm1Marker                 = Nothing
@@ -93,11 +93,10 @@ dcsgm1Marker = lens _dcsgm1Marker (\s a -> s { _dcsgm1Marker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcsgm1MaxRecords :: Lens' DescribeClusterSubnetGroupsMessage (Maybe Int)
 dcsgm1MaxRecords = lens _dcsgm1MaxRecords (\s a -> s { _dcsgm1MaxRecords = a })
+instance ToQuery DescribeClusterSubnetGroupsMessage
 
 instance ToPath DescribeClusterSubnetGroupsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeClusterSubnetGroupsMessage
 
 data ClusterSubnetGroupMessage = ClusterSubnetGroupMessage
     { _csgmClusterSubnetGroups :: [ClusterSubnetGroup]
@@ -112,8 +111,8 @@ data ClusterSubnetGroupMessage = ClusterSubnetGroupMessage
 --
 -- * 'csgmMarker' @::@ 'Maybe' 'Text'
 --
-describeClusterSubnetGroupsResponse :: ClusterSubnetGroupMessage
-describeClusterSubnetGroupsResponse = ClusterSubnetGroupMessage
+clusterSubnetGroupMessage :: ClusterSubnetGroupMessage
+clusterSubnetGroupMessage = ClusterSubnetGroupMessage
     { _csgmMarker              = Nothing
     , _csgmClusterSubnetGroups = mempty
     }
@@ -131,6 +130,9 @@ csgmClusterSubnetGroups =
 -- request.
 csgmMarker :: Lens' ClusterSubnetGroupMessage (Maybe Text)
 csgmMarker = lens _csgmMarker (\s a -> s { _csgmMarker = a })
+instance FromXML ClusterSubnetGroupMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ClusterSubnetGroupMessage"
 
 instance AWSRequest DescribeClusterSubnetGroupsMessage where
     type Sv DescribeClusterSubnetGroupsMessage = Redshift

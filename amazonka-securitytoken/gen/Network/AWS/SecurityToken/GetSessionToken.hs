@@ -118,11 +118,10 @@ gstSerialNumber = lens _gstSerialNumber (\s a -> s { _gstSerialNumber = a })
 -- authentication.
 gstTokenCode :: Lens' GetSessionToken (Maybe Text)
 gstTokenCode = lens _gstTokenCode (\s a -> s { _gstTokenCode = a })
+instance ToQuery GetSessionToken
 
 instance ToPath GetSessionToken where
     toPath = const "/"
-
-instance ToQuery GetSessionToken
 
 newtype GetSessionTokenResponse = GetSessionTokenResponse
     { _gstrCredentials :: Maybe Credentials
@@ -142,6 +141,9 @@ getSessionTokenResponse = GetSessionTokenResponse
 -- | The session credentials for API authentication.
 gstrCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
 gstrCredentials = lens _gstrCredentials (\s a -> s { _gstrCredentials = a })
+instance FromXML GetSessionTokenResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetSessionTokenResponse"
 
 instance AWSRequest GetSessionToken where
     type Sv GetSessionToken = SecurityToken

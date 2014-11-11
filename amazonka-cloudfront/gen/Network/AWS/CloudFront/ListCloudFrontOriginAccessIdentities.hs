@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     -- * Request
       ListCloudFrontOriginAccessIdentities
     -- ** Request constructor
-    , listCloudFrontOriginAccessIdentities2014_05_31
+    , listCloudFrontOriginAccessIdentities
     -- ** Request lenses
     , lcfoaiMarker
     , lcfoaiMaxItems
@@ -34,7 +34,7 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     -- * Response
     , ListCloudFrontOriginAccessIdentitiesResult
     -- ** Response constructor
-    , listCloudFrontOriginAccessIdentities2014_05_31Response
+    , listCloudFrontOriginAccessIdentitiesResult
     -- ** Response lenses
     , lcfoairCloudFrontOriginAccessIdentityList
     ) where
@@ -56,8 +56,8 @@ data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
 --
 -- * 'lcfoaiMaxItems' @::@ 'Maybe' 'Text'
 --
-listCloudFrontOriginAccessIdentities2014_05_31 :: ListCloudFrontOriginAccessIdentities
-listCloudFrontOriginAccessIdentities2014_05_31 = ListCloudFrontOriginAccessIdentities
+listCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
+listCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
     { _lcfoaiMarker   = Nothing
     , _lcfoaiMaxItems = Nothing
     }
@@ -96,8 +96,8 @@ newtype ListCloudFrontOriginAccessIdentitiesResult = ListCloudFrontOriginAccessI
 --
 -- * 'lcfoairCloudFrontOriginAccessIdentityList' @::@ 'Maybe' 'CloudFrontOriginAccessIdentityList'
 --
-listCloudFrontOriginAccessIdentities2014_05_31Response :: ListCloudFrontOriginAccessIdentitiesResult
-listCloudFrontOriginAccessIdentities2014_05_31Response = ListCloudFrontOriginAccessIdentitiesResult
+listCloudFrontOriginAccessIdentitiesResult :: ListCloudFrontOriginAccessIdentitiesResult
+listCloudFrontOriginAccessIdentitiesResult = ListCloudFrontOriginAccessIdentitiesResult
     { _lcfoairCloudFrontOriginAccessIdentityList = Nothing
     }
 
@@ -107,6 +107,9 @@ lcfoairCloudFrontOriginAccessIdentityList =
     lens _lcfoairCloudFrontOriginAccessIdentityList
         (\s a -> s { _lcfoairCloudFrontOriginAccessIdentityList = a })
 
+instance FromXML ListCloudFrontOriginAccessIdentitiesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListCloudFrontOriginAccessIdentitiesResult"
 instance AWSRequest ListCloudFrontOriginAccessIdentities where
     type Sv ListCloudFrontOriginAccessIdentities = CloudFront
     type Rs ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentitiesResult

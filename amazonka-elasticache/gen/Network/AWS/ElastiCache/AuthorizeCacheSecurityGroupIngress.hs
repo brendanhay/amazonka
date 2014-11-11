@@ -29,7 +29,7 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     -- * Request
       AuthorizeCacheSecurityGroupIngressMessage
     -- ** Request constructor
-    , authorizeCacheSecurityGroupIngress
+    , authorizeCacheSecurityGroupIngressMessage
     -- ** Request lenses
     , acsgimCacheSecurityGroupName
     , acsgimEC2SecurityGroupName
@@ -38,7 +38,7 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     -- * Response
     , AuthorizeCacheSecurityGroupIngressResult
     -- ** Response constructor
-    , authorizeCacheSecurityGroupIngressResponse
+    , authorizeCacheSecurityGroupIngressResult
     -- ** Response lenses
     , acsgirCacheSecurityGroup
     ) where
@@ -63,11 +63,11 @@ data AuthorizeCacheSecurityGroupIngressMessage = AuthorizeCacheSecurityGroupIngr
 --
 -- * 'acsgimEC2SecurityGroupOwnerId' @::@ 'Text'
 --
-authorizeCacheSecurityGroupIngress :: Text -- ^ 'acsgimCacheSecurityGroupName'
-                                   -> Text -- ^ 'acsgimEC2SecurityGroupName'
-                                   -> Text -- ^ 'acsgimEC2SecurityGroupOwnerId'
-                                   -> AuthorizeCacheSecurityGroupIngressMessage
-authorizeCacheSecurityGroupIngress p1 p2 p3 = AuthorizeCacheSecurityGroupIngressMessage
+authorizeCacheSecurityGroupIngressMessage :: Text -- ^ 'acsgimCacheSecurityGroupName'
+                                          -> Text -- ^ 'acsgimEC2SecurityGroupName'
+                                          -> Text -- ^ 'acsgimEC2SecurityGroupOwnerId'
+                                          -> AuthorizeCacheSecurityGroupIngressMessage
+authorizeCacheSecurityGroupIngressMessage p1 p2 p3 = AuthorizeCacheSecurityGroupIngressMessage
     { _acsgimCacheSecurityGroupName  = p1
     , _acsgimEC2SecurityGroupName    = p2
     , _acsgimEC2SecurityGroupOwnerId = p3
@@ -93,11 +93,10 @@ acsgimEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngressMessage
 acsgimEC2SecurityGroupOwnerId =
     lens _acsgimEC2SecurityGroupOwnerId
         (\s a -> s { _acsgimEC2SecurityGroupOwnerId = a })
+instance ToQuery AuthorizeCacheSecurityGroupIngressMessage
 
 instance ToPath AuthorizeCacheSecurityGroupIngressMessage where
     toPath = const "/"
-
-instance ToQuery AuthorizeCacheSecurityGroupIngressMessage
 
 newtype AuthorizeCacheSecurityGroupIngressResult = AuthorizeCacheSecurityGroupIngressResult
     { _acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
@@ -109,8 +108,8 @@ newtype AuthorizeCacheSecurityGroupIngressResult = AuthorizeCacheSecurityGroupIn
 --
 -- * 'acsgirCacheSecurityGroup' @::@ 'Maybe' 'CacheSecurityGroup'
 --
-authorizeCacheSecurityGroupIngressResponse :: AuthorizeCacheSecurityGroupIngressResult
-authorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResult
+authorizeCacheSecurityGroupIngressResult :: AuthorizeCacheSecurityGroupIngressResult
+authorizeCacheSecurityGroupIngressResult = AuthorizeCacheSecurityGroupIngressResult
     { _acsgirCacheSecurityGroup = Nothing
     }
 
@@ -118,6 +117,9 @@ acsgirCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResult (Mayb
 acsgirCacheSecurityGroup =
     lens _acsgirCacheSecurityGroup
         (\s a -> s { _acsgirCacheSecurityGroup = a })
+instance FromXML AuthorizeCacheSecurityGroupIngressResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AuthorizeCacheSecurityGroupIngressResult"
 
 instance AWSRequest AuthorizeCacheSecurityGroupIngressMessage where
     type Sv AuthorizeCacheSecurityGroupIngressMessage = ElastiCache

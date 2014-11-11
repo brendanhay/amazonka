@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeInstances
     -- * Response
     , DescribeInstancesResult
     -- ** Response constructor
-    , describeInstancesResponse
+    , describeInstancesResult
     -- ** Response lenses
     , dirNextToken
     , dirReservations
@@ -232,11 +232,10 @@ diMaxResults = lens _diMaxResults (\s a -> s { _diMaxResults = a })
 -- from a prior call.).
 diNextToken :: Lens' DescribeInstances (Maybe Text)
 diNextToken = lens _diNextToken (\s a -> s { _diNextToken = a })
+instance ToQuery DescribeInstances
 
 instance ToPath DescribeInstances where
     toPath = const "/"
-
-instance ToQuery DescribeInstances
 
 data DescribeInstancesResult = DescribeInstancesResult
     { _dirNextToken    :: Maybe Text
@@ -251,8 +250,8 @@ data DescribeInstancesResult = DescribeInstancesResult
 --
 -- * 'dirReservations' @::@ ['Reservation']
 --
-describeInstancesResponse :: DescribeInstancesResult
-describeInstancesResponse = DescribeInstancesResult
+describeInstancesResult :: DescribeInstancesResult
+describeInstancesResult = DescribeInstancesResult
     { _dirReservations = mempty
     , _dirNextToken    = Nothing
     }
@@ -265,6 +264,9 @@ dirNextToken = lens _dirNextToken (\s a -> s { _dirNextToken = a })
 -- | One or more reservations.
 dirReservations :: Lens' DescribeInstancesResult [Reservation]
 dirReservations = lens _dirReservations (\s a -> s { _dirReservations = a })
+instance FromXML DescribeInstancesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeInstancesResult"
 
 instance AWSRequest DescribeInstances where
     type Sv DescribeInstances = EC2

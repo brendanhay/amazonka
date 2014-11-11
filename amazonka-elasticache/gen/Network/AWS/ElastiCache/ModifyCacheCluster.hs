@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     -- * Request
       ModifyCacheClusterMessage
     -- ** Request constructor
-    , modifyCacheCluster
+    , modifyCacheClusterMessage
     -- ** Request lenses
     , mccmAZMode
     , mccmApplyImmediately
@@ -50,7 +50,7 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
     -- * Response
     , ModifyCacheClusterResult
     -- ** Response constructor
-    , modifyCacheClusterResponse
+    , modifyCacheClusterResult
     -- ** Response lenses
     , mccrCacheCluster
     ) where
@@ -114,9 +114,9 @@ data ModifyCacheClusterMessage = ModifyCacheClusterMessage
 --
 -- * 'mccmSnapshotWindow' @::@ 'Maybe' 'Text'
 --
-modifyCacheCluster :: Text -- ^ 'mccmCacheClusterId'
-                   -> ModifyCacheClusterMessage
-modifyCacheCluster p1 = ModifyCacheClusterMessage
+modifyCacheClusterMessage :: Text -- ^ 'mccmCacheClusterId'
+                          -> ModifyCacheClusterMessage
+modifyCacheClusterMessage p1 = ModifyCacheClusterMessage
     { _mccmCacheClusterId             = p1
     , _mccmNumCacheNodes              = Nothing
     , _mccmCacheNodeIdsToRemove       = mempty
@@ -320,11 +320,10 @@ mccmSnapshotRetentionLimit =
 mccmSnapshotWindow :: Lens' ModifyCacheClusterMessage (Maybe Text)
 mccmSnapshotWindow =
     lens _mccmSnapshotWindow (\s a -> s { _mccmSnapshotWindow = a })
+instance ToQuery ModifyCacheClusterMessage
 
 instance ToPath ModifyCacheClusterMessage where
     toPath = const "/"
-
-instance ToQuery ModifyCacheClusterMessage
 
 newtype ModifyCacheClusterResult = ModifyCacheClusterResult
     { _mccrCacheCluster :: Maybe CacheCluster
@@ -336,13 +335,16 @@ newtype ModifyCacheClusterResult = ModifyCacheClusterResult
 --
 -- * 'mccrCacheCluster' @::@ 'Maybe' 'CacheCluster'
 --
-modifyCacheClusterResponse :: ModifyCacheClusterResult
-modifyCacheClusterResponse = ModifyCacheClusterResult
+modifyCacheClusterResult :: ModifyCacheClusterResult
+modifyCacheClusterResult = ModifyCacheClusterResult
     { _mccrCacheCluster = Nothing
     }
 
 mccrCacheCluster :: Lens' ModifyCacheClusterResult (Maybe CacheCluster)
 mccrCacheCluster = lens _mccrCacheCluster (\s a -> s { _mccrCacheCluster = a })
+instance FromXML ModifyCacheClusterResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyCacheClusterResult"
 
 instance AWSRequest ModifyCacheClusterMessage where
     type Sv ModifyCacheClusterMessage = ElastiCache

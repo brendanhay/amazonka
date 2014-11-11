@@ -27,7 +27,7 @@ module Network.AWS.ELB.DeleteLoadBalancerPolicy
     -- * Request
       DeleteLoadBalancerPolicyInput
     -- ** Request constructor
-    , deleteLoadBalancerPolicy
+    , deleteLoadBalancerPolicyInput
     -- ** Request lenses
     , dlbpi1LoadBalancerName
     , dlbpi1PolicyName
@@ -55,10 +55,10 @@ data DeleteLoadBalancerPolicyInput = DeleteLoadBalancerPolicyInput
 --
 -- * 'dlbpi1PolicyName' @::@ 'Text'
 --
-deleteLoadBalancerPolicy :: Text -- ^ 'dlbpi1LoadBalancerName'
-                         -> Text -- ^ 'dlbpi1PolicyName'
-                         -> DeleteLoadBalancerPolicyInput
-deleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicyInput
+deleteLoadBalancerPolicyInput :: Text -- ^ 'dlbpi1LoadBalancerName'
+                              -> Text -- ^ 'dlbpi1PolicyName'
+                              -> DeleteLoadBalancerPolicyInput
+deleteLoadBalancerPolicyInput p1 p2 = DeleteLoadBalancerPolicyInput
     { _dlbpi1LoadBalancerName = p1
     , _dlbpi1PolicyName       = p2
     }
@@ -71,21 +71,24 @@ dlbpi1LoadBalancerName =
 -- | The mnemonic name for the policy being deleted.
 dlbpi1PolicyName :: Lens' DeleteLoadBalancerPolicyInput Text
 dlbpi1PolicyName = lens _dlbpi1PolicyName (\s a -> s { _dlbpi1PolicyName = a })
+instance ToQuery DeleteLoadBalancerPolicyInput
 
 instance ToPath DeleteLoadBalancerPolicyInput where
     toPath = const "/"
 
-instance ToQuery DeleteLoadBalancerPolicyInput
-
 data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteLoadBalancerPolicyResponse' constructor.
 deleteLoadBalancerPolicyResponse :: DeleteLoadBalancerPolicyResponse
 deleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
+instance FromXML DeleteLoadBalancerPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteLoadBalancerPolicyResponse"
 
 instance AWSRequest DeleteLoadBalancerPolicyInput where
     type Sv DeleteLoadBalancerPolicyInput = ELB
     type Rs DeleteLoadBalancerPolicyInput = DeleteLoadBalancerPolicyResponse
 
     request  = post "DeleteLoadBalancerPolicy"
-    response = const (nullaryResponse DeleteLoadBalancerPolicyResponse)
+    response = nullaryResponse DeleteLoadBalancerPolicyResponse

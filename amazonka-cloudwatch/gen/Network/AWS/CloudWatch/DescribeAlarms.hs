@@ -28,7 +28,7 @@ module Network.AWS.CloudWatch.DescribeAlarms
     -- * Request
       DescribeAlarmsInput
     -- ** Request constructor
-    , describeAlarms
+    , describeAlarmsInput
     -- ** Request lenses
     , dai1ActionPrefix
     , dai1AlarmNamePrefix
@@ -40,7 +40,7 @@ module Network.AWS.CloudWatch.DescribeAlarms
     -- * Response
     , DescribeAlarmsOutput
     -- ** Response constructor
-    , describeAlarmsResponse
+    , describeAlarmsOutput
     -- ** Response lenses
     , daoMetricAlarms
     , daoNextToken
@@ -75,8 +75,8 @@ data DescribeAlarmsInput = DescribeAlarmsInput
 --
 -- * 'dai1StateValue' @::@ 'Maybe' 'Text'
 --
-describeAlarms :: DescribeAlarmsInput
-describeAlarms = DescribeAlarmsInput
+describeAlarmsInput :: DescribeAlarmsInput
+describeAlarmsInput = DescribeAlarmsInput
     { _dai1AlarmNames      = mempty
     , _dai1AlarmNamePrefix = Nothing
     , _dai1StateValue      = Nothing
@@ -111,11 +111,10 @@ dai1NextToken = lens _dai1NextToken (\s a -> s { _dai1NextToken = a })
 -- | The state value to be used in matching alarms.
 dai1StateValue :: Lens' DescribeAlarmsInput (Maybe Text)
 dai1StateValue = lens _dai1StateValue (\s a -> s { _dai1StateValue = a })
+instance ToQuery DescribeAlarmsInput
 
 instance ToPath DescribeAlarmsInput where
     toPath = const "/"
-
-instance ToQuery DescribeAlarmsInput
 
 data DescribeAlarmsOutput = DescribeAlarmsOutput
     { _daoMetricAlarms :: [MetricAlarm]
@@ -130,8 +129,8 @@ data DescribeAlarmsOutput = DescribeAlarmsOutput
 --
 -- * 'daoNextToken' @::@ 'Maybe' 'Text'
 --
-describeAlarmsResponse :: DescribeAlarmsOutput
-describeAlarmsResponse = DescribeAlarmsOutput
+describeAlarmsOutput :: DescribeAlarmsOutput
+describeAlarmsOutput = DescribeAlarmsOutput
     { _daoMetricAlarms = mempty
     , _daoNextToken    = Nothing
     }
@@ -143,6 +142,9 @@ daoMetricAlarms = lens _daoMetricAlarms (\s a -> s { _daoMetricAlarms = a })
 -- | A string that marks the start of the next batch of returned results.
 daoNextToken :: Lens' DescribeAlarmsOutput (Maybe Text)
 daoNextToken = lens _daoNextToken (\s a -> s { _daoNextToken = a })
+instance FromXML DescribeAlarmsOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAlarmsOutput"
 
 instance AWSRequest DescribeAlarmsInput where
     type Sv DescribeAlarmsInput = CloudWatch

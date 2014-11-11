@@ -63,21 +63,24 @@ deleteSAMLProvider p1 = DeleteSAMLProvider
 dsamlpSAMLProviderArn :: Lens' DeleteSAMLProvider Text
 dsamlpSAMLProviderArn =
     lens _dsamlpSAMLProviderArn (\s a -> s { _dsamlpSAMLProviderArn = a })
+instance ToQuery DeleteSAMLProvider
 
 instance ToPath DeleteSAMLProvider where
     toPath = const "/"
 
-instance ToQuery DeleteSAMLProvider
-
 data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSAMLProviderResponse' constructor.
 deleteSAMLProviderResponse :: DeleteSAMLProviderResponse
 deleteSAMLProviderResponse = DeleteSAMLProviderResponse
+instance FromXML DeleteSAMLProviderResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteSAMLProviderResponse"
 
 instance AWSRequest DeleteSAMLProvider where
     type Sv DeleteSAMLProvider = IAM
     type Rs DeleteSAMLProvider = DeleteSAMLProviderResponse
 
     request  = post "DeleteSAMLProvider"
-    response = const (nullaryResponse DeleteSAMLProviderResponse)
+    response = nullaryResponse DeleteSAMLProviderResponse

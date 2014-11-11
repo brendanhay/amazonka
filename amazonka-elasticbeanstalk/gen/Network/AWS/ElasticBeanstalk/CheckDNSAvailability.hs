@@ -26,14 +26,14 @@ module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     -- * Request
       CheckDNSAvailabilityMessage
     -- ** Request constructor
-    , checkDNSAvailability
+    , checkDNSAvailabilityMessage
     -- ** Request lenses
     , cdnsamCNAMEPrefix
 
     -- * Response
     , CheckDNSAvailabilityResultMessage
     -- ** Response constructor
-    , checkDNSAvailabilityResponse
+    , checkDNSAvailabilityResultMessage
     -- ** Response lenses
     , cdnsarmAvailable
     , cdnsarmFullyQualifiedCNAME
@@ -53,9 +53,9 @@ newtype CheckDNSAvailabilityMessage = CheckDNSAvailabilityMessage
 --
 -- * 'cdnsamCNAMEPrefix' @::@ 'Text'
 --
-checkDNSAvailability :: Text -- ^ 'cdnsamCNAMEPrefix'
-                     -> CheckDNSAvailabilityMessage
-checkDNSAvailability p1 = CheckDNSAvailabilityMessage
+checkDNSAvailabilityMessage :: Text -- ^ 'cdnsamCNAMEPrefix'
+                            -> CheckDNSAvailabilityMessage
+checkDNSAvailabilityMessage p1 = CheckDNSAvailabilityMessage
     { _cdnsamCNAMEPrefix = p1
     }
 
@@ -63,11 +63,10 @@ checkDNSAvailability p1 = CheckDNSAvailabilityMessage
 cdnsamCNAMEPrefix :: Lens' CheckDNSAvailabilityMessage Text
 cdnsamCNAMEPrefix =
     lens _cdnsamCNAMEPrefix (\s a -> s { _cdnsamCNAMEPrefix = a })
+instance ToQuery CheckDNSAvailabilityMessage
 
 instance ToPath CheckDNSAvailabilityMessage where
     toPath = const "/"
-
-instance ToQuery CheckDNSAvailabilityMessage
 
 data CheckDNSAvailabilityResultMessage = CheckDNSAvailabilityResultMessage
     { _cdnsarmAvailable           :: Maybe Bool
@@ -82,8 +81,8 @@ data CheckDNSAvailabilityResultMessage = CheckDNSAvailabilityResultMessage
 --
 -- * 'cdnsarmFullyQualifiedCNAME' @::@ 'Maybe' 'Text'
 --
-checkDNSAvailabilityResponse :: CheckDNSAvailabilityResultMessage
-checkDNSAvailabilityResponse = CheckDNSAvailabilityResultMessage
+checkDNSAvailabilityResultMessage :: CheckDNSAvailabilityResultMessage
+checkDNSAvailabilityResultMessage = CheckDNSAvailabilityResultMessage
     { _cdnsarmAvailable           = Nothing
     , _cdnsarmFullyQualifiedCNAME = Nothing
     }
@@ -100,6 +99,9 @@ cdnsarmFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResultMessage (Maybe Tex
 cdnsarmFullyQualifiedCNAME =
     lens _cdnsarmFullyQualifiedCNAME
         (\s a -> s { _cdnsarmFullyQualifiedCNAME = a })
+instance FromXML CheckDNSAvailabilityResultMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CheckDNSAvailabilityResultMessage"
 
 instance AWSRequest CheckDNSAvailabilityMessage where
     type Sv CheckDNSAvailabilityMessage = ElasticBeanstalk

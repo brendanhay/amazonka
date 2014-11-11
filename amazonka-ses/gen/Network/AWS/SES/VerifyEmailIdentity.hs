@@ -61,21 +61,24 @@ verifyEmailIdentity p1 = VerifyEmailIdentity
 -- | The email address to be verified.
 veiEmailAddress :: Lens' VerifyEmailIdentity Text
 veiEmailAddress = lens _veiEmailAddress (\s a -> s { _veiEmailAddress = a })
+instance ToQuery VerifyEmailIdentity
 
 instance ToPath VerifyEmailIdentity where
     toPath = const "/"
 
-instance ToQuery VerifyEmailIdentity
-
 data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'VerifyEmailIdentityResponse' constructor.
 verifyEmailIdentityResponse :: VerifyEmailIdentityResponse
 verifyEmailIdentityResponse = VerifyEmailIdentityResponse
+instance FromXML VerifyEmailIdentityResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "VerifyEmailIdentityResponse"
 
 instance AWSRequest VerifyEmailIdentity where
     type Sv VerifyEmailIdentity = SES
     type Rs VerifyEmailIdentity = VerifyEmailIdentityResponse
 
     request  = post "VerifyEmailIdentity"
-    response = const (nullaryResponse VerifyEmailIdentityResponse)
+    response = nullaryResponse VerifyEmailIdentityResponse

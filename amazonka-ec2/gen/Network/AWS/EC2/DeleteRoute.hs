@@ -79,21 +79,24 @@ dr1DryRun = lens _dr1DryRun (\s a -> s { _dr1DryRun = a })
 -- | The ID of the route table.
 dr1RouteTableId :: Lens' DeleteRoute Text
 dr1RouteTableId = lens _dr1RouteTableId (\s a -> s { _dr1RouteTableId = a })
+instance ToQuery DeleteRoute
 
 instance ToPath DeleteRoute where
     toPath = const "/"
 
-instance ToQuery DeleteRoute
-
 data DeleteRouteResponse = DeleteRouteResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteRouteResponse' constructor.
 deleteRouteResponse :: DeleteRouteResponse
 deleteRouteResponse = DeleteRouteResponse
+instance FromXML DeleteRouteResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteRouteResponse"
 
 instance AWSRequest DeleteRoute where
     type Sv DeleteRoute = EC2
     type Rs DeleteRoute = DeleteRouteResponse
 
     request  = post "DeleteRoute"
-    response = const (nullaryResponse DeleteRouteResponse)
+    response = nullaryResponse DeleteRouteResponse

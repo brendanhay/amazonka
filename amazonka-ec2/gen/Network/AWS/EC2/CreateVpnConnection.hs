@@ -47,7 +47,7 @@ module Network.AWS.EC2.CreateVpnConnection
     -- * Response
     , CreateVpnConnectionResult
     -- ** Response constructor
-    , createVpnConnectionResponse
+    , createVpnConnectionResult
     -- ** Response lenses
     , cvcrVpnConnection
     ) where
@@ -111,11 +111,10 @@ cvcType = lens _cvcType (\s a -> s { _cvcType = a })
 -- | The ID of the virtual private gateway.
 cvcVpnGatewayId :: Lens' CreateVpnConnection Text
 cvcVpnGatewayId = lens _cvcVpnGatewayId (\s a -> s { _cvcVpnGatewayId = a })
+instance ToQuery CreateVpnConnection
 
 instance ToPath CreateVpnConnection where
     toPath = const "/"
-
-instance ToQuery CreateVpnConnection
 
 newtype CreateVpnConnectionResult = CreateVpnConnectionResult
     { _cvcrVpnConnection :: Maybe VpnConnection
@@ -127,8 +126,8 @@ newtype CreateVpnConnectionResult = CreateVpnConnectionResult
 --
 -- * 'cvcrVpnConnection' @::@ 'Maybe' 'VpnConnection'
 --
-createVpnConnectionResponse :: CreateVpnConnectionResult
-createVpnConnectionResponse = CreateVpnConnectionResult
+createVpnConnectionResult :: CreateVpnConnectionResult
+createVpnConnectionResult = CreateVpnConnectionResult
     { _cvcrVpnConnection = Nothing
     }
 
@@ -136,6 +135,9 @@ createVpnConnectionResponse = CreateVpnConnectionResult
 cvcrVpnConnection :: Lens' CreateVpnConnectionResult (Maybe VpnConnection)
 cvcrVpnConnection =
     lens _cvcrVpnConnection (\s a -> s { _cvcrVpnConnection = a })
+instance FromXML CreateVpnConnectionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateVpnConnectionResult"
 
 instance AWSRequest CreateVpnConnection where
     type Sv CreateVpnConnection = EC2

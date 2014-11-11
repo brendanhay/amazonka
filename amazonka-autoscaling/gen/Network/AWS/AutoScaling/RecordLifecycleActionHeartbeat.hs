@@ -37,7 +37,7 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     -- * Request
       RecordLifecycleActionHeartbeatType
     -- ** Request constructor
-    , recordLifecycleActionHeartbeat
+    , recordLifecycleActionHeartbeatType
     -- ** Request lenses
     , rlahtAutoScalingGroupName
     , rlahtLifecycleActionToken
@@ -69,11 +69,11 @@ data RecordLifecycleActionHeartbeatType = RecordLifecycleActionHeartbeatType
 --
 -- * 'rlahtLifecycleHookName' @::@ 'Text'
 --
-recordLifecycleActionHeartbeat :: Text -- ^ 'rlahtLifecycleHookName'
-                               -> Text -- ^ 'rlahtAutoScalingGroupName'
-                               -> Text -- ^ 'rlahtLifecycleActionToken'
-                               -> RecordLifecycleActionHeartbeatType
-recordLifecycleActionHeartbeat p1 p2 p3 = RecordLifecycleActionHeartbeatType
+recordLifecycleActionHeartbeatType :: Text -- ^ 'rlahtLifecycleHookName'
+                                   -> Text -- ^ 'rlahtAutoScalingGroupName'
+                                   -> Text -- ^ 'rlahtLifecycleActionToken'
+                                   -> RecordLifecycleActionHeartbeatType
+recordLifecycleActionHeartbeatType p1 p2 p3 = RecordLifecycleActionHeartbeatType
     { _rlahtLifecycleHookName    = p1
     , _rlahtAutoScalingGroupName = p2
     , _rlahtLifecycleActionToken = p3
@@ -97,21 +97,24 @@ rlahtLifecycleActionToken =
 rlahtLifecycleHookName :: Lens' RecordLifecycleActionHeartbeatType Text
 rlahtLifecycleHookName =
     lens _rlahtLifecycleHookName (\s a -> s { _rlahtLifecycleHookName = a })
+instance ToQuery RecordLifecycleActionHeartbeatType
 
 instance ToPath RecordLifecycleActionHeartbeatType where
     toPath = const "/"
 
-instance ToQuery RecordLifecycleActionHeartbeatType
-
 data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'RecordLifecycleActionHeartbeatResponse' constructor.
 recordLifecycleActionHeartbeatResponse :: RecordLifecycleActionHeartbeatResponse
 recordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
+instance FromXML RecordLifecycleActionHeartbeatResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RecordLifecycleActionHeartbeatResponse"
 
 instance AWSRequest RecordLifecycleActionHeartbeatType where
     type Sv RecordLifecycleActionHeartbeatType = AutoScaling
     type Rs RecordLifecycleActionHeartbeatType = RecordLifecycleActionHeartbeatResponse
 
     request  = post "RecordLifecycleActionHeartbeat"
-    response = const (nullaryResponse RecordLifecycleActionHeartbeatResponse)
+    response = nullaryResponse RecordLifecycleActionHeartbeatResponse

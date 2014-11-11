@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     -- * Response
     , ProcessesType
     -- ** Response constructor
-    , describeScalingProcessTypesResponse
+    , processesType
     -- ** Response lenses
     , ptProcesses
     ) where
@@ -42,15 +42,15 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
 data DescribeScalingProcessTypes = DescribeScalingProcessTypes
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeScalingProcessTypes' constructor.
 describeScalingProcessTypes :: DescribeScalingProcessTypes
 describeScalingProcessTypes = DescribeScalingProcessTypes
+instance ToQuery DescribeScalingProcessTypes
 
 instance ToPath DescribeScalingProcessTypes where
     toPath = const "/"
-
-instance ToQuery DescribeScalingProcessTypes
 
 newtype ProcessesType = ProcessesType
     { _ptProcesses :: [ProcessType]
@@ -62,14 +62,17 @@ newtype ProcessesType = ProcessesType
 --
 -- * 'ptProcesses' @::@ ['ProcessType']
 --
-describeScalingProcessTypesResponse :: ProcessesType
-describeScalingProcessTypesResponse = ProcessesType
+processesType :: ProcessesType
+processesType = ProcessesType
     { _ptProcesses = mempty
     }
 
 -- | A list of ProcessType names.
 ptProcesses :: Lens' ProcessesType [ProcessType]
 ptProcesses = lens _ptProcesses (\s a -> s { _ptProcesses = a })
+instance FromXML ProcessesType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ProcessesType"
 
 instance AWSRequest DescribeScalingProcessTypes where
     type Sv DescribeScalingProcessTypes = AutoScaling

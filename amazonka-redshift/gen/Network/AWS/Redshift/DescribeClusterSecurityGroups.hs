@@ -30,7 +30,7 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     -- * Request
       DescribeClusterSecurityGroupsMessage
     -- ** Request constructor
-    , describeClusterSecurityGroups
+    , describeClusterSecurityGroupsMessage
     -- ** Request lenses
     , dcsgm2ClusterSecurityGroupName
     , dcsgm2Marker
@@ -39,7 +39,7 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     -- * Response
     , ClusterSecurityGroupMessage
     -- ** Response constructor
-    , describeClusterSecurityGroupsResponse
+    , clusterSecurityGroupMessage
     -- ** Response lenses
     , csgm1ClusterSecurityGroups
     , csgm1Marker
@@ -65,8 +65,8 @@ data DescribeClusterSecurityGroupsMessage = DescribeClusterSecurityGroupsMessage
 --
 -- * 'dcsgm2MaxRecords' @::@ 'Maybe' 'Int'
 --
-describeClusterSecurityGroups :: DescribeClusterSecurityGroupsMessage
-describeClusterSecurityGroups = DescribeClusterSecurityGroupsMessage
+describeClusterSecurityGroupsMessage :: DescribeClusterSecurityGroupsMessage
+describeClusterSecurityGroupsMessage = DescribeClusterSecurityGroupsMessage
     { _dcsgm2ClusterSecurityGroupName = Nothing
     , _dcsgm2MaxRecords               = Nothing
     , _dcsgm2Marker                   = Nothing
@@ -99,11 +99,10 @@ dcsgm2Marker = lens _dcsgm2Marker (\s a -> s { _dcsgm2Marker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcsgm2MaxRecords :: Lens' DescribeClusterSecurityGroupsMessage (Maybe Int)
 dcsgm2MaxRecords = lens _dcsgm2MaxRecords (\s a -> s { _dcsgm2MaxRecords = a })
+instance ToQuery DescribeClusterSecurityGroupsMessage
 
 instance ToPath DescribeClusterSecurityGroupsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeClusterSecurityGroupsMessage
 
 data ClusterSecurityGroupMessage = ClusterSecurityGroupMessage
     { _csgm1ClusterSecurityGroups :: [ClusterSecurityGroup]
@@ -118,8 +117,8 @@ data ClusterSecurityGroupMessage = ClusterSecurityGroupMessage
 --
 -- * 'csgm1Marker' @::@ 'Maybe' 'Text'
 --
-describeClusterSecurityGroupsResponse :: ClusterSecurityGroupMessage
-describeClusterSecurityGroupsResponse = ClusterSecurityGroupMessage
+clusterSecurityGroupMessage :: ClusterSecurityGroupMessage
+clusterSecurityGroupMessage = ClusterSecurityGroupMessage
     { _csgm1Marker                = Nothing
     , _csgm1ClusterSecurityGroups = mempty
     }
@@ -138,6 +137,9 @@ csgm1ClusterSecurityGroups =
 -- request.
 csgm1Marker :: Lens' ClusterSecurityGroupMessage (Maybe Text)
 csgm1Marker = lens _csgm1Marker (\s a -> s { _csgm1Marker = a })
+instance FromXML ClusterSecurityGroupMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ClusterSecurityGroupMessage"
 
 instance AWSRequest DescribeClusterSecurityGroupsMessage where
     type Sv DescribeClusterSecurityGroupsMessage = Redshift

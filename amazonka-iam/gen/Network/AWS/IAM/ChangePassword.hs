@@ -75,21 +75,24 @@ cpNewPassword = lens _cpNewPassword (\s a -> s { _cpNewPassword = a })
 cpOldPassword :: Lens' ChangePassword Text
 cpOldPassword = lens _cpOldPassword (\s a -> s { _cpOldPassword = a })
     . _Sensitive
+instance ToQuery ChangePassword
 
 instance ToPath ChangePassword where
     toPath = const "/"
 
-instance ToQuery ChangePassword
-
 data ChangePasswordResponse = ChangePasswordResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ChangePasswordResponse' constructor.
 changePasswordResponse :: ChangePasswordResponse
 changePasswordResponse = ChangePasswordResponse
+instance FromXML ChangePasswordResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ChangePasswordResponse"
 
 instance AWSRequest ChangePassword where
     type Sv ChangePassword = IAM
     type Rs ChangePassword = ChangePasswordResponse
 
     request  = post "ChangePassword"
-    response = const (nullaryResponse ChangePasswordResponse)
+    response = nullaryResponse ChangePasswordResponse

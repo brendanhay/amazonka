@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.EnterStandby
     -- * Request
       EnterStandbyQuery
     -- ** Request constructor
-    , enterStandby
+    , enterStandbyQuery
     -- ** Request lenses
     , esqAutoScalingGroupName
     , esqInstanceIds
@@ -37,7 +37,7 @@ module Network.AWS.AutoScaling.EnterStandby
     -- * Response
     , EnterStandbyAnswer
     -- ** Response constructor
-    , enterStandbyResponse
+    , enterStandbyAnswer
     -- ** Response lenses
     , esaActivities
     ) where
@@ -62,10 +62,10 @@ data EnterStandbyQuery = EnterStandbyQuery
 --
 -- * 'esqShouldDecrementDesiredCapacity' @::@ 'Bool'
 --
-enterStandby :: Text -- ^ 'esqAutoScalingGroupName'
-             -> Bool -- ^ 'esqShouldDecrementDesiredCapacity'
-             -> EnterStandbyQuery
-enterStandby p1 p2 = EnterStandbyQuery
+enterStandbyQuery :: Text -- ^ 'esqAutoScalingGroupName'
+                  -> Bool -- ^ 'esqShouldDecrementDesiredCapacity'
+                  -> EnterStandbyQuery
+enterStandbyQuery p1 p2 = EnterStandbyQuery
     { _esqAutoScalingGroupName           = p1
     , _esqShouldDecrementDesiredCapacity = p2
     , _esqInstanceIds                    = mempty
@@ -90,11 +90,10 @@ esqShouldDecrementDesiredCapacity :: Lens' EnterStandbyQuery Bool
 esqShouldDecrementDesiredCapacity =
     lens _esqShouldDecrementDesiredCapacity
         (\s a -> s { _esqShouldDecrementDesiredCapacity = a })
+instance ToQuery EnterStandbyQuery
 
 instance ToPath EnterStandbyQuery where
     toPath = const "/"
-
-instance ToQuery EnterStandbyQuery
 
 newtype EnterStandbyAnswer = EnterStandbyAnswer
     { _esaActivities :: [Activity]
@@ -106,8 +105,8 @@ newtype EnterStandbyAnswer = EnterStandbyAnswer
 --
 -- * 'esaActivities' @::@ ['Activity']
 --
-enterStandbyResponse :: EnterStandbyAnswer
-enterStandbyResponse = EnterStandbyAnswer
+enterStandbyAnswer :: EnterStandbyAnswer
+enterStandbyAnswer = EnterStandbyAnswer
     { _esaActivities = mempty
     }
 
@@ -115,6 +114,9 @@ enterStandbyResponse = EnterStandbyAnswer
 -- mode.
 esaActivities :: Lens' EnterStandbyAnswer [Activity]
 esaActivities = lens _esaActivities (\s a -> s { _esaActivities = a })
+instance FromXML EnterStandbyAnswer where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnterStandbyAnswer"
 
 instance AWSRequest EnterStandbyQuery where
     type Sv EnterStandbyQuery = AutoScaling

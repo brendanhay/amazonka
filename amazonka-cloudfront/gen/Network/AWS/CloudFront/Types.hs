@@ -23,11 +23,6 @@ module Network.AWS.CloudFront.Types
     (
     -- * Service
       CloudFront
-    -- ** Errors
-    , CloudFrontError (..)
-    , _CloudFrontHttp
-    , _CloudFrontSerializer
-    , _CloudFrontService
     -- ** XML
     , xmlOptions
 

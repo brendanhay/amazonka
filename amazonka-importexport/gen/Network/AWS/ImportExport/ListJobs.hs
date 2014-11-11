@@ -30,7 +30,7 @@ module Network.AWS.ImportExport.ListJobs
     -- * Request
       ListJobsInput
     -- ** Request constructor
-    , listJobs
+    , listJobsInput
     -- ** Request lenses
     , ljiMarker
     , ljiMaxJobs
@@ -38,7 +38,7 @@ module Network.AWS.ImportExport.ListJobs
     -- * Response
     , ListJobsOutput
     -- ** Response constructor
-    , listJobsResponse
+    , listJobsOutput
     -- ** Response lenses
     , ljoIsTruncated
     , ljoJobs
@@ -61,8 +61,8 @@ data ListJobsInput = ListJobsInput
 --
 -- * 'ljiMaxJobs' @::@ 'Maybe' 'Int'
 --
-listJobs :: ListJobsInput
-listJobs = ListJobsInput
+listJobsInput :: ListJobsInput
+listJobsInput = ListJobsInput
     { _ljiMaxJobs = Nothing
     , _ljiMarker  = Nothing
     }
@@ -72,11 +72,10 @@ ljiMarker = lens _ljiMarker (\s a -> s { _ljiMarker = a })
 
 ljiMaxJobs :: Lens' ListJobsInput (Maybe Int)
 ljiMaxJobs = lens _ljiMaxJobs (\s a -> s { _ljiMaxJobs = a })
+instance ToQuery ListJobsInput
 
 instance ToPath ListJobsInput where
     toPath = const "/"
-
-instance ToQuery ListJobsInput
 
 data ListJobsOutput = ListJobsOutput
     { _ljoIsTruncated :: Maybe Bool
@@ -91,8 +90,8 @@ data ListJobsOutput = ListJobsOutput
 --
 -- * 'ljoJobs' @::@ ['Job']
 --
-listJobsResponse :: ListJobsOutput
-listJobsResponse = ListJobsOutput
+listJobsOutput :: ListJobsOutput
+listJobsOutput = ListJobsOutput
     { _ljoJobs        = mempty
     , _ljoIsTruncated = Nothing
     }
@@ -102,6 +101,9 @@ ljoIsTruncated = lens _ljoIsTruncated (\s a -> s { _ljoIsTruncated = a })
 
 ljoJobs :: Lens' ListJobsOutput [Job]
 ljoJobs = lens _ljoJobs (\s a -> s { _ljoJobs = a })
+instance FromXML ListJobsOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListJobsOutput"
 
 instance AWSRequest ListJobsInput where
     type Sv ListJobsInput = ImportExport

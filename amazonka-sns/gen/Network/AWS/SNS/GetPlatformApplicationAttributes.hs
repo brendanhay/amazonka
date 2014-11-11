@@ -28,7 +28,7 @@ module Network.AWS.SNS.GetPlatformApplicationAttributes
     -- * Request
       GetPlatformApplicationAttributesInput
     -- ** Request constructor
-    , getPlatformApplicationAttributes
+    , getPlatformApplicationAttributesInput
     -- ** Request lenses
     , gpaaiPlatformApplicationArn
 
@@ -54,9 +54,9 @@ newtype GetPlatformApplicationAttributesInput = GetPlatformApplicationAttributes
 --
 -- * 'gpaaiPlatformApplicationArn' @::@ 'Text'
 --
-getPlatformApplicationAttributes :: Text -- ^ 'gpaaiPlatformApplicationArn'
-                                 -> GetPlatformApplicationAttributesInput
-getPlatformApplicationAttributes p1 = GetPlatformApplicationAttributesInput
+getPlatformApplicationAttributesInput :: Text -- ^ 'gpaaiPlatformApplicationArn'
+                                      -> GetPlatformApplicationAttributesInput
+getPlatformApplicationAttributesInput p1 = GetPlatformApplicationAttributesInput
     { _gpaaiPlatformApplicationArn = p1
     }
 
@@ -65,11 +65,10 @@ gpaaiPlatformApplicationArn :: Lens' GetPlatformApplicationAttributesInput Text
 gpaaiPlatformApplicationArn =
     lens _gpaaiPlatformApplicationArn
         (\s a -> s { _gpaaiPlatformApplicationArn = a })
+instance ToQuery GetPlatformApplicationAttributesInput
 
 instance ToPath GetPlatformApplicationAttributesInput where
     toPath = const "/"
-
-instance ToQuery GetPlatformApplicationAttributesInput
 
 newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
     { _gpaarAttributes :: Map Text Text
@@ -97,6 +96,9 @@ getPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesRespo
 gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
 gpaarAttributes = lens _gpaarAttributes (\s a -> s { _gpaarAttributes = a })
     . _Map
+instance FromXML GetPlatformApplicationAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetPlatformApplicationAttributesResponse"
 
 instance AWSRequest GetPlatformApplicationAttributesInput where
     type Sv GetPlatformApplicationAttributesInput = SNS

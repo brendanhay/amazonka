@@ -186,6 +186,9 @@ updateHealthCheckResponse p1 = UpdateHealthCheckResponse
 uhcrHealthCheck :: Lens' UpdateHealthCheckResponse HealthCheck
 uhcrHealthCheck = lens _uhcrHealthCheck (\s a -> s { _uhcrHealthCheck = a })
 
+instance FromXML UpdateHealthCheckResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateHealthCheckResponse"
 instance AWSRequest UpdateHealthCheck where
     type Sv UpdateHealthCheck = Route53
     type Rs UpdateHealthCheck = UpdateHealthCheckResponse

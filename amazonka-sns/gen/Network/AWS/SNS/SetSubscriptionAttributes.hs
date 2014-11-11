@@ -27,7 +27,7 @@ module Network.AWS.SNS.SetSubscriptionAttributes
     -- * Request
       SetSubscriptionAttributesInput
     -- ** Request constructor
-    , setSubscriptionAttributes
+    , setSubscriptionAttributesInput
     -- ** Request lenses
     , ssaiAttributeName
     , ssaiAttributeValue
@@ -59,10 +59,10 @@ data SetSubscriptionAttributesInput = SetSubscriptionAttributesInput
 --
 -- * 'ssaiSubscriptionArn' @::@ 'Text'
 --
-setSubscriptionAttributes :: Text -- ^ 'ssaiSubscriptionArn'
-                          -> Text -- ^ 'ssaiAttributeName'
-                          -> SetSubscriptionAttributesInput
-setSubscriptionAttributes p1 p2 = SetSubscriptionAttributesInput
+setSubscriptionAttributesInput :: Text -- ^ 'ssaiSubscriptionArn'
+                               -> Text -- ^ 'ssaiAttributeName'
+                               -> SetSubscriptionAttributesInput
+setSubscriptionAttributesInput p1 p2 = SetSubscriptionAttributesInput
     { _ssaiSubscriptionArn = p1
     , _ssaiAttributeName   = p2
     , _ssaiAttributeValue  = Nothing
@@ -84,21 +84,24 @@ ssaiAttributeValue =
 ssaiSubscriptionArn :: Lens' SetSubscriptionAttributesInput Text
 ssaiSubscriptionArn =
     lens _ssaiSubscriptionArn (\s a -> s { _ssaiSubscriptionArn = a })
+instance ToQuery SetSubscriptionAttributesInput
 
 instance ToPath SetSubscriptionAttributesInput where
     toPath = const "/"
 
-instance ToQuery SetSubscriptionAttributesInput
-
 data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetSubscriptionAttributesResponse' constructor.
 setSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse
 setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
+instance FromXML SetSubscriptionAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SetSubscriptionAttributesResponse"
 
 instance AWSRequest SetSubscriptionAttributesInput where
     type Sv SetSubscriptionAttributesInput = SNS
     type Rs SetSubscriptionAttributesInput = SetSubscriptionAttributesResponse
 
     request  = post "SetSubscriptionAttributes"
-    response = const (nullaryResponse SetSubscriptionAttributesResponse)
+    response = nullaryResponse SetSubscriptionAttributesResponse

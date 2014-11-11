@@ -29,7 +29,7 @@ module Network.AWS.SNS.Subscribe
     -- * Request
       SubscribeInput
     -- ** Request constructor
-    , subscribe
+    , subscribeInput
     -- ** Request lenses
     , siEndpoint
     , siProtocol
@@ -63,10 +63,10 @@ data SubscribeInput = SubscribeInput
 --
 -- * 'siTopicArn' @::@ 'Text'
 --
-subscribe :: Text -- ^ 'siTopicArn'
-          -> Text -- ^ 'siProtocol'
-          -> SubscribeInput
-subscribe p1 p2 = SubscribeInput
+subscribeInput :: Text -- ^ 'siTopicArn'
+               -> Text -- ^ 'siProtocol'
+               -> SubscribeInput
+subscribeInput p1 p2 = SubscribeInput
     { _siTopicArn = p1
     , _siProtocol = p2
     , _siEndpoint = Nothing
@@ -97,11 +97,10 @@ siProtocol = lens _siProtocol (\s a -> s { _siProtocol = a })
 -- | The ARN of the topic you want to subscribe to.
 siTopicArn :: Lens' SubscribeInput Text
 siTopicArn = lens _siTopicArn (\s a -> s { _siTopicArn = a })
+instance ToQuery SubscribeInput
 
 instance ToPath SubscribeInput where
     toPath = const "/"
-
-instance ToQuery SubscribeInput
 
 newtype SubscribeResponse = SubscribeResponse
     { _srSubscriptionArn :: Maybe Text
@@ -123,6 +122,9 @@ subscribeResponse = SubscribeResponse
 srSubscriptionArn :: Lens' SubscribeResponse (Maybe Text)
 srSubscriptionArn =
     lens _srSubscriptionArn (\s a -> s { _srSubscriptionArn = a })
+instance FromXML SubscribeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SubscribeResponse"
 
 instance AWSRequest SubscribeInput where
     type Sv SubscribeInput = SNS

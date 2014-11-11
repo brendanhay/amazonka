@@ -30,7 +30,7 @@ module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     -- * Request
       RequestEnvironmentInfoMessage
     -- ** Request constructor
-    , requestEnvironmentInfo
+    , requestEnvironmentInfoMessage
     -- ** Request lenses
     , reim1EnvironmentId
     , reim1EnvironmentName
@@ -62,9 +62,9 @@ data RequestEnvironmentInfoMessage = RequestEnvironmentInfoMessage
 --
 -- * 'reim1InfoType' @::@ 'Text'
 --
-requestEnvironmentInfo :: Text -- ^ 'reim1InfoType'
-                       -> RequestEnvironmentInfoMessage
-requestEnvironmentInfo p1 = RequestEnvironmentInfoMessage
+requestEnvironmentInfoMessage :: Text -- ^ 'reim1InfoType'
+                              -> RequestEnvironmentInfoMessage
+requestEnvironmentInfoMessage p1 = RequestEnvironmentInfoMessage
     { _reim1InfoType        = p1
     , _reim1EnvironmentId   = Nothing
     , _reim1EnvironmentName = Nothing
@@ -91,21 +91,24 @@ reim1EnvironmentName =
 -- | The type of information to request.
 reim1InfoType :: Lens' RequestEnvironmentInfoMessage Text
 reim1InfoType = lens _reim1InfoType (\s a -> s { _reim1InfoType = a })
+instance ToQuery RequestEnvironmentInfoMessage
 
 instance ToPath RequestEnvironmentInfoMessage where
     toPath = const "/"
 
-instance ToQuery RequestEnvironmentInfoMessage
-
 data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'RequestEnvironmentInfoResponse' constructor.
 requestEnvironmentInfoResponse :: RequestEnvironmentInfoResponse
 requestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
+instance FromXML RequestEnvironmentInfoResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RequestEnvironmentInfoResponse"
 
 instance AWSRequest RequestEnvironmentInfoMessage where
     type Sv RequestEnvironmentInfoMessage = ElasticBeanstalk
     type Rs RequestEnvironmentInfoMessage = RequestEnvironmentInfoResponse
 
     request  = post "RequestEnvironmentInfo"
-    response = const (nullaryResponse RequestEnvironmentInfoResponse)
+    response = nullaryResponse RequestEnvironmentInfoResponse

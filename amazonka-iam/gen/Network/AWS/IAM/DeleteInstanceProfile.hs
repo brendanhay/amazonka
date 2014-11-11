@@ -65,21 +65,24 @@ deleteInstanceProfile p1 = DeleteInstanceProfile
 dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
 dipInstanceProfileName =
     lens _dipInstanceProfileName (\s a -> s { _dipInstanceProfileName = a })
+instance ToQuery DeleteInstanceProfile
 
 instance ToPath DeleteInstanceProfile where
     toPath = const "/"
 
-instance ToQuery DeleteInstanceProfile
-
 data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteInstanceProfileResponse' constructor.
 deleteInstanceProfileResponse :: DeleteInstanceProfileResponse
 deleteInstanceProfileResponse = DeleteInstanceProfileResponse
+instance FromXML DeleteInstanceProfileResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteInstanceProfileResponse"
 
 instance AWSRequest DeleteInstanceProfile where
     type Sv DeleteInstanceProfile = IAM
     type Rs DeleteInstanceProfile = DeleteInstanceProfileResponse
 
     request  = post "DeleteInstanceProfile"
-    response = const (nullaryResponse DeleteInstanceProfileResponse)
+    response = nullaryResponse DeleteInstanceProfileResponse

@@ -78,11 +78,10 @@ uaoDomainName = lens _uaoDomainName (\s a -> s { _uaoDomainName = a })
 -- setting the Multi-AZ option to false.
 uaoMultiAZ :: Lens' UpdateAvailabilityOptions Bool
 uaoMultiAZ = lens _uaoMultiAZ (\s a -> s { _uaoMultiAZ = a })
+instance ToQuery UpdateAvailabilityOptions
 
 instance ToPath UpdateAvailabilityOptions where
     toPath = const "/"
-
-instance ToQuery UpdateAvailabilityOptions
 
 newtype UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
     { _uaorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
@@ -104,6 +103,9 @@ updateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
 uaorAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 uaorAvailabilityOptions =
     lens _uaorAvailabilityOptions (\s a -> s { _uaorAvailabilityOptions = a })
+instance FromXML UpdateAvailabilityOptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateAvailabilityOptionsResponse"
 
 instance AWSRequest UpdateAvailabilityOptions where
     type Sv UpdateAvailabilityOptions = CloudSearch

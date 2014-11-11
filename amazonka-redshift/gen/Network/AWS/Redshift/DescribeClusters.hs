@@ -30,7 +30,7 @@ module Network.AWS.Redshift.DescribeClusters
     -- * Request
       DescribeClustersMessage
     -- ** Request constructor
-    , describeClusters
+    , describeClustersMessage
     -- ** Request lenses
     , dcm1ClusterIdentifier
     , dcm1Marker
@@ -39,7 +39,7 @@ module Network.AWS.Redshift.DescribeClusters
     -- * Response
     , ClustersMessage
     -- ** Response constructor
-    , describeClustersResponse
+    , clustersMessage
     -- ** Response lenses
     , cmClusters
     , cmMarker
@@ -65,8 +65,8 @@ data DescribeClustersMessage = DescribeClustersMessage
 --
 -- * 'dcm1MaxRecords' @::@ 'Maybe' 'Int'
 --
-describeClusters :: DescribeClustersMessage
-describeClusters = DescribeClustersMessage
+describeClustersMessage :: DescribeClustersMessage
+describeClustersMessage = DescribeClustersMessage
     { _dcm1ClusterIdentifier = Nothing
     , _dcm1MaxRecords        = Nothing
     , _dcm1Marker            = Nothing
@@ -96,11 +96,10 @@ dcm1Marker = lens _dcm1Marker (\s a -> s { _dcm1Marker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcm1MaxRecords :: Lens' DescribeClustersMessage (Maybe Int)
 dcm1MaxRecords = lens _dcm1MaxRecords (\s a -> s { _dcm1MaxRecords = a })
+instance ToQuery DescribeClustersMessage
 
 instance ToPath DescribeClustersMessage where
     toPath = const "/"
-
-instance ToQuery DescribeClustersMessage
 
 data ClustersMessage = ClustersMessage
     { _cmClusters :: [Cluster]
@@ -115,8 +114,8 @@ data ClustersMessage = ClustersMessage
 --
 -- * 'cmMarker' @::@ 'Maybe' 'Text'
 --
-describeClustersResponse :: ClustersMessage
-describeClustersResponse = ClustersMessage
+clustersMessage :: ClustersMessage
+clustersMessage = ClustersMessage
     { _cmMarker   = Nothing
     , _cmClusters = mempty
     }
@@ -133,6 +132,9 @@ cmClusters = lens _cmClusters (\s a -> s { _cmClusters = a })
 -- request.
 cmMarker :: Lens' ClustersMessage (Maybe Text)
 cmMarker = lens _cmMarker (\s a -> s { _cmMarker = a })
+instance FromXML ClustersMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ClustersMessage"
 
 instance AWSRequest DescribeClustersMessage where
     type Sv DescribeClustersMessage = Redshift

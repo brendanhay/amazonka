@@ -33,7 +33,7 @@ module Network.AWS.Redshift.CreateHsmConfiguration
     -- * Request
       CreateHsmConfigurationMessage
     -- ** Request constructor
-    , createHsmConfiguration
+    , createHsmConfigurationMessage
     -- ** Request lenses
     , chcmDescription
     , chcmHsmConfigurationIdentifier
@@ -45,7 +45,7 @@ module Network.AWS.Redshift.CreateHsmConfiguration
     -- * Response
     , CreateHsmConfigurationResult
     -- ** Response constructor
-    , createHsmConfigurationResponse
+    , createHsmConfigurationResult
     -- ** Response lenses
     , chcrHsmConfiguration
     ) where
@@ -79,14 +79,14 @@ data CreateHsmConfigurationMessage = CreateHsmConfigurationMessage
 --
 -- * 'chcmHsmServerPublicCertificate' @::@ 'Text'
 --
-createHsmConfiguration :: Text -- ^ 'chcmHsmConfigurationIdentifier'
-                       -> Text -- ^ 'chcmDescription'
-                       -> Text -- ^ 'chcmHsmIpAddress'
-                       -> Text -- ^ 'chcmHsmPartitionName'
-                       -> Text -- ^ 'chcmHsmPartitionPassword'
-                       -> Text -- ^ 'chcmHsmServerPublicCertificate'
-                       -> CreateHsmConfigurationMessage
-createHsmConfiguration p1 p2 p3 p4 p5 p6 = CreateHsmConfigurationMessage
+createHsmConfigurationMessage :: Text -- ^ 'chcmHsmConfigurationIdentifier'
+                              -> Text -- ^ 'chcmDescription'
+                              -> Text -- ^ 'chcmHsmIpAddress'
+                              -> Text -- ^ 'chcmHsmPartitionName'
+                              -> Text -- ^ 'chcmHsmPartitionPassword'
+                              -> Text -- ^ 'chcmHsmServerPublicCertificate'
+                              -> CreateHsmConfigurationMessage
+createHsmConfigurationMessage p1 p2 p3 p4 p5 p6 = CreateHsmConfigurationMessage
     { _chcmHsmConfigurationIdentifier = p1
     , _chcmDescription                = p2
     , _chcmHsmIpAddress               = p3
@@ -129,11 +129,10 @@ chcmHsmServerPublicCertificate :: Lens' CreateHsmConfigurationMessage Text
 chcmHsmServerPublicCertificate =
     lens _chcmHsmServerPublicCertificate
         (\s a -> s { _chcmHsmServerPublicCertificate = a })
+instance ToQuery CreateHsmConfigurationMessage
 
 instance ToPath CreateHsmConfigurationMessage where
     toPath = const "/"
-
-instance ToQuery CreateHsmConfigurationMessage
 
 newtype CreateHsmConfigurationResult = CreateHsmConfigurationResult
     { _chcrHsmConfiguration :: Maybe HsmConfiguration
@@ -145,14 +144,17 @@ newtype CreateHsmConfigurationResult = CreateHsmConfigurationResult
 --
 -- * 'chcrHsmConfiguration' @::@ 'Maybe' 'HsmConfiguration'
 --
-createHsmConfigurationResponse :: CreateHsmConfigurationResult
-createHsmConfigurationResponse = CreateHsmConfigurationResult
+createHsmConfigurationResult :: CreateHsmConfigurationResult
+createHsmConfigurationResult = CreateHsmConfigurationResult
     { _chcrHsmConfiguration = Nothing
     }
 
 chcrHsmConfiguration :: Lens' CreateHsmConfigurationResult (Maybe HsmConfiguration)
 chcrHsmConfiguration =
     lens _chcrHsmConfiguration (\s a -> s { _chcrHsmConfiguration = a })
+instance FromXML CreateHsmConfigurationResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateHsmConfigurationResult"
 
 instance AWSRequest CreateHsmConfigurationMessage where
     type Sv CreateHsmConfigurationMessage = Redshift

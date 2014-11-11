@@ -46,7 +46,7 @@ module Network.AWS.EC2.GetConsoleOutput
     -- * Response
     , GetConsoleOutputResult
     -- ** Response constructor
-    , getConsoleOutputResponse
+    , getConsoleOutputResult
     -- ** Response lenses
     , gcorInstanceId
     , gcorOutput
@@ -83,11 +83,10 @@ gcoDryRun = lens _gcoDryRun (\s a -> s { _gcoDryRun = a })
 -- | The ID of the instance.
 gcoInstanceId :: Lens' GetConsoleOutput Text
 gcoInstanceId = lens _gcoInstanceId (\s a -> s { _gcoInstanceId = a })
+instance ToQuery GetConsoleOutput
 
 instance ToPath GetConsoleOutput where
     toPath = const "/"
-
-instance ToQuery GetConsoleOutput
 
 data GetConsoleOutputResult = GetConsoleOutputResult
     { _gcorInstanceId :: Maybe Text
@@ -105,8 +104,8 @@ data GetConsoleOutputResult = GetConsoleOutputResult
 --
 -- * 'gcorTimestamp' @::@ 'Maybe' 'UTCTime'
 --
-getConsoleOutputResponse :: GetConsoleOutputResult
-getConsoleOutputResponse = GetConsoleOutputResult
+getConsoleOutputResult :: GetConsoleOutputResult
+getConsoleOutputResult = GetConsoleOutputResult
     { _gcorInstanceId = Nothing
     , _gcorTimestamp  = Nothing
     , _gcorOutput     = Nothing
@@ -124,6 +123,9 @@ gcorOutput = lens _gcorOutput (\s a -> s { _gcorOutput = a })
 gcorTimestamp :: Lens' GetConsoleOutputResult (Maybe UTCTime)
 gcorTimestamp = lens _gcorTimestamp (\s a -> s { _gcorTimestamp = a })
     . mapping _Time
+instance FromXML GetConsoleOutputResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetConsoleOutputResult"
 
 instance AWSRequest GetConsoleOutput where
     type Sv GetConsoleOutput = EC2

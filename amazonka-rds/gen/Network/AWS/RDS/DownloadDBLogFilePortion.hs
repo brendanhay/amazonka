@@ -26,7 +26,7 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
     -- * Request
       DownloadDBLogFilePortionMessage
     -- ** Request constructor
-    , downloadDBLogFilePortion
+    , downloadDBLogFilePortionMessage
     -- ** Request lenses
     , ddblfpmDBInstanceIdentifier
     , ddblfpmLogFileName
@@ -36,7 +36,7 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
     -- * Response
     , DownloadDBLogFilePortionDetails
     -- ** Response constructor
-    , downloadDBLogFilePortionResponse
+    , downloadDBLogFilePortionDetails
     -- ** Response lenses
     , ddblfpdAdditionalDataPending
     , ddblfpdLogFileData
@@ -66,10 +66,10 @@ data DownloadDBLogFilePortionMessage = DownloadDBLogFilePortionMessage
 --
 -- * 'ddblfpmNumberOfLines' @::@ 'Maybe' 'Int'
 --
-downloadDBLogFilePortion :: Text -- ^ 'ddblfpmDBInstanceIdentifier'
-                         -> Text -- ^ 'ddblfpmLogFileName'
-                         -> DownloadDBLogFilePortionMessage
-downloadDBLogFilePortion p1 p2 = DownloadDBLogFilePortionMessage
+downloadDBLogFilePortionMessage :: Text -- ^ 'ddblfpmDBInstanceIdentifier'
+                                -> Text -- ^ 'ddblfpmLogFileName'
+                                -> DownloadDBLogFilePortionMessage
+downloadDBLogFilePortionMessage p1 p2 = DownloadDBLogFilePortionMessage
     { _ddblfpmDBInstanceIdentifier = p1
     , _ddblfpmLogFileName          = p2
     , _ddblfpmMarker               = Nothing
@@ -112,11 +112,10 @@ ddblfpmMarker = lens _ddblfpmMarker (\s a -> s { _ddblfpmMarker = a })
 ddblfpmNumberOfLines :: Lens' DownloadDBLogFilePortionMessage (Maybe Int)
 ddblfpmNumberOfLines =
     lens _ddblfpmNumberOfLines (\s a -> s { _ddblfpmNumberOfLines = a })
+instance ToQuery DownloadDBLogFilePortionMessage
 
 instance ToPath DownloadDBLogFilePortionMessage where
     toPath = const "/"
-
-instance ToQuery DownloadDBLogFilePortionMessage
 
 data DownloadDBLogFilePortionDetails = DownloadDBLogFilePortionDetails
     { _ddblfpdAdditionalDataPending :: Maybe Bool
@@ -134,8 +133,8 @@ data DownloadDBLogFilePortionDetails = DownloadDBLogFilePortionDetails
 --
 -- * 'ddblfpdMarker' @::@ 'Maybe' 'Text'
 --
-downloadDBLogFilePortionResponse :: DownloadDBLogFilePortionDetails
-downloadDBLogFilePortionResponse = DownloadDBLogFilePortionDetails
+downloadDBLogFilePortionDetails :: DownloadDBLogFilePortionDetails
+downloadDBLogFilePortionDetails = DownloadDBLogFilePortionDetails
     { _ddblfpdLogFileData           = Nothing
     , _ddblfpdMarker                = Nothing
     , _ddblfpdAdditionalDataPending = Nothing
@@ -157,6 +156,9 @@ ddblfpdLogFileData =
 -- DownloadDBLogFilePortion request.
 ddblfpdMarker :: Lens' DownloadDBLogFilePortionDetails (Maybe Text)
 ddblfpdMarker = lens _ddblfpdMarker (\s a -> s { _ddblfpdMarker = a })
+instance FromXML DownloadDBLogFilePortionDetails where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DownloadDBLogFilePortionDetails"
 
 instance AWSRequest DownloadDBLogFilePortionMessage where
     type Sv DownloadDBLogFilePortionMessage = RDS

@@ -38,7 +38,7 @@ module Network.AWS.RDS.ModifyDBParameterGroup
     -- * Request
       ModifyDBParameterGroupMessage
     -- ** Request constructor
-    , modifyDBParameterGroup
+    , modifyDBParameterGroupMessage
     -- ** Request lenses
     , mdbpgmDBParameterGroupName
     , mdbpgmParameters
@@ -46,7 +46,7 @@ module Network.AWS.RDS.ModifyDBParameterGroup
     -- * Response
     , DBParameterGroupNameMessage
     -- ** Response constructor
-    , modifyDBParameterGroupResponse
+    , dbparameterGroupNameMessage
     -- ** Response lenses
     , dbpgnmDBParameterGroupName
     ) where
@@ -68,9 +68,9 @@ data ModifyDBParameterGroupMessage = ModifyDBParameterGroupMessage
 --
 -- * 'mdbpgmParameters' @::@ ['Parameter']
 --
-modifyDBParameterGroup :: Text -- ^ 'mdbpgmDBParameterGroupName'
-                       -> ModifyDBParameterGroupMessage
-modifyDBParameterGroup p1 = ModifyDBParameterGroupMessage
+modifyDBParameterGroupMessage :: Text -- ^ 'mdbpgmDBParameterGroupName'
+                              -> ModifyDBParameterGroupMessage
+modifyDBParameterGroupMessage p1 = ModifyDBParameterGroupMessage
     { _mdbpgmDBParameterGroupName = p1
     , _mdbpgmParameters           = mempty
     }
@@ -91,11 +91,10 @@ mdbpgmDBParameterGroupName =
 -- application method): immediate | pending-reboot.
 mdbpgmParameters :: Lens' ModifyDBParameterGroupMessage [Parameter]
 mdbpgmParameters = lens _mdbpgmParameters (\s a -> s { _mdbpgmParameters = a })
+instance ToQuery ModifyDBParameterGroupMessage
 
 instance ToPath ModifyDBParameterGroupMessage where
     toPath = const "/"
-
-instance ToQuery ModifyDBParameterGroupMessage
 
 instance AWSRequest ModifyDBParameterGroupMessage where
     type Sv ModifyDBParameterGroupMessage = RDS

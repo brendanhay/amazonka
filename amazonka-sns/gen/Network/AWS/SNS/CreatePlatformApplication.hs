@@ -39,7 +39,7 @@ module Network.AWS.SNS.CreatePlatformApplication
     -- * Request
       CreatePlatformApplicationInput
     -- ** Request constructor
-    , createPlatformApplication
+    , createPlatformApplicationInput
     -- ** Request lenses
     , cpaiAttributes
     , cpaiName
@@ -73,10 +73,10 @@ data CreatePlatformApplicationInput = CreatePlatformApplicationInput
 --
 -- * 'cpaiPlatform' @::@ 'Text'
 --
-createPlatformApplication :: Text -- ^ 'cpaiName'
-                          -> Text -- ^ 'cpaiPlatform'
-                          -> CreatePlatformApplicationInput
-createPlatformApplication p1 p2 = CreatePlatformApplicationInput
+createPlatformApplicationInput :: Text -- ^ 'cpaiName'
+                               -> Text -- ^ 'cpaiPlatform'
+                               -> CreatePlatformApplicationInput
+createPlatformApplicationInput p1 p2 = CreatePlatformApplicationInput
     { _cpaiName       = p1
     , _cpaiPlatform   = p2
     , _cpaiAttributes = mempty
@@ -98,11 +98,10 @@ cpaiName = lens _cpaiName (\s a -> s { _cpaiName = a })
 -- Cloud Messaging).
 cpaiPlatform :: Lens' CreatePlatformApplicationInput Text
 cpaiPlatform = lens _cpaiPlatform (\s a -> s { _cpaiPlatform = a })
+instance ToQuery CreatePlatformApplicationInput
 
 instance ToPath CreatePlatformApplicationInput where
     toPath = const "/"
-
-instance ToQuery CreatePlatformApplicationInput
 
 newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
     { _cparPlatformApplicationArn :: Maybe Text
@@ -124,6 +123,9 @@ cparPlatformApplicationArn :: Lens' CreatePlatformApplicationResponse (Maybe Tex
 cparPlatformApplicationArn =
     lens _cparPlatformApplicationArn
         (\s a -> s { _cparPlatformApplicationArn = a })
+instance FromXML CreatePlatformApplicationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreatePlatformApplicationResponse"
 
 instance AWSRequest CreatePlatformApplicationInput where
     type Sv CreatePlatformApplicationInput = SNS

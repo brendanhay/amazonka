@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.CreateOrUpdateTags
     -- * Request
       CreateOrUpdateTagsType
     -- ** Request constructor
-    , createOrUpdateTags
+    , createOrUpdateTagsType
     -- ** Request lenses
     , couttTags
 
@@ -52,8 +52,8 @@ newtype CreateOrUpdateTagsType = CreateOrUpdateTagsType
 --
 -- * 'couttTags' @::@ ['Tag']
 --
-createOrUpdateTags :: CreateOrUpdateTagsType
-createOrUpdateTags = CreateOrUpdateTagsType
+createOrUpdateTagsType :: CreateOrUpdateTagsType
+createOrUpdateTagsType = CreateOrUpdateTagsType
     { _couttTags = mempty
     }
 
@@ -73,21 +73,24 @@ createOrUpdateTags = CreateOrUpdateTagsType
 -- the previous tag definition, but you will not get an error message.
 couttTags :: Lens' CreateOrUpdateTagsType [Tag]
 couttTags = lens _couttTags (\s a -> s { _couttTags = a })
+instance ToQuery CreateOrUpdateTagsType
 
 instance ToPath CreateOrUpdateTagsType where
     toPath = const "/"
 
-instance ToQuery CreateOrUpdateTagsType
-
 data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateOrUpdateTagsResponse' constructor.
 createOrUpdateTagsResponse :: CreateOrUpdateTagsResponse
 createOrUpdateTagsResponse = CreateOrUpdateTagsResponse
+instance FromXML CreateOrUpdateTagsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateOrUpdateTagsResponse"
 
 instance AWSRequest CreateOrUpdateTagsType where
     type Sv CreateOrUpdateTagsType = AutoScaling
     type Rs CreateOrUpdateTagsType = CreateOrUpdateTagsResponse
 
     request  = post "CreateOrUpdateTags"
-    response = const (nullaryResponse CreateOrUpdateTagsResponse)
+    response = nullaryResponse CreateOrUpdateTagsResponse

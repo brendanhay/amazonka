@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     -- * Request
       PurchaseReservedCacheNodesOfferingMessage
     -- ** Request constructor
-    , purchaseReservedCacheNodesOffering
+    , purchaseReservedCacheNodesOfferingMessage
     -- ** Request lenses
     , prcnomCacheNodeCount
     , prcnomReservedCacheNodeId
@@ -36,7 +36,7 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     -- * Response
     , PurchaseReservedCacheNodesOfferingResult
     -- ** Response constructor
-    , purchaseReservedCacheNodesOfferingResponse
+    , purchaseReservedCacheNodesOfferingResult
     -- ** Response lenses
     , prcnorReservedCacheNode
     ) where
@@ -61,9 +61,9 @@ data PurchaseReservedCacheNodesOfferingMessage = PurchaseReservedCacheNodesOffer
 --
 -- * 'prcnomReservedCacheNodesOfferingId' @::@ 'Text'
 --
-purchaseReservedCacheNodesOffering :: Text -- ^ 'prcnomReservedCacheNodesOfferingId'
-                                   -> PurchaseReservedCacheNodesOfferingMessage
-purchaseReservedCacheNodesOffering p1 = PurchaseReservedCacheNodesOfferingMessage
+purchaseReservedCacheNodesOfferingMessage :: Text -- ^ 'prcnomReservedCacheNodesOfferingId'
+                                          -> PurchaseReservedCacheNodesOfferingMessage
+purchaseReservedCacheNodesOfferingMessage p1 = PurchaseReservedCacheNodesOfferingMessage
     { _prcnomReservedCacheNodesOfferingId = p1
     , _prcnomReservedCacheNodeId          = Nothing
     , _prcnomCacheNodeCount               = Nothing
@@ -87,11 +87,10 @@ prcnomReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOfferingMe
 prcnomReservedCacheNodesOfferingId =
     lens _prcnomReservedCacheNodesOfferingId
         (\s a -> s { _prcnomReservedCacheNodesOfferingId = a })
+instance ToQuery PurchaseReservedCacheNodesOfferingMessage
 
 instance ToPath PurchaseReservedCacheNodesOfferingMessage where
     toPath = const "/"
-
-instance ToQuery PurchaseReservedCacheNodesOfferingMessage
 
 newtype PurchaseReservedCacheNodesOfferingResult = PurchaseReservedCacheNodesOfferingResult
     { _prcnorReservedCacheNode :: Maybe ReservedCacheNode
@@ -103,14 +102,17 @@ newtype PurchaseReservedCacheNodesOfferingResult = PurchaseReservedCacheNodesOff
 --
 -- * 'prcnorReservedCacheNode' @::@ 'Maybe' 'ReservedCacheNode'
 --
-purchaseReservedCacheNodesOfferingResponse :: PurchaseReservedCacheNodesOfferingResult
-purchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResult
+purchaseReservedCacheNodesOfferingResult :: PurchaseReservedCacheNodesOfferingResult
+purchaseReservedCacheNodesOfferingResult = PurchaseReservedCacheNodesOfferingResult
     { _prcnorReservedCacheNode = Nothing
     }
 
 prcnorReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResult (Maybe ReservedCacheNode)
 prcnorReservedCacheNode =
     lens _prcnorReservedCacheNode (\s a -> s { _prcnorReservedCacheNode = a })
+instance FromXML PurchaseReservedCacheNodesOfferingResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PurchaseReservedCacheNodesOfferingResult"
 
 instance AWSRequest PurchaseReservedCacheNodesOfferingMessage where
     type Sv PurchaseReservedCacheNodesOfferingMessage = ElastiCache

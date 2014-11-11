@@ -29,7 +29,7 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     -- * Request
       DescribeDBSubnetGroupsMessage
     -- ** Request constructor
-    , describeDBSubnetGroups
+    , describeDBSubnetGroupsMessage
     -- ** Request lenses
     , ddbsgmDBSubnetGroupName
     , ddbsgmFilters
@@ -39,7 +39,7 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     -- * Response
     , DBSubnetGroupMessage
     -- ** Response constructor
-    , describeDBSubnetGroupsResponse
+    , dbsubnetGroupMessage
     -- ** Response lenses
     , dbsgm1DBSubnetGroups
     , dbsgm1Marker
@@ -68,8 +68,8 @@ data DescribeDBSubnetGroupsMessage = DescribeDBSubnetGroupsMessage
 --
 -- * 'ddbsgmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBSubnetGroups :: DescribeDBSubnetGroupsMessage
-describeDBSubnetGroups = DescribeDBSubnetGroupsMessage
+describeDBSubnetGroupsMessage :: DescribeDBSubnetGroupsMessage
+describeDBSubnetGroupsMessage = DescribeDBSubnetGroupsMessage
     { _ddbsgmDBSubnetGroupName = Nothing
     , _ddbsgmFilters           = mempty
     , _ddbsgmMaxRecords        = Nothing
@@ -98,11 +98,10 @@ ddbsgmMarker = lens _ddbsgmMarker (\s a -> s { _ddbsgmMarker = a })
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbsgmMaxRecords :: Lens' DescribeDBSubnetGroupsMessage (Maybe Int)
 ddbsgmMaxRecords = lens _ddbsgmMaxRecords (\s a -> s { _ddbsgmMaxRecords = a })
+instance ToQuery DescribeDBSubnetGroupsMessage
 
 instance ToPath DescribeDBSubnetGroupsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeDBSubnetGroupsMessage
 
 data DBSubnetGroupMessage = DBSubnetGroupMessage
     { _dbsgm1DBSubnetGroups :: [DBSubnetGroup]
@@ -117,8 +116,8 @@ data DBSubnetGroupMessage = DBSubnetGroupMessage
 --
 -- * 'dbsgm1Marker' @::@ 'Maybe' 'Text'
 --
-describeDBSubnetGroupsResponse :: DBSubnetGroupMessage
-describeDBSubnetGroupsResponse = DBSubnetGroupMessage
+dbsubnetGroupMessage :: DBSubnetGroupMessage
+dbsubnetGroupMessage = DBSubnetGroupMessage
     { _dbsgm1Marker         = Nothing
     , _dbsgm1DBSubnetGroups = mempty
     }
@@ -133,6 +132,9 @@ dbsgm1DBSubnetGroups =
 -- marker, up to the value specified by MaxRecords.
 dbsgm1Marker :: Lens' DBSubnetGroupMessage (Maybe Text)
 dbsgm1Marker = lens _dbsgm1Marker (\s a -> s { _dbsgm1Marker = a })
+instance FromXML DBSubnetGroupMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DBSubnetGroupMessage"
 
 instance AWSRequest DescribeDBSubnetGroupsMessage where
     type Sv DescribeDBSubnetGroupsMessage = RDS

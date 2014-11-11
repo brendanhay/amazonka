@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     -- * Request
       TerminateInstanceInAutoScalingGroupType
     -- ** Request constructor
-    , terminateInstanceInAutoScalingGroup
+    , terminateInstanceInAutoScalingGroupType
     -- ** Request lenses
     , tiiasgtInstanceId
     , tiiasgtShouldDecrementDesiredCapacity
@@ -35,7 +35,7 @@ module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     -- * Response
     , ActivityType
     -- ** Response constructor
-    , terminateInstanceInAutoScalingGroupResponse
+    , activityType
     -- ** Response lenses
     , atActivity
     ) where
@@ -57,10 +57,10 @@ data TerminateInstanceInAutoScalingGroupType = TerminateInstanceInAutoScalingGro
 --
 -- * 'tiiasgtShouldDecrementDesiredCapacity' @::@ 'Bool'
 --
-terminateInstanceInAutoScalingGroup :: Text -- ^ 'tiiasgtInstanceId'
-                                    -> Bool -- ^ 'tiiasgtShouldDecrementDesiredCapacity'
-                                    -> TerminateInstanceInAutoScalingGroupType
-terminateInstanceInAutoScalingGroup p1 p2 = TerminateInstanceInAutoScalingGroupType
+terminateInstanceInAutoScalingGroupType :: Text -- ^ 'tiiasgtInstanceId'
+                                        -> Bool -- ^ 'tiiasgtShouldDecrementDesiredCapacity'
+                                        -> TerminateInstanceInAutoScalingGroupType
+terminateInstanceInAutoScalingGroupType p1 p2 = TerminateInstanceInAutoScalingGroupType
     { _tiiasgtInstanceId                     = p1
     , _tiiasgtShouldDecrementDesiredCapacity = p2
     }
@@ -76,11 +76,10 @@ tiiasgtShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGro
 tiiasgtShouldDecrementDesiredCapacity =
     lens _tiiasgtShouldDecrementDesiredCapacity
         (\s a -> s { _tiiasgtShouldDecrementDesiredCapacity = a })
+instance ToQuery TerminateInstanceInAutoScalingGroupType
 
 instance ToPath TerminateInstanceInAutoScalingGroupType where
     toPath = const "/"
-
-instance ToQuery TerminateInstanceInAutoScalingGroupType
 
 newtype ActivityType = ActivityType
     { _atActivity :: Maybe Activity
@@ -92,14 +91,17 @@ newtype ActivityType = ActivityType
 --
 -- * 'atActivity' @::@ 'Maybe' 'Activity'
 --
-terminateInstanceInAutoScalingGroupResponse :: ActivityType
-terminateInstanceInAutoScalingGroupResponse = ActivityType
+activityType :: ActivityType
+activityType = ActivityType
     { _atActivity = Nothing
     }
 
 -- | A scaling Activity.
 atActivity :: Lens' ActivityType (Maybe Activity)
 atActivity = lens _atActivity (\s a -> s { _atActivity = a })
+instance FromXML ActivityType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ActivityType"
 
 instance AWSRequest TerminateInstanceInAutoScalingGroupType where
     type Sv TerminateInstanceInAutoScalingGroupType = AutoScaling

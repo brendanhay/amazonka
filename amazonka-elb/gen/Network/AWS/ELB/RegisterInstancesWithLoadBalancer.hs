@@ -46,7 +46,7 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     -- * Request
       RegisterEndPointsInput
     -- ** Request constructor
-    , registerInstancesWithLoadBalancer
+    , registerEndPointsInput
     -- ** Request lenses
     , repiInstances
     , repiLoadBalancerName
@@ -54,7 +54,7 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     -- * Response
     , RegisterEndPointsOutput
     -- ** Response constructor
-    , registerInstancesWithLoadBalancerResponse
+    , registerEndPointsOutput
     -- ** Response lenses
     , repoInstances
     ) where
@@ -76,9 +76,9 @@ data RegisterEndPointsInput = RegisterEndPointsInput
 --
 -- * 'repiLoadBalancerName' @::@ 'Text'
 --
-registerInstancesWithLoadBalancer :: Text -- ^ 'repiLoadBalancerName'
-                                  -> RegisterEndPointsInput
-registerInstancesWithLoadBalancer p1 = RegisterEndPointsInput
+registerEndPointsInput :: Text -- ^ 'repiLoadBalancerName'
+                       -> RegisterEndPointsInput
+registerEndPointsInput p1 = RegisterEndPointsInput
     { _repiLoadBalancerName = p1
     , _repiInstances        = mempty
     }
@@ -92,11 +92,10 @@ repiInstances = lens _repiInstances (\s a -> s { _repiInstances = a })
 repiLoadBalancerName :: Lens' RegisterEndPointsInput Text
 repiLoadBalancerName =
     lens _repiLoadBalancerName (\s a -> s { _repiLoadBalancerName = a })
+instance ToQuery RegisterEndPointsInput
 
 instance ToPath RegisterEndPointsInput where
     toPath = const "/"
-
-instance ToQuery RegisterEndPointsInput
 
 newtype RegisterEndPointsOutput = RegisterEndPointsOutput
     { _repoInstances :: [Instance]
@@ -108,14 +107,17 @@ newtype RegisterEndPointsOutput = RegisterEndPointsOutput
 --
 -- * 'repoInstances' @::@ ['Instance']
 --
-registerInstancesWithLoadBalancerResponse :: RegisterEndPointsOutput
-registerInstancesWithLoadBalancerResponse = RegisterEndPointsOutput
+registerEndPointsOutput :: RegisterEndPointsOutput
+registerEndPointsOutput = RegisterEndPointsOutput
     { _repoInstances = mempty
     }
 
 -- | An updated list of instances for the load balancer.
 repoInstances :: Lens' RegisterEndPointsOutput [Instance]
 repoInstances = lens _repoInstances (\s a -> s { _repoInstances = a })
+instance FromXML RegisterEndPointsOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RegisterEndPointsOutput"
 
 instance AWSRequest RegisterEndPointsInput where
     type Sv RegisterEndPointsInput = ELB

@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeImages
     -- * Response
     , DescribeImagesResult
     -- ** Response constructor
-    , describeImagesResponse
+    , describeImagesResult
     -- ** Response lenses
     , dirImages
     ) where
@@ -135,11 +135,10 @@ di1ImageIds = lens _di1ImageIds (\s a -> s { _di1ImageIds = a })
 -- the sender of the request), or all (all owners).
 di1Owners :: Lens' DescribeImages [Text]
 di1Owners = lens _di1Owners (\s a -> s { _di1Owners = a })
+instance ToQuery DescribeImages
 
 instance ToPath DescribeImages where
     toPath = const "/"
-
-instance ToQuery DescribeImages
 
 newtype DescribeImagesResult = DescribeImagesResult
     { _dirImages :: [Image]
@@ -151,14 +150,17 @@ newtype DescribeImagesResult = DescribeImagesResult
 --
 -- * 'dirImages' @::@ ['Image']
 --
-describeImagesResponse :: DescribeImagesResult
-describeImagesResponse = DescribeImagesResult
+describeImagesResult :: DescribeImagesResult
+describeImagesResult = DescribeImagesResult
     { _dirImages = mempty
     }
 
 -- | Information about one or more images.
 dirImages :: Lens' DescribeImagesResult [Image]
 dirImages = lens _dirImages (\s a -> s { _dirImages = a })
+instance FromXML DescribeImagesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeImagesResult"
 
 instance AWSRequest DescribeImages where
     type Sv DescribeImages = EC2

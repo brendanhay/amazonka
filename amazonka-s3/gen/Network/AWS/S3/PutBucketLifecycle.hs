@@ -96,14 +96,18 @@ instance ToBody PutBucketLifecycle where
     toBody = toBody . encodeXML . _pblLifecycleConfiguration
 
 data PutBucketLifecycleResponse = PutBucketLifecycleResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketLifecycleResponse' constructor.
 putBucketLifecycleResponse :: PutBucketLifecycleResponse
 putBucketLifecycleResponse = PutBucketLifecycleResponse
 
+instance FromXML PutBucketLifecycleResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutBucketLifecycleResponse"
 instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3
     type Rs PutBucketLifecycle = PutBucketLifecycleResponse
 
     request  = put
-    response = const (nullaryResponse PutBucketLifecycleResponse)
+    response = nullaryResponse PutBucketLifecycleResponse

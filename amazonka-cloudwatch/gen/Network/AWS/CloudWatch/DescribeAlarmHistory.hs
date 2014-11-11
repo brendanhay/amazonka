@@ -28,7 +28,7 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     -- * Request
       DescribeAlarmHistoryInput
     -- ** Request constructor
-    , describeAlarmHistory
+    , describeAlarmHistoryInput
     -- ** Request lenses
     , dahiAlarmName
     , dahiEndDate
@@ -40,7 +40,7 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
     -- * Response
     , DescribeAlarmHistoryOutput
     -- ** Response constructor
-    , describeAlarmHistoryResponse
+    , describeAlarmHistoryOutput
     -- ** Response lenses
     , dahoAlarmHistoryItems
     , dahoNextToken
@@ -75,8 +75,8 @@ data DescribeAlarmHistoryInput = DescribeAlarmHistoryInput
 --
 -- * 'dahiStartDate' @::@ 'Maybe' 'UTCTime'
 --
-describeAlarmHistory :: DescribeAlarmHistoryInput
-describeAlarmHistory = DescribeAlarmHistoryInput
+describeAlarmHistoryInput :: DescribeAlarmHistoryInput
+describeAlarmHistoryInput = DescribeAlarmHistoryInput
     { _dahiAlarmName       = Nothing
     , _dahiHistoryItemType = Nothing
     , _dahiStartDate       = Nothing
@@ -112,11 +112,10 @@ dahiNextToken = lens _dahiNextToken (\s a -> s { _dahiNextToken = a })
 dahiStartDate :: Lens' DescribeAlarmHistoryInput (Maybe UTCTime)
 dahiStartDate = lens _dahiStartDate (\s a -> s { _dahiStartDate = a })
     . mapping _Time
+instance ToQuery DescribeAlarmHistoryInput
 
 instance ToPath DescribeAlarmHistoryInput where
     toPath = const "/"
-
-instance ToQuery DescribeAlarmHistoryInput
 
 data DescribeAlarmHistoryOutput = DescribeAlarmHistoryOutput
     { _dahoAlarmHistoryItems :: [AlarmHistoryItem]
@@ -131,8 +130,8 @@ data DescribeAlarmHistoryOutput = DescribeAlarmHistoryOutput
 --
 -- * 'dahoNextToken' @::@ 'Maybe' 'Text'
 --
-describeAlarmHistoryResponse :: DescribeAlarmHistoryOutput
-describeAlarmHistoryResponse = DescribeAlarmHistoryOutput
+describeAlarmHistoryOutput :: DescribeAlarmHistoryOutput
+describeAlarmHistoryOutput = DescribeAlarmHistoryOutput
     { _dahoAlarmHistoryItems = mempty
     , _dahoNextToken         = Nothing
     }
@@ -145,6 +144,9 @@ dahoAlarmHistoryItems =
 -- | A string that marks the start of the next batch of returned results.
 dahoNextToken :: Lens' DescribeAlarmHistoryOutput (Maybe Text)
 dahoNextToken = lens _dahoNextToken (\s a -> s { _dahoNextToken = a })
+instance FromXML DescribeAlarmHistoryOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAlarmHistoryOutput"
 
 instance AWSRequest DescribeAlarmHistoryInput where
     type Sv DescribeAlarmHistoryInput = CloudWatch

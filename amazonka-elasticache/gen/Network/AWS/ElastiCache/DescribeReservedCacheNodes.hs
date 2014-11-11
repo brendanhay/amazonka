@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     -- * Request
       DescribeReservedCacheNodesMessage
     -- ** Request constructor
-    , describeReservedCacheNodes
+    , describeReservedCacheNodesMessage
     -- ** Request lenses
     , drcnmCacheNodeType
     , drcnmDuration
@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     -- * Response
     , ReservedCacheNodeMessage
     -- ** Response constructor
-    , describeReservedCacheNodesResponse
+    , reservedCacheNodeMessage
     -- ** Response lenses
     , rcnmMarker
     , rcnmReservedCacheNodes
@@ -82,8 +82,8 @@ data DescribeReservedCacheNodesMessage = DescribeReservedCacheNodesMessage
 --
 -- * 'drcnmReservedCacheNodesOfferingId' @::@ 'Maybe' 'Text'
 --
-describeReservedCacheNodes :: DescribeReservedCacheNodesMessage
-describeReservedCacheNodes = DescribeReservedCacheNodesMessage
+describeReservedCacheNodesMessage :: DescribeReservedCacheNodesMessage
+describeReservedCacheNodesMessage = DescribeReservedCacheNodesMessage
     { _drcnmReservedCacheNodeId          = Nothing
     , _drcnmReservedCacheNodesOfferingId = Nothing
     , _drcnmCacheNodeType                = Nothing
@@ -146,11 +146,10 @@ drcnmReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodesMessage (Ma
 drcnmReservedCacheNodesOfferingId =
     lens _drcnmReservedCacheNodesOfferingId
         (\s a -> s { _drcnmReservedCacheNodesOfferingId = a })
+instance ToQuery DescribeReservedCacheNodesMessage
 
 instance ToPath DescribeReservedCacheNodesMessage where
     toPath = const "/"
-
-instance ToQuery DescribeReservedCacheNodesMessage
 
 data ReservedCacheNodeMessage = ReservedCacheNodeMessage
     { _rcnmMarker             :: Maybe Text
@@ -165,8 +164,8 @@ data ReservedCacheNodeMessage = ReservedCacheNodeMessage
 --
 -- * 'rcnmReservedCacheNodes' @::@ ['ReservedCacheNode']
 --
-describeReservedCacheNodesResponse :: ReservedCacheNodeMessage
-describeReservedCacheNodesResponse = ReservedCacheNodeMessage
+reservedCacheNodeMessage :: ReservedCacheNodeMessage
+reservedCacheNodeMessage = ReservedCacheNodeMessage
     { _rcnmMarker             = Nothing
     , _rcnmReservedCacheNodes = mempty
     }
@@ -180,6 +179,9 @@ rcnmMarker = lens _rcnmMarker (\s a -> s { _rcnmMarker = a })
 rcnmReservedCacheNodes :: Lens' ReservedCacheNodeMessage [ReservedCacheNode]
 rcnmReservedCacheNodes =
     lens _rcnmReservedCacheNodes (\s a -> s { _rcnmReservedCacheNodes = a })
+instance FromXML ReservedCacheNodeMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReservedCacheNodeMessage"
 
 instance AWSRequest DescribeReservedCacheNodesMessage where
     type Sv DescribeReservedCacheNodesMessage = ElastiCache

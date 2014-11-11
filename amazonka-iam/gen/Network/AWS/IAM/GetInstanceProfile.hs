@@ -65,11 +65,10 @@ getInstanceProfile p1 = GetInstanceProfile
 gipInstanceProfileName :: Lens' GetInstanceProfile Text
 gipInstanceProfileName =
     lens _gipInstanceProfileName (\s a -> s { _gipInstanceProfileName = a })
+instance ToQuery GetInstanceProfile
 
 instance ToPath GetInstanceProfile where
     toPath = const "/"
-
-instance ToQuery GetInstanceProfile
 
 newtype GetInstanceProfileResponse = GetInstanceProfileResponse
     { _giprInstanceProfile :: InstanceProfile
@@ -91,6 +90,9 @@ getInstanceProfileResponse p1 = GetInstanceProfileResponse
 giprInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
 giprInstanceProfile =
     lens _giprInstanceProfile (\s a -> s { _giprInstanceProfile = a })
+instance FromXML GetInstanceProfileResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetInstanceProfileResponse"
 
 instance AWSRequest GetInstanceProfile where
     type Sv GetInstanceProfile = IAM

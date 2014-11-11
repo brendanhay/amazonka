@@ -26,7 +26,7 @@ module Network.AWS.SNS.SetTopicAttributes
     -- * Request
       SetTopicAttributesInput
     -- ** Request constructor
-    , setTopicAttributes
+    , setTopicAttributesInput
     -- ** Request lenses
     , staiAttributeName
     , staiAttributeValue
@@ -58,10 +58,10 @@ data SetTopicAttributesInput = SetTopicAttributesInput
 --
 -- * 'staiTopicArn' @::@ 'Text'
 --
-setTopicAttributes :: Text -- ^ 'staiTopicArn'
-                   -> Text -- ^ 'staiAttributeName'
-                   -> SetTopicAttributesInput
-setTopicAttributes p1 p2 = SetTopicAttributesInput
+setTopicAttributesInput :: Text -- ^ 'staiTopicArn'
+                        -> Text -- ^ 'staiAttributeName'
+                        -> SetTopicAttributesInput
+setTopicAttributesInput p1 p2 = SetTopicAttributesInput
     { _staiTopicArn       = p1
     , _staiAttributeName  = p2
     , _staiAttributeValue = Nothing
@@ -82,21 +82,24 @@ staiAttributeValue =
 -- | The ARN of the topic to modify.
 staiTopicArn :: Lens' SetTopicAttributesInput Text
 staiTopicArn = lens _staiTopicArn (\s a -> s { _staiTopicArn = a })
+instance ToQuery SetTopicAttributesInput
 
 instance ToPath SetTopicAttributesInput where
     toPath = const "/"
 
-instance ToQuery SetTopicAttributesInput
-
 data SetTopicAttributesResponse = SetTopicAttributesResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetTopicAttributesResponse' constructor.
 setTopicAttributesResponse :: SetTopicAttributesResponse
 setTopicAttributesResponse = SetTopicAttributesResponse
+instance FromXML SetTopicAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SetTopicAttributesResponse"
 
 instance AWSRequest SetTopicAttributesInput where
     type Sv SetTopicAttributesInput = SNS
     type Rs SetTopicAttributesInput = SetTopicAttributesResponse
 
     request  = post "SetTopicAttributes"
-    response = const (nullaryResponse SetTopicAttributesResponse)
+    response = nullaryResponse SetTopicAttributesResponse

@@ -156,14 +156,18 @@ instance ToBody PutBucketAcl where
     toBody = toBody . encodeXML . _pbaAccessControlPolicy
 
 data PutBucketAclResponse = PutBucketAclResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketAclResponse' constructor.
 putBucketAclResponse :: PutBucketAclResponse
 putBucketAclResponse = PutBucketAclResponse
 
+instance FromXML PutBucketAclResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutBucketAclResponse"
 instance AWSRequest PutBucketAcl where
     type Sv PutBucketAcl = S3
     type Rs PutBucketAcl = PutBucketAclResponse
 
     request  = put
-    response = const (nullaryResponse PutBucketAclResponse)
+    response = nullaryResponse PutBucketAclResponse

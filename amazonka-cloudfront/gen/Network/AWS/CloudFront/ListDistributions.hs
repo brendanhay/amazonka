@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.ListDistributions
     -- * Request
       ListDistributions
     -- ** Request constructor
-    , listDistributions2014_05_31
+    , listDistributions
     -- ** Request lenses
     , ldMarker
     , ldMaxItems
@@ -34,7 +34,7 @@ module Network.AWS.CloudFront.ListDistributions
     -- * Response
     , ListDistributionsResult
     -- ** Response constructor
-    , listDistributions2014_05_31Response
+    , listDistributionsResult
     -- ** Response lenses
     , ldrDistributionList
     ) where
@@ -56,8 +56,8 @@ data ListDistributions = ListDistributions
 --
 -- * 'ldMaxItems' @::@ 'Maybe' 'Text'
 --
-listDistributions2014_05_31 :: ListDistributions
-listDistributions2014_05_31 = ListDistributions
+listDistributions :: ListDistributions
+listDistributions = ListDistributions
     { _ldMarker   = Nothing
     , _ldMaxItems = Nothing
     }
@@ -95,8 +95,8 @@ newtype ListDistributionsResult = ListDistributionsResult
 --
 -- * 'ldrDistributionList' @::@ 'Maybe' 'DistributionList'
 --
-listDistributions2014_05_31Response :: ListDistributionsResult
-listDistributions2014_05_31Response = ListDistributionsResult
+listDistributionsResult :: ListDistributionsResult
+listDistributionsResult = ListDistributionsResult
     { _ldrDistributionList = Nothing
     }
 
@@ -105,6 +105,9 @@ ldrDistributionList :: Lens' ListDistributionsResult (Maybe DistributionList)
 ldrDistributionList =
     lens _ldrDistributionList (\s a -> s { _ldrDistributionList = a })
 
+instance FromXML ListDistributionsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListDistributionsResult"
 instance AWSRequest ListDistributions where
     type Sv ListDistributions = CloudFront
     type Rs ListDistributions = ListDistributionsResult

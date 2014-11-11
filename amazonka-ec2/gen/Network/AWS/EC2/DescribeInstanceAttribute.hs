@@ -39,7 +39,7 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     -- * Response
     , InstanceAttribute
     -- ** Response constructor
-    , describeInstanceAttributeResponse
+    , instanceAttribute
     -- ** Response lenses
     , iaBlockDeviceMappings
     , iaDisableApiTermination
@@ -96,11 +96,10 @@ dia1DryRun = lens _dia1DryRun (\s a -> s { _dia1DryRun = a })
 -- | The ID of the instance.
 dia1InstanceId :: Lens' DescribeInstanceAttribute Text
 dia1InstanceId = lens _dia1InstanceId (\s a -> s { _dia1InstanceId = a })
+instance ToQuery DescribeInstanceAttribute
 
 instance ToPath DescribeInstanceAttribute where
     toPath = const "/"
-
-instance ToQuery DescribeInstanceAttribute
 
 data InstanceAttribute = InstanceAttribute
     { _iaBlockDeviceMappings               :: [InstanceBlockDeviceMapping]
@@ -151,8 +150,8 @@ data InstanceAttribute = InstanceAttribute
 --
 -- * 'iaUserData' @::@ 'Maybe' 'AttributeValue'
 --
-describeInstanceAttributeResponse :: InstanceAttribute
-describeInstanceAttributeResponse = InstanceAttribute
+instanceAttribute :: InstanceAttribute
+instanceAttribute = InstanceAttribute
     { _iaInstanceId                        = Nothing
     , _iaInstanceType                      = Nothing
     , _iaKernelId                          = Nothing
@@ -234,6 +233,9 @@ iaSriovNetSupport =
 -- | The Base64-encoded MIME user data.
 iaUserData :: Lens' InstanceAttribute (Maybe AttributeValue)
 iaUserData = lens _iaUserData (\s a -> s { _iaUserData = a })
+instance FromXML InstanceAttribute where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "InstanceAttribute"
 
 instance AWSRequest DescribeInstanceAttribute where
     type Sv DescribeInstanceAttribute = EC2

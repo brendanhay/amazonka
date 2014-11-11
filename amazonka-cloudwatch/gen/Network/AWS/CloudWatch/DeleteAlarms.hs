@@ -27,7 +27,7 @@ module Network.AWS.CloudWatch.DeleteAlarms
     -- * Request
       DeleteAlarmsInput
     -- ** Request constructor
-    , deleteAlarms
+    , deleteAlarmsInput
     -- ** Request lenses
     , daiAlarmNames
 
@@ -51,29 +51,32 @@ newtype DeleteAlarmsInput = DeleteAlarmsInput
 --
 -- * 'daiAlarmNames' @::@ ['Text']
 --
-deleteAlarms :: DeleteAlarmsInput
-deleteAlarms = DeleteAlarmsInput
+deleteAlarmsInput :: DeleteAlarmsInput
+deleteAlarmsInput = DeleteAlarmsInput
     { _daiAlarmNames = mempty
     }
 
 -- | A list of alarms to be deleted.
 daiAlarmNames :: Lens' DeleteAlarmsInput [Text]
 daiAlarmNames = lens _daiAlarmNames (\s a -> s { _daiAlarmNames = a })
+instance ToQuery DeleteAlarmsInput
 
 instance ToPath DeleteAlarmsInput where
     toPath = const "/"
 
-instance ToQuery DeleteAlarmsInput
-
 data DeleteAlarmsResponse = DeleteAlarmsResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteAlarmsResponse' constructor.
 deleteAlarmsResponse :: DeleteAlarmsResponse
 deleteAlarmsResponse = DeleteAlarmsResponse
+instance FromXML DeleteAlarmsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteAlarmsResponse"
 
 instance AWSRequest DeleteAlarmsInput where
     type Sv DeleteAlarmsInput = CloudWatch
     type Rs DeleteAlarmsInput = DeleteAlarmsResponse
 
     request  = post "DeleteAlarms"
-    response = const (nullaryResponse DeleteAlarmsResponse)
+    response = nullaryResponse DeleteAlarmsResponse

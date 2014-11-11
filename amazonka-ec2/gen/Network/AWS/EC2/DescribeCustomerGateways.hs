@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeCustomerGateways
     -- * Response
     , DescribeCustomerGatewaysResult
     -- ** Response constructor
-    , describeCustomerGatewaysResponse
+    , describeCustomerGatewaysResult
     -- ** Response lenses
     , dcgrCustomerGateways
     ) where
@@ -95,11 +95,10 @@ dcgDryRun = lens _dcgDryRun (\s a -> s { _dcgDryRun = a })
 -- resource. This filter is independent of the tag-key filter.
 dcgFilters :: Lens' DescribeCustomerGateways [Filter]
 dcgFilters = lens _dcgFilters (\s a -> s { _dcgFilters = a })
+instance ToQuery DescribeCustomerGateways
 
 instance ToPath DescribeCustomerGateways where
     toPath = const "/"
-
-instance ToQuery DescribeCustomerGateways
 
 newtype DescribeCustomerGatewaysResult = DescribeCustomerGatewaysResult
     { _dcgrCustomerGateways :: [CustomerGateway]
@@ -111,8 +110,8 @@ newtype DescribeCustomerGatewaysResult = DescribeCustomerGatewaysResult
 --
 -- * 'dcgrCustomerGateways' @::@ ['CustomerGateway']
 --
-describeCustomerGatewaysResponse :: DescribeCustomerGatewaysResult
-describeCustomerGatewaysResponse = DescribeCustomerGatewaysResult
+describeCustomerGatewaysResult :: DescribeCustomerGatewaysResult
+describeCustomerGatewaysResult = DescribeCustomerGatewaysResult
     { _dcgrCustomerGateways = mempty
     }
 
@@ -120,6 +119,9 @@ describeCustomerGatewaysResponse = DescribeCustomerGatewaysResult
 dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResult [CustomerGateway]
 dcgrCustomerGateways =
     lens _dcgrCustomerGateways (\s a -> s { _dcgrCustomerGateways = a })
+instance FromXML DescribeCustomerGatewaysResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeCustomerGatewaysResult"
 
 instance AWSRequest DescribeCustomerGateways where
     type Sv DescribeCustomerGateways = EC2

@@ -83,21 +83,24 @@ prpPolicyName = lens _prpPolicyName (\s a -> s { _prpPolicyName = a })
 -- | The name of the role to associate the policy with.
 prpRoleName :: Lens' PutRolePolicy Text
 prpRoleName = lens _prpRoleName (\s a -> s { _prpRoleName = a })
+instance ToQuery PutRolePolicy
 
 instance ToPath PutRolePolicy where
     toPath = const "/"
 
-instance ToQuery PutRolePolicy
-
 data PutRolePolicyResponse = PutRolePolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutRolePolicyResponse' constructor.
 putRolePolicyResponse :: PutRolePolicyResponse
 putRolePolicyResponse = PutRolePolicyResponse
+instance FromXML PutRolePolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutRolePolicyResponse"
 
 instance AWSRequest PutRolePolicy where
     type Sv PutRolePolicy = IAM
     type Rs PutRolePolicy = PutRolePolicyResponse
 
     request  = post "PutRolePolicy"
-    response = const (nullaryResponse PutRolePolicyResponse)
+    response = nullaryResponse PutRolePolicyResponse

@@ -26,7 +26,7 @@ module Network.AWS.CloudFormation.ValidateTemplate
     -- * Request
       ValidateTemplateInput
     -- ** Request constructor
-    , validateTemplate
+    , validateTemplateInput
     -- ** Request lenses
     , vtiTemplateBody
     , vtiTemplateURL
@@ -34,7 +34,7 @@ module Network.AWS.CloudFormation.ValidateTemplate
     -- * Response
     , ValidateTemplateOutput
     -- ** Response constructor
-    , validateTemplateResponse
+    , validateTemplateOutput
     -- ** Response lenses
     , vtoCapabilities
     , vtoCapabilitiesReason
@@ -59,8 +59,8 @@ data ValidateTemplateInput = ValidateTemplateInput
 --
 -- * 'vtiTemplateURL' @::@ 'Maybe' 'Text'
 --
-validateTemplate :: ValidateTemplateInput
-validateTemplate = ValidateTemplateInput
+validateTemplateInput :: ValidateTemplateInput
+validateTemplateInput = ValidateTemplateInput
     { _vtiTemplateBody = Nothing
     , _vtiTemplateURL  = Nothing
     }
@@ -80,11 +80,10 @@ vtiTemplateBody = lens _vtiTemplateBody (\s a -> s { _vtiTemplateBody = a })
 -- TemplateBody. If both are passed, only TemplateBody is used.
 vtiTemplateURL :: Lens' ValidateTemplateInput (Maybe Text)
 vtiTemplateURL = lens _vtiTemplateURL (\s a -> s { _vtiTemplateURL = a })
+instance ToQuery ValidateTemplateInput
 
 instance ToPath ValidateTemplateInput where
     toPath = const "/"
-
-instance ToQuery ValidateTemplateInput
 
 data ValidateTemplateOutput = ValidateTemplateOutput
     { _vtoCapabilities       :: [Text]
@@ -105,8 +104,8 @@ data ValidateTemplateOutput = ValidateTemplateOutput
 --
 -- * 'vtoParameters' @::@ ['TemplateParameter']
 --
-validateTemplateResponse :: ValidateTemplateOutput
-validateTemplateResponse = ValidateTemplateOutput
+validateTemplateOutput :: ValidateTemplateOutput
+validateTemplateOutput = ValidateTemplateOutput
     { _vtoParameters         = mempty
     , _vtoDescription        = Nothing
     , _vtoCapabilities       = mempty
@@ -133,6 +132,9 @@ vtoDescription = lens _vtoDescription (\s a -> s { _vtoDescription = a })
 -- | A list of TemplateParameter structures.
 vtoParameters :: Lens' ValidateTemplateOutput [TemplateParameter]
 vtoParameters = lens _vtoParameters (\s a -> s { _vtoParameters = a })
+instance FromXML ValidateTemplateOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ValidateTemplateOutput"
 
 instance AWSRequest ValidateTemplateInput where
     type Sv ValidateTemplateInput = CloudFormation

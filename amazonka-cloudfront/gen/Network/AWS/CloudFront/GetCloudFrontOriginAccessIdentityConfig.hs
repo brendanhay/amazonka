@@ -26,14 +26,14 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
     -- * Request
       GetCloudFrontOriginAccessIdentityConfig
     -- ** Request constructor
-    , getCloudFrontOriginAccessIdentityConfig2014_05_31
+    , getCloudFrontOriginAccessIdentityConfig
     -- ** Request lenses
     , gcfoaicId
 
     -- * Response
     , GetCloudFrontOriginAccessIdentityConfigResult
     -- ** Response constructor
-    , getCloudFrontOriginAccessIdentityConfig2014_05_31Response
+    , getCloudFrontOriginAccessIdentityConfigResult
     -- ** Response lenses
     , gcfoaicrCloudFrontOriginAccessIdentityConfig
     , gcfoaicrETag
@@ -53,9 +53,9 @@ newtype GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdent
 --
 -- * 'gcfoaicId' @::@ 'Text'
 --
-getCloudFrontOriginAccessIdentityConfig2014_05_31 :: Text -- ^ 'gcfoaicId'
-                                                  -> GetCloudFrontOriginAccessIdentityConfig
-getCloudFrontOriginAccessIdentityConfig2014_05_31 p1 = GetCloudFrontOriginAccessIdentityConfig
+getCloudFrontOriginAccessIdentityConfig :: Text -- ^ 'gcfoaicId'
+                                        -> GetCloudFrontOriginAccessIdentityConfig
+getCloudFrontOriginAccessIdentityConfig p1 = GetCloudFrontOriginAccessIdentityConfig
     { _gcfoaicId = p1
     }
 
@@ -88,8 +88,8 @@ data GetCloudFrontOriginAccessIdentityConfigResult = GetCloudFrontOriginAccessId
 --
 -- * 'gcfoaicrETag' @::@ 'Maybe' 'Text'
 --
-getCloudFrontOriginAccessIdentityConfig2014_05_31Response :: GetCloudFrontOriginAccessIdentityConfigResult
-getCloudFrontOriginAccessIdentityConfig2014_05_31Response = GetCloudFrontOriginAccessIdentityConfigResult
+getCloudFrontOriginAccessIdentityConfigResult :: GetCloudFrontOriginAccessIdentityConfigResult
+getCloudFrontOriginAccessIdentityConfigResult = GetCloudFrontOriginAccessIdentityConfigResult
     { _gcfoaicrCloudFrontOriginAccessIdentityConfig = Nothing
     , _gcfoaicrETag                                 = Nothing
     }
@@ -104,6 +104,9 @@ gcfoaicrCloudFrontOriginAccessIdentityConfig =
 gcfoaicrETag :: Lens' GetCloudFrontOriginAccessIdentityConfigResult (Maybe Text)
 gcfoaicrETag = lens _gcfoaicrETag (\s a -> s { _gcfoaicrETag = a })
 
+instance FromXML GetCloudFrontOriginAccessIdentityConfigResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetCloudFrontOriginAccessIdentityConfigResult"
 instance AWSRequest GetCloudFrontOriginAccessIdentityConfig where
     type Sv GetCloudFrontOriginAccessIdentityConfig = CloudFront
     type Rs GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfigResult

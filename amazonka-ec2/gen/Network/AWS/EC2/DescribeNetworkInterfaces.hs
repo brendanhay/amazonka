@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     -- * Response
     , DescribeNetworkInterfacesResult
     -- ** Response constructor
-    , describeNetworkInterfacesResponse
+    , describeNetworkInterfacesResult
     -- ** Response lenses
     , dnirNetworkInterfaces
     ) where
@@ -132,11 +132,10 @@ dniFilters = lens _dniFilters (\s a -> s { _dniFilters = a })
 dniNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
 dniNetworkInterfaceIds =
     lens _dniNetworkInterfaceIds (\s a -> s { _dniNetworkInterfaceIds = a })
+instance ToQuery DescribeNetworkInterfaces
 
 instance ToPath DescribeNetworkInterfaces where
     toPath = const "/"
-
-instance ToQuery DescribeNetworkInterfaces
 
 newtype DescribeNetworkInterfacesResult = DescribeNetworkInterfacesResult
     { _dnirNetworkInterfaces :: [NetworkInterface]
@@ -148,8 +147,8 @@ newtype DescribeNetworkInterfacesResult = DescribeNetworkInterfacesResult
 --
 -- * 'dnirNetworkInterfaces' @::@ ['NetworkInterface']
 --
-describeNetworkInterfacesResponse :: DescribeNetworkInterfacesResult
-describeNetworkInterfacesResponse = DescribeNetworkInterfacesResult
+describeNetworkInterfacesResult :: DescribeNetworkInterfacesResult
+describeNetworkInterfacesResult = DescribeNetworkInterfacesResult
     { _dnirNetworkInterfaces = mempty
     }
 
@@ -157,6 +156,9 @@ describeNetworkInterfacesResponse = DescribeNetworkInterfacesResult
 dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResult [NetworkInterface]
 dnirNetworkInterfaces =
     lens _dnirNetworkInterfaces (\s a -> s { _dnirNetworkInterfaces = a })
+instance FromXML DescribeNetworkInterfacesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeNetworkInterfacesResult"
 
 instance AWSRequest DescribeNetworkInterfaces where
     type Sv DescribeNetworkInterfaces = EC2

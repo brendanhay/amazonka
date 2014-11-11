@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     -- * Response
     , DescribeAutoScalingNotificationTypesAnswer
     -- ** Response constructor
-    , describeAutoScalingNotificationTypesResponse
+    , describeAutoScalingNotificationTypesAnswer
     -- ** Response lenses
     , dasntaAutoScalingNotificationTypes
     ) where
@@ -42,15 +42,15 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
 data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAutoScalingNotificationTypes' constructor.
 describeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
 describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
+instance ToQuery DescribeAutoScalingNotificationTypes
 
 instance ToPath DescribeAutoScalingNotificationTypes where
     toPath = const "/"
-
-instance ToQuery DescribeAutoScalingNotificationTypes
 
 newtype DescribeAutoScalingNotificationTypesAnswer = DescribeAutoScalingNotificationTypesAnswer
     { _dasntaAutoScalingNotificationTypes :: [Text]
@@ -62,8 +62,8 @@ newtype DescribeAutoScalingNotificationTypesAnswer = DescribeAutoScalingNotifica
 --
 -- * 'dasntaAutoScalingNotificationTypes' @::@ ['Text']
 --
-describeAutoScalingNotificationTypesResponse :: DescribeAutoScalingNotificationTypesAnswer
-describeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesAnswer
+describeAutoScalingNotificationTypesAnswer :: DescribeAutoScalingNotificationTypesAnswer
+describeAutoScalingNotificationTypesAnswer = DescribeAutoScalingNotificationTypesAnswer
     { _dasntaAutoScalingNotificationTypes = mempty
     }
 
@@ -75,6 +75,9 @@ dasntaAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypes
 dasntaAutoScalingNotificationTypes =
     lens _dasntaAutoScalingNotificationTypes
         (\s a -> s { _dasntaAutoScalingNotificationTypes = a })
+instance FromXML DescribeAutoScalingNotificationTypesAnswer where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAutoScalingNotificationTypesAnswer"
 
 instance AWSRequest DescribeAutoScalingNotificationTypes where
     type Sv DescribeAutoScalingNotificationTypes = AutoScaling

@@ -27,7 +27,7 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     -- * Request
       EnableSnapshotCopyMessage
     -- ** Request constructor
-    , enableSnapshotCopy
+    , enableSnapshotCopyMessage
     -- ** Request lenses
     , escmClusterIdentifier
     , escmDestinationRegion
@@ -36,7 +36,7 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     -- * Response
     , EnableSnapshotCopyResult
     -- ** Response constructor
-    , enableSnapshotCopyResponse
+    , enableSnapshotCopyResult
     -- ** Response lenses
     , escrCluster
     ) where
@@ -61,10 +61,10 @@ data EnableSnapshotCopyMessage = EnableSnapshotCopyMessage
 --
 -- * 'escmRetentionPeriod' @::@ 'Maybe' 'Int'
 --
-enableSnapshotCopy :: Text -- ^ 'escmClusterIdentifier'
-                   -> Text -- ^ 'escmDestinationRegion'
-                   -> EnableSnapshotCopyMessage
-enableSnapshotCopy p1 p2 = EnableSnapshotCopyMessage
+enableSnapshotCopyMessage :: Text -- ^ 'escmClusterIdentifier'
+                          -> Text -- ^ 'escmDestinationRegion'
+                          -> EnableSnapshotCopyMessage
+enableSnapshotCopyMessage p1 p2 = EnableSnapshotCopyMessage
     { _escmClusterIdentifier = p1
     , _escmDestinationRegion = p2
     , _escmRetentionPeriod   = Nothing
@@ -90,11 +90,10 @@ escmDestinationRegion =
 escmRetentionPeriod :: Lens' EnableSnapshotCopyMessage (Maybe Int)
 escmRetentionPeriod =
     lens _escmRetentionPeriod (\s a -> s { _escmRetentionPeriod = a })
+instance ToQuery EnableSnapshotCopyMessage
 
 instance ToPath EnableSnapshotCopyMessage where
     toPath = const "/"
-
-instance ToQuery EnableSnapshotCopyMessage
 
 newtype EnableSnapshotCopyResult = EnableSnapshotCopyResult
     { _escrCluster :: Maybe Cluster
@@ -106,13 +105,16 @@ newtype EnableSnapshotCopyResult = EnableSnapshotCopyResult
 --
 -- * 'escrCluster' @::@ 'Maybe' 'Cluster'
 --
-enableSnapshotCopyResponse :: EnableSnapshotCopyResult
-enableSnapshotCopyResponse = EnableSnapshotCopyResult
+enableSnapshotCopyResult :: EnableSnapshotCopyResult
+enableSnapshotCopyResult = EnableSnapshotCopyResult
     { _escrCluster = Nothing
     }
 
 escrCluster :: Lens' EnableSnapshotCopyResult (Maybe Cluster)
 escrCluster = lens _escrCluster (\s a -> s { _escrCluster = a })
+instance FromXML EnableSnapshotCopyResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnableSnapshotCopyResult"
 
 instance AWSRequest EnableSnapshotCopyMessage where
     type Sv EnableSnapshotCopyMessage = Redshift

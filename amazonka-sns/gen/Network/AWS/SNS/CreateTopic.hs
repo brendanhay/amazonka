@@ -30,7 +30,7 @@ module Network.AWS.SNS.CreateTopic
     -- * Request
       CreateTopicInput
     -- ** Request constructor
-    , createTopic
+    , createTopicInput
     -- ** Request lenses
     , ctiName
 
@@ -56,9 +56,9 @@ newtype CreateTopicInput = CreateTopicInput
 --
 -- * 'ctiName' @::@ 'Text'
 --
-createTopic :: Text -- ^ 'ctiName'
-            -> CreateTopicInput
-createTopic p1 = CreateTopicInput
+createTopicInput :: Text -- ^ 'ctiName'
+                 -> CreateTopicInput
+createTopicInput p1 = CreateTopicInput
     { _ctiName = p1
     }
 
@@ -67,11 +67,10 @@ createTopic p1 = CreateTopicInput
 -- underscores, and hyphens, and must be between 1 and 256 characters long.
 ctiName :: Lens' CreateTopicInput Text
 ctiName = lens _ctiName (\s a -> s { _ctiName = a })
+instance ToQuery CreateTopicInput
 
 instance ToPath CreateTopicInput where
     toPath = const "/"
-
-instance ToQuery CreateTopicInput
 
 newtype CreateTopicResponse = CreateTopicResponse
     { _ctrTopicArn :: Maybe Text
@@ -91,6 +90,9 @@ createTopicResponse = CreateTopicResponse
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
 ctrTopicArn :: Lens' CreateTopicResponse (Maybe Text)
 ctrTopicArn = lens _ctrTopicArn (\s a -> s { _ctrTopicArn = a })
+instance FromXML CreateTopicResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateTopicResponse"
 
 instance AWSRequest CreateTopicInput where
     type Sv CreateTopicInput = SNS

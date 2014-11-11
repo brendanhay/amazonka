@@ -26,7 +26,7 @@ module Network.AWS.Redshift.DeleteEventSubscription
     -- * Request
       DeleteEventSubscriptionMessage
     -- ** Request constructor
-    , deleteEventSubscription
+    , deleteEventSubscriptionMessage
     -- ** Request lenses
     , desm1SubscriptionName
 
@@ -50,9 +50,9 @@ newtype DeleteEventSubscriptionMessage = DeleteEventSubscriptionMessage
 --
 -- * 'desm1SubscriptionName' @::@ 'Text'
 --
-deleteEventSubscription :: Text -- ^ 'desm1SubscriptionName'
-                        -> DeleteEventSubscriptionMessage
-deleteEventSubscription p1 = DeleteEventSubscriptionMessage
+deleteEventSubscriptionMessage :: Text -- ^ 'desm1SubscriptionName'
+                               -> DeleteEventSubscriptionMessage
+deleteEventSubscriptionMessage p1 = DeleteEventSubscriptionMessage
     { _desm1SubscriptionName = p1
     }
 
@@ -61,21 +61,24 @@ deleteEventSubscription p1 = DeleteEventSubscriptionMessage
 desm1SubscriptionName :: Lens' DeleteEventSubscriptionMessage Text
 desm1SubscriptionName =
     lens _desm1SubscriptionName (\s a -> s { _desm1SubscriptionName = a })
+instance ToQuery DeleteEventSubscriptionMessage
 
 instance ToPath DeleteEventSubscriptionMessage where
     toPath = const "/"
 
-instance ToQuery DeleteEventSubscriptionMessage
-
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteEventSubscriptionResponse' constructor.
 deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
+instance FromXML DeleteEventSubscriptionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteEventSubscriptionResponse"
 
 instance AWSRequest DeleteEventSubscriptionMessage where
     type Sv DeleteEventSubscriptionMessage = Redshift
     type Rs DeleteEventSubscriptionMessage = DeleteEventSubscriptionResponse
 
     request  = post "DeleteEventSubscription"
-    response = const (nullaryResponse DeleteEventSubscriptionResponse)
+    response = nullaryResponse DeleteEventSubscriptionResponse

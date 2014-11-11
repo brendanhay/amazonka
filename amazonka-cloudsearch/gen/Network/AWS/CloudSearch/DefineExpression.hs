@@ -72,11 +72,10 @@ de2DomainName = lens _de2DomainName (\s a -> s { _de2DomainName = a })
 
 de2Expression :: Lens' DefineExpression Expression
 de2Expression = lens _de2Expression (\s a -> s { _de2Expression = a })
+instance ToQuery DefineExpression
 
 instance ToPath DefineExpression where
     toPath = const "/"
-
-instance ToQuery DefineExpression
 
 newtype DefineExpressionResponse = DefineExpressionResponse
     { _derExpression :: ExpressionStatus
@@ -96,6 +95,9 @@ defineExpressionResponse p1 = DefineExpressionResponse
 
 derExpression :: Lens' DefineExpressionResponse ExpressionStatus
 derExpression = lens _derExpression (\s a -> s { _derExpression = a })
+instance FromXML DefineExpressionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DefineExpressionResponse"
 
 instance AWSRequest DefineExpression where
     type Sv DefineExpression = CloudSearch

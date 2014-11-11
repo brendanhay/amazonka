@@ -35,7 +35,7 @@ module Network.AWS.S3.GetObjectAcl
     -- * Response
     , GetObjectAclOutput
     -- ** Response constructor
-    , getObjectAclResponse
+    , getObjectAclOutput
     -- ** Response lenses
     , goaoGrants
     , goaoOwner
@@ -109,8 +109,8 @@ data GetObjectAclOutput = GetObjectAclOutput
 --
 -- * 'goaoOwner' @::@ 'Maybe' 'Owner'
 --
-getObjectAclResponse :: GetObjectAclOutput
-getObjectAclResponse = GetObjectAclOutput
+getObjectAclOutput :: GetObjectAclOutput
+getObjectAclOutput = GetObjectAclOutput
     { _goaoOwner  = Nothing
     , _goaoGrants = mempty
     }
@@ -122,6 +122,9 @@ goaoGrants = lens _goaoGrants (\s a -> s { _goaoGrants = a })
 goaoOwner :: Lens' GetObjectAclOutput (Maybe Owner)
 goaoOwner = lens _goaoOwner (\s a -> s { _goaoOwner = a })
 
+instance FromXML GetObjectAclOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetObjectAclOutput"
 instance AWSRequest GetObjectAcl where
     type Sv GetObjectAcl = S3
     type Rs GetObjectAcl = GetObjectAclOutput

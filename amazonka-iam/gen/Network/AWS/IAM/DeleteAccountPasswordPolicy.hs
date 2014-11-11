@@ -39,25 +39,29 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
 
 data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteAccountPasswordPolicy' constructor.
 deleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
 deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
+instance ToQuery DeleteAccountPasswordPolicy
 
 instance ToPath DeleteAccountPasswordPolicy where
     toPath = const "/"
 
-instance ToQuery DeleteAccountPasswordPolicy
-
 data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteAccountPasswordPolicyResponse' constructor.
 deleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse
 deleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
+instance FromXML DeleteAccountPasswordPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteAccountPasswordPolicyResponse"
 
 instance AWSRequest DeleteAccountPasswordPolicy where
     type Sv DeleteAccountPasswordPolicy = IAM
     type Rs DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicyResponse
 
     request  = post "DeleteAccountPasswordPolicy"
-    response = const (nullaryResponse DeleteAccountPasswordPolicyResponse)
+    response = nullaryResponse DeleteAccountPasswordPolicyResponse

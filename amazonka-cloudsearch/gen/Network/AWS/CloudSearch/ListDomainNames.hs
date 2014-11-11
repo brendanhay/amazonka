@@ -41,15 +41,15 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
 
 data ListDomainNames = ListDomainNames
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListDomainNames' constructor.
 listDomainNames :: ListDomainNames
 listDomainNames = ListDomainNames
+instance ToQuery ListDomainNames
 
 instance ToPath ListDomainNames where
     toPath = const "/"
-
-instance ToQuery ListDomainNames
 
 newtype ListDomainNamesResponse = ListDomainNamesResponse
     { _ldnrDomainNames :: Map Text Text
@@ -70,6 +70,9 @@ listDomainNamesResponse = ListDomainNamesResponse
 ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
 ldnrDomainNames = lens _ldnrDomainNames (\s a -> s { _ldnrDomainNames = a })
     . _Map
+instance FromXML ListDomainNamesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListDomainNamesResponse"
 
 instance AWSRequest ListDomainNames where
     type Sv ListDomainNames = CloudSearch

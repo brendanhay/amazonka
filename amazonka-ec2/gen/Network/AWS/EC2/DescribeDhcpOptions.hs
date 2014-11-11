@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeDhcpOptions
     -- * Response
     , DescribeDhcpOptionsResult
     -- ** Response constructor
-    , describeDhcpOptionsResponse
+    , describeDhcpOptionsResult
     -- ** Response lenses
     , ddorDhcpOptions
     ) where
@@ -92,11 +92,10 @@ ddo1DryRun = lens _ddo1DryRun (\s a -> s { _ddo1DryRun = a })
 -- tag-key filter.
 ddo1Filters :: Lens' DescribeDhcpOptions [Filter]
 ddo1Filters = lens _ddo1Filters (\s a -> s { _ddo1Filters = a })
+instance ToQuery DescribeDhcpOptions
 
 instance ToPath DescribeDhcpOptions where
     toPath = const "/"
-
-instance ToQuery DescribeDhcpOptions
 
 newtype DescribeDhcpOptionsResult = DescribeDhcpOptionsResult
     { _ddorDhcpOptions :: [DhcpOptions]
@@ -108,14 +107,17 @@ newtype DescribeDhcpOptionsResult = DescribeDhcpOptionsResult
 --
 -- * 'ddorDhcpOptions' @::@ ['DhcpOptions']
 --
-describeDhcpOptionsResponse :: DescribeDhcpOptionsResult
-describeDhcpOptionsResponse = DescribeDhcpOptionsResult
+describeDhcpOptionsResult :: DescribeDhcpOptionsResult
+describeDhcpOptionsResult = DescribeDhcpOptionsResult
     { _ddorDhcpOptions = mempty
     }
 
 -- | Information about one or more DHCP options sets.
 ddorDhcpOptions :: Lens' DescribeDhcpOptionsResult [DhcpOptions]
 ddorDhcpOptions = lens _ddorDhcpOptions (\s a -> s { _ddorDhcpOptions = a })
+instance FromXML DescribeDhcpOptionsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDhcpOptionsResult"
 
 instance AWSRequest DescribeDhcpOptions where
     type Sv DescribeDhcpOptions = EC2

@@ -30,7 +30,7 @@ module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     -- * Request
       PutScheduledUpdateGroupActionType
     -- ** Request constructor
-    , putScheduledUpdateGroupAction
+    , putScheduledUpdateGroupActionType
     -- ** Request lenses
     , psugatAutoScalingGroupName
     , psugatDesiredCapacity
@@ -86,10 +86,10 @@ data PutScheduledUpdateGroupActionType = PutScheduledUpdateGroupActionType
 --
 -- * 'psugatTime' @::@ 'Maybe' 'UTCTime'
 --
-putScheduledUpdateGroupAction :: Text -- ^ 'psugatAutoScalingGroupName'
-                              -> Text -- ^ 'psugatScheduledActionName'
-                              -> PutScheduledUpdateGroupActionType
-putScheduledUpdateGroupAction p1 p2 = PutScheduledUpdateGroupActionType
+putScheduledUpdateGroupActionType :: Text -- ^ 'psugatAutoScalingGroupName'
+                                  -> Text -- ^ 'psugatScheduledActionName'
+                                  -> PutScheduledUpdateGroupActionType
+putScheduledUpdateGroupActionType p1 p2 = PutScheduledUpdateGroupActionType
     { _psugatAutoScalingGroupName = p1
     , _psugatScheduledActionName  = p2
     , _psugatTime                 = Nothing
@@ -155,21 +155,24 @@ psugatStartTime = lens _psugatStartTime (\s a -> s { _psugatStartTime = a })
 psugatTime :: Lens' PutScheduledUpdateGroupActionType (Maybe UTCTime)
 psugatTime = lens _psugatTime (\s a -> s { _psugatTime = a })
     . mapping _Time
+instance ToQuery PutScheduledUpdateGroupActionType
 
 instance ToPath PutScheduledUpdateGroupActionType where
     toPath = const "/"
 
-instance ToQuery PutScheduledUpdateGroupActionType
-
 data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutScheduledUpdateGroupActionResponse' constructor.
 putScheduledUpdateGroupActionResponse :: PutScheduledUpdateGroupActionResponse
 putScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
+instance FromXML PutScheduledUpdateGroupActionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutScheduledUpdateGroupActionResponse"
 
 instance AWSRequest PutScheduledUpdateGroupActionType where
     type Sv PutScheduledUpdateGroupActionType = AutoScaling
     type Rs PutScheduledUpdateGroupActionType = PutScheduledUpdateGroupActionResponse
 
     request  = post "PutScheduledUpdateGroupAction"
-    response = const (nullaryResponse PutScheduledUpdateGroupActionResponse)
+    response = nullaryResponse PutScheduledUpdateGroupActionResponse

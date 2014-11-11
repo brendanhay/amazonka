@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
     -- * Request
       CreateAutoScalingGroupType
     -- ** Request constructor
-    , createAutoScalingGroup
+    , createAutoScalingGroupType
     -- ** Request lenses
     , casgtAutoScalingGroupName
     , casgtAvailabilityZones
@@ -108,12 +108,12 @@ data CreateAutoScalingGroupType = CreateAutoScalingGroupType
 --
 -- * 'casgtVPCZoneIdentifier' @::@ 'Maybe' 'Text'
 --
-createAutoScalingGroup :: Text -- ^ 'casgtAutoScalingGroupName'
-                       -> Int -- ^ 'casgtMinSize'
-                       -> Int -- ^ 'casgtMaxSize'
-                       -> NonEmpty Text -- ^ 'casgtAvailabilityZones'
-                       -> CreateAutoScalingGroupType
-createAutoScalingGroup p1 p2 p3 p4 = CreateAutoScalingGroupType
+createAutoScalingGroupType :: Text -- ^ 'casgtAutoScalingGroupName'
+                           -> Int -- ^ 'casgtMinSize'
+                           -> Int -- ^ 'casgtMaxSize'
+                           -> NonEmpty Text -- ^ 'casgtAvailabilityZones'
+                           -> CreateAutoScalingGroupType
+createAutoScalingGroupType p1 p2 p3 p4 = CreateAutoScalingGroupType
     { _casgtAutoScalingGroupName    = p1
     , _casgtMinSize                 = p2
     , _casgtMaxSize                 = p3
@@ -254,21 +254,24 @@ casgtTerminationPolicies =
 casgtVPCZoneIdentifier :: Lens' CreateAutoScalingGroupType (Maybe Text)
 casgtVPCZoneIdentifier =
     lens _casgtVPCZoneIdentifier (\s a -> s { _casgtVPCZoneIdentifier = a })
+instance ToQuery CreateAutoScalingGroupType
 
 instance ToPath CreateAutoScalingGroupType where
     toPath = const "/"
 
-instance ToQuery CreateAutoScalingGroupType
-
 data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateAutoScalingGroupResponse' constructor.
 createAutoScalingGroupResponse :: CreateAutoScalingGroupResponse
 createAutoScalingGroupResponse = CreateAutoScalingGroupResponse
+instance FromXML CreateAutoScalingGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateAutoScalingGroupResponse"
 
 instance AWSRequest CreateAutoScalingGroupType where
     type Sv CreateAutoScalingGroupType = AutoScaling
     type Rs CreateAutoScalingGroupType = CreateAutoScalingGroupResponse
 
     request  = post "CreateAutoScalingGroup"
-    response = const (nullaryResponse CreateAutoScalingGroupResponse)
+    response = nullaryResponse CreateAutoScalingGroupResponse

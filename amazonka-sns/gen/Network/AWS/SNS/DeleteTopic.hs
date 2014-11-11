@@ -29,7 +29,7 @@ module Network.AWS.SNS.DeleteTopic
     -- * Request
       DeleteTopicInput
     -- ** Request constructor
-    , deleteTopic
+    , deleteTopicInput
     -- ** Request lenses
     , dtiTopicArn
 
@@ -53,30 +53,33 @@ newtype DeleteTopicInput = DeleteTopicInput
 --
 -- * 'dtiTopicArn' @::@ 'Text'
 --
-deleteTopic :: Text -- ^ 'dtiTopicArn'
-            -> DeleteTopicInput
-deleteTopic p1 = DeleteTopicInput
+deleteTopicInput :: Text -- ^ 'dtiTopicArn'
+                 -> DeleteTopicInput
+deleteTopicInput p1 = DeleteTopicInput
     { _dtiTopicArn = p1
     }
 
 -- | The ARN of the topic you want to delete.
 dtiTopicArn :: Lens' DeleteTopicInput Text
 dtiTopicArn = lens _dtiTopicArn (\s a -> s { _dtiTopicArn = a })
+instance ToQuery DeleteTopicInput
 
 instance ToPath DeleteTopicInput where
     toPath = const "/"
 
-instance ToQuery DeleteTopicInput
-
 data DeleteTopicResponse = DeleteTopicResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteTopicResponse' constructor.
 deleteTopicResponse :: DeleteTopicResponse
 deleteTopicResponse = DeleteTopicResponse
+instance FromXML DeleteTopicResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteTopicResponse"
 
 instance AWSRequest DeleteTopicInput where
     type Sv DeleteTopicInput = SNS
     type Rs DeleteTopicInput = DeleteTopicResponse
 
     request  = post "DeleteTopic"
-    response = const (nullaryResponse DeleteTopicResponse)
+    response = nullaryResponse DeleteTopicResponse

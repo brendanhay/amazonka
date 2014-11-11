@@ -26,7 +26,7 @@ module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
     -- * Request
       DeleteCacheSubnetGroupMessage
     -- ** Request constructor
-    , deleteCacheSubnetGroup
+    , deleteCacheSubnetGroupMessage
     -- ** Request lenses
     , dcsgm1CacheSubnetGroupName
 
@@ -50,9 +50,9 @@ newtype DeleteCacheSubnetGroupMessage = DeleteCacheSubnetGroupMessage
 --
 -- * 'dcsgm1CacheSubnetGroupName' @::@ 'Text'
 --
-deleteCacheSubnetGroup :: Text -- ^ 'dcsgm1CacheSubnetGroupName'
-                       -> DeleteCacheSubnetGroupMessage
-deleteCacheSubnetGroup p1 = DeleteCacheSubnetGroupMessage
+deleteCacheSubnetGroupMessage :: Text -- ^ 'dcsgm1CacheSubnetGroupName'
+                              -> DeleteCacheSubnetGroupMessage
+deleteCacheSubnetGroupMessage p1 = DeleteCacheSubnetGroupMessage
     { _dcsgm1CacheSubnetGroupName = p1
     }
 
@@ -62,21 +62,24 @@ dcsgm1CacheSubnetGroupName :: Lens' DeleteCacheSubnetGroupMessage Text
 dcsgm1CacheSubnetGroupName =
     lens _dcsgm1CacheSubnetGroupName
         (\s a -> s { _dcsgm1CacheSubnetGroupName = a })
+instance ToQuery DeleteCacheSubnetGroupMessage
 
 instance ToPath DeleteCacheSubnetGroupMessage where
     toPath = const "/"
 
-instance ToQuery DeleteCacheSubnetGroupMessage
-
 data DeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteCacheSubnetGroupResponse' constructor.
 deleteCacheSubnetGroupResponse :: DeleteCacheSubnetGroupResponse
 deleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
+instance FromXML DeleteCacheSubnetGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteCacheSubnetGroupResponse"
 
 instance AWSRequest DeleteCacheSubnetGroupMessage where
     type Sv DeleteCacheSubnetGroupMessage = ElastiCache
     type Rs DeleteCacheSubnetGroupMessage = DeleteCacheSubnetGroupResponse
 
     request  = post "DeleteCacheSubnetGroup"
-    response = const (nullaryResponse DeleteCacheSubnetGroupResponse)
+    response = nullaryResponse DeleteCacheSubnetGroupResponse

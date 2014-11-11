@@ -35,7 +35,7 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
     -- * Response
     , ListDeadLetterSourceQueuesResult
     -- ** Response constructor
-    , listDeadLetterSourceQueuesResponse
+    , listDeadLetterSourceQueuesResult
     -- ** Response lenses
     , ldlsqrQueueUrls
     ) where
@@ -63,11 +63,10 @@ listDeadLetterSourceQueues p1 = ListDeadLetterSourceQueues
 -- | The queue URL of a dead letter queue.
 ldlsqQueueUrl :: Lens' ListDeadLetterSourceQueues Text
 ldlsqQueueUrl = lens _ldlsqQueueUrl (\s a -> s { _ldlsqQueueUrl = a })
+instance ToQuery ListDeadLetterSourceQueues
 
 instance ToPath ListDeadLetterSourceQueues where
     toPath = const "/"
-
-instance ToQuery ListDeadLetterSourceQueues
 
 newtype ListDeadLetterSourceQueuesResult = ListDeadLetterSourceQueuesResult
     { _ldlsqrQueueUrls :: [Text]
@@ -79,8 +78,8 @@ newtype ListDeadLetterSourceQueuesResult = ListDeadLetterSourceQueuesResult
 --
 -- * 'ldlsqrQueueUrls' @::@ ['Text']
 --
-listDeadLetterSourceQueuesResponse :: ListDeadLetterSourceQueuesResult
-listDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResult
+listDeadLetterSourceQueuesResult :: ListDeadLetterSourceQueuesResult
+listDeadLetterSourceQueuesResult = ListDeadLetterSourceQueuesResult
     { _ldlsqrQueueUrls = mempty
     }
 
@@ -88,6 +87,9 @@ listDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResult
 -- configured with a dead letter queue.
 ldlsqrQueueUrls :: Lens' ListDeadLetterSourceQueuesResult [Text]
 ldlsqrQueueUrls = lens _ldlsqrQueueUrls (\s a -> s { _ldlsqrQueueUrls = a })
+instance FromXML ListDeadLetterSourceQueuesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListDeadLetterSourceQueuesResult"
 
 instance AWSRequest ListDeadLetterSourceQueues where
     type Sv ListDeadLetterSourceQueues = SQS

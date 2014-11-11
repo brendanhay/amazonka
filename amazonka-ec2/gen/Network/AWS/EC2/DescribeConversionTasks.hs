@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeConversionTasks
     -- * Response
     , DescribeConversionTasksResult
     -- ** Response constructor
-    , describeConversionTasksResponse
+    , describeConversionTasksResult
     -- ** Response lenses
     , dctrConversionTasks
     ) where
@@ -79,11 +79,10 @@ dctDryRun = lens _dctDryRun (\s a -> s { _dctDryRun = a })
 
 dctFilters :: Lens' DescribeConversionTasks [Filter]
 dctFilters = lens _dctFilters (\s a -> s { _dctFilters = a })
+instance ToQuery DescribeConversionTasks
 
 instance ToPath DescribeConversionTasks where
     toPath = const "/"
-
-instance ToQuery DescribeConversionTasks
 
 newtype DescribeConversionTasksResult = DescribeConversionTasksResult
     { _dctrConversionTasks :: [ConversionTask]
@@ -95,14 +94,17 @@ newtype DescribeConversionTasksResult = DescribeConversionTasksResult
 --
 -- * 'dctrConversionTasks' @::@ ['ConversionTask']
 --
-describeConversionTasksResponse :: DescribeConversionTasksResult
-describeConversionTasksResponse = DescribeConversionTasksResult
+describeConversionTasksResult :: DescribeConversionTasksResult
+describeConversionTasksResult = DescribeConversionTasksResult
     { _dctrConversionTasks = mempty
     }
 
 dctrConversionTasks :: Lens' DescribeConversionTasksResult [ConversionTask]
 dctrConversionTasks =
     lens _dctrConversionTasks (\s a -> s { _dctrConversionTasks = a })
+instance FromXML DescribeConversionTasksResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeConversionTasksResult"
 
 instance AWSRequest DescribeConversionTasks where
     type Sv DescribeConversionTasks = EC2

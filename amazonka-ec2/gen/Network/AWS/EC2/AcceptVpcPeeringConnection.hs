@@ -37,7 +37,7 @@ module Network.AWS.EC2.AcceptVpcPeeringConnection
     -- * Response
     , AcceptVpcPeeringConnectionResult
     -- ** Response constructor
-    , acceptVpcPeeringConnectionResponse
+    , acceptVpcPeeringConnectionResult
     -- ** Response lenses
     , avpcrVpcPeeringConnection
     ) where
@@ -73,11 +73,10 @@ avpcVpcPeeringConnectionId :: Lens' AcceptVpcPeeringConnection (Maybe Text)
 avpcVpcPeeringConnectionId =
     lens _avpcVpcPeeringConnectionId
         (\s a -> s { _avpcVpcPeeringConnectionId = a })
+instance ToQuery AcceptVpcPeeringConnection
 
 instance ToPath AcceptVpcPeeringConnection where
     toPath = const "/"
-
-instance ToQuery AcceptVpcPeeringConnection
 
 newtype AcceptVpcPeeringConnectionResult = AcceptVpcPeeringConnectionResult
     { _avpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
@@ -89,8 +88,8 @@ newtype AcceptVpcPeeringConnectionResult = AcceptVpcPeeringConnectionResult
 --
 -- * 'avpcrVpcPeeringConnection' @::@ 'Maybe' 'VpcPeeringConnection'
 --
-acceptVpcPeeringConnectionResponse :: AcceptVpcPeeringConnectionResult
-acceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResult
+acceptVpcPeeringConnectionResult :: AcceptVpcPeeringConnectionResult
+acceptVpcPeeringConnectionResult = AcceptVpcPeeringConnectionResult
     { _avpcrVpcPeeringConnection = Nothing
     }
 
@@ -99,6 +98,9 @@ avpcrVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResult (Maybe VpcPe
 avpcrVpcPeeringConnection =
     lens _avpcrVpcPeeringConnection
         (\s a -> s { _avpcrVpcPeeringConnection = a })
+instance FromXML AcceptVpcPeeringConnectionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AcceptVpcPeeringConnectionResult"
 
 instance AWSRequest AcceptVpcPeeringConnection where
     type Sv AcceptVpcPeeringConnection = EC2

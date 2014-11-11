@@ -88,21 +88,24 @@ uscStatus = lens _uscStatus (\s a -> s { _uscStatus = a })
 -- | The name of the user the signing certificate belongs to.
 uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
 uscUserName = lens _uscUserName (\s a -> s { _uscUserName = a })
+instance ToQuery UpdateSigningCertificate
 
 instance ToPath UpdateSigningCertificate where
     toPath = const "/"
 
-instance ToQuery UpdateSigningCertificate
-
 data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateSigningCertificateResponse' constructor.
 updateSigningCertificateResponse :: UpdateSigningCertificateResponse
 updateSigningCertificateResponse = UpdateSigningCertificateResponse
+instance FromXML UpdateSigningCertificateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateSigningCertificateResponse"
 
 instance AWSRequest UpdateSigningCertificate where
     type Sv UpdateSigningCertificate = IAM
     type Rs UpdateSigningCertificate = UpdateSigningCertificateResponse
 
     request  = post "UpdateSigningCertificate"
-    response = const (nullaryResponse UpdateSigningCertificateResponse)
+    response = nullaryResponse UpdateSigningCertificateResponse

@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     -- * Request
       DescribeScheduledActionsType
     -- ** Request constructor
-    , describeScheduledActions
+    , describeScheduledActionsType
     -- ** Request lenses
     , dsat2AutoScalingGroupName
     , dsat2EndTime
@@ -40,7 +40,7 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     -- * Response
     , ScheduledActionsType
     -- ** Response constructor
-    , describeScheduledActionsResponse
+    , scheduledActionsType
     -- ** Response lenses
     , satNextToken
     , satScheduledUpdateGroupActions
@@ -75,8 +75,8 @@ data DescribeScheduledActionsType = DescribeScheduledActionsType
 --
 -- * 'dsat2StartTime' @::@ 'Maybe' 'UTCTime'
 --
-describeScheduledActions :: DescribeScheduledActionsType
-describeScheduledActions = DescribeScheduledActionsType
+describeScheduledActionsType :: DescribeScheduledActionsType
+describeScheduledActionsType = DescribeScheduledActionsType
     { _dsat2AutoScalingGroupName = Nothing
     , _dsat2ScheduledActionNames = mempty
     , _dsat2StartTime            = Nothing
@@ -120,11 +120,10 @@ dsat2ScheduledActionNames =
 dsat2StartTime :: Lens' DescribeScheduledActionsType (Maybe UTCTime)
 dsat2StartTime = lens _dsat2StartTime (\s a -> s { _dsat2StartTime = a })
     . mapping _Time
+instance ToQuery DescribeScheduledActionsType
 
 instance ToPath DescribeScheduledActionsType where
     toPath = const "/"
-
-instance ToQuery DescribeScheduledActionsType
 
 data ScheduledActionsType = ScheduledActionsType
     { _satNextToken                   :: Maybe Text
@@ -139,8 +138,8 @@ data ScheduledActionsType = ScheduledActionsType
 --
 -- * 'satScheduledUpdateGroupActions' @::@ ['ScheduledUpdateGroupAction']
 --
-describeScheduledActionsResponse :: ScheduledActionsType
-describeScheduledActionsResponse = ScheduledActionsType
+scheduledActionsType :: ScheduledActionsType
+scheduledActionsType = ScheduledActionsType
     { _satScheduledUpdateGroupActions = mempty
     , _satNextToken                   = Nothing
     }
@@ -154,6 +153,9 @@ satScheduledUpdateGroupActions :: Lens' ScheduledActionsType [ScheduledUpdateGro
 satScheduledUpdateGroupActions =
     lens _satScheduledUpdateGroupActions
         (\s a -> s { _satScheduledUpdateGroupActions = a })
+instance FromXML ScheduledActionsType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ScheduledActionsType"
 
 instance AWSRequest DescribeScheduledActionsType where
     type Sv DescribeScheduledActionsType = AutoScaling

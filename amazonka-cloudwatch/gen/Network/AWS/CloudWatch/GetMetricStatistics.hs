@@ -46,7 +46,7 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     -- * Request
       GetMetricStatisticsInput
     -- ** Request constructor
-    , getMetricStatistics
+    , getMetricStatisticsInput
     -- ** Request lenses
     , gmsiDimensions
     , gmsiEndTime
@@ -60,7 +60,7 @@ module Network.AWS.CloudWatch.GetMetricStatistics
     -- * Response
     , GetMetricStatisticsOutput
     -- ** Response constructor
-    , getMetricStatisticsResponse
+    , getMetricStatisticsOutput
     -- ** Response lenses
     , gmsoDatapoints
     , gmsoLabel
@@ -101,14 +101,14 @@ data GetMetricStatisticsInput = GetMetricStatisticsInput
 --
 -- * 'gmsiUnit' @::@ 'Maybe' 'Text'
 --
-getMetricStatistics :: Text -- ^ 'gmsiNamespace'
-                    -> Text -- ^ 'gmsiMetricName'
-                    -> UTCTime -- ^ 'gmsiStartTime'
-                    -> UTCTime -- ^ 'gmsiEndTime'
-                    -> Int -- ^ 'gmsiPeriod'
-                    -> NonEmpty Text -- ^ 'gmsiStatistics'
-                    -> GetMetricStatisticsInput
-getMetricStatistics p1 p2 p3 p4 p5 p6 = GetMetricStatisticsInput
+getMetricStatisticsInput :: Text -- ^ 'gmsiNamespace'
+                         -> Text -- ^ 'gmsiMetricName'
+                         -> UTCTime -- ^ 'gmsiStartTime'
+                         -> UTCTime -- ^ 'gmsiEndTime'
+                         -> Int -- ^ 'gmsiPeriod'
+                         -> NonEmpty Text -- ^ 'gmsiStatistics'
+                         -> GetMetricStatisticsInput
+getMetricStatisticsInput p1 p2 p3 p4 p5 p6 = GetMetricStatisticsInput
     { _gmsiNamespace  = p1
     , _gmsiMetricName = p2
     , _gmsiStartTime  = withIso _Time (const id) p3
@@ -162,11 +162,10 @@ gmsiStatistics = lens _gmsiStatistics (\s a -> s { _gmsiStatistics = a })
 -- | The unit for the metric.
 gmsiUnit :: Lens' GetMetricStatisticsInput (Maybe Text)
 gmsiUnit = lens _gmsiUnit (\s a -> s { _gmsiUnit = a })
+instance ToQuery GetMetricStatisticsInput
 
 instance ToPath GetMetricStatisticsInput where
     toPath = const "/"
-
-instance ToQuery GetMetricStatisticsInput
 
 data GetMetricStatisticsOutput = GetMetricStatisticsOutput
     { _gmsoDatapoints :: [Datapoint]
@@ -181,8 +180,8 @@ data GetMetricStatisticsOutput = GetMetricStatisticsOutput
 --
 -- * 'gmsoLabel' @::@ 'Maybe' 'Text'
 --
-getMetricStatisticsResponse :: GetMetricStatisticsOutput
-getMetricStatisticsResponse = GetMetricStatisticsOutput
+getMetricStatisticsOutput :: GetMetricStatisticsOutput
+getMetricStatisticsOutput = GetMetricStatisticsOutput
     { _gmsoLabel      = Nothing
     , _gmsoDatapoints = mempty
     }
@@ -194,6 +193,9 @@ gmsoDatapoints = lens _gmsoDatapoints (\s a -> s { _gmsoDatapoints = a })
 -- | A label describing the specified metric.
 gmsoLabel :: Lens' GetMetricStatisticsOutput (Maybe Text)
 gmsoLabel = lens _gmsoLabel (\s a -> s { _gmsoLabel = a })
+instance FromXML GetMetricStatisticsOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetMetricStatisticsOutput"
 
 instance AWSRequest GetMetricStatisticsInput where
     type Sv GetMetricStatisticsInput = CloudWatch

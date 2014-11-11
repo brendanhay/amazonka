@@ -32,7 +32,7 @@ module Network.AWS.Redshift.CreateCluster
     -- * Request
       CreateClusterMessage
     -- ** Request constructor
-    , createCluster
+    , createClusterMessage
     -- ** Request lenses
     , ccmAllowVersionUpgrade
     , ccmAutomatedSnapshotRetentionPeriod
@@ -60,7 +60,7 @@ module Network.AWS.Redshift.CreateCluster
     -- * Response
     , CreateClusterResult
     -- ** Response constructor
-    , createClusterResponse
+    , createClusterResult
     -- ** Response lenses
     , ccrCluster
     ) where
@@ -142,12 +142,12 @@ data CreateClusterMessage = CreateClusterMessage
 --
 -- * 'ccmVpcSecurityGroupIds' @::@ ['Text']
 --
-createCluster :: Text -- ^ 'ccmClusterIdentifier'
-              -> Text -- ^ 'ccmNodeType'
-              -> Text -- ^ 'ccmMasterUsername'
-              -> Text -- ^ 'ccmMasterUserPassword'
-              -> CreateClusterMessage
-createCluster p1 p2 p3 p4 = CreateClusterMessage
+createClusterMessage :: Text -- ^ 'ccmClusterIdentifier'
+                     -> Text -- ^ 'ccmNodeType'
+                     -> Text -- ^ 'ccmMasterUsername'
+                     -> Text -- ^ 'ccmMasterUserPassword'
+                     -> CreateClusterMessage
+createClusterMessage p1 p2 p3 p4 = CreateClusterMessage
     { _ccmClusterIdentifier                = p1
     , _ccmNodeType                         = p2
     , _ccmMasterUsername                   = p3
@@ -358,11 +358,10 @@ ccmPubliclyAccessible =
 ccmVpcSecurityGroupIds :: Lens' CreateClusterMessage [Text]
 ccmVpcSecurityGroupIds =
     lens _ccmVpcSecurityGroupIds (\s a -> s { _ccmVpcSecurityGroupIds = a })
+instance ToQuery CreateClusterMessage
 
 instance ToPath CreateClusterMessage where
     toPath = const "/"
-
-instance ToQuery CreateClusterMessage
 
 newtype CreateClusterResult = CreateClusterResult
     { _ccrCluster :: Maybe Cluster
@@ -374,13 +373,16 @@ newtype CreateClusterResult = CreateClusterResult
 --
 -- * 'ccrCluster' @::@ 'Maybe' 'Cluster'
 --
-createClusterResponse :: CreateClusterResult
-createClusterResponse = CreateClusterResult
+createClusterResult :: CreateClusterResult
+createClusterResult = CreateClusterResult
     { _ccrCluster = Nothing
     }
 
 ccrCluster :: Lens' CreateClusterResult (Maybe Cluster)
 ccrCluster = lens _ccrCluster (\s a -> s { _ccrCluster = a })
+instance FromXML CreateClusterResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateClusterResult"
 
 instance AWSRequest CreateClusterMessage where
     type Sv CreateClusterMessage = Redshift

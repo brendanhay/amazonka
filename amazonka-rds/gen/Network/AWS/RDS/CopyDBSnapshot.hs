@@ -27,7 +27,7 @@ module Network.AWS.RDS.CopyDBSnapshot
     -- * Request
       CopyDBSnapshotMessage
     -- ** Request constructor
-    , copyDBSnapshot
+    , copyDBSnapshotMessage
     -- ** Request lenses
     , cdbsmSourceDBSnapshotIdentifier
     , cdbsmTags
@@ -36,7 +36,7 @@ module Network.AWS.RDS.CopyDBSnapshot
     -- * Response
     , CopyDBSnapshotResult
     -- ** Response constructor
-    , copyDBSnapshotResponse
+    , copyDBSnapshotResult
     -- ** Response lenses
     , cdbsr1DBSnapshot
     ) where
@@ -61,10 +61,10 @@ data CopyDBSnapshotMessage = CopyDBSnapshotMessage
 --
 -- * 'cdbsmTargetDBSnapshotIdentifier' @::@ 'Text'
 --
-copyDBSnapshot :: Text -- ^ 'cdbsmSourceDBSnapshotIdentifier'
-               -> Text -- ^ 'cdbsmTargetDBSnapshotIdentifier'
-               -> CopyDBSnapshotMessage
-copyDBSnapshot p1 p2 = CopyDBSnapshotMessage
+copyDBSnapshotMessage :: Text -- ^ 'cdbsmSourceDBSnapshotIdentifier'
+                      -> Text -- ^ 'cdbsmTargetDBSnapshotIdentifier'
+                      -> CopyDBSnapshotMessage
+copyDBSnapshotMessage p1 p2 = CopyDBSnapshotMessage
     { _cdbsmSourceDBSnapshotIdentifier = p1
     , _cdbsmTargetDBSnapshotIdentifier = p2
     , _cdbsmTags                       = mempty
@@ -94,11 +94,10 @@ cdbsmTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshotMessage Text
 cdbsmTargetDBSnapshotIdentifier =
     lens _cdbsmTargetDBSnapshotIdentifier
         (\s a -> s { _cdbsmTargetDBSnapshotIdentifier = a })
+instance ToQuery CopyDBSnapshotMessage
 
 instance ToPath CopyDBSnapshotMessage where
     toPath = const "/"
-
-instance ToQuery CopyDBSnapshotMessage
 
 newtype CopyDBSnapshotResult = CopyDBSnapshotResult
     { _cdbsr1DBSnapshot :: Maybe DBSnapshot
@@ -110,13 +109,16 @@ newtype CopyDBSnapshotResult = CopyDBSnapshotResult
 --
 -- * 'cdbsr1DBSnapshot' @::@ 'Maybe' 'DBSnapshot'
 --
-copyDBSnapshotResponse :: CopyDBSnapshotResult
-copyDBSnapshotResponse = CopyDBSnapshotResult
+copyDBSnapshotResult :: CopyDBSnapshotResult
+copyDBSnapshotResult = CopyDBSnapshotResult
     { _cdbsr1DBSnapshot = Nothing
     }
 
 cdbsr1DBSnapshot :: Lens' CopyDBSnapshotResult (Maybe DBSnapshot)
 cdbsr1DBSnapshot = lens _cdbsr1DBSnapshot (\s a -> s { _cdbsr1DBSnapshot = a })
+instance FromXML CopyDBSnapshotResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CopyDBSnapshotResult"
 
 instance AWSRequest CopyDBSnapshotMessage where
     type Sv CopyDBSnapshotMessage = RDS

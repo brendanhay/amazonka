@@ -27,14 +27,14 @@ module Network.AWS.CloudFormation.GetStackPolicy
     -- * Request
       GetStackPolicyInput
     -- ** Request constructor
-    , getStackPolicy
+    , getStackPolicyInput
     -- ** Request lenses
     , gspiStackName
 
     -- * Response
     , GetStackPolicyOutput
     -- ** Response constructor
-    , getStackPolicyResponse
+    , getStackPolicyOutput
     -- ** Response lenses
     , gspoStackPolicyBody
     ) where
@@ -53,9 +53,9 @@ newtype GetStackPolicyInput = GetStackPolicyInput
 --
 -- * 'gspiStackName' @::@ 'Text'
 --
-getStackPolicy :: Text -- ^ 'gspiStackName'
-               -> GetStackPolicyInput
-getStackPolicy p1 = GetStackPolicyInput
+getStackPolicyInput :: Text -- ^ 'gspiStackName'
+                    -> GetStackPolicyInput
+getStackPolicyInput p1 = GetStackPolicyInput
     { _gspiStackName = p1
     }
 
@@ -63,11 +63,10 @@ getStackPolicy p1 = GetStackPolicyInput
 -- want to get.
 gspiStackName :: Lens' GetStackPolicyInput Text
 gspiStackName = lens _gspiStackName (\s a -> s { _gspiStackName = a })
+instance ToQuery GetStackPolicyInput
 
 instance ToPath GetStackPolicyInput where
     toPath = const "/"
-
-instance ToQuery GetStackPolicyInput
 
 newtype GetStackPolicyOutput = GetStackPolicyOutput
     { _gspoStackPolicyBody :: Maybe Text
@@ -79,8 +78,8 @@ newtype GetStackPolicyOutput = GetStackPolicyOutput
 --
 -- * 'gspoStackPolicyBody' @::@ 'Maybe' 'Text'
 --
-getStackPolicyResponse :: GetStackPolicyOutput
-getStackPolicyResponse = GetStackPolicyOutput
+getStackPolicyOutput :: GetStackPolicyOutput
+getStackPolicyOutput = GetStackPolicyOutput
     { _gspoStackPolicyBody = Nothing
     }
 
@@ -90,6 +89,9 @@ getStackPolicyResponse = GetStackPolicyOutput
 gspoStackPolicyBody :: Lens' GetStackPolicyOutput (Maybe Text)
 gspoStackPolicyBody =
     lens _gspoStackPolicyBody (\s a -> s { _gspoStackPolicyBody = a })
+instance FromXML GetStackPolicyOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetStackPolicyOutput"
 
 instance AWSRequest GetStackPolicyInput where
     type Sv GetStackPolicyInput = CloudFormation

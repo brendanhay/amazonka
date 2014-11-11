@@ -28,7 +28,7 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     -- * Request
       DescribeDefaultClusterParametersMessage
     -- ** Request constructor
-    , describeDefaultClusterParameters
+    , describeDefaultClusterParametersMessage
     -- ** Request lenses
     , ddcpmMarker
     , ddcpmMaxRecords
@@ -37,7 +37,7 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     -- * Response
     , DescribeDefaultClusterParametersResult
     -- ** Response constructor
-    , describeDefaultClusterParametersResponse
+    , describeDefaultClusterParametersResult
     -- ** Response lenses
     , ddcprDefaultClusterParameters
     ) where
@@ -62,9 +62,9 @@ data DescribeDefaultClusterParametersMessage = DescribeDefaultClusterParametersM
 --
 -- * 'ddcpmParameterGroupFamily' @::@ 'Text'
 --
-describeDefaultClusterParameters :: Text -- ^ 'ddcpmParameterGroupFamily'
-                                 -> DescribeDefaultClusterParametersMessage
-describeDefaultClusterParameters p1 = DescribeDefaultClusterParametersMessage
+describeDefaultClusterParametersMessage :: Text -- ^ 'ddcpmParameterGroupFamily'
+                                        -> DescribeDefaultClusterParametersMessage
+describeDefaultClusterParametersMessage p1 = DescribeDefaultClusterParametersMessage
     { _ddcpmParameterGroupFamily = p1
     , _ddcpmMaxRecords           = Nothing
     , _ddcpmMarker               = Nothing
@@ -92,11 +92,10 @@ ddcpmParameterGroupFamily :: Lens' DescribeDefaultClusterParametersMessage Text
 ddcpmParameterGroupFamily =
     lens _ddcpmParameterGroupFamily
         (\s a -> s { _ddcpmParameterGroupFamily = a })
+instance ToQuery DescribeDefaultClusterParametersMessage
 
 instance ToPath DescribeDefaultClusterParametersMessage where
     toPath = const "/"
-
-instance ToQuery DescribeDefaultClusterParametersMessage
 
 newtype DescribeDefaultClusterParametersResult = DescribeDefaultClusterParametersResult
     { _ddcprDefaultClusterParameters :: Maybe DefaultClusterParameters
@@ -108,8 +107,8 @@ newtype DescribeDefaultClusterParametersResult = DescribeDefaultClusterParameter
 --
 -- * 'ddcprDefaultClusterParameters' @::@ 'Maybe' 'DefaultClusterParameters'
 --
-describeDefaultClusterParametersResponse :: DescribeDefaultClusterParametersResult
-describeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResult
+describeDefaultClusterParametersResult :: DescribeDefaultClusterParametersResult
+describeDefaultClusterParametersResult = DescribeDefaultClusterParametersResult
     { _ddcprDefaultClusterParameters = Nothing
     }
 
@@ -117,6 +116,9 @@ ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResult (M
 ddcprDefaultClusterParameters =
     lens _ddcprDefaultClusterParameters
         (\s a -> s { _ddcprDefaultClusterParameters = a })
+instance FromXML DescribeDefaultClusterParametersResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDefaultClusterParametersResult"
 
 instance AWSRequest DescribeDefaultClusterParametersMessage where
     type Sv DescribeDefaultClusterParametersMessage = Redshift

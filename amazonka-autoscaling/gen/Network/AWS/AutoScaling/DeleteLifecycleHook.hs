@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.DeleteLifecycleHook
     -- * Request
       DeleteLifecycleHookType
     -- ** Request constructor
-    , deleteLifecycleHook
+    , deleteLifecycleHookType
     -- ** Request lenses
     , dlhtAutoScalingGroupName
     , dlhtLifecycleHookName
@@ -56,10 +56,10 @@ data DeleteLifecycleHookType = DeleteLifecycleHookType
 --
 -- * 'dlhtLifecycleHookName' @::@ 'Text'
 --
-deleteLifecycleHook :: Text -- ^ 'dlhtLifecycleHookName'
-                    -> Text -- ^ 'dlhtAutoScalingGroupName'
-                    -> DeleteLifecycleHookType
-deleteLifecycleHook p1 p2 = DeleteLifecycleHookType
+deleteLifecycleHookType :: Text -- ^ 'dlhtLifecycleHookName'
+                        -> Text -- ^ 'dlhtAutoScalingGroupName'
+                        -> DeleteLifecycleHookType
+deleteLifecycleHookType p1 p2 = DeleteLifecycleHookType
     { _dlhtLifecycleHookName    = p1
     , _dlhtAutoScalingGroupName = p2
     }
@@ -74,21 +74,24 @@ dlhtAutoScalingGroupName =
 dlhtLifecycleHookName :: Lens' DeleteLifecycleHookType Text
 dlhtLifecycleHookName =
     lens _dlhtLifecycleHookName (\s a -> s { _dlhtLifecycleHookName = a })
+instance ToQuery DeleteLifecycleHookType
 
 instance ToPath DeleteLifecycleHookType where
     toPath = const "/"
 
-instance ToQuery DeleteLifecycleHookType
-
 data DeleteLifecycleHookResponse = DeleteLifecycleHookResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteLifecycleHookResponse' constructor.
 deleteLifecycleHookResponse :: DeleteLifecycleHookResponse
 deleteLifecycleHookResponse = DeleteLifecycleHookResponse
+instance FromXML DeleteLifecycleHookResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteLifecycleHookResponse"
 
 instance AWSRequest DeleteLifecycleHookType where
     type Sv DeleteLifecycleHookType = AutoScaling
     type Rs DeleteLifecycleHookType = DeleteLifecycleHookResponse
 
     request  = post "DeleteLifecycleHook"
-    response = const (nullaryResponse DeleteLifecycleHookResponse)
+    response = nullaryResponse DeleteLifecycleHookResponse

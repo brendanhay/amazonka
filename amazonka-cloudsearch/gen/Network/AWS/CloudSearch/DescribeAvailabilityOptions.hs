@@ -75,11 +75,10 @@ daoDeployed = lens _daoDeployed (\s a -> s { _daoDeployed = a })
 -- | The name of the domain you want to describe.
 daoDomainName :: Lens' DescribeAvailabilityOptions Text
 daoDomainName = lens _daoDomainName (\s a -> s { _daoDomainName = a })
+instance ToQuery DescribeAvailabilityOptions
 
 instance ToPath DescribeAvailabilityOptions where
     toPath = const "/"
-
-instance ToQuery DescribeAvailabilityOptions
 
 newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
     { _daorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
@@ -101,6 +100,9 @@ describeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
 daorAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 daorAvailabilityOptions =
     lens _daorAvailabilityOptions (\s a -> s { _daorAvailabilityOptions = a })
+instance FromXML DescribeAvailabilityOptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAvailabilityOptionsResponse"
 
 instance AWSRequest DescribeAvailabilityOptions where
     type Sv DescribeAvailabilityOptions = CloudSearch

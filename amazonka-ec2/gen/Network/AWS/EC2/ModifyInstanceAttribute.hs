@@ -225,21 +225,24 @@ mia1UserData = lens _mia1UserData (\s a -> s { _mia1UserData = a })
 -- attribute.
 mia1Value :: Lens' ModifyInstanceAttribute (Maybe Text)
 mia1Value = lens _mia1Value (\s a -> s { _mia1Value = a })
+instance ToQuery ModifyInstanceAttribute
 
 instance ToPath ModifyInstanceAttribute where
     toPath = const "/"
 
-instance ToQuery ModifyInstanceAttribute
-
 data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifyInstanceAttributeResponse' constructor.
 modifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse
 modifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
+instance FromXML ModifyInstanceAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyInstanceAttributeResponse"
 
 instance AWSRequest ModifyInstanceAttribute where
     type Sv ModifyInstanceAttribute = EC2
     type Rs ModifyInstanceAttribute = ModifyInstanceAttributeResponse
 
     request  = post "ModifyInstanceAttribute"
-    response = const (nullaryResponse ModifyInstanceAttributeResponse)
+    response = nullaryResponse ModifyInstanceAttributeResponse

@@ -40,7 +40,7 @@ module Network.AWS.RDS.RebootDBInstance
     -- * Request
       RebootDBInstanceMessage
     -- ** Request constructor
-    , rebootDBInstance
+    , rebootDBInstanceMessage
     -- ** Request lenses
     , rdbimDBInstanceIdentifier
     , rdbimForceFailover
@@ -48,7 +48,7 @@ module Network.AWS.RDS.RebootDBInstance
     -- * Response
     , RebootDBInstanceResult
     -- ** Response constructor
-    , rebootDBInstanceResponse
+    , rebootDBInstanceResult
     -- ** Response lenses
     , rdbirDBInstance
     ) where
@@ -70,9 +70,9 @@ data RebootDBInstanceMessage = RebootDBInstanceMessage
 --
 -- * 'rdbimForceFailover' @::@ 'Maybe' 'Bool'
 --
-rebootDBInstance :: Text -- ^ 'rdbimDBInstanceIdentifier'
-                 -> RebootDBInstanceMessage
-rebootDBInstance p1 = RebootDBInstanceMessage
+rebootDBInstanceMessage :: Text -- ^ 'rdbimDBInstanceIdentifier'
+                        -> RebootDBInstanceMessage
+rebootDBInstanceMessage p1 = RebootDBInstanceMessage
     { _rdbimDBInstanceIdentifier = p1
     , _rdbimForceFailover        = Nothing
     }
@@ -92,11 +92,10 @@ rdbimDBInstanceIdentifier =
 rdbimForceFailover :: Lens' RebootDBInstanceMessage (Maybe Bool)
 rdbimForceFailover =
     lens _rdbimForceFailover (\s a -> s { _rdbimForceFailover = a })
+instance ToQuery RebootDBInstanceMessage
 
 instance ToPath RebootDBInstanceMessage where
     toPath = const "/"
-
-instance ToQuery RebootDBInstanceMessage
 
 newtype RebootDBInstanceResult = RebootDBInstanceResult
     { _rdbirDBInstance :: Maybe DBInstance
@@ -108,13 +107,16 @@ newtype RebootDBInstanceResult = RebootDBInstanceResult
 --
 -- * 'rdbirDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-rebootDBInstanceResponse :: RebootDBInstanceResult
-rebootDBInstanceResponse = RebootDBInstanceResult
+rebootDBInstanceResult :: RebootDBInstanceResult
+rebootDBInstanceResult = RebootDBInstanceResult
     { _rdbirDBInstance = Nothing
     }
 
 rdbirDBInstance :: Lens' RebootDBInstanceResult (Maybe DBInstance)
 rdbirDBInstance = lens _rdbirDBInstance (\s a -> s { _rdbirDBInstance = a })
+instance FromXML RebootDBInstanceResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RebootDBInstanceResult"
 
 instance AWSRequest RebootDBInstanceMessage where
     type Sv RebootDBInstanceMessage = RDS

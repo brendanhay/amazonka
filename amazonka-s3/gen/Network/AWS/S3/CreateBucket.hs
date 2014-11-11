@@ -40,7 +40,7 @@ module Network.AWS.S3.CreateBucket
     -- * Response
     , CreateBucketOutput
     -- ** Response constructor
-    , createBucketResponse
+    , createBucketOutput
     -- ** Response lenses
     , cboLocation
     ) where
@@ -159,14 +159,17 @@ newtype CreateBucketOutput = CreateBucketOutput
 --
 -- * 'cboLocation' @::@ 'Maybe' 'Text'
 --
-createBucketResponse :: CreateBucketOutput
-createBucketResponse = CreateBucketOutput
+createBucketOutput :: CreateBucketOutput
+createBucketOutput = CreateBucketOutput
     { _cboLocation = Nothing
     }
 
 cboLocation :: Lens' CreateBucketOutput (Maybe Text)
 cboLocation = lens _cboLocation (\s a -> s { _cboLocation = a })
 
+instance FromXML CreateBucketOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateBucketOutput"
 instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3
     type Rs CreateBucket = CreateBucketOutput

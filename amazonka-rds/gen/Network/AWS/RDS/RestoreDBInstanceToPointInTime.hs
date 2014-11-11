@@ -30,7 +30,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     -- * Request
       RestoreDBInstanceToPointInTimeMessage
     -- ** Request constructor
-    , restoreDBInstanceToPointInTime
+    , restoreDBInstanceToPointInTimeMessage
     -- ** Request lenses
     , rdbitpitmAutoMinorVersionUpgrade
     , rdbitpitmAvailabilityZone
@@ -56,7 +56,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     -- * Response
     , RestoreDBInstanceToPointInTimeResult
     -- ** Response constructor
-    , restoreDBInstanceToPointInTimeResponse
+    , restoreDBInstanceToPointInTimeResult
     -- ** Response lenses
     , rdbitpitrDBInstance
     ) where
@@ -132,10 +132,10 @@ data RestoreDBInstanceToPointInTimeMessage = RestoreDBInstanceToPointInTimeMessa
 --
 -- * 'rdbitpitmUseLatestRestorableTime' @::@ 'Maybe' 'Bool'
 --
-restoreDBInstanceToPointInTime :: Text -- ^ 'rdbitpitmSourceDBInstanceIdentifier'
-                               -> Text -- ^ 'rdbitpitmTargetDBInstanceIdentifier'
-                               -> RestoreDBInstanceToPointInTimeMessage
-restoreDBInstanceToPointInTime p1 p2 = RestoreDBInstanceToPointInTimeMessage
+restoreDBInstanceToPointInTimeMessage :: Text -- ^ 'rdbitpitmSourceDBInstanceIdentifier'
+                                      -> Text -- ^ 'rdbitpitmTargetDBInstanceIdentifier'
+                                      -> RestoreDBInstanceToPointInTimeMessage
+restoreDBInstanceToPointInTimeMessage p1 p2 = RestoreDBInstanceToPointInTimeMessage
     { _rdbitpitmSourceDBInstanceIdentifier = p1
     , _rdbitpitmTargetDBInstanceIdentifier = p2
     , _rdbitpitmRestoreTime                = Nothing
@@ -313,11 +313,10 @@ rdbitpitmUseLatestRestorableTime :: Lens' RestoreDBInstanceToPointInTimeMessage 
 rdbitpitmUseLatestRestorableTime =
     lens _rdbitpitmUseLatestRestorableTime
         (\s a -> s { _rdbitpitmUseLatestRestorableTime = a })
+instance ToQuery RestoreDBInstanceToPointInTimeMessage
 
 instance ToPath RestoreDBInstanceToPointInTimeMessage where
     toPath = const "/"
-
-instance ToQuery RestoreDBInstanceToPointInTimeMessage
 
 newtype RestoreDBInstanceToPointInTimeResult = RestoreDBInstanceToPointInTimeResult
     { _rdbitpitrDBInstance :: Maybe DBInstance
@@ -329,14 +328,17 @@ newtype RestoreDBInstanceToPointInTimeResult = RestoreDBInstanceToPointInTimeRes
 --
 -- * 'rdbitpitrDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-restoreDBInstanceToPointInTimeResponse :: RestoreDBInstanceToPointInTimeResult
-restoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResult
+restoreDBInstanceToPointInTimeResult :: RestoreDBInstanceToPointInTimeResult
+restoreDBInstanceToPointInTimeResult = RestoreDBInstanceToPointInTimeResult
     { _rdbitpitrDBInstance = Nothing
     }
 
 rdbitpitrDBInstance :: Lens' RestoreDBInstanceToPointInTimeResult (Maybe DBInstance)
 rdbitpitrDBInstance =
     lens _rdbitpitrDBInstance (\s a -> s { _rdbitpitrDBInstance = a })
+instance FromXML RestoreDBInstanceToPointInTimeResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RestoreDBInstanceToPointInTimeResult"
 
 instance AWSRequest RestoreDBInstanceToPointInTimeMessage where
     type Sv RestoreDBInstanceToPointInTimeMessage = RDS

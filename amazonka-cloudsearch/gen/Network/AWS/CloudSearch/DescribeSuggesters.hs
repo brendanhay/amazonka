@@ -87,11 +87,10 @@ ds1DomainName = lens _ds1DomainName (\s a -> s { _ds1DomainName = a })
 ds1SuggesterNames :: Lens' DescribeSuggesters [Text]
 ds1SuggesterNames =
     lens _ds1SuggesterNames (\s a -> s { _ds1SuggesterNames = a })
+instance ToQuery DescribeSuggesters
 
 instance ToPath DescribeSuggesters where
     toPath = const "/"
-
-instance ToQuery DescribeSuggesters
 
 newtype DescribeSuggestersResponse = DescribeSuggestersResponse
     { _dsrSuggesters :: [SuggesterStatus]
@@ -111,6 +110,9 @@ describeSuggestersResponse = DescribeSuggestersResponse
 -- | The suggesters configured for the domain specified in the request.
 dsrSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
 dsrSuggesters = lens _dsrSuggesters (\s a -> s { _dsrSuggesters = a })
+instance FromXML DescribeSuggestersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSuggestersResponse"
 
 instance AWSRequest DescribeSuggesters where
     type Sv DescribeSuggesters = CloudSearch

@@ -34,7 +34,7 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     -- * Request
       CreateReplicationGroupMessage
     -- ** Request constructor
-    , createReplicationGroup
+    , createReplicationGroupMessage
     -- ** Request lenses
     , crgmAutoMinorVersionUpgrade
     , crgmAutomaticFailoverEnabled
@@ -61,7 +61,7 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     -- * Response
     , CreateReplicationGroupResult
     -- ** Response constructor
-    , createReplicationGroupResponse
+    , createReplicationGroupResult
     -- ** Response lenses
     , crgrReplicationGroup
     ) where
@@ -140,10 +140,10 @@ data CreateReplicationGroupMessage = CreateReplicationGroupMessage
 --
 -- * 'crgmSnapshotWindow' @::@ 'Maybe' 'Text'
 --
-createReplicationGroup :: Text -- ^ 'crgmReplicationGroupId'
-                       -> Text -- ^ 'crgmReplicationGroupDescription'
-                       -> CreateReplicationGroupMessage
-createReplicationGroup p1 p2 = CreateReplicationGroupMessage
+createReplicationGroupMessage :: Text -- ^ 'crgmReplicationGroupId'
+                              -> Text -- ^ 'crgmReplicationGroupDescription'
+                              -> CreateReplicationGroupMessage
+createReplicationGroupMessage p1 p2 = CreateReplicationGroupMessage
     { _crgmReplicationGroupId          = p1
     , _crgmReplicationGroupDescription = p2
     , _crgmPrimaryClusterId            = Nothing
@@ -342,11 +342,10 @@ crgmSnapshotRetentionLimit =
 crgmSnapshotWindow :: Lens' CreateReplicationGroupMessage (Maybe Text)
 crgmSnapshotWindow =
     lens _crgmSnapshotWindow (\s a -> s { _crgmSnapshotWindow = a })
+instance ToQuery CreateReplicationGroupMessage
 
 instance ToPath CreateReplicationGroupMessage where
     toPath = const "/"
-
-instance ToQuery CreateReplicationGroupMessage
 
 newtype CreateReplicationGroupResult = CreateReplicationGroupResult
     { _crgrReplicationGroup :: Maybe ReplicationGroup
@@ -358,14 +357,17 @@ newtype CreateReplicationGroupResult = CreateReplicationGroupResult
 --
 -- * 'crgrReplicationGroup' @::@ 'Maybe' 'ReplicationGroup'
 --
-createReplicationGroupResponse :: CreateReplicationGroupResult
-createReplicationGroupResponse = CreateReplicationGroupResult
+createReplicationGroupResult :: CreateReplicationGroupResult
+createReplicationGroupResult = CreateReplicationGroupResult
     { _crgrReplicationGroup = Nothing
     }
 
 crgrReplicationGroup :: Lens' CreateReplicationGroupResult (Maybe ReplicationGroup)
 crgrReplicationGroup =
     lens _crgrReplicationGroup (\s a -> s { _crgrReplicationGroup = a })
+instance FromXML CreateReplicationGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateReplicationGroupResult"
 
 instance AWSRequest CreateReplicationGroupMessage where
     type Sv CreateReplicationGroupMessage = ElastiCache

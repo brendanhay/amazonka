@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeBundleTasks
     -- * Response
     , DescribeBundleTasksResult
     -- ** Response constructor
-    , describeBundleTasksResponse
+    , describeBundleTasksResult
     -- ** Response lenses
     , dbtrBundleTasks
     ) where
@@ -86,11 +86,10 @@ dbtDryRun = lens _dbtDryRun (\s a -> s { _dbtDryRun = a })
 -- the task.
 dbtFilters :: Lens' DescribeBundleTasks [Filter]
 dbtFilters = lens _dbtFilters (\s a -> s { _dbtFilters = a })
+instance ToQuery DescribeBundleTasks
 
 instance ToPath DescribeBundleTasks where
     toPath = const "/"
-
-instance ToQuery DescribeBundleTasks
 
 newtype DescribeBundleTasksResult = DescribeBundleTasksResult
     { _dbtrBundleTasks :: [BundleTask]
@@ -102,14 +101,17 @@ newtype DescribeBundleTasksResult = DescribeBundleTasksResult
 --
 -- * 'dbtrBundleTasks' @::@ ['BundleTask']
 --
-describeBundleTasksResponse :: DescribeBundleTasksResult
-describeBundleTasksResponse = DescribeBundleTasksResult
+describeBundleTasksResult :: DescribeBundleTasksResult
+describeBundleTasksResult = DescribeBundleTasksResult
     { _dbtrBundleTasks = mempty
     }
 
 -- | Information about one or more bundle tasks.
 dbtrBundleTasks :: Lens' DescribeBundleTasksResult [BundleTask]
 dbtrBundleTasks = lens _dbtrBundleTasks (\s a -> s { _dbtrBundleTasks = a })
+instance FromXML DescribeBundleTasksResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeBundleTasksResult"
 
 instance AWSRequest DescribeBundleTasks where
     type Sv DescribeBundleTasks = EC2

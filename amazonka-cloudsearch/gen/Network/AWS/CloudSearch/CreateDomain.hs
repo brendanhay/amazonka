@@ -64,11 +64,10 @@ createDomain p1 = CreateDomain
 -- letter or number and be at least 3 and no more than 28 characters long.
 cdDomainName :: Lens' CreateDomain Text
 cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
+instance ToQuery CreateDomain
 
 instance ToPath CreateDomain where
     toPath = const "/"
-
-instance ToQuery CreateDomain
 
 newtype CreateDomainResponse = CreateDomainResponse
     { _cdrDomainStatus :: Maybe DomainStatus
@@ -87,6 +86,9 @@ createDomainResponse = CreateDomainResponse
 
 cdrDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
 cdrDomainStatus = lens _cdrDomainStatus (\s a -> s { _cdrDomainStatus = a })
+instance FromXML CreateDomainResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDomainResponse"
 
 instance AWSRequest CreateDomain where
     type Sv CreateDomain = CloudSearch

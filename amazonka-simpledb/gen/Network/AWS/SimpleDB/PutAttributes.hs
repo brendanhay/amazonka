@@ -114,21 +114,24 @@ paExpected = lens _paExpected (\s a -> s { _paExpected = a })
 -- | The name of the item.
 paItemName :: Lens' PutAttributes Text
 paItemName = lens _paItemName (\s a -> s { _paItemName = a })
+instance ToQuery PutAttributes
 
 instance ToPath PutAttributes where
     toPath = const "/"
 
-instance ToQuery PutAttributes
-
 data PutAttributesResponse = PutAttributesResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutAttributesResponse' constructor.
 putAttributesResponse :: PutAttributesResponse
 putAttributesResponse = PutAttributesResponse
+instance FromXML PutAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutAttributesResponse"
 
 instance AWSRequest PutAttributes where
     type Sv PutAttributes = SimpleDB
     type Rs PutAttributes = PutAttributesResponse
 
     request  = post "PutAttributes"
-    response = const (nullaryResponse PutAttributesResponse)
+    response = nullaryResponse PutAttributesResponse

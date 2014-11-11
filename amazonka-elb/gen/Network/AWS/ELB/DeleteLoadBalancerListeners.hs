@@ -26,7 +26,7 @@ module Network.AWS.ELB.DeleteLoadBalancerListeners
     -- * Request
       DeleteLoadBalancerListenerInput
     -- ** Request constructor
-    , deleteLoadBalancerListeners
+    , deleteLoadBalancerListenerInput
     -- ** Request lenses
     , dlbliLoadBalancerName
     , dlbliLoadBalancerPorts
@@ -54,9 +54,9 @@ data DeleteLoadBalancerListenerInput = DeleteLoadBalancerListenerInput
 --
 -- * 'dlbliLoadBalancerPorts' @::@ ['Int']
 --
-deleteLoadBalancerListeners :: Text -- ^ 'dlbliLoadBalancerName'
-                            -> DeleteLoadBalancerListenerInput
-deleteLoadBalancerListeners p1 = DeleteLoadBalancerListenerInput
+deleteLoadBalancerListenerInput :: Text -- ^ 'dlbliLoadBalancerName'
+                                -> DeleteLoadBalancerListenerInput
+deleteLoadBalancerListenerInput p1 = DeleteLoadBalancerListenerInput
     { _dlbliLoadBalancerName  = p1
     , _dlbliLoadBalancerPorts = mempty
     }
@@ -70,21 +70,24 @@ dlbliLoadBalancerName =
 dlbliLoadBalancerPorts :: Lens' DeleteLoadBalancerListenerInput [Int]
 dlbliLoadBalancerPorts =
     lens _dlbliLoadBalancerPorts (\s a -> s { _dlbliLoadBalancerPorts = a })
+instance ToQuery DeleteLoadBalancerListenerInput
 
 instance ToPath DeleteLoadBalancerListenerInput where
     toPath = const "/"
 
-instance ToQuery DeleteLoadBalancerListenerInput
-
 data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteLoadBalancerListenersResponse' constructor.
 deleteLoadBalancerListenersResponse :: DeleteLoadBalancerListenersResponse
 deleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
+instance FromXML DeleteLoadBalancerListenersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteLoadBalancerListenersResponse"
 
 instance AWSRequest DeleteLoadBalancerListenerInput where
     type Sv DeleteLoadBalancerListenerInput = ELB
     type Rs DeleteLoadBalancerListenerInput = DeleteLoadBalancerListenersResponse
 
     request  = post "DeleteLoadBalancerListeners"
-    response = const (nullaryResponse DeleteLoadBalancerListenersResponse)
+    response = nullaryResponse DeleteLoadBalancerListenersResponse

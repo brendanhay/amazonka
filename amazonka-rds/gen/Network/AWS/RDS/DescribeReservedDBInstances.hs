@@ -27,7 +27,7 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     -- * Request
       DescribeReservedDBInstancesMessage
     -- ** Request constructor
-    , describeReservedDBInstances
+    , describeReservedDBInstancesMessage
     -- ** Request lenses
     , drdbimDBInstanceClass
     , drdbimDuration
@@ -43,7 +43,7 @@ module Network.AWS.RDS.DescribeReservedDBInstances
     -- * Response
     , ReservedDBInstanceMessage
     -- ** Response constructor
-    , describeReservedDBInstancesResponse
+    , reservedDBInstanceMessage
     -- ** Response lenses
     , rdbimMarker
     , rdbimReservedDBInstances
@@ -90,8 +90,8 @@ data DescribeReservedDBInstancesMessage = DescribeReservedDBInstancesMessage
 --
 -- * 'drdbimReservedDBInstancesOfferingId' @::@ 'Maybe' 'Text'
 --
-describeReservedDBInstances :: DescribeReservedDBInstancesMessage
-describeReservedDBInstances = DescribeReservedDBInstancesMessage
+describeReservedDBInstancesMessage :: DescribeReservedDBInstancesMessage
+describeReservedDBInstancesMessage = DescribeReservedDBInstancesMessage
     { _drdbimReservedDBInstanceId          = Nothing
     , _drdbimReservedDBInstancesOfferingId = Nothing
     , _drdbimDBInstanceClass               = Nothing
@@ -165,11 +165,10 @@ drdbimReservedDBInstancesOfferingId :: Lens' DescribeReservedDBInstancesMessage 
 drdbimReservedDBInstancesOfferingId =
     lens _drdbimReservedDBInstancesOfferingId
         (\s a -> s { _drdbimReservedDBInstancesOfferingId = a })
+instance ToQuery DescribeReservedDBInstancesMessage
 
 instance ToPath DescribeReservedDBInstancesMessage where
     toPath = const "/"
-
-instance ToQuery DescribeReservedDBInstancesMessage
 
 data ReservedDBInstanceMessage = ReservedDBInstanceMessage
     { _rdbimMarker              :: Maybe Text
@@ -184,8 +183,8 @@ data ReservedDBInstanceMessage = ReservedDBInstanceMessage
 --
 -- * 'rdbimReservedDBInstances' @::@ ['ReservedDBInstance']
 --
-describeReservedDBInstancesResponse :: ReservedDBInstanceMessage
-describeReservedDBInstancesResponse = ReservedDBInstanceMessage
+reservedDBInstanceMessage :: ReservedDBInstanceMessage
+reservedDBInstanceMessage = ReservedDBInstanceMessage
     { _rdbimMarker              = Nothing
     , _rdbimReservedDBInstances = mempty
     }
@@ -201,6 +200,9 @@ rdbimReservedDBInstances :: Lens' ReservedDBInstanceMessage [ReservedDBInstance]
 rdbimReservedDBInstances =
     lens _rdbimReservedDBInstances
         (\s a -> s { _rdbimReservedDBInstances = a })
+instance FromXML ReservedDBInstanceMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReservedDBInstanceMessage"
 
 instance AWSRequest DescribeReservedDBInstancesMessage where
     type Sv DescribeReservedDBInstancesMessage = RDS

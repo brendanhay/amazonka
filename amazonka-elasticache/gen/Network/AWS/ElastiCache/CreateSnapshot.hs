@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.CreateSnapshot
     -- * Request
       CreateSnapshotMessage
     -- ** Request constructor
-    , createSnapshot
+    , createSnapshotMessage
     -- ** Request lenses
     , csmCacheClusterId
     , csmSnapshotName
@@ -35,7 +35,7 @@ module Network.AWS.ElastiCache.CreateSnapshot
     -- * Response
     , CreateSnapshotResult
     -- ** Response constructor
-    , createSnapshotResponse
+    , createSnapshotResult
     -- ** Response lenses
     , csr1Snapshot
     ) where
@@ -57,10 +57,10 @@ data CreateSnapshotMessage = CreateSnapshotMessage
 --
 -- * 'csmSnapshotName' @::@ 'Text'
 --
-createSnapshot :: Text -- ^ 'csmCacheClusterId'
-               -> Text -- ^ 'csmSnapshotName'
-               -> CreateSnapshotMessage
-createSnapshot p1 p2 = CreateSnapshotMessage
+createSnapshotMessage :: Text -- ^ 'csmCacheClusterId'
+                      -> Text -- ^ 'csmSnapshotName'
+                      -> CreateSnapshotMessage
+createSnapshotMessage p1 p2 = CreateSnapshotMessage
     { _csmCacheClusterId = p1
     , _csmSnapshotName   = p2
     }
@@ -74,11 +74,10 @@ csmCacheClusterId =
 -- | A name for the snapshot being created.
 csmSnapshotName :: Lens' CreateSnapshotMessage Text
 csmSnapshotName = lens _csmSnapshotName (\s a -> s { _csmSnapshotName = a })
+instance ToQuery CreateSnapshotMessage
 
 instance ToPath CreateSnapshotMessage where
     toPath = const "/"
-
-instance ToQuery CreateSnapshotMessage
 
 newtype CreateSnapshotResult = CreateSnapshotResult
     { _csr1Snapshot :: Maybe Snapshot
@@ -90,13 +89,16 @@ newtype CreateSnapshotResult = CreateSnapshotResult
 --
 -- * 'csr1Snapshot' @::@ 'Maybe' 'Snapshot'
 --
-createSnapshotResponse :: CreateSnapshotResult
-createSnapshotResponse = CreateSnapshotResult
+createSnapshotResult :: CreateSnapshotResult
+createSnapshotResult = CreateSnapshotResult
     { _csr1Snapshot = Nothing
     }
 
 csr1Snapshot :: Lens' CreateSnapshotResult (Maybe Snapshot)
 csr1Snapshot = lens _csr1Snapshot (\s a -> s { _csr1Snapshot = a })
+instance FromXML CreateSnapshotResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateSnapshotResult"
 
 instance AWSRequest CreateSnapshotMessage where
     type Sv CreateSnapshotMessage = ElastiCache

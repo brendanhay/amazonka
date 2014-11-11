@@ -115,21 +115,24 @@ mniaNetworkInterfaceId =
 mniaSourceDestCheck :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeBooleanValue)
 mniaSourceDestCheck =
     lens _mniaSourceDestCheck (\s a -> s { _mniaSourceDestCheck = a })
+instance ToQuery ModifyNetworkInterfaceAttribute
 
 instance ToPath ModifyNetworkInterfaceAttribute where
     toPath = const "/"
 
-instance ToQuery ModifyNetworkInterfaceAttribute
-
 data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifyNetworkInterfaceAttributeResponse' constructor.
 modifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse
 modifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
+instance FromXML ModifyNetworkInterfaceAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyNetworkInterfaceAttributeResponse"
 
 instance AWSRequest ModifyNetworkInterfaceAttribute where
     type Sv ModifyNetworkInterfaceAttribute = EC2
     type Rs ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttributeResponse
 
     request  = post "ModifyNetworkInterfaceAttribute"
-    response = const (nullaryResponse ModifyNetworkInterfaceAttributeResponse)
+    response = nullaryResponse ModifyNetworkInterfaceAttributeResponse

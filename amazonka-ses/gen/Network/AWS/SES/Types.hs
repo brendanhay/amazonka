@@ -23,11 +23,6 @@ module Network.AWS.SES.Types
     (
     -- * Service
       SES
-    -- ** Errors
-    , SESError (..)
-    , _SESHttp
-    , _SESSerializer
-    , _SESService
     -- ** XML
     , xmlOptions
 
@@ -128,7 +123,7 @@ data Destination = Destination
     { _dBccAddresses :: [Text]
     , _dCcAddresses  :: [Text]
     , _dToAddresses  :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Destination' constructor.
 --

@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.DeleteStack
     -- * Request
       DeleteStackInput
     -- ** Request constructor
-    , deleteStack
+    , deleteStackInput
     -- ** Request lenses
     , dsi1StackName
 
@@ -52,30 +52,33 @@ newtype DeleteStackInput = DeleteStackInput
 --
 -- * 'dsi1StackName' @::@ 'Text'
 --
-deleteStack :: Text -- ^ 'dsi1StackName'
-            -> DeleteStackInput
-deleteStack p1 = DeleteStackInput
+deleteStackInput :: Text -- ^ 'dsi1StackName'
+                 -> DeleteStackInput
+deleteStackInput p1 = DeleteStackInput
     { _dsi1StackName = p1
     }
 
 -- | The name or the unique identifier associated with the stack.
 dsi1StackName :: Lens' DeleteStackInput Text
 dsi1StackName = lens _dsi1StackName (\s a -> s { _dsi1StackName = a })
+instance ToQuery DeleteStackInput
 
 instance ToPath DeleteStackInput where
     toPath = const "/"
 
-instance ToQuery DeleteStackInput
-
 data DeleteStackResponse = DeleteStackResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteStackResponse' constructor.
 deleteStackResponse :: DeleteStackResponse
 deleteStackResponse = DeleteStackResponse
+instance FromXML DeleteStackResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteStackResponse"
 
 instance AWSRequest DeleteStackInput where
     type Sv DeleteStackInput = CloudFormation
     type Rs DeleteStackInput = DeleteStackResponse
 
     request  = post "DeleteStack"
-    response = const (nullaryResponse DeleteStackResponse)
+    response = nullaryResponse DeleteStackResponse

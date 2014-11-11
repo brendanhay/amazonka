@@ -28,7 +28,7 @@ module Network.AWS.Redshift.DescribeHsmConfigurations
     -- * Request
       DescribeHsmConfigurationsMessage
     -- ** Request constructor
-    , describeHsmConfigurations
+    , describeHsmConfigurationsMessage
     -- ** Request lenses
     , dhcmHsmConfigurationIdentifier
     , dhcmMarker
@@ -37,7 +37,7 @@ module Network.AWS.Redshift.DescribeHsmConfigurations
     -- * Response
     , HsmConfigurationMessage
     -- ** Response constructor
-    , describeHsmConfigurationsResponse
+    , hsmConfigurationMessage
     -- ** Response lenses
     , hcmHsmConfigurations
     , hcmMarker
@@ -63,8 +63,8 @@ data DescribeHsmConfigurationsMessage = DescribeHsmConfigurationsMessage
 --
 -- * 'dhcmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeHsmConfigurations :: DescribeHsmConfigurationsMessage
-describeHsmConfigurations = DescribeHsmConfigurationsMessage
+describeHsmConfigurationsMessage :: DescribeHsmConfigurationsMessage
+describeHsmConfigurationsMessage = DescribeHsmConfigurationsMessage
     { _dhcmHsmConfigurationIdentifier = Nothing
     , _dhcmMaxRecords                 = Nothing
     , _dhcmMarker                     = Nothing
@@ -94,11 +94,10 @@ dhcmMarker = lens _dhcmMarker (\s a -> s { _dhcmMarker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dhcmMaxRecords :: Lens' DescribeHsmConfigurationsMessage (Maybe Int)
 dhcmMaxRecords = lens _dhcmMaxRecords (\s a -> s { _dhcmMaxRecords = a })
+instance ToQuery DescribeHsmConfigurationsMessage
 
 instance ToPath DescribeHsmConfigurationsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeHsmConfigurationsMessage
 
 data HsmConfigurationMessage = HsmConfigurationMessage
     { _hcmHsmConfigurations :: [HsmConfiguration]
@@ -113,8 +112,8 @@ data HsmConfigurationMessage = HsmConfigurationMessage
 --
 -- * 'hcmMarker' @::@ 'Maybe' 'Text'
 --
-describeHsmConfigurationsResponse :: HsmConfigurationMessage
-describeHsmConfigurationsResponse = HsmConfigurationMessage
+hsmConfigurationMessage :: HsmConfigurationMessage
+hsmConfigurationMessage = HsmConfigurationMessage
     { _hcmMarker            = Nothing
     , _hcmHsmConfigurations = mempty
     }
@@ -132,6 +131,9 @@ hcmHsmConfigurations =
 -- request.
 hcmMarker :: Lens' HsmConfigurationMessage (Maybe Text)
 hcmMarker = lens _hcmMarker (\s a -> s { _hcmMarker = a })
+instance FromXML HsmConfigurationMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "HsmConfigurationMessage"
 
 instance AWSRequest DescribeHsmConfigurationsMessage where
     type Sv DescribeHsmConfigurationsMessage = Redshift

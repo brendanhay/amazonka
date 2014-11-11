@@ -87,21 +87,24 @@ uakStatus = lens _uakStatus (\s a -> s { _uakStatus = a })
 -- | The name of the user whose key you want to update.
 uakUserName :: Lens' UpdateAccessKey (Maybe Text)
 uakUserName = lens _uakUserName (\s a -> s { _uakUserName = a })
+instance ToQuery UpdateAccessKey
 
 instance ToPath UpdateAccessKey where
     toPath = const "/"
 
-instance ToQuery UpdateAccessKey
-
 data UpdateAccessKeyResponse = UpdateAccessKeyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateAccessKeyResponse' constructor.
 updateAccessKeyResponse :: UpdateAccessKeyResponse
 updateAccessKeyResponse = UpdateAccessKeyResponse
+instance FromXML UpdateAccessKeyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateAccessKeyResponse"
 
 instance AWSRequest UpdateAccessKey where
     type Sv UpdateAccessKey = IAM
     type Rs UpdateAccessKey = UpdateAccessKeyResponse
 
     request  = post "UpdateAccessKey"
-    response = const (nullaryResponse UpdateAccessKeyResponse)
+    response = nullaryResponse UpdateAccessKeyResponse

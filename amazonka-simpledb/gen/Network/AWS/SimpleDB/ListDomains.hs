@@ -39,7 +39,7 @@ module Network.AWS.SimpleDB.ListDomains
     -- * Response
     , ListDomainsResult
     -- ** Response constructor
-    , listDomainsResponse
+    , listDomainsResult
     -- ** Response lenses
     , ldrDomainNames
     , ldrNextToken
@@ -78,11 +78,10 @@ ldMaxNumberOfDomains =
 -- names.
 ldNextToken :: Lens' ListDomains (Maybe Text)
 ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
+instance ToQuery ListDomains
 
 instance ToPath ListDomains where
     toPath = const "/"
-
-instance ToQuery ListDomains
 
 data ListDomainsResult = ListDomainsResult
     { _ldrDomainNames :: [Text]
@@ -97,8 +96,8 @@ data ListDomainsResult = ListDomainsResult
 --
 -- * 'ldrNextToken' @::@ 'Maybe' 'Text'
 --
-listDomainsResponse :: ListDomainsResult
-listDomainsResponse = ListDomainsResult
+listDomainsResult :: ListDomainsResult
+listDomainsResult = ListDomainsResult
     { _ldrDomainNames = mempty
     , _ldrNextToken   = Nothing
     }
@@ -111,6 +110,9 @@ ldrDomainNames = lens _ldrDomainNames (\s a -> s { _ldrDomainNames = a })
 -- MaxNumberOfDomains still available.
 ldrNextToken :: Lens' ListDomainsResult (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
+instance FromXML ListDomainsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListDomainsResult"
 
 instance AWSRequest ListDomains where
     type Sv ListDomains = SimpleDB

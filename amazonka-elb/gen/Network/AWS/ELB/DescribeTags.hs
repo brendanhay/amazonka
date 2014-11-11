@@ -26,14 +26,14 @@ module Network.AWS.ELB.DescribeTags
     -- * Request
       DescribeTagsInput
     -- ** Request constructor
-    , describeTags
+    , describeTagsInput
     -- ** Request lenses
     , dtiLoadBalancerNames
 
     -- * Response
     , DescribeTagsOutput
     -- ** Response constructor
-    , describeTagsResponse
+    , describeTagsOutput
     -- ** Response lenses
     , dtoTagDescriptions
     ) where
@@ -52,9 +52,9 @@ newtype DescribeTagsInput = DescribeTagsInput
 --
 -- * 'dtiLoadBalancerNames' @::@ 'NonEmpty' 'Text'
 --
-describeTags :: List1 Text -- ^ 'dtiLoadBalancerNames'
-             -> DescribeTagsInput
-describeTags p1 = DescribeTagsInput
+describeTagsInput :: List1 Text -- ^ 'dtiLoadBalancerNames'
+                  -> DescribeTagsInput
+describeTagsInput p1 = DescribeTagsInput
     { _dtiLoadBalancerNames = withIso _List1 (const id) p1
     }
 
@@ -63,11 +63,10 @@ dtiLoadBalancerNames :: Lens' DescribeTagsInput (NonEmpty Text)
 dtiLoadBalancerNames =
     lens _dtiLoadBalancerNames (\s a -> s { _dtiLoadBalancerNames = a })
         . _List1
+instance ToQuery DescribeTagsInput
 
 instance ToPath DescribeTagsInput where
     toPath = const "/"
-
-instance ToQuery DescribeTagsInput
 
 newtype DescribeTagsOutput = DescribeTagsOutput
     { _dtoTagDescriptions :: [TagDescription]
@@ -79,8 +78,8 @@ newtype DescribeTagsOutput = DescribeTagsOutput
 --
 -- * 'dtoTagDescriptions' @::@ ['TagDescription']
 --
-describeTagsResponse :: DescribeTagsOutput
-describeTagsResponse = DescribeTagsOutput
+describeTagsOutput :: DescribeTagsOutput
+describeTagsOutput = DescribeTagsOutput
     { _dtoTagDescriptions = mempty
     }
 
@@ -88,6 +87,9 @@ describeTagsResponse = DescribeTagsOutput
 dtoTagDescriptions :: Lens' DescribeTagsOutput [TagDescription]
 dtoTagDescriptions =
     lens _dtoTagDescriptions (\s a -> s { _dtoTagDescriptions = a })
+instance FromXML DescribeTagsOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeTagsOutput"
 
 instance AWSRequest DescribeTagsInput where
     type Sv DescribeTagsInput = ELB

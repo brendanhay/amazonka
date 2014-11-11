@@ -31,7 +31,7 @@ module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     -- * Request
       CreateCacheSecurityGroupMessage
     -- ** Request constructor
-    , createCacheSecurityGroup
+    , createCacheSecurityGroupMessage
     -- ** Request lenses
     , ccsgmCacheSecurityGroupName
     , ccsgmDescription
@@ -39,7 +39,7 @@ module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     -- * Response
     , CreateCacheSecurityGroupResult
     -- ** Response constructor
-    , createCacheSecurityGroupResponse
+    , createCacheSecurityGroupResult
     -- ** Response lenses
     , ccsgrCacheSecurityGroup
     ) where
@@ -61,10 +61,10 @@ data CreateCacheSecurityGroupMessage = CreateCacheSecurityGroupMessage
 --
 -- * 'ccsgmDescription' @::@ 'Text'
 --
-createCacheSecurityGroup :: Text -- ^ 'ccsgmCacheSecurityGroupName'
-                         -> Text -- ^ 'ccsgmDescription'
-                         -> CreateCacheSecurityGroupMessage
-createCacheSecurityGroup p1 p2 = CreateCacheSecurityGroupMessage
+createCacheSecurityGroupMessage :: Text -- ^ 'ccsgmCacheSecurityGroupName'
+                                -> Text -- ^ 'ccsgmDescription'
+                                -> CreateCacheSecurityGroupMessage
+createCacheSecurityGroupMessage p1 p2 = CreateCacheSecurityGroupMessage
     { _ccsgmCacheSecurityGroupName = p1
     , _ccsgmDescription            = p2
     }
@@ -80,11 +80,10 @@ ccsgmCacheSecurityGroupName =
 -- | A description for the cache security group.
 ccsgmDescription :: Lens' CreateCacheSecurityGroupMessage Text
 ccsgmDescription = lens _ccsgmDescription (\s a -> s { _ccsgmDescription = a })
+instance ToQuery CreateCacheSecurityGroupMessage
 
 instance ToPath CreateCacheSecurityGroupMessage where
     toPath = const "/"
-
-instance ToQuery CreateCacheSecurityGroupMessage
 
 newtype CreateCacheSecurityGroupResult = CreateCacheSecurityGroupResult
     { _ccsgrCacheSecurityGroup :: Maybe CacheSecurityGroup
@@ -96,14 +95,17 @@ newtype CreateCacheSecurityGroupResult = CreateCacheSecurityGroupResult
 --
 -- * 'ccsgrCacheSecurityGroup' @::@ 'Maybe' 'CacheSecurityGroup'
 --
-createCacheSecurityGroupResponse :: CreateCacheSecurityGroupResult
-createCacheSecurityGroupResponse = CreateCacheSecurityGroupResult
+createCacheSecurityGroupResult :: CreateCacheSecurityGroupResult
+createCacheSecurityGroupResult = CreateCacheSecurityGroupResult
     { _ccsgrCacheSecurityGroup = Nothing
     }
 
 ccsgrCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResult (Maybe CacheSecurityGroup)
 ccsgrCacheSecurityGroup =
     lens _ccsgrCacheSecurityGroup (\s a -> s { _ccsgrCacheSecurityGroup = a })
+instance FromXML CreateCacheSecurityGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateCacheSecurityGroupResult"
 
 instance AWSRequest CreateCacheSecurityGroupMessage where
     type Sv CreateCacheSecurityGroupMessage = ElastiCache

@@ -38,7 +38,7 @@ module Network.AWS.EC2.ReplaceNetworkAclAssociation
     -- * Response
     , ReplaceNetworkAclAssociationResult
     -- ** Response constructor
-    , replaceNetworkAclAssociationResponse
+    , replaceNetworkAclAssociationResult
     -- ** Response lenses
     , rnaarNewAssociationId
     ) where
@@ -84,11 +84,10 @@ rnaaDryRun = lens _rnaaDryRun (\s a -> s { _rnaaDryRun = a })
 -- | The ID of the new network ACL to associate with the subnet.
 rnaaNetworkAclId :: Lens' ReplaceNetworkAclAssociation Text
 rnaaNetworkAclId = lens _rnaaNetworkAclId (\s a -> s { _rnaaNetworkAclId = a })
+instance ToQuery ReplaceNetworkAclAssociation
 
 instance ToPath ReplaceNetworkAclAssociation where
     toPath = const "/"
-
-instance ToQuery ReplaceNetworkAclAssociation
 
 newtype ReplaceNetworkAclAssociationResult = ReplaceNetworkAclAssociationResult
     { _rnaarNewAssociationId :: Maybe Text
@@ -100,8 +99,8 @@ newtype ReplaceNetworkAclAssociationResult = ReplaceNetworkAclAssociationResult
 --
 -- * 'rnaarNewAssociationId' @::@ 'Maybe' 'Text'
 --
-replaceNetworkAclAssociationResponse :: ReplaceNetworkAclAssociationResult
-replaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResult
+replaceNetworkAclAssociationResult :: ReplaceNetworkAclAssociationResult
+replaceNetworkAclAssociationResult = ReplaceNetworkAclAssociationResult
     { _rnaarNewAssociationId = Nothing
     }
 
@@ -109,6 +108,9 @@ replaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResult
 rnaarNewAssociationId :: Lens' ReplaceNetworkAclAssociationResult (Maybe Text)
 rnaarNewAssociationId =
     lens _rnaarNewAssociationId (\s a -> s { _rnaarNewAssociationId = a })
+instance FromXML ReplaceNetworkAclAssociationResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReplaceNetworkAclAssociationResult"
 
 instance AWSRequest ReplaceNetworkAclAssociation where
     type Sv ReplaceNetworkAclAssociation = EC2

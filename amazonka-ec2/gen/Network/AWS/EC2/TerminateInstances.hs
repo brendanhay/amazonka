@@ -48,7 +48,7 @@ module Network.AWS.EC2.TerminateInstances
     -- * Response
     , TerminateInstancesResult
     -- ** Response constructor
-    , terminateInstancesResponse
+    , terminateInstancesResult
     -- ** Response lenses
     , tirTerminatingInstances
     ) where
@@ -82,11 +82,10 @@ tiDryRun = lens _tiDryRun (\s a -> s { _tiDryRun = a })
 -- | One or more instance IDs.
 tiInstanceIds :: Lens' TerminateInstances [Text]
 tiInstanceIds = lens _tiInstanceIds (\s a -> s { _tiInstanceIds = a })
+instance ToQuery TerminateInstances
 
 instance ToPath TerminateInstances where
     toPath = const "/"
-
-instance ToQuery TerminateInstances
 
 newtype TerminateInstancesResult = TerminateInstancesResult
     { _tirTerminatingInstances :: [InstanceStateChange]
@@ -98,8 +97,8 @@ newtype TerminateInstancesResult = TerminateInstancesResult
 --
 -- * 'tirTerminatingInstances' @::@ ['InstanceStateChange']
 --
-terminateInstancesResponse :: TerminateInstancesResult
-terminateInstancesResponse = TerminateInstancesResult
+terminateInstancesResult :: TerminateInstancesResult
+terminateInstancesResult = TerminateInstancesResult
     { _tirTerminatingInstances = mempty
     }
 
@@ -107,6 +106,9 @@ terminateInstancesResponse = TerminateInstancesResult
 tirTerminatingInstances :: Lens' TerminateInstancesResult [InstanceStateChange]
 tirTerminatingInstances =
     lens _tirTerminatingInstances (\s a -> s { _tirTerminatingInstances = a })
+instance FromXML TerminateInstancesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "TerminateInstancesResult"
 
 instance AWSRequest TerminateInstances where
     type Sv TerminateInstances = EC2

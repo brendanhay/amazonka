@@ -58,21 +58,24 @@ deleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
 
 dsds1DryRun :: Lens' DeleteSpotDatafeedSubscription (Maybe Bool)
 dsds1DryRun = lens _dsds1DryRun (\s a -> s { _dsds1DryRun = a })
+instance ToQuery DeleteSpotDatafeedSubscription
 
 instance ToPath DeleteSpotDatafeedSubscription where
     toPath = const "/"
 
-instance ToQuery DeleteSpotDatafeedSubscription
-
 data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSpotDatafeedSubscriptionResponse' constructor.
 deleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse
 deleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
+instance FromXML DeleteSpotDatafeedSubscriptionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteSpotDatafeedSubscriptionResponse"
 
 instance AWSRequest DeleteSpotDatafeedSubscription where
     type Sv DeleteSpotDatafeedSubscription = EC2
     type Rs DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscriptionResponse
 
     request  = post "DeleteSpotDatafeedSubscription"
-    response = const (nullaryResponse DeleteSpotDatafeedSubscriptionResponse)
+    response = nullaryResponse DeleteSpotDatafeedSubscriptionResponse

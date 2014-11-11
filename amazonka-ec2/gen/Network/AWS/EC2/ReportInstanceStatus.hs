@@ -131,21 +131,24 @@ risStartTime = lens _risStartTime (\s a -> s { _risStartTime = a })
 -- | The status of all instances listed.
 risStatus :: Lens' ReportInstanceStatus Text
 risStatus = lens _risStatus (\s a -> s { _risStatus = a })
+instance ToQuery ReportInstanceStatus
 
 instance ToPath ReportInstanceStatus where
     toPath = const "/"
 
-instance ToQuery ReportInstanceStatus
-
 data ReportInstanceStatusResponse = ReportInstanceStatusResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ReportInstanceStatusResponse' constructor.
 reportInstanceStatusResponse :: ReportInstanceStatusResponse
 reportInstanceStatusResponse = ReportInstanceStatusResponse
+instance FromXML ReportInstanceStatusResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReportInstanceStatusResponse"
 
 instance AWSRequest ReportInstanceStatus where
     type Sv ReportInstanceStatus = EC2
     type Rs ReportInstanceStatus = ReportInstanceStatusResponse
 
     request  = post "ReportInstanceStatus"
-    response = const (nullaryResponse ReportInstanceStatusResponse)
+    response = nullaryResponse ReportInstanceStatusResponse

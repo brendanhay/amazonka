@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     -- * Response
     , DescribeVolumeAttributeResult
     -- ** Response constructor
-    , describeVolumeAttributeResponse
+    , describeVolumeAttributeResult
     -- ** Response lenses
     , dvarAutoEnableIO
     , dvarProductCodes
@@ -83,11 +83,10 @@ dva1DryRun = lens _dva1DryRun (\s a -> s { _dva1DryRun = a })
 -- | The ID of the volume.
 dva1VolumeId :: Lens' DescribeVolumeAttribute Text
 dva1VolumeId = lens _dva1VolumeId (\s a -> s { _dva1VolumeId = a })
+instance ToQuery DescribeVolumeAttribute
 
 instance ToPath DescribeVolumeAttribute where
     toPath = const "/"
-
-instance ToQuery DescribeVolumeAttribute
 
 data DescribeVolumeAttributeResult = DescribeVolumeAttributeResult
     { _dvarAutoEnableIO :: Maybe AttributeBooleanValue
@@ -105,8 +104,8 @@ data DescribeVolumeAttributeResult = DescribeVolumeAttributeResult
 --
 -- * 'dvarVolumeId' @::@ 'Maybe' 'Text'
 --
-describeVolumeAttributeResponse :: DescribeVolumeAttributeResult
-describeVolumeAttributeResponse = DescribeVolumeAttributeResult
+describeVolumeAttributeResult :: DescribeVolumeAttributeResult
+describeVolumeAttributeResult = DescribeVolumeAttributeResult
     { _dvarVolumeId     = Nothing
     , _dvarAutoEnableIO = Nothing
     , _dvarProductCodes = mempty
@@ -123,6 +122,9 @@ dvarProductCodes = lens _dvarProductCodes (\s a -> s { _dvarProductCodes = a })
 -- | The ID of the volume.
 dvarVolumeId :: Lens' DescribeVolumeAttributeResult (Maybe Text)
 dvarVolumeId = lens _dvarVolumeId (\s a -> s { _dvarVolumeId = a })
+instance FromXML DescribeVolumeAttributeResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVolumeAttributeResult"
 
 instance AWSRequest DescribeVolumeAttribute where
     type Sv DescribeVolumeAttribute = EC2

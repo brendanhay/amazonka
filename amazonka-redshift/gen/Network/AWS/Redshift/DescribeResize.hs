@@ -31,14 +31,14 @@ module Network.AWS.Redshift.DescribeResize
     -- * Request
       DescribeResizeMessage
     -- ** Request constructor
-    , describeResize
+    , describeResizeMessage
     -- ** Request lenses
     , drmClusterIdentifier
 
     -- * Response
     , ResizeProgressMessage
     -- ** Response constructor
-    , describeResizeResponse
+    , resizeProgressMessage
     -- ** Response lenses
     , rpmAvgResizeRateInMegaBytesPerSecond
     , rpmElapsedTimeInSeconds
@@ -68,9 +68,9 @@ newtype DescribeResizeMessage = DescribeResizeMessage
 --
 -- * 'drmClusterIdentifier' @::@ 'Text'
 --
-describeResize :: Text -- ^ 'drmClusterIdentifier'
-               -> DescribeResizeMessage
-describeResize p1 = DescribeResizeMessage
+describeResizeMessage :: Text -- ^ 'drmClusterIdentifier'
+                      -> DescribeResizeMessage
+describeResizeMessage p1 = DescribeResizeMessage
     { _drmClusterIdentifier = p1
     }
 
@@ -80,11 +80,10 @@ describeResize p1 = DescribeResizeMessage
 drmClusterIdentifier :: Lens' DescribeResizeMessage Text
 drmClusterIdentifier =
     lens _drmClusterIdentifier (\s a -> s { _drmClusterIdentifier = a })
+instance ToQuery DescribeResizeMessage
 
 instance ToPath DescribeResizeMessage where
     toPath = const "/"
-
-instance ToQuery DescribeResizeMessage
 
 data ResizeProgressMessage = ResizeProgressMessage
     { _rpmAvgResizeRateInMegaBytesPerSecond  :: Maybe Double
@@ -129,8 +128,8 @@ data ResizeProgressMessage = ResizeProgressMessage
 --
 -- * 'rpmTotalResizeDataInMegaBytes' @::@ 'Maybe' 'Integer'
 --
-describeResizeResponse :: ResizeProgressMessage
-describeResizeResponse = ResizeProgressMessage
+resizeProgressMessage :: ResizeProgressMessage
+resizeProgressMessage = ResizeProgressMessage
     { _rpmTargetNodeType                     = Nothing
     , _rpmTargetNumberOfNodes                = Nothing
     , _rpmTargetClusterType                  = Nothing
@@ -229,6 +228,9 @@ rpmTotalResizeDataInMegaBytes :: Lens' ResizeProgressMessage (Maybe Integer)
 rpmTotalResizeDataInMegaBytes =
     lens _rpmTotalResizeDataInMegaBytes
         (\s a -> s { _rpmTotalResizeDataInMegaBytes = a })
+instance FromXML ResizeProgressMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResizeProgressMessage"
 
 instance AWSRequest DescribeResizeMessage where
     type Sv DescribeResizeMessage = Redshift

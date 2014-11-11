@@ -32,7 +32,7 @@ module Network.AWS.ElastiCache.DeleteReplicationGroup
     -- * Request
       DeleteReplicationGroupMessage
     -- ** Request constructor
-    , deleteReplicationGroup
+    , deleteReplicationGroupMessage
     -- ** Request lenses
     , drgm1FinalSnapshotIdentifier
     , drgm1ReplicationGroupId
@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.DeleteReplicationGroup
     -- * Response
     , DeleteReplicationGroupResult
     -- ** Response constructor
-    , deleteReplicationGroupResponse
+    , deleteReplicationGroupResult
     -- ** Response lenses
     , drgrReplicationGroup
     ) where
@@ -66,9 +66,9 @@ data DeleteReplicationGroupMessage = DeleteReplicationGroupMessage
 --
 -- * 'drgm1RetainPrimaryCluster' @::@ 'Maybe' 'Bool'
 --
-deleteReplicationGroup :: Text -- ^ 'drgm1ReplicationGroupId'
-                       -> DeleteReplicationGroupMessage
-deleteReplicationGroup p1 = DeleteReplicationGroupMessage
+deleteReplicationGroupMessage :: Text -- ^ 'drgm1ReplicationGroupId'
+                              -> DeleteReplicationGroupMessage
+deleteReplicationGroupMessage p1 = DeleteReplicationGroupMessage
     { _drgm1ReplicationGroupId      = p1
     , _drgm1RetainPrimaryCluster    = Nothing
     , _drgm1FinalSnapshotIdentifier = Nothing
@@ -95,11 +95,10 @@ drgm1RetainPrimaryCluster :: Lens' DeleteReplicationGroupMessage (Maybe Bool)
 drgm1RetainPrimaryCluster =
     lens _drgm1RetainPrimaryCluster
         (\s a -> s { _drgm1RetainPrimaryCluster = a })
+instance ToQuery DeleteReplicationGroupMessage
 
 instance ToPath DeleteReplicationGroupMessage where
     toPath = const "/"
-
-instance ToQuery DeleteReplicationGroupMessage
 
 newtype DeleteReplicationGroupResult = DeleteReplicationGroupResult
     { _drgrReplicationGroup :: Maybe ReplicationGroup
@@ -111,14 +110,17 @@ newtype DeleteReplicationGroupResult = DeleteReplicationGroupResult
 --
 -- * 'drgrReplicationGroup' @::@ 'Maybe' 'ReplicationGroup'
 --
-deleteReplicationGroupResponse :: DeleteReplicationGroupResult
-deleteReplicationGroupResponse = DeleteReplicationGroupResult
+deleteReplicationGroupResult :: DeleteReplicationGroupResult
+deleteReplicationGroupResult = DeleteReplicationGroupResult
     { _drgrReplicationGroup = Nothing
     }
 
 drgrReplicationGroup :: Lens' DeleteReplicationGroupResult (Maybe ReplicationGroup)
 drgrReplicationGroup =
     lens _drgrReplicationGroup (\s a -> s { _drgrReplicationGroup = a })
+instance FromXML DeleteReplicationGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteReplicationGroupResult"
 
 instance AWSRequest DeleteReplicationGroupMessage where
     type Sv DeleteReplicationGroupMessage = ElastiCache

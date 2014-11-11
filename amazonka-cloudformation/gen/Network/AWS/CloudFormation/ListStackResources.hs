@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.ListStackResources
     -- * Request
       ListStackResourcesInput
     -- ** Request constructor
-    , listStackResources
+    , listStackResourcesInput
     -- ** Request lenses
     , lsriNextToken
     , lsriStackName
@@ -36,7 +36,7 @@ module Network.AWS.CloudFormation.ListStackResources
     -- * Response
     , ListStackResourcesOutput
     -- ** Response constructor
-    , listStackResourcesResponse
+    , listStackResourcesOutput
     -- ** Response lenses
     , lsroNextToken
     , lsroStackResourceSummaries
@@ -59,9 +59,9 @@ data ListStackResourcesInput = ListStackResourcesInput
 --
 -- * 'lsriStackName' @::@ 'Text'
 --
-listStackResources :: Text -- ^ 'lsriStackName'
-                   -> ListStackResourcesInput
-listStackResources p1 = ListStackResourcesInput
+listStackResourcesInput :: Text -- ^ 'lsriStackName'
+                        -> ListStackResourcesInput
+listStackResourcesInput p1 = ListStackResourcesInput
     { _lsriStackName = p1
     , _lsriNextToken = Nothing
     }
@@ -77,11 +77,10 @@ lsriNextToken = lens _lsriNextToken (\s a -> s { _lsriNextToken = a })
 -- unique stack ID. Default: There is no default value.
 lsriStackName :: Lens' ListStackResourcesInput Text
 lsriStackName = lens _lsriStackName (\s a -> s { _lsriStackName = a })
+instance ToQuery ListStackResourcesInput
 
 instance ToPath ListStackResourcesInput where
     toPath = const "/"
-
-instance ToQuery ListStackResourcesInput
 
 data ListStackResourcesOutput = ListStackResourcesOutput
     { _lsroNextToken              :: Maybe Text
@@ -96,8 +95,8 @@ data ListStackResourcesOutput = ListStackResourcesOutput
 --
 -- * 'lsroStackResourceSummaries' @::@ ['StackResourceSummary']
 --
-listStackResourcesResponse :: ListStackResourcesOutput
-listStackResourcesResponse = ListStackResourcesOutput
+listStackResourcesOutput :: ListStackResourcesOutput
+listStackResourcesOutput = ListStackResourcesOutput
     { _lsroStackResourceSummaries = mempty
     , _lsroNextToken              = Nothing
     }
@@ -112,6 +111,9 @@ lsroStackResourceSummaries :: Lens' ListStackResourcesOutput [StackResourceSumma
 lsroStackResourceSummaries =
     lens _lsroStackResourceSummaries
         (\s a -> s { _lsroStackResourceSummaries = a })
+instance FromXML ListStackResourcesOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListStackResourcesOutput"
 
 instance AWSRequest ListStackResourcesInput where
     type Sv ListStackResourcesInput = CloudFormation

@@ -36,7 +36,7 @@ module Network.AWS.EC2.MonitorInstances
     -- * Response
     , MonitorInstancesResult
     -- ** Response constructor
-    , monitorInstancesResponse
+    , monitorInstancesResult
     -- ** Response lenses
     , mirInstanceMonitorings
     ) where
@@ -70,11 +70,10 @@ miDryRun = lens _miDryRun (\s a -> s { _miDryRun = a })
 -- | One or more instance IDs.
 miInstanceIds :: Lens' MonitorInstances [Text]
 miInstanceIds = lens _miInstanceIds (\s a -> s { _miInstanceIds = a })
+instance ToQuery MonitorInstances
 
 instance ToPath MonitorInstances where
     toPath = const "/"
-
-instance ToQuery MonitorInstances
 
 newtype MonitorInstancesResult = MonitorInstancesResult
     { _mirInstanceMonitorings :: [InstanceMonitoring]
@@ -86,8 +85,8 @@ newtype MonitorInstancesResult = MonitorInstancesResult
 --
 -- * 'mirInstanceMonitorings' @::@ ['InstanceMonitoring']
 --
-monitorInstancesResponse :: MonitorInstancesResult
-monitorInstancesResponse = MonitorInstancesResult
+monitorInstancesResult :: MonitorInstancesResult
+monitorInstancesResult = MonitorInstancesResult
     { _mirInstanceMonitorings = mempty
     }
 
@@ -95,6 +94,9 @@ monitorInstancesResponse = MonitorInstancesResult
 mirInstanceMonitorings :: Lens' MonitorInstancesResult [InstanceMonitoring]
 mirInstanceMonitorings =
     lens _mirInstanceMonitorings (\s a -> s { _mirInstanceMonitorings = a })
+instance FromXML MonitorInstancesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "MonitorInstancesResult"
 
 instance AWSRequest MonitorInstances where
     type Sv MonitorInstances = EC2

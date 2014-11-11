@@ -80,21 +80,24 @@ aigInternetGatewayId =
 -- | The ID of the VPC.
 aigVpcId :: Lens' AttachInternetGateway Text
 aigVpcId = lens _aigVpcId (\s a -> s { _aigVpcId = a })
+instance ToQuery AttachInternetGateway
 
 instance ToPath AttachInternetGateway where
     toPath = const "/"
 
-instance ToQuery AttachInternetGateway
-
 data AttachInternetGatewayResponse = AttachInternetGatewayResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'AttachInternetGatewayResponse' constructor.
 attachInternetGatewayResponse :: AttachInternetGatewayResponse
 attachInternetGatewayResponse = AttachInternetGatewayResponse
+instance FromXML AttachInternetGatewayResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AttachInternetGatewayResponse"
 
 instance AWSRequest AttachInternetGateway where
     type Sv AttachInternetGateway = EC2
     type Rs AttachInternetGateway = AttachInternetGatewayResponse
 
     request  = post "AttachInternetGateway"
-    response = const (nullaryResponse AttachInternetGatewayResponse)
+    response = nullaryResponse AttachInternetGatewayResponse

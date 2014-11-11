@@ -30,7 +30,7 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     -- * Request
       CreateClusterSubnetGroupMessage
     -- ** Request constructor
-    , createClusterSubnetGroup
+    , createClusterSubnetGroupMessage
     -- ** Request lenses
     , ccsgm1ClusterSubnetGroupName
     , ccsgm1Description
@@ -39,7 +39,7 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     -- * Response
     , CreateClusterSubnetGroupResult
     -- ** Response constructor
-    , createClusterSubnetGroupResponse
+    , createClusterSubnetGroupResult
     -- ** Response lenses
     , ccsgrClusterSubnetGroup
     ) where
@@ -64,10 +64,10 @@ data CreateClusterSubnetGroupMessage = CreateClusterSubnetGroupMessage
 --
 -- * 'ccsgm1SubnetIds' @::@ ['Text']
 --
-createClusterSubnetGroup :: Text -- ^ 'ccsgm1ClusterSubnetGroupName'
-                         -> Text -- ^ 'ccsgm1Description'
-                         -> CreateClusterSubnetGroupMessage
-createClusterSubnetGroup p1 p2 = CreateClusterSubnetGroupMessage
+createClusterSubnetGroupMessage :: Text -- ^ 'ccsgm1ClusterSubnetGroupName'
+                                -> Text -- ^ 'ccsgm1Description'
+                                -> CreateClusterSubnetGroupMessage
+createClusterSubnetGroupMessage p1 p2 = CreateClusterSubnetGroupMessage
     { _ccsgm1ClusterSubnetGroupName = p1
     , _ccsgm1Description            = p2
     , _ccsgm1SubnetIds              = mempty
@@ -92,11 +92,10 @@ ccsgm1Description =
 -- single request.
 ccsgm1SubnetIds :: Lens' CreateClusterSubnetGroupMessage [Text]
 ccsgm1SubnetIds = lens _ccsgm1SubnetIds (\s a -> s { _ccsgm1SubnetIds = a })
+instance ToQuery CreateClusterSubnetGroupMessage
 
 instance ToPath CreateClusterSubnetGroupMessage where
     toPath = const "/"
-
-instance ToQuery CreateClusterSubnetGroupMessage
 
 newtype CreateClusterSubnetGroupResult = CreateClusterSubnetGroupResult
     { _ccsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
@@ -108,14 +107,17 @@ newtype CreateClusterSubnetGroupResult = CreateClusterSubnetGroupResult
 --
 -- * 'ccsgrClusterSubnetGroup' @::@ 'Maybe' 'ClusterSubnetGroup'
 --
-createClusterSubnetGroupResponse :: CreateClusterSubnetGroupResult
-createClusterSubnetGroupResponse = CreateClusterSubnetGroupResult
+createClusterSubnetGroupResult :: CreateClusterSubnetGroupResult
+createClusterSubnetGroupResult = CreateClusterSubnetGroupResult
     { _ccsgrClusterSubnetGroup = Nothing
     }
 
 ccsgrClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResult (Maybe ClusterSubnetGroup)
 ccsgrClusterSubnetGroup =
     lens _ccsgrClusterSubnetGroup (\s a -> s { _ccsgrClusterSubnetGroup = a })
+instance FromXML CreateClusterSubnetGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateClusterSubnetGroupResult"
 
 instance AWSRequest CreateClusterSubnetGroupMessage where
     type Sv CreateClusterSubnetGroupMessage = Redshift

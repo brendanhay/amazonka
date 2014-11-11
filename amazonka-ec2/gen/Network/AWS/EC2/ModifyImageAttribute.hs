@@ -146,21 +146,24 @@ miaUserIds = lens _miaUserIds (\s a -> s { _miaUserIds = a })
 -- modifying the description attribute.
 miaValue :: Lens' ModifyImageAttribute (Maybe Text)
 miaValue = lens _miaValue (\s a -> s { _miaValue = a })
+instance ToQuery ModifyImageAttribute
 
 instance ToPath ModifyImageAttribute where
     toPath = const "/"
 
-instance ToQuery ModifyImageAttribute
-
 data ModifyImageAttributeResponse = ModifyImageAttributeResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifyImageAttributeResponse' constructor.
 modifyImageAttributeResponse :: ModifyImageAttributeResponse
 modifyImageAttributeResponse = ModifyImageAttributeResponse
+instance FromXML ModifyImageAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyImageAttributeResponse"
 
 instance AWSRequest ModifyImageAttribute where
     type Sv ModifyImageAttribute = EC2
     type Rs ModifyImageAttribute = ModifyImageAttributeResponse
 
     request  = post "ModifyImageAttribute"
-    response = const (nullaryResponse ModifyImageAttributeResponse)
+    response = nullaryResponse ModifyImageAttributeResponse

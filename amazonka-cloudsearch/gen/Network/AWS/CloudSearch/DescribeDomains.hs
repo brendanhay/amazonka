@@ -66,11 +66,10 @@ describeDomains = DescribeDomains
 -- | The names of the domains you want to include in the response.
 ddDomainNames :: Lens' DescribeDomains [Text]
 ddDomainNames = lens _ddDomainNames (\s a -> s { _ddDomainNames = a })
+instance ToQuery DescribeDomains
 
 instance ToPath DescribeDomains where
     toPath = const "/"
-
-instance ToQuery DescribeDomains
 
 newtype DescribeDomainsResponse = DescribeDomainsResponse
     { _ddrDomainStatusList :: [DomainStatus]
@@ -90,6 +89,9 @@ describeDomainsResponse = DescribeDomainsResponse
 ddrDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
 ddrDomainStatusList =
     lens _ddrDomainStatusList (\s a -> s { _ddrDomainStatusList = a })
+instance FromXML DescribeDomainsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDomainsResponse"
 
 instance AWSRequest DescribeDomains where
     type Sv DescribeDomains = CloudSearch

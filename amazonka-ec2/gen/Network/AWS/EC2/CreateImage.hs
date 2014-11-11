@@ -44,7 +44,7 @@ module Network.AWS.EC2.CreateImage
     -- * Response
     , CreateImageResult
     -- ** Response constructor
-    , createImageResponse
+    , createImageResult
     -- ** Response lenses
     , cirImageId
     ) where
@@ -120,11 +120,10 @@ ci1Name = lens _ci1Name (\s a -> s { _ci1Name = a })
 -- guaranteed.
 ci1NoReboot :: Lens' CreateImage (Maybe Bool)
 ci1NoReboot = lens _ci1NoReboot (\s a -> s { _ci1NoReboot = a })
+instance ToQuery CreateImage
 
 instance ToPath CreateImage where
     toPath = const "/"
-
-instance ToQuery CreateImage
 
 newtype CreateImageResult = CreateImageResult
     { _cirImageId :: Maybe Text
@@ -136,14 +135,17 @@ newtype CreateImageResult = CreateImageResult
 --
 -- * 'cirImageId' @::@ 'Maybe' 'Text'
 --
-createImageResponse :: CreateImageResult
-createImageResponse = CreateImageResult
+createImageResult :: CreateImageResult
+createImageResult = CreateImageResult
     { _cirImageId = Nothing
     }
 
 -- | The ID of the new AMI.
 cirImageId :: Lens' CreateImageResult (Maybe Text)
 cirImageId = lens _cirImageId (\s a -> s { _cirImageId = a })
+instance FromXML CreateImageResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateImageResult"
 
 instance AWSRequest CreateImage where
     type Sv CreateImage = EC2

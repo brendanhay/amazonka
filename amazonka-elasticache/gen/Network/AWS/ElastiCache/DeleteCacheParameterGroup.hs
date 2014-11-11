@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     -- * Request
       DeleteCacheParameterGroupMessage
     -- ** Request constructor
-    , deleteCacheParameterGroup
+    , deleteCacheParameterGroupMessage
     -- ** Request lenses
     , dcpgm1CacheParameterGroupName
 
@@ -52,9 +52,9 @@ newtype DeleteCacheParameterGroupMessage = DeleteCacheParameterGroupMessage
 --
 -- * 'dcpgm1CacheParameterGroupName' @::@ 'Text'
 --
-deleteCacheParameterGroup :: Text -- ^ 'dcpgm1CacheParameterGroupName'
-                          -> DeleteCacheParameterGroupMessage
-deleteCacheParameterGroup p1 = DeleteCacheParameterGroupMessage
+deleteCacheParameterGroupMessage :: Text -- ^ 'dcpgm1CacheParameterGroupName'
+                                 -> DeleteCacheParameterGroupMessage
+deleteCacheParameterGroupMessage p1 = DeleteCacheParameterGroupMessage
     { _dcpgm1CacheParameterGroupName = p1
     }
 
@@ -63,21 +63,24 @@ dcpgm1CacheParameterGroupName :: Lens' DeleteCacheParameterGroupMessage Text
 dcpgm1CacheParameterGroupName =
     lens _dcpgm1CacheParameterGroupName
         (\s a -> s { _dcpgm1CacheParameterGroupName = a })
+instance ToQuery DeleteCacheParameterGroupMessage
 
 instance ToPath DeleteCacheParameterGroupMessage where
     toPath = const "/"
 
-instance ToQuery DeleteCacheParameterGroupMessage
-
 data DeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteCacheParameterGroupResponse' constructor.
 deleteCacheParameterGroupResponse :: DeleteCacheParameterGroupResponse
 deleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
+instance FromXML DeleteCacheParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteCacheParameterGroupResponse"
 
 instance AWSRequest DeleteCacheParameterGroupMessage where
     type Sv DeleteCacheParameterGroupMessage = ElastiCache
     type Rs DeleteCacheParameterGroupMessage = DeleteCacheParameterGroupResponse
 
     request  = post "DeleteCacheParameterGroup"
-    response = const (nullaryResponse DeleteCacheParameterGroupResponse)
+    response = nullaryResponse DeleteCacheParameterGroupResponse

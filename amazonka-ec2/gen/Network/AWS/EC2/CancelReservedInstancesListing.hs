@@ -35,7 +35,7 @@ module Network.AWS.EC2.CancelReservedInstancesListing
     -- * Response
     , CancelReservedInstancesListingResult
     -- ** Response constructor
-    , cancelReservedInstancesListingResponse
+    , cancelReservedInstancesListingResult
     -- ** Response lenses
     , crilrReservedInstancesListings
     ) where
@@ -65,11 +65,10 @@ crilReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
 crilReservedInstancesListingId =
     lens _crilReservedInstancesListingId
         (\s a -> s { _crilReservedInstancesListingId = a })
+instance ToQuery CancelReservedInstancesListing
 
 instance ToPath CancelReservedInstancesListing where
     toPath = const "/"
-
-instance ToQuery CancelReservedInstancesListing
 
 newtype CancelReservedInstancesListingResult = CancelReservedInstancesListingResult
     { _crilrReservedInstancesListings :: [ReservedInstancesListing]
@@ -81,8 +80,8 @@ newtype CancelReservedInstancesListingResult = CancelReservedInstancesListingRes
 --
 -- * 'crilrReservedInstancesListings' @::@ ['ReservedInstancesListing']
 --
-cancelReservedInstancesListingResponse :: CancelReservedInstancesListingResult
-cancelReservedInstancesListingResponse = CancelReservedInstancesListingResult
+cancelReservedInstancesListingResult :: CancelReservedInstancesListingResult
+cancelReservedInstancesListingResult = CancelReservedInstancesListingResult
     { _crilrReservedInstancesListings = mempty
     }
 
@@ -91,6 +90,9 @@ crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResult [Re
 crilrReservedInstancesListings =
     lens _crilrReservedInstancesListings
         (\s a -> s { _crilrReservedInstancesListings = a })
+instance FromXML CancelReservedInstancesListingResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CancelReservedInstancesListingResult"
 
 instance AWSRequest CancelReservedInstancesListing where
     type Sv CancelReservedInstancesListing = EC2

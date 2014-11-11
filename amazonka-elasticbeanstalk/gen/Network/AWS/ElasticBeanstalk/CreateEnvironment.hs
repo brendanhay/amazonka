@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     -- * Request
       CreateEnvironmentMessage
     -- ** Request constructor
-    , createEnvironment
+    , createEnvironmentMessage
     -- ** Request lenses
     , cemApplicationName
     , cemCNAMEPrefix
@@ -44,7 +44,7 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     -- * Response
     , EnvironmentDescription
     -- ** Response constructor
-    , createEnvironmentResponse
+    , environmentDescription
     -- ** Response lenses
     , ed1ApplicationName
     , ed1CNAME
@@ -107,10 +107,10 @@ data CreateEnvironmentMessage = CreateEnvironmentMessage
 --
 -- * 'cemVersionLabel' @::@ 'Maybe' 'Text'
 --
-createEnvironment :: Text -- ^ 'cemApplicationName'
-                  -> Text -- ^ 'cemEnvironmentName'
-                  -> CreateEnvironmentMessage
-createEnvironment p1 p2 = CreateEnvironmentMessage
+createEnvironmentMessage :: Text -- ^ 'cemApplicationName'
+                         -> Text -- ^ 'cemEnvironmentName'
+                         -> CreateEnvironmentMessage
+createEnvironmentMessage p1 p2 = CreateEnvironmentMessage
     { _cemApplicationName   = p1
     , _cemEnvironmentName   = p2
     , _cemDescription       = Nothing
@@ -203,11 +203,10 @@ cemTier = lens _cemTier (\s a -> s { _cemTier = a })
 -- application in the container.
 cemVersionLabel :: Lens' CreateEnvironmentMessage (Maybe Text)
 cemVersionLabel = lens _cemVersionLabel (\s a -> s { _cemVersionLabel = a })
+instance ToQuery CreateEnvironmentMessage
 
 instance ToPath CreateEnvironmentMessage where
     toPath = const "/"
-
-instance ToQuery CreateEnvironmentMessage
 
 instance AWSRequest CreateEnvironmentMessage where
     type Sv CreateEnvironmentMessage = ElasticBeanstalk

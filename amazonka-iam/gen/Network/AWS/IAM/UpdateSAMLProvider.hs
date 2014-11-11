@@ -79,11 +79,10 @@ usamlpSAMLMetadataDocument =
 usamlpSAMLProviderArn :: Lens' UpdateSAMLProvider Text
 usamlpSAMLProviderArn =
     lens _usamlpSAMLProviderArn (\s a -> s { _usamlpSAMLProviderArn = a })
+instance ToQuery UpdateSAMLProvider
 
 instance ToPath UpdateSAMLProvider where
     toPath = const "/"
-
-instance ToQuery UpdateSAMLProvider
 
 newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse
     { _usamlprSAMLProviderArn :: Maybe Text
@@ -104,6 +103,9 @@ updateSAMLProviderResponse = UpdateSAMLProviderResponse
 usamlprSAMLProviderArn :: Lens' UpdateSAMLProviderResponse (Maybe Text)
 usamlprSAMLProviderArn =
     lens _usamlprSAMLProviderArn (\s a -> s { _usamlprSAMLProviderArn = a })
+instance FromXML UpdateSAMLProviderResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateSAMLProviderResponse"
 
 instance AWSRequest UpdateSAMLProvider where
     type Sv UpdateSAMLProvider = IAM

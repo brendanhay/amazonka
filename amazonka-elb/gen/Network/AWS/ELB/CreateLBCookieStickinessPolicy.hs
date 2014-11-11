@@ -39,7 +39,7 @@ module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     -- * Request
       CreateLBCookieStickinessPolicyInput
     -- ** Request constructor
-    , createLBCookieStickinessPolicy
+    , createLBCookieStickinessPolicyInput
     -- ** Request lenses
     , clbcspiCookieExpirationPeriod
     , clbcspiLoadBalancerName
@@ -71,10 +71,10 @@ data CreateLBCookieStickinessPolicyInput = CreateLBCookieStickinessPolicyInput
 --
 -- * 'clbcspiPolicyName' @::@ 'Text'
 --
-createLBCookieStickinessPolicy :: Text -- ^ 'clbcspiLoadBalancerName'
-                               -> Text -- ^ 'clbcspiPolicyName'
-                               -> CreateLBCookieStickinessPolicyInput
-createLBCookieStickinessPolicy p1 p2 = CreateLBCookieStickinessPolicyInput
+createLBCookieStickinessPolicyInput :: Text -- ^ 'clbcspiLoadBalancerName'
+                                    -> Text -- ^ 'clbcspiPolicyName'
+                                    -> CreateLBCookieStickinessPolicyInput
+createLBCookieStickinessPolicyInput p1 p2 = CreateLBCookieStickinessPolicyInput
     { _clbcspiLoadBalancerName       = p1
     , _clbcspiPolicyName             = p2
     , _clbcspiCookieExpirationPeriod = Nothing
@@ -98,21 +98,24 @@ clbcspiLoadBalancerName =
 clbcspiPolicyName :: Lens' CreateLBCookieStickinessPolicyInput Text
 clbcspiPolicyName =
     lens _clbcspiPolicyName (\s a -> s { _clbcspiPolicyName = a })
+instance ToQuery CreateLBCookieStickinessPolicyInput
 
 instance ToPath CreateLBCookieStickinessPolicyInput where
     toPath = const "/"
 
-instance ToQuery CreateLBCookieStickinessPolicyInput
-
 data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateLBCookieStickinessPolicyResponse' constructor.
 createLBCookieStickinessPolicyResponse :: CreateLBCookieStickinessPolicyResponse
 createLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
+instance FromXML CreateLBCookieStickinessPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateLBCookieStickinessPolicyResponse"
 
 instance AWSRequest CreateLBCookieStickinessPolicyInput where
     type Sv CreateLBCookieStickinessPolicyInput = ELB
     type Rs CreateLBCookieStickinessPolicyInput = CreateLBCookieStickinessPolicyResponse
 
     request  = post "CreateLBCookieStickinessPolicy"
-    response = const (nullaryResponse CreateLBCookieStickinessPolicyResponse)
+    response = nullaryResponse CreateLBCookieStickinessPolicyResponse

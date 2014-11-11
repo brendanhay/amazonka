@@ -84,21 +84,24 @@ pgpPolicyDocument =
 -- | The name of the policy document.
 pgpPolicyName :: Lens' PutGroupPolicy Text
 pgpPolicyName = lens _pgpPolicyName (\s a -> s { _pgpPolicyName = a })
+instance ToQuery PutGroupPolicy
 
 instance ToPath PutGroupPolicy where
     toPath = const "/"
 
-instance ToQuery PutGroupPolicy
-
 data PutGroupPolicyResponse = PutGroupPolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutGroupPolicyResponse' constructor.
 putGroupPolicyResponse :: PutGroupPolicyResponse
 putGroupPolicyResponse = PutGroupPolicyResponse
+instance FromXML PutGroupPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutGroupPolicyResponse"
 
 instance AWSRequest PutGroupPolicy where
     type Sv PutGroupPolicy = IAM
     type Rs PutGroupPolicy = PutGroupPolicyResponse
 
     request  = post "PutGroupPolicy"
-    response = const (nullaryResponse PutGroupPolicyResponse)
+    response = nullaryResponse PutGroupPolicyResponse

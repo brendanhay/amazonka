@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     -- * Request
       DescribeOptionGroupOptionsMessage
     -- ** Request constructor
-    , describeOptionGroupOptions
+    , describeOptionGroupOptionsMessage
     -- ** Request lenses
     , dogomEngineName
     , dogomFilters
@@ -37,7 +37,7 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     -- * Response
     , OptionGroupOptionsMessage
     -- ** Response constructor
-    , describeOptionGroupOptionsResponse
+    , optionGroupOptionsMessage
     -- ** Response lenses
     , ogomMarker
     , ogomOptionGroupOptions
@@ -69,9 +69,9 @@ data DescribeOptionGroupOptionsMessage = DescribeOptionGroupOptionsMessage
 --
 -- * 'dogomMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeOptionGroupOptions :: Text -- ^ 'dogomEngineName'
-                           -> DescribeOptionGroupOptionsMessage
-describeOptionGroupOptions p1 = DescribeOptionGroupOptionsMessage
+describeOptionGroupOptionsMessage :: Text -- ^ 'dogomEngineName'
+                                  -> DescribeOptionGroupOptionsMessage
+describeOptionGroupOptionsMessage p1 = DescribeOptionGroupOptionsMessage
     { _dogomEngineName         = p1
     , _dogomMajorEngineVersion = Nothing
     , _dogomFilters            = mempty
@@ -106,11 +106,10 @@ dogomMarker = lens _dogomMarker (\s a -> s { _dogomMarker = a })
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 dogomMaxRecords :: Lens' DescribeOptionGroupOptionsMessage (Maybe Int)
 dogomMaxRecords = lens _dogomMaxRecords (\s a -> s { _dogomMaxRecords = a })
+instance ToQuery DescribeOptionGroupOptionsMessage
 
 instance ToPath DescribeOptionGroupOptionsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeOptionGroupOptionsMessage
 
 data OptionGroupOptionsMessage = OptionGroupOptionsMessage
     { _ogomMarker             :: Maybe Text
@@ -125,8 +124,8 @@ data OptionGroupOptionsMessage = OptionGroupOptionsMessage
 --
 -- * 'ogomOptionGroupOptions' @::@ ['OptionGroupOption']
 --
-describeOptionGroupOptionsResponse :: OptionGroupOptionsMessage
-describeOptionGroupOptionsResponse = OptionGroupOptionsMessage
+optionGroupOptionsMessage :: OptionGroupOptionsMessage
+optionGroupOptionsMessage = OptionGroupOptionsMessage
     { _ogomOptionGroupOptions = mempty
     , _ogomMarker             = Nothing
     }
@@ -140,6 +139,9 @@ ogomMarker = lens _ogomMarker (\s a -> s { _ogomMarker = a })
 ogomOptionGroupOptions :: Lens' OptionGroupOptionsMessage [OptionGroupOption]
 ogomOptionGroupOptions =
     lens _ogomOptionGroupOptions (\s a -> s { _ogomOptionGroupOptions = a })
+instance FromXML OptionGroupOptionsMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "OptionGroupOptionsMessage"
 
 instance AWSRequest DescribeOptionGroupOptionsMessage where
     type Sv DescribeOptionGroupOptionsMessage = RDS

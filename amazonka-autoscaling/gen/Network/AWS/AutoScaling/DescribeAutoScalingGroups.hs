@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     -- * Request
       AutoScalingGroupNamesType
     -- ** Request constructor
-    , describeAutoScalingGroups
+    , autoScalingGroupNamesType
     -- ** Request lenses
     , asgntAutoScalingGroupNames
     , asgntMaxRecords
@@ -40,7 +40,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     -- * Response
     , AutoScalingGroupsType
     -- ** Response constructor
-    , describeAutoScalingGroupsResponse
+    , autoScalingGroupsType
     -- ** Response lenses
     , asgtAutoScalingGroups
     , asgtNextToken
@@ -66,8 +66,8 @@ data AutoScalingGroupNamesType = AutoScalingGroupNamesType
 --
 -- * 'asgntNextToken' @::@ 'Maybe' 'Text'
 --
-describeAutoScalingGroups :: AutoScalingGroupNamesType
-describeAutoScalingGroups = AutoScalingGroupNamesType
+autoScalingGroupNamesType :: AutoScalingGroupNamesType
+autoScalingGroupNamesType = AutoScalingGroupNamesType
     { _asgntAutoScalingGroupNames = mempty
     , _asgntNextToken             = Nothing
     , _asgntMaxRecords            = Nothing
@@ -86,11 +86,10 @@ asgntMaxRecords = lens _asgntMaxRecords (\s a -> s { _asgntMaxRecords = a })
 -- | A string that marks the start of the next batch of returned results.
 asgntNextToken :: Lens' AutoScalingGroupNamesType (Maybe Text)
 asgntNextToken = lens _asgntNextToken (\s a -> s { _asgntNextToken = a })
+instance ToQuery AutoScalingGroupNamesType
 
 instance ToPath AutoScalingGroupNamesType where
     toPath = const "/"
-
-instance ToQuery AutoScalingGroupNamesType
 
 data AutoScalingGroupsType = AutoScalingGroupsType
     { _asgtAutoScalingGroups :: [AutoScalingGroup]
@@ -105,8 +104,8 @@ data AutoScalingGroupsType = AutoScalingGroupsType
 --
 -- * 'asgtNextToken' @::@ 'Maybe' 'Text'
 --
-describeAutoScalingGroupsResponse :: AutoScalingGroupsType
-describeAutoScalingGroupsResponse = AutoScalingGroupsType
+autoScalingGroupsType :: AutoScalingGroupsType
+autoScalingGroupsType = AutoScalingGroupsType
     { _asgtAutoScalingGroups = mempty
     , _asgtNextToken         = Nothing
     }
@@ -119,6 +118,9 @@ asgtAutoScalingGroups =
 -- | A string that marks the start of the next batch of returned results.
 asgtNextToken :: Lens' AutoScalingGroupsType (Maybe Text)
 asgtNextToken = lens _asgtNextToken (\s a -> s { _asgtNextToken = a })
+instance FromXML AutoScalingGroupsType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AutoScalingGroupsType"
 
 instance AWSRequest AutoScalingGroupNamesType where
     type Sv AutoScalingGroupNamesType = AutoScaling

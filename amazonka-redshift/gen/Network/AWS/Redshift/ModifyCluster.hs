@@ -35,7 +35,7 @@ module Network.AWS.Redshift.ModifyCluster
     -- * Request
       ModifyClusterMessage
     -- ** Request constructor
-    , modifyCluster
+    , modifyClusterMessage
     -- ** Request lenses
     , mcmAllowVersionUpgrade
     , mcmAutomatedSnapshotRetentionPeriod
@@ -56,7 +56,7 @@ module Network.AWS.Redshift.ModifyCluster
     -- * Response
     , ModifyClusterResult
     -- ** Response constructor
-    , modifyClusterResponse
+    , modifyClusterResult
     -- ** Response lenses
     , mcrCluster
     ) where
@@ -117,9 +117,9 @@ data ModifyClusterMessage = ModifyClusterMessage
 --
 -- * 'mcmVpcSecurityGroupIds' @::@ ['Text']
 --
-modifyCluster :: Text -- ^ 'mcmClusterIdentifier'
-              -> ModifyClusterMessage
-modifyCluster p1 = ModifyClusterMessage
+modifyClusterMessage :: Text -- ^ 'mcmClusterIdentifier'
+                     -> ModifyClusterMessage
+modifyClusterMessage p1 = ModifyClusterMessage
     { _mcmClusterIdentifier                = p1
     , _mcmClusterType                      = Nothing
     , _mcmNodeType                         = Nothing
@@ -284,11 +284,10 @@ mcmPreferredMaintenanceWindow =
 mcmVpcSecurityGroupIds :: Lens' ModifyClusterMessage [Text]
 mcmVpcSecurityGroupIds =
     lens _mcmVpcSecurityGroupIds (\s a -> s { _mcmVpcSecurityGroupIds = a })
+instance ToQuery ModifyClusterMessage
 
 instance ToPath ModifyClusterMessage where
     toPath = const "/"
-
-instance ToQuery ModifyClusterMessage
 
 newtype ModifyClusterResult = ModifyClusterResult
     { _mcrCluster :: Maybe Cluster
@@ -300,13 +299,16 @@ newtype ModifyClusterResult = ModifyClusterResult
 --
 -- * 'mcrCluster' @::@ 'Maybe' 'Cluster'
 --
-modifyClusterResponse :: ModifyClusterResult
-modifyClusterResponse = ModifyClusterResult
+modifyClusterResult :: ModifyClusterResult
+modifyClusterResult = ModifyClusterResult
     { _mcrCluster = Nothing
     }
 
 mcrCluster :: Lens' ModifyClusterResult (Maybe Cluster)
 mcrCluster = lens _mcrCluster (\s a -> s { _mcrCluster = a })
+instance FromXML ModifyClusterResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyClusterResult"
 
 instance AWSRequest ModifyClusterMessage where
     type Sv ModifyClusterMessage = Redshift

@@ -65,11 +65,10 @@ getUser = GetUser
 -- request.
 guUserName :: Lens' GetUser (Maybe Text)
 guUserName = lens _guUserName (\s a -> s { _guUserName = a })
+instance ToQuery GetUser
 
 instance ToPath GetUser where
     toPath = const "/"
-
-instance ToQuery GetUser
 
 newtype GetUserResponse = GetUserResponse
     { _gurUser :: User
@@ -90,6 +89,9 @@ getUserResponse p1 = GetUserResponse
 -- | Information about the user.
 gurUser :: Lens' GetUserResponse User
 gurUser = lens _gurUser (\s a -> s { _gurUser = a })
+instance FromXML GetUserResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetUserResponse"
 
 instance AWSRequest GetUser where
     type Sv GetUser = IAM

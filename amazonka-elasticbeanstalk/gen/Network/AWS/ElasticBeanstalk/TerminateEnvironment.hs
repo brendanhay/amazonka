@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     -- * Request
       TerminateEnvironmentMessage
     -- ** Request constructor
-    , terminateEnvironment
+    , terminateEnvironmentMessage
     -- ** Request lenses
     , temEnvironmentId
     , temEnvironmentName
@@ -35,7 +35,7 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     -- * Response
     , EnvironmentDescription
     -- ** Response constructor
-    , terminateEnvironmentResponse
+    , environmentDescription
     -- ** Response lenses
     , ed1ApplicationName
     , ed1CNAME
@@ -74,8 +74,8 @@ data TerminateEnvironmentMessage = TerminateEnvironmentMessage
 --
 -- * 'temTerminateResources' @::@ 'Maybe' 'Bool'
 --
-terminateEnvironment :: TerminateEnvironmentMessage
-terminateEnvironment = TerminateEnvironmentMessage
+terminateEnvironmentMessage :: TerminateEnvironmentMessage
+terminateEnvironmentMessage = TerminateEnvironmentMessage
     { _temEnvironmentId      = Nothing
     , _temEnvironmentName    = Nothing
     , _temTerminateResources = Nothing
@@ -107,11 +107,10 @@ temEnvironmentName =
 temTerminateResources :: Lens' TerminateEnvironmentMessage (Maybe Bool)
 temTerminateResources =
     lens _temTerminateResources (\s a -> s { _temTerminateResources = a })
+instance ToQuery TerminateEnvironmentMessage
 
 instance ToPath TerminateEnvironmentMessage where
     toPath = const "/"
-
-instance ToQuery TerminateEnvironmentMessage
 
 instance AWSRequest TerminateEnvironmentMessage where
     type Sv TerminateEnvironmentMessage = ElasticBeanstalk

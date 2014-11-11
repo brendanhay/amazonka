@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     -- * Response
     , DescribeSnapshotAttributeResult
     -- ** Response constructor
-    , describeSnapshotAttributeResponse
+    , describeSnapshotAttributeResult
     -- ** Response lenses
     , dsarCreateVolumePermissions
     , dsarProductCodes
@@ -84,11 +84,10 @@ dsaDryRun = lens _dsaDryRun (\s a -> s { _dsaDryRun = a })
 -- | The ID of the Amazon EBS snapshot.
 dsaSnapshotId :: Lens' DescribeSnapshotAttribute Text
 dsaSnapshotId = lens _dsaSnapshotId (\s a -> s { _dsaSnapshotId = a })
+instance ToQuery DescribeSnapshotAttribute
 
 instance ToPath DescribeSnapshotAttribute where
     toPath = const "/"
-
-instance ToQuery DescribeSnapshotAttribute
 
 data DescribeSnapshotAttributeResult = DescribeSnapshotAttributeResult
     { _dsarCreateVolumePermissions :: [CreateVolumePermission]
@@ -106,8 +105,8 @@ data DescribeSnapshotAttributeResult = DescribeSnapshotAttributeResult
 --
 -- * 'dsarSnapshotId' @::@ 'Maybe' 'Text'
 --
-describeSnapshotAttributeResponse :: DescribeSnapshotAttributeResult
-describeSnapshotAttributeResponse = DescribeSnapshotAttributeResult
+describeSnapshotAttributeResult :: DescribeSnapshotAttributeResult
+describeSnapshotAttributeResult = DescribeSnapshotAttributeResult
     { _dsarSnapshotId              = Nothing
     , _dsarCreateVolumePermissions = mempty
     , _dsarProductCodes            = mempty
@@ -126,6 +125,9 @@ dsarProductCodes = lens _dsarProductCodes (\s a -> s { _dsarProductCodes = a })
 -- | The ID of the Amazon EBS snapshot.
 dsarSnapshotId :: Lens' DescribeSnapshotAttributeResult (Maybe Text)
 dsarSnapshotId = lens _dsarSnapshotId (\s a -> s { _dsarSnapshotId = a })
+instance FromXML DescribeSnapshotAttributeResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSnapshotAttributeResult"
 
 instance AWSRequest DescribeSnapshotAttribute where
     type Sv DescribeSnapshotAttribute = EC2

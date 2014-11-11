@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
     -- * Request
       UpdateApplicationMessage
     -- ** Request constructor
-    , updateApplication
+    , updateApplicationMessage
     -- ** Request lenses
     , uamApplicationName
     , uamDescription
@@ -34,7 +34,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
     -- * Response
     , ApplicationDescriptionMessage
     -- ** Response constructor
-    , updateApplicationResponse
+    , applicationDescriptionMessage
     -- ** Response lenses
     , admApplication
     ) where
@@ -56,9 +56,9 @@ data UpdateApplicationMessage = UpdateApplicationMessage
 --
 -- * 'uamDescription' @::@ 'Maybe' 'Text'
 --
-updateApplication :: Text -- ^ 'uamApplicationName'
-                  -> UpdateApplicationMessage
-updateApplication p1 = UpdateApplicationMessage
+updateApplicationMessage :: Text -- ^ 'uamApplicationName'
+                         -> UpdateApplicationMessage
+updateApplicationMessage p1 = UpdateApplicationMessage
     { _uamApplicationName = p1
     , _uamDescription     = Nothing
     }
@@ -73,11 +73,10 @@ uamApplicationName =
 -- Elastic Beanstalk does not update the description.
 uamDescription :: Lens' UpdateApplicationMessage (Maybe Text)
 uamDescription = lens _uamDescription (\s a -> s { _uamDescription = a })
+instance ToQuery UpdateApplicationMessage
 
 instance ToPath UpdateApplicationMessage where
     toPath = const "/"
-
-instance ToQuery UpdateApplicationMessage
 
 instance AWSRequest UpdateApplicationMessage where
     type Sv UpdateApplicationMessage = ElasticBeanstalk

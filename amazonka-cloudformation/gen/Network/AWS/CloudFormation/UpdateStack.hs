@@ -33,7 +33,7 @@ module Network.AWS.CloudFormation.UpdateStack
     -- * Request
       UpdateStackInput
     -- ** Request constructor
-    , updateStack
+    , updateStackInput
     -- ** Request lenses
     , usiCapabilities
     , usiNotificationARNs
@@ -50,7 +50,7 @@ module Network.AWS.CloudFormation.UpdateStack
     -- * Response
     , UpdateStackOutput
     -- ** Response constructor
-    , updateStackResponse
+    , updateStackOutput
     -- ** Response lenses
     , usoStackId
     ) where
@@ -99,9 +99,9 @@ data UpdateStackInput = UpdateStackInput
 --
 -- * 'usiUsePreviousTemplate' @::@ 'Maybe' 'Bool'
 --
-updateStack :: Text -- ^ 'usiStackName'
-            -> UpdateStackInput
-updateStack p1 = UpdateStackInput
+updateStackInput :: Text -- ^ 'usiStackName'
+                 -> UpdateStackInput
+updateStackInput p1 = UpdateStackInput
     { _usiStackName                   = p1
     , _usiTemplateBody                = Nothing
     , _usiTemplateURL                 = Nothing
@@ -205,11 +205,10 @@ usiTemplateURL = lens _usiTemplateURL (\s a -> s { _usiTemplateURL = a })
 usiUsePreviousTemplate :: Lens' UpdateStackInput (Maybe Bool)
 usiUsePreviousTemplate =
     lens _usiUsePreviousTemplate (\s a -> s { _usiUsePreviousTemplate = a })
+instance ToQuery UpdateStackInput
 
 instance ToPath UpdateStackInput where
     toPath = const "/"
-
-instance ToQuery UpdateStackInput
 
 newtype UpdateStackOutput = UpdateStackOutput
     { _usoStackId :: Maybe Text
@@ -221,14 +220,17 @@ newtype UpdateStackOutput = UpdateStackOutput
 --
 -- * 'usoStackId' @::@ 'Maybe' 'Text'
 --
-updateStackResponse :: UpdateStackOutput
-updateStackResponse = UpdateStackOutput
+updateStackOutput :: UpdateStackOutput
+updateStackOutput = UpdateStackOutput
     { _usoStackId = Nothing
     }
 
 -- | Unique identifier of the stack.
 usoStackId :: Lens' UpdateStackOutput (Maybe Text)
 usoStackId = lens _usoStackId (\s a -> s { _usoStackId = a })
+instance FromXML UpdateStackOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateStackOutput"
 
 instance AWSRequest UpdateStackInput where
     type Sv UpdateStackInput = CloudFormation

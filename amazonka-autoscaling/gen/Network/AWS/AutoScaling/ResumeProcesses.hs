@@ -26,12 +26,12 @@
 module Network.AWS.AutoScaling.ResumeProcesses
     (
     -- * Request
-      ScalingProcessQuery
+      ResumeProcesses
     -- ** Request constructor
     , resumeProcesses
     -- ** Request lenses
-    , spqAutoScalingGroupName
-    , spqScalingProcesses
+    , rpAutoScalingGroupName
+    , rpScalingProcesses
 
     -- * Response
     , ResumeProcessesResponse
@@ -43,53 +43,56 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data ScalingProcessQuery = ScalingProcessQuery
-    { _spqAutoScalingGroupName :: Text
-    , _spqScalingProcesses     :: [Text]
+data ResumeProcesses = ResumeProcesses
+    { _rpAutoScalingGroupName :: Text
+    , _rpScalingProcesses     :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ScalingProcessQuery' constructor.
+-- | 'ResumeProcesses' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'spqAutoScalingGroupName' @::@ 'Text'
+-- * 'rpAutoScalingGroupName' @::@ 'Text'
 --
--- * 'spqScalingProcesses' @::@ ['Text']
+-- * 'rpScalingProcesses' @::@ ['Text']
 --
-resumeProcesses :: Text -- ^ 'spqAutoScalingGroupName'
-                -> ScalingProcessQuery
-resumeProcesses p1 = ScalingProcessQuery
-    { _spqAutoScalingGroupName = p1
-    , _spqScalingProcesses     = mempty
+resumeProcesses :: Text -- ^ 'rpAutoScalingGroupName'
+                -> ResumeProcesses
+resumeProcesses p1 = ResumeProcesses
+    { _rpAutoScalingGroupName = p1
+    , _rpScalingProcesses     = mempty
     }
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-spqAutoScalingGroupName :: Lens' ScalingProcessQuery Text
-spqAutoScalingGroupName =
-    lens _spqAutoScalingGroupName (\s a -> s { _spqAutoScalingGroupName = a })
+rpAutoScalingGroupName :: Lens' ResumeProcesses Text
+rpAutoScalingGroupName =
+    lens _rpAutoScalingGroupName (\s a -> s { _rpAutoScalingGroupName = a })
 
 -- | The processes that you want to suspend or resume, which can include one
 -- or more of the following: Launch Terminate HealthCheck ReplaceUnhealthy
 -- AZRebalance AlarmNotification ScheduledActions AddToLoadBalancer To
 -- suspend all process types, omit this parameter.
-spqScalingProcesses :: Lens' ScalingProcessQuery [Text]
-spqScalingProcesses =
-    lens _spqScalingProcesses (\s a -> s { _spqScalingProcesses = a })
+rpScalingProcesses :: Lens' ResumeProcesses [Text]
+rpScalingProcesses =
+    lens _rpScalingProcesses (\s a -> s { _rpScalingProcesses = a })
+instance ToQuery ResumeProcesses
 
-instance ToPath ScalingProcessQuery where
+instance ToPath ResumeProcesses where
     toPath = const "/"
 
-instance ToQuery ScalingProcessQuery
-
 data ResumeProcessesResponse = ResumeProcessesResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResumeProcessesResponse' constructor.
 resumeProcessesResponse :: ResumeProcessesResponse
 resumeProcessesResponse = ResumeProcessesResponse
+instance FromXML ResumeProcessesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResumeProcessesResponse"
 
-instance AWSRequest ScalingProcessQuery where
-    type Sv ScalingProcessQuery = AutoScaling
-    type Rs ScalingProcessQuery = ResumeProcessesResponse
+instance AWSRequest ResumeProcesses where
+    type Sv ResumeProcesses = AutoScaling
+    type Rs ResumeProcesses = ResumeProcessesResponse
 
     request  = post "ResumeProcesses"
-    response = const (nullaryResponse ResumeProcessesResponse)
+    response = nullaryResponse ResumeProcessesResponse

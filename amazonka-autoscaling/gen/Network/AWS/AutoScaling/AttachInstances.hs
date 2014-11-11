@@ -29,7 +29,7 @@ module Network.AWS.AutoScaling.AttachInstances
     -- * Request
       AttachInstancesQuery
     -- ** Request constructor
-    , attachInstances
+    , attachInstancesQuery
     -- ** Request lenses
     , aiqAutoScalingGroupName
     , aiqInstanceIds
@@ -47,7 +47,7 @@ import Network.AWS.AutoScaling.Types
 data AttachInstancesQuery = AttachInstancesQuery
     { _aiqAutoScalingGroupName :: Text
     , _aiqInstanceIds          :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AttachInstancesQuery' constructor.
 --
@@ -57,9 +57,9 @@ data AttachInstancesQuery = AttachInstancesQuery
 --
 -- * 'aiqInstanceIds' @::@ ['Text']
 --
-attachInstances :: Text -- ^ 'aiqAutoScalingGroupName'
-                -> AttachInstancesQuery
-attachInstances p1 = AttachInstancesQuery
+attachInstancesQuery :: Text -- ^ 'aiqAutoScalingGroupName'
+                     -> AttachInstancesQuery
+attachInstancesQuery p1 = AttachInstancesQuery
     { _aiqAutoScalingGroupName = p1
     , _aiqInstanceIds          = mempty
     }
@@ -74,21 +74,24 @@ aiqAutoScalingGroupName =
 -- Auto Scaling group. You must specify at least one instance ID.
 aiqInstanceIds :: Lens' AttachInstancesQuery [Text]
 aiqInstanceIds = lens _aiqInstanceIds (\s a -> s { _aiqInstanceIds = a })
+instance ToQuery AttachInstancesQuery
 
 instance ToPath AttachInstancesQuery where
     toPath = const "/"
 
-instance ToQuery AttachInstancesQuery
-
 data AttachInstancesResponse = AttachInstancesResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'AttachInstancesResponse' constructor.
 attachInstancesResponse :: AttachInstancesResponse
 attachInstancesResponse = AttachInstancesResponse
+instance FromXML AttachInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AttachInstancesResponse"
 
 instance AWSRequest AttachInstancesQuery where
     type Sv AttachInstancesQuery = AutoScaling
     type Rs AttachInstancesQuery = AttachInstancesResponse
 
     request  = post "AttachInstances"
-    response = const (nullaryResponse AttachInstancesResponse)
+    response = nullaryResponse AttachInstancesResponse

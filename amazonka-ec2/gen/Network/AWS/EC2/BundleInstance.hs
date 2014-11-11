@@ -38,7 +38,7 @@ module Network.AWS.EC2.BundleInstance
     -- * Response
     , BundleInstanceResult
     -- ** Response constructor
-    , bundleInstanceResponse
+    , bundleInstanceResult
     -- ** Response lenses
     , birBundleTask
     ) where
@@ -85,11 +85,10 @@ biInstanceId = lens _biInstanceId (\s a -> s { _biInstanceId = a })
 -- error.
 biStorage :: Lens' BundleInstance Storage
 biStorage = lens _biStorage (\s a -> s { _biStorage = a })
+instance ToQuery BundleInstance
 
 instance ToPath BundleInstance where
     toPath = const "/"
-
-instance ToQuery BundleInstance
 
 newtype BundleInstanceResult = BundleInstanceResult
     { _birBundleTask :: Maybe BundleTask
@@ -101,14 +100,17 @@ newtype BundleInstanceResult = BundleInstanceResult
 --
 -- * 'birBundleTask' @::@ 'Maybe' 'BundleTask'
 --
-bundleInstanceResponse :: BundleInstanceResult
-bundleInstanceResponse = BundleInstanceResult
+bundleInstanceResult :: BundleInstanceResult
+bundleInstanceResult = BundleInstanceResult
     { _birBundleTask = Nothing
     }
 
 -- | Information about the bundle task.
 birBundleTask :: Lens' BundleInstanceResult (Maybe BundleTask)
 birBundleTask = lens _birBundleTask (\s a -> s { _birBundleTask = a })
+instance FromXML BundleInstanceResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "BundleInstanceResult"
 
 instance AWSRequest BundleInstance where
     type Sv BundleInstance = EC2

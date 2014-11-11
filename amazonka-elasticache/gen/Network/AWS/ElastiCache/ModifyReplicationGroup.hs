@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     -- * Request
       ModifyReplicationGroupMessage
     -- ** Request constructor
-    , modifyReplicationGroup
+    , modifyReplicationGroupMessage
     -- ** Request lenses
     , mrgmApplyImmediately
     , mrgmAutoMinorVersionUpgrade
@@ -49,7 +49,7 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     -- * Response
     , ModifyReplicationGroupResult
     -- ** Response constructor
-    , modifyReplicationGroupResponse
+    , modifyReplicationGroupResult
     -- ** Response lenses
     , mrgrReplicationGroup
     ) where
@@ -113,9 +113,9 @@ data ModifyReplicationGroupMessage = ModifyReplicationGroupMessage
 --
 -- * 'mrgmSnapshottingClusterId' @::@ 'Maybe' 'Text'
 --
-modifyReplicationGroup :: Text -- ^ 'mrgmReplicationGroupId'
-                       -> ModifyReplicationGroupMessage
-modifyReplicationGroup p1 = ModifyReplicationGroupMessage
+modifyReplicationGroupMessage :: Text -- ^ 'mrgmReplicationGroupId'
+                              -> ModifyReplicationGroupMessage
+modifyReplicationGroupMessage p1 = ModifyReplicationGroupMessage
     { _mrgmReplicationGroupId          = p1
     , _mrgmReplicationGroupDescription = Nothing
     , _mrgmPrimaryClusterId            = Nothing
@@ -265,11 +265,10 @@ mrgmSnapshottingClusterId :: Lens' ModifyReplicationGroupMessage (Maybe Text)
 mrgmSnapshottingClusterId =
     lens _mrgmSnapshottingClusterId
         (\s a -> s { _mrgmSnapshottingClusterId = a })
+instance ToQuery ModifyReplicationGroupMessage
 
 instance ToPath ModifyReplicationGroupMessage where
     toPath = const "/"
-
-instance ToQuery ModifyReplicationGroupMessage
 
 newtype ModifyReplicationGroupResult = ModifyReplicationGroupResult
     { _mrgrReplicationGroup :: Maybe ReplicationGroup
@@ -281,14 +280,17 @@ newtype ModifyReplicationGroupResult = ModifyReplicationGroupResult
 --
 -- * 'mrgrReplicationGroup' @::@ 'Maybe' 'ReplicationGroup'
 --
-modifyReplicationGroupResponse :: ModifyReplicationGroupResult
-modifyReplicationGroupResponse = ModifyReplicationGroupResult
+modifyReplicationGroupResult :: ModifyReplicationGroupResult
+modifyReplicationGroupResult = ModifyReplicationGroupResult
     { _mrgrReplicationGroup = Nothing
     }
 
 mrgrReplicationGroup :: Lens' ModifyReplicationGroupResult (Maybe ReplicationGroup)
 mrgrReplicationGroup =
     lens _mrgrReplicationGroup (\s a -> s { _mrgrReplicationGroup = a })
+instance FromXML ModifyReplicationGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyReplicationGroupResult"
 
 instance AWSRequest ModifyReplicationGroupMessage where
     type Sv ModifyReplicationGroupMessage = ElastiCache

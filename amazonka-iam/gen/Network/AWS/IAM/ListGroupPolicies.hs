@@ -89,11 +89,10 @@ lgpMarker = lens _lgpMarker (\s a -> s { _lgpMarker = a })
 -- to 100.
 lgpMaxItems :: Lens' ListGroupPolicies (Maybe Int)
 lgpMaxItems = lens _lgpMaxItems (\s a -> s { _lgpMaxItems = a })
+instance ToQuery ListGroupPolicies
 
 instance ToPath ListGroupPolicies where
     toPath = const "/"
-
-instance ToQuery ListGroupPolicies
 
 data ListGroupPoliciesResponse = ListGroupPoliciesResponse
     { _lgprIsTruncated :: Maybe Bool
@@ -133,6 +132,9 @@ lgprMarker = lens _lgprMarker (\s a -> s { _lgprMarker = a })
 -- | A list of policy names.
 lgprPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
 lgprPolicyNames = lens _lgprPolicyNames (\s a -> s { _lgprPolicyNames = a })
+instance FromXML ListGroupPoliciesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListGroupPoliciesResponse"
 
 instance AWSRequest ListGroupPolicies where
     type Sv ListGroupPolicies = IAM

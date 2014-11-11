@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     -- * Request
       DescribeEngineDefaultParametersMessage
     -- ** Request constructor
-    , describeEngineDefaultParameters
+    , describeEngineDefaultParametersMessage
     -- ** Request lenses
     , dedpmCacheParameterGroupFamily
     , dedpmMarker
@@ -36,7 +36,7 @@ module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     -- * Response
     , DescribeEngineDefaultParametersResult
     -- ** Response constructor
-    , describeEngineDefaultParametersResponse
+    , describeEngineDefaultParametersResult
     -- ** Response lenses
     , dedprEngineDefaults
     ) where
@@ -61,9 +61,9 @@ data DescribeEngineDefaultParametersMessage = DescribeEngineDefaultParametersMes
 --
 -- * 'dedpmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeEngineDefaultParameters :: Text -- ^ 'dedpmCacheParameterGroupFamily'
-                                -> DescribeEngineDefaultParametersMessage
-describeEngineDefaultParameters p1 = DescribeEngineDefaultParametersMessage
+describeEngineDefaultParametersMessage :: Text -- ^ 'dedpmCacheParameterGroupFamily'
+                                       -> DescribeEngineDefaultParametersMessage
+describeEngineDefaultParametersMessage p1 = DescribeEngineDefaultParametersMessage
     { _dedpmCacheParameterGroupFamily = p1
     , _dedpmMaxRecords                = Nothing
     , _dedpmMarker                    = Nothing
@@ -89,11 +89,10 @@ dedpmMarker = lens _dedpmMarker (\s a -> s { _dedpmMarker = a })
 -- Constraints: minimum 20; maximum 100.
 dedpmMaxRecords :: Lens' DescribeEngineDefaultParametersMessage (Maybe Int)
 dedpmMaxRecords = lens _dedpmMaxRecords (\s a -> s { _dedpmMaxRecords = a })
+instance ToQuery DescribeEngineDefaultParametersMessage
 
 instance ToPath DescribeEngineDefaultParametersMessage where
     toPath = const "/"
-
-instance ToQuery DescribeEngineDefaultParametersMessage
 
 newtype DescribeEngineDefaultParametersResult = DescribeEngineDefaultParametersResult
     { _dedprEngineDefaults :: Maybe EngineDefaults
@@ -105,14 +104,17 @@ newtype DescribeEngineDefaultParametersResult = DescribeEngineDefaultParametersR
 --
 -- * 'dedprEngineDefaults' @::@ 'Maybe' 'EngineDefaults'
 --
-describeEngineDefaultParametersResponse :: DescribeEngineDefaultParametersResult
-describeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResult
+describeEngineDefaultParametersResult :: DescribeEngineDefaultParametersResult
+describeEngineDefaultParametersResult = DescribeEngineDefaultParametersResult
     { _dedprEngineDefaults = Nothing
     }
 
 dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResult (Maybe EngineDefaults)
 dedprEngineDefaults =
     lens _dedprEngineDefaults (\s a -> s { _dedprEngineDefaults = a })
+instance FromXML DescribeEngineDefaultParametersResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeEngineDefaultParametersResult"
 
 instance AWSRequest DescribeEngineDefaultParametersMessage where
     type Sv DescribeEngineDefaultParametersMessage = ElastiCache

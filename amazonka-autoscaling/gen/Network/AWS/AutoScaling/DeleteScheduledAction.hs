@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.DeleteScheduledAction
     -- * Request
       DeleteScheduledActionType
     -- ** Request constructor
-    , deleteScheduledAction
+    , deleteScheduledActionType
     -- ** Request lenses
     , dsat1AutoScalingGroupName
     , dsat1ScheduledActionName
@@ -55,9 +55,9 @@ data DeleteScheduledActionType = DeleteScheduledActionType
 --
 -- * 'dsat1ScheduledActionName' @::@ 'Text'
 --
-deleteScheduledAction :: Text -- ^ 'dsat1ScheduledActionName'
-                      -> DeleteScheduledActionType
-deleteScheduledAction p1 = DeleteScheduledActionType
+deleteScheduledActionType :: Text -- ^ 'dsat1ScheduledActionName'
+                          -> DeleteScheduledActionType
+deleteScheduledActionType p1 = DeleteScheduledActionType
     { _dsat1ScheduledActionName  = p1
     , _dsat1AutoScalingGroupName = Nothing
     }
@@ -73,21 +73,24 @@ dsat1ScheduledActionName :: Lens' DeleteScheduledActionType Text
 dsat1ScheduledActionName =
     lens _dsat1ScheduledActionName
         (\s a -> s { _dsat1ScheduledActionName = a })
+instance ToQuery DeleteScheduledActionType
 
 instance ToPath DeleteScheduledActionType where
     toPath = const "/"
 
-instance ToQuery DeleteScheduledActionType
-
 data DeleteScheduledActionResponse = DeleteScheduledActionResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteScheduledActionResponse' constructor.
 deleteScheduledActionResponse :: DeleteScheduledActionResponse
 deleteScheduledActionResponse = DeleteScheduledActionResponse
+instance FromXML DeleteScheduledActionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteScheduledActionResponse"
 
 instance AWSRequest DeleteScheduledActionType where
     type Sv DeleteScheduledActionType = AutoScaling
     type Rs DeleteScheduledActionType = DeleteScheduledActionResponse
 
     request  = post "DeleteScheduledAction"
-    response = const (nullaryResponse DeleteScheduledActionResponse)
+    response = nullaryResponse DeleteScheduledActionResponse

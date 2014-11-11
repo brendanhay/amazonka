@@ -42,6 +42,7 @@ import Network.AWS.Request
 import Network.AWS.Route53.Types
 
 data GetHealthCheckCount = GetHealthCheckCount
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetHealthCheckCount' constructor.
 getHealthCheckCount :: GetHealthCheckCount
@@ -76,6 +77,9 @@ ghccrHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
 ghccrHealthCheckCount =
     lens _ghccrHealthCheckCount (\s a -> s { _ghccrHealthCheckCount = a })
 
+instance FromXML GetHealthCheckCountResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetHealthCheckCountResponse"
 instance AWSRequest GetHealthCheckCount where
     type Sv GetHealthCheckCount = Route53
     type Rs GetHealthCheckCount = GetHealthCheckCountResponse

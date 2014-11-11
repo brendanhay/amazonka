@@ -78,21 +78,24 @@ riaDryRun = lens _riaDryRun (\s a -> s { _riaDryRun = a })
 -- | The ID of the AMI.
 riaImageId :: Lens' ResetImageAttribute Text
 riaImageId = lens _riaImageId (\s a -> s { _riaImageId = a })
+instance ToQuery ResetImageAttribute
 
 instance ToPath ResetImageAttribute where
     toPath = const "/"
 
-instance ToQuery ResetImageAttribute
-
 data ResetImageAttributeResponse = ResetImageAttributeResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResetImageAttributeResponse' constructor.
 resetImageAttributeResponse :: ResetImageAttributeResponse
 resetImageAttributeResponse = ResetImageAttributeResponse
+instance FromXML ResetImageAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResetImageAttributeResponse"
 
 instance AWSRequest ResetImageAttribute where
     type Sv ResetImageAttribute = EC2
     type Rs ResetImageAttribute = ResetImageAttributeResponse
 
     request  = post "ResetImageAttribute"
-    response = const (nullaryResponse ResetImageAttributeResponse)
+    response = nullaryResponse ResetImageAttributeResponse

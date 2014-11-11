@@ -34,7 +34,7 @@ module Network.AWS.ELB.DeleteLoadBalancer
     -- * Request
       DeleteAccessPointInput
     -- ** Request constructor
-    , deleteLoadBalancer
+    , deleteAccessPointInput
     -- ** Request lenses
     , dapiLoadBalancerName
 
@@ -58,9 +58,9 @@ newtype DeleteAccessPointInput = DeleteAccessPointInput
 --
 -- * 'dapiLoadBalancerName' @::@ 'Text'
 --
-deleteLoadBalancer :: Text -- ^ 'dapiLoadBalancerName'
-                   -> DeleteAccessPointInput
-deleteLoadBalancer p1 = DeleteAccessPointInput
+deleteAccessPointInput :: Text -- ^ 'dapiLoadBalancerName'
+                       -> DeleteAccessPointInput
+deleteAccessPointInput p1 = DeleteAccessPointInput
     { _dapiLoadBalancerName = p1
     }
 
@@ -68,21 +68,24 @@ deleteLoadBalancer p1 = DeleteAccessPointInput
 dapiLoadBalancerName :: Lens' DeleteAccessPointInput Text
 dapiLoadBalancerName =
     lens _dapiLoadBalancerName (\s a -> s { _dapiLoadBalancerName = a })
+instance ToQuery DeleteAccessPointInput
 
 instance ToPath DeleteAccessPointInput where
     toPath = const "/"
 
-instance ToQuery DeleteAccessPointInput
-
 data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteLoadBalancerResponse' constructor.
 deleteLoadBalancerResponse :: DeleteLoadBalancerResponse
 deleteLoadBalancerResponse = DeleteLoadBalancerResponse
+instance FromXML DeleteLoadBalancerResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteLoadBalancerResponse"
 
 instance AWSRequest DeleteAccessPointInput where
     type Sv DeleteAccessPointInput = ELB
     type Rs DeleteAccessPointInput = DeleteLoadBalancerResponse
 
     request  = post "DeleteLoadBalancer"
-    response = const (nullaryResponse DeleteLoadBalancerResponse)
+    response = nullaryResponse DeleteLoadBalancerResponse

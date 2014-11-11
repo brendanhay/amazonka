@@ -61,21 +61,24 @@ deleteIdentity p1 = DeleteIdentity
 -- Account.
 diIdentity :: Lens' DeleteIdentity Text
 diIdentity = lens _diIdentity (\s a -> s { _diIdentity = a })
+instance ToQuery DeleteIdentity
 
 instance ToPath DeleteIdentity where
     toPath = const "/"
 
-instance ToQuery DeleteIdentity
-
 data DeleteIdentityResponse = DeleteIdentityResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteIdentityResponse' constructor.
 deleteIdentityResponse :: DeleteIdentityResponse
 deleteIdentityResponse = DeleteIdentityResponse
+instance FromXML DeleteIdentityResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteIdentityResponse"
 
 instance AWSRequest DeleteIdentity where
     type Sv DeleteIdentity = SES
     type Rs DeleteIdentity = DeleteIdentityResponse
 
     request  = post "DeleteIdentity"
-    response = const (nullaryResponse DeleteIdentityResponse)
+    response = nullaryResponse DeleteIdentityResponse

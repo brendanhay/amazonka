@@ -47,7 +47,7 @@ module Network.AWS.S3.UploadPart
     -- * Response
     , UploadPartOutput
     -- ** Response constructor
-    , uploadPartResponse
+    , uploadPartOutput
     -- ** Response lenses
     , upoETag
     , upoSSECustomerAlgorithm
@@ -209,8 +209,8 @@ data UploadPartOutput = UploadPartOutput
 --
 -- * 'upoServerSideEncryption' @::@ 'Maybe' 'Text'
 --
-uploadPartResponse :: UploadPartOutput
-uploadPartResponse = UploadPartOutput
+uploadPartOutput :: UploadPartOutput
+uploadPartOutput = UploadPartOutput
     { _upoServerSideEncryption = Nothing
     , _upoETag                 = Nothing
     , _upoSSECustomerAlgorithm = Nothing
@@ -240,6 +240,9 @@ upoServerSideEncryption :: Lens' UploadPartOutput (Maybe Text)
 upoServerSideEncryption =
     lens _upoServerSideEncryption (\s a -> s { _upoServerSideEncryption = a })
 
+instance FromXML UploadPartOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UploadPartOutput"
 instance AWSRequest UploadPart where
     type Sv UploadPart = S3
     type Rs UploadPart = UploadPartOutput

@@ -47,7 +47,7 @@ module Network.AWS.EC2.CreateCustomerGateway
     -- * Response
     , CreateCustomerGatewayResult
     -- ** Response constructor
-    , createCustomerGatewayResponse
+    , createCustomerGatewayResult
     -- ** Response lenses
     , ccgrCustomerGateway
     ) where
@@ -102,11 +102,10 @@ ccgPublicIp = lens _ccgPublicIp (\s a -> s { _ccgPublicIp = a })
 -- | The type of VPN connection that this customer gateway supports (ipsec.1).
 ccgType :: Lens' CreateCustomerGateway Text
 ccgType = lens _ccgType (\s a -> s { _ccgType = a })
+instance ToQuery CreateCustomerGateway
 
 instance ToPath CreateCustomerGateway where
     toPath = const "/"
-
-instance ToQuery CreateCustomerGateway
 
 newtype CreateCustomerGatewayResult = CreateCustomerGatewayResult
     { _ccgrCustomerGateway :: Maybe CustomerGateway
@@ -118,8 +117,8 @@ newtype CreateCustomerGatewayResult = CreateCustomerGatewayResult
 --
 -- * 'ccgrCustomerGateway' @::@ 'Maybe' 'CustomerGateway'
 --
-createCustomerGatewayResponse :: CreateCustomerGatewayResult
-createCustomerGatewayResponse = CreateCustomerGatewayResult
+createCustomerGatewayResult :: CreateCustomerGatewayResult
+createCustomerGatewayResult = CreateCustomerGatewayResult
     { _ccgrCustomerGateway = Nothing
     }
 
@@ -127,6 +126,9 @@ createCustomerGatewayResponse = CreateCustomerGatewayResult
 ccgrCustomerGateway :: Lens' CreateCustomerGatewayResult (Maybe CustomerGateway)
 ccgrCustomerGateway =
     lens _ccgrCustomerGateway (\s a -> s { _ccgrCustomerGateway = a })
+instance FromXML CreateCustomerGatewayResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateCustomerGatewayResult"
 
 instance AWSRequest CreateCustomerGateway where
     type Sv CreateCustomerGateway = EC2

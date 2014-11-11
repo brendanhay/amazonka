@@ -70,21 +70,24 @@ deleteQueue p1 = DeleteQueue
 -- | The URL of the Amazon SQS queue to take action on.
 dqQueueUrl :: Lens' DeleteQueue Text
 dqQueueUrl = lens _dqQueueUrl (\s a -> s { _dqQueueUrl = a })
+instance ToQuery DeleteQueue
 
 instance ToPath DeleteQueue where
     toPath = const "/"
 
-instance ToQuery DeleteQueue
-
 data DeleteQueueResponse = DeleteQueueResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteQueueResponse' constructor.
 deleteQueueResponse :: DeleteQueueResponse
 deleteQueueResponse = DeleteQueueResponse
+instance FromXML DeleteQueueResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteQueueResponse"
 
 instance AWSRequest DeleteQueue where
     type Sv DeleteQueue = SQS
     type Rs DeleteQueue = DeleteQueueResponse
 
     request  = post "DeleteQueue"
-    response = const (nullaryResponse DeleteQueueResponse)
+    response = nullaryResponse DeleteQueueResponse

@@ -27,7 +27,7 @@ module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     -- * Request
       RemoveSourceIdentifierFromSubscriptionMessage
     -- ** Request constructor
-    , removeSourceIdentifierFromSubscription
+    , removeSourceIdentifierFromSubscriptionMessage
     -- ** Request lenses
     , rsifsmSourceIdentifier
     , rsifsmSubscriptionName
@@ -35,7 +35,7 @@ module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     -- * Response
     , RemoveSourceIdentifierFromSubscriptionResult
     -- ** Response constructor
-    , removeSourceIdentifierFromSubscriptionResponse
+    , removeSourceIdentifierFromSubscriptionResult
     -- ** Response lenses
     , rsifsrEventSubscription
     ) where
@@ -57,10 +57,10 @@ data RemoveSourceIdentifierFromSubscriptionMessage = RemoveSourceIdentifierFromS
 --
 -- * 'rsifsmSubscriptionName' @::@ 'Text'
 --
-removeSourceIdentifierFromSubscription :: Text -- ^ 'rsifsmSubscriptionName'
-                                       -> Text -- ^ 'rsifsmSourceIdentifier'
-                                       -> RemoveSourceIdentifierFromSubscriptionMessage
-removeSourceIdentifierFromSubscription p1 p2 = RemoveSourceIdentifierFromSubscriptionMessage
+removeSourceIdentifierFromSubscriptionMessage :: Text -- ^ 'rsifsmSubscriptionName'
+                                              -> Text -- ^ 'rsifsmSourceIdentifier'
+                                              -> RemoveSourceIdentifierFromSubscriptionMessage
+removeSourceIdentifierFromSubscriptionMessage p1 p2 = RemoveSourceIdentifierFromSubscriptionMessage
     { _rsifsmSubscriptionName = p1
     , _rsifsmSourceIdentifier = p2
     }
@@ -76,11 +76,10 @@ rsifsmSourceIdentifier =
 rsifsmSubscriptionName :: Lens' RemoveSourceIdentifierFromSubscriptionMessage Text
 rsifsmSubscriptionName =
     lens _rsifsmSubscriptionName (\s a -> s { _rsifsmSubscriptionName = a })
+instance ToQuery RemoveSourceIdentifierFromSubscriptionMessage
 
 instance ToPath RemoveSourceIdentifierFromSubscriptionMessage where
     toPath = const "/"
-
-instance ToQuery RemoveSourceIdentifierFromSubscriptionMessage
 
 newtype RemoveSourceIdentifierFromSubscriptionResult = RemoveSourceIdentifierFromSubscriptionResult
     { _rsifsrEventSubscription :: Maybe EventSubscription
@@ -92,14 +91,17 @@ newtype RemoveSourceIdentifierFromSubscriptionResult = RemoveSourceIdentifierFro
 --
 -- * 'rsifsrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-removeSourceIdentifierFromSubscriptionResponse :: RemoveSourceIdentifierFromSubscriptionResult
-removeSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResult
+removeSourceIdentifierFromSubscriptionResult :: RemoveSourceIdentifierFromSubscriptionResult
+removeSourceIdentifierFromSubscriptionResult = RemoveSourceIdentifierFromSubscriptionResult
     { _rsifsrEventSubscription = Nothing
     }
 
 rsifsrEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResult (Maybe EventSubscription)
 rsifsrEventSubscription =
     lens _rsifsrEventSubscription (\s a -> s { _rsifsrEventSubscription = a })
+instance FromXML RemoveSourceIdentifierFromSubscriptionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RemoveSourceIdentifierFromSubscriptionResult"
 
 instance AWSRequest RemoveSourceIdentifierFromSubscriptionMessage where
     type Sv RemoveSourceIdentifierFromSubscriptionMessage = RDS

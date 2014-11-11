@@ -34,7 +34,7 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     -- * Request
       UpdateEnvironmentMessage
     -- ** Request constructor
-    , updateEnvironment
+    , updateEnvironmentMessage
     -- ** Request lenses
     , uemDescription
     , uemEnvironmentId
@@ -48,7 +48,7 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     -- * Response
     , EnvironmentDescription
     -- ** Response constructor
-    , updateEnvironmentResponse
+    , environmentDescription
     -- ** Response lenses
     , ed1ApplicationName
     , ed1CNAME
@@ -102,8 +102,8 @@ data UpdateEnvironmentMessage = UpdateEnvironmentMessage
 --
 -- * 'uemVersionLabel' @::@ 'Maybe' 'Text'
 --
-updateEnvironment :: UpdateEnvironmentMessage
-updateEnvironment = UpdateEnvironmentMessage
+updateEnvironmentMessage :: UpdateEnvironmentMessage
+updateEnvironmentMessage = UpdateEnvironmentMessage
     { _uemEnvironmentId   = Nothing
     , _uemEnvironmentName = Nothing
     , _uemDescription     = Nothing
@@ -168,11 +168,10 @@ uemTier = lens _uemTier (\s a -> s { _uemTier = a })
 -- found, returns an InvalidParameterValue error.
 uemVersionLabel :: Lens' UpdateEnvironmentMessage (Maybe Text)
 uemVersionLabel = lens _uemVersionLabel (\s a -> s { _uemVersionLabel = a })
+instance ToQuery UpdateEnvironmentMessage
 
 instance ToPath UpdateEnvironmentMessage where
     toPath = const "/"
-
-instance ToQuery UpdateEnvironmentMessage
 
 instance AWSRequest UpdateEnvironmentMessage where
     type Sv UpdateEnvironmentMessage = ElasticBeanstalk

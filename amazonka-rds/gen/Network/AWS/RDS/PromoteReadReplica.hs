@@ -26,7 +26,7 @@ module Network.AWS.RDS.PromoteReadReplica
     -- * Request
       PromoteReadReplicaMessage
     -- ** Request constructor
-    , promoteReadReplica
+    , promoteReadReplicaMessage
     -- ** Request lenses
     , prrmBackupRetentionPeriod
     , prrmDBInstanceIdentifier
@@ -35,7 +35,7 @@ module Network.AWS.RDS.PromoteReadReplica
     -- * Response
     , PromoteReadReplicaResult
     -- ** Response constructor
-    , promoteReadReplicaResponse
+    , promoteReadReplicaResult
     -- ** Response lenses
     , prrrDBInstance
     ) where
@@ -60,9 +60,9 @@ data PromoteReadReplicaMessage = PromoteReadReplicaMessage
 --
 -- * 'prrmPreferredBackupWindow' @::@ 'Maybe' 'Text'
 --
-promoteReadReplica :: Text -- ^ 'prrmDBInstanceIdentifier'
-                   -> PromoteReadReplicaMessage
-promoteReadReplica p1 = PromoteReadReplicaMessage
+promoteReadReplicaMessage :: Text -- ^ 'prrmDBInstanceIdentifier'
+                          -> PromoteReadReplicaMessage
+promoteReadReplicaMessage p1 = PromoteReadReplicaMessage
     { _prrmDBInstanceIdentifier  = p1
     , _prrmBackupRetentionPeriod = Nothing
     , _prrmPreferredBackupWindow = Nothing
@@ -98,11 +98,10 @@ prrmPreferredBackupWindow :: Lens' PromoteReadReplicaMessage (Maybe Text)
 prrmPreferredBackupWindow =
     lens _prrmPreferredBackupWindow
         (\s a -> s { _prrmPreferredBackupWindow = a })
+instance ToQuery PromoteReadReplicaMessage
 
 instance ToPath PromoteReadReplicaMessage where
     toPath = const "/"
-
-instance ToQuery PromoteReadReplicaMessage
 
 newtype PromoteReadReplicaResult = PromoteReadReplicaResult
     { _prrrDBInstance :: Maybe DBInstance
@@ -114,13 +113,16 @@ newtype PromoteReadReplicaResult = PromoteReadReplicaResult
 --
 -- * 'prrrDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-promoteReadReplicaResponse :: PromoteReadReplicaResult
-promoteReadReplicaResponse = PromoteReadReplicaResult
+promoteReadReplicaResult :: PromoteReadReplicaResult
+promoteReadReplicaResult = PromoteReadReplicaResult
     { _prrrDBInstance = Nothing
     }
 
 prrrDBInstance :: Lens' PromoteReadReplicaResult (Maybe DBInstance)
 prrrDBInstance = lens _prrrDBInstance (\s a -> s { _prrrDBInstance = a })
+instance FromXML PromoteReadReplicaResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PromoteReadReplicaResult"
 
 instance AWSRequest PromoteReadReplicaMessage where
     type Sv PromoteReadReplicaMessage = RDS

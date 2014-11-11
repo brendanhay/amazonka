@@ -28,7 +28,7 @@ module Network.AWS.CloudWatch.DisableAlarmActions
     -- * Request
       DisableAlarmActionsInput
     -- ** Request constructor
-    , disableAlarmActions
+    , disableAlarmActionsInput
     -- ** Request lenses
     , daaiAlarmNames
 
@@ -52,29 +52,32 @@ newtype DisableAlarmActionsInput = DisableAlarmActionsInput
 --
 -- * 'daaiAlarmNames' @::@ ['Text']
 --
-disableAlarmActions :: DisableAlarmActionsInput
-disableAlarmActions = DisableAlarmActionsInput
+disableAlarmActionsInput :: DisableAlarmActionsInput
+disableAlarmActionsInput = DisableAlarmActionsInput
     { _daaiAlarmNames = mempty
     }
 
 -- | The names of the alarms to disable actions for.
 daaiAlarmNames :: Lens' DisableAlarmActionsInput [Text]
 daaiAlarmNames = lens _daaiAlarmNames (\s a -> s { _daaiAlarmNames = a })
+instance ToQuery DisableAlarmActionsInput
 
 instance ToPath DisableAlarmActionsInput where
     toPath = const "/"
 
-instance ToQuery DisableAlarmActionsInput
-
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DisableAlarmActionsResponse' constructor.
 disableAlarmActionsResponse :: DisableAlarmActionsResponse
 disableAlarmActionsResponse = DisableAlarmActionsResponse
+instance FromXML DisableAlarmActionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DisableAlarmActionsResponse"
 
 instance AWSRequest DisableAlarmActionsInput where
     type Sv DisableAlarmActionsInput = CloudWatch
     type Rs DisableAlarmActionsInput = DisableAlarmActionsResponse
 
     request  = post "DisableAlarmActions"
-    response = const (nullaryResponse DisableAlarmActionsResponse)
+    response = nullaryResponse DisableAlarmActionsResponse

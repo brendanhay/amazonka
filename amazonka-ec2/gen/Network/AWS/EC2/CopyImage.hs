@@ -42,7 +42,7 @@ module Network.AWS.EC2.CopyImage
     -- * Response
     , CopyImageResult
     -- ** Response constructor
-    , copyImageResponse
+    , copyImageResult
     -- ** Response lenses
     , cir1ImageId
     ) where
@@ -113,11 +113,10 @@ ciSourceImageId = lens _ciSourceImageId (\s a -> s { _ciSourceImageId = a })
 -- | The name of the region that contains the AMI to copy.
 ciSourceRegion :: Lens' CopyImage Text
 ciSourceRegion = lens _ciSourceRegion (\s a -> s { _ciSourceRegion = a })
+instance ToQuery CopyImage
 
 instance ToPath CopyImage where
     toPath = const "/"
-
-instance ToQuery CopyImage
 
 newtype CopyImageResult = CopyImageResult
     { _cir1ImageId :: Maybe Text
@@ -129,14 +128,17 @@ newtype CopyImageResult = CopyImageResult
 --
 -- * 'cir1ImageId' @::@ 'Maybe' 'Text'
 --
-copyImageResponse :: CopyImageResult
-copyImageResponse = CopyImageResult
+copyImageResult :: CopyImageResult
+copyImageResult = CopyImageResult
     { _cir1ImageId = Nothing
     }
 
 -- | The ID of the new AMI.
 cir1ImageId :: Lens' CopyImageResult (Maybe Text)
 cir1ImageId = lens _cir1ImageId (\s a -> s { _cir1ImageId = a })
+instance FromXML CopyImageResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CopyImageResult"
 
 instance AWSRequest CopyImage where
     type Sv CopyImage = EC2

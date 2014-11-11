@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     -- * Request
       DescribeCacheParameterGroupsMessage
     -- ** Request constructor
-    , describeCacheParameterGroups
+    , describeCacheParameterGroupsMessage
     -- ** Request lenses
     , dcpgmCacheParameterGroupName
     , dcpgmMarker
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     -- * Response
     , CacheParameterGroupsMessage
     -- ** Response constructor
-    , describeCacheParameterGroupsResponse
+    , cacheParameterGroupsMessage
     -- ** Response lenses
     , cpgmCacheParameterGroups
     , cpgmMarker
@@ -63,8 +63,8 @@ data DescribeCacheParameterGroupsMessage = DescribeCacheParameterGroupsMessage
 --
 -- * 'dcpgmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeCacheParameterGroups :: DescribeCacheParameterGroupsMessage
-describeCacheParameterGroups = DescribeCacheParameterGroupsMessage
+describeCacheParameterGroupsMessage :: DescribeCacheParameterGroupsMessage
+describeCacheParameterGroupsMessage = DescribeCacheParameterGroupsMessage
     { _dcpgmCacheParameterGroupName = Nothing
     , _dcpgmMaxRecords              = Nothing
     , _dcpgmMarker                  = Nothing
@@ -89,11 +89,10 @@ dcpgmMarker = lens _dcpgmMarker (\s a -> s { _dcpgmMarker = a })
 -- Constraints: minimum 20; maximum 100.
 dcpgmMaxRecords :: Lens' DescribeCacheParameterGroupsMessage (Maybe Int)
 dcpgmMaxRecords = lens _dcpgmMaxRecords (\s a -> s { _dcpgmMaxRecords = a })
+instance ToQuery DescribeCacheParameterGroupsMessage
 
 instance ToPath DescribeCacheParameterGroupsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeCacheParameterGroupsMessage
 
 data CacheParameterGroupsMessage = CacheParameterGroupsMessage
     { _cpgmCacheParameterGroups :: [CacheParameterGroup]
@@ -108,8 +107,8 @@ data CacheParameterGroupsMessage = CacheParameterGroupsMessage
 --
 -- * 'cpgmMarker' @::@ 'Maybe' 'Text'
 --
-describeCacheParameterGroupsResponse :: CacheParameterGroupsMessage
-describeCacheParameterGroupsResponse = CacheParameterGroupsMessage
+cacheParameterGroupsMessage :: CacheParameterGroupsMessage
+cacheParameterGroupsMessage = CacheParameterGroupsMessage
     { _cpgmMarker               = Nothing
     , _cpgmCacheParameterGroups = mempty
     }
@@ -124,6 +123,9 @@ cpgmCacheParameterGroups =
 -- | Provides an identifier to allow retrieval of paginated results.
 cpgmMarker :: Lens' CacheParameterGroupsMessage (Maybe Text)
 cpgmMarker = lens _cpgmMarker (\s a -> s { _cpgmMarker = a })
+instance FromXML CacheParameterGroupsMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CacheParameterGroupsMessage"
 
 instance AWSRequest DescribeCacheParameterGroupsMessage where
     type Sv DescribeCacheParameterGroupsMessage = ElastiCache

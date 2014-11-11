@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     -- * Response
     , DescribeLifecycleHookTypesAnswer
     -- ** Response constructor
-    , describeLifecycleHookTypesResponse
+    , describeLifecycleHookTypesAnswer
     -- ** Response lenses
     , dlhtaLifecycleHookTypes
     ) where
@@ -41,15 +41,15 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
 data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeLifecycleHookTypes' constructor.
 describeLifecycleHookTypes :: DescribeLifecycleHookTypes
 describeLifecycleHookTypes = DescribeLifecycleHookTypes
+instance ToQuery DescribeLifecycleHookTypes
 
 instance ToPath DescribeLifecycleHookTypes where
     toPath = const "/"
-
-instance ToQuery DescribeLifecycleHookTypes
 
 newtype DescribeLifecycleHookTypesAnswer = DescribeLifecycleHookTypesAnswer
     { _dlhtaLifecycleHookTypes :: [Text]
@@ -61,8 +61,8 @@ newtype DescribeLifecycleHookTypesAnswer = DescribeLifecycleHookTypesAnswer
 --
 -- * 'dlhtaLifecycleHookTypes' @::@ ['Text']
 --
-describeLifecycleHookTypesResponse :: DescribeLifecycleHookTypesAnswer
-describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesAnswer
+describeLifecycleHookTypesAnswer :: DescribeLifecycleHookTypesAnswer
+describeLifecycleHookTypesAnswer = DescribeLifecycleHookTypesAnswer
     { _dlhtaLifecycleHookTypes = mempty
     }
 
@@ -72,6 +72,9 @@ describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesAnswer
 dlhtaLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesAnswer [Text]
 dlhtaLifecycleHookTypes =
     lens _dlhtaLifecycleHookTypes (\s a -> s { _dlhtaLifecycleHookTypes = a })
+instance FromXML DescribeLifecycleHookTypesAnswer where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeLifecycleHookTypesAnswer"
 
 instance AWSRequest DescribeLifecycleHookTypes where
     type Sv DescribeLifecycleHookTypes = AutoScaling

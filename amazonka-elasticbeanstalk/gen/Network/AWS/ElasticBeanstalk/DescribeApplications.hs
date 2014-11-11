@@ -26,14 +26,14 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
     -- * Request
       DescribeApplicationsMessage
     -- ** Request constructor
-    , describeApplications
+    , describeApplicationsMessage
     -- ** Request lenses
     , damApplicationNames
 
     -- * Response
     , ApplicationDescriptionsMessage
     -- ** Response constructor
-    , describeApplicationsResponse
+    , applicationDescriptionsMessage
     -- ** Response lenses
     , admApplications
     ) where
@@ -52,8 +52,8 @@ newtype DescribeApplicationsMessage = DescribeApplicationsMessage
 --
 -- * 'damApplicationNames' @::@ ['Text']
 --
-describeApplications :: DescribeApplicationsMessage
-describeApplications = DescribeApplicationsMessage
+describeApplicationsMessage :: DescribeApplicationsMessage
+describeApplicationsMessage = DescribeApplicationsMessage
     { _damApplicationNames = mempty
     }
 
@@ -62,11 +62,10 @@ describeApplications = DescribeApplicationsMessage
 damApplicationNames :: Lens' DescribeApplicationsMessage [Text]
 damApplicationNames =
     lens _damApplicationNames (\s a -> s { _damApplicationNames = a })
+instance ToQuery DescribeApplicationsMessage
 
 instance ToPath DescribeApplicationsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeApplicationsMessage
 
 newtype ApplicationDescriptionsMessage = ApplicationDescriptionsMessage
     { _admApplications :: [ApplicationDescription]
@@ -78,14 +77,17 @@ newtype ApplicationDescriptionsMessage = ApplicationDescriptionsMessage
 --
 -- * 'admApplications' @::@ ['ApplicationDescription']
 --
-describeApplicationsResponse :: ApplicationDescriptionsMessage
-describeApplicationsResponse = ApplicationDescriptionsMessage
+applicationDescriptionsMessage :: ApplicationDescriptionsMessage
+applicationDescriptionsMessage = ApplicationDescriptionsMessage
     { _admApplications = mempty
     }
 
 -- | This parameter contains a list of ApplicationDescription.
 admApplications :: Lens' ApplicationDescriptionsMessage [ApplicationDescription]
 admApplications = lens _admApplications (\s a -> s { _admApplications = a })
+instance FromXML ApplicationDescriptionsMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ApplicationDescriptionsMessage"
 
 instance AWSRequest DescribeApplicationsMessage where
     type Sv DescribeApplicationsMessage = ElasticBeanstalk

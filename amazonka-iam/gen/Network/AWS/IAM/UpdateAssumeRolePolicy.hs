@@ -71,21 +71,24 @@ uarpPolicyDocument =
 -- | The name of the role to update.
 uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
 uarpRoleName = lens _uarpRoleName (\s a -> s { _uarpRoleName = a })
+instance ToQuery UpdateAssumeRolePolicy
 
 instance ToPath UpdateAssumeRolePolicy where
     toPath = const "/"
 
-instance ToQuery UpdateAssumeRolePolicy
-
 data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateAssumeRolePolicyResponse' constructor.
 updateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse
 updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
+instance FromXML UpdateAssumeRolePolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateAssumeRolePolicyResponse"
 
 instance AWSRequest UpdateAssumeRolePolicy where
     type Sv UpdateAssumeRolePolicy = IAM
     type Rs UpdateAssumeRolePolicy = UpdateAssumeRolePolicyResponse
 
     request  = post "UpdateAssumeRolePolicy"
-    response = const (nullaryResponse UpdateAssumeRolePolicyResponse)
+    response = nullaryResponse UpdateAssumeRolePolicyResponse

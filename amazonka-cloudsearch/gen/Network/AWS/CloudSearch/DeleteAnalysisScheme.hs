@@ -72,11 +72,10 @@ dasAnalysisSchemeName =
 
 dasDomainName :: Lens' DeleteAnalysisScheme Text
 dasDomainName = lens _dasDomainName (\s a -> s { _dasDomainName = a })
+instance ToQuery DeleteAnalysisScheme
 
 instance ToPath DeleteAnalysisScheme where
     toPath = const "/"
-
-instance ToQuery DeleteAnalysisScheme
 
 newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
     { _dasrAnalysisScheme :: AnalysisSchemeStatus
@@ -98,6 +97,9 @@ deleteAnalysisSchemeResponse p1 = DeleteAnalysisSchemeResponse
 dasrAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
 dasrAnalysisScheme =
     lens _dasrAnalysisScheme (\s a -> s { _dasrAnalysisScheme = a })
+instance FromXML DeleteAnalysisSchemeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteAnalysisSchemeResponse"
 
 instance AWSRequest DeleteAnalysisScheme where
     type Sv DeleteAnalysisScheme = CloudSearch

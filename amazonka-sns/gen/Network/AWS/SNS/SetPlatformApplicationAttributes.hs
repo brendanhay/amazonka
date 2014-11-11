@@ -28,7 +28,7 @@ module Network.AWS.SNS.SetPlatformApplicationAttributes
     -- * Request
       SetPlatformApplicationAttributesInput
     -- ** Request constructor
-    , setPlatformApplicationAttributes
+    , setPlatformApplicationAttributesInput
     -- ** Request lenses
     , spaaiAttributes
     , spaaiPlatformApplicationArn
@@ -56,9 +56,9 @@ data SetPlatformApplicationAttributesInput = SetPlatformApplicationAttributesInp
 --
 -- * 'spaaiPlatformApplicationArn' @::@ 'Text'
 --
-setPlatformApplicationAttributes :: Text -- ^ 'spaaiPlatformApplicationArn'
-                                 -> SetPlatformApplicationAttributesInput
-setPlatformApplicationAttributes p1 = SetPlatformApplicationAttributesInput
+setPlatformApplicationAttributesInput :: Text -- ^ 'spaaiPlatformApplicationArn'
+                                      -> SetPlatformApplicationAttributesInput
+setPlatformApplicationAttributesInput p1 = SetPlatformApplicationAttributesInput
     { _spaaiPlatformApplicationArn = p1
     , _spaaiAttributes             = mempty
     }
@@ -87,21 +87,24 @@ spaaiPlatformApplicationArn :: Lens' SetPlatformApplicationAttributesInput Text
 spaaiPlatformApplicationArn =
     lens _spaaiPlatformApplicationArn
         (\s a -> s { _spaaiPlatformApplicationArn = a })
+instance ToQuery SetPlatformApplicationAttributesInput
 
 instance ToPath SetPlatformApplicationAttributesInput where
     toPath = const "/"
 
-instance ToQuery SetPlatformApplicationAttributesInput
-
 data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetPlatformApplicationAttributesResponse' constructor.
 setPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse
 setPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
+instance FromXML SetPlatformApplicationAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SetPlatformApplicationAttributesResponse"
 
 instance AWSRequest SetPlatformApplicationAttributesInput where
     type Sv SetPlatformApplicationAttributesInput = SNS
     type Rs SetPlatformApplicationAttributesInput = SetPlatformApplicationAttributesResponse
 
     request  = post "SetPlatformApplicationAttributes"
-    response = const (nullaryResponse SetPlatformApplicationAttributesResponse)
+    response = nullaryResponse SetPlatformApplicationAttributesResponse

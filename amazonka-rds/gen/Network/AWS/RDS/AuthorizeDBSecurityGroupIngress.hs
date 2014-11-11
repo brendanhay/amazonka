@@ -34,7 +34,7 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     -- * Request
       AuthorizeDBSecurityGroupIngressMessage
     -- ** Request constructor
-    , authorizeDBSecurityGroupIngress
+    , authorizeDBSecurityGroupIngressMessage
     -- ** Request lenses
     , adbsgimCIDRIP
     , adbsgimDBSecurityGroupName
@@ -45,7 +45,7 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     -- * Response
     , AuthorizeDBSecurityGroupIngressResult
     -- ** Response constructor
-    , authorizeDBSecurityGroupIngressResponse
+    , authorizeDBSecurityGroupIngressResult
     -- ** Response lenses
     , adbsgirDBSecurityGroup
     ) where
@@ -76,9 +76,9 @@ data AuthorizeDBSecurityGroupIngressMessage = AuthorizeDBSecurityGroupIngressMes
 --
 -- * 'adbsgimEC2SecurityGroupOwnerId' @::@ 'Maybe' 'Text'
 --
-authorizeDBSecurityGroupIngress :: Text -- ^ 'adbsgimDBSecurityGroupName'
-                                -> AuthorizeDBSecurityGroupIngressMessage
-authorizeDBSecurityGroupIngress p1 = AuthorizeDBSecurityGroupIngressMessage
+authorizeDBSecurityGroupIngressMessage :: Text -- ^ 'adbsgimDBSecurityGroupName'
+                                       -> AuthorizeDBSecurityGroupIngressMessage
+authorizeDBSecurityGroupIngressMessage p1 = AuthorizeDBSecurityGroupIngressMessage
     { _adbsgimDBSecurityGroupName     = p1
     , _adbsgimCIDRIP                  = Nothing
     , _adbsgimEC2SecurityGroupName    = Nothing
@@ -121,11 +121,10 @@ adbsgimEC2SecurityGroupOwnerId :: Lens' AuthorizeDBSecurityGroupIngressMessage (
 adbsgimEC2SecurityGroupOwnerId =
     lens _adbsgimEC2SecurityGroupOwnerId
         (\s a -> s { _adbsgimEC2SecurityGroupOwnerId = a })
+instance ToQuery AuthorizeDBSecurityGroupIngressMessage
 
 instance ToPath AuthorizeDBSecurityGroupIngressMessage where
     toPath = const "/"
-
-instance ToQuery AuthorizeDBSecurityGroupIngressMessage
 
 newtype AuthorizeDBSecurityGroupIngressResult = AuthorizeDBSecurityGroupIngressResult
     { _adbsgirDBSecurityGroup :: Maybe DBSecurityGroup
@@ -137,14 +136,17 @@ newtype AuthorizeDBSecurityGroupIngressResult = AuthorizeDBSecurityGroupIngressR
 --
 -- * 'adbsgirDBSecurityGroup' @::@ 'Maybe' 'DBSecurityGroup'
 --
-authorizeDBSecurityGroupIngressResponse :: AuthorizeDBSecurityGroupIngressResult
-authorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResult
+authorizeDBSecurityGroupIngressResult :: AuthorizeDBSecurityGroupIngressResult
+authorizeDBSecurityGroupIngressResult = AuthorizeDBSecurityGroupIngressResult
     { _adbsgirDBSecurityGroup = Nothing
     }
 
 adbsgirDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResult (Maybe DBSecurityGroup)
 adbsgirDBSecurityGroup =
     lens _adbsgirDBSecurityGroup (\s a -> s { _adbsgirDBSecurityGroup = a })
+instance FromXML AuthorizeDBSecurityGroupIngressResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AuthorizeDBSecurityGroupIngressResult"
 
 instance AWSRequest AuthorizeDBSecurityGroupIngressMessage where
     type Sv AuthorizeDBSecurityGroupIngressMessage = RDS

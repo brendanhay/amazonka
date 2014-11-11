@@ -112,11 +112,10 @@ uscServerCertificateName :: Lens' UploadServerCertificate Text
 uscServerCertificateName =
     lens _uscServerCertificateName
         (\s a -> s { _uscServerCertificateName = a })
+instance ToQuery UploadServerCertificate
 
 instance ToPath UploadServerCertificate where
     toPath = const "/"
-
-instance ToQuery UploadServerCertificate
 
 newtype UploadServerCertificateResponse = UploadServerCertificateResponse
     { _uscrServerCertificateMetadata :: Maybe ServerCertificateMetadata
@@ -139,6 +138,9 @@ uscrServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe Se
 uscrServerCertificateMetadata =
     lens _uscrServerCertificateMetadata
         (\s a -> s { _uscrServerCertificateMetadata = a })
+instance FromXML UploadServerCertificateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UploadServerCertificateResponse"
 
 instance AWSRequest UploadServerCertificate where
     type Sv UploadServerCertificate = IAM

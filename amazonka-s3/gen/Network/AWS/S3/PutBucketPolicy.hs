@@ -96,14 +96,18 @@ instance ToBody PutBucketPolicy where
     toBody = toBody . encodeXML . _pbpPolicy
 
 data PutBucketPolicyResponse = PutBucketPolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketPolicyResponse' constructor.
 putBucketPolicyResponse :: PutBucketPolicyResponse
 putBucketPolicyResponse = PutBucketPolicyResponse
 
+instance FromXML PutBucketPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutBucketPolicyResponse"
 instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3
     type Rs PutBucketPolicy = PutBucketPolicyResponse
 
     request  = put
-    response = const (nullaryResponse PutBucketPolicyResponse)
+    response = nullaryResponse PutBucketPolicyResponse

@@ -37,7 +37,7 @@ module Network.AWS.CloudWatch.PutMetricData
     -- * Request
       PutMetricDataInput
     -- ** Request constructor
-    , putMetricData
+    , putMetricDataInput
     -- ** Request lenses
     , pmdiMetricData
     , pmdiNamespace
@@ -65,9 +65,9 @@ data PutMetricDataInput = PutMetricDataInput
 --
 -- * 'pmdiNamespace' @::@ 'Text'
 --
-putMetricData :: Text -- ^ 'pmdiNamespace'
-              -> PutMetricDataInput
-putMetricData p1 = PutMetricDataInput
+putMetricDataInput :: Text -- ^ 'pmdiNamespace'
+                   -> PutMetricDataInput
+putMetricDataInput p1 = PutMetricDataInput
     { _pmdiNamespace  = p1
     , _pmdiMetricData = mempty
     }
@@ -79,21 +79,24 @@ pmdiMetricData = lens _pmdiMetricData (\s a -> s { _pmdiMetricData = a })
 -- | The namespace for the metric data.
 pmdiNamespace :: Lens' PutMetricDataInput Text
 pmdiNamespace = lens _pmdiNamespace (\s a -> s { _pmdiNamespace = a })
+instance ToQuery PutMetricDataInput
 
 instance ToPath PutMetricDataInput where
     toPath = const "/"
 
-instance ToQuery PutMetricDataInput
-
 data PutMetricDataResponse = PutMetricDataResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutMetricDataResponse' constructor.
 putMetricDataResponse :: PutMetricDataResponse
 putMetricDataResponse = PutMetricDataResponse
+instance FromXML PutMetricDataResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutMetricDataResponse"
 
 instance AWSRequest PutMetricDataInput where
     type Sv PutMetricDataInput = CloudWatch
     type Rs PutMetricDataInput = PutMetricDataResponse
 
     request  = post "PutMetricData"
-    response = const (nullaryResponse PutMetricDataResponse)
+    response = nullaryResponse PutMetricDataResponse

@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeOptionGroups
     -- * Request
       DescribeOptionGroupsMessage
     -- ** Request constructor
-    , describeOptionGroups
+    , describeOptionGroupsMessage
     -- ** Request lenses
     , dogm1EngineName
     , dogm1Filters
@@ -38,7 +38,7 @@ module Network.AWS.RDS.DescribeOptionGroups
     -- * Response
     , OptionGroups
     -- ** Response constructor
-    , describeOptionGroupsResponse
+    , optionGroups
     -- ** Response lenses
     , ogMarker
     , ogOptionGroupsList
@@ -73,8 +73,8 @@ data DescribeOptionGroupsMessage = DescribeOptionGroupsMessage
 --
 -- * 'dogm1OptionGroupName' @::@ 'Maybe' 'Text'
 --
-describeOptionGroups :: DescribeOptionGroupsMessage
-describeOptionGroups = DescribeOptionGroupsMessage
+describeOptionGroupsMessage :: DescribeOptionGroupsMessage
+describeOptionGroupsMessage = DescribeOptionGroupsMessage
     { _dogm1OptionGroupName    = Nothing
     , _dogm1Filters            = mempty
     , _dogm1Marker             = Nothing
@@ -117,11 +117,10 @@ dogm1MaxRecords = lens _dogm1MaxRecords (\s a -> s { _dogm1MaxRecords = a })
 dogm1OptionGroupName :: Lens' DescribeOptionGroupsMessage (Maybe Text)
 dogm1OptionGroupName =
     lens _dogm1OptionGroupName (\s a -> s { _dogm1OptionGroupName = a })
+instance ToQuery DescribeOptionGroupsMessage
 
 instance ToPath DescribeOptionGroupsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeOptionGroupsMessage
 
 data OptionGroups = OptionGroups
     { _ogMarker           :: Maybe Text
@@ -136,8 +135,8 @@ data OptionGroups = OptionGroups
 --
 -- * 'ogOptionGroupsList' @::@ ['OptionGroup']
 --
-describeOptionGroupsResponse :: OptionGroups
-describeOptionGroupsResponse = OptionGroups
+optionGroups :: OptionGroups
+optionGroups = OptionGroups
     { _ogOptionGroupsList = mempty
     , _ogMarker           = Nothing
     }
@@ -152,6 +151,9 @@ ogMarker = lens _ogMarker (\s a -> s { _ogMarker = a })
 ogOptionGroupsList :: Lens' OptionGroups [OptionGroup]
 ogOptionGroupsList =
     lens _ogOptionGroupsList (\s a -> s { _ogOptionGroupsList = a })
+instance FromXML OptionGroups where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "OptionGroups"
 
 instance AWSRequest DescribeOptionGroupsMessage where
     type Sv DescribeOptionGroupsMessage = RDS

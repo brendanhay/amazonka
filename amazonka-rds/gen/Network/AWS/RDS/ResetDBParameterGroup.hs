@@ -32,7 +32,7 @@ module Network.AWS.RDS.ResetDBParameterGroup
     -- * Request
       ResetDBParameterGroupMessage
     -- ** Request constructor
-    , resetDBParameterGroup
+    , resetDBParameterGroupMessage
     -- ** Request lenses
     , rdbpgmDBParameterGroupName
     , rdbpgmParameters
@@ -41,7 +41,7 @@ module Network.AWS.RDS.ResetDBParameterGroup
     -- * Response
     , DBParameterGroupNameMessage
     -- ** Response constructor
-    , resetDBParameterGroupResponse
+    , dbparameterGroupNameMessage
     -- ** Response lenses
     , dbpgnmDBParameterGroupName
     ) where
@@ -66,9 +66,9 @@ data ResetDBParameterGroupMessage = ResetDBParameterGroupMessage
 --
 -- * 'rdbpgmResetAllParameters' @::@ 'Maybe' 'Bool'
 --
-resetDBParameterGroup :: Text -- ^ 'rdbpgmDBParameterGroupName'
-                      -> ResetDBParameterGroupMessage
-resetDBParameterGroup p1 = ResetDBParameterGroupMessage
+resetDBParameterGroupMessage :: Text -- ^ 'rdbpgmDBParameterGroupName'
+                             -> ResetDBParameterGroupMessage
+resetDBParameterGroupMessage p1 = ResetDBParameterGroupMessage
     { _rdbpgmDBParameterGroupName = p1
     , _rdbpgmResetAllParameters   = Nothing
     , _rdbpgmParameters           = mempty
@@ -99,11 +99,10 @@ rdbpgmResetAllParameters :: Lens' ResetDBParameterGroupMessage (Maybe Bool)
 rdbpgmResetAllParameters =
     lens _rdbpgmResetAllParameters
         (\s a -> s { _rdbpgmResetAllParameters = a })
+instance ToQuery ResetDBParameterGroupMessage
 
 instance ToPath ResetDBParameterGroupMessage where
     toPath = const "/"
-
-instance ToQuery ResetDBParameterGroupMessage
 
 instance AWSRequest ResetDBParameterGroupMessage where
     type Sv ResetDBParameterGroupMessage = RDS

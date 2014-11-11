@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     -- * Request
       ListStreamingDistributions
     -- ** Request constructor
-    , listStreamingDistributions2014_05_31
+    , listStreamingDistributions
     -- ** Request lenses
     , lsdMarker
     , lsdMaxItems
@@ -34,7 +34,7 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     -- * Response
     , ListStreamingDistributionsResult
     -- ** Response constructor
-    , listStreamingDistributions2014_05_31Response
+    , listStreamingDistributionsResult
     -- ** Response lenses
     , lsdrStreamingDistributionList
     ) where
@@ -56,8 +56,8 @@ data ListStreamingDistributions = ListStreamingDistributions
 --
 -- * 'lsdMaxItems' @::@ 'Maybe' 'Text'
 --
-listStreamingDistributions2014_05_31 :: ListStreamingDistributions
-listStreamingDistributions2014_05_31 = ListStreamingDistributions
+listStreamingDistributions :: ListStreamingDistributions
+listStreamingDistributions = ListStreamingDistributions
     { _lsdMarker   = Nothing
     , _lsdMaxItems = Nothing
     }
@@ -96,8 +96,8 @@ newtype ListStreamingDistributionsResult = ListStreamingDistributionsResult
 --
 -- * 'lsdrStreamingDistributionList' @::@ 'Maybe' 'StreamingDistributionList'
 --
-listStreamingDistributions2014_05_31Response :: ListStreamingDistributionsResult
-listStreamingDistributions2014_05_31Response = ListStreamingDistributionsResult
+listStreamingDistributionsResult :: ListStreamingDistributionsResult
+listStreamingDistributionsResult = ListStreamingDistributionsResult
     { _lsdrStreamingDistributionList = Nothing
     }
 
@@ -107,6 +107,9 @@ lsdrStreamingDistributionList =
     lens _lsdrStreamingDistributionList
         (\s a -> s { _lsdrStreamingDistributionList = a })
 
+instance FromXML ListStreamingDistributionsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListStreamingDistributionsResult"
 instance AWSRequest ListStreamingDistributions where
     type Sv ListStreamingDistributions = CloudFront
     type Rs ListStreamingDistributions = ListStreamingDistributionsResult

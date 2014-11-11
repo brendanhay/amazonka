@@ -71,14 +71,18 @@ instance ToQuery DeleteBucketLifecycle where
 instance ToHeaders DeleteBucketLifecycle
 
 data DeleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteBucketLifecycleResponse' constructor.
 deleteBucketLifecycleResponse :: DeleteBucketLifecycleResponse
 deleteBucketLifecycleResponse = DeleteBucketLifecycleResponse
 
+instance FromXML DeleteBucketLifecycleResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteBucketLifecycleResponse"
 instance AWSRequest DeleteBucketLifecycle where
     type Sv DeleteBucketLifecycle = S3
     type Rs DeleteBucketLifecycle = DeleteBucketLifecycleResponse
 
     request  = delete
-    response = const (nullaryResponse DeleteBucketLifecycleResponse)
+    response = nullaryResponse DeleteBucketLifecycleResponse

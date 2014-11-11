@@ -30,7 +30,7 @@ module Network.AWS.ELB.DescribeInstanceHealth
     -- * Request
       DescribeEndPointStateInput
     -- ** Request constructor
-    , describeInstanceHealth
+    , describeEndPointStateInput
     -- ** Request lenses
     , depsiInstances
     , depsiLoadBalancerName
@@ -38,7 +38,7 @@ module Network.AWS.ELB.DescribeInstanceHealth
     -- * Response
     , DescribeEndPointStateOutput
     -- ** Response constructor
-    , describeInstanceHealthResponse
+    , describeEndPointStateOutput
     -- ** Response lenses
     , depsoInstanceStates
     ) where
@@ -60,9 +60,9 @@ data DescribeEndPointStateInput = DescribeEndPointStateInput
 --
 -- * 'depsiLoadBalancerName' @::@ 'Text'
 --
-describeInstanceHealth :: Text -- ^ 'depsiLoadBalancerName'
-                       -> DescribeEndPointStateInput
-describeInstanceHealth p1 = DescribeEndPointStateInput
+describeEndPointStateInput :: Text -- ^ 'depsiLoadBalancerName'
+                           -> DescribeEndPointStateInput
+describeEndPointStateInput p1 = DescribeEndPointStateInput
     { _depsiLoadBalancerName = p1
     , _depsiInstances        = mempty
     }
@@ -75,11 +75,10 @@ depsiInstances = lens _depsiInstances (\s a -> s { _depsiInstances = a })
 depsiLoadBalancerName :: Lens' DescribeEndPointStateInput Text
 depsiLoadBalancerName =
     lens _depsiLoadBalancerName (\s a -> s { _depsiLoadBalancerName = a })
+instance ToQuery DescribeEndPointStateInput
 
 instance ToPath DescribeEndPointStateInput where
     toPath = const "/"
-
-instance ToQuery DescribeEndPointStateInput
 
 newtype DescribeEndPointStateOutput = DescribeEndPointStateOutput
     { _depsoInstanceStates :: [InstanceState]
@@ -91,8 +90,8 @@ newtype DescribeEndPointStateOutput = DescribeEndPointStateOutput
 --
 -- * 'depsoInstanceStates' @::@ ['InstanceState']
 --
-describeInstanceHealthResponse :: DescribeEndPointStateOutput
-describeInstanceHealthResponse = DescribeEndPointStateOutput
+describeEndPointStateOutput :: DescribeEndPointStateOutput
+describeEndPointStateOutput = DescribeEndPointStateOutput
     { _depsoInstanceStates = mempty
     }
 
@@ -100,6 +99,9 @@ describeInstanceHealthResponse = DescribeEndPointStateOutput
 depsoInstanceStates :: Lens' DescribeEndPointStateOutput [InstanceState]
 depsoInstanceStates =
     lens _depsoInstanceStates (\s a -> s { _depsoInstanceStates = a })
+instance FromXML DescribeEndPointStateOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeEndPointStateOutput"
 
 instance AWSRequest DescribeEndPointStateInput where
     type Sv DescribeEndPointStateInput = ELB

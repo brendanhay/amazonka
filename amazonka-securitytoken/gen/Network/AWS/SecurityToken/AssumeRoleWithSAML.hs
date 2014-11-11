@@ -159,11 +159,10 @@ arwsamlRoleArn = lens _arwsamlRoleArn (\s a -> s { _arwsamlRoleArn = a })
 arwsamlSAMLAssertion :: Lens' AssumeRoleWithSAML Text
 arwsamlSAMLAssertion =
     lens _arwsamlSAMLAssertion (\s a -> s { _arwsamlSAMLAssertion = a })
+instance ToQuery AssumeRoleWithSAML
 
 instance ToPath AssumeRoleWithSAML where
     toPath = const "/"
-
-instance ToQuery AssumeRoleWithSAML
 
 data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
     { _arwsamlrAssumedRoleUser  :: Maybe AssumedRoleUser
@@ -258,6 +257,9 @@ arwsamlrSubject = lens _arwsamlrSubject (\s a -> s { _arwsamlrSubject = a })
 arwsamlrSubjectType :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrSubjectType =
     lens _arwsamlrSubjectType (\s a -> s { _arwsamlrSubjectType = a })
+instance FromXML AssumeRoleWithSAMLResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AssumeRoleWithSAMLResponse"
 
 instance AWSRequest AssumeRoleWithSAML where
     type Sv AssumeRoleWithSAML = SecurityToken

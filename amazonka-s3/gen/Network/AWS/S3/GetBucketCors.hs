@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketCors
     -- * Response
     , GetBucketCorsOutput
     -- ** Response constructor
-    , getBucketCorsResponse
+    , getBucketCorsOutput
     -- ** Response lenses
     , gbcoCORSRules
     ) where
@@ -82,14 +82,17 @@ newtype GetBucketCorsOutput = GetBucketCorsOutput
 --
 -- * 'gbcoCORSRules' @::@ ['CORSRule']
 --
-getBucketCorsResponse :: GetBucketCorsOutput
-getBucketCorsResponse = GetBucketCorsOutput
+getBucketCorsOutput :: GetBucketCorsOutput
+getBucketCorsOutput = GetBucketCorsOutput
     { _gbcoCORSRules = mempty
     }
 
 gbcoCORSRules :: Lens' GetBucketCorsOutput [CORSRule]
 gbcoCORSRules = lens _gbcoCORSRules (\s a -> s { _gbcoCORSRules = a })
 
+instance FromXML GetBucketCorsOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketCorsOutput"
 instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
     type Rs GetBucketCors = GetBucketCorsOutput

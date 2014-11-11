@@ -109,11 +109,10 @@ sreRawMessage = lens _sreRawMessage (\s a -> s { _sreRawMessage = a })
 -- =?charset?encoding?encoded-text?=. For more information, see RFC 2047.
 sreSource :: Lens' SendRawEmail (Maybe Text)
 sreSource = lens _sreSource (\s a -> s { _sreSource = a })
+instance ToQuery SendRawEmail
 
 instance ToPath SendRawEmail where
     toPath = const "/"
-
-instance ToQuery SendRawEmail
 
 newtype SendRawEmailResponse = SendRawEmailResponse
     { _srerMessageId :: Text
@@ -134,6 +133,9 @@ sendRawEmailResponse p1 = SendRawEmailResponse
 -- | The unique message identifier returned from the SendRawEmail action.
 srerMessageId :: Lens' SendRawEmailResponse Text
 srerMessageId = lens _srerMessageId (\s a -> s { _srerMessageId = a })
+instance FromXML SendRawEmailResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SendRawEmailResponse"
 
 instance AWSRequest SendRawEmail where
     type Sv SendRawEmail = SES

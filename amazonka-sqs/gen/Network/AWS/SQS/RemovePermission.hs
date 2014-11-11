@@ -71,21 +71,24 @@ rpLabel = lens _rpLabel (\s a -> s { _rpLabel = a })
 -- | The URL of the Amazon SQS queue to take action on.
 rpQueueUrl :: Lens' RemovePermission Text
 rpQueueUrl = lens _rpQueueUrl (\s a -> s { _rpQueueUrl = a })
+instance ToQuery RemovePermission
 
 instance ToPath RemovePermission where
     toPath = const "/"
 
-instance ToQuery RemovePermission
-
 data RemovePermissionResponse = RemovePermissionResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'RemovePermissionResponse' constructor.
 removePermissionResponse :: RemovePermissionResponse
 removePermissionResponse = RemovePermissionResponse
+instance FromXML RemovePermissionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RemovePermissionResponse"
 
 instance AWSRequest RemovePermission where
     type Sv RemovePermission = SQS
     type Rs RemovePermission = RemovePermissionResponse
 
     request  = post "RemovePermission"
-    response = const (nullaryResponse RemovePermissionResponse)
+    response = nullaryResponse RemovePermissionResponse

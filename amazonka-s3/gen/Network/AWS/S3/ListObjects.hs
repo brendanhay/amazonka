@@ -40,7 +40,7 @@ module Network.AWS.S3.ListObjects
     -- * Response
     , ListObjectsOutput
     -- ** Response constructor
-    , listObjectsResponse
+    , listObjectsOutput
     -- ** Response lenses
     , looCommonPrefixes
     , looContents
@@ -167,8 +167,8 @@ data ListObjectsOutput = ListObjectsOutput
 --
 -- * 'looPrefix' @::@ 'Maybe' 'Text'
 --
-listObjectsResponse :: ListObjectsOutput
-listObjectsResponse = ListObjectsOutput
+listObjectsOutput :: ListObjectsOutput
+listObjectsOutput = ListObjectsOutput
     { _looIsTruncated    = Nothing
     , _looMarker         = Nothing
     , _looNextMarker     = Nothing
@@ -219,6 +219,9 @@ looNextMarker = lens _looNextMarker (\s a -> s { _looNextMarker = a })
 looPrefix :: Lens' ListObjectsOutput (Maybe Text)
 looPrefix = lens _looPrefix (\s a -> s { _looPrefix = a })
 
+instance FromXML ListObjectsOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListObjectsOutput"
 instance AWSRequest ListObjects where
     type Sv ListObjects = S3
     type Rs ListObjects = ListObjectsOutput

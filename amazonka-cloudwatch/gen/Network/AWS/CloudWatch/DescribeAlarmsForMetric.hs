@@ -27,7 +27,7 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     -- * Request
       DescribeAlarmsForMetricInput
     -- ** Request constructor
-    , describeAlarmsForMetric
+    , describeAlarmsForMetricInput
     -- ** Request lenses
     , dafmiDimensions
     , dafmiMetricName
@@ -39,7 +39,7 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
     -- * Response
     , DescribeAlarmsForMetricOutput
     -- ** Response constructor
-    , describeAlarmsForMetricResponse
+    , describeAlarmsForMetricOutput
     -- ** Response lenses
     , dafmoMetricAlarms
     ) where
@@ -73,10 +73,10 @@ data DescribeAlarmsForMetricInput = DescribeAlarmsForMetricInput
 --
 -- * 'dafmiUnit' @::@ 'Maybe' 'Text'
 --
-describeAlarmsForMetric :: Text -- ^ 'dafmiMetricName'
-                        -> Text -- ^ 'dafmiNamespace'
-                        -> DescribeAlarmsForMetricInput
-describeAlarmsForMetric p1 p2 = DescribeAlarmsForMetricInput
+describeAlarmsForMetricInput :: Text -- ^ 'dafmiMetricName'
+                             -> Text -- ^ 'dafmiNamespace'
+                             -> DescribeAlarmsForMetricInput
+describeAlarmsForMetricInput p1 p2 = DescribeAlarmsForMetricInput
     { _dafmiMetricName = p1
     , _dafmiNamespace  = p2
     , _dafmiStatistic  = Nothing
@@ -108,11 +108,10 @@ dafmiStatistic = lens _dafmiStatistic (\s a -> s { _dafmiStatistic = a })
 -- | The unit for the metric.
 dafmiUnit :: Lens' DescribeAlarmsForMetricInput (Maybe Text)
 dafmiUnit = lens _dafmiUnit (\s a -> s { _dafmiUnit = a })
+instance ToQuery DescribeAlarmsForMetricInput
 
 instance ToPath DescribeAlarmsForMetricInput where
     toPath = const "/"
-
-instance ToQuery DescribeAlarmsForMetricInput
 
 newtype DescribeAlarmsForMetricOutput = DescribeAlarmsForMetricOutput
     { _dafmoMetricAlarms :: [MetricAlarm]
@@ -124,8 +123,8 @@ newtype DescribeAlarmsForMetricOutput = DescribeAlarmsForMetricOutput
 --
 -- * 'dafmoMetricAlarms' @::@ ['MetricAlarm']
 --
-describeAlarmsForMetricResponse :: DescribeAlarmsForMetricOutput
-describeAlarmsForMetricResponse = DescribeAlarmsForMetricOutput
+describeAlarmsForMetricOutput :: DescribeAlarmsForMetricOutput
+describeAlarmsForMetricOutput = DescribeAlarmsForMetricOutput
     { _dafmoMetricAlarms = mempty
     }
 
@@ -133,6 +132,9 @@ describeAlarmsForMetricResponse = DescribeAlarmsForMetricOutput
 dafmoMetricAlarms :: Lens' DescribeAlarmsForMetricOutput [MetricAlarm]
 dafmoMetricAlarms =
     lens _dafmoMetricAlarms (\s a -> s { _dafmoMetricAlarms = a })
+instance FromXML DescribeAlarmsForMetricOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAlarmsForMetricOutput"
 
 instance AWSRequest DescribeAlarmsForMetricInput where
     type Sv DescribeAlarmsForMetricInput = CloudWatch

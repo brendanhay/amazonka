@@ -26,7 +26,7 @@ module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     -- * Request
       DeleteNotificationConfigurationType
     -- ** Request constructor
-    , deleteNotificationConfiguration
+    , deleteNotificationConfigurationType
     -- ** Request lenses
     , dnctAutoScalingGroupName
     , dnctTopicARN
@@ -54,10 +54,10 @@ data DeleteNotificationConfigurationType = DeleteNotificationConfigurationType
 --
 -- * 'dnctTopicARN' @::@ 'Text'
 --
-deleteNotificationConfiguration :: Text -- ^ 'dnctAutoScalingGroupName'
-                                -> Text -- ^ 'dnctTopicARN'
-                                -> DeleteNotificationConfigurationType
-deleteNotificationConfiguration p1 p2 = DeleteNotificationConfigurationType
+deleteNotificationConfigurationType :: Text -- ^ 'dnctAutoScalingGroupName'
+                                    -> Text -- ^ 'dnctTopicARN'
+                                    -> DeleteNotificationConfigurationType
+deleteNotificationConfigurationType p1 p2 = DeleteNotificationConfigurationType
     { _dnctAutoScalingGroupName = p1
     , _dnctTopicARN             = p2
     }
@@ -72,21 +72,24 @@ dnctAutoScalingGroupName =
 -- (SNS) topic.
 dnctTopicARN :: Lens' DeleteNotificationConfigurationType Text
 dnctTopicARN = lens _dnctTopicARN (\s a -> s { _dnctTopicARN = a })
+instance ToQuery DeleteNotificationConfigurationType
 
 instance ToPath DeleteNotificationConfigurationType where
     toPath = const "/"
 
-instance ToQuery DeleteNotificationConfigurationType
-
 data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteNotificationConfigurationResponse' constructor.
 deleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse
 deleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
+instance FromXML DeleteNotificationConfigurationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteNotificationConfigurationResponse"
 
 instance AWSRequest DeleteNotificationConfigurationType where
     type Sv DeleteNotificationConfigurationType = AutoScaling
     type Rs DeleteNotificationConfigurationType = DeleteNotificationConfigurationResponse
 
     request  = post "DeleteNotificationConfiguration"
-    response = const (nullaryResponse DeleteNotificationConfigurationResponse)
+    response = nullaryResponse DeleteNotificationConfigurationResponse

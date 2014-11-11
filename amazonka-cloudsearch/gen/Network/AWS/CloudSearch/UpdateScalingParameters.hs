@@ -76,11 +76,10 @@ uspDomainName = lens _uspDomainName (\s a -> s { _uspDomainName = a })
 uspScalingParameters :: Lens' UpdateScalingParameters ScalingParameters
 uspScalingParameters =
     lens _uspScalingParameters (\s a -> s { _uspScalingParameters = a })
+instance ToQuery UpdateScalingParameters
 
 instance ToPath UpdateScalingParameters where
     toPath = const "/"
-
-instance ToQuery UpdateScalingParameters
 
 newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
     { _usprScalingParameters :: ScalingParametersStatus
@@ -101,6 +100,9 @@ updateScalingParametersResponse p1 = UpdateScalingParametersResponse
 usprScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
 usprScalingParameters =
     lens _usprScalingParameters (\s a -> s { _usprScalingParameters = a })
+instance FromXML UpdateScalingParametersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateScalingParametersResponse"
 
 instance AWSRequest UpdateScalingParameters where
     type Sv UpdateScalingParameters = CloudSearch

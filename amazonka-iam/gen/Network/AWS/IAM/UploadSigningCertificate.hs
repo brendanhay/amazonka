@@ -78,11 +78,10 @@ usc1CertificateBody =
 -- | The name of the user the signing certificate is for.
 usc1UserName :: Lens' UploadSigningCertificate (Maybe Text)
 usc1UserName = lens _usc1UserName (\s a -> s { _usc1UserName = a })
+instance ToQuery UploadSigningCertificate
 
 instance ToPath UploadSigningCertificate where
     toPath = const "/"
-
-instance ToQuery UploadSigningCertificate
 
 newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse
     { _uscrCertificate :: SigningCertificate
@@ -103,6 +102,9 @@ uploadSigningCertificateResponse p1 = UploadSigningCertificateResponse
 -- | Information about the certificate.
 uscrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
 uscrCertificate = lens _uscrCertificate (\s a -> s { _uscrCertificate = a })
+instance FromXML UploadSigningCertificateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UploadSigningCertificateResponse"
 
 instance AWSRequest UploadSigningCertificate where
     type Sv UploadSigningCertificate = IAM

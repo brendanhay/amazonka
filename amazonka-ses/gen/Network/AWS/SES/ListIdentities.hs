@@ -84,11 +84,10 @@ liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
 -- | The token to use for pagination.
 liNextToken :: Lens' ListIdentities (Maybe Text)
 liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
+instance ToQuery ListIdentities
 
 instance ToPath ListIdentities where
     toPath = const "/"
-
-instance ToQuery ListIdentities
 
 data ListIdentitiesResponse = ListIdentitiesResponse
     { _lirIdentities :: [Text]
@@ -116,6 +115,9 @@ lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a })
 -- | The token used for pagination.
 lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirNextToken = lens _lirNextToken (\s a -> s { _lirNextToken = a })
+instance FromXML ListIdentitiesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListIdentitiesResponse"
 
 instance AWSRequest ListIdentities where
     type Sv ListIdentities = SES

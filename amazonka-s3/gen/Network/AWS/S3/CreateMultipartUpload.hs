@@ -57,7 +57,7 @@ module Network.AWS.S3.CreateMultipartUpload
     -- * Response
     , CreateMultipartUploadOutput
     -- ** Response constructor
-    , createMultipartUploadResponse
+    , createMultipartUploadOutput
     -- ** Response lenses
     , cmuo1Bucket
     , cmuo1Key
@@ -330,8 +330,8 @@ data CreateMultipartUploadOutput = CreateMultipartUploadOutput
 --
 -- * 'cmuo1UploadId' @::@ 'Maybe' 'Text'
 --
-createMultipartUploadResponse :: CreateMultipartUploadOutput
-createMultipartUploadResponse = CreateMultipartUploadOutput
+createMultipartUploadOutput :: CreateMultipartUploadOutput
+createMultipartUploadOutput = CreateMultipartUploadOutput
     { _cmuo1Bucket               = Nothing
     , _cmuo1Key                  = Nothing
     , _cmuo1UploadId             = Nothing
@@ -373,6 +373,9 @@ cmuo1ServerSideEncryption =
 cmuo1UploadId :: Lens' CreateMultipartUploadOutput (Maybe Text)
 cmuo1UploadId = lens _cmuo1UploadId (\s a -> s { _cmuo1UploadId = a })
 
+instance FromXML CreateMultipartUploadOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateMultipartUploadOutput"
 instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3
     type Rs CreateMultipartUpload = CreateMultipartUploadOutput

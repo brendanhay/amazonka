@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.ExitStandby
     -- * Request
       ExitStandbyQuery
     -- ** Request constructor
-    , exitStandby
+    , exitStandbyQuery
     -- ** Request lenses
     , esq1AutoScalingGroupName
     , esq1InstanceIds
@@ -36,7 +36,7 @@ module Network.AWS.AutoScaling.ExitStandby
     -- * Response
     , ExitStandbyAnswer
     -- ** Response constructor
-    , exitStandbyResponse
+    , exitStandbyAnswer
     -- ** Response lenses
     , esa1Activities
     ) where
@@ -48,7 +48,7 @@ import Network.AWS.AutoScaling.Types
 data ExitStandbyQuery = ExitStandbyQuery
     { _esq1AutoScalingGroupName :: Text
     , _esq1InstanceIds          :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ExitStandbyQuery' constructor.
 --
@@ -58,9 +58,9 @@ data ExitStandbyQuery = ExitStandbyQuery
 --
 -- * 'esq1InstanceIds' @::@ ['Text']
 --
-exitStandby :: Text -- ^ 'esq1AutoScalingGroupName'
-            -> ExitStandbyQuery
-exitStandby p1 = ExitStandbyQuery
+exitStandbyQuery :: Text -- ^ 'esq1AutoScalingGroupName'
+                 -> ExitStandbyQuery
+exitStandbyQuery p1 = ExitStandbyQuery
     { _esq1AutoScalingGroupName = p1
     , _esq1InstanceIds          = mempty
     }
@@ -76,11 +76,10 @@ esq1AutoScalingGroupName =
 -- least one instance ID.
 esq1InstanceIds :: Lens' ExitStandbyQuery [Text]
 esq1InstanceIds = lens _esq1InstanceIds (\s a -> s { _esq1InstanceIds = a })
+instance ToQuery ExitStandbyQuery
 
 instance ToPath ExitStandbyQuery where
     toPath = const "/"
-
-instance ToQuery ExitStandbyQuery
 
 newtype ExitStandbyAnswer = ExitStandbyAnswer
     { _esa1Activities :: [Activity]
@@ -92,8 +91,8 @@ newtype ExitStandbyAnswer = ExitStandbyAnswer
 --
 -- * 'esa1Activities' @::@ ['Activity']
 --
-exitStandbyResponse :: ExitStandbyAnswer
-exitStandbyResponse = ExitStandbyAnswer
+exitStandbyAnswer :: ExitStandbyAnswer
+exitStandbyAnswer = ExitStandbyAnswer
     { _esa1Activities = mempty
     }
 
@@ -101,6 +100,9 @@ exitStandbyResponse = ExitStandbyAnswer
 -- Standby mode.
 esa1Activities :: Lens' ExitStandbyAnswer [Activity]
 esa1Activities = lens _esa1Activities (\s a -> s { _esa1Activities = a })
+instance FromXML ExitStandbyAnswer where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ExitStandbyAnswer"
 
 instance AWSRequest ExitStandbyQuery where
     type Sv ExitStandbyQuery = AutoScaling

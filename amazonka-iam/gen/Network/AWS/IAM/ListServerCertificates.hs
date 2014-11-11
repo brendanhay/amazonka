@@ -92,11 +92,10 @@ lscMaxItems = lens _lscMaxItems (\s a -> s { _lscMaxItems = a })
 -- certificates.
 lscPathPrefix :: Lens' ListServerCertificates (Maybe Text)
 lscPathPrefix = lens _lscPathPrefix (\s a -> s { _lscPathPrefix = a })
+instance ToQuery ListServerCertificates
 
 instance ToPath ListServerCertificates where
     toPath = const "/"
-
-instance ToQuery ListServerCertificates
 
 data ListServerCertificatesResponse = ListServerCertificatesResponse
     { _lscrIsTruncated                   :: Maybe Bool
@@ -138,6 +137,9 @@ lscrServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [Serve
 lscrServerCertificateMetadataList =
     lens _lscrServerCertificateMetadataList
         (\s a -> s { _lscrServerCertificateMetadataList = a })
+instance FromXML ListServerCertificatesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListServerCertificatesResponse"
 
 instance AWSRequest ListServerCertificates where
     type Sv ListServerCertificates = IAM

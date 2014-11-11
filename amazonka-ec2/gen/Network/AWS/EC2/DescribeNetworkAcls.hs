@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeNetworkAcls
     -- * Response
     , DescribeNetworkAclsResult
     -- ** Response constructor
-    , describeNetworkAclsResponse
+    , describeNetworkAclsResult
     -- ** Response lenses
     , dnarNetworkAcls
     ) where
@@ -103,11 +103,10 @@ dna1Filters = lens _dna1Filters (\s a -> s { _dna1Filters = a })
 dna1NetworkAclIds :: Lens' DescribeNetworkAcls [Text]
 dna1NetworkAclIds =
     lens _dna1NetworkAclIds (\s a -> s { _dna1NetworkAclIds = a })
+instance ToQuery DescribeNetworkAcls
 
 instance ToPath DescribeNetworkAcls where
     toPath = const "/"
-
-instance ToQuery DescribeNetworkAcls
 
 newtype DescribeNetworkAclsResult = DescribeNetworkAclsResult
     { _dnarNetworkAcls :: [NetworkAcl]
@@ -119,14 +118,17 @@ newtype DescribeNetworkAclsResult = DescribeNetworkAclsResult
 --
 -- * 'dnarNetworkAcls' @::@ ['NetworkAcl']
 --
-describeNetworkAclsResponse :: DescribeNetworkAclsResult
-describeNetworkAclsResponse = DescribeNetworkAclsResult
+describeNetworkAclsResult :: DescribeNetworkAclsResult
+describeNetworkAclsResult = DescribeNetworkAclsResult
     { _dnarNetworkAcls = mempty
     }
 
 -- | Information about one or more network ACLs.
 dnarNetworkAcls :: Lens' DescribeNetworkAclsResult [NetworkAcl]
 dnarNetworkAcls = lens _dnarNetworkAcls (\s a -> s { _dnarNetworkAcls = a })
+instance FromXML DescribeNetworkAclsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeNetworkAclsResult"
 
 instance AWSRequest DescribeNetworkAcls where
     type Sv DescribeNetworkAcls = EC2

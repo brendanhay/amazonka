@@ -41,7 +41,7 @@ module Network.AWS.EC2.ImportVolume
     -- * Response
     , ImportVolumeResult
     -- ** Response constructor
-    , importVolumeResponse
+    , importVolumeResult
     -- ** Response lenses
     , ivrConversionTask
     ) where
@@ -101,11 +101,10 @@ ivImage = lens _ivImage (\s a -> s { _ivImage = a })
 
 ivVolume :: Lens' ImportVolume VolumeDetail
 ivVolume = lens _ivVolume (\s a -> s { _ivVolume = a })
+instance ToQuery ImportVolume
 
 instance ToPath ImportVolume where
     toPath = const "/"
-
-instance ToQuery ImportVolume
 
 newtype ImportVolumeResult = ImportVolumeResult
     { _ivrConversionTask :: Maybe ConversionTask
@@ -117,14 +116,17 @@ newtype ImportVolumeResult = ImportVolumeResult
 --
 -- * 'ivrConversionTask' @::@ 'Maybe' 'ConversionTask'
 --
-importVolumeResponse :: ImportVolumeResult
-importVolumeResponse = ImportVolumeResult
+importVolumeResult :: ImportVolumeResult
+importVolumeResult = ImportVolumeResult
     { _ivrConversionTask = Nothing
     }
 
 ivrConversionTask :: Lens' ImportVolumeResult (Maybe ConversionTask)
 ivrConversionTask =
     lens _ivrConversionTask (\s a -> s { _ivrConversionTask = a })
+instance FromXML ImportVolumeResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ImportVolumeResult"
 
 instance AWSRequest ImportVolume where
     type Sv ImportVolume = EC2

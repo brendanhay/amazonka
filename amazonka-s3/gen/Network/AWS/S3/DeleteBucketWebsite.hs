@@ -71,14 +71,18 @@ instance ToQuery DeleteBucketWebsite where
 instance ToHeaders DeleteBucketWebsite
 
 data DeleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteBucketWebsiteResponse' constructor.
 deleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse
 deleteBucketWebsiteResponse = DeleteBucketWebsiteResponse
 
+instance FromXML DeleteBucketWebsiteResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteBucketWebsiteResponse"
 instance AWSRequest DeleteBucketWebsite where
     type Sv DeleteBucketWebsite = S3
     type Rs DeleteBucketWebsite = DeleteBucketWebsiteResponse
 
     request  = delete
-    response = const (nullaryResponse DeleteBucketWebsiteResponse)
+    response = nullaryResponse DeleteBucketWebsiteResponse

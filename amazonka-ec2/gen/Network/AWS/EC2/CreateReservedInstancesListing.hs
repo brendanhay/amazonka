@@ -51,7 +51,7 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     -- * Response
     , CreateReservedInstancesListingResult
     -- ** Response constructor
-    , createReservedInstancesListingResponse
+    , createReservedInstancesListingResult
     -- ** Response lenses
     , crilr1ReservedInstancesListings
     ) where
@@ -114,11 +114,10 @@ crilPriceSchedules =
 crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
 crilReservedInstancesId =
     lens _crilReservedInstancesId (\s a -> s { _crilReservedInstancesId = a })
+instance ToQuery CreateReservedInstancesListing
 
 instance ToPath CreateReservedInstancesListing where
     toPath = const "/"
-
-instance ToQuery CreateReservedInstancesListing
 
 newtype CreateReservedInstancesListingResult = CreateReservedInstancesListingResult
     { _crilr1ReservedInstancesListings :: [ReservedInstancesListing]
@@ -130,8 +129,8 @@ newtype CreateReservedInstancesListingResult = CreateReservedInstancesListingRes
 --
 -- * 'crilr1ReservedInstancesListings' @::@ ['ReservedInstancesListing']
 --
-createReservedInstancesListingResponse :: CreateReservedInstancesListingResult
-createReservedInstancesListingResponse = CreateReservedInstancesListingResult
+createReservedInstancesListingResult :: CreateReservedInstancesListingResult
+createReservedInstancesListingResult = CreateReservedInstancesListingResult
     { _crilr1ReservedInstancesListings = mempty
     }
 
@@ -140,6 +139,9 @@ crilr1ReservedInstancesListings :: Lens' CreateReservedInstancesListingResult [R
 crilr1ReservedInstancesListings =
     lens _crilr1ReservedInstancesListings
         (\s a -> s { _crilr1ReservedInstancesListings = a })
+instance FromXML CreateReservedInstancesListingResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateReservedInstancesListingResult"
 
 instance AWSRequest CreateReservedInstancesListing where
     type Sv CreateReservedInstancesListing = EC2

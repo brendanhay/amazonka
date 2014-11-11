@@ -29,7 +29,7 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     -- * Request
       DescribeSnapshotsMessage
     -- ** Request constructor
-    , describeSnapshots
+    , describeSnapshotsMessage
     -- ** Request lenses
     , dsm1CacheClusterId
     , dsm1Marker
@@ -40,7 +40,7 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     -- * Response
     , DescribeSnapshotsListMessage
     -- ** Response constructor
-    , describeSnapshotsResponse
+    , describeSnapshotsListMessage
     -- ** Response lenses
     , dslmMarker
     , dslmSnapshots
@@ -72,8 +72,8 @@ data DescribeSnapshotsMessage = DescribeSnapshotsMessage
 --
 -- * 'dsm1SnapshotSource' @::@ 'Maybe' 'Text'
 --
-describeSnapshots :: DescribeSnapshotsMessage
-describeSnapshots = DescribeSnapshotsMessage
+describeSnapshotsMessage :: DescribeSnapshotsMessage
+describeSnapshotsMessage = DescribeSnapshotsMessage
     { _dsm1CacheClusterId = Nothing
     , _dsm1SnapshotName   = Nothing
     , _dsm1SnapshotSource = Nothing
@@ -113,11 +113,10 @@ dsm1SnapshotName = lens _dsm1SnapshotName (\s a -> s { _dsm1SnapshotName = a })
 dsm1SnapshotSource :: Lens' DescribeSnapshotsMessage (Maybe Text)
 dsm1SnapshotSource =
     lens _dsm1SnapshotSource (\s a -> s { _dsm1SnapshotSource = a })
+instance ToQuery DescribeSnapshotsMessage
 
 instance ToPath DescribeSnapshotsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeSnapshotsMessage
 
 data DescribeSnapshotsListMessage = DescribeSnapshotsListMessage
     { _dslmMarker    :: Maybe Text
@@ -132,8 +131,8 @@ data DescribeSnapshotsListMessage = DescribeSnapshotsListMessage
 --
 -- * 'dslmSnapshots' @::@ ['Snapshot']
 --
-describeSnapshotsResponse :: DescribeSnapshotsListMessage
-describeSnapshotsResponse = DescribeSnapshotsListMessage
+describeSnapshotsListMessage :: DescribeSnapshotsListMessage
+describeSnapshotsListMessage = DescribeSnapshotsListMessage
     { _dslmMarker    = Nothing
     , _dslmSnapshots = mempty
     }
@@ -149,6 +148,9 @@ dslmMarker = lens _dslmMarker (\s a -> s { _dslmMarker = a })
 -- about one snapshot.
 dslmSnapshots :: Lens' DescribeSnapshotsListMessage [Snapshot]
 dslmSnapshots = lens _dslmSnapshots (\s a -> s { _dslmSnapshots = a })
+instance FromXML DescribeSnapshotsListMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSnapshotsListMessage"
 
 instance AWSRequest DescribeSnapshotsMessage where
     type Sv DescribeSnapshotsMessage = ElastiCache

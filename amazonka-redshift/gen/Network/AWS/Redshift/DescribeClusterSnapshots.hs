@@ -30,7 +30,7 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     -- * Request
       DescribeClusterSnapshotsMessage
     -- ** Request constructor
-    , describeClusterSnapshots
+    , describeClusterSnapshotsMessage
     -- ** Request lenses
     , dcsm1ClusterIdentifier
     , dcsm1EndTime
@@ -44,7 +44,7 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
     -- * Response
     , SnapshotMessage
     -- ** Response constructor
-    , describeClusterSnapshotsResponse
+    , snapshotMessage
     -- ** Response lenses
     , smMarker
     , smSnapshots
@@ -85,8 +85,8 @@ data DescribeClusterSnapshotsMessage = DescribeClusterSnapshotsMessage
 --
 -- * 'dcsm1StartTime' @::@ 'Maybe' 'UTCTime'
 --
-describeClusterSnapshots :: DescribeClusterSnapshotsMessage
-describeClusterSnapshots = DescribeClusterSnapshotsMessage
+describeClusterSnapshotsMessage :: DescribeClusterSnapshotsMessage
+describeClusterSnapshotsMessage = DescribeClusterSnapshotsMessage
     { _dcsm1ClusterIdentifier  = Nothing
     , _dcsm1SnapshotIdentifier = Nothing
     , _dcsm1SnapshotType       = Nothing
@@ -156,11 +156,10 @@ dcsm1SnapshotType =
 dcsm1StartTime :: Lens' DescribeClusterSnapshotsMessage (Maybe UTCTime)
 dcsm1StartTime = lens _dcsm1StartTime (\s a -> s { _dcsm1StartTime = a })
     . mapping _Time
+instance ToQuery DescribeClusterSnapshotsMessage
 
 instance ToPath DescribeClusterSnapshotsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeClusterSnapshotsMessage
 
 data SnapshotMessage = SnapshotMessage
     { _smMarker    :: Maybe Text
@@ -175,8 +174,8 @@ data SnapshotMessage = SnapshotMessage
 --
 -- * 'smSnapshots' @::@ ['Snapshot']
 --
-describeClusterSnapshotsResponse :: SnapshotMessage
-describeClusterSnapshotsResponse = SnapshotMessage
+snapshotMessage :: SnapshotMessage
+snapshotMessage = SnapshotMessage
     { _smMarker    = Nothing
     , _smSnapshots = mempty
     }
@@ -193,6 +192,9 @@ smMarker = lens _smMarker (\s a -> s { _smMarker = a })
 -- | A list of Snapshot instances.
 smSnapshots :: Lens' SnapshotMessage [Snapshot]
 smSnapshots = lens _smSnapshots (\s a -> s { _smSnapshots = a })
+instance FromXML SnapshotMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SnapshotMessage"
 
 instance AWSRequest DescribeClusterSnapshotsMessage where
     type Sv DescribeClusterSnapshotsMessage = Redshift

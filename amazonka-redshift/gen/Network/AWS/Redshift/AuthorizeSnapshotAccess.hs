@@ -28,7 +28,7 @@ module Network.AWS.Redshift.AuthorizeSnapshotAccess
     -- * Request
       AuthorizeSnapshotAccessMessage
     -- ** Request constructor
-    , authorizeSnapshotAccess
+    , authorizeSnapshotAccessMessage
     -- ** Request lenses
     , asamAccountWithRestoreAccess
     , asamSnapshotClusterIdentifier
@@ -37,7 +37,7 @@ module Network.AWS.Redshift.AuthorizeSnapshotAccess
     -- * Response
     , AuthorizeSnapshotAccessResult
     -- ** Response constructor
-    , authorizeSnapshotAccessResponse
+    , authorizeSnapshotAccessResult
     -- ** Response lenses
     , asarSnapshot
     ) where
@@ -62,10 +62,10 @@ data AuthorizeSnapshotAccessMessage = AuthorizeSnapshotAccessMessage
 --
 -- * 'asamSnapshotIdentifier' @::@ 'Text'
 --
-authorizeSnapshotAccess :: Text -- ^ 'asamSnapshotIdentifier'
-                        -> Text -- ^ 'asamAccountWithRestoreAccess'
-                        -> AuthorizeSnapshotAccessMessage
-authorizeSnapshotAccess p1 p2 = AuthorizeSnapshotAccessMessage
+authorizeSnapshotAccessMessage :: Text -- ^ 'asamSnapshotIdentifier'
+                               -> Text -- ^ 'asamAccountWithRestoreAccess'
+                               -> AuthorizeSnapshotAccessMessage
+authorizeSnapshotAccessMessage p1 p2 = AuthorizeSnapshotAccessMessage
     { _asamSnapshotIdentifier        = p1
     , _asamAccountWithRestoreAccess  = p2
     , _asamSnapshotClusterIdentifier = Nothing
@@ -91,11 +91,10 @@ asamSnapshotClusterIdentifier =
 asamSnapshotIdentifier :: Lens' AuthorizeSnapshotAccessMessage Text
 asamSnapshotIdentifier =
     lens _asamSnapshotIdentifier (\s a -> s { _asamSnapshotIdentifier = a })
+instance ToQuery AuthorizeSnapshotAccessMessage
 
 instance ToPath AuthorizeSnapshotAccessMessage where
     toPath = const "/"
-
-instance ToQuery AuthorizeSnapshotAccessMessage
 
 newtype AuthorizeSnapshotAccessResult = AuthorizeSnapshotAccessResult
     { _asarSnapshot :: Maybe Snapshot
@@ -107,13 +106,16 @@ newtype AuthorizeSnapshotAccessResult = AuthorizeSnapshotAccessResult
 --
 -- * 'asarSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-authorizeSnapshotAccessResponse :: AuthorizeSnapshotAccessResult
-authorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResult
+authorizeSnapshotAccessResult :: AuthorizeSnapshotAccessResult
+authorizeSnapshotAccessResult = AuthorizeSnapshotAccessResult
     { _asarSnapshot = Nothing
     }
 
 asarSnapshot :: Lens' AuthorizeSnapshotAccessResult (Maybe Snapshot)
 asarSnapshot = lens _asarSnapshot (\s a -> s { _asarSnapshot = a })
+instance FromXML AuthorizeSnapshotAccessResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AuthorizeSnapshotAccessResult"
 
 instance AWSRequest AuthorizeSnapshotAccessMessage where
     type Sv AuthorizeSnapshotAccessMessage = Redshift

@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     -- * Request
       ModifyCacheSubnetGroupMessage
     -- ** Request constructor
-    , modifyCacheSubnetGroup
+    , modifyCacheSubnetGroupMessage
     -- ** Request lenses
     , mcsgmCacheSubnetGroupDescription
     , mcsgmCacheSubnetGroupName
@@ -36,7 +36,7 @@ module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
     -- * Response
     , ModifyCacheSubnetGroupResult
     -- ** Response constructor
-    , modifyCacheSubnetGroupResponse
+    , modifyCacheSubnetGroupResult
     -- ** Response lenses
     , mcsgrCacheSubnetGroup
     ) where
@@ -61,9 +61,9 @@ data ModifyCacheSubnetGroupMessage = ModifyCacheSubnetGroupMessage
 --
 -- * 'mcsgmSubnetIds' @::@ ['Text']
 --
-modifyCacheSubnetGroup :: Text -- ^ 'mcsgmCacheSubnetGroupName'
-                       -> ModifyCacheSubnetGroupMessage
-modifyCacheSubnetGroup p1 = ModifyCacheSubnetGroupMessage
+modifyCacheSubnetGroupMessage :: Text -- ^ 'mcsgmCacheSubnetGroupName'
+                              -> ModifyCacheSubnetGroupMessage
+modifyCacheSubnetGroupMessage p1 = ModifyCacheSubnetGroupMessage
     { _mcsgmCacheSubnetGroupName        = p1
     , _mcsgmCacheSubnetGroupDescription = Nothing
     , _mcsgmSubnetIds                   = mempty
@@ -86,11 +86,10 @@ mcsgmCacheSubnetGroupName =
 -- | The EC2 subnet IDs for the cache subnet group.
 mcsgmSubnetIds :: Lens' ModifyCacheSubnetGroupMessage [Text]
 mcsgmSubnetIds = lens _mcsgmSubnetIds (\s a -> s { _mcsgmSubnetIds = a })
+instance ToQuery ModifyCacheSubnetGroupMessage
 
 instance ToPath ModifyCacheSubnetGroupMessage where
     toPath = const "/"
-
-instance ToQuery ModifyCacheSubnetGroupMessage
 
 newtype ModifyCacheSubnetGroupResult = ModifyCacheSubnetGroupResult
     { _mcsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
@@ -102,14 +101,17 @@ newtype ModifyCacheSubnetGroupResult = ModifyCacheSubnetGroupResult
 --
 -- * 'mcsgrCacheSubnetGroup' @::@ 'Maybe' 'CacheSubnetGroup'
 --
-modifyCacheSubnetGroupResponse :: ModifyCacheSubnetGroupResult
-modifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResult
+modifyCacheSubnetGroupResult :: ModifyCacheSubnetGroupResult
+modifyCacheSubnetGroupResult = ModifyCacheSubnetGroupResult
     { _mcsgrCacheSubnetGroup = Nothing
     }
 
 mcsgrCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResult (Maybe CacheSubnetGroup)
 mcsgrCacheSubnetGroup =
     lens _mcsgrCacheSubnetGroup (\s a -> s { _mcsgrCacheSubnetGroup = a })
+instance FromXML ModifyCacheSubnetGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyCacheSubnetGroupResult"
 
 instance AWSRequest ModifyCacheSubnetGroupMessage where
     type Sv ModifyCacheSubnetGroupMessage = ElastiCache

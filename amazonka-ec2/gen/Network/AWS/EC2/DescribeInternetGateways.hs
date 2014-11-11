@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeInternetGateways
     -- * Response
     , DescribeInternetGatewaysResult
     -- ** Response constructor
-    , describeInternetGatewaysResponse
+    , describeInternetGatewaysResult
     -- ** Response lenses
     , digrInternetGateways
     ) where
@@ -91,11 +91,10 @@ digFilters = lens _digFilters (\s a -> s { _digFilters = a })
 digInternetGatewayIds :: Lens' DescribeInternetGateways [Text]
 digInternetGatewayIds =
     lens _digInternetGatewayIds (\s a -> s { _digInternetGatewayIds = a })
+instance ToQuery DescribeInternetGateways
 
 instance ToPath DescribeInternetGateways where
     toPath = const "/"
-
-instance ToQuery DescribeInternetGateways
 
 newtype DescribeInternetGatewaysResult = DescribeInternetGatewaysResult
     { _digrInternetGateways :: [InternetGateway]
@@ -107,8 +106,8 @@ newtype DescribeInternetGatewaysResult = DescribeInternetGatewaysResult
 --
 -- * 'digrInternetGateways' @::@ ['InternetGateway']
 --
-describeInternetGatewaysResponse :: DescribeInternetGatewaysResult
-describeInternetGatewaysResponse = DescribeInternetGatewaysResult
+describeInternetGatewaysResult :: DescribeInternetGatewaysResult
+describeInternetGatewaysResult = DescribeInternetGatewaysResult
     { _digrInternetGateways = mempty
     }
 
@@ -116,6 +115,9 @@ describeInternetGatewaysResponse = DescribeInternetGatewaysResult
 digrInternetGateways :: Lens' DescribeInternetGatewaysResult [InternetGateway]
 digrInternetGateways =
     lens _digrInternetGateways (\s a -> s { _digrInternetGateways = a })
+instance FromXML DescribeInternetGatewaysResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeInternetGatewaysResult"
 
 instance AWSRequest DescribeInternetGateways where
     type Sv DescribeInternetGateways = EC2

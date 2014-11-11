@@ -55,7 +55,7 @@ module Network.AWS.EC2.AttachVolume
     -- * Response
     , VolumeAttachment
     -- ** Response constructor
-    , attachVolumeResponse
+    , volumeAttachment
     -- ** Response lenses
     , vaAttachTime
     , vaDeleteOnTermination
@@ -115,11 +115,10 @@ avInstanceId = lens _avInstanceId (\s a -> s { _avInstanceId = a })
 -- the same Availability Zone.
 avVolumeId :: Lens' AttachVolume Text
 avVolumeId = lens _avVolumeId (\s a -> s { _avVolumeId = a })
+instance ToQuery AttachVolume
 
 instance ToPath AttachVolume where
     toPath = const "/"
-
-instance ToQuery AttachVolume
 
 instance AWSRequest AttachVolume where
     type Sv AttachVolume = EC2

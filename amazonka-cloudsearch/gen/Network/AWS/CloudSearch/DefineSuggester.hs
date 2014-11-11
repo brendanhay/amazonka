@@ -74,11 +74,10 @@ ds2DomainName = lens _ds2DomainName (\s a -> s { _ds2DomainName = a })
 
 ds2Suggester :: Lens' DefineSuggester Suggester
 ds2Suggester = lens _ds2Suggester (\s a -> s { _ds2Suggester = a })
+instance ToQuery DefineSuggester
 
 instance ToPath DefineSuggester where
     toPath = const "/"
-
-instance ToQuery DefineSuggester
 
 newtype DefineSuggesterResponse = DefineSuggesterResponse
     { _dsrSuggester :: SuggesterStatus
@@ -98,6 +97,9 @@ defineSuggesterResponse p1 = DefineSuggesterResponse
 
 dsrSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
 dsrSuggester = lens _dsrSuggester (\s a -> s { _dsrSuggester = a })
+instance FromXML DefineSuggesterResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DefineSuggesterResponse"
 
 instance AWSRequest DefineSuggester where
     type Sv DefineSuggester = CloudSearch

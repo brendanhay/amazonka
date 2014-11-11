@@ -72,21 +72,24 @@ dv2DryRun = lens _dv2DryRun (\s a -> s { _dv2DryRun = a })
 -- | The ID of the VPC.
 dv2VpcId :: Lens' DeleteVpc Text
 dv2VpcId = lens _dv2VpcId (\s a -> s { _dv2VpcId = a })
+instance ToQuery DeleteVpc
 
 instance ToPath DeleteVpc where
     toPath = const "/"
 
-instance ToQuery DeleteVpc
-
 data DeleteVpcResponse = DeleteVpcResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpcResponse' constructor.
 deleteVpcResponse :: DeleteVpcResponse
 deleteVpcResponse = DeleteVpcResponse
+instance FromXML DeleteVpcResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteVpcResponse"
 
 instance AWSRequest DeleteVpc where
     type Sv DeleteVpc = EC2
     type Rs DeleteVpc = DeleteVpcResponse
 
     request  = post "DeleteVpc"
-    response = const (nullaryResponse DeleteVpcResponse)
+    response = nullaryResponse DeleteVpcResponse

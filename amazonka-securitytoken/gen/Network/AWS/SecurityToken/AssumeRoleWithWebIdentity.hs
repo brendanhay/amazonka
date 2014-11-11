@@ -185,11 +185,10 @@ arwwiRoleSessionName =
 arwwiWebIdentityToken :: Lens' AssumeRoleWithWebIdentity Text
 arwwiWebIdentityToken =
     lens _arwwiWebIdentityToken (\s a -> s { _arwwiWebIdentityToken = a })
+instance ToQuery AssumeRoleWithWebIdentity
 
 instance ToPath AssumeRoleWithWebIdentity where
     toPath = const "/"
-
-instance ToQuery AssumeRoleWithWebIdentity
 
 data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
     { _arwwirAssumedRoleUser             :: Maybe AssumedRoleUser
@@ -273,6 +272,9 @@ arwwirSubjectFromWebIdentityToken :: Lens' AssumeRoleWithWebIdentityResponse (Ma
 arwwirSubjectFromWebIdentityToken =
     lens _arwwirSubjectFromWebIdentityToken
         (\s a -> s { _arwwirSubjectFromWebIdentityToken = a })
+instance FromXML AssumeRoleWithWebIdentityResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AssumeRoleWithWebIdentityResponse"
 
 instance AWSRequest AssumeRoleWithWebIdentity where
     type Sv AssumeRoleWithWebIdentity = SecurityToken

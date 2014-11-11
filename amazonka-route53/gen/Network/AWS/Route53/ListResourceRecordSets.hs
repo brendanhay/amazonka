@@ -244,6 +244,9 @@ lrrsrResourceRecordSets :: Lens' ListResourceRecordSetsResponse [ResourceRecordS
 lrrsrResourceRecordSets =
     lens _lrrsrResourceRecordSets (\s a -> s { _lrrsrResourceRecordSets = a })
 
+instance FromXML ListResourceRecordSetsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListResourceRecordSetsResponse"
 instance AWSRequest ListResourceRecordSets where
     type Sv ListResourceRecordSets = Route53
     type Rs ListResourceRecordSets = ListResourceRecordSetsResponse

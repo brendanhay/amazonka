@@ -96,21 +96,24 @@ rmfadSerialNumber =
 -- | The name of the user whose MFA device you want to resynchronize.
 rmfadUserName :: Lens' ResyncMFADevice Text
 rmfadUserName = lens _rmfadUserName (\s a -> s { _rmfadUserName = a })
+instance ToQuery ResyncMFADevice
 
 instance ToPath ResyncMFADevice where
     toPath = const "/"
 
-instance ToQuery ResyncMFADevice
-
 data ResyncMFADeviceResponse = ResyncMFADeviceResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResyncMFADeviceResponse' constructor.
 resyncMFADeviceResponse :: ResyncMFADeviceResponse
 resyncMFADeviceResponse = ResyncMFADeviceResponse
+instance FromXML ResyncMFADeviceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResyncMFADeviceResponse"
 
 instance AWSRequest ResyncMFADevice where
     type Sv ResyncMFADevice = IAM
     type Rs ResyncMFADevice = ResyncMFADeviceResponse
 
     request  = post "ResyncMFADevice"
-    response = const (nullaryResponse ResyncMFADeviceResponse)
+    response = nullaryResponse ResyncMFADeviceResponse

@@ -23,11 +23,6 @@ module Network.AWS.ElastiCache.Types
     (
     -- * Service
       ElastiCache
-    -- ** Errors
-    , ElastiCacheError (..)
-    , _ElastiCacheHttp
-    , _ElastiCacheSerializer
-    , _ElastiCacheService
     -- ** XML
     , xmlOptions
 

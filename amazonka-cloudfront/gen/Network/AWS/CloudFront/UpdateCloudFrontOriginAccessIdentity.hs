@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     -- * Request
       UpdateCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , updateCloudFrontOriginAccessIdentity2014_05_31
+    , updateCloudFrontOriginAccessIdentity
     -- ** Request lenses
     , ucfoaiCloudFrontOriginAccessIdentityConfig
     , ucfoaiId
@@ -35,7 +35,7 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     -- * Response
     , UpdateCloudFrontOriginAccessIdentityResult
     -- ** Response constructor
-    , updateCloudFrontOriginAccessIdentity2014_05_31Response
+    , updateCloudFrontOriginAccessIdentityResult
     -- ** Response lenses
     , ucfoairCloudFrontOriginAccessIdentity
     , ucfoairETag
@@ -61,10 +61,10 @@ data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
 --
 -- * 'ucfoaiIfMatch' @::@ 'Maybe' 'Text'
 --
-updateCloudFrontOriginAccessIdentity2014_05_31 :: CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
-                                               -> Text -- ^ 'ucfoaiId'
-                                               -> UpdateCloudFrontOriginAccessIdentity
-updateCloudFrontOriginAccessIdentity2014_05_31 p1 p2 = UpdateCloudFrontOriginAccessIdentity
+updateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ucfoaiCloudFrontOriginAccessIdentityConfig'
+                                     -> Text -- ^ 'ucfoaiId'
+                                     -> UpdateCloudFrontOriginAccessIdentity
+updateCloudFrontOriginAccessIdentity p1 p2 = UpdateCloudFrontOriginAccessIdentity
     { _ucfoaiCloudFrontOriginAccessIdentityConfig = p1
     , _ucfoaiId                                   = p2
     , _ucfoaiIfMatch                              = Nothing
@@ -116,8 +116,8 @@ data UpdateCloudFrontOriginAccessIdentityResult = UpdateCloudFrontOriginAccessId
 --
 -- * 'ucfoairETag' @::@ 'Maybe' 'Text'
 --
-updateCloudFrontOriginAccessIdentity2014_05_31Response :: UpdateCloudFrontOriginAccessIdentityResult
-updateCloudFrontOriginAccessIdentity2014_05_31Response = UpdateCloudFrontOriginAccessIdentityResult
+updateCloudFrontOriginAccessIdentityResult :: UpdateCloudFrontOriginAccessIdentityResult
+updateCloudFrontOriginAccessIdentityResult = UpdateCloudFrontOriginAccessIdentityResult
     { _ucfoairCloudFrontOriginAccessIdentity = Nothing
     , _ucfoairETag                           = Nothing
     }
@@ -132,6 +132,9 @@ ucfoairCloudFrontOriginAccessIdentity =
 ucfoairETag :: Lens' UpdateCloudFrontOriginAccessIdentityResult (Maybe Text)
 ucfoairETag = lens _ucfoairETag (\s a -> s { _ucfoairETag = a })
 
+instance FromXML UpdateCloudFrontOriginAccessIdentityResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateCloudFrontOriginAccessIdentityResult"
 instance AWSRequest UpdateCloudFrontOriginAccessIdentity where
     type Sv UpdateCloudFrontOriginAccessIdentity = CloudFront
     type Rs UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentityResult

@@ -34,7 +34,7 @@ module Network.AWS.Redshift.DescribeClusterParameters
     -- * Request
       DescribeClusterParametersMessage
     -- ** Request constructor
-    , describeClusterParameters
+    , describeClusterParametersMessage
     -- ** Request lenses
     , dcpmMarker
     , dcpmMaxRecords
@@ -44,7 +44,7 @@ module Network.AWS.Redshift.DescribeClusterParameters
     -- * Response
     , ClusterParameterGroupDetails
     -- ** Response constructor
-    , describeClusterParametersResponse
+    , clusterParameterGroupDetails
     -- ** Response lenses
     , cpgdMarker
     , cpgdParameters
@@ -73,9 +73,9 @@ data DescribeClusterParametersMessage = DescribeClusterParametersMessage
 --
 -- * 'dcpmSource' @::@ 'Maybe' 'Text'
 --
-describeClusterParameters :: Text -- ^ 'dcpmParameterGroupName'
-                          -> DescribeClusterParametersMessage
-describeClusterParameters p1 = DescribeClusterParametersMessage
+describeClusterParametersMessage :: Text -- ^ 'dcpmParameterGroupName'
+                                 -> DescribeClusterParametersMessage
+describeClusterParametersMessage p1 = DescribeClusterParametersMessage
     { _dcpmParameterGroupName = p1
     , _dcpmSource             = Nothing
     , _dcpmMaxRecords         = Nothing
@@ -110,11 +110,10 @@ dcpmParameterGroupName =
 -- parameter types returned. Valid Values: user | engine-default.
 dcpmSource :: Lens' DescribeClusterParametersMessage (Maybe Text)
 dcpmSource = lens _dcpmSource (\s a -> s { _dcpmSource = a })
+instance ToQuery DescribeClusterParametersMessage
 
 instance ToPath DescribeClusterParametersMessage where
     toPath = const "/"
-
-instance ToQuery DescribeClusterParametersMessage
 
 data ClusterParameterGroupDetails = ClusterParameterGroupDetails
     { _cpgdMarker     :: Maybe Text
@@ -129,8 +128,8 @@ data ClusterParameterGroupDetails = ClusterParameterGroupDetails
 --
 -- * 'cpgdParameters' @::@ ['Parameter']
 --
-describeClusterParametersResponse :: ClusterParameterGroupDetails
-describeClusterParametersResponse = ClusterParameterGroupDetails
+clusterParameterGroupDetails :: ClusterParameterGroupDetails
+clusterParameterGroupDetails = ClusterParameterGroupDetails
     { _cpgdParameters = mempty
     , _cpgdMarker     = Nothing
     }
@@ -148,6 +147,9 @@ cpgdMarker = lens _cpgdMarker (\s a -> s { _cpgdMarker = a })
 -- cluster parameter group.
 cpgdParameters :: Lens' ClusterParameterGroupDetails [Parameter]
 cpgdParameters = lens _cpgdParameters (\s a -> s { _cpgdParameters = a })
+instance FromXML ClusterParameterGroupDetails where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ClusterParameterGroupDetails"
 
 instance AWSRequest DescribeClusterParametersMessage where
     type Sv DescribeClusterParametersMessage = Redshift

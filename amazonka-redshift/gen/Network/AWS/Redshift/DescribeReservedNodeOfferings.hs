@@ -33,7 +33,7 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
     -- * Request
       DescribeReservedNodeOfferingsMessage
     -- ** Request constructor
-    , describeReservedNodeOfferings
+    , describeReservedNodeOfferingsMessage
     -- ** Request lenses
     , drnomMarker
     , drnomMaxRecords
@@ -42,7 +42,7 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
     -- * Response
     , ReservedNodeOfferingsMessage
     -- ** Response constructor
-    , describeReservedNodeOfferingsResponse
+    , reservedNodeOfferingsMessage
     -- ** Response lenses
     , rnomMarker
     , rnomReservedNodeOfferings
@@ -68,8 +68,8 @@ data DescribeReservedNodeOfferingsMessage = DescribeReservedNodeOfferingsMessage
 --
 -- * 'drnomReservedNodeOfferingId' @::@ 'Maybe' 'Text'
 --
-describeReservedNodeOfferings :: DescribeReservedNodeOfferingsMessage
-describeReservedNodeOfferings = DescribeReservedNodeOfferingsMessage
+describeReservedNodeOfferingsMessage :: DescribeReservedNodeOfferingsMessage
+describeReservedNodeOfferingsMessage = DescribeReservedNodeOfferingsMessage
     { _drnomReservedNodeOfferingId = Nothing
     , _drnomMaxRecords             = Nothing
     , _drnomMarker                 = Nothing
@@ -97,11 +97,10 @@ drnomReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferingsMessage (Maybe
 drnomReservedNodeOfferingId =
     lens _drnomReservedNodeOfferingId
         (\s a -> s { _drnomReservedNodeOfferingId = a })
+instance ToQuery DescribeReservedNodeOfferingsMessage
 
 instance ToPath DescribeReservedNodeOfferingsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeReservedNodeOfferingsMessage
 
 data ReservedNodeOfferingsMessage = ReservedNodeOfferingsMessage
     { _rnomMarker                :: Maybe Text
@@ -116,8 +115,8 @@ data ReservedNodeOfferingsMessage = ReservedNodeOfferingsMessage
 --
 -- * 'rnomReservedNodeOfferings' @::@ ['ReservedNodeOffering']
 --
-describeReservedNodeOfferingsResponse :: ReservedNodeOfferingsMessage
-describeReservedNodeOfferingsResponse = ReservedNodeOfferingsMessage
+reservedNodeOfferingsMessage :: ReservedNodeOfferingsMessage
+reservedNodeOfferingsMessage = ReservedNodeOfferingsMessage
     { _rnomMarker                = Nothing
     , _rnomReservedNodeOfferings = mempty
     }
@@ -136,6 +135,9 @@ rnomReservedNodeOfferings :: Lens' ReservedNodeOfferingsMessage [ReservedNodeOff
 rnomReservedNodeOfferings =
     lens _rnomReservedNodeOfferings
         (\s a -> s { _rnomReservedNodeOfferings = a })
+instance FromXML ReservedNodeOfferingsMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReservedNodeOfferingsMessage"
 
 instance AWSRequest DescribeReservedNodeOfferingsMessage where
     type Sv DescribeReservedNodeOfferingsMessage = Redshift

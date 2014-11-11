@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     -- * Request
       CreateCacheSubnetGroupMessage
     -- ** Request constructor
-    , createCacheSubnetGroup
+    , createCacheSubnetGroupMessage
     -- ** Request lenses
     , ccsgmCacheSubnetGroupDescription
     , ccsgmCacheSubnetGroupName
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
     -- * Response
     , CreateCacheSubnetGroupResult
     -- ** Response constructor
-    , createCacheSubnetGroupResponse
+    , createCacheSubnetGroupResult
     -- ** Response lenses
     , ccsgrCacheSubnetGroup
     ) where
@@ -62,10 +62,10 @@ data CreateCacheSubnetGroupMessage = CreateCacheSubnetGroupMessage
 --
 -- * 'ccsgmSubnetIds' @::@ ['Text']
 --
-createCacheSubnetGroup :: Text -- ^ 'ccsgmCacheSubnetGroupName'
-                       -> Text -- ^ 'ccsgmCacheSubnetGroupDescription'
-                       -> CreateCacheSubnetGroupMessage
-createCacheSubnetGroup p1 p2 = CreateCacheSubnetGroupMessage
+createCacheSubnetGroupMessage :: Text -- ^ 'ccsgmCacheSubnetGroupName'
+                              -> Text -- ^ 'ccsgmCacheSubnetGroupDescription'
+                              -> CreateCacheSubnetGroupMessage
+createCacheSubnetGroupMessage p1 p2 = CreateCacheSubnetGroupMessage
     { _ccsgmCacheSubnetGroupName        = p1
     , _ccsgmCacheSubnetGroupDescription = p2
     , _ccsgmSubnetIds                   = mempty
@@ -88,11 +88,10 @@ ccsgmCacheSubnetGroupName =
 -- | A list of VPC subnet IDs for the cache subnet group.
 ccsgmSubnetIds :: Lens' CreateCacheSubnetGroupMessage [Text]
 ccsgmSubnetIds = lens _ccsgmSubnetIds (\s a -> s { _ccsgmSubnetIds = a })
+instance ToQuery CreateCacheSubnetGroupMessage
 
 instance ToPath CreateCacheSubnetGroupMessage where
     toPath = const "/"
-
-instance ToQuery CreateCacheSubnetGroupMessage
 
 newtype CreateCacheSubnetGroupResult = CreateCacheSubnetGroupResult
     { _ccsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
@@ -104,14 +103,17 @@ newtype CreateCacheSubnetGroupResult = CreateCacheSubnetGroupResult
 --
 -- * 'ccsgrCacheSubnetGroup' @::@ 'Maybe' 'CacheSubnetGroup'
 --
-createCacheSubnetGroupResponse :: CreateCacheSubnetGroupResult
-createCacheSubnetGroupResponse = CreateCacheSubnetGroupResult
+createCacheSubnetGroupResult :: CreateCacheSubnetGroupResult
+createCacheSubnetGroupResult = CreateCacheSubnetGroupResult
     { _ccsgrCacheSubnetGroup = Nothing
     }
 
 ccsgrCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResult (Maybe CacheSubnetGroup)
 ccsgrCacheSubnetGroup =
     lens _ccsgrCacheSubnetGroup (\s a -> s { _ccsgrCacheSubnetGroup = a })
+instance FromXML CreateCacheSubnetGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateCacheSubnetGroupResult"
 
 instance AWSRequest CreateCacheSubnetGroupMessage where
     type Sv CreateCacheSubnetGroupMessage = ElastiCache

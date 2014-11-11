@@ -36,7 +36,7 @@ module Network.AWS.EC2.UnmonitorInstances
     -- * Response
     , UnmonitorInstancesResult
     -- ** Response constructor
-    , unmonitorInstancesResponse
+    , unmonitorInstancesResult
     -- ** Response lenses
     , uirInstanceMonitorings
     ) where
@@ -70,11 +70,10 @@ uiDryRun = lens _uiDryRun (\s a -> s { _uiDryRun = a })
 -- | One or more instance IDs.
 uiInstanceIds :: Lens' UnmonitorInstances [Text]
 uiInstanceIds = lens _uiInstanceIds (\s a -> s { _uiInstanceIds = a })
+instance ToQuery UnmonitorInstances
 
 instance ToPath UnmonitorInstances where
     toPath = const "/"
-
-instance ToQuery UnmonitorInstances
 
 newtype UnmonitorInstancesResult = UnmonitorInstancesResult
     { _uirInstanceMonitorings :: [InstanceMonitoring]
@@ -86,8 +85,8 @@ newtype UnmonitorInstancesResult = UnmonitorInstancesResult
 --
 -- * 'uirInstanceMonitorings' @::@ ['InstanceMonitoring']
 --
-unmonitorInstancesResponse :: UnmonitorInstancesResult
-unmonitorInstancesResponse = UnmonitorInstancesResult
+unmonitorInstancesResult :: UnmonitorInstancesResult
+unmonitorInstancesResult = UnmonitorInstancesResult
     { _uirInstanceMonitorings = mempty
     }
 
@@ -95,6 +94,9 @@ unmonitorInstancesResponse = UnmonitorInstancesResult
 uirInstanceMonitorings :: Lens' UnmonitorInstancesResult [InstanceMonitoring]
 uirInstanceMonitorings =
     lens _uirInstanceMonitorings (\s a -> s { _uirInstanceMonitorings = a })
+instance FromXML UnmonitorInstancesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UnmonitorInstancesResult"
 
 instance AWSRequest UnmonitorInstances where
     type Sv UnmonitorInstances = EC2

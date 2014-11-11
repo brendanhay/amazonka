@@ -41,7 +41,7 @@ module Network.AWS.EC2.CreateNetworkInterface
     -- * Response
     , CreateNetworkInterfaceResult
     -- ** Response constructor
-    , createNetworkInterfaceResponse
+    , createNetworkInterfaceResult
     -- ** Response lenses
     , cnirNetworkInterface
     ) where
@@ -131,11 +131,10 @@ cniSecondaryPrivateIpAddressCount =
 -- | The ID of the subnet to associate with the network interface.
 cniSubnetId :: Lens' CreateNetworkInterface Text
 cniSubnetId = lens _cniSubnetId (\s a -> s { _cniSubnetId = a })
+instance ToQuery CreateNetworkInterface
 
 instance ToPath CreateNetworkInterface where
     toPath = const "/"
-
-instance ToQuery CreateNetworkInterface
 
 newtype CreateNetworkInterfaceResult = CreateNetworkInterfaceResult
     { _cnirNetworkInterface :: Maybe NetworkInterface
@@ -147,8 +146,8 @@ newtype CreateNetworkInterfaceResult = CreateNetworkInterfaceResult
 --
 -- * 'cnirNetworkInterface' @::@ 'Maybe' 'NetworkInterface'
 --
-createNetworkInterfaceResponse :: CreateNetworkInterfaceResult
-createNetworkInterfaceResponse = CreateNetworkInterfaceResult
+createNetworkInterfaceResult :: CreateNetworkInterfaceResult
+createNetworkInterfaceResult = CreateNetworkInterfaceResult
     { _cnirNetworkInterface = Nothing
     }
 
@@ -156,6 +155,9 @@ createNetworkInterfaceResponse = CreateNetworkInterfaceResult
 cnirNetworkInterface :: Lens' CreateNetworkInterfaceResult (Maybe NetworkInterface)
 cnirNetworkInterface =
     lens _cnirNetworkInterface (\s a -> s { _cnirNetworkInterface = a })
+instance FromXML CreateNetworkInterfaceResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateNetworkInterfaceResult"
 
 instance AWSRequest CreateNetworkInterface where
     type Sv CreateNetworkInterface = EC2

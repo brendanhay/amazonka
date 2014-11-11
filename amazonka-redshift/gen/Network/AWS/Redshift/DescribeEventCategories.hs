@@ -28,14 +28,14 @@ module Network.AWS.Redshift.DescribeEventCategories
     -- * Request
       DescribeEventCategoriesMessage
     -- ** Request constructor
-    , describeEventCategories
+    , describeEventCategoriesMessage
     -- ** Request lenses
     , decmSourceType
 
     -- * Response
     , EventCategoriesMessage
     -- ** Response constructor
-    , describeEventCategoriesResponse
+    , eventCategoriesMessage
     -- ** Response lenses
     , ecmEventCategoriesMapList
     ) where
@@ -54,8 +54,8 @@ newtype DescribeEventCategoriesMessage = DescribeEventCategoriesMessage
 --
 -- * 'decmSourceType' @::@ 'Maybe' 'Text'
 --
-describeEventCategories :: DescribeEventCategoriesMessage
-describeEventCategories = DescribeEventCategoriesMessage
+describeEventCategoriesMessage :: DescribeEventCategoriesMessage
+describeEventCategoriesMessage = DescribeEventCategoriesMessage
     { _decmSourceType = Nothing
     }
 
@@ -64,11 +64,10 @@ describeEventCategories = DescribeEventCategoriesMessage
 -- parameter group, and security group.
 decmSourceType :: Lens' DescribeEventCategoriesMessage (Maybe Text)
 decmSourceType = lens _decmSourceType (\s a -> s { _decmSourceType = a })
+instance ToQuery DescribeEventCategoriesMessage
 
 instance ToPath DescribeEventCategoriesMessage where
     toPath = const "/"
-
-instance ToQuery DescribeEventCategoriesMessage
 
 newtype EventCategoriesMessage = EventCategoriesMessage
     { _ecmEventCategoriesMapList :: [EventCategoriesMap]
@@ -80,8 +79,8 @@ newtype EventCategoriesMessage = EventCategoriesMessage
 --
 -- * 'ecmEventCategoriesMapList' @::@ ['EventCategoriesMap']
 --
-describeEventCategoriesResponse :: EventCategoriesMessage
-describeEventCategoriesResponse = EventCategoriesMessage
+eventCategoriesMessage :: EventCategoriesMessage
+eventCategoriesMessage = EventCategoriesMessage
     { _ecmEventCategoriesMapList = mempty
     }
 
@@ -90,6 +89,9 @@ ecmEventCategoriesMapList :: Lens' EventCategoriesMessage [EventCategoriesMap]
 ecmEventCategoriesMapList =
     lens _ecmEventCategoriesMapList
         (\s a -> s { _ecmEventCategoriesMapList = a })
+instance FromXML EventCategoriesMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EventCategoriesMessage"
 
 instance AWSRequest DescribeEventCategoriesMessage where
     type Sv DescribeEventCategoriesMessage = Redshift

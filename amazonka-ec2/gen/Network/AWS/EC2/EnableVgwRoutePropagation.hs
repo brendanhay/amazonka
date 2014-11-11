@@ -70,21 +70,24 @@ evrpGatewayId = lens _evrpGatewayId (\s a -> s { _evrpGatewayId = a })
 -- | The ID of the route table.
 evrpRouteTableId :: Lens' EnableVgwRoutePropagation Text
 evrpRouteTableId = lens _evrpRouteTableId (\s a -> s { _evrpRouteTableId = a })
+instance ToQuery EnableVgwRoutePropagation
 
 instance ToPath EnableVgwRoutePropagation where
     toPath = const "/"
 
-instance ToQuery EnableVgwRoutePropagation
-
 data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'EnableVgwRoutePropagationResponse' constructor.
 enableVgwRoutePropagationResponse :: EnableVgwRoutePropagationResponse
 enableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
+instance FromXML EnableVgwRoutePropagationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnableVgwRoutePropagationResponse"
 
 instance AWSRequest EnableVgwRoutePropagation where
     type Sv EnableVgwRoutePropagation = EC2
     type Rs EnableVgwRoutePropagation = EnableVgwRoutePropagationResponse
 
     request  = post "EnableVgwRoutePropagation"
-    response = const (nullaryResponse EnableVgwRoutePropagationResponse)
+    response = nullaryResponse EnableVgwRoutePropagationResponse

@@ -38,7 +38,7 @@ module Network.AWS.EC2.ConfirmProductInstance
     -- * Response
     , ConfirmProductInstanceResult
     -- ** Response constructor
-    , confirmProductInstanceResponse
+    , confirmProductInstanceResult
     -- ** Response lenses
     , cpirOwnerId
     ) where
@@ -82,11 +82,10 @@ cpiInstanceId = lens _cpiInstanceId (\s a -> s { _cpiInstanceId = a })
 -- | The product code. This must be a product code that you own.
 cpiProductCode :: Lens' ConfirmProductInstance Text
 cpiProductCode = lens _cpiProductCode (\s a -> s { _cpiProductCode = a })
+instance ToQuery ConfirmProductInstance
 
 instance ToPath ConfirmProductInstance where
     toPath = const "/"
-
-instance ToQuery ConfirmProductInstance
 
 newtype ConfirmProductInstanceResult = ConfirmProductInstanceResult
     { _cpirOwnerId :: Maybe Text
@@ -98,8 +97,8 @@ newtype ConfirmProductInstanceResult = ConfirmProductInstanceResult
 --
 -- * 'cpirOwnerId' @::@ 'Maybe' 'Text'
 --
-confirmProductInstanceResponse :: ConfirmProductInstanceResult
-confirmProductInstanceResponse = ConfirmProductInstanceResult
+confirmProductInstanceResult :: ConfirmProductInstanceResult
+confirmProductInstanceResult = ConfirmProductInstanceResult
     { _cpirOwnerId = Nothing
     }
 
@@ -107,6 +106,9 @@ confirmProductInstanceResponse = ConfirmProductInstanceResult
 -- product code is attached to the instance.
 cpirOwnerId :: Lens' ConfirmProductInstanceResult (Maybe Text)
 cpirOwnerId = lens _cpirOwnerId (\s a -> s { _cpirOwnerId = a })
+instance FromXML ConfirmProductInstanceResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ConfirmProductInstanceResult"
 
 instance AWSRequest ConfirmProductInstance where
     type Sv ConfirmProductInstance = EC2

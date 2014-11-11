@@ -39,7 +39,7 @@ module Network.AWS.EC2.CreateVpnGateway
     -- * Response
     , CreateVpnGatewayResult
     -- ** Response constructor
-    , createVpnGatewayResponse
+    , createVpnGatewayResult
     -- ** Response lenses
     , cvgrVpnGateway
     ) where
@@ -83,11 +83,10 @@ cvgDryRun = lens _cvgDryRun (\s a -> s { _cvgDryRun = a })
 -- | The type of VPN connection this virtual private gateway supports.
 cvgType :: Lens' CreateVpnGateway Text
 cvgType = lens _cvgType (\s a -> s { _cvgType = a })
+instance ToQuery CreateVpnGateway
 
 instance ToPath CreateVpnGateway where
     toPath = const "/"
-
-instance ToQuery CreateVpnGateway
 
 newtype CreateVpnGatewayResult = CreateVpnGatewayResult
     { _cvgrVpnGateway :: Maybe VpnGateway
@@ -99,14 +98,17 @@ newtype CreateVpnGatewayResult = CreateVpnGatewayResult
 --
 -- * 'cvgrVpnGateway' @::@ 'Maybe' 'VpnGateway'
 --
-createVpnGatewayResponse :: CreateVpnGatewayResult
-createVpnGatewayResponse = CreateVpnGatewayResult
+createVpnGatewayResult :: CreateVpnGatewayResult
+createVpnGatewayResult = CreateVpnGatewayResult
     { _cvgrVpnGateway = Nothing
     }
 
 -- | Information about the virtual private gateway.
 cvgrVpnGateway :: Lens' CreateVpnGatewayResult (Maybe VpnGateway)
 cvgrVpnGateway = lens _cvgrVpnGateway (\s a -> s { _cvgrVpnGateway = a })
+instance FromXML CreateVpnGatewayResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateVpnGatewayResult"
 
 instance AWSRequest CreateVpnGateway where
     type Sv CreateVpnGateway = EC2

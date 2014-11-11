@@ -23,11 +23,6 @@ module Network.AWS.ELB.Types
     (
     -- * Service
       ELB
-    -- ** Errors
-    , ELBError (..)
-    , _ELBHttp
-    , _ELBSerializer
-    , _ELBService
     -- ** XML
     , xmlOptions
 

@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     -- * Request
       CreateApplicationMessage
     -- ** Request constructor
-    , createApplication
+    , createApplicationMessage
     -- ** Request lenses
     , camApplicationName
     , camDescription
@@ -35,7 +35,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     -- * Response
     , ApplicationDescriptionMessage
     -- ** Response constructor
-    , createApplicationResponse
+    , applicationDescriptionMessage
     -- ** Response lenses
     , admApplication
     ) where
@@ -57,9 +57,9 @@ data CreateApplicationMessage = CreateApplicationMessage
 --
 -- * 'camDescription' @::@ 'Maybe' 'Text'
 --
-createApplication :: Text -- ^ 'camApplicationName'
-                  -> CreateApplicationMessage
-createApplication p1 = CreateApplicationMessage
+createApplicationMessage :: Text -- ^ 'camApplicationName'
+                         -> CreateApplicationMessage
+createApplicationMessage p1 = CreateApplicationMessage
     { _camApplicationName = p1
     , _camDescription     = Nothing
     }
@@ -74,11 +74,10 @@ camApplicationName =
 -- | Describes the application.
 camDescription :: Lens' CreateApplicationMessage (Maybe Text)
 camDescription = lens _camDescription (\s a -> s { _camDescription = a })
+instance ToQuery CreateApplicationMessage
 
 instance ToPath CreateApplicationMessage where
     toPath = const "/"
-
-instance ToQuery CreateApplicationMessage
 
 instance AWSRequest CreateApplicationMessage where
     type Sv CreateApplicationMessage = ElasticBeanstalk

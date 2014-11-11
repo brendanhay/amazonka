@@ -28,7 +28,7 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     -- * Request
       DescribeDBParameterGroupsMessage
     -- ** Request constructor
-    , describeDBParameterGroups
+    , describeDBParameterGroupsMessage
     -- ** Request lenses
     , ddbpgmDBParameterGroupName
     , ddbpgmFilters
@@ -38,7 +38,7 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     -- * Response
     , DBParameterGroupsMessage
     -- ** Response constructor
-    , describeDBParameterGroupsResponse
+    , dbparameterGroupsMessage
     -- ** Response lenses
     , dbpgmDBParameterGroups
     , dbpgmMarker
@@ -67,8 +67,8 @@ data DescribeDBParameterGroupsMessage = DescribeDBParameterGroupsMessage
 --
 -- * 'ddbpgmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBParameterGroups :: DescribeDBParameterGroupsMessage
-describeDBParameterGroups = DescribeDBParameterGroupsMessage
+describeDBParameterGroupsMessage :: DescribeDBParameterGroupsMessage
+describeDBParameterGroupsMessage = DescribeDBParameterGroupsMessage
     { _ddbpgmDBParameterGroupName = Nothing
     , _ddbpgmFilters              = mempty
     , _ddbpgmMaxRecords           = Nothing
@@ -101,11 +101,10 @@ ddbpgmMarker = lens _ddbpgmMarker (\s a -> s { _ddbpgmMarker = a })
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbpgmMaxRecords :: Lens' DescribeDBParameterGroupsMessage (Maybe Int)
 ddbpgmMaxRecords = lens _ddbpgmMaxRecords (\s a -> s { _ddbpgmMaxRecords = a })
+instance ToQuery DescribeDBParameterGroupsMessage
 
 instance ToPath DescribeDBParameterGroupsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeDBParameterGroupsMessage
 
 data DBParameterGroupsMessage = DBParameterGroupsMessage
     { _dbpgmDBParameterGroups :: [DBParameterGroup]
@@ -120,8 +119,8 @@ data DBParameterGroupsMessage = DBParameterGroupsMessage
 --
 -- * 'dbpgmMarker' @::@ 'Maybe' 'Text'
 --
-describeDBParameterGroupsResponse :: DBParameterGroupsMessage
-describeDBParameterGroupsResponse = DBParameterGroupsMessage
+dbparameterGroupsMessage :: DBParameterGroupsMessage
+dbparameterGroupsMessage = DBParameterGroupsMessage
     { _dbpgmMarker            = Nothing
     , _dbpgmDBParameterGroups = mempty
     }
@@ -136,6 +135,9 @@ dbpgmDBParameterGroups =
 -- marker, up to the value specified by MaxRecords.
 dbpgmMarker :: Lens' DBParameterGroupsMessage (Maybe Text)
 dbpgmMarker = lens _dbpgmMarker (\s a -> s { _dbpgmMarker = a })
+instance FromXML DBParameterGroupsMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DBParameterGroupsMessage"
 
 instance AWSRequest DescribeDBParameterGroupsMessage where
     type Sv DescribeDBParameterGroupsMessage = RDS

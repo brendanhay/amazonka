@@ -26,14 +26,14 @@ module Network.AWS.CloudFront.GetDistributionConfig
     -- * Request
       GetDistributionConfig
     -- ** Request constructor
-    , getDistributionConfig2014_05_31
+    , getDistributionConfig
     -- ** Request lenses
     , gdcId
 
     -- * Response
     , GetDistributionConfigResult
     -- ** Response constructor
-    , getDistributionConfig2014_05_31Response
+    , getDistributionConfigResult
     -- ** Response lenses
     , gdcrDistributionConfig
     , gdcrETag
@@ -53,9 +53,9 @@ newtype GetDistributionConfig = GetDistributionConfig
 --
 -- * 'gdcId' @::@ 'Text'
 --
-getDistributionConfig2014_05_31 :: Text -- ^ 'gdcId'
-                                -> GetDistributionConfig
-getDistributionConfig2014_05_31 p1 = GetDistributionConfig
+getDistributionConfig :: Text -- ^ 'gdcId'
+                      -> GetDistributionConfig
+getDistributionConfig p1 = GetDistributionConfig
     { _gdcId = p1
     }
 
@@ -88,8 +88,8 @@ data GetDistributionConfigResult = GetDistributionConfigResult
 --
 -- * 'gdcrETag' @::@ 'Maybe' 'Text'
 --
-getDistributionConfig2014_05_31Response :: GetDistributionConfigResult
-getDistributionConfig2014_05_31Response = GetDistributionConfigResult
+getDistributionConfigResult :: GetDistributionConfigResult
+getDistributionConfigResult = GetDistributionConfigResult
     { _gdcrDistributionConfig = Nothing
     , _gdcrETag               = Nothing
     }
@@ -103,6 +103,9 @@ gdcrDistributionConfig =
 gdcrETag :: Lens' GetDistributionConfigResult (Maybe Text)
 gdcrETag = lens _gdcrETag (\s a -> s { _gdcrETag = a })
 
+instance FromXML GetDistributionConfigResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetDistributionConfigResult"
 instance AWSRequest GetDistributionConfig where
     type Sv GetDistributionConfig = CloudFront
     type Rs GetDistributionConfig = GetDistributionConfigResult

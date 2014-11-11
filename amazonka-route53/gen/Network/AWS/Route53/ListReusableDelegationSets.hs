@@ -167,6 +167,9 @@ lrdsrMaxItems = lens _lrdsrMaxItems (\s a -> s { _lrdsrMaxItems = a })
 lrdsrNextMarker :: Lens' ListReusableDelegationSetsResponse (Maybe Text)
 lrdsrNextMarker = lens _lrdsrNextMarker (\s a -> s { _lrdsrNextMarker = a })
 
+instance FromXML ListReusableDelegationSetsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListReusableDelegationSetsResponse"
 instance AWSRequest ListReusableDelegationSets where
     type Sv ListReusableDelegationSets = Route53
     type Rs ListReusableDelegationSets = ListReusableDelegationSetsResponse

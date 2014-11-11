@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     -- * Response
     , DescribeReservedInstancesModificationsResult
     -- ** Response constructor
-    , describeReservedInstancesModificationsResponse
+    , describeReservedInstancesModificationsResult
     -- ** Response lenses
     , drimrNextToken
     , drimrReservedInstancesModifications
@@ -105,11 +105,10 @@ drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModificat
 drimReservedInstancesModificationIds =
     lens _drimReservedInstancesModificationIds
         (\s a -> s { _drimReservedInstancesModificationIds = a })
+instance ToQuery DescribeReservedInstancesModifications
 
 instance ToPath DescribeReservedInstancesModifications where
     toPath = const "/"
-
-instance ToQuery DescribeReservedInstancesModifications
 
 data DescribeReservedInstancesModificationsResult = DescribeReservedInstancesModificationsResult
     { _drimrNextToken                      :: Maybe Text
@@ -124,8 +123,8 @@ data DescribeReservedInstancesModificationsResult = DescribeReservedInstancesMod
 --
 -- * 'drimrReservedInstancesModifications' @::@ ['ReservedInstancesModification']
 --
-describeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResult
-describeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResult
+describeReservedInstancesModificationsResult :: DescribeReservedInstancesModificationsResult
+describeReservedInstancesModificationsResult = DescribeReservedInstancesModificationsResult
     { _drimrReservedInstancesModifications = mempty
     , _drimrNextToken                      = Nothing
     }
@@ -139,6 +138,9 @@ drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificati
 drimrReservedInstancesModifications =
     lens _drimrReservedInstancesModifications
         (\s a -> s { _drimrReservedInstancesModifications = a })
+instance FromXML DescribeReservedInstancesModificationsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeReservedInstancesModificationsResult"
 
 instance AWSRequest DescribeReservedInstancesModifications where
     type Sv DescribeReservedInstancesModifications = EC2

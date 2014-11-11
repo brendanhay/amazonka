@@ -42,7 +42,7 @@ module Network.AWS.RDS.CreateEventSubscription
     -- * Request
       CreateEventSubscriptionMessage
     -- ** Request constructor
-    , createEventSubscription
+    , createEventSubscriptionMessage
     -- ** Request lenses
     , cesmEnabled
     , cesmEventCategories
@@ -55,7 +55,7 @@ module Network.AWS.RDS.CreateEventSubscription
     -- * Response
     , CreateEventSubscriptionResult
     -- ** Response constructor
-    , createEventSubscriptionResponse
+    , createEventSubscriptionResult
     -- ** Response lenses
     , cesrEventSubscription
     ) where
@@ -92,10 +92,10 @@ data CreateEventSubscriptionMessage = CreateEventSubscriptionMessage
 --
 -- * 'cesmTags' @::@ ['Tag']
 --
-createEventSubscription :: Text -- ^ 'cesmSubscriptionName'
-                        -> Text -- ^ 'cesmSnsTopicArn'
-                        -> CreateEventSubscriptionMessage
-createEventSubscription p1 p2 = CreateEventSubscriptionMessage
+createEventSubscriptionMessage :: Text -- ^ 'cesmSubscriptionName'
+                               -> Text -- ^ 'cesmSnsTopicArn'
+                               -> CreateEventSubscriptionMessage
+createEventSubscriptionMessage p1 p2 = CreateEventSubscriptionMessage
     { _cesmSubscriptionName = p1
     , _cesmSnsTopicArn      = p2
     , _cesmSourceType       = Nothing
@@ -154,11 +154,10 @@ cesmSubscriptionName =
 
 cesmTags :: Lens' CreateEventSubscriptionMessage [Tag]
 cesmTags = lens _cesmTags (\s a -> s { _cesmTags = a })
+instance ToQuery CreateEventSubscriptionMessage
 
 instance ToPath CreateEventSubscriptionMessage where
     toPath = const "/"
-
-instance ToQuery CreateEventSubscriptionMessage
 
 newtype CreateEventSubscriptionResult = CreateEventSubscriptionResult
     { _cesrEventSubscription :: Maybe EventSubscription
@@ -170,14 +169,17 @@ newtype CreateEventSubscriptionResult = CreateEventSubscriptionResult
 --
 -- * 'cesrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-createEventSubscriptionResponse :: CreateEventSubscriptionResult
-createEventSubscriptionResponse = CreateEventSubscriptionResult
+createEventSubscriptionResult :: CreateEventSubscriptionResult
+createEventSubscriptionResult = CreateEventSubscriptionResult
     { _cesrEventSubscription = Nothing
     }
 
 cesrEventSubscription :: Lens' CreateEventSubscriptionResult (Maybe EventSubscription)
 cesrEventSubscription =
     lens _cesrEventSubscription (\s a -> s { _cesrEventSubscription = a })
+instance FromXML CreateEventSubscriptionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateEventSubscriptionResult"
 
 instance AWSRequest CreateEventSubscriptionMessage where
     type Sv CreateEventSubscriptionMessage = RDS

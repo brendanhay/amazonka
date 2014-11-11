@@ -23,11 +23,6 @@ module Network.AWS.SimpleDB.Types
     (
     -- * Service
       SimpleDB
-    -- ** Errors
-    , SimpleDBError (..)
-    , _SimpleDBHttp
-    , _SimpleDBSerializer
-    , _SimpleDBService
     -- ** XML
     , xmlOptions
 

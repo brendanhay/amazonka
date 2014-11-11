@@ -23,11 +23,6 @@ module Network.AWS.Route53.Types
     (
     -- * Service
       Route53
-    -- ** Errors
-    , Route53Error (..)
-    , _Route53Http
-    , _Route53Serializer
-    , _Route53Service
     -- ** XML
     , xmlOptions
 

@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     -- * Request
       DescribeNotificationConfigurationsType
     -- ** Request constructor
-    , describeNotificationConfigurations
+    , describeNotificationConfigurationsType
     -- ** Request lenses
     , dnctAutoScalingGroupNames
     , dnctMaxRecords
@@ -36,7 +36,7 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     -- * Response
     , DescribeNotificationConfigurationsAnswer
     -- ** Response constructor
-    , describeNotificationConfigurationsResponse
+    , describeNotificationConfigurationsAnswer
     -- ** Response lenses
     , dncaNextToken
     , dncaNotificationConfigurations
@@ -62,8 +62,8 @@ data DescribeNotificationConfigurationsType = DescribeNotificationConfigurations
 --
 -- * 'dnctNextToken' @::@ 'Maybe' 'Text'
 --
-describeNotificationConfigurations :: DescribeNotificationConfigurationsType
-describeNotificationConfigurations = DescribeNotificationConfigurationsType
+describeNotificationConfigurationsType :: DescribeNotificationConfigurationsType
+describeNotificationConfigurationsType = DescribeNotificationConfigurationsType
     { _dnctAutoScalingGroupNames = mempty
     , _dnctNextToken             = Nothing
     , _dnctMaxRecords            = Nothing
@@ -83,11 +83,10 @@ dnctMaxRecords = lens _dnctMaxRecords (\s a -> s { _dnctMaxRecords = a })
 -- results for pagination.
 dnctNextToken :: Lens' DescribeNotificationConfigurationsType (Maybe Text)
 dnctNextToken = lens _dnctNextToken (\s a -> s { _dnctNextToken = a })
+instance ToQuery DescribeNotificationConfigurationsType
 
 instance ToPath DescribeNotificationConfigurationsType where
     toPath = const "/"
-
-instance ToQuery DescribeNotificationConfigurationsType
 
 data DescribeNotificationConfigurationsAnswer = DescribeNotificationConfigurationsAnswer
     { _dncaNextToken                  :: Maybe Text
@@ -102,8 +101,8 @@ data DescribeNotificationConfigurationsAnswer = DescribeNotificationConfiguratio
 --
 -- * 'dncaNotificationConfigurations' @::@ ['NotificationConfiguration']
 --
-describeNotificationConfigurationsResponse :: DescribeNotificationConfigurationsAnswer
-describeNotificationConfigurationsResponse = DescribeNotificationConfigurationsAnswer
+describeNotificationConfigurationsAnswer :: DescribeNotificationConfigurationsAnswer
+describeNotificationConfigurationsAnswer = DescribeNotificationConfigurationsAnswer
     { _dncaNotificationConfigurations = mempty
     , _dncaNextToken                  = Nothing
     }
@@ -118,6 +117,9 @@ dncaNotificationConfigurations :: Lens' DescribeNotificationConfigurationsAnswer
 dncaNotificationConfigurations =
     lens _dncaNotificationConfigurations
         (\s a -> s { _dncaNotificationConfigurations = a })
+instance FromXML DescribeNotificationConfigurationsAnswer where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeNotificationConfigurationsAnswer"
 
 instance AWSRequest DescribeNotificationConfigurationsType where
     type Sv DescribeNotificationConfigurationsType = AutoScaling

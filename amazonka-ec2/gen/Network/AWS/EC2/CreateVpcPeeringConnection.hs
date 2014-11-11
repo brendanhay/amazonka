@@ -44,7 +44,7 @@ module Network.AWS.EC2.CreateVpcPeeringConnection
     -- * Response
     , CreateVpcPeeringConnectionResult
     -- ** Response constructor
-    , createVpcPeeringConnectionResponse
+    , createVpcPeeringConnectionResult
     -- ** Response lenses
     , cvpcrVpcPeeringConnection
     ) where
@@ -95,11 +95,10 @@ cvpcPeerVpcId = lens _cvpcPeerVpcId (\s a -> s { _cvpcPeerVpcId = a })
 -- | The ID of the requester VPC.
 cvpcVpcId :: Lens' CreateVpcPeeringConnection (Maybe Text)
 cvpcVpcId = lens _cvpcVpcId (\s a -> s { _cvpcVpcId = a })
+instance ToQuery CreateVpcPeeringConnection
 
 instance ToPath CreateVpcPeeringConnection where
     toPath = const "/"
-
-instance ToQuery CreateVpcPeeringConnection
 
 newtype CreateVpcPeeringConnectionResult = CreateVpcPeeringConnectionResult
     { _cvpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
@@ -111,8 +110,8 @@ newtype CreateVpcPeeringConnectionResult = CreateVpcPeeringConnectionResult
 --
 -- * 'cvpcrVpcPeeringConnection' @::@ 'Maybe' 'VpcPeeringConnection'
 --
-createVpcPeeringConnectionResponse :: CreateVpcPeeringConnectionResult
-createVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResult
+createVpcPeeringConnectionResult :: CreateVpcPeeringConnectionResult
+createVpcPeeringConnectionResult = CreateVpcPeeringConnectionResult
     { _cvpcrVpcPeeringConnection = Nothing
     }
 
@@ -121,6 +120,9 @@ cvpcrVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResult (Maybe VpcPe
 cvpcrVpcPeeringConnection =
     lens _cvpcrVpcPeeringConnection
         (\s a -> s { _cvpcrVpcPeeringConnection = a })
+instance FromXML CreateVpcPeeringConnectionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateVpcPeeringConnectionResult"
 
 instance AWSRequest CreateVpcPeeringConnection where
     type Sv CreateVpcPeeringConnection = EC2

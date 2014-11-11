@@ -30,7 +30,7 @@ module Network.AWS.ELB.DescribeLoadBalancers
     -- * Request
       DescribeAccessPointsInput
     -- ** Request constructor
-    , describeLoadBalancers
+    , describeAccessPointsInput
     -- ** Request lenses
     , dapiLoadBalancerNames
     , dapiMarker
@@ -39,7 +39,7 @@ module Network.AWS.ELB.DescribeLoadBalancers
     -- * Response
     , DescribeAccessPointsOutput
     -- ** Response constructor
-    , describeLoadBalancersResponse
+    , describeAccessPointsOutput
     -- ** Response lenses
     , dapoLoadBalancerDescriptions
     , dapoNextMarker
@@ -65,8 +65,8 @@ data DescribeAccessPointsInput = DescribeAccessPointsInput
 --
 -- * 'dapiPageSize' @::@ 'Maybe' 'Int'
 --
-describeLoadBalancers :: DescribeAccessPointsInput
-describeLoadBalancers = DescribeAccessPointsInput
+describeAccessPointsInput :: DescribeAccessPointsInput
+describeAccessPointsInput = DescribeAccessPointsInput
     { _dapiLoadBalancerNames = mempty
     , _dapiMarker            = Nothing
     , _dapiPageSize          = Nothing
@@ -86,11 +86,10 @@ dapiMarker = lens _dapiMarker (\s a -> s { _dapiMarker = a })
 -- cannot specify a page size greater than 400 or less than 1.
 dapiPageSize :: Lens' DescribeAccessPointsInput (Maybe Int)
 dapiPageSize = lens _dapiPageSize (\s a -> s { _dapiPageSize = a })
+instance ToQuery DescribeAccessPointsInput
 
 instance ToPath DescribeAccessPointsInput where
     toPath = const "/"
-
-instance ToQuery DescribeAccessPointsInput
 
 data DescribeAccessPointsOutput = DescribeAccessPointsOutput
     { _dapoLoadBalancerDescriptions :: [LoadBalancerDescription]
@@ -105,8 +104,8 @@ data DescribeAccessPointsOutput = DescribeAccessPointsOutput
 --
 -- * 'dapoNextMarker' @::@ 'Maybe' 'Text'
 --
-describeLoadBalancersResponse :: DescribeAccessPointsOutput
-describeLoadBalancersResponse = DescribeAccessPointsOutput
+describeAccessPointsOutput :: DescribeAccessPointsOutput
+describeAccessPointsOutput = DescribeAccessPointsOutput
     { _dapoLoadBalancerDescriptions = mempty
     , _dapoNextMarker               = Nothing
     }
@@ -121,6 +120,9 @@ dapoLoadBalancerDescriptions =
 -- page of results.
 dapoNextMarker :: Lens' DescribeAccessPointsOutput (Maybe Text)
 dapoNextMarker = lens _dapoNextMarker (\s a -> s { _dapoNextMarker = a })
+instance FromXML DescribeAccessPointsOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAccessPointsOutput"
 
 instance AWSRequest DescribeAccessPointsInput where
     type Sv DescribeAccessPointsInput = ELB

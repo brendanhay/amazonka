@@ -76,11 +76,10 @@ grpPolicyName = lens _grpPolicyName (\s a -> s { _grpPolicyName = a })
 -- | The name of the role associated with the policy.
 grpRoleName :: Lens' GetRolePolicy Text
 grpRoleName = lens _grpRoleName (\s a -> s { _grpRoleName = a })
+instance ToQuery GetRolePolicy
 
 instance ToPath GetRolePolicy where
     toPath = const "/"
-
-instance ToQuery GetRolePolicy
 
 data GetRolePolicyResponse = GetRolePolicyResponse
     { _grprPolicyDocument :: Text
@@ -120,6 +119,9 @@ grprPolicyName = lens _grprPolicyName (\s a -> s { _grprPolicyName = a })
 -- | The role the policy is associated with.
 grprRoleName :: Lens' GetRolePolicyResponse Text
 grprRoleName = lens _grprRoleName (\s a -> s { _grprRoleName = a })
+instance FromXML GetRolePolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetRolePolicyResponse"
 
 instance AWSRequest GetRolePolicy where
     type Sv GetRolePolicy = IAM

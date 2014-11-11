@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeVpcAttribute
     -- * Response
     , DescribeVpcAttributeResult
     -- ** Response constructor
-    , describeVpcAttributeResponse
+    , describeVpcAttributeResult
     -- ** Response lenses
     , dvarEnableDnsHostnames
     , dvarEnableDnsSupport
@@ -81,11 +81,10 @@ dvaDryRun = lens _dvaDryRun (\s a -> s { _dvaDryRun = a })
 -- | The ID of the VPC.
 dvaVpcId :: Lens' DescribeVpcAttribute Text
 dvaVpcId = lens _dvaVpcId (\s a -> s { _dvaVpcId = a })
+instance ToQuery DescribeVpcAttribute
 
 instance ToPath DescribeVpcAttribute where
     toPath = const "/"
-
-instance ToQuery DescribeVpcAttribute
 
 data DescribeVpcAttributeResult = DescribeVpcAttributeResult
     { _dvarEnableDnsHostnames :: Maybe AttributeBooleanValue
@@ -103,8 +102,8 @@ data DescribeVpcAttributeResult = DescribeVpcAttributeResult
 --
 -- * 'dvarVpcId' @::@ 'Maybe' 'Text'
 --
-describeVpcAttributeResponse :: DescribeVpcAttributeResult
-describeVpcAttributeResponse = DescribeVpcAttributeResult
+describeVpcAttributeResult :: DescribeVpcAttributeResult
+describeVpcAttributeResult = DescribeVpcAttributeResult
     { _dvarVpcId              = Nothing
     , _dvarEnableDnsSupport   = Nothing
     , _dvarEnableDnsHostnames = Nothing
@@ -127,6 +126,9 @@ dvarEnableDnsSupport =
 -- | The ID of the VPC.
 dvarVpcId :: Lens' DescribeVpcAttributeResult (Maybe Text)
 dvarVpcId = lens _dvarVpcId (\s a -> s { _dvarVpcId = a })
+instance FromXML DescribeVpcAttributeResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVpcAttributeResult"
 
 instance AWSRequest DescribeVpcAttribute where
     type Sv DescribeVpcAttribute = EC2

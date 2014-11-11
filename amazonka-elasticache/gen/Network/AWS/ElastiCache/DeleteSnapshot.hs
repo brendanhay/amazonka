@@ -28,14 +28,14 @@ module Network.AWS.ElastiCache.DeleteSnapshot
     -- * Request
       DeleteSnapshotMessage
     -- ** Request constructor
-    , deleteSnapshot
+    , deleteSnapshotMessage
     -- ** Request lenses
     , dsmSnapshotName
 
     -- * Response
     , DeleteSnapshotResult
     -- ** Response constructor
-    , deleteSnapshotResponse
+    , deleteSnapshotResult
     -- ** Response lenses
     , dsrSnapshot
     ) where
@@ -54,20 +54,19 @@ newtype DeleteSnapshotMessage = DeleteSnapshotMessage
 --
 -- * 'dsmSnapshotName' @::@ 'Text'
 --
-deleteSnapshot :: Text -- ^ 'dsmSnapshotName'
-               -> DeleteSnapshotMessage
-deleteSnapshot p1 = DeleteSnapshotMessage
+deleteSnapshotMessage :: Text -- ^ 'dsmSnapshotName'
+                      -> DeleteSnapshotMessage
+deleteSnapshotMessage p1 = DeleteSnapshotMessage
     { _dsmSnapshotName = p1
     }
 
 -- | The name of the snapshot to be deleted.
 dsmSnapshotName :: Lens' DeleteSnapshotMessage Text
 dsmSnapshotName = lens _dsmSnapshotName (\s a -> s { _dsmSnapshotName = a })
+instance ToQuery DeleteSnapshotMessage
 
 instance ToPath DeleteSnapshotMessage where
     toPath = const "/"
-
-instance ToQuery DeleteSnapshotMessage
 
 newtype DeleteSnapshotResult = DeleteSnapshotResult
     { _dsrSnapshot :: Maybe Snapshot
@@ -79,13 +78,16 @@ newtype DeleteSnapshotResult = DeleteSnapshotResult
 --
 -- * 'dsrSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-deleteSnapshotResponse :: DeleteSnapshotResult
-deleteSnapshotResponse = DeleteSnapshotResult
+deleteSnapshotResult :: DeleteSnapshotResult
+deleteSnapshotResult = DeleteSnapshotResult
     { _dsrSnapshot = Nothing
     }
 
 dsrSnapshot :: Lens' DeleteSnapshotResult (Maybe Snapshot)
 dsrSnapshot = lens _dsrSnapshot (\s a -> s { _dsrSnapshot = a })
+instance FromXML DeleteSnapshotResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteSnapshotResult"
 
 instance AWSRequest DeleteSnapshotMessage where
     type Sv DeleteSnapshotMessage = ElastiCache

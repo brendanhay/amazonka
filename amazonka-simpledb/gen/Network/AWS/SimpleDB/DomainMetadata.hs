@@ -35,7 +35,7 @@ module Network.AWS.SimpleDB.DomainMetadata
     -- * Response
     , DomainMetadataResult
     -- ** Response constructor
-    , domainMetadataResponse
+    , domainMetadataResult
     -- ** Response lenses
     , dmrAttributeNameCount
     , dmrAttributeNamesSizeBytes
@@ -69,11 +69,10 @@ domainMetadata p1 = DomainMetadata
 -- | The name of the domain for which to display the metadata of.
 dmDomainName :: Lens' DomainMetadata Text
 dmDomainName = lens _dmDomainName (\s a -> s { _dmDomainName = a })
+instance ToQuery DomainMetadata
 
 instance ToPath DomainMetadata where
     toPath = const "/"
-
-instance ToQuery DomainMetadata
 
 data DomainMetadataResult = DomainMetadataResult
     { _dmrAttributeNameCount       :: Maybe Int
@@ -103,8 +102,8 @@ data DomainMetadataResult = DomainMetadataResult
 --
 -- * 'dmrTimestamp' @::@ 'Maybe' 'Int'
 --
-domainMetadataResponse :: DomainMetadataResult
-domainMetadataResponse = DomainMetadataResult
+domainMetadataResult :: DomainMetadataResult
+domainMetadataResult = DomainMetadataResult
     { _dmrItemCount                = Nothing
     , _dmrItemNamesSizeBytes       = Nothing
     , _dmrAttributeNameCount       = Nothing
@@ -148,6 +147,9 @@ dmrItemNamesSizeBytes =
 -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
 dmrTimestamp :: Lens' DomainMetadataResult (Maybe Int)
 dmrTimestamp = lens _dmrTimestamp (\s a -> s { _dmrTimestamp = a })
+instance FromXML DomainMetadataResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DomainMetadataResult"
 
 instance AWSRequest DomainMetadata where
     type Sv DomainMetadata = SimpleDB

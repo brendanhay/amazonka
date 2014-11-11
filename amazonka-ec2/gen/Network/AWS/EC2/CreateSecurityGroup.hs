@@ -53,7 +53,7 @@ module Network.AWS.EC2.CreateSecurityGroup
     -- * Response
     , CreateSecurityGroupResult
     -- ** Response constructor
-    , createSecurityGroupResponse
+    , createSecurityGroupResult
     -- ** Response lenses
     , csgrGroupId
     ) where
@@ -110,11 +110,10 @@ csgGroupName = lens _csgGroupName (\s a -> s { _csgGroupName = a })
 -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
 csgVpcId :: Lens' CreateSecurityGroup (Maybe Text)
 csgVpcId = lens _csgVpcId (\s a -> s { _csgVpcId = a })
+instance ToQuery CreateSecurityGroup
 
 instance ToPath CreateSecurityGroup where
     toPath = const "/"
-
-instance ToQuery CreateSecurityGroup
 
 newtype CreateSecurityGroupResult = CreateSecurityGroupResult
     { _csgrGroupId :: Maybe Text
@@ -126,14 +125,17 @@ newtype CreateSecurityGroupResult = CreateSecurityGroupResult
 --
 -- * 'csgrGroupId' @::@ 'Maybe' 'Text'
 --
-createSecurityGroupResponse :: CreateSecurityGroupResult
-createSecurityGroupResponse = CreateSecurityGroupResult
+createSecurityGroupResult :: CreateSecurityGroupResult
+createSecurityGroupResult = CreateSecurityGroupResult
     { _csgrGroupId = Nothing
     }
 
 -- | The ID of the security group.
 csgrGroupId :: Lens' CreateSecurityGroupResult (Maybe Text)
 csgrGroupId = lens _csgrGroupId (\s a -> s { _csgrGroupId = a })
+instance FromXML CreateSecurityGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateSecurityGroupResult"
 
 instance AWSRequest CreateSecurityGroup where
     type Sv CreateSecurityGroup = EC2

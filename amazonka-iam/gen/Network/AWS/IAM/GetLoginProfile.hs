@@ -63,11 +63,10 @@ getLoginProfile p1 = GetLoginProfile
 -- | The name of the user whose login profile you want to retrieve.
 glpUserName :: Lens' GetLoginProfile Text
 glpUserName = lens _glpUserName (\s a -> s { _glpUserName = a })
+instance ToQuery GetLoginProfile
 
 instance ToPath GetLoginProfile where
     toPath = const "/"
-
-instance ToQuery GetLoginProfile
 
 newtype GetLoginProfileResponse = GetLoginProfileResponse
     { _glprLoginProfile :: LoginProfile
@@ -88,6 +87,9 @@ getLoginProfileResponse p1 = GetLoginProfileResponse
 -- | The user name and password create date for the user.
 glprLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
 glprLoginProfile = lens _glprLoginProfile (\s a -> s { _glprLoginProfile = a })
+instance FromXML GetLoginProfileResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetLoginProfileResponse"
 
 instance AWSRequest GetLoginProfile where
     type Sv GetLoginProfile = IAM

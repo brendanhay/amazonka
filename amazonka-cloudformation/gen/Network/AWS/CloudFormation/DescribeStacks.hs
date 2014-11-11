@@ -27,7 +27,7 @@ module Network.AWS.CloudFormation.DescribeStacks
     -- * Request
       DescribeStacksInput
     -- ** Request constructor
-    , describeStacks
+    , describeStacksInput
     -- ** Request lenses
     , dsiNextToken
     , dsiStackName
@@ -35,7 +35,7 @@ module Network.AWS.CloudFormation.DescribeStacks
     -- * Response
     , DescribeStacksOutput
     -- ** Response constructor
-    , describeStacksResponse
+    , describeStacksOutput
     -- ** Response lenses
     , dsoNextToken
     , dsoStacks
@@ -58,8 +58,8 @@ data DescribeStacksInput = DescribeStacksInput
 --
 -- * 'dsiStackName' @::@ 'Maybe' 'Text'
 --
-describeStacks :: DescribeStacksInput
-describeStacks = DescribeStacksInput
+describeStacksInput :: DescribeStacksInput
+describeStacksInput = DescribeStacksInput
     { _dsiStackName = Nothing
     , _dsiNextToken = Nothing
     }
@@ -75,11 +75,10 @@ dsiNextToken = lens _dsiNextToken (\s a -> s { _dsiNextToken = a })
 -- unique stack ID. Default: There is no default value.
 dsiStackName :: Lens' DescribeStacksInput (Maybe Text)
 dsiStackName = lens _dsiStackName (\s a -> s { _dsiStackName = a })
+instance ToQuery DescribeStacksInput
 
 instance ToPath DescribeStacksInput where
     toPath = const "/"
-
-instance ToQuery DescribeStacksInput
 
 data DescribeStacksOutput = DescribeStacksOutput
     { _dsoNextToken :: Maybe Text
@@ -94,8 +93,8 @@ data DescribeStacksOutput = DescribeStacksOutput
 --
 -- * 'dsoStacks' @::@ ['Stack']
 --
-describeStacksResponse :: DescribeStacksOutput
-describeStacksResponse = DescribeStacksOutput
+describeStacksOutput :: DescribeStacksOutput
+describeStacksOutput = DescribeStacksOutput
     { _dsoStacks    = mempty
     , _dsoNextToken = Nothing
     }
@@ -108,6 +107,9 @@ dsoNextToken = lens _dsoNextToken (\s a -> s { _dsoNextToken = a })
 -- | A list of stack structures.
 dsoStacks :: Lens' DescribeStacksOutput [Stack]
 dsoStacks = lens _dsoStacks (\s a -> s { _dsoStacks = a })
+instance FromXML DescribeStacksOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeStacksOutput"
 
 instance AWSRequest DescribeStacksInput where
     type Sv DescribeStacksInput = CloudFormation

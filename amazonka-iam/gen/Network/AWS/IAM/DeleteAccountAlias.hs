@@ -61,21 +61,24 @@ deleteAccountAlias p1 = DeleteAccountAlias
 -- | The name of the account alias to delete.
 daaAccountAlias :: Lens' DeleteAccountAlias Text
 daaAccountAlias = lens _daaAccountAlias (\s a -> s { _daaAccountAlias = a })
+instance ToQuery DeleteAccountAlias
 
 instance ToPath DeleteAccountAlias where
     toPath = const "/"
 
-instance ToQuery DeleteAccountAlias
-
 data DeleteAccountAliasResponse = DeleteAccountAliasResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteAccountAliasResponse' constructor.
 deleteAccountAliasResponse :: DeleteAccountAliasResponse
 deleteAccountAliasResponse = DeleteAccountAliasResponse
+instance FromXML DeleteAccountAliasResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteAccountAliasResponse"
 
 instance AWSRequest DeleteAccountAlias where
     type Sv DeleteAccountAlias = IAM
     type Rs DeleteAccountAlias = DeleteAccountAliasResponse
 
     request  = post "DeleteAccountAlias"
-    response = const (nullaryResponse DeleteAccountAliasResponse)
+    response = nullaryResponse DeleteAccountAliasResponse

@@ -94,11 +94,10 @@ luMaxItems = lens _luMaxItems (\s a -> s { _luMaxItems = a })
 -- names.
 luPathPrefix :: Lens' ListUsers (Maybe Text)
 luPathPrefix = lens _luPathPrefix (\s a -> s { _luPathPrefix = a })
+instance ToQuery ListUsers
 
 instance ToPath ListUsers where
     toPath = const "/"
-
-instance ToQuery ListUsers
 
 data ListUsersResponse = ListUsersResponse
     { _lurIsTruncated :: Maybe Bool
@@ -137,6 +136,9 @@ lurMarker = lens _lurMarker (\s a -> s { _lurMarker = a })
 -- | A list of users.
 lurUsers :: Lens' ListUsersResponse [User]
 lurUsers = lens _lurUsers (\s a -> s { _lurUsers = a })
+instance FromXML ListUsersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListUsersResponse"
 
 instance AWSRequest ListUsers where
     type Sv ListUsers = IAM

@@ -75,11 +75,10 @@ ggpGroupName = lens _ggpGroupName (\s a -> s { _ggpGroupName = a })
 -- | The name of the policy document to get.
 ggpPolicyName :: Lens' GetGroupPolicy Text
 ggpPolicyName = lens _ggpPolicyName (\s a -> s { _ggpPolicyName = a })
+instance ToQuery GetGroupPolicy
 
 instance ToPath GetGroupPolicy where
     toPath = const "/"
-
-instance ToQuery GetGroupPolicy
 
 data GetGroupPolicyResponse = GetGroupPolicyResponse
     { _ggprGroupName      :: Text
@@ -119,6 +118,9 @@ ggprPolicyDocument =
 -- | The name of the policy.
 ggprPolicyName :: Lens' GetGroupPolicyResponse Text
 ggprPolicyName = lens _ggprPolicyName (\s a -> s { _ggprPolicyName = a })
+instance FromXML GetGroupPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetGroupPolicyResponse"
 
 instance AWSRequest GetGroupPolicy where
     type Sv GetGroupPolicy = IAM

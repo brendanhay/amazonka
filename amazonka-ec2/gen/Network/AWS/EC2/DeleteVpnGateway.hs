@@ -71,21 +71,24 @@ dvgDryRun = lens _dvgDryRun (\s a -> s { _dvgDryRun = a })
 -- | The ID of the virtual private gateway.
 dvgVpnGatewayId :: Lens' DeleteVpnGateway Text
 dvgVpnGatewayId = lens _dvgVpnGatewayId (\s a -> s { _dvgVpnGatewayId = a })
+instance ToQuery DeleteVpnGateway
 
 instance ToPath DeleteVpnGateway where
     toPath = const "/"
 
-instance ToQuery DeleteVpnGateway
-
 data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpnGatewayResponse' constructor.
 deleteVpnGatewayResponse :: DeleteVpnGatewayResponse
 deleteVpnGatewayResponse = DeleteVpnGatewayResponse
+instance FromXML DeleteVpnGatewayResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteVpnGatewayResponse"
 
 instance AWSRequest DeleteVpnGateway where
     type Sv DeleteVpnGateway = EC2
     type Rs DeleteVpnGateway = DeleteVpnGatewayResponse
 
     request  = post "DeleteVpnGateway"
-    response = const (nullaryResponse DeleteVpnGatewayResponse)
+    response = nullaryResponse DeleteVpnGatewayResponse

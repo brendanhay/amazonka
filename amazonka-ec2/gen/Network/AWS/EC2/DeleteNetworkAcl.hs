@@ -68,21 +68,24 @@ dnaDryRun = lens _dnaDryRun (\s a -> s { _dnaDryRun = a })
 -- | The ID of the network ACL.
 dnaNetworkAclId :: Lens' DeleteNetworkAcl Text
 dnaNetworkAclId = lens _dnaNetworkAclId (\s a -> s { _dnaNetworkAclId = a })
+instance ToQuery DeleteNetworkAcl
 
 instance ToPath DeleteNetworkAcl where
     toPath = const "/"
 
-instance ToQuery DeleteNetworkAcl
-
 data DeleteNetworkAclResponse = DeleteNetworkAclResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteNetworkAclResponse' constructor.
 deleteNetworkAclResponse :: DeleteNetworkAclResponse
 deleteNetworkAclResponse = DeleteNetworkAclResponse
+instance FromXML DeleteNetworkAclResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteNetworkAclResponse"
 
 instance AWSRequest DeleteNetworkAcl where
     type Sv DeleteNetworkAcl = EC2
     type Rs DeleteNetworkAcl = DeleteNetworkAclResponse
 
     request  = post "DeleteNetworkAcl"
-    response = const (nullaryResponse DeleteNetworkAclResponse)
+    response = nullaryResponse DeleteNetworkAclResponse

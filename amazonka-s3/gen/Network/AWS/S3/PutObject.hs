@@ -55,7 +55,7 @@ module Network.AWS.S3.PutObject
     -- * Response
     , PutObjectOutput
     -- ** Response constructor
-    , putObjectResponse
+    , putObjectOutput
     -- ** Response lenses
     , pooETag
     , pooExpiration
@@ -351,8 +351,8 @@ data PutObjectOutput = PutObjectOutput
 --
 -- * 'pooVersionId' @::@ 'Maybe' 'Text'
 --
-putObjectResponse :: PutObjectOutput
-putObjectResponse = PutObjectOutput
+putObjectOutput :: PutObjectOutput
+putObjectOutput = PutObjectOutput
     { _pooExpiration           = Nothing
     , _pooETag                 = Nothing
     , _pooServerSideEncryption = Nothing
@@ -395,6 +395,9 @@ pooServerSideEncryption =
 pooVersionId :: Lens' PutObjectOutput (Maybe Text)
 pooVersionId = lens _pooVersionId (\s a -> s { _pooVersionId = a })
 
+instance FromXML PutObjectOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutObjectOutput"
 instance AWSRequest PutObject where
     type Sv PutObject = S3
     type Rs PutObject = PutObjectOutput

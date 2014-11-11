@@ -26,14 +26,14 @@ module Network.AWS.RDS.DeleteEventSubscription
     -- * Request
       DeleteEventSubscriptionMessage
     -- ** Request constructor
-    , deleteEventSubscription
+    , deleteEventSubscriptionMessage
     -- ** Request lenses
     , desm1SubscriptionName
 
     -- * Response
     , DeleteEventSubscriptionResult
     -- ** Response constructor
-    , deleteEventSubscriptionResponse
+    , deleteEventSubscriptionResult
     -- ** Response lenses
     , desrEventSubscription
     ) where
@@ -52,9 +52,9 @@ newtype DeleteEventSubscriptionMessage = DeleteEventSubscriptionMessage
 --
 -- * 'desm1SubscriptionName' @::@ 'Text'
 --
-deleteEventSubscription :: Text -- ^ 'desm1SubscriptionName'
-                        -> DeleteEventSubscriptionMessage
-deleteEventSubscription p1 = DeleteEventSubscriptionMessage
+deleteEventSubscriptionMessage :: Text -- ^ 'desm1SubscriptionName'
+                               -> DeleteEventSubscriptionMessage
+deleteEventSubscriptionMessage p1 = DeleteEventSubscriptionMessage
     { _desm1SubscriptionName = p1
     }
 
@@ -62,11 +62,10 @@ deleteEventSubscription p1 = DeleteEventSubscriptionMessage
 desm1SubscriptionName :: Lens' DeleteEventSubscriptionMessage Text
 desm1SubscriptionName =
     lens _desm1SubscriptionName (\s a -> s { _desm1SubscriptionName = a })
+instance ToQuery DeleteEventSubscriptionMessage
 
 instance ToPath DeleteEventSubscriptionMessage where
     toPath = const "/"
-
-instance ToQuery DeleteEventSubscriptionMessage
 
 newtype DeleteEventSubscriptionResult = DeleteEventSubscriptionResult
     { _desrEventSubscription :: Maybe EventSubscription
@@ -78,14 +77,17 @@ newtype DeleteEventSubscriptionResult = DeleteEventSubscriptionResult
 --
 -- * 'desrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-deleteEventSubscriptionResponse :: DeleteEventSubscriptionResult
-deleteEventSubscriptionResponse = DeleteEventSubscriptionResult
+deleteEventSubscriptionResult :: DeleteEventSubscriptionResult
+deleteEventSubscriptionResult = DeleteEventSubscriptionResult
     { _desrEventSubscription = Nothing
     }
 
 desrEventSubscription :: Lens' DeleteEventSubscriptionResult (Maybe EventSubscription)
 desrEventSubscription =
     lens _desrEventSubscription (\s a -> s { _desrEventSubscription = a })
+instance FromXML DeleteEventSubscriptionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteEventSubscriptionResult"
 
 instance AWSRequest DeleteEventSubscriptionMessage where
     type Sv DeleteEventSubscriptionMessage = RDS

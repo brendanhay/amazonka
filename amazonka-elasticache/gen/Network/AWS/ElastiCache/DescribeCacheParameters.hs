@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     -- * Request
       DescribeCacheParametersMessage
     -- ** Request constructor
-    , describeCacheParameters
+    , describeCacheParametersMessage
     -- ** Request lenses
     , dcpmCacheParameterGroupName
     , dcpmMarker
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
     -- * Response
     , CacheParameterGroupDetails
     -- ** Response constructor
-    , describeCacheParametersResponse
+    , cacheParameterGroupDetails
     -- ** Response lenses
     , cpgdCacheNodeTypeSpecificParameters
     , cpgdMarker
@@ -67,9 +67,9 @@ data DescribeCacheParametersMessage = DescribeCacheParametersMessage
 --
 -- * 'dcpmSource' @::@ 'Maybe' 'Text'
 --
-describeCacheParameters :: Text -- ^ 'dcpmCacheParameterGroupName'
-                        -> DescribeCacheParametersMessage
-describeCacheParameters p1 = DescribeCacheParametersMessage
+describeCacheParametersMessage :: Text -- ^ 'dcpmCacheParameterGroupName'
+                               -> DescribeCacheParametersMessage
+describeCacheParametersMessage p1 = DescribeCacheParametersMessage
     { _dcpmCacheParameterGroupName = p1
     , _dcpmSource                  = Nothing
     , _dcpmMaxRecords              = Nothing
@@ -100,11 +100,10 @@ dcpmMaxRecords = lens _dcpmMaxRecords (\s a -> s { _dcpmMaxRecords = a })
 -- engine-default.
 dcpmSource :: Lens' DescribeCacheParametersMessage (Maybe Text)
 dcpmSource = lens _dcpmSource (\s a -> s { _dcpmSource = a })
+instance ToQuery DescribeCacheParametersMessage
 
 instance ToPath DescribeCacheParametersMessage where
     toPath = const "/"
-
-instance ToQuery DescribeCacheParametersMessage
 
 data CacheParameterGroupDetails = CacheParameterGroupDetails
     { _cpgdCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
@@ -122,8 +121,8 @@ data CacheParameterGroupDetails = CacheParameterGroupDetails
 --
 -- * 'cpgdParameters' @::@ ['Parameter']
 --
-describeCacheParametersResponse :: CacheParameterGroupDetails
-describeCacheParametersResponse = CacheParameterGroupDetails
+cacheParameterGroupDetails :: CacheParameterGroupDetails
+cacheParameterGroupDetails = CacheParameterGroupDetails
     { _cpgdMarker                          = Nothing
     , _cpgdParameters                      = mempty
     , _cpgdCacheNodeTypeSpecificParameters = mempty
@@ -143,6 +142,9 @@ cpgdMarker = lens _cpgdMarker (\s a -> s { _cpgdMarker = a })
 -- | A list of Parameter instances.
 cpgdParameters :: Lens' CacheParameterGroupDetails [Parameter]
 cpgdParameters = lens _cpgdParameters (\s a -> s { _cpgdParameters = a })
+instance FromXML CacheParameterGroupDetails where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CacheParameterGroupDetails"
 
 instance AWSRequest DescribeCacheParametersMessage where
     type Sv DescribeCacheParametersMessage = ElastiCache

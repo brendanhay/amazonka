@@ -105,21 +105,24 @@ apLabel = lens _apLabel (\s a -> s { _apLabel = a })
 -- | The URL of the Amazon SQS queue to take action on.
 apQueueUrl :: Lens' AddPermission Text
 apQueueUrl = lens _apQueueUrl (\s a -> s { _apQueueUrl = a })
+instance ToQuery AddPermission
 
 instance ToPath AddPermission where
     toPath = const "/"
 
-instance ToQuery AddPermission
-
 data AddPermissionResponse = AddPermissionResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'AddPermissionResponse' constructor.
 addPermissionResponse :: AddPermissionResponse
 addPermissionResponse = AddPermissionResponse
+instance FromXML AddPermissionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AddPermissionResponse"
 
 instance AWSRequest AddPermission where
     type Sv AddPermission = SQS
     type Rs AddPermission = AddPermissionResponse
 
     request  = post "AddPermission"
-    response = const (nullaryResponse AddPermissionResponse)
+    response = nullaryResponse AddPermissionResponse

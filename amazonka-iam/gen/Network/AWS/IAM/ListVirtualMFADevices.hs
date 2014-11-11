@@ -93,11 +93,10 @@ lvmfadMarker = lens _lvmfadMarker (\s a -> s { _lvmfadMarker = a })
 -- defaults to 100.
 lvmfadMaxItems :: Lens' ListVirtualMFADevices (Maybe Int)
 lvmfadMaxItems = lens _lvmfadMaxItems (\s a -> s { _lvmfadMaxItems = a })
+instance ToQuery ListVirtualMFADevices
 
 instance ToPath ListVirtualMFADevices where
     toPath = const "/"
-
-instance ToQuery ListVirtualMFADevices
 
 data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     { _lvmfadrIsTruncated       :: Maybe Bool
@@ -140,6 +139,9 @@ lvmfadrVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevic
 lvmfadrVirtualMFADevices =
     lens _lvmfadrVirtualMFADevices
         (\s a -> s { _lvmfadrVirtualMFADevices = a })
+instance FromXML ListVirtualMFADevicesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListVirtualMFADevicesResponse"
 
 instance AWSRequest ListVirtualMFADevices where
     type Sv ListVirtualMFADevices = IAM

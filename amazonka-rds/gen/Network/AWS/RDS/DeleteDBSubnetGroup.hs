@@ -26,7 +26,7 @@ module Network.AWS.RDS.DeleteDBSubnetGroup
     -- * Request
       DeleteDBSubnetGroupMessage
     -- ** Request constructor
-    , deleteDBSubnetGroup
+    , deleteDBSubnetGroupMessage
     -- ** Request lenses
     , ddbsgm1DBSubnetGroupName
 
@@ -50,9 +50,9 @@ newtype DeleteDBSubnetGroupMessage = DeleteDBSubnetGroupMessage
 --
 -- * 'ddbsgm1DBSubnetGroupName' @::@ 'Text'
 --
-deleteDBSubnetGroup :: Text -- ^ 'ddbsgm1DBSubnetGroupName'
-                    -> DeleteDBSubnetGroupMessage
-deleteDBSubnetGroup p1 = DeleteDBSubnetGroupMessage
+deleteDBSubnetGroupMessage :: Text -- ^ 'ddbsgm1DBSubnetGroupName'
+                           -> DeleteDBSubnetGroupMessage
+deleteDBSubnetGroupMessage p1 = DeleteDBSubnetGroupMessage
     { _ddbsgm1DBSubnetGroupName = p1
     }
 
@@ -63,21 +63,24 @@ ddbsgm1DBSubnetGroupName :: Lens' DeleteDBSubnetGroupMessage Text
 ddbsgm1DBSubnetGroupName =
     lens _ddbsgm1DBSubnetGroupName
         (\s a -> s { _ddbsgm1DBSubnetGroupName = a })
+instance ToQuery DeleteDBSubnetGroupMessage
 
 instance ToPath DeleteDBSubnetGroupMessage where
     toPath = const "/"
 
-instance ToQuery DeleteDBSubnetGroupMessage
-
 data DeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteDBSubnetGroupResponse' constructor.
 deleteDBSubnetGroupResponse :: DeleteDBSubnetGroupResponse
 deleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
+instance FromXML DeleteDBSubnetGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteDBSubnetGroupResponse"
 
 instance AWSRequest DeleteDBSubnetGroupMessage where
     type Sv DeleteDBSubnetGroupMessage = RDS
     type Rs DeleteDBSubnetGroupMessage = DeleteDBSubnetGroupResponse
 
     request  = post "DeleteDBSubnetGroup"
-    response = const (nullaryResponse DeleteDBSubnetGroupResponse)
+    response = nullaryResponse DeleteDBSubnetGroupResponse

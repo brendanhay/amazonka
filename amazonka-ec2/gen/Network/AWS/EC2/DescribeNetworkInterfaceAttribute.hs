@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     -- * Response
     , DescribeNetworkInterfaceAttributeResult
     -- ** Response constructor
-    , describeNetworkInterfaceAttributeResponse
+    , describeNetworkInterfaceAttributeResult
     -- ** Response lenses
     , dniarAttachment
     , dniarDescription
@@ -84,11 +84,10 @@ dniaDryRun = lens _dniaDryRun (\s a -> s { _dniaDryRun = a })
 dniaNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute Text
 dniaNetworkInterfaceId =
     lens _dniaNetworkInterfaceId (\s a -> s { _dniaNetworkInterfaceId = a })
+instance ToQuery DescribeNetworkInterfaceAttribute
 
 instance ToPath DescribeNetworkInterfaceAttribute where
     toPath = const "/"
-
-instance ToQuery DescribeNetworkInterfaceAttribute
 
 data DescribeNetworkInterfaceAttributeResult = DescribeNetworkInterfaceAttributeResult
     { _dniarAttachment         :: Maybe NetworkInterfaceAttachment
@@ -112,8 +111,8 @@ data DescribeNetworkInterfaceAttributeResult = DescribeNetworkInterfaceAttribute
 --
 -- * 'dniarSourceDestCheck' @::@ 'Maybe' 'AttributeBooleanValue'
 --
-describeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResult
-describeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResult
+describeNetworkInterfaceAttributeResult :: DescribeNetworkInterfaceAttributeResult
+describeNetworkInterfaceAttributeResult = DescribeNetworkInterfaceAttributeResult
     { _dniarNetworkInterfaceId = Nothing
     , _dniarDescription        = Nothing
     , _dniarSourceDestCheck    = Nothing
@@ -142,6 +141,9 @@ dniarNetworkInterfaceId =
 dniarSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResult (Maybe AttributeBooleanValue)
 dniarSourceDestCheck =
     lens _dniarSourceDestCheck (\s a -> s { _dniarSourceDestCheck = a })
+instance FromXML DescribeNetworkInterfaceAttributeResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeNetworkInterfaceAttributeResult"
 
 instance AWSRequest DescribeNetworkInterfaceAttribute where
     type Sv DescribeNetworkInterfaceAttribute = EC2

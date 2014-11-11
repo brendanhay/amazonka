@@ -94,14 +94,18 @@ instance ToBody PutBucketTagging where
     toBody = toBody . encodeXML . _pbtTagging
 
 data PutBucketTaggingResponse = PutBucketTaggingResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketTaggingResponse' constructor.
 putBucketTaggingResponse :: PutBucketTaggingResponse
 putBucketTaggingResponse = PutBucketTaggingResponse
 
+instance FromXML PutBucketTaggingResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutBucketTaggingResponse"
 instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3
     type Rs PutBucketTagging = PutBucketTaggingResponse
 
     request  = put
-    response = const (nullaryResponse PutBucketTaggingResponse)
+    response = nullaryResponse PutBucketTaggingResponse

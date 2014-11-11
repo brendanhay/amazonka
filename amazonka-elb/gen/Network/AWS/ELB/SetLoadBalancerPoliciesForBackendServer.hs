@@ -36,7 +36,7 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     -- * Request
       SetLoadBalancerPoliciesForBackendServerInput
     -- ** Request constructor
-    , setLoadBalancerPoliciesForBackendServer
+    , setLoadBalancerPoliciesForBackendServerInput
     -- ** Request lenses
     , slbpfbsiInstancePort
     , slbpfbsiLoadBalancerName
@@ -68,10 +68,10 @@ data SetLoadBalancerPoliciesForBackendServerInput = SetLoadBalancerPoliciesForBa
 --
 -- * 'slbpfbsiPolicyNames' @::@ ['Text']
 --
-setLoadBalancerPoliciesForBackendServer :: Text -- ^ 'slbpfbsiLoadBalancerName'
-                                        -> Int -- ^ 'slbpfbsiInstancePort'
-                                        -> SetLoadBalancerPoliciesForBackendServerInput
-setLoadBalancerPoliciesForBackendServer p1 p2 = SetLoadBalancerPoliciesForBackendServerInput
+setLoadBalancerPoliciesForBackendServerInput :: Text -- ^ 'slbpfbsiLoadBalancerName'
+                                             -> Int -- ^ 'slbpfbsiInstancePort'
+                                             -> SetLoadBalancerPoliciesForBackendServerInput
+setLoadBalancerPoliciesForBackendServerInput p1 p2 = SetLoadBalancerPoliciesForBackendServerInput
     { _slbpfbsiLoadBalancerName = p1
     , _slbpfbsiInstancePort     = p2
     , _slbpfbsiPolicyNames      = mempty
@@ -94,21 +94,24 @@ slbpfbsiLoadBalancerName =
 slbpfbsiPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServerInput [Text]
 slbpfbsiPolicyNames =
     lens _slbpfbsiPolicyNames (\s a -> s { _slbpfbsiPolicyNames = a })
+instance ToQuery SetLoadBalancerPoliciesForBackendServerInput
 
 instance ToPath SetLoadBalancerPoliciesForBackendServerInput where
     toPath = const "/"
 
-instance ToQuery SetLoadBalancerPoliciesForBackendServerInput
-
 data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetLoadBalancerPoliciesForBackendServerResponse' constructor.
 setLoadBalancerPoliciesForBackendServerResponse :: SetLoadBalancerPoliciesForBackendServerResponse
 setLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
+instance FromXML SetLoadBalancerPoliciesForBackendServerResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SetLoadBalancerPoliciesForBackendServerResponse"
 
 instance AWSRequest SetLoadBalancerPoliciesForBackendServerInput where
     type Sv SetLoadBalancerPoliciesForBackendServerInput = ELB
     type Rs SetLoadBalancerPoliciesForBackendServerInput = SetLoadBalancerPoliciesForBackendServerResponse
 
     request  = post "SetLoadBalancerPoliciesForBackendServer"
-    response = const (nullaryResponse SetLoadBalancerPoliciesForBackendServerResponse)
+    response = nullaryResponse SetLoadBalancerPoliciesForBackendServerResponse

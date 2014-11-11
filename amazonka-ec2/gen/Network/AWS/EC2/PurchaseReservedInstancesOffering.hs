@@ -45,7 +45,7 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     -- * Response
     , PurchaseReservedInstancesOfferingResult
     -- ** Response constructor
-    , purchaseReservedInstancesOfferingResponse
+    , purchaseReservedInstancesOfferingResult
     -- ** Response lenses
     , priorReservedInstancesId
     ) where
@@ -102,11 +102,10 @@ prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
 prioReservedInstancesOfferingId =
     lens _prioReservedInstancesOfferingId
         (\s a -> s { _prioReservedInstancesOfferingId = a })
+instance ToQuery PurchaseReservedInstancesOffering
 
 instance ToPath PurchaseReservedInstancesOffering where
     toPath = const "/"
-
-instance ToQuery PurchaseReservedInstancesOffering
 
 newtype PurchaseReservedInstancesOfferingResult = PurchaseReservedInstancesOfferingResult
     { _priorReservedInstancesId :: Maybe Text
@@ -118,8 +117,8 @@ newtype PurchaseReservedInstancesOfferingResult = PurchaseReservedInstancesOffer
 --
 -- * 'priorReservedInstancesId' @::@ 'Maybe' 'Text'
 --
-purchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResult
-purchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResult
+purchaseReservedInstancesOfferingResult :: PurchaseReservedInstancesOfferingResult
+purchaseReservedInstancesOfferingResult = PurchaseReservedInstancesOfferingResult
     { _priorReservedInstancesId = Nothing
     }
 
@@ -128,6 +127,9 @@ priorReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResult (Maybe
 priorReservedInstancesId =
     lens _priorReservedInstancesId
         (\s a -> s { _priorReservedInstancesId = a })
+instance FromXML PurchaseReservedInstancesOfferingResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PurchaseReservedInstancesOfferingResult"
 
 instance AWSRequest PurchaseReservedInstancesOffering where
     type Sv PurchaseReservedInstancesOffering = EC2

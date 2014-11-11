@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.DisableMetricsCollection
     -- * Request
       DisableMetricsCollectionQuery
     -- ** Request constructor
-    , disableMetricsCollection
+    , disableMetricsCollectionQuery
     -- ** Request lenses
     , dmcqAutoScalingGroupName
     , dmcqMetrics
@@ -56,9 +56,9 @@ data DisableMetricsCollectionQuery = DisableMetricsCollectionQuery
 --
 -- * 'dmcqMetrics' @::@ ['Text']
 --
-disableMetricsCollection :: Text -- ^ 'dmcqAutoScalingGroupName'
-                         -> DisableMetricsCollectionQuery
-disableMetricsCollection p1 = DisableMetricsCollectionQuery
+disableMetricsCollectionQuery :: Text -- ^ 'dmcqAutoScalingGroupName'
+                              -> DisableMetricsCollectionQuery
+disableMetricsCollectionQuery p1 = DisableMetricsCollectionQuery
     { _dmcqAutoScalingGroupName = p1
     , _dmcqMetrics              = mempty
     }
@@ -76,21 +76,24 @@ dmcqAutoScalingGroupName =
 -- GroupTotalInstances.
 dmcqMetrics :: Lens' DisableMetricsCollectionQuery [Text]
 dmcqMetrics = lens _dmcqMetrics (\s a -> s { _dmcqMetrics = a })
+instance ToQuery DisableMetricsCollectionQuery
 
 instance ToPath DisableMetricsCollectionQuery where
     toPath = const "/"
 
-instance ToQuery DisableMetricsCollectionQuery
-
 data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DisableMetricsCollectionResponse' constructor.
 disableMetricsCollectionResponse :: DisableMetricsCollectionResponse
 disableMetricsCollectionResponse = DisableMetricsCollectionResponse
+instance FromXML DisableMetricsCollectionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DisableMetricsCollectionResponse"
 
 instance AWSRequest DisableMetricsCollectionQuery where
     type Sv DisableMetricsCollectionQuery = AutoScaling
     type Rs DisableMetricsCollectionQuery = DisableMetricsCollectionResponse
 
     request  = post "DisableMetricsCollection"
-    response = const (nullaryResponse DisableMetricsCollectionResponse)
+    response = nullaryResponse DisableMetricsCollectionResponse

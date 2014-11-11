@@ -37,7 +37,7 @@ module Network.AWS.EC2.DeleteVpcPeeringConnection
     -- * Response
     , DeleteVpcPeeringConnectionResult
     -- ** Response constructor
-    , deleteVpcPeeringConnectionResponse
+    , deleteVpcPeeringConnectionResult
     -- ** Response lenses
     , dvpcrReturn
     ) where
@@ -74,11 +74,10 @@ dvpc1VpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection Text
 dvpc1VpcPeeringConnectionId =
     lens _dvpc1VpcPeeringConnectionId
         (\s a -> s { _dvpc1VpcPeeringConnectionId = a })
+instance ToQuery DeleteVpcPeeringConnection
 
 instance ToPath DeleteVpcPeeringConnection where
     toPath = const "/"
-
-instance ToQuery DeleteVpcPeeringConnection
 
 newtype DeleteVpcPeeringConnectionResult = DeleteVpcPeeringConnectionResult
     { _dvpcrReturn :: Maybe Bool
@@ -90,14 +89,17 @@ newtype DeleteVpcPeeringConnectionResult = DeleteVpcPeeringConnectionResult
 --
 -- * 'dvpcrReturn' @::@ 'Maybe' 'Bool'
 --
-deleteVpcPeeringConnectionResponse :: DeleteVpcPeeringConnectionResult
-deleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResult
+deleteVpcPeeringConnectionResult :: DeleteVpcPeeringConnectionResult
+deleteVpcPeeringConnectionResult = DeleteVpcPeeringConnectionResult
     { _dvpcrReturn = Nothing
     }
 
 -- | Returns true if the request succeeds; otherwise, it returns an error.
 dvpcrReturn :: Lens' DeleteVpcPeeringConnectionResult (Maybe Bool)
 dvpcrReturn = lens _dvpcrReturn (\s a -> s { _dvpcrReturn = a })
+instance FromXML DeleteVpcPeeringConnectionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteVpcPeeringConnectionResult"
 
 instance AWSRequest DeleteVpcPeeringConnection where
     type Sv DeleteVpcPeeringConnection = EC2

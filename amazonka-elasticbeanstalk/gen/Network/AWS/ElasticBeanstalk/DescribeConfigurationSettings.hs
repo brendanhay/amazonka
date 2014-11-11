@@ -33,7 +33,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     -- * Request
       DescribeConfigurationSettingsMessage
     -- ** Request constructor
-    , describeConfigurationSettings
+    , describeConfigurationSettingsMessage
     -- ** Request lenses
     , dcsmApplicationName
     , dcsmEnvironmentName
@@ -42,7 +42,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     -- * Response
     , ConfigurationSettingsDescriptions
     -- ** Response constructor
-    , describeConfigurationSettingsResponse
+    , configurationSettingsDescriptions
     -- ** Response lenses
     , csdConfigurationSettings
     ) where
@@ -67,9 +67,9 @@ data DescribeConfigurationSettingsMessage = DescribeConfigurationSettingsMessage
 --
 -- * 'dcsmTemplateName' @::@ 'Maybe' 'Text'
 --
-describeConfigurationSettings :: Text -- ^ 'dcsmApplicationName'
-                              -> DescribeConfigurationSettingsMessage
-describeConfigurationSettings p1 = DescribeConfigurationSettingsMessage
+describeConfigurationSettingsMessage :: Text -- ^ 'dcsmApplicationName'
+                                     -> DescribeConfigurationSettingsMessage
+describeConfigurationSettingsMessage p1 = DescribeConfigurationSettingsMessage
     { _dcsmApplicationName = p1
     , _dcsmTemplateName    = Nothing
     , _dcsmEnvironmentName = Nothing
@@ -96,11 +96,10 @@ dcsmEnvironmentName =
 -- Elastic Beanstalk returns a MissingRequiredParameter error.
 dcsmTemplateName :: Lens' DescribeConfigurationSettingsMessage (Maybe Text)
 dcsmTemplateName = lens _dcsmTemplateName (\s a -> s { _dcsmTemplateName = a })
+instance ToQuery DescribeConfigurationSettingsMessage
 
 instance ToPath DescribeConfigurationSettingsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeConfigurationSettingsMessage
 
 newtype ConfigurationSettingsDescriptions = ConfigurationSettingsDescriptions
     { _csdConfigurationSettings :: [ConfigurationSettingsDescription]
@@ -112,8 +111,8 @@ newtype ConfigurationSettingsDescriptions = ConfigurationSettingsDescriptions
 --
 -- * 'csdConfigurationSettings' @::@ ['ConfigurationSettingsDescription']
 --
-describeConfigurationSettingsResponse :: ConfigurationSettingsDescriptions
-describeConfigurationSettingsResponse = ConfigurationSettingsDescriptions
+configurationSettingsDescriptions :: ConfigurationSettingsDescriptions
+configurationSettingsDescriptions = ConfigurationSettingsDescriptions
     { _csdConfigurationSettings = mempty
     }
 
@@ -122,6 +121,9 @@ csdConfigurationSettings :: Lens' ConfigurationSettingsDescriptions [Configurati
 csdConfigurationSettings =
     lens _csdConfigurationSettings
         (\s a -> s { _csdConfigurationSettings = a })
+instance FromXML ConfigurationSettingsDescriptions where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ConfigurationSettingsDescriptions"
 
 instance AWSRequest DescribeConfigurationSettingsMessage where
     type Sv DescribeConfigurationSettingsMessage = ElasticBeanstalk

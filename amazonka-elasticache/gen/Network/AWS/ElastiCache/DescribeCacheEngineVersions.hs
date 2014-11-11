@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     -- * Request
       DescribeCacheEngineVersionsMessage
     -- ** Request constructor
-    , describeCacheEngineVersions
+    , describeCacheEngineVersionsMessage
     -- ** Request lenses
     , dcevmCacheParameterGroupFamily
     , dcevmDefaultOnly
@@ -39,7 +39,7 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     -- * Response
     , CacheEngineVersionMessage
     -- ** Response constructor
-    , describeCacheEngineVersionsResponse
+    , cacheEngineVersionMessage
     -- ** Response lenses
     , cevmCacheEngineVersions
     , cevmMarker
@@ -74,8 +74,8 @@ data DescribeCacheEngineVersionsMessage = DescribeCacheEngineVersionsMessage
 --
 -- * 'dcevmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeCacheEngineVersions :: DescribeCacheEngineVersionsMessage
-describeCacheEngineVersions = DescribeCacheEngineVersionsMessage
+describeCacheEngineVersionsMessage :: DescribeCacheEngineVersionsMessage
+describeCacheEngineVersionsMessage = DescribeCacheEngineVersionsMessage
     { _dcevmEngine                    = Nothing
     , _dcevmEngineVersion             = Nothing
     , _dcevmCacheParameterGroupFamily = Nothing
@@ -120,11 +120,10 @@ dcevmMarker = lens _dcevmMarker (\s a -> s { _dcevmMarker = a })
 -- Constraints: minimum 20; maximum 100.
 dcevmMaxRecords :: Lens' DescribeCacheEngineVersionsMessage (Maybe Int)
 dcevmMaxRecords = lens _dcevmMaxRecords (\s a -> s { _dcevmMaxRecords = a })
+instance ToQuery DescribeCacheEngineVersionsMessage
 
 instance ToPath DescribeCacheEngineVersionsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeCacheEngineVersionsMessage
 
 data CacheEngineVersionMessage = CacheEngineVersionMessage
     { _cevmCacheEngineVersions :: [CacheEngineVersion]
@@ -139,8 +138,8 @@ data CacheEngineVersionMessage = CacheEngineVersionMessage
 --
 -- * 'cevmMarker' @::@ 'Maybe' 'Text'
 --
-describeCacheEngineVersionsResponse :: CacheEngineVersionMessage
-describeCacheEngineVersionsResponse = CacheEngineVersionMessage
+cacheEngineVersionMessage :: CacheEngineVersionMessage
+cacheEngineVersionMessage = CacheEngineVersionMessage
     { _cevmMarker              = Nothing
     , _cevmCacheEngineVersions = mempty
     }
@@ -154,6 +153,9 @@ cevmCacheEngineVersions =
 -- | Provides an identifier to allow retrieval of paginated results.
 cevmMarker :: Lens' CacheEngineVersionMessage (Maybe Text)
 cevmMarker = lens _cevmMarker (\s a -> s { _cevmMarker = a })
+instance FromXML CacheEngineVersionMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CacheEngineVersionMessage"
 
 instance AWSRequest DescribeCacheEngineVersionsMessage where
     type Sv DescribeCacheEngineVersionsMessage = ElastiCache

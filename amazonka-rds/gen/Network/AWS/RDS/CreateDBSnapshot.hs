@@ -26,7 +26,7 @@ module Network.AWS.RDS.CreateDBSnapshot
     -- * Request
       CreateDBSnapshotMessage
     -- ** Request constructor
-    , createDBSnapshot
+    , createDBSnapshotMessage
     -- ** Request lenses
     , cdbsm1DBInstanceIdentifier
     , cdbsm1DBSnapshotIdentifier
@@ -35,7 +35,7 @@ module Network.AWS.RDS.CreateDBSnapshot
     -- * Response
     , CreateDBSnapshotResult
     -- ** Response constructor
-    , createDBSnapshotResponse
+    , createDBSnapshotResult
     -- ** Response lenses
     , cdbsrDBSnapshot
     ) where
@@ -60,10 +60,10 @@ data CreateDBSnapshotMessage = CreateDBSnapshotMessage
 --
 -- * 'cdbsm1Tags' @::@ ['Tag']
 --
-createDBSnapshot :: Text -- ^ 'cdbsm1DBSnapshotIdentifier'
-                 -> Text -- ^ 'cdbsm1DBInstanceIdentifier'
-                 -> CreateDBSnapshotMessage
-createDBSnapshot p1 p2 = CreateDBSnapshotMessage
+createDBSnapshotMessage :: Text -- ^ 'cdbsm1DBSnapshotIdentifier'
+                        -> Text -- ^ 'cdbsm1DBInstanceIdentifier'
+                        -> CreateDBSnapshotMessage
+createDBSnapshotMessage p1 p2 = CreateDBSnapshotMessage
     { _cdbsm1DBSnapshotIdentifier = p1
     , _cdbsm1DBInstanceIdentifier = p2
     , _cdbsm1Tags                 = mempty
@@ -89,11 +89,10 @@ cdbsm1DBSnapshotIdentifier =
 
 cdbsm1Tags :: Lens' CreateDBSnapshotMessage [Tag]
 cdbsm1Tags = lens _cdbsm1Tags (\s a -> s { _cdbsm1Tags = a })
+instance ToQuery CreateDBSnapshotMessage
 
 instance ToPath CreateDBSnapshotMessage where
     toPath = const "/"
-
-instance ToQuery CreateDBSnapshotMessage
 
 newtype CreateDBSnapshotResult = CreateDBSnapshotResult
     { _cdbsrDBSnapshot :: Maybe DBSnapshot
@@ -105,13 +104,16 @@ newtype CreateDBSnapshotResult = CreateDBSnapshotResult
 --
 -- * 'cdbsrDBSnapshot' @::@ 'Maybe' 'DBSnapshot'
 --
-createDBSnapshotResponse :: CreateDBSnapshotResult
-createDBSnapshotResponse = CreateDBSnapshotResult
+createDBSnapshotResult :: CreateDBSnapshotResult
+createDBSnapshotResult = CreateDBSnapshotResult
     { _cdbsrDBSnapshot = Nothing
     }
 
 cdbsrDBSnapshot :: Lens' CreateDBSnapshotResult (Maybe DBSnapshot)
 cdbsrDBSnapshot = lens _cdbsrDBSnapshot (\s a -> s { _cdbsrDBSnapshot = a })
+instance FromXML CreateDBSnapshotResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDBSnapshotResult"
 
 instance AWSRequest CreateDBSnapshotMessage where
     type Sv CreateDBSnapshotMessage = RDS

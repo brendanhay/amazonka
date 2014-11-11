@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     -- * Request
       DescribeApplicationVersionsMessage
     -- ** Request constructor
-    , describeApplicationVersions
+    , describeApplicationVersionsMessage
     -- ** Request lenses
     , davm1ApplicationName
     , davm1VersionLabels
@@ -34,7 +34,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     -- * Response
     , ApplicationVersionDescriptionsMessage
     -- ** Response constructor
-    , describeApplicationVersionsResponse
+    , applicationVersionDescriptionsMessage
     -- ** Response lenses
     , avdmApplicationVersions
     ) where
@@ -56,8 +56,8 @@ data DescribeApplicationVersionsMessage = DescribeApplicationVersionsMessage
 --
 -- * 'davm1VersionLabels' @::@ ['Text']
 --
-describeApplicationVersions :: DescribeApplicationVersionsMessage
-describeApplicationVersions = DescribeApplicationVersionsMessage
+describeApplicationVersionsMessage :: DescribeApplicationVersionsMessage
+describeApplicationVersionsMessage = DescribeApplicationVersionsMessage
     { _davm1ApplicationName = Nothing
     , _davm1VersionLabels   = mempty
     }
@@ -73,11 +73,10 @@ davm1ApplicationName =
 davm1VersionLabels :: Lens' DescribeApplicationVersionsMessage [Text]
 davm1VersionLabels =
     lens _davm1VersionLabels (\s a -> s { _davm1VersionLabels = a })
+instance ToQuery DescribeApplicationVersionsMessage
 
 instance ToPath DescribeApplicationVersionsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeApplicationVersionsMessage
 
 newtype ApplicationVersionDescriptionsMessage = ApplicationVersionDescriptionsMessage
     { _avdmApplicationVersions :: [ApplicationVersionDescription]
@@ -89,8 +88,8 @@ newtype ApplicationVersionDescriptionsMessage = ApplicationVersionDescriptionsMe
 --
 -- * 'avdmApplicationVersions' @::@ ['ApplicationVersionDescription']
 --
-describeApplicationVersionsResponse :: ApplicationVersionDescriptionsMessage
-describeApplicationVersionsResponse = ApplicationVersionDescriptionsMessage
+applicationVersionDescriptionsMessage :: ApplicationVersionDescriptionsMessage
+applicationVersionDescriptionsMessage = ApplicationVersionDescriptionsMessage
     { _avdmApplicationVersions = mempty
     }
 
@@ -98,6 +97,9 @@ describeApplicationVersionsResponse = ApplicationVersionDescriptionsMessage
 avdmApplicationVersions :: Lens' ApplicationVersionDescriptionsMessage [ApplicationVersionDescription]
 avdmApplicationVersions =
     lens _avdmApplicationVersions (\s a -> s { _avdmApplicationVersions = a })
+instance FromXML ApplicationVersionDescriptionsMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ApplicationVersionDescriptionsMessage"
 
 instance AWSRequest DescribeApplicationVersionsMessage where
     type Sv DescribeApplicationVersionsMessage = ElasticBeanstalk

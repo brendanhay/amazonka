@@ -80,14 +80,18 @@ instance ToQuery DeleteHealthCheck where
 instance ToHeaders DeleteHealthCheck
 
 data DeleteHealthCheckResponse = DeleteHealthCheckResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteHealthCheckResponse' constructor.
 deleteHealthCheckResponse :: DeleteHealthCheckResponse
 deleteHealthCheckResponse = DeleteHealthCheckResponse
 
+instance FromXML DeleteHealthCheckResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteHealthCheckResponse"
 instance AWSRequest DeleteHealthCheck where
     type Sv DeleteHealthCheck = Route53
     type Rs DeleteHealthCheck = DeleteHealthCheckResponse
 
     request  = delete
-    response = const (nullaryResponse DeleteHealthCheckResponse)
+    response = nullaryResponse DeleteHealthCheckResponse

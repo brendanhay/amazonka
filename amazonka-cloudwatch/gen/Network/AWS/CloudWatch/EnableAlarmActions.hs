@@ -26,7 +26,7 @@ module Network.AWS.CloudWatch.EnableAlarmActions
     -- * Request
       EnableAlarmActionsInput
     -- ** Request constructor
-    , enableAlarmActions
+    , enableAlarmActionsInput
     -- ** Request lenses
     , eaaiAlarmNames
 
@@ -50,29 +50,32 @@ newtype EnableAlarmActionsInput = EnableAlarmActionsInput
 --
 -- * 'eaaiAlarmNames' @::@ ['Text']
 --
-enableAlarmActions :: EnableAlarmActionsInput
-enableAlarmActions = EnableAlarmActionsInput
+enableAlarmActionsInput :: EnableAlarmActionsInput
+enableAlarmActionsInput = EnableAlarmActionsInput
     { _eaaiAlarmNames = mempty
     }
 
 -- | The names of the alarms to enable actions for.
 eaaiAlarmNames :: Lens' EnableAlarmActionsInput [Text]
 eaaiAlarmNames = lens _eaaiAlarmNames (\s a -> s { _eaaiAlarmNames = a })
+instance ToQuery EnableAlarmActionsInput
 
 instance ToPath EnableAlarmActionsInput where
     toPath = const "/"
 
-instance ToQuery EnableAlarmActionsInput
-
 data EnableAlarmActionsResponse = EnableAlarmActionsResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'EnableAlarmActionsResponse' constructor.
 enableAlarmActionsResponse :: EnableAlarmActionsResponse
 enableAlarmActionsResponse = EnableAlarmActionsResponse
+instance FromXML EnableAlarmActionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnableAlarmActionsResponse"
 
 instance AWSRequest EnableAlarmActionsInput where
     type Sv EnableAlarmActionsInput = CloudWatch
     type Rs EnableAlarmActionsInput = EnableAlarmActionsResponse
 
     request  = post "EnableAlarmActions"
-    response = const (nullaryResponse EnableAlarmActionsResponse)
+    response = nullaryResponse EnableAlarmActionsResponse

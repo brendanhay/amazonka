@@ -26,14 +26,14 @@ module Network.AWS.CloudFront.GetStreamingDistributionConfig
     -- * Request
       GetStreamingDistributionConfig
     -- ** Request constructor
-    , getStreamingDistributionConfig2014_05_31
+    , getStreamingDistributionConfig
     -- ** Request lenses
     , gsdcId
 
     -- * Response
     , GetStreamingDistributionConfigResult
     -- ** Response constructor
-    , getStreamingDistributionConfig2014_05_31Response
+    , getStreamingDistributionConfigResult
     -- ** Response lenses
     , gsdcrETag
     , gsdcrStreamingDistributionConfig
@@ -53,9 +53,9 @@ newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig
 --
 -- * 'gsdcId' @::@ 'Text'
 --
-getStreamingDistributionConfig2014_05_31 :: Text -- ^ 'gsdcId'
-                                         -> GetStreamingDistributionConfig
-getStreamingDistributionConfig2014_05_31 p1 = GetStreamingDistributionConfig
+getStreamingDistributionConfig :: Text -- ^ 'gsdcId'
+                               -> GetStreamingDistributionConfig
+getStreamingDistributionConfig p1 = GetStreamingDistributionConfig
     { _gsdcId = p1
     }
 
@@ -88,8 +88,8 @@ data GetStreamingDistributionConfigResult = GetStreamingDistributionConfigResult
 --
 -- * 'gsdcrStreamingDistributionConfig' @::@ 'Maybe' 'StreamingDistributionConfig'
 --
-getStreamingDistributionConfig2014_05_31Response :: GetStreamingDistributionConfigResult
-getStreamingDistributionConfig2014_05_31Response = GetStreamingDistributionConfigResult
+getStreamingDistributionConfigResult :: GetStreamingDistributionConfigResult
+getStreamingDistributionConfigResult = GetStreamingDistributionConfigResult
     { _gsdcrStreamingDistributionConfig = Nothing
     , _gsdcrETag                        = Nothing
     }
@@ -104,6 +104,9 @@ gsdcrStreamingDistributionConfig =
     lens _gsdcrStreamingDistributionConfig
         (\s a -> s { _gsdcrStreamingDistributionConfig = a })
 
+instance FromXML GetStreamingDistributionConfigResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetStreamingDistributionConfigResult"
 instance AWSRequest GetStreamingDistributionConfig where
     type Sv GetStreamingDistributionConfig = CloudFront
     type Rs GetStreamingDistributionConfig = GetStreamingDistributionConfigResult

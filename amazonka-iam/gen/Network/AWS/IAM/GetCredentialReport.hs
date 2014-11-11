@@ -45,15 +45,15 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
 
 data GetCredentialReport = GetCredentialReport
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetCredentialReport' constructor.
 getCredentialReport :: GetCredentialReport
 getCredentialReport = GetCredentialReport
+instance ToQuery GetCredentialReport
 
 instance ToPath GetCredentialReport where
     toPath = const "/"
-
-instance ToQuery GetCredentialReport
 
 data GetCredentialReportResponse = GetCredentialReportResponse
     { _gcrrContent       :: Maybe Base64
@@ -92,6 +92,9 @@ gcrrGeneratedTime =
 -- | The format (MIME type) of the credential report.
 gcrrReportFormat :: Lens' GetCredentialReportResponse (Maybe Text)
 gcrrReportFormat = lens _gcrrReportFormat (\s a -> s { _gcrrReportFormat = a })
+instance FromXML GetCredentialReportResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetCredentialReportResponse"
 
 instance AWSRequest GetCredentialReport where
     type Sv GetCredentialReport = IAM

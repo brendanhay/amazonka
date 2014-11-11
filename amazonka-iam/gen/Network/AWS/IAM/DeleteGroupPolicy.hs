@@ -69,21 +69,24 @@ dgpGroupName = lens _dgpGroupName (\s a -> s { _dgpGroupName = a })
 -- | The name of the policy document to delete.
 dgpPolicyName :: Lens' DeleteGroupPolicy Text
 dgpPolicyName = lens _dgpPolicyName (\s a -> s { _dgpPolicyName = a })
+instance ToQuery DeleteGroupPolicy
 
 instance ToPath DeleteGroupPolicy where
     toPath = const "/"
 
-instance ToQuery DeleteGroupPolicy
-
 data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteGroupPolicyResponse' constructor.
 deleteGroupPolicyResponse :: DeleteGroupPolicyResponse
 deleteGroupPolicyResponse = DeleteGroupPolicyResponse
+instance FromXML DeleteGroupPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteGroupPolicyResponse"
 
 instance AWSRequest DeleteGroupPolicy where
     type Sv DeleteGroupPolicy = IAM
     type Rs DeleteGroupPolicy = DeleteGroupPolicyResponse
 
     request  = post "DeleteGroupPolicy"
-    response = const (nullaryResponse DeleteGroupPolicyResponse)
+    response = nullaryResponse DeleteGroupPolicyResponse

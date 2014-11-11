@@ -49,7 +49,7 @@ module Network.AWS.EC2.CreateVolume
     -- * Response
     , Volume
     -- ** Response constructor
-    , createVolumeResponse
+    , volume
     -- ** Response lenses
     , vAttachments
     , vAvailabilityZone
@@ -143,11 +143,10 @@ cvSnapshotId = lens _cvSnapshotId (\s a -> s { _cvSnapshotId = a })
 -- Default: standard.
 cvVolumeType :: Lens' CreateVolume (Maybe Text)
 cvVolumeType = lens _cvVolumeType (\s a -> s { _cvVolumeType = a })
+instance ToQuery CreateVolume
 
 instance ToPath CreateVolume where
     toPath = const "/"
-
-instance ToQuery CreateVolume
 
 instance AWSRequest CreateVolume where
     type Sv CreateVolume = EC2

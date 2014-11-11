@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketWebsite
     -- * Response
     , GetBucketWebsiteOutput
     -- ** Response constructor
-    , getBucketWebsiteResponse
+    , getBucketWebsiteOutput
     -- ** Response lenses
     , gbwoErrorDocument
     , gbwoIndexDocument
@@ -94,8 +94,8 @@ data GetBucketWebsiteOutput = GetBucketWebsiteOutput
 --
 -- * 'gbwoRoutingRules' @::@ ['RoutingRule']
 --
-getBucketWebsiteResponse :: GetBucketWebsiteOutput
-getBucketWebsiteResponse = GetBucketWebsiteOutput
+getBucketWebsiteOutput :: GetBucketWebsiteOutput
+getBucketWebsiteOutput = GetBucketWebsiteOutput
     { _gbwoRedirectAllRequestsTo = Nothing
     , _gbwoIndexDocument         = Nothing
     , _gbwoErrorDocument         = Nothing
@@ -118,6 +118,9 @@ gbwoRedirectAllRequestsTo =
 gbwoRoutingRules :: Lens' GetBucketWebsiteOutput [RoutingRule]
 gbwoRoutingRules = lens _gbwoRoutingRules (\s a -> s { _gbwoRoutingRules = a })
 
+instance FromXML GetBucketWebsiteOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketWebsiteOutput"
 instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
     type Rs GetBucketWebsite = GetBucketWebsiteOutput

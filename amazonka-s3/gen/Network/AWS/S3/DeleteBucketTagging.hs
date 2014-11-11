@@ -71,14 +71,18 @@ instance ToQuery DeleteBucketTagging where
 instance ToHeaders DeleteBucketTagging
 
 data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteBucketTaggingResponse' constructor.
 deleteBucketTaggingResponse :: DeleteBucketTaggingResponse
 deleteBucketTaggingResponse = DeleteBucketTaggingResponse
 
+instance FromXML DeleteBucketTaggingResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteBucketTaggingResponse"
 instance AWSRequest DeleteBucketTagging where
     type Sv DeleteBucketTagging = S3
     type Rs DeleteBucketTagging = DeleteBucketTaggingResponse
 
     request  = delete
-    response = const (nullaryResponse DeleteBucketTaggingResponse)
+    response = nullaryResponse DeleteBucketTaggingResponse

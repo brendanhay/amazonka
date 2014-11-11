@@ -57,7 +57,7 @@ module Network.AWS.EC2.CreateDhcpOptions
     -- * Response
     , CreateDhcpOptionsResult
     -- ** Response constructor
-    , createDhcpOptionsResponse
+    , createDhcpOptionsResult
     -- ** Response lenses
     , cdorDhcpOptions
     ) where
@@ -92,11 +92,10 @@ cdoDhcpConfigurations =
 
 cdoDryRun :: Lens' CreateDhcpOptions (Maybe Bool)
 cdoDryRun = lens _cdoDryRun (\s a -> s { _cdoDryRun = a })
+instance ToQuery CreateDhcpOptions
 
 instance ToPath CreateDhcpOptions where
     toPath = const "/"
-
-instance ToQuery CreateDhcpOptions
 
 newtype CreateDhcpOptionsResult = CreateDhcpOptionsResult
     { _cdorDhcpOptions :: Maybe DhcpOptions
@@ -108,14 +107,17 @@ newtype CreateDhcpOptionsResult = CreateDhcpOptionsResult
 --
 -- * 'cdorDhcpOptions' @::@ 'Maybe' 'DhcpOptions'
 --
-createDhcpOptionsResponse :: CreateDhcpOptionsResult
-createDhcpOptionsResponse = CreateDhcpOptionsResult
+createDhcpOptionsResult :: CreateDhcpOptionsResult
+createDhcpOptionsResult = CreateDhcpOptionsResult
     { _cdorDhcpOptions = Nothing
     }
 
 -- | A set of DHCP options.
 cdorDhcpOptions :: Lens' CreateDhcpOptionsResult (Maybe DhcpOptions)
 cdorDhcpOptions = lens _cdorDhcpOptions (\s a -> s { _cdorDhcpOptions = a })
+instance FromXML CreateDhcpOptionsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDhcpOptionsResult"
 
 instance AWSRequest CreateDhcpOptions where
     type Sv CreateDhcpOptions = EC2

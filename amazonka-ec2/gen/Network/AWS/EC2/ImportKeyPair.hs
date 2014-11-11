@@ -41,7 +41,7 @@ module Network.AWS.EC2.ImportKeyPair
     -- * Response
     , ImportKeyPairResult
     -- ** Response constructor
-    , importKeyPairResponse
+    , importKeyPairResult
     -- ** Response lenses
     , ikprKeyFingerprint
     , ikprKeyName
@@ -88,11 +88,10 @@ ikpKeyName = lens _ikpKeyName (\s a -> s { _ikpKeyName = a })
 ikpPublicKeyMaterial :: Lens' ImportKeyPair Base64
 ikpPublicKeyMaterial =
     lens _ikpPublicKeyMaterial (\s a -> s { _ikpPublicKeyMaterial = a })
+instance ToQuery ImportKeyPair
 
 instance ToPath ImportKeyPair where
     toPath = const "/"
-
-instance ToQuery ImportKeyPair
 
 data ImportKeyPairResult = ImportKeyPairResult
     { _ikprKeyFingerprint :: Maybe Text
@@ -107,8 +106,8 @@ data ImportKeyPairResult = ImportKeyPairResult
 --
 -- * 'ikprKeyName' @::@ 'Maybe' 'Text'
 --
-importKeyPairResponse :: ImportKeyPairResult
-importKeyPairResponse = ImportKeyPairResult
+importKeyPairResult :: ImportKeyPairResult
+importKeyPairResult = ImportKeyPairResult
     { _ikprKeyName        = Nothing
     , _ikprKeyFingerprint = Nothing
     }
@@ -121,6 +120,9 @@ ikprKeyFingerprint =
 -- | The key pair name you provided.
 ikprKeyName :: Lens' ImportKeyPairResult (Maybe Text)
 ikprKeyName = lens _ikprKeyName (\s a -> s { _ikprKeyName = a })
+instance FromXML ImportKeyPairResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ImportKeyPairResult"
 
 instance AWSRequest ImportKeyPair where
     type Sv ImportKeyPair = EC2

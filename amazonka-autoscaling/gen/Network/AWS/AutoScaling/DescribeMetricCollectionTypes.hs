@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     -- * Response
     , DescribeMetricCollectionTypesAnswer
     -- ** Response constructor
-    , describeMetricCollectionTypesResponse
+    , describeMetricCollectionTypesAnswer
     -- ** Response lenses
     , dmctaGranularities
     , dmctaMetrics
@@ -43,15 +43,15 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
 data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeMetricCollectionTypes' constructor.
 describeMetricCollectionTypes :: DescribeMetricCollectionTypes
 describeMetricCollectionTypes = DescribeMetricCollectionTypes
+instance ToQuery DescribeMetricCollectionTypes
 
 instance ToPath DescribeMetricCollectionTypes where
     toPath = const "/"
-
-instance ToQuery DescribeMetricCollectionTypes
 
 data DescribeMetricCollectionTypesAnswer = DescribeMetricCollectionTypesAnswer
     { _dmctaGranularities :: [MetricGranularityType]
@@ -66,8 +66,8 @@ data DescribeMetricCollectionTypesAnswer = DescribeMetricCollectionTypesAnswer
 --
 -- * 'dmctaMetrics' @::@ ['MetricCollectionType']
 --
-describeMetricCollectionTypesResponse :: DescribeMetricCollectionTypesAnswer
-describeMetricCollectionTypesResponse = DescribeMetricCollectionTypesAnswer
+describeMetricCollectionTypesAnswer :: DescribeMetricCollectionTypesAnswer
+describeMetricCollectionTypesAnswer = DescribeMetricCollectionTypesAnswer
     { _dmctaMetrics       = mempty
     , _dmctaGranularities = mempty
     }
@@ -83,6 +83,9 @@ dmctaGranularities =
 -- GroupTotalInstances.
 dmctaMetrics :: Lens' DescribeMetricCollectionTypesAnswer [MetricCollectionType]
 dmctaMetrics = lens _dmctaMetrics (\s a -> s { _dmctaMetrics = a })
+instance FromXML DescribeMetricCollectionTypesAnswer where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeMetricCollectionTypesAnswer"
 
 instance AWSRequest DescribeMetricCollectionTypes where
     type Sv DescribeMetricCollectionTypes = AutoScaling

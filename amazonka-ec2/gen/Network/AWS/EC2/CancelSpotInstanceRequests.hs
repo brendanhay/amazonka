@@ -41,7 +41,7 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     -- * Response
     , CancelSpotInstanceRequestsResult
     -- ** Response constructor
-    , cancelSpotInstanceRequestsResponse
+    , cancelSpotInstanceRequestsResult
     -- ** Response lenses
     , csirrCancelledSpotInstanceRequests
     ) where
@@ -77,11 +77,10 @@ csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
 csirSpotInstanceRequestIds =
     lens _csirSpotInstanceRequestIds
         (\s a -> s { _csirSpotInstanceRequestIds = a })
+instance ToQuery CancelSpotInstanceRequests
 
 instance ToPath CancelSpotInstanceRequests where
     toPath = const "/"
-
-instance ToQuery CancelSpotInstanceRequests
 
 newtype CancelSpotInstanceRequestsResult = CancelSpotInstanceRequestsResult
     { _csirrCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
@@ -93,8 +92,8 @@ newtype CancelSpotInstanceRequestsResult = CancelSpotInstanceRequestsResult
 --
 -- * 'csirrCancelledSpotInstanceRequests' @::@ ['CancelledSpotInstanceRequest']
 --
-cancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResult
-cancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResult
+cancelSpotInstanceRequestsResult :: CancelSpotInstanceRequestsResult
+cancelSpotInstanceRequestsResult = CancelSpotInstanceRequestsResult
     { _csirrCancelledSpotInstanceRequests = mempty
     }
 
@@ -103,6 +102,9 @@ csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResult [Ca
 csirrCancelledSpotInstanceRequests =
     lens _csirrCancelledSpotInstanceRequests
         (\s a -> s { _csirrCancelledSpotInstanceRequests = a })
+instance FromXML CancelSpotInstanceRequestsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CancelSpotInstanceRequestsResult"
 
 instance AWSRequest CancelSpotInstanceRequests where
     type Sv CancelSpotInstanceRequests = EC2

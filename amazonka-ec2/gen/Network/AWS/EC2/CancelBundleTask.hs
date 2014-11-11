@@ -34,7 +34,7 @@ module Network.AWS.EC2.CancelBundleTask
     -- * Response
     , CancelBundleTaskResult
     -- ** Response constructor
-    , cancelBundleTaskResponse
+    , cancelBundleTaskResult
     -- ** Response lenses
     , cbtrBundleTask
     ) where
@@ -69,11 +69,10 @@ cbtBundleId = lens _cbtBundleId (\s a -> s { _cbtBundleId = a })
 
 cbtDryRun :: Lens' CancelBundleTask (Maybe Bool)
 cbtDryRun = lens _cbtDryRun (\s a -> s { _cbtDryRun = a })
+instance ToQuery CancelBundleTask
 
 instance ToPath CancelBundleTask where
     toPath = const "/"
-
-instance ToQuery CancelBundleTask
 
 newtype CancelBundleTaskResult = CancelBundleTaskResult
     { _cbtrBundleTask :: Maybe BundleTask
@@ -85,14 +84,17 @@ newtype CancelBundleTaskResult = CancelBundleTaskResult
 --
 -- * 'cbtrBundleTask' @::@ 'Maybe' 'BundleTask'
 --
-cancelBundleTaskResponse :: CancelBundleTaskResult
-cancelBundleTaskResponse = CancelBundleTaskResult
+cancelBundleTaskResult :: CancelBundleTaskResult
+cancelBundleTaskResult = CancelBundleTaskResult
     { _cbtrBundleTask = Nothing
     }
 
 -- | The bundle task.
 cbtrBundleTask :: Lens' CancelBundleTaskResult (Maybe BundleTask)
 cbtrBundleTask = lens _cbtrBundleTask (\s a -> s { _cbtrBundleTask = a })
+instance FromXML CancelBundleTaskResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CancelBundleTaskResult"
 
 instance AWSRequest CancelBundleTask where
     type Sv CancelBundleTask = EC2

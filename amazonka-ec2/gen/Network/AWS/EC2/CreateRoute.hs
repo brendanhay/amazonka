@@ -131,21 +131,24 @@ crVpcPeeringConnectionId :: Lens' CreateRoute (Maybe Text)
 crVpcPeeringConnectionId =
     lens _crVpcPeeringConnectionId
         (\s a -> s { _crVpcPeeringConnectionId = a })
+instance ToQuery CreateRoute
 
 instance ToPath CreateRoute where
     toPath = const "/"
 
-instance ToQuery CreateRoute
-
 data CreateRouteResponse = CreateRouteResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateRouteResponse' constructor.
 createRouteResponse :: CreateRouteResponse
 createRouteResponse = CreateRouteResponse
+instance FromXML CreateRouteResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateRouteResponse"
 
 instance AWSRequest CreateRoute where
     type Sv CreateRoute = EC2
     type Rs CreateRoute = CreateRouteResponse
 
     request  = post "CreateRoute"
-    response = const (nullaryResponse CreateRouteResponse)
+    response = nullaryResponse CreateRouteResponse

@@ -27,7 +27,7 @@ module Network.AWS.RDS.CreateDBSecurityGroup
     -- * Request
       CreateDBSecurityGroupMessage
     -- ** Request constructor
-    , createDBSecurityGroup
+    , createDBSecurityGroupMessage
     -- ** Request lenses
     , cdbsgm1DBSecurityGroupDescription
     , cdbsgm1DBSecurityGroupName
@@ -36,7 +36,7 @@ module Network.AWS.RDS.CreateDBSecurityGroup
     -- * Response
     , CreateDBSecurityGroupResult
     -- ** Response constructor
-    , createDBSecurityGroupResponse
+    , createDBSecurityGroupResult
     -- ** Response lenses
     , cdbsgrDBSecurityGroup
     ) where
@@ -61,10 +61,10 @@ data CreateDBSecurityGroupMessage = CreateDBSecurityGroupMessage
 --
 -- * 'cdbsgm1Tags' @::@ ['Tag']
 --
-createDBSecurityGroup :: Text -- ^ 'cdbsgm1DBSecurityGroupName'
-                      -> Text -- ^ 'cdbsgm1DBSecurityGroupDescription'
-                      -> CreateDBSecurityGroupMessage
-createDBSecurityGroup p1 p2 = CreateDBSecurityGroupMessage
+createDBSecurityGroupMessage :: Text -- ^ 'cdbsgm1DBSecurityGroupName'
+                             -> Text -- ^ 'cdbsgm1DBSecurityGroupDescription'
+                             -> CreateDBSecurityGroupMessage
+createDBSecurityGroupMessage p1 p2 = CreateDBSecurityGroupMessage
     { _cdbsgm1DBSecurityGroupName        = p1
     , _cdbsgm1DBSecurityGroupDescription = p2
     , _cdbsgm1Tags                       = mempty
@@ -88,11 +88,10 @@ cdbsgm1DBSecurityGroupName =
 
 cdbsgm1Tags :: Lens' CreateDBSecurityGroupMessage [Tag]
 cdbsgm1Tags = lens _cdbsgm1Tags (\s a -> s { _cdbsgm1Tags = a })
+instance ToQuery CreateDBSecurityGroupMessage
 
 instance ToPath CreateDBSecurityGroupMessage where
     toPath = const "/"
-
-instance ToQuery CreateDBSecurityGroupMessage
 
 newtype CreateDBSecurityGroupResult = CreateDBSecurityGroupResult
     { _cdbsgrDBSecurityGroup :: Maybe DBSecurityGroup
@@ -104,14 +103,17 @@ newtype CreateDBSecurityGroupResult = CreateDBSecurityGroupResult
 --
 -- * 'cdbsgrDBSecurityGroup' @::@ 'Maybe' 'DBSecurityGroup'
 --
-createDBSecurityGroupResponse :: CreateDBSecurityGroupResult
-createDBSecurityGroupResponse = CreateDBSecurityGroupResult
+createDBSecurityGroupResult :: CreateDBSecurityGroupResult
+createDBSecurityGroupResult = CreateDBSecurityGroupResult
     { _cdbsgrDBSecurityGroup = Nothing
     }
 
 cdbsgrDBSecurityGroup :: Lens' CreateDBSecurityGroupResult (Maybe DBSecurityGroup)
 cdbsgrDBSecurityGroup =
     lens _cdbsgrDBSecurityGroup (\s a -> s { _cdbsgrDBSecurityGroup = a })
+instance FromXML CreateDBSecurityGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDBSecurityGroupResult"
 
 instance AWSRequest CreateDBSecurityGroupMessage where
     type Sv CreateDBSecurityGroupMessage = RDS

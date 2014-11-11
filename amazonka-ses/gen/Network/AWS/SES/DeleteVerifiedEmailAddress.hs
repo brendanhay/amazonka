@@ -62,21 +62,24 @@ deleteVerifiedEmailAddress p1 = DeleteVerifiedEmailAddress
 -- | An email address to be removed from the list of verified addresses.
 dveaEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
 dveaEmailAddress = lens _dveaEmailAddress (\s a -> s { _dveaEmailAddress = a })
+instance ToQuery DeleteVerifiedEmailAddress
 
 instance ToPath DeleteVerifiedEmailAddress where
     toPath = const "/"
 
-instance ToQuery DeleteVerifiedEmailAddress
-
 data DeleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVerifiedEmailAddressResponse' constructor.
 deleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse
 deleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
+instance FromXML DeleteVerifiedEmailAddressResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteVerifiedEmailAddressResponse"
 
 instance AWSRequest DeleteVerifiedEmailAddress where
     type Sv DeleteVerifiedEmailAddress = SES
     type Rs DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddressResponse
 
     request  = post "DeleteVerifiedEmailAddress"
-    response = const (nullaryResponse DeleteVerifiedEmailAddressResponse)
+    response = nullaryResponse DeleteVerifiedEmailAddressResponse

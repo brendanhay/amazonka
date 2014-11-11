@@ -32,7 +32,7 @@ module Network.AWS.Redshift.DeleteClusterSnapshot
     -- * Request
       DeleteClusterSnapshotMessage
     -- ** Request constructor
-    , deleteClusterSnapshot
+    , deleteClusterSnapshotMessage
     -- ** Request lenses
     , dcsmSnapshotClusterIdentifier
     , dcsmSnapshotIdentifier
@@ -40,7 +40,7 @@ module Network.AWS.Redshift.DeleteClusterSnapshot
     -- * Response
     , DeleteClusterSnapshotResult
     -- ** Response constructor
-    , deleteClusterSnapshotResponse
+    , deleteClusterSnapshotResult
     -- ** Response lenses
     , dcsrSnapshot
     ) where
@@ -62,9 +62,9 @@ data DeleteClusterSnapshotMessage = DeleteClusterSnapshotMessage
 --
 -- * 'dcsmSnapshotIdentifier' @::@ 'Text'
 --
-deleteClusterSnapshot :: Text -- ^ 'dcsmSnapshotIdentifier'
-                      -> DeleteClusterSnapshotMessage
-deleteClusterSnapshot p1 = DeleteClusterSnapshotMessage
+deleteClusterSnapshotMessage :: Text -- ^ 'dcsmSnapshotIdentifier'
+                             -> DeleteClusterSnapshotMessage
+deleteClusterSnapshotMessage p1 = DeleteClusterSnapshotMessage
     { _dcsmSnapshotIdentifier        = p1
     , _dcsmSnapshotClusterIdentifier = Nothing
     }
@@ -83,11 +83,10 @@ dcsmSnapshotClusterIdentifier =
 dcsmSnapshotIdentifier :: Lens' DeleteClusterSnapshotMessage Text
 dcsmSnapshotIdentifier =
     lens _dcsmSnapshotIdentifier (\s a -> s { _dcsmSnapshotIdentifier = a })
+instance ToQuery DeleteClusterSnapshotMessage
 
 instance ToPath DeleteClusterSnapshotMessage where
     toPath = const "/"
-
-instance ToQuery DeleteClusterSnapshotMessage
 
 newtype DeleteClusterSnapshotResult = DeleteClusterSnapshotResult
     { _dcsrSnapshot :: Maybe Snapshot
@@ -99,13 +98,16 @@ newtype DeleteClusterSnapshotResult = DeleteClusterSnapshotResult
 --
 -- * 'dcsrSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-deleteClusterSnapshotResponse :: DeleteClusterSnapshotResult
-deleteClusterSnapshotResponse = DeleteClusterSnapshotResult
+deleteClusterSnapshotResult :: DeleteClusterSnapshotResult
+deleteClusterSnapshotResult = DeleteClusterSnapshotResult
     { _dcsrSnapshot = Nothing
     }
 
 dcsrSnapshot :: Lens' DeleteClusterSnapshotResult (Maybe Snapshot)
 dcsrSnapshot = lens _dcsrSnapshot (\s a -> s { _dcsrSnapshot = a })
+instance FromXML DeleteClusterSnapshotResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteClusterSnapshotResult"
 
 instance AWSRequest DeleteClusterSnapshotMessage where
     type Sv DeleteClusterSnapshotMessage = Redshift

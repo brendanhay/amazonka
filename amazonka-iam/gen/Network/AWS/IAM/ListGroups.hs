@@ -89,11 +89,10 @@ lgMaxItems = lens _lgMaxItems (\s a -> s { _lgMaxItems = a })
 -- included, it defaults to a slash (/), listing all groups.
 lgPathPrefix :: Lens' ListGroups (Maybe Text)
 lgPathPrefix = lens _lgPathPrefix (\s a -> s { _lgPathPrefix = a })
+instance ToQuery ListGroups
 
 instance ToPath ListGroups where
     toPath = const "/"
-
-instance ToQuery ListGroups
 
 data ListGroupsResponse = ListGroupsResponse
     { _lgrGroups      :: [Group]
@@ -132,6 +131,9 @@ lgrIsTruncated = lens _lgrIsTruncated (\s a -> s { _lgrIsTruncated = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lgrMarker :: Lens' ListGroupsResponse (Maybe Text)
 lgrMarker = lens _lgrMarker (\s a -> s { _lgrMarker = a })
+instance FromXML ListGroupsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListGroupsResponse"
 
 instance AWSRequest ListGroups where
     type Sv ListGroups = IAM

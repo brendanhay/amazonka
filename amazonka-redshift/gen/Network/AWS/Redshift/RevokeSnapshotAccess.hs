@@ -30,7 +30,7 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
     -- * Request
       RevokeSnapshotAccessMessage
     -- ** Request constructor
-    , revokeSnapshotAccess
+    , revokeSnapshotAccessMessage
     -- ** Request lenses
     , rsamAccountWithRestoreAccess
     , rsamSnapshotClusterIdentifier
@@ -39,7 +39,7 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
     -- * Response
     , RevokeSnapshotAccessResult
     -- ** Response constructor
-    , revokeSnapshotAccessResponse
+    , revokeSnapshotAccessResult
     -- ** Response lenses
     , rsarSnapshot
     ) where
@@ -64,10 +64,10 @@ data RevokeSnapshotAccessMessage = RevokeSnapshotAccessMessage
 --
 -- * 'rsamSnapshotIdentifier' @::@ 'Text'
 --
-revokeSnapshotAccess :: Text -- ^ 'rsamSnapshotIdentifier'
-                     -> Text -- ^ 'rsamAccountWithRestoreAccess'
-                     -> RevokeSnapshotAccessMessage
-revokeSnapshotAccess p1 p2 = RevokeSnapshotAccessMessage
+revokeSnapshotAccessMessage :: Text -- ^ 'rsamSnapshotIdentifier'
+                            -> Text -- ^ 'rsamAccountWithRestoreAccess'
+                            -> RevokeSnapshotAccessMessage
+revokeSnapshotAccessMessage p1 p2 = RevokeSnapshotAccessMessage
     { _rsamSnapshotIdentifier        = p1
     , _rsamAccountWithRestoreAccess  = p2
     , _rsamSnapshotClusterIdentifier = Nothing
@@ -93,11 +93,10 @@ rsamSnapshotClusterIdentifier =
 rsamSnapshotIdentifier :: Lens' RevokeSnapshotAccessMessage Text
 rsamSnapshotIdentifier =
     lens _rsamSnapshotIdentifier (\s a -> s { _rsamSnapshotIdentifier = a })
+instance ToQuery RevokeSnapshotAccessMessage
 
 instance ToPath RevokeSnapshotAccessMessage where
     toPath = const "/"
-
-instance ToQuery RevokeSnapshotAccessMessage
 
 newtype RevokeSnapshotAccessResult = RevokeSnapshotAccessResult
     { _rsarSnapshot :: Maybe Snapshot
@@ -109,13 +108,16 @@ newtype RevokeSnapshotAccessResult = RevokeSnapshotAccessResult
 --
 -- * 'rsarSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-revokeSnapshotAccessResponse :: RevokeSnapshotAccessResult
-revokeSnapshotAccessResponse = RevokeSnapshotAccessResult
+revokeSnapshotAccessResult :: RevokeSnapshotAccessResult
+revokeSnapshotAccessResult = RevokeSnapshotAccessResult
     { _rsarSnapshot = Nothing
     }
 
 rsarSnapshot :: Lens' RevokeSnapshotAccessResult (Maybe Snapshot)
 rsarSnapshot = lens _rsarSnapshot (\s a -> s { _rsarSnapshot = a })
+instance FromXML RevokeSnapshotAccessResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RevokeSnapshotAccessResult"
 
 instance AWSRequest RevokeSnapshotAccessMessage where
     type Sv RevokeSnapshotAccessMessage = Redshift

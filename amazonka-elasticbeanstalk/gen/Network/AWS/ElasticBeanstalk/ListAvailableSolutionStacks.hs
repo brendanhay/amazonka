@@ -31,7 +31,7 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     -- * Response
     , ListAvailableSolutionStacksResultMessage
     -- ** Response constructor
-    , listAvailableSolutionStacksResponse
+    , listAvailableSolutionStacksResultMessage
     -- ** Response lenses
     , lassrmSolutionStackDetails
     , lassrmSolutionStacks
@@ -42,20 +42,20 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
 data ListAvailableSolutionStacks = ListAvailableSolutionStacks
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListAvailableSolutionStacks' constructor.
 listAvailableSolutionStacks :: ListAvailableSolutionStacks
 listAvailableSolutionStacks = ListAvailableSolutionStacks
+instance ToQuery ListAvailableSolutionStacks
 
 instance ToPath ListAvailableSolutionStacks where
     toPath = const "/"
 
-instance ToQuery ListAvailableSolutionStacks
-
 data ListAvailableSolutionStacksResultMessage = ListAvailableSolutionStacksResultMessage
     { _lassrmSolutionStackDetails :: [SolutionStackDescription]
     , _lassrmSolutionStacks       :: [Text]
-    } deriving (Eq, Show, Generic, Monoid)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListAvailableSolutionStacksResultMessage' constructor.
 --
@@ -65,8 +65,8 @@ data ListAvailableSolutionStacksResultMessage = ListAvailableSolutionStacksResul
 --
 -- * 'lassrmSolutionStacks' @::@ ['Text']
 --
-listAvailableSolutionStacksResponse :: ListAvailableSolutionStacksResultMessage
-listAvailableSolutionStacksResponse = ListAvailableSolutionStacksResultMessage
+listAvailableSolutionStacksResultMessage :: ListAvailableSolutionStacksResultMessage
+listAvailableSolutionStacksResultMessage = ListAvailableSolutionStacksResultMessage
     { _lassrmSolutionStacks       = mempty
     , _lassrmSolutionStackDetails = mempty
     }
@@ -81,6 +81,9 @@ lassrmSolutionStackDetails =
 lassrmSolutionStacks :: Lens' ListAvailableSolutionStacksResultMessage [Text]
 lassrmSolutionStacks =
     lens _lassrmSolutionStacks (\s a -> s { _lassrmSolutionStacks = a })
+instance FromXML ListAvailableSolutionStacksResultMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListAvailableSolutionStacksResultMessage"
 
 instance AWSRequest ListAvailableSolutionStacks where
     type Sv ListAvailableSolutionStacks = ElasticBeanstalk

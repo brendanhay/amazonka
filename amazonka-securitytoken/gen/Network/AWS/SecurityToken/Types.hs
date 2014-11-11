@@ -23,11 +23,6 @@ module Network.AWS.SecurityToken.Types
     (
     -- * Service
       SecurityToken
-    -- ** Errors
-    , SecurityTokenError (..)
-    , _SecurityTokenHttp
-    , _SecurityTokenSerializer
-    , _SecurityTokenService
     -- ** XML
     , xmlOptions
 

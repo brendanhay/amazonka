@@ -53,7 +53,7 @@ module Network.AWS.EC2.CreateSubnet
     -- * Response
     , CreateSubnetResult
     -- ** Response constructor
-    , createSubnetResponse
+    , createSubnetResult
     -- ** Response lenses
     , csrSubnet
     ) where
@@ -108,11 +108,10 @@ cs1DryRun = lens _cs1DryRun (\s a -> s { _cs1DryRun = a })
 -- | The ID of the VPC.
 cs1VpcId :: Lens' CreateSubnet Text
 cs1VpcId = lens _cs1VpcId (\s a -> s { _cs1VpcId = a })
+instance ToQuery CreateSubnet
 
 instance ToPath CreateSubnet where
     toPath = const "/"
-
-instance ToQuery CreateSubnet
 
 newtype CreateSubnetResult = CreateSubnetResult
     { _csrSubnet :: Maybe Subnet
@@ -124,14 +123,17 @@ newtype CreateSubnetResult = CreateSubnetResult
 --
 -- * 'csrSubnet' @::@ 'Maybe' 'Subnet'
 --
-createSubnetResponse :: CreateSubnetResult
-createSubnetResponse = CreateSubnetResult
+createSubnetResult :: CreateSubnetResult
+createSubnetResult = CreateSubnetResult
     { _csrSubnet = Nothing
     }
 
 -- | Information about the subnet.
 csrSubnet :: Lens' CreateSubnetResult (Maybe Subnet)
 csrSubnet = lens _csrSubnet (\s a -> s { _csrSubnet = a })
+instance FromXML CreateSubnetResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateSubnetResult"
 
 instance AWSRequest CreateSubnet where
     type Sv CreateSubnet = EC2

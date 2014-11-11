@@ -23,11 +23,6 @@ module Network.AWS.Redshift.Types
     (
     -- * Service
       Redshift
-    -- ** Errors
-    , RedshiftError (..)
-    , _RedshiftHttp
-    , _RedshiftSerializer
-    , _RedshiftService
     -- ** XML
     , xmlOptions
 

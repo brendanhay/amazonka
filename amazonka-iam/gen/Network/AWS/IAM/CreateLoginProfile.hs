@@ -87,11 +87,10 @@ clpPasswordResetRequired =
 -- | The name of the user to create a password for.
 clpUserName :: Lens' CreateLoginProfile Text
 clpUserName = lens _clpUserName (\s a -> s { _clpUserName = a })
+instance ToQuery CreateLoginProfile
 
 instance ToPath CreateLoginProfile where
     toPath = const "/"
-
-instance ToQuery CreateLoginProfile
 
 newtype CreateLoginProfileResponse = CreateLoginProfileResponse
     { _clprLoginProfile :: LoginProfile
@@ -112,6 +111,9 @@ createLoginProfileResponse p1 = CreateLoginProfileResponse
 -- | The user name and password create date.
 clprLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
 clprLoginProfile = lens _clprLoginProfile (\s a -> s { _clprLoginProfile = a })
+instance FromXML CreateLoginProfileResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateLoginProfileResponse"
 
 instance AWSRequest CreateLoginProfile where
     type Sv CreateLoginProfile = IAM

@@ -60,21 +60,24 @@ deleteGroup p1 = DeleteGroup
 -- | The name of the group to delete.
 dgGroupName :: Lens' DeleteGroup Text
 dgGroupName = lens _dgGroupName (\s a -> s { _dgGroupName = a })
+instance ToQuery DeleteGroup
 
 instance ToPath DeleteGroup where
     toPath = const "/"
 
-instance ToQuery DeleteGroup
-
 data DeleteGroupResponse = DeleteGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteGroupResponse' constructor.
 deleteGroupResponse :: DeleteGroupResponse
 deleteGroupResponse = DeleteGroupResponse
+instance FromXML DeleteGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteGroupResponse"
 
 instance AWSRequest DeleteGroup where
     type Sv DeleteGroup = IAM
     type Rs DeleteGroup = DeleteGroupResponse
 
     request  = post "DeleteGroup"
-    response = const (nullaryResponse DeleteGroupResponse)
+    response = nullaryResponse DeleteGroupResponse

@@ -26,14 +26,14 @@ module Network.AWS.CloudFront.GetDistribution
     -- * Request
       GetDistribution
     -- ** Request constructor
-    , getDistribution2014_05_31
+    , getDistribution
     -- ** Request lenses
     , gdId
 
     -- * Response
     , GetDistributionResult
     -- ** Response constructor
-    , getDistribution2014_05_31Response
+    , getDistributionResult
     -- ** Response lenses
     , gdrDistribution
     , gdrETag
@@ -53,9 +53,9 @@ newtype GetDistribution = GetDistribution
 --
 -- * 'gdId' @::@ 'Text'
 --
-getDistribution2014_05_31 :: Text -- ^ 'gdId'
-                          -> GetDistribution
-getDistribution2014_05_31 p1 = GetDistribution
+getDistribution :: Text -- ^ 'gdId'
+                -> GetDistribution
+getDistribution p1 = GetDistribution
     { _gdId = p1
     }
 
@@ -87,8 +87,8 @@ data GetDistributionResult = GetDistributionResult
 --
 -- * 'gdrETag' @::@ 'Maybe' 'Text'
 --
-getDistribution2014_05_31Response :: GetDistributionResult
-getDistribution2014_05_31Response = GetDistributionResult
+getDistributionResult :: GetDistributionResult
+getDistributionResult = GetDistributionResult
     { _gdrDistribution = Nothing
     , _gdrETag         = Nothing
     }
@@ -102,6 +102,9 @@ gdrDistribution = lens _gdrDistribution (\s a -> s { _gdrDistribution = a })
 gdrETag :: Lens' GetDistributionResult (Maybe Text)
 gdrETag = lens _gdrETag (\s a -> s { _gdrETag = a })
 
+instance FromXML GetDistributionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetDistributionResult"
 instance AWSRequest GetDistribution where
     type Sv GetDistribution = CloudFront
     type Rs GetDistribution = GetDistributionResult

@@ -28,7 +28,7 @@ module Network.AWS.ELB.ConfigureHealthCheck
     -- * Request
       ConfigureHealthCheckInput
     -- ** Request constructor
-    , configureHealthCheck
+    , configureHealthCheckInput
     -- ** Request lenses
     , chciHealthCheck
     , chciLoadBalancerName
@@ -36,7 +36,7 @@ module Network.AWS.ELB.ConfigureHealthCheck
     -- * Response
     , ConfigureHealthCheckOutput
     -- ** Response constructor
-    , configureHealthCheckResponse
+    , configureHealthCheckOutput
     -- ** Response lenses
     , chcoHealthCheck
     ) where
@@ -58,10 +58,10 @@ data ConfigureHealthCheckInput = ConfigureHealthCheckInput
 --
 -- * 'chciLoadBalancerName' @::@ 'Text'
 --
-configureHealthCheck :: Text -- ^ 'chciLoadBalancerName'
-                     -> HealthCheck -- ^ 'chciHealthCheck'
-                     -> ConfigureHealthCheckInput
-configureHealthCheck p1 p2 = ConfigureHealthCheckInput
+configureHealthCheckInput :: Text -- ^ 'chciLoadBalancerName'
+                          -> HealthCheck -- ^ 'chciHealthCheck'
+                          -> ConfigureHealthCheckInput
+configureHealthCheckInput p1 p2 = ConfigureHealthCheckInput
     { _chciLoadBalancerName = p1
     , _chciHealthCheck      = p2
     }
@@ -76,11 +76,10 @@ chciHealthCheck = lens _chciHealthCheck (\s a -> s { _chciHealthCheck = a })
 chciLoadBalancerName :: Lens' ConfigureHealthCheckInput Text
 chciLoadBalancerName =
     lens _chciLoadBalancerName (\s a -> s { _chciLoadBalancerName = a })
+instance ToQuery ConfigureHealthCheckInput
 
 instance ToPath ConfigureHealthCheckInput where
     toPath = const "/"
-
-instance ToQuery ConfigureHealthCheckInput
 
 newtype ConfigureHealthCheckOutput = ConfigureHealthCheckOutput
     { _chcoHealthCheck :: Maybe HealthCheck
@@ -92,14 +91,17 @@ newtype ConfigureHealthCheckOutput = ConfigureHealthCheckOutput
 --
 -- * 'chcoHealthCheck' @::@ 'Maybe' 'HealthCheck'
 --
-configureHealthCheckResponse :: ConfigureHealthCheckOutput
-configureHealthCheckResponse = ConfigureHealthCheckOutput
+configureHealthCheckOutput :: ConfigureHealthCheckOutput
+configureHealthCheckOutput = ConfigureHealthCheckOutput
     { _chcoHealthCheck = Nothing
     }
 
 -- | The updated healthcheck for the instances.
 chcoHealthCheck :: Lens' ConfigureHealthCheckOutput (Maybe HealthCheck)
 chcoHealthCheck = lens _chcoHealthCheck (\s a -> s { _chcoHealthCheck = a })
+instance FromXML ConfigureHealthCheckOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ConfigureHealthCheckOutput"
 
 instance AWSRequest ConfigureHealthCheckInput where
     type Sv ConfigureHealthCheckInput = ELB

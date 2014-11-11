@@ -80,21 +80,24 @@ dig2InternetGatewayId =
 -- | The ID of the VPC.
 dig2VpcId :: Lens' DetachInternetGateway Text
 dig2VpcId = lens _dig2VpcId (\s a -> s { _dig2VpcId = a })
+instance ToQuery DetachInternetGateway
 
 instance ToPath DetachInternetGateway where
     toPath = const "/"
 
-instance ToQuery DetachInternetGateway
-
 data DetachInternetGatewayResponse = DetachInternetGatewayResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DetachInternetGatewayResponse' constructor.
 detachInternetGatewayResponse :: DetachInternetGatewayResponse
 detachInternetGatewayResponse = DetachInternetGatewayResponse
+instance FromXML DetachInternetGatewayResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DetachInternetGatewayResponse"
 
 instance AWSRequest DetachInternetGateway where
     type Sv DetachInternetGateway = EC2
     type Rs DetachInternetGateway = DetachInternetGatewayResponse
 
     request  = post "DetachInternetGateway"
-    response = const (nullaryResponse DetachInternetGatewayResponse)
+    response = nullaryResponse DetachInternetGatewayResponse

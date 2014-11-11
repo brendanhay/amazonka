@@ -23,11 +23,6 @@ module Network.AWS.SQS.Types
     (
     -- * Service
       SQS
-    -- ** Errors
-    , SQSError (..)
-    , _SQSHttp
-    , _SQSSerializer
-    , _SQSService
     -- ** XML
     , xmlOptions
 

@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.UpdateDistribution
     -- * Request
       UpdateDistribution
     -- ** Request constructor
-    , updateDistribution2014_05_31
+    , updateDistribution
     -- ** Request lenses
     , udDistributionConfig
     , udId
@@ -35,7 +35,7 @@ module Network.AWS.CloudFront.UpdateDistribution
     -- * Response
     , UpdateDistributionResult
     -- ** Response constructor
-    , updateDistribution2014_05_31Response
+    , updateDistributionResult
     -- ** Response lenses
     , udrDistribution
     , udrETag
@@ -61,10 +61,10 @@ data UpdateDistribution = UpdateDistribution
 --
 -- * 'udIfMatch' @::@ 'Maybe' 'Text'
 --
-updateDistribution2014_05_31 :: DistributionConfig -- ^ 'udDistributionConfig'
-                             -> Text -- ^ 'udId'
-                             -> UpdateDistribution
-updateDistribution2014_05_31 p1 p2 = UpdateDistribution
+updateDistribution :: DistributionConfig -- ^ 'udDistributionConfig'
+                   -> Text -- ^ 'udId'
+                   -> UpdateDistribution
+updateDistribution p1 p2 = UpdateDistribution
     { _udDistributionConfig = p1
     , _udId                 = p2
     , _udIfMatch            = Nothing
@@ -115,8 +115,8 @@ data UpdateDistributionResult = UpdateDistributionResult
 --
 -- * 'udrETag' @::@ 'Maybe' 'Text'
 --
-updateDistribution2014_05_31Response :: UpdateDistributionResult
-updateDistribution2014_05_31Response = UpdateDistributionResult
+updateDistributionResult :: UpdateDistributionResult
+updateDistributionResult = UpdateDistributionResult
     { _udrDistribution = Nothing
     , _udrETag         = Nothing
     }
@@ -129,6 +129,9 @@ udrDistribution = lens _udrDistribution (\s a -> s { _udrDistribution = a })
 udrETag :: Lens' UpdateDistributionResult (Maybe Text)
 udrETag = lens _udrETag (\s a -> s { _udrETag = a })
 
+instance FromXML UpdateDistributionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateDistributionResult"
 instance AWSRequest UpdateDistribution where
     type Sv UpdateDistribution = CloudFront
     type Rs UpdateDistribution = UpdateDistributionResult

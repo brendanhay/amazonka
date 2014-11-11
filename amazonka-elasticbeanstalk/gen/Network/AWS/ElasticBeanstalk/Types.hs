@@ -23,11 +23,6 @@ module Network.AWS.ElasticBeanstalk.Types
     (
     -- * Service
       ElasticBeanstalk
-    -- ** Errors
-    , ElasticBeanstalkError (..)
-    , _ElasticBeanstalkHttp
-    , _ElasticBeanstalkSerializer
-    , _ElasticBeanstalkService
     -- ** XML
     , xmlOptions
 

@@ -34,7 +34,7 @@ module Network.AWS.S3.GetObjectTorrent
     -- * Response
     , GetObjectTorrentOutput
     -- ** Response constructor
-    , getObjectTorrentResponse
+    , getObjectTorrentOutput
     -- ** Response lenses
     , gotoBody
     ) where
@@ -93,15 +93,18 @@ newtype GetObjectTorrentOutput = GetObjectTorrentOutput
 --
 -- * 'gotoBody' @::@ 'RsBody'
 --
-getObjectTorrentResponse :: RsBody -- ^ 'gotoBody'
-                         -> GetObjectTorrentOutput
-getObjectTorrentResponse p1 = GetObjectTorrentOutput
+getObjectTorrentOutput :: RsBody -- ^ 'gotoBody'
+                       -> GetObjectTorrentOutput
+getObjectTorrentOutput p1 = GetObjectTorrentOutput
     { _gotoBody = p1
     }
 
 gotoBody :: Lens' GetObjectTorrentOutput RsBody
 gotoBody = lens _gotoBody (\s a -> s { _gotoBody = a })
 
+instance FromXML GetObjectTorrentOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetObjectTorrentOutput"
 instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3
     type Rs GetObjectTorrent = GetObjectTorrentOutput

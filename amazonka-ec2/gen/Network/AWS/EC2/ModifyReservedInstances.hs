@@ -39,7 +39,7 @@ module Network.AWS.EC2.ModifyReservedInstances
     -- * Response
     , ModifyReservedInstancesResult
     -- ** Response constructor
-    , modifyReservedInstancesResponse
+    , modifyReservedInstancesResult
     -- ** Response lenses
     , mrirReservedInstancesModificationId
     ) where
@@ -85,11 +85,10 @@ mriReservedInstancesIds =
 mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
 mriTargetConfigurations =
     lens _mriTargetConfigurations (\s a -> s { _mriTargetConfigurations = a })
+instance ToQuery ModifyReservedInstances
 
 instance ToPath ModifyReservedInstances where
     toPath = const "/"
-
-instance ToQuery ModifyReservedInstances
 
 newtype ModifyReservedInstancesResult = ModifyReservedInstancesResult
     { _mrirReservedInstancesModificationId :: Maybe Text
@@ -101,8 +100,8 @@ newtype ModifyReservedInstancesResult = ModifyReservedInstancesResult
 --
 -- * 'mrirReservedInstancesModificationId' @::@ 'Maybe' 'Text'
 --
-modifyReservedInstancesResponse :: ModifyReservedInstancesResult
-modifyReservedInstancesResponse = ModifyReservedInstancesResult
+modifyReservedInstancesResult :: ModifyReservedInstancesResult
+modifyReservedInstancesResult = ModifyReservedInstancesResult
     { _mrirReservedInstancesModificationId = Nothing
     }
 
@@ -111,6 +110,9 @@ mrirReservedInstancesModificationId :: Lens' ModifyReservedInstancesResult (Mayb
 mrirReservedInstancesModificationId =
     lens _mrirReservedInstancesModificationId
         (\s a -> s { _mrirReservedInstancesModificationId = a })
+instance FromXML ModifyReservedInstancesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyReservedInstancesResult"
 
 instance AWSRequest ModifyReservedInstances where
     type Sv ModifyReservedInstances = EC2

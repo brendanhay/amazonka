@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     -- * Request
       CreateCacheParameterGroupMessage
     -- ** Request constructor
-    , createCacheParameterGroup
+    , createCacheParameterGroupMessage
     -- ** Request lenses
     , ccpgmCacheParameterGroupFamily
     , ccpgmCacheParameterGroupName
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     -- * Response
     , CreateCacheParameterGroupResult
     -- ** Response constructor
-    , createCacheParameterGroupResponse
+    , createCacheParameterGroupResult
     -- ** Response lenses
     , ccpgrCacheParameterGroup
     ) where
@@ -62,11 +62,11 @@ data CreateCacheParameterGroupMessage = CreateCacheParameterGroupMessage
 --
 -- * 'ccpgmDescription' @::@ 'Text'
 --
-createCacheParameterGroup :: Text -- ^ 'ccpgmCacheParameterGroupName'
-                          -> Text -- ^ 'ccpgmCacheParameterGroupFamily'
-                          -> Text -- ^ 'ccpgmDescription'
-                          -> CreateCacheParameterGroupMessage
-createCacheParameterGroup p1 p2 p3 = CreateCacheParameterGroupMessage
+createCacheParameterGroupMessage :: Text -- ^ 'ccpgmCacheParameterGroupName'
+                                 -> Text -- ^ 'ccpgmCacheParameterGroupFamily'
+                                 -> Text -- ^ 'ccpgmDescription'
+                                 -> CreateCacheParameterGroupMessage
+createCacheParameterGroupMessage p1 p2 p3 = CreateCacheParameterGroupMessage
     { _ccpgmCacheParameterGroupName   = p1
     , _ccpgmCacheParameterGroupFamily = p2
     , _ccpgmDescription               = p3
@@ -88,11 +88,10 @@ ccpgmCacheParameterGroupName =
 -- | A user-specified description for the cache parameter group.
 ccpgmDescription :: Lens' CreateCacheParameterGroupMessage Text
 ccpgmDescription = lens _ccpgmDescription (\s a -> s { _ccpgmDescription = a })
+instance ToQuery CreateCacheParameterGroupMessage
 
 instance ToPath CreateCacheParameterGroupMessage where
     toPath = const "/"
-
-instance ToQuery CreateCacheParameterGroupMessage
 
 newtype CreateCacheParameterGroupResult = CreateCacheParameterGroupResult
     { _ccpgrCacheParameterGroup :: Maybe CacheParameterGroup
@@ -104,8 +103,8 @@ newtype CreateCacheParameterGroupResult = CreateCacheParameterGroupResult
 --
 -- * 'ccpgrCacheParameterGroup' @::@ 'Maybe' 'CacheParameterGroup'
 --
-createCacheParameterGroupResponse :: CreateCacheParameterGroupResult
-createCacheParameterGroupResponse = CreateCacheParameterGroupResult
+createCacheParameterGroupResult :: CreateCacheParameterGroupResult
+createCacheParameterGroupResult = CreateCacheParameterGroupResult
     { _ccpgrCacheParameterGroup = Nothing
     }
 
@@ -113,6 +112,9 @@ ccpgrCacheParameterGroup :: Lens' CreateCacheParameterGroupResult (Maybe CachePa
 ccpgrCacheParameterGroup =
     lens _ccpgrCacheParameterGroup
         (\s a -> s { _ccpgrCacheParameterGroup = a })
+instance FromXML CreateCacheParameterGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateCacheParameterGroupResult"
 
 instance AWSRequest CreateCacheParameterGroupMessage where
     type Sv CreateCacheParameterGroupMessage = ElastiCache

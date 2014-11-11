@@ -26,7 +26,7 @@ module Network.AWS.RDS.CopyDBParameterGroup
     -- * Request
       CopyDBParameterGroupMessage
     -- ** Request constructor
-    , copyDBParameterGroup
+    , copyDBParameterGroupMessage
     -- ** Request lenses
     , cdbpgm1SourceDBParameterGroupIdentifier
     , cdbpgm1Tags
@@ -36,7 +36,7 @@ module Network.AWS.RDS.CopyDBParameterGroup
     -- * Response
     , CopyDBParameterGroupResult
     -- ** Response constructor
-    , copyDBParameterGroupResponse
+    , copyDBParameterGroupResult
     -- ** Response lenses
     , cdbpgrDBParameterGroup
     ) where
@@ -64,11 +64,11 @@ data CopyDBParameterGroupMessage = CopyDBParameterGroupMessage
 --
 -- * 'cdbpgm1TargetDBParameterGroupIdentifier' @::@ 'Text'
 --
-copyDBParameterGroup :: Text -- ^ 'cdbpgm1SourceDBParameterGroupIdentifier'
-                     -> Text -- ^ 'cdbpgm1TargetDBParameterGroupIdentifier'
-                     -> Text -- ^ 'cdbpgm1TargetDBParameterGroupDescription'
-                     -> CopyDBParameterGroupMessage
-copyDBParameterGroup p1 p2 p3 = CopyDBParameterGroupMessage
+copyDBParameterGroupMessage :: Text -- ^ 'cdbpgm1SourceDBParameterGroupIdentifier'
+                            -> Text -- ^ 'cdbpgm1TargetDBParameterGroupIdentifier'
+                            -> Text -- ^ 'cdbpgm1TargetDBParameterGroupDescription'
+                            -> CopyDBParameterGroupMessage
+copyDBParameterGroupMessage p1 p2 p3 = CopyDBParameterGroupMessage
     { _cdbpgm1SourceDBParameterGroupIdentifier  = p1
     , _cdbpgm1TargetDBParameterGroupIdentifier  = p2
     , _cdbpgm1TargetDBParameterGroupDescription = p3
@@ -104,11 +104,10 @@ cdbpgm1TargetDBParameterGroupIdentifier :: Lens' CopyDBParameterGroupMessage Tex
 cdbpgm1TargetDBParameterGroupIdentifier =
     lens _cdbpgm1TargetDBParameterGroupIdentifier
         (\s a -> s { _cdbpgm1TargetDBParameterGroupIdentifier = a })
+instance ToQuery CopyDBParameterGroupMessage
 
 instance ToPath CopyDBParameterGroupMessage where
     toPath = const "/"
-
-instance ToQuery CopyDBParameterGroupMessage
 
 newtype CopyDBParameterGroupResult = CopyDBParameterGroupResult
     { _cdbpgrDBParameterGroup :: Maybe DBParameterGroup
@@ -120,14 +119,17 @@ newtype CopyDBParameterGroupResult = CopyDBParameterGroupResult
 --
 -- * 'cdbpgrDBParameterGroup' @::@ 'Maybe' 'DBParameterGroup'
 --
-copyDBParameterGroupResponse :: CopyDBParameterGroupResult
-copyDBParameterGroupResponse = CopyDBParameterGroupResult
+copyDBParameterGroupResult :: CopyDBParameterGroupResult
+copyDBParameterGroupResult = CopyDBParameterGroupResult
     { _cdbpgrDBParameterGroup = Nothing
     }
 
 cdbpgrDBParameterGroup :: Lens' CopyDBParameterGroupResult (Maybe DBParameterGroup)
 cdbpgrDBParameterGroup =
     lens _cdbpgrDBParameterGroup (\s a -> s { _cdbpgrDBParameterGroup = a })
+instance FromXML CopyDBParameterGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CopyDBParameterGroupResult"
 
 instance AWSRequest CopyDBParameterGroupMessage where
     type Sv CopyDBParameterGroupMessage = RDS

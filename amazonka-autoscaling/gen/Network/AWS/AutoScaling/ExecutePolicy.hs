@@ -26,7 +26,7 @@ module Network.AWS.AutoScaling.ExecutePolicy
     -- * Request
       ExecutePolicyType
     -- ** Request constructor
-    , executePolicy
+    , executePolicyType
     -- ** Request lenses
     , eptAutoScalingGroupName
     , eptHonorCooldown
@@ -58,9 +58,9 @@ data ExecutePolicyType = ExecutePolicyType
 --
 -- * 'eptPolicyName' @::@ 'Text'
 --
-executePolicy :: Text -- ^ 'eptPolicyName'
-              -> ExecutePolicyType
-executePolicy p1 = ExecutePolicyType
+executePolicyType :: Text -- ^ 'eptPolicyName'
+                  -> ExecutePolicyType
+executePolicyType p1 = ExecutePolicyType
     { _eptPolicyName           = p1
     , _eptAutoScalingGroupName = Nothing
     , _eptHonorCooldown        = Nothing
@@ -83,21 +83,24 @@ eptHonorCooldown = lens _eptHonorCooldown (\s a -> s { _eptHonorCooldown = a })
 -- | The name or ARN of the policy you want to run.
 eptPolicyName :: Lens' ExecutePolicyType Text
 eptPolicyName = lens _eptPolicyName (\s a -> s { _eptPolicyName = a })
+instance ToQuery ExecutePolicyType
 
 instance ToPath ExecutePolicyType where
     toPath = const "/"
 
-instance ToQuery ExecutePolicyType
-
 data ExecutePolicyResponse = ExecutePolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ExecutePolicyResponse' constructor.
 executePolicyResponse :: ExecutePolicyResponse
 executePolicyResponse = ExecutePolicyResponse
+instance FromXML ExecutePolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ExecutePolicyResponse"
 
 instance AWSRequest ExecutePolicyType where
     type Sv ExecutePolicyType = AutoScaling
     type Rs ExecutePolicyType = ExecutePolicyResponse
 
     request  = post "ExecutePolicy"
-    response = const (nullaryResponse ExecutePolicyResponse)
+    response = nullaryResponse ExecutePolicyResponse

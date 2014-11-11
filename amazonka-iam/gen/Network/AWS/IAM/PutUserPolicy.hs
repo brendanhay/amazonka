@@ -84,21 +84,24 @@ pupPolicyName = lens _pupPolicyName (\s a -> s { _pupPolicyName = a })
 -- | The name of the user to associate the policy with.
 pupUserName :: Lens' PutUserPolicy Text
 pupUserName = lens _pupUserName (\s a -> s { _pupUserName = a })
+instance ToQuery PutUserPolicy
 
 instance ToPath PutUserPolicy where
     toPath = const "/"
 
-instance ToQuery PutUserPolicy
-
 data PutUserPolicyResponse = PutUserPolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutUserPolicyResponse' constructor.
 putUserPolicyResponse :: PutUserPolicyResponse
 putUserPolicyResponse = PutUserPolicyResponse
+instance FromXML PutUserPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutUserPolicyResponse"
 
 instance AWSRequest PutUserPolicy where
     type Sv PutUserPolicy = IAM
     type Rs PutUserPolicy = PutUserPolicyResponse
 
     request  = post "PutUserPolicy"
-    response = const (nullaryResponse PutUserPolicyResponse)
+    response = nullaryResponse PutUserPolicyResponse

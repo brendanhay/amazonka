@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     -- * Request
       DeleteConfigurationTemplateMessage
     -- ** Request constructor
-    , deleteConfigurationTemplate
+    , deleteConfigurationTemplateMessage
     -- ** Request lenses
     , dctmApplicationName
     , dctmTemplateName
@@ -54,10 +54,10 @@ data DeleteConfigurationTemplateMessage = DeleteConfigurationTemplateMessage
 --
 -- * 'dctmTemplateName' @::@ 'Text'
 --
-deleteConfigurationTemplate :: Text -- ^ 'dctmApplicationName'
-                            -> Text -- ^ 'dctmTemplateName'
-                            -> DeleteConfigurationTemplateMessage
-deleteConfigurationTemplate p1 p2 = DeleteConfigurationTemplateMessage
+deleteConfigurationTemplateMessage :: Text -- ^ 'dctmApplicationName'
+                                   -> Text -- ^ 'dctmTemplateName'
+                                   -> DeleteConfigurationTemplateMessage
+deleteConfigurationTemplateMessage p1 p2 = DeleteConfigurationTemplateMessage
     { _dctmApplicationName = p1
     , _dctmTemplateName    = p2
     }
@@ -70,21 +70,24 @@ dctmApplicationName =
 -- | The name of the configuration template to delete.
 dctmTemplateName :: Lens' DeleteConfigurationTemplateMessage Text
 dctmTemplateName = lens _dctmTemplateName (\s a -> s { _dctmTemplateName = a })
+instance ToQuery DeleteConfigurationTemplateMessage
 
 instance ToPath DeleteConfigurationTemplateMessage where
     toPath = const "/"
 
-instance ToQuery DeleteConfigurationTemplateMessage
-
 data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteConfigurationTemplateResponse' constructor.
 deleteConfigurationTemplateResponse :: DeleteConfigurationTemplateResponse
 deleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
+instance FromXML DeleteConfigurationTemplateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteConfigurationTemplateResponse"
 
 instance AWSRequest DeleteConfigurationTemplateMessage where
     type Sv DeleteConfigurationTemplateMessage = ElasticBeanstalk
     type Rs DeleteConfigurationTemplateMessage = DeleteConfigurationTemplateResponse
 
     request  = post "DeleteConfigurationTemplate"
-    response = const (nullaryResponse DeleteConfigurationTemplateResponse)
+    response = nullaryResponse DeleteConfigurationTemplateResponse

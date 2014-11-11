@@ -76,21 +76,24 @@ dvcDryRun = lens _dvcDryRun (\s a -> s { _dvcDryRun = a })
 dvcVpnConnectionId :: Lens' DeleteVpnConnection Text
 dvcVpnConnectionId =
     lens _dvcVpnConnectionId (\s a -> s { _dvcVpnConnectionId = a })
+instance ToQuery DeleteVpnConnection
 
 instance ToPath DeleteVpnConnection where
     toPath = const "/"
 
-instance ToQuery DeleteVpnConnection
-
 data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpnConnectionResponse' constructor.
 deleteVpnConnectionResponse :: DeleteVpnConnectionResponse
 deleteVpnConnectionResponse = DeleteVpnConnectionResponse
+instance FromXML DeleteVpnConnectionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteVpnConnectionResponse"
 
 instance AWSRequest DeleteVpnConnection where
     type Sv DeleteVpnConnection = EC2
     type Rs DeleteVpnConnection = DeleteVpnConnectionResponse
 
     request  = post "DeleteVpnConnection"
-    response = const (nullaryResponse DeleteVpnConnectionResponse)
+    response = nullaryResponse DeleteVpnConnectionResponse

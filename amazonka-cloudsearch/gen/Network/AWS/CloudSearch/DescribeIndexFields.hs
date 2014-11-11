@@ -86,11 +86,10 @@ difDomainName = lens _difDomainName (\s a -> s { _difDomainName = a })
 -- information is returned for all configured index fields.
 difFieldNames :: Lens' DescribeIndexFields [Text]
 difFieldNames = lens _difFieldNames (\s a -> s { _difFieldNames = a })
+instance ToQuery DescribeIndexFields
 
 instance ToPath DescribeIndexFields where
     toPath = const "/"
-
-instance ToQuery DescribeIndexFields
 
 newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
     { _difrIndexFields :: [IndexFieldStatus]
@@ -110,6 +109,9 @@ describeIndexFieldsResponse = DescribeIndexFieldsResponse
 -- | The index fields configured for the domain.
 difrIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
 difrIndexFields = lens _difrIndexFields (\s a -> s { _difrIndexFields = a })
+instance FromXML DescribeIndexFieldsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeIndexFieldsResponse"
 
 instance AWSRequest DescribeIndexFields where
     type Sv DescribeIndexFields = CloudSearch

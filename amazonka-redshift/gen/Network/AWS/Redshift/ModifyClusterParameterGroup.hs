@@ -28,7 +28,7 @@ module Network.AWS.Redshift.ModifyClusterParameterGroup
     -- * Request
       ModifyClusterParameterGroupMessage
     -- ** Request constructor
-    , modifyClusterParameterGroup
+    , modifyClusterParameterGroupMessage
     -- ** Request lenses
     , mcpgmParameterGroupName
     , mcpgmParameters
@@ -36,7 +36,7 @@ module Network.AWS.Redshift.ModifyClusterParameterGroup
     -- * Response
     , ClusterParameterGroupNameMessage
     -- ** Response constructor
-    , modifyClusterParameterGroupResponse
+    , clusterParameterGroupNameMessage
     -- ** Response lenses
     , cpgnmParameterGroupName
     , cpgnmParameterGroupStatus
@@ -59,9 +59,9 @@ data ModifyClusterParameterGroupMessage = ModifyClusterParameterGroupMessage
 --
 -- * 'mcpgmParameters' @::@ ['Parameter']
 --
-modifyClusterParameterGroup :: Text -- ^ 'mcpgmParameterGroupName'
-                            -> ModifyClusterParameterGroupMessage
-modifyClusterParameterGroup p1 = ModifyClusterParameterGroupMessage
+modifyClusterParameterGroupMessage :: Text -- ^ 'mcpgmParameterGroupName'
+                                   -> ModifyClusterParameterGroupMessage
+modifyClusterParameterGroupMessage p1 = ModifyClusterParameterGroupMessage
     { _mcpgmParameterGroupName = p1
     , _mcpgmParameters         = mempty
     }
@@ -79,11 +79,10 @@ mcpgmParameterGroupName =
 -- wlm_json_configuration parameter.
 mcpgmParameters :: Lens' ModifyClusterParameterGroupMessage [Parameter]
 mcpgmParameters = lens _mcpgmParameters (\s a -> s { _mcpgmParameters = a })
+instance ToQuery ModifyClusterParameterGroupMessage
 
 instance ToPath ModifyClusterParameterGroupMessage where
     toPath = const "/"
-
-instance ToQuery ModifyClusterParameterGroupMessage
 
 instance AWSRequest ModifyClusterParameterGroupMessage where
     type Sv ModifyClusterParameterGroupMessage = Redshift

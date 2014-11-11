@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.GetInvalidation
     -- * Request
       GetInvalidation
     -- ** Request constructor
-    , getInvalidation2014_05_31
+    , getInvalidation
     -- ** Request lenses
     , giDistributionId
     , giId
@@ -34,7 +34,7 @@ module Network.AWS.CloudFront.GetInvalidation
     -- * Response
     , GetInvalidationResult
     -- ** Response constructor
-    , getInvalidation2014_05_31Response
+    , getInvalidationResult
     -- ** Response lenses
     , girInvalidation
     ) where
@@ -56,10 +56,10 @@ data GetInvalidation = GetInvalidation
 --
 -- * 'giId' @::@ 'Text'
 --
-getInvalidation2014_05_31 :: Text -- ^ 'giDistributionId'
-                          -> Text -- ^ 'giId'
-                          -> GetInvalidation
-getInvalidation2014_05_31 p1 p2 = GetInvalidation
+getInvalidation :: Text -- ^ 'giDistributionId'
+                -> Text -- ^ 'giId'
+                -> GetInvalidation
+getInvalidation p1 p2 = GetInvalidation
     { _giDistributionId = p1
     , _giId             = p2
     }
@@ -95,8 +95,8 @@ newtype GetInvalidationResult = GetInvalidationResult
 --
 -- * 'girInvalidation' @::@ 'Maybe' 'Invalidation'
 --
-getInvalidation2014_05_31Response :: GetInvalidationResult
-getInvalidation2014_05_31Response = GetInvalidationResult
+getInvalidationResult :: GetInvalidationResult
+getInvalidationResult = GetInvalidationResult
     { _girInvalidation = Nothing
     }
 
@@ -104,6 +104,9 @@ getInvalidation2014_05_31Response = GetInvalidationResult
 girInvalidation :: Lens' GetInvalidationResult (Maybe Invalidation)
 girInvalidation = lens _girInvalidation (\s a -> s { _girInvalidation = a })
 
+instance FromXML GetInvalidationResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetInvalidationResult"
 instance AWSRequest GetInvalidation where
     type Sv GetInvalidation = CloudFront
     type Rs GetInvalidation = GetInvalidationResult

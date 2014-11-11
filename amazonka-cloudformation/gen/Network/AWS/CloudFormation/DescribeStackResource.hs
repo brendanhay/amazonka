@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.DescribeStackResource
     -- * Request
       DescribeStackResourceInput
     -- ** Request constructor
-    , describeStackResource
+    , describeStackResourceInput
     -- ** Request lenses
     , dsri1LogicalResourceId
     , dsri1StackName
@@ -36,7 +36,7 @@ module Network.AWS.CloudFormation.DescribeStackResource
     -- * Response
     , DescribeStackResourceOutput
     -- ** Response constructor
-    , describeStackResourceResponse
+    , describeStackResourceOutput
     -- ** Response lenses
     , dsroStackResourceDetail
     ) where
@@ -58,10 +58,10 @@ data DescribeStackResourceInput = DescribeStackResourceInput
 --
 -- * 'dsri1StackName' @::@ 'Text'
 --
-describeStackResource :: Text -- ^ 'dsri1StackName'
-                      -> Text -- ^ 'dsri1LogicalResourceId'
-                      -> DescribeStackResourceInput
-describeStackResource p1 p2 = DescribeStackResourceInput
+describeStackResourceInput :: Text -- ^ 'dsri1StackName'
+                           -> Text -- ^ 'dsri1LogicalResourceId'
+                           -> DescribeStackResourceInput
+describeStackResourceInput p1 p2 = DescribeStackResourceInput
     { _dsri1StackName         = p1
     , _dsri1LogicalResourceId = p2
     }
@@ -78,11 +78,10 @@ dsri1LogicalResourceId =
 -- unique stack ID. Default: There is no default value.
 dsri1StackName :: Lens' DescribeStackResourceInput Text
 dsri1StackName = lens _dsri1StackName (\s a -> s { _dsri1StackName = a })
+instance ToQuery DescribeStackResourceInput
 
 instance ToPath DescribeStackResourceInput where
     toPath = const "/"
-
-instance ToQuery DescribeStackResourceInput
 
 newtype DescribeStackResourceOutput = DescribeStackResourceOutput
     { _dsroStackResourceDetail :: Maybe StackResourceDetail
@@ -94,8 +93,8 @@ newtype DescribeStackResourceOutput = DescribeStackResourceOutput
 --
 -- * 'dsroStackResourceDetail' @::@ 'Maybe' 'StackResourceDetail'
 --
-describeStackResourceResponse :: DescribeStackResourceOutput
-describeStackResourceResponse = DescribeStackResourceOutput
+describeStackResourceOutput :: DescribeStackResourceOutput
+describeStackResourceOutput = DescribeStackResourceOutput
     { _dsroStackResourceDetail = Nothing
     }
 
@@ -104,6 +103,9 @@ describeStackResourceResponse = DescribeStackResourceOutput
 dsroStackResourceDetail :: Lens' DescribeStackResourceOutput (Maybe StackResourceDetail)
 dsroStackResourceDetail =
     lens _dsroStackResourceDetail (\s a -> s { _dsroStackResourceDetail = a })
+instance FromXML DescribeStackResourceOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeStackResourceOutput"
 
 instance AWSRequest DescribeStackResourceInput where
     type Sv DescribeStackResourceInput = CloudFormation

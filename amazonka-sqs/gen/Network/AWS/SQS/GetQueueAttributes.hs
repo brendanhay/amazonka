@@ -58,7 +58,7 @@ module Network.AWS.SQS.GetQueueAttributes
     -- * Response
     , GetQueueAttributesResult
     -- ** Response constructor
-    , getQueueAttributesResponse
+    , getQueueAttributesResult
     -- ** Response lenses
     , gqarAttributes
     ) where
@@ -95,11 +95,10 @@ gqaAttributeNames =
 -- | The URL of the Amazon SQS queue to take action on.
 gqaQueueUrl :: Lens' GetQueueAttributes Text
 gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
+instance ToQuery GetQueueAttributes
 
 instance ToPath GetQueueAttributes where
     toPath = const "/"
-
-instance ToQuery GetQueueAttributes
 
 newtype GetQueueAttributesResult = GetQueueAttributesResult
     { _gqarAttributes :: Map Text Text
@@ -111,8 +110,8 @@ newtype GetQueueAttributesResult = GetQueueAttributesResult
 --
 -- * 'gqarAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
-getQueueAttributesResponse :: GetQueueAttributesResult
-getQueueAttributesResponse = GetQueueAttributesResult
+getQueueAttributesResult :: GetQueueAttributesResult
+getQueueAttributesResult = GetQueueAttributesResult
     { _gqarAttributes = mempty
     }
 
@@ -120,6 +119,9 @@ getQueueAttributesResponse = GetQueueAttributesResult
 gqarAttributes :: Lens' GetQueueAttributesResult (HashMap Text Text)
 gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a })
     . _Map
+instance FromXML GetQueueAttributesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetQueueAttributesResult"
 
 instance AWSRequest GetQueueAttributes where
     type Sv GetQueueAttributes = SQS

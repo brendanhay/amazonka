@@ -23,11 +23,6 @@ module Network.AWS.CloudFormation.Types
     (
     -- * Service
       CloudFormation
-    -- ** Errors
-    , CloudFormationError (..)
-    , _CloudFormationHttp
-    , _CloudFormationSerializer
-    , _CloudFormationService
     -- ** XML
     , xmlOptions
 

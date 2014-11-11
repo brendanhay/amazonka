@@ -62,11 +62,10 @@ indexDocuments p1 = IndexDocuments
 
 idDomainName :: Lens' IndexDocuments Text
 idDomainName = lens _idDomainName (\s a -> s { _idDomainName = a })
+instance ToQuery IndexDocuments
 
 instance ToPath IndexDocuments where
     toPath = const "/"
-
-instance ToQuery IndexDocuments
 
 newtype IndexDocumentsResponse = IndexDocumentsResponse
     { _idrFieldNames :: [Text]
@@ -86,6 +85,9 @@ indexDocumentsResponse = IndexDocumentsResponse
 -- | The names of the fields that are currently being indexed.
 idrFieldNames :: Lens' IndexDocumentsResponse [Text]
 idrFieldNames = lens _idrFieldNames (\s a -> s { _idrFieldNames = a })
+instance FromXML IndexDocumentsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "IndexDocumentsResponse"
 
 instance AWSRequest IndexDocuments where
     type Sv IndexDocuments = CloudSearch

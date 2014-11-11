@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     -- * Request
       UpdateApplicationVersionMessage
     -- ** Request constructor
-    , updateApplicationVersion
+    , updateApplicationVersionMessage
     -- ** Request lenses
     , uavmApplicationName
     , uavmDescription
@@ -35,7 +35,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     -- * Response
     , ApplicationVersionDescriptionMessage
     -- ** Response constructor
-    , updateApplicationVersionResponse
+    , applicationVersionDescriptionMessage
     -- ** Response lenses
     , avdmApplicationVersion
     ) where
@@ -60,10 +60,10 @@ data UpdateApplicationVersionMessage = UpdateApplicationVersionMessage
 --
 -- * 'uavmVersionLabel' @::@ 'Text'
 --
-updateApplicationVersion :: Text -- ^ 'uavmApplicationName'
-                         -> Text -- ^ 'uavmVersionLabel'
-                         -> UpdateApplicationVersionMessage
-updateApplicationVersion p1 p2 = UpdateApplicationVersionMessage
+updateApplicationVersionMessage :: Text -- ^ 'uavmApplicationName'
+                                -> Text -- ^ 'uavmVersionLabel'
+                                -> UpdateApplicationVersionMessage
+updateApplicationVersionMessage p1 p2 = UpdateApplicationVersionMessage
     { _uavmApplicationName = p1
     , _uavmVersionLabel    = p2
     , _uavmDescription     = Nothing
@@ -85,11 +85,10 @@ uavmDescription = lens _uavmDescription (\s a -> s { _uavmDescription = a })
 -- error.
 uavmVersionLabel :: Lens' UpdateApplicationVersionMessage Text
 uavmVersionLabel = lens _uavmVersionLabel (\s a -> s { _uavmVersionLabel = a })
+instance ToQuery UpdateApplicationVersionMessage
 
 instance ToPath UpdateApplicationVersionMessage where
     toPath = const "/"
-
-instance ToQuery UpdateApplicationVersionMessage
 
 instance AWSRequest UpdateApplicationVersionMessage where
     type Sv UpdateApplicationVersionMessage = ElasticBeanstalk

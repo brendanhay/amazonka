@@ -27,14 +27,14 @@ module Network.AWS.Redshift.DisableLogging
     -- * Request
       DisableLoggingMessage
     -- ** Request constructor
-    , disableLogging
+    , disableLoggingMessage
     -- ** Request lenses
     , dlmClusterIdentifier
 
     -- * Response
     , LoggingStatus
     -- ** Response constructor
-    , disableLoggingResponse
+    , loggingStatus
     -- ** Response lenses
     , lsBucketName
     , lsLastFailureMessage
@@ -58,9 +58,9 @@ newtype DisableLoggingMessage = DisableLoggingMessage
 --
 -- * 'dlmClusterIdentifier' @::@ 'Text'
 --
-disableLogging :: Text -- ^ 'dlmClusterIdentifier'
-               -> DisableLoggingMessage
-disableLogging p1 = DisableLoggingMessage
+disableLoggingMessage :: Text -- ^ 'dlmClusterIdentifier'
+                      -> DisableLoggingMessage
+disableLoggingMessage p1 = DisableLoggingMessage
     { _dlmClusterIdentifier = p1
     }
 
@@ -69,11 +69,10 @@ disableLogging p1 = DisableLoggingMessage
 dlmClusterIdentifier :: Lens' DisableLoggingMessage Text
 dlmClusterIdentifier =
     lens _dlmClusterIdentifier (\s a -> s { _dlmClusterIdentifier = a })
+instance ToQuery DisableLoggingMessage
 
 instance ToPath DisableLoggingMessage where
     toPath = const "/"
-
-instance ToQuery DisableLoggingMessage
 
 instance AWSRequest DisableLoggingMessage where
     type Sv DisableLoggingMessage = Redshift

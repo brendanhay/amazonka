@@ -97,14 +97,18 @@ instance ToBody PutBucketLogging where
     toBody = toBody . encodeXML . _pbl1BucketLoggingStatus
 
 data PutBucketLoggingResponse = PutBucketLoggingResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketLoggingResponse' constructor.
 putBucketLoggingResponse :: PutBucketLoggingResponse
 putBucketLoggingResponse = PutBucketLoggingResponse
 
+instance FromXML PutBucketLoggingResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutBucketLoggingResponse"
 instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3
     type Rs PutBucketLogging = PutBucketLoggingResponse
 
     request  = put
-    response = const (nullaryResponse PutBucketLoggingResponse)
+    response = nullaryResponse PutBucketLoggingResponse

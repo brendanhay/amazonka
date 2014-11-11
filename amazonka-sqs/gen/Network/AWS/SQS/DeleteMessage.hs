@@ -80,21 +80,24 @@ dmQueueUrl = lens _dmQueueUrl (\s a -> s { _dmQueueUrl = a })
 -- | The receipt handle associated with the message to delete.
 dmReceiptHandle :: Lens' DeleteMessage Text
 dmReceiptHandle = lens _dmReceiptHandle (\s a -> s { _dmReceiptHandle = a })
+instance ToQuery DeleteMessage
 
 instance ToPath DeleteMessage where
     toPath = const "/"
 
-instance ToQuery DeleteMessage
-
 data DeleteMessageResponse = DeleteMessageResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteMessageResponse' constructor.
 deleteMessageResponse :: DeleteMessageResponse
 deleteMessageResponse = DeleteMessageResponse
+instance FromXML DeleteMessageResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteMessageResponse"
 
 instance AWSRequest DeleteMessage where
     type Sv DeleteMessage = SQS
     type Rs DeleteMessage = DeleteMessageResponse
 
     request  = post "DeleteMessage"
-    response = const (nullaryResponse DeleteMessageResponse)
+    response = nullaryResponse DeleteMessageResponse

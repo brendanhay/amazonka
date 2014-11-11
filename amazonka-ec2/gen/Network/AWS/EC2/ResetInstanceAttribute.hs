@@ -84,21 +84,24 @@ ria1DryRun = lens _ria1DryRun (\s a -> s { _ria1DryRun = a })
 -- | The ID of the instance.
 ria1InstanceId :: Lens' ResetInstanceAttribute Text
 ria1InstanceId = lens _ria1InstanceId (\s a -> s { _ria1InstanceId = a })
+instance ToQuery ResetInstanceAttribute
 
 instance ToPath ResetInstanceAttribute where
     toPath = const "/"
 
-instance ToQuery ResetInstanceAttribute
-
 data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResetInstanceAttributeResponse' constructor.
 resetInstanceAttributeResponse :: ResetInstanceAttributeResponse
 resetInstanceAttributeResponse = ResetInstanceAttributeResponse
+instance FromXML ResetInstanceAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResetInstanceAttributeResponse"
 
 instance AWSRequest ResetInstanceAttribute where
     type Sv ResetInstanceAttribute = EC2
     type Rs ResetInstanceAttribute = ResetInstanceAttributeResponse
 
     request  = post "ResetInstanceAttribute"
-    response = const (nullaryResponse ResetInstanceAttributeResponse)
+    response = nullaryResponse ResetInstanceAttributeResponse

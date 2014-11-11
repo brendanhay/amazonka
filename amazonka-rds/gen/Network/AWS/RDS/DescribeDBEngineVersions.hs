@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     -- * Request
       DescribeDBEngineVersionsMessage
     -- ** Request constructor
-    , describeDBEngineVersions
+    , describeDBEngineVersionsMessage
     -- ** Request lenses
     , ddbevmDBParameterGroupFamily
     , ddbevmDefaultOnly
@@ -40,7 +40,7 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     -- * Response
     , DBEngineVersionMessage
     -- ** Response constructor
-    , describeDBEngineVersionsResponse
+    , dbengineVersionMessage
     -- ** Response lenses
     , dbevmDBEngineVersions
     , dbevmMarker
@@ -81,8 +81,8 @@ data DescribeDBEngineVersionsMessage = DescribeDBEngineVersionsMessage
 --
 -- * 'ddbevmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBEngineVersions :: DescribeDBEngineVersionsMessage
-describeDBEngineVersions = DescribeDBEngineVersionsMessage
+describeDBEngineVersionsMessage :: DescribeDBEngineVersionsMessage
+describeDBEngineVersionsMessage = DescribeDBEngineVersionsMessage
     { _ddbevmEngine                     = Nothing
     , _ddbevmEngineVersion              = Nothing
     , _ddbevmDBParameterGroupFamily     = Nothing
@@ -141,11 +141,10 @@ ddbevmMarker = lens _ddbevmMarker (\s a -> s { _ddbevmMarker = a })
 -- Default: 100 Constraints: minimum 20, maximum 100.
 ddbevmMaxRecords :: Lens' DescribeDBEngineVersionsMessage (Maybe Int)
 ddbevmMaxRecords = lens _ddbevmMaxRecords (\s a -> s { _ddbevmMaxRecords = a })
+instance ToQuery DescribeDBEngineVersionsMessage
 
 instance ToPath DescribeDBEngineVersionsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeDBEngineVersionsMessage
 
 data DBEngineVersionMessage = DBEngineVersionMessage
     { _dbevmDBEngineVersions :: [DBEngineVersion]
@@ -160,8 +159,8 @@ data DBEngineVersionMessage = DBEngineVersionMessage
 --
 -- * 'dbevmMarker' @::@ 'Maybe' 'Text'
 --
-describeDBEngineVersionsResponse :: DBEngineVersionMessage
-describeDBEngineVersionsResponse = DBEngineVersionMessage
+dbengineVersionMessage :: DBEngineVersionMessage
+dbengineVersionMessage = DBEngineVersionMessage
     { _dbevmMarker           = Nothing
     , _dbevmDBEngineVersions = mempty
     }
@@ -176,6 +175,9 @@ dbevmDBEngineVersions =
 -- marker, up to the value specified by MaxRecords.
 dbevmMarker :: Lens' DBEngineVersionMessage (Maybe Text)
 dbevmMarker = lens _dbevmMarker (\s a -> s { _dbevmMarker = a })
+instance FromXML DBEngineVersionMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DBEngineVersionMessage"
 
 instance AWSRequest DescribeDBEngineVersionsMessage where
     type Sv DescribeDBEngineVersionsMessage = RDS

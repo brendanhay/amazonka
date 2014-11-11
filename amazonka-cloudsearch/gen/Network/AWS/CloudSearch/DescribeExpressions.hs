@@ -87,11 +87,10 @@ de1DomainName = lens _de1DomainName (\s a -> s { _de1DomainName = a })
 de1ExpressionNames :: Lens' DescribeExpressions [Text]
 de1ExpressionNames =
     lens _de1ExpressionNames (\s a -> s { _de1ExpressionNames = a })
+instance ToQuery DescribeExpressions
 
 instance ToPath DescribeExpressions where
     toPath = const "/"
-
-instance ToQuery DescribeExpressions
 
 newtype DescribeExpressionsResponse = DescribeExpressionsResponse
     { _derExpressions :: [ExpressionStatus]
@@ -111,6 +110,9 @@ describeExpressionsResponse = DescribeExpressionsResponse
 -- | The expressions configured for the domain.
 derExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
 derExpressions = lens _derExpressions (\s a -> s { _derExpressions = a })
+instance FromXML DescribeExpressionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeExpressionsResponse"
 
 instance AWSRequest DescribeExpressions where
     type Sv DescribeExpressions = CloudSearch

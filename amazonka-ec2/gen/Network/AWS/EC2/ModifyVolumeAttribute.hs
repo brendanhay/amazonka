@@ -82,21 +82,24 @@ mvaDryRun = lens _mvaDryRun (\s a -> s { _mvaDryRun = a })
 -- | The ID of the volume.
 mvaVolumeId :: Lens' ModifyVolumeAttribute Text
 mvaVolumeId = lens _mvaVolumeId (\s a -> s { _mvaVolumeId = a })
+instance ToQuery ModifyVolumeAttribute
 
 instance ToPath ModifyVolumeAttribute where
     toPath = const "/"
 
-instance ToQuery ModifyVolumeAttribute
-
 data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifyVolumeAttributeResponse' constructor.
 modifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse
 modifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
+instance FromXML ModifyVolumeAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyVolumeAttributeResponse"
 
 instance AWSRequest ModifyVolumeAttribute where
     type Sv ModifyVolumeAttribute = EC2
     type Rs ModifyVolumeAttribute = ModifyVolumeAttributeResponse
 
     request  = post "ModifyVolumeAttribute"
-    response = const (nullaryResponse ModifyVolumeAttributeResponse)
+    response = nullaryResponse ModifyVolumeAttributeResponse

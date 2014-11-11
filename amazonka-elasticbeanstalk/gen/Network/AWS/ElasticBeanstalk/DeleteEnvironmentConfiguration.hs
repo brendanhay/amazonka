@@ -32,7 +32,7 @@ module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     -- * Request
       DeleteEnvironmentConfigurationMessage
     -- ** Request constructor
-    , deleteEnvironmentConfiguration
+    , deleteEnvironmentConfigurationMessage
     -- ** Request lenses
     , decmApplicationName
     , decmEnvironmentName
@@ -60,10 +60,10 @@ data DeleteEnvironmentConfigurationMessage = DeleteEnvironmentConfigurationMessa
 --
 -- * 'decmEnvironmentName' @::@ 'Text'
 --
-deleteEnvironmentConfiguration :: Text -- ^ 'decmApplicationName'
-                               -> Text -- ^ 'decmEnvironmentName'
-                               -> DeleteEnvironmentConfigurationMessage
-deleteEnvironmentConfiguration p1 p2 = DeleteEnvironmentConfigurationMessage
+deleteEnvironmentConfigurationMessage :: Text -- ^ 'decmApplicationName'
+                                      -> Text -- ^ 'decmEnvironmentName'
+                                      -> DeleteEnvironmentConfigurationMessage
+deleteEnvironmentConfigurationMessage p1 p2 = DeleteEnvironmentConfigurationMessage
     { _decmApplicationName = p1
     , _decmEnvironmentName = p2
     }
@@ -77,21 +77,24 @@ decmApplicationName =
 decmEnvironmentName :: Lens' DeleteEnvironmentConfigurationMessage Text
 decmEnvironmentName =
     lens _decmEnvironmentName (\s a -> s { _decmEnvironmentName = a })
+instance ToQuery DeleteEnvironmentConfigurationMessage
 
 instance ToPath DeleteEnvironmentConfigurationMessage where
     toPath = const "/"
 
-instance ToQuery DeleteEnvironmentConfigurationMessage
-
 data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteEnvironmentConfigurationResponse' constructor.
 deleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse
 deleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
+instance FromXML DeleteEnvironmentConfigurationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteEnvironmentConfigurationResponse"
 
 instance AWSRequest DeleteEnvironmentConfigurationMessage where
     type Sv DeleteEnvironmentConfigurationMessage = ElasticBeanstalk
     type Rs DeleteEnvironmentConfigurationMessage = DeleteEnvironmentConfigurationResponse
 
     request  = post "DeleteEnvironmentConfiguration"
-    response = const (nullaryResponse DeleteEnvironmentConfigurationResponse)
+    response = nullaryResponse DeleteEnvironmentConfigurationResponse

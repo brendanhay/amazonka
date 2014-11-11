@@ -30,7 +30,7 @@ module Network.AWS.SNS.ConfirmSubscription
     -- * Request
       ConfirmSubscriptionInput
     -- ** Request constructor
-    , confirmSubscription
+    , confirmSubscriptionInput
     -- ** Request lenses
     , csiAuthenticateOnUnsubscribe
     , csiToken
@@ -64,10 +64,10 @@ data ConfirmSubscriptionInput = ConfirmSubscriptionInput
 --
 -- * 'csiTopicArn' @::@ 'Text'
 --
-confirmSubscription :: Text -- ^ 'csiTopicArn'
-                    -> Text -- ^ 'csiToken'
-                    -> ConfirmSubscriptionInput
-confirmSubscription p1 p2 = ConfirmSubscriptionInput
+confirmSubscriptionInput :: Text -- ^ 'csiTopicArn'
+                         -> Text -- ^ 'csiToken'
+                         -> ConfirmSubscriptionInput
+confirmSubscriptionInput p1 p2 = ConfirmSubscriptionInput
     { _csiTopicArn                  = p1
     , _csiToken                     = p2
     , _csiAuthenticateOnUnsubscribe = Nothing
@@ -89,11 +89,10 @@ csiToken = lens _csiToken (\s a -> s { _csiToken = a })
 -- | The ARN of the topic for which you wish to confirm a subscription.
 csiTopicArn :: Lens' ConfirmSubscriptionInput Text
 csiTopicArn = lens _csiTopicArn (\s a -> s { _csiTopicArn = a })
+instance ToQuery ConfirmSubscriptionInput
 
 instance ToPath ConfirmSubscriptionInput where
     toPath = const "/"
-
-instance ToQuery ConfirmSubscriptionInput
 
 newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
     { _csrSubscriptionArn :: Maybe Text
@@ -114,6 +113,9 @@ confirmSubscriptionResponse = ConfirmSubscriptionResponse
 csrSubscriptionArn :: Lens' ConfirmSubscriptionResponse (Maybe Text)
 csrSubscriptionArn =
     lens _csrSubscriptionArn (\s a -> s { _csrSubscriptionArn = a })
+instance FromXML ConfirmSubscriptionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ConfirmSubscriptionResponse"
 
 instance AWSRequest ConfirmSubscriptionInput where
     type Sv ConfirmSubscriptionInput = SNS

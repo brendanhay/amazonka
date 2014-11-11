@@ -74,11 +74,10 @@ cuPath = lens _cuPath (\s a -> s { _cuPath = a })
 -- | The name of the user to create.
 cuUserName :: Lens' CreateUser Text
 cuUserName = lens _cuUserName (\s a -> s { _cuUserName = a })
+instance ToQuery CreateUser
 
 instance ToPath CreateUser where
     toPath = const "/"
-
-instance ToQuery CreateUser
 
 newtype CreateUserResponse = CreateUserResponse
     { _curUser :: Maybe User
@@ -98,6 +97,9 @@ createUserResponse = CreateUserResponse
 -- | Information about the user.
 curUser :: Lens' CreateUserResponse (Maybe User)
 curUser = lens _curUser (\s a -> s { _curUser = a })
+instance FromXML CreateUserResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateUserResponse"
 
 instance AWSRequest CreateUser where
     type Sv CreateUser = IAM

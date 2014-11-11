@@ -27,7 +27,7 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     -- * Request
       AddSourceIdentifierToSubscriptionMessage
     -- ** Request constructor
-    , addSourceIdentifierToSubscription
+    , addSourceIdentifierToSubscriptionMessage
     -- ** Request lenses
     , asitsmSourceIdentifier
     , asitsmSubscriptionName
@@ -35,7 +35,7 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     -- * Response
     , AddSourceIdentifierToSubscriptionResult
     -- ** Response constructor
-    , addSourceIdentifierToSubscriptionResponse
+    , addSourceIdentifierToSubscriptionResult
     -- ** Response lenses
     , asitsrEventSubscription
     ) where
@@ -57,10 +57,10 @@ data AddSourceIdentifierToSubscriptionMessage = AddSourceIdentifierToSubscriptio
 --
 -- * 'asitsmSubscriptionName' @::@ 'Text'
 --
-addSourceIdentifierToSubscription :: Text -- ^ 'asitsmSubscriptionName'
-                                  -> Text -- ^ 'asitsmSourceIdentifier'
-                                  -> AddSourceIdentifierToSubscriptionMessage
-addSourceIdentifierToSubscription p1 p2 = AddSourceIdentifierToSubscriptionMessage
+addSourceIdentifierToSubscriptionMessage :: Text -- ^ 'asitsmSubscriptionName'
+                                         -> Text -- ^ 'asitsmSourceIdentifier'
+                                         -> AddSourceIdentifierToSubscriptionMessage
+addSourceIdentifierToSubscriptionMessage p1 p2 = AddSourceIdentifierToSubscriptionMessage
     { _asitsmSubscriptionName = p1
     , _asitsmSourceIdentifier = p2
     }
@@ -83,11 +83,10 @@ asitsmSourceIdentifier =
 asitsmSubscriptionName :: Lens' AddSourceIdentifierToSubscriptionMessage Text
 asitsmSubscriptionName =
     lens _asitsmSubscriptionName (\s a -> s { _asitsmSubscriptionName = a })
+instance ToQuery AddSourceIdentifierToSubscriptionMessage
 
 instance ToPath AddSourceIdentifierToSubscriptionMessage where
     toPath = const "/"
-
-instance ToQuery AddSourceIdentifierToSubscriptionMessage
 
 newtype AddSourceIdentifierToSubscriptionResult = AddSourceIdentifierToSubscriptionResult
     { _asitsrEventSubscription :: Maybe EventSubscription
@@ -99,14 +98,17 @@ newtype AddSourceIdentifierToSubscriptionResult = AddSourceIdentifierToSubscript
 --
 -- * 'asitsrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-addSourceIdentifierToSubscriptionResponse :: AddSourceIdentifierToSubscriptionResult
-addSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResult
+addSourceIdentifierToSubscriptionResult :: AddSourceIdentifierToSubscriptionResult
+addSourceIdentifierToSubscriptionResult = AddSourceIdentifierToSubscriptionResult
     { _asitsrEventSubscription = Nothing
     }
 
 asitsrEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResult (Maybe EventSubscription)
 asitsrEventSubscription =
     lens _asitsrEventSubscription (\s a -> s { _asitsrEventSubscription = a })
+instance FromXML AddSourceIdentifierToSubscriptionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AddSourceIdentifierToSubscriptionResult"
 
 instance AWSRequest AddSourceIdentifierToSubscriptionMessage where
     type Sv AddSourceIdentifierToSubscriptionMessage = RDS

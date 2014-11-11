@@ -102,21 +102,24 @@ cmvReceiptHandle = lens _cmvReceiptHandle (\s a -> s { _cmvReceiptHandle = a })
 cmvVisibilityTimeout :: Lens' ChangeMessageVisibility Int
 cmvVisibilityTimeout =
     lens _cmvVisibilityTimeout (\s a -> s { _cmvVisibilityTimeout = a })
+instance ToQuery ChangeMessageVisibility
 
 instance ToPath ChangeMessageVisibility where
     toPath = const "/"
 
-instance ToQuery ChangeMessageVisibility
-
 data ChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ChangeMessageVisibilityResponse' constructor.
 changeMessageVisibilityResponse :: ChangeMessageVisibilityResponse
 changeMessageVisibilityResponse = ChangeMessageVisibilityResponse
+instance FromXML ChangeMessageVisibilityResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ChangeMessageVisibilityResponse"
 
 instance AWSRequest ChangeMessageVisibility where
     type Sv ChangeMessageVisibility = SQS
     type Rs ChangeMessageVisibility = ChangeMessageVisibilityResponse
 
     request  = post "ChangeMessageVisibility"
-    response = const (nullaryResponse ChangeMessageVisibilityResponse)
+    response = nullaryResponse ChangeMessageVisibilityResponse

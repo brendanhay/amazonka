@@ -26,14 +26,14 @@ module Network.AWS.CloudFront.CreateDistribution
     -- * Request
       CreateDistribution
     -- ** Request constructor
-    , createDistribution2014_05_31
+    , createDistribution
     -- ** Request lenses
     , cdDistributionConfig
 
     -- * Response
     , CreateDistributionResult
     -- ** Response constructor
-    , createDistribution2014_05_31Response
+    , createDistributionResult
     -- ** Response lenses
     , cdrDistribution
     , cdrETag
@@ -54,9 +54,9 @@ newtype CreateDistribution = CreateDistribution
 --
 -- * 'cdDistributionConfig' @::@ 'DistributionConfig'
 --
-createDistribution2014_05_31 :: DistributionConfig -- ^ 'cdDistributionConfig'
-                             -> CreateDistribution
-createDistribution2014_05_31 p1 = CreateDistribution
+createDistribution :: DistributionConfig -- ^ 'cdDistributionConfig'
+                   -> CreateDistribution
+createDistribution p1 = CreateDistribution
     { _cdDistributionConfig = p1
     }
 
@@ -92,8 +92,8 @@ data CreateDistributionResult = CreateDistributionResult
 --
 -- * 'cdrLocation' @::@ 'Maybe' 'Text'
 --
-createDistribution2014_05_31Response :: CreateDistributionResult
-createDistribution2014_05_31Response = CreateDistributionResult
+createDistributionResult :: CreateDistributionResult
+createDistributionResult = CreateDistributionResult
     { _cdrDistribution = Nothing
     , _cdrLocation     = Nothing
     , _cdrETag         = Nothing
@@ -113,6 +113,9 @@ cdrETag = lens _cdrETag (\s a -> s { _cdrETag = a })
 cdrLocation :: Lens' CreateDistributionResult (Maybe Text)
 cdrLocation = lens _cdrLocation (\s a -> s { _cdrLocation = a })
 
+instance FromXML CreateDistributionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDistributionResult"
 instance AWSRequest CreateDistribution where
     type Sv CreateDistribution = CloudFront
     type Rs CreateDistribution = CreateDistributionResult

@@ -27,14 +27,14 @@ module Network.AWS.Redshift.DescribeLoggingStatus
     -- * Request
       DescribeLoggingStatusMessage
     -- ** Request constructor
-    , describeLoggingStatus
+    , describeLoggingStatusMessage
     -- ** Request lenses
     , dlsmClusterIdentifier
 
     -- * Response
     , LoggingStatus
     -- ** Response constructor
-    , describeLoggingStatusResponse
+    , loggingStatus
     -- ** Response lenses
     , lsBucketName
     , lsLastFailureMessage
@@ -58,9 +58,9 @@ newtype DescribeLoggingStatusMessage = DescribeLoggingStatusMessage
 --
 -- * 'dlsmClusterIdentifier' @::@ 'Text'
 --
-describeLoggingStatus :: Text -- ^ 'dlsmClusterIdentifier'
-                      -> DescribeLoggingStatusMessage
-describeLoggingStatus p1 = DescribeLoggingStatusMessage
+describeLoggingStatusMessage :: Text -- ^ 'dlsmClusterIdentifier'
+                             -> DescribeLoggingStatusMessage
+describeLoggingStatusMessage p1 = DescribeLoggingStatusMessage
     { _dlsmClusterIdentifier = p1
     }
 
@@ -69,11 +69,10 @@ describeLoggingStatus p1 = DescribeLoggingStatusMessage
 dlsmClusterIdentifier :: Lens' DescribeLoggingStatusMessage Text
 dlsmClusterIdentifier =
     lens _dlsmClusterIdentifier (\s a -> s { _dlsmClusterIdentifier = a })
+instance ToQuery DescribeLoggingStatusMessage
 
 instance ToPath DescribeLoggingStatusMessage where
     toPath = const "/"
-
-instance ToQuery DescribeLoggingStatusMessage
 
 instance AWSRequest DescribeLoggingStatusMessage where
     type Sv DescribeLoggingStatusMessage = Redshift

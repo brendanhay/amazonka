@@ -93,14 +93,18 @@ instance ToQuery AbortMultipartUpload where
 instance ToHeaders AbortMultipartUpload
 
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'AbortMultipartUploadResponse' constructor.
 abortMultipartUploadResponse :: AbortMultipartUploadResponse
 abortMultipartUploadResponse = AbortMultipartUploadResponse
 
+instance FromXML AbortMultipartUploadResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AbortMultipartUploadResponse"
 instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3
     type Rs AbortMultipartUpload = AbortMultipartUploadResponse
 
     request  = delete
-    response = const (nullaryResponse AbortMultipartUploadResponse)
+    response = nullaryResponse AbortMultipartUploadResponse

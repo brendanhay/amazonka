@@ -32,7 +32,7 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     -- * Response
     , CreateStorageLocationResultMessage
     -- ** Response constructor
-    , createStorageLocationResponse
+    , createStorageLocationResultMessage
     -- ** Response lenses
     , cslrmS3Bucket
     ) where
@@ -42,15 +42,15 @@ import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
 data CreateStorageLocation = CreateStorageLocation
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateStorageLocation' constructor.
 createStorageLocation :: CreateStorageLocation
 createStorageLocation = CreateStorageLocation
+instance ToQuery CreateStorageLocation
 
 instance ToPath CreateStorageLocation where
     toPath = const "/"
-
-instance ToQuery CreateStorageLocation
 
 newtype CreateStorageLocationResultMessage = CreateStorageLocationResultMessage
     { _cslrmS3Bucket :: Maybe Text
@@ -62,14 +62,17 @@ newtype CreateStorageLocationResultMessage = CreateStorageLocationResultMessage
 --
 -- * 'cslrmS3Bucket' @::@ 'Maybe' 'Text'
 --
-createStorageLocationResponse :: CreateStorageLocationResultMessage
-createStorageLocationResponse = CreateStorageLocationResultMessage
+createStorageLocationResultMessage :: CreateStorageLocationResultMessage
+createStorageLocationResultMessage = CreateStorageLocationResultMessage
     { _cslrmS3Bucket = Nothing
     }
 
 -- | The name of the Amazon S3 bucket created.
 cslrmS3Bucket :: Lens' CreateStorageLocationResultMessage (Maybe Text)
 cslrmS3Bucket = lens _cslrmS3Bucket (\s a -> s { _cslrmS3Bucket = a })
+instance FromXML CreateStorageLocationResultMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateStorageLocationResultMessage"
 
 instance AWSRequest CreateStorageLocation where
     type Sv CreateStorageLocation = ElasticBeanstalk

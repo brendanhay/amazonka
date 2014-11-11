@@ -26,14 +26,14 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
     -- * Request
       GetCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , getCloudFrontOriginAccessIdentity2014_05_31
+    , getCloudFrontOriginAccessIdentity
     -- ** Request lenses
     , gcfoaiId
 
     -- * Response
     , GetCloudFrontOriginAccessIdentityResult
     -- ** Response constructor
-    , getCloudFrontOriginAccessIdentity2014_05_31Response
+    , getCloudFrontOriginAccessIdentityResult
     -- ** Response lenses
     , gcfoairCloudFrontOriginAccessIdentity
     , gcfoairETag
@@ -53,9 +53,9 @@ newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity
 --
 -- * 'gcfoaiId' @::@ 'Text'
 --
-getCloudFrontOriginAccessIdentity2014_05_31 :: Text -- ^ 'gcfoaiId'
-                                            -> GetCloudFrontOriginAccessIdentity
-getCloudFrontOriginAccessIdentity2014_05_31 p1 = GetCloudFrontOriginAccessIdentity
+getCloudFrontOriginAccessIdentity :: Text -- ^ 'gcfoaiId'
+                                  -> GetCloudFrontOriginAccessIdentity
+getCloudFrontOriginAccessIdentity p1 = GetCloudFrontOriginAccessIdentity
     { _gcfoaiId = p1
     }
 
@@ -87,8 +87,8 @@ data GetCloudFrontOriginAccessIdentityResult = GetCloudFrontOriginAccessIdentity
 --
 -- * 'gcfoairETag' @::@ 'Maybe' 'Text'
 --
-getCloudFrontOriginAccessIdentity2014_05_31Response :: GetCloudFrontOriginAccessIdentityResult
-getCloudFrontOriginAccessIdentity2014_05_31Response = GetCloudFrontOriginAccessIdentityResult
+getCloudFrontOriginAccessIdentityResult :: GetCloudFrontOriginAccessIdentityResult
+getCloudFrontOriginAccessIdentityResult = GetCloudFrontOriginAccessIdentityResult
     { _gcfoairCloudFrontOriginAccessIdentity = Nothing
     , _gcfoairETag                           = Nothing
     }
@@ -104,6 +104,9 @@ gcfoairCloudFrontOriginAccessIdentity =
 gcfoairETag :: Lens' GetCloudFrontOriginAccessIdentityResult (Maybe Text)
 gcfoairETag = lens _gcfoairETag (\s a -> s { _gcfoairETag = a })
 
+instance FromXML GetCloudFrontOriginAccessIdentityResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetCloudFrontOriginAccessIdentityResult"
 instance AWSRequest GetCloudFrontOriginAccessIdentity where
     type Sv GetCloudFrontOriginAccessIdentity = CloudFront
     type Rs GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentityResult

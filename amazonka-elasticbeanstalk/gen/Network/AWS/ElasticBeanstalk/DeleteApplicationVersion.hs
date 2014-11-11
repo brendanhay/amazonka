@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     -- * Request
       DeleteApplicationVersionMessage
     -- ** Request constructor
-    , deleteApplicationVersion
+    , deleteApplicationVersionMessage
     -- ** Request lenses
     , davmApplicationName
     , davmDeleteSourceBundle
@@ -58,10 +58,10 @@ data DeleteApplicationVersionMessage = DeleteApplicationVersionMessage
 --
 -- * 'davmVersionLabel' @::@ 'Text'
 --
-deleteApplicationVersion :: Text -- ^ 'davmApplicationName'
-                         -> Text -- ^ 'davmVersionLabel'
-                         -> DeleteApplicationVersionMessage
-deleteApplicationVersion p1 p2 = DeleteApplicationVersionMessage
+deleteApplicationVersionMessage :: Text -- ^ 'davmApplicationName'
+                                -> Text -- ^ 'davmVersionLabel'
+                                -> DeleteApplicationVersionMessage
+deleteApplicationVersionMessage p1 p2 = DeleteApplicationVersionMessage
     { _davmApplicationName    = p1
     , _davmVersionLabel       = p2
     , _davmDeleteSourceBundle = Nothing
@@ -83,21 +83,24 @@ davmDeleteSourceBundle =
 -- | The label of the version to delete.
 davmVersionLabel :: Lens' DeleteApplicationVersionMessage Text
 davmVersionLabel = lens _davmVersionLabel (\s a -> s { _davmVersionLabel = a })
+instance ToQuery DeleteApplicationVersionMessage
 
 instance ToPath DeleteApplicationVersionMessage where
     toPath = const "/"
 
-instance ToQuery DeleteApplicationVersionMessage
-
 data DeleteApplicationVersionResponse = DeleteApplicationVersionResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteApplicationVersionResponse' constructor.
 deleteApplicationVersionResponse :: DeleteApplicationVersionResponse
 deleteApplicationVersionResponse = DeleteApplicationVersionResponse
+instance FromXML DeleteApplicationVersionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteApplicationVersionResponse"
 
 instance AWSRequest DeleteApplicationVersionMessage where
     type Sv DeleteApplicationVersionMessage = ElasticBeanstalk
     type Rs DeleteApplicationVersionMessage = DeleteApplicationVersionResponse
 
     request  = post "DeleteApplicationVersion"
-    response = const (nullaryResponse DeleteApplicationVersionResponse)
+    response = nullaryResponse DeleteApplicationVersionResponse

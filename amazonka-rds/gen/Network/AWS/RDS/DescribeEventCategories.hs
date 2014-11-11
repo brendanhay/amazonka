@@ -28,7 +28,7 @@ module Network.AWS.RDS.DescribeEventCategories
     -- * Request
       DescribeEventCategoriesMessage
     -- ** Request constructor
-    , describeEventCategories
+    , describeEventCategoriesMessage
     -- ** Request lenses
     , decmFilters
     , decmSourceType
@@ -36,7 +36,7 @@ module Network.AWS.RDS.DescribeEventCategories
     -- * Response
     , EventCategoriesMessage
     -- ** Response constructor
-    , describeEventCategoriesResponse
+    , eventCategoriesMessage
     -- ** Response lenses
     , ecmEventCategoriesMapList
     ) where
@@ -58,8 +58,8 @@ data DescribeEventCategoriesMessage = DescribeEventCategoriesMessage
 --
 -- * 'decmSourceType' @::@ 'Maybe' 'Text'
 --
-describeEventCategories :: DescribeEventCategoriesMessage
-describeEventCategories = DescribeEventCategoriesMessage
+describeEventCategoriesMessage :: DescribeEventCategoriesMessage
+describeEventCategoriesMessage = DescribeEventCategoriesMessage
     { _decmSourceType = Nothing
     , _decmFilters    = mempty
     }
@@ -72,11 +72,10 @@ decmFilters = lens _decmFilters (\s a -> s { _decmFilters = a })
 -- db-instance | db-parameter-group | db-security-group | db-snapshot.
 decmSourceType :: Lens' DescribeEventCategoriesMessage (Maybe Text)
 decmSourceType = lens _decmSourceType (\s a -> s { _decmSourceType = a })
+instance ToQuery DescribeEventCategoriesMessage
 
 instance ToPath DescribeEventCategoriesMessage where
     toPath = const "/"
-
-instance ToQuery DescribeEventCategoriesMessage
 
 newtype EventCategoriesMessage = EventCategoriesMessage
     { _ecmEventCategoriesMapList :: [EventCategoriesMap]
@@ -88,8 +87,8 @@ newtype EventCategoriesMessage = EventCategoriesMessage
 --
 -- * 'ecmEventCategoriesMapList' @::@ ['EventCategoriesMap']
 --
-describeEventCategoriesResponse :: EventCategoriesMessage
-describeEventCategoriesResponse = EventCategoriesMessage
+eventCategoriesMessage :: EventCategoriesMessage
+eventCategoriesMessage = EventCategoriesMessage
     { _ecmEventCategoriesMapList = mempty
     }
 
@@ -98,6 +97,9 @@ ecmEventCategoriesMapList :: Lens' EventCategoriesMessage [EventCategoriesMap]
 ecmEventCategoriesMapList =
     lens _ecmEventCategoriesMapList
         (\s a -> s { _ecmEventCategoriesMapList = a })
+instance FromXML EventCategoriesMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EventCategoriesMessage"
 
 instance AWSRequest DescribeEventCategoriesMessage where
     type Sv DescribeEventCategoriesMessage = RDS

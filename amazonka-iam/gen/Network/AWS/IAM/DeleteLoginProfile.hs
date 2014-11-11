@@ -65,21 +65,24 @@ deleteLoginProfile p1 = DeleteLoginProfile
 -- | The name of the user whose password you want to delete.
 dlpUserName :: Lens' DeleteLoginProfile Text
 dlpUserName = lens _dlpUserName (\s a -> s { _dlpUserName = a })
+instance ToQuery DeleteLoginProfile
 
 instance ToPath DeleteLoginProfile where
     toPath = const "/"
 
-instance ToQuery DeleteLoginProfile
-
 data DeleteLoginProfileResponse = DeleteLoginProfileResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteLoginProfileResponse' constructor.
 deleteLoginProfileResponse :: DeleteLoginProfileResponse
 deleteLoginProfileResponse = DeleteLoginProfileResponse
+instance FromXML DeleteLoginProfileResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteLoginProfileResponse"
 
 instance AWSRequest DeleteLoginProfile where
     type Sv DeleteLoginProfile = IAM
     type Rs DeleteLoginProfile = DeleteLoginProfileResponse
 
     request  = post "DeleteLoginProfile"
-    response = const (nullaryResponse DeleteLoginProfileResponse)
+    response = nullaryResponse DeleteLoginProfileResponse

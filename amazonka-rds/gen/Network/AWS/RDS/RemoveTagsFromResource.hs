@@ -27,7 +27,7 @@ module Network.AWS.RDS.RemoveTagsFromResource
     -- * Request
       RemoveTagsFromResourceMessage
     -- ** Request constructor
-    , removeTagsFromResource
+    , removeTagsFromResourceMessage
     -- ** Request lenses
     , rtfrmResourceName
     , rtfrmTagKeys
@@ -55,9 +55,9 @@ data RemoveTagsFromResourceMessage = RemoveTagsFromResourceMessage
 --
 -- * 'rtfrmTagKeys' @::@ ['Text']
 --
-removeTagsFromResource :: Text -- ^ 'rtfrmResourceName'
-                       -> RemoveTagsFromResourceMessage
-removeTagsFromResource p1 = RemoveTagsFromResourceMessage
+removeTagsFromResourceMessage :: Text -- ^ 'rtfrmResourceName'
+                              -> RemoveTagsFromResourceMessage
+removeTagsFromResourceMessage p1 = RemoveTagsFromResourceMessage
     { _rtfrmResourceName = p1
     , _rtfrmTagKeys      = mempty
     }
@@ -72,21 +72,24 @@ rtfrmResourceName =
 -- | The tag key (name) of the tag to be removed.
 rtfrmTagKeys :: Lens' RemoveTagsFromResourceMessage [Text]
 rtfrmTagKeys = lens _rtfrmTagKeys (\s a -> s { _rtfrmTagKeys = a })
+instance ToQuery RemoveTagsFromResourceMessage
 
 instance ToPath RemoveTagsFromResourceMessage where
     toPath = const "/"
 
-instance ToQuery RemoveTagsFromResourceMessage
-
 data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'RemoveTagsFromResourceResponse' constructor.
 removeTagsFromResourceResponse :: RemoveTagsFromResourceResponse
 removeTagsFromResourceResponse = RemoveTagsFromResourceResponse
+instance FromXML RemoveTagsFromResourceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RemoveTagsFromResourceResponse"
 
 instance AWSRequest RemoveTagsFromResourceMessage where
     type Sv RemoveTagsFromResourceMessage = RDS
     type Rs RemoveTagsFromResourceMessage = RemoveTagsFromResourceResponse
 
     request  = post "RemoveTagsFromResource"
-    response = const (nullaryResponse RemoveTagsFromResourceResponse)
+    response = nullaryResponse RemoveTagsFromResourceResponse

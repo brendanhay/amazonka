@@ -23,11 +23,6 @@ module Network.AWS.EC2.Types
     (
     -- * Service
       EC2
-    -- ** Errors
-    , EC2Error (..)
-    , _EC2Http
-    , _EC2Serializer
-    , _EC2Service
     -- ** XML
     , xmlOptions
 

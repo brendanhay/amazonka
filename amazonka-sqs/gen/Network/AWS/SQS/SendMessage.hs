@@ -45,7 +45,7 @@ module Network.AWS.SQS.SendMessage
     -- * Response
     , SendMessageResult
     -- ** Response constructor
-    , sendMessageResponse
+    , sendMessageResult
     -- ** Response lenses
     , smrMD5OfMessageAttributes
     , smrMD5OfMessageBody
@@ -107,11 +107,10 @@ smMessageBody = lens _smMessageBody (\s a -> s { _smMessageBody = a })
 -- | The URL of the Amazon SQS queue to take action on.
 smQueueUrl :: Lens' SendMessage Text
 smQueueUrl = lens _smQueueUrl (\s a -> s { _smQueueUrl = a })
+instance ToQuery SendMessage
 
 instance ToPath SendMessage where
     toPath = const "/"
-
-instance ToQuery SendMessage
 
 data SendMessageResult = SendMessageResult
     { _smrMD5OfMessageAttributes :: Maybe Text
@@ -129,8 +128,8 @@ data SendMessageResult = SendMessageResult
 --
 -- * 'smrMessageId' @::@ 'Maybe' 'Text'
 --
-sendMessageResponse :: SendMessageResult
-sendMessageResponse = SendMessageResult
+sendMessageResult :: SendMessageResult
+sendMessageResult = SendMessageResult
     { _smrMD5OfMessageBody       = Nothing
     , _smrMD5OfMessageAttributes = Nothing
     , _smrMessageId              = Nothing
@@ -158,6 +157,9 @@ smrMD5OfMessageBody =
 -- Developer Guide.
 smrMessageId :: Lens' SendMessageResult (Maybe Text)
 smrMessageId = lens _smrMessageId (\s a -> s { _smrMessageId = a })
+instance FromXML SendMessageResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SendMessageResult"
 
 instance AWSRequest SendMessage where
     type Sv SendMessage = SQS

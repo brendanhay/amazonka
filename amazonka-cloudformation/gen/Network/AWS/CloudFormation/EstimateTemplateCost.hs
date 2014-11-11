@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.EstimateTemplateCost
     -- * Request
       EstimateTemplateCostInput
     -- ** Request constructor
-    , estimateTemplateCost
+    , estimateTemplateCostInput
     -- ** Request lenses
     , etciParameters
     , etciTemplateBody
@@ -37,7 +37,7 @@ module Network.AWS.CloudFormation.EstimateTemplateCost
     -- * Response
     , EstimateTemplateCostOutput
     -- ** Response constructor
-    , estimateTemplateCostResponse
+    , estimateTemplateCostOutput
     -- ** Response lenses
     , etcoUrl
     ) where
@@ -62,8 +62,8 @@ data EstimateTemplateCostInput = EstimateTemplateCostInput
 --
 -- * 'etciTemplateURL' @::@ 'Maybe' 'Text'
 --
-estimateTemplateCost :: EstimateTemplateCostInput
-estimateTemplateCost = EstimateTemplateCostInput
+estimateTemplateCostInput :: EstimateTemplateCostInput
+estimateTemplateCostInput = EstimateTemplateCostInput
     { _etciTemplateBody = Nothing
     , _etciTemplateURL  = Nothing
     , _etciParameters   = mempty
@@ -88,11 +88,10 @@ etciTemplateBody = lens _etciTemplateBody (\s a -> s { _etciTemplateBody = a })
 -- are passed, only TemplateBody is used.
 etciTemplateURL :: Lens' EstimateTemplateCostInput (Maybe Text)
 etciTemplateURL = lens _etciTemplateURL (\s a -> s { _etciTemplateURL = a })
+instance ToQuery EstimateTemplateCostInput
 
 instance ToPath EstimateTemplateCostInput where
     toPath = const "/"
-
-instance ToQuery EstimateTemplateCostInput
 
 newtype EstimateTemplateCostOutput = EstimateTemplateCostOutput
     { _etcoUrl :: Maybe Text
@@ -104,8 +103,8 @@ newtype EstimateTemplateCostOutput = EstimateTemplateCostOutput
 --
 -- * 'etcoUrl' @::@ 'Maybe' 'Text'
 --
-estimateTemplateCostResponse :: EstimateTemplateCostOutput
-estimateTemplateCostResponse = EstimateTemplateCostOutput
+estimateTemplateCostOutput :: EstimateTemplateCostOutput
+estimateTemplateCostOutput = EstimateTemplateCostOutput
     { _etcoUrl = Nothing
     }
 
@@ -113,6 +112,9 @@ estimateTemplateCostResponse = EstimateTemplateCostOutput
 -- the resources required to run the template.
 etcoUrl :: Lens' EstimateTemplateCostOutput (Maybe Text)
 etcoUrl = lens _etcoUrl (\s a -> s { _etcoUrl = a })
+instance FromXML EstimateTemplateCostOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EstimateTemplateCostOutput"
 
 instance AWSRequest EstimateTemplateCostInput where
     type Sv EstimateTemplateCostInput = CloudFormation

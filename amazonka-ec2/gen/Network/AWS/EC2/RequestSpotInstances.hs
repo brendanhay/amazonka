@@ -47,7 +47,7 @@ module Network.AWS.EC2.RequestSpotInstances
     -- * Response
     , RequestSpotInstancesResult
     -- ** Response constructor
-    , requestSpotInstancesResponse
+    , requestSpotInstancesResult
     -- ** Response lenses
     , rsirSpotInstanceRequests
     ) where
@@ -170,11 +170,10 @@ rsiValidFrom = lens _rsiValidFrom (\s a -> s { _rsiValidFrom = a })
 rsiValidUntil :: Lens' RequestSpotInstances (Maybe UTCTime)
 rsiValidUntil = lens _rsiValidUntil (\s a -> s { _rsiValidUntil = a })
     . mapping _Time
+instance ToQuery RequestSpotInstances
 
 instance ToPath RequestSpotInstances where
     toPath = const "/"
-
-instance ToQuery RequestSpotInstances
 
 newtype RequestSpotInstancesResult = RequestSpotInstancesResult
     { _rsirSpotInstanceRequests :: [SpotInstanceRequest]
@@ -186,8 +185,8 @@ newtype RequestSpotInstancesResult = RequestSpotInstancesResult
 --
 -- * 'rsirSpotInstanceRequests' @::@ ['SpotInstanceRequest']
 --
-requestSpotInstancesResponse :: RequestSpotInstancesResult
-requestSpotInstancesResponse = RequestSpotInstancesResult
+requestSpotInstancesResult :: RequestSpotInstancesResult
+requestSpotInstancesResult = RequestSpotInstancesResult
     { _rsirSpotInstanceRequests = mempty
     }
 
@@ -196,6 +195,9 @@ rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResult [SpotInstanceReques
 rsirSpotInstanceRequests =
     lens _rsirSpotInstanceRequests
         (\s a -> s { _rsirSpotInstanceRequests = a })
+instance FromXML RequestSpotInstancesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RequestSpotInstancesResult"
 
 instance AWSRequest RequestSpotInstances where
     type Sv RequestSpotInstances = EC2

@@ -73,21 +73,24 @@ upiaNetworkInterfaceId =
 upiaPrivateIpAddresses :: Lens' UnassignPrivateIpAddresses [Text]
 upiaPrivateIpAddresses =
     lens _upiaPrivateIpAddresses (\s a -> s { _upiaPrivateIpAddresses = a })
+instance ToQuery UnassignPrivateIpAddresses
 
 instance ToPath UnassignPrivateIpAddresses where
     toPath = const "/"
 
-instance ToQuery UnassignPrivateIpAddresses
-
 data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'UnassignPrivateIpAddressesResponse' constructor.
 unassignPrivateIpAddressesResponse :: UnassignPrivateIpAddressesResponse
 unassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
+instance FromXML UnassignPrivateIpAddressesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UnassignPrivateIpAddressesResponse"
 
 instance AWSRequest UnassignPrivateIpAddresses where
     type Sv UnassignPrivateIpAddresses = EC2
     type Rs UnassignPrivateIpAddresses = UnassignPrivateIpAddressesResponse
 
     request  = post "UnassignPrivateIpAddresses"
-    response = const (nullaryResponse UnassignPrivateIpAddressesResponse)
+    response = nullaryResponse UnassignPrivateIpAddressesResponse

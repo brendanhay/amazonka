@@ -152,21 +152,24 @@ cnaeRuleAction = lens _cnaeRuleAction (\s a -> s { _cnaeRuleAction = a })
 -- integer from 1 to 32766.
 cnaeRuleNumber :: Lens' CreateNetworkAclEntry Int
 cnaeRuleNumber = lens _cnaeRuleNumber (\s a -> s { _cnaeRuleNumber = a })
+instance ToQuery CreateNetworkAclEntry
 
 instance ToPath CreateNetworkAclEntry where
     toPath = const "/"
 
-instance ToQuery CreateNetworkAclEntry
-
 data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateNetworkAclEntryResponse' constructor.
 createNetworkAclEntryResponse :: CreateNetworkAclEntryResponse
 createNetworkAclEntryResponse = CreateNetworkAclEntryResponse
+instance FromXML CreateNetworkAclEntryResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateNetworkAclEntryResponse"
 
 instance AWSRequest CreateNetworkAclEntry where
     type Sv CreateNetworkAclEntry = EC2
     type Rs CreateNetworkAclEntry = CreateNetworkAclEntryResponse
 
     request  = post "CreateNetworkAclEntry"
-    response = const (nullaryResponse CreateNetworkAclEntryResponse)
+    response = nullaryResponse CreateNetworkAclEntryResponse

@@ -101,6 +101,9 @@ getChangeResponse p1 = GetChangeResponse
 gcrChangeInfo :: Lens' GetChangeResponse ChangeInfo
 gcrChangeInfo = lens _gcrChangeInfo (\s a -> s { _gcrChangeInfo = a })
 
+instance FromXML GetChangeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetChangeResponse"
 instance AWSRequest GetChange where
     type Sv GetChange = Route53
     type Rs GetChange = GetChangeResponse

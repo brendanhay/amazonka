@@ -129,6 +129,9 @@ avpcwhzrChangeInfo :: Lens' AssociateVPCWithHostedZoneResponse ChangeInfo
 avpcwhzrChangeInfo =
     lens _avpcwhzrChangeInfo (\s a -> s { _avpcwhzrChangeInfo = a })
 
+instance FromXML AssociateVPCWithHostedZoneResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AssociateVPCWithHostedZoneResponse"
 instance AWSRequest AssociateVPCWithHostedZone where
     type Sv AssociateVPCWithHostedZone = Route53
     type Rs AssociateVPCWithHostedZone = AssociateVPCWithHostedZoneResponse

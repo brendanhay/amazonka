@@ -34,7 +34,7 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     -- * Request
       DescribeOrderableClusterOptionsMessage
     -- ** Request constructor
-    , describeOrderableClusterOptions
+    , describeOrderableClusterOptionsMessage
     -- ** Request lenses
     , docomClusterVersion
     , docomMarker
@@ -44,7 +44,7 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     -- * Response
     , OrderableClusterOptionsMessage
     -- ** Response constructor
-    , describeOrderableClusterOptionsResponse
+    , orderableClusterOptionsMessage
     -- ** Response lenses
     , ocomMarker
     , ocomOrderableClusterOptions
@@ -73,8 +73,8 @@ data DescribeOrderableClusterOptionsMessage = DescribeOrderableClusterOptionsMes
 --
 -- * 'docomNodeType' @::@ 'Maybe' 'Text'
 --
-describeOrderableClusterOptions :: DescribeOrderableClusterOptionsMessage
-describeOrderableClusterOptions = DescribeOrderableClusterOptionsMessage
+describeOrderableClusterOptionsMessage :: DescribeOrderableClusterOptionsMessage
+describeOrderableClusterOptionsMessage = DescribeOrderableClusterOptionsMessage
     { _docomClusterVersion = Nothing
     , _docomNodeType       = Nothing
     , _docomMaxRecords     = Nothing
@@ -110,11 +110,10 @@ docomMaxRecords = lens _docomMaxRecords (\s a -> s { _docomMaxRecords = a })
 -- available offerings matching the specified node type.
 docomNodeType :: Lens' DescribeOrderableClusterOptionsMessage (Maybe Text)
 docomNodeType = lens _docomNodeType (\s a -> s { _docomNodeType = a })
+instance ToQuery DescribeOrderableClusterOptionsMessage
 
 instance ToPath DescribeOrderableClusterOptionsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeOrderableClusterOptionsMessage
 
 data OrderableClusterOptionsMessage = OrderableClusterOptionsMessage
     { _ocomMarker                  :: Maybe Text
@@ -129,8 +128,8 @@ data OrderableClusterOptionsMessage = OrderableClusterOptionsMessage
 --
 -- * 'ocomOrderableClusterOptions' @::@ ['OrderableClusterOption']
 --
-describeOrderableClusterOptionsResponse :: OrderableClusterOptionsMessage
-describeOrderableClusterOptionsResponse = OrderableClusterOptionsMessage
+orderableClusterOptionsMessage :: OrderableClusterOptionsMessage
+orderableClusterOptionsMessage = OrderableClusterOptionsMessage
     { _ocomOrderableClusterOptions = mempty
     , _ocomMarker                  = Nothing
     }
@@ -150,6 +149,9 @@ ocomOrderableClusterOptions :: Lens' OrderableClusterOptionsMessage [OrderableCl
 ocomOrderableClusterOptions =
     lens _ocomOrderableClusterOptions
         (\s a -> s { _ocomOrderableClusterOptions = a })
+instance FromXML OrderableClusterOptionsMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "OrderableClusterOptionsMessage"
 
 instance AWSRequest DescribeOrderableClusterOptionsMessage where
     type Sv DescribeOrderableClusterOptionsMessage = Redshift

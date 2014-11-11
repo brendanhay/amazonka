@@ -26,7 +26,7 @@ module Network.AWS.RDS.CreateOptionGroup
     -- * Request
       CreateOptionGroupMessage
     -- ** Request constructor
-    , createOptionGroup
+    , createOptionGroupMessage
     -- ** Request lenses
     , cogmEngineName
     , cogmMajorEngineVersion
@@ -37,7 +37,7 @@ module Network.AWS.RDS.CreateOptionGroup
     -- * Response
     , CreateOptionGroupResult
     -- ** Response constructor
-    , createOptionGroupResponse
+    , createOptionGroupResult
     -- ** Response lenses
     , cogr1OptionGroup
     ) where
@@ -68,12 +68,12 @@ data CreateOptionGroupMessage = CreateOptionGroupMessage
 --
 -- * 'cogmTags' @::@ ['Tag']
 --
-createOptionGroup :: Text -- ^ 'cogmOptionGroupName'
-                  -> Text -- ^ 'cogmEngineName'
-                  -> Text -- ^ 'cogmMajorEngineVersion'
-                  -> Text -- ^ 'cogmOptionGroupDescription'
-                  -> CreateOptionGroupMessage
-createOptionGroup p1 p2 p3 p4 = CreateOptionGroupMessage
+createOptionGroupMessage :: Text -- ^ 'cogmOptionGroupName'
+                         -> Text -- ^ 'cogmEngineName'
+                         -> Text -- ^ 'cogmMajorEngineVersion'
+                         -> Text -- ^ 'cogmOptionGroupDescription'
+                         -> CreateOptionGroupMessage
+createOptionGroupMessage p1 p2 p3 p4 = CreateOptionGroupMessage
     { _cogmOptionGroupName        = p1
     , _cogmEngineName             = p2
     , _cogmMajorEngineVersion     = p3
@@ -108,11 +108,10 @@ cogmOptionGroupName =
 
 cogmTags :: Lens' CreateOptionGroupMessage [Tag]
 cogmTags = lens _cogmTags (\s a -> s { _cogmTags = a })
+instance ToQuery CreateOptionGroupMessage
 
 instance ToPath CreateOptionGroupMessage where
     toPath = const "/"
-
-instance ToQuery CreateOptionGroupMessage
 
 newtype CreateOptionGroupResult = CreateOptionGroupResult
     { _cogr1OptionGroup :: Maybe OptionGroup
@@ -124,13 +123,16 @@ newtype CreateOptionGroupResult = CreateOptionGroupResult
 --
 -- * 'cogr1OptionGroup' @::@ 'Maybe' 'OptionGroup'
 --
-createOptionGroupResponse :: CreateOptionGroupResult
-createOptionGroupResponse = CreateOptionGroupResult
+createOptionGroupResult :: CreateOptionGroupResult
+createOptionGroupResult = CreateOptionGroupResult
     { _cogr1OptionGroup = Nothing
     }
 
 cogr1OptionGroup :: Lens' CreateOptionGroupResult (Maybe OptionGroup)
 cogr1OptionGroup = lens _cogr1OptionGroup (\s a -> s { _cogr1OptionGroup = a })
+instance FromXML CreateOptionGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateOptionGroupResult"
 
 instance AWSRequest CreateOptionGroupMessage where
     type Sv CreateOptionGroupMessage = RDS

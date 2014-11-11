@@ -70,21 +70,24 @@ dvrpGatewayId = lens _dvrpGatewayId (\s a -> s { _dvrpGatewayId = a })
 -- | The ID of the route table.
 dvrpRouteTableId :: Lens' DisableVgwRoutePropagation Text
 dvrpRouteTableId = lens _dvrpRouteTableId (\s a -> s { _dvrpRouteTableId = a })
+instance ToQuery DisableVgwRoutePropagation
 
 instance ToPath DisableVgwRoutePropagation where
     toPath = const "/"
 
-instance ToQuery DisableVgwRoutePropagation
-
 data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DisableVgwRoutePropagationResponse' constructor.
 disableVgwRoutePropagationResponse :: DisableVgwRoutePropagationResponse
 disableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
+instance FromXML DisableVgwRoutePropagationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DisableVgwRoutePropagationResponse"
 
 instance AWSRequest DisableVgwRoutePropagation where
     type Sv DisableVgwRoutePropagation = EC2
     type Rs DisableVgwRoutePropagation = DisableVgwRoutePropagationResponse
 
     request  = post "DisableVgwRoutePropagation"
-    response = const (nullaryResponse DisableVgwRoutePropagationResponse)
+    response = nullaryResponse DisableVgwRoutePropagationResponse

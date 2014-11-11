@@ -30,7 +30,7 @@ module Network.AWS.RDS.AddTagsToResource
     -- * Request
       AddTagsToResourceMessage
     -- ** Request constructor
-    , addTagsToResource
+    , addTagsToResourceMessage
     -- ** Request lenses
     , attrmResourceName
     , attrmTags
@@ -58,9 +58,9 @@ data AddTagsToResourceMessage = AddTagsToResourceMessage
 --
 -- * 'attrmTags' @::@ ['Tag']
 --
-addTagsToResource :: Text -- ^ 'attrmResourceName'
-                  -> AddTagsToResourceMessage
-addTagsToResource p1 = AddTagsToResourceMessage
+addTagsToResourceMessage :: Text -- ^ 'attrmResourceName'
+                         -> AddTagsToResourceMessage
+addTagsToResourceMessage p1 = AddTagsToResourceMessage
     { _attrmResourceName = p1
     , _attrmTags         = mempty
     }
@@ -75,21 +75,24 @@ attrmResourceName =
 -- | The tags to be assigned to the Amazon RDS resource.
 attrmTags :: Lens' AddTagsToResourceMessage [Tag]
 attrmTags = lens _attrmTags (\s a -> s { _attrmTags = a })
+instance ToQuery AddTagsToResourceMessage
 
 instance ToPath AddTagsToResourceMessage where
     toPath = const "/"
 
-instance ToQuery AddTagsToResourceMessage
-
 data AddTagsToResourceResponse = AddTagsToResourceResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'AddTagsToResourceResponse' constructor.
 addTagsToResourceResponse :: AddTagsToResourceResponse
 addTagsToResourceResponse = AddTagsToResourceResponse
+instance FromXML AddTagsToResourceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AddTagsToResourceResponse"
 
 instance AWSRequest AddTagsToResourceMessage where
     type Sv AddTagsToResourceMessage = RDS
     type Rs AddTagsToResourceMessage = AddTagsToResourceResponse
 
     request  = post "AddTagsToResource"
-    response = const (nullaryResponse AddTagsToResourceResponse)
+    response = nullaryResponse AddTagsToResourceResponse

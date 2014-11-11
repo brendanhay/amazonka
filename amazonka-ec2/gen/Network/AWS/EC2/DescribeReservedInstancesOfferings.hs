@@ -51,7 +51,7 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     -- * Response
     , DescribeReservedInstancesOfferingsResult
     -- ** Response constructor
-    , describeReservedInstancesOfferingsResponse
+    , describeReservedInstancesOfferingsResult
     -- ** Response lenses
     , driorNextToken
     , driorReservedInstancesOfferings
@@ -212,11 +212,10 @@ drioReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Te
 drioReservedInstancesOfferingIds =
     lens _drioReservedInstancesOfferingIds
         (\s a -> s { _drioReservedInstancesOfferingIds = a })
+instance ToQuery DescribeReservedInstancesOfferings
 
 instance ToPath DescribeReservedInstancesOfferings where
     toPath = const "/"
-
-instance ToQuery DescribeReservedInstancesOfferings
 
 data DescribeReservedInstancesOfferingsResult = DescribeReservedInstancesOfferingsResult
     { _driorNextToken                  :: Maybe Text
@@ -231,8 +230,8 @@ data DescribeReservedInstancesOfferingsResult = DescribeReservedInstancesOfferin
 --
 -- * 'driorReservedInstancesOfferings' @::@ ['ReservedInstancesOffering']
 --
-describeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResult
-describeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResult
+describeReservedInstancesOfferingsResult :: DescribeReservedInstancesOfferingsResult
+describeReservedInstancesOfferingsResult = DescribeReservedInstancesOfferingsResult
     { _driorReservedInstancesOfferings = mempty
     , _driorNextToken                  = Nothing
     }
@@ -246,6 +245,9 @@ driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResul
 driorReservedInstancesOfferings =
     lens _driorReservedInstancesOfferings
         (\s a -> s { _driorReservedInstancesOfferings = a })
+instance FromXML DescribeReservedInstancesOfferingsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeReservedInstancesOfferingsResult"
 
 instance AWSRequest DescribeReservedInstancesOfferings where
     type Sv DescribeReservedInstancesOfferings = EC2

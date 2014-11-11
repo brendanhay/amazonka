@@ -140,21 +140,24 @@ rnaeRuleAction = lens _rnaeRuleAction (\s a -> s { _rnaeRuleAction = a })
 -- | The rule number of the entry to replace.
 rnaeRuleNumber :: Lens' ReplaceNetworkAclEntry Int
 rnaeRuleNumber = lens _rnaeRuleNumber (\s a -> s { _rnaeRuleNumber = a })
+instance ToQuery ReplaceNetworkAclEntry
 
 instance ToPath ReplaceNetworkAclEntry where
     toPath = const "/"
 
-instance ToQuery ReplaceNetworkAclEntry
-
 data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ReplaceNetworkAclEntryResponse' constructor.
 replaceNetworkAclEntryResponse :: ReplaceNetworkAclEntryResponse
 replaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
+instance FromXML ReplaceNetworkAclEntryResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReplaceNetworkAclEntryResponse"
 
 instance AWSRequest ReplaceNetworkAclEntry where
     type Sv ReplaceNetworkAclEntry = EC2
     type Rs ReplaceNetworkAclEntry = ReplaceNetworkAclEntryResponse
 
     request  = post "ReplaceNetworkAclEntry"
-    response = const (nullaryResponse ReplaceNetworkAclEntryResponse)
+    response = nullaryResponse ReplaceNetworkAclEntryResponse

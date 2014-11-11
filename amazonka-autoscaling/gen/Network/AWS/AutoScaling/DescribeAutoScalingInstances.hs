@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     -- * Request
       DescribeAutoScalingInstancesType
     -- ** Request constructor
-    , describeAutoScalingInstances
+    , describeAutoScalingInstancesType
     -- ** Request lenses
     , dasitInstanceIds
     , dasitMaxRecords
@@ -40,7 +40,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
     -- * Response
     , AutoScalingInstancesType
     -- ** Response constructor
-    , describeAutoScalingInstancesResponse
+    , autoScalingInstancesType
     -- ** Response lenses
     , asitAutoScalingInstances
     , asitNextToken
@@ -66,8 +66,8 @@ data DescribeAutoScalingInstancesType = DescribeAutoScalingInstancesType
 --
 -- * 'dasitNextToken' @::@ 'Maybe' 'Text'
 --
-describeAutoScalingInstances :: DescribeAutoScalingInstancesType
-describeAutoScalingInstances = DescribeAutoScalingInstancesType
+describeAutoScalingInstancesType :: DescribeAutoScalingInstancesType
+describeAutoScalingInstancesType = DescribeAutoScalingInstancesType
     { _dasitInstanceIds = mempty
     , _dasitMaxRecords  = Nothing
     , _dasitNextToken   = Nothing
@@ -89,11 +89,10 @@ dasitMaxRecords = lens _dasitMaxRecords (\s a -> s { _dasitMaxRecords = a })
 -- available.
 dasitNextToken :: Lens' DescribeAutoScalingInstancesType (Maybe Text)
 dasitNextToken = lens _dasitNextToken (\s a -> s { _dasitNextToken = a })
+instance ToQuery DescribeAutoScalingInstancesType
 
 instance ToPath DescribeAutoScalingInstancesType where
     toPath = const "/"
-
-instance ToQuery DescribeAutoScalingInstancesType
 
 data AutoScalingInstancesType = AutoScalingInstancesType
     { _asitAutoScalingInstances :: [AutoScalingInstanceDetails]
@@ -108,8 +107,8 @@ data AutoScalingInstancesType = AutoScalingInstancesType
 --
 -- * 'asitNextToken' @::@ 'Maybe' 'Text'
 --
-describeAutoScalingInstancesResponse :: AutoScalingInstancesType
-describeAutoScalingInstancesResponse = AutoScalingInstancesType
+autoScalingInstancesType :: AutoScalingInstancesType
+autoScalingInstancesType = AutoScalingInstancesType
     { _asitAutoScalingInstances = mempty
     , _asitNextToken            = Nothing
     }
@@ -123,6 +122,9 @@ asitAutoScalingInstances =
 -- | A string that marks the start of the next batch of returned results.
 asitNextToken :: Lens' AutoScalingInstancesType (Maybe Text)
 asitNextToken = lens _asitNextToken (\s a -> s { _asitNextToken = a })
+instance FromXML AutoScalingInstancesType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AutoScalingInstancesType"
 
 instance AWSRequest DescribeAutoScalingInstancesType where
     type Sv DescribeAutoScalingInstancesType = AutoScaling

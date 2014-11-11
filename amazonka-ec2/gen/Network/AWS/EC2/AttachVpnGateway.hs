@@ -37,7 +37,7 @@ module Network.AWS.EC2.AttachVpnGateway
     -- * Response
     , AttachVpnGatewayResult
     -- ** Response constructor
-    , attachVpnGatewayResponse
+    , attachVpnGatewayResult
     -- ** Response lenses
     , avgrVpcAttachment
     ) where
@@ -81,11 +81,10 @@ avgVpcId = lens _avgVpcId (\s a -> s { _avgVpcId = a })
 -- | The ID of the virtual private gateway.
 avgVpnGatewayId :: Lens' AttachVpnGateway Text
 avgVpnGatewayId = lens _avgVpnGatewayId (\s a -> s { _avgVpnGatewayId = a })
+instance ToQuery AttachVpnGateway
 
 instance ToPath AttachVpnGateway where
     toPath = const "/"
-
-instance ToQuery AttachVpnGateway
 
 newtype AttachVpnGatewayResult = AttachVpnGatewayResult
     { _avgrVpcAttachment :: Maybe VpcAttachment
@@ -97,8 +96,8 @@ newtype AttachVpnGatewayResult = AttachVpnGatewayResult
 --
 -- * 'avgrVpcAttachment' @::@ 'Maybe' 'VpcAttachment'
 --
-attachVpnGatewayResponse :: AttachVpnGatewayResult
-attachVpnGatewayResponse = AttachVpnGatewayResult
+attachVpnGatewayResult :: AttachVpnGatewayResult
+attachVpnGatewayResult = AttachVpnGatewayResult
     { _avgrVpcAttachment = Nothing
     }
 
@@ -106,6 +105,9 @@ attachVpnGatewayResponse = AttachVpnGatewayResult
 avgrVpcAttachment :: Lens' AttachVpnGatewayResult (Maybe VpcAttachment)
 avgrVpcAttachment =
     lens _avgrVpcAttachment (\s a -> s { _avgrVpcAttachment = a })
+instance FromXML AttachVpnGatewayResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AttachVpnGatewayResult"
 
 instance AWSRequest AttachVpnGateway where
     type Sv AttachVpnGateway = EC2

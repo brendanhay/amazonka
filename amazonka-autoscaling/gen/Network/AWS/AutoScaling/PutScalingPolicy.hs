@@ -29,7 +29,7 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     -- * Request
       PutScalingPolicyType
     -- ** Request constructor
-    , putScalingPolicy
+    , putScalingPolicyType
     -- ** Request lenses
     , psptAdjustmentType
     , psptAutoScalingGroupName
@@ -41,7 +41,7 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     -- * Response
     , PolicyARNType
     -- ** Response constructor
-    , putScalingPolicyResponse
+    , policyARNType
     -- ** Response lenses
     , parntPolicyARN
     ) where
@@ -75,12 +75,12 @@ data PutScalingPolicyType = PutScalingPolicyType
 --
 -- * 'psptScalingAdjustment' @::@ 'Int'
 --
-putScalingPolicy :: Text -- ^ 'psptAutoScalingGroupName'
-                 -> Text -- ^ 'psptPolicyName'
-                 -> Int -- ^ 'psptScalingAdjustment'
-                 -> Text -- ^ 'psptAdjustmentType'
-                 -> PutScalingPolicyType
-putScalingPolicy p1 p2 p3 p4 = PutScalingPolicyType
+putScalingPolicyType :: Text -- ^ 'psptAutoScalingGroupName'
+                     -> Text -- ^ 'psptPolicyName'
+                     -> Int -- ^ 'psptScalingAdjustment'
+                     -> Text -- ^ 'psptAdjustmentType'
+                     -> PutScalingPolicyType
+putScalingPolicyType p1 p2 p3 p4 = PutScalingPolicyType
     { _psptAutoScalingGroupName = p1
     , _psptPolicyName           = p2
     , _psptScalingAdjustment    = p3
@@ -131,11 +131,10 @@ psptPolicyName = lens _psptPolicyName (\s a -> s { _psptPolicyName = a })
 psptScalingAdjustment :: Lens' PutScalingPolicyType Int
 psptScalingAdjustment =
     lens _psptScalingAdjustment (\s a -> s { _psptScalingAdjustment = a })
+instance ToQuery PutScalingPolicyType
 
 instance ToPath PutScalingPolicyType where
     toPath = const "/"
-
-instance ToQuery PutScalingPolicyType
 
 newtype PolicyARNType = PolicyARNType
     { _parntPolicyARN :: Maybe Text
@@ -147,14 +146,17 @@ newtype PolicyARNType = PolicyARNType
 --
 -- * 'parntPolicyARN' @::@ 'Maybe' 'Text'
 --
-putScalingPolicyResponse :: PolicyARNType
-putScalingPolicyResponse = PolicyARNType
+policyARNType :: PolicyARNType
+policyARNType = PolicyARNType
     { _parntPolicyARN = Nothing
     }
 
 -- | A policy's Amazon Resource Name (ARN).
 parntPolicyARN :: Lens' PolicyARNType (Maybe Text)
 parntPolicyARN = lens _parntPolicyARN (\s a -> s { _parntPolicyARN = a })
+instance FromXML PolicyARNType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PolicyARNType"
 
 instance AWSRequest PutScalingPolicyType where
     type Sv PutScalingPolicyType = AutoScaling

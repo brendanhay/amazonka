@@ -76,11 +76,10 @@ dsapDeployed = lens _dsapDeployed (\s a -> s { _dsapDeployed = a })
 -- | The name of the domain you want to describe.
 dsapDomainName :: Lens' DescribeServiceAccessPolicies Text
 dsapDomainName = lens _dsapDomainName (\s a -> s { _dsapDomainName = a })
+instance ToQuery DescribeServiceAccessPolicies
 
 instance ToPath DescribeServiceAccessPolicies where
     toPath = const "/"
-
-instance ToQuery DescribeServiceAccessPolicies
 
 newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse
     { _dsaprAccessPolicies :: AccessPoliciesStatus
@@ -102,6 +101,9 @@ describeServiceAccessPoliciesResponse p1 = DescribeServiceAccessPoliciesResponse
 dsaprAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
 dsaprAccessPolicies =
     lens _dsaprAccessPolicies (\s a -> s { _dsaprAccessPolicies = a })
+instance FromXML DescribeServiceAccessPoliciesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeServiceAccessPoliciesResponse"
 
 instance AWSRequest DescribeServiceAccessPolicies where
     type Sv DescribeServiceAccessPolicies = CloudSearch

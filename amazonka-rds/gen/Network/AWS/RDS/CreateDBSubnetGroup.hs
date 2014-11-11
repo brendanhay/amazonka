@@ -27,7 +27,7 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     -- * Request
       CreateDBSubnetGroupMessage
     -- ** Request constructor
-    , createDBSubnetGroup
+    , createDBSubnetGroupMessage
     -- ** Request lenses
     , cdbsgmDBSubnetGroupDescription
     , cdbsgmDBSubnetGroupName
@@ -37,7 +37,7 @@ module Network.AWS.RDS.CreateDBSubnetGroup
     -- * Response
     , CreateDBSubnetGroupResult
     -- ** Response constructor
-    , createDBSubnetGroupResponse
+    , createDBSubnetGroupResult
     -- ** Response lenses
     , cdbsgrDBSubnetGroup
     ) where
@@ -65,10 +65,10 @@ data CreateDBSubnetGroupMessage = CreateDBSubnetGroupMessage
 --
 -- * 'cdbsgmTags' @::@ ['Tag']
 --
-createDBSubnetGroup :: Text -- ^ 'cdbsgmDBSubnetGroupName'
-                    -> Text -- ^ 'cdbsgmDBSubnetGroupDescription'
-                    -> CreateDBSubnetGroupMessage
-createDBSubnetGroup p1 p2 = CreateDBSubnetGroupMessage
+createDBSubnetGroupMessage :: Text -- ^ 'cdbsgmDBSubnetGroupName'
+                           -> Text -- ^ 'cdbsgmDBSubnetGroupDescription'
+                           -> CreateDBSubnetGroupMessage
+createDBSubnetGroupMessage p1 p2 = CreateDBSubnetGroupMessage
     { _cdbsgmDBSubnetGroupName        = p1
     , _cdbsgmDBSubnetGroupDescription = p2
     , _cdbsgmSubnetIds                = mempty
@@ -94,11 +94,10 @@ cdbsgmSubnetIds = lens _cdbsgmSubnetIds (\s a -> s { _cdbsgmSubnetIds = a })
 
 cdbsgmTags :: Lens' CreateDBSubnetGroupMessage [Tag]
 cdbsgmTags = lens _cdbsgmTags (\s a -> s { _cdbsgmTags = a })
+instance ToQuery CreateDBSubnetGroupMessage
 
 instance ToPath CreateDBSubnetGroupMessage where
     toPath = const "/"
-
-instance ToQuery CreateDBSubnetGroupMessage
 
 newtype CreateDBSubnetGroupResult = CreateDBSubnetGroupResult
     { _cdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
@@ -110,14 +109,17 @@ newtype CreateDBSubnetGroupResult = CreateDBSubnetGroupResult
 --
 -- * 'cdbsgrDBSubnetGroup' @::@ 'Maybe' 'DBSubnetGroup'
 --
-createDBSubnetGroupResponse :: CreateDBSubnetGroupResult
-createDBSubnetGroupResponse = CreateDBSubnetGroupResult
+createDBSubnetGroupResult :: CreateDBSubnetGroupResult
+createDBSubnetGroupResult = CreateDBSubnetGroupResult
     { _cdbsgrDBSubnetGroup = Nothing
     }
 
 cdbsgrDBSubnetGroup :: Lens' CreateDBSubnetGroupResult (Maybe DBSubnetGroup)
 cdbsgrDBSubnetGroup =
     lens _cdbsgrDBSubnetGroup (\s a -> s { _cdbsgrDBSubnetGroup = a })
+instance FromXML CreateDBSubnetGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDBSubnetGroupResult"
 
 instance AWSRequest CreateDBSubnetGroupMessage where
     type Sv CreateDBSubnetGroupMessage = RDS

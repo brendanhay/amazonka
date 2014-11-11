@@ -45,7 +45,7 @@ module Network.AWS.S3.HeadObject
     -- * Response
     , HeadObjectOutput
     -- ** Response constructor
-    , headObjectResponse
+    , headObjectOutput
     -- ** Response lenses
     , hooAcceptRanges
     , hooCacheControl
@@ -282,8 +282,8 @@ data HeadObjectOutput = HeadObjectOutput
 --
 -- * 'hooWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
-headObjectResponse :: HeadObjectOutput
-headObjectResponse = HeadObjectOutput
+headObjectOutput :: HeadObjectOutput
+headObjectOutput = HeadObjectOutput
     { _hooDeleteMarker            = Nothing
     , _hooAcceptRanges            = Nothing
     , _hooExpiration              = Nothing
@@ -416,6 +416,9 @@ hooWebsiteRedirectLocation =
     lens _hooWebsiteRedirectLocation
         (\s a -> s { _hooWebsiteRedirectLocation = a })
 
+instance FromXML HeadObjectOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "HeadObjectOutput"
 instance AWSRequest HeadObject where
     type Sv HeadObject = S3
     type Rs HeadObject = HeadObjectOutput

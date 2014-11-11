@@ -43,7 +43,7 @@ module Network.AWS.SimpleDB.Select
     -- * Response
     , SelectResult
     -- ** Response constructor
-    , selectResponse
+    , selectResult
     -- ** Response lenses
     , srItems
     , srNextToken
@@ -94,11 +94,10 @@ sNextToken = lens _sNextToken (\s a -> s { _sNextToken = a })
 sSelectExpression :: Lens' Select Text
 sSelectExpression =
     lens _sSelectExpression (\s a -> s { _sSelectExpression = a })
+instance ToQuery Select
 
 instance ToPath Select where
     toPath = const "/"
-
-instance ToQuery Select
 
 data SelectResult = SelectResult
     { _srItems     :: [Item]
@@ -113,8 +112,8 @@ data SelectResult = SelectResult
 --
 -- * 'srNextToken' @::@ 'Maybe' 'Text'
 --
-selectResponse :: SelectResult
-selectResponse = SelectResult
+selectResult :: SelectResult
+selectResult = SelectResult
     { _srItems     = mempty
     , _srNextToken = Nothing
     }
@@ -128,6 +127,9 @@ srItems = lens _srItems (\s a -> s { _srItems = a })
 -- exceeded 5 seconds.
 srNextToken :: Lens' SelectResult (Maybe Text)
 srNextToken = lens _srNextToken (\s a -> s { _srNextToken = a })
+instance FromXML SelectResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SelectResult"
 
 instance AWSRequest Select where
     type Sv Select = SimpleDB

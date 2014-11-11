@@ -63,21 +63,24 @@ cancelExportTask p1 = CancelExportTask
 -- CreateInstanceExportTask.
 cetExportTaskId :: Lens' CancelExportTask Text
 cetExportTaskId = lens _cetExportTaskId (\s a -> s { _cetExportTaskId = a })
+instance ToQuery CancelExportTask
 
 instance ToPath CancelExportTask where
     toPath = const "/"
 
-instance ToQuery CancelExportTask
-
 data CancelExportTaskResponse = CancelExportTaskResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CancelExportTaskResponse' constructor.
 cancelExportTaskResponse :: CancelExportTaskResponse
 cancelExportTaskResponse = CancelExportTaskResponse
+instance FromXML CancelExportTaskResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CancelExportTaskResponse"
 
 instance AWSRequest CancelExportTask where
     type Sv CancelExportTask = EC2
     type Rs CancelExportTask = CancelExportTaskResponse
 
     request  = post "CancelExportTask"
-    response = const (nullaryResponse CancelExportTaskResponse)
+    response = nullaryResponse CancelExportTaskResponse

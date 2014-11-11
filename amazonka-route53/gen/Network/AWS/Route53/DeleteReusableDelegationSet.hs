@@ -79,14 +79,18 @@ instance ToQuery DeleteReusableDelegationSet where
 instance ToHeaders DeleteReusableDelegationSet
 
 data DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteReusableDelegationSetResponse' constructor.
 deleteReusableDelegationSetResponse :: DeleteReusableDelegationSetResponse
 deleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse
 
+instance FromXML DeleteReusableDelegationSetResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteReusableDelegationSetResponse"
 instance AWSRequest DeleteReusableDelegationSet where
     type Sv DeleteReusableDelegationSet = Route53
     type Rs DeleteReusableDelegationSet = DeleteReusableDelegationSetResponse
 
     request  = delete
-    response = const (nullaryResponse DeleteReusableDelegationSetResponse)
+    response = nullaryResponse DeleteReusableDelegationSetResponse

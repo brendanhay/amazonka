@@ -31,7 +31,7 @@ module Network.AWS.CloudWatch.PutMetricAlarm
     -- * Request
       PutMetricAlarmInput
     -- ** Request constructor
-    , putMetricAlarm
+    , putMetricAlarmInput
     -- ** Request lenses
     , pmaiActionsEnabled
     , pmaiAlarmActions
@@ -111,16 +111,16 @@ data PutMetricAlarmInput = PutMetricAlarmInput
 --
 -- * 'pmaiUnit' @::@ 'Maybe' 'Text'
 --
-putMetricAlarm :: Text -- ^ 'pmaiAlarmName'
-               -> Text -- ^ 'pmaiMetricName'
-               -> Text -- ^ 'pmaiNamespace'
-               -> Text -- ^ 'pmaiStatistic'
-               -> Int -- ^ 'pmaiPeriod'
-               -> Int -- ^ 'pmaiEvaluationPeriods'
-               -> Double -- ^ 'pmaiThreshold'
-               -> Text -- ^ 'pmaiComparisonOperator'
-               -> PutMetricAlarmInput
-putMetricAlarm p1 p2 p3 p4 p5 p6 p7 p8 = PutMetricAlarmInput
+putMetricAlarmInput :: Text -- ^ 'pmaiAlarmName'
+                    -> Text -- ^ 'pmaiMetricName'
+                    -> Text -- ^ 'pmaiNamespace'
+                    -> Text -- ^ 'pmaiStatistic'
+                    -> Int -- ^ 'pmaiPeriod'
+                    -> Int -- ^ 'pmaiEvaluationPeriods'
+                    -> Double -- ^ 'pmaiThreshold'
+                    -> Text -- ^ 'pmaiComparisonOperator'
+                    -> PutMetricAlarmInput
+putMetricAlarmInput p1 p2 p3 p4 p5 p6 p7 p8 = PutMetricAlarmInput
     { _pmaiAlarmName               = p1
     , _pmaiMetricName              = p2
     , _pmaiNamespace               = p3
@@ -217,21 +217,24 @@ pmaiThreshold = lens _pmaiThreshold (\s a -> s { _pmaiThreshold = a })
 -- | The unit for the alarm's associated metric.
 pmaiUnit :: Lens' PutMetricAlarmInput (Maybe Text)
 pmaiUnit = lens _pmaiUnit (\s a -> s { _pmaiUnit = a })
+instance ToQuery PutMetricAlarmInput
 
 instance ToPath PutMetricAlarmInput where
     toPath = const "/"
 
-instance ToQuery PutMetricAlarmInput
-
 data PutMetricAlarmResponse = PutMetricAlarmResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutMetricAlarmResponse' constructor.
 putMetricAlarmResponse :: PutMetricAlarmResponse
 putMetricAlarmResponse = PutMetricAlarmResponse
+instance FromXML PutMetricAlarmResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutMetricAlarmResponse"
 
 instance AWSRequest PutMetricAlarmInput where
     type Sv PutMetricAlarmInput = CloudWatch
     type Rs PutMetricAlarmInput = PutMetricAlarmResponse
 
     request  = post "PutMetricAlarm"
-    response = const (nullaryResponse PutMetricAlarmResponse)
+    response = nullaryResponse PutMetricAlarmResponse

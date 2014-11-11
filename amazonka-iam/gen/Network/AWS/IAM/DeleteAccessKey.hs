@@ -73,21 +73,24 @@ dakAccessKeyId = lens _dakAccessKeyId (\s a -> s { _dakAccessKeyId = a })
 -- | The name of the user whose key you want to delete.
 dakUserName :: Lens' DeleteAccessKey (Maybe Text)
 dakUserName = lens _dakUserName (\s a -> s { _dakUserName = a })
+instance ToQuery DeleteAccessKey
 
 instance ToPath DeleteAccessKey where
     toPath = const "/"
 
-instance ToQuery DeleteAccessKey
-
 data DeleteAccessKeyResponse = DeleteAccessKeyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteAccessKeyResponse' constructor.
 deleteAccessKeyResponse :: DeleteAccessKeyResponse
 deleteAccessKeyResponse = DeleteAccessKeyResponse
+instance FromXML DeleteAccessKeyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteAccessKeyResponse"
 
 instance AWSRequest DeleteAccessKey where
     type Sv DeleteAccessKey = IAM
     type Rs DeleteAccessKey = DeleteAccessKeyResponse
 
     request  = post "DeleteAccessKey"
-    response = const (nullaryResponse DeleteAccessKeyResponse)
+    response = nullaryResponse DeleteAccessKeyResponse

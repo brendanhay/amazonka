@@ -26,14 +26,14 @@ module Network.AWS.Redshift.RotateEncryptionKey
     -- * Request
       RotateEncryptionKeyMessage
     -- ** Request constructor
-    , rotateEncryptionKey
+    , rotateEncryptionKeyMessage
     -- ** Request lenses
     , rekmClusterIdentifier
 
     -- * Response
     , RotateEncryptionKeyResult
     -- ** Response constructor
-    , rotateEncryptionKeyResponse
+    , rotateEncryptionKeyResult
     -- ** Response lenses
     , rekrCluster
     ) where
@@ -52,9 +52,9 @@ newtype RotateEncryptionKeyMessage = RotateEncryptionKeyMessage
 --
 -- * 'rekmClusterIdentifier' @::@ 'Text'
 --
-rotateEncryptionKey :: Text -- ^ 'rekmClusterIdentifier'
-                    -> RotateEncryptionKeyMessage
-rotateEncryptionKey p1 = RotateEncryptionKeyMessage
+rotateEncryptionKeyMessage :: Text -- ^ 'rekmClusterIdentifier'
+                           -> RotateEncryptionKeyMessage
+rotateEncryptionKeyMessage p1 = RotateEncryptionKeyMessage
     { _rekmClusterIdentifier = p1
     }
 
@@ -64,11 +64,10 @@ rotateEncryptionKey p1 = RotateEncryptionKeyMessage
 rekmClusterIdentifier :: Lens' RotateEncryptionKeyMessage Text
 rekmClusterIdentifier =
     lens _rekmClusterIdentifier (\s a -> s { _rekmClusterIdentifier = a })
+instance ToQuery RotateEncryptionKeyMessage
 
 instance ToPath RotateEncryptionKeyMessage where
     toPath = const "/"
-
-instance ToQuery RotateEncryptionKeyMessage
 
 newtype RotateEncryptionKeyResult = RotateEncryptionKeyResult
     { _rekrCluster :: Maybe Cluster
@@ -80,13 +79,16 @@ newtype RotateEncryptionKeyResult = RotateEncryptionKeyResult
 --
 -- * 'rekrCluster' @::@ 'Maybe' 'Cluster'
 --
-rotateEncryptionKeyResponse :: RotateEncryptionKeyResult
-rotateEncryptionKeyResponse = RotateEncryptionKeyResult
+rotateEncryptionKeyResult :: RotateEncryptionKeyResult
+rotateEncryptionKeyResult = RotateEncryptionKeyResult
     { _rekrCluster = Nothing
     }
 
 rekrCluster :: Lens' RotateEncryptionKeyResult (Maybe Cluster)
 rekrCluster = lens _rekrCluster (\s a -> s { _rekrCluster = a })
+instance FromXML RotateEncryptionKeyResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RotateEncryptionKeyResult"
 
 instance AWSRequest RotateEncryptionKeyMessage where
     type Sv RotateEncryptionKeyMessage = Redshift

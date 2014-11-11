@@ -66,11 +66,10 @@ getRole p1 = GetRole
 -- | The name of the role to get information about.
 grRoleName :: Lens' GetRole Text
 grRoleName = lens _grRoleName (\s a -> s { _grRoleName = a })
+instance ToQuery GetRole
 
 instance ToPath GetRole where
     toPath = const "/"
-
-instance ToQuery GetRole
 
 newtype GetRoleResponse = GetRoleResponse
     { _grrRole :: Role
@@ -91,6 +90,9 @@ getRoleResponse p1 = GetRoleResponse
 -- | Information about the role.
 grrRole :: Lens' GetRoleResponse Role
 grrRole = lens _grrRole (\s a -> s { _grrRole = a })
+instance FromXML GetRoleResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetRoleResponse"
 
 instance AWSRequest GetRole where
     type Sv GetRole = IAM

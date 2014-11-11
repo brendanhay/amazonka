@@ -29,7 +29,7 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     -- * Request
       ValidateConfigurationSettingsMessage
     -- ** Request constructor
-    , validateConfigurationSettings
+    , validateConfigurationSettingsMessage
     -- ** Request lenses
     , vcsmApplicationName
     , vcsmEnvironmentName
@@ -39,7 +39,7 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     -- * Response
     , ConfigurationSettingsValidationMessages
     -- ** Response constructor
-    , validateConfigurationSettingsResponse
+    , configurationSettingsValidationMessages
     -- ** Response lenses
     , csvmMessages
     ) where
@@ -67,9 +67,9 @@ data ValidateConfigurationSettingsMessage = ValidateConfigurationSettingsMessage
 --
 -- * 'vcsmTemplateName' @::@ 'Maybe' 'Text'
 --
-validateConfigurationSettings :: Text -- ^ 'vcsmApplicationName'
-                              -> ValidateConfigurationSettingsMessage
-validateConfigurationSettings p1 = ValidateConfigurationSettingsMessage
+validateConfigurationSettingsMessage :: Text -- ^ 'vcsmApplicationName'
+                                     -> ValidateConfigurationSettingsMessage
+validateConfigurationSettingsMessage p1 = ValidateConfigurationSettingsMessage
     { _vcsmApplicationName = p1
     , _vcsmTemplateName    = Nothing
     , _vcsmEnvironmentName = Nothing
@@ -97,11 +97,10 @@ vcsmOptionSettings =
 -- Condition: You cannot specify both this and an environment name.
 vcsmTemplateName :: Lens' ValidateConfigurationSettingsMessage (Maybe Text)
 vcsmTemplateName = lens _vcsmTemplateName (\s a -> s { _vcsmTemplateName = a })
+instance ToQuery ValidateConfigurationSettingsMessage
 
 instance ToPath ValidateConfigurationSettingsMessage where
     toPath = const "/"
-
-instance ToQuery ValidateConfigurationSettingsMessage
 
 newtype ConfigurationSettingsValidationMessages = ConfigurationSettingsValidationMessages
     { _csvmMessages :: [ValidationMessage]
@@ -113,14 +112,17 @@ newtype ConfigurationSettingsValidationMessages = ConfigurationSettingsValidatio
 --
 -- * 'csvmMessages' @::@ ['ValidationMessage']
 --
-validateConfigurationSettingsResponse :: ConfigurationSettingsValidationMessages
-validateConfigurationSettingsResponse = ConfigurationSettingsValidationMessages
+configurationSettingsValidationMessages :: ConfigurationSettingsValidationMessages
+configurationSettingsValidationMessages = ConfigurationSettingsValidationMessages
     { _csvmMessages = mempty
     }
 
 -- | A list of ValidationMessage.
 csvmMessages :: Lens' ConfigurationSettingsValidationMessages [ValidationMessage]
 csvmMessages = lens _csvmMessages (\s a -> s { _csvmMessages = a })
+instance FromXML ConfigurationSettingsValidationMessages where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ConfigurationSettingsValidationMessages"
 
 instance AWSRequest ValidateConfigurationSettingsMessage where
     type Sv ValidateConfigurationSettingsMessage = ElasticBeanstalk

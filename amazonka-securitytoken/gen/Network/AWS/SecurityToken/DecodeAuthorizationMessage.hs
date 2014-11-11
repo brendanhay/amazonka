@@ -78,11 +78,10 @@ decodeAuthorizationMessage p1 = DecodeAuthorizationMessage
 damEncodedMessage :: Lens' DecodeAuthorizationMessage Text
 damEncodedMessage =
     lens _damEncodedMessage (\s a -> s { _damEncodedMessage = a })
+instance ToQuery DecodeAuthorizationMessage
 
 instance ToPath DecodeAuthorizationMessage where
     toPath = const "/"
-
-instance ToQuery DecodeAuthorizationMessage
 
 newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
     { _damrDecodedMessage :: Maybe Text
@@ -104,6 +103,9 @@ decodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
 damrDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
 damrDecodedMessage =
     lens _damrDecodedMessage (\s a -> s { _damrDecodedMessage = a })
+instance FromXML DecodeAuthorizationMessageResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DecodeAuthorizationMessageResponse"
 
 instance AWSRequest DecodeAuthorizationMessage where
     type Sv DecodeAuthorizationMessage = SecurityToken

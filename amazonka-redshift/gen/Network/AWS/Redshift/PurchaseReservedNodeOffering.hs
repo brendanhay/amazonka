@@ -32,7 +32,7 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
     -- * Request
       PurchaseReservedNodeOfferingMessage
     -- ** Request constructor
-    , purchaseReservedNodeOffering
+    , purchaseReservedNodeOfferingMessage
     -- ** Request lenses
     , prnomNodeCount
     , prnomReservedNodeOfferingId
@@ -40,7 +40,7 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
     -- * Response
     , PurchaseReservedNodeOfferingResult
     -- ** Response constructor
-    , purchaseReservedNodeOfferingResponse
+    , purchaseReservedNodeOfferingResult
     -- ** Response lenses
     , prnorReservedNode
     ) where
@@ -62,9 +62,9 @@ data PurchaseReservedNodeOfferingMessage = PurchaseReservedNodeOfferingMessage
 --
 -- * 'prnomReservedNodeOfferingId' @::@ 'Text'
 --
-purchaseReservedNodeOffering :: Text -- ^ 'prnomReservedNodeOfferingId'
-                             -> PurchaseReservedNodeOfferingMessage
-purchaseReservedNodeOffering p1 = PurchaseReservedNodeOfferingMessage
+purchaseReservedNodeOfferingMessage :: Text -- ^ 'prnomReservedNodeOfferingId'
+                                    -> PurchaseReservedNodeOfferingMessage
+purchaseReservedNodeOfferingMessage p1 = PurchaseReservedNodeOfferingMessage
     { _prnomReservedNodeOfferingId = p1
     , _prnomNodeCount              = Nothing
     }
@@ -78,11 +78,10 @@ prnomReservedNodeOfferingId :: Lens' PurchaseReservedNodeOfferingMessage Text
 prnomReservedNodeOfferingId =
     lens _prnomReservedNodeOfferingId
         (\s a -> s { _prnomReservedNodeOfferingId = a })
+instance ToQuery PurchaseReservedNodeOfferingMessage
 
 instance ToPath PurchaseReservedNodeOfferingMessage where
     toPath = const "/"
-
-instance ToQuery PurchaseReservedNodeOfferingMessage
 
 newtype PurchaseReservedNodeOfferingResult = PurchaseReservedNodeOfferingResult
     { _prnorReservedNode :: Maybe ReservedNode
@@ -94,14 +93,17 @@ newtype PurchaseReservedNodeOfferingResult = PurchaseReservedNodeOfferingResult
 --
 -- * 'prnorReservedNode' @::@ 'Maybe' 'ReservedNode'
 --
-purchaseReservedNodeOfferingResponse :: PurchaseReservedNodeOfferingResult
-purchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResult
+purchaseReservedNodeOfferingResult :: PurchaseReservedNodeOfferingResult
+purchaseReservedNodeOfferingResult = PurchaseReservedNodeOfferingResult
     { _prnorReservedNode = Nothing
     }
 
 prnorReservedNode :: Lens' PurchaseReservedNodeOfferingResult (Maybe ReservedNode)
 prnorReservedNode =
     lens _prnorReservedNode (\s a -> s { _prnorReservedNode = a })
+instance FromXML PurchaseReservedNodeOfferingResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PurchaseReservedNodeOfferingResult"
 
 instance AWSRequest PurchaseReservedNodeOfferingMessage where
     type Sv PurchaseReservedNodeOfferingMessage = Redshift

@@ -66,21 +66,24 @@ createDomain p1 = CreateDomain
 -- '-', and '.'.
 cdDomainName :: Lens' CreateDomain Text
 cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
+instance ToQuery CreateDomain
 
 instance ToPath CreateDomain where
     toPath = const "/"
 
-instance ToQuery CreateDomain
-
 data CreateDomainResponse = CreateDomainResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateDomainResponse' constructor.
 createDomainResponse :: CreateDomainResponse
 createDomainResponse = CreateDomainResponse
+instance FromXML CreateDomainResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDomainResponse"
 
 instance AWSRequest CreateDomain where
     type Sv CreateDomain = SimpleDB
     type Rs CreateDomain = CreateDomainResponse
 
     request  = post "CreateDomain"
-    response = const (nullaryResponse CreateDomainResponse)
+    response = nullaryResponse CreateDomainResponse

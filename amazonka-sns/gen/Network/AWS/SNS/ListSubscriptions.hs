@@ -29,7 +29,7 @@ module Network.AWS.SNS.ListSubscriptions
     -- * Request
       ListSubscriptionsInput
     -- ** Request constructor
-    , listSubscriptions
+    , listSubscriptionsInput
     -- ** Request lenses
     , lsiNextToken
 
@@ -56,19 +56,18 @@ newtype ListSubscriptionsInput = ListSubscriptionsInput
 --
 -- * 'lsiNextToken' @::@ 'Maybe' 'Text'
 --
-listSubscriptions :: ListSubscriptionsInput
-listSubscriptions = ListSubscriptionsInput
+listSubscriptionsInput :: ListSubscriptionsInput
+listSubscriptionsInput = ListSubscriptionsInput
     { _lsiNextToken = Nothing
     }
 
 -- | Token returned by the previous ListSubscriptions request.
 lsiNextToken :: Lens' ListSubscriptionsInput (Maybe Text)
 lsiNextToken = lens _lsiNextToken (\s a -> s { _lsiNextToken = a })
+instance ToQuery ListSubscriptionsInput
 
 instance ToPath ListSubscriptionsInput where
     toPath = const "/"
-
-instance ToQuery ListSubscriptionsInput
 
 data ListSubscriptionsResponse = ListSubscriptionsResponse
     { _lsrNextToken     :: Maybe Text
@@ -97,6 +96,9 @@ lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })
 -- | A list of subscriptions.
 lsrSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
 lsrSubscriptions = lens _lsrSubscriptions (\s a -> s { _lsrSubscriptions = a })
+instance FromXML ListSubscriptionsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListSubscriptionsResponse"
 
 instance AWSRequest ListSubscriptionsInput where
     type Sv ListSubscriptionsInput = SNS

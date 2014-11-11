@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     -- * Request
       CreateApplicationVersionMessage
     -- ** Request constructor
-    , createApplicationVersion
+    , createApplicationVersionMessage
     -- ** Request lenses
     , cavmApplicationName
     , cavmAutoCreateApplication
@@ -37,7 +37,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     -- * Response
     , ApplicationVersionDescriptionMessage
     -- ** Response constructor
-    , createApplicationVersionResponse
+    , applicationVersionDescriptionMessage
     -- ** Response lenses
     , avdmApplicationVersion
     ) where
@@ -68,10 +68,10 @@ data CreateApplicationVersionMessage = CreateApplicationVersionMessage
 --
 -- * 'cavmVersionLabel' @::@ 'Text'
 --
-createApplicationVersion :: Text -- ^ 'cavmApplicationName'
-                         -> Text -- ^ 'cavmVersionLabel'
-                         -> CreateApplicationVersionMessage
-createApplicationVersion p1 p2 = CreateApplicationVersionMessage
+createApplicationVersionMessage :: Text -- ^ 'cavmApplicationName'
+                                -> Text -- ^ 'cavmVersionLabel'
+                                -> CreateApplicationVersionMessage
+createApplicationVersionMessage p1 p2 = CreateApplicationVersionMessage
     { _cavmApplicationName       = p1
     , _cavmVersionLabel          = p2
     , _cavmDescription           = Nothing
@@ -120,11 +120,10 @@ cavmSourceBundle = lens _cavmSourceBundle (\s a -> s { _cavmSourceBundle = a })
 -- InvalidParameterValue error.
 cavmVersionLabel :: Lens' CreateApplicationVersionMessage Text
 cavmVersionLabel = lens _cavmVersionLabel (\s a -> s { _cavmVersionLabel = a })
+instance ToQuery CreateApplicationVersionMessage
 
 instance ToPath CreateApplicationVersionMessage where
     toPath = const "/"
-
-instance ToQuery CreateApplicationVersionMessage
 
 instance AWSRequest CreateApplicationVersionMessage where
     type Sv CreateApplicationVersionMessage = ElasticBeanstalk

@@ -88,21 +88,24 @@ sintNotificationType =
 -- cleared and publishing is disabled.
 sintSnsTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
 sintSnsTopic = lens _sintSnsTopic (\s a -> s { _sintSnsTopic = a })
+instance ToQuery SetIdentityNotificationTopic
 
 instance ToPath SetIdentityNotificationTopic where
     toPath = const "/"
 
-instance ToQuery SetIdentityNotificationTopic
-
 data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetIdentityNotificationTopicResponse' constructor.
 setIdentityNotificationTopicResponse :: SetIdentityNotificationTopicResponse
 setIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
+instance FromXML SetIdentityNotificationTopicResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SetIdentityNotificationTopicResponse"
 
 instance AWSRequest SetIdentityNotificationTopic where
     type Sv SetIdentityNotificationTopic = SES
     type Rs SetIdentityNotificationTopic = SetIdentityNotificationTopicResponse
 
     request  = post "SetIdentityNotificationTopic"
-    response = const (nullaryResponse SetIdentityNotificationTopicResponse)
+    response = nullaryResponse SetIdentityNotificationTopicResponse

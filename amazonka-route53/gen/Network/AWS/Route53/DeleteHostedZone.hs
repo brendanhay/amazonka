@@ -103,6 +103,9 @@ deleteHostedZoneResponse p1 = DeleteHostedZoneResponse
 dhzrChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
 dhzrChangeInfo = lens _dhzrChangeInfo (\s a -> s { _dhzrChangeInfo = a })
 
+instance FromXML DeleteHostedZoneResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteHostedZoneResponse"
 instance AWSRequest DeleteHostedZone where
     type Sv DeleteHostedZone = Route53
     type Rs DeleteHostedZone = DeleteHostedZoneResponse

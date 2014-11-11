@@ -50,7 +50,7 @@ module Network.AWS.EC2.AssociateAddress
     -- * Response
     , AssociateAddressResult
     -- ** Response constructor
-    , associateAddressResponse
+    , associateAddressResult
     -- ** Response lenses
     , aarAssociationId
     ) where
@@ -136,11 +136,10 @@ aa1PrivateIpAddress =
 -- | The Elastic IP address. This is required for EC2-Classic.
 aa1PublicIp :: Lens' AssociateAddress (Maybe Text)
 aa1PublicIp = lens _aa1PublicIp (\s a -> s { _aa1PublicIp = a })
+instance ToQuery AssociateAddress
 
 instance ToPath AssociateAddress where
     toPath = const "/"
-
-instance ToQuery AssociateAddress
 
 newtype AssociateAddressResult = AssociateAddressResult
     { _aarAssociationId :: Maybe Text
@@ -152,8 +151,8 @@ newtype AssociateAddressResult = AssociateAddressResult
 --
 -- * 'aarAssociationId' @::@ 'Maybe' 'Text'
 --
-associateAddressResponse :: AssociateAddressResult
-associateAddressResponse = AssociateAddressResult
+associateAddressResult :: AssociateAddressResult
+associateAddressResult = AssociateAddressResult
     { _aarAssociationId = Nothing
     }
 
@@ -161,6 +160,9 @@ associateAddressResponse = AssociateAddressResult
 -- address with an instance.
 aarAssociationId :: Lens' AssociateAddressResult (Maybe Text)
 aarAssociationId = lens _aarAssociationId (\s a -> s { _aarAssociationId = a })
+instance FromXML AssociateAddressResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AssociateAddressResult"
 
 instance AWSRequest AssociateAddress where
     type Sv AssociateAddress = EC2

@@ -61,21 +61,24 @@ deleteDomain p1 = DeleteDomain
 -- | The name of the domain to delete.
 ddDomainName :: Lens' DeleteDomain Text
 ddDomainName = lens _ddDomainName (\s a -> s { _ddDomainName = a })
+instance ToQuery DeleteDomain
 
 instance ToPath DeleteDomain where
     toPath = const "/"
 
-instance ToQuery DeleteDomain
-
 data DeleteDomainResponse = DeleteDomainResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteDomainResponse' constructor.
 deleteDomainResponse :: DeleteDomainResponse
 deleteDomainResponse = DeleteDomainResponse
+instance FromXML DeleteDomainResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteDomainResponse"
 
 instance AWSRequest DeleteDomain where
     type Sv DeleteDomain = SimpleDB
     type Rs DeleteDomain = DeleteDomainResponse
 
     request  = post "DeleteDomain"
-    response = const (nullaryResponse DeleteDomainResponse)
+    response = nullaryResponse DeleteDomainResponse

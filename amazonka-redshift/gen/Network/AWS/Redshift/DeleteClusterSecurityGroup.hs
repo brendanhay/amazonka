@@ -28,7 +28,7 @@ module Network.AWS.Redshift.DeleteClusterSecurityGroup
     -- * Request
       DeleteClusterSecurityGroupMessage
     -- ** Request constructor
-    , deleteClusterSecurityGroup
+    , deleteClusterSecurityGroupMessage
     -- ** Request lenses
     , dcsgmClusterSecurityGroupName
 
@@ -52,9 +52,9 @@ newtype DeleteClusterSecurityGroupMessage = DeleteClusterSecurityGroupMessage
 --
 -- * 'dcsgmClusterSecurityGroupName' @::@ 'Text'
 --
-deleteClusterSecurityGroup :: Text -- ^ 'dcsgmClusterSecurityGroupName'
-                           -> DeleteClusterSecurityGroupMessage
-deleteClusterSecurityGroup p1 = DeleteClusterSecurityGroupMessage
+deleteClusterSecurityGroupMessage :: Text -- ^ 'dcsgmClusterSecurityGroupName'
+                                  -> DeleteClusterSecurityGroupMessage
+deleteClusterSecurityGroupMessage p1 = DeleteClusterSecurityGroupMessage
     { _dcsgmClusterSecurityGroupName = p1
     }
 
@@ -63,21 +63,24 @@ dcsgmClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroupMessage Text
 dcsgmClusterSecurityGroupName =
     lens _dcsgmClusterSecurityGroupName
         (\s a -> s { _dcsgmClusterSecurityGroupName = a })
+instance ToQuery DeleteClusterSecurityGroupMessage
 
 instance ToPath DeleteClusterSecurityGroupMessage where
     toPath = const "/"
 
-instance ToQuery DeleteClusterSecurityGroupMessage
-
 data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteClusterSecurityGroupResponse' constructor.
 deleteClusterSecurityGroupResponse :: DeleteClusterSecurityGroupResponse
 deleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
+instance FromXML DeleteClusterSecurityGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteClusterSecurityGroupResponse"
 
 instance AWSRequest DeleteClusterSecurityGroupMessage where
     type Sv DeleteClusterSecurityGroupMessage = Redshift
     type Rs DeleteClusterSecurityGroupMessage = DeleteClusterSecurityGroupResponse
 
     request  = post "DeleteClusterSecurityGroup"
-    response = const (nullaryResponse DeleteClusterSecurityGroupResponse)
+    response = nullaryResponse DeleteClusterSecurityGroupResponse

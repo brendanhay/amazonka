@@ -56,7 +56,7 @@ module Network.AWS.EC2.StopInstances
     -- * Response
     , StopInstancesResult
     -- ** Response constructor
-    , stopInstancesResponse
+    , stopInstancesResult
     -- ** Response lenses
     , sirStoppingInstances
     ) where
@@ -101,11 +101,10 @@ si1Force = lens _si1Force (\s a -> s { _si1Force = a })
 -- | One or more instance IDs.
 si1InstanceIds :: Lens' StopInstances [Text]
 si1InstanceIds = lens _si1InstanceIds (\s a -> s { _si1InstanceIds = a })
+instance ToQuery StopInstances
 
 instance ToPath StopInstances where
     toPath = const "/"
-
-instance ToQuery StopInstances
 
 newtype StopInstancesResult = StopInstancesResult
     { _sirStoppingInstances :: [InstanceStateChange]
@@ -117,8 +116,8 @@ newtype StopInstancesResult = StopInstancesResult
 --
 -- * 'sirStoppingInstances' @::@ ['InstanceStateChange']
 --
-stopInstancesResponse :: StopInstancesResult
-stopInstancesResponse = StopInstancesResult
+stopInstancesResult :: StopInstancesResult
+stopInstancesResult = StopInstancesResult
     { _sirStoppingInstances = mempty
     }
 
@@ -126,6 +125,9 @@ stopInstancesResponse = StopInstancesResult
 sirStoppingInstances :: Lens' StopInstancesResult [InstanceStateChange]
 sirStoppingInstances =
     lens _sirStoppingInstances (\s a -> s { _sirStoppingInstances = a })
+instance FromXML StopInstancesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "StopInstancesResult"
 
 instance AWSRequest StopInstances where
     type Sv StopInstances = EC2

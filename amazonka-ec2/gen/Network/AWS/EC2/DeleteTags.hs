@@ -82,21 +82,24 @@ dt1Resources = lens _dt1Resources (\s a -> s { _dt1Resources = a })
 -- empty string.
 dt1Tags :: Lens' DeleteTags [Tag]
 dt1Tags = lens _dt1Tags (\s a -> s { _dt1Tags = a })
+instance ToQuery DeleteTags
 
 instance ToPath DeleteTags where
     toPath = const "/"
 
-instance ToQuery DeleteTags
-
 data DeleteTagsResponse = DeleteTagsResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteTagsResponse' constructor.
 deleteTagsResponse :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse
+instance FromXML DeleteTagsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteTagsResponse"
 
 instance AWSRequest DeleteTags where
     type Sv DeleteTags = EC2
     type Rs DeleteTags = DeleteTagsResponse
 
     request  = post "DeleteTags"
-    response = const (nullaryResponse DeleteTagsResponse)
+    response = nullaryResponse DeleteTagsResponse

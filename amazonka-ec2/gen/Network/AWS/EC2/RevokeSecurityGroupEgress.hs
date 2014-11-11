@@ -151,21 +151,24 @@ rsgeSourceSecurityGroupOwnerId =
 -- the ICMP type.
 rsgeToPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeToPort = lens _rsgeToPort (\s a -> s { _rsgeToPort = a })
+instance ToQuery RevokeSecurityGroupEgress
 
 instance ToPath RevokeSecurityGroupEgress where
     toPath = const "/"
 
-instance ToQuery RevokeSecurityGroupEgress
-
 data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'RevokeSecurityGroupEgressResponse' constructor.
 revokeSecurityGroupEgressResponse :: RevokeSecurityGroupEgressResponse
 revokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
+instance FromXML RevokeSecurityGroupEgressResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RevokeSecurityGroupEgressResponse"
 
 instance AWSRequest RevokeSecurityGroupEgress where
     type Sv RevokeSecurityGroupEgress = EC2
     type Rs RevokeSecurityGroupEgress = RevokeSecurityGroupEgressResponse
 
     request  = post "RevokeSecurityGroupEgress"
-    response = const (nullaryResponse RevokeSecurityGroupEgressResponse)
+    response = nullaryResponse RevokeSecurityGroupEgressResponse

@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeKeyPairs
     -- * Response
     , DescribeKeyPairsResult
     -- ** Response constructor
-    , describeKeyPairsResponse
+    , describeKeyPairsResult
     -- ** Response lenses
     , dkprKeyPairs
     ) where
@@ -79,11 +79,10 @@ dkpFilters = lens _dkpFilters (\s a -> s { _dkpFilters = a })
 -- | One or more key pair names. Default: Describes all your key pairs.
 dkpKeyNames :: Lens' DescribeKeyPairs [Text]
 dkpKeyNames = lens _dkpKeyNames (\s a -> s { _dkpKeyNames = a })
+instance ToQuery DescribeKeyPairs
 
 instance ToPath DescribeKeyPairs where
     toPath = const "/"
-
-instance ToQuery DescribeKeyPairs
 
 newtype DescribeKeyPairsResult = DescribeKeyPairsResult
     { _dkprKeyPairs :: [KeyPairInfo]
@@ -95,14 +94,17 @@ newtype DescribeKeyPairsResult = DescribeKeyPairsResult
 --
 -- * 'dkprKeyPairs' @::@ ['KeyPairInfo']
 --
-describeKeyPairsResponse :: DescribeKeyPairsResult
-describeKeyPairsResponse = DescribeKeyPairsResult
+describeKeyPairsResult :: DescribeKeyPairsResult
+describeKeyPairsResult = DescribeKeyPairsResult
     { _dkprKeyPairs = mempty
     }
 
 -- | Information about one or more key pairs.
 dkprKeyPairs :: Lens' DescribeKeyPairsResult [KeyPairInfo]
 dkprKeyPairs = lens _dkprKeyPairs (\s a -> s { _dkprKeyPairs = a })
+instance FromXML DescribeKeyPairsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeKeyPairsResult"
 
 instance AWSRequest DescribeKeyPairs where
     type Sv DescribeKeyPairs = EC2

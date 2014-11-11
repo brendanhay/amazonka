@@ -69,21 +69,24 @@ dig1DryRun = lens _dig1DryRun (\s a -> s { _dig1DryRun = a })
 dig1InternetGatewayId :: Lens' DeleteInternetGateway Text
 dig1InternetGatewayId =
     lens _dig1InternetGatewayId (\s a -> s { _dig1InternetGatewayId = a })
+instance ToQuery DeleteInternetGateway
 
 instance ToPath DeleteInternetGateway where
     toPath = const "/"
 
-instance ToQuery DeleteInternetGateway
-
 data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteInternetGatewayResponse' constructor.
 deleteInternetGatewayResponse :: DeleteInternetGatewayResponse
 deleteInternetGatewayResponse = DeleteInternetGatewayResponse
+instance FromXML DeleteInternetGatewayResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteInternetGatewayResponse"
 
 instance AWSRequest DeleteInternetGateway where
     type Sv DeleteInternetGateway = EC2
     type Rs DeleteInternetGateway = DeleteInternetGatewayResponse
 
     request  = post "DeleteInternetGateway"
-    response = const (nullaryResponse DeleteInternetGatewayResponse)
+    response = nullaryResponse DeleteInternetGatewayResponse

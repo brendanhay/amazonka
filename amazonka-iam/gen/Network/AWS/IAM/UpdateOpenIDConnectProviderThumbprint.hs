@@ -81,21 +81,24 @@ uoidcptOpenIDConnectProviderArn =
 uoidcptThumbprintList :: Lens' UpdateOpenIDConnectProviderThumbprint [Text]
 uoidcptThumbprintList =
     lens _uoidcptThumbprintList (\s a -> s { _uoidcptThumbprintList = a })
+instance ToQuery UpdateOpenIDConnectProviderThumbprint
 
 instance ToPath UpdateOpenIDConnectProviderThumbprint where
     toPath = const "/"
 
-instance ToQuery UpdateOpenIDConnectProviderThumbprint
-
 data UpdateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProviderThumbprintResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateOpenIDConnectProviderThumbprintResponse' constructor.
 updateOpenIDConnectProviderThumbprintResponse :: UpdateOpenIDConnectProviderThumbprintResponse
 updateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProviderThumbprintResponse
+instance FromXML UpdateOpenIDConnectProviderThumbprintResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateOpenIDConnectProviderThumbprintResponse"
 
 instance AWSRequest UpdateOpenIDConnectProviderThumbprint where
     type Sv UpdateOpenIDConnectProviderThumbprint = IAM
     type Rs UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbprintResponse
 
     request  = post "UpdateOpenIDConnectProviderThumbprint"
-    response = const (nullaryResponse UpdateOpenIDConnectProviderThumbprintResponse)
+    response = nullaryResponse UpdateOpenIDConnectProviderThumbprintResponse

@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeVpnGateways
     -- * Response
     , DescribeVpnGatewaysResult
     -- ** Response constructor
-    , describeVpnGatewaysResponse
+    , describeVpnGatewaysResult
     -- ** Response lenses
     , dvgrVpnGateways
     ) where
@@ -97,11 +97,10 @@ dvg2Filters = lens _dvg2Filters (\s a -> s { _dvg2Filters = a })
 dvg2VpnGatewayIds :: Lens' DescribeVpnGateways [Text]
 dvg2VpnGatewayIds =
     lens _dvg2VpnGatewayIds (\s a -> s { _dvg2VpnGatewayIds = a })
+instance ToQuery DescribeVpnGateways
 
 instance ToPath DescribeVpnGateways where
     toPath = const "/"
-
-instance ToQuery DescribeVpnGateways
 
 newtype DescribeVpnGatewaysResult = DescribeVpnGatewaysResult
     { _dvgrVpnGateways :: [VpnGateway]
@@ -113,14 +112,17 @@ newtype DescribeVpnGatewaysResult = DescribeVpnGatewaysResult
 --
 -- * 'dvgrVpnGateways' @::@ ['VpnGateway']
 --
-describeVpnGatewaysResponse :: DescribeVpnGatewaysResult
-describeVpnGatewaysResponse = DescribeVpnGatewaysResult
+describeVpnGatewaysResult :: DescribeVpnGatewaysResult
+describeVpnGatewaysResult = DescribeVpnGatewaysResult
     { _dvgrVpnGateways = mempty
     }
 
 -- | Information about one or more virtual private gateways.
 dvgrVpnGateways :: Lens' DescribeVpnGatewaysResult [VpnGateway]
 dvgrVpnGateways = lens _dvgrVpnGateways (\s a -> s { _dvgrVpnGateways = a })
+instance FromXML DescribeVpnGatewaysResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVpnGatewaysResult"
 
 instance AWSRequest DescribeVpnGateways where
     type Sv DescribeVpnGateways = EC2

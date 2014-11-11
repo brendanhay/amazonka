@@ -159,21 +159,24 @@ uappRequireUppercaseCharacters :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireUppercaseCharacters =
     lens _uappRequireUppercaseCharacters
         (\s a -> s { _uappRequireUppercaseCharacters = a })
+instance ToQuery UpdateAccountPasswordPolicy
 
 instance ToPath UpdateAccountPasswordPolicy where
     toPath = const "/"
 
-instance ToQuery UpdateAccountPasswordPolicy
-
 data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateAccountPasswordPolicyResponse' constructor.
 updateAccountPasswordPolicyResponse :: UpdateAccountPasswordPolicyResponse
 updateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
+instance FromXML UpdateAccountPasswordPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateAccountPasswordPolicyResponse"
 
 instance AWSRequest UpdateAccountPasswordPolicy where
     type Sv UpdateAccountPasswordPolicy = IAM
     type Rs UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicyResponse
 
     request  = post "UpdateAccountPasswordPolicy"
-    response = const (nullaryResponse UpdateAccountPasswordPolicyResponse)
+    response = nullaryResponse UpdateAccountPasswordPolicyResponse

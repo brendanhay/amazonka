@@ -68,21 +68,24 @@ ds2DryRun = lens _ds2DryRun (\s a -> s { _ds2DryRun = a })
 -- | The ID of the subnet.
 ds2SubnetId :: Lens' DeleteSubnet Text
 ds2SubnetId = lens _ds2SubnetId (\s a -> s { _ds2SubnetId = a })
+instance ToQuery DeleteSubnet
 
 instance ToPath DeleteSubnet where
     toPath = const "/"
 
-instance ToQuery DeleteSubnet
-
 data DeleteSubnetResponse = DeleteSubnetResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSubnetResponse' constructor.
 deleteSubnetResponse :: DeleteSubnetResponse
 deleteSubnetResponse = DeleteSubnetResponse
+instance FromXML DeleteSubnetResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteSubnetResponse"
 
 instance AWSRequest DeleteSubnet where
     type Sv DeleteSubnet = EC2
     type Rs DeleteSubnet = DeleteSubnetResponse
 
     request  = post "DeleteSubnet"
-    response = const (nullaryResponse DeleteSubnetResponse)
+    response = nullaryResponse DeleteSubnetResponse

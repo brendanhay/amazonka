@@ -28,7 +28,7 @@ module Network.AWS.RDS.ModifyDBInstance
     -- * Request
       ModifyDBInstanceMessage
     -- ** Request constructor
-    , modifyDBInstance
+    , modifyDBInstanceMessage
     -- ** Request lenses
     , mdbimAllocatedStorage
     , mdbimAllowMajorVersionUpgrade
@@ -55,7 +55,7 @@ module Network.AWS.RDS.ModifyDBInstance
     -- * Response
     , ModifyDBInstanceResult
     -- ** Response constructor
-    , modifyDBInstanceResponse
+    , modifyDBInstanceResult
     -- ** Response lenses
     , mdbirDBInstance
     ) where
@@ -134,9 +134,9 @@ data ModifyDBInstanceMessage = ModifyDBInstanceMessage
 --
 -- * 'mdbimVpcSecurityGroupIds' @::@ ['Text']
 --
-modifyDBInstance :: Text -- ^ 'mdbimDBInstanceIdentifier'
-                 -> ModifyDBInstanceMessage
-modifyDBInstance p1 = ModifyDBInstanceMessage
+modifyDBInstanceMessage :: Text -- ^ 'mdbimDBInstanceIdentifier'
+                        -> ModifyDBInstanceMessage
+modifyDBInstanceMessage p1 = ModifyDBInstanceMessage
     { _mdbimDBInstanceIdentifier       = p1
     , _mdbimAllocatedStorage           = Nothing
     , _mdbimDBInstanceClass            = Nothing
@@ -434,11 +434,10 @@ mdbimVpcSecurityGroupIds :: Lens' ModifyDBInstanceMessage [Text]
 mdbimVpcSecurityGroupIds =
     lens _mdbimVpcSecurityGroupIds
         (\s a -> s { _mdbimVpcSecurityGroupIds = a })
+instance ToQuery ModifyDBInstanceMessage
 
 instance ToPath ModifyDBInstanceMessage where
     toPath = const "/"
-
-instance ToQuery ModifyDBInstanceMessage
 
 newtype ModifyDBInstanceResult = ModifyDBInstanceResult
     { _mdbirDBInstance :: Maybe DBInstance
@@ -450,13 +449,16 @@ newtype ModifyDBInstanceResult = ModifyDBInstanceResult
 --
 -- * 'mdbirDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-modifyDBInstanceResponse :: ModifyDBInstanceResult
-modifyDBInstanceResponse = ModifyDBInstanceResult
+modifyDBInstanceResult :: ModifyDBInstanceResult
+modifyDBInstanceResult = ModifyDBInstanceResult
     { _mdbirDBInstance = Nothing
     }
 
 mdbirDBInstance :: Lens' ModifyDBInstanceResult (Maybe DBInstance)
 mdbirDBInstance = lens _mdbirDBInstance (\s a -> s { _mdbirDBInstance = a })
+instance FromXML ModifyDBInstanceResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyDBInstanceResult"
 
 instance AWSRequest ModifyDBInstanceMessage where
     type Sv ModifyDBInstanceMessage = RDS

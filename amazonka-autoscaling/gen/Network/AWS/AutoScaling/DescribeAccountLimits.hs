@@ -36,7 +36,7 @@ module Network.AWS.AutoScaling.DescribeAccountLimits
     -- * Response
     , DescribeAccountLimitsAnswer
     -- ** Response constructor
-    , describeAccountLimitsResponse
+    , describeAccountLimitsAnswer
     -- ** Response lenses
     , dalaMaxNumberOfAutoScalingGroups
     , dalaMaxNumberOfLaunchConfigurations
@@ -47,15 +47,15 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
 data DescribeAccountLimits = DescribeAccountLimits
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAccountLimits' constructor.
 describeAccountLimits :: DescribeAccountLimits
 describeAccountLimits = DescribeAccountLimits
+instance ToQuery DescribeAccountLimits
 
 instance ToPath DescribeAccountLimits where
     toPath = const "/"
-
-instance ToQuery DescribeAccountLimits
 
 data DescribeAccountLimitsAnswer = DescribeAccountLimitsAnswer
     { _dalaMaxNumberOfAutoScalingGroups    :: Maybe Int
@@ -70,8 +70,8 @@ data DescribeAccountLimitsAnswer = DescribeAccountLimitsAnswer
 --
 -- * 'dalaMaxNumberOfLaunchConfigurations' @::@ 'Maybe' 'Int'
 --
-describeAccountLimitsResponse :: DescribeAccountLimitsAnswer
-describeAccountLimitsResponse = DescribeAccountLimitsAnswer
+describeAccountLimitsAnswer :: DescribeAccountLimitsAnswer
+describeAccountLimitsAnswer = DescribeAccountLimitsAnswer
     { _dalaMaxNumberOfAutoScalingGroups    = Nothing
     , _dalaMaxNumberOfLaunchConfigurations = Nothing
     }
@@ -87,6 +87,9 @@ dalaMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsAnswer (Maybe 
 dalaMaxNumberOfLaunchConfigurations =
     lens _dalaMaxNumberOfLaunchConfigurations
         (\s a -> s { _dalaMaxNumberOfLaunchConfigurations = a })
+instance FromXML DescribeAccountLimitsAnswer where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAccountLimitsAnswer"
 
 instance AWSRequest DescribeAccountLimits where
     type Sv DescribeAccountLimits = AutoScaling

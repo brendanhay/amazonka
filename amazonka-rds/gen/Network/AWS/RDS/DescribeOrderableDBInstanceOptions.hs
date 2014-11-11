@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     -- * Request
       DescribeOrderableDBInstanceOptionsMessage
     -- ** Request constructor
-    , describeOrderableDBInstanceOptions
+    , describeOrderableDBInstanceOptionsMessage
     -- ** Request lenses
     , dodbiomDBInstanceClass
     , dodbiomEngine
@@ -40,7 +40,7 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     -- * Response
     , OrderableDBInstanceOptionsMessage
     -- ** Response constructor
-    , describeOrderableDBInstanceOptionsResponse
+    , orderableDBInstanceOptionsMessage
     -- ** Response lenses
     , odbiomMarker
     , odbiomOrderableDBInstanceOptions
@@ -81,9 +81,9 @@ data DescribeOrderableDBInstanceOptionsMessage = DescribeOrderableDBInstanceOpti
 --
 -- * 'dodbiomVpc' @::@ 'Maybe' 'Bool'
 --
-describeOrderableDBInstanceOptions :: Text -- ^ 'dodbiomEngine'
-                                   -> DescribeOrderableDBInstanceOptionsMessage
-describeOrderableDBInstanceOptions p1 = DescribeOrderableDBInstanceOptionsMessage
+describeOrderableDBInstanceOptionsMessage :: Text -- ^ 'dodbiomEngine'
+                                          -> DescribeOrderableDBInstanceOptionsMessage
+describeOrderableDBInstanceOptionsMessage p1 = DescribeOrderableDBInstanceOptionsMessage
     { _dodbiomEngine          = p1
     , _dodbiomEngineVersion   = Nothing
     , _dodbiomDBInstanceClass = Nothing
@@ -139,11 +139,10 @@ dodbiomMaxRecords =
 -- VPC or non-VPC offerings.
 dodbiomVpc :: Lens' DescribeOrderableDBInstanceOptionsMessage (Maybe Bool)
 dodbiomVpc = lens _dodbiomVpc (\s a -> s { _dodbiomVpc = a })
+instance ToQuery DescribeOrderableDBInstanceOptionsMessage
 
 instance ToPath DescribeOrderableDBInstanceOptionsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeOrderableDBInstanceOptionsMessage
 
 data OrderableDBInstanceOptionsMessage = OrderableDBInstanceOptionsMessage
     { _odbiomMarker                     :: Maybe Text
@@ -158,8 +157,8 @@ data OrderableDBInstanceOptionsMessage = OrderableDBInstanceOptionsMessage
 --
 -- * 'odbiomOrderableDBInstanceOptions' @::@ ['OrderableDBInstanceOption']
 --
-describeOrderableDBInstanceOptionsResponse :: OrderableDBInstanceOptionsMessage
-describeOrderableDBInstanceOptionsResponse = OrderableDBInstanceOptionsMessage
+orderableDBInstanceOptionsMessage :: OrderableDBInstanceOptionsMessage
+orderableDBInstanceOptionsMessage = OrderableDBInstanceOptionsMessage
     { _odbiomOrderableDBInstanceOptions = mempty
     , _odbiomMarker                     = Nothing
     }
@@ -177,6 +176,9 @@ odbiomOrderableDBInstanceOptions :: Lens' OrderableDBInstanceOptionsMessage [Ord
 odbiomOrderableDBInstanceOptions =
     lens _odbiomOrderableDBInstanceOptions
         (\s a -> s { _odbiomOrderableDBInstanceOptions = a })
+instance FromXML OrderableDBInstanceOptionsMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "OrderableDBInstanceOptionsMessage"
 
 instance AWSRequest DescribeOrderableDBInstanceOptionsMessage where
     type Sv DescribeOrderableDBInstanceOptionsMessage = RDS

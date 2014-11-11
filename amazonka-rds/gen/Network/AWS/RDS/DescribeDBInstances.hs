@@ -27,7 +27,7 @@ module Network.AWS.RDS.DescribeDBInstances
     -- * Request
       DescribeDBInstancesMessage
     -- ** Request constructor
-    , describeDBInstances
+    , describeDBInstancesMessage
     -- ** Request lenses
     , ddbimDBInstanceIdentifier
     , ddbimFilters
@@ -37,7 +37,7 @@ module Network.AWS.RDS.DescribeDBInstances
     -- * Response
     , DBInstanceMessage
     -- ** Response constructor
-    , describeDBInstancesResponse
+    , dbinstanceMessage
     -- ** Response lenses
     , dbimDBInstances
     , dbimMarker
@@ -66,8 +66,8 @@ data DescribeDBInstancesMessage = DescribeDBInstancesMessage
 --
 -- * 'ddbimMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBInstances :: DescribeDBInstancesMessage
-describeDBInstances = DescribeDBInstancesMessage
+describeDBInstancesMessage :: DescribeDBInstancesMessage
+describeDBInstancesMessage = DescribeDBInstancesMessage
     { _ddbimDBInstanceIdentifier = Nothing
     , _ddbimFilters              = mempty
     , _ddbimMaxRecords           = Nothing
@@ -100,11 +100,10 @@ ddbimMarker = lens _ddbimMarker (\s a -> s { _ddbimMarker = a })
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbimMaxRecords :: Lens' DescribeDBInstancesMessage (Maybe Int)
 ddbimMaxRecords = lens _ddbimMaxRecords (\s a -> s { _ddbimMaxRecords = a })
+instance ToQuery DescribeDBInstancesMessage
 
 instance ToPath DescribeDBInstancesMessage where
     toPath = const "/"
-
-instance ToQuery DescribeDBInstancesMessage
 
 data DBInstanceMessage = DBInstanceMessage
     { _dbimDBInstances :: [DBInstance]
@@ -119,8 +118,8 @@ data DBInstanceMessage = DBInstanceMessage
 --
 -- * 'dbimMarker' @::@ 'Maybe' 'Text'
 --
-describeDBInstancesResponse :: DBInstanceMessage
-describeDBInstancesResponse = DBInstanceMessage
+dbinstanceMessage :: DBInstanceMessage
+dbinstanceMessage = DBInstanceMessage
     { _dbimMarker      = Nothing
     , _dbimDBInstances = mempty
     }
@@ -134,6 +133,9 @@ dbimDBInstances = lens _dbimDBInstances (\s a -> s { _dbimDBInstances = a })
 -- marker, up to the value specified by MaxRecords .
 dbimMarker :: Lens' DBInstanceMessage (Maybe Text)
 dbimMarker = lens _dbimMarker (\s a -> s { _dbimMarker = a })
+instance FromXML DBInstanceMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DBInstanceMessage"
 
 instance AWSRequest DescribeDBInstancesMessage where
     type Sv DescribeDBInstancesMessage = RDS

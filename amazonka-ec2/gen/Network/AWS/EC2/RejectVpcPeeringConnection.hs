@@ -38,7 +38,7 @@ module Network.AWS.EC2.RejectVpcPeeringConnection
     -- * Response
     , RejectVpcPeeringConnectionResult
     -- ** Response constructor
-    , rejectVpcPeeringConnectionResponse
+    , rejectVpcPeeringConnectionResult
     -- ** Response lenses
     , rvpcrReturn
     ) where
@@ -75,11 +75,10 @@ rvpcVpcPeeringConnectionId :: Lens' RejectVpcPeeringConnection Text
 rvpcVpcPeeringConnectionId =
     lens _rvpcVpcPeeringConnectionId
         (\s a -> s { _rvpcVpcPeeringConnectionId = a })
+instance ToQuery RejectVpcPeeringConnection
 
 instance ToPath RejectVpcPeeringConnection where
     toPath = const "/"
-
-instance ToQuery RejectVpcPeeringConnection
 
 newtype RejectVpcPeeringConnectionResult = RejectVpcPeeringConnectionResult
     { _rvpcrReturn :: Maybe Bool
@@ -91,14 +90,17 @@ newtype RejectVpcPeeringConnectionResult = RejectVpcPeeringConnectionResult
 --
 -- * 'rvpcrReturn' @::@ 'Maybe' 'Bool'
 --
-rejectVpcPeeringConnectionResponse :: RejectVpcPeeringConnectionResult
-rejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResult
+rejectVpcPeeringConnectionResult :: RejectVpcPeeringConnectionResult
+rejectVpcPeeringConnectionResult = RejectVpcPeeringConnectionResult
     { _rvpcrReturn = Nothing
     }
 
 -- | Returns true if the request succeeds; otherwise, it returns an error.
 rvpcrReturn :: Lens' RejectVpcPeeringConnectionResult (Maybe Bool)
 rvpcrReturn = lens _rvpcrReturn (\s a -> s { _rvpcrReturn = a })
+instance FromXML RejectVpcPeeringConnectionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RejectVpcPeeringConnectionResult"
 
 instance AWSRequest RejectVpcPeeringConnection where
     type Sv RejectVpcPeeringConnection = EC2

@@ -23,11 +23,6 @@ module Network.AWS.S3.Types
     (
     -- * Service
       S3
-    -- ** Errors
-    , S3Error (..)
-    , _S3Http
-    , _S3Serializer
-    , _S3Service
     -- ** XML
     , xmlOptions
 

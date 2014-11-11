@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeDBLogFiles
     -- * Request
       DescribeDBLogFilesMessage
     -- ** Request constructor
-    , describeDBLogFiles
+    , describeDBLogFilesMessage
     -- ** Request lenses
     , ddblfmDBInstanceIdentifier
     , ddblfmFileLastWritten
@@ -77,9 +77,9 @@ data DescribeDBLogFilesMessage = DescribeDBLogFilesMessage
 --
 -- * 'ddblfmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBLogFiles :: Text -- ^ 'ddblfmDBInstanceIdentifier'
-                   -> DescribeDBLogFilesMessage
-describeDBLogFiles p1 = DescribeDBLogFilesMessage
+describeDBLogFilesMessage :: Text -- ^ 'ddblfmDBInstanceIdentifier'
+                          -> DescribeDBLogFilesMessage
+describeDBLogFilesMessage p1 = DescribeDBLogFilesMessage
     { _ddblfmDBInstanceIdentifier = p1
     , _ddblfmFilenameContains     = Nothing
     , _ddblfmFileLastWritten      = Nothing
@@ -130,11 +130,10 @@ ddblfmMarker = lens _ddblfmMarker (\s a -> s { _ddblfmMarker = a })
 -- retrieved.
 ddblfmMaxRecords :: Lens' DescribeDBLogFilesMessage (Maybe Int)
 ddblfmMaxRecords = lens _ddblfmMaxRecords (\s a -> s { _ddblfmMaxRecords = a })
+instance ToQuery DescribeDBLogFilesMessage
 
 instance ToPath DescribeDBLogFilesMessage where
     toPath = const "/"
-
-instance ToQuery DescribeDBLogFilesMessage
 
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
     { _ddblfrDescribeDBLogFiles :: [DescribeDBLogFilesDetails]
@@ -165,6 +164,9 @@ ddblfrDescribeDBLogFiles =
 -- request.
 ddblfrMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
 ddblfrMarker = lens _ddblfrMarker (\s a -> s { _ddblfrMarker = a })
+instance FromXML DescribeDBLogFilesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeDBLogFilesResponse"
 
 instance AWSRequest DescribeDBLogFilesMessage where
     type Sv DescribeDBLogFilesMessage = RDS

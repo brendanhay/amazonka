@@ -107,21 +107,24 @@ apiaSecondaryPrivateIpAddressCount :: Lens' AssignPrivateIpAddresses (Maybe Int)
 apiaSecondaryPrivateIpAddressCount =
     lens _apiaSecondaryPrivateIpAddressCount
         (\s a -> s { _apiaSecondaryPrivateIpAddressCount = a })
+instance ToQuery AssignPrivateIpAddresses
 
 instance ToPath AssignPrivateIpAddresses where
     toPath = const "/"
 
-instance ToQuery AssignPrivateIpAddresses
-
 data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'AssignPrivateIpAddressesResponse' constructor.
 assignPrivateIpAddressesResponse :: AssignPrivateIpAddressesResponse
 assignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
+instance FromXML AssignPrivateIpAddressesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AssignPrivateIpAddressesResponse"
 
 instance AWSRequest AssignPrivateIpAddresses where
     type Sv AssignPrivateIpAddresses = EC2
     type Rs AssignPrivateIpAddresses = AssignPrivateIpAddressesResponse
 
     request  = post "AssignPrivateIpAddresses"
-    response = const (nullaryResponse AssignPrivateIpAddressesResponse)
+    response = nullaryResponse AssignPrivateIpAddressesResponse

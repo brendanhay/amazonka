@@ -30,7 +30,7 @@ module Network.AWS.Redshift.ResetClusterParameterGroup
     -- * Request
       ResetClusterParameterGroupMessage
     -- ** Request constructor
-    , resetClusterParameterGroup
+    , resetClusterParameterGroupMessage
     -- ** Request lenses
     , rcpgmParameterGroupName
     , rcpgmParameters
@@ -39,7 +39,7 @@ module Network.AWS.Redshift.ResetClusterParameterGroup
     -- * Response
     , ClusterParameterGroupNameMessage
     -- ** Response constructor
-    , resetClusterParameterGroupResponse
+    , clusterParameterGroupNameMessage
     -- ** Response lenses
     , cpgnmParameterGroupName
     , cpgnmParameterGroupStatus
@@ -65,9 +65,9 @@ data ResetClusterParameterGroupMessage = ResetClusterParameterGroupMessage
 --
 -- * 'rcpgmResetAllParameters' @::@ 'Maybe' 'Bool'
 --
-resetClusterParameterGroup :: Text -- ^ 'rcpgmParameterGroupName'
-                           -> ResetClusterParameterGroupMessage
-resetClusterParameterGroup p1 = ResetClusterParameterGroupMessage
+resetClusterParameterGroupMessage :: Text -- ^ 'rcpgmParameterGroupName'
+                                  -> ResetClusterParameterGroupMessage
+resetClusterParameterGroupMessage p1 = ResetClusterParameterGroupMessage
     { _rcpgmParameterGroupName = p1
     , _rcpgmResetAllParameters = Nothing
     , _rcpgmParameters         = mempty
@@ -89,11 +89,10 @@ rcpgmParameters = lens _rcpgmParameters (\s a -> s { _rcpgmParameters = a })
 rcpgmResetAllParameters :: Lens' ResetClusterParameterGroupMessage (Maybe Bool)
 rcpgmResetAllParameters =
     lens _rcpgmResetAllParameters (\s a -> s { _rcpgmResetAllParameters = a })
+instance ToQuery ResetClusterParameterGroupMessage
 
 instance ToPath ResetClusterParameterGroupMessage where
     toPath = const "/"
-
-instance ToQuery ResetClusterParameterGroupMessage
 
 instance AWSRequest ResetClusterParameterGroupMessage where
     type Sv ResetClusterParameterGroupMessage = Redshift

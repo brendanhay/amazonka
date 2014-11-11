@@ -73,11 +73,10 @@ getIdentityDkimAttributes = GetIdentityDkimAttributes
 -- both.
 gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
 gidaIdentities = lens _gidaIdentities (\s a -> s { _gidaIdentities = a })
+instance ToQuery GetIdentityDkimAttributes
 
 instance ToPath GetIdentityDkimAttributes where
     toPath = const "/"
-
-instance ToQuery GetIdentityDkimAttributes
 
 newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
     { _gidarDkimAttributes :: Map Text IdentityDkimAttributes
@@ -99,6 +98,9 @@ gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text Ide
 gidarDkimAttributes =
     lens _gidarDkimAttributes (\s a -> s { _gidarDkimAttributes = a })
         . _Map
+instance FromXML GetIdentityDkimAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetIdentityDkimAttributesResponse"
 
 instance AWSRequest GetIdentityDkimAttributes where
     type Sv GetIdentityDkimAttributes = SES

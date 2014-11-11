@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     -- * Request
       DescribeReplicationGroupsMessage
     -- ** Request constructor
-    , describeReplicationGroups
+    , describeReplicationGroupsMessage
     -- ** Request lenses
     , drgmMarker
     , drgmMaxRecords
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
     -- * Response
     , ReplicationGroupMessage
     -- ** Response constructor
-    , describeReplicationGroupsResponse
+    , replicationGroupMessage
     -- ** Response lenses
     , rgmMarker
     , rgmReplicationGroups
@@ -63,8 +63,8 @@ data DescribeReplicationGroupsMessage = DescribeReplicationGroupsMessage
 --
 -- * 'drgmReplicationGroupId' @::@ 'Maybe' 'Text'
 --
-describeReplicationGroups :: DescribeReplicationGroupsMessage
-describeReplicationGroups = DescribeReplicationGroupsMessage
+describeReplicationGroupsMessage :: DescribeReplicationGroupsMessage
+describeReplicationGroupsMessage = DescribeReplicationGroupsMessage
     { _drgmReplicationGroupId = Nothing
     , _drgmMaxRecords         = Nothing
     , _drgmMarker             = Nothing
@@ -90,11 +90,10 @@ drgmMaxRecords = lens _drgmMaxRecords (\s a -> s { _drgmMaxRecords = a })
 drgmReplicationGroupId :: Lens' DescribeReplicationGroupsMessage (Maybe Text)
 drgmReplicationGroupId =
     lens _drgmReplicationGroupId (\s a -> s { _drgmReplicationGroupId = a })
+instance ToQuery DescribeReplicationGroupsMessage
 
 instance ToPath DescribeReplicationGroupsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeReplicationGroupsMessage
 
 data ReplicationGroupMessage = ReplicationGroupMessage
     { _rgmMarker            :: Maybe Text
@@ -109,8 +108,8 @@ data ReplicationGroupMessage = ReplicationGroupMessage
 --
 -- * 'rgmReplicationGroups' @::@ ['ReplicationGroup']
 --
-describeReplicationGroupsResponse :: ReplicationGroupMessage
-describeReplicationGroupsResponse = ReplicationGroupMessage
+replicationGroupMessage :: ReplicationGroupMessage
+replicationGroupMessage = ReplicationGroupMessage
     { _rgmMarker            = Nothing
     , _rgmReplicationGroups = mempty
     }
@@ -124,6 +123,9 @@ rgmMarker = lens _rgmMarker (\s a -> s { _rgmMarker = a })
 rgmReplicationGroups :: Lens' ReplicationGroupMessage [ReplicationGroup]
 rgmReplicationGroups =
     lens _rgmReplicationGroups (\s a -> s { _rgmReplicationGroups = a })
+instance FromXML ReplicationGroupMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReplicationGroupMessage"
 
 instance AWSRequest DescribeReplicationGroupsMessage where
     type Sv DescribeReplicationGroupsMessage = ElastiCache

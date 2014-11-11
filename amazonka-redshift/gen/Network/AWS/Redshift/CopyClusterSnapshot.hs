@@ -34,7 +34,7 @@ module Network.AWS.Redshift.CopyClusterSnapshot
     -- * Request
       CopyClusterSnapshotMessage
     -- ** Request constructor
-    , copyClusterSnapshot
+    , copyClusterSnapshotMessage
     -- ** Request lenses
     , ccsmSourceSnapshotClusterIdentifier
     , ccsmSourceSnapshotIdentifier
@@ -43,7 +43,7 @@ module Network.AWS.Redshift.CopyClusterSnapshot
     -- * Response
     , CopyClusterSnapshotResult
     -- ** Response constructor
-    , copyClusterSnapshotResponse
+    , copyClusterSnapshotResult
     -- ** Response lenses
     , ccsrSnapshot
     ) where
@@ -68,10 +68,10 @@ data CopyClusterSnapshotMessage = CopyClusterSnapshotMessage
 --
 -- * 'ccsmTargetSnapshotIdentifier' @::@ 'Text'
 --
-copyClusterSnapshot :: Text -- ^ 'ccsmSourceSnapshotIdentifier'
-                    -> Text -- ^ 'ccsmTargetSnapshotIdentifier'
-                    -> CopyClusterSnapshotMessage
-copyClusterSnapshot p1 p2 = CopyClusterSnapshotMessage
+copyClusterSnapshotMessage :: Text -- ^ 'ccsmSourceSnapshotIdentifier'
+                           -> Text -- ^ 'ccsmTargetSnapshotIdentifier'
+                           -> CopyClusterSnapshotMessage
+copyClusterSnapshotMessage p1 p2 = CopyClusterSnapshotMessage
     { _ccsmSourceSnapshotIdentifier        = p1
     , _ccsmTargetSnapshotIdentifier        = p2
     , _ccsmSourceSnapshotClusterIdentifier = Nothing
@@ -102,11 +102,10 @@ ccsmTargetSnapshotIdentifier :: Lens' CopyClusterSnapshotMessage Text
 ccsmTargetSnapshotIdentifier =
     lens _ccsmTargetSnapshotIdentifier
         (\s a -> s { _ccsmTargetSnapshotIdentifier = a })
+instance ToQuery CopyClusterSnapshotMessage
 
 instance ToPath CopyClusterSnapshotMessage where
     toPath = const "/"
-
-instance ToQuery CopyClusterSnapshotMessage
 
 newtype CopyClusterSnapshotResult = CopyClusterSnapshotResult
     { _ccsrSnapshot :: Maybe Snapshot
@@ -118,13 +117,16 @@ newtype CopyClusterSnapshotResult = CopyClusterSnapshotResult
 --
 -- * 'ccsrSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-copyClusterSnapshotResponse :: CopyClusterSnapshotResult
-copyClusterSnapshotResponse = CopyClusterSnapshotResult
+copyClusterSnapshotResult :: CopyClusterSnapshotResult
+copyClusterSnapshotResult = CopyClusterSnapshotResult
     { _ccsrSnapshot = Nothing
     }
 
 ccsrSnapshot :: Lens' CopyClusterSnapshotResult (Maybe Snapshot)
 ccsrSnapshot = lens _ccsrSnapshot (\s a -> s { _ccsrSnapshot = a })
+instance FromXML CopyClusterSnapshotResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CopyClusterSnapshotResult"
 
 instance AWSRequest CopyClusterSnapshotMessage where
     type Sv CopyClusterSnapshotMessage = Redshift

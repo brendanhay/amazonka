@@ -99,21 +99,24 @@ daExpected = lens _daExpected (\s a -> s { _daExpected = a })
 -- individual objects that contain one or more value-attribute pairs.
 daItemName :: Lens' DeleteAttributes Text
 daItemName = lens _daItemName (\s a -> s { _daItemName = a })
+instance ToQuery DeleteAttributes
 
 instance ToPath DeleteAttributes where
     toPath = const "/"
 
-instance ToQuery DeleteAttributes
-
 data DeleteAttributesResponse = DeleteAttributesResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteAttributesResponse' constructor.
 deleteAttributesResponse :: DeleteAttributesResponse
 deleteAttributesResponse = DeleteAttributesResponse
+instance FromXML DeleteAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteAttributesResponse"
 
 instance AWSRequest DeleteAttributes where
     type Sv DeleteAttributes = SimpleDB
     type Rs DeleteAttributes = DeleteAttributesResponse
 
     request  = post "DeleteAttributes"
-    response = const (nullaryResponse DeleteAttributesResponse)
+    response = nullaryResponse DeleteAttributesResponse

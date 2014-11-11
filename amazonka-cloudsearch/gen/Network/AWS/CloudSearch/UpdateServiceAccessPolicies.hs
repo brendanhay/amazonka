@@ -74,11 +74,10 @@ usapAccessPolicies =
 
 usapDomainName :: Lens' UpdateServiceAccessPolicies Text
 usapDomainName = lens _usapDomainName (\s a -> s { _usapDomainName = a })
+instance ToQuery UpdateServiceAccessPolicies
 
 instance ToPath UpdateServiceAccessPolicies where
     toPath = const "/"
-
-instance ToQuery UpdateServiceAccessPolicies
 
 newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
     { _usaprAccessPolicies :: AccessPoliciesStatus
@@ -100,6 +99,9 @@ updateServiceAccessPoliciesResponse p1 = UpdateServiceAccessPoliciesResponse
 usaprAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
 usaprAccessPolicies =
     lens _usaprAccessPolicies (\s a -> s { _usaprAccessPolicies = a })
+instance FromXML UpdateServiceAccessPoliciesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateServiceAccessPoliciesResponse"
 
 instance AWSRequest UpdateServiceAccessPolicies where
     type Sv UpdateServiceAccessPolicies = CloudSearch

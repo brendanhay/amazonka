@@ -45,7 +45,7 @@ module Network.AWS.EC2.CopySnapshot
     -- * Response
     , CopySnapshotResult
     -- ** Response constructor
-    , copySnapshotResponse
+    , copySnapshotResult
     -- ** Response lenses
     , csrSnapshotId
     ) where
@@ -128,11 +128,10 @@ csSourceRegion = lens _csSourceRegion (\s a -> s { _csSourceRegion = a })
 csSourceSnapshotId :: Lens' CopySnapshot Text
 csSourceSnapshotId =
     lens _csSourceSnapshotId (\s a -> s { _csSourceSnapshotId = a })
+instance ToQuery CopySnapshot
 
 instance ToPath CopySnapshot where
     toPath = const "/"
-
-instance ToQuery CopySnapshot
 
 newtype CopySnapshotResult = CopySnapshotResult
     { _csrSnapshotId :: Maybe Text
@@ -144,14 +143,17 @@ newtype CopySnapshotResult = CopySnapshotResult
 --
 -- * 'csrSnapshotId' @::@ 'Maybe' 'Text'
 --
-copySnapshotResponse :: CopySnapshotResult
-copySnapshotResponse = CopySnapshotResult
+copySnapshotResult :: CopySnapshotResult
+copySnapshotResult = CopySnapshotResult
     { _csrSnapshotId = Nothing
     }
 
 -- | The ID of the new snapshot.
 csrSnapshotId :: Lens' CopySnapshotResult (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
+instance FromXML CopySnapshotResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CopySnapshotResult"
 
 instance AWSRequest CopySnapshot where
     type Sv CopySnapshot = EC2

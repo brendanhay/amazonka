@@ -52,7 +52,7 @@ module Network.AWS.EC2.RegisterImage
     -- * Response
     , RegisterImageResult
     -- ** Response constructor
-    , registerImageResponse
+    , registerImageResult
     -- ** Response lenses
     , rirImageId
     ) where
@@ -170,11 +170,10 @@ riSriovNetSupport =
 riVirtualizationType :: Lens' RegisterImage (Maybe Text)
 riVirtualizationType =
     lens _riVirtualizationType (\s a -> s { _riVirtualizationType = a })
+instance ToQuery RegisterImage
 
 instance ToPath RegisterImage where
     toPath = const "/"
-
-instance ToQuery RegisterImage
 
 newtype RegisterImageResult = RegisterImageResult
     { _rirImageId :: Maybe Text
@@ -186,14 +185,17 @@ newtype RegisterImageResult = RegisterImageResult
 --
 -- * 'rirImageId' @::@ 'Maybe' 'Text'
 --
-registerImageResponse :: RegisterImageResult
-registerImageResponse = RegisterImageResult
+registerImageResult :: RegisterImageResult
+registerImageResult = RegisterImageResult
     { _rirImageId = Nothing
     }
 
 -- | The ID of the newly registered AMI.
 rirImageId :: Lens' RegisterImageResult (Maybe Text)
 rirImageId = lens _rirImageId (\s a -> s { _rirImageId = a })
+instance FromXML RegisterImageResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RegisterImageResult"
 
 instance AWSRequest RegisterImage where
     type Sv RegisterImage = EC2

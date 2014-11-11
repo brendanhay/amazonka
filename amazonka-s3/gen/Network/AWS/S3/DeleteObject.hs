@@ -38,7 +38,7 @@ module Network.AWS.S3.DeleteObject
     -- * Response
     , DeleteObjectOutput
     -- ** Response constructor
-    , deleteObjectResponse
+    , deleteObjectOutput
     -- ** Response lenses
     , dooDeleteMarker
     , dooVersionId
@@ -121,8 +121,8 @@ data DeleteObjectOutput = DeleteObjectOutput
 --
 -- * 'dooVersionId' @::@ 'Maybe' 'Text'
 --
-deleteObjectResponse :: DeleteObjectOutput
-deleteObjectResponse = DeleteObjectOutput
+deleteObjectOutput :: DeleteObjectOutput
+deleteObjectOutput = DeleteObjectOutput
     { _dooDeleteMarker = Nothing
     , _dooVersionId    = Nothing
     }
@@ -137,6 +137,9 @@ dooDeleteMarker = lens _dooDeleteMarker (\s a -> s { _dooDeleteMarker = a })
 dooVersionId :: Lens' DeleteObjectOutput (Maybe Text)
 dooVersionId = lens _dooVersionId (\s a -> s { _dooVersionId = a })
 
+instance FromXML DeleteObjectOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteObjectOutput"
 instance AWSRequest DeleteObject where
     type Sv DeleteObject = S3
     type Rs DeleteObject = DeleteObjectOutput

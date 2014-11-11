@@ -213,6 +213,9 @@ lglrNextSubdivisionCode :: Lens' ListGeoLocationsResponse (Maybe Text)
 lglrNextSubdivisionCode =
     lens _lglrNextSubdivisionCode (\s a -> s { _lglrNextSubdivisionCode = a })
 
+instance FromXML ListGeoLocationsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListGeoLocationsResponse"
 instance AWSRequest ListGeoLocations where
     type Sv ListGeoLocations = Route53
     type Rs ListGeoLocations = ListGeoLocationsResponse

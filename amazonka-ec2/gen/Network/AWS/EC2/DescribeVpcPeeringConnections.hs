@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeVpcPeeringConnections
     -- * Response
     , DescribeVpcPeeringConnectionsResult
     -- ** Response constructor
-    , describeVpcPeeringConnectionsResponse
+    , describeVpcPeeringConnectionsResult
     -- ** Response lenses
     , dvpcrVpcPeeringConnections
     ) where
@@ -100,11 +100,10 @@ dvpcVpcPeeringConnectionIds :: Lens' DescribeVpcPeeringConnections [Text]
 dvpcVpcPeeringConnectionIds =
     lens _dvpcVpcPeeringConnectionIds
         (\s a -> s { _dvpcVpcPeeringConnectionIds = a })
+instance ToQuery DescribeVpcPeeringConnections
 
 instance ToPath DescribeVpcPeeringConnections where
     toPath = const "/"
-
-instance ToQuery DescribeVpcPeeringConnections
 
 newtype DescribeVpcPeeringConnectionsResult = DescribeVpcPeeringConnectionsResult
     { _dvpcrVpcPeeringConnections :: [VpcPeeringConnection]
@@ -116,8 +115,8 @@ newtype DescribeVpcPeeringConnectionsResult = DescribeVpcPeeringConnectionsResul
 --
 -- * 'dvpcrVpcPeeringConnections' @::@ ['VpcPeeringConnection']
 --
-describeVpcPeeringConnectionsResponse :: DescribeVpcPeeringConnectionsResult
-describeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResult
+describeVpcPeeringConnectionsResult :: DescribeVpcPeeringConnectionsResult
+describeVpcPeeringConnectionsResult = DescribeVpcPeeringConnectionsResult
     { _dvpcrVpcPeeringConnections = mempty
     }
 
@@ -126,6 +125,9 @@ dvpcrVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResult [VpcPeer
 dvpcrVpcPeeringConnections =
     lens _dvpcrVpcPeeringConnections
         (\s a -> s { _dvpcrVpcPeeringConnections = a })
+instance FromXML DescribeVpcPeeringConnectionsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVpcPeeringConnectionsResult"
 
 instance AWSRequest DescribeVpcPeeringConnections where
     type Sv DescribeVpcPeeringConnections = EC2

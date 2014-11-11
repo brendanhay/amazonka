@@ -35,7 +35,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     -- * Request
       RestoreFromClusterSnapshotMessage
     -- ** Request constructor
-    , restoreFromClusterSnapshot
+    , restoreFromClusterSnapshotMessage
     -- ** Request lenses
     , rfcsmAllowVersionUpgrade
     , rfcsmAutomatedSnapshotRetentionPeriod
@@ -58,7 +58,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
     -- * Response
     , RestoreFromClusterSnapshotResult
     -- ** Response constructor
-    , restoreFromClusterSnapshotResponse
+    , restoreFromClusterSnapshotResult
     -- ** Response lenses
     , rfcsrCluster
     ) where
@@ -125,10 +125,10 @@ data RestoreFromClusterSnapshotMessage = RestoreFromClusterSnapshotMessage
 --
 -- * 'rfcsmVpcSecurityGroupIds' @::@ ['Text']
 --
-restoreFromClusterSnapshot :: Text -- ^ 'rfcsmClusterIdentifier'
-                           -> Text -- ^ 'rfcsmSnapshotIdentifier'
-                           -> RestoreFromClusterSnapshotMessage
-restoreFromClusterSnapshot p1 p2 = RestoreFromClusterSnapshotMessage
+restoreFromClusterSnapshotMessage :: Text -- ^ 'rfcsmClusterIdentifier'
+                                  -> Text -- ^ 'rfcsmSnapshotIdentifier'
+                                  -> RestoreFromClusterSnapshotMessage
+restoreFromClusterSnapshotMessage p1 p2 = RestoreFromClusterSnapshotMessage
     { _rfcsmClusterIdentifier                = p1
     , _rfcsmSnapshotIdentifier               = p2
     , _rfcsmSnapshotClusterIdentifier        = Nothing
@@ -277,11 +277,10 @@ rfcsmVpcSecurityGroupIds :: Lens' RestoreFromClusterSnapshotMessage [Text]
 rfcsmVpcSecurityGroupIds =
     lens _rfcsmVpcSecurityGroupIds
         (\s a -> s { _rfcsmVpcSecurityGroupIds = a })
+instance ToQuery RestoreFromClusterSnapshotMessage
 
 instance ToPath RestoreFromClusterSnapshotMessage where
     toPath = const "/"
-
-instance ToQuery RestoreFromClusterSnapshotMessage
 
 newtype RestoreFromClusterSnapshotResult = RestoreFromClusterSnapshotResult
     { _rfcsrCluster :: Maybe Cluster
@@ -293,13 +292,16 @@ newtype RestoreFromClusterSnapshotResult = RestoreFromClusterSnapshotResult
 --
 -- * 'rfcsrCluster' @::@ 'Maybe' 'Cluster'
 --
-restoreFromClusterSnapshotResponse :: RestoreFromClusterSnapshotResult
-restoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResult
+restoreFromClusterSnapshotResult :: RestoreFromClusterSnapshotResult
+restoreFromClusterSnapshotResult = RestoreFromClusterSnapshotResult
     { _rfcsrCluster = Nothing
     }
 
 rfcsrCluster :: Lens' RestoreFromClusterSnapshotResult (Maybe Cluster)
 rfcsrCluster = lens _rfcsrCluster (\s a -> s { _rfcsrCluster = a })
+instance FromXML RestoreFromClusterSnapshotResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RestoreFromClusterSnapshotResult"
 
 instance AWSRequest RestoreFromClusterSnapshotMessage where
     type Sv RestoreFromClusterSnapshotMessage = Redshift

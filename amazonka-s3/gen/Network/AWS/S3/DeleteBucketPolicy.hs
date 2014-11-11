@@ -71,14 +71,18 @@ instance ToQuery DeleteBucketPolicy where
 instance ToHeaders DeleteBucketPolicy
 
 data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteBucketPolicyResponse' constructor.
 deleteBucketPolicyResponse :: DeleteBucketPolicyResponse
 deleteBucketPolicyResponse = DeleteBucketPolicyResponse
 
+instance FromXML DeleteBucketPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteBucketPolicyResponse"
 instance AWSRequest DeleteBucketPolicy where
     type Sv DeleteBucketPolicy = S3
     type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse
 
     request  = delete
-    response = const (nullaryResponse DeleteBucketPolicyResponse)
+    response = nullaryResponse DeleteBucketPolicyResponse

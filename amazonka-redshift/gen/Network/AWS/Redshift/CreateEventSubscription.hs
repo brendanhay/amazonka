@@ -45,7 +45,7 @@ module Network.AWS.Redshift.CreateEventSubscription
     -- * Request
       CreateEventSubscriptionMessage
     -- ** Request constructor
-    , createEventSubscription
+    , createEventSubscriptionMessage
     -- ** Request lenses
     , cesmEnabled
     , cesmEventCategories
@@ -58,7 +58,7 @@ module Network.AWS.Redshift.CreateEventSubscription
     -- * Response
     , CreateEventSubscriptionResult
     -- ** Response constructor
-    , createEventSubscriptionResponse
+    , createEventSubscriptionResult
     -- ** Response lenses
     , cesrEventSubscription
     ) where
@@ -95,10 +95,10 @@ data CreateEventSubscriptionMessage = CreateEventSubscriptionMessage
 --
 -- * 'cesmSubscriptionName' @::@ 'Text'
 --
-createEventSubscription :: Text -- ^ 'cesmSubscriptionName'
-                        -> Text -- ^ 'cesmSnsTopicArn'
-                        -> CreateEventSubscriptionMessage
-createEventSubscription p1 p2 = CreateEventSubscriptionMessage
+createEventSubscriptionMessage :: Text -- ^ 'cesmSubscriptionName'
+                               -> Text -- ^ 'cesmSnsTopicArn'
+                               -> CreateEventSubscriptionMessage
+createEventSubscriptionMessage p1 p2 = CreateEventSubscriptionMessage
     { _cesmSubscriptionName = p1
     , _cesmSnsTopicArn      = p2
     , _cesmSourceType       = Nothing
@@ -157,11 +157,10 @@ cesmSourceType = lens _cesmSourceType (\s a -> s { _cesmSourceType = a })
 cesmSubscriptionName :: Lens' CreateEventSubscriptionMessage Text
 cesmSubscriptionName =
     lens _cesmSubscriptionName (\s a -> s { _cesmSubscriptionName = a })
+instance ToQuery CreateEventSubscriptionMessage
 
 instance ToPath CreateEventSubscriptionMessage where
     toPath = const "/"
-
-instance ToQuery CreateEventSubscriptionMessage
 
 newtype CreateEventSubscriptionResult = CreateEventSubscriptionResult
     { _cesrEventSubscription :: Maybe EventSubscription
@@ -173,14 +172,17 @@ newtype CreateEventSubscriptionResult = CreateEventSubscriptionResult
 --
 -- * 'cesrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-createEventSubscriptionResponse :: CreateEventSubscriptionResult
-createEventSubscriptionResponse = CreateEventSubscriptionResult
+createEventSubscriptionResult :: CreateEventSubscriptionResult
+createEventSubscriptionResult = CreateEventSubscriptionResult
     { _cesrEventSubscription = Nothing
     }
 
 cesrEventSubscription :: Lens' CreateEventSubscriptionResult (Maybe EventSubscription)
 cesrEventSubscription =
     lens _cesrEventSubscription (\s a -> s { _cesrEventSubscription = a })
+instance FromXML CreateEventSubscriptionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateEventSubscriptionResult"
 
 instance AWSRequest CreateEventSubscriptionMessage where
     type Sv CreateEventSubscriptionMessage = Redshift

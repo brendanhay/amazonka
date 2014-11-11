@@ -168,14 +168,18 @@ instance ToBody PutObjectAcl where
     toBody = toBody . encodeXML . _poaAccessControlPolicy
 
 data PutObjectAclResponse = PutObjectAclResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutObjectAclResponse' constructor.
 putObjectAclResponse :: PutObjectAclResponse
 putObjectAclResponse = PutObjectAclResponse
 
+instance FromXML PutObjectAclResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutObjectAclResponse"
 instance AWSRequest PutObjectAcl where
     type Sv PutObjectAcl = S3
     type Rs PutObjectAcl = PutObjectAclResponse
 
     request  = put
-    response = const (nullaryResponse PutObjectAclResponse)
+    response = nullaryResponse PutObjectAclResponse

@@ -26,7 +26,7 @@ module Network.AWS.RDS.CopyOptionGroup
     -- * Request
       CopyOptionGroupMessage
     -- ** Request constructor
-    , copyOptionGroup
+    , copyOptionGroupMessage
     -- ** Request lenses
     , cogm1SourceOptionGroupIdentifier
     , cogm1Tags
@@ -36,7 +36,7 @@ module Network.AWS.RDS.CopyOptionGroup
     -- * Response
     , CopyOptionGroupResult
     -- ** Response constructor
-    , copyOptionGroupResponse
+    , copyOptionGroupResult
     -- ** Response lenses
     , cogrOptionGroup
     ) where
@@ -64,11 +64,11 @@ data CopyOptionGroupMessage = CopyOptionGroupMessage
 --
 -- * 'cogm1TargetOptionGroupIdentifier' @::@ 'Text'
 --
-copyOptionGroup :: Text -- ^ 'cogm1SourceOptionGroupIdentifier'
-                -> Text -- ^ 'cogm1TargetOptionGroupIdentifier'
-                -> Text -- ^ 'cogm1TargetOptionGroupDescription'
-                -> CopyOptionGroupMessage
-copyOptionGroup p1 p2 p3 = CopyOptionGroupMessage
+copyOptionGroupMessage :: Text -- ^ 'cogm1SourceOptionGroupIdentifier'
+                       -> Text -- ^ 'cogm1TargetOptionGroupIdentifier'
+                       -> Text -- ^ 'cogm1TargetOptionGroupDescription'
+                       -> CopyOptionGroupMessage
+copyOptionGroupMessage p1 p2 p3 = CopyOptionGroupMessage
     { _cogm1SourceOptionGroupIdentifier  = p1
     , _cogm1TargetOptionGroupIdentifier  = p2
     , _cogm1TargetOptionGroupDescription = p3
@@ -103,11 +103,10 @@ cogm1TargetOptionGroupIdentifier :: Lens' CopyOptionGroupMessage Text
 cogm1TargetOptionGroupIdentifier =
     lens _cogm1TargetOptionGroupIdentifier
         (\s a -> s { _cogm1TargetOptionGroupIdentifier = a })
+instance ToQuery CopyOptionGroupMessage
 
 instance ToPath CopyOptionGroupMessage where
     toPath = const "/"
-
-instance ToQuery CopyOptionGroupMessage
 
 newtype CopyOptionGroupResult = CopyOptionGroupResult
     { _cogrOptionGroup :: Maybe OptionGroup
@@ -119,13 +118,16 @@ newtype CopyOptionGroupResult = CopyOptionGroupResult
 --
 -- * 'cogrOptionGroup' @::@ 'Maybe' 'OptionGroup'
 --
-copyOptionGroupResponse :: CopyOptionGroupResult
-copyOptionGroupResponse = CopyOptionGroupResult
+copyOptionGroupResult :: CopyOptionGroupResult
+copyOptionGroupResult = CopyOptionGroupResult
     { _cogrOptionGroup = Nothing
     }
 
 cogrOptionGroup :: Lens' CopyOptionGroupResult (Maybe OptionGroup)
 cogrOptionGroup = lens _cogrOptionGroup (\s a -> s { _cogrOptionGroup = a })
+instance FromXML CopyOptionGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CopyOptionGroupResult"
 
 instance AWSRequest CopyOptionGroupMessage where
     type Sv CopyOptionGroupMessage = RDS

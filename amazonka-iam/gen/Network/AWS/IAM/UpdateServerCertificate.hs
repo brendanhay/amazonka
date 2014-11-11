@@ -86,21 +86,24 @@ usc1ServerCertificateName :: Lens' UpdateServerCertificate Text
 usc1ServerCertificateName =
     lens _usc1ServerCertificateName
         (\s a -> s { _usc1ServerCertificateName = a })
+instance ToQuery UpdateServerCertificate
 
 instance ToPath UpdateServerCertificate where
     toPath = const "/"
 
-instance ToQuery UpdateServerCertificate
-
 data UpdateServerCertificateResponse = UpdateServerCertificateResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateServerCertificateResponse' constructor.
 updateServerCertificateResponse :: UpdateServerCertificateResponse
 updateServerCertificateResponse = UpdateServerCertificateResponse
+instance FromXML UpdateServerCertificateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateServerCertificateResponse"
 
 instance AWSRequest UpdateServerCertificate where
     type Sv UpdateServerCertificate = IAM
     type Rs UpdateServerCertificate = UpdateServerCertificateResponse
 
     request  = post "UpdateServerCertificate"
-    response = const (nullaryResponse UpdateServerCertificateResponse)
+    response = nullaryResponse UpdateServerCertificateResponse

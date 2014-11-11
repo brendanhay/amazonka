@@ -26,7 +26,7 @@ module Network.AWS.Redshift.DeleteHsmConfiguration
     -- * Request
       DeleteHsmConfigurationMessage
     -- ** Request constructor
-    , deleteHsmConfiguration
+    , deleteHsmConfigurationMessage
     -- ** Request lenses
     , dhcm1HsmConfigurationIdentifier
 
@@ -50,9 +50,9 @@ newtype DeleteHsmConfigurationMessage = DeleteHsmConfigurationMessage
 --
 -- * 'dhcm1HsmConfigurationIdentifier' @::@ 'Text'
 --
-deleteHsmConfiguration :: Text -- ^ 'dhcm1HsmConfigurationIdentifier'
-                       -> DeleteHsmConfigurationMessage
-deleteHsmConfiguration p1 = DeleteHsmConfigurationMessage
+deleteHsmConfigurationMessage :: Text -- ^ 'dhcm1HsmConfigurationIdentifier'
+                              -> DeleteHsmConfigurationMessage
+deleteHsmConfigurationMessage p1 = DeleteHsmConfigurationMessage
     { _dhcm1HsmConfigurationIdentifier = p1
     }
 
@@ -61,21 +61,24 @@ dhcm1HsmConfigurationIdentifier :: Lens' DeleteHsmConfigurationMessage Text
 dhcm1HsmConfigurationIdentifier =
     lens _dhcm1HsmConfigurationIdentifier
         (\s a -> s { _dhcm1HsmConfigurationIdentifier = a })
+instance ToQuery DeleteHsmConfigurationMessage
 
 instance ToPath DeleteHsmConfigurationMessage where
     toPath = const "/"
 
-instance ToQuery DeleteHsmConfigurationMessage
-
 data DeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteHsmConfigurationResponse' constructor.
 deleteHsmConfigurationResponse :: DeleteHsmConfigurationResponse
 deleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
+instance FromXML DeleteHsmConfigurationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteHsmConfigurationResponse"
 
 instance AWSRequest DeleteHsmConfigurationMessage where
     type Sv DeleteHsmConfigurationMessage = Redshift
     type Rs DeleteHsmConfigurationMessage = DeleteHsmConfigurationResponse
 
     request  = post "DeleteHsmConfiguration"
-    response = const (nullaryResponse DeleteHsmConfigurationResponse)
+    response = nullaryResponse DeleteHsmConfigurationResponse

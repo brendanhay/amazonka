@@ -26,7 +26,7 @@ module Network.AWS.RDS.DeleteDBSecurityGroup
     -- * Request
       DeleteDBSecurityGroupMessage
     -- ** Request constructor
-    , deleteDBSecurityGroup
+    , deleteDBSecurityGroupMessage
     -- ** Request lenses
     , ddbsgmDBSecurityGroupName
 
@@ -50,9 +50,9 @@ newtype DeleteDBSecurityGroupMessage = DeleteDBSecurityGroupMessage
 --
 -- * 'ddbsgmDBSecurityGroupName' @::@ 'Text'
 --
-deleteDBSecurityGroup :: Text -- ^ 'ddbsgmDBSecurityGroupName'
-                      -> DeleteDBSecurityGroupMessage
-deleteDBSecurityGroup p1 = DeleteDBSecurityGroupMessage
+deleteDBSecurityGroupMessage :: Text -- ^ 'ddbsgmDBSecurityGroupName'
+                             -> DeleteDBSecurityGroupMessage
+deleteDBSecurityGroupMessage p1 = DeleteDBSecurityGroupMessage
     { _ddbsgmDBSecurityGroupName = p1
     }
 
@@ -64,21 +64,24 @@ ddbsgmDBSecurityGroupName :: Lens' DeleteDBSecurityGroupMessage Text
 ddbsgmDBSecurityGroupName =
     lens _ddbsgmDBSecurityGroupName
         (\s a -> s { _ddbsgmDBSecurityGroupName = a })
+instance ToQuery DeleteDBSecurityGroupMessage
 
 instance ToPath DeleteDBSecurityGroupMessage where
     toPath = const "/"
 
-instance ToQuery DeleteDBSecurityGroupMessage
-
 data DeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteDBSecurityGroupResponse' constructor.
 deleteDBSecurityGroupResponse :: DeleteDBSecurityGroupResponse
 deleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
+instance FromXML DeleteDBSecurityGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteDBSecurityGroupResponse"
 
 instance AWSRequest DeleteDBSecurityGroupMessage where
     type Sv DeleteDBSecurityGroupMessage = RDS
     type Rs DeleteDBSecurityGroupMessage = DeleteDBSecurityGroupResponse
 
     request  = post "DeleteDBSecurityGroup"
-    response = const (nullaryResponse DeleteDBSecurityGroupResponse)
+    response = nullaryResponse DeleteDBSecurityGroupResponse

@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
     -- * Request
       DeleteStreamingDistribution
     -- ** Request constructor
-    , deleteStreamingDistribution2014_05_31
+    , deleteStreamingDistribution
     -- ** Request lenses
     , dsdId
     , dsdIfMatch
@@ -54,9 +54,9 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution
 --
 -- * 'dsdIfMatch' @::@ 'Maybe' 'Text'
 --
-deleteStreamingDistribution2014_05_31 :: Text -- ^ 'dsdId'
-                                      -> DeleteStreamingDistribution
-deleteStreamingDistribution2014_05_31 p1 = DeleteStreamingDistribution
+deleteStreamingDistribution :: Text -- ^ 'dsdId'
+                            -> DeleteStreamingDistribution
+deleteStreamingDistribution p1 = DeleteStreamingDistribution
     { _dsdId      = p1
     , _dsdIfMatch = Nothing
     }
@@ -85,14 +85,18 @@ instance ToHeaders DeleteStreamingDistribution where
         ]
 
 data DeleteStreamingDistribution2014_05_31Response = DeleteStreamingDistribution2014_05_31Response
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteStreamingDistribution2014_05_31Response' constructor.
 deleteStreamingDistribution2014_05_31Response :: DeleteStreamingDistribution2014_05_31Response
 deleteStreamingDistribution2014_05_31Response = DeleteStreamingDistribution2014_05_31Response
 
+instance FromXML DeleteStreamingDistribution2014_05_31Response where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteStreamingDistribution2014_05_31Response"
 instance AWSRequest DeleteStreamingDistribution where
     type Sv DeleteStreamingDistribution = CloudFront
     type Rs DeleteStreamingDistribution = DeleteStreamingDistribution2014_05_31Response
 
     request  = delete
-    response = const (nullaryResponse DeleteStreamingDistribution2014_05_31Response)
+    response = nullaryResponse DeleteStreamingDistribution2014_05_31Response

@@ -63,11 +63,10 @@ deleteDomain p1 = DeleteDomain
 -- | The name of the domain you want to permanently delete.
 ddDomainName :: Lens' DeleteDomain Text
 ddDomainName = lens _ddDomainName (\s a -> s { _ddDomainName = a })
+instance ToQuery DeleteDomain
 
 instance ToPath DeleteDomain where
     toPath = const "/"
-
-instance ToQuery DeleteDomain
 
 newtype DeleteDomainResponse = DeleteDomainResponse
     { _ddrDomainStatus :: Maybe DomainStatus
@@ -86,6 +85,9 @@ deleteDomainResponse = DeleteDomainResponse
 
 ddrDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
 ddrDomainStatus = lens _ddrDomainStatus (\s a -> s { _ddrDomainStatus = a })
+instance FromXML DeleteDomainResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteDomainResponse"
 
 instance AWSRequest DeleteDomain where
     type Sv DeleteDomain = CloudSearch

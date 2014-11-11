@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     -- * Request
       DescribeStackEventsInput
     -- ** Request constructor
-    , describeStackEvents
+    , describeStackEventsInput
     -- ** Request lenses
     , dseiNextToken
     , dseiStackName
@@ -36,7 +36,7 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     -- * Response
     , DescribeStackEventsOutput
     -- ** Response constructor
-    , describeStackEventsResponse
+    , describeStackEventsOutput
     -- ** Response lenses
     , dseoNextToken
     , dseoStackEvents
@@ -59,8 +59,8 @@ data DescribeStackEventsInput = DescribeStackEventsInput
 --
 -- * 'dseiStackName' @::@ 'Maybe' 'Text'
 --
-describeStackEvents :: DescribeStackEventsInput
-describeStackEvents = DescribeStackEventsInput
+describeStackEventsInput :: DescribeStackEventsInput
+describeStackEventsInput = DescribeStackEventsInput
     { _dseiStackName = Nothing
     , _dseiNextToken = Nothing
     }
@@ -76,11 +76,10 @@ dseiNextToken = lens _dseiNextToken (\s a -> s { _dseiNextToken = a })
 -- unique stack ID. Default: There is no default value.
 dseiStackName :: Lens' DescribeStackEventsInput (Maybe Text)
 dseiStackName = lens _dseiStackName (\s a -> s { _dseiStackName = a })
+instance ToQuery DescribeStackEventsInput
 
 instance ToPath DescribeStackEventsInput where
     toPath = const "/"
-
-instance ToQuery DescribeStackEventsInput
 
 data DescribeStackEventsOutput = DescribeStackEventsOutput
     { _dseoNextToken   :: Maybe Text
@@ -95,8 +94,8 @@ data DescribeStackEventsOutput = DescribeStackEventsOutput
 --
 -- * 'dseoStackEvents' @::@ ['StackEvent']
 --
-describeStackEventsResponse :: DescribeStackEventsOutput
-describeStackEventsResponse = DescribeStackEventsOutput
+describeStackEventsOutput :: DescribeStackEventsOutput
+describeStackEventsOutput = DescribeStackEventsOutput
     { _dseoStackEvents = mempty
     , _dseoNextToken   = Nothing
     }
@@ -109,6 +108,9 @@ dseoNextToken = lens _dseoNextToken (\s a -> s { _dseoNextToken = a })
 -- | A list of StackEvents structures.
 dseoStackEvents :: Lens' DescribeStackEventsOutput [StackEvent]
 dseoStackEvents = lens _dseoStackEvents (\s a -> s { _dseoStackEvents = a })
+instance FromXML DescribeStackEventsOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeStackEventsOutput"
 
 instance AWSRequest DescribeStackEventsInput where
     type Sv DescribeStackEventsInput = CloudFormation

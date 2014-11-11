@@ -87,11 +87,10 @@ lgfuMaxItems = lens _lgfuMaxItems (\s a -> s { _lgfuMaxItems = a })
 -- | The name of the user to list groups for.
 lgfuUserName :: Lens' ListGroupsForUser Text
 lgfuUserName = lens _lgfuUserName (\s a -> s { _lgfuUserName = a })
+instance ToQuery ListGroupsForUser
 
 instance ToPath ListGroupsForUser where
     toPath = const "/"
-
-instance ToQuery ListGroupsForUser
 
 data ListGroupsForUserResponse = ListGroupsForUserResponse
     { _lgfurGroups      :: [Group]
@@ -130,6 +129,9 @@ lgfurIsTruncated = lens _lgfurIsTruncated (\s a -> s { _lgfurIsTruncated = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lgfurMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
 lgfurMarker = lens _lgfurMarker (\s a -> s { _lgfurMarker = a })
+instance FromXML ListGroupsForUserResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListGroupsForUserResponse"
 
 instance AWSRequest ListGroupsForUser where
     type Sv ListGroupsForUser = IAM

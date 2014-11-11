@@ -29,7 +29,7 @@ module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     -- * Request
       RevokeDBSecurityGroupIngressMessage
     -- ** Request constructor
-    , revokeDBSecurityGroupIngress
+    , revokeDBSecurityGroupIngressMessage
     -- ** Request lenses
     , rdbsgimCIDRIP
     , rdbsgimDBSecurityGroupName
@@ -40,7 +40,7 @@ module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     -- * Response
     , RevokeDBSecurityGroupIngressResult
     -- ** Response constructor
-    , revokeDBSecurityGroupIngressResponse
+    , revokeDBSecurityGroupIngressResult
     -- ** Response lenses
     , rdbsgirDBSecurityGroup
     ) where
@@ -71,9 +71,9 @@ data RevokeDBSecurityGroupIngressMessage = RevokeDBSecurityGroupIngressMessage
 --
 -- * 'rdbsgimEC2SecurityGroupOwnerId' @::@ 'Maybe' 'Text'
 --
-revokeDBSecurityGroupIngress :: Text -- ^ 'rdbsgimDBSecurityGroupName'
-                             -> RevokeDBSecurityGroupIngressMessage
-revokeDBSecurityGroupIngress p1 = RevokeDBSecurityGroupIngressMessage
+revokeDBSecurityGroupIngressMessage :: Text -- ^ 'rdbsgimDBSecurityGroupName'
+                                    -> RevokeDBSecurityGroupIngressMessage
+revokeDBSecurityGroupIngressMessage p1 = RevokeDBSecurityGroupIngressMessage
     { _rdbsgimDBSecurityGroupName     = p1
     , _rdbsgimCIDRIP                  = Nothing
     , _rdbsgimEC2SecurityGroupName    = Nothing
@@ -120,11 +120,10 @@ rdbsgimEC2SecurityGroupOwnerId :: Lens' RevokeDBSecurityGroupIngressMessage (May
 rdbsgimEC2SecurityGroupOwnerId =
     lens _rdbsgimEC2SecurityGroupOwnerId
         (\s a -> s { _rdbsgimEC2SecurityGroupOwnerId = a })
+instance ToQuery RevokeDBSecurityGroupIngressMessage
 
 instance ToPath RevokeDBSecurityGroupIngressMessage where
     toPath = const "/"
-
-instance ToQuery RevokeDBSecurityGroupIngressMessage
 
 newtype RevokeDBSecurityGroupIngressResult = RevokeDBSecurityGroupIngressResult
     { _rdbsgirDBSecurityGroup :: Maybe DBSecurityGroup
@@ -136,14 +135,17 @@ newtype RevokeDBSecurityGroupIngressResult = RevokeDBSecurityGroupIngressResult
 --
 -- * 'rdbsgirDBSecurityGroup' @::@ 'Maybe' 'DBSecurityGroup'
 --
-revokeDBSecurityGroupIngressResponse :: RevokeDBSecurityGroupIngressResult
-revokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResult
+revokeDBSecurityGroupIngressResult :: RevokeDBSecurityGroupIngressResult
+revokeDBSecurityGroupIngressResult = RevokeDBSecurityGroupIngressResult
     { _rdbsgirDBSecurityGroup = Nothing
     }
 
 rdbsgirDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResult (Maybe DBSecurityGroup)
 rdbsgirDBSecurityGroup =
     lens _rdbsgirDBSecurityGroup (\s a -> s { _rdbsgirDBSecurityGroup = a })
+instance FromXML RevokeDBSecurityGroupIngressResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RevokeDBSecurityGroupIngressResult"
 
 instance AWSRequest RevokeDBSecurityGroupIngressMessage where
     type Sv RevokeDBSecurityGroupIngressMessage = RDS

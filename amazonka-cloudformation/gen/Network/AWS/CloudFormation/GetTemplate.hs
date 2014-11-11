@@ -28,14 +28,14 @@ module Network.AWS.CloudFormation.GetTemplate
     -- * Request
       GetTemplateInput
     -- ** Request constructor
-    , getTemplate
+    , getTemplateInput
     -- ** Request lenses
     , gtiStackName
 
     -- * Response
     , GetTemplateOutput
     -- ** Response constructor
-    , getTemplateResponse
+    , getTemplateOutput
     -- ** Response lenses
     , gtoTemplateBody
     ) where
@@ -54,9 +54,9 @@ newtype GetTemplateInput = GetTemplateInput
 --
 -- * 'gtiStackName' @::@ 'Text'
 --
-getTemplate :: Text -- ^ 'gtiStackName'
-            -> GetTemplateInput
-getTemplate p1 = GetTemplateInput
+getTemplateInput :: Text -- ^ 'gtiStackName'
+                 -> GetTemplateInput
+getTemplateInput p1 = GetTemplateInput
     { _gtiStackName = p1
     }
 
@@ -66,11 +66,10 @@ getTemplate p1 = GetTemplateInput
 -- unique stack ID. Default: There is no default value.
 gtiStackName :: Lens' GetTemplateInput Text
 gtiStackName = lens _gtiStackName (\s a -> s { _gtiStackName = a })
+instance ToQuery GetTemplateInput
 
 instance ToPath GetTemplateInput where
     toPath = const "/"
-
-instance ToQuery GetTemplateInput
 
 newtype GetTemplateOutput = GetTemplateOutput
     { _gtoTemplateBody :: Maybe Text
@@ -82,8 +81,8 @@ newtype GetTemplateOutput = GetTemplateOutput
 --
 -- * 'gtoTemplateBody' @::@ 'Maybe' 'Text'
 --
-getTemplateResponse :: GetTemplateOutput
-getTemplateResponse = GetTemplateOutput
+getTemplateOutput :: GetTemplateOutput
+getTemplateOutput = GetTemplateOutput
     { _gtoTemplateBody = Nothing
     }
 
@@ -91,6 +90,9 @@ getTemplateResponse = GetTemplateOutput
 -- Template Anatomy in the AWS CloudFormation User Guide.).
 gtoTemplateBody :: Lens' GetTemplateOutput (Maybe Text)
 gtoTemplateBody = lens _gtoTemplateBody (\s a -> s { _gtoTemplateBody = a })
+instance FromXML GetTemplateOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetTemplateOutput"
 
 instance AWSRequest GetTemplateInput where
     type Sv GetTemplateInput = CloudFormation

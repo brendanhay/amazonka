@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.CreateStack
     -- * Request
       CreateStackInput
     -- ** Request constructor
-    , createStack
+    , createStackInput
     -- ** Request lenses
     , csiCapabilities
     , csiDisableRollback
@@ -46,7 +46,7 @@ module Network.AWS.CloudFormation.CreateStack
     -- * Response
     , CreateStackOutput
     -- ** Response constructor
-    , createStackResponse
+    , createStackOutput
     -- ** Response lenses
     , csoStackId
     ) where
@@ -98,9 +98,9 @@ data CreateStackInput = CreateStackInput
 --
 -- * 'csiTimeoutInMinutes' @::@ 'Maybe' 'Int'
 --
-createStack :: Text -- ^ 'csiStackName'
-            -> CreateStackInput
-createStack p1 = CreateStackInput
+createStackInput :: Text -- ^ 'csiStackName'
+                 -> CreateStackInput
+createStackInput p1 = CreateStackInput
     { _csiStackName        = p1
     , _csiTemplateBody     = Nothing
     , _csiTemplateURL      = Nothing
@@ -201,11 +201,10 @@ csiTemplateURL = lens _csiTemplateURL (\s a -> s { _csiTemplateURL = a })
 csiTimeoutInMinutes :: Lens' CreateStackInput (Maybe Int)
 csiTimeoutInMinutes =
     lens _csiTimeoutInMinutes (\s a -> s { _csiTimeoutInMinutes = a })
+instance ToQuery CreateStackInput
 
 instance ToPath CreateStackInput where
     toPath = const "/"
-
-instance ToQuery CreateStackInput
 
 newtype CreateStackOutput = CreateStackOutput
     { _csoStackId :: Maybe Text
@@ -217,14 +216,17 @@ newtype CreateStackOutput = CreateStackOutput
 --
 -- * 'csoStackId' @::@ 'Maybe' 'Text'
 --
-createStackResponse :: CreateStackOutput
-createStackResponse = CreateStackOutput
+createStackOutput :: CreateStackOutput
+createStackOutput = CreateStackOutput
     { _csoStackId = Nothing
     }
 
 -- | Unique identifier of the stack.
 csoStackId :: Lens' CreateStackOutput (Maybe Text)
 csoStackId = lens _csoStackId (\s a -> s { _csoStackId = a })
+instance FromXML CreateStackOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateStackOutput"
 
 instance AWSRequest CreateStackInput where
     type Sv CreateStackInput = CloudFormation

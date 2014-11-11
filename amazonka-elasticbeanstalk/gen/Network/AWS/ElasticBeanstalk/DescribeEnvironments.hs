@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     -- * Request
       DescribeEnvironmentsMessage
     -- ** Request constructor
-    , describeEnvironments
+    , describeEnvironmentsMessage
     -- ** Request lenses
     , demApplicationName
     , demEnvironmentIds
@@ -38,7 +38,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     -- * Response
     , EnvironmentDescriptionsMessage
     -- ** Response constructor
-    , describeEnvironmentsResponse
+    , environmentDescriptionsMessage
     -- ** Response lenses
     , edmEnvironments
     ) where
@@ -72,8 +72,8 @@ data DescribeEnvironmentsMessage = DescribeEnvironmentsMessage
 --
 -- * 'demVersionLabel' @::@ 'Maybe' 'Text'
 --
-describeEnvironments :: DescribeEnvironmentsMessage
-describeEnvironments = DescribeEnvironmentsMessage
+describeEnvironmentsMessage :: DescribeEnvironmentsMessage
+describeEnvironmentsMessage = DescribeEnvironmentsMessage
     { _demApplicationName       = Nothing
     , _demVersionLabel          = Nothing
     , _demEnvironmentIds        = mempty
@@ -119,11 +119,10 @@ demIncludedDeletedBackTo =
 -- to include only those that are associated with this application version.
 demVersionLabel :: Lens' DescribeEnvironmentsMessage (Maybe Text)
 demVersionLabel = lens _demVersionLabel (\s a -> s { _demVersionLabel = a })
+instance ToQuery DescribeEnvironmentsMessage
 
 instance ToPath DescribeEnvironmentsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeEnvironmentsMessage
 
 newtype EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage
     { _edmEnvironments :: [EnvironmentDescription]
@@ -135,14 +134,17 @@ newtype EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage
 --
 -- * 'edmEnvironments' @::@ ['EnvironmentDescription']
 --
-describeEnvironmentsResponse :: EnvironmentDescriptionsMessage
-describeEnvironmentsResponse = EnvironmentDescriptionsMessage
+environmentDescriptionsMessage :: EnvironmentDescriptionsMessage
+environmentDescriptionsMessage = EnvironmentDescriptionsMessage
     { _edmEnvironments = mempty
     }
 
 -- | Returns an EnvironmentDescription list.
 edmEnvironments :: Lens' EnvironmentDescriptionsMessage [EnvironmentDescription]
 edmEnvironments = lens _edmEnvironments (\s a -> s { _edmEnvironments = a })
+instance FromXML EnvironmentDescriptionsMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnvironmentDescriptionsMessage"
 
 instance AWSRequest DescribeEnvironmentsMessage where
     type Sv DescribeEnvironmentsMessage = ElasticBeanstalk

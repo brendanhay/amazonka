@@ -77,11 +77,10 @@ dif2DomainName = lens _dif2DomainName (\s a -> s { _dif2DomainName = a })
 -- | The index field and field options you want to configure.
 dif2IndexField :: Lens' DefineIndexField IndexField
 dif2IndexField = lens _dif2IndexField (\s a -> s { _dif2IndexField = a })
+instance ToQuery DefineIndexField
 
 instance ToPath DefineIndexField where
     toPath = const "/"
-
-instance ToQuery DefineIndexField
 
 newtype DefineIndexFieldResponse = DefineIndexFieldResponse
     { _difr1IndexField :: IndexFieldStatus
@@ -101,6 +100,9 @@ defineIndexFieldResponse p1 = DefineIndexFieldResponse
 
 difr1IndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
 difr1IndexField = lens _difr1IndexField (\s a -> s { _difr1IndexField = a })
+instance FromXML DefineIndexFieldResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DefineIndexFieldResponse"
 
 instance AWSRequest DefineIndexField where
     type Sv DefineIndexField = CloudSearch

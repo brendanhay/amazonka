@@ -26,7 +26,7 @@ module Network.AWS.AutoScaling.DeletePolicy
     -- * Request
       DeletePolicyType
     -- ** Request constructor
-    , deletePolicy
+    , deletePolicyType
     -- ** Request lenses
     , dpt1AutoScalingGroupName
     , dpt1PolicyName
@@ -54,9 +54,9 @@ data DeletePolicyType = DeletePolicyType
 --
 -- * 'dpt1PolicyName' @::@ 'Text'
 --
-deletePolicy :: Text -- ^ 'dpt1PolicyName'
-             -> DeletePolicyType
-deletePolicy p1 = DeletePolicyType
+deletePolicyType :: Text -- ^ 'dpt1PolicyName'
+                 -> DeletePolicyType
+deletePolicyType p1 = DeletePolicyType
     { _dpt1PolicyName           = p1
     , _dpt1AutoScalingGroupName = Nothing
     }
@@ -70,21 +70,24 @@ dpt1AutoScalingGroupName =
 -- | The name or PolicyARN of the policy you want to delete.
 dpt1PolicyName :: Lens' DeletePolicyType Text
 dpt1PolicyName = lens _dpt1PolicyName (\s a -> s { _dpt1PolicyName = a })
+instance ToQuery DeletePolicyType
 
 instance ToPath DeletePolicyType where
     toPath = const "/"
 
-instance ToQuery DeletePolicyType
-
 data DeletePolicyResponse = DeletePolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeletePolicyResponse' constructor.
 deletePolicyResponse :: DeletePolicyResponse
 deletePolicyResponse = DeletePolicyResponse
+instance FromXML DeletePolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeletePolicyResponse"
 
 instance AWSRequest DeletePolicyType where
     type Sv DeletePolicyType = AutoScaling
     type Rs DeletePolicyType = DeletePolicyResponse
 
     request  = post "DeletePolicy"
-    response = const (nullaryResponse DeletePolicyResponse)
+    response = nullaryResponse DeletePolicyResponse

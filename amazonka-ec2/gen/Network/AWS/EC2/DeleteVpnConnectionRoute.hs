@@ -75,21 +75,24 @@ dvcrDestinationCidrBlock =
 dvcrVpnConnectionId :: Lens' DeleteVpnConnectionRoute Text
 dvcrVpnConnectionId =
     lens _dvcrVpnConnectionId (\s a -> s { _dvcrVpnConnectionId = a })
+instance ToQuery DeleteVpnConnectionRoute
 
 instance ToPath DeleteVpnConnectionRoute where
     toPath = const "/"
 
-instance ToQuery DeleteVpnConnectionRoute
-
 data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpnConnectionRouteResponse' constructor.
 deleteVpnConnectionRouteResponse :: DeleteVpnConnectionRouteResponse
 deleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
+instance FromXML DeleteVpnConnectionRouteResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteVpnConnectionRouteResponse"
 
 instance AWSRequest DeleteVpnConnectionRoute where
     type Sv DeleteVpnConnectionRoute = EC2
     type Rs DeleteVpnConnectionRoute = DeleteVpnConnectionRouteResponse
 
     request  = post "DeleteVpnConnectionRoute"
-    response = const (nullaryResponse DeleteVpnConnectionRouteResponse)
+    response = nullaryResponse DeleteVpnConnectionRouteResponse

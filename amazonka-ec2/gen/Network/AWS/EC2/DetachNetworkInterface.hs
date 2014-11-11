@@ -76,21 +76,24 @@ dni2DryRun = lens _dni2DryRun (\s a -> s { _dni2DryRun = a })
 -- | Specifies whether to force a detachment.
 dni2Force :: Lens' DetachNetworkInterface (Maybe Bool)
 dni2Force = lens _dni2Force (\s a -> s { _dni2Force = a })
+instance ToQuery DetachNetworkInterface
 
 instance ToPath DetachNetworkInterface where
     toPath = const "/"
 
-instance ToQuery DetachNetworkInterface
-
 data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DetachNetworkInterfaceResponse' constructor.
 detachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse
 detachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
+instance FromXML DetachNetworkInterfaceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DetachNetworkInterfaceResponse"
 
 instance AWSRequest DetachNetworkInterface where
     type Sv DetachNetworkInterface = EC2
     type Rs DetachNetworkInterface = DetachNetworkInterfaceResponse
 
     request  = post "DetachNetworkInterface"
-    response = const (nullaryResponse DetachNetworkInterfaceResponse)
+    response = nullaryResponse DetachNetworkInterfaceResponse

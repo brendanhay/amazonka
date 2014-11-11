@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     -- * Request
       LaunchConfigurationNamesType
     -- ** Request constructor
-    , describeLaunchConfigurations
+    , launchConfigurationNamesType
     -- ** Request lenses
     , lcntLaunchConfigurationNames
     , lcntMaxRecords
@@ -37,7 +37,7 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     -- * Response
     , LaunchConfigurationsType
     -- ** Response constructor
-    , describeLaunchConfigurationsResponse
+    , launchConfigurationsType
     -- ** Response lenses
     , lctLaunchConfigurations
     , lctNextToken
@@ -63,8 +63,8 @@ data LaunchConfigurationNamesType = LaunchConfigurationNamesType
 --
 -- * 'lcntNextToken' @::@ 'Maybe' 'Text'
 --
-describeLaunchConfigurations :: LaunchConfigurationNamesType
-describeLaunchConfigurations = LaunchConfigurationNamesType
+launchConfigurationNamesType :: LaunchConfigurationNamesType
+launchConfigurationNamesType = LaunchConfigurationNamesType
     { _lcntLaunchConfigurationNames = mempty
     , _lcntNextToken                = Nothing
     , _lcntMaxRecords               = Nothing
@@ -83,11 +83,10 @@ lcntMaxRecords = lens _lcntMaxRecords (\s a -> s { _lcntMaxRecords = a })
 -- | A string that marks the start of the next batch of returned results.
 lcntNextToken :: Lens' LaunchConfigurationNamesType (Maybe Text)
 lcntNextToken = lens _lcntNextToken (\s a -> s { _lcntNextToken = a })
+instance ToQuery LaunchConfigurationNamesType
 
 instance ToPath LaunchConfigurationNamesType where
     toPath = const "/"
-
-instance ToQuery LaunchConfigurationNamesType
 
 data LaunchConfigurationsType = LaunchConfigurationsType
     { _lctLaunchConfigurations :: [LaunchConfiguration]
@@ -102,8 +101,8 @@ data LaunchConfigurationsType = LaunchConfigurationsType
 --
 -- * 'lctNextToken' @::@ 'Maybe' 'Text'
 --
-describeLaunchConfigurationsResponse :: LaunchConfigurationsType
-describeLaunchConfigurationsResponse = LaunchConfigurationsType
+launchConfigurationsType :: LaunchConfigurationsType
+launchConfigurationsType = LaunchConfigurationsType
     { _lctLaunchConfigurations = mempty
     , _lctNextToken            = Nothing
     }
@@ -116,6 +115,9 @@ lctLaunchConfigurations =
 -- | A string that marks the start of the next batch of returned results.
 lctNextToken :: Lens' LaunchConfigurationsType (Maybe Text)
 lctNextToken = lens _lctNextToken (\s a -> s { _lctNextToken = a })
+instance FromXML LaunchConfigurationsType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "LaunchConfigurationsType"
 
 instance AWSRequest LaunchConfigurationNamesType where
     type Sv LaunchConfigurationNamesType = AutoScaling

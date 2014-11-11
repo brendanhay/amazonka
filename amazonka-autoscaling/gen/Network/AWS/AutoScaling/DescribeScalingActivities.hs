@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     -- * Request
       DescribeScalingActivitiesType
     -- ** Request constructor
-    , describeScalingActivities
+    , describeScalingActivitiesType
     -- ** Request lenses
     , dsatActivityIds
     , dsatAutoScalingGroupName
@@ -42,7 +42,7 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     -- * Response
     , ActivitiesType
     -- ** Response constructor
-    , describeScalingActivitiesResponse
+    , activitiesType
     -- ** Response lenses
     , atActivities
     , atNextToken
@@ -71,8 +71,8 @@ data DescribeScalingActivitiesType = DescribeScalingActivitiesType
 --
 -- * 'dsatNextToken' @::@ 'Maybe' 'Text'
 --
-describeScalingActivities :: DescribeScalingActivitiesType
-describeScalingActivities = DescribeScalingActivitiesType
+describeScalingActivitiesType :: DescribeScalingActivitiesType
+describeScalingActivitiesType = DescribeScalingActivitiesType
     { _dsatActivityIds          = mempty
     , _dsatAutoScalingGroupName = Nothing
     , _dsatMaxRecords           = Nothing
@@ -101,11 +101,10 @@ dsatMaxRecords = lens _dsatMaxRecords (\s a -> s { _dsatMaxRecords = a })
 -- pagination.
 dsatNextToken :: Lens' DescribeScalingActivitiesType (Maybe Text)
 dsatNextToken = lens _dsatNextToken (\s a -> s { _dsatNextToken = a })
+instance ToQuery DescribeScalingActivitiesType
 
 instance ToPath DescribeScalingActivitiesType where
     toPath = const "/"
-
-instance ToQuery DescribeScalingActivitiesType
 
 data ActivitiesType = ActivitiesType
     { _atActivities :: [Activity]
@@ -120,8 +119,8 @@ data ActivitiesType = ActivitiesType
 --
 -- * 'atNextToken' @::@ 'Maybe' 'Text'
 --
-describeScalingActivitiesResponse :: ActivitiesType
-describeScalingActivitiesResponse = ActivitiesType
+activitiesType :: ActivitiesType
+activitiesType = ActivitiesType
     { _atActivities = mempty
     , _atNextToken  = Nothing
     }
@@ -135,6 +134,9 @@ atActivities = lens _atActivities (\s a -> s { _atActivities = a })
 -- in to subsequent calls to return additional results.
 atNextToken :: Lens' ActivitiesType (Maybe Text)
 atNextToken = lens _atNextToken (\s a -> s { _atNextToken = a })
+instance FromXML ActivitiesType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ActivitiesType"
 
 instance AWSRequest DescribeScalingActivitiesType where
     type Sv DescribeScalingActivitiesType = AutoScaling

@@ -34,7 +34,7 @@ module Network.AWS.SNS.Publish
     -- * Request
       PublishInput
     -- ** Request constructor
-    , publish
+    , publishInput
     -- ** Request lenses
     , piMessage
     , piMessageAttributes
@@ -80,9 +80,9 @@ data PublishInput = PublishInput
 --
 -- * 'piTopicArn' @::@ 'Maybe' 'Text'
 --
-publish :: Text -- ^ 'piMessage'
-        -> PublishInput
-publish p1 = PublishInput
+publishInput :: Text -- ^ 'piMessage'
+             -> PublishInput
+publishInput p1 = PublishInput
     { _piMessage           = p1
     , _piTopicArn          = Nothing
     , _piTargetArn         = Nothing
@@ -151,11 +151,10 @@ piTargetArn = lens _piTargetArn (\s a -> s { _piTargetArn = a })
 -- | The topic you want to publish to.
 piTopicArn :: Lens' PublishInput (Maybe Text)
 piTopicArn = lens _piTopicArn (\s a -> s { _piTopicArn = a })
+instance ToQuery PublishInput
 
 instance ToPath PublishInput where
     toPath = const "/"
-
-instance ToQuery PublishInput
 
 newtype PublishResponse = PublishResponse
     { _prMessageId :: Maybe Text
@@ -176,6 +175,9 @@ publishResponse = PublishResponse
 -- Maximum 100 characters.
 prMessageId :: Lens' PublishResponse (Maybe Text)
 prMessageId = lens _prMessageId (\s a -> s { _prMessageId = a })
+instance FromXML PublishResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PublishResponse"
 
 instance AWSRequest PublishInput where
     type Sv PublishInput = SNS

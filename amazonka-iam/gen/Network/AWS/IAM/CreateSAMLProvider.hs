@@ -93,11 +93,10 @@ csamlpSAMLMetadataDocument :: Lens' CreateSAMLProvider Text
 csamlpSAMLMetadataDocument =
     lens _csamlpSAMLMetadataDocument
         (\s a -> s { _csamlpSAMLMetadataDocument = a })
+instance ToQuery CreateSAMLProvider
 
 instance ToPath CreateSAMLProvider where
     toPath = const "/"
-
-instance ToQuery CreateSAMLProvider
 
 newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse
     { _csamlprSAMLProviderArn :: Maybe Text
@@ -118,6 +117,9 @@ createSAMLProviderResponse = CreateSAMLProviderResponse
 csamlprSAMLProviderArn :: Lens' CreateSAMLProviderResponse (Maybe Text)
 csamlprSAMLProviderArn =
     lens _csamlprSAMLProviderArn (\s a -> s { _csamlprSAMLProviderArn = a })
+instance FromXML CreateSAMLProviderResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateSAMLProviderResponse"
 
 instance AWSRequest CreateSAMLProvider where
     type Sv CreateSAMLProvider = IAM

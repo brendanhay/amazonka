@@ -86,21 +86,24 @@ mvaEnableDnsSupport =
 -- | The ID of the VPC.
 mvaVpcId :: Lens' ModifyVpcAttribute Text
 mvaVpcId = lens _mvaVpcId (\s a -> s { _mvaVpcId = a })
+instance ToQuery ModifyVpcAttribute
 
 instance ToPath ModifyVpcAttribute where
     toPath = const "/"
 
-instance ToQuery ModifyVpcAttribute
-
 data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifyVpcAttributeResponse' constructor.
 modifyVpcAttributeResponse :: ModifyVpcAttributeResponse
 modifyVpcAttributeResponse = ModifyVpcAttributeResponse
+instance FromXML ModifyVpcAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyVpcAttributeResponse"
 
 instance AWSRequest ModifyVpcAttribute where
     type Sv ModifyVpcAttribute = EC2
     type Rs ModifyVpcAttribute = ModifyVpcAttributeResponse
 
     request  = post "ModifyVpcAttribute"
-    response = const (nullaryResponse ModifyVpcAttributeResponse)
+    response = nullaryResponse ModifyVpcAttributeResponse

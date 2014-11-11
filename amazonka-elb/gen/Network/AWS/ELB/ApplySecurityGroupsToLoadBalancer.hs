@@ -30,7 +30,7 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     -- * Request
       ApplySecurityGroupsToLoadBalancerInput
     -- ** Request constructor
-    , applySecurityGroupsToLoadBalancer
+    , applySecurityGroupsToLoadBalancerInput
     -- ** Request lenses
     , asgtlbiLoadBalancerName
     , asgtlbiSecurityGroups
@@ -38,7 +38,7 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     -- * Response
     , ApplySecurityGroupsToLoadBalancerOutput
     -- ** Response constructor
-    , applySecurityGroupsToLoadBalancerResponse
+    , applySecurityGroupsToLoadBalancerOutput
     -- ** Response lenses
     , asgtlboSecurityGroups
     ) where
@@ -60,9 +60,9 @@ data ApplySecurityGroupsToLoadBalancerInput = ApplySecurityGroupsToLoadBalancerI
 --
 -- * 'asgtlbiSecurityGroups' @::@ ['Text']
 --
-applySecurityGroupsToLoadBalancer :: Text -- ^ 'asgtlbiLoadBalancerName'
-                                  -> ApplySecurityGroupsToLoadBalancerInput
-applySecurityGroupsToLoadBalancer p1 = ApplySecurityGroupsToLoadBalancerInput
+applySecurityGroupsToLoadBalancerInput :: Text -- ^ 'asgtlbiLoadBalancerName'
+                                       -> ApplySecurityGroupsToLoadBalancerInput
+applySecurityGroupsToLoadBalancerInput p1 = ApplySecurityGroupsToLoadBalancerInput
     { _asgtlbiLoadBalancerName = p1
     , _asgtlbiSecurityGroups   = mempty
     }
@@ -79,11 +79,10 @@ asgtlbiLoadBalancerName =
 asgtlbiSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerInput [Text]
 asgtlbiSecurityGroups =
     lens _asgtlbiSecurityGroups (\s a -> s { _asgtlbiSecurityGroups = a })
+instance ToQuery ApplySecurityGroupsToLoadBalancerInput
 
 instance ToPath ApplySecurityGroupsToLoadBalancerInput where
     toPath = const "/"
-
-instance ToQuery ApplySecurityGroupsToLoadBalancerInput
 
 newtype ApplySecurityGroupsToLoadBalancerOutput = ApplySecurityGroupsToLoadBalancerOutput
     { _asgtlboSecurityGroups :: [Text]
@@ -95,8 +94,8 @@ newtype ApplySecurityGroupsToLoadBalancerOutput = ApplySecurityGroupsToLoadBalan
 --
 -- * 'asgtlboSecurityGroups' @::@ ['Text']
 --
-applySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerOutput
-applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerOutput
+applySecurityGroupsToLoadBalancerOutput :: ApplySecurityGroupsToLoadBalancerOutput
+applySecurityGroupsToLoadBalancerOutput = ApplySecurityGroupsToLoadBalancerOutput
     { _asgtlboSecurityGroups = mempty
     }
 
@@ -104,6 +103,9 @@ applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerOut
 asgtlboSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerOutput [Text]
 asgtlboSecurityGroups =
     lens _asgtlboSecurityGroups (\s a -> s { _asgtlboSecurityGroups = a })
+instance FromXML ApplySecurityGroupsToLoadBalancerOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ApplySecurityGroupsToLoadBalancerOutput"
 
 instance AWSRequest ApplySecurityGroupsToLoadBalancerInput where
     type Sv ApplySecurityGroupsToLoadBalancerInput = ELB

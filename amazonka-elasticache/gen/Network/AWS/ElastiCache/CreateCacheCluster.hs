@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     -- * Request
       CreateCacheClusterMessage
     -- ** Request constructor
-    , createCacheCluster
+    , createCacheClusterMessage
     -- ** Request lenses
     , cccmAZMode
     , cccmAutoMinorVersionUpgrade
@@ -55,7 +55,7 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     -- * Response
     , CreateCacheClusterResult
     -- ** Response constructor
-    , createCacheClusterResponse
+    , createCacheClusterResult
     -- ** Response lenses
     , cccrCacheCluster
     ) where
@@ -134,9 +134,9 @@ data CreateCacheClusterMessage = CreateCacheClusterMessage
 --
 -- * 'cccmSnapshotWindow' @::@ 'Maybe' 'Text'
 --
-createCacheCluster :: Text -- ^ 'cccmCacheClusterId'
-                   -> CreateCacheClusterMessage
-createCacheCluster p1 = CreateCacheClusterMessage
+createCacheClusterMessage :: Text -- ^ 'cccmCacheClusterId'
+                          -> CreateCacheClusterMessage
+createCacheClusterMessage p1 = CreateCacheClusterMessage
     { _cccmCacheClusterId             = p1
     , _cccmReplicationGroupId         = Nothing
     , _cccmAZMode                     = Nothing
@@ -349,11 +349,10 @@ cccmSnapshotRetentionLimit =
 cccmSnapshotWindow :: Lens' CreateCacheClusterMessage (Maybe Text)
 cccmSnapshotWindow =
     lens _cccmSnapshotWindow (\s a -> s { _cccmSnapshotWindow = a })
+instance ToQuery CreateCacheClusterMessage
 
 instance ToPath CreateCacheClusterMessage where
     toPath = const "/"
-
-instance ToQuery CreateCacheClusterMessage
 
 newtype CreateCacheClusterResult = CreateCacheClusterResult
     { _cccrCacheCluster :: Maybe CacheCluster
@@ -365,13 +364,16 @@ newtype CreateCacheClusterResult = CreateCacheClusterResult
 --
 -- * 'cccrCacheCluster' @::@ 'Maybe' 'CacheCluster'
 --
-createCacheClusterResponse :: CreateCacheClusterResult
-createCacheClusterResponse = CreateCacheClusterResult
+createCacheClusterResult :: CreateCacheClusterResult
+createCacheClusterResult = CreateCacheClusterResult
     { _cccrCacheCluster = Nothing
     }
 
 cccrCacheCluster :: Lens' CreateCacheClusterResult (Maybe CacheCluster)
 cccrCacheCluster = lens _cccrCacheCluster (\s a -> s { _cccrCacheCluster = a })
+instance FromXML CreateCacheClusterResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateCacheClusterResult"
 
 instance AWSRequest CreateCacheClusterMessage where
     type Sv CreateCacheClusterMessage = ElastiCache

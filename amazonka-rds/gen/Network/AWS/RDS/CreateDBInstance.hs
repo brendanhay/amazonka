@@ -26,7 +26,7 @@ module Network.AWS.RDS.CreateDBInstance
     -- * Request
       CreateDBInstanceMessage
     -- ** Request constructor
-    , createDBInstance
+    , createDBInstanceMessage
     -- ** Request lenses
     , cdbimAllocatedStorage
     , cdbimAutoMinorVersionUpgrade
@@ -60,7 +60,7 @@ module Network.AWS.RDS.CreateDBInstance
     -- * Response
     , CreateDBInstanceResult
     -- ** Response constructor
-    , createDBInstanceResponse
+    , createDBInstanceResult
     -- ** Response lenses
     , cdbirDBInstance
     ) where
@@ -160,14 +160,14 @@ data CreateDBInstanceMessage = CreateDBInstanceMessage
 --
 -- * 'cdbimVpcSecurityGroupIds' @::@ ['Text']
 --
-createDBInstance :: Text -- ^ 'cdbimDBInstanceIdentifier'
-                 -> Int -- ^ 'cdbimAllocatedStorage'
-                 -> Text -- ^ 'cdbimDBInstanceClass'
-                 -> Text -- ^ 'cdbimEngine'
-                 -> Text -- ^ 'cdbimMasterUsername'
-                 -> Text -- ^ 'cdbimMasterUserPassword'
-                 -> CreateDBInstanceMessage
-createDBInstance p1 p2 p3 p4 p5 p6 = CreateDBInstanceMessage
+createDBInstanceMessage :: Text -- ^ 'cdbimDBInstanceIdentifier'
+                        -> Int -- ^ 'cdbimAllocatedStorage'
+                        -> Text -- ^ 'cdbimDBInstanceClass'
+                        -> Text -- ^ 'cdbimEngine'
+                        -> Text -- ^ 'cdbimMasterUsername'
+                        -> Text -- ^ 'cdbimMasterUserPassword'
+                        -> CreateDBInstanceMessage
+createDBInstanceMessage p1 p2 p3 p4 p5 p6 = CreateDBInstanceMessage
     { _cdbimDBInstanceIdentifier       = p1
     , _cdbimAllocatedStorage           = p2
     , _cdbimDBInstanceClass            = p3
@@ -437,11 +437,10 @@ cdbimVpcSecurityGroupIds :: Lens' CreateDBInstanceMessage [Text]
 cdbimVpcSecurityGroupIds =
     lens _cdbimVpcSecurityGroupIds
         (\s a -> s { _cdbimVpcSecurityGroupIds = a })
+instance ToQuery CreateDBInstanceMessage
 
 instance ToPath CreateDBInstanceMessage where
     toPath = const "/"
-
-instance ToQuery CreateDBInstanceMessage
 
 newtype CreateDBInstanceResult = CreateDBInstanceResult
     { _cdbirDBInstance :: Maybe DBInstance
@@ -453,13 +452,16 @@ newtype CreateDBInstanceResult = CreateDBInstanceResult
 --
 -- * 'cdbirDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-createDBInstanceResponse :: CreateDBInstanceResult
-createDBInstanceResponse = CreateDBInstanceResult
+createDBInstanceResult :: CreateDBInstanceResult
+createDBInstanceResult = CreateDBInstanceResult
     { _cdbirDBInstance = Nothing
     }
 
 cdbirDBInstance :: Lens' CreateDBInstanceResult (Maybe DBInstance)
 cdbirDBInstance = lens _cdbirDBInstance (\s a -> s { _cdbirDBInstance = a })
+instance FromXML CreateDBInstanceResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDBInstanceResult"
 
 instance AWSRequest CreateDBInstanceMessage where
     type Sv CreateDBInstanceMessage = RDS

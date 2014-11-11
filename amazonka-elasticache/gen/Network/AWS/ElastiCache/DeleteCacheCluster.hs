@@ -32,7 +32,7 @@ module Network.AWS.ElastiCache.DeleteCacheCluster
     -- * Request
       DeleteCacheClusterMessage
     -- ** Request constructor
-    , deleteCacheCluster
+    , deleteCacheClusterMessage
     -- ** Request lenses
     , dccmCacheClusterId
     , dccmFinalSnapshotIdentifier
@@ -40,7 +40,7 @@ module Network.AWS.ElastiCache.DeleteCacheCluster
     -- * Response
     , DeleteCacheClusterResult
     -- ** Response constructor
-    , deleteCacheClusterResponse
+    , deleteCacheClusterResult
     -- ** Response lenses
     , dccrCacheCluster
     ) where
@@ -62,9 +62,9 @@ data DeleteCacheClusterMessage = DeleteCacheClusterMessage
 --
 -- * 'dccmFinalSnapshotIdentifier' @::@ 'Maybe' 'Text'
 --
-deleteCacheCluster :: Text -- ^ 'dccmCacheClusterId'
-                   -> DeleteCacheClusterMessage
-deleteCacheCluster p1 = DeleteCacheClusterMessage
+deleteCacheClusterMessage :: Text -- ^ 'dccmCacheClusterId'
+                          -> DeleteCacheClusterMessage
+deleteCacheClusterMessage p1 = DeleteCacheClusterMessage
     { _dccmCacheClusterId          = p1
     , _dccmFinalSnapshotIdentifier = Nothing
     }
@@ -82,11 +82,10 @@ dccmFinalSnapshotIdentifier :: Lens' DeleteCacheClusterMessage (Maybe Text)
 dccmFinalSnapshotIdentifier =
     lens _dccmFinalSnapshotIdentifier
         (\s a -> s { _dccmFinalSnapshotIdentifier = a })
+instance ToQuery DeleteCacheClusterMessage
 
 instance ToPath DeleteCacheClusterMessage where
     toPath = const "/"
-
-instance ToQuery DeleteCacheClusterMessage
 
 newtype DeleteCacheClusterResult = DeleteCacheClusterResult
     { _dccrCacheCluster :: Maybe CacheCluster
@@ -98,13 +97,16 @@ newtype DeleteCacheClusterResult = DeleteCacheClusterResult
 --
 -- * 'dccrCacheCluster' @::@ 'Maybe' 'CacheCluster'
 --
-deleteCacheClusterResponse :: DeleteCacheClusterResult
-deleteCacheClusterResponse = DeleteCacheClusterResult
+deleteCacheClusterResult :: DeleteCacheClusterResult
+deleteCacheClusterResult = DeleteCacheClusterResult
     { _dccrCacheCluster = Nothing
     }
 
 dccrCacheCluster :: Lens' DeleteCacheClusterResult (Maybe CacheCluster)
 dccrCacheCluster = lens _dccrCacheCluster (\s a -> s { _dccrCacheCluster = a })
+instance FromXML DeleteCacheClusterResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteCacheClusterResult"
 
 instance AWSRequest DeleteCacheClusterMessage where
     type Sv DeleteCacheClusterMessage = ElastiCache

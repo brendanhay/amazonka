@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketRequestPayment
     -- * Response
     , GetBucketRequestPaymentOutput
     -- ** Response constructor
-    , getBucketRequestPaymentResponse
+    , getBucketRequestPaymentOutput
     -- ** Response lenses
     , gbrpoPayer
     ) where
@@ -82,8 +82,8 @@ newtype GetBucketRequestPaymentOutput = GetBucketRequestPaymentOutput
 --
 -- * 'gbrpoPayer' @::@ 'Maybe' 'Text'
 --
-getBucketRequestPaymentResponse :: GetBucketRequestPaymentOutput
-getBucketRequestPaymentResponse = GetBucketRequestPaymentOutput
+getBucketRequestPaymentOutput :: GetBucketRequestPaymentOutput
+getBucketRequestPaymentOutput = GetBucketRequestPaymentOutput
     { _gbrpoPayer = Nothing
     }
 
@@ -91,6 +91,9 @@ getBucketRequestPaymentResponse = GetBucketRequestPaymentOutput
 gbrpoPayer :: Lens' GetBucketRequestPaymentOutput (Maybe Text)
 gbrpoPayer = lens _gbrpoPayer (\s a -> s { _gbrpoPayer = a })
 
+instance FromXML GetBucketRequestPaymentOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketRequestPaymentOutput"
 instance AWSRequest GetBucketRequestPayment where
     type Sv GetBucketRequestPayment = S3
     type Rs GetBucketRequestPayment = GetBucketRequestPaymentOutput

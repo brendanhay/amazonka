@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     -- * Request
       DescribeEventsMessage
     -- ** Request constructor
-    , describeEvents
+    , describeEventsMessage
     -- ** Request lenses
     , dem1ApplicationName
     , dem1EndTime
@@ -44,7 +44,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
     -- * Response
     , EventDescriptionsMessage
     -- ** Response constructor
-    , describeEventsResponse
+    , eventDescriptionsMessage
     -- ** Response lenses
     , edmEvents
     , edmNextToken
@@ -94,8 +94,8 @@ data DescribeEventsMessage = DescribeEventsMessage
 --
 -- * 'dem1VersionLabel' @::@ 'Maybe' 'Text'
 --
-describeEvents :: DescribeEventsMessage
-describeEvents = DescribeEventsMessage
+describeEventsMessage :: DescribeEventsMessage
+describeEventsMessage = DescribeEventsMessage
     { _dem1ApplicationName = Nothing
     , _dem1VersionLabel    = Nothing
     , _dem1TemplateName    = Nothing
@@ -168,11 +168,10 @@ dem1TemplateName = lens _dem1TemplateName (\s a -> s { _dem1TemplateName = a })
 -- to those associated with this application version.
 dem1VersionLabel :: Lens' DescribeEventsMessage (Maybe Text)
 dem1VersionLabel = lens _dem1VersionLabel (\s a -> s { _dem1VersionLabel = a })
+instance ToQuery DescribeEventsMessage
 
 instance ToPath DescribeEventsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeEventsMessage
 
 data EventDescriptionsMessage = EventDescriptionsMessage
     { _edmEvents    :: [EventDescription]
@@ -187,8 +186,8 @@ data EventDescriptionsMessage = EventDescriptionsMessage
 --
 -- * 'edmNextToken' @::@ 'Maybe' 'Text'
 --
-describeEventsResponse :: EventDescriptionsMessage
-describeEventsResponse = EventDescriptionsMessage
+eventDescriptionsMessage :: EventDescriptionsMessage
+eventDescriptionsMessage = EventDescriptionsMessage
     { _edmEvents    = mempty
     , _edmNextToken = Nothing
     }
@@ -202,6 +201,9 @@ edmEvents = lens _edmEvents (\s a -> s { _edmEvents = a })
 -- events.
 edmNextToken :: Lens' EventDescriptionsMessage (Maybe Text)
 edmNextToken = lens _edmNextToken (\s a -> s { _edmNextToken = a })
+instance FromXML EventDescriptionsMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EventDescriptionsMessage"
 
 instance AWSRequest DescribeEventsMessage where
     type Sv DescribeEventsMessage = ElasticBeanstalk

@@ -23,11 +23,6 @@ module Network.AWS.AutoScaling.Types
     (
     -- * Service
       AutoScaling
-    -- ** Errors
-    , AutoScalingError (..)
-    , _AutoScalingHttp
-    , _AutoScalingSerializer
-    , _AutoScalingService
     -- ** XML
     , xmlOptions
 
@@ -112,14 +107,14 @@ module Network.AWS.AutoScaling.Types
     -- * ScalingPolicy
     , ScalingPolicy
     , scalingPolicy
-    , spAdjustmentType
-    , spAlarms
-    , spAutoScalingGroupName
-    , spCooldown
-    , spMinAdjustmentStep
-    , spPolicyARN
-    , spPolicyName
-    , spScalingAdjustment
+    , sp1AdjustmentType
+    , sp1Alarms
+    , sp1AutoScalingGroupName
+    , sp1Cooldown
+    , sp1MinAdjustmentStep
+    , sp1PolicyARN
+    , sp1PolicyName
+    , sp1ScalingAdjustment
 
     -- * InstanceMonitoring
     , InstanceMonitoring
@@ -900,88 +895,89 @@ instance FromXML AutoScalingGroup where
 instance ToQuery AutoScalingGroup
 
 data ScalingPolicy = ScalingPolicy
-    { _spAdjustmentType       :: Maybe Text
-    , _spAlarms               :: [Alarm]
-    , _spAutoScalingGroupName :: Maybe Text
-    , _spCooldown             :: Maybe Int
-    , _spMinAdjustmentStep    :: Maybe Int
-    , _spPolicyARN            :: Maybe Text
-    , _spPolicyName           :: Maybe Text
-    , _spScalingAdjustment    :: Maybe Int
+    { _sp1AdjustmentType       :: Maybe Text
+    , _sp1Alarms               :: [Alarm]
+    , _sp1AutoScalingGroupName :: Maybe Text
+    , _sp1Cooldown             :: Maybe Int
+    , _sp1MinAdjustmentStep    :: Maybe Int
+    , _sp1PolicyARN            :: Maybe Text
+    , _sp1PolicyName           :: Maybe Text
+    , _sp1ScalingAdjustment    :: Maybe Int
     } deriving (Eq, Show, Generic)
 
 -- | 'ScalingPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'spAdjustmentType' @::@ 'Maybe' 'Text'
+-- * 'sp1AdjustmentType' @::@ 'Maybe' 'Text'
 --
--- * 'spAlarms' @::@ ['Alarm']
+-- * 'sp1Alarms' @::@ ['Alarm']
 --
--- * 'spAutoScalingGroupName' @::@ 'Maybe' 'Text'
+-- * 'sp1AutoScalingGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'spCooldown' @::@ 'Maybe' 'Int'
+-- * 'sp1Cooldown' @::@ 'Maybe' 'Int'
 --
--- * 'spMinAdjustmentStep' @::@ 'Maybe' 'Int'
+-- * 'sp1MinAdjustmentStep' @::@ 'Maybe' 'Int'
 --
--- * 'spPolicyARN' @::@ 'Maybe' 'Text'
+-- * 'sp1PolicyARN' @::@ 'Maybe' 'Text'
 --
--- * 'spPolicyName' @::@ 'Maybe' 'Text'
+-- * 'sp1PolicyName' @::@ 'Maybe' 'Text'
 --
--- * 'spScalingAdjustment' @::@ 'Maybe' 'Int'
+-- * 'sp1ScalingAdjustment' @::@ 'Maybe' 'Int'
 --
 scalingPolicy :: ScalingPolicy
 scalingPolicy = ScalingPolicy
-    { _spAutoScalingGroupName = Nothing
-    , _spPolicyName           = Nothing
-    , _spScalingAdjustment    = Nothing
-    , _spAdjustmentType       = Nothing
-    , _spCooldown             = Nothing
-    , _spPolicyARN            = Nothing
-    , _spAlarms               = mempty
-    , _spMinAdjustmentStep    = Nothing
+    { _sp1AutoScalingGroupName = Nothing
+    , _sp1PolicyName           = Nothing
+    , _sp1ScalingAdjustment    = Nothing
+    , _sp1AdjustmentType       = Nothing
+    , _sp1Cooldown             = Nothing
+    , _sp1PolicyARN            = Nothing
+    , _sp1Alarms               = mempty
+    , _sp1MinAdjustmentStep    = Nothing
     }
 
 -- | Specifies whether the ScalingAdjustment is an absolute number or a
 -- percentage of the current capacity. Valid values are ChangeInCapacity,
 -- ExactCapacity, and PercentChangeInCapacity.
-spAdjustmentType :: Lens' ScalingPolicy (Maybe Text)
-spAdjustmentType = lens _spAdjustmentType (\s a -> s { _spAdjustmentType = a })
+sp1AdjustmentType :: Lens' ScalingPolicy (Maybe Text)
+sp1AdjustmentType =
+    lens _sp1AdjustmentType (\s a -> s { _sp1AdjustmentType = a })
 
 -- | A list of CloudWatch Alarms related to the policy.
-spAlarms :: Lens' ScalingPolicy [Alarm]
-spAlarms = lens _spAlarms (\s a -> s { _spAlarms = a })
+sp1Alarms :: Lens' ScalingPolicy [Alarm]
+sp1Alarms = lens _sp1Alarms (\s a -> s { _sp1Alarms = a })
 
 -- | The name of the Auto Scaling group associated with this scaling policy.
-spAutoScalingGroupName :: Lens' ScalingPolicy (Maybe Text)
-spAutoScalingGroupName =
-    lens _spAutoScalingGroupName (\s a -> s { _spAutoScalingGroupName = a })
+sp1AutoScalingGroupName :: Lens' ScalingPolicy (Maybe Text)
+sp1AutoScalingGroupName =
+    lens _sp1AutoScalingGroupName (\s a -> s { _sp1AutoScalingGroupName = a })
 
 -- | The amount of time, in seconds, after a scaling activity completes before
 -- any further trigger-related scaling activities can start.
-spCooldown :: Lens' ScalingPolicy (Maybe Int)
-spCooldown = lens _spCooldown (\s a -> s { _spCooldown = a })
+sp1Cooldown :: Lens' ScalingPolicy (Maybe Int)
+sp1Cooldown = lens _sp1Cooldown (\s a -> s { _sp1Cooldown = a })
 
 -- | Changes the DesiredCapacity of the Auto Scaling group by at least the
 -- specified number of instances.
-spMinAdjustmentStep :: Lens' ScalingPolicy (Maybe Int)
-spMinAdjustmentStep =
-    lens _spMinAdjustmentStep (\s a -> s { _spMinAdjustmentStep = a })
+sp1MinAdjustmentStep :: Lens' ScalingPolicy (Maybe Int)
+sp1MinAdjustmentStep =
+    lens _sp1MinAdjustmentStep (\s a -> s { _sp1MinAdjustmentStep = a })
 
 -- | The Amazon Resource Name (ARN) of the policy.
-spPolicyARN :: Lens' ScalingPolicy (Maybe Text)
-spPolicyARN = lens _spPolicyARN (\s a -> s { _spPolicyARN = a })
+sp1PolicyARN :: Lens' ScalingPolicy (Maybe Text)
+sp1PolicyARN = lens _sp1PolicyARN (\s a -> s { _sp1PolicyARN = a })
 
 -- | The name of the scaling policy.
-spPolicyName :: Lens' ScalingPolicy (Maybe Text)
-spPolicyName = lens _spPolicyName (\s a -> s { _spPolicyName = a })
+sp1PolicyName :: Lens' ScalingPolicy (Maybe Text)
+sp1PolicyName = lens _sp1PolicyName (\s a -> s { _sp1PolicyName = a })
 
 -- | The number associated with the specified adjustment type. A positive
 -- value adds to the current capacity and a negative value removes from the
 -- current capacity.
-spScalingAdjustment :: Lens' ScalingPolicy (Maybe Int)
-spScalingAdjustment =
-    lens _spScalingAdjustment (\s a -> s { _spScalingAdjustment = a })
+sp1ScalingAdjustment :: Lens' ScalingPolicy (Maybe Int)
+sp1ScalingAdjustment =
+    lens _sp1ScalingAdjustment (\s a -> s { _sp1ScalingAdjustment = a })
 
 instance FromXML ScalingPolicy where
     fromXMLOptions = xmlOptions

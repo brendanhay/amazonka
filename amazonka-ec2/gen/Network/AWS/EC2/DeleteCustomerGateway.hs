@@ -69,21 +69,24 @@ dcg1CustomerGatewayId =
 
 dcg1DryRun :: Lens' DeleteCustomerGateway (Maybe Bool)
 dcg1DryRun = lens _dcg1DryRun (\s a -> s { _dcg1DryRun = a })
+instance ToQuery DeleteCustomerGateway
 
 instance ToPath DeleteCustomerGateway where
     toPath = const "/"
 
-instance ToQuery DeleteCustomerGateway
-
 data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteCustomerGatewayResponse' constructor.
 deleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse
 deleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
+instance FromXML DeleteCustomerGatewayResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteCustomerGatewayResponse"
 
 instance AWSRequest DeleteCustomerGateway where
     type Sv DeleteCustomerGateway = EC2
     type Rs DeleteCustomerGateway = DeleteCustomerGatewayResponse
 
     request  = post "DeleteCustomerGateway"
-    response = const (nullaryResponse DeleteCustomerGatewayResponse)
+    response = nullaryResponse DeleteCustomerGatewayResponse

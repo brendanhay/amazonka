@@ -73,11 +73,10 @@ dif1DomainName = lens _dif1DomainName (\s a -> s { _dif1DomainName = a })
 dif1IndexFieldName :: Lens' DeleteIndexField Text
 dif1IndexFieldName =
     lens _dif1IndexFieldName (\s a -> s { _dif1IndexFieldName = a })
+instance ToQuery DeleteIndexField
 
 instance ToPath DeleteIndexField where
     toPath = const "/"
-
-instance ToQuery DeleteIndexField
 
 newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
     { _difrIndexField :: IndexFieldStatus
@@ -98,6 +97,9 @@ deleteIndexFieldResponse p1 = DeleteIndexFieldResponse
 -- | The status of the index field being deleted.
 difrIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
 difrIndexField = lens _difrIndexField (\s a -> s { _difrIndexField = a })
+instance FromXML DeleteIndexFieldResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteIndexFieldResponse"
 
 instance AWSRequest DeleteIndexField where
     type Sv DeleteIndexField = CloudSearch

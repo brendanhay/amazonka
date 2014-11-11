@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeDBSnapshots
     -- * Request
       DescribeDBSnapshotsMessage
     -- ** Request constructor
-    , describeDBSnapshots
+    , describeDBSnapshotsMessage
     -- ** Request lenses
     , ddbsmDBInstanceIdentifier
     , ddbsmDBSnapshotIdentifier
@@ -38,7 +38,7 @@ module Network.AWS.RDS.DescribeDBSnapshots
     -- * Response
     , DBSnapshotMessage
     -- ** Response constructor
-    , describeDBSnapshotsResponse
+    , dbsnapshotMessage
     -- ** Response lenses
     , dbsmDBSnapshots
     , dbsmMarker
@@ -73,8 +73,8 @@ data DescribeDBSnapshotsMessage = DescribeDBSnapshotsMessage
 --
 -- * 'ddbsmSnapshotType' @::@ 'Maybe' 'Text'
 --
-describeDBSnapshots :: DescribeDBSnapshotsMessage
-describeDBSnapshots = DescribeDBSnapshotsMessage
+describeDBSnapshotsMessage :: DescribeDBSnapshotsMessage
+describeDBSnapshotsMessage = DescribeDBSnapshotsMessage
     { _ddbsmDBInstanceIdentifier = Nothing
     , _ddbsmDBSnapshotIdentifier = Nothing
     , _ddbsmSnapshotType         = Nothing
@@ -127,11 +127,10 @@ ddbsmMaxRecords = lens _ddbsmMaxRecords (\s a -> s { _ddbsmMaxRecords = a })
 ddbsmSnapshotType :: Lens' DescribeDBSnapshotsMessage (Maybe Text)
 ddbsmSnapshotType =
     lens _ddbsmSnapshotType (\s a -> s { _ddbsmSnapshotType = a })
+instance ToQuery DescribeDBSnapshotsMessage
 
 instance ToPath DescribeDBSnapshotsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeDBSnapshotsMessage
 
 data DBSnapshotMessage = DBSnapshotMessage
     { _dbsmDBSnapshots :: [DBSnapshot]
@@ -146,8 +145,8 @@ data DBSnapshotMessage = DBSnapshotMessage
 --
 -- * 'dbsmMarker' @::@ 'Maybe' 'Text'
 --
-describeDBSnapshotsResponse :: DBSnapshotMessage
-describeDBSnapshotsResponse = DBSnapshotMessage
+dbsnapshotMessage :: DBSnapshotMessage
+dbsnapshotMessage = DBSnapshotMessage
     { _dbsmMarker      = Nothing
     , _dbsmDBSnapshots = mempty
     }
@@ -161,6 +160,9 @@ dbsmDBSnapshots = lens _dbsmDBSnapshots (\s a -> s { _dbsmDBSnapshots = a })
 -- marker, up to the value specified by MaxRecords.
 dbsmMarker :: Lens' DBSnapshotMessage (Maybe Text)
 dbsmMarker = lens _dbsmMarker (\s a -> s { _dbsmMarker = a })
+instance FromXML DBSnapshotMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DBSnapshotMessage"
 
 instance AWSRequest DescribeDBSnapshotsMessage where
     type Sv DescribeDBSnapshotsMessage = RDS

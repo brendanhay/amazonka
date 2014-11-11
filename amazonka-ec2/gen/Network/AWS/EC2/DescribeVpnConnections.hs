@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeVpnConnections
     -- * Response
     , DescribeVpnConnectionsResult
     -- ** Response constructor
-    , describeVpnConnectionsResponse
+    , describeVpnConnectionsResult
     -- ** Response lenses
     , dvcrVpnConnections
     ) where
@@ -100,11 +100,10 @@ dvc1Filters = lens _dvc1Filters (\s a -> s { _dvc1Filters = a })
 dvc1VpnConnectionIds :: Lens' DescribeVpnConnections [Text]
 dvc1VpnConnectionIds =
     lens _dvc1VpnConnectionIds (\s a -> s { _dvc1VpnConnectionIds = a })
+instance ToQuery DescribeVpnConnections
 
 instance ToPath DescribeVpnConnections where
     toPath = const "/"
-
-instance ToQuery DescribeVpnConnections
 
 newtype DescribeVpnConnectionsResult = DescribeVpnConnectionsResult
     { _dvcrVpnConnections :: [VpnConnection]
@@ -116,8 +115,8 @@ newtype DescribeVpnConnectionsResult = DescribeVpnConnectionsResult
 --
 -- * 'dvcrVpnConnections' @::@ ['VpnConnection']
 --
-describeVpnConnectionsResponse :: DescribeVpnConnectionsResult
-describeVpnConnectionsResponse = DescribeVpnConnectionsResult
+describeVpnConnectionsResult :: DescribeVpnConnectionsResult
+describeVpnConnectionsResult = DescribeVpnConnectionsResult
     { _dvcrVpnConnections = mempty
     }
 
@@ -125,6 +124,9 @@ describeVpnConnectionsResponse = DescribeVpnConnectionsResult
 dvcrVpnConnections :: Lens' DescribeVpnConnectionsResult [VpnConnection]
 dvcrVpnConnections =
     lens _dvcrVpnConnections (\s a -> s { _dvcrVpnConnections = a })
+instance FromXML DescribeVpnConnectionsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVpnConnectionsResult"
 
 instance AWSRequest DescribeVpnConnections where
     type Sv DescribeVpnConnections = EC2

@@ -27,14 +27,14 @@ module Network.AWS.ImportExport.CancelJob
     -- * Request
       CancelJobInput
     -- ** Request constructor
-    , cancelJob
+    , cancelJobInput
     -- ** Request lenses
     , cjiJobId
 
     -- * Response
     , CancelJobOutput
     -- ** Response constructor
-    , cancelJobResponse
+    , cancelJobOutput
     -- ** Response lenses
     , cjoSuccess
     ) where
@@ -53,19 +53,18 @@ newtype CancelJobInput = CancelJobInput
 --
 -- * 'cjiJobId' @::@ 'Text'
 --
-cancelJob :: Text -- ^ 'cjiJobId'
-          -> CancelJobInput
-cancelJob p1 = CancelJobInput
+cancelJobInput :: Text -- ^ 'cjiJobId'
+               -> CancelJobInput
+cancelJobInput p1 = CancelJobInput
     { _cjiJobId = p1
     }
 
 cjiJobId :: Lens' CancelJobInput Text
 cjiJobId = lens _cjiJobId (\s a -> s { _cjiJobId = a })
+instance ToQuery CancelJobInput
 
 instance ToPath CancelJobInput where
     toPath = const "/"
-
-instance ToQuery CancelJobInput
 
 newtype CancelJobOutput = CancelJobOutput
     { _cjoSuccess :: Maybe Bool
@@ -77,13 +76,16 @@ newtype CancelJobOutput = CancelJobOutput
 --
 -- * 'cjoSuccess' @::@ 'Maybe' 'Bool'
 --
-cancelJobResponse :: CancelJobOutput
-cancelJobResponse = CancelJobOutput
+cancelJobOutput :: CancelJobOutput
+cancelJobOutput = CancelJobOutput
     { _cjoSuccess = Nothing
     }
 
 cjoSuccess :: Lens' CancelJobOutput (Maybe Bool)
 cjoSuccess = lens _cjoSuccess (\s a -> s { _cjoSuccess = a })
+instance FromXML CancelJobOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CancelJobOutput"
 
 instance AWSRequest CancelJobInput where
     type Sv CancelJobInput = ImportExport

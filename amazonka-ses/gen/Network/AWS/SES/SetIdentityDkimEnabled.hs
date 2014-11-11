@@ -80,21 +80,24 @@ sideDkimEnabled = lens _sideDkimEnabled (\s a -> s { _sideDkimEnabled = a })
 -- | The identity for which DKIM signing should be enabled or disabled.
 sideIdentity :: Lens' SetIdentityDkimEnabled Text
 sideIdentity = lens _sideIdentity (\s a -> s { _sideIdentity = a })
+instance ToQuery SetIdentityDkimEnabled
 
 instance ToPath SetIdentityDkimEnabled where
     toPath = const "/"
 
-instance ToQuery SetIdentityDkimEnabled
-
 data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetIdentityDkimEnabledResponse' constructor.
 setIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse
 setIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
+instance FromXML SetIdentityDkimEnabledResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SetIdentityDkimEnabledResponse"
 
 instance AWSRequest SetIdentityDkimEnabled where
     type Sv SetIdentityDkimEnabled = SES
     type Rs SetIdentityDkimEnabled = SetIdentityDkimEnabledResponse
 
     request  = post "SetIdentityDkimEnabled"
-    response = const (nullaryResponse SetIdentityDkimEnabledResponse)
+    response = nullaryResponse SetIdentityDkimEnabledResponse

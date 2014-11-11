@@ -28,7 +28,7 @@ module Network.AWS.SNS.DeletePlatformApplication
     -- * Request
       DeletePlatformApplicationInput
     -- ** Request constructor
-    , deletePlatformApplication
+    , deletePlatformApplicationInput
     -- ** Request lenses
     , dpaiPlatformApplicationArn
 
@@ -52,9 +52,9 @@ newtype DeletePlatformApplicationInput = DeletePlatformApplicationInput
 --
 -- * 'dpaiPlatformApplicationArn' @::@ 'Text'
 --
-deletePlatformApplication :: Text -- ^ 'dpaiPlatformApplicationArn'
-                          -> DeletePlatformApplicationInput
-deletePlatformApplication p1 = DeletePlatformApplicationInput
+deletePlatformApplicationInput :: Text -- ^ 'dpaiPlatformApplicationArn'
+                               -> DeletePlatformApplicationInput
+deletePlatformApplicationInput p1 = DeletePlatformApplicationInput
     { _dpaiPlatformApplicationArn = p1
     }
 
@@ -63,21 +63,24 @@ dpaiPlatformApplicationArn :: Lens' DeletePlatformApplicationInput Text
 dpaiPlatformApplicationArn =
     lens _dpaiPlatformApplicationArn
         (\s a -> s { _dpaiPlatformApplicationArn = a })
+instance ToQuery DeletePlatformApplicationInput
 
 instance ToPath DeletePlatformApplicationInput where
     toPath = const "/"
 
-instance ToQuery DeletePlatformApplicationInput
-
 data DeletePlatformApplicationResponse = DeletePlatformApplicationResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeletePlatformApplicationResponse' constructor.
 deletePlatformApplicationResponse :: DeletePlatformApplicationResponse
 deletePlatformApplicationResponse = DeletePlatformApplicationResponse
+instance FromXML DeletePlatformApplicationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeletePlatformApplicationResponse"
 
 instance AWSRequest DeletePlatformApplicationInput where
     type Sv DeletePlatformApplicationInput = SNS
     type Rs DeletePlatformApplicationInput = DeletePlatformApplicationResponse
 
     request  = post "DeletePlatformApplication"
-    response = const (nullaryResponse DeletePlatformApplicationResponse)
+    response = nullaryResponse DeletePlatformApplicationResponse

@@ -46,7 +46,7 @@ module Network.AWS.EC2.DetachVolume
     -- * Response
     , VolumeAttachment
     -- ** Response constructor
-    , detachVolumeResponse
+    , volumeAttachment
     -- ** Response lenses
     , vaAttachTime
     , vaDeleteOnTermination
@@ -116,11 +116,10 @@ dv4InstanceId = lens _dv4InstanceId (\s a -> s { _dv4InstanceId = a })
 -- | The ID of the volume.
 dv4VolumeId :: Lens' DetachVolume Text
 dv4VolumeId = lens _dv4VolumeId (\s a -> s { _dv4VolumeId = a })
+instance ToQuery DetachVolume
 
 instance ToPath DetachVolume where
     toPath = const "/"
-
-instance ToQuery DetachVolume
 
 instance AWSRequest DetachVolume where
     type Sv DetachVolume = EC2

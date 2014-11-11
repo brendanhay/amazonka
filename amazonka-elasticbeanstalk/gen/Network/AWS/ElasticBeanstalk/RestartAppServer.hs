@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.RestartAppServer
     -- * Request
       RestartAppServerMessage
     -- ** Request constructor
-    , restartAppServer
+    , restartAppServerMessage
     -- ** Request lenses
     , rasmEnvironmentId
     , rasmEnvironmentName
@@ -55,8 +55,8 @@ data RestartAppServerMessage = RestartAppServerMessage
 --
 -- * 'rasmEnvironmentName' @::@ 'Maybe' 'Text'
 --
-restartAppServer :: RestartAppServerMessage
-restartAppServer = RestartAppServerMessage
+restartAppServerMessage :: RestartAppServerMessage
+restartAppServerMessage = RestartAppServerMessage
     { _rasmEnvironmentId   = Nothing
     , _rasmEnvironmentName = Nothing
     }
@@ -75,21 +75,24 @@ rasmEnvironmentId =
 rasmEnvironmentName :: Lens' RestartAppServerMessage (Maybe Text)
 rasmEnvironmentName =
     lens _rasmEnvironmentName (\s a -> s { _rasmEnvironmentName = a })
+instance ToQuery RestartAppServerMessage
 
 instance ToPath RestartAppServerMessage where
     toPath = const "/"
 
-instance ToQuery RestartAppServerMessage
-
 data RestartAppServerResponse = RestartAppServerResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'RestartAppServerResponse' constructor.
 restartAppServerResponse :: RestartAppServerResponse
 restartAppServerResponse = RestartAppServerResponse
+instance FromXML RestartAppServerResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RestartAppServerResponse"
 
 instance AWSRequest RestartAppServerMessage where
     type Sv RestartAppServerMessage = ElasticBeanstalk
     type Rs RestartAppServerMessage = RestartAppServerResponse
 
     request  = post "RestartAppServer"
-    response = const (nullaryResponse RestartAppServerResponse)
+    response = nullaryResponse RestartAppServerResponse

@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeSecurityGroups
     -- * Response
     , DescribeSecurityGroupsResult
     -- ** Response constructor
-    , describeSecurityGroupsResponse
+    , describeSecurityGroupsResult
     -- ** Response lenses
     , dsgrSecurityGroups
     ) where
@@ -107,11 +107,10 @@ dsgGroupIds = lens _dsgGroupIds (\s a -> s { _dsgGroupIds = a })
 -- Describes all your security groups.
 dsgGroupNames :: Lens' DescribeSecurityGroups [Text]
 dsgGroupNames = lens _dsgGroupNames (\s a -> s { _dsgGroupNames = a })
+instance ToQuery DescribeSecurityGroups
 
 instance ToPath DescribeSecurityGroups where
     toPath = const "/"
-
-instance ToQuery DescribeSecurityGroups
 
 newtype DescribeSecurityGroupsResult = DescribeSecurityGroupsResult
     { _dsgrSecurityGroups :: [SecurityGroup]
@@ -123,8 +122,8 @@ newtype DescribeSecurityGroupsResult = DescribeSecurityGroupsResult
 --
 -- * 'dsgrSecurityGroups' @::@ ['SecurityGroup']
 --
-describeSecurityGroupsResponse :: DescribeSecurityGroupsResult
-describeSecurityGroupsResponse = DescribeSecurityGroupsResult
+describeSecurityGroupsResult :: DescribeSecurityGroupsResult
+describeSecurityGroupsResult = DescribeSecurityGroupsResult
     { _dsgrSecurityGroups = mempty
     }
 
@@ -132,6 +131,9 @@ describeSecurityGroupsResponse = DescribeSecurityGroupsResult
 dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResult [SecurityGroup]
 dsgrSecurityGroups =
     lens _dsgrSecurityGroups (\s a -> s { _dsgrSecurityGroups = a })
+instance FromXML DescribeSecurityGroupsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSecurityGroupsResult"
 
 instance AWSRequest DescribeSecurityGroups where
     type Sv DescribeSecurityGroups = EC2

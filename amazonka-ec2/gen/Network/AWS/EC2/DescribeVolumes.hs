@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeVolumes
     -- * Response
     , DescribeVolumesResult
     -- ** Response constructor
-    , describeVolumesResponse
+    , describeVolumesResult
     -- ** Response lenses
     , dvrNextToken
     , dvrVolumes
@@ -136,11 +136,10 @@ dvNextToken = lens _dvNextToken (\s a -> s { _dvNextToken = a })
 -- | One or more volume IDs.
 dvVolumeIds :: Lens' DescribeVolumes [Text]
 dvVolumeIds = lens _dvVolumeIds (\s a -> s { _dvVolumeIds = a })
+instance ToQuery DescribeVolumes
 
 instance ToPath DescribeVolumes where
     toPath = const "/"
-
-instance ToQuery DescribeVolumes
 
 data DescribeVolumesResult = DescribeVolumesResult
     { _dvrNextToken :: Maybe Text
@@ -155,8 +154,8 @@ data DescribeVolumesResult = DescribeVolumesResult
 --
 -- * 'dvrVolumes' @::@ ['Volume']
 --
-describeVolumesResponse :: DescribeVolumesResult
-describeVolumesResponse = DescribeVolumesResult
+describeVolumesResult :: DescribeVolumesResult
+describeVolumesResult = DescribeVolumesResult
     { _dvrVolumes   = mempty
     , _dvrNextToken = Nothing
     }
@@ -170,6 +169,9 @@ dvrNextToken = lens _dvrNextToken (\s a -> s { _dvrNextToken = a })
 
 dvrVolumes :: Lens' DescribeVolumesResult [Volume]
 dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a })
+instance FromXML DescribeVolumesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVolumesResult"
 
 instance AWSRequest DescribeVolumes where
     type Sv DescribeVolumes = EC2

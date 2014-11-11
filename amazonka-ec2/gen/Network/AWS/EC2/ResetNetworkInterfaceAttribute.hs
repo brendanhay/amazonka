@@ -79,21 +79,24 @@ rniaNetworkInterfaceId =
 rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
 rniaSourceDestCheck =
     lens _rniaSourceDestCheck (\s a -> s { _rniaSourceDestCheck = a })
+instance ToQuery ResetNetworkInterfaceAttribute
 
 instance ToPath ResetNetworkInterfaceAttribute where
     toPath = const "/"
 
-instance ToQuery ResetNetworkInterfaceAttribute
-
 data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResetNetworkInterfaceAttributeResponse' constructor.
 resetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse
 resetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
+instance FromXML ResetNetworkInterfaceAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResetNetworkInterfaceAttributeResponse"
 
 instance AWSRequest ResetNetworkInterfaceAttribute where
     type Sv ResetNetworkInterfaceAttribute = EC2
     type Rs ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttributeResponse
 
     request  = post "ResetNetworkInterfaceAttribute"
-    response = const (nullaryResponse ResetNetworkInterfaceAttributeResponse)
+    response = nullaryResponse ResetNetworkInterfaceAttributeResponse

@@ -44,15 +44,15 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.Types
 
 data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListVerifiedEmailAddresses' constructor.
 listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
 listVerifiedEmailAddresses = ListVerifiedEmailAddresses
+instance ToQuery ListVerifiedEmailAddresses
 
 instance ToPath ListVerifiedEmailAddresses where
     toPath = const "/"
-
-instance ToQuery ListVerifiedEmailAddresses
 
 newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
     { _lvearVerifiedEmailAddresses :: [Text]
@@ -74,6 +74,9 @@ lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
 lvearVerifiedEmailAddresses =
     lens _lvearVerifiedEmailAddresses
         (\s a -> s { _lvearVerifiedEmailAddresses = a })
+instance FromXML ListVerifiedEmailAddressesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListVerifiedEmailAddressesResponse"
 
 instance AWSRequest ListVerifiedEmailAddresses where
     type Sv ListVerifiedEmailAddresses = SES

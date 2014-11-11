@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribePlacementGroups
     -- * Response
     , DescribePlacementGroupsResult
     -- ** Response constructor
-    , describePlacementGroupsResponse
+    , describePlacementGroupsResult
     -- ** Response lenses
     , dpgrPlacementGroups
     ) where
@@ -82,11 +82,10 @@ dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a })
 -- groups, or only those otherwise specified.
 dpg1GroupNames :: Lens' DescribePlacementGroups [Text]
 dpg1GroupNames = lens _dpg1GroupNames (\s a -> s { _dpg1GroupNames = a })
+instance ToQuery DescribePlacementGroups
 
 instance ToPath DescribePlacementGroups where
     toPath = const "/"
-
-instance ToQuery DescribePlacementGroups
 
 newtype DescribePlacementGroupsResult = DescribePlacementGroupsResult
     { _dpgrPlacementGroups :: [PlacementGroup]
@@ -98,8 +97,8 @@ newtype DescribePlacementGroupsResult = DescribePlacementGroupsResult
 --
 -- * 'dpgrPlacementGroups' @::@ ['PlacementGroup']
 --
-describePlacementGroupsResponse :: DescribePlacementGroupsResult
-describePlacementGroupsResponse = DescribePlacementGroupsResult
+describePlacementGroupsResult :: DescribePlacementGroupsResult
+describePlacementGroupsResult = DescribePlacementGroupsResult
     { _dpgrPlacementGroups = mempty
     }
 
@@ -107,6 +106,9 @@ describePlacementGroupsResponse = DescribePlacementGroupsResult
 dpgrPlacementGroups :: Lens' DescribePlacementGroupsResult [PlacementGroup]
 dpgrPlacementGroups =
     lens _dpgrPlacementGroups (\s a -> s { _dpgrPlacementGroups = a })
+instance FromXML DescribePlacementGroupsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribePlacementGroupsResult"
 
 instance AWSRequest DescribePlacementGroups where
     type Sv DescribePlacementGroups = EC2

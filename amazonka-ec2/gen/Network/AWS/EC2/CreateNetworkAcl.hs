@@ -37,7 +37,7 @@ module Network.AWS.EC2.CreateNetworkAcl
     -- * Response
     , CreateNetworkAclResult
     -- ** Response constructor
-    , createNetworkAclResponse
+    , createNetworkAclResult
     -- ** Response lenses
     , cnarNetworkAcl
     ) where
@@ -72,11 +72,10 @@ cnaDryRun = lens _cnaDryRun (\s a -> s { _cnaDryRun = a })
 -- | The ID of the VPC.
 cnaVpcId :: Lens' CreateNetworkAcl Text
 cnaVpcId = lens _cnaVpcId (\s a -> s { _cnaVpcId = a })
+instance ToQuery CreateNetworkAcl
 
 instance ToPath CreateNetworkAcl where
     toPath = const "/"
-
-instance ToQuery CreateNetworkAcl
 
 newtype CreateNetworkAclResult = CreateNetworkAclResult
     { _cnarNetworkAcl :: Maybe NetworkAcl
@@ -88,14 +87,17 @@ newtype CreateNetworkAclResult = CreateNetworkAclResult
 --
 -- * 'cnarNetworkAcl' @::@ 'Maybe' 'NetworkAcl'
 --
-createNetworkAclResponse :: CreateNetworkAclResult
-createNetworkAclResponse = CreateNetworkAclResult
+createNetworkAclResult :: CreateNetworkAclResult
+createNetworkAclResult = CreateNetworkAclResult
     { _cnarNetworkAcl = Nothing
     }
 
 -- | Information about the network ACL.
 cnarNetworkAcl :: Lens' CreateNetworkAclResult (Maybe NetworkAcl)
 cnarNetworkAcl = lens _cnarNetworkAcl (\s a -> s { _cnarNetworkAcl = a })
+instance FromXML CreateNetworkAclResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateNetworkAclResult"
 
 instance AWSRequest CreateNetworkAcl where
     type Sv CreateNetworkAcl = EC2

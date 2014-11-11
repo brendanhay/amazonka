@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.SetInstanceHealth
     -- * Request
       SetInstanceHealthQuery
     -- ** Request constructor
-    , setInstanceHealth
+    , setInstanceHealthQuery
     -- ** Request lenses
     , sihqHealthStatus
     , sihqInstanceId
@@ -60,10 +60,10 @@ data SetInstanceHealthQuery = SetInstanceHealthQuery
 --
 -- * 'sihqShouldRespectGracePeriod' @::@ 'Maybe' 'Bool'
 --
-setInstanceHealth :: Text -- ^ 'sihqInstanceId'
-                  -> Text -- ^ 'sihqHealthStatus'
-                  -> SetInstanceHealthQuery
-setInstanceHealth p1 p2 = SetInstanceHealthQuery
+setInstanceHealthQuery :: Text -- ^ 'sihqInstanceId'
+                       -> Text -- ^ 'sihqHealthStatus'
+                       -> SetInstanceHealthQuery
+setInstanceHealthQuery p1 p2 = SetInstanceHealthQuery
     { _sihqInstanceId               = p1
     , _sihqHealthStatus             = p2
     , _sihqShouldRespectGracePeriod = Nothing
@@ -90,21 +90,24 @@ sihqShouldRespectGracePeriod :: Lens' SetInstanceHealthQuery (Maybe Bool)
 sihqShouldRespectGracePeriod =
     lens _sihqShouldRespectGracePeriod
         (\s a -> s { _sihqShouldRespectGracePeriod = a })
+instance ToQuery SetInstanceHealthQuery
 
 instance ToPath SetInstanceHealthQuery where
     toPath = const "/"
 
-instance ToQuery SetInstanceHealthQuery
-
 data SetInstanceHealthResponse = SetInstanceHealthResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetInstanceHealthResponse' constructor.
 setInstanceHealthResponse :: SetInstanceHealthResponse
 setInstanceHealthResponse = SetInstanceHealthResponse
+instance FromXML SetInstanceHealthResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SetInstanceHealthResponse"
 
 instance AWSRequest SetInstanceHealthQuery where
     type Sv SetInstanceHealthQuery = AutoScaling
     type Rs SetInstanceHealthQuery = SetInstanceHealthResponse
 
     request  = post "SetInstanceHealth"
-    response = const (nullaryResponse SetInstanceHealthResponse)
+    response = nullaryResponse SetInstanceHealthResponse

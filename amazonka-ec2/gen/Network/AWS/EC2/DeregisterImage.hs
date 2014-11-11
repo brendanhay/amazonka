@@ -68,21 +68,24 @@ di2DryRun = lens _di2DryRun (\s a -> s { _di2DryRun = a })
 -- | The ID of the AMI.
 di2ImageId :: Lens' DeregisterImage Text
 di2ImageId = lens _di2ImageId (\s a -> s { _di2ImageId = a })
+instance ToQuery DeregisterImage
 
 instance ToPath DeregisterImage where
     toPath = const "/"
 
-instance ToQuery DeregisterImage
-
 data DeregisterImageResponse = DeregisterImageResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeregisterImageResponse' constructor.
 deregisterImageResponse :: DeregisterImageResponse
 deregisterImageResponse = DeregisterImageResponse
+instance FromXML DeregisterImageResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeregisterImageResponse"
 
 instance AWSRequest DeregisterImage where
     type Sv DeregisterImage = EC2
     type Rs DeregisterImage = DeregisterImageResponse
 
     request  = post "DeregisterImage"
-    response = const (nullaryResponse DeregisterImageResponse)
+    response = nullaryResponse DeregisterImageResponse

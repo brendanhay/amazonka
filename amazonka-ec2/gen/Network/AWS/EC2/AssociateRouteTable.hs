@@ -41,7 +41,7 @@ module Network.AWS.EC2.AssociateRouteTable
     -- * Response
     , AssociateRouteTableResult
     -- ** Response constructor
-    , associateRouteTableResponse
+    , associateRouteTableResult
     -- ** Response lenses
     , artrAssociationId
     ) where
@@ -85,11 +85,10 @@ artRouteTableId = lens _artRouteTableId (\s a -> s { _artRouteTableId = a })
 -- | The ID of the subnet.
 artSubnetId :: Lens' AssociateRouteTable Text
 artSubnetId = lens _artSubnetId (\s a -> s { _artSubnetId = a })
+instance ToQuery AssociateRouteTable
 
 instance ToPath AssociateRouteTable where
     toPath = const "/"
-
-instance ToQuery AssociateRouteTable
 
 newtype AssociateRouteTableResult = AssociateRouteTableResult
     { _artrAssociationId :: Maybe Text
@@ -101,8 +100,8 @@ newtype AssociateRouteTableResult = AssociateRouteTableResult
 --
 -- * 'artrAssociationId' @::@ 'Maybe' 'Text'
 --
-associateRouteTableResponse :: AssociateRouteTableResult
-associateRouteTableResponse = AssociateRouteTableResult
+associateRouteTableResult :: AssociateRouteTableResult
+associateRouteTableResult = AssociateRouteTableResult
     { _artrAssociationId = Nothing
     }
 
@@ -110,6 +109,9 @@ associateRouteTableResponse = AssociateRouteTableResult
 artrAssociationId :: Lens' AssociateRouteTableResult (Maybe Text)
 artrAssociationId =
     lens _artrAssociationId (\s a -> s { _artrAssociationId = a })
+instance FromXML AssociateRouteTableResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AssociateRouteTableResult"
 
 instance AWSRequest AssociateRouteTable where
     type Sv AssociateRouteTable = EC2

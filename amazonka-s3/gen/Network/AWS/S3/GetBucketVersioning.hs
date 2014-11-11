@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketVersioning
     -- * Response
     , GetBucketVersioningOutput
     -- ** Response constructor
-    , getBucketVersioningResponse
+    , getBucketVersioningOutput
     -- ** Response lenses
     , gbvoMFADelete
     , gbvoStatus
@@ -86,8 +86,8 @@ data GetBucketVersioningOutput = GetBucketVersioningOutput
 --
 -- * 'gbvoStatus' @::@ 'Maybe' 'Text'
 --
-getBucketVersioningResponse :: GetBucketVersioningOutput
-getBucketVersioningResponse = GetBucketVersioningOutput
+getBucketVersioningOutput :: GetBucketVersioningOutput
+getBucketVersioningOutput = GetBucketVersioningOutput
     { _gbvoStatus    = Nothing
     , _gbvoMFADelete = Nothing
     }
@@ -103,6 +103,9 @@ gbvoMFADelete = lens _gbvoMFADelete (\s a -> s { _gbvoMFADelete = a })
 gbvoStatus :: Lens' GetBucketVersioningOutput (Maybe Text)
 gbvoStatus = lens _gbvoStatus (\s a -> s { _gbvoStatus = a })
 
+instance FromXML GetBucketVersioningOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketVersioningOutput"
 instance AWSRequest GetBucketVersioning where
     type Sv GetBucketVersioning = S3
     type Rs GetBucketVersioning = GetBucketVersioningOutput

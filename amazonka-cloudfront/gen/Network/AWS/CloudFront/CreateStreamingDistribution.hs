@@ -26,14 +26,14 @@ module Network.AWS.CloudFront.CreateStreamingDistribution
     -- * Request
       CreateStreamingDistribution
     -- ** Request constructor
-    , createStreamingDistribution2014_05_31
+    , createStreamingDistribution
     -- ** Request lenses
     , csdStreamingDistributionConfig
 
     -- * Response
     , CreateStreamingDistributionResult
     -- ** Response constructor
-    , createStreamingDistribution2014_05_31Response
+    , createStreamingDistributionResult
     -- ** Response lenses
     , csdrETag
     , csdrLocation
@@ -54,9 +54,9 @@ newtype CreateStreamingDistribution = CreateStreamingDistribution
 --
 -- * 'csdStreamingDistributionConfig' @::@ 'StreamingDistributionConfig'
 --
-createStreamingDistribution2014_05_31 :: StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
-                                      -> CreateStreamingDistribution
-createStreamingDistribution2014_05_31 p1 = CreateStreamingDistribution
+createStreamingDistribution :: StreamingDistributionConfig -- ^ 'csdStreamingDistributionConfig'
+                            -> CreateStreamingDistribution
+createStreamingDistribution p1 = CreateStreamingDistribution
     { _csdStreamingDistributionConfig = p1
     }
 
@@ -93,8 +93,8 @@ data CreateStreamingDistributionResult = CreateStreamingDistributionResult
 --
 -- * 'csdrStreamingDistribution' @::@ 'Maybe' 'StreamingDistribution'
 --
-createStreamingDistribution2014_05_31Response :: CreateStreamingDistributionResult
-createStreamingDistribution2014_05_31Response = CreateStreamingDistributionResult
+createStreamingDistributionResult :: CreateStreamingDistributionResult
+createStreamingDistributionResult = CreateStreamingDistributionResult
     { _csdrStreamingDistribution = Nothing
     , _csdrLocation              = Nothing
     , _csdrETag                  = Nothing
@@ -117,6 +117,9 @@ csdrStreamingDistribution =
     lens _csdrStreamingDistribution
         (\s a -> s { _csdrStreamingDistribution = a })
 
+instance FromXML CreateStreamingDistributionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateStreamingDistributionResult"
 instance AWSRequest CreateStreamingDistribution where
     type Sv CreateStreamingDistribution = CloudFront
     type Rs CreateStreamingDistribution = CreateStreamingDistributionResult

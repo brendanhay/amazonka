@@ -110,6 +110,9 @@ ltfrrResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
 ltfrrResourceTagSets =
     lens _ltfrrResourceTagSets (\s a -> s { _ltfrrResourceTagSets = a })
 
+instance FromXML ListTagsForResourcesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListTagsForResourcesResponse"
 instance AWSRequest ListTagsForResources where
     type Sv ListTagsForResources = Route53
     type Rs ListTagsForResources = ListTagsForResourcesResponse

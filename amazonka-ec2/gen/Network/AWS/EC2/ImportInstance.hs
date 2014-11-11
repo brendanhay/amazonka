@@ -41,7 +41,7 @@ module Network.AWS.EC2.ImportInstance
     -- * Response
     , ImportInstanceResult
     -- ** Response constructor
-    , importInstanceResponse
+    , importInstanceResult
     -- ** Response lenses
     , iirConversionTask
     ) where
@@ -100,11 +100,10 @@ iiLaunchSpecification =
 -- | The instance operating system.
 iiPlatform :: Lens' ImportInstance Text
 iiPlatform = lens _iiPlatform (\s a -> s { _iiPlatform = a })
+instance ToQuery ImportInstance
 
 instance ToPath ImportInstance where
     toPath = const "/"
-
-instance ToQuery ImportInstance
 
 newtype ImportInstanceResult = ImportInstanceResult
     { _iirConversionTask :: Maybe ConversionTask
@@ -116,14 +115,17 @@ newtype ImportInstanceResult = ImportInstanceResult
 --
 -- * 'iirConversionTask' @::@ 'Maybe' 'ConversionTask'
 --
-importInstanceResponse :: ImportInstanceResult
-importInstanceResponse = ImportInstanceResult
+importInstanceResult :: ImportInstanceResult
+importInstanceResult = ImportInstanceResult
     { _iirConversionTask = Nothing
     }
 
 iirConversionTask :: Lens' ImportInstanceResult (Maybe ConversionTask)
 iirConversionTask =
     lens _iirConversionTask (\s a -> s { _iirConversionTask = a })
+instance FromXML ImportInstanceResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ImportInstanceResult"
 
 instance AWSRequest ImportInstance where
     type Sv ImportInstance = EC2

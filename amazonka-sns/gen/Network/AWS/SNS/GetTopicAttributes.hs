@@ -27,7 +27,7 @@ module Network.AWS.SNS.GetTopicAttributes
     -- * Request
       GetTopicAttributesInput
     -- ** Request constructor
-    , getTopicAttributes
+    , getTopicAttributesInput
     -- ** Request lenses
     , gtaiTopicArn
 
@@ -53,20 +53,19 @@ newtype GetTopicAttributesInput = GetTopicAttributesInput
 --
 -- * 'gtaiTopicArn' @::@ 'Text'
 --
-getTopicAttributes :: Text -- ^ 'gtaiTopicArn'
-                   -> GetTopicAttributesInput
-getTopicAttributes p1 = GetTopicAttributesInput
+getTopicAttributesInput :: Text -- ^ 'gtaiTopicArn'
+                        -> GetTopicAttributesInput
+getTopicAttributesInput p1 = GetTopicAttributesInput
     { _gtaiTopicArn = p1
     }
 
 -- | The ARN of the topic whose properties you want to get.
 gtaiTopicArn :: Lens' GetTopicAttributesInput Text
 gtaiTopicArn = lens _gtaiTopicArn (\s a -> s { _gtaiTopicArn = a })
+instance ToQuery GetTopicAttributesInput
 
 instance ToPath GetTopicAttributesInput where
     toPath = const "/"
-
-instance ToQuery GetTopicAttributesInput
 
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
     { _gtarAttributes :: Map Text Text
@@ -98,6 +97,9 @@ getTopicAttributesResponse = GetTopicAttributesResponse
 gtarAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
 gtarAttributes = lens _gtarAttributes (\s a -> s { _gtarAttributes = a })
     . _Map
+instance FromXML GetTopicAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetTopicAttributesResponse"
 
 instance AWSRequest GetTopicAttributesInput where
     type Sv GetTopicAttributesInput = SNS

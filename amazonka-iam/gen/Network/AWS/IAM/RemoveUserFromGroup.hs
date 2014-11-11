@@ -69,21 +69,24 @@ rufgGroupName = lens _rufgGroupName (\s a -> s { _rufgGroupName = a })
 -- | The name of the user to remove.
 rufgUserName :: Lens' RemoveUserFromGroup Text
 rufgUserName = lens _rufgUserName (\s a -> s { _rufgUserName = a })
+instance ToQuery RemoveUserFromGroup
 
 instance ToPath RemoveUserFromGroup where
     toPath = const "/"
 
-instance ToQuery RemoveUserFromGroup
-
 data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'RemoveUserFromGroupResponse' constructor.
 removeUserFromGroupResponse :: RemoveUserFromGroupResponse
 removeUserFromGroupResponse = RemoveUserFromGroupResponse
+instance FromXML RemoveUserFromGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RemoveUserFromGroupResponse"
 
 instance AWSRequest RemoveUserFromGroup where
     type Sv RemoveUserFromGroup = IAM
     type Rs RemoveUserFromGroup = RemoveUserFromGroupResponse
 
     request  = post "RemoveUserFromGroup"
-    response = const (nullaryResponse RemoveUserFromGroupResponse)
+    response = nullaryResponse RemoveUserFromGroupResponse

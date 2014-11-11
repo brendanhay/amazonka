@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeRouteTables
     -- * Response
     , DescribeRouteTablesResult
     -- ** Response constructor
-    , describeRouteTablesResponse
+    , describeRouteTablesResult
     -- ** Response lenses
     , drtrRouteTables
     ) where
@@ -108,11 +108,10 @@ drt2Filters = lens _drt2Filters (\s a -> s { _drt2Filters = a })
 drt2RouteTableIds :: Lens' DescribeRouteTables [Text]
 drt2RouteTableIds =
     lens _drt2RouteTableIds (\s a -> s { _drt2RouteTableIds = a })
+instance ToQuery DescribeRouteTables
 
 instance ToPath DescribeRouteTables where
     toPath = const "/"
-
-instance ToQuery DescribeRouteTables
 
 newtype DescribeRouteTablesResult = DescribeRouteTablesResult
     { _drtrRouteTables :: [RouteTable]
@@ -124,14 +123,17 @@ newtype DescribeRouteTablesResult = DescribeRouteTablesResult
 --
 -- * 'drtrRouteTables' @::@ ['RouteTable']
 --
-describeRouteTablesResponse :: DescribeRouteTablesResult
-describeRouteTablesResponse = DescribeRouteTablesResult
+describeRouteTablesResult :: DescribeRouteTablesResult
+describeRouteTablesResult = DescribeRouteTablesResult
     { _drtrRouteTables = mempty
     }
 
 -- | Information about one or more route tables.
 drtrRouteTables :: Lens' DescribeRouteTablesResult [RouteTable]
 drtrRouteTables = lens _drtrRouteTables (\s a -> s { _drtrRouteTables = a })
+instance FromXML DescribeRouteTablesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeRouteTablesResult"
 
 instance AWSRequest DescribeRouteTables where
     type Sv DescribeRouteTables = EC2

@@ -36,7 +36,7 @@ module Network.AWS.EC2.AllocateAddress
     -- * Response
     , AllocateAddressResult
     -- ** Response constructor
-    , allocateAddressResponse
+    , allocateAddressResult
     -- ** Response lenses
     , aarAllocationId
     , aarDomain
@@ -73,11 +73,10 @@ aaDomain = lens _aaDomain (\s a -> s { _aaDomain = a })
 
 aaDryRun :: Lens' AllocateAddress (Maybe Bool)
 aaDryRun = lens _aaDryRun (\s a -> s { _aaDryRun = a })
+instance ToQuery AllocateAddress
 
 instance ToPath AllocateAddress where
     toPath = const "/"
-
-instance ToQuery AllocateAddress
 
 data AllocateAddressResult = AllocateAddressResult
     { _aarAllocationId :: Maybe Text
@@ -95,8 +94,8 @@ data AllocateAddressResult = AllocateAddressResult
 --
 -- * 'aarPublicIp' @::@ 'Maybe' 'Text'
 --
-allocateAddressResponse :: AllocateAddressResult
-allocateAddressResponse = AllocateAddressResult
+allocateAddressResult :: AllocateAddressResult
+allocateAddressResult = AllocateAddressResult
     { _aarPublicIp     = Nothing
     , _aarDomain       = Nothing
     , _aarAllocationId = Nothing
@@ -115,6 +114,9 @@ aarDomain = lens _aarDomain (\s a -> s { _aarDomain = a })
 -- | The Elastic IP address.
 aarPublicIp :: Lens' AllocateAddressResult (Maybe Text)
 aarPublicIp = lens _aarPublicIp (\s a -> s { _aarPublicIp = a })
+instance FromXML AllocateAddressResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AllocateAddressResult"
 
 instance AWSRequest AllocateAddress where
     type Sv AllocateAddress = EC2

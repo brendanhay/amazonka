@@ -34,7 +34,7 @@ module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     -- * Response
     , DescribeSpotDatafeedSubscriptionResult
     -- ** Response constructor
-    , describeSpotDatafeedSubscriptionResponse
+    , describeSpotDatafeedSubscriptionResult
     -- ** Response lenses
     , dsdsrSpotDatafeedSubscription
     ) where
@@ -60,11 +60,10 @@ describeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
 
 dsdsDryRun :: Lens' DescribeSpotDatafeedSubscription (Maybe Bool)
 dsdsDryRun = lens _dsdsDryRun (\s a -> s { _dsdsDryRun = a })
+instance ToQuery DescribeSpotDatafeedSubscription
 
 instance ToPath DescribeSpotDatafeedSubscription where
     toPath = const "/"
-
-instance ToQuery DescribeSpotDatafeedSubscription
 
 newtype DescribeSpotDatafeedSubscriptionResult = DescribeSpotDatafeedSubscriptionResult
     { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
@@ -76,8 +75,8 @@ newtype DescribeSpotDatafeedSubscriptionResult = DescribeSpotDatafeedSubscriptio
 --
 -- * 'dsdsrSpotDatafeedSubscription' @::@ 'Maybe' 'SpotDatafeedSubscription'
 --
-describeSpotDatafeedSubscriptionResponse :: DescribeSpotDatafeedSubscriptionResult
-describeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResult
+describeSpotDatafeedSubscriptionResult :: DescribeSpotDatafeedSubscriptionResult
+describeSpotDatafeedSubscriptionResult = DescribeSpotDatafeedSubscriptionResult
     { _dsdsrSpotDatafeedSubscription = Nothing
     }
 
@@ -86,6 +85,9 @@ dsdsrSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResult (M
 dsdsrSpotDatafeedSubscription =
     lens _dsdsrSpotDatafeedSubscription
         (\s a -> s { _dsdsrSpotDatafeedSubscription = a })
+instance FromXML DescribeSpotDatafeedSubscriptionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSpotDatafeedSubscriptionResult"
 
 instance AWSRequest DescribeSpotDatafeedSubscription where
     type Sv DescribeSpotDatafeedSubscription = EC2

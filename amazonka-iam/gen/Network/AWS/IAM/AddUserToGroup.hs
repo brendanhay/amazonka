@@ -69,21 +69,24 @@ autgGroupName = lens _autgGroupName (\s a -> s { _autgGroupName = a })
 -- | The name of the user to add.
 autgUserName :: Lens' AddUserToGroup Text
 autgUserName = lens _autgUserName (\s a -> s { _autgUserName = a })
+instance ToQuery AddUserToGroup
 
 instance ToPath AddUserToGroup where
     toPath = const "/"
 
-instance ToQuery AddUserToGroup
-
 data AddUserToGroupResponse = AddUserToGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'AddUserToGroupResponse' constructor.
 addUserToGroupResponse :: AddUserToGroupResponse
 addUserToGroupResponse = AddUserToGroupResponse
+instance FromXML AddUserToGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AddUserToGroupResponse"
 
 instance AWSRequest AddUserToGroup where
     type Sv AddUserToGroup = IAM
     type Rs AddUserToGroup = AddUserToGroupResponse
 
     request  = post "AddUserToGroup"
-    response = const (nullaryResponse AddUserToGroupResponse)
+    response = nullaryResponse AddUserToGroupResponse

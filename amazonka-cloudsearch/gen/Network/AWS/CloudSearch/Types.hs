@@ -23,11 +23,6 @@ module Network.AWS.CloudSearch.Types
     (
     -- * Service
       CloudSearch
-    -- ** Errors
-    , CloudSearchError (..)
-    , _CloudSearchHttp
-    , _CloudSearchSerializer
-    , _CloudSearchService
     -- ** XML
     , xmlOptions
 

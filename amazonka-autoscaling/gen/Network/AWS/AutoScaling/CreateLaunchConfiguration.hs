@@ -30,7 +30,7 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
     -- * Request
       CreateLaunchConfigurationType
     -- ** Request constructor
-    , createLaunchConfiguration
+    , createLaunchConfigurationType
     -- ** Request lenses
     , clctAssociatePublicIpAddress
     , clctBlockDeviceMappings
@@ -114,9 +114,9 @@ data CreateLaunchConfigurationType = CreateLaunchConfigurationType
 --
 -- * 'clctUserData' @::@ 'Maybe' 'Text'
 --
-createLaunchConfiguration :: Text -- ^ 'clctLaunchConfigurationName'
-                          -> CreateLaunchConfigurationType
-createLaunchConfiguration p1 = CreateLaunchConfigurationType
+createLaunchConfigurationType :: Text -- ^ 'clctLaunchConfigurationName'
+                              -> CreateLaunchConfigurationType
+createLaunchConfigurationType p1 = CreateLaunchConfigurationType
     { _clctLaunchConfigurationName  = p1
     , _clctImageId                  = Nothing
     , _clctKeyName                  = Nothing
@@ -274,21 +274,24 @@ clctSpotPrice = lens _clctSpotPrice (\s a -> s { _clctSpotPrice = a })
 -- the Amazon Elastic Compute Cloud User Guide.
 clctUserData :: Lens' CreateLaunchConfigurationType (Maybe Text)
 clctUserData = lens _clctUserData (\s a -> s { _clctUserData = a })
+instance ToQuery CreateLaunchConfigurationType
 
 instance ToPath CreateLaunchConfigurationType where
     toPath = const "/"
 
-instance ToQuery CreateLaunchConfigurationType
-
 data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateLaunchConfigurationResponse' constructor.
 createLaunchConfigurationResponse :: CreateLaunchConfigurationResponse
 createLaunchConfigurationResponse = CreateLaunchConfigurationResponse
+instance FromXML CreateLaunchConfigurationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateLaunchConfigurationResponse"
 
 instance AWSRequest CreateLaunchConfigurationType where
     type Sv CreateLaunchConfigurationType = AutoScaling
     type Rs CreateLaunchConfigurationType = CreateLaunchConfigurationResponse
 
     request  = post "CreateLaunchConfiguration"
-    response = const (nullaryResponse CreateLaunchConfigurationResponse)
+    response = nullaryResponse CreateLaunchConfigurationResponse

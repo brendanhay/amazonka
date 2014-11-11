@@ -60,21 +60,24 @@ deleteUser p1 = DeleteUser
 -- | The name of the user to delete.
 duUserName :: Lens' DeleteUser Text
 duUserName = lens _duUserName (\s a -> s { _duUserName = a })
+instance ToQuery DeleteUser
 
 instance ToPath DeleteUser where
     toPath = const "/"
 
-instance ToQuery DeleteUser
-
 data DeleteUserResponse = DeleteUserResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteUserResponse' constructor.
 deleteUserResponse :: DeleteUserResponse
 deleteUserResponse = DeleteUserResponse
+instance FromXML DeleteUserResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteUserResponse"
 
 instance AWSRequest DeleteUser where
     type Sv DeleteUser = IAM
     type Rs DeleteUser = DeleteUserResponse
 
     request  = post "DeleteUser"
-    response = const (nullaryResponse DeleteUserResponse)
+    response = nullaryResponse DeleteUserResponse

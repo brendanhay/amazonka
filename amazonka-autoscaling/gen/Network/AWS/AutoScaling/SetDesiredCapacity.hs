@@ -26,7 +26,7 @@ module Network.AWS.AutoScaling.SetDesiredCapacity
     -- * Request
       SetDesiredCapacityType
     -- ** Request constructor
-    , setDesiredCapacity
+    , setDesiredCapacityType
     -- ** Request lenses
     , sdctAutoScalingGroupName
     , sdctDesiredCapacity
@@ -58,10 +58,10 @@ data SetDesiredCapacityType = SetDesiredCapacityType
 --
 -- * 'sdctHonorCooldown' @::@ 'Maybe' 'Bool'
 --
-setDesiredCapacity :: Text -- ^ 'sdctAutoScalingGroupName'
-                   -> Int -- ^ 'sdctDesiredCapacity'
-                   -> SetDesiredCapacityType
-setDesiredCapacity p1 p2 = SetDesiredCapacityType
+setDesiredCapacityType :: Text -- ^ 'sdctAutoScalingGroupName'
+                       -> Int -- ^ 'sdctDesiredCapacity'
+                       -> SetDesiredCapacityType
+setDesiredCapacityType p1 p2 = SetDesiredCapacityType
     { _sdctAutoScalingGroupName = p1
     , _sdctDesiredCapacity      = p2
     , _sdctHonorCooldown        = Nothing
@@ -86,21 +86,24 @@ sdctDesiredCapacity =
 sdctHonorCooldown :: Lens' SetDesiredCapacityType (Maybe Bool)
 sdctHonorCooldown =
     lens _sdctHonorCooldown (\s a -> s { _sdctHonorCooldown = a })
+instance ToQuery SetDesiredCapacityType
 
 instance ToPath SetDesiredCapacityType where
     toPath = const "/"
 
-instance ToQuery SetDesiredCapacityType
-
 data SetDesiredCapacityResponse = SetDesiredCapacityResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetDesiredCapacityResponse' constructor.
 setDesiredCapacityResponse :: SetDesiredCapacityResponse
 setDesiredCapacityResponse = SetDesiredCapacityResponse
+instance FromXML SetDesiredCapacityResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SetDesiredCapacityResponse"
 
 instance AWSRequest SetDesiredCapacityType where
     type Sv SetDesiredCapacityType = AutoScaling
     type Rs SetDesiredCapacityType = SetDesiredCapacityResponse
 
     request  = post "SetDesiredCapacity"
-    response = const (nullaryResponse SetDesiredCapacityResponse)
+    response = nullaryResponse SetDesiredCapacityResponse

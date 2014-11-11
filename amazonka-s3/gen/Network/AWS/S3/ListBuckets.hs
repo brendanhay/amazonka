@@ -32,7 +32,7 @@ module Network.AWS.S3.ListBuckets
     -- * Response
     , ListBucketsOutput
     -- ** Response constructor
-    , listBucketsResponse
+    , listBucketsOutput
     -- ** Response lenses
     , lboBuckets
     , lboOwner
@@ -43,6 +43,7 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data ListBuckets = ListBuckets
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListBuckets' constructor.
 listBuckets :: ListBuckets
@@ -69,8 +70,8 @@ data ListBucketsOutput = ListBucketsOutput
 --
 -- * 'lboOwner' @::@ 'Maybe' 'Owner'
 --
-listBucketsResponse :: ListBucketsOutput
-listBucketsResponse = ListBucketsOutput
+listBucketsOutput :: ListBucketsOutput
+listBucketsOutput = ListBucketsOutput
     { _lboBuckets = mempty
     , _lboOwner   = Nothing
     }
@@ -81,6 +82,9 @@ lboBuckets = lens _lboBuckets (\s a -> s { _lboBuckets = a })
 lboOwner :: Lens' ListBucketsOutput (Maybe Owner)
 lboOwner = lens _lboOwner (\s a -> s { _lboOwner = a })
 
+instance FromXML ListBucketsOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListBucketsOutput"
 instance AWSRequest ListBuckets where
     type Sv ListBuckets = S3
     type Rs ListBuckets = ListBucketsOutput

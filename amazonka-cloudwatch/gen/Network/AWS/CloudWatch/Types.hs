@@ -23,11 +23,6 @@ module Network.AWS.CloudWatch.Types
     (
     -- * Service
       CloudWatch
-    -- ** Errors
-    , CloudWatchError (..)
-    , _CloudWatchHttp
-    , _CloudWatchSerializer
-    , _CloudWatchService
     -- ** XML
     , xmlOptions
 

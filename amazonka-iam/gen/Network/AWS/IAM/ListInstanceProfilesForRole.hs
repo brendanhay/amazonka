@@ -91,11 +91,10 @@ lipfrMaxItems = lens _lipfrMaxItems (\s a -> s { _lipfrMaxItems = a })
 -- | The name of the role to list instance profiles for.
 lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
 lipfrRoleName = lens _lipfrRoleName (\s a -> s { _lipfrRoleName = a })
+instance ToQuery ListInstanceProfilesForRole
 
 instance ToPath ListInstanceProfilesForRole where
     toPath = const "/"
-
-instance ToQuery ListInstanceProfilesForRole
 
 data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
     { _lipfrrInstanceProfiles :: [InstanceProfile]
@@ -137,6 +136,9 @@ lipfrrIsTruncated =
 -- use for the Marker parameter in a subsequent pagination request.
 lipfrrMarker :: Lens' ListInstanceProfilesForRoleResponse (Maybe Text)
 lipfrrMarker = lens _lipfrrMarker (\s a -> s { _lipfrrMarker = a })
+instance FromXML ListInstanceProfilesForRoleResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListInstanceProfilesForRoleResponse"
 
 instance AWSRequest ListInstanceProfilesForRole where
     type Sv ListInstanceProfilesForRole = IAM

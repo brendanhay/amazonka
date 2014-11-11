@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeTags
     -- * Response
     , DescribeTagsResult
     -- ** Response constructor
-    , describeTagsResponse
+    , describeTagsResult
     -- ** Response lenses
     , dtrNextToken
     , dtrTags
@@ -98,11 +98,10 @@ dtMaxResults = lens _dtMaxResults (\s a -> s { _dtMaxResults = a })
 -- from a prior call.).
 dtNextToken :: Lens' DescribeTags (Maybe Text)
 dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
+instance ToQuery DescribeTags
 
 instance ToPath DescribeTags where
     toPath = const "/"
-
-instance ToQuery DescribeTags
 
 data DescribeTagsResult = DescribeTagsResult
     { _dtrNextToken :: Maybe Text
@@ -117,8 +116,8 @@ data DescribeTagsResult = DescribeTagsResult
 --
 -- * 'dtrTags' @::@ ['TagDescription']
 --
-describeTagsResponse :: DescribeTagsResult
-describeTagsResponse = DescribeTagsResult
+describeTagsResult :: DescribeTagsResult
+describeTagsResult = DescribeTagsResult
     { _dtrTags      = mempty
     , _dtrNextToken = Nothing
     }
@@ -131,6 +130,9 @@ dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 -- | A list of tags.
 dtrTags :: Lens' DescribeTagsResult [TagDescription]
 dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
+instance FromXML DescribeTagsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeTagsResult"
 
 instance AWSRequest DescribeTags where
     type Sv DescribeTags = EC2

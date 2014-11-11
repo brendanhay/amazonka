@@ -41,7 +41,7 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
     -- * Response
     , ReplaceRouteTableAssociationResult
     -- ** Response constructor
-    , replaceRouteTableAssociationResponse
+    , replaceRouteTableAssociationResult
     -- ** Response lenses
     , rrtarNewAssociationId
     ) where
@@ -86,11 +86,10 @@ rrtaDryRun = lens _rrtaDryRun (\s a -> s { _rrtaDryRun = a })
 -- | The ID of the new route table to associate with the subnet.
 rrtaRouteTableId :: Lens' ReplaceRouteTableAssociation Text
 rrtaRouteTableId = lens _rrtaRouteTableId (\s a -> s { _rrtaRouteTableId = a })
+instance ToQuery ReplaceRouteTableAssociation
 
 instance ToPath ReplaceRouteTableAssociation where
     toPath = const "/"
-
-instance ToQuery ReplaceRouteTableAssociation
 
 newtype ReplaceRouteTableAssociationResult = ReplaceRouteTableAssociationResult
     { _rrtarNewAssociationId :: Maybe Text
@@ -102,8 +101,8 @@ newtype ReplaceRouteTableAssociationResult = ReplaceRouteTableAssociationResult
 --
 -- * 'rrtarNewAssociationId' @::@ 'Maybe' 'Text'
 --
-replaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResult
-replaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResult
+replaceRouteTableAssociationResult :: ReplaceRouteTableAssociationResult
+replaceRouteTableAssociationResult = ReplaceRouteTableAssociationResult
     { _rrtarNewAssociationId = Nothing
     }
 
@@ -111,6 +110,9 @@ replaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResult
 rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResult (Maybe Text)
 rrtarNewAssociationId =
     lens _rrtarNewAssociationId (\s a -> s { _rrtarNewAssociationId = a })
+instance FromXML ReplaceRouteTableAssociationResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReplaceRouteTableAssociationResult"
 
 instance AWSRequest ReplaceRouteTableAssociation where
     type Sv ReplaceRouteTableAssociation = EC2

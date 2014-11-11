@@ -29,7 +29,7 @@ module Network.AWS.SNS.ListTopics
     -- * Request
       ListTopicsInput
     -- ** Request constructor
-    , listTopics
+    , listTopicsInput
     -- ** Request lenses
     , ltiNextToken
 
@@ -56,19 +56,18 @@ newtype ListTopicsInput = ListTopicsInput
 --
 -- * 'ltiNextToken' @::@ 'Maybe' 'Text'
 --
-listTopics :: ListTopicsInput
-listTopics = ListTopicsInput
+listTopicsInput :: ListTopicsInput
+listTopicsInput = ListTopicsInput
     { _ltiNextToken = Nothing
     }
 
 -- | Token returned by the previous ListTopics request.
 ltiNextToken :: Lens' ListTopicsInput (Maybe Text)
 ltiNextToken = lens _ltiNextToken (\s a -> s { _ltiNextToken = a })
+instance ToQuery ListTopicsInput
 
 instance ToPath ListTopicsInput where
     toPath = const "/"
-
-instance ToQuery ListTopicsInput
 
 data ListTopicsResponse = ListTopicsResponse
     { _ltrNextToken :: Maybe Text
@@ -97,6 +96,9 @@ ltrNextToken = lens _ltrNextToken (\s a -> s { _ltrNextToken = a })
 -- | A list of topic ARNs.
 ltrTopics :: Lens' ListTopicsResponse [Topic]
 ltrTopics = lens _ltrTopics (\s a -> s { _ltrTopics = a })
+instance FromXML ListTopicsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListTopicsResponse"
 
 instance AWSRequest ListTopicsInput where
     type Sv ListTopicsInput = SNS

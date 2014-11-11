@@ -81,21 +81,24 @@ ctResources = lens _ctResources (\s a -> s { _ctResources = a })
 -- the value to an empty string.
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\s a -> s { _ctTags = a })
+instance ToQuery CreateTags
 
 instance ToPath CreateTags where
     toPath = const "/"
 
-instance ToQuery CreateTags
-
 data CreateTagsResponse = CreateTagsResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateTagsResponse' constructor.
 createTagsResponse :: CreateTagsResponse
 createTagsResponse = CreateTagsResponse
+instance FromXML CreateTagsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateTagsResponse"
 
 instance AWSRequest CreateTags where
     type Sv CreateTags = EC2
     type Rs CreateTags = CreateTagsResponse
 
     request  = post "CreateTags"
-    response = const (nullaryResponse CreateTagsResponse)
+    response = nullaryResponse CreateTagsResponse

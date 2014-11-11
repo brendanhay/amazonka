@@ -30,7 +30,7 @@ module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     -- * Request
       SetLoadBalancerListenerSSLCertificateInput
     -- ** Request constructor
-    , setLoadBalancerListenerSSLCertificate
+    , setLoadBalancerListenerSSLCertificateInput
     -- ** Request lenses
     , slblsslciLoadBalancerName
     , slblsslciLoadBalancerPort
@@ -62,11 +62,11 @@ data SetLoadBalancerListenerSSLCertificateInput = SetLoadBalancerListenerSSLCert
 --
 -- * 'slblsslciSSLCertificateId' @::@ 'Text'
 --
-setLoadBalancerListenerSSLCertificate :: Text -- ^ 'slblsslciLoadBalancerName'
-                                      -> Int -- ^ 'slblsslciLoadBalancerPort'
-                                      -> Text -- ^ 'slblsslciSSLCertificateId'
-                                      -> SetLoadBalancerListenerSSLCertificateInput
-setLoadBalancerListenerSSLCertificate p1 p2 p3 = SetLoadBalancerListenerSSLCertificateInput
+setLoadBalancerListenerSSLCertificateInput :: Text -- ^ 'slblsslciLoadBalancerName'
+                                           -> Int -- ^ 'slblsslciLoadBalancerPort'
+                                           -> Text -- ^ 'slblsslciSSLCertificateId'
+                                           -> SetLoadBalancerListenerSSLCertificateInput
+setLoadBalancerListenerSSLCertificateInput p1 p2 p3 = SetLoadBalancerListenerSSLCertificateInput
     { _slblsslciLoadBalancerName = p1
     , _slblsslciLoadBalancerPort = p2
     , _slblsslciSSLCertificateId = p3
@@ -91,21 +91,24 @@ slblsslciSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificateInput Te
 slblsslciSSLCertificateId =
     lens _slblsslciSSLCertificateId
         (\s a -> s { _slblsslciSSLCertificateId = a })
+instance ToQuery SetLoadBalancerListenerSSLCertificateInput
 
 instance ToPath SetLoadBalancerListenerSSLCertificateInput where
     toPath = const "/"
 
-instance ToQuery SetLoadBalancerListenerSSLCertificateInput
-
 data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetLoadBalancerListenerSSLCertificateResponse' constructor.
 setLoadBalancerListenerSSLCertificateResponse :: SetLoadBalancerListenerSSLCertificateResponse
 setLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
+instance FromXML SetLoadBalancerListenerSSLCertificateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SetLoadBalancerListenerSSLCertificateResponse"
 
 instance AWSRequest SetLoadBalancerListenerSSLCertificateInput where
     type Sv SetLoadBalancerListenerSSLCertificateInput = ELB
     type Rs SetLoadBalancerListenerSSLCertificateInput = SetLoadBalancerListenerSSLCertificateResponse
 
     request  = post "SetLoadBalancerListenerSSLCertificate"
-    response = const (nullaryResponse SetLoadBalancerListenerSSLCertificateResponse)
+    response = nullaryResponse SetLoadBalancerListenerSSLCertificateResponse

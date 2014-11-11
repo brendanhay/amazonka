@@ -32,7 +32,7 @@ module Network.AWS.EC2.CancelConversionTask
     -- * Request
       CancelConversion
     -- ** Request constructor
-    , cancelConversionTask
+    , cancelConversion
     -- ** Request lenses
     , ccConversionTaskId
     , ccDryRun
@@ -64,9 +64,9 @@ data CancelConversion = CancelConversion
 --
 -- * 'ccReasonMessage' @::@ 'Maybe' 'Text'
 --
-cancelConversionTask :: Text -- ^ 'ccConversionTaskId'
-                     -> CancelConversion
-cancelConversionTask p1 = CancelConversion
+cancelConversion :: Text -- ^ 'ccConversionTaskId'
+                 -> CancelConversion
+cancelConversion p1 = CancelConversion
     { _ccConversionTaskId = p1
     , _ccDryRun           = Nothing
     , _ccReasonMessage    = Nothing
@@ -82,21 +82,24 @@ ccDryRun = lens _ccDryRun (\s a -> s { _ccDryRun = a })
 
 ccReasonMessage :: Lens' CancelConversion (Maybe Text)
 ccReasonMessage = lens _ccReasonMessage (\s a -> s { _ccReasonMessage = a })
+instance ToQuery CancelConversion
 
 instance ToPath CancelConversion where
     toPath = const "/"
 
-instance ToQuery CancelConversion
-
 data CancelConversionTaskResponse = CancelConversionTaskResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CancelConversionTaskResponse' constructor.
 cancelConversionTaskResponse :: CancelConversionTaskResponse
 cancelConversionTaskResponse = CancelConversionTaskResponse
+instance FromXML CancelConversionTaskResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CancelConversionTaskResponse"
 
 instance AWSRequest CancelConversion where
     type Sv CancelConversion = EC2
     type Rs CancelConversion = CancelConversionTaskResponse
 
     request  = post "CancelConversionTask"
-    response = const (nullaryResponse CancelConversionTaskResponse)
+    response = nullaryResponse CancelConversionTaskResponse

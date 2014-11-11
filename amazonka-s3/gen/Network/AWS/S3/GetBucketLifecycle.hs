@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketLifecycle
     -- * Response
     , GetBucketLifecycleOutput
     -- ** Response constructor
-    , getBucketLifecycleResponse
+    , getBucketLifecycleOutput
     -- ** Response lenses
     , gbloRules
     ) where
@@ -82,14 +82,17 @@ newtype GetBucketLifecycleOutput = GetBucketLifecycleOutput
 --
 -- * 'gbloRules' @::@ ['Rule']
 --
-getBucketLifecycleResponse :: GetBucketLifecycleOutput
-getBucketLifecycleResponse = GetBucketLifecycleOutput
+getBucketLifecycleOutput :: GetBucketLifecycleOutput
+getBucketLifecycleOutput = GetBucketLifecycleOutput
     { _gbloRules = mempty
     }
 
 gbloRules :: Lens' GetBucketLifecycleOutput [Rule]
 gbloRules = lens _gbloRules (\s a -> s { _gbloRules = a })
 
+instance FromXML GetBucketLifecycleOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketLifecycleOutput"
 instance AWSRequest GetBucketLifecycle where
     type Sv GetBucketLifecycle = S3
     type Rs GetBucketLifecycle = GetBucketLifecycleOutput

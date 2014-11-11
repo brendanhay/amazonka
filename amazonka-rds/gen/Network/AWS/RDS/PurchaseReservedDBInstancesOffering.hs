@@ -26,7 +26,7 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     -- * Request
       PurchaseReservedDBInstancesOfferingMessage
     -- ** Request constructor
-    , purchaseReservedDBInstancesOffering
+    , purchaseReservedDBInstancesOfferingMessage
     -- ** Request lenses
     , prdbiomDBInstanceCount
     , prdbiomReservedDBInstanceId
@@ -36,7 +36,7 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     -- * Response
     , PurchaseReservedDBInstancesOfferingResult
     -- ** Response constructor
-    , purchaseReservedDBInstancesOfferingResponse
+    , purchaseReservedDBInstancesOfferingResult
     -- ** Response lenses
     , prdbiorReservedDBInstance
     ) where
@@ -64,9 +64,9 @@ data PurchaseReservedDBInstancesOfferingMessage = PurchaseReservedDBInstancesOff
 --
 -- * 'prdbiomTags' @::@ ['Tag']
 --
-purchaseReservedDBInstancesOffering :: Text -- ^ 'prdbiomReservedDBInstancesOfferingId'
-                                    -> PurchaseReservedDBInstancesOfferingMessage
-purchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOfferingMessage
+purchaseReservedDBInstancesOfferingMessage :: Text -- ^ 'prdbiomReservedDBInstancesOfferingId'
+                                           -> PurchaseReservedDBInstancesOfferingMessage
+purchaseReservedDBInstancesOfferingMessage p1 = PurchaseReservedDBInstancesOfferingMessage
     { _prdbiomReservedDBInstancesOfferingId = p1
     , _prdbiomReservedDBInstanceId          = Nothing
     , _prdbiomDBInstanceCount               = Nothing
@@ -94,11 +94,10 @@ prdbiomReservedDBInstancesOfferingId =
 
 prdbiomTags :: Lens' PurchaseReservedDBInstancesOfferingMessage [Tag]
 prdbiomTags = lens _prdbiomTags (\s a -> s { _prdbiomTags = a })
+instance ToQuery PurchaseReservedDBInstancesOfferingMessage
 
 instance ToPath PurchaseReservedDBInstancesOfferingMessage where
     toPath = const "/"
-
-instance ToQuery PurchaseReservedDBInstancesOfferingMessage
 
 newtype PurchaseReservedDBInstancesOfferingResult = PurchaseReservedDBInstancesOfferingResult
     { _prdbiorReservedDBInstance :: Maybe ReservedDBInstance
@@ -110,8 +109,8 @@ newtype PurchaseReservedDBInstancesOfferingResult = PurchaseReservedDBInstancesO
 --
 -- * 'prdbiorReservedDBInstance' @::@ 'Maybe' 'ReservedDBInstance'
 --
-purchaseReservedDBInstancesOfferingResponse :: PurchaseReservedDBInstancesOfferingResult
-purchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResult
+purchaseReservedDBInstancesOfferingResult :: PurchaseReservedDBInstancesOfferingResult
+purchaseReservedDBInstancesOfferingResult = PurchaseReservedDBInstancesOfferingResult
     { _prdbiorReservedDBInstance = Nothing
     }
 
@@ -119,6 +118,9 @@ prdbiorReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResult (Ma
 prdbiorReservedDBInstance =
     lens _prdbiorReservedDBInstance
         (\s a -> s { _prdbiorReservedDBInstance = a })
+instance FromXML PurchaseReservedDBInstancesOfferingResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PurchaseReservedDBInstancesOfferingResult"
 
 instance AWSRequest PurchaseReservedDBInstancesOfferingMessage where
     type Sv PurchaseReservedDBInstancesOfferingMessage = RDS

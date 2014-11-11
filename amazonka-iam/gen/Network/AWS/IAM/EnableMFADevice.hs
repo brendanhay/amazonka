@@ -97,21 +97,24 @@ emfadSerialNumber =
 -- | The name of the user for whom you want to enable the MFA device.
 emfadUserName :: Lens' EnableMFADevice Text
 emfadUserName = lens _emfadUserName (\s a -> s { _emfadUserName = a })
+instance ToQuery EnableMFADevice
 
 instance ToPath EnableMFADevice where
     toPath = const "/"
 
-instance ToQuery EnableMFADevice
-
 data EnableMFADeviceResponse = EnableMFADeviceResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'EnableMFADeviceResponse' constructor.
 enableMFADeviceResponse :: EnableMFADeviceResponse
 enableMFADeviceResponse = EnableMFADeviceResponse
+instance FromXML EnableMFADeviceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnableMFADeviceResponse"
 
 instance AWSRequest EnableMFADevice where
     type Sv EnableMFADevice = IAM
     type Rs EnableMFADevice = EnableMFADeviceResponse
 
     request  = post "EnableMFADevice"
-    response = const (nullaryResponse EnableMFADeviceResponse)
+    response = nullaryResponse EnableMFADeviceResponse

@@ -80,21 +80,24 @@ rsaDryRun = lens _rsaDryRun (\s a -> s { _rsaDryRun = a })
 -- | The ID of the snapshot.
 rsaSnapshotId :: Lens' ResetSnapshotAttribute Text
 rsaSnapshotId = lens _rsaSnapshotId (\s a -> s { _rsaSnapshotId = a })
+instance ToQuery ResetSnapshotAttribute
 
 instance ToPath ResetSnapshotAttribute where
     toPath = const "/"
 
-instance ToQuery ResetSnapshotAttribute
-
 data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResetSnapshotAttributeResponse' constructor.
 resetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse
 resetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
+instance FromXML ResetSnapshotAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResetSnapshotAttributeResponse"
 
 instance AWSRequest ResetSnapshotAttribute where
     type Sv ResetSnapshotAttribute = EC2
     type Rs ResetSnapshotAttribute = ResetSnapshotAttributeResponse
 
     request  = post "ResetSnapshotAttribute"
-    response = const (nullaryResponse ResetSnapshotAttributeResponse)
+    response = nullaryResponse ResetSnapshotAttributeResponse

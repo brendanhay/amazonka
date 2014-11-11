@@ -30,7 +30,7 @@ module Network.AWS.CloudFormation.ListStacks
     -- * Request
       ListStacksInput
     -- ** Request constructor
-    , listStacks
+    , listStacksInput
     -- ** Request lenses
     , lsiNextToken
     , lsiStackStatusFilter
@@ -38,7 +38,7 @@ module Network.AWS.CloudFormation.ListStacks
     -- * Response
     , ListStacksOutput
     -- ** Response constructor
-    , listStacksResponse
+    , listStacksOutput
     -- ** Response lenses
     , lsoNextToken
     , lsoStackSummaries
@@ -61,8 +61,8 @@ data ListStacksInput = ListStacksInput
 --
 -- * 'lsiStackStatusFilter' @::@ ['Text']
 --
-listStacks :: ListStacksInput
-listStacks = ListStacksInput
+listStacksInput :: ListStacksInput
+listStacksInput = ListStacksInput
     { _lsiNextToken         = Nothing
     , _lsiStackStatusFilter = mempty
     }
@@ -79,11 +79,10 @@ lsiNextToken = lens _lsiNextToken (\s a -> s { _lsiNextToken = a })
 lsiStackStatusFilter :: Lens' ListStacksInput [Text]
 lsiStackStatusFilter =
     lens _lsiStackStatusFilter (\s a -> s { _lsiStackStatusFilter = a })
+instance ToQuery ListStacksInput
 
 instance ToPath ListStacksInput where
     toPath = const "/"
-
-instance ToQuery ListStacksInput
 
 data ListStacksOutput = ListStacksOutput
     { _lsoNextToken      :: Maybe Text
@@ -98,8 +97,8 @@ data ListStacksOutput = ListStacksOutput
 --
 -- * 'lsoStackSummaries' @::@ ['StackSummary']
 --
-listStacksResponse :: ListStacksOutput
-listStacksResponse = ListStacksOutput
+listStacksOutput :: ListStacksOutput
+listStacksOutput = ListStacksOutput
     { _lsoStackSummaries = mempty
     , _lsoNextToken      = Nothing
     }
@@ -114,6 +113,9 @@ lsoNextToken = lens _lsoNextToken (\s a -> s { _lsoNextToken = a })
 lsoStackSummaries :: Lens' ListStacksOutput [StackSummary]
 lsoStackSummaries =
     lens _lsoStackSummaries (\s a -> s { _lsoStackSummaries = a })
+instance FromXML ListStacksOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListStacksOutput"
 
 instance AWSRequest ListStacksInput where
     type Sv ListStacksInput = CloudFormation

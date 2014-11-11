@@ -94,11 +94,10 @@ lrMaxItems = lens _lrMaxItems (\s a -> s { _lrMaxItems = a })
 -- included, it defaults to a slash (/), listing all roles.
 lrPathPrefix :: Lens' ListRoles (Maybe Text)
 lrPathPrefix = lens _lrPathPrefix (\s a -> s { _lrPathPrefix = a })
+instance ToQuery ListRoles
 
 instance ToPath ListRoles where
     toPath = const "/"
-
-instance ToQuery ListRoles
 
 data ListRolesResponse = ListRolesResponse
     { _lrrIsTruncated :: Maybe Bool
@@ -137,6 +136,9 @@ lrrMarker = lens _lrrMarker (\s a -> s { _lrrMarker = a })
 -- | A list of roles.
 lrrRoles :: Lens' ListRolesResponse [Role]
 lrrRoles = lens _lrrRoles (\s a -> s { _lrrRoles = a })
+instance FromXML ListRolesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListRolesResponse"
 
 instance AWSRequest ListRoles where
     type Sv ListRoles = IAM

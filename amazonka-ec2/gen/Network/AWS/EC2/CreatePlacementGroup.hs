@@ -80,21 +80,24 @@ cpgGroupName = lens _cpgGroupName (\s a -> s { _cpgGroupName = a })
 -- | The placement strategy.
 cpgStrategy :: Lens' CreatePlacementGroup Text
 cpgStrategy = lens _cpgStrategy (\s a -> s { _cpgStrategy = a })
+instance ToQuery CreatePlacementGroup
 
 instance ToPath CreatePlacementGroup where
     toPath = const "/"
 
-instance ToQuery CreatePlacementGroup
-
 data CreatePlacementGroupResponse = CreatePlacementGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreatePlacementGroupResponse' constructor.
 createPlacementGroupResponse :: CreatePlacementGroupResponse
 createPlacementGroupResponse = CreatePlacementGroupResponse
+instance FromXML CreatePlacementGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreatePlacementGroupResponse"
 
 instance AWSRequest CreatePlacementGroup where
     type Sv CreatePlacementGroup = EC2
     type Rs CreatePlacementGroup = CreatePlacementGroupResponse
 
     request  = post "CreatePlacementGroup"
-    response = const (nullaryResponse CreatePlacementGroupResponse)
+    response = nullaryResponse CreatePlacementGroupResponse

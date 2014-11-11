@@ -123,11 +123,10 @@ seReturnPath = lens _seReturnPath (\s a -> s { _seReturnPath = a })
 -- =?charset?encoding?encoded-text?=. For more information, see RFC 2047.
 seSource :: Lens' SendEmail Text
 seSource = lens _seSource (\s a -> s { _seSource = a })
+instance ToQuery SendEmail
 
 instance ToPath SendEmail where
     toPath = const "/"
-
-instance ToQuery SendEmail
 
 newtype SendEmailResponse = SendEmailResponse
     { _serMessageId :: Text
@@ -148,6 +147,9 @@ sendEmailResponse p1 = SendEmailResponse
 -- | The unique message identifier returned from the SendEmail action.
 serMessageId :: Lens' SendEmailResponse Text
 serMessageId = lens _serMessageId (\s a -> s { _serMessageId = a })
+instance FromXML SendEmailResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SendEmailResponse"
 
 instance AWSRequest SendEmail where
     type Sv SendEmail = SES

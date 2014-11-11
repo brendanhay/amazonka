@@ -31,7 +31,7 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     -- * Request
       CreateDBInstanceReadReplicaMessage
     -- ** Request constructor
-    , createDBInstanceReadReplica
+    , createDBInstanceReadReplicaMessage
     -- ** Request lenses
     , cdbirrmAutoMinorVersionUpgrade
     , cdbirrmAvailabilityZone
@@ -49,7 +49,7 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     -- * Response
     , CreateDBInstanceReadReplicaResult
     -- ** Response constructor
-    , createDBInstanceReadReplicaResponse
+    , createDBInstanceReadReplicaResult
     -- ** Response lenses
     , cdbirrrDBInstance
     ) where
@@ -101,10 +101,10 @@ data CreateDBInstanceReadReplicaMessage = CreateDBInstanceReadReplicaMessage
 --
 -- * 'cdbirrmTags' @::@ ['Tag']
 --
-createDBInstanceReadReplica :: Text -- ^ 'cdbirrmDBInstanceIdentifier'
-                            -> Text -- ^ 'cdbirrmSourceDBInstanceIdentifier'
-                            -> CreateDBInstanceReadReplicaMessage
-createDBInstanceReadReplica p1 p2 = CreateDBInstanceReadReplicaMessage
+createDBInstanceReadReplicaMessage :: Text -- ^ 'cdbirrmDBInstanceIdentifier'
+                                   -> Text -- ^ 'cdbirrmSourceDBInstanceIdentifier'
+                                   -> CreateDBInstanceReadReplicaMessage
+createDBInstanceReadReplicaMessage p1 p2 = CreateDBInstanceReadReplicaMessage
     { _cdbirrmDBInstanceIdentifier       = p1
     , _cdbirrmSourceDBInstanceIdentifier = p2
     , _cdbirrmDBInstanceClass            = Nothing
@@ -225,11 +225,10 @@ cdbirrmStorageType =
 
 cdbirrmTags :: Lens' CreateDBInstanceReadReplicaMessage [Tag]
 cdbirrmTags = lens _cdbirrmTags (\s a -> s { _cdbirrmTags = a })
+instance ToQuery CreateDBInstanceReadReplicaMessage
 
 instance ToPath CreateDBInstanceReadReplicaMessage where
     toPath = const "/"
-
-instance ToQuery CreateDBInstanceReadReplicaMessage
 
 newtype CreateDBInstanceReadReplicaResult = CreateDBInstanceReadReplicaResult
     { _cdbirrrDBInstance :: Maybe DBInstance
@@ -241,14 +240,17 @@ newtype CreateDBInstanceReadReplicaResult = CreateDBInstanceReadReplicaResult
 --
 -- * 'cdbirrrDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-createDBInstanceReadReplicaResponse :: CreateDBInstanceReadReplicaResult
-createDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResult
+createDBInstanceReadReplicaResult :: CreateDBInstanceReadReplicaResult
+createDBInstanceReadReplicaResult = CreateDBInstanceReadReplicaResult
     { _cdbirrrDBInstance = Nothing
     }
 
 cdbirrrDBInstance :: Lens' CreateDBInstanceReadReplicaResult (Maybe DBInstance)
 cdbirrrDBInstance =
     lens _cdbirrrDBInstance (\s a -> s { _cdbirrrDBInstance = a })
+instance FromXML CreateDBInstanceReadReplicaResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDBInstanceReadReplicaResult"
 
 instance AWSRequest CreateDBInstanceReadReplicaMessage where
     type Sv CreateDBInstanceReadReplicaMessage = RDS

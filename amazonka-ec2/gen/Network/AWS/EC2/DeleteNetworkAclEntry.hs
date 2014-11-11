@@ -88,21 +88,24 @@ dnaeNetworkAclId = lens _dnaeNetworkAclId (\s a -> s { _dnaeNetworkAclId = a })
 -- | The rule number of the entry to delete.
 dnaeRuleNumber :: Lens' DeleteNetworkAclEntry Int
 dnaeRuleNumber = lens _dnaeRuleNumber (\s a -> s { _dnaeRuleNumber = a })
+instance ToQuery DeleteNetworkAclEntry
 
 instance ToPath DeleteNetworkAclEntry where
     toPath = const "/"
 
-instance ToQuery DeleteNetworkAclEntry
-
 data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteNetworkAclEntryResponse' constructor.
 deleteNetworkAclEntryResponse :: DeleteNetworkAclEntryResponse
 deleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
+instance FromXML DeleteNetworkAclEntryResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteNetworkAclEntryResponse"
 
 instance AWSRequest DeleteNetworkAclEntry where
     type Sv DeleteNetworkAclEntry = EC2
     type Rs DeleteNetworkAclEntry = DeleteNetworkAclEntryResponse
 
     request  = post "DeleteNetworkAclEntry"
-    response = const (nullaryResponse DeleteNetworkAclEntryResponse)
+    response = nullaryResponse DeleteNetworkAclEntryResponse

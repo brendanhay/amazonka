@@ -43,7 +43,7 @@ module Network.AWS.EC2.GetPasswordData
     -- * Response
     , GetPasswordDataResult
     -- ** Response constructor
-    , getPasswordDataResponse
+    , getPasswordDataResult
     -- ** Response lenses
     , gpdrInstanceId
     , gpdrPasswordData
@@ -80,11 +80,10 @@ gpdDryRun = lens _gpdDryRun (\s a -> s { _gpdDryRun = a })
 -- | The ID of the Windows instance.
 gpdInstanceId :: Lens' GetPasswordData Text
 gpdInstanceId = lens _gpdInstanceId (\s a -> s { _gpdInstanceId = a })
+instance ToQuery GetPasswordData
 
 instance ToPath GetPasswordData where
     toPath = const "/"
-
-instance ToQuery GetPasswordData
 
 data GetPasswordDataResult = GetPasswordDataResult
     { _gpdrInstanceId   :: Maybe Text
@@ -102,8 +101,8 @@ data GetPasswordDataResult = GetPasswordDataResult
 --
 -- * 'gpdrTimestamp' @::@ 'Maybe' 'UTCTime'
 --
-getPasswordDataResponse :: GetPasswordDataResult
-getPasswordDataResponse = GetPasswordDataResult
+getPasswordDataResult :: GetPasswordDataResult
+getPasswordDataResult = GetPasswordDataResult
     { _gpdrInstanceId   = Nothing
     , _gpdrTimestamp    = Nothing
     , _gpdrPasswordData = Nothing
@@ -121,6 +120,9 @@ gpdrPasswordData = lens _gpdrPasswordData (\s a -> s { _gpdrPasswordData = a })
 gpdrTimestamp :: Lens' GetPasswordDataResult (Maybe UTCTime)
 gpdrTimestamp = lens _gpdrTimestamp (\s a -> s { _gpdrTimestamp = a })
     . mapping _Time
+instance FromXML GetPasswordDataResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetPasswordDataResult"
 
 instance AWSRequest GetPasswordData where
     type Sv GetPasswordData = EC2

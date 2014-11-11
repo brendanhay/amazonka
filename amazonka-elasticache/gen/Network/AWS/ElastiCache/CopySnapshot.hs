@@ -26,7 +26,7 @@ module Network.AWS.ElastiCache.CopySnapshot
     -- * Request
       CopySnapshotMessage
     -- ** Request constructor
-    , copySnapshot
+    , copySnapshotMessage
     -- ** Request lenses
     , csmSourceSnapshotName
     , csmTargetSnapshotName
@@ -34,7 +34,7 @@ module Network.AWS.ElastiCache.CopySnapshot
     -- * Response
     , CopySnapshotResult
     -- ** Response constructor
-    , copySnapshotResponse
+    , copySnapshotResult
     -- ** Response lenses
     , csrSnapshot
     ) where
@@ -56,10 +56,10 @@ data CopySnapshotMessage = CopySnapshotMessage
 --
 -- * 'csmTargetSnapshotName' @::@ 'Text'
 --
-copySnapshot :: Text -- ^ 'csmSourceSnapshotName'
-             -> Text -- ^ 'csmTargetSnapshotName'
-             -> CopySnapshotMessage
-copySnapshot p1 p2 = CopySnapshotMessage
+copySnapshotMessage :: Text -- ^ 'csmSourceSnapshotName'
+                    -> Text -- ^ 'csmTargetSnapshotName'
+                    -> CopySnapshotMessage
+copySnapshotMessage p1 p2 = CopySnapshotMessage
     { _csmSourceSnapshotName = p1
     , _csmTargetSnapshotName = p2
     }
@@ -73,11 +73,10 @@ csmSourceSnapshotName =
 csmTargetSnapshotName :: Lens' CopySnapshotMessage Text
 csmTargetSnapshotName =
     lens _csmTargetSnapshotName (\s a -> s { _csmTargetSnapshotName = a })
+instance ToQuery CopySnapshotMessage
 
 instance ToPath CopySnapshotMessage where
     toPath = const "/"
-
-instance ToQuery CopySnapshotMessage
 
 newtype CopySnapshotResult = CopySnapshotResult
     { _csrSnapshot :: Maybe Snapshot
@@ -89,13 +88,16 @@ newtype CopySnapshotResult = CopySnapshotResult
 --
 -- * 'csrSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-copySnapshotResponse :: CopySnapshotResult
-copySnapshotResponse = CopySnapshotResult
+copySnapshotResult :: CopySnapshotResult
+copySnapshotResult = CopySnapshotResult
     { _csrSnapshot = Nothing
     }
 
 csrSnapshot :: Lens' CopySnapshotResult (Maybe Snapshot)
 csrSnapshot = lens _csrSnapshot (\s a -> s { _csrSnapshot = a })
+instance FromXML CopySnapshotResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CopySnapshotResult"
 
 instance AWSRequest CopySnapshotMessage where
     type Sv CopySnapshotMessage = ElastiCache

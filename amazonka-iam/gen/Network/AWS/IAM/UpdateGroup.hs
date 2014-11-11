@@ -80,21 +80,24 @@ ugNewGroupName = lens _ugNewGroupName (\s a -> s { _ugNewGroupName = a })
 -- | New path for the group. Only include this if changing the group's path.
 ugNewPath :: Lens' UpdateGroup (Maybe Text)
 ugNewPath = lens _ugNewPath (\s a -> s { _ugNewPath = a })
+instance ToQuery UpdateGroup
 
 instance ToPath UpdateGroup where
     toPath = const "/"
 
-instance ToQuery UpdateGroup
-
 data UpdateGroupResponse = UpdateGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateGroupResponse' constructor.
 updateGroupResponse :: UpdateGroupResponse
 updateGroupResponse = UpdateGroupResponse
+instance FromXML UpdateGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateGroupResponse"
 
 instance AWSRequest UpdateGroup where
     type Sv UpdateGroup = IAM
     type Rs UpdateGroup = UpdateGroupResponse
 
     request  = post "UpdateGroup"
-    response = const (nullaryResponse UpdateGroupResponse)
+    response = nullaryResponse UpdateGroupResponse

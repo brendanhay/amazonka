@@ -27,14 +27,14 @@ module Network.AWS.RDS.DeleteDBSnapshot
     -- * Request
       DeleteDBSnapshotMessage
     -- ** Request constructor
-    , deleteDBSnapshot
+    , deleteDBSnapshotMessage
     -- ** Request lenses
     , ddbsm1DBSnapshotIdentifier
 
     -- * Response
     , DeleteDBSnapshotResult
     -- ** Response constructor
-    , deleteDBSnapshotResponse
+    , deleteDBSnapshotResult
     -- ** Response lenses
     , ddbsrDBSnapshot
     ) where
@@ -53,9 +53,9 @@ newtype DeleteDBSnapshotMessage = DeleteDBSnapshotMessage
 --
 -- * 'ddbsm1DBSnapshotIdentifier' @::@ 'Text'
 --
-deleteDBSnapshot :: Text -- ^ 'ddbsm1DBSnapshotIdentifier'
-                 -> DeleteDBSnapshotMessage
-deleteDBSnapshot p1 = DeleteDBSnapshotMessage
+deleteDBSnapshotMessage :: Text -- ^ 'ddbsm1DBSnapshotIdentifier'
+                        -> DeleteDBSnapshotMessage
+deleteDBSnapshotMessage p1 = DeleteDBSnapshotMessage
     { _ddbsm1DBSnapshotIdentifier = p1
     }
 
@@ -65,11 +65,10 @@ ddbsm1DBSnapshotIdentifier :: Lens' DeleteDBSnapshotMessage Text
 ddbsm1DBSnapshotIdentifier =
     lens _ddbsm1DBSnapshotIdentifier
         (\s a -> s { _ddbsm1DBSnapshotIdentifier = a })
+instance ToQuery DeleteDBSnapshotMessage
 
 instance ToPath DeleteDBSnapshotMessage where
     toPath = const "/"
-
-instance ToQuery DeleteDBSnapshotMessage
 
 newtype DeleteDBSnapshotResult = DeleteDBSnapshotResult
     { _ddbsrDBSnapshot :: Maybe DBSnapshot
@@ -81,13 +80,16 @@ newtype DeleteDBSnapshotResult = DeleteDBSnapshotResult
 --
 -- * 'ddbsrDBSnapshot' @::@ 'Maybe' 'DBSnapshot'
 --
-deleteDBSnapshotResponse :: DeleteDBSnapshotResult
-deleteDBSnapshotResponse = DeleteDBSnapshotResult
+deleteDBSnapshotResult :: DeleteDBSnapshotResult
+deleteDBSnapshotResult = DeleteDBSnapshotResult
     { _ddbsrDBSnapshot = Nothing
     }
 
 ddbsrDBSnapshot :: Lens' DeleteDBSnapshotResult (Maybe DBSnapshot)
 ddbsrDBSnapshot = lens _ddbsrDBSnapshot (\s a -> s { _ddbsrDBSnapshot = a })
+instance FromXML DeleteDBSnapshotResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteDBSnapshotResult"
 
 instance AWSRequest DeleteDBSnapshotMessage where
     type Sv DeleteDBSnapshotMessage = RDS

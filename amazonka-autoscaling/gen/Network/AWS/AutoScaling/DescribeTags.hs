@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeTags
     -- * Request
       DescribeTagsType
     -- ** Request constructor
-    , describeTags
+    , describeTagsType
     -- ** Request lenses
     , dttFilters
     , dttMaxRecords
@@ -41,7 +41,7 @@ module Network.AWS.AutoScaling.DescribeTags
     -- * Response
     , TagsType
     -- ** Response constructor
-    , describeTagsResponse
+    , tagsType
     -- ** Response lenses
     , ttNextToken
     , ttTags
@@ -67,8 +67,8 @@ data DescribeTagsType = DescribeTagsType
 --
 -- * 'dttNextToken' @::@ 'Maybe' 'Text'
 --
-describeTags :: DescribeTagsType
-describeTags = DescribeTagsType
+describeTagsType :: DescribeTagsType
+describeTagsType = DescribeTagsType
     { _dttFilters    = mempty
     , _dttNextToken  = Nothing
     , _dttMaxRecords = Nothing
@@ -88,11 +88,10 @@ dttMaxRecords = lens _dttMaxRecords (\s a -> s { _dttMaxRecords = a })
 -- | A string that marks the start of the next batch of returned results.
 dttNextToken :: Lens' DescribeTagsType (Maybe Text)
 dttNextToken = lens _dttNextToken (\s a -> s { _dttNextToken = a })
+instance ToQuery DescribeTagsType
 
 instance ToPath DescribeTagsType where
     toPath = const "/"
-
-instance ToQuery DescribeTagsType
 
 data TagsType = TagsType
     { _ttNextToken :: Maybe Text
@@ -107,8 +106,8 @@ data TagsType = TagsType
 --
 -- * 'ttTags' @::@ ['TagDescription']
 --
-describeTagsResponse :: TagsType
-describeTagsResponse = TagsType
+tagsType :: TagsType
+tagsType = TagsType
     { _ttTags      = mempty
     , _ttNextToken = Nothing
     }
@@ -120,6 +119,9 @@ ttNextToken = lens _ttNextToken (\s a -> s { _ttNextToken = a })
 -- | The list of tags.
 ttTags :: Lens' TagsType [TagDescription]
 ttTags = lens _ttTags (\s a -> s { _ttTags = a })
+instance FromXML TagsType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "TagsType"
 
 instance AWSRequest DescribeTagsType where
     type Sv DescribeTagsType = AutoScaling

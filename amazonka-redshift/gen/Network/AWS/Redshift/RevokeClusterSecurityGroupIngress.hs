@@ -30,7 +30,7 @@ module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     -- * Request
       RevokeClusterSecurityGroupIngressMessage
     -- ** Request constructor
-    , revokeClusterSecurityGroupIngress
+    , revokeClusterSecurityGroupIngressMessage
     -- ** Request lenses
     , rcsgimCIDRIP
     , rcsgimClusterSecurityGroupName
@@ -40,7 +40,7 @@ module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     -- * Response
     , RevokeClusterSecurityGroupIngressResult
     -- ** Response constructor
-    , revokeClusterSecurityGroupIngressResponse
+    , revokeClusterSecurityGroupIngressResult
     -- ** Response lenses
     , rcsgirClusterSecurityGroup
     ) where
@@ -68,9 +68,9 @@ data RevokeClusterSecurityGroupIngressMessage = RevokeClusterSecurityGroupIngres
 --
 -- * 'rcsgimEC2SecurityGroupOwnerId' @::@ 'Maybe' 'Text'
 --
-revokeClusterSecurityGroupIngress :: Text -- ^ 'rcsgimClusterSecurityGroupName'
-                                  -> RevokeClusterSecurityGroupIngressMessage
-revokeClusterSecurityGroupIngress p1 = RevokeClusterSecurityGroupIngressMessage
+revokeClusterSecurityGroupIngressMessage :: Text -- ^ 'rcsgimClusterSecurityGroupName'
+                                         -> RevokeClusterSecurityGroupIngressMessage
+revokeClusterSecurityGroupIngressMessage p1 = RevokeClusterSecurityGroupIngressMessage
     { _rcsgimClusterSecurityGroupName = p1
     , _rcsgimCIDRIP                   = Nothing
     , _rcsgimEC2SecurityGroupName     = Nothing
@@ -107,11 +107,10 @@ rcsgimEC2SecurityGroupOwnerId :: Lens' RevokeClusterSecurityGroupIngressMessage 
 rcsgimEC2SecurityGroupOwnerId =
     lens _rcsgimEC2SecurityGroupOwnerId
         (\s a -> s { _rcsgimEC2SecurityGroupOwnerId = a })
+instance ToQuery RevokeClusterSecurityGroupIngressMessage
 
 instance ToPath RevokeClusterSecurityGroupIngressMessage where
     toPath = const "/"
-
-instance ToQuery RevokeClusterSecurityGroupIngressMessage
 
 newtype RevokeClusterSecurityGroupIngressResult = RevokeClusterSecurityGroupIngressResult
     { _rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
@@ -123,8 +122,8 @@ newtype RevokeClusterSecurityGroupIngressResult = RevokeClusterSecurityGroupIngr
 --
 -- * 'rcsgirClusterSecurityGroup' @::@ 'Maybe' 'ClusterSecurityGroup'
 --
-revokeClusterSecurityGroupIngressResponse :: RevokeClusterSecurityGroupIngressResult
-revokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResult
+revokeClusterSecurityGroupIngressResult :: RevokeClusterSecurityGroupIngressResult
+revokeClusterSecurityGroupIngressResult = RevokeClusterSecurityGroupIngressResult
     { _rcsgirClusterSecurityGroup = Nothing
     }
 
@@ -132,6 +131,9 @@ rcsgirClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResult (May
 rcsgirClusterSecurityGroup =
     lens _rcsgirClusterSecurityGroup
         (\s a -> s { _rcsgirClusterSecurityGroup = a })
+instance FromXML RevokeClusterSecurityGroupIngressResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RevokeClusterSecurityGroupIngressResult"
 
 instance AWSRequest RevokeClusterSecurityGroupIngressMessage where
     type Sv RevokeClusterSecurityGroupIngressMessage = Redshift

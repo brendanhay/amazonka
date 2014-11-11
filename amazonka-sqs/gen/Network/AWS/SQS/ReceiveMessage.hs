@@ -59,7 +59,7 @@ module Network.AWS.SQS.ReceiveMessage
     -- * Response
     , ReceiveMessageResult
     -- ** Response constructor
-    , receiveMessageResponse
+    , receiveMessageResult
     -- ** Response lenses
     , rmrMessages
     ) where
@@ -152,11 +152,10 @@ rmVisibilityTimeout =
 rmWaitTimeSeconds :: Lens' ReceiveMessage (Maybe Int)
 rmWaitTimeSeconds =
     lens _rmWaitTimeSeconds (\s a -> s { _rmWaitTimeSeconds = a })
+instance ToQuery ReceiveMessage
 
 instance ToPath ReceiveMessage where
     toPath = const "/"
-
-instance ToQuery ReceiveMessage
 
 newtype ReceiveMessageResult = ReceiveMessageResult
     { _rmrMessages :: [Message]
@@ -168,14 +167,17 @@ newtype ReceiveMessageResult = ReceiveMessageResult
 --
 -- * 'rmrMessages' @::@ ['Message']
 --
-receiveMessageResponse :: ReceiveMessageResult
-receiveMessageResponse = ReceiveMessageResult
+receiveMessageResult :: ReceiveMessageResult
+receiveMessageResult = ReceiveMessageResult
     { _rmrMessages = mempty
     }
 
 -- | A list of messages.
 rmrMessages :: Lens' ReceiveMessageResult [Message]
 rmrMessages = lens _rmrMessages (\s a -> s { _rmrMessages = a })
+instance FromXML ReceiveMessageResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReceiveMessageResult"
 
 instance AWSRequest ReceiveMessage where
     type Sv ReceiveMessage = SQS

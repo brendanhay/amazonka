@@ -83,21 +83,24 @@ dvg1VpcId = lens _dvg1VpcId (\s a -> s { _dvg1VpcId = a })
 -- | The ID of the virtual private gateway.
 dvg1VpnGatewayId :: Lens' DetachVpnGateway Text
 dvg1VpnGatewayId = lens _dvg1VpnGatewayId (\s a -> s { _dvg1VpnGatewayId = a })
+instance ToQuery DetachVpnGateway
 
 instance ToPath DetachVpnGateway where
     toPath = const "/"
 
-instance ToQuery DetachVpnGateway
-
 data DetachVpnGatewayResponse = DetachVpnGatewayResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DetachVpnGatewayResponse' constructor.
 detachVpnGatewayResponse :: DetachVpnGatewayResponse
 detachVpnGatewayResponse = DetachVpnGatewayResponse
+instance FromXML DetachVpnGatewayResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DetachVpnGatewayResponse"
 
 instance AWSRequest DetachVpnGateway where
     type Sv DetachVpnGateway = EC2
     type Rs DetachVpnGateway = DetachVpnGatewayResponse
 
     request  = post "DetachVpnGateway"
-    response = const (nullaryResponse DetachVpnGatewayResponse)
+    response = nullaryResponse DetachVpnGatewayResponse

@@ -68,21 +68,24 @@ msaMapPublicIpOnLaunch =
 -- | The ID of the subnet.
 msaSubnetId :: Lens' ModifySubnetAttribute Text
 msaSubnetId = lens _msaSubnetId (\s a -> s { _msaSubnetId = a })
+instance ToQuery ModifySubnetAttribute
 
 instance ToPath ModifySubnetAttribute where
     toPath = const "/"
 
-instance ToQuery ModifySubnetAttribute
-
 data ModifySubnetAttributeResponse = ModifySubnetAttributeResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifySubnetAttributeResponse' constructor.
 modifySubnetAttributeResponse :: ModifySubnetAttributeResponse
 modifySubnetAttributeResponse = ModifySubnetAttributeResponse
+instance FromXML ModifySubnetAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifySubnetAttributeResponse"
 
 instance AWSRequest ModifySubnetAttribute where
     type Sv ModifySubnetAttribute = EC2
     type Rs ModifySubnetAttribute = ModifySubnetAttributeResponse
 
     request  = post "ModifySubnetAttribute"
-    response = const (nullaryResponse ModifySubnetAttributeResponse)
+    response = nullaryResponse ModifySubnetAttributeResponse

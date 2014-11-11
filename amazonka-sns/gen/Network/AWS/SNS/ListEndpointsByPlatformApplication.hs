@@ -34,7 +34,7 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     -- * Request
       ListEndpointsByPlatformApplicationInput
     -- ** Request constructor
-    , listEndpointsByPlatformApplication
+    , listEndpointsByPlatformApplicationInput
     -- ** Request lenses
     , lebpaiNextToken
     , lebpaiPlatformApplicationArn
@@ -65,9 +65,9 @@ data ListEndpointsByPlatformApplicationInput = ListEndpointsByPlatformApplicatio
 --
 -- * 'lebpaiPlatformApplicationArn' @::@ 'Text'
 --
-listEndpointsByPlatformApplication :: Text -- ^ 'lebpaiPlatformApplicationArn'
-                                   -> ListEndpointsByPlatformApplicationInput
-listEndpointsByPlatformApplication p1 = ListEndpointsByPlatformApplicationInput
+listEndpointsByPlatformApplicationInput :: Text -- ^ 'lebpaiPlatformApplicationArn'
+                                        -> ListEndpointsByPlatformApplicationInput
+listEndpointsByPlatformApplicationInput p1 = ListEndpointsByPlatformApplicationInput
     { _lebpaiPlatformApplicationArn = p1
     , _lebpaiNextToken              = Nothing
     }
@@ -84,11 +84,10 @@ lebpaiPlatformApplicationArn :: Lens' ListEndpointsByPlatformApplicationInput Te
 lebpaiPlatformApplicationArn =
     lens _lebpaiPlatformApplicationArn
         (\s a -> s { _lebpaiPlatformApplicationArn = a })
+instance ToQuery ListEndpointsByPlatformApplicationInput
 
 instance ToPath ListEndpointsByPlatformApplicationInput where
     toPath = const "/"
-
-instance ToQuery ListEndpointsByPlatformApplicationInput
 
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
     { _lebparEndpoints :: [Endpoint]
@@ -118,6 +117,9 @@ lebparEndpoints = lens _lebparEndpoints (\s a -> s { _lebparEndpoints = a })
 -- available after the first page results.
 lebparNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
 lebparNextToken = lens _lebparNextToken (\s a -> s { _lebparNextToken = a })
+instance FromXML ListEndpointsByPlatformApplicationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListEndpointsByPlatformApplicationResponse"
 
 instance AWSRequest ListEndpointsByPlatformApplicationInput where
     type Sv ListEndpointsByPlatformApplicationInput = SNS

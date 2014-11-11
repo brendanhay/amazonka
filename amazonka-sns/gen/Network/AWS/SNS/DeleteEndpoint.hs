@@ -27,7 +27,7 @@ module Network.AWS.SNS.DeleteEndpoint
     -- * Request
       DeleteEndpointInput
     -- ** Request constructor
-    , deleteEndpoint
+    , deleteEndpointInput
     -- ** Request lenses
     , deiEndpointArn
 
@@ -51,30 +51,33 @@ newtype DeleteEndpointInput = DeleteEndpointInput
 --
 -- * 'deiEndpointArn' @::@ 'Text'
 --
-deleteEndpoint :: Text -- ^ 'deiEndpointArn'
-               -> DeleteEndpointInput
-deleteEndpoint p1 = DeleteEndpointInput
+deleteEndpointInput :: Text -- ^ 'deiEndpointArn'
+                    -> DeleteEndpointInput
+deleteEndpointInput p1 = DeleteEndpointInput
     { _deiEndpointArn = p1
     }
 
 -- | EndpointArn of endpoint to delete.
 deiEndpointArn :: Lens' DeleteEndpointInput Text
 deiEndpointArn = lens _deiEndpointArn (\s a -> s { _deiEndpointArn = a })
+instance ToQuery DeleteEndpointInput
 
 instance ToPath DeleteEndpointInput where
     toPath = const "/"
 
-instance ToQuery DeleteEndpointInput
-
 data DeleteEndpointResponse = DeleteEndpointResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteEndpointResponse' constructor.
 deleteEndpointResponse :: DeleteEndpointResponse
 deleteEndpointResponse = DeleteEndpointResponse
+instance FromXML DeleteEndpointResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteEndpointResponse"
 
 instance AWSRequest DeleteEndpointInput where
     type Sv DeleteEndpointInput = SNS
     type Rs DeleteEndpointInput = DeleteEndpointResponse
 
     request  = post "DeleteEndpoint"
-    response = const (nullaryResponse DeleteEndpointResponse)
+    response = nullaryResponse DeleteEndpointResponse

@@ -29,7 +29,7 @@ module Network.AWS.SNS.ListSubscriptionsByTopic
     -- * Request
       ListSubscriptionsByTopicInput
     -- ** Request constructor
-    , listSubscriptionsByTopic
+    , listSubscriptionsByTopicInput
     -- ** Request lenses
     , lsbtiNextToken
     , lsbtiTopicArn
@@ -60,9 +60,9 @@ data ListSubscriptionsByTopicInput = ListSubscriptionsByTopicInput
 --
 -- * 'lsbtiTopicArn' @::@ 'Text'
 --
-listSubscriptionsByTopic :: Text -- ^ 'lsbtiTopicArn'
-                         -> ListSubscriptionsByTopicInput
-listSubscriptionsByTopic p1 = ListSubscriptionsByTopicInput
+listSubscriptionsByTopicInput :: Text -- ^ 'lsbtiTopicArn'
+                              -> ListSubscriptionsByTopicInput
+listSubscriptionsByTopicInput p1 = ListSubscriptionsByTopicInput
     { _lsbtiTopicArn  = p1
     , _lsbtiNextToken = Nothing
     }
@@ -74,11 +74,10 @@ lsbtiNextToken = lens _lsbtiNextToken (\s a -> s { _lsbtiNextToken = a })
 -- | The ARN of the topic for which you wish to find subscriptions.
 lsbtiTopicArn :: Lens' ListSubscriptionsByTopicInput Text
 lsbtiTopicArn = lens _lsbtiTopicArn (\s a -> s { _lsbtiTopicArn = a })
+instance ToQuery ListSubscriptionsByTopicInput
 
 instance ToPath ListSubscriptionsByTopicInput where
     toPath = const "/"
-
-instance ToQuery ListSubscriptionsByTopicInput
 
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
     { _lsbtrNextToken     :: Maybe Text
@@ -108,6 +107,9 @@ lsbtrNextToken = lens _lsbtrNextToken (\s a -> s { _lsbtrNextToken = a })
 lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
 lsbtrSubscriptions =
     lens _lsbtrSubscriptions (\s a -> s { _lsbtrSubscriptions = a })
+instance FromXML ListSubscriptionsByTopicResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListSubscriptionsByTopicResponse"
 
 instance AWSRequest ListSubscriptionsByTopicInput where
     type Sv ListSubscriptionsByTopicInput = SNS

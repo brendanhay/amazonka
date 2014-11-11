@@ -33,7 +33,7 @@ module Network.AWS.SNS.ListPlatformApplications
     -- * Request
       ListPlatformApplicationsInput
     -- ** Request constructor
-    , listPlatformApplications
+    , listPlatformApplicationsInput
     -- ** Request lenses
     , lpaiNextToken
 
@@ -60,8 +60,8 @@ newtype ListPlatformApplicationsInput = ListPlatformApplicationsInput
 --
 -- * 'lpaiNextToken' @::@ 'Maybe' 'Text'
 --
-listPlatformApplications :: ListPlatformApplicationsInput
-listPlatformApplications = ListPlatformApplicationsInput
+listPlatformApplicationsInput :: ListPlatformApplicationsInput
+listPlatformApplicationsInput = ListPlatformApplicationsInput
     { _lpaiNextToken = Nothing
     }
 
@@ -70,11 +70,10 @@ listPlatformApplications = ListPlatformApplicationsInput
 -- results.
 lpaiNextToken :: Lens' ListPlatformApplicationsInput (Maybe Text)
 lpaiNextToken = lens _lpaiNextToken (\s a -> s { _lpaiNextToken = a })
+instance ToQuery ListPlatformApplicationsInput
 
 instance ToPath ListPlatformApplicationsInput where
     toPath = const "/"
-
-instance ToQuery ListPlatformApplicationsInput
 
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
     { _lparNextToken            :: Maybe Text
@@ -106,6 +105,9 @@ lparPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformAppl
 lparPlatformApplications =
     lens _lparPlatformApplications
         (\s a -> s { _lparPlatformApplications = a })
+instance FromXML ListPlatformApplicationsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListPlatformApplicationsResponse"
 
 instance AWSRequest ListPlatformApplicationsInput where
     type Sv ListPlatformApplicationsInput = SNS

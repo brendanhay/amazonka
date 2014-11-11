@@ -32,7 +32,7 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     -- * Request
       ModifyLoadBalancerAttributesInput
     -- ** Request constructor
-    , modifyLoadBalancerAttributes
+    , modifyLoadBalancerAttributesInput
     -- ** Request lenses
     , mlbaiLoadBalancerAttributes
     , mlbaiLoadBalancerName
@@ -40,7 +40,7 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     -- * Response
     , ModifyLoadBalancerAttributesOutput
     -- ** Response constructor
-    , modifyLoadBalancerAttributesResponse
+    , modifyLoadBalancerAttributesOutput
     -- ** Response lenses
     , mlbaoLoadBalancerAttributes
     , mlbaoLoadBalancerName
@@ -63,10 +63,10 @@ data ModifyLoadBalancerAttributesInput = ModifyLoadBalancerAttributesInput
 --
 -- * 'mlbaiLoadBalancerName' @::@ 'Text'
 --
-modifyLoadBalancerAttributes :: Text -- ^ 'mlbaiLoadBalancerName'
-                             -> LoadBalancerAttributes -- ^ 'mlbaiLoadBalancerAttributes'
-                             -> ModifyLoadBalancerAttributesInput
-modifyLoadBalancerAttributes p1 p2 = ModifyLoadBalancerAttributesInput
+modifyLoadBalancerAttributesInput :: Text -- ^ 'mlbaiLoadBalancerName'
+                                  -> LoadBalancerAttributes -- ^ 'mlbaiLoadBalancerAttributes'
+                                  -> ModifyLoadBalancerAttributesInput
+modifyLoadBalancerAttributesInput p1 p2 = ModifyLoadBalancerAttributesInput
     { _mlbaiLoadBalancerName       = p1
     , _mlbaiLoadBalancerAttributes = p2
     }
@@ -81,11 +81,10 @@ mlbaiLoadBalancerAttributes =
 mlbaiLoadBalancerName :: Lens' ModifyLoadBalancerAttributesInput Text
 mlbaiLoadBalancerName =
     lens _mlbaiLoadBalancerName (\s a -> s { _mlbaiLoadBalancerName = a })
+instance ToQuery ModifyLoadBalancerAttributesInput
 
 instance ToPath ModifyLoadBalancerAttributesInput where
     toPath = const "/"
-
-instance ToQuery ModifyLoadBalancerAttributesInput
 
 data ModifyLoadBalancerAttributesOutput = ModifyLoadBalancerAttributesOutput
     { _mlbaoLoadBalancerAttributes :: Maybe LoadBalancerAttributes
@@ -100,8 +99,8 @@ data ModifyLoadBalancerAttributesOutput = ModifyLoadBalancerAttributesOutput
 --
 -- * 'mlbaoLoadBalancerName' @::@ 'Maybe' 'Text'
 --
-modifyLoadBalancerAttributesResponse :: ModifyLoadBalancerAttributesOutput
-modifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesOutput
+modifyLoadBalancerAttributesOutput :: ModifyLoadBalancerAttributesOutput
+modifyLoadBalancerAttributesOutput = ModifyLoadBalancerAttributesOutput
     { _mlbaoLoadBalancerName       = Nothing
     , _mlbaoLoadBalancerAttributes = Nothing
     }
@@ -115,6 +114,9 @@ mlbaoLoadBalancerAttributes =
 mlbaoLoadBalancerName :: Lens' ModifyLoadBalancerAttributesOutput (Maybe Text)
 mlbaoLoadBalancerName =
     lens _mlbaoLoadBalancerName (\s a -> s { _mlbaoLoadBalancerName = a })
+instance FromXML ModifyLoadBalancerAttributesOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyLoadBalancerAttributesOutput"
 
 instance AWSRequest ModifyLoadBalancerAttributesInput where
     type Sv ModifyLoadBalancerAttributesInput = ELB

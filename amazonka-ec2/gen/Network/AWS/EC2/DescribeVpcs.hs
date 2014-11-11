@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeVpcs
     -- * Response
     , DescribeVpcsResult
     -- ** Response constructor
-    , describeVpcsResponse
+    , describeVpcsResult
     -- ** Response lenses
     , dvrVpcs
     ) where
@@ -91,11 +91,10 @@ dv1Filters = lens _dv1Filters (\s a -> s { _dv1Filters = a })
 -- | One or more VPC IDs. Default: Describes all your VPCs.
 dv1VpcIds :: Lens' DescribeVpcs [Text]
 dv1VpcIds = lens _dv1VpcIds (\s a -> s { _dv1VpcIds = a })
+instance ToQuery DescribeVpcs
 
 instance ToPath DescribeVpcs where
     toPath = const "/"
-
-instance ToQuery DescribeVpcs
 
 newtype DescribeVpcsResult = DescribeVpcsResult
     { _dvrVpcs :: [Vpc]
@@ -107,14 +106,17 @@ newtype DescribeVpcsResult = DescribeVpcsResult
 --
 -- * 'dvrVpcs' @::@ ['Vpc']
 --
-describeVpcsResponse :: DescribeVpcsResult
-describeVpcsResponse = DescribeVpcsResult
+describeVpcsResult :: DescribeVpcsResult
+describeVpcsResult = DescribeVpcsResult
     { _dvrVpcs = mempty
     }
 
 -- | Information about one or more VPCs.
 dvrVpcs :: Lens' DescribeVpcsResult [Vpc]
 dvrVpcs = lens _dvrVpcs (\s a -> s { _dvrVpcs = a })
+instance FromXML DescribeVpcsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVpcsResult"
 
 instance AWSRequest DescribeVpcs where
     type Sv DescribeVpcs = EC2

@@ -62,11 +62,10 @@ getIdentityVerificationAttributes = GetIdentityVerificationAttributes
 -- | A list of identities.
 givaIdentities :: Lens' GetIdentityVerificationAttributes [Text]
 givaIdentities = lens _givaIdentities (\s a -> s { _givaIdentities = a })
+instance ToQuery GetIdentityVerificationAttributes
 
 instance ToPath GetIdentityVerificationAttributes where
     toPath = const "/"
-
-instance ToQuery GetIdentityVerificationAttributes
 
 newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse
     { _givarVerificationAttributes :: Map Text IdentityVerificationAttributes
@@ -89,6 +88,9 @@ givarVerificationAttributes =
     lens _givarVerificationAttributes
         (\s a -> s { _givarVerificationAttributes = a })
             . _Map
+instance FromXML GetIdentityVerificationAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetIdentityVerificationAttributesResponse"
 
 instance AWSRequest GetIdentityVerificationAttributes where
     type Sv GetIdentityVerificationAttributes = SES

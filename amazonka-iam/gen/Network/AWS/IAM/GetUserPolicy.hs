@@ -75,11 +75,10 @@ gupPolicyName = lens _gupPolicyName (\s a -> s { _gupPolicyName = a })
 -- | The name of the user who the policy is associated with.
 gupUserName :: Lens' GetUserPolicy Text
 gupUserName = lens _gupUserName (\s a -> s { _gupUserName = a })
+instance ToQuery GetUserPolicy
 
 instance ToPath GetUserPolicy where
     toPath = const "/"
-
-instance ToQuery GetUserPolicy
 
 data GetUserPolicyResponse = GetUserPolicyResponse
     { _guprPolicyDocument :: Text
@@ -119,6 +118,9 @@ guprPolicyName = lens _guprPolicyName (\s a -> s { _guprPolicyName = a })
 -- | The user the policy is associated with.
 guprUserName :: Lens' GetUserPolicyResponse Text
 guprUserName = lens _guprUserName (\s a -> s { _guprUserName = a })
+instance FromXML GetUserPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetUserPolicyResponse"
 
 instance AWSRequest GetUserPolicy where
     type Sv GetUserPolicy = IAM

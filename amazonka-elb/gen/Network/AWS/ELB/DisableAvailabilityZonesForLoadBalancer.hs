@@ -36,7 +36,7 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     -- * Request
       RemoveAvailabilityZonesInput
     -- ** Request constructor
-    , disableAvailabilityZonesForLoadBalancer
+    , removeAvailabilityZonesInput
     -- ** Request lenses
     , raziAvailabilityZones
     , raziLoadBalancerName
@@ -44,7 +44,7 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     -- * Response
     , RemoveAvailabilityZonesOutput
     -- ** Response constructor
-    , disableAvailabilityZonesForLoadBalancerResponse
+    , removeAvailabilityZonesOutput
     -- ** Response lenses
     , razoAvailabilityZones
     ) where
@@ -66,9 +66,9 @@ data RemoveAvailabilityZonesInput = RemoveAvailabilityZonesInput
 --
 -- * 'raziLoadBalancerName' @::@ 'Text'
 --
-disableAvailabilityZonesForLoadBalancer :: Text -- ^ 'raziLoadBalancerName'
-                                        -> RemoveAvailabilityZonesInput
-disableAvailabilityZonesForLoadBalancer p1 = RemoveAvailabilityZonesInput
+removeAvailabilityZonesInput :: Text -- ^ 'raziLoadBalancerName'
+                             -> RemoveAvailabilityZonesInput
+removeAvailabilityZonesInput p1 = RemoveAvailabilityZonesInput
     { _raziLoadBalancerName  = p1
     , _raziAvailabilityZones = mempty
     }
@@ -84,11 +84,10 @@ raziAvailabilityZones =
 raziLoadBalancerName :: Lens' RemoveAvailabilityZonesInput Text
 raziLoadBalancerName =
     lens _raziLoadBalancerName (\s a -> s { _raziLoadBalancerName = a })
+instance ToQuery RemoveAvailabilityZonesInput
 
 instance ToPath RemoveAvailabilityZonesInput where
     toPath = const "/"
-
-instance ToQuery RemoveAvailabilityZonesInput
 
 newtype RemoveAvailabilityZonesOutput = RemoveAvailabilityZonesOutput
     { _razoAvailabilityZones :: [Text]
@@ -100,8 +99,8 @@ newtype RemoveAvailabilityZonesOutput = RemoveAvailabilityZonesOutput
 --
 -- * 'razoAvailabilityZones' @::@ ['Text']
 --
-disableAvailabilityZonesForLoadBalancerResponse :: RemoveAvailabilityZonesOutput
-disableAvailabilityZonesForLoadBalancerResponse = RemoveAvailabilityZonesOutput
+removeAvailabilityZonesOutput :: RemoveAvailabilityZonesOutput
+removeAvailabilityZonesOutput = RemoveAvailabilityZonesOutput
     { _razoAvailabilityZones = mempty
     }
 
@@ -109,6 +108,9 @@ disableAvailabilityZonesForLoadBalancerResponse = RemoveAvailabilityZonesOutput
 razoAvailabilityZones :: Lens' RemoveAvailabilityZonesOutput [Text]
 razoAvailabilityZones =
     lens _razoAvailabilityZones (\s a -> s { _razoAvailabilityZones = a })
+instance FromXML RemoveAvailabilityZonesOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RemoveAvailabilityZonesOutput"
 
 instance AWSRequest RemoveAvailabilityZonesInput where
     type Sv RemoveAvailabilityZonesInput = ELB

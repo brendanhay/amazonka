@@ -33,14 +33,14 @@ module Network.AWS.Redshift.CreateHsmClientCertificate
     -- * Request
       CreateHsmClientCertificateMessage
     -- ** Request constructor
-    , createHsmClientCertificate
+    , createHsmClientCertificateMessage
     -- ** Request lenses
     , chccmHsmClientCertificateIdentifier
 
     -- * Response
     , CreateHsmClientCertificateResult
     -- ** Response constructor
-    , createHsmClientCertificateResponse
+    , createHsmClientCertificateResult
     -- ** Response lenses
     , chccrHsmClientCertificate
     ) where
@@ -59,9 +59,9 @@ newtype CreateHsmClientCertificateMessage = CreateHsmClientCertificateMessage
 --
 -- * 'chccmHsmClientCertificateIdentifier' @::@ 'Text'
 --
-createHsmClientCertificate :: Text -- ^ 'chccmHsmClientCertificateIdentifier'
-                           -> CreateHsmClientCertificateMessage
-createHsmClientCertificate p1 = CreateHsmClientCertificateMessage
+createHsmClientCertificateMessage :: Text -- ^ 'chccmHsmClientCertificateIdentifier'
+                                  -> CreateHsmClientCertificateMessage
+createHsmClientCertificateMessage p1 = CreateHsmClientCertificateMessage
     { _chccmHsmClientCertificateIdentifier = p1
     }
 
@@ -72,11 +72,10 @@ chccmHsmClientCertificateIdentifier :: Lens' CreateHsmClientCertificateMessage T
 chccmHsmClientCertificateIdentifier =
     lens _chccmHsmClientCertificateIdentifier
         (\s a -> s { _chccmHsmClientCertificateIdentifier = a })
+instance ToQuery CreateHsmClientCertificateMessage
 
 instance ToPath CreateHsmClientCertificateMessage where
     toPath = const "/"
-
-instance ToQuery CreateHsmClientCertificateMessage
 
 newtype CreateHsmClientCertificateResult = CreateHsmClientCertificateResult
     { _chccrHsmClientCertificate :: Maybe HsmClientCertificate
@@ -88,8 +87,8 @@ newtype CreateHsmClientCertificateResult = CreateHsmClientCertificateResult
 --
 -- * 'chccrHsmClientCertificate' @::@ 'Maybe' 'HsmClientCertificate'
 --
-createHsmClientCertificateResponse :: CreateHsmClientCertificateResult
-createHsmClientCertificateResponse = CreateHsmClientCertificateResult
+createHsmClientCertificateResult :: CreateHsmClientCertificateResult
+createHsmClientCertificateResult = CreateHsmClientCertificateResult
     { _chccrHsmClientCertificate = Nothing
     }
 
@@ -97,6 +96,9 @@ chccrHsmClientCertificate :: Lens' CreateHsmClientCertificateResult (Maybe HsmCl
 chccrHsmClientCertificate =
     lens _chccrHsmClientCertificate
         (\s a -> s { _chccrHsmClientCertificate = a })
+instance FromXML CreateHsmClientCertificateResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateHsmClientCertificateResult"
 
 instance AWSRequest CreateHsmClientCertificateMessage where
     type Sv CreateHsmClientCertificateMessage = Redshift

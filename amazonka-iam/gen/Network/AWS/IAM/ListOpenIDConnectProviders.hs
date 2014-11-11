@@ -41,15 +41,15 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
 
 data ListOpenIDConnectProviders = ListOpenIDConnectProviders
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListOpenIDConnectProviders' constructor.
 listOpenIDConnectProviders :: ListOpenIDConnectProviders
 listOpenIDConnectProviders = ListOpenIDConnectProviders
+instance ToQuery ListOpenIDConnectProviders
 
 instance ToPath ListOpenIDConnectProviders where
     toPath = const "/"
-
-instance ToQuery ListOpenIDConnectProviders
 
 newtype ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse
     { _loidcprOpenIDConnectProviderList :: [OpenIDConnectProviderListEntry]
@@ -71,6 +71,9 @@ loidcprOpenIDConnectProviderList :: Lens' ListOpenIDConnectProvidersResponse [Op
 loidcprOpenIDConnectProviderList =
     lens _loidcprOpenIDConnectProviderList
         (\s a -> s { _loidcprOpenIDConnectProviderList = a })
+instance FromXML ListOpenIDConnectProvidersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListOpenIDConnectProvidersResponse"
 
 instance AWSRequest ListOpenIDConnectProviders where
     type Sv ListOpenIDConnectProviders = IAM

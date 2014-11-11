@@ -63,11 +63,10 @@ getIdentityNotificationAttributes = GetIdentityNotificationAttributes
 -- | A list of one or more identities.
 ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
 ginaIdentities = lens _ginaIdentities (\s a -> s { _ginaIdentities = a })
+instance ToQuery GetIdentityNotificationAttributes
 
 instance ToPath GetIdentityNotificationAttributes where
     toPath = const "/"
-
-instance ToQuery GetIdentityNotificationAttributes
 
 newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
     { _ginarNotificationAttributes :: Map Text IdentityNotificationAttributes
@@ -90,6 +89,9 @@ ginarNotificationAttributes =
     lens _ginarNotificationAttributes
         (\s a -> s { _ginarNotificationAttributes = a })
             . _Map
+instance FromXML GetIdentityNotificationAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetIdentityNotificationAttributesResponse"
 
 instance AWSRequest GetIdentityNotificationAttributes where
     type Sv GetIdentityNotificationAttributes = SES

@@ -48,7 +48,7 @@ module Network.AWS.EC2.StartInstances
     -- * Response
     , StartInstancesResult
     -- ** Response constructor
-    , startInstancesResponse
+    , startInstancesResult
     -- ** Response lenses
     , sirStartingInstances
     ) where
@@ -90,11 +90,10 @@ siDryRun = lens _siDryRun (\s a -> s { _siDryRun = a })
 -- | One or more instance IDs.
 siInstanceIds :: Lens' StartInstances [Text]
 siInstanceIds = lens _siInstanceIds (\s a -> s { _siInstanceIds = a })
+instance ToQuery StartInstances
 
 instance ToPath StartInstances where
     toPath = const "/"
-
-instance ToQuery StartInstances
 
 newtype StartInstancesResult = StartInstancesResult
     { _sirStartingInstances :: [InstanceStateChange]
@@ -106,8 +105,8 @@ newtype StartInstancesResult = StartInstancesResult
 --
 -- * 'sirStartingInstances' @::@ ['InstanceStateChange']
 --
-startInstancesResponse :: StartInstancesResult
-startInstancesResponse = StartInstancesResult
+startInstancesResult :: StartInstancesResult
+startInstancesResult = StartInstancesResult
     { _sirStartingInstances = mempty
     }
 
@@ -115,6 +114,9 @@ startInstancesResponse = StartInstancesResult
 sirStartingInstances :: Lens' StartInstancesResult [InstanceStateChange]
 sirStartingInstances =
     lens _sirStartingInstances (\s a -> s { _sirStartingInstances = a })
+instance FromXML StartInstancesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "StartInstancesResult"
 
 instance AWSRequest StartInstances where
     type Sv StartInstances = EC2

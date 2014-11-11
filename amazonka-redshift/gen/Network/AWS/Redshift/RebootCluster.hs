@@ -31,14 +31,14 @@ module Network.AWS.Redshift.RebootCluster
     -- * Request
       RebootClusterMessage
     -- ** Request constructor
-    , rebootCluster
+    , rebootClusterMessage
     -- ** Request lenses
     , rcmClusterIdentifier
 
     -- * Response
     , RebootClusterResult
     -- ** Response constructor
-    , rebootClusterResponse
+    , rebootClusterResult
     -- ** Response lenses
     , rcrCluster
     ) where
@@ -57,9 +57,9 @@ newtype RebootClusterMessage = RebootClusterMessage
 --
 -- * 'rcmClusterIdentifier' @::@ 'Text'
 --
-rebootCluster :: Text -- ^ 'rcmClusterIdentifier'
-              -> RebootClusterMessage
-rebootCluster p1 = RebootClusterMessage
+rebootClusterMessage :: Text -- ^ 'rcmClusterIdentifier'
+                     -> RebootClusterMessage
+rebootClusterMessage p1 = RebootClusterMessage
     { _rcmClusterIdentifier = p1
     }
 
@@ -67,11 +67,10 @@ rebootCluster p1 = RebootClusterMessage
 rcmClusterIdentifier :: Lens' RebootClusterMessage Text
 rcmClusterIdentifier =
     lens _rcmClusterIdentifier (\s a -> s { _rcmClusterIdentifier = a })
+instance ToQuery RebootClusterMessage
 
 instance ToPath RebootClusterMessage where
     toPath = const "/"
-
-instance ToQuery RebootClusterMessage
 
 newtype RebootClusterResult = RebootClusterResult
     { _rcrCluster :: Maybe Cluster
@@ -83,13 +82,16 @@ newtype RebootClusterResult = RebootClusterResult
 --
 -- * 'rcrCluster' @::@ 'Maybe' 'Cluster'
 --
-rebootClusterResponse :: RebootClusterResult
-rebootClusterResponse = RebootClusterResult
+rebootClusterResult :: RebootClusterResult
+rebootClusterResult = RebootClusterResult
     { _rcrCluster = Nothing
     }
 
 rcrCluster :: Lens' RebootClusterResult (Maybe Cluster)
 rcrCluster = lens _rcrCluster (\s a -> s { _rcrCluster = a })
+instance FromXML RebootClusterResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RebootClusterResult"
 
 instance AWSRequest RebootClusterMessage where
     type Sv RebootClusterMessage = Redshift

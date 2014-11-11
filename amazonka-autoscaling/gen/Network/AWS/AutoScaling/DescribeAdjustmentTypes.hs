@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     -- * Response
     , DescribeAdjustmentTypesAnswer
     -- ** Response constructor
-    , describeAdjustmentTypesResponse
+    , describeAdjustmentTypesAnswer
     -- ** Response lenses
     , dataAdjustmentTypes
     ) where
@@ -41,15 +41,15 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
 data DescribeAdjustmentTypes = DescribeAdjustmentTypes
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAdjustmentTypes' constructor.
 describeAdjustmentTypes :: DescribeAdjustmentTypes
 describeAdjustmentTypes = DescribeAdjustmentTypes
+instance ToQuery DescribeAdjustmentTypes
 
 instance ToPath DescribeAdjustmentTypes where
     toPath = const "/"
-
-instance ToQuery DescribeAdjustmentTypes
 
 newtype DescribeAdjustmentTypesAnswer = DescribeAdjustmentTypesAnswer
     { _dataAdjustmentTypes :: [AdjustmentType]
@@ -61,8 +61,8 @@ newtype DescribeAdjustmentTypesAnswer = DescribeAdjustmentTypesAnswer
 --
 -- * 'dataAdjustmentTypes' @::@ ['AdjustmentType']
 --
-describeAdjustmentTypesResponse :: DescribeAdjustmentTypesAnswer
-describeAdjustmentTypesResponse = DescribeAdjustmentTypesAnswer
+describeAdjustmentTypesAnswer :: DescribeAdjustmentTypesAnswer
+describeAdjustmentTypesAnswer = DescribeAdjustmentTypesAnswer
     { _dataAdjustmentTypes = mempty
     }
 
@@ -70,6 +70,9 @@ describeAdjustmentTypesResponse = DescribeAdjustmentTypesAnswer
 dataAdjustmentTypes :: Lens' DescribeAdjustmentTypesAnswer [AdjustmentType]
 dataAdjustmentTypes =
     lens _dataAdjustmentTypes (\s a -> s { _dataAdjustmentTypes = a })
+instance FromXML DescribeAdjustmentTypesAnswer where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAdjustmentTypesAnswer"
 
 instance AWSRequest DescribeAdjustmentTypes where
     type Sv DescribeAdjustmentTypes = AutoScaling

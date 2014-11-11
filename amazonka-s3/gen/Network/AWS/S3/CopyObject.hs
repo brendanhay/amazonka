@@ -61,7 +61,7 @@ module Network.AWS.S3.CopyObject
     -- * Response
     , CopyObjectOutput
     -- ** Response constructor
-    , copyObjectResponse
+    , copyObjectOutput
     -- ** Response lenses
     , cooCopyObjectResult
     , cooCopySourceVersionId
@@ -436,8 +436,8 @@ data CopyObjectOutput = CopyObjectOutput
 --
 -- * 'cooServerSideEncryption' @::@ 'Maybe' 'Text'
 --
-copyObjectResponse :: CopyObjectOutput
-copyObjectResponse = CopyObjectOutput
+copyObjectOutput :: CopyObjectOutput
+copyObjectOutput = CopyObjectOutput
     { _cooCopyObjectResult     = Nothing
     , _cooExpiration           = Nothing
     , _cooCopySourceVersionId  = Nothing
@@ -479,6 +479,9 @@ cooServerSideEncryption :: Lens' CopyObjectOutput (Maybe Text)
 cooServerSideEncryption =
     lens _cooServerSideEncryption (\s a -> s { _cooServerSideEncryption = a })
 
+instance FromXML CopyObjectOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CopyObjectOutput"
 instance AWSRequest CopyObject where
     type Sv CopyObject = S3
     type Rs CopyObject = CopyObjectOutput

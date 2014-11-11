@@ -29,7 +29,7 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     -- * Request
       UpdateAutoScalingGroupType
     -- ** Request constructor
-    , updateAutoScalingGroup
+    , updateAutoScalingGroupType
     -- ** Request lenses
     , uasgtAutoScalingGroupName
     , uasgtAvailabilityZones
@@ -97,10 +97,10 @@ data UpdateAutoScalingGroupType = UpdateAutoScalingGroupType
 --
 -- * 'uasgtVPCZoneIdentifier' @::@ 'Maybe' 'Text'
 --
-updateAutoScalingGroup :: Text -- ^ 'uasgtAutoScalingGroupName'
-                       -> NonEmpty Text -- ^ 'uasgtAvailabilityZones'
-                       -> UpdateAutoScalingGroupType
-updateAutoScalingGroup p1 p2 = UpdateAutoScalingGroupType
+updateAutoScalingGroupType :: Text -- ^ 'uasgtAutoScalingGroupName'
+                           -> NonEmpty Text -- ^ 'uasgtAvailabilityZones'
+                           -> UpdateAutoScalingGroupType
+updateAutoScalingGroupType p1 p2 = UpdateAutoScalingGroupType
     { _uasgtAutoScalingGroupName    = p1
     , _uasgtAvailabilityZones       = withIso _List1 (const id) p2
     , _uasgtLaunchConfigurationName = Nothing
@@ -195,21 +195,24 @@ uasgtTerminationPolicies =
 uasgtVPCZoneIdentifier :: Lens' UpdateAutoScalingGroupType (Maybe Text)
 uasgtVPCZoneIdentifier =
     lens _uasgtVPCZoneIdentifier (\s a -> s { _uasgtVPCZoneIdentifier = a })
+instance ToQuery UpdateAutoScalingGroupType
 
 instance ToPath UpdateAutoScalingGroupType where
     toPath = const "/"
 
-instance ToQuery UpdateAutoScalingGroupType
-
 data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateAutoScalingGroupResponse' constructor.
 updateAutoScalingGroupResponse :: UpdateAutoScalingGroupResponse
 updateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
+instance FromXML UpdateAutoScalingGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateAutoScalingGroupResponse"
 
 instance AWSRequest UpdateAutoScalingGroupType where
     type Sv UpdateAutoScalingGroupType = AutoScaling
     type Rs UpdateAutoScalingGroupType = UpdateAutoScalingGroupResponse
 
     request  = post "UpdateAutoScalingGroup"
-    response = const (nullaryResponse UpdateAutoScalingGroupResponse)
+    response = nullaryResponse UpdateAutoScalingGroupResponse

@@ -63,21 +63,24 @@ deleteRole p1 = DeleteRole
 -- | The name of the role to delete.
 drRoleName :: Lens' DeleteRole Text
 drRoleName = lens _drRoleName (\s a -> s { _drRoleName = a })
+instance ToQuery DeleteRole
 
 instance ToPath DeleteRole where
     toPath = const "/"
 
-instance ToQuery DeleteRole
-
 data DeleteRoleResponse = DeleteRoleResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteRoleResponse' constructor.
 deleteRoleResponse :: DeleteRoleResponse
 deleteRoleResponse = DeleteRoleResponse
+instance FromXML DeleteRoleResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteRoleResponse"
 
 instance AWSRequest DeleteRole where
     type Sv DeleteRole = IAM
     type Rs DeleteRole = DeleteRoleResponse
 
     request  = post "DeleteRole"
-    response = const (nullaryResponse DeleteRoleResponse)
+    response = nullaryResponse DeleteRoleResponse

@@ -30,7 +30,7 @@ module Network.AWS.AutoScaling.EnableMetricsCollection
     -- * Request
       EnableMetricsCollectionQuery
     -- ** Request constructor
-    , enableMetricsCollection
+    , enableMetricsCollectionQuery
     -- ** Request lenses
     , emcqAutoScalingGroupName
     , emcqGranularity
@@ -62,10 +62,10 @@ data EnableMetricsCollectionQuery = EnableMetricsCollectionQuery
 --
 -- * 'emcqMetrics' @::@ ['Text']
 --
-enableMetricsCollection :: Text -- ^ 'emcqAutoScalingGroupName'
-                        -> Text -- ^ 'emcqGranularity'
-                        -> EnableMetricsCollectionQuery
-enableMetricsCollection p1 p2 = EnableMetricsCollectionQuery
+enableMetricsCollectionQuery :: Text -- ^ 'emcqAutoScalingGroupName'
+                             -> Text -- ^ 'emcqGranularity'
+                             -> EnableMetricsCollectionQuery
+enableMetricsCollectionQuery p1 p2 = EnableMetricsCollectionQuery
     { _emcqAutoScalingGroupName = p1
     , _emcqGranularity          = p2
     , _emcqMetrics              = mempty
@@ -89,21 +89,24 @@ emcqGranularity = lens _emcqGranularity (\s a -> s { _emcqGranularity = a })
 -- GroupTotalInstances.
 emcqMetrics :: Lens' EnableMetricsCollectionQuery [Text]
 emcqMetrics = lens _emcqMetrics (\s a -> s { _emcqMetrics = a })
+instance ToQuery EnableMetricsCollectionQuery
 
 instance ToPath EnableMetricsCollectionQuery where
     toPath = const "/"
 
-instance ToQuery EnableMetricsCollectionQuery
-
 data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'EnableMetricsCollectionResponse' constructor.
 enableMetricsCollectionResponse :: EnableMetricsCollectionResponse
 enableMetricsCollectionResponse = EnableMetricsCollectionResponse
+instance FromXML EnableMetricsCollectionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnableMetricsCollectionResponse"
 
 instance AWSRequest EnableMetricsCollectionQuery where
     type Sv EnableMetricsCollectionQuery = AutoScaling
     type Rs EnableMetricsCollectionQuery = EnableMetricsCollectionResponse
 
     request  = post "EnableMetricsCollection"
-    response = const (nullaryResponse EnableMetricsCollectionResponse)
+    response = nullaryResponse EnableMetricsCollectionResponse

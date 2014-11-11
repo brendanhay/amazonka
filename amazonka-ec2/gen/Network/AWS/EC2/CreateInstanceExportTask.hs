@@ -39,7 +39,7 @@ module Network.AWS.EC2.CreateInstanceExportTask
     -- * Response
     , CreateInstanceExportTaskResult
     -- ** Response constructor
-    , createInstanceExportTaskResponse
+    , createInstanceExportTaskResult
     -- ** Response lenses
     , cietrExportTask
     ) where
@@ -93,11 +93,10 @@ cietInstanceId = lens _cietInstanceId (\s a -> s { _cietInstanceId = a })
 cietTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe Text)
 cietTargetEnvironment =
     lens _cietTargetEnvironment (\s a -> s { _cietTargetEnvironment = a })
+instance ToQuery CreateInstanceExportTask
 
 instance ToPath CreateInstanceExportTask where
     toPath = const "/"
-
-instance ToQuery CreateInstanceExportTask
 
 newtype CreateInstanceExportTaskResult = CreateInstanceExportTaskResult
     { _cietrExportTask :: Maybe ExportTask
@@ -109,13 +108,16 @@ newtype CreateInstanceExportTaskResult = CreateInstanceExportTaskResult
 --
 -- * 'cietrExportTask' @::@ 'Maybe' 'ExportTask'
 --
-createInstanceExportTaskResponse :: CreateInstanceExportTaskResult
-createInstanceExportTaskResponse = CreateInstanceExportTaskResult
+createInstanceExportTaskResult :: CreateInstanceExportTaskResult
+createInstanceExportTaskResult = CreateInstanceExportTaskResult
     { _cietrExportTask = Nothing
     }
 
 cietrExportTask :: Lens' CreateInstanceExportTaskResult (Maybe ExportTask)
 cietrExportTask = lens _cietrExportTask (\s a -> s { _cietrExportTask = a })
+instance FromXML CreateInstanceExportTaskResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateInstanceExportTaskResult"
 
 instance AWSRequest CreateInstanceExportTask where
     type Sv CreateInstanceExportTask = EC2

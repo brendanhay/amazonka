@@ -163,21 +163,24 @@ asgiSourceSecurityGroupOwnerId =
 -- the ICMP type.
 asgiToPort :: Lens' AuthorizeSecurityGroupIngress (Maybe Int)
 asgiToPort = lens _asgiToPort (\s a -> s { _asgiToPort = a })
+instance ToQuery AuthorizeSecurityGroupIngress
 
 instance ToPath AuthorizeSecurityGroupIngress where
     toPath = const "/"
 
-instance ToQuery AuthorizeSecurityGroupIngress
-
 data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'AuthorizeSecurityGroupIngressResponse' constructor.
 authorizeSecurityGroupIngressResponse :: AuthorizeSecurityGroupIngressResponse
 authorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
+instance FromXML AuthorizeSecurityGroupIngressResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AuthorizeSecurityGroupIngressResponse"
 
 instance AWSRequest AuthorizeSecurityGroupIngress where
     type Sv AuthorizeSecurityGroupIngress = EC2
     type Rs AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngressResponse
 
     request  = post "AuthorizeSecurityGroupIngress"
-    response = const (nullaryResponse AuthorizeSecurityGroupIngressResponse)
+    response = nullaryResponse AuthorizeSecurityGroupIngressResponse

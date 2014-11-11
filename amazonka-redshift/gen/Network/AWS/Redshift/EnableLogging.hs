@@ -27,7 +27,7 @@ module Network.AWS.Redshift.EnableLogging
     -- * Request
       EnableLoggingMessage
     -- ** Request constructor
-    , enableLogging
+    , enableLoggingMessage
     -- ** Request lenses
     , elmBucketName
     , elmClusterIdentifier
@@ -36,7 +36,7 @@ module Network.AWS.Redshift.EnableLogging
     -- * Response
     , LoggingStatus
     -- ** Response constructor
-    , enableLoggingResponse
+    , loggingStatus
     -- ** Response lenses
     , lsBucketName
     , lsLastFailureMessage
@@ -66,10 +66,10 @@ data EnableLoggingMessage = EnableLoggingMessage
 --
 -- * 'elmS3KeyPrefix' @::@ 'Maybe' 'Text'
 --
-enableLogging :: Text -- ^ 'elmClusterIdentifier'
-              -> Text -- ^ 'elmBucketName'
-              -> EnableLoggingMessage
-enableLogging p1 p2 = EnableLoggingMessage
+enableLoggingMessage :: Text -- ^ 'elmClusterIdentifier'
+                     -> Text -- ^ 'elmBucketName'
+                     -> EnableLoggingMessage
+enableLoggingMessage p1 p2 = EnableLoggingMessage
     { _elmClusterIdentifier = p1
     , _elmBucketName        = p2
     , _elmS3KeyPrefix       = Nothing
@@ -93,11 +93,10 @@ elmClusterIdentifier =
 -- invalid characters are: x00 to x20 x22 x27 x5c x7f or larger.
 elmS3KeyPrefix :: Lens' EnableLoggingMessage (Maybe Text)
 elmS3KeyPrefix = lens _elmS3KeyPrefix (\s a -> s { _elmS3KeyPrefix = a })
+instance ToQuery EnableLoggingMessage
 
 instance ToPath EnableLoggingMessage where
     toPath = const "/"
-
-instance ToQuery EnableLoggingMessage
 
 instance AWSRequest EnableLoggingMessage where
     type Sv EnableLoggingMessage = Redshift

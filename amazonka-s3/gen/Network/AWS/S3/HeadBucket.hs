@@ -72,14 +72,18 @@ instance ToQuery HeadBucket where
 instance ToHeaders HeadBucket
 
 data HeadBucketResponse = HeadBucketResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'HeadBucketResponse' constructor.
 headBucketResponse :: HeadBucketResponse
 headBucketResponse = HeadBucketResponse
 
+instance FromXML HeadBucketResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "HeadBucketResponse"
 instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3
     type Rs HeadBucket = HeadBucketResponse
 
     request  = head
-    response = const (nullaryResponse HeadBucketResponse)
+    response = nullaryResponse HeadBucketResponse

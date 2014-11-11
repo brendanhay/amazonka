@@ -61,21 +61,24 @@ createAccountAlias p1 = CreateAccountAlias
 -- | The name of the account alias to create.
 caaAccountAlias :: Lens' CreateAccountAlias Text
 caaAccountAlias = lens _caaAccountAlias (\s a -> s { _caaAccountAlias = a })
+instance ToQuery CreateAccountAlias
 
 instance ToPath CreateAccountAlias where
     toPath = const "/"
 
-instance ToQuery CreateAccountAlias
-
 data CreateAccountAliasResponse = CreateAccountAliasResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateAccountAliasResponse' constructor.
 createAccountAliasResponse :: CreateAccountAliasResponse
 createAccountAliasResponse = CreateAccountAliasResponse
+instance FromXML CreateAccountAliasResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateAccountAliasResponse"
 
 instance AWSRequest CreateAccountAlias where
     type Sv CreateAccountAlias = IAM
     type Rs CreateAccountAlias = CreateAccountAliasResponse
 
     request  = post "CreateAccountAlias"
-    response = const (nullaryResponse CreateAccountAliasResponse)
+    response = nullaryResponse CreateAccountAliasResponse

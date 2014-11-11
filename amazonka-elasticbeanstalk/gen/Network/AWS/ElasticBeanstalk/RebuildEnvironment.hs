@@ -28,7 +28,7 @@ module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     -- * Request
       RebuildEnvironmentMessage
     -- ** Request constructor
-    , rebuildEnvironment
+    , rebuildEnvironmentMessage
     -- ** Request lenses
     , remEnvironmentId
     , remEnvironmentName
@@ -56,8 +56,8 @@ data RebuildEnvironmentMessage = RebuildEnvironmentMessage
 --
 -- * 'remEnvironmentName' @::@ 'Maybe' 'Text'
 --
-rebuildEnvironment :: RebuildEnvironmentMessage
-rebuildEnvironment = RebuildEnvironmentMessage
+rebuildEnvironmentMessage :: RebuildEnvironmentMessage
+rebuildEnvironmentMessage = RebuildEnvironmentMessage
     { _remEnvironmentId   = Nothing
     , _remEnvironmentName = Nothing
     }
@@ -74,21 +74,24 @@ remEnvironmentId = lens _remEnvironmentId (\s a -> s { _remEnvironmentId = a })
 remEnvironmentName :: Lens' RebuildEnvironmentMessage (Maybe Text)
 remEnvironmentName =
     lens _remEnvironmentName (\s a -> s { _remEnvironmentName = a })
+instance ToQuery RebuildEnvironmentMessage
 
 instance ToPath RebuildEnvironmentMessage where
     toPath = const "/"
 
-instance ToQuery RebuildEnvironmentMessage
-
 data RebuildEnvironmentResponse = RebuildEnvironmentResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'RebuildEnvironmentResponse' constructor.
 rebuildEnvironmentResponse :: RebuildEnvironmentResponse
 rebuildEnvironmentResponse = RebuildEnvironmentResponse
+instance FromXML RebuildEnvironmentResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RebuildEnvironmentResponse"
 
 instance AWSRequest RebuildEnvironmentMessage where
     type Sv RebuildEnvironmentMessage = ElasticBeanstalk
     type Rs RebuildEnvironmentMessage = RebuildEnvironmentResponse
 
     request  = post "RebuildEnvironment"
-    response = const (nullaryResponse RebuildEnvironmentResponse)
+    response = nullaryResponse RebuildEnvironmentResponse

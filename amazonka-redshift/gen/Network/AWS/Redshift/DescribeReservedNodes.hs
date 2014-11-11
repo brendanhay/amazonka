@@ -26,7 +26,7 @@ module Network.AWS.Redshift.DescribeReservedNodes
     -- * Request
       DescribeReservedNodesMessage
     -- ** Request constructor
-    , describeReservedNodes
+    , describeReservedNodesMessage
     -- ** Request lenses
     , drnmMarker
     , drnmMaxRecords
@@ -35,7 +35,7 @@ module Network.AWS.Redshift.DescribeReservedNodes
     -- * Response
     , ReservedNodesMessage
     -- ** Response constructor
-    , describeReservedNodesResponse
+    , reservedNodesMessage
     -- ** Response lenses
     , rnmMarker
     , rnmReservedNodes
@@ -61,8 +61,8 @@ data DescribeReservedNodesMessage = DescribeReservedNodesMessage
 --
 -- * 'drnmReservedNodeId' @::@ 'Maybe' 'Text'
 --
-describeReservedNodes :: DescribeReservedNodesMessage
-describeReservedNodes = DescribeReservedNodesMessage
+describeReservedNodesMessage :: DescribeReservedNodesMessage
+describeReservedNodesMessage = DescribeReservedNodesMessage
     { _drnmReservedNodeId = Nothing
     , _drnmMaxRecords     = Nothing
     , _drnmMarker         = Nothing
@@ -89,11 +89,10 @@ drnmMaxRecords = lens _drnmMaxRecords (\s a -> s { _drnmMaxRecords = a })
 drnmReservedNodeId :: Lens' DescribeReservedNodesMessage (Maybe Text)
 drnmReservedNodeId =
     lens _drnmReservedNodeId (\s a -> s { _drnmReservedNodeId = a })
+instance ToQuery DescribeReservedNodesMessage
 
 instance ToPath DescribeReservedNodesMessage where
     toPath = const "/"
-
-instance ToQuery DescribeReservedNodesMessage
 
 data ReservedNodesMessage = ReservedNodesMessage
     { _rnmMarker        :: Maybe Text
@@ -108,8 +107,8 @@ data ReservedNodesMessage = ReservedNodesMessage
 --
 -- * 'rnmReservedNodes' @::@ ['ReservedNode']
 --
-describeReservedNodesResponse :: ReservedNodesMessage
-describeReservedNodesResponse = ReservedNodesMessage
+reservedNodesMessage :: ReservedNodesMessage
+reservedNodesMessage = ReservedNodesMessage
     { _rnmMarker        = Nothing
     , _rnmReservedNodes = mempty
     }
@@ -126,6 +125,9 @@ rnmMarker = lens _rnmMarker (\s a -> s { _rnmMarker = a })
 -- | The list of reserved nodes.
 rnmReservedNodes :: Lens' ReservedNodesMessage [ReservedNode]
 rnmReservedNodes = lens _rnmReservedNodes (\s a -> s { _rnmReservedNodes = a })
+instance FromXML ReservedNodesMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReservedNodesMessage"
 
 instance AWSRequest DescribeReservedNodesMessage where
     type Sv DescribeReservedNodesMessage = Redshift

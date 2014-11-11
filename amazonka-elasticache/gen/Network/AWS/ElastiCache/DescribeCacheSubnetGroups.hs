@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     -- * Request
       DescribeCacheSubnetGroupsMessage
     -- ** Request constructor
-    , describeCacheSubnetGroups
+    , describeCacheSubnetGroupsMessage
     -- ** Request lenses
     , dcsgmCacheSubnetGroupName
     , dcsgmMarker
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     -- * Response
     , CacheSubnetGroupMessage
     -- ** Response constructor
-    , describeCacheSubnetGroupsResponse
+    , cacheSubnetGroupMessage
     -- ** Response lenses
     , csgm1CacheSubnetGroups
     , csgm1Marker
@@ -63,8 +63,8 @@ data DescribeCacheSubnetGroupsMessage = DescribeCacheSubnetGroupsMessage
 --
 -- * 'dcsgmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeCacheSubnetGroups :: DescribeCacheSubnetGroupsMessage
-describeCacheSubnetGroups = DescribeCacheSubnetGroupsMessage
+describeCacheSubnetGroupsMessage :: DescribeCacheSubnetGroupsMessage
+describeCacheSubnetGroupsMessage = DescribeCacheSubnetGroupsMessage
     { _dcsgmCacheSubnetGroupName = Nothing
     , _dcsgmMaxRecords           = Nothing
     , _dcsgmMarker               = Nothing
@@ -89,11 +89,10 @@ dcsgmMarker = lens _dcsgmMarker (\s a -> s { _dcsgmMarker = a })
 -- Constraints: minimum 20; maximum 100.
 dcsgmMaxRecords :: Lens' DescribeCacheSubnetGroupsMessage (Maybe Int)
 dcsgmMaxRecords = lens _dcsgmMaxRecords (\s a -> s { _dcsgmMaxRecords = a })
+instance ToQuery DescribeCacheSubnetGroupsMessage
 
 instance ToPath DescribeCacheSubnetGroupsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeCacheSubnetGroupsMessage
 
 data CacheSubnetGroupMessage = CacheSubnetGroupMessage
     { _csgm1CacheSubnetGroups :: [CacheSubnetGroup]
@@ -108,8 +107,8 @@ data CacheSubnetGroupMessage = CacheSubnetGroupMessage
 --
 -- * 'csgm1Marker' @::@ 'Maybe' 'Text'
 --
-describeCacheSubnetGroupsResponse :: CacheSubnetGroupMessage
-describeCacheSubnetGroupsResponse = CacheSubnetGroupMessage
+cacheSubnetGroupMessage :: CacheSubnetGroupMessage
+cacheSubnetGroupMessage = CacheSubnetGroupMessage
     { _csgm1Marker            = Nothing
     , _csgm1CacheSubnetGroups = mempty
     }
@@ -123,6 +122,9 @@ csgm1CacheSubnetGroups =
 -- | Provides an identifier to allow retrieval of paginated results.
 csgm1Marker :: Lens' CacheSubnetGroupMessage (Maybe Text)
 csgm1Marker = lens _csgm1Marker (\s a -> s { _csgm1Marker = a })
+instance FromXML CacheSubnetGroupMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CacheSubnetGroupMessage"
 
 instance AWSRequest DescribeCacheSubnetGroupsMessage where
     type Sv DescribeCacheSubnetGroupsMessage = ElastiCache

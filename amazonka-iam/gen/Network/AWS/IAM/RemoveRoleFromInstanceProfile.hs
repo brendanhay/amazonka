@@ -77,21 +77,24 @@ rrfipInstanceProfileName =
 -- | The name of the role to remove.
 rrfipRoleName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipRoleName = lens _rrfipRoleName (\s a -> s { _rrfipRoleName = a })
+instance ToQuery RemoveRoleFromInstanceProfile
 
 instance ToPath RemoveRoleFromInstanceProfile where
     toPath = const "/"
 
-instance ToQuery RemoveRoleFromInstanceProfile
-
 data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'RemoveRoleFromInstanceProfileResponse' constructor.
 removeRoleFromInstanceProfileResponse :: RemoveRoleFromInstanceProfileResponse
 removeRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
+instance FromXML RemoveRoleFromInstanceProfileResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RemoveRoleFromInstanceProfileResponse"
 
 instance AWSRequest RemoveRoleFromInstanceProfile where
     type Sv RemoveRoleFromInstanceProfile = IAM
     type Rs RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfileResponse
 
     request  = post "RemoveRoleFromInstanceProfile"
-    response = const (nullaryResponse RemoveRoleFromInstanceProfileResponse)
+    response = nullaryResponse RemoveRoleFromInstanceProfileResponse

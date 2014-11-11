@@ -76,11 +76,10 @@ cipInstanceProfileName =
 -- is not included, it defaults to a slash (/).
 cipPath :: Lens' CreateInstanceProfile (Maybe Text)
 cipPath = lens _cipPath (\s a -> s { _cipPath = a })
+instance ToQuery CreateInstanceProfile
 
 instance ToPath CreateInstanceProfile where
     toPath = const "/"
-
-instance ToQuery CreateInstanceProfile
 
 newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
     { _ciprInstanceProfile :: InstanceProfile
@@ -102,6 +101,9 @@ createInstanceProfileResponse p1 = CreateInstanceProfileResponse
 ciprInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
 ciprInstanceProfile =
     lens _ciprInstanceProfile (\s a -> s { _ciprInstanceProfile = a })
+instance FromXML CreateInstanceProfileResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateInstanceProfileResponse"
 
 instance AWSRequest CreateInstanceProfile where
     type Sv CreateInstanceProfile = IAM

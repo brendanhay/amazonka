@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     -- * Request
       UpdateStreamingDistribution
     -- ** Request constructor
-    , updateStreamingDistribution2014_05_31
+    , updateStreamingDistribution
     -- ** Request lenses
     , usdId
     , usdIfMatch
@@ -35,7 +35,7 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     -- * Response
     , UpdateStreamingDistributionResult
     -- ** Response constructor
-    , updateStreamingDistribution2014_05_31Response
+    , updateStreamingDistributionResult
     -- ** Response lenses
     , usdrETag
     , usdrStreamingDistribution
@@ -61,10 +61,10 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution
 --
 -- * 'usdStreamingDistributionConfig' @::@ 'StreamingDistributionConfig'
 --
-updateStreamingDistribution2014_05_31 :: StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
-                                      -> Text -- ^ 'usdId'
-                                      -> UpdateStreamingDistribution
-updateStreamingDistribution2014_05_31 p1 p2 = UpdateStreamingDistribution
+updateStreamingDistribution :: StreamingDistributionConfig -- ^ 'usdStreamingDistributionConfig'
+                            -> Text -- ^ 'usdId'
+                            -> UpdateStreamingDistribution
+updateStreamingDistribution p1 p2 = UpdateStreamingDistribution
     { _usdStreamingDistributionConfig = p1
     , _usdId                          = p2
     , _usdIfMatch                     = Nothing
@@ -116,8 +116,8 @@ data UpdateStreamingDistributionResult = UpdateStreamingDistributionResult
 --
 -- * 'usdrStreamingDistribution' @::@ 'Maybe' 'StreamingDistribution'
 --
-updateStreamingDistribution2014_05_31Response :: UpdateStreamingDistributionResult
-updateStreamingDistribution2014_05_31Response = UpdateStreamingDistributionResult
+updateStreamingDistributionResult :: UpdateStreamingDistributionResult
+updateStreamingDistributionResult = UpdateStreamingDistributionResult
     { _usdrStreamingDistribution = Nothing
     , _usdrETag                  = Nothing
     }
@@ -132,6 +132,9 @@ usdrStreamingDistribution =
     lens _usdrStreamingDistribution
         (\s a -> s { _usdrStreamingDistribution = a })
 
+instance FromXML UpdateStreamingDistributionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateStreamingDistributionResult"
 instance AWSRequest UpdateStreamingDistribution where
     type Sv UpdateStreamingDistribution = CloudFront
     type Rs UpdateStreamingDistribution = UpdateStreamingDistributionResult

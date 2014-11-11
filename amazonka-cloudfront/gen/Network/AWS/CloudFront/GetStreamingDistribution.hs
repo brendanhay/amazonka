@@ -26,14 +26,14 @@ module Network.AWS.CloudFront.GetStreamingDistribution
     -- * Request
       GetStreamingDistribution
     -- ** Request constructor
-    , getStreamingDistribution2014_05_31
+    , getStreamingDistribution
     -- ** Request lenses
     , gsdId
 
     -- * Response
     , GetStreamingDistributionResult
     -- ** Response constructor
-    , getStreamingDistribution2014_05_31Response
+    , getStreamingDistributionResult
     -- ** Response lenses
     , gsdrETag
     , gsdrStreamingDistribution
@@ -53,9 +53,9 @@ newtype GetStreamingDistribution = GetStreamingDistribution
 --
 -- * 'gsdId' @::@ 'Text'
 --
-getStreamingDistribution2014_05_31 :: Text -- ^ 'gsdId'
-                                   -> GetStreamingDistribution
-getStreamingDistribution2014_05_31 p1 = GetStreamingDistribution
+getStreamingDistribution :: Text -- ^ 'gsdId'
+                         -> GetStreamingDistribution
+getStreamingDistribution p1 = GetStreamingDistribution
     { _gsdId = p1
     }
 
@@ -87,8 +87,8 @@ data GetStreamingDistributionResult = GetStreamingDistributionResult
 --
 -- * 'gsdrStreamingDistribution' @::@ 'Maybe' 'StreamingDistribution'
 --
-getStreamingDistribution2014_05_31Response :: GetStreamingDistributionResult
-getStreamingDistribution2014_05_31Response = GetStreamingDistributionResult
+getStreamingDistributionResult :: GetStreamingDistributionResult
+getStreamingDistributionResult = GetStreamingDistributionResult
     { _gsdrStreamingDistribution = Nothing
     , _gsdrETag                  = Nothing
     }
@@ -104,6 +104,9 @@ gsdrStreamingDistribution =
     lens _gsdrStreamingDistribution
         (\s a -> s { _gsdrStreamingDistribution = a })
 
+instance FromXML GetStreamingDistributionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetStreamingDistributionResult"
 instance AWSRequest GetStreamingDistribution where
     type Sv GetStreamingDistribution = CloudFront
     type Rs GetStreamingDistribution = GetStreamingDistributionResult

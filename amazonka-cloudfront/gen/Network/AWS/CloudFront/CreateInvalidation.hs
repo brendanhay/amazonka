@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.CreateInvalidation
     -- * Request
       CreateInvalidation
     -- ** Request constructor
-    , createInvalidation2014_05_31
+    , createInvalidation
     -- ** Request lenses
     , ciDistributionId
     , ciInvalidationBatch
@@ -34,7 +34,7 @@ module Network.AWS.CloudFront.CreateInvalidation
     -- * Response
     , CreateInvalidationResult
     -- ** Response constructor
-    , createInvalidation2014_05_31Response
+    , createInvalidationResult
     -- ** Response lenses
     , cirInvalidation
     , cirLocation
@@ -57,10 +57,10 @@ data CreateInvalidation = CreateInvalidation
 --
 -- * 'ciInvalidationBatch' @::@ 'InvalidationBatch'
 --
-createInvalidation2014_05_31 :: Text -- ^ 'ciDistributionId'
-                             -> InvalidationBatch -- ^ 'ciInvalidationBatch'
-                             -> CreateInvalidation
-createInvalidation2014_05_31 p1 p2 = CreateInvalidation
+createInvalidation :: Text -- ^ 'ciDistributionId'
+                   -> InvalidationBatch -- ^ 'ciInvalidationBatch'
+                   -> CreateInvalidation
+createInvalidation p1 p2 = CreateInvalidation
     { _ciDistributionId    = p1
     , _ciInvalidationBatch = p2
     }
@@ -102,8 +102,8 @@ data CreateInvalidationResult = CreateInvalidationResult
 --
 -- * 'cirLocation' @::@ 'Maybe' 'Text'
 --
-createInvalidation2014_05_31Response :: CreateInvalidationResult
-createInvalidation2014_05_31Response = CreateInvalidationResult
+createInvalidationResult :: CreateInvalidationResult
+createInvalidationResult = CreateInvalidationResult
     { _cirLocation     = Nothing
     , _cirInvalidation = Nothing
     }
@@ -117,6 +117,9 @@ cirInvalidation = lens _cirInvalidation (\s a -> s { _cirInvalidation = a })
 cirLocation :: Lens' CreateInvalidationResult (Maybe Text)
 cirLocation = lens _cirLocation (\s a -> s { _cirLocation = a })
 
+instance FromXML CreateInvalidationResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateInvalidationResult"
 instance AWSRequest CreateInvalidation where
     type Sv CreateInvalidation = CloudFront
     type Rs CreateInvalidation = CreateInvalidationResult

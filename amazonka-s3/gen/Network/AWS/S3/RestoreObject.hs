@@ -104,14 +104,18 @@ instance ToBody RestoreObject where
     toBody = toBody . encodeXML . _roRestoreRequest
 
 data RestoreObjectResponse = RestoreObjectResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'RestoreObjectResponse' constructor.
 restoreObjectResponse :: RestoreObjectResponse
 restoreObjectResponse = RestoreObjectResponse
 
+instance FromXML RestoreObjectResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RestoreObjectResponse"
 instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3
     type Rs RestoreObject = RestoreObjectResponse
 
     request  = post
-    response = const (nullaryResponse RestoreObjectResponse)
+    response = nullaryResponse RestoreObjectResponse

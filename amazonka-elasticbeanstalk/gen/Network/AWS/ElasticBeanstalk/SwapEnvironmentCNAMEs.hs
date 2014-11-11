@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     -- * Request
       SwapEnvironmentCNAMEsMessage
     -- ** Request constructor
-    , swapEnvironmentCNAMEs
+    , swapEnvironmentCNAMEsMessage
     -- ** Request lenses
     , secnamemDestinationEnvironmentId
     , secnamemDestinationEnvironmentName
@@ -62,8 +62,8 @@ data SwapEnvironmentCNAMEsMessage = SwapEnvironmentCNAMEsMessage
 --
 -- * 'secnamemSourceEnvironmentName' @::@ 'Maybe' 'Text'
 --
-swapEnvironmentCNAMEs :: SwapEnvironmentCNAMEsMessage
-swapEnvironmentCNAMEs = SwapEnvironmentCNAMEsMessage
+swapEnvironmentCNAMEsMessage :: SwapEnvironmentCNAMEsMessage
+swapEnvironmentCNAMEsMessage = SwapEnvironmentCNAMEsMessage
     { _secnamemSourceEnvironmentId        = Nothing
     , _secnamemSourceEnvironmentName      = Nothing
     , _secnamemDestinationEnvironmentId   = Nothing
@@ -105,21 +105,24 @@ secnamemSourceEnvironmentName :: Lens' SwapEnvironmentCNAMEsMessage (Maybe Text)
 secnamemSourceEnvironmentName =
     lens _secnamemSourceEnvironmentName
         (\s a -> s { _secnamemSourceEnvironmentName = a })
+instance ToQuery SwapEnvironmentCNAMEsMessage
 
 instance ToPath SwapEnvironmentCNAMEsMessage where
     toPath = const "/"
 
-instance ToQuery SwapEnvironmentCNAMEsMessage
-
 data SwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SwapEnvironmentCNAMEsResponse' constructor.
 swapEnvironmentCNAMEsResponse :: SwapEnvironmentCNAMEsResponse
 swapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
+instance FromXML SwapEnvironmentCNAMEsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SwapEnvironmentCNAMEsResponse"
 
 instance AWSRequest SwapEnvironmentCNAMEsMessage where
     type Sv SwapEnvironmentCNAMEsMessage = ElasticBeanstalk
     type Rs SwapEnvironmentCNAMEsMessage = SwapEnvironmentCNAMEsResponse
 
     request  = post "SwapEnvironmentCNAMEs"
-    response = const (nullaryResponse SwapEnvironmentCNAMEsResponse)
+    response = nullaryResponse SwapEnvironmentCNAMEsResponse

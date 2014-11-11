@@ -32,7 +32,7 @@ module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     -- * Request
       AddAvailabilityZonesInput
     -- ** Request constructor
-    , enableAvailabilityZonesForLoadBalancer
+    , addAvailabilityZonesInput
     -- ** Request lenses
     , aaziAvailabilityZones
     , aaziLoadBalancerName
@@ -40,7 +40,7 @@ module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     -- * Response
     , AddAvailabilityZonesOutput
     -- ** Response constructor
-    , enableAvailabilityZonesForLoadBalancerResponse
+    , addAvailabilityZonesOutput
     -- ** Response lenses
     , aazoAvailabilityZones
     ) where
@@ -62,9 +62,9 @@ data AddAvailabilityZonesInput = AddAvailabilityZonesInput
 --
 -- * 'aaziLoadBalancerName' @::@ 'Text'
 --
-enableAvailabilityZonesForLoadBalancer :: Text -- ^ 'aaziLoadBalancerName'
-                                       -> AddAvailabilityZonesInput
-enableAvailabilityZonesForLoadBalancer p1 = AddAvailabilityZonesInput
+addAvailabilityZonesInput :: Text -- ^ 'aaziLoadBalancerName'
+                          -> AddAvailabilityZonesInput
+addAvailabilityZonesInput p1 = AddAvailabilityZonesInput
     { _aaziLoadBalancerName  = p1
     , _aaziAvailabilityZones = mempty
     }
@@ -79,11 +79,10 @@ aaziAvailabilityZones =
 aaziLoadBalancerName :: Lens' AddAvailabilityZonesInput Text
 aaziLoadBalancerName =
     lens _aaziLoadBalancerName (\s a -> s { _aaziLoadBalancerName = a })
+instance ToQuery AddAvailabilityZonesInput
 
 instance ToPath AddAvailabilityZonesInput where
     toPath = const "/"
-
-instance ToQuery AddAvailabilityZonesInput
 
 newtype AddAvailabilityZonesOutput = AddAvailabilityZonesOutput
     { _aazoAvailabilityZones :: [Text]
@@ -95,8 +94,8 @@ newtype AddAvailabilityZonesOutput = AddAvailabilityZonesOutput
 --
 -- * 'aazoAvailabilityZones' @::@ ['Text']
 --
-enableAvailabilityZonesForLoadBalancerResponse :: AddAvailabilityZonesOutput
-enableAvailabilityZonesForLoadBalancerResponse = AddAvailabilityZonesOutput
+addAvailabilityZonesOutput :: AddAvailabilityZonesOutput
+addAvailabilityZonesOutput = AddAvailabilityZonesOutput
     { _aazoAvailabilityZones = mempty
     }
 
@@ -104,6 +103,9 @@ enableAvailabilityZonesForLoadBalancerResponse = AddAvailabilityZonesOutput
 aazoAvailabilityZones :: Lens' AddAvailabilityZonesOutput [Text]
 aazoAvailabilityZones =
     lens _aazoAvailabilityZones (\s a -> s { _aazoAvailabilityZones = a })
+instance FromXML AddAvailabilityZonesOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AddAvailabilityZonesOutput"
 
 instance AWSRequest AddAvailabilityZonesInput where
     type Sv AddAvailabilityZonesInput = ELB

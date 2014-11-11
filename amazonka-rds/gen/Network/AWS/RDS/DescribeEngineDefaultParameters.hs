@@ -27,7 +27,7 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     -- * Request
       DescribeEngineDefaultParametersMessage
     -- ** Request constructor
-    , describeEngineDefaultParameters
+    , describeEngineDefaultParametersMessage
     -- ** Request lenses
     , dedpmDBParameterGroupFamily
     , dedpmFilters
@@ -37,7 +37,7 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     -- * Response
     , DescribeEngineDefaultParametersResult
     -- ** Response constructor
-    , describeEngineDefaultParametersResponse
+    , describeEngineDefaultParametersResult
     -- ** Response lenses
     , dedprEngineDefaults
     ) where
@@ -65,9 +65,9 @@ data DescribeEngineDefaultParametersMessage = DescribeEngineDefaultParametersMes
 --
 -- * 'dedpmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeEngineDefaultParameters :: Text -- ^ 'dedpmDBParameterGroupFamily'
-                                -> DescribeEngineDefaultParametersMessage
-describeEngineDefaultParameters p1 = DescribeEngineDefaultParametersMessage
+describeEngineDefaultParametersMessage :: Text -- ^ 'dedpmDBParameterGroupFamily'
+                                       -> DescribeEngineDefaultParametersMessage
+describeEngineDefaultParametersMessage p1 = DescribeEngineDefaultParametersMessage
     { _dedpmDBParameterGroupFamily = p1
     , _dedpmFilters                = mempty
     , _dedpmMaxRecords             = Nothing
@@ -97,11 +97,10 @@ dedpmMarker = lens _dedpmMarker (\s a -> s { _dedpmMarker = a })
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 dedpmMaxRecords :: Lens' DescribeEngineDefaultParametersMessage (Maybe Int)
 dedpmMaxRecords = lens _dedpmMaxRecords (\s a -> s { _dedpmMaxRecords = a })
+instance ToQuery DescribeEngineDefaultParametersMessage
 
 instance ToPath DescribeEngineDefaultParametersMessage where
     toPath = const "/"
-
-instance ToQuery DescribeEngineDefaultParametersMessage
 
 newtype DescribeEngineDefaultParametersResult = DescribeEngineDefaultParametersResult
     { _dedprEngineDefaults :: Maybe EngineDefaults
@@ -113,14 +112,17 @@ newtype DescribeEngineDefaultParametersResult = DescribeEngineDefaultParametersR
 --
 -- * 'dedprEngineDefaults' @::@ 'Maybe' 'EngineDefaults'
 --
-describeEngineDefaultParametersResponse :: DescribeEngineDefaultParametersResult
-describeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResult
+describeEngineDefaultParametersResult :: DescribeEngineDefaultParametersResult
+describeEngineDefaultParametersResult = DescribeEngineDefaultParametersResult
     { _dedprEngineDefaults = Nothing
     }
 
 dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResult (Maybe EngineDefaults)
 dedprEngineDefaults =
     lens _dedprEngineDefaults (\s a -> s { _dedprEngineDefaults = a })
+instance FromXML DescribeEngineDefaultParametersResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeEngineDefaultParametersResult"
 
 instance AWSRequest DescribeEngineDefaultParametersMessage where
     type Sv DescribeEngineDefaultParametersMessage = RDS

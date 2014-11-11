@@ -27,7 +27,7 @@ module Network.AWS.SNS.AddPermission
     -- * Request
       AddPermissionInput
     -- ** Request constructor
-    , addPermission
+    , addPermissionInput
     -- ** Request lenses
     , apiAWSAccountId
     , apiActionName
@@ -63,10 +63,10 @@ data AddPermissionInput = AddPermissionInput
 --
 -- * 'apiTopicArn' @::@ 'Text'
 --
-addPermission :: Text -- ^ 'apiTopicArn'
-              -> Text -- ^ 'apiLabel'
-              -> AddPermissionInput
-addPermission p1 p2 = AddPermissionInput
+addPermissionInput :: Text -- ^ 'apiTopicArn'
+                   -> Text -- ^ 'apiLabel'
+                   -> AddPermissionInput
+addPermissionInput p1 p2 = AddPermissionInput
     { _apiTopicArn     = p1
     , _apiLabel        = p2
     , _apiAWSAccountId = mempty
@@ -91,21 +91,24 @@ apiLabel = lens _apiLabel (\s a -> s { _apiLabel = a })
 -- | The ARN of the topic whose access control policy you wish to modify.
 apiTopicArn :: Lens' AddPermissionInput Text
 apiTopicArn = lens _apiTopicArn (\s a -> s { _apiTopicArn = a })
+instance ToQuery AddPermissionInput
 
 instance ToPath AddPermissionInput where
     toPath = const "/"
 
-instance ToQuery AddPermissionInput
-
 data AddPermissionResponse = AddPermissionResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'AddPermissionResponse' constructor.
 addPermissionResponse :: AddPermissionResponse
 addPermissionResponse = AddPermissionResponse
+instance FromXML AddPermissionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AddPermissionResponse"
 
 instance AWSRequest AddPermissionInput where
     type Sv AddPermissionInput = SNS
     type Rs AddPermissionInput = AddPermissionResponse
 
     request  = post "AddPermission"
-    response = const (nullaryResponse AddPermissionResponse)
+    response = nullaryResponse AddPermissionResponse

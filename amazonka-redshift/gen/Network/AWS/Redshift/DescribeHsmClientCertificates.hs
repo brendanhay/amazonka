@@ -28,7 +28,7 @@ module Network.AWS.Redshift.DescribeHsmClientCertificates
     -- * Request
       DescribeHsmClientCertificatesMessage
     -- ** Request constructor
-    , describeHsmClientCertificates
+    , describeHsmClientCertificatesMessage
     -- ** Request lenses
     , dhccmHsmClientCertificateIdentifier
     , dhccmMarker
@@ -37,7 +37,7 @@ module Network.AWS.Redshift.DescribeHsmClientCertificates
     -- * Response
     , HsmClientCertificateMessage
     -- ** Response constructor
-    , describeHsmClientCertificatesResponse
+    , hsmClientCertificateMessage
     -- ** Response lenses
     , hccmHsmClientCertificates
     , hccmMarker
@@ -63,8 +63,8 @@ data DescribeHsmClientCertificatesMessage = DescribeHsmClientCertificatesMessage
 --
 -- * 'dhccmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeHsmClientCertificates :: DescribeHsmClientCertificatesMessage
-describeHsmClientCertificates = DescribeHsmClientCertificatesMessage
+describeHsmClientCertificatesMessage :: DescribeHsmClientCertificatesMessage
+describeHsmClientCertificatesMessage = DescribeHsmClientCertificatesMessage
     { _dhccmHsmClientCertificateIdentifier = Nothing
     , _dhccmMaxRecords                     = Nothing
     , _dhccmMarker                         = Nothing
@@ -94,11 +94,10 @@ dhccmMarker = lens _dhccmMarker (\s a -> s { _dhccmMarker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dhccmMaxRecords :: Lens' DescribeHsmClientCertificatesMessage (Maybe Int)
 dhccmMaxRecords = lens _dhccmMaxRecords (\s a -> s { _dhccmMaxRecords = a })
+instance ToQuery DescribeHsmClientCertificatesMessage
 
 instance ToPath DescribeHsmClientCertificatesMessage where
     toPath = const "/"
-
-instance ToQuery DescribeHsmClientCertificatesMessage
 
 data HsmClientCertificateMessage = HsmClientCertificateMessage
     { _hccmHsmClientCertificates :: [HsmClientCertificate]
@@ -113,8 +112,8 @@ data HsmClientCertificateMessage = HsmClientCertificateMessage
 --
 -- * 'hccmMarker' @::@ 'Maybe' 'Text'
 --
-describeHsmClientCertificatesResponse :: HsmClientCertificateMessage
-describeHsmClientCertificatesResponse = HsmClientCertificateMessage
+hsmClientCertificateMessage :: HsmClientCertificateMessage
+hsmClientCertificateMessage = HsmClientCertificateMessage
     { _hccmMarker                = Nothing
     , _hccmHsmClientCertificates = mempty
     }
@@ -135,6 +134,9 @@ hccmHsmClientCertificates =
 -- request.
 hccmMarker :: Lens' HsmClientCertificateMessage (Maybe Text)
 hccmMarker = lens _hccmMarker (\s a -> s { _hccmMarker = a })
+instance FromXML HsmClientCertificateMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "HsmClientCertificateMessage"
 
 instance AWSRequest DescribeHsmClientCertificatesMessage where
     type Sv DescribeHsmClientCertificatesMessage = Redshift

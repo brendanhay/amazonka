@@ -28,7 +28,7 @@ module Network.AWS.ElasticBeanstalk.DeleteApplication
     -- * Request
       DeleteApplicationMessage
     -- ** Request constructor
-    , deleteApplication
+    , deleteApplicationMessage
     -- ** Request lenses
     , damApplicationName
     , damTerminateEnvByForce
@@ -56,9 +56,9 @@ data DeleteApplicationMessage = DeleteApplicationMessage
 --
 -- * 'damTerminateEnvByForce' @::@ 'Maybe' 'Bool'
 --
-deleteApplication :: Text -- ^ 'damApplicationName'
-                  -> DeleteApplicationMessage
-deleteApplication p1 = DeleteApplicationMessage
+deleteApplicationMessage :: Text -- ^ 'damApplicationName'
+                         -> DeleteApplicationMessage
+deleteApplicationMessage p1 = DeleteApplicationMessage
     { _damApplicationName     = p1
     , _damTerminateEnvByForce = Nothing
     }
@@ -73,21 +73,24 @@ damApplicationName =
 damTerminateEnvByForce :: Lens' DeleteApplicationMessage (Maybe Bool)
 damTerminateEnvByForce =
     lens _damTerminateEnvByForce (\s a -> s { _damTerminateEnvByForce = a })
+instance ToQuery DeleteApplicationMessage
 
 instance ToPath DeleteApplicationMessage where
     toPath = const "/"
 
-instance ToQuery DeleteApplicationMessage
-
 data DeleteApplicationResponse = DeleteApplicationResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteApplicationResponse' constructor.
 deleteApplicationResponse :: DeleteApplicationResponse
 deleteApplicationResponse = DeleteApplicationResponse
+instance FromXML DeleteApplicationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteApplicationResponse"
 
 instance AWSRequest DeleteApplicationMessage where
     type Sv DeleteApplicationMessage = ElasticBeanstalk
     type Rs DeleteApplicationMessage = DeleteApplicationResponse
 
     request  = post "DeleteApplication"
-    response = const (nullaryResponse DeleteApplicationResponse)
+    response = nullaryResponse DeleteApplicationResponse

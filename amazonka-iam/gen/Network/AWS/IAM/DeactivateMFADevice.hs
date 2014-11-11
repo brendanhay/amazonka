@@ -74,21 +74,24 @@ dmfadSerialNumber =
 -- | The name of the user whose MFA device you want to deactivate.
 dmfadUserName :: Lens' DeactivateMFADevice Text
 dmfadUserName = lens _dmfadUserName (\s a -> s { _dmfadUserName = a })
+instance ToQuery DeactivateMFADevice
 
 instance ToPath DeactivateMFADevice where
     toPath = const "/"
 
-instance ToQuery DeactivateMFADevice
-
 data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeactivateMFADeviceResponse' constructor.
 deactivateMFADeviceResponse :: DeactivateMFADeviceResponse
 deactivateMFADeviceResponse = DeactivateMFADeviceResponse
+instance FromXML DeactivateMFADeviceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeactivateMFADeviceResponse"
 
 instance AWSRequest DeactivateMFADevice where
     type Sv DeactivateMFADevice = IAM
     type Rs DeactivateMFADevice = DeactivateMFADeviceResponse
 
     request  = post "DeactivateMFADevice"
-    response = const (nullaryResponse DeactivateMFADeviceResponse)
+    response = nullaryResponse DeactivateMFADeviceResponse

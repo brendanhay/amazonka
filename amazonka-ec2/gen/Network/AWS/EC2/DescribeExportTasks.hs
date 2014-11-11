@@ -33,7 +33,7 @@ module Network.AWS.EC2.DescribeExportTasks
     -- * Response
     , DescribeExportTasksResult
     -- ** Response constructor
-    , describeExportTasksResponse
+    , describeExportTasksResult
     -- ** Response lenses
     , detrExportTasks
     ) where
@@ -60,11 +60,10 @@ describeExportTasks = DescribeExportTasks
 -- | One or more export task IDs.
 detExportTaskIds :: Lens' DescribeExportTasks [Text]
 detExportTaskIds = lens _detExportTaskIds (\s a -> s { _detExportTaskIds = a })
+instance ToQuery DescribeExportTasks
 
 instance ToPath DescribeExportTasks where
     toPath = const "/"
-
-instance ToQuery DescribeExportTasks
 
 newtype DescribeExportTasksResult = DescribeExportTasksResult
     { _detrExportTasks :: [ExportTask]
@@ -76,13 +75,16 @@ newtype DescribeExportTasksResult = DescribeExportTasksResult
 --
 -- * 'detrExportTasks' @::@ ['ExportTask']
 --
-describeExportTasksResponse :: DescribeExportTasksResult
-describeExportTasksResponse = DescribeExportTasksResult
+describeExportTasksResult :: DescribeExportTasksResult
+describeExportTasksResult = DescribeExportTasksResult
     { _detrExportTasks = mempty
     }
 
 detrExportTasks :: Lens' DescribeExportTasksResult [ExportTask]
 detrExportTasks = lens _detrExportTasks (\s a -> s { _detrExportTasks = a })
+instance FromXML DescribeExportTasksResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeExportTasksResult"
 
 instance AWSRequest DescribeExportTasks where
     type Sv DescribeExportTasks = EC2

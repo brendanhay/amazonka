@@ -41,15 +41,15 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
 
 data ListSAMLProviders = ListSAMLProviders
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListSAMLProviders' constructor.
 listSAMLProviders :: ListSAMLProviders
 listSAMLProviders = ListSAMLProviders
+instance ToQuery ListSAMLProviders
 
 instance ToPath ListSAMLProviders where
     toPath = const "/"
-
-instance ToQuery ListSAMLProviders
 
 newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
     { _lsamlprSAMLProviderList :: [SAMLProviderListEntry]
@@ -70,6 +70,9 @@ listSAMLProvidersResponse = ListSAMLProvidersResponse
 lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
 lsamlprSAMLProviderList =
     lens _lsamlprSAMLProviderList (\s a -> s { _lsamlprSAMLProviderList = a })
+instance FromXML ListSAMLProvidersResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListSAMLProvidersResponse"
 
 instance AWSRequest ListSAMLProviders where
     type Sv ListSAMLProviders = IAM

@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.DeleteDistribution
     -- * Request
       DeleteDistribution
     -- ** Request constructor
-    , deleteDistribution2014_05_31
+    , deleteDistribution
     -- ** Request lenses
     , ddId
     , ddIfMatch
@@ -54,9 +54,9 @@ data DeleteDistribution = DeleteDistribution
 --
 -- * 'ddIfMatch' @::@ 'Maybe' 'Text'
 --
-deleteDistribution2014_05_31 :: Text -- ^ 'ddId'
-                             -> DeleteDistribution
-deleteDistribution2014_05_31 p1 = DeleteDistribution
+deleteDistribution :: Text -- ^ 'ddId'
+                   -> DeleteDistribution
+deleteDistribution p1 = DeleteDistribution
     { _ddId      = p1
     , _ddIfMatch = Nothing
     }
@@ -85,14 +85,18 @@ instance ToHeaders DeleteDistribution where
         ]
 
 data DeleteDistribution2014_05_31Response = DeleteDistribution2014_05_31Response
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteDistribution2014_05_31Response' constructor.
 deleteDistribution2014_05_31Response :: DeleteDistribution2014_05_31Response
 deleteDistribution2014_05_31Response = DeleteDistribution2014_05_31Response
 
+instance FromXML DeleteDistribution2014_05_31Response where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteDistribution2014_05_31Response"
 instance AWSRequest DeleteDistribution where
     type Sv DeleteDistribution = CloudFront
     type Rs DeleteDistribution = DeleteDistribution2014_05_31Response
 
     request  = delete
-    response = const (nullaryResponse DeleteDistribution2014_05_31Response)
+    response = nullaryResponse DeleteDistribution2014_05_31Response

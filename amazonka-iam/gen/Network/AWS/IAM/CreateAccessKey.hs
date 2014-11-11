@@ -71,11 +71,10 @@ createAccessKey = CreateAccessKey
 -- | The user name that the new key will belong to.
 cakUserName :: Lens' CreateAccessKey (Maybe Text)
 cakUserName = lens _cakUserName (\s a -> s { _cakUserName = a })
+instance ToQuery CreateAccessKey
 
 instance ToPath CreateAccessKey where
     toPath = const "/"
-
-instance ToQuery CreateAccessKey
 
 newtype CreateAccessKeyResponse = CreateAccessKeyResponse
     { _cakrAccessKey :: AccessKey
@@ -96,6 +95,9 @@ createAccessKeyResponse p1 = CreateAccessKeyResponse
 -- | Information about the access key.
 cakrAccessKey :: Lens' CreateAccessKeyResponse AccessKey
 cakrAccessKey = lens _cakrAccessKey (\s a -> s { _cakrAccessKey = a })
+instance FromXML CreateAccessKeyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateAccessKeyResponse"
 
 instance AWSRequest CreateAccessKey where
     type Sv CreateAccessKey = IAM

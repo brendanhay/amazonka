@@ -26,7 +26,7 @@ module Network.AWS.RDS.DeleteOptionGroup
     -- * Request
       DeleteOptionGroupMessage
     -- ** Request constructor
-    , deleteOptionGroup
+    , deleteOptionGroupMessage
     -- ** Request lenses
     , dogmOptionGroupName
 
@@ -50,9 +50,9 @@ newtype DeleteOptionGroupMessage = DeleteOptionGroupMessage
 --
 -- * 'dogmOptionGroupName' @::@ 'Text'
 --
-deleteOptionGroup :: Text -- ^ 'dogmOptionGroupName'
-                  -> DeleteOptionGroupMessage
-deleteOptionGroup p1 = DeleteOptionGroupMessage
+deleteOptionGroupMessage :: Text -- ^ 'dogmOptionGroupName'
+                         -> DeleteOptionGroupMessage
+deleteOptionGroupMessage p1 = DeleteOptionGroupMessage
     { _dogmOptionGroupName = p1
     }
 
@@ -60,21 +60,24 @@ deleteOptionGroup p1 = DeleteOptionGroupMessage
 dogmOptionGroupName :: Lens' DeleteOptionGroupMessage Text
 dogmOptionGroupName =
     lens _dogmOptionGroupName (\s a -> s { _dogmOptionGroupName = a })
+instance ToQuery DeleteOptionGroupMessage
 
 instance ToPath DeleteOptionGroupMessage where
     toPath = const "/"
 
-instance ToQuery DeleteOptionGroupMessage
-
 data DeleteOptionGroupResponse = DeleteOptionGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteOptionGroupResponse' constructor.
 deleteOptionGroupResponse :: DeleteOptionGroupResponse
 deleteOptionGroupResponse = DeleteOptionGroupResponse
+instance FromXML DeleteOptionGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteOptionGroupResponse"
 
 instance AWSRequest DeleteOptionGroupMessage where
     type Sv DeleteOptionGroupMessage = RDS
     type Rs DeleteOptionGroupMessage = DeleteOptionGroupResponse
 
     request  = post "DeleteOptionGroup"
-    response = const (nullaryResponse DeleteOptionGroupResponse)
+    response = nullaryResponse DeleteOptionGroupResponse

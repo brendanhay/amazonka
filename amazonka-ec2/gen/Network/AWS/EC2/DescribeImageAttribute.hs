@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeImageAttribute
     -- * Response
     , ImageAttribute
     -- ** Response constructor
-    , describeImageAttributeResponse
+    , imageAttribute
     -- ** Response lenses
     , ia1BlockDeviceMappings
     , ia1Description
@@ -87,11 +87,10 @@ diaDryRun = lens _diaDryRun (\s a -> s { _diaDryRun = a })
 -- | The ID of the AMI.
 diaImageId :: Lens' DescribeImageAttribute Text
 diaImageId = lens _diaImageId (\s a -> s { _diaImageId = a })
+instance ToQuery DescribeImageAttribute
 
 instance ToPath DescribeImageAttribute where
     toPath = const "/"
-
-instance ToQuery DescribeImageAttribute
 
 data ImageAttribute = ImageAttribute
     { _ia1BlockDeviceMappings :: [BlockDeviceMapping]
@@ -124,8 +123,8 @@ data ImageAttribute = ImageAttribute
 --
 -- * 'ia1SriovNetSupport' @::@ 'Maybe' 'AttributeValue'
 --
-describeImageAttributeResponse :: ImageAttribute
-describeImageAttributeResponse = ImageAttribute
+imageAttribute :: ImageAttribute
+imageAttribute = ImageAttribute
     { _ia1ImageId             = Nothing
     , _ia1LaunchPermissions   = mempty
     , _ia1ProductCodes        = mempty
@@ -169,6 +168,9 @@ ia1RamdiskId = lens _ia1RamdiskId (\s a -> s { _ia1RamdiskId = a })
 ia1SriovNetSupport :: Lens' ImageAttribute (Maybe AttributeValue)
 ia1SriovNetSupport =
     lens _ia1SriovNetSupport (\s a -> s { _ia1SriovNetSupport = a })
+instance FromXML ImageAttribute where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ImageAttribute"
 
 instance AWSRequest DescribeImageAttribute where
     type Sv DescribeImageAttribute = EC2

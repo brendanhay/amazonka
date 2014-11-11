@@ -30,7 +30,7 @@ module Network.AWS.ImportExport.CreateJob
     -- * Request
       CreateJobInput
     -- ** Request constructor
-    , createJob
+    , createJobInput
     -- ** Request lenses
     , cjiJobType
     , cjiManifest
@@ -40,7 +40,7 @@ module Network.AWS.ImportExport.CreateJob
     -- * Response
     , CreateJobOutput
     -- ** Response constructor
-    , createJobResponse
+    , createJobOutput
     -- ** Response lenses
     , cjoAwsShippingAddress
     , cjoJobId
@@ -73,11 +73,11 @@ data CreateJobInput = CreateJobInput
 --
 -- * 'cjiValidateOnly' @::@ 'Bool'
 --
-createJob :: Text -- ^ 'cjiJobType'
-          -> Text -- ^ 'cjiManifest'
-          -> Bool -- ^ 'cjiValidateOnly'
-          -> CreateJobInput
-createJob p1 p2 p3 = CreateJobInput
+createJobInput :: Text -- ^ 'cjiJobType'
+               -> Text -- ^ 'cjiManifest'
+               -> Bool -- ^ 'cjiValidateOnly'
+               -> CreateJobInput
+createJobInput p1 p2 p3 = CreateJobInput
     { _cjiJobType          = p1
     , _cjiManifest         = p2
     , _cjiValidateOnly     = p3
@@ -96,11 +96,10 @@ cjiManifestAddendum =
 
 cjiValidateOnly :: Lens' CreateJobInput Bool
 cjiValidateOnly = lens _cjiValidateOnly (\s a -> s { _cjiValidateOnly = a })
+instance ToQuery CreateJobInput
 
 instance ToPath CreateJobInput where
     toPath = const "/"
-
-instance ToQuery CreateJobInput
 
 data CreateJobOutput = CreateJobOutput
     { _cjoAwsShippingAddress    :: Maybe Text
@@ -127,8 +126,8 @@ data CreateJobOutput = CreateJobOutput
 --
 -- * 'cjoWarningMessage' @::@ 'Maybe' 'Text'
 --
-createJobResponse :: CreateJobOutput
-createJobResponse = CreateJobOutput
+createJobOutput :: CreateJobOutput
+createJobOutput = CreateJobOutput
     { _cjoJobId                 = Nothing
     , _cjoJobType               = Nothing
     , _cjoAwsShippingAddress    = Nothing
@@ -158,6 +157,9 @@ cjoSignatureFileContents =
 cjoWarningMessage :: Lens' CreateJobOutput (Maybe Text)
 cjoWarningMessage =
     lens _cjoWarningMessage (\s a -> s { _cjoWarningMessage = a })
+instance FromXML CreateJobOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateJobOutput"
 
 instance AWSRequest CreateJobInput where
     type Sv CreateJobInput = ImportExport

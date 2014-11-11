@@ -23,11 +23,6 @@ module Network.AWS.SNS.Types
     (
     -- * Service
       SNS
-    -- ** Errors
-    , SNSError (..)
-    , _SNSHttp
-    , _SNSSerializer
-    , _SNSService
     -- ** XML
     , xmlOptions
 

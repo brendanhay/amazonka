@@ -68,21 +68,24 @@ evioDryRun = lens _evioDryRun (\s a -> s { _evioDryRun = a })
 -- | The ID of the volume.
 evioVolumeId :: Lens' EnableVolumeIO Text
 evioVolumeId = lens _evioVolumeId (\s a -> s { _evioVolumeId = a })
+instance ToQuery EnableVolumeIO
 
 instance ToPath EnableVolumeIO where
     toPath = const "/"
 
-instance ToQuery EnableVolumeIO
-
 data EnableVolumeIOResponse = EnableVolumeIOResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'EnableVolumeIOResponse' constructor.
 enableVolumeIOResponse :: EnableVolumeIOResponse
 enableVolumeIOResponse = EnableVolumeIOResponse
+instance FromXML EnableVolumeIOResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnableVolumeIOResponse"
 
 instance AWSRequest EnableVolumeIO where
     type Sv EnableVolumeIO = EC2
     type Rs EnableVolumeIO = EnableVolumeIOResponse
 
     request  = post "EnableVolumeIO"
-    response = const (nullaryResponse EnableVolumeIOResponse)
+    response = nullaryResponse EnableVolumeIOResponse

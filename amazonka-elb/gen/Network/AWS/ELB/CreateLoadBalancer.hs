@@ -40,7 +40,7 @@ module Network.AWS.ELB.CreateLoadBalancer
     -- * Request
       CreateAccessPointInput
     -- ** Request constructor
-    , createLoadBalancer
+    , createAccessPointInput
     -- ** Request lenses
     , capiAvailabilityZones
     , capiListeners
@@ -53,7 +53,7 @@ module Network.AWS.ELB.CreateLoadBalancer
     -- * Response
     , CreateAccessPointOutput
     -- ** Response constructor
-    , createLoadBalancerResponse
+    , createAccessPointOutput
     -- ** Response lenses
     , capoDNSName
     ) where
@@ -90,10 +90,10 @@ data CreateAccessPointInput = CreateAccessPointInput
 --
 -- * 'capiTags' @::@ 'NonEmpty' 'Tag'
 --
-createLoadBalancer :: Text -- ^ 'capiLoadBalancerName'
-                   -> NonEmpty Tag -- ^ 'capiTags'
-                   -> CreateAccessPointInput
-createLoadBalancer p1 p2 = CreateAccessPointInput
+createAccessPointInput :: Text -- ^ 'capiLoadBalancerName'
+                       -> NonEmpty Tag -- ^ 'capiTags'
+                       -> CreateAccessPointInput
+createAccessPointInput p1 p2 = CreateAccessPointInput
     { _capiLoadBalancerName  = p1
     , _capiTags              = withIso _List1 (const id) p2
     , _capiListeners         = mempty
@@ -150,11 +150,10 @@ capiSubnets = lens _capiSubnets (\s a -> s { _capiSubnets = a })
 capiTags :: Lens' CreateAccessPointInput (NonEmpty Tag)
 capiTags = lens _capiTags (\s a -> s { _capiTags = a })
     . _List1
+instance ToQuery CreateAccessPointInput
 
 instance ToPath CreateAccessPointInput where
     toPath = const "/"
-
-instance ToQuery CreateAccessPointInput
 
 newtype CreateAccessPointOutput = CreateAccessPointOutput
     { _capoDNSName :: Maybe Text
@@ -166,14 +165,17 @@ newtype CreateAccessPointOutput = CreateAccessPointOutput
 --
 -- * 'capoDNSName' @::@ 'Maybe' 'Text'
 --
-createLoadBalancerResponse :: CreateAccessPointOutput
-createLoadBalancerResponse = CreateAccessPointOutput
+createAccessPointOutput :: CreateAccessPointOutput
+createAccessPointOutput = CreateAccessPointOutput
     { _capoDNSName = Nothing
     }
 
 -- | The DNS name for the load balancer.
 capoDNSName :: Lens' CreateAccessPointOutput (Maybe Text)
 capoDNSName = lens _capoDNSName (\s a -> s { _capoDNSName = a })
+instance FromXML CreateAccessPointOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateAccessPointOutput"
 
 instance AWSRequest CreateAccessPointInput where
     type Sv CreateAccessPointInput = ELB

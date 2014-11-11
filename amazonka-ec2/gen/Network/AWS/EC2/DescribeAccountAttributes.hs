@@ -34,7 +34,7 @@ module Network.AWS.EC2.DescribeAccountAttributes
     -- * Response
     , DescribeAccountAttributesResult
     -- ** Response constructor
-    , describeAccountAttributesResponse
+    , describeAccountAttributesResult
     -- ** Response lenses
     , daarAccountAttributes
     ) where
@@ -69,11 +69,10 @@ daaAttributeNames =
 
 daaDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
 daaDryRun = lens _daaDryRun (\s a -> s { _daaDryRun = a })
+instance ToQuery DescribeAccountAttributes
 
 instance ToPath DescribeAccountAttributes where
     toPath = const "/"
-
-instance ToQuery DescribeAccountAttributes
 
 newtype DescribeAccountAttributesResult = DescribeAccountAttributesResult
     { _daarAccountAttributes :: [AccountAttribute]
@@ -85,8 +84,8 @@ newtype DescribeAccountAttributesResult = DescribeAccountAttributesResult
 --
 -- * 'daarAccountAttributes' @::@ ['AccountAttribute']
 --
-describeAccountAttributesResponse :: DescribeAccountAttributesResult
-describeAccountAttributesResponse = DescribeAccountAttributesResult
+describeAccountAttributesResult :: DescribeAccountAttributesResult
+describeAccountAttributesResult = DescribeAccountAttributesResult
     { _daarAccountAttributes = mempty
     }
 
@@ -94,6 +93,9 @@ describeAccountAttributesResponse = DescribeAccountAttributesResult
 daarAccountAttributes :: Lens' DescribeAccountAttributesResult [AccountAttribute]
 daarAccountAttributes =
     lens _daarAccountAttributes (\s a -> s { _daarAccountAttributes = a })
+instance FromXML DescribeAccountAttributesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAccountAttributesResult"
 
 instance AWSRequest DescribeAccountAttributes where
     type Sv DescribeAccountAttributes = EC2

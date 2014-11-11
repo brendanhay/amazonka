@@ -89,11 +89,10 @@ lmfadMaxItems = lens _lmfadMaxItems (\s a -> s { _lmfadMaxItems = a })
 -- | The name of the user whose MFA devices you want to list.
 lmfadUserName :: Lens' ListMFADevices (Maybe Text)
 lmfadUserName = lens _lmfadUserName (\s a -> s { _lmfadUserName = a })
+instance ToQuery ListMFADevices
 
 instance ToPath ListMFADevices where
     toPath = const "/"
-
-instance ToQuery ListMFADevices
 
 data ListMFADevicesResponse = ListMFADevicesResponse
     { _lmfadrIsTruncated :: Maybe Bool
@@ -134,6 +133,9 @@ lmfadrMFADevices = lens _lmfadrMFADevices (\s a -> s { _lmfadrMFADevices = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lmfadrMarker :: Lens' ListMFADevicesResponse (Maybe Text)
 lmfadrMarker = lens _lmfadrMarker (\s a -> s { _lmfadrMarker = a })
+instance FromXML ListMFADevicesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListMFADevicesResponse"
 
 instance AWSRequest ListMFADevices where
     type Sv ListMFADevices = IAM

@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.DeleteAutoScalingGroup
     -- * Request
       DeleteAutoScalingGroupType
     -- ** Request constructor
-    , deleteAutoScalingGroup
+    , deleteAutoScalingGroupType
     -- ** Request lenses
     , dasgtAutoScalingGroupName
     , dasgtForceDelete
@@ -55,9 +55,9 @@ data DeleteAutoScalingGroupType = DeleteAutoScalingGroupType
 --
 -- * 'dasgtForceDelete' @::@ 'Maybe' 'Bool'
 --
-deleteAutoScalingGroup :: Text -- ^ 'dasgtAutoScalingGroupName'
-                       -> DeleteAutoScalingGroupType
-deleteAutoScalingGroup p1 = DeleteAutoScalingGroupType
+deleteAutoScalingGroupType :: Text -- ^ 'dasgtAutoScalingGroupName'
+                           -> DeleteAutoScalingGroupType
+deleteAutoScalingGroupType p1 = DeleteAutoScalingGroupType
     { _dasgtAutoScalingGroupName = p1
     , _dasgtForceDelete          = Nothing
     }
@@ -74,21 +74,24 @@ dasgtAutoScalingGroupName =
 -- deletes any lifecycle actions associated with the group.
 dasgtForceDelete :: Lens' DeleteAutoScalingGroupType (Maybe Bool)
 dasgtForceDelete = lens _dasgtForceDelete (\s a -> s { _dasgtForceDelete = a })
+instance ToQuery DeleteAutoScalingGroupType
 
 instance ToPath DeleteAutoScalingGroupType where
     toPath = const "/"
 
-instance ToQuery DeleteAutoScalingGroupType
-
 data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteAutoScalingGroupResponse' constructor.
 deleteAutoScalingGroupResponse :: DeleteAutoScalingGroupResponse
 deleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
+instance FromXML DeleteAutoScalingGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteAutoScalingGroupResponse"
 
 instance AWSRequest DeleteAutoScalingGroupType where
     type Sv DeleteAutoScalingGroupType = AutoScaling
     type Rs DeleteAutoScalingGroupType = DeleteAutoScalingGroupResponse
 
     request  = post "DeleteAutoScalingGroup"
-    response = const (nullaryResponse DeleteAutoScalingGroupResponse)
+    response = nullaryResponse DeleteAutoScalingGroupResponse

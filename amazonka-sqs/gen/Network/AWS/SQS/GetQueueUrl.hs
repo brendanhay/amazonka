@@ -40,7 +40,7 @@ module Network.AWS.SQS.GetQueueUrl
     -- * Response
     , GetQueueUrlResult
     -- ** Response constructor
-    , getQueueUrlResponse
+    , getQueueUrlResult
     -- ** Response lenses
     , gqurQueueUrl
     ) where
@@ -79,11 +79,10 @@ gquQueueOwnerAWSAccountId :: Lens' GetQueueUrl (Maybe Text)
 gquQueueOwnerAWSAccountId =
     lens _gquQueueOwnerAWSAccountId
         (\s a -> s { _gquQueueOwnerAWSAccountId = a })
+instance ToQuery GetQueueUrl
 
 instance ToPath GetQueueUrl where
     toPath = const "/"
-
-instance ToQuery GetQueueUrl
 
 newtype GetQueueUrlResult = GetQueueUrlResult
     { _gqurQueueUrl :: Maybe Text
@@ -95,14 +94,17 @@ newtype GetQueueUrlResult = GetQueueUrlResult
 --
 -- * 'gqurQueueUrl' @::@ 'Maybe' 'Text'
 --
-getQueueUrlResponse :: GetQueueUrlResult
-getQueueUrlResponse = GetQueueUrlResult
+getQueueUrlResult :: GetQueueUrlResult
+getQueueUrlResult = GetQueueUrlResult
     { _gqurQueueUrl = Nothing
     }
 
 -- | The URL for the queue.
 gqurQueueUrl :: Lens' GetQueueUrlResult (Maybe Text)
 gqurQueueUrl = lens _gqurQueueUrl (\s a -> s { _gqurQueueUrl = a })
+instance FromXML GetQueueUrlResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetQueueUrlResult"
 
 instance AWSRequest GetQueueUrl where
     type Sv GetQueueUrl = SQS

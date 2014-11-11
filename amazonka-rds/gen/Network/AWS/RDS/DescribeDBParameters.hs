@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeDBParameters
     -- * Request
       DescribeDBParametersMessage
     -- ** Request constructor
-    , describeDBParameters
+    , describeDBParametersMessage
     -- ** Request lenses
     , ddbpmDBParameterGroupName
     , ddbpmFilters
@@ -37,7 +37,7 @@ module Network.AWS.RDS.DescribeDBParameters
     -- * Response
     , DBParameterGroupDetails
     -- ** Response constructor
-    , describeDBParametersResponse
+    , dbparameterGroupDetails
     -- ** Response lenses
     , dbpgdMarker
     , dbpgdParameters
@@ -69,9 +69,9 @@ data DescribeDBParametersMessage = DescribeDBParametersMessage
 --
 -- * 'ddbpmSource' @::@ 'Maybe' 'Text'
 --
-describeDBParameters :: Text -- ^ 'ddbpmDBParameterGroupName'
-                     -> DescribeDBParametersMessage
-describeDBParameters p1 = DescribeDBParametersMessage
+describeDBParametersMessage :: Text -- ^ 'ddbpmDBParameterGroupName'
+                            -> DescribeDBParametersMessage
+describeDBParametersMessage p1 = DescribeDBParametersMessage
     { _ddbpmDBParameterGroupName = p1
     , _ddbpmSource               = Nothing
     , _ddbpmFilters              = mempty
@@ -109,11 +109,10 @@ ddbpmMaxRecords = lens _ddbpmMaxRecords (\s a -> s { _ddbpmMaxRecords = a })
 -- Valid Values: user | system | engine-default.
 ddbpmSource :: Lens' DescribeDBParametersMessage (Maybe Text)
 ddbpmSource = lens _ddbpmSource (\s a -> s { _ddbpmSource = a })
+instance ToQuery DescribeDBParametersMessage
 
 instance ToPath DescribeDBParametersMessage where
     toPath = const "/"
-
-instance ToQuery DescribeDBParametersMessage
 
 data DBParameterGroupDetails = DBParameterGroupDetails
     { _dbpgdMarker     :: Maybe Text
@@ -128,8 +127,8 @@ data DBParameterGroupDetails = DBParameterGroupDetails
 --
 -- * 'dbpgdParameters' @::@ ['Parameter']
 --
-describeDBParametersResponse :: DBParameterGroupDetails
-describeDBParametersResponse = DBParameterGroupDetails
+dbparameterGroupDetails :: DBParameterGroupDetails
+dbparameterGroupDetails = DBParameterGroupDetails
     { _dbpgdParameters = mempty
     , _dbpgdMarker     = Nothing
     }
@@ -143,6 +142,9 @@ dbpgdMarker = lens _dbpgdMarker (\s a -> s { _dbpgdMarker = a })
 -- | A list of Parameter values.
 dbpgdParameters :: Lens' DBParameterGroupDetails [Parameter]
 dbpgdParameters = lens _dbpgdParameters (\s a -> s { _dbpgdParameters = a })
+instance FromXML DBParameterGroupDetails where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DBParameterGroupDetails"
 
 instance AWSRequest DescribeDBParametersMessage where
     type Sv DescribeDBParametersMessage = RDS

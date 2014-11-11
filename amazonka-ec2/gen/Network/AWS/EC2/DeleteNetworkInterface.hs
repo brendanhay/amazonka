@@ -69,21 +69,24 @@ dni1DryRun = lens _dni1DryRun (\s a -> s { _dni1DryRun = a })
 dni1NetworkInterfaceId :: Lens' DeleteNetworkInterface Text
 dni1NetworkInterfaceId =
     lens _dni1NetworkInterfaceId (\s a -> s { _dni1NetworkInterfaceId = a })
+instance ToQuery DeleteNetworkInterface
 
 instance ToPath DeleteNetworkInterface where
     toPath = const "/"
 
-instance ToQuery DeleteNetworkInterface
-
 data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteNetworkInterfaceResponse' constructor.
 deleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse
 deleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
+instance FromXML DeleteNetworkInterfaceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteNetworkInterfaceResponse"
 
 instance AWSRequest DeleteNetworkInterface where
     type Sv DeleteNetworkInterface = EC2
     type Rs DeleteNetworkInterface = DeleteNetworkInterfaceResponse
 
     request  = post "DeleteNetworkInterface"
-    response = const (nullaryResponse DeleteNetworkInterfaceResponse)
+    response = nullaryResponse DeleteNetworkInterfaceResponse

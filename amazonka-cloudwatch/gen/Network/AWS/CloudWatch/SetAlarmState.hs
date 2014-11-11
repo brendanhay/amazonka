@@ -29,7 +29,7 @@ module Network.AWS.CloudWatch.SetAlarmState
     -- * Request
       SetAlarmStateInput
     -- ** Request constructor
-    , setAlarmState
+    , setAlarmStateInput
     -- ** Request lenses
     , sasiAlarmName
     , sasiStateReason
@@ -65,11 +65,11 @@ data SetAlarmStateInput = SetAlarmStateInput
 --
 -- * 'sasiStateValue' @::@ 'Text'
 --
-setAlarmState :: Text -- ^ 'sasiAlarmName'
-              -> Text -- ^ 'sasiStateValue'
-              -> Text -- ^ 'sasiStateReason'
-              -> SetAlarmStateInput
-setAlarmState p1 p2 p3 = SetAlarmStateInput
+setAlarmStateInput :: Text -- ^ 'sasiAlarmName'
+                   -> Text -- ^ 'sasiStateValue'
+                   -> Text -- ^ 'sasiStateReason'
+                   -> SetAlarmStateInput
+setAlarmStateInput p1 p2 p3 = SetAlarmStateInput
     { _sasiAlarmName       = p1
     , _sasiStateValue      = p2
     , _sasiStateReason     = p3
@@ -95,21 +95,24 @@ sasiStateReasonData =
 -- | The value of the state.
 sasiStateValue :: Lens' SetAlarmStateInput Text
 sasiStateValue = lens _sasiStateValue (\s a -> s { _sasiStateValue = a })
+instance ToQuery SetAlarmStateInput
 
 instance ToPath SetAlarmStateInput where
     toPath = const "/"
 
-instance ToQuery SetAlarmStateInput
-
 data SetAlarmStateResponse = SetAlarmStateResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetAlarmStateResponse' constructor.
 setAlarmStateResponse :: SetAlarmStateResponse
 setAlarmStateResponse = SetAlarmStateResponse
+instance FromXML SetAlarmStateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SetAlarmStateResponse"
 
 instance AWSRequest SetAlarmStateInput where
     type Sv SetAlarmStateInput = CloudWatch
     type Rs SetAlarmStateInput = SetAlarmStateResponse
 
     request  = post "SetAlarmState"
-    response = const (nullaryResponse SetAlarmStateResponse)
+    response = nullaryResponse SetAlarmStateResponse

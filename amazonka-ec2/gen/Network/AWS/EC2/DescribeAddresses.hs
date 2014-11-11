@@ -39,7 +39,7 @@ module Network.AWS.EC2.DescribeAddresses
     -- * Response
     , DescribeAddressesResult
     -- ** Response constructor
-    , describeAddressesResponse
+    , describeAddressesResult
     -- ** Response lenses
     , darAddresses
     ) where
@@ -100,11 +100,10 @@ daFilters = lens _daFilters (\s a -> s { _daFilters = a })
 -- your Elastic IP addresses.
 daPublicIps :: Lens' DescribeAddresses [Text]
 daPublicIps = lens _daPublicIps (\s a -> s { _daPublicIps = a })
+instance ToQuery DescribeAddresses
 
 instance ToPath DescribeAddresses where
     toPath = const "/"
-
-instance ToQuery DescribeAddresses
 
 newtype DescribeAddressesResult = DescribeAddressesResult
     { _darAddresses :: [Address]
@@ -116,14 +115,17 @@ newtype DescribeAddressesResult = DescribeAddressesResult
 --
 -- * 'darAddresses' @::@ ['Address']
 --
-describeAddressesResponse :: DescribeAddressesResult
-describeAddressesResponse = DescribeAddressesResult
+describeAddressesResult :: DescribeAddressesResult
+describeAddressesResult = DescribeAddressesResult
     { _darAddresses = mempty
     }
 
 -- | Information about one or more Elastic IP addresses.
 darAddresses :: Lens' DescribeAddressesResult [Address]
 darAddresses = lens _darAddresses (\s a -> s { _darAddresses = a })
+instance FromXML DescribeAddressesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAddressesResult"
 
 instance AWSRequest DescribeAddresses where
     type Sv DescribeAddresses = EC2

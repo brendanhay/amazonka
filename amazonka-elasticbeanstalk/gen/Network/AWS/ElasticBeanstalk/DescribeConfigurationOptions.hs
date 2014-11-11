@@ -30,7 +30,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     -- * Request
       DescribeConfigurationOptionsMessage
     -- ** Request constructor
-    , describeConfigurationOptions
+    , describeConfigurationOptionsMessage
     -- ** Request lenses
     , dcomApplicationName
     , dcomEnvironmentName
@@ -41,7 +41,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     -- * Response
     , ConfigurationOptionsDescription
     -- ** Response constructor
-    , describeConfigurationOptionsResponse
+    , configurationOptionsDescription
     -- ** Response lenses
     , codOptions
     , codSolutionStackName
@@ -73,8 +73,8 @@ data DescribeConfigurationOptionsMessage = DescribeConfigurationOptionsMessage
 --
 -- * 'dcomTemplateName' @::@ 'Maybe' 'Text'
 --
-describeConfigurationOptions :: DescribeConfigurationOptionsMessage
-describeConfigurationOptions = DescribeConfigurationOptionsMessage
+describeConfigurationOptionsMessage :: DescribeConfigurationOptionsMessage
+describeConfigurationOptionsMessage = DescribeConfigurationOptionsMessage
     { _dcomApplicationName   = Nothing
     , _dcomTemplateName      = Nothing
     , _dcomEnvironmentName   = Nothing
@@ -109,11 +109,10 @@ dcomSolutionStackName =
 -- want to describe.
 dcomTemplateName :: Lens' DescribeConfigurationOptionsMessage (Maybe Text)
 dcomTemplateName = lens _dcomTemplateName (\s a -> s { _dcomTemplateName = a })
+instance ToQuery DescribeConfigurationOptionsMessage
 
 instance ToPath DescribeConfigurationOptionsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeConfigurationOptionsMessage
 
 data ConfigurationOptionsDescription = ConfigurationOptionsDescription
     { _codOptions           :: [ConfigurationOptionDescription]
@@ -128,8 +127,8 @@ data ConfigurationOptionsDescription = ConfigurationOptionsDescription
 --
 -- * 'codSolutionStackName' @::@ 'Maybe' 'Text'
 --
-describeConfigurationOptionsResponse :: ConfigurationOptionsDescription
-describeConfigurationOptionsResponse = ConfigurationOptionsDescription
+configurationOptionsDescription :: ConfigurationOptionsDescription
+configurationOptionsDescription = ConfigurationOptionsDescription
     { _codSolutionStackName = Nothing
     , _codOptions           = mempty
     }
@@ -142,6 +141,9 @@ codOptions = lens _codOptions (\s a -> s { _codOptions = a })
 codSolutionStackName :: Lens' ConfigurationOptionsDescription (Maybe Text)
 codSolutionStackName =
     lens _codSolutionStackName (\s a -> s { _codSolutionStackName = a })
+instance FromXML ConfigurationOptionsDescription where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ConfigurationOptionsDescription"
 
 instance AWSRequest DescribeConfigurationOptionsMessage where
     type Sv DescribeConfigurationOptionsMessage = ElasticBeanstalk

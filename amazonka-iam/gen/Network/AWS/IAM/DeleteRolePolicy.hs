@@ -69,21 +69,24 @@ drpPolicyName = lens _drpPolicyName (\s a -> s { _drpPolicyName = a })
 -- | The name of the role the associated with the policy.
 drpRoleName :: Lens' DeleteRolePolicy Text
 drpRoleName = lens _drpRoleName (\s a -> s { _drpRoleName = a })
+instance ToQuery DeleteRolePolicy
 
 instance ToPath DeleteRolePolicy where
     toPath = const "/"
 
-instance ToQuery DeleteRolePolicy
-
 data DeleteRolePolicyResponse = DeleteRolePolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteRolePolicyResponse' constructor.
 deleteRolePolicyResponse :: DeleteRolePolicyResponse
 deleteRolePolicyResponse = DeleteRolePolicyResponse
+instance FromXML DeleteRolePolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteRolePolicyResponse"
 
 instance AWSRequest DeleteRolePolicy where
     type Sv DeleteRolePolicy = IAM
     type Rs DeleteRolePolicy = DeleteRolePolicyResponse
 
     request  = post "DeleteRolePolicy"
-    response = const (nullaryResponse DeleteRolePolicyResponse)
+    response = nullaryResponse DeleteRolePolicyResponse

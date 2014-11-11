@@ -119,21 +119,24 @@ msaSnapshotId = lens _msaSnapshotId (\s a -> s { _msaSnapshotId = a })
 -- | The account ID to modify for the snapshot.
 msaUserIds :: Lens' ModifySnapshotAttribute [Text]
 msaUserIds = lens _msaUserIds (\s a -> s { _msaUserIds = a })
+instance ToQuery ModifySnapshotAttribute
 
 instance ToPath ModifySnapshotAttribute where
     toPath = const "/"
 
-instance ToQuery ModifySnapshotAttribute
-
 data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifySnapshotAttributeResponse' constructor.
 modifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse
 modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
+instance FromXML ModifySnapshotAttributeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifySnapshotAttributeResponse"
 
 instance AWSRequest ModifySnapshotAttribute where
     type Sv ModifySnapshotAttribute = EC2
     type Rs ModifySnapshotAttribute = ModifySnapshotAttributeResponse
 
     request  = post "ModifySnapshotAttribute"
-    response = const (nullaryResponse ModifySnapshotAttributeResponse)
+    response = nullaryResponse ModifySnapshotAttributeResponse

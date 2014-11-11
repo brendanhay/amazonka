@@ -71,21 +71,24 @@ drtAssociationId = lens _drtAssociationId (\s a -> s { _drtAssociationId = a })
 
 drtDryRun :: Lens' DisassociateRouteTable (Maybe Bool)
 drtDryRun = lens _drtDryRun (\s a -> s { _drtDryRun = a })
+instance ToQuery DisassociateRouteTable
 
 instance ToPath DisassociateRouteTable where
     toPath = const "/"
 
-instance ToQuery DisassociateRouteTable
-
 data DisassociateRouteTableResponse = DisassociateRouteTableResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DisassociateRouteTableResponse' constructor.
 disassociateRouteTableResponse :: DisassociateRouteTableResponse
 disassociateRouteTableResponse = DisassociateRouteTableResponse
+instance FromXML DisassociateRouteTableResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DisassociateRouteTableResponse"
 
 instance AWSRequest DisassociateRouteTable where
     type Sv DisassociateRouteTable = EC2
     type Rs DisassociateRouteTable = DisassociateRouteTableResponse
 
     request  = post "DisassociateRouteTable"
-    response = const (nullaryResponse DisassociateRouteTableResponse)
+    response = nullaryResponse DisassociateRouteTableResponse

@@ -26,7 +26,7 @@ module Network.AWS.CloudFormation.SetStackPolicy
     -- * Request
       SetStackPolicyInput
     -- ** Request constructor
-    , setStackPolicy
+    , setStackPolicyInput
     -- ** Request lenses
     , sspiStackName
     , sspiStackPolicyBody
@@ -58,9 +58,9 @@ data SetStackPolicyInput = SetStackPolicyInput
 --
 -- * 'sspiStackPolicyURL' @::@ 'Maybe' 'Text'
 --
-setStackPolicy :: Text -- ^ 'sspiStackName'
-               -> SetStackPolicyInput
-setStackPolicy p1 = SetStackPolicyInput
+setStackPolicyInput :: Text -- ^ 'sspiStackName'
+                    -> SetStackPolicyInput
+setStackPolicyInput p1 = SetStackPolicyInput
     { _sspiStackName       = p1
     , _sspiStackPolicyBody = Nothing
     , _sspiStackPolicyURL  = Nothing
@@ -85,21 +85,24 @@ sspiStackPolicyBody =
 sspiStackPolicyURL :: Lens' SetStackPolicyInput (Maybe Text)
 sspiStackPolicyURL =
     lens _sspiStackPolicyURL (\s a -> s { _sspiStackPolicyURL = a })
+instance ToQuery SetStackPolicyInput
 
 instance ToPath SetStackPolicyInput where
     toPath = const "/"
 
-instance ToQuery SetStackPolicyInput
-
 data SetStackPolicyResponse = SetStackPolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetStackPolicyResponse' constructor.
 setStackPolicyResponse :: SetStackPolicyResponse
 setStackPolicyResponse = SetStackPolicyResponse
+instance FromXML SetStackPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SetStackPolicyResponse"
 
 instance AWSRequest SetStackPolicyInput where
     type Sv SetStackPolicyInput = CloudFormation
     type Rs SetStackPolicyInput = SetStackPolicyResponse
 
     request  = post "SetStackPolicy"
-    response = const (nullaryResponse SetStackPolicyResponse)
+    response = nullaryResponse SetStackPolicyResponse

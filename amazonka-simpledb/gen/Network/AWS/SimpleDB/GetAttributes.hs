@@ -41,7 +41,7 @@ module Network.AWS.SimpleDB.GetAttributes
     -- * Response
     , GetAttributesResult
     -- ** Response constructor
-    , getAttributesResponse
+    , getAttributesResult
     -- ** Response lenses
     , garAttributes
     ) where
@@ -98,11 +98,10 @@ gaDomainName = lens _gaDomainName (\s a -> s { _gaDomainName = a })
 -- | The name of the item.
 gaItemName :: Lens' GetAttributes Text
 gaItemName = lens _gaItemName (\s a -> s { _gaItemName = a })
+instance ToQuery GetAttributes
 
 instance ToPath GetAttributes where
     toPath = const "/"
-
-instance ToQuery GetAttributes
 
 newtype GetAttributesResult = GetAttributesResult
     { _garAttributes :: [Attribute]
@@ -114,14 +113,17 @@ newtype GetAttributesResult = GetAttributesResult
 --
 -- * 'garAttributes' @::@ ['Attribute']
 --
-getAttributesResponse :: GetAttributesResult
-getAttributesResponse = GetAttributesResult
+getAttributesResult :: GetAttributesResult
+getAttributesResult = GetAttributesResult
     { _garAttributes = mempty
     }
 
 -- | The list of attributes returned by the operation.
 garAttributes :: Lens' GetAttributesResult [Attribute]
 garAttributes = lens _garAttributes (\s a -> s { _garAttributes = a })
+instance FromXML GetAttributesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetAttributesResult"
 
 instance AWSRequest GetAttributes where
     type Sv GetAttributes = SimpleDB

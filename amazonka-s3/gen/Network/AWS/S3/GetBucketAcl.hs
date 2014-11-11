@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketAcl
     -- * Response
     , GetBucketAclOutput
     -- ** Response constructor
-    , getBucketAclResponse
+    , getBucketAclOutput
     -- ** Response lenses
     , gbaoGrants
     , gbaoOwner
@@ -86,8 +86,8 @@ data GetBucketAclOutput = GetBucketAclOutput
 --
 -- * 'gbaoOwner' @::@ 'Maybe' 'Owner'
 --
-getBucketAclResponse :: GetBucketAclOutput
-getBucketAclResponse = GetBucketAclOutput
+getBucketAclOutput :: GetBucketAclOutput
+getBucketAclOutput = GetBucketAclOutput
     { _gbaoOwner  = Nothing
     , _gbaoGrants = mempty
     }
@@ -99,6 +99,9 @@ gbaoGrants = lens _gbaoGrants (\s a -> s { _gbaoGrants = a })
 gbaoOwner :: Lens' GetBucketAclOutput (Maybe Owner)
 gbaoOwner = lens _gbaoOwner (\s a -> s { _gbaoOwner = a })
 
+instance FromXML GetBucketAclOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetBucketAclOutput"
 instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
     type Rs GetBucketAcl = GetBucketAclOutput

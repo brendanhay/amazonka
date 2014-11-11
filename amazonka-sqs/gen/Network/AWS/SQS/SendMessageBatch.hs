@@ -48,7 +48,7 @@ module Network.AWS.SQS.SendMessageBatch
     -- * Response
     , SendMessageBatchResult
     -- ** Response constructor
-    , sendMessageBatchResponse
+    , sendMessageBatchResult
     -- ** Response lenses
     , smbrFailed
     , smbrSuccessful
@@ -85,11 +85,10 @@ smbEntries = lens _smbEntries (\s a -> s { _smbEntries = a })
 -- | The URL of the Amazon SQS queue to take action on.
 smbQueueUrl :: Lens' SendMessageBatch Text
 smbQueueUrl = lens _smbQueueUrl (\s a -> s { _smbQueueUrl = a })
+instance ToQuery SendMessageBatch
 
 instance ToPath SendMessageBatch where
     toPath = const "/"
-
-instance ToQuery SendMessageBatch
 
 data SendMessageBatchResult = SendMessageBatchResult
     { _smbrFailed     :: [BatchResultErrorEntry]
@@ -104,8 +103,8 @@ data SendMessageBatchResult = SendMessageBatchResult
 --
 -- * 'smbrSuccessful' @::@ ['SendMessageBatchResultEntry']
 --
-sendMessageBatchResponse :: SendMessageBatchResult
-sendMessageBatchResponse = SendMessageBatchResult
+sendMessageBatchResult :: SendMessageBatchResult
+sendMessageBatchResult = SendMessageBatchResult
     { _smbrSuccessful = mempty
     , _smbrFailed     = mempty
     }
@@ -118,6 +117,9 @@ smbrFailed = lens _smbrFailed (\s a -> s { _smbrFailed = a })
 -- | A list of SendMessageBatchResultEntry items.
 smbrSuccessful :: Lens' SendMessageBatchResult [SendMessageBatchResultEntry]
 smbrSuccessful = lens _smbrSuccessful (\s a -> s { _smbrSuccessful = a })
+instance FromXML SendMessageBatchResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SendMessageBatchResult"
 
 instance AWSRequest SendMessageBatch where
     type Sv SendMessageBatch = SQS

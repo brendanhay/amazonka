@@ -29,7 +29,7 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
     -- * Request
       CreateLoadBalancerPolicyInput
     -- ** Request constructor
-    , createLoadBalancerPolicy
+    , createLoadBalancerPolicyInput
     -- ** Request lenses
     , clbpiLoadBalancerName
     , clbpiPolicyAttributes
@@ -65,11 +65,11 @@ data CreateLoadBalancerPolicyInput = CreateLoadBalancerPolicyInput
 --
 -- * 'clbpiPolicyTypeName' @::@ 'Text'
 --
-createLoadBalancerPolicy :: Text -- ^ 'clbpiLoadBalancerName'
-                         -> Text -- ^ 'clbpiPolicyName'
-                         -> Text -- ^ 'clbpiPolicyTypeName'
-                         -> CreateLoadBalancerPolicyInput
-createLoadBalancerPolicy p1 p2 p3 = CreateLoadBalancerPolicyInput
+createLoadBalancerPolicyInput :: Text -- ^ 'clbpiLoadBalancerName'
+                              -> Text -- ^ 'clbpiPolicyName'
+                              -> Text -- ^ 'clbpiPolicyTypeName'
+                              -> CreateLoadBalancerPolicyInput
+createLoadBalancerPolicyInput p1 p2 p3 = CreateLoadBalancerPolicyInput
     { _clbpiLoadBalancerName = p1
     , _clbpiPolicyName       = p2
     , _clbpiPolicyTypeName   = p3
@@ -97,21 +97,24 @@ clbpiPolicyName = lens _clbpiPolicyName (\s a -> s { _clbpiPolicyName = a })
 clbpiPolicyTypeName :: Lens' CreateLoadBalancerPolicyInput Text
 clbpiPolicyTypeName =
     lens _clbpiPolicyTypeName (\s a -> s { _clbpiPolicyTypeName = a })
+instance ToQuery CreateLoadBalancerPolicyInput
 
 instance ToPath CreateLoadBalancerPolicyInput where
     toPath = const "/"
 
-instance ToQuery CreateLoadBalancerPolicyInput
-
 data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateLoadBalancerPolicyResponse' constructor.
 createLoadBalancerPolicyResponse :: CreateLoadBalancerPolicyResponse
 createLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
+instance FromXML CreateLoadBalancerPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateLoadBalancerPolicyResponse"
 
 instance AWSRequest CreateLoadBalancerPolicyInput where
     type Sv CreateLoadBalancerPolicyInput = ELB
     type Rs CreateLoadBalancerPolicyInput = CreateLoadBalancerPolicyResponse
 
     request  = post "CreateLoadBalancerPolicy"
-    response = const (nullaryResponse CreateLoadBalancerPolicyResponse)
+    response = nullaryResponse CreateLoadBalancerPolicyResponse

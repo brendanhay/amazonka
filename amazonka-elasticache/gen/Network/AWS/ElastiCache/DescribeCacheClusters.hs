@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     -- * Request
       DescribeCacheClustersMessage
     -- ** Request constructor
-    , describeCacheClusters
+    , describeCacheClustersMessage
     -- ** Request lenses
     , dccm1CacheClusterId
     , dccm1Marker
@@ -51,7 +51,7 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
     -- * Response
     , CacheClusterMessage
     -- ** Response constructor
-    , describeCacheClustersResponse
+    , cacheClusterMessage
     -- ** Response lenses
     , ccmCacheClusters
     , ccmMarker
@@ -80,8 +80,8 @@ data DescribeCacheClustersMessage = DescribeCacheClustersMessage
 --
 -- * 'dccm1ShowCacheNodeInfo' @::@ 'Maybe' 'Bool'
 --
-describeCacheClusters :: DescribeCacheClustersMessage
-describeCacheClusters = DescribeCacheClustersMessage
+describeCacheClustersMessage :: DescribeCacheClustersMessage
+describeCacheClustersMessage = DescribeCacheClustersMessage
     { _dccm1CacheClusterId    = Nothing
     , _dccm1MaxRecords        = Nothing
     , _dccm1Marker            = Nothing
@@ -114,11 +114,10 @@ dccm1MaxRecords = lens _dccm1MaxRecords (\s a -> s { _dccm1MaxRecords = a })
 dccm1ShowCacheNodeInfo :: Lens' DescribeCacheClustersMessage (Maybe Bool)
 dccm1ShowCacheNodeInfo =
     lens _dccm1ShowCacheNodeInfo (\s a -> s { _dccm1ShowCacheNodeInfo = a })
+instance ToQuery DescribeCacheClustersMessage
 
 instance ToPath DescribeCacheClustersMessage where
     toPath = const "/"
-
-instance ToQuery DescribeCacheClustersMessage
 
 data CacheClusterMessage = CacheClusterMessage
     { _ccmCacheClusters :: [CacheCluster]
@@ -133,8 +132,8 @@ data CacheClusterMessage = CacheClusterMessage
 --
 -- * 'ccmMarker' @::@ 'Maybe' 'Text'
 --
-describeCacheClustersResponse :: CacheClusterMessage
-describeCacheClustersResponse = CacheClusterMessage
+cacheClusterMessage :: CacheClusterMessage
+cacheClusterMessage = CacheClusterMessage
     { _ccmMarker        = Nothing
     , _ccmCacheClusters = mempty
     }
@@ -147,6 +146,9 @@ ccmCacheClusters = lens _ccmCacheClusters (\s a -> s { _ccmCacheClusters = a })
 -- | Provides an identifier to allow retrieval of paginated results.
 ccmMarker :: Lens' CacheClusterMessage (Maybe Text)
 ccmMarker = lens _ccmMarker (\s a -> s { _ccmMarker = a })
+instance FromXML CacheClusterMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CacheClusterMessage"
 
 instance AWSRequest DescribeCacheClustersMessage where
     type Sv DescribeCacheClustersMessage = ElastiCache

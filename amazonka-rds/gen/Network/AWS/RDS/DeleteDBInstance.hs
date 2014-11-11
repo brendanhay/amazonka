@@ -33,7 +33,7 @@ module Network.AWS.RDS.DeleteDBInstance
     -- * Request
       DeleteDBInstanceMessage
     -- ** Request constructor
-    , deleteDBInstance
+    , deleteDBInstanceMessage
     -- ** Request lenses
     , ddbim1DBInstanceIdentifier
     , ddbim1FinalDBSnapshotIdentifier
@@ -42,7 +42,7 @@ module Network.AWS.RDS.DeleteDBInstance
     -- * Response
     , DeleteDBInstanceResult
     -- ** Response constructor
-    , deleteDBInstanceResponse
+    , deleteDBInstanceResult
     -- ** Response lenses
     , ddbirDBInstance
     ) where
@@ -67,9 +67,9 @@ data DeleteDBInstanceMessage = DeleteDBInstanceMessage
 --
 -- * 'ddbim1SkipFinalSnapshot' @::@ 'Maybe' 'Bool'
 --
-deleteDBInstance :: Text -- ^ 'ddbim1DBInstanceIdentifier'
-                 -> DeleteDBInstanceMessage
-deleteDBInstance p1 = DeleteDBInstanceMessage
+deleteDBInstanceMessage :: Text -- ^ 'ddbim1DBInstanceIdentifier'
+                        -> DeleteDBInstanceMessage
+deleteDBInstanceMessage p1 = DeleteDBInstanceMessage
     { _ddbim1DBInstanceIdentifier      = p1
     , _ddbim1SkipFinalSnapshot         = Nothing
     , _ddbim1FinalDBSnapshotIdentifier = Nothing
@@ -101,11 +101,10 @@ ddbim1FinalDBSnapshotIdentifier =
 ddbim1SkipFinalSnapshot :: Lens' DeleteDBInstanceMessage (Maybe Bool)
 ddbim1SkipFinalSnapshot =
     lens _ddbim1SkipFinalSnapshot (\s a -> s { _ddbim1SkipFinalSnapshot = a })
+instance ToQuery DeleteDBInstanceMessage
 
 instance ToPath DeleteDBInstanceMessage where
     toPath = const "/"
-
-instance ToQuery DeleteDBInstanceMessage
 
 newtype DeleteDBInstanceResult = DeleteDBInstanceResult
     { _ddbirDBInstance :: Maybe DBInstance
@@ -117,13 +116,16 @@ newtype DeleteDBInstanceResult = DeleteDBInstanceResult
 --
 -- * 'ddbirDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-deleteDBInstanceResponse :: DeleteDBInstanceResult
-deleteDBInstanceResponse = DeleteDBInstanceResult
+deleteDBInstanceResult :: DeleteDBInstanceResult
+deleteDBInstanceResult = DeleteDBInstanceResult
     { _ddbirDBInstance = Nothing
     }
 
 ddbirDBInstance :: Lens' DeleteDBInstanceResult (Maybe DBInstance)
 ddbirDBInstance = lens _ddbirDBInstance (\s a -> s { _ddbirDBInstance = a })
+instance FromXML DeleteDBInstanceResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteDBInstanceResult"
 
 instance AWSRequest DeleteDBInstanceMessage where
     type Sv DeleteDBInstanceMessage = RDS

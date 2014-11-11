@@ -26,7 +26,7 @@ module Network.AWS.Redshift.DeleteClusterSubnetGroup
     -- * Request
       DeleteClusterSubnetGroupMessage
     -- ** Request constructor
-    , deleteClusterSubnetGroup
+    , deleteClusterSubnetGroupMessage
     -- ** Request lenses
     , dcsgmClusterSubnetGroupName
 
@@ -50,9 +50,9 @@ newtype DeleteClusterSubnetGroupMessage = DeleteClusterSubnetGroupMessage
 --
 -- * 'dcsgmClusterSubnetGroupName' @::@ 'Text'
 --
-deleteClusterSubnetGroup :: Text -- ^ 'dcsgmClusterSubnetGroupName'
-                         -> DeleteClusterSubnetGroupMessage
-deleteClusterSubnetGroup p1 = DeleteClusterSubnetGroupMessage
+deleteClusterSubnetGroupMessage :: Text -- ^ 'dcsgmClusterSubnetGroupName'
+                                -> DeleteClusterSubnetGroupMessage
+deleteClusterSubnetGroupMessage p1 = DeleteClusterSubnetGroupMessage
     { _dcsgmClusterSubnetGroupName = p1
     }
 
@@ -61,21 +61,24 @@ dcsgmClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroupMessage Text
 dcsgmClusterSubnetGroupName =
     lens _dcsgmClusterSubnetGroupName
         (\s a -> s { _dcsgmClusterSubnetGroupName = a })
+instance ToQuery DeleteClusterSubnetGroupMessage
 
 instance ToPath DeleteClusterSubnetGroupMessage where
     toPath = const "/"
 
-instance ToQuery DeleteClusterSubnetGroupMessage
-
 data DeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteClusterSubnetGroupResponse' constructor.
 deleteClusterSubnetGroupResponse :: DeleteClusterSubnetGroupResponse
 deleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
+instance FromXML DeleteClusterSubnetGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteClusterSubnetGroupResponse"
 
 instance AWSRequest DeleteClusterSubnetGroupMessage where
     type Sv DeleteClusterSubnetGroupMessage = Redshift
     type Rs DeleteClusterSubnetGroupMessage = DeleteClusterSubnetGroupResponse
 
     request  = post "DeleteClusterSubnetGroup"
-    response = const (nullaryResponse DeleteClusterSubnetGroupResponse)
+    response = nullaryResponse DeleteClusterSubnetGroupResponse

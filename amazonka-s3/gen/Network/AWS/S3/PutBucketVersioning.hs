@@ -108,14 +108,18 @@ instance ToBody PutBucketVersioning where
     toBody = toBody . encodeXML . _pbvVersioningConfiguration
 
 data PutBucketVersioningResponse = PutBucketVersioningResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketVersioningResponse' constructor.
 putBucketVersioningResponse :: PutBucketVersioningResponse
 putBucketVersioningResponse = PutBucketVersioningResponse
 
+instance FromXML PutBucketVersioningResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutBucketVersioningResponse"
 instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3
     type Rs PutBucketVersioning = PutBucketVersioningResponse
 
     request  = put
-    response = const (nullaryResponse PutBucketVersioningResponse)
+    response = nullaryResponse PutBucketVersioningResponse

@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     -- * Request
       DescribeEnvironmentResourcesMessage
     -- ** Request constructor
-    , describeEnvironmentResources
+    , describeEnvironmentResourcesMessage
     -- ** Request lenses
     , dermEnvironmentId
     , dermEnvironmentName
@@ -34,7 +34,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     -- * Response
     , EnvironmentResourceDescriptionsMessage
     -- ** Response constructor
-    , describeEnvironmentResourcesResponse
+    , environmentResourceDescriptionsMessage
     -- ** Response lenses
     , erdmEnvironmentResources
     ) where
@@ -56,8 +56,8 @@ data DescribeEnvironmentResourcesMessage = DescribeEnvironmentResourcesMessage
 --
 -- * 'dermEnvironmentName' @::@ 'Maybe' 'Text'
 --
-describeEnvironmentResources :: DescribeEnvironmentResourcesMessage
-describeEnvironmentResources = DescribeEnvironmentResourcesMessage
+describeEnvironmentResourcesMessage :: DescribeEnvironmentResourcesMessage
+describeEnvironmentResourcesMessage = DescribeEnvironmentResourcesMessage
     { _dermEnvironmentId   = Nothing
     , _dermEnvironmentName = Nothing
     }
@@ -77,11 +77,10 @@ dermEnvironmentId =
 dermEnvironmentName :: Lens' DescribeEnvironmentResourcesMessage (Maybe Text)
 dermEnvironmentName =
     lens _dermEnvironmentName (\s a -> s { _dermEnvironmentName = a })
+instance ToQuery DescribeEnvironmentResourcesMessage
 
 instance ToPath DescribeEnvironmentResourcesMessage where
     toPath = const "/"
-
-instance ToQuery DescribeEnvironmentResourcesMessage
 
 newtype EnvironmentResourceDescriptionsMessage = EnvironmentResourceDescriptionsMessage
     { _erdmEnvironmentResources :: Maybe EnvironmentResourceDescription
@@ -93,8 +92,8 @@ newtype EnvironmentResourceDescriptionsMessage = EnvironmentResourceDescriptions
 --
 -- * 'erdmEnvironmentResources' @::@ 'Maybe' 'EnvironmentResourceDescription'
 --
-describeEnvironmentResourcesResponse :: EnvironmentResourceDescriptionsMessage
-describeEnvironmentResourcesResponse = EnvironmentResourceDescriptionsMessage
+environmentResourceDescriptionsMessage :: EnvironmentResourceDescriptionsMessage
+environmentResourceDescriptionsMessage = EnvironmentResourceDescriptionsMessage
     { _erdmEnvironmentResources = Nothing
     }
 
@@ -103,6 +102,9 @@ erdmEnvironmentResources :: Lens' EnvironmentResourceDescriptionsMessage (Maybe 
 erdmEnvironmentResources =
     lens _erdmEnvironmentResources
         (\s a -> s { _erdmEnvironmentResources = a })
+instance FromXML EnvironmentResourceDescriptionsMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnvironmentResourceDescriptionsMessage"
 
 instance AWSRequest DescribeEnvironmentResourcesMessage where
     type Sv DescribeEnvironmentResourcesMessage = ElasticBeanstalk

@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeSubnets
     -- * Response
     , DescribeSubnetsResult
     -- ** Response constructor
-    , describeSubnetsResponse
+    , describeSubnetsResult
     -- ** Response lenses
     , dsrSubnets
     ) where
@@ -97,11 +97,10 @@ dsFilters = lens _dsFilters (\s a -> s { _dsFilters = a })
 -- | One or more subnet IDs. Default: Describes all your subnets.
 dsSubnetIds :: Lens' DescribeSubnets [Text]
 dsSubnetIds = lens _dsSubnetIds (\s a -> s { _dsSubnetIds = a })
+instance ToQuery DescribeSubnets
 
 instance ToPath DescribeSubnets where
     toPath = const "/"
-
-instance ToQuery DescribeSubnets
 
 newtype DescribeSubnetsResult = DescribeSubnetsResult
     { _dsrSubnets :: [Subnet]
@@ -113,14 +112,17 @@ newtype DescribeSubnetsResult = DescribeSubnetsResult
 --
 -- * 'dsrSubnets' @::@ ['Subnet']
 --
-describeSubnetsResponse :: DescribeSubnetsResult
-describeSubnetsResponse = DescribeSubnetsResult
+describeSubnetsResult :: DescribeSubnetsResult
+describeSubnetsResult = DescribeSubnetsResult
     { _dsrSubnets = mempty
     }
 
 -- | Information about one or more subnets.
 dsrSubnets :: Lens' DescribeSubnetsResult [Subnet]
 dsrSubnets = lens _dsrSubnets (\s a -> s { _dsrSubnets = a })
+instance FromXML DescribeSubnetsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSubnetsResult"
 
 instance AWSRequest DescribeSubnets where
     type Sv DescribeSubnets = EC2

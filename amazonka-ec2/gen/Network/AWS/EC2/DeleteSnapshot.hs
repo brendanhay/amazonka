@@ -76,21 +76,24 @@ ds3DryRun = lens _ds3DryRun (\s a -> s { _ds3DryRun = a })
 -- | The ID of the Amazon EBS snapshot.
 ds3SnapshotId :: Lens' DeleteSnapshot Text
 ds3SnapshotId = lens _ds3SnapshotId (\s a -> s { _ds3SnapshotId = a })
+instance ToQuery DeleteSnapshot
 
 instance ToPath DeleteSnapshot where
     toPath = const "/"
 
-instance ToQuery DeleteSnapshot
-
 data DeleteSnapshotResponse = DeleteSnapshotResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSnapshotResponse' constructor.
 deleteSnapshotResponse :: DeleteSnapshotResponse
 deleteSnapshotResponse = DeleteSnapshotResponse
+instance FromXML DeleteSnapshotResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteSnapshotResponse"
 
 instance AWSRequest DeleteSnapshot where
     type Sv DeleteSnapshot = EC2
     type Rs DeleteSnapshot = DeleteSnapshotResponse
 
     request  = post "DeleteSnapshot"
-    response = const (nullaryResponse DeleteSnapshotResponse)
+    response = nullaryResponse DeleteSnapshotResponse

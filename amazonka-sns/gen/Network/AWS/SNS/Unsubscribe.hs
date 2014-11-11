@@ -32,7 +32,7 @@ module Network.AWS.SNS.Unsubscribe
     -- * Request
       UnsubscribeInput
     -- ** Request constructor
-    , unsubscribe
+    , unsubscribeInput
     -- ** Request lenses
     , uiSubscriptionArn
 
@@ -56,9 +56,9 @@ newtype UnsubscribeInput = UnsubscribeInput
 --
 -- * 'uiSubscriptionArn' @::@ 'Text'
 --
-unsubscribe :: Text -- ^ 'uiSubscriptionArn'
-            -> UnsubscribeInput
-unsubscribe p1 = UnsubscribeInput
+unsubscribeInput :: Text -- ^ 'uiSubscriptionArn'
+                 -> UnsubscribeInput
+unsubscribeInput p1 = UnsubscribeInput
     { _uiSubscriptionArn = p1
     }
 
@@ -66,21 +66,24 @@ unsubscribe p1 = UnsubscribeInput
 uiSubscriptionArn :: Lens' UnsubscribeInput Text
 uiSubscriptionArn =
     lens _uiSubscriptionArn (\s a -> s { _uiSubscriptionArn = a })
+instance ToQuery UnsubscribeInput
 
 instance ToPath UnsubscribeInput where
     toPath = const "/"
 
-instance ToQuery UnsubscribeInput
-
 data UnsubscribeResponse = UnsubscribeResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'UnsubscribeResponse' constructor.
 unsubscribeResponse :: UnsubscribeResponse
 unsubscribeResponse = UnsubscribeResponse
+instance FromXML UnsubscribeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UnsubscribeResponse"
 
 instance AWSRequest UnsubscribeInput where
     type Sv UnsubscribeInput = SNS
     type Rs UnsubscribeInput = UnsubscribeResponse
 
     request  = post "Unsubscribe"
-    response = const (nullaryResponse UnsubscribeResponse)
+    response = nullaryResponse UnsubscribeResponse

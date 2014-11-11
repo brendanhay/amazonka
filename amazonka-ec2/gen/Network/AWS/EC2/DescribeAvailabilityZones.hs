@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     -- * Response
     , DescribeAvailabilityZonesResult
     -- ** Response constructor
-    , describeAvailabilityZonesResponse
+    , describeAvailabilityZonesResult
     -- ** Response lenses
     , dazrAvailabilityZones
     ) where
@@ -86,11 +86,10 @@ dazFilters = lens _dazFilters (\s a -> s { _dazFilters = a })
 -- | The names of one or more Availability Zones.
 dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
 dazZoneNames = lens _dazZoneNames (\s a -> s { _dazZoneNames = a })
+instance ToQuery DescribeAvailabilityZones
 
 instance ToPath DescribeAvailabilityZones where
     toPath = const "/"
-
-instance ToQuery DescribeAvailabilityZones
 
 newtype DescribeAvailabilityZonesResult = DescribeAvailabilityZonesResult
     { _dazrAvailabilityZones :: [AvailabilityZone]
@@ -102,8 +101,8 @@ newtype DescribeAvailabilityZonesResult = DescribeAvailabilityZonesResult
 --
 -- * 'dazrAvailabilityZones' @::@ ['AvailabilityZone']
 --
-describeAvailabilityZonesResponse :: DescribeAvailabilityZonesResult
-describeAvailabilityZonesResponse = DescribeAvailabilityZonesResult
+describeAvailabilityZonesResult :: DescribeAvailabilityZonesResult
+describeAvailabilityZonesResult = DescribeAvailabilityZonesResult
     { _dazrAvailabilityZones = mempty
     }
 
@@ -111,6 +110,9 @@ describeAvailabilityZonesResponse = DescribeAvailabilityZonesResult
 dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResult [AvailabilityZone]
 dazrAvailabilityZones =
     lens _dazrAvailabilityZones (\s a -> s { _dazrAvailabilityZones = a })
+instance FromXML DescribeAvailabilityZonesResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAvailabilityZonesResult"
 
 instance AWSRequest DescribeAvailabilityZones where
     type Sv DescribeAvailabilityZones = EC2

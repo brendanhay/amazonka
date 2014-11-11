@@ -155,11 +155,10 @@ gftName = lens _gftName (\s a -> s { _gftName = a })
 -- Credentials.
 gftPolicy :: Lens' GetFederationToken (Maybe Text)
 gftPolicy = lens _gftPolicy (\s a -> s { _gftPolicy = a })
+instance ToQuery GetFederationToken
 
 instance ToPath GetFederationToken where
     toPath = const "/"
-
-instance ToQuery GetFederationToken
 
 data GetFederationTokenResponse = GetFederationTokenResponse
     { _gftrCredentials      :: Maybe Credentials
@@ -202,6 +201,9 @@ gftrFederatedUser =
 gftrPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Int)
 gftrPackedPolicySize =
     lens _gftrPackedPolicySize (\s a -> s { _gftrPackedPolicySize = a })
+instance FromXML GetFederationTokenResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetFederationTokenResponse"
 
 instance AWSRequest GetFederationToken where
     type Sv GetFederationToken = SecurityToken

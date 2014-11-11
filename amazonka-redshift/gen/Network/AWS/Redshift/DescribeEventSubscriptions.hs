@@ -28,7 +28,7 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     -- * Request
       DescribeEventSubscriptionsMessage
     -- ** Request constructor
-    , describeEventSubscriptions
+    , describeEventSubscriptionsMessage
     -- ** Request lenses
     , desmMarker
     , desmMaxRecords
@@ -37,7 +37,7 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     -- * Response
     , EventSubscriptionsMessage
     -- ** Response constructor
-    , describeEventSubscriptionsResponse
+    , eventSubscriptionsMessage
     -- ** Response lenses
     , esmEventSubscriptionsList
     , esmMarker
@@ -63,8 +63,8 @@ data DescribeEventSubscriptionsMessage = DescribeEventSubscriptionsMessage
 --
 -- * 'desmSubscriptionName' @::@ 'Maybe' 'Text'
 --
-describeEventSubscriptions :: DescribeEventSubscriptionsMessage
-describeEventSubscriptions = DescribeEventSubscriptionsMessage
+describeEventSubscriptionsMessage :: DescribeEventSubscriptionsMessage
+describeEventSubscriptionsMessage = DescribeEventSubscriptionsMessage
     { _desmSubscriptionName = Nothing
     , _desmMaxRecords       = Nothing
     , _desmMarker           = Nothing
@@ -92,11 +92,10 @@ desmMaxRecords = lens _desmMaxRecords (\s a -> s { _desmMaxRecords = a })
 desmSubscriptionName :: Lens' DescribeEventSubscriptionsMessage (Maybe Text)
 desmSubscriptionName =
     lens _desmSubscriptionName (\s a -> s { _desmSubscriptionName = a })
+instance ToQuery DescribeEventSubscriptionsMessage
 
 instance ToPath DescribeEventSubscriptionsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeEventSubscriptionsMessage
 
 data EventSubscriptionsMessage = EventSubscriptionsMessage
     { _esmEventSubscriptionsList :: [EventSubscription]
@@ -111,8 +110,8 @@ data EventSubscriptionsMessage = EventSubscriptionsMessage
 --
 -- * 'esmMarker' @::@ 'Maybe' 'Text'
 --
-describeEventSubscriptionsResponse :: EventSubscriptionsMessage
-describeEventSubscriptionsResponse = EventSubscriptionsMessage
+eventSubscriptionsMessage :: EventSubscriptionsMessage
+eventSubscriptionsMessage = EventSubscriptionsMessage
     { _esmMarker                 = Nothing
     , _esmEventSubscriptionsList = mempty
     }
@@ -131,6 +130,9 @@ esmEventSubscriptionsList =
 -- request.
 esmMarker :: Lens' EventSubscriptionsMessage (Maybe Text)
 esmMarker = lens _esmMarker (\s a -> s { _esmMarker = a })
+instance FromXML EventSubscriptionsMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EventSubscriptionsMessage"
 
 instance AWSRequest DescribeEventSubscriptionsMessage where
     type Sv DescribeEventSubscriptionsMessage = Redshift

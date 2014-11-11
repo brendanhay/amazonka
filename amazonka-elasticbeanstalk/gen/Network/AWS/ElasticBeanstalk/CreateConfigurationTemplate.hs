@@ -30,7 +30,7 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     -- * Request
       CreateConfigurationTemplateMessage
     -- ** Request constructor
-    , createConfigurationTemplate
+    , createConfigurationTemplateMessage
     -- ** Request lenses
     , cctmApplicationName
     , cctmDescription
@@ -43,7 +43,7 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     -- * Response
     , ConfigurationSettingsDescription
     -- ** Response constructor
-    , createConfigurationTemplateResponse
+    , configurationSettingsDescription
     -- ** Response lenses
     , csdApplicationName
     , csdDateCreated
@@ -88,10 +88,10 @@ data CreateConfigurationTemplateMessage = CreateConfigurationTemplateMessage
 --
 -- * 'cctmTemplateName' @::@ 'Text'
 --
-createConfigurationTemplate :: Text -- ^ 'cctmApplicationName'
-                            -> Text -- ^ 'cctmTemplateName'
-                            -> CreateConfigurationTemplateMessage
-createConfigurationTemplate p1 p2 = CreateConfigurationTemplateMessage
+createConfigurationTemplateMessage :: Text -- ^ 'cctmApplicationName'
+                                   -> Text -- ^ 'cctmTemplateName'
+                                   -> CreateConfigurationTemplateMessage
+createConfigurationTemplateMessage p1 p2 = CreateConfigurationTemplateMessage
     { _cctmApplicationName     = p1
     , _cctmTemplateName        = p2
     , _cctmSolutionStackName   = Nothing
@@ -158,11 +158,10 @@ cctmSourceConfiguration =
 -- InvalidParameterValue error.
 cctmTemplateName :: Lens' CreateConfigurationTemplateMessage Text
 cctmTemplateName = lens _cctmTemplateName (\s a -> s { _cctmTemplateName = a })
+instance ToQuery CreateConfigurationTemplateMessage
 
 instance ToPath CreateConfigurationTemplateMessage where
     toPath = const "/"
-
-instance ToQuery CreateConfigurationTemplateMessage
 
 instance AWSRequest CreateConfigurationTemplateMessage where
     type Sv CreateConfigurationTemplateMessage = ElasticBeanstalk

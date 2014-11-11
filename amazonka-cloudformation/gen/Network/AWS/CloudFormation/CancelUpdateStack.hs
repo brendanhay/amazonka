@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.CancelUpdateStack
     -- * Request
       CancelUpdateStackInput
     -- ** Request constructor
-    , cancelUpdateStack
+    , cancelUpdateStackInput
     -- ** Request lenses
     , cusiStackName
 
@@ -52,30 +52,33 @@ newtype CancelUpdateStackInput = CancelUpdateStackInput
 --
 -- * 'cusiStackName' @::@ 'Text'
 --
-cancelUpdateStack :: Text -- ^ 'cusiStackName'
-                  -> CancelUpdateStackInput
-cancelUpdateStack p1 = CancelUpdateStackInput
+cancelUpdateStackInput :: Text -- ^ 'cusiStackName'
+                       -> CancelUpdateStackInput
+cancelUpdateStackInput p1 = CancelUpdateStackInput
     { _cusiStackName = p1
     }
 
 -- | The name or the unique identifier associated with the stack.
 cusiStackName :: Lens' CancelUpdateStackInput Text
 cusiStackName = lens _cusiStackName (\s a -> s { _cusiStackName = a })
+instance ToQuery CancelUpdateStackInput
 
 instance ToPath CancelUpdateStackInput where
     toPath = const "/"
 
-instance ToQuery CancelUpdateStackInput
-
 data CancelUpdateStackResponse = CancelUpdateStackResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CancelUpdateStackResponse' constructor.
 cancelUpdateStackResponse :: CancelUpdateStackResponse
 cancelUpdateStackResponse = CancelUpdateStackResponse
+instance FromXML CancelUpdateStackResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CancelUpdateStackResponse"
 
 instance AWSRequest CancelUpdateStackInput where
     type Sv CancelUpdateStackInput = CloudFormation
     type Rs CancelUpdateStackInput = CancelUpdateStackResponse
 
     request  = post "CancelUpdateStack"
-    response = const (nullaryResponse CancelUpdateStackResponse)
+    response = nullaryResponse CancelUpdateStackResponse

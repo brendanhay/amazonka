@@ -32,7 +32,7 @@ module Network.AWS.ElastiCache.RebootCacheCluster
     -- * Request
       RebootCacheClusterMessage
     -- ** Request constructor
-    , rebootCacheCluster
+    , rebootCacheClusterMessage
     -- ** Request lenses
     , rccmCacheClusterId
     , rccmCacheNodeIdsToReboot
@@ -40,7 +40,7 @@ module Network.AWS.ElastiCache.RebootCacheCluster
     -- * Response
     , RebootCacheClusterResult
     -- ** Response constructor
-    , rebootCacheClusterResponse
+    , rebootCacheClusterResult
     -- ** Response lenses
     , rccrCacheCluster
     ) where
@@ -62,9 +62,9 @@ data RebootCacheClusterMessage = RebootCacheClusterMessage
 --
 -- * 'rccmCacheNodeIdsToReboot' @::@ ['Text']
 --
-rebootCacheCluster :: Text -- ^ 'rccmCacheClusterId'
-                   -> RebootCacheClusterMessage
-rebootCacheCluster p1 = RebootCacheClusterMessage
+rebootCacheClusterMessage :: Text -- ^ 'rccmCacheClusterId'
+                          -> RebootCacheClusterMessage
+rebootCacheClusterMessage p1 = RebootCacheClusterMessage
     { _rccmCacheClusterId       = p1
     , _rccmCacheNodeIdsToReboot = mempty
     }
@@ -82,11 +82,10 @@ rccmCacheNodeIdsToReboot :: Lens' RebootCacheClusterMessage [Text]
 rccmCacheNodeIdsToReboot =
     lens _rccmCacheNodeIdsToReboot
         (\s a -> s { _rccmCacheNodeIdsToReboot = a })
+instance ToQuery RebootCacheClusterMessage
 
 instance ToPath RebootCacheClusterMessage where
     toPath = const "/"
-
-instance ToQuery RebootCacheClusterMessage
 
 newtype RebootCacheClusterResult = RebootCacheClusterResult
     { _rccrCacheCluster :: Maybe CacheCluster
@@ -98,13 +97,16 @@ newtype RebootCacheClusterResult = RebootCacheClusterResult
 --
 -- * 'rccrCacheCluster' @::@ 'Maybe' 'CacheCluster'
 --
-rebootCacheClusterResponse :: RebootCacheClusterResult
-rebootCacheClusterResponse = RebootCacheClusterResult
+rebootCacheClusterResult :: RebootCacheClusterResult
+rebootCacheClusterResult = RebootCacheClusterResult
     { _rccrCacheCluster = Nothing
     }
 
 rccrCacheCluster :: Lens' RebootCacheClusterResult (Maybe CacheCluster)
 rccrCacheCluster = lens _rccrCacheCluster (\s a -> s { _rccrCacheCluster = a })
+instance FromXML RebootCacheClusterResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RebootCacheClusterResult"
 
 instance AWSRequest RebootCacheClusterMessage where
     type Sv RebootCacheClusterMessage = ElastiCache

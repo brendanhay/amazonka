@@ -94,11 +94,10 @@ lsc1MaxItems = lens _lsc1MaxItems (\s a -> s { _lsc1MaxItems = a })
 -- | The name of the user.
 lsc1UserName :: Lens' ListSigningCertificates (Maybe Text)
 lsc1UserName = lens _lsc1UserName (\s a -> s { _lsc1UserName = a })
+instance ToQuery ListSigningCertificates
 
 instance ToPath ListSigningCertificates where
     toPath = const "/"
-
-instance ToQuery ListSigningCertificates
 
 data ListSigningCertificatesResponse = ListSigningCertificatesResponse
     { _lscr1Certificates :: [SigningCertificate]
@@ -139,6 +138,9 @@ lscr1IsTruncated = lens _lscr1IsTruncated (\s a -> s { _lscr1IsTruncated = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lscr1Marker :: Lens' ListSigningCertificatesResponse (Maybe Text)
 lscr1Marker = lens _lscr1Marker (\s a -> s { _lscr1Marker = a })
+instance FromXML ListSigningCertificatesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListSigningCertificatesResponse"
 
 instance AWSRequest ListSigningCertificates where
     type Sv ListSigningCertificates = IAM

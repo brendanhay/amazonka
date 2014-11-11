@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     -- * Request
       LaunchConfigurationNameType
     -- ** Request constructor
-    , deleteLaunchConfiguration
+    , launchConfigurationNameType
     -- ** Request lenses
     , lcntLaunchConfigurationName
 
@@ -52,9 +52,9 @@ newtype LaunchConfigurationNameType = LaunchConfigurationNameType
 --
 -- * 'lcntLaunchConfigurationName' @::@ 'Text'
 --
-deleteLaunchConfiguration :: Text -- ^ 'lcntLaunchConfigurationName'
-                          -> LaunchConfigurationNameType
-deleteLaunchConfiguration p1 = LaunchConfigurationNameType
+launchConfigurationNameType :: Text -- ^ 'lcntLaunchConfigurationName'
+                            -> LaunchConfigurationNameType
+launchConfigurationNameType p1 = LaunchConfigurationNameType
     { _lcntLaunchConfigurationName = p1
     }
 
@@ -63,21 +63,24 @@ lcntLaunchConfigurationName :: Lens' LaunchConfigurationNameType Text
 lcntLaunchConfigurationName =
     lens _lcntLaunchConfigurationName
         (\s a -> s { _lcntLaunchConfigurationName = a })
+instance ToQuery LaunchConfigurationNameType
 
 instance ToPath LaunchConfigurationNameType where
     toPath = const "/"
 
-instance ToQuery LaunchConfigurationNameType
-
 data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteLaunchConfigurationResponse' constructor.
 deleteLaunchConfigurationResponse :: DeleteLaunchConfigurationResponse
 deleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
+instance FromXML DeleteLaunchConfigurationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteLaunchConfigurationResponse"
 
 instance AWSRequest LaunchConfigurationNameType where
     type Sv LaunchConfigurationNameType = AutoScaling
     type Rs LaunchConfigurationNameType = DeleteLaunchConfigurationResponse
 
     request  = post "DeleteLaunchConfiguration"
-    response = const (nullaryResponse DeleteLaunchConfigurationResponse)
+    response = nullaryResponse DeleteLaunchConfigurationResponse

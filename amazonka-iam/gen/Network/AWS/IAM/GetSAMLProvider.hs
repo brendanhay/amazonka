@@ -66,11 +66,10 @@ getSAMLProvider p1 = GetSAMLProvider
 gsamlpSAMLProviderArn :: Lens' GetSAMLProvider Text
 gsamlpSAMLProviderArn =
     lens _gsamlpSAMLProviderArn (\s a -> s { _gsamlpSAMLProviderArn = a })
+instance ToQuery GetSAMLProvider
 
 instance ToPath GetSAMLProvider where
     toPath = const "/"
-
-instance ToQuery GetSAMLProvider
 
 data GetSAMLProviderResponse = GetSAMLProviderResponse
     { _gsamlprCreateDate           :: Maybe RFC822
@@ -113,6 +112,9 @@ gsamlprValidUntil :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
 gsamlprValidUntil =
     lens _gsamlprValidUntil (\s a -> s { _gsamlprValidUntil = a })
         . mapping _Time
+instance FromXML GetSAMLProviderResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetSAMLProviderResponse"
 
 instance AWSRequest GetSAMLProvider where
     type Sv GetSAMLProvider = IAM

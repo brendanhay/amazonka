@@ -72,21 +72,24 @@ bdaDomainName = lens _bdaDomainName (\s a -> s { _bdaDomainName = a })
 -- | A list of items on which to perform the operation.
 bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
 bdaItems = lens _bdaItems (\s a -> s { _bdaItems = a })
+instance ToQuery BatchDeleteAttributes
 
 instance ToPath BatchDeleteAttributes where
     toPath = const "/"
 
-instance ToQuery BatchDeleteAttributes
-
 data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'BatchDeleteAttributesResponse' constructor.
 batchDeleteAttributesResponse :: BatchDeleteAttributesResponse
 batchDeleteAttributesResponse = BatchDeleteAttributesResponse
+instance FromXML BatchDeleteAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "BatchDeleteAttributesResponse"
 
 instance AWSRequest BatchDeleteAttributes where
     type Sv BatchDeleteAttributes = SimpleDB
     type Rs BatchDeleteAttributes = BatchDeleteAttributesResponse
 
     request  = post "BatchDeleteAttributes"
-    response = const (nullaryResponse BatchDeleteAttributesResponse)
+    response = nullaryResponse BatchDeleteAttributesResponse

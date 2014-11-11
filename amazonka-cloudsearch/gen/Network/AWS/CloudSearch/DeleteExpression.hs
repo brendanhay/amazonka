@@ -71,11 +71,10 @@ deDomainName = lens _deDomainName (\s a -> s { _deDomainName = a })
 -- | The name of the Expression to delete.
 deExpressionName :: Lens' DeleteExpression Text
 deExpressionName = lens _deExpressionName (\s a -> s { _deExpressionName = a })
+instance ToQuery DeleteExpression
 
 instance ToPath DeleteExpression where
     toPath = const "/"
-
-instance ToQuery DeleteExpression
 
 newtype DeleteExpressionResponse = DeleteExpressionResponse
     { _der1Expression :: ExpressionStatus
@@ -96,6 +95,9 @@ deleteExpressionResponse p1 = DeleteExpressionResponse
 -- | The status of the expression being deleted.
 der1Expression :: Lens' DeleteExpressionResponse ExpressionStatus
 der1Expression = lens _der1Expression (\s a -> s { _der1Expression = a })
+instance FromXML DeleteExpressionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteExpressionResponse"
 
 instance AWSRequest DeleteExpression where
     type Sv DeleteExpression = CloudSearch

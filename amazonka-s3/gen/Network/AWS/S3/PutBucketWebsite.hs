@@ -95,14 +95,18 @@ instance ToBody PutBucketWebsite where
     toBody = toBody . encodeXML . _pbwWebsiteConfiguration
 
 data PutBucketWebsiteResponse = PutBucketWebsiteResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketWebsiteResponse' constructor.
 putBucketWebsiteResponse :: PutBucketWebsiteResponse
 putBucketWebsiteResponse = PutBucketWebsiteResponse
 
+instance FromXML PutBucketWebsiteResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutBucketWebsiteResponse"
 instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3
     type Rs PutBucketWebsite = PutBucketWebsiteResponse
 
     request  = put
-    response = const (nullaryResponse PutBucketWebsiteResponse)
+    response = nullaryResponse PutBucketWebsiteResponse

@@ -100,21 +100,24 @@ bpaDomainName = lens _bpaDomainName (\s a -> s { _bpaDomainName = a })
 -- | A list of items on which to perform the operation.
 bpaItems :: Lens' BatchPutAttributes [ReplaceableItem]
 bpaItems = lens _bpaItems (\s a -> s { _bpaItems = a })
+instance ToQuery BatchPutAttributes
 
 instance ToPath BatchPutAttributes where
     toPath = const "/"
 
-instance ToQuery BatchPutAttributes
-
 data BatchPutAttributesResponse = BatchPutAttributesResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'BatchPutAttributesResponse' constructor.
 batchPutAttributesResponse :: BatchPutAttributesResponse
 batchPutAttributesResponse = BatchPutAttributesResponse
+instance FromXML BatchPutAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "BatchPutAttributesResponse"
 
 instance AWSRequest BatchPutAttributes where
     type Sv BatchPutAttributes = SimpleDB
     type Rs BatchPutAttributes = BatchPutAttributesResponse
 
     request  = post "BatchPutAttributes"
-    response = const (nullaryResponse BatchPutAttributesResponse)
+    response = nullaryResponse BatchPutAttributesResponse

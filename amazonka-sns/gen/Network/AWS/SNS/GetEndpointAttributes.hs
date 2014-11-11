@@ -28,7 +28,7 @@ module Network.AWS.SNS.GetEndpointAttributes
     -- * Request
       GetEndpointAttributesInput
     -- ** Request constructor
-    , getEndpointAttributes
+    , getEndpointAttributesInput
     -- ** Request lenses
     , geaiEndpointArn
 
@@ -54,20 +54,19 @@ newtype GetEndpointAttributesInput = GetEndpointAttributesInput
 --
 -- * 'geaiEndpointArn' @::@ 'Text'
 --
-getEndpointAttributes :: Text -- ^ 'geaiEndpointArn'
-                      -> GetEndpointAttributesInput
-getEndpointAttributes p1 = GetEndpointAttributesInput
+getEndpointAttributesInput :: Text -- ^ 'geaiEndpointArn'
+                           -> GetEndpointAttributesInput
+getEndpointAttributesInput p1 = GetEndpointAttributesInput
     { _geaiEndpointArn = p1
     }
 
 -- | EndpointArn for GetEndpointAttributes input.
 geaiEndpointArn :: Lens' GetEndpointAttributesInput Text
 geaiEndpointArn = lens _geaiEndpointArn (\s a -> s { _geaiEndpointArn = a })
+instance ToQuery GetEndpointAttributesInput
 
 instance ToPath GetEndpointAttributesInput where
     toPath = const "/"
-
-instance ToQuery GetEndpointAttributesInput
 
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes :: Map Text Text
@@ -97,6 +96,9 @@ getEndpointAttributesResponse = GetEndpointAttributesResponse
 gearAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
 gearAttributes = lens _gearAttributes (\s a -> s { _gearAttributes = a })
     . _Map
+instance FromXML GetEndpointAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetEndpointAttributesResponse"
 
 instance AWSRequest GetEndpointAttributesInput where
     type Sv GetEndpointAttributesInput = SNS

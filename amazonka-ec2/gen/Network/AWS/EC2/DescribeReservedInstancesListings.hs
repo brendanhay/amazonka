@@ -50,7 +50,7 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     -- * Response
     , DescribeReservedInstancesListingsResult
     -- ** Response constructor
-    , describeReservedInstancesListingsResponse
+    , describeReservedInstancesListingsResult
     -- ** Response lenses
     , drilrReservedInstancesListings
     ) where
@@ -100,11 +100,10 @@ drilReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe
 drilReservedInstancesListingId =
     lens _drilReservedInstancesListingId
         (\s a -> s { _drilReservedInstancesListingId = a })
+instance ToQuery DescribeReservedInstancesListings
 
 instance ToPath DescribeReservedInstancesListings where
     toPath = const "/"
-
-instance ToQuery DescribeReservedInstancesListings
 
 newtype DescribeReservedInstancesListingsResult = DescribeReservedInstancesListingsResult
     { _drilrReservedInstancesListings :: [ReservedInstancesListing]
@@ -116,8 +115,8 @@ newtype DescribeReservedInstancesListingsResult = DescribeReservedInstancesListi
 --
 -- * 'drilrReservedInstancesListings' @::@ ['ReservedInstancesListing']
 --
-describeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResult
-describeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResult
+describeReservedInstancesListingsResult :: DescribeReservedInstancesListingsResult
+describeReservedInstancesListingsResult = DescribeReservedInstancesListingsResult
     { _drilrReservedInstancesListings = mempty
     }
 
@@ -126,6 +125,9 @@ drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResult 
 drilrReservedInstancesListings =
     lens _drilrReservedInstancesListings
         (\s a -> s { _drilrReservedInstancesListings = a })
+instance FromXML DescribeReservedInstancesListingsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeReservedInstancesListingsResult"
 
 instance AWSRequest DescribeReservedInstancesListings where
     type Sv DescribeReservedInstancesListings = EC2

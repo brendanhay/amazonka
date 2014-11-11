@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     -- * Request
       DescribeReservedDBInstancesOfferingsMessage
     -- ** Request constructor
-    , describeReservedDBInstancesOfferings
+    , describeReservedDBInstancesOfferingsMessage
     -- ** Request lenses
     , drdbiomDBInstanceClass
     , drdbiomDuration
@@ -41,7 +41,7 @@ module Network.AWS.RDS.DescribeReservedDBInstancesOfferings
     -- * Response
     , ReservedDBInstancesOfferingMessage
     -- ** Response constructor
-    , describeReservedDBInstancesOfferingsResponse
+    , reservedDBInstancesOfferingMessage
     -- ** Response lenses
     , rdbiomMarker
     , rdbiomReservedDBInstancesOfferings
@@ -85,8 +85,8 @@ data DescribeReservedDBInstancesOfferingsMessage = DescribeReservedDBInstancesOf
 --
 -- * 'drdbiomReservedDBInstancesOfferingId' @::@ 'Maybe' 'Text'
 --
-describeReservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferingsMessage
-describeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferingsMessage
+describeReservedDBInstancesOfferingsMessage :: DescribeReservedDBInstancesOfferingsMessage
+describeReservedDBInstancesOfferingsMessage = DescribeReservedDBInstancesOfferingsMessage
     { _drdbiomReservedDBInstancesOfferingId = Nothing
     , _drdbiomDBInstanceClass               = Nothing
     , _drdbiomDuration                      = Nothing
@@ -154,11 +154,10 @@ drdbiomReservedDBInstancesOfferingId :: Lens' DescribeReservedDBInstancesOfferin
 drdbiomReservedDBInstancesOfferingId =
     lens _drdbiomReservedDBInstancesOfferingId
         (\s a -> s { _drdbiomReservedDBInstancesOfferingId = a })
+instance ToQuery DescribeReservedDBInstancesOfferingsMessage
 
 instance ToPath DescribeReservedDBInstancesOfferingsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeReservedDBInstancesOfferingsMessage
 
 data ReservedDBInstancesOfferingMessage = ReservedDBInstancesOfferingMessage
     { _rdbiomMarker                       :: Maybe Text
@@ -173,8 +172,8 @@ data ReservedDBInstancesOfferingMessage = ReservedDBInstancesOfferingMessage
 --
 -- * 'rdbiomReservedDBInstancesOfferings' @::@ ['ReservedDBInstancesOffering']
 --
-describeReservedDBInstancesOfferingsResponse :: ReservedDBInstancesOfferingMessage
-describeReservedDBInstancesOfferingsResponse = ReservedDBInstancesOfferingMessage
+reservedDBInstancesOfferingMessage :: ReservedDBInstancesOfferingMessage
+reservedDBInstancesOfferingMessage = ReservedDBInstancesOfferingMessage
     { _rdbiomMarker                       = Nothing
     , _rdbiomReservedDBInstancesOfferings = mempty
     }
@@ -190,6 +189,9 @@ rdbiomReservedDBInstancesOfferings :: Lens' ReservedDBInstancesOfferingMessage [
 rdbiomReservedDBInstancesOfferings =
     lens _rdbiomReservedDBInstancesOfferings
         (\s a -> s { _rdbiomReservedDBInstancesOfferings = a })
+instance FromXML ReservedDBInstancesOfferingMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReservedDBInstancesOfferingMessage"
 
 instance AWSRequest DescribeReservedDBInstancesOfferingsMessage where
     type Sv DescribeReservedDBInstancesOfferingsMessage = RDS

@@ -70,21 +70,24 @@ dv3DryRun = lens _dv3DryRun (\s a -> s { _dv3DryRun = a })
 -- | The ID of the volume.
 dv3VolumeId :: Lens' DeleteVolume Text
 dv3VolumeId = lens _dv3VolumeId (\s a -> s { _dv3VolumeId = a })
+instance ToQuery DeleteVolume
 
 instance ToPath DeleteVolume where
     toPath = const "/"
 
-instance ToQuery DeleteVolume
-
 data DeleteVolumeResponse = DeleteVolumeResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVolumeResponse' constructor.
 deleteVolumeResponse :: DeleteVolumeResponse
 deleteVolumeResponse = DeleteVolumeResponse
+instance FromXML DeleteVolumeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteVolumeResponse"
 
 instance AWSRequest DeleteVolume where
     type Sv DeleteVolume = EC2
     type Rs DeleteVolume = DeleteVolumeResponse
 
     request  = post "DeleteVolume"
-    response = const (nullaryResponse DeleteVolumeResponse)
+    response = nullaryResponse DeleteVolumeResponse

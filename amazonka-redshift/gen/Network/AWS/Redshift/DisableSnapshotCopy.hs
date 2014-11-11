@@ -27,14 +27,14 @@ module Network.AWS.Redshift.DisableSnapshotCopy
     -- * Request
       DisableSnapshotCopyMessage
     -- ** Request constructor
-    , disableSnapshotCopy
+    , disableSnapshotCopyMessage
     -- ** Request lenses
     , dscmClusterIdentifier
 
     -- * Response
     , DisableSnapshotCopyResult
     -- ** Response constructor
-    , disableSnapshotCopyResponse
+    , disableSnapshotCopyResult
     -- ** Response lenses
     , dscrCluster
     ) where
@@ -53,9 +53,9 @@ newtype DisableSnapshotCopyMessage = DisableSnapshotCopyMessage
 --
 -- * 'dscmClusterIdentifier' @::@ 'Text'
 --
-disableSnapshotCopy :: Text -- ^ 'dscmClusterIdentifier'
-                    -> DisableSnapshotCopyMessage
-disableSnapshotCopy p1 = DisableSnapshotCopyMessage
+disableSnapshotCopyMessage :: Text -- ^ 'dscmClusterIdentifier'
+                           -> DisableSnapshotCopyMessage
+disableSnapshotCopyMessage p1 = DisableSnapshotCopyMessage
     { _dscmClusterIdentifier = p1
     }
 
@@ -66,11 +66,10 @@ disableSnapshotCopy p1 = DisableSnapshotCopyMessage
 dscmClusterIdentifier :: Lens' DisableSnapshotCopyMessage Text
 dscmClusterIdentifier =
     lens _dscmClusterIdentifier (\s a -> s { _dscmClusterIdentifier = a })
+instance ToQuery DisableSnapshotCopyMessage
 
 instance ToPath DisableSnapshotCopyMessage where
     toPath = const "/"
-
-instance ToQuery DisableSnapshotCopyMessage
 
 newtype DisableSnapshotCopyResult = DisableSnapshotCopyResult
     { _dscrCluster :: Maybe Cluster
@@ -82,13 +81,16 @@ newtype DisableSnapshotCopyResult = DisableSnapshotCopyResult
 --
 -- * 'dscrCluster' @::@ 'Maybe' 'Cluster'
 --
-disableSnapshotCopyResponse :: DisableSnapshotCopyResult
-disableSnapshotCopyResponse = DisableSnapshotCopyResult
+disableSnapshotCopyResult :: DisableSnapshotCopyResult
+disableSnapshotCopyResult = DisableSnapshotCopyResult
     { _dscrCluster = Nothing
     }
 
 dscrCluster :: Lens' DisableSnapshotCopyResult (Maybe Cluster)
 dscrCluster = lens _dscrCluster (\s a -> s { _dscrCluster = a })
+instance FromXML DisableSnapshotCopyResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DisableSnapshotCopyResult"
 
 instance AWSRequest DisableSnapshotCopyMessage where
     type Sv DisableSnapshotCopyMessage = Redshift

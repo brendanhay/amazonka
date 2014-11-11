@@ -67,21 +67,24 @@ dkp1DryRun = lens _dkp1DryRun (\s a -> s { _dkp1DryRun = a })
 -- | The name of the key pair.
 dkp1KeyName :: Lens' DeleteKeyPair Text
 dkp1KeyName = lens _dkp1KeyName (\s a -> s { _dkp1KeyName = a })
+instance ToQuery DeleteKeyPair
 
 instance ToPath DeleteKeyPair where
     toPath = const "/"
 
-instance ToQuery DeleteKeyPair
-
 data DeleteKeyPairResponse = DeleteKeyPairResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteKeyPairResponse' constructor.
 deleteKeyPairResponse :: DeleteKeyPairResponse
 deleteKeyPairResponse = DeleteKeyPairResponse
+instance FromXML DeleteKeyPairResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteKeyPairResponse"
 
 instance AWSRequest DeleteKeyPair where
     type Sv DeleteKeyPair = EC2
     type Rs DeleteKeyPair = DeleteKeyPairResponse
 
     request  = post "DeleteKeyPair"
-    response = const (nullaryResponse DeleteKeyPairResponse)
+    response = nullaryResponse DeleteKeyPairResponse

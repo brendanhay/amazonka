@@ -64,11 +64,10 @@ gscServerCertificateName :: Lens' GetServerCertificate Text
 gscServerCertificateName =
     lens _gscServerCertificateName
         (\s a -> s { _gscServerCertificateName = a })
+instance ToQuery GetServerCertificate
 
 instance ToPath GetServerCertificate where
     toPath = const "/"
-
-instance ToQuery GetServerCertificate
 
 newtype GetServerCertificateResponse = GetServerCertificateResponse
     { _gscrServerCertificate :: ServerCertificate
@@ -90,6 +89,9 @@ getServerCertificateResponse p1 = GetServerCertificateResponse
 gscrServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
 gscrServerCertificate =
     lens _gscrServerCertificate (\s a -> s { _gscrServerCertificate = a })
+instance FromXML GetServerCertificateResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetServerCertificateResponse"
 
 instance AWSRequest GetServerCertificate where
     type Sv GetServerCertificate = IAM

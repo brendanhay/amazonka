@@ -82,21 +82,24 @@ ulpPasswordResetRequired =
 -- | The name of the user whose password you want to update.
 ulpUserName :: Lens' UpdateLoginProfile Text
 ulpUserName = lens _ulpUserName (\s a -> s { _ulpUserName = a })
+instance ToQuery UpdateLoginProfile
 
 instance ToPath UpdateLoginProfile where
     toPath = const "/"
 
-instance ToQuery UpdateLoginProfile
-
 data UpdateLoginProfileResponse = UpdateLoginProfileResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateLoginProfileResponse' constructor.
 updateLoginProfileResponse :: UpdateLoginProfileResponse
 updateLoginProfileResponse = UpdateLoginProfileResponse
+instance FromXML UpdateLoginProfileResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateLoginProfileResponse"
 
 instance AWSRequest UpdateLoginProfile where
     type Sv UpdateLoginProfile = IAM
     type Rs UpdateLoginProfile = UpdateLoginProfileResponse
 
     request  = post "UpdateLoginProfile"
-    response = const (nullaryResponse UpdateLoginProfileResponse)
+    response = nullaryResponse UpdateLoginProfileResponse

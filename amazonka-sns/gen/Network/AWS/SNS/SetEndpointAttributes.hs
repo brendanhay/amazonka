@@ -28,7 +28,7 @@ module Network.AWS.SNS.SetEndpointAttributes
     -- * Request
       SetEndpointAttributesInput
     -- ** Request constructor
-    , setEndpointAttributes
+    , setEndpointAttributesInput
     -- ** Request lenses
     , seaiAttributes
     , seaiEndpointArn
@@ -56,9 +56,9 @@ data SetEndpointAttributesInput = SetEndpointAttributesInput
 --
 -- * 'seaiEndpointArn' @::@ 'Text'
 --
-setEndpointAttributes :: Text -- ^ 'seaiEndpointArn'
-                      -> SetEndpointAttributesInput
-setEndpointAttributes p1 = SetEndpointAttributesInput
+setEndpointAttributesInput :: Text -- ^ 'seaiEndpointArn'
+                           -> SetEndpointAttributesInput
+setEndpointAttributesInput p1 = SetEndpointAttributesInput
     { _seaiEndpointArn = p1
     , _seaiAttributes  = mempty
     }
@@ -80,21 +80,24 @@ seaiAttributes = lens _seaiAttributes (\s a -> s { _seaiAttributes = a })
 -- | EndpointArn used for SetEndpointAttributes action.
 seaiEndpointArn :: Lens' SetEndpointAttributesInput Text
 seaiEndpointArn = lens _seaiEndpointArn (\s a -> s { _seaiEndpointArn = a })
+instance ToQuery SetEndpointAttributesInput
 
 instance ToPath SetEndpointAttributesInput where
     toPath = const "/"
 
-instance ToQuery SetEndpointAttributesInput
-
 data SetEndpointAttributesResponse = SetEndpointAttributesResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetEndpointAttributesResponse' constructor.
 setEndpointAttributesResponse :: SetEndpointAttributesResponse
 setEndpointAttributesResponse = SetEndpointAttributesResponse
+instance FromXML SetEndpointAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SetEndpointAttributesResponse"
 
 instance AWSRequest SetEndpointAttributesInput where
     type Sv SetEndpointAttributesInput = SNS
     type Rs SetEndpointAttributesInput = SetEndpointAttributesResponse
 
     request  = post "SetEndpointAttributes"
-    response = const (nullaryResponse SetEndpointAttributesResponse)
+    response = nullaryResponse SetEndpointAttributesResponse

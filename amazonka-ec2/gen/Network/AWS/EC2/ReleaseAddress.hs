@@ -86,21 +86,24 @@ raDryRun = lens _raDryRun (\s a -> s { _raDryRun = a })
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
 raPublicIp :: Lens' ReleaseAddress (Maybe Text)
 raPublicIp = lens _raPublicIp (\s a -> s { _raPublicIp = a })
+instance ToQuery ReleaseAddress
 
 instance ToPath ReleaseAddress where
     toPath = const "/"
 
-instance ToQuery ReleaseAddress
-
 data ReleaseAddressResponse = ReleaseAddressResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ReleaseAddressResponse' constructor.
 releaseAddressResponse :: ReleaseAddressResponse
 releaseAddressResponse = ReleaseAddressResponse
+instance FromXML ReleaseAddressResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReleaseAddressResponse"
 
 instance AWSRequest ReleaseAddress where
     type Sv ReleaseAddress = EC2
     type Rs ReleaseAddress = ReleaseAddressResponse
 
     request  = post "ReleaseAddress"
-    response = const (nullaryResponse ReleaseAddressResponse)
+    response = nullaryResponse ReleaseAddressResponse

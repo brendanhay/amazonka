@@ -26,7 +26,7 @@ module Network.AWS.Redshift.DeleteClusterParameterGroup
     -- * Request
       DeleteClusterParameterGroupMessage
     -- ** Request constructor
-    , deleteClusterParameterGroup
+    , deleteClusterParameterGroupMessage
     -- ** Request lenses
     , dcpgmParameterGroupName
 
@@ -50,9 +50,9 @@ newtype DeleteClusterParameterGroupMessage = DeleteClusterParameterGroupMessage
 --
 -- * 'dcpgmParameterGroupName' @::@ 'Text'
 --
-deleteClusterParameterGroup :: Text -- ^ 'dcpgmParameterGroupName'
-                            -> DeleteClusterParameterGroupMessage
-deleteClusterParameterGroup p1 = DeleteClusterParameterGroupMessage
+deleteClusterParameterGroupMessage :: Text -- ^ 'dcpgmParameterGroupName'
+                                   -> DeleteClusterParameterGroupMessage
+deleteClusterParameterGroupMessage p1 = DeleteClusterParameterGroupMessage
     { _dcpgmParameterGroupName = p1
     }
 
@@ -62,21 +62,24 @@ deleteClusterParameterGroup p1 = DeleteClusterParameterGroupMessage
 dcpgmParameterGroupName :: Lens' DeleteClusterParameterGroupMessage Text
 dcpgmParameterGroupName =
     lens _dcpgmParameterGroupName (\s a -> s { _dcpgmParameterGroupName = a })
+instance ToQuery DeleteClusterParameterGroupMessage
 
 instance ToPath DeleteClusterParameterGroupMessage where
     toPath = const "/"
 
-instance ToQuery DeleteClusterParameterGroupMessage
-
 data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteClusterParameterGroupResponse' constructor.
 deleteClusterParameterGroupResponse :: DeleteClusterParameterGroupResponse
 deleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
+instance FromXML DeleteClusterParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteClusterParameterGroupResponse"
 
 instance AWSRequest DeleteClusterParameterGroupMessage where
     type Sv DeleteClusterParameterGroupMessage = Redshift
     type Rs DeleteClusterParameterGroupMessage = DeleteClusterParameterGroupResponse
 
     request  = post "DeleteClusterParameterGroup"
-    response = const (nullaryResponse DeleteClusterParameterGroupResponse)
+    response = nullaryResponse DeleteClusterParameterGroupResponse

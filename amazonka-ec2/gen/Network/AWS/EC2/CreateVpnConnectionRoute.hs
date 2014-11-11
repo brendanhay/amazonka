@@ -77,21 +77,24 @@ cvcrDestinationCidrBlock =
 cvcrVpnConnectionId :: Lens' CreateVpnConnectionRoute Text
 cvcrVpnConnectionId =
     lens _cvcrVpnConnectionId (\s a -> s { _cvcrVpnConnectionId = a })
+instance ToQuery CreateVpnConnectionRoute
 
 instance ToPath CreateVpnConnectionRoute where
     toPath = const "/"
 
-instance ToQuery CreateVpnConnectionRoute
-
 data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateVpnConnectionRouteResponse' constructor.
 createVpnConnectionRouteResponse :: CreateVpnConnectionRouteResponse
 createVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
+instance FromXML CreateVpnConnectionRouteResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateVpnConnectionRouteResponse"
 
 instance AWSRequest CreateVpnConnectionRoute where
     type Sv CreateVpnConnectionRoute = EC2
     type Rs CreateVpnConnectionRoute = CreateVpnConnectionRouteResponse
 
     request  = post "CreateVpnConnectionRoute"
-    response = const (nullaryResponse CreateVpnConnectionRouteResponse)
+    response = nullaryResponse CreateVpnConnectionRouteResponse

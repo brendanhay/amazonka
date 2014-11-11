@@ -95,21 +95,24 @@ sqaAttributes = lens _sqaAttributes (\s a -> s { _sqaAttributes = a })
 -- | The URL of the Amazon SQS queue to take action on.
 sqaQueueUrl :: Lens' SetQueueAttributes Text
 sqaQueueUrl = lens _sqaQueueUrl (\s a -> s { _sqaQueueUrl = a })
+instance ToQuery SetQueueAttributes
 
 instance ToPath SetQueueAttributes where
     toPath = const "/"
 
-instance ToQuery SetQueueAttributes
-
 data SetQueueAttributesResponse = SetQueueAttributesResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetQueueAttributesResponse' constructor.
 setQueueAttributesResponse :: SetQueueAttributesResponse
 setQueueAttributesResponse = SetQueueAttributesResponse
+instance FromXML SetQueueAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "SetQueueAttributesResponse"
 
 instance AWSRequest SetQueueAttributes where
     type Sv SetQueueAttributes = SQS
     type Rs SetQueueAttributes = SetQueueAttributesResponse
 
     request  = post "SetQueueAttributes"
-    response = const (nullaryResponse SetQueueAttributesResponse)
+    response = nullaryResponse SetQueueAttributesResponse

@@ -79,21 +79,24 @@ dsg1GroupId = lens _dsg1GroupId (\s a -> s { _dsg1GroupId = a })
 -- specify either the security group name or the security group ID.
 dsg1GroupName :: Lens' DeleteSecurityGroup (Maybe Text)
 dsg1GroupName = lens _dsg1GroupName (\s a -> s { _dsg1GroupName = a })
+instance ToQuery DeleteSecurityGroup
 
 instance ToPath DeleteSecurityGroup where
     toPath = const "/"
 
-instance ToQuery DeleteSecurityGroup
-
 data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSecurityGroupResponse' constructor.
 deleteSecurityGroupResponse :: DeleteSecurityGroupResponse
 deleteSecurityGroupResponse = DeleteSecurityGroupResponse
+instance FromXML DeleteSecurityGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteSecurityGroupResponse"
 
 instance AWSRequest DeleteSecurityGroup where
     type Sv DeleteSecurityGroup = EC2
     type Rs DeleteSecurityGroup = DeleteSecurityGroupResponse
 
     request  = post "DeleteSecurityGroup"
-    response = const (nullaryResponse DeleteSecurityGroupResponse)
+    response = nullaryResponse DeleteSecurityGroupResponse

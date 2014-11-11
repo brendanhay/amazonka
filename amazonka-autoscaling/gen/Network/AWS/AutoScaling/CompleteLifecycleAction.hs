@@ -36,7 +36,7 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     -- * Request
       CompleteLifecycleActionType
     -- ** Request constructor
-    , completeLifecycleAction
+    , completeLifecycleActionType
     -- ** Request lenses
     , clatAutoScalingGroupName
     , clatLifecycleActionResult
@@ -72,12 +72,12 @@ data CompleteLifecycleActionType = CompleteLifecycleActionType
 --
 -- * 'clatLifecycleHookName' @::@ 'Text'
 --
-completeLifecycleAction :: Text -- ^ 'clatLifecycleHookName'
-                        -> Text -- ^ 'clatAutoScalingGroupName'
-                        -> Text -- ^ 'clatLifecycleActionToken'
-                        -> Text -- ^ 'clatLifecycleActionResult'
-                        -> CompleteLifecycleActionType
-completeLifecycleAction p1 p2 p3 p4 = CompleteLifecycleActionType
+completeLifecycleActionType :: Text -- ^ 'clatLifecycleHookName'
+                            -> Text -- ^ 'clatAutoScalingGroupName'
+                            -> Text -- ^ 'clatLifecycleActionToken'
+                            -> Text -- ^ 'clatLifecycleActionResult'
+                            -> CompleteLifecycleActionType
+completeLifecycleActionType p1 p2 p3 p4 = CompleteLifecycleActionType
     { _clatLifecycleHookName     = p1
     , _clatAutoScalingGroupName  = p2
     , _clatLifecycleActionToken  = p3
@@ -110,21 +110,24 @@ clatLifecycleActionToken =
 clatLifecycleHookName :: Lens' CompleteLifecycleActionType Text
 clatLifecycleHookName =
     lens _clatLifecycleHookName (\s a -> s { _clatLifecycleHookName = a })
+instance ToQuery CompleteLifecycleActionType
 
 instance ToPath CompleteLifecycleActionType where
     toPath = const "/"
 
-instance ToQuery CompleteLifecycleActionType
-
 data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'CompleteLifecycleActionResponse' constructor.
 completeLifecycleActionResponse :: CompleteLifecycleActionResponse
 completeLifecycleActionResponse = CompleteLifecycleActionResponse
+instance FromXML CompleteLifecycleActionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CompleteLifecycleActionResponse"
 
 instance AWSRequest CompleteLifecycleActionType where
     type Sv CompleteLifecycleActionType = AutoScaling
     type Rs CompleteLifecycleActionType = CompleteLifecycleActionResponse
 
     request  = post "CompleteLifecycleAction"
-    response = const (nullaryResponse CompleteLifecycleActionResponse)
+    response = nullaryResponse CompleteLifecycleActionResponse

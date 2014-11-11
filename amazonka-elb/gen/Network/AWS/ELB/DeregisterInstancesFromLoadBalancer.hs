@@ -32,7 +32,7 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     -- * Request
       DeregisterEndPointsInput
     -- ** Request constructor
-    , deregisterInstancesFromLoadBalancer
+    , deregisterEndPointsInput
     -- ** Request lenses
     , depiInstances
     , depiLoadBalancerName
@@ -40,7 +40,7 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     -- * Response
     , DeregisterEndPointsOutput
     -- ** Response constructor
-    , deregisterInstancesFromLoadBalancerResponse
+    , deregisterEndPointsOutput
     -- ** Response lenses
     , depoInstances
     ) where
@@ -62,9 +62,9 @@ data DeregisterEndPointsInput = DeregisterEndPointsInput
 --
 -- * 'depiLoadBalancerName' @::@ 'Text'
 --
-deregisterInstancesFromLoadBalancer :: Text -- ^ 'depiLoadBalancerName'
-                                    -> DeregisterEndPointsInput
-deregisterInstancesFromLoadBalancer p1 = DeregisterEndPointsInput
+deregisterEndPointsInput :: Text -- ^ 'depiLoadBalancerName'
+                         -> DeregisterEndPointsInput
+deregisterEndPointsInput p1 = DeregisterEndPointsInput
     { _depiLoadBalancerName = p1
     , _depiInstances        = mempty
     }
@@ -78,11 +78,10 @@ depiInstances = lens _depiInstances (\s a -> s { _depiInstances = a })
 depiLoadBalancerName :: Lens' DeregisterEndPointsInput Text
 depiLoadBalancerName =
     lens _depiLoadBalancerName (\s a -> s { _depiLoadBalancerName = a })
+instance ToQuery DeregisterEndPointsInput
 
 instance ToPath DeregisterEndPointsInput where
     toPath = const "/"
-
-instance ToQuery DeregisterEndPointsInput
 
 newtype DeregisterEndPointsOutput = DeregisterEndPointsOutput
     { _depoInstances :: [Instance]
@@ -94,14 +93,17 @@ newtype DeregisterEndPointsOutput = DeregisterEndPointsOutput
 --
 -- * 'depoInstances' @::@ ['Instance']
 --
-deregisterInstancesFromLoadBalancerResponse :: DeregisterEndPointsOutput
-deregisterInstancesFromLoadBalancerResponse = DeregisterEndPointsOutput
+deregisterEndPointsOutput :: DeregisterEndPointsOutput
+deregisterEndPointsOutput = DeregisterEndPointsOutput
     { _depoInstances = mempty
     }
 
 -- | An updated list of remaining instances registered with the load balancer.
 depoInstances :: Lens' DeregisterEndPointsOutput [Instance]
 depoInstances = lens _depoInstances (\s a -> s { _depoInstances = a })
+instance FromXML DeregisterEndPointsOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeregisterEndPointsOutput"
 
 instance AWSRequest DeregisterEndPointsInput where
     type Sv DeregisterEndPointsInput = ELB

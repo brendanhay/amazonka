@@ -42,7 +42,7 @@ module Network.AWS.EC2.CreateKeyPair
     -- * Response
     , KeyPair
     -- ** Response constructor
-    , createKeyPairResponse
+    , keyPair
     -- ** Response lenses
     , kpKeyFingerprint
     , kpKeyMaterial
@@ -79,11 +79,10 @@ ckpDryRun = lens _ckpDryRun (\s a -> s { _ckpDryRun = a })
 -- | A unique name for the key pair. Constraints: Up to 255 ASCII characters.
 ckpKeyName :: Lens' CreateKeyPair Text
 ckpKeyName = lens _ckpKeyName (\s a -> s { _ckpKeyName = a })
+instance ToQuery CreateKeyPair
 
 instance ToPath CreateKeyPair where
     toPath = const "/"
-
-instance ToQuery CreateKeyPair
 
 data KeyPair = KeyPair
     { _kpKeyFingerprint :: Maybe Text
@@ -101,8 +100,8 @@ data KeyPair = KeyPair
 --
 -- * 'kpKeyName' @::@ 'Maybe' 'Text'
 --
-createKeyPairResponse :: KeyPair
-createKeyPairResponse = KeyPair
+keyPair :: KeyPair
+keyPair = KeyPair
     { _kpKeyName        = Nothing
     , _kpKeyFingerprint = Nothing
     , _kpKeyMaterial    = Nothing
@@ -119,6 +118,9 @@ kpKeyMaterial = lens _kpKeyMaterial (\s a -> s { _kpKeyMaterial = a })
 -- | The name of the key pair.
 kpKeyName :: Lens' KeyPair (Maybe Text)
 kpKeyName = lens _kpKeyName (\s a -> s { _kpKeyName = a })
+instance FromXML KeyPair where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "KeyPair"
 
 instance AWSRequest CreateKeyPair where
     type Sv CreateKeyPair = EC2

@@ -27,7 +27,7 @@ module Network.AWS.RDS.DeleteDBParameterGroup
     -- * Request
       DeleteDBParameterGroupMessage
     -- ** Request constructor
-    , deleteDBParameterGroup
+    , deleteDBParameterGroupMessage
     -- ** Request lenses
     , ddbpgm1DBParameterGroupName
 
@@ -51,9 +51,9 @@ newtype DeleteDBParameterGroupMessage = DeleteDBParameterGroupMessage
 --
 -- * 'ddbpgm1DBParameterGroupName' @::@ 'Text'
 --
-deleteDBParameterGroup :: Text -- ^ 'ddbpgm1DBParameterGroupName'
-                       -> DeleteDBParameterGroupMessage
-deleteDBParameterGroup p1 = DeleteDBParameterGroupMessage
+deleteDBParameterGroupMessage :: Text -- ^ 'ddbpgm1DBParameterGroupName'
+                              -> DeleteDBParameterGroupMessage
+deleteDBParameterGroupMessage p1 = DeleteDBParameterGroupMessage
     { _ddbpgm1DBParameterGroupName = p1
     }
 
@@ -64,21 +64,24 @@ ddbpgm1DBParameterGroupName :: Lens' DeleteDBParameterGroupMessage Text
 ddbpgm1DBParameterGroupName =
     lens _ddbpgm1DBParameterGroupName
         (\s a -> s { _ddbpgm1DBParameterGroupName = a })
+instance ToQuery DeleteDBParameterGroupMessage
 
 instance ToPath DeleteDBParameterGroupMessage where
     toPath = const "/"
 
-instance ToQuery DeleteDBParameterGroupMessage
-
 data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteDBParameterGroupResponse' constructor.
 deleteDBParameterGroupResponse :: DeleteDBParameterGroupResponse
 deleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
+instance FromXML DeleteDBParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteDBParameterGroupResponse"
 
 instance AWSRequest DeleteDBParameterGroupMessage where
     type Sv DeleteDBParameterGroupMessage = RDS
     type Rs DeleteDBParameterGroupMessage = DeleteDBParameterGroupResponse
 
     request  = post "DeleteDBParameterGroup"
-    response = const (nullaryResponse DeleteDBParameterGroupResponse)
+    response = nullaryResponse DeleteDBParameterGroupResponse

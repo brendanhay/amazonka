@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     -- * Response
     , DescribeTerminationPolicyTypesAnswer
     -- ** Response constructor
-    , describeTerminationPolicyTypesResponse
+    , describeTerminationPolicyTypesAnswer
     -- ** Response lenses
     , dtptaTerminationPolicyTypes
     ) where
@@ -41,15 +41,15 @@ import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
 data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeTerminationPolicyTypes' constructor.
 describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
 describeTerminationPolicyTypes = DescribeTerminationPolicyTypes
+instance ToQuery DescribeTerminationPolicyTypes
 
 instance ToPath DescribeTerminationPolicyTypes where
     toPath = const "/"
-
-instance ToQuery DescribeTerminationPolicyTypes
 
 newtype DescribeTerminationPolicyTypesAnswer = DescribeTerminationPolicyTypesAnswer
     { _dtptaTerminationPolicyTypes :: [Text]
@@ -61,8 +61,8 @@ newtype DescribeTerminationPolicyTypesAnswer = DescribeTerminationPolicyTypesAns
 --
 -- * 'dtptaTerminationPolicyTypes' @::@ ['Text']
 --
-describeTerminationPolicyTypesResponse :: DescribeTerminationPolicyTypesAnswer
-describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesAnswer
+describeTerminationPolicyTypesAnswer :: DescribeTerminationPolicyTypesAnswer
+describeTerminationPolicyTypesAnswer = DescribeTerminationPolicyTypesAnswer
     { _dtptaTerminationPolicyTypes = mempty
     }
 
@@ -73,6 +73,9 @@ dtptaTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesAnswer [Text]
 dtptaTerminationPolicyTypes =
     lens _dtptaTerminationPolicyTypes
         (\s a -> s { _dtptaTerminationPolicyTypes = a })
+instance FromXML DescribeTerminationPolicyTypesAnswer where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeTerminationPolicyTypesAnswer"
 
 instance AWSRequest DescribeTerminationPolicyTypes where
     type Sv DescribeTerminationPolicyTypes = AutoScaling

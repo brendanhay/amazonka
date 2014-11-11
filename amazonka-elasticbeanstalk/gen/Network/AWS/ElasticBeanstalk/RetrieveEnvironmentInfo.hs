@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     -- * Request
       RetrieveEnvironmentInfoMessage
     -- ** Request constructor
-    , retrieveEnvironmentInfo
+    , retrieveEnvironmentInfoMessage
     -- ** Request lenses
     , reimEnvironmentId
     , reimEnvironmentName
@@ -36,7 +36,7 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     -- * Response
     , RetrieveEnvironmentInfoResultMessage
     -- ** Response constructor
-    , retrieveEnvironmentInfoResponse
+    , retrieveEnvironmentInfoResultMessage
     -- ** Response lenses
     , reirmEnvironmentInfo
     ) where
@@ -61,9 +61,9 @@ data RetrieveEnvironmentInfoMessage = RetrieveEnvironmentInfoMessage
 --
 -- * 'reimInfoType' @::@ 'Text'
 --
-retrieveEnvironmentInfo :: Text -- ^ 'reimInfoType'
-                        -> RetrieveEnvironmentInfoMessage
-retrieveEnvironmentInfo p1 = RetrieveEnvironmentInfoMessage
+retrieveEnvironmentInfoMessage :: Text -- ^ 'reimInfoType'
+                               -> RetrieveEnvironmentInfoMessage
+retrieveEnvironmentInfoMessage p1 = RetrieveEnvironmentInfoMessage
     { _reimInfoType        = p1
     , _reimEnvironmentId   = Nothing
     , _reimEnvironmentName = Nothing
@@ -88,11 +88,10 @@ reimEnvironmentName =
 -- | The type of information to retrieve.
 reimInfoType :: Lens' RetrieveEnvironmentInfoMessage Text
 reimInfoType = lens _reimInfoType (\s a -> s { _reimInfoType = a })
+instance ToQuery RetrieveEnvironmentInfoMessage
 
 instance ToPath RetrieveEnvironmentInfoMessage where
     toPath = const "/"
-
-instance ToQuery RetrieveEnvironmentInfoMessage
 
 newtype RetrieveEnvironmentInfoResultMessage = RetrieveEnvironmentInfoResultMessage
     { _reirmEnvironmentInfo :: [EnvironmentInfoDescription]
@@ -104,8 +103,8 @@ newtype RetrieveEnvironmentInfoResultMessage = RetrieveEnvironmentInfoResultMess
 --
 -- * 'reirmEnvironmentInfo' @::@ ['EnvironmentInfoDescription']
 --
-retrieveEnvironmentInfoResponse :: RetrieveEnvironmentInfoResultMessage
-retrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResultMessage
+retrieveEnvironmentInfoResultMessage :: RetrieveEnvironmentInfoResultMessage
+retrieveEnvironmentInfoResultMessage = RetrieveEnvironmentInfoResultMessage
     { _reirmEnvironmentInfo = mempty
     }
 
@@ -113,6 +112,9 @@ retrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResultMessage
 reirmEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResultMessage [EnvironmentInfoDescription]
 reirmEnvironmentInfo =
     lens _reirmEnvironmentInfo (\s a -> s { _reirmEnvironmentInfo = a })
+instance FromXML RetrieveEnvironmentInfoResultMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RetrieveEnvironmentInfoResultMessage"
 
 instance AWSRequest RetrieveEnvironmentInfoMessage where
     type Sv RetrieveEnvironmentInfoMessage = ElasticBeanstalk

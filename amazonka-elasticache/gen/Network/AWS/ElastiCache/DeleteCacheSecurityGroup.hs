@@ -26,7 +26,7 @@ module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     -- * Request
       DeleteCacheSecurityGroupMessage
     -- ** Request constructor
-    , deleteCacheSecurityGroup
+    , deleteCacheSecurityGroupMessage
     -- ** Request lenses
     , dcsgmCacheSecurityGroupName
 
@@ -50,9 +50,9 @@ newtype DeleteCacheSecurityGroupMessage = DeleteCacheSecurityGroupMessage
 --
 -- * 'dcsgmCacheSecurityGroupName' @::@ 'Text'
 --
-deleteCacheSecurityGroup :: Text -- ^ 'dcsgmCacheSecurityGroupName'
-                         -> DeleteCacheSecurityGroupMessage
-deleteCacheSecurityGroup p1 = DeleteCacheSecurityGroupMessage
+deleteCacheSecurityGroupMessage :: Text -- ^ 'dcsgmCacheSecurityGroupName'
+                                -> DeleteCacheSecurityGroupMessage
+deleteCacheSecurityGroupMessage p1 = DeleteCacheSecurityGroupMessage
     { _dcsgmCacheSecurityGroupName = p1
     }
 
@@ -61,21 +61,24 @@ dcsgmCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroupMessage Text
 dcsgmCacheSecurityGroupName =
     lens _dcsgmCacheSecurityGroupName
         (\s a -> s { _dcsgmCacheSecurityGroupName = a })
+instance ToQuery DeleteCacheSecurityGroupMessage
 
 instance ToPath DeleteCacheSecurityGroupMessage where
     toPath = const "/"
 
-instance ToQuery DeleteCacheSecurityGroupMessage
-
 data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteCacheSecurityGroupResponse' constructor.
 deleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse
 deleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
+instance FromXML DeleteCacheSecurityGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteCacheSecurityGroupResponse"
 
 instance AWSRequest DeleteCacheSecurityGroupMessage where
     type Sv DeleteCacheSecurityGroupMessage = ElastiCache
     type Rs DeleteCacheSecurityGroupMessage = DeleteCacheSecurityGroupResponse
 
     request  = post "DeleteCacheSecurityGroup"
-    response = const (nullaryResponse DeleteCacheSecurityGroupResponse)
+    response = nullaryResponse DeleteCacheSecurityGroupResponse

@@ -79,21 +79,24 @@ rcidfoidcpOpenIDConnectProviderArn :: Lens' RemoveClientIDFromOpenIDConnectProvi
 rcidfoidcpOpenIDConnectProviderArn =
     lens _rcidfoidcpOpenIDConnectProviderArn
         (\s a -> s { _rcidfoidcpOpenIDConnectProviderArn = a })
+instance ToQuery RemoveClientIDFromOpenIDConnectProvider
 
 instance ToPath RemoveClientIDFromOpenIDConnectProvider where
     toPath = const "/"
 
-instance ToQuery RemoveClientIDFromOpenIDConnectProvider
-
 data RemoveClientIDFromOpenIDConnectProviderResponse = RemoveClientIDFromOpenIDConnectProviderResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'RemoveClientIDFromOpenIDConnectProviderResponse' constructor.
 removeClientIDFromOpenIDConnectProviderResponse :: RemoveClientIDFromOpenIDConnectProviderResponse
 removeClientIDFromOpenIDConnectProviderResponse = RemoveClientIDFromOpenIDConnectProviderResponse
+instance FromXML RemoveClientIDFromOpenIDConnectProviderResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RemoveClientIDFromOpenIDConnectProviderResponse"
 
 instance AWSRequest RemoveClientIDFromOpenIDConnectProvider where
     type Sv RemoveClientIDFromOpenIDConnectProvider = IAM
     type Rs RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectProviderResponse
 
     request  = post "RemoveClientIDFromOpenIDConnectProvider"
-    response = const (nullaryResponse RemoveClientIDFromOpenIDConnectProviderResponse)
+    response = nullaryResponse RemoveClientIDFromOpenIDConnectProviderResponse

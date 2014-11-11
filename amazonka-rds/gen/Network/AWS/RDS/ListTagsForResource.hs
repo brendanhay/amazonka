@@ -27,7 +27,7 @@ module Network.AWS.RDS.ListTagsForResource
     -- * Request
       ListTagsForResourceMessage
     -- ** Request constructor
-    , listTagsForResource
+    , listTagsForResourceMessage
     -- ** Request lenses
     , ltfrmFilters
     , ltfrmResourceName
@@ -35,7 +35,7 @@ module Network.AWS.RDS.ListTagsForResource
     -- * Response
     , TagListMessage
     -- ** Response constructor
-    , listTagsForResourceResponse
+    , tagListMessage
     -- ** Response lenses
     , tlmTagList
     ) where
@@ -57,9 +57,9 @@ data ListTagsForResourceMessage = ListTagsForResourceMessage
 --
 -- * 'ltfrmResourceName' @::@ 'Text'
 --
-listTagsForResource :: Text -- ^ 'ltfrmResourceName'
-                    -> ListTagsForResourceMessage
-listTagsForResource p1 = ListTagsForResourceMessage
+listTagsForResourceMessage :: Text -- ^ 'ltfrmResourceName'
+                           -> ListTagsForResourceMessage
+listTagsForResourceMessage p1 = ListTagsForResourceMessage
     { _ltfrmResourceName = p1
     , _ltfrmFilters      = mempty
     }
@@ -74,11 +74,10 @@ ltfrmFilters = lens _ltfrmFilters (\s a -> s { _ltfrmFilters = a })
 ltfrmResourceName :: Lens' ListTagsForResourceMessage Text
 ltfrmResourceName =
     lens _ltfrmResourceName (\s a -> s { _ltfrmResourceName = a })
+instance ToQuery ListTagsForResourceMessage
 
 instance ToPath ListTagsForResourceMessage where
     toPath = const "/"
-
-instance ToQuery ListTagsForResourceMessage
 
 newtype TagListMessage = TagListMessage
     { _tlmTagList :: [Tag]
@@ -90,14 +89,17 @@ newtype TagListMessage = TagListMessage
 --
 -- * 'tlmTagList' @::@ ['Tag']
 --
-listTagsForResourceResponse :: TagListMessage
-listTagsForResourceResponse = TagListMessage
+tagListMessage :: TagListMessage
+tagListMessage = TagListMessage
     { _tlmTagList = mempty
     }
 
 -- | List of tags returned by the ListTagsForResource operation.
 tlmTagList :: Lens' TagListMessage [Tag]
 tlmTagList = lens _tlmTagList (\s a -> s { _tlmTagList = a })
+instance FromXML TagListMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "TagListMessage"
 
 instance AWSRequest ListTagsForResourceMessage where
     type Sv ListTagsForResourceMessage = RDS

@@ -72,21 +72,24 @@ ri2DryRun = lens _ri2DryRun (\s a -> s { _ri2DryRun = a })
 -- | One or more instance IDs.
 ri2InstanceIds :: Lens' RebootInstances [Text]
 ri2InstanceIds = lens _ri2InstanceIds (\s a -> s { _ri2InstanceIds = a })
+instance ToQuery RebootInstances
 
 instance ToPath RebootInstances where
     toPath = const "/"
 
-instance ToQuery RebootInstances
-
 data RebootInstancesResponse = RebootInstancesResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'RebootInstancesResponse' constructor.
 rebootInstancesResponse :: RebootInstancesResponse
 rebootInstancesResponse = RebootInstancesResponse
+instance FromXML RebootInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RebootInstancesResponse"
 
 instance AWSRequest RebootInstances where
     type Sv RebootInstances = EC2
     type Rs RebootInstances = RebootInstancesResponse
 
     request  = post "RebootInstances"
-    response = const (nullaryResponse RebootInstancesResponse)
+    response = nullaryResponse RebootInstancesResponse

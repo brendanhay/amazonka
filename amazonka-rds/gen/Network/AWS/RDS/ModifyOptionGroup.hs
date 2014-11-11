@@ -26,7 +26,7 @@ module Network.AWS.RDS.ModifyOptionGroup
     -- * Request
       ModifyOptionGroupMessage
     -- ** Request constructor
-    , modifyOptionGroup
+    , modifyOptionGroupMessage
     -- ** Request lenses
     , mogmApplyImmediately
     , mogmOptionGroupName
@@ -36,7 +36,7 @@ module Network.AWS.RDS.ModifyOptionGroup
     -- * Response
     , ModifyOptionGroupResult
     -- ** Response constructor
-    , modifyOptionGroupResponse
+    , modifyOptionGroupResult
     -- ** Response lenses
     , mogrOptionGroup
     ) where
@@ -64,9 +64,9 @@ data ModifyOptionGroupMessage = ModifyOptionGroupMessage
 --
 -- * 'mogmOptionsToRemove' @::@ ['Text']
 --
-modifyOptionGroup :: Text -- ^ 'mogmOptionGroupName'
-                  -> ModifyOptionGroupMessage
-modifyOptionGroup p1 = ModifyOptionGroupMessage
+modifyOptionGroupMessage :: Text -- ^ 'mogmOptionGroupName'
+                         -> ModifyOptionGroupMessage
+modifyOptionGroupMessage p1 = ModifyOptionGroupMessage
     { _mogmOptionGroupName  = p1
     , _mogmOptionsToInclude = mempty
     , _mogmOptionsToRemove  = mempty
@@ -99,11 +99,10 @@ mogmOptionsToInclude =
 mogmOptionsToRemove :: Lens' ModifyOptionGroupMessage [Text]
 mogmOptionsToRemove =
     lens _mogmOptionsToRemove (\s a -> s { _mogmOptionsToRemove = a })
+instance ToQuery ModifyOptionGroupMessage
 
 instance ToPath ModifyOptionGroupMessage where
     toPath = const "/"
-
-instance ToQuery ModifyOptionGroupMessage
 
 newtype ModifyOptionGroupResult = ModifyOptionGroupResult
     { _mogrOptionGroup :: Maybe OptionGroup
@@ -115,13 +114,16 @@ newtype ModifyOptionGroupResult = ModifyOptionGroupResult
 --
 -- * 'mogrOptionGroup' @::@ 'Maybe' 'OptionGroup'
 --
-modifyOptionGroupResponse :: ModifyOptionGroupResult
-modifyOptionGroupResponse = ModifyOptionGroupResult
+modifyOptionGroupResult :: ModifyOptionGroupResult
+modifyOptionGroupResult = ModifyOptionGroupResult
     { _mogrOptionGroup = Nothing
     }
 
 mogrOptionGroup :: Lens' ModifyOptionGroupResult (Maybe OptionGroup)
 mogrOptionGroup = lens _mogrOptionGroup (\s a -> s { _mogrOptionGroup = a })
+instance FromXML ModifyOptionGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyOptionGroupResult"
 
 instance AWSRequest ModifyOptionGroupMessage where
     type Sv ModifyOptionGroupMessage = RDS

@@ -26,14 +26,14 @@ module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
     -- * Request
       CreateCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , createCloudFrontOriginAccessIdentity2014_05_31
+    , createCloudFrontOriginAccessIdentity
     -- ** Request lenses
     , ccfoaiCloudFrontOriginAccessIdentityConfig
 
     -- * Response
     , CreateCloudFrontOriginAccessIdentityResult
     -- ** Response constructor
-    , createCloudFrontOriginAccessIdentity2014_05_31Response
+    , createCloudFrontOriginAccessIdentityResult
     -- ** Response lenses
     , ccfoairCloudFrontOriginAccessIdentity
     , ccfoairETag
@@ -54,9 +54,9 @@ newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdent
 --
 -- * 'ccfoaiCloudFrontOriginAccessIdentityConfig' @::@ 'CloudFrontOriginAccessIdentityConfig'
 --
-createCloudFrontOriginAccessIdentity2014_05_31 :: CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
-                                               -> CreateCloudFrontOriginAccessIdentity
-createCloudFrontOriginAccessIdentity2014_05_31 p1 = CreateCloudFrontOriginAccessIdentity
+createCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -- ^ 'ccfoaiCloudFrontOriginAccessIdentityConfig'
+                                     -> CreateCloudFrontOriginAccessIdentity
+createCloudFrontOriginAccessIdentity p1 = CreateCloudFrontOriginAccessIdentity
     { _ccfoaiCloudFrontOriginAccessIdentityConfig = p1
     }
 
@@ -93,8 +93,8 @@ data CreateCloudFrontOriginAccessIdentityResult = CreateCloudFrontOriginAccessId
 --
 -- * 'ccfoairLocation' @::@ 'Maybe' 'Text'
 --
-createCloudFrontOriginAccessIdentity2014_05_31Response :: CreateCloudFrontOriginAccessIdentityResult
-createCloudFrontOriginAccessIdentity2014_05_31Response = CreateCloudFrontOriginAccessIdentityResult
+createCloudFrontOriginAccessIdentityResult :: CreateCloudFrontOriginAccessIdentityResult
+createCloudFrontOriginAccessIdentityResult = CreateCloudFrontOriginAccessIdentityResult
     { _ccfoairCloudFrontOriginAccessIdentity = Nothing
     , _ccfoairLocation                       = Nothing
     , _ccfoairETag                           = Nothing
@@ -117,6 +117,9 @@ ccfoairETag = lens _ccfoairETag (\s a -> s { _ccfoairETag = a })
 ccfoairLocation :: Lens' CreateCloudFrontOriginAccessIdentityResult (Maybe Text)
 ccfoairLocation = lens _ccfoairLocation (\s a -> s { _ccfoairLocation = a })
 
+instance FromXML CreateCloudFrontOriginAccessIdentityResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateCloudFrontOriginAccessIdentityResult"
 instance AWSRequest CreateCloudFrontOriginAccessIdentity where
     type Sv CreateCloudFrontOriginAccessIdentity = CloudFront
     type Rs CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentityResult

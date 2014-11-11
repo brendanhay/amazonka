@@ -117,11 +117,10 @@ coidcpThumbprintList =
 -- provider in the AWS account, you will get an error.
 coidcpUrl :: Lens' CreateOpenIDConnectProvider Text
 coidcpUrl = lens _coidcpUrl (\s a -> s { _coidcpUrl = a })
+instance ToQuery CreateOpenIDConnectProvider
 
 instance ToPath CreateOpenIDConnectProvider where
     toPath = const "/"
-
-instance ToQuery CreateOpenIDConnectProvider
 
 newtype CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse
     { _coidcprOpenIDConnectProviderArn :: Maybe Text
@@ -144,6 +143,9 @@ coidcprOpenIDConnectProviderArn :: Lens' CreateOpenIDConnectProviderResponse (Ma
 coidcprOpenIDConnectProviderArn =
     lens _coidcprOpenIDConnectProviderArn
         (\s a -> s { _coidcprOpenIDConnectProviderArn = a })
+instance FromXML CreateOpenIDConnectProviderResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateOpenIDConnectProviderResponse"
 
 instance AWSRequest CreateOpenIDConnectProvider where
     type Sv CreateOpenIDConnectProvider = IAM

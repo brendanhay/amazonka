@@ -93,11 +93,10 @@ lakMaxItems = lens _lakMaxItems (\s a -> s { _lakMaxItems = a })
 -- | The name of the user.
 lakUserName :: Lens' ListAccessKeys (Maybe Text)
 lakUserName = lens _lakUserName (\s a -> s { _lakUserName = a })
+instance ToQuery ListAccessKeys
 
 instance ToPath ListAccessKeys where
     toPath = const "/"
-
-instance ToQuery ListAccessKeys
 
 data ListAccessKeysResponse = ListAccessKeysResponse
     { _lakrAccessKeyMetadata :: [AccessKeyMetadata]
@@ -137,6 +136,9 @@ lakrIsTruncated = lens _lakrIsTruncated (\s a -> s { _lakrIsTruncated = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lakrMarker :: Lens' ListAccessKeysResponse (Maybe Text)
 lakrMarker = lens _lakrMarker (\s a -> s { _lakrMarker = a })
+instance FromXML ListAccessKeysResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListAccessKeysResponse"
 
 instance AWSRequest ListAccessKeys where
     type Sv ListAccessKeys = IAM

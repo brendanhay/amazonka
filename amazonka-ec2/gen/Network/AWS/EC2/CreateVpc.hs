@@ -42,7 +42,7 @@ module Network.AWS.EC2.CreateVpc
     -- * Response
     , CreateVpcResult
     -- ** Response constructor
-    , createVpcResponse
+    , createVpcResult
     -- ** Response lenses
     , cvrVpc
     ) where
@@ -92,11 +92,10 @@ cv1DryRun = lens _cv1DryRun (\s a -> s { _cv1DryRun = a })
 cv1InstanceTenancy :: Lens' CreateVpc (Maybe Text)
 cv1InstanceTenancy =
     lens _cv1InstanceTenancy (\s a -> s { _cv1InstanceTenancy = a })
+instance ToQuery CreateVpc
 
 instance ToPath CreateVpc where
     toPath = const "/"
-
-instance ToQuery CreateVpc
 
 newtype CreateVpcResult = CreateVpcResult
     { _cvrVpc :: Maybe Vpc
@@ -108,14 +107,17 @@ newtype CreateVpcResult = CreateVpcResult
 --
 -- * 'cvrVpc' @::@ 'Maybe' 'Vpc'
 --
-createVpcResponse :: CreateVpcResult
-createVpcResponse = CreateVpcResult
+createVpcResult :: CreateVpcResult
+createVpcResult = CreateVpcResult
     { _cvrVpc = Nothing
     }
 
 -- | Information about the VPC.
 cvrVpc :: Lens' CreateVpcResult (Maybe Vpc)
 cvrVpc = lens _cvrVpc (\s a -> s { _cvrVpc = a })
+instance FromXML CreateVpcResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateVpcResult"
 
 instance AWSRequest CreateVpc where
     type Sv CreateVpc = EC2

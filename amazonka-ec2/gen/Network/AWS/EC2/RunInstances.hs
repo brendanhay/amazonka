@@ -73,7 +73,7 @@ module Network.AWS.EC2.RunInstances
     -- * Response
     , Reservation
     -- ** Response constructor
-    , runInstancesResponse
+    , reservation
     -- ** Response lenses
     , rGroups
     , rInstances
@@ -335,11 +335,10 @@ ri1SubnetId = lens _ri1SubnetId (\s a -> s { _ri1SubnetId = a })
 -- | The Base64-encoded MIME user data for the instances.
 ri1UserData :: Lens' RunInstances (Maybe Text)
 ri1UserData = lens _ri1UserData (\s a -> s { _ri1UserData = a })
+instance ToQuery RunInstances
 
 instance ToPath RunInstances where
     toPath = const "/"
-
-instance ToQuery RunInstances
 
 instance AWSRequest RunInstances where
     type Sv RunInstances = EC2

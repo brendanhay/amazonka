@@ -29,7 +29,7 @@ module Network.AWS.AutoScaling.DetachInstances
     -- * Request
       DetachInstancesQuery
     -- ** Request constructor
-    , detachInstances
+    , detachInstancesQuery
     -- ** Request lenses
     , diqAutoScalingGroupName
     , diqInstanceIds
@@ -38,7 +38,7 @@ module Network.AWS.AutoScaling.DetachInstances
     -- * Response
     , DetachInstancesAnswer
     -- ** Response constructor
-    , detachInstancesResponse
+    , detachInstancesAnswer
     -- ** Response lenses
     , diaActivities
     ) where
@@ -63,10 +63,10 @@ data DetachInstancesQuery = DetachInstancesQuery
 --
 -- * 'diqShouldDecrementDesiredCapacity' @::@ 'Bool'
 --
-detachInstances :: Text -- ^ 'diqAutoScalingGroupName'
-                -> Bool -- ^ 'diqShouldDecrementDesiredCapacity'
-                -> DetachInstancesQuery
-detachInstances p1 p2 = DetachInstancesQuery
+detachInstancesQuery :: Text -- ^ 'diqAutoScalingGroupName'
+                     -> Bool -- ^ 'diqShouldDecrementDesiredCapacity'
+                     -> DetachInstancesQuery
+detachInstancesQuery p1 p2 = DetachInstancesQuery
     { _diqAutoScalingGroupName           = p1
     , _diqShouldDecrementDesiredCapacity = p2
     , _diqInstanceIds                    = mempty
@@ -90,11 +90,10 @@ diqShouldDecrementDesiredCapacity :: Lens' DetachInstancesQuery Bool
 diqShouldDecrementDesiredCapacity =
     lens _diqShouldDecrementDesiredCapacity
         (\s a -> s { _diqShouldDecrementDesiredCapacity = a })
+instance ToQuery DetachInstancesQuery
 
 instance ToPath DetachInstancesQuery where
     toPath = const "/"
-
-instance ToQuery DetachInstancesQuery
 
 newtype DetachInstancesAnswer = DetachInstancesAnswer
     { _diaActivities :: [Activity]
@@ -106,8 +105,8 @@ newtype DetachInstancesAnswer = DetachInstancesAnswer
 --
 -- * 'diaActivities' @::@ ['Activity']
 --
-detachInstancesResponse :: DetachInstancesAnswer
-detachInstancesResponse = DetachInstancesAnswer
+detachInstancesAnswer :: DetachInstancesAnswer
+detachInstancesAnswer = DetachInstancesAnswer
     { _diaActivities = mempty
     }
 
@@ -115,6 +114,9 @@ detachInstancesResponse = DetachInstancesAnswer
 -- the Auto Scaling group.
 diaActivities :: Lens' DetachInstancesAnswer [Activity]
 diaActivities = lens _diaActivities (\s a -> s { _diaActivities = a })
+instance FromXML DetachInstancesAnswer where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DetachInstancesAnswer"
 
 instance AWSRequest DetachInstancesQuery where
     type Sv DetachInstancesQuery = AutoScaling

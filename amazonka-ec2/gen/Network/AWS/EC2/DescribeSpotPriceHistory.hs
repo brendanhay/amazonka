@@ -58,7 +58,7 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     -- * Response
     , DescribeSpotPriceHistoryResult
     -- ** Response constructor
-    , describeSpotPriceHistoryResponse
+    , describeSpotPriceHistoryResult
     -- ** Response lenses
     , dsphrNextToken
     , dsphrSpotPriceHistory
@@ -163,11 +163,10 @@ dsphProductDescriptions =
 dsphStartTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
 dsphStartTime = lens _dsphStartTime (\s a -> s { _dsphStartTime = a })
     . mapping _Time
+instance ToQuery DescribeSpotPriceHistory
 
 instance ToPath DescribeSpotPriceHistory where
     toPath = const "/"
-
-instance ToQuery DescribeSpotPriceHistory
 
 data DescribeSpotPriceHistoryResult = DescribeSpotPriceHistoryResult
     { _dsphrNextToken        :: Maybe Text
@@ -182,8 +181,8 @@ data DescribeSpotPriceHistoryResult = DescribeSpotPriceHistoryResult
 --
 -- * 'dsphrSpotPriceHistory' @::@ ['SpotPrice']
 --
-describeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResult
-describeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResult
+describeSpotPriceHistoryResult :: DescribeSpotPriceHistoryResult
+describeSpotPriceHistoryResult = DescribeSpotPriceHistoryResult
     { _dsphrSpotPriceHistory = mempty
     , _dsphrNextToken        = Nothing
     }
@@ -197,6 +196,9 @@ dsphrNextToken = lens _dsphrNextToken (\s a -> s { _dsphrNextToken = a })
 dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResult [SpotPrice]
 dsphrSpotPriceHistory =
     lens _dsphrSpotPriceHistory (\s a -> s { _dsphrSpotPriceHistory = a })
+instance FromXML DescribeSpotPriceHistoryResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSpotPriceHistoryResult"
 
 instance AWSRequest DescribeSpotPriceHistory where
     type Sv DescribeSpotPriceHistory = EC2

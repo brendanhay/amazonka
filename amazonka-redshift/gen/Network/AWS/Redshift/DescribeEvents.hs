@@ -30,7 +30,7 @@ module Network.AWS.Redshift.DescribeEvents
     -- * Request
       DescribeEventsMessage
     -- ** Request constructor
-    , describeEvents
+    , describeEventsMessage
     -- ** Request lenses
     , demDuration
     , demEndTime
@@ -43,7 +43,7 @@ module Network.AWS.Redshift.DescribeEvents
     -- * Response
     , EventsMessage
     -- ** Response constructor
-    , describeEventsResponse
+    , eventsMessage
     -- ** Response lenses
     , emEvents
     , emMarker
@@ -81,8 +81,8 @@ data DescribeEventsMessage = DescribeEventsMessage
 --
 -- * 'demStartTime' @::@ 'Maybe' 'UTCTime'
 --
-describeEvents :: DescribeEventsMessage
-describeEvents = DescribeEventsMessage
+describeEventsMessage :: DescribeEventsMessage
+describeEventsMessage = DescribeEventsMessage
     { _demSourceIdentifier = Nothing
     , _demSourceType       = Nothing
     , _demStartTime        = Nothing
@@ -152,11 +152,10 @@ demSourceType = lens _demSourceType (\s a -> s { _demSourceType = a })
 demStartTime :: Lens' DescribeEventsMessage (Maybe UTCTime)
 demStartTime = lens _demStartTime (\s a -> s { _demStartTime = a })
     . mapping _Time
+instance ToQuery DescribeEventsMessage
 
 instance ToPath DescribeEventsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeEventsMessage
 
 data EventsMessage = EventsMessage
     { _emEvents :: [Event]
@@ -171,8 +170,8 @@ data EventsMessage = EventsMessage
 --
 -- * 'emMarker' @::@ 'Maybe' 'Text'
 --
-describeEventsResponse :: EventsMessage
-describeEventsResponse = EventsMessage
+eventsMessage :: EventsMessage
+eventsMessage = EventsMessage
     { _emMarker = Nothing
     , _emEvents = mempty
     }
@@ -189,6 +188,9 @@ emEvents = lens _emEvents (\s a -> s { _emEvents = a })
 -- request.
 emMarker :: Lens' EventsMessage (Maybe Text)
 emMarker = lens _emMarker (\s a -> s { _emMarker = a })
+instance FromXML EventsMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EventsMessage"
 
 instance AWSRequest DescribeEventsMessage where
     type Sv DescribeEventsMessage = Redshift

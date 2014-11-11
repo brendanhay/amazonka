@@ -70,11 +70,10 @@ verifyDomainDkim p1 = VerifyDomainDkim
 -- | The name of the domain to be verified for Easy DKIM signing.
 vddDomain :: Lens' VerifyDomainDkim Text
 vddDomain = lens _vddDomain (\s a -> s { _vddDomain = a })
+instance ToQuery VerifyDomainDkim
 
 instance ToPath VerifyDomainDkim where
     toPath = const "/"
-
-instance ToQuery VerifyDomainDkim
 
 newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
     { _vddrDkimTokens :: [Text]
@@ -102,6 +101,9 @@ verifyDomainDkimResponse = VerifyDomainDkimResponse
 -- the Amazon SES Developer Guide.
 vddrDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
 vddrDkimTokens = lens _vddrDkimTokens (\s a -> s { _vddrDkimTokens = a })
+instance FromXML VerifyDomainDkimResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "VerifyDomainDkimResponse"
 
 instance AWSRequest VerifyDomainDkim where
     type Sv VerifyDomainDkim = SES

@@ -90,11 +90,10 @@ crPath = lens _crPath (\s a -> s { _crPath = a })
 -- | The name of the role to create.
 crRoleName :: Lens' CreateRole Text
 crRoleName = lens _crRoleName (\s a -> s { _crRoleName = a })
+instance ToQuery CreateRole
 
 instance ToPath CreateRole where
     toPath = const "/"
-
-instance ToQuery CreateRole
 
 newtype CreateRoleResponse = CreateRoleResponse
     { _crrRole :: Role
@@ -115,6 +114,9 @@ createRoleResponse p1 = CreateRoleResponse
 -- | Information about the role.
 crrRole :: Lens' CreateRoleResponse Role
 crrRole = lens _crrRole (\s a -> s { _crrRole = a })
+instance FromXML CreateRoleResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateRoleResponse"
 
 instance AWSRequest CreateRole where
     type Sv CreateRole = IAM

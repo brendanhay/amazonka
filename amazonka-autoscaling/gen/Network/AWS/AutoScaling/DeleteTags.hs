@@ -26,7 +26,7 @@ module Network.AWS.AutoScaling.DeleteTags
     -- * Request
       DeleteTagsType
     -- ** Request constructor
-    , deleteTags
+    , deleteTagsType
     -- ** Request lenses
     , dttTags
 
@@ -50,8 +50,8 @@ newtype DeleteTagsType = DeleteTagsType
 --
 -- * 'dttTags' @::@ ['Tag']
 --
-deleteTags :: DeleteTagsType
-deleteTags = DeleteTagsType
+deleteTagsType :: DeleteTagsType
+deleteTagsType = DeleteTagsType
     { _dttTags = mempty
     }
 
@@ -61,21 +61,24 @@ deleteTags = DeleteTagsType
 -- value=value, propagate=true or false.
 dttTags :: Lens' DeleteTagsType [Tag]
 dttTags = lens _dttTags (\s a -> s { _dttTags = a })
+instance ToQuery DeleteTagsType
 
 instance ToPath DeleteTagsType where
     toPath = const "/"
 
-instance ToQuery DeleteTagsType
-
 data DeleteTagsResponse = DeleteTagsResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteTagsResponse' constructor.
 deleteTagsResponse :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse
+instance FromXML DeleteTagsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteTagsResponse"
 
 instance AWSRequest DeleteTagsType where
     type Sv DeleteTagsType = AutoScaling
     type Rs DeleteTagsType = DeleteTagsResponse
 
     request  = post "DeleteTags"
-    response = const (nullaryResponse DeleteTagsResponse)
+    response = nullaryResponse DeleteTagsResponse

@@ -87,11 +87,10 @@ das1Deployed = lens _das1Deployed (\s a -> s { _das1Deployed = a })
 -- | The name of the domain you want to describe.
 das1DomainName :: Lens' DescribeAnalysisSchemes Text
 das1DomainName = lens _das1DomainName (\s a -> s { _das1DomainName = a })
+instance ToQuery DescribeAnalysisSchemes
 
 instance ToPath DescribeAnalysisSchemes where
     toPath = const "/"
-
-instance ToQuery DescribeAnalysisSchemes
 
 newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
     { _dasrAnalysisSchemes :: [AnalysisSchemeStatus]
@@ -112,6 +111,9 @@ describeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
 dasrAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
 dasrAnalysisSchemes =
     lens _dasrAnalysisSchemes (\s a -> s { _dasrAnalysisSchemes = a })
+instance FromXML DescribeAnalysisSchemesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeAnalysisSchemesResponse"
 
 instance AWSRequest DescribeAnalysisSchemes where
     type Sv DescribeAnalysisSchemes = CloudSearch

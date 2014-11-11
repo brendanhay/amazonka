@@ -29,7 +29,7 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- * Request
       DescribePoliciesType
     -- ** Request constructor
-    , describePolicies
+    , describePoliciesType
     -- ** Request lenses
     , dptAutoScalingGroupName
     , dptMaxRecords
@@ -39,7 +39,7 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- * Response
     , PoliciesType
     -- ** Response constructor
-    , describePoliciesResponse
+    , policiesType
     -- ** Response lenses
     , ptNextToken
     , ptScalingPolicies
@@ -68,8 +68,8 @@ data DescribePoliciesType = DescribePoliciesType
 --
 -- * 'dptPolicyNames' @::@ ['Text']
 --
-describePolicies :: DescribePoliciesType
-describePolicies = DescribePoliciesType
+describePoliciesType :: DescribePoliciesType
+describePoliciesType = DescribePoliciesType
     { _dptAutoScalingGroupName = Nothing
     , _dptPolicyNames          = mempty
     , _dptNextToken            = Nothing
@@ -97,11 +97,10 @@ dptNextToken = lens _dptNextToken (\s a -> s { _dptNextToken = a })
 -- are requested, they are ignored with no error.
 dptPolicyNames :: Lens' DescribePoliciesType [Text]
 dptPolicyNames = lens _dptPolicyNames (\s a -> s { _dptPolicyNames = a })
+instance ToQuery DescribePoliciesType
 
 instance ToPath DescribePoliciesType where
     toPath = const "/"
-
-instance ToQuery DescribePoliciesType
 
 data PoliciesType = PoliciesType
     { _ptNextToken       :: Maybe Text
@@ -116,8 +115,8 @@ data PoliciesType = PoliciesType
 --
 -- * 'ptScalingPolicies' @::@ ['ScalingPolicy']
 --
-describePoliciesResponse :: PoliciesType
-describePoliciesResponse = PoliciesType
+policiesType :: PoliciesType
+policiesType = PoliciesType
     { _ptScalingPolicies = mempty
     , _ptNextToken       = Nothing
     }
@@ -130,6 +129,9 @@ ptNextToken = lens _ptNextToken (\s a -> s { _ptNextToken = a })
 ptScalingPolicies :: Lens' PoliciesType [ScalingPolicy]
 ptScalingPolicies =
     lens _ptScalingPolicies (\s a -> s { _ptScalingPolicies = a })
+instance FromXML PoliciesType where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PoliciesType"
 
 instance AWSRequest DescribePoliciesType where
     type Sv DescribePoliciesType = AutoScaling

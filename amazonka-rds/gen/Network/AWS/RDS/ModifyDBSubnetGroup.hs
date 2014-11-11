@@ -27,7 +27,7 @@ module Network.AWS.RDS.ModifyDBSubnetGroup
     -- * Request
       ModifyDBSubnetGroupMessage
     -- ** Request constructor
-    , modifyDBSubnetGroup
+    , modifyDBSubnetGroupMessage
     -- ** Request lenses
     , mdbsgmDBSubnetGroupDescription
     , mdbsgmDBSubnetGroupName
@@ -36,7 +36,7 @@ module Network.AWS.RDS.ModifyDBSubnetGroup
     -- * Response
     , ModifyDBSubnetGroupResult
     -- ** Response constructor
-    , modifyDBSubnetGroupResponse
+    , modifyDBSubnetGroupResult
     -- ** Response lenses
     , mdbsgrDBSubnetGroup
     ) where
@@ -61,9 +61,9 @@ data ModifyDBSubnetGroupMessage = ModifyDBSubnetGroupMessage
 --
 -- * 'mdbsgmSubnetIds' @::@ ['Text']
 --
-modifyDBSubnetGroup :: Text -- ^ 'mdbsgmDBSubnetGroupName'
-                    -> ModifyDBSubnetGroupMessage
-modifyDBSubnetGroup p1 = ModifyDBSubnetGroupMessage
+modifyDBSubnetGroupMessage :: Text -- ^ 'mdbsgmDBSubnetGroupName'
+                           -> ModifyDBSubnetGroupMessage
+modifyDBSubnetGroupMessage p1 = ModifyDBSubnetGroupMessage
     { _mdbsgmDBSubnetGroupName        = p1
     , _mdbsgmDBSubnetGroupDescription = Nothing
     , _mdbsgmSubnetIds                = mempty
@@ -85,11 +85,10 @@ mdbsgmDBSubnetGroupName =
 -- | The EC2 subnet IDs for the DB subnet group.
 mdbsgmSubnetIds :: Lens' ModifyDBSubnetGroupMessage [Text]
 mdbsgmSubnetIds = lens _mdbsgmSubnetIds (\s a -> s { _mdbsgmSubnetIds = a })
+instance ToQuery ModifyDBSubnetGroupMessage
 
 instance ToPath ModifyDBSubnetGroupMessage where
     toPath = const "/"
-
-instance ToQuery ModifyDBSubnetGroupMessage
 
 newtype ModifyDBSubnetGroupResult = ModifyDBSubnetGroupResult
     { _mdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
@@ -101,14 +100,17 @@ newtype ModifyDBSubnetGroupResult = ModifyDBSubnetGroupResult
 --
 -- * 'mdbsgrDBSubnetGroup' @::@ 'Maybe' 'DBSubnetGroup'
 --
-modifyDBSubnetGroupResponse :: ModifyDBSubnetGroupResult
-modifyDBSubnetGroupResponse = ModifyDBSubnetGroupResult
+modifyDBSubnetGroupResult :: ModifyDBSubnetGroupResult
+modifyDBSubnetGroupResult = ModifyDBSubnetGroupResult
     { _mdbsgrDBSubnetGroup = Nothing
     }
 
 mdbsgrDBSubnetGroup :: Lens' ModifyDBSubnetGroupResult (Maybe DBSubnetGroup)
 mdbsgrDBSubnetGroup =
     lens _mdbsgrDBSubnetGroup (\s a -> s { _mdbsgrDBSubnetGroup = a })
+instance FromXML ModifyDBSubnetGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyDBSubnetGroupResult"
 
 instance AWSRequest ModifyDBSubnetGroupMessage where
     type Sv ModifyDBSubnetGroupMessage = RDS

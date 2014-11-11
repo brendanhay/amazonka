@@ -29,7 +29,7 @@ module Network.AWS.Redshift.CreateClusterSecurityGroup
     -- * Request
       CreateClusterSecurityGroupMessage
     -- ** Request constructor
-    , createClusterSecurityGroup
+    , createClusterSecurityGroupMessage
     -- ** Request lenses
     , ccsgmClusterSecurityGroupName
     , ccsgmDescription
@@ -37,7 +37,7 @@ module Network.AWS.Redshift.CreateClusterSecurityGroup
     -- * Response
     , CreateClusterSecurityGroupResult
     -- ** Response constructor
-    , createClusterSecurityGroupResponse
+    , createClusterSecurityGroupResult
     -- ** Response lenses
     , ccsgrClusterSecurityGroup
     ) where
@@ -59,10 +59,10 @@ data CreateClusterSecurityGroupMessage = CreateClusterSecurityGroupMessage
 --
 -- * 'ccsgmDescription' @::@ 'Text'
 --
-createClusterSecurityGroup :: Text -- ^ 'ccsgmClusterSecurityGroupName'
-                           -> Text -- ^ 'ccsgmDescription'
-                           -> CreateClusterSecurityGroupMessage
-createClusterSecurityGroup p1 p2 = CreateClusterSecurityGroupMessage
+createClusterSecurityGroupMessage :: Text -- ^ 'ccsgmClusterSecurityGroupName'
+                                  -> Text -- ^ 'ccsgmDescription'
+                                  -> CreateClusterSecurityGroupMessage
+createClusterSecurityGroupMessage p1 p2 = CreateClusterSecurityGroupMessage
     { _ccsgmClusterSecurityGroupName = p1
     , _ccsgmDescription              = p2
     }
@@ -80,11 +80,10 @@ ccsgmClusterSecurityGroupName =
 -- | A description for the security group.
 ccsgmDescription :: Lens' CreateClusterSecurityGroupMessage Text
 ccsgmDescription = lens _ccsgmDescription (\s a -> s { _ccsgmDescription = a })
+instance ToQuery CreateClusterSecurityGroupMessage
 
 instance ToPath CreateClusterSecurityGroupMessage where
     toPath = const "/"
-
-instance ToQuery CreateClusterSecurityGroupMessage
 
 newtype CreateClusterSecurityGroupResult = CreateClusterSecurityGroupResult
     { _ccsgrClusterSecurityGroup :: Maybe ClusterSecurityGroup
@@ -96,8 +95,8 @@ newtype CreateClusterSecurityGroupResult = CreateClusterSecurityGroupResult
 --
 -- * 'ccsgrClusterSecurityGroup' @::@ 'Maybe' 'ClusterSecurityGroup'
 --
-createClusterSecurityGroupResponse :: CreateClusterSecurityGroupResult
-createClusterSecurityGroupResponse = CreateClusterSecurityGroupResult
+createClusterSecurityGroupResult :: CreateClusterSecurityGroupResult
+createClusterSecurityGroupResult = CreateClusterSecurityGroupResult
     { _ccsgrClusterSecurityGroup = Nothing
     }
 
@@ -105,6 +104,9 @@ ccsgrClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResult (Maybe Clust
 ccsgrClusterSecurityGroup =
     lens _ccsgrClusterSecurityGroup
         (\s a -> s { _ccsgrClusterSecurityGroup = a })
+instance FromXML CreateClusterSecurityGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateClusterSecurityGroupResult"
 
 instance AWSRequest CreateClusterSecurityGroupMessage where
     type Sv CreateClusterSecurityGroupMessage = Redshift

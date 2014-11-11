@@ -69,21 +69,24 @@ dupPolicyName = lens _dupPolicyName (\s a -> s { _dupPolicyName = a })
 -- | The name of the user the policy is associated with.
 dupUserName :: Lens' DeleteUserPolicy Text
 dupUserName = lens _dupUserName (\s a -> s { _dupUserName = a })
+instance ToQuery DeleteUserPolicy
 
 instance ToPath DeleteUserPolicy where
     toPath = const "/"
 
-instance ToQuery DeleteUserPolicy
-
 data DeleteUserPolicyResponse = DeleteUserPolicyResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteUserPolicyResponse' constructor.
 deleteUserPolicyResponse :: DeleteUserPolicyResponse
 deleteUserPolicyResponse = DeleteUserPolicyResponse
+instance FromXML DeleteUserPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteUserPolicyResponse"
 
 instance AWSRequest DeleteUserPolicy where
     type Sv DeleteUserPolicy = IAM
     type Rs DeleteUserPolicy = DeleteUserPolicyResponse
 
     request  = post "DeleteUserPolicy"
-    response = const (nullaryResponse DeleteUserPolicyResponse)
+    response = nullaryResponse DeleteUserPolicyResponse

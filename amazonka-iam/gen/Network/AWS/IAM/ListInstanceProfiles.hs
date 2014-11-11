@@ -94,11 +94,10 @@ lipMaxItems = lens _lipMaxItems (\s a -> s { _lipMaxItems = a })
 -- profiles.
 lipPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
 lipPathPrefix = lens _lipPathPrefix (\s a -> s { _lipPathPrefix = a })
+instance ToQuery ListInstanceProfiles
 
 instance ToPath ListInstanceProfiles where
     toPath = const "/"
-
-instance ToQuery ListInstanceProfiles
 
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse
     { _liprInstanceProfiles :: [InstanceProfile]
@@ -139,6 +138,9 @@ liprIsTruncated = lens _liprIsTruncated (\s a -> s { _liprIsTruncated = a })
 -- use for the Marker parameter in a subsequent pagination request.
 liprMarker :: Lens' ListInstanceProfilesResponse (Maybe Text)
 liprMarker = lens _liprMarker (\s a -> s { _liprMarker = a })
+instance FromXML ListInstanceProfilesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListInstanceProfilesResponse"
 
 instance AWSRequest ListInstanceProfiles where
     type Sv ListInstanceProfiles = IAM

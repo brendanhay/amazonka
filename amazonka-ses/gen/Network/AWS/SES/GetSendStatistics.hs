@@ -44,15 +44,15 @@ import Network.AWS.Request.Query
 import Network.AWS.SES.Types
 
 data GetSendStatistics = GetSendStatistics
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetSendStatistics' constructor.
 getSendStatistics :: GetSendStatistics
 getSendStatistics = GetSendStatistics
+instance ToQuery GetSendStatistics
 
 instance ToPath GetSendStatistics where
     toPath = const "/"
-
-instance ToQuery GetSendStatistics
 
 newtype GetSendStatisticsResponse = GetSendStatisticsResponse
     { _gssrSendDataPoints :: [SendDataPoint]
@@ -73,6 +73,9 @@ getSendStatisticsResponse = GetSendStatisticsResponse
 gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrSendDataPoints =
     lens _gssrSendDataPoints (\s a -> s { _gssrSendDataPoints = a })
+instance FromXML GetSendStatisticsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetSendStatisticsResponse"
 
 instance AWSRequest GetSendStatistics where
     type Sv GetSendStatistics = SES

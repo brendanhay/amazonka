@@ -122,21 +122,24 @@ rrVpcPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)
 rrVpcPeeringConnectionId =
     lens _rrVpcPeeringConnectionId
         (\s a -> s { _rrVpcPeeringConnectionId = a })
+instance ToQuery ReplaceRoute
 
 instance ToPath ReplaceRoute where
     toPath = const "/"
 
-instance ToQuery ReplaceRoute
-
 data ReplaceRouteResponse = ReplaceRouteResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ReplaceRouteResponse' constructor.
 replaceRouteResponse :: ReplaceRouteResponse
 replaceRouteResponse = ReplaceRouteResponse
+instance FromXML ReplaceRouteResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ReplaceRouteResponse"
 
 instance AWSRequest ReplaceRoute where
     type Sv ReplaceRoute = EC2
     type Rs ReplaceRoute = ReplaceRouteResponse
 
     request  = post "ReplaceRoute"
-    response = const (nullaryResponse ReplaceRouteResponse)
+    response = nullaryResponse ReplaceRouteResponse

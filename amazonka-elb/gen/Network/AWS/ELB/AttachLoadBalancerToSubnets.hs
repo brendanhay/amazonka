@@ -30,7 +30,7 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     -- * Request
       AttachLoadBalancerToSubnetsInput
     -- ** Request constructor
-    , attachLoadBalancerToSubnets
+    , attachLoadBalancerToSubnetsInput
     -- ** Request lenses
     , albtsiLoadBalancerName
     , albtsiSubnets
@@ -38,7 +38,7 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     -- * Response
     , AttachLoadBalancerToSubnetsOutput
     -- ** Response constructor
-    , attachLoadBalancerToSubnetsResponse
+    , attachLoadBalancerToSubnetsOutput
     -- ** Response lenses
     , albtsoSubnets
     ) where
@@ -60,9 +60,9 @@ data AttachLoadBalancerToSubnetsInput = AttachLoadBalancerToSubnetsInput
 --
 -- * 'albtsiSubnets' @::@ ['Text']
 --
-attachLoadBalancerToSubnets :: Text -- ^ 'albtsiLoadBalancerName'
-                            -> AttachLoadBalancerToSubnetsInput
-attachLoadBalancerToSubnets p1 = AttachLoadBalancerToSubnetsInput
+attachLoadBalancerToSubnetsInput :: Text -- ^ 'albtsiLoadBalancerName'
+                                 -> AttachLoadBalancerToSubnetsInput
+attachLoadBalancerToSubnetsInput p1 = AttachLoadBalancerToSubnetsInput
     { _albtsiLoadBalancerName = p1
     , _albtsiSubnets          = mempty
     }
@@ -77,11 +77,10 @@ albtsiLoadBalancerName =
 -- subnet per Availability Zone.
 albtsiSubnets :: Lens' AttachLoadBalancerToSubnetsInput [Text]
 albtsiSubnets = lens _albtsiSubnets (\s a -> s { _albtsiSubnets = a })
+instance ToQuery AttachLoadBalancerToSubnetsInput
 
 instance ToPath AttachLoadBalancerToSubnetsInput where
     toPath = const "/"
-
-instance ToQuery AttachLoadBalancerToSubnetsInput
 
 newtype AttachLoadBalancerToSubnetsOutput = AttachLoadBalancerToSubnetsOutput
     { _albtsoSubnets :: [Text]
@@ -93,14 +92,17 @@ newtype AttachLoadBalancerToSubnetsOutput = AttachLoadBalancerToSubnetsOutput
 --
 -- * 'albtsoSubnets' @::@ ['Text']
 --
-attachLoadBalancerToSubnetsResponse :: AttachLoadBalancerToSubnetsOutput
-attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsOutput
+attachLoadBalancerToSubnetsOutput :: AttachLoadBalancerToSubnetsOutput
+attachLoadBalancerToSubnetsOutput = AttachLoadBalancerToSubnetsOutput
     { _albtsoSubnets = mempty
     }
 
 -- | A list of subnet IDs attached to the load balancer.
 albtsoSubnets :: Lens' AttachLoadBalancerToSubnetsOutput [Text]
 albtsoSubnets = lens _albtsoSubnets (\s a -> s { _albtsoSubnets = a })
+instance FromXML AttachLoadBalancerToSubnetsOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AttachLoadBalancerToSubnetsOutput"
 
 instance AWSRequest AttachLoadBalancerToSubnetsInput where
     type Sv AttachLoadBalancerToSubnetsInput = ELB

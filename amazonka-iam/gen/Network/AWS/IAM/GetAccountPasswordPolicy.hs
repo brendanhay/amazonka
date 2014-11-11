@@ -42,15 +42,15 @@ import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
 
 data GetAccountPasswordPolicy = GetAccountPasswordPolicy
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetAccountPasswordPolicy' constructor.
 getAccountPasswordPolicy :: GetAccountPasswordPolicy
 getAccountPasswordPolicy = GetAccountPasswordPolicy
+instance ToQuery GetAccountPasswordPolicy
 
 instance ToPath GetAccountPasswordPolicy where
     toPath = const "/"
-
-instance ToQuery GetAccountPasswordPolicy
 
 newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
     { _gapprPasswordPolicy :: PasswordPolicy
@@ -71,6 +71,9 @@ getAccountPasswordPolicyResponse p1 = GetAccountPasswordPolicyResponse
 gapprPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
 gapprPasswordPolicy =
     lens _gapprPasswordPolicy (\s a -> s { _gapprPasswordPolicy = a })
+instance FromXML GetAccountPasswordPolicyResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetAccountPasswordPolicyResponse"
 
 instance AWSRequest GetAccountPasswordPolicy where
     type Sv GetAccountPasswordPolicy = IAM

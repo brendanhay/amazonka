@@ -36,7 +36,7 @@ module Network.AWS.EC2.AttachNetworkInterface
     -- * Response
     , AttachNetworkInterfaceResult
     -- ** Response constructor
-    , attachNetworkInterfaceResponse
+    , attachNetworkInterfaceResult
     -- ** Response lenses
     , anirAttachmentId
     ) where
@@ -90,11 +90,10 @@ aniInstanceId = lens _aniInstanceId (\s a -> s { _aniInstanceId = a })
 aniNetworkInterfaceId :: Lens' AttachNetworkInterface Text
 aniNetworkInterfaceId =
     lens _aniNetworkInterfaceId (\s a -> s { _aniNetworkInterfaceId = a })
+instance ToQuery AttachNetworkInterface
 
 instance ToPath AttachNetworkInterface where
     toPath = const "/"
-
-instance ToQuery AttachNetworkInterface
 
 newtype AttachNetworkInterfaceResult = AttachNetworkInterfaceResult
     { _anirAttachmentId :: Maybe Text
@@ -106,14 +105,17 @@ newtype AttachNetworkInterfaceResult = AttachNetworkInterfaceResult
 --
 -- * 'anirAttachmentId' @::@ 'Maybe' 'Text'
 --
-attachNetworkInterfaceResponse :: AttachNetworkInterfaceResult
-attachNetworkInterfaceResponse = AttachNetworkInterfaceResult
+attachNetworkInterfaceResult :: AttachNetworkInterfaceResult
+attachNetworkInterfaceResult = AttachNetworkInterfaceResult
     { _anirAttachmentId = Nothing
     }
 
 -- | The ID of the network interface attachment.
 anirAttachmentId :: Lens' AttachNetworkInterfaceResult (Maybe Text)
 anirAttachmentId = lens _anirAttachmentId (\s a -> s { _anirAttachmentId = a })
+instance FromXML AttachNetworkInterfaceResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AttachNetworkInterfaceResult"
 
 instance AWSRequest AttachNetworkInterface where
     type Sv AttachNetworkInterface = EC2

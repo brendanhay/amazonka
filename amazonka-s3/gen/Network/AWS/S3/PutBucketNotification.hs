@@ -96,14 +96,18 @@ instance ToBody PutBucketNotification where
     toBody = toBody . encodeXML . _pbnNotificationConfiguration
 
 data PutBucketNotificationResponse = PutBucketNotificationResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutBucketNotificationResponse' constructor.
 putBucketNotificationResponse :: PutBucketNotificationResponse
 putBucketNotificationResponse = PutBucketNotificationResponse
 
+instance FromXML PutBucketNotificationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutBucketNotificationResponse"
 instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3
     type Rs PutBucketNotification = PutBucketNotificationResponse
 
     request  = put
-    response = const (nullaryResponse PutBucketNotificationResponse)
+    response = nullaryResponse PutBucketNotificationResponse

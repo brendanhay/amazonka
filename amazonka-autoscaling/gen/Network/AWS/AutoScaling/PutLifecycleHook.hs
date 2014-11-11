@@ -38,7 +38,7 @@ module Network.AWS.AutoScaling.PutLifecycleHook
     -- * Request
       PutLifecycleHookType
     -- ** Request constructor
-    , putLifecycleHook
+    , putLifecycleHookType
     -- ** Request lenses
     , plhtAutoScalingGroupName
     , plhtDefaultResult
@@ -90,10 +90,10 @@ data PutLifecycleHookType = PutLifecycleHookType
 --
 -- * 'plhtRoleARN' @::@ 'Maybe' 'Text'
 --
-putLifecycleHook :: Text -- ^ 'plhtLifecycleHookName'
-                 -> Text -- ^ 'plhtAutoScalingGroupName'
-                 -> PutLifecycleHookType
-putLifecycleHook p1 p2 = PutLifecycleHookType
+putLifecycleHookType :: Text -- ^ 'plhtLifecycleHookName'
+                     -> Text -- ^ 'plhtAutoScalingGroupName'
+                     -> PutLifecycleHookType
+putLifecycleHookType p1 p2 = PutLifecycleHookType
     { _plhtLifecycleHookName     = p1
     , _plhtAutoScalingGroupName  = p2
     , _plhtLifecycleTransition   = Nothing
@@ -171,21 +171,24 @@ plhtNotificationTargetARN =
 -- publish to the specified notification target.
 plhtRoleARN :: Lens' PutLifecycleHookType (Maybe Text)
 plhtRoleARN = lens _plhtRoleARN (\s a -> s { _plhtRoleARN = a })
+instance ToQuery PutLifecycleHookType
 
 instance ToPath PutLifecycleHookType where
     toPath = const "/"
 
-instance ToQuery PutLifecycleHookType
-
 data PutLifecycleHookResponse = PutLifecycleHookResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutLifecycleHookResponse' constructor.
 putLifecycleHookResponse :: PutLifecycleHookResponse
 putLifecycleHookResponse = PutLifecycleHookResponse
+instance FromXML PutLifecycleHookResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutLifecycleHookResponse"
 
 instance AWSRequest PutLifecycleHookType where
     type Sv PutLifecycleHookType = AutoScaling
     type Rs PutLifecycleHookType = PutLifecycleHookResponse
 
     request  = post "PutLifecycleHook"
-    response = const (nullaryResponse PutLifecycleHookResponse)
+    response = nullaryResponse PutLifecycleHookResponse

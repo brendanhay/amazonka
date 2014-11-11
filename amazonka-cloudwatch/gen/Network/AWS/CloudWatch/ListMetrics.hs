@@ -28,7 +28,7 @@ module Network.AWS.CloudWatch.ListMetrics
     -- * Request
       ListMetricsInput
     -- ** Request constructor
-    , listMetrics
+    , listMetricsInput
     -- ** Request lenses
     , lmiDimensions
     , lmiMetricName
@@ -38,7 +38,7 @@ module Network.AWS.CloudWatch.ListMetrics
     -- * Response
     , ListMetricsOutput
     -- ** Response constructor
-    , listMetricsResponse
+    , listMetricsOutput
     -- ** Response lenses
     , lmoMetrics
     , lmoNextToken
@@ -67,8 +67,8 @@ data ListMetricsInput = ListMetricsInput
 --
 -- * 'lmiNextToken' @::@ 'Maybe' 'Text'
 --
-listMetrics :: ListMetricsInput
-listMetrics = ListMetricsInput
+listMetricsInput :: ListMetricsInput
+listMetricsInput = ListMetricsInput
     { _lmiNamespace  = Nothing
     , _lmiMetricName = Nothing
     , _lmiDimensions = mempty
@@ -91,11 +91,10 @@ lmiNamespace = lens _lmiNamespace (\s a -> s { _lmiNamespace = a })
 -- available.
 lmiNextToken :: Lens' ListMetricsInput (Maybe Text)
 lmiNextToken = lens _lmiNextToken (\s a -> s { _lmiNextToken = a })
+instance ToQuery ListMetricsInput
 
 instance ToPath ListMetricsInput where
     toPath = const "/"
-
-instance ToQuery ListMetricsInput
 
 data ListMetricsOutput = ListMetricsOutput
     { _lmoMetrics   :: [Metric]
@@ -110,8 +109,8 @@ data ListMetricsOutput = ListMetricsOutput
 --
 -- * 'lmoNextToken' @::@ 'Maybe' 'Text'
 --
-listMetricsResponse :: ListMetricsOutput
-listMetricsResponse = ListMetricsOutput
+listMetricsOutput :: ListMetricsOutput
+listMetricsOutput = ListMetricsOutput
     { _lmoMetrics   = mempty
     , _lmoNextToken = Nothing
     }
@@ -123,6 +122,9 @@ lmoMetrics = lens _lmoMetrics (\s a -> s { _lmoMetrics = a })
 -- | A string that marks the start of the next batch of returned results.
 lmoNextToken :: Lens' ListMetricsOutput (Maybe Text)
 lmoNextToken = lens _lmoNextToken (\s a -> s { _lmoNextToken = a })
+instance FromXML ListMetricsOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListMetricsOutput"
 
 instance AWSRequest ListMetricsInput where
     type Sv ListMetricsInput = CloudWatch

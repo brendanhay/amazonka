@@ -89,11 +89,10 @@ lupMaxItems = lens _lupMaxItems (\s a -> s { _lupMaxItems = a })
 -- | The name of the user to list policies for.
 lupUserName :: Lens' ListUserPolicies Text
 lupUserName = lens _lupUserName (\s a -> s { _lupUserName = a })
+instance ToQuery ListUserPolicies
 
 instance ToPath ListUserPolicies where
     toPath = const "/"
-
-instance ToQuery ListUserPolicies
 
 data ListUserPoliciesResponse = ListUserPoliciesResponse
     { _luprIsTruncated :: Maybe Bool
@@ -133,6 +132,9 @@ luprMarker = lens _luprMarker (\s a -> s { _luprMarker = a })
 -- | A list of policy names.
 luprPolicyNames :: Lens' ListUserPoliciesResponse [Text]
 luprPolicyNames = lens _luprPolicyNames (\s a -> s { _luprPolicyNames = a })
+instance FromXML ListUserPoliciesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ListUserPoliciesResponse"
 
 instance AWSRequest ListUserPolicies where
     type Sv ListUserPolicies = IAM

@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     -- * Request
       DescribeCacheSecurityGroupsMessage
     -- ** Request constructor
-    , describeCacheSecurityGroups
+    , describeCacheSecurityGroupsMessage
     -- ** Request lenses
     , dcsgm1CacheSecurityGroupName
     , dcsgm1Marker
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     -- * Response
     , CacheSecurityGroupMessage
     -- ** Response constructor
-    , describeCacheSecurityGroupsResponse
+    , cacheSecurityGroupMessage
     -- ** Response lenses
     , csgmCacheSecurityGroups
     , csgmMarker
@@ -63,8 +63,8 @@ data DescribeCacheSecurityGroupsMessage = DescribeCacheSecurityGroupsMessage
 --
 -- * 'dcsgm1MaxRecords' @::@ 'Maybe' 'Int'
 --
-describeCacheSecurityGroups :: DescribeCacheSecurityGroupsMessage
-describeCacheSecurityGroups = DescribeCacheSecurityGroupsMessage
+describeCacheSecurityGroupsMessage :: DescribeCacheSecurityGroupsMessage
+describeCacheSecurityGroupsMessage = DescribeCacheSecurityGroupsMessage
     { _dcsgm1CacheSecurityGroupName = Nothing
     , _dcsgm1MaxRecords             = Nothing
     , _dcsgm1Marker                 = Nothing
@@ -89,11 +89,10 @@ dcsgm1Marker = lens _dcsgm1Marker (\s a -> s { _dcsgm1Marker = a })
 -- Constraints: minimum 20; maximum 100.
 dcsgm1MaxRecords :: Lens' DescribeCacheSecurityGroupsMessage (Maybe Int)
 dcsgm1MaxRecords = lens _dcsgm1MaxRecords (\s a -> s { _dcsgm1MaxRecords = a })
+instance ToQuery DescribeCacheSecurityGroupsMessage
 
 instance ToPath DescribeCacheSecurityGroupsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeCacheSecurityGroupsMessage
 
 data CacheSecurityGroupMessage = CacheSecurityGroupMessage
     { _csgmCacheSecurityGroups :: [CacheSecurityGroup]
@@ -108,8 +107,8 @@ data CacheSecurityGroupMessage = CacheSecurityGroupMessage
 --
 -- * 'csgmMarker' @::@ 'Maybe' 'Text'
 --
-describeCacheSecurityGroupsResponse :: CacheSecurityGroupMessage
-describeCacheSecurityGroupsResponse = CacheSecurityGroupMessage
+cacheSecurityGroupMessage :: CacheSecurityGroupMessage
+cacheSecurityGroupMessage = CacheSecurityGroupMessage
     { _csgmMarker              = Nothing
     , _csgmCacheSecurityGroups = mempty
     }
@@ -123,6 +122,9 @@ csgmCacheSecurityGroups =
 -- | Provides an identifier to allow retrieval of paginated results.
 csgmMarker :: Lens' CacheSecurityGroupMessage (Maybe Text)
 csgmMarker = lens _csgmMarker (\s a -> s { _csgmMarker = a })
+instance FromXML CacheSecurityGroupMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CacheSecurityGroupMessage"
 
 instance AWSRequest DescribeCacheSecurityGroupsMessage where
     type Sv DescribeCacheSecurityGroupsMessage = ElastiCache

@@ -71,14 +71,18 @@ instance ToQuery DeleteBucketCors where
 instance ToHeaders DeleteBucketCors
 
 data DeleteBucketCorsResponse = DeleteBucketCorsResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteBucketCorsResponse' constructor.
 deleteBucketCorsResponse :: DeleteBucketCorsResponse
 deleteBucketCorsResponse = DeleteBucketCorsResponse
 
+instance FromXML DeleteBucketCorsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteBucketCorsResponse"
 instance AWSRequest DeleteBucketCors where
     type Sv DeleteBucketCors = S3
     type Rs DeleteBucketCors = DeleteBucketCorsResponse
 
     request  = delete
-    response = const (nullaryResponse DeleteBucketCorsResponse)
+    response = nullaryResponse DeleteBucketCorsResponse

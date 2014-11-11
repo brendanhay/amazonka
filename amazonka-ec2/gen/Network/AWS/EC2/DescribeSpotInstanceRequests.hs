@@ -45,7 +45,7 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     -- * Response
     , DescribeSpotInstanceRequestsResult
     -- ** Response constructor
-    , describeSpotInstanceRequestsResponse
+    , describeSpotInstanceRequestsResult
     -- ** Response lenses
     , dsirrSpotInstanceRequests
     ) where
@@ -144,11 +144,10 @@ dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
 dsirSpotInstanceRequestIds =
     lens _dsirSpotInstanceRequestIds
         (\s a -> s { _dsirSpotInstanceRequestIds = a })
+instance ToQuery DescribeSpotInstanceRequests
 
 instance ToPath DescribeSpotInstanceRequests where
     toPath = const "/"
-
-instance ToQuery DescribeSpotInstanceRequests
 
 newtype DescribeSpotInstanceRequestsResult = DescribeSpotInstanceRequestsResult
     { _dsirrSpotInstanceRequests :: [SpotInstanceRequest]
@@ -160,8 +159,8 @@ newtype DescribeSpotInstanceRequestsResult = DescribeSpotInstanceRequestsResult
 --
 -- * 'dsirrSpotInstanceRequests' @::@ ['SpotInstanceRequest']
 --
-describeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResult
-describeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResult
+describeSpotInstanceRequestsResult :: DescribeSpotInstanceRequestsResult
+describeSpotInstanceRequestsResult = DescribeSpotInstanceRequestsResult
     { _dsirrSpotInstanceRequests = mempty
     }
 
@@ -170,6 +169,9 @@ dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResult [SpotInsta
 dsirrSpotInstanceRequests =
     lens _dsirrSpotInstanceRequests
         (\s a -> s { _dsirrSpotInstanceRequests = a })
+instance FromXML DescribeSpotInstanceRequestsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeSpotInstanceRequestsResult"
 
 instance AWSRequest DescribeSpotInstanceRequests where
     type Sv DescribeSpotInstanceRequests = EC2

@@ -43,7 +43,7 @@ module Network.AWS.RDS.CreateDBParameterGroup
     -- * Request
       CreateDBParameterGroupMessage
     -- ** Request constructor
-    , createDBParameterGroup
+    , createDBParameterGroupMessage
     -- ** Request lenses
     , cdbpgmDBParameterGroupFamily
     , cdbpgmDBParameterGroupName
@@ -53,7 +53,7 @@ module Network.AWS.RDS.CreateDBParameterGroup
     -- * Response
     , CreateDBParameterGroupResult
     -- ** Response constructor
-    , createDBParameterGroupResponse
+    , createDBParameterGroupResult
     -- ** Response lenses
     , cdbpgr1DBParameterGroup
     ) where
@@ -81,11 +81,11 @@ data CreateDBParameterGroupMessage = CreateDBParameterGroupMessage
 --
 -- * 'cdbpgmTags' @::@ ['Tag']
 --
-createDBParameterGroup :: Text -- ^ 'cdbpgmDBParameterGroupName'
-                       -> Text -- ^ 'cdbpgmDBParameterGroupFamily'
-                       -> Text -- ^ 'cdbpgmDescription'
-                       -> CreateDBParameterGroupMessage
-createDBParameterGroup p1 p2 p3 = CreateDBParameterGroupMessage
+createDBParameterGroupMessage :: Text -- ^ 'cdbpgmDBParameterGroupName'
+                              -> Text -- ^ 'cdbpgmDBParameterGroupFamily'
+                              -> Text -- ^ 'cdbpgmDescription'
+                              -> CreateDBParameterGroupMessage
+createDBParameterGroupMessage p1 p2 p3 = CreateDBParameterGroupMessage
     { _cdbpgmDBParameterGroupName   = p1
     , _cdbpgmDBParameterGroupFamily = p2
     , _cdbpgmDescription            = p3
@@ -116,11 +116,10 @@ cdbpgmDescription =
 
 cdbpgmTags :: Lens' CreateDBParameterGroupMessage [Tag]
 cdbpgmTags = lens _cdbpgmTags (\s a -> s { _cdbpgmTags = a })
+instance ToQuery CreateDBParameterGroupMessage
 
 instance ToPath CreateDBParameterGroupMessage where
     toPath = const "/"
-
-instance ToQuery CreateDBParameterGroupMessage
 
 newtype CreateDBParameterGroupResult = CreateDBParameterGroupResult
     { _cdbpgr1DBParameterGroup :: Maybe DBParameterGroup
@@ -132,14 +131,17 @@ newtype CreateDBParameterGroupResult = CreateDBParameterGroupResult
 --
 -- * 'cdbpgr1DBParameterGroup' @::@ 'Maybe' 'DBParameterGroup'
 --
-createDBParameterGroupResponse :: CreateDBParameterGroupResult
-createDBParameterGroupResponse = CreateDBParameterGroupResult
+createDBParameterGroupResult :: CreateDBParameterGroupResult
+createDBParameterGroupResult = CreateDBParameterGroupResult
     { _cdbpgr1DBParameterGroup = Nothing
     }
 
 cdbpgr1DBParameterGroup :: Lens' CreateDBParameterGroupResult (Maybe DBParameterGroup)
 cdbpgr1DBParameterGroup =
     lens _cdbpgr1DBParameterGroup (\s a -> s { _cdbpgr1DBParameterGroup = a })
+instance FromXML CreateDBParameterGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateDBParameterGroupResult"
 
 instance AWSRequest CreateDBParameterGroupMessage where
     type Sv CreateDBParameterGroupMessage = RDS

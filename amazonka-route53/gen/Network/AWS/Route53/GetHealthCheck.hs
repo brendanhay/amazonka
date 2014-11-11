@@ -95,6 +95,9 @@ getHealthCheckResponse p1 = GetHealthCheckResponse
 ghcrHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
 ghcrHealthCheck = lens _ghcrHealthCheck (\s a -> s { _ghcrHealthCheck = a })
 
+instance FromXML GetHealthCheckResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetHealthCheckResponse"
 instance AWSRequest GetHealthCheck where
     type Sv GetHealthCheck = Route53
     type Rs GetHealthCheck = GetHealthCheckResponse

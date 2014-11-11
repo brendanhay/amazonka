@@ -78,21 +78,24 @@ acidtoidcpOpenIDConnectProviderArn :: Lens' AddClientIDToOpenIDConnectProvider T
 acidtoidcpOpenIDConnectProviderArn =
     lens _acidtoidcpOpenIDConnectProviderArn
         (\s a -> s { _acidtoidcpOpenIDConnectProviderArn = a })
+instance ToQuery AddClientIDToOpenIDConnectProvider
 
 instance ToPath AddClientIDToOpenIDConnectProvider where
     toPath = const "/"
 
-instance ToQuery AddClientIDToOpenIDConnectProvider
-
 data AddClientIDToOpenIDConnectProviderResponse = AddClientIDToOpenIDConnectProviderResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'AddClientIDToOpenIDConnectProviderResponse' constructor.
 addClientIDToOpenIDConnectProviderResponse :: AddClientIDToOpenIDConnectProviderResponse
 addClientIDToOpenIDConnectProviderResponse = AddClientIDToOpenIDConnectProviderResponse
+instance FromXML AddClientIDToOpenIDConnectProviderResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AddClientIDToOpenIDConnectProviderResponse"
 
 instance AWSRequest AddClientIDToOpenIDConnectProvider where
     type Sv AddClientIDToOpenIDConnectProvider = IAM
     type Rs AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProviderResponse
 
     request  = post "AddClientIDToOpenIDConnectProvider"
-    response = const (nullaryResponse AddClientIDToOpenIDConnectProviderResponse)
+    response = nullaryResponse AddClientIDToOpenIDConnectProviderResponse

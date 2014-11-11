@@ -73,21 +73,24 @@ artipInstanceProfileName =
 -- | The name of the role to add.
 artipRoleName :: Lens' AddRoleToInstanceProfile Text
 artipRoleName = lens _artipRoleName (\s a -> s { _artipRoleName = a })
+instance ToQuery AddRoleToInstanceProfile
 
 instance ToPath AddRoleToInstanceProfile where
     toPath = const "/"
 
-instance ToQuery AddRoleToInstanceProfile
-
 data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'AddRoleToInstanceProfileResponse' constructor.
 addRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse
 addRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
+instance FromXML AddRoleToInstanceProfileResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AddRoleToInstanceProfileResponse"
 
 instance AWSRequest AddRoleToInstanceProfile where
     type Sv AddRoleToInstanceProfile = IAM
     type Rs AddRoleToInstanceProfile = AddRoleToInstanceProfileResponse
 
     request  = post "AddRoleToInstanceProfile"
-    response = const (nullaryResponse AddRoleToInstanceProfileResponse)
+    response = nullaryResponse AddRoleToInstanceProfileResponse

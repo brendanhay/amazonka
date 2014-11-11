@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     -- * Request
       RevokeCacheSecurityGroupIngressMessage
     -- ** Request constructor
-    , revokeCacheSecurityGroupIngress
+    , revokeCacheSecurityGroupIngressMessage
     -- ** Request lenses
     , rcsgimCacheSecurityGroupName
     , rcsgimEC2SecurityGroupName
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     -- * Response
     , RevokeCacheSecurityGroupIngressResult
     -- ** Response constructor
-    , revokeCacheSecurityGroupIngressResponse
+    , revokeCacheSecurityGroupIngressResult
     -- ** Response lenses
     , rcsgirCacheSecurityGroup
     ) where
@@ -62,11 +62,11 @@ data RevokeCacheSecurityGroupIngressMessage = RevokeCacheSecurityGroupIngressMes
 --
 -- * 'rcsgimEC2SecurityGroupOwnerId' @::@ 'Text'
 --
-revokeCacheSecurityGroupIngress :: Text -- ^ 'rcsgimCacheSecurityGroupName'
-                                -> Text -- ^ 'rcsgimEC2SecurityGroupName'
-                                -> Text -- ^ 'rcsgimEC2SecurityGroupOwnerId'
-                                -> RevokeCacheSecurityGroupIngressMessage
-revokeCacheSecurityGroupIngress p1 p2 p3 = RevokeCacheSecurityGroupIngressMessage
+revokeCacheSecurityGroupIngressMessage :: Text -- ^ 'rcsgimCacheSecurityGroupName'
+                                       -> Text -- ^ 'rcsgimEC2SecurityGroupName'
+                                       -> Text -- ^ 'rcsgimEC2SecurityGroupOwnerId'
+                                       -> RevokeCacheSecurityGroupIngressMessage
+revokeCacheSecurityGroupIngressMessage p1 p2 p3 = RevokeCacheSecurityGroupIngressMessage
     { _rcsgimCacheSecurityGroupName  = p1
     , _rcsgimEC2SecurityGroupName    = p2
     , _rcsgimEC2SecurityGroupOwnerId = p3
@@ -91,11 +91,10 @@ rcsgimEC2SecurityGroupOwnerId :: Lens' RevokeCacheSecurityGroupIngressMessage Te
 rcsgimEC2SecurityGroupOwnerId =
     lens _rcsgimEC2SecurityGroupOwnerId
         (\s a -> s { _rcsgimEC2SecurityGroupOwnerId = a })
+instance ToQuery RevokeCacheSecurityGroupIngressMessage
 
 instance ToPath RevokeCacheSecurityGroupIngressMessage where
     toPath = const "/"
-
-instance ToQuery RevokeCacheSecurityGroupIngressMessage
 
 newtype RevokeCacheSecurityGroupIngressResult = RevokeCacheSecurityGroupIngressResult
     { _rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
@@ -107,8 +106,8 @@ newtype RevokeCacheSecurityGroupIngressResult = RevokeCacheSecurityGroupIngressR
 --
 -- * 'rcsgirCacheSecurityGroup' @::@ 'Maybe' 'CacheSecurityGroup'
 --
-revokeCacheSecurityGroupIngressResponse :: RevokeCacheSecurityGroupIngressResult
-revokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResult
+revokeCacheSecurityGroupIngressResult :: RevokeCacheSecurityGroupIngressResult
+revokeCacheSecurityGroupIngressResult = RevokeCacheSecurityGroupIngressResult
     { _rcsgirCacheSecurityGroup = Nothing
     }
 
@@ -116,6 +115,9 @@ rcsgirCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResult (Maybe C
 rcsgirCacheSecurityGroup =
     lens _rcsgirCacheSecurityGroup
         (\s a -> s { _rcsgirCacheSecurityGroup = a })
+instance FromXML RevokeCacheSecurityGroupIngressResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RevokeCacheSecurityGroupIngressResult"
 
 instance AWSRequest RevokeCacheSecurityGroupIngressMessage where
     type Sv RevokeCacheSecurityGroupIngressMessage = ElastiCache

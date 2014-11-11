@@ -29,14 +29,14 @@ module Network.AWS.ImportExport.GetStatus
     -- * Request
       GetStatusInput
     -- ** Request constructor
-    , getStatus
+    , getStatusInput
     -- ** Request lenses
     , gsiJobId
 
     -- * Response
     , GetStatusOutput
     -- ** Response constructor
-    , getStatusResponse
+    , getStatusOutput
     -- ** Response lenses
     , gsoAwsShippingAddress
     , gsoCarrier
@@ -70,19 +70,18 @@ newtype GetStatusInput = GetStatusInput
 --
 -- * 'gsiJobId' @::@ 'Text'
 --
-getStatus :: Text -- ^ 'gsiJobId'
-          -> GetStatusInput
-getStatus p1 = GetStatusInput
+getStatusInput :: Text -- ^ 'gsiJobId'
+               -> GetStatusInput
+getStatusInput p1 = GetStatusInput
     { _gsiJobId = p1
     }
 
 gsiJobId :: Lens' GetStatusInput Text
 gsiJobId = lens _gsiJobId (\s a -> s { _gsiJobId = a })
+instance ToQuery GetStatusInput
 
 instance ToPath GetStatusInput where
     toPath = const "/"
-
-instance ToQuery GetStatusInput
 
 data GetStatusOutput = GetStatusOutput
     { _gsoAwsShippingAddress    :: Maybe Text
@@ -139,8 +138,8 @@ data GetStatusOutput = GetStatusOutput
 --
 -- * 'gsoTrackingNumber' @::@ 'Maybe' 'Text'
 --
-getStatusResponse :: GetStatusOutput
-getStatusResponse = GetStatusOutput
+getStatusOutput :: GetStatusOutput
+getStatusOutput = GetStatusOutput
     { _gsoJobId                 = Nothing
     , _gsoJobType               = Nothing
     , _gsoAwsShippingAddress    = Nothing
@@ -214,6 +213,9 @@ gsoSignatureFileContents =
 gsoTrackingNumber :: Lens' GetStatusOutput (Maybe Text)
 gsoTrackingNumber =
     lens _gsoTrackingNumber (\s a -> s { _gsoTrackingNumber = a })
+instance FromXML GetStatusOutput where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetStatusOutput"
 
 instance AWSRequest GetStatusInput where
     type Sv GetStatusInput = ImportExport

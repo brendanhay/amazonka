@@ -26,7 +26,7 @@ module Network.AWS.SNS.RemovePermission
     -- * Request
       RemovePermissionInput
     -- ** Request constructor
-    , removePermission
+    , removePermissionInput
     -- ** Request lenses
     , rpiLabel
     , rpiTopicArn
@@ -54,10 +54,10 @@ data RemovePermissionInput = RemovePermissionInput
 --
 -- * 'rpiTopicArn' @::@ 'Text'
 --
-removePermission :: Text -- ^ 'rpiTopicArn'
-                 -> Text -- ^ 'rpiLabel'
-                 -> RemovePermissionInput
-removePermission p1 p2 = RemovePermissionInput
+removePermissionInput :: Text -- ^ 'rpiTopicArn'
+                      -> Text -- ^ 'rpiLabel'
+                      -> RemovePermissionInput
+removePermissionInput p1 p2 = RemovePermissionInput
     { _rpiTopicArn = p1
     , _rpiLabel    = p2
     }
@@ -69,21 +69,24 @@ rpiLabel = lens _rpiLabel (\s a -> s { _rpiLabel = a })
 -- | The ARN of the topic whose access control policy you wish to modify.
 rpiTopicArn :: Lens' RemovePermissionInput Text
 rpiTopicArn = lens _rpiTopicArn (\s a -> s { _rpiTopicArn = a })
+instance ToQuery RemovePermissionInput
 
 instance ToPath RemovePermissionInput where
     toPath = const "/"
 
-instance ToQuery RemovePermissionInput
-
 data RemovePermissionResponse = RemovePermissionResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'RemovePermissionResponse' constructor.
 removePermissionResponse :: RemovePermissionResponse
 removePermissionResponse = RemovePermissionResponse
+instance FromXML RemovePermissionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RemovePermissionResponse"
 
 instance AWSRequest RemovePermissionInput where
     type Sv RemovePermissionInput = SNS
     type Rs RemovePermissionInput = RemovePermissionResponse
 
     request  = post "RemovePermission"
-    response = const (nullaryResponse RemovePermissionResponse)
+    response = nullaryResponse RemovePermissionResponse

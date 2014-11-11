@@ -39,7 +39,7 @@ module Network.AWS.SQS.DeleteMessageBatch
     -- * Response
     , DeleteMessageBatchResult
     -- ** Response constructor
-    , deleteMessageBatchResponse
+    , deleteMessageBatchResult
     -- ** Response lenses
     , dmbrFailed
     , dmbrSuccessful
@@ -76,11 +76,10 @@ dmbEntries = lens _dmbEntries (\s a -> s { _dmbEntries = a })
 -- | The URL of the Amazon SQS queue to take action on.
 dmbQueueUrl :: Lens' DeleteMessageBatch Text
 dmbQueueUrl = lens _dmbQueueUrl (\s a -> s { _dmbQueueUrl = a })
+instance ToQuery DeleteMessageBatch
 
 instance ToPath DeleteMessageBatch where
     toPath = const "/"
-
-instance ToQuery DeleteMessageBatch
 
 data DeleteMessageBatchResult = DeleteMessageBatchResult
     { _dmbrFailed     :: [BatchResultErrorEntry]
@@ -95,8 +94,8 @@ data DeleteMessageBatchResult = DeleteMessageBatchResult
 --
 -- * 'dmbrSuccessful' @::@ ['DeleteMessageBatchResultEntry']
 --
-deleteMessageBatchResponse :: DeleteMessageBatchResult
-deleteMessageBatchResponse = DeleteMessageBatchResult
+deleteMessageBatchResult :: DeleteMessageBatchResult
+deleteMessageBatchResult = DeleteMessageBatchResult
     { _dmbrSuccessful = mempty
     , _dmbrFailed     = mempty
     }
@@ -108,6 +107,9 @@ dmbrFailed = lens _dmbrFailed (\s a -> s { _dmbrFailed = a })
 -- | A list of DeleteMessageBatchResultEntry items.
 dmbrSuccessful :: Lens' DeleteMessageBatchResult [DeleteMessageBatchResultEntry]
 dmbrSuccessful = lens _dmbrSuccessful (\s a -> s { _dmbrSuccessful = a })
+instance FromXML DeleteMessageBatchResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteMessageBatchResult"
 
 instance AWSRequest DeleteMessageBatch where
     type Sv DeleteMessageBatch = SQS

@@ -26,7 +26,7 @@ module Network.AWS.ELB.RemoveTags
     -- * Request
       RemoveTagsInput
     -- ** Request constructor
-    , removeTags
+    , removeTagsInput
     -- ** Request lenses
     , rtiLoadBalancerNames
     , rtiTags
@@ -54,9 +54,9 @@ data RemoveTagsInput = RemoveTagsInput
 --
 -- * 'rtiTags' @::@ 'NonEmpty' 'TagKeyOnly'
 --
-removeTags :: List1 TagKeyOnly -- ^ 'rtiTags'
-           -> RemoveTagsInput
-removeTags p1 = RemoveTagsInput
+removeTagsInput :: List1 TagKeyOnly -- ^ 'rtiTags'
+                -> RemoveTagsInput
+removeTagsInput p1 = RemoveTagsInput
     { _rtiTags              = withIso _List1 (const id) p1
     , _rtiLoadBalancerNames = mempty
     }
@@ -71,21 +71,24 @@ rtiLoadBalancerNames =
 rtiTags :: Lens' RemoveTagsInput (NonEmpty TagKeyOnly)
 rtiTags = lens _rtiTags (\s a -> s { _rtiTags = a })
     . _List1
+instance ToQuery RemoveTagsInput
 
 instance ToPath RemoveTagsInput where
     toPath = const "/"
 
-instance ToQuery RemoveTagsInput
-
 data RemoveTagsResponse = RemoveTagsResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'RemoveTagsResponse' constructor.
 removeTagsResponse :: RemoveTagsResponse
 removeTagsResponse = RemoveTagsResponse
+instance FromXML RemoveTagsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RemoveTagsResponse"
 
 instance AWSRequest RemoveTagsInput where
     type Sv RemoveTagsInput = ELB
     type Rs RemoveTagsInput = RemoveTagsResponse
 
     request  = post "RemoveTags"
-    response = const (nullaryResponse RemoveTagsResponse)
+    response = nullaryResponse RemoveTagsResponse

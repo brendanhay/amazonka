@@ -28,7 +28,7 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     -- * Request
       DescribeDBSecurityGroupsMessage
     -- ** Request constructor
-    , describeDBSecurityGroups
+    , describeDBSecurityGroupsMessage
     -- ** Request lenses
     , ddbsgm1DBSecurityGroupName
     , ddbsgm1Filters
@@ -38,7 +38,7 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
     -- * Response
     , DBSecurityGroupMessage
     -- ** Response constructor
-    , describeDBSecurityGroupsResponse
+    , dbsecurityGroupMessage
     -- ** Response lenses
     , dbsgmDBSecurityGroups
     , dbsgmMarker
@@ -67,8 +67,8 @@ data DescribeDBSecurityGroupsMessage = DescribeDBSecurityGroupsMessage
 --
 -- * 'ddbsgm1MaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBSecurityGroups :: DescribeDBSecurityGroupsMessage
-describeDBSecurityGroups = DescribeDBSecurityGroupsMessage
+describeDBSecurityGroupsMessage :: DescribeDBSecurityGroupsMessage
+describeDBSecurityGroupsMessage = DescribeDBSecurityGroupsMessage
     { _ddbsgm1DBSecurityGroupName = Nothing
     , _ddbsgm1Filters             = mempty
     , _ddbsgm1MaxRecords          = Nothing
@@ -99,11 +99,10 @@ ddbsgm1Marker = lens _ddbsgm1Marker (\s a -> s { _ddbsgm1Marker = a })
 ddbsgm1MaxRecords :: Lens' DescribeDBSecurityGroupsMessage (Maybe Int)
 ddbsgm1MaxRecords =
     lens _ddbsgm1MaxRecords (\s a -> s { _ddbsgm1MaxRecords = a })
+instance ToQuery DescribeDBSecurityGroupsMessage
 
 instance ToPath DescribeDBSecurityGroupsMessage where
     toPath = const "/"
-
-instance ToQuery DescribeDBSecurityGroupsMessage
 
 data DBSecurityGroupMessage = DBSecurityGroupMessage
     { _dbsgmDBSecurityGroups :: [DBSecurityGroup]
@@ -118,8 +117,8 @@ data DBSecurityGroupMessage = DBSecurityGroupMessage
 --
 -- * 'dbsgmMarker' @::@ 'Maybe' 'Text'
 --
-describeDBSecurityGroupsResponse :: DBSecurityGroupMessage
-describeDBSecurityGroupsResponse = DBSecurityGroupMessage
+dbsecurityGroupMessage :: DBSecurityGroupMessage
+dbsecurityGroupMessage = DBSecurityGroupMessage
     { _dbsgmMarker           = Nothing
     , _dbsgmDBSecurityGroups = mempty
     }
@@ -134,6 +133,9 @@ dbsgmDBSecurityGroups =
 -- marker, up to the value specified by MaxRecords.
 dbsgmMarker :: Lens' DBSecurityGroupMessage (Maybe Text)
 dbsgmMarker = lens _dbsgmMarker (\s a -> s { _dbsgmMarker = a })
+instance FromXML DBSecurityGroupMessage where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DBSecurityGroupMessage"
 
 instance AWSRequest DescribeDBSecurityGroupsMessage where
     type Sv DescribeDBSecurityGroupsMessage = RDS

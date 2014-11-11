@@ -73,11 +73,10 @@ cgGroupName = lens _cgGroupName (\s a -> s { _cgGroupName = a })
 -- not included, it defaults to a slash (/).
 cgPath :: Lens' CreateGroup (Maybe Text)
 cgPath = lens _cgPath (\s a -> s { _cgPath = a })
+instance ToQuery CreateGroup
 
 instance ToPath CreateGroup where
     toPath = const "/"
-
-instance ToQuery CreateGroup
 
 newtype CreateGroupResponse = CreateGroupResponse
     { _cgrGroup :: Group
@@ -98,6 +97,9 @@ createGroupResponse p1 = CreateGroupResponse
 -- | Information about the group.
 cgrGroup :: Lens' CreateGroupResponse Group
 cgrGroup = lens _cgrGroup (\s a -> s { _cgrGroup = a })
+instance FromXML CreateGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateGroupResponse"
 
 instance AWSRequest CreateGroup where
     type Sv CreateGroup = IAM

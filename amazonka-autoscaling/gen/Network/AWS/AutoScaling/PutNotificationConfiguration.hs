@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.PutNotificationConfiguration
     -- * Request
       PutNotificationConfigurationType
     -- ** Request constructor
-    , putNotificationConfiguration
+    , putNotificationConfigurationType
     -- ** Request lenses
     , pnctAutoScalingGroupName
     , pnctNotificationTypes
@@ -63,10 +63,10 @@ data PutNotificationConfigurationType = PutNotificationConfigurationType
 --
 -- * 'pnctTopicARN' @::@ 'Text'
 --
-putNotificationConfiguration :: Text -- ^ 'pnctAutoScalingGroupName'
-                             -> Text -- ^ 'pnctTopicARN'
-                             -> PutNotificationConfigurationType
-putNotificationConfiguration p1 p2 = PutNotificationConfigurationType
+putNotificationConfigurationType :: Text -- ^ 'pnctAutoScalingGroupName'
+                                 -> Text -- ^ 'pnctTopicARN'
+                                 -> PutNotificationConfigurationType
+putNotificationConfigurationType p1 p2 = PutNotificationConfigurationType
     { _pnctAutoScalingGroupName = p1
     , _pnctTopicARN             = p2
     , _pnctNotificationTypes    = mempty
@@ -89,21 +89,24 @@ pnctNotificationTypes =
 -- (SNS) topic.
 pnctTopicARN :: Lens' PutNotificationConfigurationType Text
 pnctTopicARN = lens _pnctTopicARN (\s a -> s { _pnctTopicARN = a })
+instance ToQuery PutNotificationConfigurationType
 
 instance ToPath PutNotificationConfigurationType where
     toPath = const "/"
 
-instance ToQuery PutNotificationConfigurationType
-
 data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutNotificationConfigurationResponse' constructor.
 putNotificationConfigurationResponse :: PutNotificationConfigurationResponse
 putNotificationConfigurationResponse = PutNotificationConfigurationResponse
+instance FromXML PutNotificationConfigurationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "PutNotificationConfigurationResponse"
 
 instance AWSRequest PutNotificationConfigurationType where
     type Sv PutNotificationConfigurationType = AutoScaling
     type Rs PutNotificationConfigurationType = PutNotificationConfigurationResponse
 
     request  = post "PutNotificationConfiguration"
-    response = const (nullaryResponse PutNotificationConfigurationResponse)
+    response = nullaryResponse PutNotificationConfigurationResponse

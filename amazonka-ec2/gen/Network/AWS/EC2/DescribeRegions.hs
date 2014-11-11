@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeRegions
     -- * Response
     , DescribeRegionsResult
     -- ** Response constructor
-    , describeRegionsResponse
+    , describeRegionsResult
     -- ** Response lenses
     , drrRegions
     ) where
@@ -80,11 +80,10 @@ drFilters = lens _drFilters (\s a -> s { _drFilters = a })
 -- | The names of one or more regions.
 drRegionNames :: Lens' DescribeRegions [Text]
 drRegionNames = lens _drRegionNames (\s a -> s { _drRegionNames = a })
+instance ToQuery DescribeRegions
 
 instance ToPath DescribeRegions where
     toPath = const "/"
-
-instance ToQuery DescribeRegions
 
 newtype DescribeRegionsResult = DescribeRegionsResult
     { _drrRegions :: [Region]
@@ -96,14 +95,17 @@ newtype DescribeRegionsResult = DescribeRegionsResult
 --
 -- * 'drrRegions' @::@ ['Region']
 --
-describeRegionsResponse :: DescribeRegionsResult
-describeRegionsResponse = DescribeRegionsResult
+describeRegionsResult :: DescribeRegionsResult
+describeRegionsResult = DescribeRegionsResult
     { _drrRegions = mempty
     }
 
 -- | Information about one or more regions.
 drrRegions :: Lens' DescribeRegionsResult [Region]
 drrRegions = lens _drrRegions (\s a -> s { _drrRegions = a })
+instance FromXML DescribeRegionsResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeRegionsResult"
 
 instance AWSRequest DescribeRegions where
     type Sv DescribeRegions = EC2

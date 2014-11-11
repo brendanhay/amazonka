@@ -70,21 +70,24 @@ dpgDryRun = lens _dpgDryRun (\s a -> s { _dpgDryRun = a })
 -- | The name of the placement group.
 dpgGroupName :: Lens' DeletePlacementGroup Text
 dpgGroupName = lens _dpgGroupName (\s a -> s { _dpgGroupName = a })
+instance ToQuery DeletePlacementGroup
 
 instance ToPath DeletePlacementGroup where
     toPath = const "/"
 
-instance ToQuery DeletePlacementGroup
-
 data DeletePlacementGroupResponse = DeletePlacementGroupResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeletePlacementGroupResponse' constructor.
 deletePlacementGroupResponse :: DeletePlacementGroupResponse
 deletePlacementGroupResponse = DeletePlacementGroupResponse
+instance FromXML DeletePlacementGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeletePlacementGroupResponse"
 
 instance AWSRequest DeletePlacementGroup where
     type Sv DeletePlacementGroup = EC2
     type Rs DeletePlacementGroup = DeletePlacementGroupResponse
 
     request  = post "DeletePlacementGroup"
-    response = const (nullaryResponse DeletePlacementGroupResponse)
+    response = nullaryResponse DeletePlacementGroupResponse

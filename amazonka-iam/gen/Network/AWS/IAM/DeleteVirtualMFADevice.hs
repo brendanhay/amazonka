@@ -61,21 +61,24 @@ deleteVirtualMFADevice p1 = DeleteVirtualMFADevice
 dvmfadSerialNumber :: Lens' DeleteVirtualMFADevice Text
 dvmfadSerialNumber =
     lens _dvmfadSerialNumber (\s a -> s { _dvmfadSerialNumber = a })
+instance ToQuery DeleteVirtualMFADevice
 
 instance ToPath DeleteVirtualMFADevice where
     toPath = const "/"
 
-instance ToQuery DeleteVirtualMFADevice
-
 data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVirtualMFADeviceResponse' constructor.
 deleteVirtualMFADeviceResponse :: DeleteVirtualMFADeviceResponse
 deleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
+instance FromXML DeleteVirtualMFADeviceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DeleteVirtualMFADeviceResponse"
 
 instance AWSRequest DeleteVirtualMFADevice where
     type Sv DeleteVirtualMFADevice = IAM
     type Rs DeleteVirtualMFADevice = DeleteVirtualMFADeviceResponse
 
     request  = post "DeleteVirtualMFADevice"
-    response = const (nullaryResponse DeleteVirtualMFADeviceResponse)
+    response = nullaryResponse DeleteVirtualMFADeviceResponse

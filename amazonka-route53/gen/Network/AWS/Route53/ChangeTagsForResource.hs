@@ -113,14 +113,18 @@ instance ToBody ChangeTagsForResource where
     toBody = toBody . encodeXML . _ctfrAddTags
 
 data ChangeTagsForResourceResponse = ChangeTagsForResourceResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'ChangeTagsForResourceResponse' constructor.
 changeTagsForResourceResponse :: ChangeTagsForResourceResponse
 changeTagsForResourceResponse = ChangeTagsForResourceResponse
 
+instance FromXML ChangeTagsForResourceResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ChangeTagsForResourceResponse"
 instance AWSRequest ChangeTagsForResource where
     type Sv ChangeTagsForResource = Route53
     type Rs ChangeTagsForResource = ChangeTagsForResourceResponse
 
     request  = post
-    response = const (nullaryResponse ChangeTagsForResourceResponse)
+    response = nullaryResponse ChangeTagsForResourceResponse

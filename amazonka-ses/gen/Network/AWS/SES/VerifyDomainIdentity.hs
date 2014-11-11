@@ -61,11 +61,10 @@ verifyDomainIdentity p1 = VerifyDomainIdentity
 -- | The domain to be verified.
 vdiDomain :: Lens' VerifyDomainIdentity Text
 vdiDomain = lens _vdiDomain (\s a -> s { _vdiDomain = a })
+instance ToQuery VerifyDomainIdentity
 
 instance ToPath VerifyDomainIdentity where
     toPath = const "/"
-
-instance ToQuery VerifyDomainIdentity
 
 newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
     { _vdirVerificationToken :: Text
@@ -88,6 +87,9 @@ verifyDomainIdentityResponse p1 = VerifyDomainIdentityResponse
 vdirVerificationToken :: Lens' VerifyDomainIdentityResponse Text
 vdirVerificationToken =
     lens _vdirVerificationToken (\s a -> s { _vdirVerificationToken = a })
+instance FromXML VerifyDomainIdentityResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "VerifyDomainIdentityResponse"
 
 instance AWSRequest VerifyDomainIdentity where
     type Sv VerifyDomainIdentity = SES

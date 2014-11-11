@@ -44,7 +44,7 @@ module Network.AWS.SQS.CreateQueue
     -- * Response
     , CreateQueueResult
     -- ** Response constructor
-    , createQueueResponse
+    , createQueueResult
     -- ** Response lenses
     , cqrQueueUrl
     ) where
@@ -101,11 +101,10 @@ cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a })
 -- | The name for the queue to be created.
 cqQueueName :: Lens' CreateQueue Text
 cqQueueName = lens _cqQueueName (\s a -> s { _cqQueueName = a })
+instance ToQuery CreateQueue
 
 instance ToPath CreateQueue where
     toPath = const "/"
-
-instance ToQuery CreateQueue
 
 newtype CreateQueueResult = CreateQueueResult
     { _cqrQueueUrl :: Maybe Text
@@ -117,14 +116,17 @@ newtype CreateQueueResult = CreateQueueResult
 --
 -- * 'cqrQueueUrl' @::@ 'Maybe' 'Text'
 --
-createQueueResponse :: CreateQueueResult
-createQueueResponse = CreateQueueResult
+createQueueResult :: CreateQueueResult
+createQueueResult = CreateQueueResult
     { _cqrQueueUrl = Nothing
     }
 
 -- | The URL for the created Amazon SQS queue.
 cqrQueueUrl :: Lens' CreateQueueResult (Maybe Text)
 cqrQueueUrl = lens _cqrQueueUrl (\s a -> s { _cqrQueueUrl = a })
+instance FromXML CreateQueueResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateQueueResult"
 
 instance AWSRequest CreateQueue where
     type Sv CreateQueue = SQS

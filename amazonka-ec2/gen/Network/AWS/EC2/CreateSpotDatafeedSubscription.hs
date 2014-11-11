@@ -38,7 +38,7 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     -- * Response
     , CreateSpotDatafeedSubscriptionResult
     -- ** Response constructor
-    , createSpotDatafeedSubscriptionResponse
+    , createSpotDatafeedSubscriptionResult
     -- ** Response lenses
     , csdsrSpotDatafeedSubscription
     ) where
@@ -82,11 +82,10 @@ csdsDryRun = lens _csdsDryRun (\s a -> s { _csdsDryRun = a })
 -- | A prefix for the datafeed file names.
 csdsPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
 csdsPrefix = lens _csdsPrefix (\s a -> s { _csdsPrefix = a })
+instance ToQuery CreateSpotDatafeedSubscription
 
 instance ToPath CreateSpotDatafeedSubscription where
     toPath = const "/"
-
-instance ToQuery CreateSpotDatafeedSubscription
 
 newtype CreateSpotDatafeedSubscriptionResult = CreateSpotDatafeedSubscriptionResult
     { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
@@ -98,8 +97,8 @@ newtype CreateSpotDatafeedSubscriptionResult = CreateSpotDatafeedSubscriptionRes
 --
 -- * 'csdsrSpotDatafeedSubscription' @::@ 'Maybe' 'SpotDatafeedSubscription'
 --
-createSpotDatafeedSubscriptionResponse :: CreateSpotDatafeedSubscriptionResult
-createSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResult
+createSpotDatafeedSubscriptionResult :: CreateSpotDatafeedSubscriptionResult
+createSpotDatafeedSubscriptionResult = CreateSpotDatafeedSubscriptionResult
     { _csdsrSpotDatafeedSubscription = Nothing
     }
 
@@ -108,6 +107,9 @@ csdsrSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResult (May
 csdsrSpotDatafeedSubscription =
     lens _csdsrSpotDatafeedSubscription
         (\s a -> s { _csdsrSpotDatafeedSubscription = a })
+instance FromXML CreateSpotDatafeedSubscriptionResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateSpotDatafeedSubscriptionResult"
 
 instance AWSRequest CreateSpotDatafeedSubscription where
     type Sv CreateSpotDatafeedSubscription = EC2

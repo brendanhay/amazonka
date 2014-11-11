@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     -- * Request
       ModifyCacheParameterGroupMessage
     -- ** Request constructor
-    , modifyCacheParameterGroup
+    , modifyCacheParameterGroupMessage
     -- ** Request lenses
     , mcpgmCacheParameterGroupName
     , mcpgmParameterNameValues
@@ -36,7 +36,7 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     -- * Response
     , CacheParameterGroupNameMessage
     -- ** Response constructor
-    , modifyCacheParameterGroupResponse
+    , cacheParameterGroupNameMessage
     -- ** Response lenses
     , cpgnmCacheParameterGroupName
     ) where
@@ -58,9 +58,9 @@ data ModifyCacheParameterGroupMessage = ModifyCacheParameterGroupMessage
 --
 -- * 'mcpgmParameterNameValues' @::@ ['ParameterNameValue']
 --
-modifyCacheParameterGroup :: Text -- ^ 'mcpgmCacheParameterGroupName'
-                          -> ModifyCacheParameterGroupMessage
-modifyCacheParameterGroup p1 = ModifyCacheParameterGroupMessage
+modifyCacheParameterGroupMessage :: Text -- ^ 'mcpgmCacheParameterGroupName'
+                                 -> ModifyCacheParameterGroupMessage
+modifyCacheParameterGroupMessage p1 = ModifyCacheParameterGroupMessage
     { _mcpgmCacheParameterGroupName = p1
     , _mcpgmParameterNameValues     = mempty
     }
@@ -78,11 +78,10 @@ mcpgmParameterNameValues :: Lens' ModifyCacheParameterGroupMessage [ParameterNam
 mcpgmParameterNameValues =
     lens _mcpgmParameterNameValues
         (\s a -> s { _mcpgmParameterNameValues = a })
+instance ToQuery ModifyCacheParameterGroupMessage
 
 instance ToPath ModifyCacheParameterGroupMessage where
     toPath = const "/"
-
-instance ToQuery ModifyCacheParameterGroupMessage
 
 instance AWSRequest ModifyCacheParameterGroupMessage where
     type Sv ModifyCacheParameterGroupMessage = ElastiCache

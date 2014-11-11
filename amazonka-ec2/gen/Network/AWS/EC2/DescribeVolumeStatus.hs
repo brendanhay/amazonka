@@ -62,7 +62,7 @@ module Network.AWS.EC2.DescribeVolumeStatus
     -- * Response
     , DescribeVolumeStatusResult
     -- ** Response constructor
-    , describeVolumeStatusResponse
+    , describeVolumeStatusResult
     -- ** Response lenses
     , dvsrNextToken
     , dvsrVolumeStatuses
@@ -136,11 +136,10 @@ dvsNextToken = lens _dvsNextToken (\s a -> s { _dvsNextToken = a })
 -- | One or more volume IDs. Default: Describes all your volumes.
 dvsVolumeIds :: Lens' DescribeVolumeStatus [Text]
 dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a })
+instance ToQuery DescribeVolumeStatus
 
 instance ToPath DescribeVolumeStatus where
     toPath = const "/"
-
-instance ToQuery DescribeVolumeStatus
 
 data DescribeVolumeStatusResult = DescribeVolumeStatusResult
     { _dvsrNextToken      :: Maybe Text
@@ -155,8 +154,8 @@ data DescribeVolumeStatusResult = DescribeVolumeStatusResult
 --
 -- * 'dvsrVolumeStatuses' @::@ ['VolumeStatusItem']
 --
-describeVolumeStatusResponse :: DescribeVolumeStatusResult
-describeVolumeStatusResponse = DescribeVolumeStatusResult
+describeVolumeStatusResult :: DescribeVolumeStatusResult
+describeVolumeStatusResult = DescribeVolumeStatusResult
     { _dvsrVolumeStatuses = mempty
     , _dvsrNextToken      = Nothing
     }
@@ -169,6 +168,9 @@ dvsrNextToken = lens _dvsrNextToken (\s a -> s { _dvsrNextToken = a })
 dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResult [VolumeStatusItem]
 dvsrVolumeStatuses =
     lens _dvsrVolumeStatuses (\s a -> s { _dvsrVolumeStatuses = a })
+instance FromXML DescribeVolumeStatusResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeVolumeStatusResult"
 
 instance AWSRequest DescribeVolumeStatus where
     type Sv DescribeVolumeStatus = EC2

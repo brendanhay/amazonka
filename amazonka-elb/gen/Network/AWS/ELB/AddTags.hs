@@ -31,7 +31,7 @@ module Network.AWS.ELB.AddTags
     -- * Request
       AddTagsInput
     -- ** Request constructor
-    , addTags
+    , addTagsInput
     -- ** Request lenses
     , atiLoadBalancerNames
     , atiTags
@@ -59,9 +59,9 @@ data AddTagsInput = AddTagsInput
 --
 -- * 'atiTags' @::@ 'NonEmpty' 'Tag'
 --
-addTags :: List1 Tag -- ^ 'atiTags'
-        -> AddTagsInput
-addTags p1 = AddTagsInput
+addTagsInput :: List1 Tag -- ^ 'atiTags'
+             -> AddTagsInput
+addTagsInput p1 = AddTagsInput
     { _atiTags              = withIso _List1 (const id) p1
     , _atiLoadBalancerNames = mempty
     }
@@ -76,21 +76,24 @@ atiLoadBalancerNames =
 atiTags :: Lens' AddTagsInput (NonEmpty Tag)
 atiTags = lens _atiTags (\s a -> s { _atiTags = a })
     . _List1
+instance ToQuery AddTagsInput
 
 instance ToPath AddTagsInput where
     toPath = const "/"
 
-instance ToQuery AddTagsInput
-
 data AddTagsResponse = AddTagsResponse
+    deriving (Eq, Ord, Show, Generic)
 
 -- | 'AddTagsResponse' constructor.
 addTagsResponse :: AddTagsResponse
 addTagsResponse = AddTagsResponse
+instance FromXML AddTagsResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AddTagsResponse"
 
 instance AWSRequest AddTagsInput where
     type Sv AddTagsInput = ELB
     type Rs AddTagsInput = AddTagsResponse
 
     request  = post "AddTags"
-    response = const (nullaryResponse AddTagsResponse)
+    response = nullaryResponse AddTagsResponse

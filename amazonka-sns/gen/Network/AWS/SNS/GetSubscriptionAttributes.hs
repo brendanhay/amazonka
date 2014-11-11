@@ -26,7 +26,7 @@ module Network.AWS.SNS.GetSubscriptionAttributes
     -- * Request
       GetSubscriptionAttributesInput
     -- ** Request constructor
-    , getSubscriptionAttributes
+    , getSubscriptionAttributesInput
     -- ** Request lenses
     , gsaiSubscriptionArn
 
@@ -52,9 +52,9 @@ newtype GetSubscriptionAttributesInput = GetSubscriptionAttributesInput
 --
 -- * 'gsaiSubscriptionArn' @::@ 'Text'
 --
-getSubscriptionAttributes :: Text -- ^ 'gsaiSubscriptionArn'
-                          -> GetSubscriptionAttributesInput
-getSubscriptionAttributes p1 = GetSubscriptionAttributesInput
+getSubscriptionAttributesInput :: Text -- ^ 'gsaiSubscriptionArn'
+                               -> GetSubscriptionAttributesInput
+getSubscriptionAttributesInput p1 = GetSubscriptionAttributesInput
     { _gsaiSubscriptionArn = p1
     }
 
@@ -62,11 +62,10 @@ getSubscriptionAttributes p1 = GetSubscriptionAttributesInput
 gsaiSubscriptionArn :: Lens' GetSubscriptionAttributesInput Text
 gsaiSubscriptionArn =
     lens _gsaiSubscriptionArn (\s a -> s { _gsaiSubscriptionArn = a })
+instance ToQuery GetSubscriptionAttributesInput
 
 instance ToPath GetSubscriptionAttributesInput where
     toPath = const "/"
-
-instance ToQuery GetSubscriptionAttributesInput
 
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes :: Map Text Text
@@ -95,6 +94,9 @@ getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
 gsarAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
 gsarAttributes = lens _gsarAttributes (\s a -> s { _gsarAttributes = a })
     . _Map
+instance FromXML GetSubscriptionAttributesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "GetSubscriptionAttributesResponse"
 
 instance AWSRequest GetSubscriptionAttributesInput where
     type Sv GetSubscriptionAttributesInput = SNS

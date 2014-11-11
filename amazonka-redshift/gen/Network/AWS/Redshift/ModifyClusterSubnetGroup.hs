@@ -28,7 +28,7 @@ module Network.AWS.Redshift.ModifyClusterSubnetGroup
     -- * Request
       ModifyClusterSubnetGroupMessage
     -- ** Request constructor
-    , modifyClusterSubnetGroup
+    , modifyClusterSubnetGroupMessage
     -- ** Request lenses
     , mcsgmClusterSubnetGroupName
     , mcsgmDescription
@@ -37,7 +37,7 @@ module Network.AWS.Redshift.ModifyClusterSubnetGroup
     -- * Response
     , ModifyClusterSubnetGroupResult
     -- ** Response constructor
-    , modifyClusterSubnetGroupResponse
+    , modifyClusterSubnetGroupResult
     -- ** Response lenses
     , mcsgrClusterSubnetGroup
     ) where
@@ -62,9 +62,9 @@ data ModifyClusterSubnetGroupMessage = ModifyClusterSubnetGroupMessage
 --
 -- * 'mcsgmSubnetIds' @::@ ['Text']
 --
-modifyClusterSubnetGroup :: Text -- ^ 'mcsgmClusterSubnetGroupName'
-                         -> ModifyClusterSubnetGroupMessage
-modifyClusterSubnetGroup p1 = ModifyClusterSubnetGroupMessage
+modifyClusterSubnetGroupMessage :: Text -- ^ 'mcsgmClusterSubnetGroupName'
+                                -> ModifyClusterSubnetGroupMessage
+modifyClusterSubnetGroupMessage p1 = ModifyClusterSubnetGroupMessage
     { _mcsgmClusterSubnetGroupName = p1
     , _mcsgmDescription            = Nothing
     , _mcsgmSubnetIds              = mempty
@@ -84,11 +84,10 @@ mcsgmDescription = lens _mcsgmDescription (\s a -> s { _mcsgmDescription = a })
 -- single request.
 mcsgmSubnetIds :: Lens' ModifyClusterSubnetGroupMessage [Text]
 mcsgmSubnetIds = lens _mcsgmSubnetIds (\s a -> s { _mcsgmSubnetIds = a })
+instance ToQuery ModifyClusterSubnetGroupMessage
 
 instance ToPath ModifyClusterSubnetGroupMessage where
     toPath = const "/"
-
-instance ToQuery ModifyClusterSubnetGroupMessage
 
 newtype ModifyClusterSubnetGroupResult = ModifyClusterSubnetGroupResult
     { _mcsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
@@ -100,14 +99,17 @@ newtype ModifyClusterSubnetGroupResult = ModifyClusterSubnetGroupResult
 --
 -- * 'mcsgrClusterSubnetGroup' @::@ 'Maybe' 'ClusterSubnetGroup'
 --
-modifyClusterSubnetGroupResponse :: ModifyClusterSubnetGroupResult
-modifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResult
+modifyClusterSubnetGroupResult :: ModifyClusterSubnetGroupResult
+modifyClusterSubnetGroupResult = ModifyClusterSubnetGroupResult
     { _mcsgrClusterSubnetGroup = Nothing
     }
 
 mcsgrClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResult (Maybe ClusterSubnetGroup)
 mcsgrClusterSubnetGroup =
     lens _mcsgrClusterSubnetGroup (\s a -> s { _mcsgrClusterSubnetGroup = a })
+instance FromXML ModifyClusterSubnetGroupResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyClusterSubnetGroupResult"
 
 instance AWSRequest ModifyClusterSubnetGroupMessage where
     type Sv ModifyClusterSubnetGroupMessage = Redshift

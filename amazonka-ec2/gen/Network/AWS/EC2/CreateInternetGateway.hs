@@ -36,7 +36,7 @@ module Network.AWS.EC2.CreateInternetGateway
     -- * Response
     , CreateInternetGatewayResult
     -- ** Response constructor
-    , createInternetGatewayResponse
+    , createInternetGatewayResult
     -- ** Response lenses
     , cigrInternetGateway
     ) where
@@ -62,11 +62,10 @@ createInternetGateway = CreateInternetGateway
 
 cigDryRun :: Lens' CreateInternetGateway (Maybe Bool)
 cigDryRun = lens _cigDryRun (\s a -> s { _cigDryRun = a })
+instance ToQuery CreateInternetGateway
 
 instance ToPath CreateInternetGateway where
     toPath = const "/"
-
-instance ToQuery CreateInternetGateway
 
 newtype CreateInternetGatewayResult = CreateInternetGatewayResult
     { _cigrInternetGateway :: Maybe InternetGateway
@@ -78,8 +77,8 @@ newtype CreateInternetGatewayResult = CreateInternetGatewayResult
 --
 -- * 'cigrInternetGateway' @::@ 'Maybe' 'InternetGateway'
 --
-createInternetGatewayResponse :: CreateInternetGatewayResult
-createInternetGatewayResponse = CreateInternetGatewayResult
+createInternetGatewayResult :: CreateInternetGatewayResult
+createInternetGatewayResult = CreateInternetGatewayResult
     { _cigrInternetGateway = Nothing
     }
 
@@ -87,6 +86,9 @@ createInternetGatewayResponse = CreateInternetGatewayResult
 cigrInternetGateway :: Lens' CreateInternetGatewayResult (Maybe InternetGateway)
 cigrInternetGateway =
     lens _cigrInternetGateway (\s a -> s { _cigrInternetGateway = a })
+instance FromXML CreateInternetGatewayResult where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateInternetGatewayResult"
 
 instance AWSRequest CreateInternetGateway where
     type Sv CreateInternetGateway = EC2

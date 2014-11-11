@@ -42,6 +42,7 @@ import qualified Data.Text.Lazy.Builder.Int       as Build
 import qualified Data.Text.Lazy.Builder.RealFloat as Build
 import           Network.HTTP.Client
 import           Network.HTTP.Types
+import           Numeric.Natural
 
 fromText :: FromText a => Text -> Either String a
 fromText = AText.parseOnly parser
@@ -59,6 +60,7 @@ instance FromText Text       where parser = AText.takeText
 instance FromText ByteString where parser = Text.encodeUtf8 <$> AText.takeText
 instance FromText Int        where parser = AText.decimal
 instance FromText Integer    where parser = AText.decimal
+instance FromText Natural    where parser = AText.decimal
 instance FromText Double     where parser = AText.rational
 
 instance FromText Bool where
@@ -87,6 +89,7 @@ instance ToText ByteString where toText = Text.decodeUtf8
 instance ToText Int        where toText = shortText . Build.decimal
 instance ToText Int64      where toText = shortText . Build.decimal
 instance ToText Integer    where toText = shortText . Build.decimal
+instance ToText Natural    where toText = shortText . Build.decimal
 instance ToText Double     where toText = shortText . Build.realFloat
 instance ToText StdMethod  where toText = toText . renderStdMethod
 instance ToText (Digest a) where toText = toText . digestToHexByteString

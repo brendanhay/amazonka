@@ -26,6 +26,7 @@ module Network.AWS.Prelude
     , HashMap
     , HttpException
     , LazyByteString
+    , Natural
     , NonEmpty
     , RequestBody
     , Response
@@ -88,9 +89,10 @@ import Network.AWS.Response         as Export
 import Network.AWS.Types
 import Network.HTTP.Client          (HttpException, RequestBody)
 import Network.HTTP.Types.Status    (Status)
+import Numeric.Natural              (Natural)
 import Prelude                      as Export hiding (head, error)
 
-import Control.Lens as Lens
+import Control.Lens                 as Lens
     ( Lens'
     , Prism'
     , (<&>)

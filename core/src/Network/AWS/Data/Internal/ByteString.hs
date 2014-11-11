@@ -33,6 +33,7 @@ import qualified Data.Text.Encoding             as Text
 import           Data.Time                      (UTCTime)
 import           Network.AWS.Data.Internal.Text
 import           Network.HTTP.Types.Method
+import           Numeric.Natural
 
 showBS :: ToByteString a => a -> String
 showBS = BS.unpack . toBS
@@ -48,6 +49,7 @@ instance ToByteString ByteString where toBS = id
 instance ToByteString Text       where toBS = Text.encodeUtf8
 instance ToByteString Int        where toBS = buildBS
 instance ToByteString Integer    where toBS = buildBS
+instance ToByteString Natural    where toBS = buildBS
 instance ToByteString Double     where toBS = buildBS
 instance ToByteString StdMethod  where toBS = renderStdMethod
 instance ToByteString (Digest a) where toBS = digestToHexByteString
@@ -69,6 +71,7 @@ instance ToBuilder [Char]     where build = Build.stringUtf8
 instance ToBuilder Int        where build = Build.intDec
 instance ToBuilder Int64      where build = Build.int64Dec
 instance ToBuilder Integer    where build = Build.integerDec
+instance ToBuilder Natural    where build = Build.integerDec . toInteger
 instance ToBuilder Double     where build = Build.doubleDec
 instance ToBuilder StdMethod
 instance ToBuilder (Digest a)

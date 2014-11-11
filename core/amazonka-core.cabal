@@ -77,6 +77,7 @@ library
         , mmorph
         , monad-control
         , mtl
+        , nats
         , old-locale
         , resourcet             == 1.1.*
         , semigroups

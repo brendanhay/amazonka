@@ -54,6 +54,7 @@ import           GHC.Generics
 import           Network.AWS.Data.Internal.ByteString
 import           Network.AWS.Data.Internal.Text
 import           Network.AWS.Data.Internal.Time
+import           Numeric.Natural
 
 data Query
     = List  [Query]
@@ -166,6 +167,7 @@ instance ToQuery Text      where toQuery = toQuery . toBS
 instance ToQuery Int       where toQuery = toQuery . toBS
 instance ToQuery Integer   where toQuery = toQuery . toBS
 instance ToQuery Double    where toQuery = toQuery . toBS
+instance ToQuery Natural   where toQuery = toQuery . toBS
 instance ToQuery RFC822    where toQuery = toQuery . toBS
 instance ToQuery ISO8601   where toQuery = toQuery . toBS
 instance ToQuery BasicTime where toQuery = toQuery . toBS

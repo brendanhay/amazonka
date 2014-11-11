@@ -37,6 +37,7 @@ import qualified Data.Text                      as Text
 import qualified Data.Text.Encoding             as Text
 import           GHC.Generics
 import           Network.AWS.Data.Internal.Text
+import           Numeric.Natural
 import           Text.XML
 import           Text.XML.Cursor
 
@@ -166,6 +167,10 @@ instance FromXML Int where
 
 instance FromXML Integer where
     fromXMLRoot = fromRoot "Integer"
+    fromXML     = const fromNodeContent
+
+instance FromXML Natural where
+    fromXMLRoot = fromRoot "Natural"
     fromXML     = const fromNodeContent
 
 instance FromXML Double where
@@ -310,6 +315,10 @@ instance ToXML Int where
 
 instance ToXML Integer where
     toXMLRoot = toRoot "Integer"
+    toXML _   = (:[]) . NodeContent . toText
+
+instance ToXML Natural where
+    toXMLRoot = toRoot "Natural"
     toXML _   = (:[]) . NodeContent . toText
 
 instance ToXML Double where

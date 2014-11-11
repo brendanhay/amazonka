@@ -12,13 +12,13 @@ module Network.AWS.Request.Query
     ( post
     ) where
 
-import Control.Lens              hiding (Action)
+import Control.Lens
 import Data.Default.Class
 import Network.AWS.Data
 import Network.AWS.Types
 import Network.HTTP.Types.Method
 
-post :: ToQuery a => Action -> a -> Request a
+post :: ToQuery a => QueryAction -> a -> Request a
 post a x = def
     & rqMethod .~ POST
     & rqQuery <>~ toQuery x

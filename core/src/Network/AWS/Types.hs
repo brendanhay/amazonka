@@ -91,7 +91,7 @@ module Network.AWS.Types
     , LazyByteString
     , Base64
     , base64
-    , Action        (..)
+    , QueryAction   (..)
     , Sensitive     (..)
     , _Sensitive
 
@@ -105,7 +105,7 @@ module Network.AWS.Types
 import           Control.Applicative
 import           Control.Concurrent           (ThreadId)
 import           Control.Exception            (Exception)
-import           Control.Lens                 hiding (Action)
+import           Control.Lens
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
@@ -432,12 +432,12 @@ instance FromText Zone where
 instance ToText Zone where
     toText Zone{..} = toText _zRegion `Text.snoc` _zSuffix
 
--- | A service action.
-newtype Action = Action Text
+-- | A service's query action.
+newtype QueryAction = QueryAction Text
     deriving (Eq, Ord, Show, IsString)
 
-instance ToQuery Action where
-    toQuery (Action a) = toQuery ("Action" :: ByteString, a)
+instance ToQuery QueryAction where
+    toQuery (QueryAction a) = toQuery ("Action" :: ByteString, a)
 
 -- newtype Boolean = Boolean Bool
 --     deriving (Eq, Ord, Show)

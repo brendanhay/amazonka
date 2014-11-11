@@ -46,12 +46,12 @@ module Network.AWS.Prelude
     , AWSPager        (..)
 
     -- * Shared
-    , Action          (..)
     , Empty           (..)
     , Endpoint        (..)
+    , QueryAction     (..)
     , Sensitive       (..)
-    , _Sensitive
     , Service         (..)
+    , _Sensitive
 
     -- * Errors
     , ServiceError    (..)

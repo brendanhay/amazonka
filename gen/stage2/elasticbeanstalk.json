@@ -3769,8 +3769,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "checkDNSAvailabilityResponse",
-                "dataCtor": "checkDNSAvailabilityResultMessage",
+                "ctor": "checkDNSAvailabilityResultMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -3858,8 +3857,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "checkDNSAvailability",
-                "dataCtor": "checkDNSAvailabilityMessage",
+                "ctor": "checkDNSAvailabilityMessage",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -3939,8 +3937,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createApplicationResponse",
-                "dataCtor": "applicationDescriptionMessage",
+                "ctor": "applicationDescriptionMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4013,8 +4010,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "createApplication",
-                "dataCtor": "createApplicationMessage",
+                "ctor": "createApplicationMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4114,8 +4110,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createApplicationVersionResponse",
-                "dataCtor": "applicationVersionDescriptionMessage",
+                "ctor": "applicationVersionDescriptionMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4187,8 +4182,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "createApplicationVersion",
-                "dataCtor": "createApplicationVersionMessage",
+                "ctor": "createApplicationVersionMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4387,8 +4381,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "createConfigurationTemplateResponse",
-                "dataCtor": "configurationSettingsDescription",
+                "ctor": "configurationSettingsDescription",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -4670,8 +4663,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "createConfigurationTemplate",
-                "dataCtor": "createConfigurationTemplateMessage",
+                "ctor": "createConfigurationTemplateMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4936,8 +4928,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "createEnvironmentResponse",
-                "dataCtor": "environmentDescription",
+                "ctor": "environmentDescription",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -5387,8 +5378,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "createEnvironment",
-                "dataCtor": "createEnvironmentMessage",
+                "ctor": "createEnvironmentMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5786,8 +5776,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createStorageLocationResponse",
-                "dataCtor": "createStorageLocationResultMessage",
+                "ctor": "createStorageLocationResultMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -5861,7 +5850,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createStorageLocation",
-                "dataCtor": "createStorageLocation",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5892,7 +5880,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteApplicationResponse",
-                "dataCtor": "deleteApplicationResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -5920,8 +5907,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "deleteApplication",
-                "dataCtor": "deleteApplicationMessage",
+                "ctor": "deleteApplicationMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6023,7 +6009,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteApplicationVersionResponse",
-                "dataCtor": "deleteApplicationVersionResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -6051,8 +6036,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "deleteApplicationVersion",
-                "dataCtor": "deleteApplicationVersionMessage",
+                "ctor": "deleteApplicationVersionMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6187,7 +6171,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteConfigurationTemplateResponse",
-                "dataCtor": "deleteConfigurationTemplateResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -6215,8 +6198,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "deleteConfigurationTemplate",
-                "dataCtor": "deleteConfigurationTemplateMessage",
+                "ctor": "deleteConfigurationTemplateMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6317,7 +6299,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteEnvironmentConfigurationResponse",
-                "dataCtor": "deleteEnvironmentConfigurationResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -6345,8 +6326,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "deleteEnvironmentConfiguration",
-                "dataCtor": "deleteEnvironmentConfigurationMessage",
+                "ctor": "deleteEnvironmentConfigurationMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6446,8 +6426,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeApplicationVersionsResponse",
-                "dataCtor": "applicationVersionDescriptionsMessage",
+                "ctor": "applicationVersionDescriptionsMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6520,8 +6499,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "describeApplicationVersions",
-                "dataCtor": "describeApplicationVersionsMessage",
+                "ctor": "describeApplicationVersionsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6621,8 +6599,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeApplicationsResponse",
-                "dataCtor": "applicationDescriptionsMessage",
+                "ctor": "applicationDescriptionsMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6696,8 +6673,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeApplications",
-                "dataCtor": "describeApplicationsMessage",
+                "ctor": "describeApplicationsMessage",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -6777,8 +6753,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "describeConfigurationOptionsResponse",
-                "dataCtor": "configurationOptionsDescription",
+                "ctor": "configurationOptionsDescription",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -6864,8 +6839,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "describeConfigurationOptions",
-                "dataCtor": "describeConfigurationOptionsMessage",
+                "ctor": "describeConfigurationOptionsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7064,8 +7038,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeConfigurationSettingsResponse",
-                "dataCtor": "configurationSettingsDescriptions",
+                "ctor": "configurationSettingsDescriptions",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7138,8 +7111,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "describeConfigurationSettings",
-                "dataCtor": "describeConfigurationSettingsMessage",
+                "ctor": "describeConfigurationSettingsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7272,8 +7244,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeEnvironmentResourcesResponse",
-                "dataCtor": "environmentResourceDescriptionsMessage",
+                "ctor": "environmentResourceDescriptionsMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7346,8 +7317,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "describeEnvironmentResources",
-                "dataCtor": "describeEnvironmentResourcesMessage",
+                "ctor": "describeEnvironmentResourcesMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7447,8 +7417,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeEnvironmentsResponse",
-                "dataCtor": "environmentDescriptionsMessage",
+                "ctor": "environmentDescriptionsMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7521,8 +7490,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "describeEnvironments",
-                "dataCtor": "describeEnvironmentsMessage",
+                "ctor": "describeEnvironmentsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7753,8 +7721,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 13,
-                "ctor": "describeEventsResponse",
-                "dataCtor": "eventDescriptionsMessage",
+                "ctor": "eventDescriptionsMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -7841,8 +7808,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "describeEvents",
-                "dataCtor": "describeEventsMessage",
+                "ctor": "describeEventsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8238,8 +8204,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "listAvailableSolutionStacksResponse",
-                "dataCtor": "listAvailableSolutionStacksResultMessage",
+                "ctor": "listAvailableSolutionStacksResultMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -8327,7 +8292,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listAvailableSolutionStacks",
-                "dataCtor": "listAvailableSolutionStacks",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8358,7 +8322,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "rebuildEnvironmentResponse",
-                "dataCtor": "rebuildEnvironmentResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -8386,8 +8349,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "rebuildEnvironment",
-                "dataCtor": "rebuildEnvironmentMessage",
+                "ctor": "rebuildEnvironmentMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8488,7 +8450,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "requestEnvironmentInfoResponse",
-                "dataCtor": "requestEnvironmentInfoResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -8516,8 +8477,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "requestEnvironmentInfo",
-                "dataCtor": "requestEnvironmentInfoMessage",
+                "ctor": "requestEnvironmentInfoMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8652,7 +8612,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "restartAppServerResponse",
-                "dataCtor": "restartAppServerResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -8680,8 +8639,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "restartAppServer",
-                "dataCtor": "restartAppServerMessage",
+                "ctor": "restartAppServerMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8781,8 +8739,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "retrieveEnvironmentInfoResponse",
-                "dataCtor": "retrieveEnvironmentInfoResultMessage",
+                "ctor": "retrieveEnvironmentInfoResultMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8855,8 +8812,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "retrieveEnvironmentInfo",
-                "dataCtor": "retrieveEnvironmentInfoMessage",
+                "ctor": "retrieveEnvironmentInfoMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8991,7 +8947,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "swapEnvironmentCNAMEsResponse",
-                "dataCtor": "swapEnvironmentCNAMEsResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -9019,8 +8974,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 35,
-                "ctor": "swapEnvironmentCNAMEs",
-                "dataCtor": "swapEnvironmentCNAMEsMessage",
+                "ctor": "swapEnvironmentCNAMEsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9185,8 +9139,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "terminateEnvironmentResponse",
-                "dataCtor": "environmentDescription",
+                "ctor": "environmentDescription",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -9637,8 +9590,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "terminateEnvironment",
-                "dataCtor": "terminateEnvironmentMessage",
+                "ctor": "terminateEnvironmentMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9770,8 +9722,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "updateApplicationResponse",
-                "dataCtor": "applicationDescriptionMessage",
+                "ctor": "applicationDescriptionMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -9844,8 +9795,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "updateApplication",
-                "dataCtor": "updateApplicationMessage",
+                "ctor": "updateApplicationMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9945,8 +9895,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "updateApplicationVersionResponse",
-                "dataCtor": "applicationVersionDescriptionMessage",
+                "ctor": "applicationVersionDescriptionMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -10019,8 +9968,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "updateApplicationVersion",
-                "dataCtor": "updateApplicationVersionMessage",
+                "ctor": "updateApplicationVersionMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10153,8 +10101,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "updateConfigurationTemplateResponse",
-                "dataCtor": "configurationSettingsDescription",
+                "ctor": "configurationSettingsDescription",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -10436,8 +10383,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "updateConfigurationTemplate",
-                "dataCtor": "updateConfigurationTemplateMessage",
+                "ctor": "updateConfigurationTemplateMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10636,8 +10582,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "updateEnvironmentResponse",
-                "dataCtor": "environmentDescription",
+                "ctor": "environmentDescription",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -11087,8 +11032,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "updateEnvironment",
-                "dataCtor": "updateEnvironmentMessage",
+                "ctor": "updateEnvironmentMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11386,8 +11330,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "validateConfigurationSettingsResponse",
-                "dataCtor": "configurationSettingsValidationMessages",
+                "ctor": "configurationSettingsValidationMessages",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -11459,8 +11402,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "validateConfigurationSettings",
-                "dataCtor": "validateConfigurationSettingsMessage",
+                "ctor": "validateConfigurationSettingsMessage",
                 "headerPad": 0,
                 "path": [
                     {

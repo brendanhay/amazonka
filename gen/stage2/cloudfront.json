@@ -6432,8 +6432,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 38,
-                "ctor": "createCloudFrontOriginAccessIdentity2014_05_31Response",
-                "dataCtor": "createCloudFrontOriginAccessIdentityResult",
+                "ctor": "createCloudFrontOriginAccessIdentityResult",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -6560,8 +6559,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createCloudFrontOriginAccessIdentity2014_05_31",
-                "dataCtor": "createCloudFrontOriginAccessIdentity",
+                "ctor": "createCloudFrontOriginAccessIdentity",
                 "headerPad": 0,
                 "field": {
                     "location": "body-xml",
@@ -6648,8 +6646,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "createDistribution2014_05_31Response",
-                "dataCtor": "createDistributionResult",
+                "ctor": "createDistributionResult",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -6776,8 +6773,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createDistribution2014_05_31",
-                "dataCtor": "createDistribution",
+                "ctor": "createDistribution",
                 "headerPad": 0,
                 "field": {
                     "location": "body-xml",
@@ -6864,8 +6860,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "createInvalidation2014_05_31Response",
-                "dataCtor": "createInvalidationResult",
+                "ctor": "createInvalidationResult",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -6964,8 +6959,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "createInvalidation2014_05_31",
-                "dataCtor": "createInvalidation",
+                "ctor": "createInvalidation",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7074,8 +7068,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "createStreamingDistribution2014_05_31Response",
-                "dataCtor": "createStreamingDistributionResult",
+                "ctor": "createStreamingDistributionResult",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -7202,8 +7195,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createStreamingDistribution2014_05_31",
-                "dataCtor": "createStreamingDistribution",
+                "ctor": "createStreamingDistribution",
                 "headerPad": 0,
                 "field": {
                     "location": "body-xml",
@@ -7292,7 +7284,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteCloudFrontOriginAccessIdentity2014_05_31Response",
-                "dataCtor": "deleteCloudFrontOriginAccessIdentity2014_05_31Response",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -7320,8 +7311,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 14,
-                "ctor": "deleteCloudFrontOriginAccessIdentity2014_05_31",
-                "dataCtor": "deleteCloudFrontOriginAccessIdentity",
+                "ctor": "deleteCloudFrontOriginAccessIdentity",
                 "headerPad": 9,
                 "path": [
                     {
@@ -7422,7 +7412,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteDistribution2014_05_31Response",
-                "dataCtor": "deleteDistribution2014_05_31Response",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -7450,8 +7439,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 10,
-                "ctor": "deleteDistribution2014_05_31",
-                "dataCtor": "deleteDistribution",
+                "ctor": "deleteDistribution",
                 "headerPad": 9,
                 "path": [
                     {
@@ -7552,7 +7540,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteStreamingDistribution2014_05_31Response",
-                "dataCtor": "deleteStreamingDistribution2014_05_31Response",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -7580,8 +7567,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "deleteStreamingDistribution2014_05_31",
-                "dataCtor": "deleteStreamingDistribution",
+                "ctor": "deleteStreamingDistribution",
                 "headerPad": 9,
                 "path": [
                     {
@@ -7680,8 +7666,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 38,
-                "ctor": "getCloudFrontOriginAccessIdentity2014_05_31Response",
-                "dataCtor": "getCloudFrontOriginAccessIdentityResult",
+                "ctor": "getCloudFrontOriginAccessIdentityResult",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -7782,8 +7767,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getCloudFrontOriginAccessIdentity2014_05_31",
-                "dataCtor": "getCloudFrontOriginAccessIdentity",
+                "ctor": "getCloudFrontOriginAccessIdentity",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -7861,8 +7845,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 45,
-                "ctor": "getCloudFrontOriginAccessIdentityConfig2014_05_31Response",
-                "dataCtor": "getCloudFrontOriginAccessIdentityConfigResult",
+                "ctor": "getCloudFrontOriginAccessIdentityConfigResult",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -7963,8 +7946,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getCloudFrontOriginAccessIdentityConfig2014_05_31",
-                "dataCtor": "getCloudFrontOriginAccessIdentityConfig",
+                "ctor": "getCloudFrontOriginAccessIdentityConfig",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8046,8 +8028,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "getDistribution2014_05_31Response",
-                "dataCtor": "getDistributionResult",
+                "ctor": "getDistributionResult",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -8148,8 +8129,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getDistribution2014_05_31",
-                "dataCtor": "getDistribution",
+                "ctor": "getDistribution",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8227,8 +8207,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "getDistributionConfig2014_05_31Response",
-                "dataCtor": "getDistributionConfigResult",
+                "ctor": "getDistributionConfigResult",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -8329,8 +8308,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getDistributionConfig2014_05_31",
-                "dataCtor": "getDistributionConfig",
+                "ctor": "getDistributionConfig",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8412,8 +8390,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getInvalidation2014_05_31Response",
-                "dataCtor": "getInvalidationResult",
+                "ctor": "getInvalidationResult",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -8499,8 +8476,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "getInvalidation2014_05_31",
-                "dataCtor": "getInvalidation",
+                "ctor": "getInvalidation",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8600,8 +8576,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "getStreamingDistribution2014_05_31Response",
-                "dataCtor": "getStreamingDistributionResult",
+                "ctor": "getStreamingDistributionResult",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -8702,8 +8677,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getStreamingDistribution2014_05_31",
-                "dataCtor": "getStreamingDistribution",
+                "ctor": "getStreamingDistribution",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8781,8 +8755,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 33,
-                "ctor": "getStreamingDistributionConfig2014_05_31Response",
-                "dataCtor": "getStreamingDistributionConfigResult",
+                "ctor": "getStreamingDistributionConfigResult",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -8883,8 +8856,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getStreamingDistributionConfig2014_05_31",
-                "dataCtor": "getStreamingDistributionConfig",
+                "ctor": "getStreamingDistributionConfig",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -8966,8 +8938,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "listCloudFrontOriginAccessIdentities2014_05_31Response",
-                "dataCtor": "listCloudFrontOriginAccessIdentitiesResult",
+                "ctor": "listCloudFrontOriginAccessIdentitiesResult",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -9053,8 +9024,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 15,
-                "ctor": "listCloudFrontOriginAccessIdentities2014_05_31",
-                "dataCtor": "listCloudFrontOriginAccessIdentities",
+                "ctor": "listCloudFrontOriginAccessIdentities",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9153,8 +9123,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "listDistributions2014_05_31Response",
-                "dataCtor": "listDistributionsResult",
+                "ctor": "listDistributionsResult",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -9240,8 +9209,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "listDistributions2014_05_31",
-                "dataCtor": "listDistributions",
+                "ctor": "listDistributions",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9340,8 +9308,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "listInvalidations2014_05_31Response",
-                "dataCtor": "listInvalidationsResult",
+                "ctor": "listInvalidationsResult",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -9427,8 +9394,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "listInvalidations2014_05_31",
-                "dataCtor": "listInvalidations",
+                "ctor": "listInvalidations",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9564,8 +9530,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "listStreamingDistributions2014_05_31Response",
-                "dataCtor": "listStreamingDistributionsResult",
+                "ctor": "listStreamingDistributionsResult",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -9651,8 +9616,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 12,
-                "ctor": "listStreamingDistributions2014_05_31",
-                "dataCtor": "listStreamingDistributions",
+                "ctor": "listStreamingDistributions",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9751,8 +9715,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 38,
-                "ctor": "updateCloudFrontOriginAccessIdentity2014_05_31Response",
-                "dataCtor": "updateCloudFrontOriginAccessIdentityResult",
+                "ctor": "updateCloudFrontOriginAccessIdentityResult",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -9851,8 +9814,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 43,
-                "ctor": "updateCloudFrontOriginAccessIdentity2014_05_31",
-                "dataCtor": "updateCloudFrontOriginAccessIdentity",
+                "ctor": "updateCloudFrontOriginAccessIdentity",
                 "headerPad": 9,
                 "path": [
                     {
@@ -9996,8 +9958,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "updateDistribution2014_05_31Response",
-                "dataCtor": "updateDistributionResult",
+                "ctor": "updateDistributionResult",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -10096,8 +10057,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "updateDistribution2014_05_31",
-                "dataCtor": "updateDistribution",
+                "ctor": "updateDistribution",
                 "headerPad": 9,
                 "path": [
                     {
@@ -10241,8 +10201,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "updateStreamingDistribution2014_05_31Response",
-                "dataCtor": "updateStreamingDistributionResult",
+                "ctor": "updateStreamingDistributionResult",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -10341,8 +10300,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "updateStreamingDistribution2014_05_31",
-                "dataCtor": "updateStreamingDistribution",
+                "ctor": "updateStreamingDistribution",
                 "headerPad": 9,
                 "path": [
                     {

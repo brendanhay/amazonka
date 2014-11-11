@@ -4376,7 +4376,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "buildSuggestersResponse",
-                "dataCtor": "buildSuggestersResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4451,7 +4450,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "buildSuggesters",
-                "dataCtor": "buildSuggesters",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -4532,7 +4530,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createDomainResponse",
-                "dataCtor": "createDomainResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4607,7 +4604,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "createDomain",
-                "dataCtor": "createDomain",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -4688,7 +4684,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "defineAnalysisSchemeResponse",
-                "dataCtor": "defineAnalysisSchemeResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4761,7 +4756,6 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "defineAnalysisScheme",
-                "dataCtor": "defineAnalysisScheme",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4861,7 +4855,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "defineExpressionResponse",
-                "dataCtor": "defineExpressionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4934,7 +4927,6 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "defineExpression",
-                "dataCtor": "defineExpression",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5034,7 +5026,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "defineIndexFieldResponse",
-                "dataCtor": "defineIndexFieldResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -5107,7 +5098,6 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "defineIndexField",
-                "dataCtor": "defineIndexField",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5207,7 +5197,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "defineSuggesterResponse",
-                "dataCtor": "defineSuggesterResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -5280,7 +5269,6 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "defineSuggester",
-                "dataCtor": "defineSuggester",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5380,7 +5368,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteAnalysisSchemeResponse",
-                "dataCtor": "deleteAnalysisSchemeResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -5454,7 +5441,6 @@
                 "streaming": false,
                 "fieldPad": 22,
                 "ctor": "deleteAnalysisScheme",
-                "dataCtor": "deleteAnalysisScheme",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5554,7 +5540,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteDomainResponse",
-                "dataCtor": "deleteDomainResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -5629,7 +5614,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteDomain",
-                "dataCtor": "deleteDomain",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -5710,7 +5694,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteExpressionResponse",
-                "dataCtor": "deleteExpressionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -5784,7 +5767,6 @@
                 "streaming": false,
                 "fieldPad": 17,
                 "ctor": "deleteExpression",
-                "dataCtor": "deleteExpression",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5884,7 +5866,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteIndexFieldResponse",
-                "dataCtor": "deleteIndexFieldResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -5958,7 +5939,6 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "deleteIndexField",
-                "dataCtor": "deleteIndexField",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6058,7 +6038,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteSuggesterResponse",
-                "dataCtor": "deleteSuggesterResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6132,7 +6111,6 @@
                 "streaming": false,
                 "fieldPad": 17,
                 "ctor": "deleteSuggester",
-                "dataCtor": "deleteSuggester",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6233,7 +6211,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeAnalysisSchemesResponse",
-                "dataCtor": "describeAnalysisSchemesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6307,7 +6284,6 @@
                 "streaming": false,
                 "fieldPad": 24,
                 "ctor": "describeAnalysisSchemes",
-                "dataCtor": "describeAnalysisSchemes",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6441,7 +6417,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeAvailabilityOptionsResponse",
-                "dataCtor": "describeAvailabilityOptionsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6515,7 +6490,6 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "describeAvailabilityOptions",
-                "dataCtor": "describeAvailabilityOptions",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6617,7 +6591,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeDomainsResponse",
-                "dataCtor": "describeDomainsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6692,7 +6665,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeDomains",
-                "dataCtor": "describeDomains",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -6774,7 +6746,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeExpressionsResponse",
-                "dataCtor": "describeExpressionsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6848,7 +6819,6 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "describeExpressions",
-                "dataCtor": "describeExpressions",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6983,7 +6953,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeIndexFieldsResponse",
-                "dataCtor": "describeIndexFieldsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7057,7 +7026,6 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "describeIndexFields",
-                "dataCtor": "describeIndexFields",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7191,7 +7159,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeScalingParametersResponse",
-                "dataCtor": "describeScalingParametersResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7266,7 +7233,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeScalingParameters",
-                "dataCtor": "describeScalingParameters",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -7347,7 +7313,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeServiceAccessPoliciesResponse",
-                "dataCtor": "describeServiceAccessPoliciesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7421,7 +7386,6 @@
                 "streaming": false,
                 "fieldPad": 15,
                 "ctor": "describeServiceAccessPolicies",
-                "dataCtor": "describeServiceAccessPolicies",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7523,7 +7487,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "describeSuggestersResponse",
-                "dataCtor": "describeSuggestersResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7597,7 +7560,6 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "describeSuggesters",
-                "dataCtor": "describeSuggesters",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7733,7 +7695,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "indexDocumentsResponse",
-                "dataCtor": "indexDocumentsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7808,7 +7769,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "indexDocuments",
-                "dataCtor": "indexDocuments",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -7890,7 +7850,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listDomainNamesResponse",
-                "dataCtor": "listDomainNamesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": "_Map",
@@ -7964,7 +7923,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listDomainNames",
-                "dataCtor": "listDomainNames",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7994,7 +7952,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateAvailabilityOptionsResponse",
-                "dataCtor": "updateAvailabilityOptionsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8068,7 +8025,6 @@
                 "streaming": false,
                 "fieldPad": 14,
                 "ctor": "updateAvailabilityOptions",
-                "dataCtor": "updateAvailabilityOptions",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8168,7 +8124,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateScalingParametersResponse",
-                "dataCtor": "updateScalingParametersResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8241,7 +8196,6 @@
                 "streaming": false,
                 "fieldPad": 21,
                 "ctor": "updateScalingParameters",
-                "dataCtor": "updateScalingParameters",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8341,7 +8295,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateServiceAccessPoliciesResponse",
-                "dataCtor": "updateServiceAccessPoliciesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8415,7 +8368,6 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "updateServiceAccessPolicies",
-                "dataCtor": "updateServiceAccessPolicies",
                 "headerPad": 0,
                 "path": [
                     {

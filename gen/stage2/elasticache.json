@@ -5261,8 +5261,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "authorizeCacheSecurityGroupIngressResponse",
-                "dataCtor": "authorizeCacheSecurityGroupIngressResult",
+                "ctor": "authorizeCacheSecurityGroupIngressResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -5335,8 +5334,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 30,
-                "ctor": "authorizeCacheSecurityGroupIngress",
-                "dataCtor": "authorizeCacheSecurityGroupIngressMessage",
+                "ctor": "authorizeCacheSecurityGroupIngressMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5468,8 +5466,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "copySnapshotResponse",
-                "dataCtor": "copySnapshotResult",
+                "ctor": "copySnapshotResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -5542,8 +5539,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "copySnapshot",
-                "dataCtor": "copySnapshotMessage",
+                "ctor": "copySnapshotMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5642,8 +5638,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createCacheClusterResponse",
-                "dataCtor": "createCacheClusterResult",
+                "ctor": "createCacheClusterResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -5716,8 +5711,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "createCacheCluster",
-                "dataCtor": "createCacheClusterMessage",
+                "ctor": "createCacheClusterMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6444,8 +6438,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createCacheParameterGroupResponse",
-                "dataCtor": "createCacheParameterGroupResult",
+                "ctor": "createCacheParameterGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6518,8 +6511,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "createCacheParameterGroup",
-                "dataCtor": "createCacheParameterGroupMessage",
+                "ctor": "createCacheParameterGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6651,8 +6643,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createCacheSecurityGroupResponse",
-                "dataCtor": "createCacheSecurityGroupResult",
+                "ctor": "createCacheSecurityGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6725,8 +6716,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "createCacheSecurityGroup",
-                "dataCtor": "createCacheSecurityGroupMessage",
+                "ctor": "createCacheSecurityGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6825,8 +6815,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createCacheSubnetGroupResponse",
-                "dataCtor": "createCacheSubnetGroupResult",
+                "ctor": "createCacheSubnetGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6899,8 +6888,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 33,
-                "ctor": "createCacheSubnetGroup",
-                "dataCtor": "createCacheSubnetGroupMessage",
+                "ctor": "createCacheSubnetGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7033,8 +7021,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createReplicationGroupResponse",
-                "dataCtor": "createReplicationGroupResult",
+                "ctor": "createReplicationGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7107,8 +7094,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 32,
-                "ctor": "createReplicationGroup",
-                "dataCtor": "createReplicationGroupMessage",
+                "ctor": "createReplicationGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7835,8 +7821,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createSnapshotResponse",
-                "dataCtor": "createSnapshotResult",
+                "ctor": "createSnapshotResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7909,8 +7894,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 18,
-                "ctor": "createSnapshot",
-                "dataCtor": "createSnapshotMessage",
+                "ctor": "createSnapshotMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8009,8 +7993,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteCacheClusterResponse",
-                "dataCtor": "deleteCacheClusterResult",
+                "ctor": "deleteCacheClusterResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8083,8 +8066,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "deleteCacheCluster",
-                "dataCtor": "deleteCacheClusterMessage",
+                "ctor": "deleteCacheClusterMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8186,7 +8168,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteCacheParameterGroupResponse",
-                "dataCtor": "deleteCacheParameterGroupResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -8215,8 +8196,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteCacheParameterGroup",
-                "dataCtor": "deleteCacheParameterGroupMessage",
+                "ctor": "deleteCacheParameterGroupMessage",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -8298,7 +8278,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteCacheSecurityGroupResponse",
-                "dataCtor": "deleteCacheSecurityGroupResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -8327,8 +8306,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteCacheSecurityGroup",
-                "dataCtor": "deleteCacheSecurityGroupMessage",
+                "ctor": "deleteCacheSecurityGroupMessage",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -8410,7 +8388,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteCacheSubnetGroupResponse",
-                "dataCtor": "deleteCacheSubnetGroupResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -8439,8 +8416,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteCacheSubnetGroup",
-                "dataCtor": "deleteCacheSubnetGroupMessage",
+                "ctor": "deleteCacheSubnetGroupMessage",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -8520,8 +8496,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteReplicationGroupResponse",
-                "dataCtor": "deleteReplicationGroupResult",
+                "ctor": "deleteReplicationGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8594,8 +8569,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "deleteReplicationGroup",
-                "dataCtor": "deleteReplicationGroupMessage",
+                "ctor": "deleteReplicationGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8728,8 +8702,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteSnapshotResponse",
-                "dataCtor": "deleteSnapshotResult",
+                "ctor": "deleteSnapshotResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8803,8 +8776,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteSnapshot",
-                "dataCtor": "deleteSnapshotMessage",
+                "ctor": "deleteSnapshotMessage",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -8884,8 +8856,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "describeCacheClustersResponse",
-                "dataCtor": "cacheClusterMessage",
+                "ctor": "cacheClusterMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -8972,8 +8943,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "describeCacheClusters",
-                "dataCtor": "describeCacheClustersMessage",
+                "ctor": "describeCacheClustersMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9138,8 +9108,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "describeCacheEngineVersionsResponse",
-                "dataCtor": "cacheEngineVersionMessage",
+                "ctor": "cacheEngineVersionMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -9226,8 +9195,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "describeCacheEngineVersions",
-                "dataCtor": "describeCacheEngineVersionsMessage",
+                "ctor": "describeCacheEngineVersionsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9458,8 +9426,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "describeCacheParameterGroupsResponse",
-                "dataCtor": "cacheParameterGroupsMessage",
+                "ctor": "cacheParameterGroupsMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -9546,8 +9513,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "describeCacheParameterGroups",
-                "dataCtor": "describeCacheParameterGroupsMessage",
+                "ctor": "describeCacheParameterGroupsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9679,8 +9645,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 36,
-                "ctor": "describeCacheParametersResponse",
-                "dataCtor": "cacheParameterGroupDetails",
+                "ctor": "cacheParameterGroupDetails",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -9795,8 +9760,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "describeCacheParameters",
-                "dataCtor": "describeCacheParametersMessage",
+                "ctor": "describeCacheParametersMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9962,8 +9926,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "describeCacheSecurityGroupsResponse",
-                "dataCtor": "cacheSecurityGroupMessage",
+                "ctor": "cacheSecurityGroupMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -10050,8 +10013,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "describeCacheSecurityGroups",
-                "dataCtor": "describeCacheSecurityGroupsMessage",
+                "ctor": "describeCacheSecurityGroupsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10183,8 +10145,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "describeCacheSubnetGroupsResponse",
-                "dataCtor": "cacheSubnetGroupMessage",
+                "ctor": "cacheSubnetGroupMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -10271,8 +10232,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "describeCacheSubnetGroups",
-                "dataCtor": "describeCacheSubnetGroupsMessage",
+                "ctor": "describeCacheSubnetGroupsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10404,8 +10364,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeEngineDefaultParametersResponse",
-                "dataCtor": "describeEngineDefaultParametersResult",
+                "ctor": "describeEngineDefaultParametersResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -10478,8 +10437,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "describeEngineDefaultParameters",
-                "dataCtor": "describeEngineDefaultParametersMessage",
+                "ctor": "describeEngineDefaultParametersMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10612,8 +10570,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 9,
-                "ctor": "describeEventsResponse",
-                "dataCtor": "eventsMessage",
+                "ctor": "eventsMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -10700,8 +10657,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "describeEvents",
-                "dataCtor": "describeEventsMessage",
+                "ctor": "describeEventsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10965,8 +10921,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "describeReplicationGroupsResponse",
-                "dataCtor": "replicationGroupMessage",
+                "ctor": "replicationGroupMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -11053,8 +11008,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "describeReplicationGroups",
-                "dataCtor": "describeReplicationGroupsMessage",
+                "ctor": "describeReplicationGroupsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11186,8 +11140,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "describeReservedCacheNodesResponse",
-                "dataCtor": "reservedCacheNodeMessage",
+                "ctor": "reservedCacheNodeMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -11274,8 +11227,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 34,
-                "ctor": "describeReservedCacheNodes",
-                "dataCtor": "describeReservedCacheNodesMessage",
+                "ctor": "describeReservedCacheNodesMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11572,8 +11524,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 33,
-                "ctor": "describeReservedCacheNodesOfferingsResponse",
-                "dataCtor": "reservedCacheNodesOfferingMessage",
+                "ctor": "reservedCacheNodesOfferingMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -11660,8 +11611,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 35,
-                "ctor": "describeReservedCacheNodesOfferings",
-                "dataCtor": "describeReservedCacheNodesOfferingsMessage",
+                "ctor": "describeReservedCacheNodesOfferingsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11925,8 +11875,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 14,
-                "ctor": "describeSnapshotsResponse",
-                "dataCtor": "describeSnapshotsListMessage",
+                "ctor": "describeSnapshotsListMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -12013,8 +11962,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "describeSnapshots",
-                "dataCtor": "describeSnapshotsMessage",
+                "ctor": "describeSnapshotsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12212,8 +12160,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "modifyCacheClusterResponse",
-                "dataCtor": "modifyCacheClusterResult",
+                "ctor": "modifyCacheClusterResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -12286,8 +12233,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "modifyCacheCluster",
-                "dataCtor": "modifyCacheClusterMessage",
+                "ctor": "modifyCacheClusterMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12850,8 +12796,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "modifyCacheParameterGroupResponse",
-                "dataCtor": "cacheParameterGroupNameMessage",
+                "ctor": "cacheParameterGroupNameMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -12923,8 +12868,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "modifyCacheParameterGroup",
-                "dataCtor": "modifyCacheParameterGroupMessage",
+                "ctor": "modifyCacheParameterGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13024,8 +12968,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "modifyCacheSubnetGroupResponse",
-                "dataCtor": "modifyCacheSubnetGroupResult",
+                "ctor": "modifyCacheSubnetGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -13098,8 +13041,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 33,
-                "ctor": "modifyCacheSubnetGroup",
-                "dataCtor": "modifyCacheSubnetGroupMessage",
+                "ctor": "modifyCacheSubnetGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13232,8 +13174,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "modifyReplicationGroupResponse",
-                "dataCtor": "modifyReplicationGroupResult",
+                "ctor": "modifyReplicationGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -13306,8 +13247,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 32,
-                "ctor": "modifyReplicationGroup",
-                "dataCtor": "modifyReplicationGroupMessage",
+                "ctor": "modifyReplicationGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13869,8 +13809,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "purchaseReservedCacheNodesOfferingResponse",
-                "dataCtor": "purchaseReservedCacheNodesOfferingResult",
+                "ctor": "purchaseReservedCacheNodesOfferingResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -13943,8 +13882,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 35,
-                "ctor": "purchaseReservedCacheNodesOffering",
-                "dataCtor": "purchaseReservedCacheNodesOfferingMessage",
+                "ctor": "purchaseReservedCacheNodesOfferingMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -14077,8 +14015,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "rebootCacheClusterResponse",
-                "dataCtor": "rebootCacheClusterResult",
+                "ctor": "rebootCacheClusterResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -14151,8 +14088,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "rebootCacheCluster",
-                "dataCtor": "rebootCacheClusterMessage",
+                "ctor": "rebootCacheClusterMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -14253,8 +14189,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "resetCacheParameterGroupResponse",
-                "dataCtor": "cacheParameterGroupNameMessage",
+                "ctor": "cacheParameterGroupNameMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -14326,8 +14261,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "resetCacheParameterGroup",
-                "dataCtor": "resetCacheParameterGroupMessage",
+                "ctor": "resetCacheParameterGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -14460,8 +14394,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "revokeCacheSecurityGroupIngressResponse",
-                "dataCtor": "revokeCacheSecurityGroupIngressResult",
+                "ctor": "revokeCacheSecurityGroupIngressResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -14534,8 +14467,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 30,
-                "ctor": "revokeCacheSecurityGroupIngress",
-                "dataCtor": "revokeCacheSecurityGroupIngressMessage",
+                "ctor": "revokeCacheSecurityGroupIngressMessage",
                 "headerPad": 0,
                 "path": [
                     {

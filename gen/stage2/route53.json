@@ -2650,7 +2650,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "associateVPCWithHostedZoneResponse",
-                "dataCtor": "associateVPCWithHostedZoneResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -2736,7 +2735,6 @@
                 "streaming": false,
                 "fieldPad": 20,
                 "ctor": "associateVPCWithHostedZone",
-                "dataCtor": "associateVPCWithHostedZone",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2875,7 +2873,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "changeResourceRecordSetsResponse",
-                "dataCtor": "changeResourceRecordSetsResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -2961,7 +2958,6 @@
                 "streaming": false,
                 "fieldPad": 17,
                 "ctor": "changeResourceRecordSets",
-                "dataCtor": "changeResourceRecordSets",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3072,7 +3068,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "changeTagsForResourceResponse",
-                "dataCtor": "changeTagsForResourceResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -3100,7 +3095,6 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "changeTagsForResource",
-                "dataCtor": "changeTagsForResource",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3270,7 +3264,6 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "createHealthCheckResponse",
-                "dataCtor": "createHealthCheckResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -3370,7 +3363,6 @@
                 "streaming": false,
                 "fieldPad": 21,
                 "ctor": "createHealthCheck",
-                "dataCtor": "createHealthCheck",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3472,7 +3464,6 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "createHostedZoneResponse",
-                "dataCtor": "createHostedZoneResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -3657,7 +3648,6 @@
                 "streaming": false,
                 "fieldPad": 20,
                 "ctor": "createHostedZone",
-                "dataCtor": "createHostedZone",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3844,7 +3834,6 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "createReusableDelegationSetResponse",
-                "dataCtor": "createReusableDelegationSetResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -3945,7 +3934,6 @@
                 "streaming": false,
                 "fieldPad": 20,
                 "ctor": "createReusableDelegationSet",
-                "dataCtor": "createReusableDelegationSet",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4049,7 +4037,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteHealthCheckResponse",
-                "dataCtor": "deleteHealthCheckResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -4079,7 +4066,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteHealthCheck",
-                "dataCtor": "deleteHealthCheck",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -4158,7 +4144,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteHostedZoneResponse",
-                "dataCtor": "deleteHostedZoneResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -4246,7 +4231,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteHostedZone",
-                "dataCtor": "deleteHostedZone",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -4326,7 +4310,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteReusableDelegationSetResponse",
-                "dataCtor": "deleteReusableDelegationSetResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -4356,7 +4339,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteReusableDelegationSet",
-                "dataCtor": "deleteReusableDelegationSet",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -4435,7 +4417,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "disassociateVPCFromHostedZoneResponse",
-                "dataCtor": "disassociateVPCFromHostedZoneResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -4521,7 +4502,6 @@
                 "streaming": false,
                 "fieldPad": 20,
                 "ctor": "disassociateVPCFromHostedZone",
-                "dataCtor": "disassociateVPCFromHostedZone",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4660,7 +4640,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getChangeResponse",
-                "dataCtor": "getChangeResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -4748,7 +4727,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getChange",
-                "dataCtor": "getChange",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -4829,7 +4807,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getCheckerIpRangesResponse",
-                "dataCtor": "getCheckerIpRangesResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -4916,7 +4893,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getCheckerIpRanges",
-                "dataCtor": "getCheckerIpRanges",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4946,7 +4922,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getGeoLocationResponse",
-                "dataCtor": "getGeoLocationResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -5033,7 +5008,6 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "getGeoLocation",
-                "dataCtor": "getGeoLocation",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5166,7 +5140,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getHealthCheckResponse",
-                "dataCtor": "getHealthCheckResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -5254,7 +5227,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getHealthCheck",
-                "dataCtor": "getHealthCheck",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5336,7 +5308,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getHealthCheckCountResponse",
-                "dataCtor": "getHealthCheckCountResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -5423,7 +5394,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getHealthCheckCount",
-                "dataCtor": "getHealthCheckCount",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5454,7 +5424,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getHealthCheckLastFailureReasonResponse",
-                "dataCtor": "getHealthCheckLastFailureReasonResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -5542,7 +5511,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getHealthCheckLastFailureReason",
-                "dataCtor": "getHealthCheckLastFailureReason",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5626,7 +5594,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getHealthCheckStatusResponse",
-                "dataCtor": "getHealthCheckStatusResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -5714,7 +5681,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getHealthCheckStatus",
-                "dataCtor": "getHealthCheckStatus",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -5797,7 +5763,6 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "getHostedZoneResponse",
-                "dataCtor": "getHostedZoneResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -5928,7 +5893,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getHostedZone",
-                "dataCtor": "getHostedZone",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -6007,7 +5971,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getReusableDelegationSetResponse",
-                "dataCtor": "getReusableDelegationSetResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -6095,7 +6058,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "getReusableDelegationSet",
-                "dataCtor": "getReusableDelegationSet",
                 "headerPad": 0,
                 "field": {
                     "location": "uri",
@@ -6174,7 +6136,6 @@
                 "streaming": false,
                 "fieldPad": 27,
                 "ctor": "listGeoLocationsResponse",
-                "dataCtor": "listGeoLocationsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -6388,7 +6349,6 @@
                 "streaming": false,
                 "fieldPad": 24,
                 "ctor": "listGeoLocations",
-                "dataCtor": "listGeoLocations",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6554,7 +6514,6 @@
                 "streaming": false,
                 "fieldPad": 17,
                 "ctor": "listHealthChecksResponse",
-                "dataCtor": "listHealthChecksResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -6740,7 +6699,6 @@
                 "streaming": false,
                 "fieldPad": 12,
                 "ctor": "listHealthChecks",
-                "dataCtor": "listHealthChecks",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6840,7 +6798,6 @@
                 "streaming": false,
                 "fieldPad": 16,
                 "ctor": "listHostedZonesResponse",
-                "dataCtor": "listHostedZonesResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -7026,7 +6983,6 @@
                 "streaming": false,
                 "fieldPad": 19,
                 "ctor": "listHostedZones",
-                "dataCtor": "listHostedZones",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7159,7 +7115,6 @@
                 "streaming": false,
                 "fieldPad": 26,
                 "ctor": "listResourceRecordSetsResponse",
-                "dataCtor": "listResourceRecordSetsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -7373,7 +7328,6 @@
                 "streaming": false,
                 "fieldPad": 26,
                 "ctor": "listResourceRecordSets",
-                "dataCtor": "listResourceRecordSets",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7576,7 +7530,6 @@
                 "streaming": false,
                 "fieldPad": 20,
                 "ctor": "listReusableDelegationSetsResponse",
-                "dataCtor": "listReusableDelegationSetsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -7762,7 +7715,6 @@
                 "streaming": false,
                 "fieldPad": 13,
                 "ctor": "listReusableDelegationSets",
-                "dataCtor": "listReusableDelegationSets",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7862,7 +7814,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listTagsForResourceResponse",
-                "dataCtor": "listTagsForResourceResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -7949,7 +7900,6 @@
                 "streaming": false,
                 "fieldPad": 18,
                 "ctor": "listTagsForResource",
-                "dataCtor": "listTagsForResource",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8051,7 +8001,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "listTagsForResourcesResponse",
-                "dataCtor": "listTagsForResourcesResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -8138,7 +8087,6 @@
                 "streaming": false,
                 "fieldPad": 17,
                 "ctor": "listTagsForResources",
-                "dataCtor": "listTagsForResources",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8244,7 +8192,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "updateHealthCheckResponse",
-                "dataCtor": "updateHealthCheckResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -8331,7 +8278,6 @@
                 "streaming": false,
                 "fieldPad": 28,
                 "ctor": "updateHealthCheck",
-                "dataCtor": "updateHealthCheck",
                 "headerPad": 0,
                 "path": [
                     {

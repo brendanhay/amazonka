@@ -2315,7 +2315,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "cancelUpdateStackResponse",
-                "dataCtor": "cancelUpdateStackResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -2344,8 +2343,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "cancelUpdateStack",
-                "dataCtor": "cancelUpdateStackInput",
+                "ctor": "cancelUpdateStackInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2426,8 +2424,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createStackResponse",
-                "dataCtor": "createStackOutput",
+                "ctor": "createStackOutput",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -2499,8 +2496,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "createStack",
-                "dataCtor": "createStackInput",
+                "ctor": "createStackInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2932,7 +2928,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteStackResponse",
-                "dataCtor": "deleteStackResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -2961,8 +2956,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteStack",
-                "dataCtor": "deleteStackInput",
+                "ctor": "deleteStackInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -3042,8 +3036,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "describeStackEventsResponse",
-                "dataCtor": "describeStackEventsOutput",
+                "ctor": "describeStackEventsOutput",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -3130,8 +3123,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 14,
-                "ctor": "describeStackEvents",
-                "dataCtor": "describeStackEventsInput",
+                "ctor": "describeStackEventsInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3230,8 +3222,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeStackResourceResponse",
-                "dataCtor": "describeStackResourceOutput",
+                "ctor": "describeStackResourceOutput",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3304,8 +3295,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "describeStackResource",
-                "dataCtor": "describeStackResourceInput",
+                "ctor": "describeStackResourceInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3405,8 +3395,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeStackResourcesResponse",
-                "dataCtor": "describeStackResourcesOutput",
+                "ctor": "describeStackResourcesOutput",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3479,8 +3468,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "describeStackResources",
-                "dataCtor": "describeStackResourcesInput",
+                "ctor": "describeStackResourcesInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3612,8 +3600,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 13,
-                "ctor": "describeStacksResponse",
-                "dataCtor": "describeStacksOutput",
+                "ctor": "describeStacksOutput",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -3700,8 +3687,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 13,
-                "ctor": "describeStacks",
-                "dataCtor": "describeStacksInput",
+                "ctor": "describeStacksInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3801,8 +3787,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "estimateTemplateCostResponse",
-                "dataCtor": "estimateTemplateCostOutput",
+                "ctor": "estimateTemplateCostOutput",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3874,8 +3859,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "estimateTemplateCost",
-                "dataCtor": "estimateTemplateCostInput",
+                "ctor": "estimateTemplateCostInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4008,8 +3992,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getStackPolicyResponse",
-                "dataCtor": "getStackPolicyOutput",
+                "ctor": "getStackPolicyOutput",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4083,8 +4066,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getStackPolicy",
-                "dataCtor": "getStackPolicyInput",
+                "ctor": "getStackPolicyInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -4165,8 +4147,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getTemplateResponse",
-                "dataCtor": "getTemplateOutput",
+                "ctor": "getTemplateOutput",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4240,8 +4221,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "getTemplate",
-                "dataCtor": "getTemplateInput",
+                "ctor": "getTemplateInput",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -4321,8 +4301,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "listStackResourcesResponse",
-                "dataCtor": "listStackResourcesOutput",
+                "ctor": "listStackResourcesOutput",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -4409,8 +4388,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 14,
-                "ctor": "listStackResources",
-                "dataCtor": "listStackResourcesInput",
+                "ctor": "listStackResourcesInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4510,8 +4488,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 18,
-                "ctor": "listStacksResponse",
-                "dataCtor": "listStacksOutput",
+                "ctor": "listStacksOutput",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -4598,8 +4575,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "listStacks",
-                "dataCtor": "listStacksInput",
+                "ctor": "listStacksInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4700,7 +4676,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "setStackPolicyResponse",
-                "dataCtor": "setStackPolicyResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -4728,8 +4703,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "setStackPolicy",
-                "dataCtor": "setStackPolicyInput",
+                "ctor": "setStackPolicyInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4863,8 +4837,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "updateStackResponse",
-                "dataCtor": "updateStackOutput",
+                "ctor": "updateStackOutput",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4936,8 +4909,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "updateStack",
-                "dataCtor": "updateStackInput",
+                "ctor": "updateStackInput",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5334,8 +5306,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "validateTemplateResponse",
-                "dataCtor": "validateTemplateOutput",
+                "ctor": "validateTemplateOutput",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -5478,8 +5449,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "validateTemplate",
-                "dataCtor": "validateTemplateInput",
+                "ctor": "validateTemplateInput",
                 "headerPad": 0,
                 "path": [
                     {

@@ -7355,8 +7355,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "addSourceIdentifierToSubscriptionResponse",
-                "dataCtor": "addSourceIdentifierToSubscriptionResult",
+                "ctor": "addSourceIdentifierToSubscriptionResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7429,8 +7428,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "addSourceIdentifierToSubscription",
-                "dataCtor": "addSourceIdentifierToSubscriptionMessage",
+                "ctor": "addSourceIdentifierToSubscriptionMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7531,7 +7529,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "addTagsToResourceResponse",
-                "dataCtor": "addTagsToResourceResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -7558,8 +7555,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 18,
-                "ctor": "addTagsToResource",
-                "dataCtor": "addTagsToResourceMessage",
+                "ctor": "addTagsToResourceMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7659,8 +7655,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "authorizeDBSecurityGroupIngressResponse",
-                "dataCtor": "authorizeDBSecurityGroupIngressResult",
+                "ctor": "authorizeDBSecurityGroupIngressResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7733,8 +7728,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "authorizeDBSecurityGroupIngress",
-                "dataCtor": "authorizeDBSecurityGroupIngressMessage",
+                "ctor": "authorizeDBSecurityGroupIngressMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7933,8 +7927,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "copyDBParameterGroupResponse",
-                "dataCtor": "copyDBParameterGroupResult",
+                "ctor": "copyDBParameterGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8006,8 +7999,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 41,
-                "ctor": "copyDBParameterGroup",
-                "dataCtor": "copyDBParameterGroupMessage",
+                "ctor": "copyDBParameterGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8173,8 +8165,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "copyDBSnapshotResponse",
-                "dataCtor": "copyDBSnapshotResult",
+                "ctor": "copyDBSnapshotResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8246,8 +8237,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 32,
-                "ctor": "copyDBSnapshot",
-                "dataCtor": "copyDBSnapshotMessage",
+                "ctor": "copyDBSnapshotMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8380,8 +8370,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "copyOptionGroupResponse",
-                "dataCtor": "copyOptionGroupResult",
+                "ctor": "copyOptionGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8453,8 +8442,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 34,
-                "ctor": "copyOptionGroup",
-                "dataCtor": "copyOptionGroupMessage",
+                "ctor": "copyOptionGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8620,8 +8608,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createDBInstanceResponse",
-                "dataCtor": "createDBInstanceResult",
+                "ctor": "createDBInstanceResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8693,8 +8680,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 32,
-                "ctor": "createDBInstance",
-                "dataCtor": "createDBInstanceMessage",
+                "ctor": "createDBInstanceMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9652,8 +9638,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createDBInstanceReadReplicaResponse",
-                "dataCtor": "createDBInstanceReadReplicaResult",
+                "ctor": "createDBInstanceReadReplicaResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -9725,8 +9710,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 34,
-                "ctor": "createDBInstanceReadReplica",
-                "dataCtor": "createDBInstanceReadReplicaMessage",
+                "ctor": "createDBInstanceReadReplicaMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10156,8 +10140,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createDBParameterGroupResponse",
-                "dataCtor": "createDBParameterGroupResult",
+                "ctor": "createDBParameterGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -10229,8 +10212,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "createDBParameterGroup",
-                "dataCtor": "createDBParameterGroupMessage",
+                "ctor": "createDBParameterGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10396,8 +10378,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createDBSecurityGroupResponse",
-                "dataCtor": "createDBSecurityGroupResult",
+                "ctor": "createDBSecurityGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -10469,8 +10450,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 34,
-                "ctor": "createDBSecurityGroup",
-                "dataCtor": "createDBSecurityGroupMessage",
+                "ctor": "createDBSecurityGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10603,8 +10583,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createDBSnapshotResponse",
-                "dataCtor": "createDBSnapshotResult",
+                "ctor": "createDBSnapshotResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -10676,8 +10655,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "createDBSnapshot",
-                "dataCtor": "createDBSnapshotMessage",
+                "ctor": "createDBSnapshotMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10810,8 +10788,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createDBSubnetGroupResponse",
-                "dataCtor": "createDBSubnetGroupResult",
+                "ctor": "createDBSubnetGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -10883,8 +10860,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "createDBSubnetGroup",
-                "dataCtor": "createDBSubnetGroupMessage",
+                "ctor": "createDBSubnetGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11050,8 +11026,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createEventSubscriptionResponse",
-                "dataCtor": "createEventSubscriptionResult",
+                "ctor": "createEventSubscriptionResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -11123,8 +11098,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "createEventSubscription",
-                "dataCtor": "createEventSubscriptionMessage",
+                "ctor": "createEventSubscriptionMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11389,8 +11363,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "createOptionGroupResponse",
-                "dataCtor": "createOptionGroupResult",
+                "ctor": "createOptionGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -11462,8 +11435,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "createOptionGroup",
-                "dataCtor": "createOptionGroupMessage",
+                "ctor": "createOptionGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11662,8 +11634,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteDBInstanceResponse",
-                "dataCtor": "deleteDBInstanceResult",
+                "ctor": "deleteDBInstanceResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -11736,8 +11707,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 32,
-                "ctor": "deleteDBInstance",
-                "dataCtor": "deleteDBInstanceMessage",
+                "ctor": "deleteDBInstanceMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11872,7 +11842,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteDBParameterGroupResponse",
-                "dataCtor": "deleteDBParameterGroupResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -11901,8 +11870,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteDBParameterGroup",
-                "dataCtor": "deleteDBParameterGroupMessage",
+                "ctor": "deleteDBParameterGroupMessage",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -11984,7 +11952,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteDBSecurityGroupResponse",
-                "dataCtor": "deleteDBSecurityGroupResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -12013,8 +11980,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteDBSecurityGroup",
-                "dataCtor": "deleteDBSecurityGroupMessage",
+                "ctor": "deleteDBSecurityGroupMessage",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -12094,8 +12060,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteDBSnapshotResponse",
-                "dataCtor": "deleteDBSnapshotResult",
+                "ctor": "deleteDBSnapshotResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -12169,8 +12134,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteDBSnapshot",
-                "dataCtor": "deleteDBSnapshotMessage",
+                "ctor": "deleteDBSnapshotMessage",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -12252,7 +12216,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteDBSubnetGroupResponse",
-                "dataCtor": "deleteDBSubnetGroupResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -12281,8 +12244,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteDBSubnetGroup",
-                "dataCtor": "deleteDBSubnetGroupMessage",
+                "ctor": "deleteDBSubnetGroupMessage",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -12362,8 +12324,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteEventSubscriptionResponse",
-                "dataCtor": "deleteEventSubscriptionResult",
+                "ctor": "deleteEventSubscriptionResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -12437,8 +12398,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteEventSubscription",
-                "dataCtor": "deleteEventSubscriptionMessage",
+                "ctor": "deleteEventSubscriptionMessage",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -12520,7 +12480,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "deleteOptionGroupResponse",
-                "dataCtor": "deleteOptionGroupResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -12549,8 +12508,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "deleteOptionGroup",
-                "dataCtor": "deleteOptionGroupMessage",
+                "ctor": "deleteOptionGroupMessage",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -12630,8 +12588,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "describeDBEngineVersionsResponse",
-                "dataCtor": "dbengineVersionMessage",
+                "ctor": "dbengineVersionMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -12717,8 +12674,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 33,
-                "ctor": "describeDBEngineVersions",
-                "dataCtor": "describeDBEngineVersionsMessage",
+                "ctor": "describeDBEngineVersionsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13015,8 +12971,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "describeDBInstancesResponse",
-                "dataCtor": "dbinstanceMessage",
+                "ctor": "dbinstanceMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -13102,8 +13057,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "describeDBInstances",
-                "dataCtor": "describeDBInstancesMessage",
+                "ctor": "describeDBInstancesMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13269,7 +13223,6 @@
                 "streaming": false,
                 "fieldPad": 25,
                 "ctor": "describeDBLogFilesResponse",
-                "dataCtor": "describeDBLogFilesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -13355,8 +13308,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "describeDBLogFiles",
-                "dataCtor": "describeDBLogFilesMessage",
+                "ctor": "describeDBLogFilesMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13621,8 +13573,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "describeDBParameterGroupsResponse",
-                "dataCtor": "dbparameterGroupsMessage",
+                "ctor": "dbparameterGroupsMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -13708,8 +13659,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "describeDBParameterGroups",
-                "dataCtor": "describeDBParameterGroupsMessage",
+                "ctor": "describeDBParameterGroupsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -13874,8 +13824,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "describeDBParametersResponse",
-                "dataCtor": "dbparameterGroupDetails",
+                "ctor": "dbparameterGroupDetails",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -13961,8 +13910,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "describeDBParameters",
-                "dataCtor": "describeDBParametersMessage",
+                "ctor": "describeDBParametersMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -14161,8 +14109,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "describeDBSecurityGroupsResponse",
-                "dataCtor": "dbsecurityGroupMessage",
+                "ctor": "dbsecurityGroupMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -14248,8 +14195,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "describeDBSecurityGroups",
-                "dataCtor": "describeDBSecurityGroupsMessage",
+                "ctor": "describeDBSecurityGroupsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -14414,8 +14360,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "describeDBSnapshotsResponse",
-                "dataCtor": "dbsnapshotMessage",
+                "ctor": "dbsnapshotMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -14501,8 +14446,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "describeDBSnapshots",
-                "dataCtor": "describeDBSnapshotsMessage",
+                "ctor": "describeDBSnapshotsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -14733,8 +14677,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "describeDBSubnetGroupsResponse",
-                "dataCtor": "dbsubnetGroupMessage",
+                "ctor": "dbsubnetGroupMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -14820,8 +14763,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "describeDBSubnetGroups",
-                "dataCtor": "describeDBSubnetGroupsMessage",
+                "ctor": "describeDBSubnetGroupsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -14986,8 +14928,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeEngineDefaultParametersResponse",
-                "dataCtor": "describeEngineDefaultParametersResult",
+                "ctor": "describeEngineDefaultParametersResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -15059,8 +15000,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "describeEngineDefaultParameters",
-                "dataCtor": "describeEngineDefaultParametersMessage",
+                "ctor": "describeEngineDefaultParametersMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -15227,8 +15167,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "describeEventCategoriesResponse",
-                "dataCtor": "eventCategoriesMessage",
+                "ctor": "eventCategoriesMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -15300,8 +15239,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 15,
-                "ctor": "describeEventCategories",
-                "dataCtor": "describeEventCategoriesMessage",
+                "ctor": "describeEventCategoriesMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -15400,8 +15338,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "describeEventSubscriptionsResponse",
-                "dataCtor": "eventSubscriptionsMessage",
+                "ctor": "eventSubscriptionsMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -15487,8 +15424,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "describeEventSubscriptions",
-                "dataCtor": "describeEventSubscriptionsMessage",
+                "ctor": "describeEventSubscriptionsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -15653,8 +15589,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 9,
-                "ctor": "describeEventsResponse",
-                "dataCtor": "eventsMessage",
+                "ctor": "eventsMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -15740,8 +15675,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "describeEvents",
-                "dataCtor": "describeEventsMessage",
+                "ctor": "describeEventsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -16071,8 +16005,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "describeOptionGroupOptionsResponse",
-                "dataCtor": "optionGroupOptionsMessage",
+                "ctor": "optionGroupOptionsMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -16158,8 +16091,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "describeOptionGroupOptions",
-                "dataCtor": "describeOptionGroupOptionsMessage",
+                "ctor": "describeOptionGroupOptionsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -16358,8 +16290,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "describeOptionGroupsResponse",
-                "dataCtor": "optionGroups",
+                "ctor": "optionGroups",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -16445,8 +16376,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "describeOptionGroups",
-                "dataCtor": "describeOptionGroupsMessage",
+                "ctor": "describeOptionGroupsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -16677,8 +16607,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 33,
-                "ctor": "describeOrderableDBInstanceOptionsResponse",
-                "dataCtor": "orderableDBInstanceOptionsMessage",
+                "ctor": "orderableDBInstanceOptionsMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -16764,8 +16693,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "describeOrderableDBInstanceOptions",
-                "dataCtor": "describeOrderableDBInstanceOptionsMessage",
+                "ctor": "describeOrderableDBInstanceOptionsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -17063,8 +16991,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "describeReservedDBInstancesResponse",
-                "dataCtor": "reservedDBInstanceMessage",
+                "ctor": "reservedDBInstanceMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -17150,8 +17077,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 36,
-                "ctor": "describeReservedDBInstances",
-                "dataCtor": "describeReservedDBInstancesMessage",
+                "ctor": "describeReservedDBInstancesMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -17514,8 +17440,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 35,
-                "ctor": "describeReservedDBInstancesOfferingsResponse",
-                "dataCtor": "reservedDBInstancesOfferingMessage",
+                "ctor": "reservedDBInstancesOfferingMessage",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -17601,8 +17526,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 37,
-                "ctor": "describeReservedDBInstancesOfferings",
-                "dataCtor": "describeReservedDBInstancesOfferingsMessage",
+                "ctor": "describeReservedDBInstancesOfferingsMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -17933,8 +17857,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "downloadDBLogFilePortionResponse",
-                "dataCtor": "downloadDBLogFilePortionDetails",
+                "ctor": "downloadDBLogFilePortionDetails",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -18049,8 +17972,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "downloadDBLogFilePortion",
-                "dataCtor": "downloadDBLogFilePortionMessage",
+                "ctor": "downloadDBLogFilePortionMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -18217,8 +18139,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "listTagsForResourceResponse",
-                "dataCtor": "tagListMessage",
+                "ctor": "tagListMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -18290,8 +18211,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 18,
-                "ctor": "listTagsForResource",
-                "dataCtor": "listTagsForResourceMessage",
+                "ctor": "listTagsForResourceMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -18391,8 +18311,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "modifyDBInstanceResponse",
-                "dataCtor": "modifyDBInstanceResult",
+                "ctor": "modifyDBInstanceResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -18465,8 +18384,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 32,
-                "ctor": "modifyDBInstance",
-                "dataCtor": "modifyDBInstanceMessage",
+                "ctor": "modifyDBInstanceMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -19194,8 +19112,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "modifyDBParameterGroupResponse",
-                "dataCtor": "dbparameterGroupNameMessage",
+                "ctor": "dbparameterGroupNameMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -19267,8 +19184,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "modifyDBParameterGroup",
-                "dataCtor": "modifyDBParameterGroupMessage",
+                "ctor": "modifyDBParameterGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -19368,8 +19284,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "modifyDBSubnetGroupResponse",
-                "dataCtor": "modifyDBSubnetGroupResult",
+                "ctor": "modifyDBSubnetGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -19442,8 +19357,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "modifyDBSubnetGroup",
-                "dataCtor": "modifyDBSubnetGroupMessage",
+                "ctor": "modifyDBSubnetGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -19576,8 +19490,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "modifyEventSubscriptionResponse",
-                "dataCtor": "modifyEventSubscriptionResult",
+                "ctor": "modifyEventSubscriptionResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -19650,8 +19563,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "modifyEventSubscription",
-                "dataCtor": "modifyEventSubscriptionMessage",
+                "ctor": "modifyEventSubscriptionMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -19850,8 +19762,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "modifyOptionGroupResponse",
-                "dataCtor": "modifyOptionGroupResult",
+                "ctor": "modifyOptionGroupResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -19923,8 +19834,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "modifyOptionGroup",
-                "dataCtor": "modifyOptionGroupMessage",
+                "ctor": "modifyOptionGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -20090,8 +20000,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "promoteReadReplicaResponse",
-                "dataCtor": "promoteReadReplicaResult",
+                "ctor": "promoteReadReplicaResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -20164,8 +20073,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "promoteReadReplica",
-                "dataCtor": "promoteReadReplicaMessage",
+                "ctor": "promoteReadReplicaMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -20298,8 +20206,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "purchaseReservedDBInstancesOfferingResponse",
-                "dataCtor": "purchaseReservedDBInstancesOfferingResult",
+                "ctor": "purchaseReservedDBInstancesOfferingResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -20371,8 +20278,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 37,
-                "ctor": "purchaseReservedDBInstancesOffering",
-                "dataCtor": "purchaseReservedDBInstancesOfferingMessage",
+                "ctor": "purchaseReservedDBInstancesOfferingMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -20538,8 +20444,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "rebootDBInstanceResponse",
-                "dataCtor": "rebootDBInstanceResult",
+                "ctor": "rebootDBInstanceResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -20612,8 +20517,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "rebootDBInstance",
-                "dataCtor": "rebootDBInstanceMessage",
+                "ctor": "rebootDBInstanceMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -20713,8 +20617,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "removeSourceIdentifierFromSubscriptionResponse",
-                "dataCtor": "removeSourceIdentifierFromSubscriptionResult",
+                "ctor": "removeSourceIdentifierFromSubscriptionResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -20787,8 +20690,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "removeSourceIdentifierFromSubscription",
-                "dataCtor": "removeSourceIdentifierFromSubscriptionMessage",
+                "ctor": "removeSourceIdentifierFromSubscriptionMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -20889,7 +20791,6 @@
                 "streaming": false,
                 "fieldPad": 0,
                 "ctor": "removeTagsFromResourceResponse",
-                "dataCtor": "removeTagsFromResourceResponse",
                 "wrapper": false,
                 "required": [],
                 "shared": false,
@@ -20917,8 +20818,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 18,
-                "ctor": "removeTagsFromResource",
-                "dataCtor": "removeTagsFromResourceMessage",
+                "ctor": "removeTagsFromResourceMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -21019,8 +20919,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "resetDBParameterGroupResponse",
-                "dataCtor": "dbparameterGroupNameMessage",
+                "ctor": "dbparameterGroupNameMessage",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -21092,8 +20991,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "resetDBParameterGroup",
-                "dataCtor": "resetDBParameterGroupMessage",
+                "ctor": "resetDBParameterGroupMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -21226,8 +21124,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "restoreDBInstanceFromDBSnapshotResponse",
-                "dataCtor": "restoreDBInstanceFromDBSnapshotResult",
+                "ctor": "restoreDBInstanceFromDBSnapshotResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -21299,8 +21196,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 33,
-                "ctor": "restoreDBInstanceFromDBSnapshot",
-                "dataCtor": "restoreDBInstanceFromDBSnapshotMessage",
+                "ctor": "restoreDBInstanceFromDBSnapshotMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -21928,8 +21824,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "restoreDBInstanceToPointInTimeResponse",
-                "dataCtor": "restoreDBInstanceToPointInTimeResult",
+                "ctor": "restoreDBInstanceToPointInTimeResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -22001,8 +21896,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 36,
-                "ctor": "restoreDBInstanceToPointInTime",
-                "dataCtor": "restoreDBInstanceToPointInTimeMessage",
+                "ctor": "restoreDBInstanceToPointInTimeMessage",
                 "headerPad": 0,
                 "path": [
                     {
@@ -22696,8 +22590,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 0,
-                "ctor": "revokeDBSecurityGroupIngressResponse",
-                "dataCtor": "revokeDBSecurityGroupIngressResult",
+                "ctor": "revokeDBSecurityGroupIngressResult",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -22770,8 +22663,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "revokeDBSecurityGroupIngress",
-                "dataCtor": "revokeDBSecurityGroupIngressMessage",
+                "ctor": "revokeDBSecurityGroupIngressMessage",
                 "headerPad": 0,
                 "path": [
                     {

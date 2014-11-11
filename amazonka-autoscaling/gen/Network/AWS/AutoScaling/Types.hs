@@ -245,21 +245,17 @@ module Network.AWS.AutoScaling.Types
 
     -- * ScalingActivityStatusCode
     , ScalingActivityStatusCode (..)
-
-    -- * Common
-    , module Network.AWS.AutoScaling.Internal
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
-import Network.AWS.AutoScaling.Internal
 
 -- | Supported version (@2011-01-01@) of the Amazon Auto Scaling.
 data AutoScaling deriving (Typeable)
 
 instance AWSService AutoScaling where
     type Sg AutoScaling = V4
-    type Er AutoScaling = AutoScalingError
+    type Er AutoScaling = RESTError
 
     service = Service
         { _svcEndpoint = Regional
@@ -1164,9 +1160,9 @@ instance ToQuery ScalingProcessQuery
 
 data Ebs = Ebs
     { _ebsDeleteOnTermination :: Maybe Bool
-    , _ebsIops                :: Maybe Int
+    , _ebsIops                :: Maybe Natural
     , _ebsSnapshotId          :: Maybe Text
-    , _ebsVolumeSize          :: Maybe Int
+    , _ebsVolumeSize          :: Maybe Natural
     , _ebsVolumeType          :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1176,11 +1172,11 @@ data Ebs = Ebs
 --
 -- * 'ebsDeleteOnTermination' @::@ 'Maybe' 'Bool'
 --
--- * 'ebsIops' @::@ 'Maybe' 'Int'
+-- * 'ebsIops' @::@ 'Maybe' 'Natural'
 --
 -- * 'ebsSnapshotId' @::@ 'Maybe' 'Text'
 --
--- * 'ebsVolumeSize' @::@ 'Maybe' 'Int'
+-- * 'ebsVolumeSize' @::@ 'Maybe' 'Natural'
 --
 -- * 'ebsVolumeType' @::@ 'Maybe' 'Text'
 --
@@ -1202,7 +1198,7 @@ ebsDeleteOnTermination =
 -- | The number of I/O operations per second (IOPS) that the volume supports.
 -- The maximum ratio of IOPS to volume size is 30.0 Valid Values: Range is
 -- 100 to 4000. Default: None.
-ebsIops :: Lens' Ebs (Maybe Int)
+ebsIops :: Lens' Ebs (Maybe Natural)
 ebsIops = lens _ebsIops (\s a -> s { _ebsIops = a })
 
 -- | The snapshot ID.
@@ -1213,7 +1209,7 @@ ebsSnapshotId = lens _ebsSnapshotId (\s a -> s { _ebsSnapshotId = a })
 -- the minimum size of the volume is 10. Default: If you're creating the
 -- volume from a snapshot, and you don't specify a volume size, the default
 -- is the snapshot size. Required: Required when the volume type is io1.
-ebsVolumeSize :: Lens' Ebs (Maybe Int)
+ebsVolumeSize :: Lens' Ebs (Maybe Natural)
 ebsVolumeSize = lens _ebsVolumeSize (\s a -> s { _ebsVolumeSize = a })
 
 -- | The volume type. Valid values: standard | io1 Default: standard.

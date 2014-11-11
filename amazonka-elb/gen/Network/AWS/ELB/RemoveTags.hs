@@ -54,7 +54,7 @@ data RemoveTagsInput = RemoveTagsInput
 --
 -- * 'rtiTags' @::@ 'NonEmpty' 'TagKeyOnly'
 --
-removeTagsInput :: List1 TagKeyOnly -- ^ 'rtiTags'
+removeTagsInput :: NonEmpty TagKeyOnly -- ^ 'rtiTags'
                 -> RemoveTagsInput
 removeTagsInput p1 = RemoveTagsInput
     { _rtiTags              = withIso _List1 (const id) p1

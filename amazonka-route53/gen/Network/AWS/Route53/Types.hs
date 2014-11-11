@@ -190,7 +190,7 @@ data Route53 deriving (Typeable)
 
 instance AWSService Route53 where
     type Sg Route53 = V3
-    type Er Route53 = Route53Error
+    type Er Route53 = RESTError
 
     service = Service
         { _svcEndpoint = Global
@@ -403,7 +403,7 @@ instance ToXML GeoLocationDetails where
 data HealthCheck = HealthCheck
     { _hcCallerReference    :: Text
     , _hcHealthCheckConfig  :: HealthCheckConfig
-    , _hcHealthCheckVersion :: Integer
+    , _hcHealthCheckVersion :: Natural
     , _hcId                 :: Text
     } deriving (Eq, Show, Generic)
 
@@ -415,14 +415,14 @@ data HealthCheck = HealthCheck
 --
 -- * 'hcHealthCheckConfig' @::@ 'HealthCheckConfig'
 --
--- * 'hcHealthCheckVersion' @::@ 'Integer'
+-- * 'hcHealthCheckVersion' @::@ 'Natural'
 --
 -- * 'hcId' @::@ 'Text'
 --
 healthCheck :: Text -- ^ 'hcId'
             -> Text -- ^ 'hcCallerReference'
             -> HealthCheckConfig -- ^ 'hcHealthCheckConfig'
-            -> Integer -- ^ 'hcHealthCheckVersion'
+            -> Natural -- ^ 'hcHealthCheckVersion'
             -> HealthCheck
 healthCheck p1 p2 p3 p4 = HealthCheck
     { _hcId                 = p1
@@ -444,7 +444,7 @@ hcHealthCheckConfig =
 -- | The version of the health check. You can optionally pass this value in a
 -- call to UpdateHealthCheck to prevent overwriting another change to the
 -- health check.
-hcHealthCheckVersion :: Lens' HealthCheck Integer
+hcHealthCheckVersion :: Lens' HealthCheck Natural
 hcHealthCheckVersion =
     lens _hcHealthCheckVersion (\s a -> s { _hcHealthCheckVersion = a })
 
@@ -556,11 +556,11 @@ instance ToXML TagResourceType where
     toXMLRoot    = toRoot "TagResourceType"
 
 data HealthCheckConfig = HealthCheckConfig
-    { _hccFailureThreshold         :: Maybe Int
+    { _hccFailureThreshold         :: Maybe Natural
     , _hccFullyQualifiedDomainName :: Maybe Text
     , _hccIPAddress                :: Maybe Text
-    , _hccPort                     :: Maybe Int
-    , _hccRequestInterval          :: Maybe Int
+    , _hccPort                     :: Maybe Natural
+    , _hccRequestInterval          :: Maybe Natural
     , _hccResourcePath             :: Maybe Text
     , _hccSearchString             :: Maybe Text
     , _hccType                     :: Text
@@ -570,15 +570,15 @@ data HealthCheckConfig = HealthCheckConfig
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'hccFailureThreshold' @::@ 'Maybe' 'Int'
+-- * 'hccFailureThreshold' @::@ 'Maybe' 'Natural'
 --
 -- * 'hccFullyQualifiedDomainName' @::@ 'Maybe' 'Text'
 --
 -- * 'hccIPAddress' @::@ 'Maybe' 'Text'
 --
--- * 'hccPort' @::@ 'Maybe' 'Int'
+-- * 'hccPort' @::@ 'Maybe' 'Natural'
 --
--- * 'hccRequestInterval' @::@ 'Maybe' 'Int'
+-- * 'hccRequestInterval' @::@ 'Maybe' 'Natural'
 --
 -- * 'hccResourcePath' @::@ 'Maybe' 'Text'
 --
@@ -604,7 +604,7 @@ healthCheckConfig p1 = HealthCheckConfig
 -- unhealthy to healthy or vice versa. Valid values are integers between 1
 -- and 10. For more information, see "How Amazon Route 53 Determines Whether
 -- an Endpoint Is Healthy" in the Amazon Route 53 Developer Guide.
-hccFailureThreshold :: Lens' HealthCheckConfig (Maybe Int)
+hccFailureThreshold :: Lens' HealthCheckConfig (Maybe Natural)
 hccFailureThreshold =
     lens _hccFailureThreshold (\s a -> s { _hccFailureThreshold = a })
 
@@ -622,14 +622,14 @@ hccIPAddress = lens _hccIPAddress (\s a -> s { _hccIPAddress = a })
 -- For HTTP and HTTP_STR_MATCH this defaults to 80 if the port is not
 -- specified. For HTTPS and HTTPS_STR_MATCH this defaults to 443 if the port
 -- is not specified.
-hccPort :: Lens' HealthCheckConfig (Maybe Int)
+hccPort :: Lens' HealthCheckConfig (Maybe Natural)
 hccPort = lens _hccPort (\s a -> s { _hccPort = a })
 
 -- | The number of seconds between the time that Route 53 gets a response from
 -- your endpoint and the time that it sends the next health-check request.
 -- Each Route 53 health checker makes requests at this interval. Valid
 -- values are 10 and 30. The default value is 30.
-hccRequestInterval :: Lens' HealthCheckConfig (Maybe Int)
+hccRequestInterval :: Lens' HealthCheckConfig (Maybe Natural)
 hccRequestInterval =
     lens _hccRequestInterval (\s a -> s { _hccRequestInterval = a })
 
@@ -807,7 +807,7 @@ data ResourceTagSet = ResourceTagSet
 --
 -- * 'rtsTags' @::@ 'NonEmpty' 'Tag'
 --
-resourceTagSet :: List1 Tag -- ^ 'rtsTags'
+resourceTagSet :: NonEmpty Tag -- ^ 'rtsTags'
                -> ResourceTagSet
 resourceTagSet p1 = ResourceTagSet
     { _rtsTags         = withIso _List1 (const id) p1
@@ -874,7 +874,7 @@ data ChangeBatch = ChangeBatch
 --
 -- * 'cbComment' @::@ 'Maybe' 'Text'
 --
-changeBatch :: List1 Change -- ^ 'cbChanges'
+changeBatch :: NonEmpty Change -- ^ 'cbChanges'
             -> ChangeBatch
 changeBatch p1 = ChangeBatch
     { _cbChanges = withIso _List1 (const id) p1
@@ -1050,9 +1050,9 @@ data ResourceRecordSet = ResourceRecordSet
     , _rrsRegion          :: Maybe Text
     , _rrsResourceRecords :: List1 ResourceRecord
     , _rrsSetIdentifier   :: Maybe Text
-    , _rrsTTL             :: Maybe Integer
+    , _rrsTTL             :: Maybe Natural
     , _rrsType            :: Text
-    , _rrsWeight          :: Maybe Integer
+    , _rrsWeight          :: Maybe Natural
     } deriving (Eq, Show, Generic)
 
 -- | 'ResourceRecordSet' constructor.
@@ -1075,11 +1075,11 @@ data ResourceRecordSet = ResourceRecordSet
 --
 -- * 'rrsSetIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'rrsTTL' @::@ 'Maybe' 'Integer'
+-- * 'rrsTTL' @::@ 'Maybe' 'Natural'
 --
 -- * 'rrsType' @::@ 'Text'
 --
--- * 'rrsWeight' @::@ 'Maybe' 'Integer'
+-- * 'rrsWeight' @::@ 'Maybe' 'Natural'
 --
 resourceRecordSet :: Text -- ^ 'rrsName'
                   -> Text -- ^ 'rrsType'
@@ -1158,7 +1158,7 @@ rrsSetIdentifier :: Lens' ResourceRecordSet (Maybe Text)
 rrsSetIdentifier = lens _rrsSetIdentifier (\s a -> s { _rrsSetIdentifier = a })
 
 -- | The cache time to live for the current resource record set.
-rrsTTL :: Lens' ResourceRecordSet (Maybe Integer)
+rrsTTL :: Lens' ResourceRecordSet (Maybe Natural)
 rrsTTL = lens _rrsTTL (\s a -> s { _rrsTTL = a })
 
 -- | The type of the current resource record set.
@@ -1169,7 +1169,7 @@ rrsType = lens _rrsType (\s a -> s { _rrsType = a })
 -- the same combination of DNS name and type, a value that determines what
 -- portion of traffic for the current resource record set is routed to the
 -- associated location.
-rrsWeight :: Lens' ResourceRecordSet (Maybe Integer)
+rrsWeight :: Lens' ResourceRecordSet (Maybe Natural)
 rrsWeight = lens _rrsWeight (\s a -> s { _rrsWeight = a })
 
 instance FromXML ResourceRecordSet where
@@ -1196,7 +1196,7 @@ data DelegationSet = DelegationSet
 --
 -- * 'dsNameServers' @::@ 'NonEmpty' 'Text'
 --
-delegationSet :: List1 Text -- ^ 'dsNameServers'
+delegationSet :: NonEmpty Text -- ^ 'dsNameServers'
               -> DelegationSet
 delegationSet p1 = DelegationSet
     { _dsNameServers     = withIso _List1 (const id) p1

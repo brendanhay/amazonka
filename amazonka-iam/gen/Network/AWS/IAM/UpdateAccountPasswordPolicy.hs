@@ -53,9 +53,9 @@ import Network.AWS.IAM.Types
 data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     { _uappAllowUsersToChangePassword :: Maybe Bool
     , _uappHardExpiry                 :: Maybe Bool
-    , _uappMaxPasswordAge             :: Maybe Int
-    , _uappMinimumPasswordLength      :: Maybe Int
-    , _uappPasswordReusePrevention    :: Maybe Int
+    , _uappMaxPasswordAge             :: Maybe Natural
+    , _uappMinimumPasswordLength      :: Maybe Natural
+    , _uappPasswordReusePrevention    :: Maybe Natural
     , _uappRequireLowercaseCharacters :: Maybe Bool
     , _uappRequireNumbers             :: Maybe Bool
     , _uappRequireSymbols             :: Maybe Bool
@@ -70,11 +70,11 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
 --
 -- * 'uappHardExpiry' @::@ 'Maybe' 'Bool'
 --
--- * 'uappMaxPasswordAge' @::@ 'Maybe' 'Int'
+-- * 'uappMaxPasswordAge' @::@ 'Maybe' 'Natural'
 --
--- * 'uappMinimumPasswordLength' @::@ 'Maybe' 'Int'
+-- * 'uappMinimumPasswordLength' @::@ 'Maybe' 'Natural'
 --
--- * 'uappPasswordReusePrevention' @::@ 'Maybe' 'Int'
+-- * 'uappPasswordReusePrevention' @::@ 'Maybe' 'Natural'
 --
 -- * 'uappRequireLowercaseCharacters' @::@ 'Maybe' 'Bool'
 --
@@ -112,13 +112,13 @@ uappHardExpiry = lens _uappHardExpiry (\s a -> s { _uappHardExpiry = a })
 
 -- | The number of days that an IAM user password is valid. The default value
 -- of 0 means IAM user passwords never expire. Default value: 0.
-uappMaxPasswordAge :: Lens' UpdateAccountPasswordPolicy (Maybe Int)
+uappMaxPasswordAge :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
 uappMaxPasswordAge =
     lens _uappMaxPasswordAge (\s a -> s { _uappMaxPasswordAge = a })
 
 -- | The minimum number of characters allowed in an IAM user password. Default
 -- value: 6.
-uappMinimumPasswordLength :: Lens' UpdateAccountPasswordPolicy (Maybe Int)
+uappMinimumPasswordLength :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
 uappMinimumPasswordLength =
     lens _uappMinimumPasswordLength
         (\s a -> s { _uappMinimumPasswordLength = a })
@@ -126,7 +126,7 @@ uappMinimumPasswordLength =
 -- | Specifies the number of previous passwords that IAM users are prevented
 -- from reusing. The default value of 0 means IAM users are not prevented
 -- from reusing previous passwords. Default value: 0.
-uappPasswordReusePrevention :: Lens' UpdateAccountPasswordPolicy (Maybe Int)
+uappPasswordReusePrevention :: Lens' UpdateAccountPasswordPolicy (Maybe Natural)
 uappPasswordReusePrevention =
     lens _uappPasswordReusePrevention
         (\s a -> s { _uappPasswordReusePrevention = a })

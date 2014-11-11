@@ -83,7 +83,6 @@ library
         , Network.AWS.AutoScaling.UpdateAutoScalingGroup
 
     other-modules:
-          Network.AWS.AutoScaling.Internal
 
     build-depends:
           amazonka-core

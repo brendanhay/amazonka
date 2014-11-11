@@ -55,7 +55,7 @@ data SecurityToken deriving (Typeable)
 
 instance AWSService SecurityToken where
     type Sg SecurityToken = V4
-    type Er SecurityToken = SecurityTokenError
+    type Er SecurityToken = RESTError
 
     service = Service
         { _svcEndpoint = Global

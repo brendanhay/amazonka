@@ -50,7 +50,7 @@ import Network.AWS.IAM.Types
 
 data ListServerCertificates = ListServerCertificates
     { _lscMarker     :: Maybe Text
-    , _lscMaxItems   :: Maybe Int
+    , _lscMaxItems   :: Maybe Natural
     , _lscPathPrefix :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -60,7 +60,7 @@ data ListServerCertificates = ListServerCertificates
 --
 -- * 'lscMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lscMaxItems' @::@ 'Maybe' 'Int'
+-- * 'lscMaxItems' @::@ 'Maybe' 'Natural'
 --
 -- * 'lscPathPrefix' @::@ 'Maybe' 'Text'
 --
@@ -82,7 +82,7 @@ lscMarker = lens _lscMarker (\s a -> s { _lscMarker = a })
 -- server certificates beyond the maximum you specify, the IsTruncated
 -- response element will be set to true. This parameter is optional. If you
 -- do not include it, it defaults to 100.
-lscMaxItems :: Lens' ListServerCertificates (Maybe Int)
+lscMaxItems :: Lens' ListServerCertificates (Maybe Natural)
 lscMaxItems = lens _lscMaxItems (\s a -> s { _lscMaxItems = a })
 
 -- | The path prefix for filtering the results. For example:

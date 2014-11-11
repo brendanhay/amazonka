@@ -49,7 +49,7 @@ import Network.AWS.IAM.Types
 
 data ListGroupsForUser = ListGroupsForUser
     { _lgfuMarker   :: Maybe Text
-    , _lgfuMaxItems :: Maybe Int
+    , _lgfuMaxItems :: Maybe Natural
     , _lgfuUserName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -59,7 +59,7 @@ data ListGroupsForUser = ListGroupsForUser
 --
 -- * 'lgfuMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lgfuMaxItems' @::@ 'Maybe' 'Int'
+-- * 'lgfuMaxItems' @::@ 'Maybe' 'Natural'
 --
 -- * 'lgfuUserName' @::@ 'Text'
 --
@@ -81,7 +81,7 @@ lgfuMarker = lens _lgfuMarker (\s a -> s { _lgfuMarker = a })
 -- groups you want in the response. If there are additional groups beyond
 -- the maximum you specify, the IsTruncated response element is true. This
 -- parameter is optional. If you do not include it, it defaults to 100.
-lgfuMaxItems :: Lens' ListGroupsForUser (Maybe Int)
+lgfuMaxItems :: Lens' ListGroupsForUser (Maybe Natural)
 lgfuMaxItems = lens _lgfuMaxItems (\s a -> s { _lgfuMaxItems = a })
 
 -- | The name of the user to list groups for.

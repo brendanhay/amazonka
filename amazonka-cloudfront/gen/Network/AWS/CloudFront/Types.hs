@@ -387,21 +387,17 @@ module Network.AWS.CloudFront.Types
     , lcEnabled
     , lcIncludeCookies
     , lcPrefix
-
-    -- * Common
-    , module Network.AWS.CloudFront.Internal
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
-import Network.AWS.CloudFront.Internal
 
 -- | Supported version (@2014-05-31@) of the Amazon CloudFront.
 data CloudFront deriving (Typeable)
 
 instance AWSService CloudFront where
     type Sg CloudFront = V4
-    type Er CloudFront = CloudFrontError
+    type Er CloudFront = RESTError
 
     service = Service
         { _svcEndpoint = Global

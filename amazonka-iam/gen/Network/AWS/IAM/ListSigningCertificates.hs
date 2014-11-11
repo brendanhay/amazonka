@@ -56,7 +56,7 @@ import Network.AWS.IAM.Types
 
 data ListSigningCertificates = ListSigningCertificates
     { _lsc1Marker   :: Maybe Text
-    , _lsc1MaxItems :: Maybe Int
+    , _lsc1MaxItems :: Maybe Natural
     , _lsc1UserName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -66,7 +66,7 @@ data ListSigningCertificates = ListSigningCertificates
 --
 -- * 'lsc1Marker' @::@ 'Maybe' 'Text'
 --
--- * 'lsc1MaxItems' @::@ 'Maybe' 'Int'
+-- * 'lsc1MaxItems' @::@ 'Maybe' 'Natural'
 --
 -- * 'lsc1UserName' @::@ 'Maybe' 'Text'
 --
@@ -88,7 +88,7 @@ lsc1Marker = lens _lsc1Marker (\s a -> s { _lsc1Marker = a })
 -- certificate IDs beyond the maximum you specify, the IsTruncated response
 -- element is true. This parameter is optional. If you do not include it, it
 -- defaults to 100.
-lsc1MaxItems :: Lens' ListSigningCertificates (Maybe Int)
+lsc1MaxItems :: Lens' ListSigningCertificates (Maybe Natural)
 lsc1MaxItems = lens _lsc1MaxItems (\s a -> s { _lsc1MaxItems = a })
 
 -- | The name of the user.

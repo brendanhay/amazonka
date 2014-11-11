@@ -67,7 +67,7 @@ data CreateStackInput = CreateStackInput
     , _csiTags             :: [Tag]
     , _csiTemplateBody     :: Maybe Text
     , _csiTemplateURL      :: Maybe Text
-    , _csiTimeoutInMinutes :: Maybe Int
+    , _csiTimeoutInMinutes :: Maybe Natural
     } deriving (Eq, Show, Generic)
 
 -- | 'CreateStackInput' constructor.
@@ -96,7 +96,7 @@ data CreateStackInput = CreateStackInput
 --
 -- * 'csiTemplateURL' @::@ 'Maybe' 'Text'
 --
--- * 'csiTimeoutInMinutes' @::@ 'Maybe' 'Int'
+-- * 'csiTimeoutInMinutes' @::@ 'Maybe' 'Natural'
 --
 createStackInput :: Text -- ^ 'csiStackName'
                  -> CreateStackInput
@@ -198,7 +198,7 @@ csiTemplateURL = lens _csiTemplateURL (\s a -> s { _csiTemplateURL = a })
 -- | The amount of time that can pass before the stack status becomes
 -- CREATE_FAILED; if DisableRollback is not set or is set to false, the
 -- stack will be rolled back.
-csiTimeoutInMinutes :: Lens' CreateStackInput (Maybe Int)
+csiTimeoutInMinutes :: Lens' CreateStackInput (Maybe Natural)
 csiTimeoutInMinutes =
     lens _csiTimeoutInMinutes (\s a -> s { _csiTimeoutInMinutes = a })
 instance ToQuery CreateStackInput

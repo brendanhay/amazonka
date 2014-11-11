@@ -52,7 +52,7 @@ import Network.AWS.IAM.Types
 
 data ListMFADevices = ListMFADevices
     { _lmfadMarker   :: Maybe Text
-    , _lmfadMaxItems :: Maybe Int
+    , _lmfadMaxItems :: Maybe Natural
     , _lmfadUserName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -62,7 +62,7 @@ data ListMFADevices = ListMFADevices
 --
 -- * 'lmfadMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lmfadMaxItems' @::@ 'Maybe' 'Int'
+-- * 'lmfadMaxItems' @::@ 'Maybe' 'Natural'
 --
 -- * 'lmfadUserName' @::@ 'Maybe' 'Text'
 --
@@ -83,7 +83,7 @@ lmfadMarker = lens _lmfadMarker (\s a -> s { _lmfadMarker = a })
 -- MFA devices you want in the response. If there are additional MFA devices
 -- beyond the maximum you specify, the IsTruncated response element is true.
 -- This parameter is optional. If you do not include it, it defaults to 100.
-lmfadMaxItems :: Lens' ListMFADevices (Maybe Int)
+lmfadMaxItems :: Lens' ListMFADevices (Maybe Natural)
 lmfadMaxItems = lens _lmfadMaxItems (\s a -> s { _lmfadMaxItems = a })
 
 -- | The name of the user whose MFA devices you want to list.

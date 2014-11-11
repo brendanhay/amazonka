@@ -156,7 +156,7 @@ data CloudFormation deriving (Typeable)
 
 instance AWSService CloudFormation where
     type Sg CloudFormation = V4
-    type Er CloudFormation = CloudFormationError
+    type Er CloudFormation = RESTError
 
     service = Service
         { _svcEndpoint = Regional
@@ -925,7 +925,7 @@ data Stack = Stack
     , _sStackStatus       :: Text
     , _sStackStatusReason :: Maybe Text
     , _sTags              :: [Tag]
-    , _sTimeoutInMinutes  :: Maybe Int
+    , _sTimeoutInMinutes  :: Maybe Natural
     } deriving (Eq, Show, Generic)
 
 -- | 'Stack' constructor.
@@ -958,7 +958,7 @@ data Stack = Stack
 --
 -- * 'sTags' @::@ ['Tag']
 --
--- * 'sTimeoutInMinutes' @::@ 'Maybe' 'Int'
+-- * 'sTimeoutInMinutes' @::@ 'Maybe' 'Natural'
 --
 stack :: Text -- ^ 'sStackName'
       -> UTCTime -- ^ 'sCreationTime'
@@ -1040,7 +1040,7 @@ sTags :: Lens' Stack [Tag]
 sTags = lens _sTags (\s a -> s { _sTags = a })
 
 -- | The amount of time within which stack creation should complete.
-sTimeoutInMinutes :: Lens' Stack (Maybe Int)
+sTimeoutInMinutes :: Lens' Stack (Maybe Natural)
 sTimeoutInMinutes =
     lens _sTimeoutInMinutes (\s a -> s { _sTimeoutInMinutes = a })
 

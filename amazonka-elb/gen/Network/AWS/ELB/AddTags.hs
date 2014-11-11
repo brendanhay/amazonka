@@ -59,7 +59,7 @@ data AddTagsInput = AddTagsInput
 --
 -- * 'atiTags' @::@ 'NonEmpty' 'Tag'
 --
-addTagsInput :: List1 Tag -- ^ 'atiTags'
+addTagsInput :: NonEmpty Tag -- ^ 'atiTags'
              -> AddTagsInput
 addTagsInput p1 = AddTagsInput
     { _atiTags              = withIso _List1 (const id) p1

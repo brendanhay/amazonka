@@ -66,12 +66,12 @@ data PutMetricAlarmInput = PutMetricAlarmInput
     , _pmaiAlarmName               :: Text
     , _pmaiComparisonOperator      :: Text
     , _pmaiDimensions              :: [Dimension]
-    , _pmaiEvaluationPeriods       :: Int
+    , _pmaiEvaluationPeriods       :: Natural
     , _pmaiInsufficientDataActions :: [Text]
     , _pmaiMetricName              :: Text
     , _pmaiNamespace               :: Text
     , _pmaiOKActions               :: [Text]
-    , _pmaiPeriod                  :: Int
+    , _pmaiPeriod                  :: Natural
     , _pmaiStatistic               :: Text
     , _pmaiThreshold               :: Double
     , _pmaiUnit                    :: Maybe Text
@@ -93,7 +93,7 @@ data PutMetricAlarmInput = PutMetricAlarmInput
 --
 -- * 'pmaiDimensions' @::@ ['Dimension']
 --
--- * 'pmaiEvaluationPeriods' @::@ 'Int'
+-- * 'pmaiEvaluationPeriods' @::@ 'Natural'
 --
 -- * 'pmaiInsufficientDataActions' @::@ ['Text']
 --
@@ -103,7 +103,7 @@ data PutMetricAlarmInput = PutMetricAlarmInput
 --
 -- * 'pmaiOKActions' @::@ ['Text']
 --
--- * 'pmaiPeriod' @::@ 'Int'
+-- * 'pmaiPeriod' @::@ 'Natural'
 --
 -- * 'pmaiStatistic' @::@ 'Text'
 --
@@ -115,8 +115,8 @@ putMetricAlarmInput :: Text -- ^ 'pmaiAlarmName'
                     -> Text -- ^ 'pmaiMetricName'
                     -> Text -- ^ 'pmaiNamespace'
                     -> Text -- ^ 'pmaiStatistic'
-                    -> Int -- ^ 'pmaiPeriod'
-                    -> Int -- ^ 'pmaiEvaluationPeriods'
+                    -> Natural -- ^ 'pmaiPeriod'
+                    -> Natural -- ^ 'pmaiEvaluationPeriods'
                     -> Double -- ^ 'pmaiThreshold'
                     -> Text -- ^ 'pmaiComparisonOperator'
                     -> PutMetricAlarmInput
@@ -174,7 +174,7 @@ pmaiDimensions = lens _pmaiDimensions (\s a -> s { _pmaiDimensions = a })
 
 -- | The number of periods over which data is compared to the specified
 -- threshold.
-pmaiEvaluationPeriods :: Lens' PutMetricAlarmInput Int
+pmaiEvaluationPeriods :: Lens' PutMetricAlarmInput Natural
 pmaiEvaluationPeriods =
     lens _pmaiEvaluationPeriods (\s a -> s { _pmaiEvaluationPeriods = a })
 
@@ -203,7 +203,7 @@ pmaiOKActions :: Lens' PutMetricAlarmInput [Text]
 pmaiOKActions = lens _pmaiOKActions (\s a -> s { _pmaiOKActions = a })
 
 -- | The period in seconds over which the specified statistic is applied.
-pmaiPeriod :: Lens' PutMetricAlarmInput Int
+pmaiPeriod :: Lens' PutMetricAlarmInput Natural
 pmaiPeriod = lens _pmaiPeriod (\s a -> s { _pmaiPeriod = a })
 
 -- | The statistic to apply to the alarm's associated metric.

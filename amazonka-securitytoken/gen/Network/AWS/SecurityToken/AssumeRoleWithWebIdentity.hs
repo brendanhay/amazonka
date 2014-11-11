@@ -99,7 +99,7 @@ import Network.AWS.Request.Query
 import Network.AWS.SecurityToken.Types
 
 data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity
-    { _arwwiDurationSeconds  :: Maybe Int
+    { _arwwiDurationSeconds  :: Maybe Natural
     , _arwwiPolicy           :: Maybe Text
     , _arwwiProviderId       :: Maybe Text
     , _arwwiRoleArn          :: Text
@@ -111,7 +111,7 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'arwwiDurationSeconds' @::@ 'Maybe' 'Int'
+-- * 'arwwiDurationSeconds' @::@ 'Maybe' 'Natural'
 --
 -- * 'arwwiPolicy' @::@ 'Maybe' 'Text'
 --
@@ -139,7 +139,7 @@ assumeRoleWithWebIdentity p1 p2 p3 = AssumeRoleWithWebIdentity
 -- | The duration, in seconds, of the role session. The value can range from
 -- 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value
 -- is set to 3600 seconds.
-arwwiDurationSeconds :: Lens' AssumeRoleWithWebIdentity (Maybe Int)
+arwwiDurationSeconds :: Lens' AssumeRoleWithWebIdentity (Maybe Natural)
 arwwiDurationSeconds =
     lens _arwwiDurationSeconds (\s a -> s { _arwwiDurationSeconds = a })
 
@@ -194,7 +194,7 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
     { _arwwirAssumedRoleUser             :: Maybe AssumedRoleUser
     , _arwwirAudience                    :: Maybe Text
     , _arwwirCredentials                 :: Maybe Credentials
-    , _arwwirPackedPolicySize            :: Maybe Int
+    , _arwwirPackedPolicySize            :: Maybe Natural
     , _arwwirProvider                    :: Maybe Text
     , _arwwirSubjectFromWebIdentityToken :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -209,7 +209,7 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
 --
 -- * 'arwwirCredentials' @::@ 'Maybe' 'Credentials'
 --
--- * 'arwwirPackedPolicySize' @::@ 'Maybe' 'Int'
+-- * 'arwwirPackedPolicySize' @::@ 'Maybe' 'Natural'
 --
 -- * 'arwwirProvider' @::@ 'Maybe' 'Text'
 --
@@ -250,7 +250,7 @@ arwwirCredentials =
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100
 -- percent, which means the policy exceeded the allowed space.
-arwwirPackedPolicySize :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Int)
+arwwirPackedPolicySize :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Natural)
 arwwirPackedPolicySize =
     lens _arwwirPackedPolicySize (\s a -> s { _arwwirPackedPolicySize = a })
 

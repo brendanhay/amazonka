@@ -52,7 +52,7 @@ newtype DescribeTagsInput = DescribeTagsInput
 --
 -- * 'dtiLoadBalancerNames' @::@ 'NonEmpty' 'Text'
 --
-describeTagsInput :: List1 Text -- ^ 'dtiLoadBalancerNames'
+describeTagsInput :: NonEmpty Text -- ^ 'dtiLoadBalancerNames'
                   -> DescribeTagsInput
 describeTagsInput p1 = DescribeTagsInput
     { _dtiLoadBalancerNames = withIso _List1 (const id) p1

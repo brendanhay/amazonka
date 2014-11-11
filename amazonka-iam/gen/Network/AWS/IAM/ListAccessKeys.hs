@@ -55,7 +55,7 @@ import Network.AWS.IAM.Types
 
 data ListAccessKeys = ListAccessKeys
     { _lakMarker   :: Maybe Text
-    , _lakMaxItems :: Maybe Int
+    , _lakMaxItems :: Maybe Natural
     , _lakUserName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -65,7 +65,7 @@ data ListAccessKeys = ListAccessKeys
 --
 -- * 'lakMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lakMaxItems' @::@ 'Maybe' 'Int'
+-- * 'lakMaxItems' @::@ 'Maybe' 'Natural'
 --
 -- * 'lakUserName' @::@ 'Maybe' 'Text'
 --
@@ -87,7 +87,7 @@ lakMarker = lens _lakMarker (\s a -> s { _lakMarker = a })
 -- number of keys you want in the response. If there are additional keys
 -- beyond the maximum you specify, the IsTruncated response element is true.
 -- This parameter is optional. If you do not include it, it defaults to 100.
-lakMaxItems :: Lens' ListAccessKeys (Maybe Int)
+lakMaxItems :: Lens' ListAccessKeys (Maybe Natural)
 lakMaxItems = lens _lakMaxItems (\s a -> s { _lakMaxItems = a })
 
 -- | The name of the user.

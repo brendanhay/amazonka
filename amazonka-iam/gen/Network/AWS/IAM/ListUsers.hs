@@ -51,7 +51,7 @@ import Network.AWS.IAM.Types
 
 data ListUsers = ListUsers
     { _luMarker     :: Maybe Text
-    , _luMaxItems   :: Maybe Int
+    , _luMaxItems   :: Maybe Natural
     , _luPathPrefix :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -61,7 +61,7 @@ data ListUsers = ListUsers
 --
 -- * 'luMarker' @::@ 'Maybe' 'Text'
 --
--- * 'luMaxItems' @::@ 'Maybe' 'Int'
+-- * 'luMaxItems' @::@ 'Maybe' 'Natural'
 --
 -- * 'luPathPrefix' @::@ 'Maybe' 'Text'
 --
@@ -84,7 +84,7 @@ luMarker = lens _luMarker (\s a -> s { _luMarker = a })
 -- user names beyond the maximum you specify, the IsTruncated response
 -- element is true. This parameter is optional. If you do not include it, it
 -- defaults to 100.
-luMaxItems :: Lens' ListUsers (Maybe Int)
+luMaxItems :: Lens' ListUsers (Maybe Natural)
 luMaxItems = lens _luMaxItems (\s a -> s { _luMaxItems = a })
 
 -- | The path prefix for filtering the results. For example:

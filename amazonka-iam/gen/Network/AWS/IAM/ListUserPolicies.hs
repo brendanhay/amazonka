@@ -50,7 +50,7 @@ import Network.AWS.IAM.Types
 
 data ListUserPolicies = ListUserPolicies
     { _lupMarker   :: Maybe Text
-    , _lupMaxItems :: Maybe Int
+    , _lupMaxItems :: Maybe Natural
     , _lupUserName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -60,7 +60,7 @@ data ListUserPolicies = ListUserPolicies
 --
 -- * 'lupMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lupMaxItems' @::@ 'Maybe' 'Int'
+-- * 'lupMaxItems' @::@ 'Maybe' 'Natural'
 --
 -- * 'lupUserName' @::@ 'Text'
 --
@@ -83,7 +83,7 @@ lupMarker = lens _lupMarker (\s a -> s { _lupMarker = a })
 -- names beyond the maximum you specify, the IsTruncated response element is
 -- true. This parameter is optional. If you do not include it, it defaults
 -- to 100.
-lupMaxItems :: Lens' ListUserPolicies (Maybe Int)
+lupMaxItems :: Lens' ListUserPolicies (Maybe Natural)
 lupMaxItems = lens _lupMaxItems (\s a -> s { _lupMaxItems = a })
 
 -- | The name of the user to list policies for.

@@ -68,7 +68,7 @@ data SNS deriving (Typeable)
 
 instance AWSService SNS where
     type Sg SNS = V4
-    type Er SNS = SNSError
+    type Er SNS = RESTError
 
     service = Service
         { _svcEndpoint = Regional

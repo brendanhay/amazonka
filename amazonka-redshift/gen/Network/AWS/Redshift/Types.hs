@@ -362,7 +362,7 @@ data Redshift deriving (Typeable)
 
 instance AWSService Redshift where
     type Sg Redshift = V4
-    type Er Redshift = RedshiftError
+    type Er Redshift = RESTError
 
     service = Service
         { _svcEndpoint = Regional

@@ -1,6 +1,6 @@
 {-# LANGUAGE DeriveGeneric #-}
 
--- Module      : Network.AWS.AutoScaling.Internal
+-- Module      : Network.AWS.EC2.Internal
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,30 +10,32 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Network.AWS.AutoScaling.Internal where
+module Network.AWS.EC2.Internal where
 
 import GHC.Generics
 import Network.AWS.Data
 import Network.AWS.Prelude
 
-data ErrorType
-    = Receiver
-    | Sender
-      deriving (Eq, Ord, Enum, Show, Generic)
-
-instance FromXML ErrorType
-
 data Message = Message
-    { _msgType    :: !ErrorType
-    , _msgCode    :: Text
+    { _msgCode    :: Text
     , _msgMessage :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 instance FromXML Message
 
-data AutoScalingError = AutoScalingError
-    { _errError     :: Message
-    , _errRequestId :: Text
-    } deriving (Eq, Show, Generic)
+data EC2Error = EC2Error
+    { _errErrors    :: [Message]
+    , _errRequestID :: Text
+    } deriving (Eq, Ord, Show, Generic)
 
-instance FromXML AutoScalingError
+instance FromXML EC2Error
+
+-- <Response>
+--     <Errors>
+--          <Error>
+--            <Code>Error code text</Code>
+--            <Message>Error message</Message>
+--          </Error>
+--     </Errors>
+--     <RequestID>request ID</RequestID>
+-- </Response>

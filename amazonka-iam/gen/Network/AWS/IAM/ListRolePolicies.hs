@@ -50,7 +50,7 @@ import Network.AWS.IAM.Types
 
 data ListRolePolicies = ListRolePolicies
     { _lrpMarker   :: Maybe Text
-    , _lrpMaxItems :: Maybe Int
+    , _lrpMaxItems :: Maybe Natural
     , _lrpRoleName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -60,7 +60,7 @@ data ListRolePolicies = ListRolePolicies
 --
 -- * 'lrpMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lrpMaxItems' @::@ 'Maybe' 'Int'
+-- * 'lrpMaxItems' @::@ 'Maybe' 'Natural'
 --
 -- * 'lrpRoleName' @::@ 'Text'
 --
@@ -84,7 +84,7 @@ lrpMarker = lens _lrpMarker (\s a -> s { _lrpMarker = a })
 -- role policies beyond the maximum you specify, the IsTruncated response
 -- element is true. This parameter is optional. If you do not include it, it
 -- defaults to 100.
-lrpMaxItems :: Lens' ListRolePolicies (Maybe Int)
+lrpMaxItems :: Lens' ListRolePolicies (Maybe Natural)
 lrpMaxItems = lens _lrpMaxItems (\s a -> s { _lrpMaxItems = a })
 
 -- | The name of the role to list policies for.

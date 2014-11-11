@@ -62,7 +62,6 @@ library
         , Network.AWS.CloudFront.UpdateStreamingDistribution
 
     other-modules:
-          Network.AWS.CloudFront.Internal
 
     build-depends:
           amazonka-core

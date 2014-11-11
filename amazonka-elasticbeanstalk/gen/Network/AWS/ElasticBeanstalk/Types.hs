@@ -271,7 +271,7 @@ data ElasticBeanstalk deriving (Typeable)
 
 instance AWSService ElasticBeanstalk where
     type Sg ElasticBeanstalk = V4
-    type Er ElasticBeanstalk = ElasticBeanstalkError
+    type Er ElasticBeanstalk = RESTError
 
     service = Service
         { _svcEndpoint = Regional

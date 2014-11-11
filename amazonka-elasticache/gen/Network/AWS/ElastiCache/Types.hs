@@ -330,7 +330,7 @@ data ElastiCache deriving (Typeable)
 
 instance AWSService ElastiCache where
     type Sg ElastiCache = V4
-    type Er ElastiCache = ElastiCacheError
+    type Er ElastiCache = RESTError
 
     service = Service
         { _svcEndpoint = Regional

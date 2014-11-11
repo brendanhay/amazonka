@@ -67,7 +67,7 @@ import Network.AWS.Request.Query
 import Network.AWS.SecurityToken.Types
 
 data GetSessionToken = GetSessionToken
-    { _gstDurationSeconds :: Maybe Int
+    { _gstDurationSeconds :: Maybe Natural
     , _gstSerialNumber    :: Maybe Text
     , _gstTokenCode       :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -76,7 +76,7 @@ data GetSessionToken = GetSessionToken
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gstDurationSeconds' @::@ 'Maybe' 'Int'
+-- * 'gstDurationSeconds' @::@ 'Maybe' 'Natural'
 --
 -- * 'gstSerialNumber' @::@ 'Maybe' 'Text'
 --
@@ -95,7 +95,7 @@ getSessionToken = GetSessionToken
 -- the default. Sessions for AWS account owners are restricted to a maximum
 -- of 3600 seconds (one hour). If the duration is longer than one hour, the
 -- session for AWS account owners defaults to one hour.
-gstDurationSeconds :: Lens' GetSessionToken (Maybe Int)
+gstDurationSeconds :: Lens' GetSessionToken (Maybe Natural)
 gstDurationSeconds =
     lens _gstDurationSeconds (\s a -> s { _gstDurationSeconds = a })
 

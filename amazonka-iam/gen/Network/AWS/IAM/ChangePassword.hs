@@ -57,7 +57,7 @@ data ChangePassword = ChangePassword
 --
 -- * 'cpOldPassword' @::@ 'Text'
 --
-changePassword :: Sensitive Text -- ^ 'cpOldPassword'
+changePassword :: Text -- ^ 'cpOldPassword'
                -> Text -- ^ 'cpNewPassword'
                -> ChangePassword
 changePassword p1 p2 = ChangePassword

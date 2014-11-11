@@ -181,7 +181,7 @@ data IAM deriving (Typeable)
 
 instance AWSService IAM where
     type Sg IAM = V4
-    type Er IAM = IAMError
+    type Er IAM = RESTError
 
     service = Service
         { _svcEndpoint = Global
@@ -227,9 +227,9 @@ data PasswordPolicy = PasswordPolicy
     { _ppAllowUsersToChangePassword :: Maybe Bool
     , _ppExpirePasswords            :: Maybe Bool
     , _ppHardExpiry                 :: Maybe Bool
-    , _ppMaxPasswordAge             :: Maybe Int
-    , _ppMinimumPasswordLength      :: Maybe Int
-    , _ppPasswordReusePrevention    :: Maybe Int
+    , _ppMaxPasswordAge             :: Maybe Natural
+    , _ppMinimumPasswordLength      :: Maybe Natural
+    , _ppPasswordReusePrevention    :: Maybe Natural
     , _ppRequireLowercaseCharacters :: Maybe Bool
     , _ppRequireNumbers             :: Maybe Bool
     , _ppRequireSymbols             :: Maybe Bool
@@ -246,11 +246,11 @@ data PasswordPolicy = PasswordPolicy
 --
 -- * 'ppHardExpiry' @::@ 'Maybe' 'Bool'
 --
--- * 'ppMaxPasswordAge' @::@ 'Maybe' 'Int'
+-- * 'ppMaxPasswordAge' @::@ 'Maybe' 'Natural'
 --
--- * 'ppMinimumPasswordLength' @::@ 'Maybe' 'Int'
+-- * 'ppMinimumPasswordLength' @::@ 'Maybe' 'Natural'
 --
--- * 'ppPasswordReusePrevention' @::@ 'Maybe' 'Int'
+-- * 'ppPasswordReusePrevention' @::@ 'Maybe' 'Natural'
 --
 -- * 'ppRequireLowercaseCharacters' @::@ 'Maybe' 'Bool'
 --
@@ -292,17 +292,17 @@ ppHardExpiry :: Lens' PasswordPolicy (Maybe Bool)
 ppHardExpiry = lens _ppHardExpiry (\s a -> s { _ppHardExpiry = a })
 
 -- | The number of days that an IAM user password is valid.
-ppMaxPasswordAge :: Lens' PasswordPolicy (Maybe Int)
+ppMaxPasswordAge :: Lens' PasswordPolicy (Maybe Natural)
 ppMaxPasswordAge = lens _ppMaxPasswordAge (\s a -> s { _ppMaxPasswordAge = a })
 
 -- | Minimum length to require for IAM user passwords.
-ppMinimumPasswordLength :: Lens' PasswordPolicy (Maybe Int)
+ppMinimumPasswordLength :: Lens' PasswordPolicy (Maybe Natural)
 ppMinimumPasswordLength =
     lens _ppMinimumPasswordLength (\s a -> s { _ppMinimumPasswordLength = a })
 
 -- | Specifies the number of previous passwords that IAM users are prevented
 -- from reusing.
-ppPasswordReusePrevention :: Lens' PasswordPolicy (Maybe Int)
+ppPasswordReusePrevention :: Lens' PasswordPolicy (Maybe Natural)
 ppPasswordReusePrevention =
     lens _ppPasswordReusePrevention
         (\s a -> s { _ppPasswordReusePrevention = a })

@@ -51,7 +51,7 @@ import Network.AWS.IAM.Types
 
 data ListInstanceProfilesForRole = ListInstanceProfilesForRole
     { _lipfrMarker   :: Maybe Text
-    , _lipfrMaxItems :: Maybe Int
+    , _lipfrMaxItems :: Maybe Natural
     , _lipfrRoleName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -61,7 +61,7 @@ data ListInstanceProfilesForRole = ListInstanceProfilesForRole
 --
 -- * 'lipfrMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lipfrMaxItems' @::@ 'Maybe' 'Int'
+-- * 'lipfrMaxItems' @::@ 'Maybe' 'Natural'
 --
 -- * 'lipfrRoleName' @::@ 'Text'
 --
@@ -85,7 +85,7 @@ lipfrMarker = lens _lipfrMarker (\s a -> s { _lipfrMarker = a })
 -- additional instance profiles beyond the maximum you specify, the
 -- IsTruncated response element is true. This parameter is optional. If you
 -- do not include it, it defaults to 100.
-lipfrMaxItems :: Lens' ListInstanceProfilesForRole (Maybe Int)
+lipfrMaxItems :: Lens' ListInstanceProfilesForRole (Maybe Natural)
 lipfrMaxItems = lens _lipfrMaxItems (\s a -> s { _lipfrMaxItems = a })
 
 -- | The name of the role to list instance profiles for.

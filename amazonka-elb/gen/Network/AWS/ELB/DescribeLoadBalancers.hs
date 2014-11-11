@@ -52,7 +52,7 @@ import Network.AWS.ELB.Types
 data DescribeAccessPointsInput = DescribeAccessPointsInput
     { _dapiLoadBalancerNames :: [Text]
     , _dapiMarker            :: Maybe Text
-    , _dapiPageSize          :: Maybe Int
+    , _dapiPageSize          :: Maybe Natural
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAccessPointsInput' constructor.
@@ -63,7 +63,7 @@ data DescribeAccessPointsInput = DescribeAccessPointsInput
 --
 -- * 'dapiMarker' @::@ 'Maybe' 'Text'
 --
--- * 'dapiPageSize' @::@ 'Maybe' 'Int'
+-- * 'dapiPageSize' @::@ 'Maybe' 'Natural'
 --
 describeAccessPointsInput :: DescribeAccessPointsInput
 describeAccessPointsInput = DescribeAccessPointsInput
@@ -84,7 +84,7 @@ dapiMarker = lens _dapiMarker (\s a -> s { _dapiMarker = a })
 
 -- | The number of results returned in each page. The default is 400. You
 -- cannot specify a page size greater than 400 or less than 1.
-dapiPageSize :: Lens' DescribeAccessPointsInput (Maybe Int)
+dapiPageSize :: Lens' DescribeAccessPointsInput (Maybe Natural)
 dapiPageSize = lens _dapiPageSize (\s a -> s { _dapiPageSize = a })
 instance ToQuery DescribeAccessPointsInput
 

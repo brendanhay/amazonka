@@ -96,7 +96,7 @@ import Network.AWS.Request.Query
 import Network.AWS.SecurityToken.Types
 
 data GetFederationToken = GetFederationToken
-    { _gftDurationSeconds :: Maybe Int
+    { _gftDurationSeconds :: Maybe Natural
     , _gftName            :: Text
     , _gftPolicy          :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -105,7 +105,7 @@ data GetFederationToken = GetFederationToken
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gftDurationSeconds' @::@ 'Maybe' 'Int'
+-- * 'gftDurationSeconds' @::@ 'Maybe' 'Natural'
 --
 -- * 'gftName' @::@ 'Text'
 --
@@ -126,7 +126,7 @@ getFederationToken p1 = GetFederationToken
 -- a maximum of 3600 seconds (one hour). If the specified duration is longer
 -- than one hour, the session obtained by using AWS account (root)
 -- credentials defaults to one hour.
-gftDurationSeconds :: Lens' GetFederationToken (Maybe Int)
+gftDurationSeconds :: Lens' GetFederationToken (Maybe Natural)
 gftDurationSeconds =
     lens _gftDurationSeconds (\s a -> s { _gftDurationSeconds = a })
 
@@ -163,7 +163,7 @@ instance ToPath GetFederationToken where
 data GetFederationTokenResponse = GetFederationTokenResponse
     { _gftrCredentials      :: Maybe Credentials
     , _gftrFederatedUser    :: Maybe FederatedUser
-    , _gftrPackedPolicySize :: Maybe Int
+    , _gftrPackedPolicySize :: Maybe Natural
     } deriving (Eq, Show, Generic)
 
 -- | 'GetFederationTokenResponse' constructor.
@@ -174,7 +174,7 @@ data GetFederationTokenResponse = GetFederationTokenResponse
 --
 -- * 'gftrFederatedUser' @::@ 'Maybe' 'FederatedUser'
 --
--- * 'gftrPackedPolicySize' @::@ 'Maybe' 'Int'
+-- * 'gftrPackedPolicySize' @::@ 'Maybe' 'Natural'
 --
 getFederationTokenResponse :: GetFederationTokenResponse
 getFederationTokenResponse = GetFederationTokenResponse
@@ -198,7 +198,7 @@ gftrFederatedUser =
 -- | A percentage value indicating the size of the policy in packed form. The
 -- service rejects policies for which the packed size is greater than 100
 -- percent of the allowed value.
-gftrPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Int)
+gftrPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Natural)
 gftrPackedPolicySize =
     lens _gftrPackedPolicySize (\s a -> s { _gftrPackedPolicySize = a })
 instance FromXML GetFederationTokenResponse where

@@ -296,7 +296,7 @@ data CloudSearch deriving (Typeable)
 
 instance AWSService CloudSearch where
     type Sg CloudSearch = V4
-    type Er CloudSearch = CloudSearchError
+    type Er CloudSearch = RESTError
 
     service = Service
         { _svcEndpoint = Regional
@@ -323,9 +323,9 @@ data DomainStatus = DomainStatus
     , _dsLimits                 :: Maybe Limits
     , _dsProcessing             :: Maybe Bool
     , _dsRequiresIndexDocuments :: Bool
-    , _dsSearchInstanceCount    :: Maybe Int
+    , _dsSearchInstanceCount    :: Maybe Natural
     , _dsSearchInstanceType     :: Maybe Text
-    , _dsSearchPartitionCount   :: Maybe Int
+    , _dsSearchPartitionCount   :: Maybe Natural
     , _dsSearchService          :: Maybe ServiceEndpoint
     } deriving (Eq, Show, Generic)
 
@@ -351,11 +351,11 @@ data DomainStatus = DomainStatus
 --
 -- * 'dsRequiresIndexDocuments' @::@ 'Bool'
 --
--- * 'dsSearchInstanceCount' @::@ 'Maybe' 'Int'
+-- * 'dsSearchInstanceCount' @::@ 'Maybe' 'Natural'
 --
 -- * 'dsSearchInstanceType' @::@ 'Maybe' 'Text'
 --
--- * 'dsSearchPartitionCount' @::@ 'Maybe' 'Int'
+-- * 'dsSearchPartitionCount' @::@ 'Maybe' 'Natural'
 --
 -- * 'dsSearchService' @::@ 'Maybe' 'ServiceEndpoint'
 --
@@ -424,7 +424,7 @@ dsRequiresIndexDocuments =
 
 -- | The number of search instances that are available to process search
 -- requests.
-dsSearchInstanceCount :: Lens' DomainStatus (Maybe Int)
+dsSearchInstanceCount :: Lens' DomainStatus (Maybe Natural)
 dsSearchInstanceCount =
     lens _dsSearchInstanceCount (\s a -> s { _dsSearchInstanceCount = a })
 
@@ -434,7 +434,7 @@ dsSearchInstanceType =
     lens _dsSearchInstanceType (\s a -> s { _dsSearchInstanceType = a })
 
 -- | The number of partitions across which the search index is spread.
-dsSearchPartitionCount :: Lens' DomainStatus (Maybe Int)
+dsSearchPartitionCount :: Lens' DomainStatus (Maybe Natural)
 dsSearchPartitionCount =
     lens _dsSearchPartitionCount (\s a -> s { _dsSearchPartitionCount = a })
 
@@ -904,8 +904,8 @@ instance ToQuery AnalysisScheme
 
 data ScalingParameters = ScalingParameters
     { _spDesiredInstanceType     :: Maybe Text
-    , _spDesiredPartitionCount   :: Maybe Int
-    , _spDesiredReplicationCount :: Maybe Int
+    , _spDesiredPartitionCount   :: Maybe Natural
+    , _spDesiredReplicationCount :: Maybe Natural
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ScalingParameters' constructor.
@@ -914,9 +914,9 @@ data ScalingParameters = ScalingParameters
 --
 -- * 'spDesiredInstanceType' @::@ 'Maybe' 'Text'
 --
--- * 'spDesiredPartitionCount' @::@ 'Maybe' 'Int'
+-- * 'spDesiredPartitionCount' @::@ 'Maybe' 'Natural'
 --
--- * 'spDesiredReplicationCount' @::@ 'Maybe' 'Int'
+-- * 'spDesiredReplicationCount' @::@ 'Maybe' 'Natural'
 --
 scalingParameters :: ScalingParameters
 scalingParameters = ScalingParameters
@@ -933,12 +933,12 @@ spDesiredInstanceType =
 
 -- | The number of partitions you want to preconfigure for your domain. Only
 -- valid when you select m2.2xlarge as the desired instance type.
-spDesiredPartitionCount :: Lens' ScalingParameters (Maybe Int)
+spDesiredPartitionCount :: Lens' ScalingParameters (Maybe Natural)
 spDesiredPartitionCount =
     lens _spDesiredPartitionCount (\s a -> s { _spDesiredPartitionCount = a })
 
 -- | The number of replicas you want to preconfigure for each index partition.
-spDesiredReplicationCount :: Lens' ScalingParameters (Maybe Int)
+spDesiredReplicationCount :: Lens' ScalingParameters (Maybe Natural)
 spDesiredReplicationCount =
     lens _spDesiredReplicationCount
         (\s a -> s { _spDesiredReplicationCount = a })
@@ -1322,31 +1322,31 @@ instance FromXML ServiceEndpoint where
 instance ToQuery ServiceEndpoint
 
 data Limits = Limits
-    { _lMaximumPartitionCount   :: Int
-    , _lMaximumReplicationCount :: Int
-    } deriving (Eq, Ord, Show, Generic, Enum, Num)
+    { _lMaximumPartitionCount   :: Natural
+    , _lMaximumReplicationCount :: Natural
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Limits' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lMaximumPartitionCount' @::@ 'Int'
+-- * 'lMaximumPartitionCount' @::@ 'Natural'
 --
--- * 'lMaximumReplicationCount' @::@ 'Int'
+-- * 'lMaximumReplicationCount' @::@ 'Natural'
 --
-limits :: Int -- ^ 'lMaximumReplicationCount'
-       -> Int -- ^ 'lMaximumPartitionCount'
+limits :: Natural -- ^ 'lMaximumReplicationCount'
+       -> Natural -- ^ 'lMaximumPartitionCount'
        -> Limits
 limits p1 p2 = Limits
     { _lMaximumReplicationCount = p1
     , _lMaximumPartitionCount   = p2
     }
 
-lMaximumPartitionCount :: Lens' Limits Int
+lMaximumPartitionCount :: Lens' Limits Natural
 lMaximumPartitionCount =
     lens _lMaximumPartitionCount (\s a -> s { _lMaximumPartitionCount = a })
 
-lMaximumReplicationCount :: Lens' Limits Int
+lMaximumReplicationCount :: Lens' Limits Natural
 lMaximumReplicationCount =
     lens _lMaximumReplicationCount
         (\s a -> s { _lMaximumReplicationCount = a })
@@ -1543,7 +1543,7 @@ data OptionStatus = OptionStatus
     , _osPendingDeletion :: Maybe Bool
     , _osState           :: Text
     , _osUpdateDate      :: RFC822
-    , _osUpdateVersion   :: Maybe Int
+    , _osUpdateVersion   :: Maybe Natural
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'OptionStatus' constructor.
@@ -1558,9 +1558,9 @@ data OptionStatus = OptionStatus
 --
 -- * 'osUpdateDate' @::@ 'UTCTime'
 --
--- * 'osUpdateVersion' @::@ 'Maybe' 'Int'
+-- * 'osUpdateVersion' @::@ 'Maybe' 'Natural'
 --
-optionStatus :: RFC822 -- ^ 'osCreationDate'
+optionStatus :: UTCTime -- ^ 'osCreationDate'
              -> UTCTime -- ^ 'osUpdateDate'
              -> Text -- ^ 'osState'
              -> OptionStatus
@@ -1599,7 +1599,7 @@ osUpdateDate = lens _osUpdateDate (\s a -> s { _osUpdateDate = a })
     . _Time
 
 -- | A unique integer that indicates when this option was last updated.
-osUpdateVersion :: Lens' OptionStatus (Maybe Int)
+osUpdateVersion :: Lens' OptionStatus (Maybe Natural)
 osUpdateVersion = lens _osUpdateVersion (\s a -> s { _osUpdateVersion = a })
 
 instance FromXML OptionStatus where

@@ -54,7 +54,7 @@ data DescribeAlarmHistoryInput = DescribeAlarmHistoryInput
     { _dahiAlarmName       :: Maybe Text
     , _dahiEndDate         :: Maybe RFC822
     , _dahiHistoryItemType :: Maybe Text
-    , _dahiMaxRecords      :: Maybe Int
+    , _dahiMaxRecords      :: Maybe Natural
     , _dahiNextToken       :: Maybe Text
     , _dahiStartDate       :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
@@ -69,7 +69,7 @@ data DescribeAlarmHistoryInput = DescribeAlarmHistoryInput
 --
 -- * 'dahiHistoryItemType' @::@ 'Maybe' 'Text'
 --
--- * 'dahiMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dahiMaxRecords' @::@ 'Maybe' 'Natural'
 --
 -- * 'dahiNextToken' @::@ 'Maybe' 'Text'
 --
@@ -100,7 +100,7 @@ dahiHistoryItemType =
     lens _dahiHistoryItemType (\s a -> s { _dahiHistoryItemType = a })
 
 -- | The maximum number of alarm history records to retrieve.
-dahiMaxRecords :: Lens' DescribeAlarmHistoryInput (Maybe Int)
+dahiMaxRecords :: Lens' DescribeAlarmHistoryInput (Maybe Natural)
 dahiMaxRecords = lens _dahiMaxRecords (\s a -> s { _dahiMaxRecords = a })
 
 -- | The token returned by a previous call to indicate that there is more data

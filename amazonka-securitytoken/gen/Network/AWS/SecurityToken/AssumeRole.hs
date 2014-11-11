@@ -105,7 +105,7 @@ import Network.AWS.Request.Query
 import Network.AWS.SecurityToken.Types
 
 data AssumeRole = AssumeRole
-    { _arDurationSeconds :: Maybe Int
+    { _arDurationSeconds :: Maybe Natural
     , _arExternalId      :: Maybe Text
     , _arPolicy          :: Maybe Text
     , _arRoleArn         :: Text
@@ -118,7 +118,7 @@ data AssumeRole = AssumeRole
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'arDurationSeconds' @::@ 'Maybe' 'Int'
+-- * 'arDurationSeconds' @::@ 'Maybe' 'Natural'
 --
 -- * 'arExternalId' @::@ 'Maybe' 'Text'
 --
@@ -148,7 +148,7 @@ assumeRole p1 p2 = AssumeRole
 -- | The duration, in seconds, of the role session. The value can range from
 -- 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value
 -- is set to 3600 seconds.
-arDurationSeconds :: Lens' AssumeRole (Maybe Int)
+arDurationSeconds :: Lens' AssumeRole (Maybe Natural)
 arDurationSeconds =
     lens _arDurationSeconds (\s a -> s { _arDurationSeconds = a })
 
@@ -209,7 +209,7 @@ instance ToPath AssumeRole where
 data AssumeRoleResponse = AssumeRoleResponse
     { _arrAssumedRoleUser  :: Maybe AssumedRoleUser
     , _arrCredentials      :: Maybe Credentials
-    , _arrPackedPolicySize :: Maybe Int
+    , _arrPackedPolicySize :: Maybe Natural
     } deriving (Eq, Show, Generic)
 
 -- | 'AssumeRoleResponse' constructor.
@@ -220,7 +220,7 @@ data AssumeRoleResponse = AssumeRoleResponse
 --
 -- * 'arrCredentials' @::@ 'Maybe' 'Credentials'
 --
--- * 'arrPackedPolicySize' @::@ 'Maybe' 'Int'
+-- * 'arrPackedPolicySize' @::@ 'Maybe' 'Natural'
 --
 assumeRoleResponse :: AssumeRoleResponse
 assumeRoleResponse = AssumeRoleResponse
@@ -247,7 +247,7 @@ arrCredentials = lens _arrCredentials (\s a -> s { _arrCredentials = a })
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100
 -- percent, which means the policy exceeded the allowed space.
-arrPackedPolicySize :: Lens' AssumeRoleResponse (Maybe Int)
+arrPackedPolicySize :: Lens' AssumeRoleResponse (Maybe Natural)
 arrPackedPolicySize =
     lens _arrPackedPolicySize (\s a -> s { _arrPackedPolicySize = a })
 instance FromXML AssumeRoleResponse where

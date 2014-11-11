@@ -52,7 +52,7 @@ data DescribeAlarmsForMetricInput = DescribeAlarmsForMetricInput
     { _dafmiDimensions :: [Dimension]
     , _dafmiMetricName :: Text
     , _dafmiNamespace  :: Text
-    , _dafmiPeriod     :: Maybe Int
+    , _dafmiPeriod     :: Maybe Natural
     , _dafmiStatistic  :: Maybe Text
     , _dafmiUnit       :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -67,7 +67,7 @@ data DescribeAlarmsForMetricInput = DescribeAlarmsForMetricInput
 --
 -- * 'dafmiNamespace' @::@ 'Text'
 --
--- * 'dafmiPeriod' @::@ 'Maybe' 'Int'
+-- * 'dafmiPeriod' @::@ 'Maybe' 'Natural'
 --
 -- * 'dafmiStatistic' @::@ 'Maybe' 'Text'
 --
@@ -98,7 +98,7 @@ dafmiNamespace :: Lens' DescribeAlarmsForMetricInput Text
 dafmiNamespace = lens _dafmiNamespace (\s a -> s { _dafmiNamespace = a })
 
 -- | The period in seconds over which the statistic is applied.
-dafmiPeriod :: Lens' DescribeAlarmsForMetricInput (Maybe Int)
+dafmiPeriod :: Lens' DescribeAlarmsForMetricInput (Maybe Natural)
 dafmiPeriod = lens _dafmiPeriod (\s a -> s { _dafmiPeriod = a })
 
 -- | The statistic for the metric.

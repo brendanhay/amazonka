@@ -104,7 +104,7 @@ data SES deriving (Typeable)
 
 instance AWSService SES where
     type Sg SES = V4
-    type Er SES = SESError
+    type Er SES = RESTError
 
     service = Service
         { _svcEndpoint = Regional

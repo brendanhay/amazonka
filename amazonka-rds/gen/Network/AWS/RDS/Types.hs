@@ -418,7 +418,7 @@ data RDS deriving (Typeable)
 
 instance AWSService RDS where
     type Sg RDS = V4
-    type Er RDS = RDSError
+    type Er RDS = RESTError
 
     service = Service
         { _svcEndpoint = Regional

@@ -53,7 +53,7 @@ import Network.AWS.IAM.Types
 
 data ListRoles = ListRoles
     { _lrMarker     :: Maybe Text
-    , _lrMaxItems   :: Maybe Int
+    , _lrMaxItems   :: Maybe Natural
     , _lrPathPrefix :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -63,7 +63,7 @@ data ListRoles = ListRoles
 --
 -- * 'lrMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lrMaxItems' @::@ 'Maybe' 'Int'
+-- * 'lrMaxItems' @::@ 'Maybe' 'Natural'
 --
 -- * 'lrPathPrefix' @::@ 'Maybe' 'Text'
 --
@@ -85,7 +85,7 @@ lrMarker = lens _lrMarker (\s a -> s { _lrMarker = a })
 -- number of roles you want in the response. If there are additional roles
 -- beyond the maximum you specify, the IsTruncated response element is true.
 -- This parameter is optional. If you do not include it, it defaults to 100.
-lrMaxItems :: Lens' ListRoles (Maybe Int)
+lrMaxItems :: Lens' ListRoles (Maybe Natural)
 lrMaxItems = lens _lrMaxItems (\s a -> s { _lrMaxItems = a })
 
 -- | The path prefix for filtering the results. For example, the prefix

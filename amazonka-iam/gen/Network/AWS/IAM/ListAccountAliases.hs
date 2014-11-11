@@ -50,7 +50,7 @@ import Network.AWS.IAM.Types
 
 data ListAccountAliases = ListAccountAliases
     { _laaMarker   :: Maybe Text
-    , _laaMaxItems :: Maybe Int
+    , _laaMaxItems :: Maybe Natural
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListAccountAliases' constructor.
@@ -59,7 +59,7 @@ data ListAccountAliases = ListAccountAliases
 --
 -- * 'laaMarker' @::@ 'Maybe' 'Text'
 --
--- * 'laaMaxItems' @::@ 'Maybe' 'Int'
+-- * 'laaMaxItems' @::@ 'Maybe' 'Natural'
 --
 listAccountAliases :: ListAccountAliases
 listAccountAliases = ListAccountAliases
@@ -78,7 +78,7 @@ laaMarker = lens _laaMarker (\s a -> s { _laaMarker = a })
 -- aliases beyond the maximum you specify, the IsTruncated response element
 -- is true. This parameter is optional. If you do not include it, it
 -- defaults to 100.
-laaMaxItems :: Lens' ListAccountAliases (Maybe Int)
+laaMaxItems :: Lens' ListAccountAliases (Maybe Natural)
 laaMaxItems = lens _laaMaxItems (\s a -> s { _laaMaxItems = a })
 instance ToQuery ListAccountAliases
 

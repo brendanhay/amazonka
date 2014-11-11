@@ -49,7 +49,7 @@ import Network.AWS.IAM.Types
 
 data ListGroups = ListGroups
     { _lgMarker     :: Maybe Text
-    , _lgMaxItems   :: Maybe Int
+    , _lgMaxItems   :: Maybe Natural
     , _lgPathPrefix :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
@@ -59,7 +59,7 @@ data ListGroups = ListGroups
 --
 -- * 'lgMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lgMaxItems' @::@ 'Maybe' 'Int'
+-- * 'lgMaxItems' @::@ 'Maybe' 'Natural'
 --
 -- * 'lgPathPrefix' @::@ 'Maybe' 'Text'
 --
@@ -80,7 +80,7 @@ lgMarker = lens _lgMarker (\s a -> s { _lgMarker = a })
 -- groups you want in the response. If there are additional groups beyond
 -- the maximum you specify, the IsTruncated response element is true. This
 -- parameter is optional. If you do not include it, it defaults to 100.
-lgMaxItems :: Lens' ListGroups (Maybe Int)
+lgMaxItems :: Lens' ListGroups (Maybe Natural)
 lgMaxItems = lens _lgMaxItems (\s a -> s { _lgMaxItems = a })
 
 -- | The path prefix for filtering the results. For example, the prefix

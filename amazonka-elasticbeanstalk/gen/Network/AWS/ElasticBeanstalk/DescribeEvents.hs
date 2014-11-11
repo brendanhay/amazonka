@@ -59,7 +59,7 @@ data DescribeEventsMessage = DescribeEventsMessage
     , _dem1EndTime         :: Maybe RFC822
     , _dem1EnvironmentId   :: Maybe Text
     , _dem1EnvironmentName :: Maybe Text
-    , _dem1MaxRecords      :: Maybe Int
+    , _dem1MaxRecords      :: Maybe Natural
     , _dem1NextToken       :: Maybe Text
     , _dem1RequestId       :: Maybe Text
     , _dem1Severity        :: Maybe Text
@@ -80,7 +80,7 @@ data DescribeEventsMessage = DescribeEventsMessage
 --
 -- * 'dem1EnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * 'dem1MaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dem1MaxRecords' @::@ 'Maybe' 'Natural'
 --
 -- * 'dem1NextToken' @::@ 'Maybe' 'Text'
 --
@@ -135,7 +135,7 @@ dem1EnvironmentName =
 
 -- | Specifies the maximum number of events that can be returned, beginning
 -- with the most recent event.
-dem1MaxRecords :: Lens' DescribeEventsMessage (Maybe Int)
+dem1MaxRecords :: Lens' DescribeEventsMessage (Maybe Natural)
 dem1MaxRecords = lens _dem1MaxRecords (\s a -> s { _dem1MaxRecords = a })
 
 -- | Pagination token. If specified, the events return the next batch of

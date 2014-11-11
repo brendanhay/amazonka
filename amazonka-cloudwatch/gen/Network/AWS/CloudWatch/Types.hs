@@ -132,7 +132,7 @@ data CloudWatch deriving (Typeable)
 
 instance AWSService CloudWatch where
     type Sg CloudWatch = V4
-    type Er CloudWatch = CloudWatchError
+    type Er CloudWatch = RESTError
 
     service = Service
         { _svcEndpoint = Regional
@@ -154,7 +154,7 @@ data StatisticSet = StatisticSet
     , _ssMinimum     :: Double
     , _ssSampleCount :: Double
     , _ssSum         :: Double
-    } deriving (Eq, Ord, Show, Generic, Enum, Num)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StatisticSet' constructor.
 --
@@ -211,12 +211,12 @@ data MetricAlarm = MetricAlarm
     , _maAlarmName                          :: Maybe Text
     , _maComparisonOperator                 :: Maybe Text
     , _maDimensions                         :: [Dimension]
-    , _maEvaluationPeriods                  :: Maybe Int
+    , _maEvaluationPeriods                  :: Maybe Natural
     , _maInsufficientDataActions            :: [Text]
     , _maMetricName                         :: Maybe Text
     , _maNamespace                          :: Maybe Text
     , _maOKActions                          :: [Text]
-    , _maPeriod                             :: Maybe Int
+    , _maPeriod                             :: Maybe Natural
     , _maStateReason                        :: Maybe Text
     , _maStateReasonData                    :: Maybe Text
     , _maStateUpdatedTimestamp              :: Maybe RFC822
@@ -246,7 +246,7 @@ data MetricAlarm = MetricAlarm
 --
 -- * 'maDimensions' @::@ ['Dimension']
 --
--- * 'maEvaluationPeriods' @::@ 'Maybe' 'Int'
+-- * 'maEvaluationPeriods' @::@ 'Maybe' 'Natural'
 --
 -- * 'maInsufficientDataActions' @::@ ['Text']
 --
@@ -256,7 +256,7 @@ data MetricAlarm = MetricAlarm
 --
 -- * 'maOKActions' @::@ ['Text']
 --
--- * 'maPeriod' @::@ 'Maybe' 'Int'
+-- * 'maPeriod' @::@ 'Maybe' 'Natural'
 --
 -- * 'maStateReason' @::@ 'Maybe' 'Text'
 --
@@ -346,7 +346,7 @@ maDimensions = lens _maDimensions (\s a -> s { _maDimensions = a })
 
 -- | The number of periods over which data is compared to the specified
 -- threshold.
-maEvaluationPeriods :: Lens' MetricAlarm (Maybe Int)
+maEvaluationPeriods :: Lens' MetricAlarm (Maybe Natural)
 maEvaluationPeriods =
     lens _maEvaluationPeriods (\s a -> s { _maEvaluationPeriods = a })
 
@@ -376,7 +376,7 @@ maOKActions :: Lens' MetricAlarm [Text]
 maOKActions = lens _maOKActions (\s a -> s { _maOKActions = a })
 
 -- | The period in seconds over which the statistic is applied.
-maPeriod :: Lens' MetricAlarm (Maybe Int)
+maPeriod :: Lens' MetricAlarm (Maybe Natural)
 maPeriod = lens _maPeriod (\s a -> s { _maPeriod = a })
 
 -- | A human-readable explanation for the alarm's state.

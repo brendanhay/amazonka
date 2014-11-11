@@ -105,7 +105,7 @@ data SQS deriving (Typeable)
 
 instance AWSService SQS where
     type Sg SQS = V4
-    type Er SQS = SQSError
+    type Er SQS = RESTError
 
     service = Service
         { _svcEndpoint = Regional

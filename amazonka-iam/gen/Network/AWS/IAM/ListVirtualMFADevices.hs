@@ -52,7 +52,7 @@ import Network.AWS.IAM.Types
 data ListVirtualMFADevices = ListVirtualMFADevices
     { _lvmfadAssignmentStatus :: Maybe Text
     , _lvmfadMarker           :: Maybe Text
-    , _lvmfadMaxItems         :: Maybe Int
+    , _lvmfadMaxItems         :: Maybe Natural
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListVirtualMFADevices' constructor.
@@ -63,7 +63,7 @@ data ListVirtualMFADevices = ListVirtualMFADevices
 --
 -- * 'lvmfadMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lvmfadMaxItems' @::@ 'Maybe' 'Int'
+-- * 'lvmfadMaxItems' @::@ 'Maybe' 'Natural'
 --
 listVirtualMFADevices :: ListVirtualMFADevices
 listVirtualMFADevices = ListVirtualMFADevices
@@ -91,7 +91,7 @@ lvmfadMarker = lens _lvmfadMarker (\s a -> s { _lvmfadMarker = a })
 -- MFA devices beyond the maximum you specify, the IsTruncated response
 -- element is true. This parameter is optional. If you do not include it, it
 -- defaults to 100.
-lvmfadMaxItems :: Lens' ListVirtualMFADevices (Maybe Int)
+lvmfadMaxItems :: Lens' ListVirtualMFADevices (Maybe Natural)
 lvmfadMaxItems = lens _lvmfadMaxItems (\s a -> s { _lvmfadMaxItems = a })
 instance ToQuery ListVirtualMFADevices
 

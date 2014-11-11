@@ -214,7 +214,7 @@ data ELB deriving (Typeable)
 
 instance AWSService ELB where
     type Sg ELB = V4
-    type Er ELB = ELBError
+    type Er ELB = RESTError
 
     service = Service
         { _svcEndpoint = Regional
@@ -281,7 +281,7 @@ data TagDescription = TagDescription
 --
 -- * 'tdTags' @::@ 'NonEmpty' 'Tag'
 --
-tagDescription :: List1 Tag -- ^ 'tdTags'
+tagDescription :: NonEmpty Tag -- ^ 'tdTags'
                -> TagDescription
 tagDescription p1 = TagDescription
     { _tdTags             = withIso _List1 (const id) p1
@@ -401,32 +401,32 @@ instance FromXML PolicyAttributeTypeDescription where
 instance ToQuery PolicyAttributeTypeDescription
 
 data HealthCheck = HealthCheck
-    { _hcHealthyThreshold   :: Int
-    , _hcInterval           :: Int
+    { _hcHealthyThreshold   :: Natural
+    , _hcInterval           :: Natural
     , _hcTarget             :: Text
-    , _hcTimeout            :: Int
-    , _hcUnhealthyThreshold :: Int
+    , _hcTimeout            :: Natural
+    , _hcUnhealthyThreshold :: Natural
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'HealthCheck' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'hcHealthyThreshold' @::@ 'Int'
+-- * 'hcHealthyThreshold' @::@ 'Natural'
 --
--- * 'hcInterval' @::@ 'Int'
+-- * 'hcInterval' @::@ 'Natural'
 --
 -- * 'hcTarget' @::@ 'Text'
 --
--- * 'hcTimeout' @::@ 'Int'
+-- * 'hcTimeout' @::@ 'Natural'
 --
--- * 'hcUnhealthyThreshold' @::@ 'Int'
+-- * 'hcUnhealthyThreshold' @::@ 'Natural'
 --
 healthCheck :: Text -- ^ 'hcTarget'
-            -> Int -- ^ 'hcInterval'
-            -> Int -- ^ 'hcTimeout'
-            -> Int -- ^ 'hcUnhealthyThreshold'
-            -> Int -- ^ 'hcHealthyThreshold'
+            -> Natural -- ^ 'hcInterval'
+            -> Natural -- ^ 'hcTimeout'
+            -> Natural -- ^ 'hcUnhealthyThreshold'
+            -> Natural -- ^ 'hcHealthyThreshold'
             -> HealthCheck
 healthCheck p1 p2 p3 p4 p5 = HealthCheck
     { _hcTarget             = p1
@@ -438,13 +438,13 @@ healthCheck p1 p2 p3 p4 p5 = HealthCheck
 
 -- | Specifies the number of consecutive health probe successes required
 -- before moving the instance to the Healthy state.
-hcHealthyThreshold :: Lens' HealthCheck Int
+hcHealthyThreshold :: Lens' HealthCheck Natural
 hcHealthyThreshold =
     lens _hcHealthyThreshold (\s a -> s { _hcHealthyThreshold = a })
 
 -- | Specifies the approximate interval, in seconds, between health checks of
 -- an individual instance.
-hcInterval :: Lens' HealthCheck Int
+hcInterval :: Lens' HealthCheck Natural
 hcInterval = lens _hcInterval (\s a -> s { _hcInterval = a })
 
 -- | Specifies the instance being checked. The protocol is either TCP, HTTP,
@@ -466,12 +466,12 @@ hcTarget = lens _hcTarget (\s a -> s { _hcTarget = a })
 
 -- | Specifies the amount of time, in seconds, during which no response means
 -- a failed health probe. This value must be less than the Interval value.
-hcTimeout :: Lens' HealthCheck Int
+hcTimeout :: Lens' HealthCheck Natural
 hcTimeout = lens _hcTimeout (\s a -> s { _hcTimeout = a })
 
 -- | Specifies the number of consecutive health probe failures required before
 -- moving the instance to the Unhealthy state.
-hcUnhealthyThreshold :: Lens' HealthCheck Int
+hcUnhealthyThreshold :: Lens' HealthCheck Natural
 hcUnhealthyThreshold =
     lens _hcUnhealthyThreshold (\s a -> s { _hcUnhealthyThreshold = a })
 
@@ -994,7 +994,7 @@ instance FromXML LoadBalancerDescription where
 instance ToQuery LoadBalancerDescription
 
 data BackendServerDescription = BackendServerDescription
-    { _bsdInstancePort :: Maybe Int
+    { _bsdInstancePort :: Maybe Natural
     , _bsdPolicyNames  :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
@@ -1002,7 +1002,7 @@ data BackendServerDescription = BackendServerDescription
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bsdInstancePort' @::@ 'Maybe' 'Int'
+-- * 'bsdInstancePort' @::@ 'Maybe' 'Natural'
 --
 -- * 'bsdPolicyNames' @::@ ['Text']
 --
@@ -1013,7 +1013,7 @@ backendServerDescription = BackendServerDescription
     }
 
 -- | Provides the port on which the back-end server is listening.
-bsdInstancePort :: Lens' BackendServerDescription (Maybe Int)
+bsdInstancePort :: Lens' BackendServerDescription (Maybe Natural)
 bsdInstancePort = lens _bsdInstancePort (\s a -> s { _bsdInstancePort = a })
 
 -- | Provides a list of policy names enabled for the back-end server.
@@ -1092,16 +1092,16 @@ instance FromXML AdditionalAttribute where
 instance ToQuery AdditionalAttribute
 
 newtype ConnectionSettings = ConnectionSettings
-    { _csIdleTimeout :: Int
+    { _csIdleTimeout :: Natural
     } deriving (Eq, Ord, Show, Generic, Enum, Num)
 
 -- | 'ConnectionSettings' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csIdleTimeout' @::@ 'Int'
+-- * 'csIdleTimeout' @::@ 'Natural'
 --
-connectionSettings :: Int -- ^ 'csIdleTimeout'
+connectionSettings :: Natural -- ^ 'csIdleTimeout'
                    -> ConnectionSettings
 connectionSettings p1 = ConnectionSettings
     { _csIdleTimeout = p1
@@ -1110,7 +1110,7 @@ connectionSettings p1 = ConnectionSettings
 -- | Specifies the time (in seconds) the connection is allowed to be idle (no
 -- data has been sent over the connection) before it is closed by the load
 -- balancer.
-csIdleTimeout :: Lens' ConnectionSettings Int
+csIdleTimeout :: Lens' ConnectionSettings Natural
 csIdleTimeout = lens _csIdleTimeout (\s a -> s { _csIdleTimeout = a })
 
 instance FromXML ConnectionSettings where
@@ -1212,7 +1212,7 @@ instance FromXML Policies where
 instance ToQuery Policies
 
 data Listener = Listener
-    { _lInstancePort     :: Int
+    { _lInstancePort     :: Natural
     , _lInstanceProtocol :: Maybe Text
     , _lLoadBalancerPort :: Int
     , _lProtocol         :: Text
@@ -1223,7 +1223,7 @@ data Listener = Listener
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lInstancePort' @::@ 'Int'
+-- * 'lInstancePort' @::@ 'Natural'
 --
 -- * 'lInstanceProtocol' @::@ 'Maybe' 'Text'
 --
@@ -1235,7 +1235,7 @@ data Listener = Listener
 --
 listener :: Text -- ^ 'lProtocol'
          -> Int -- ^ 'lLoadBalancerPort'
-         -> Int -- ^ 'lInstancePort'
+         -> Natural -- ^ 'lInstancePort'
          -> Listener
 listener p1 p2 p3 = Listener
     { _lProtocol         = p1
@@ -1247,7 +1247,7 @@ listener p1 p2 p3 = Listener
 
 -- | Specifies the TCP port on which the instance server is listening. This
 -- property cannot be modified for the life of the load balancer.
-lInstancePort :: Lens' Listener Int
+lInstancePort :: Lens' Listener Natural
 lInstancePort = lens _lInstancePort (\s a -> s { _lInstancePort = a })
 
 -- | Specifies the protocol to use for routing traffic to back-end instances -

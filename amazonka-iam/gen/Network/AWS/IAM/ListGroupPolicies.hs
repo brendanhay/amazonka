@@ -51,7 +51,7 @@ import Network.AWS.IAM.Types
 data ListGroupPolicies = ListGroupPolicies
     { _lgpGroupName :: Text
     , _lgpMarker    :: Maybe Text
-    , _lgpMaxItems  :: Maybe Int
+    , _lgpMaxItems  :: Maybe Natural
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListGroupPolicies' constructor.
@@ -62,7 +62,7 @@ data ListGroupPolicies = ListGroupPolicies
 --
 -- * 'lgpMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lgpMaxItems' @::@ 'Maybe' 'Int'
+-- * 'lgpMaxItems' @::@ 'Maybe' 'Natural'
 --
 listGroupPolicies :: Text -- ^ 'lgpGroupName'
                   -> ListGroupPolicies
@@ -87,7 +87,7 @@ lgpMarker = lens _lgpMarker (\s a -> s { _lgpMarker = a })
 -- names beyond the maximum you specify, the IsTruncated response element is
 -- true. This parameter is optional. If you do not include it, it defaults
 -- to 100.
-lgpMaxItems :: Lens' ListGroupPolicies (Maybe Int)
+lgpMaxItems :: Lens' ListGroupPolicies (Maybe Natural)
 lgpMaxItems = lens _lgpMaxItems (\s a -> s { _lgpMaxItems = a })
 instance ToQuery ListGroupPolicies
 

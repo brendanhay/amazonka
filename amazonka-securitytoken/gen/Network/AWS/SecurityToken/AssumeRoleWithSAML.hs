@@ -88,7 +88,7 @@ import Network.AWS.Request.Query
 import Network.AWS.SecurityToken.Types
 
 data AssumeRoleWithSAML = AssumeRoleWithSAML
-    { _arwsamlDurationSeconds :: Maybe Int
+    { _arwsamlDurationSeconds :: Maybe Natural
     , _arwsamlPolicy          :: Maybe Text
     , _arwsamlPrincipalArn    :: Text
     , _arwsamlRoleArn         :: Text
@@ -99,7 +99,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'arwsamlDurationSeconds' @::@ 'Maybe' 'Int'
+-- * 'arwsamlDurationSeconds' @::@ 'Maybe' 'Natural'
 --
 -- * 'arwsamlPolicy' @::@ 'Maybe' 'Text'
 --
@@ -126,7 +126,7 @@ assumeRoleWithSAML p1 p2 p3 = AssumeRoleWithSAML
 -- is set to 3600 seconds. An expiration can also be specified in the SAML
 -- authentication response's NotOnOrAfter value. The actual expiration time
 -- is whichever value is shorter.
-arwsamlDurationSeconds :: Lens' AssumeRoleWithSAML (Maybe Int)
+arwsamlDurationSeconds :: Lens' AssumeRoleWithSAML (Maybe Natural)
 arwsamlDurationSeconds =
     lens _arwsamlDurationSeconds (\s a -> s { _arwsamlDurationSeconds = a })
 
@@ -170,7 +170,7 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
     , _arwsamlrCredentials      :: Maybe Credentials
     , _arwsamlrIssuer           :: Maybe Text
     , _arwsamlrNameQualifier    :: Maybe Text
-    , _arwsamlrPackedPolicySize :: Maybe Int
+    , _arwsamlrPackedPolicySize :: Maybe Natural
     , _arwsamlrSubject          :: Maybe Text
     , _arwsamlrSubjectType      :: Maybe Text
     } deriving (Eq, Show, Generic)
@@ -189,7 +189,7 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
 --
 -- * 'arwsamlrNameQualifier' @::@ 'Maybe' 'Text'
 --
--- * 'arwsamlrPackedPolicySize' @::@ 'Maybe' 'Int'
+-- * 'arwsamlrPackedPolicySize' @::@ 'Maybe' 'Natural'
 --
 -- * 'arwsamlrSubject' @::@ 'Maybe' 'Text'
 --
@@ -237,7 +237,7 @@ arwsamlrNameQualifier =
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100
 -- percent, which means the policy exceeded the allowed space.
-arwsamlrPackedPolicySize :: Lens' AssumeRoleWithSAMLResponse (Maybe Int)
+arwsamlrPackedPolicySize :: Lens' AssumeRoleWithSAMLResponse (Maybe Natural)
 arwsamlrPackedPolicySize =
     lens _arwsamlrPackedPolicySize
         (\s a -> s { _arwsamlrPackedPolicySize = a })

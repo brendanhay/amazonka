@@ -55,12 +55,12 @@ import Network.AWS.Request
 import Network.AWS.Route53.Types
 
 data UpdateHealthCheck = UpdateHealthCheck
-    { _uhcFailureThreshold         :: Maybe Int
+    { _uhcFailureThreshold         :: Maybe Natural
     , _uhcFullyQualifiedDomainName :: Maybe Text
     , _uhcHealthCheckId            :: Text
-    , _uhcHealthCheckVersion       :: Maybe Integer
+    , _uhcHealthCheckVersion       :: Maybe Natural
     , _uhcIPAddress                :: Maybe Text
-    , _uhcPort                     :: Maybe Int
+    , _uhcPort                     :: Maybe Natural
     , _uhcResourcePath             :: Maybe Text
     , _uhcSearchString             :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -69,17 +69,17 @@ data UpdateHealthCheck = UpdateHealthCheck
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uhcFailureThreshold' @::@ 'Maybe' 'Int'
+-- * 'uhcFailureThreshold' @::@ 'Maybe' 'Natural'
 --
 -- * 'uhcFullyQualifiedDomainName' @::@ 'Maybe' 'Text'
 --
 -- * 'uhcHealthCheckId' @::@ 'Text'
 --
--- * 'uhcHealthCheckVersion' @::@ 'Maybe' 'Integer'
+-- * 'uhcHealthCheckVersion' @::@ 'Maybe' 'Natural'
 --
 -- * 'uhcIPAddress' @::@ 'Maybe' 'Text'
 --
--- * 'uhcPort' @::@ 'Maybe' 'Int'
+-- * 'uhcPort' @::@ 'Maybe' 'Natural'
 --
 -- * 'uhcResourcePath' @::@ 'Maybe' 'Text'
 --
@@ -104,7 +104,7 @@ updateHealthCheck p1 = UpdateHealthCheck
 -- and 10. For more information, see "How Amazon Route 53 Determines Whether
 -- an Endpoint Is Healthy" in the Amazon Route 53 Developer Guide. Specify
 -- this value only if you want to change it.
-uhcFailureThreshold :: Lens' UpdateHealthCheck (Maybe Int)
+uhcFailureThreshold :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcFailureThreshold =
     lens _uhcFailureThreshold (\s a -> s { _uhcFailureThreshold = a })
 
@@ -124,7 +124,7 @@ uhcHealthCheckId = lens _uhcHealthCheckId (\s a -> s { _uhcHealthCheckId = a })
 -- updating the health check when the versions don't match. Using
 -- HealthCheckVersion lets you prevent overwriting another change to the
 -- health check.
-uhcHealthCheckVersion :: Lens' UpdateHealthCheck (Maybe Integer)
+uhcHealthCheckVersion :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcHealthCheckVersion =
     lens _uhcHealthCheckVersion (\s a -> s { _uhcHealthCheckVersion = a })
 
@@ -135,7 +135,7 @@ uhcIPAddress = lens _uhcIPAddress (\s a -> s { _uhcIPAddress = a })
 
 -- | The port on which you want Route 53 to open a connection to perform
 -- health checks. Specify this value only if you want to change it.
-uhcPort :: Lens' UpdateHealthCheck (Maybe Int)
+uhcPort :: Lens' UpdateHealthCheck (Maybe Natural)
 uhcPort = lens _uhcPort (\s a -> s { _uhcPort = a })
 
 -- | The path that you want Amazon Route 53 to request when performing health

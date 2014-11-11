@@ -75,7 +75,7 @@ data GetMetricStatisticsInput = GetMetricStatisticsInput
     , _gmsiEndTime    :: RFC822
     , _gmsiMetricName :: Text
     , _gmsiNamespace  :: Text
-    , _gmsiPeriod     :: Int
+    , _gmsiPeriod     :: Natural
     , _gmsiStartTime  :: RFC822
     , _gmsiStatistics :: List1 Text
     , _gmsiUnit       :: Maybe Text
@@ -93,7 +93,7 @@ data GetMetricStatisticsInput = GetMetricStatisticsInput
 --
 -- * 'gmsiNamespace' @::@ 'Text'
 --
--- * 'gmsiPeriod' @::@ 'Int'
+-- * 'gmsiPeriod' @::@ 'Natural'
 --
 -- * 'gmsiStartTime' @::@ 'UTCTime'
 --
@@ -105,7 +105,7 @@ getMetricStatisticsInput :: Text -- ^ 'gmsiNamespace'
                          -> Text -- ^ 'gmsiMetricName'
                          -> UTCTime -- ^ 'gmsiStartTime'
                          -> UTCTime -- ^ 'gmsiEndTime'
-                         -> Int -- ^ 'gmsiPeriod'
+                         -> Natural -- ^ 'gmsiPeriod'
                          -> NonEmpty Text -- ^ 'gmsiStatistics'
                          -> GetMetricStatisticsInput
 getMetricStatisticsInput p1 p2 p3 p4 p5 p6 = GetMetricStatisticsInput
@@ -141,7 +141,7 @@ gmsiNamespace = lens _gmsiNamespace (\s a -> s { _gmsiNamespace = a })
 -- | The granularity, in seconds, of the returned datapoints. Period must be
 -- at least 60 seconds and must be a multiple of 60. The default value is
 -- 60.
-gmsiPeriod :: Lens' GetMetricStatisticsInput Int
+gmsiPeriod :: Lens' GetMetricStatisticsInput Natural
 gmsiPeriod = lens _gmsiPeriod (\s a -> s { _gmsiPeriod = a })
 
 -- | The time stamp to use for determining the first datapoint to return. The

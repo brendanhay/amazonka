@@ -54,7 +54,7 @@ data DescribeAlarmsInput = DescribeAlarmsInput
     { _dai1ActionPrefix    :: Maybe Text
     , _dai1AlarmNamePrefix :: Maybe Text
     , _dai1AlarmNames      :: [Text]
-    , _dai1MaxRecords      :: Maybe Int
+    , _dai1MaxRecords      :: Maybe Natural
     , _dai1NextToken       :: Maybe Text
     , _dai1StateValue      :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
@@ -69,7 +69,7 @@ data DescribeAlarmsInput = DescribeAlarmsInput
 --
 -- * 'dai1AlarmNames' @::@ ['Text']
 --
--- * 'dai1MaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dai1MaxRecords' @::@ 'Maybe' 'Natural'
 --
 -- * 'dai1NextToken' @::@ 'Maybe' 'Text'
 --
@@ -100,7 +100,7 @@ dai1AlarmNames :: Lens' DescribeAlarmsInput [Text]
 dai1AlarmNames = lens _dai1AlarmNames (\s a -> s { _dai1AlarmNames = a })
 
 -- | The maximum number of alarm descriptions to retrieve.
-dai1MaxRecords :: Lens' DescribeAlarmsInput (Maybe Int)
+dai1MaxRecords :: Lens' DescribeAlarmsInput (Maybe Natural)
 dai1MaxRecords = lens _dai1MaxRecords (\s a -> s { _dai1MaxRecords = a })
 
 -- | The token returned by a previous call to indicate that there is more data

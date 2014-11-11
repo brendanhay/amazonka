@@ -46,7 +46,7 @@ data ImportExport deriving (Typeable)
 
 instance AWSService ImportExport where
     type Sg ImportExport = V2
-    type Er ImportExport = ImportExportError
+    type Er ImportExport = RESTError
 
     service = Service
         { _svcEndpoint = Global

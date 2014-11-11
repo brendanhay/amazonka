@@ -400,7 +400,7 @@ data S3 deriving (Typeable)
 
 instance AWSService S3 where
     type Sg S3 = V4
-    type Er S3 = S3Error
+    type Er S3 = RESTError
 
     service = Service
         { _svcEndpoint = Global

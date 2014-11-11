@@ -76,7 +76,7 @@ data SimpleDB deriving (Typeable)
 
 instance AWSService SimpleDB where
     type Sg SimpleDB = V2
-    type Er SimpleDB = SimpleDBError
+    type Er SimpleDB = RESTError
 
     service = Service
         { _svcEndpoint = Regional

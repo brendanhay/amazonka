@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "SNS",
-        "error": "SNSError",
+        "error": "RESTError",
         "namespace": "Network.AWS.SNS",
         "protocol": "query",
         "imports": [
@@ -83,7 +83,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "SNS",
-            "error": "SNSError",
+            "error": "RESTError",
             "namespace": "Network.AWS.SNS",
             "protocol": "query",
             "imports": [

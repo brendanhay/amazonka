@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "SQS",
-        "error": "SQSError",
+        "error": "RESTError",
         "namespace": "Network.AWS.SQS",
         "protocol": "query",
         "imports": [
@@ -65,7 +65,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "SQS",
-            "error": "SQSError",
+            "error": "RESTError",
             "namespace": "Network.AWS.SQS",
             "protocol": "query",
             "imports": [

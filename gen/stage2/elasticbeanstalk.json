@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "ElasticBeanstalk",
-        "error": "ElasticBeanstalkError",
+        "error": "RESTError",
         "namespace": "Network.AWS.ElasticBeanstalk",
         "protocol": "query",
         "imports": [
@@ -91,7 +91,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "ElasticBeanstalk",
-            "error": "ElasticBeanstalkError",
+            "error": "RESTError",
             "namespace": "Network.AWS.ElasticBeanstalk",
             "protocol": "query",
             "imports": [

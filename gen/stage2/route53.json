@@ -3,7 +3,7 @@
         "signature": "V3",
         "checksum": "sha256",
         "abbrev": "Route53",
-        "error": "Route53Error",
+        "error": "RESTError",
         "namespace": "Network.AWS.Route53",
         "protocol": "xml",
         "imports": [
@@ -87,7 +87,7 @@
             "signature": "V3",
             "checksum": "sha256",
             "abbrev": "Route53",
-            "error": "Route53Error",
+            "error": "RESTError",
             "namespace": "Network.AWS.Route53",
             "protocol": "xml",
             "imports": [

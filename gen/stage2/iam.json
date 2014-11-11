@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "IAM",
-        "error": "IAMError",
+        "error": "RESTError",
         "namespace": "Network.AWS.IAM",
         "protocol": "query",
         "imports": [
@@ -199,7 +199,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "IAM",
-            "error": "IAMError",
+            "error": "RESTError",
             "namespace": "Network.AWS.IAM",
             "protocol": "query",
             "imports": [

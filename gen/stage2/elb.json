@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "ELB",
-        "error": "ELBError",
+        "error": "RESTError",
         "namespace": "Network.AWS.ELB",
         "protocol": "query",
         "imports": [
@@ -89,7 +89,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "ELB",
-            "error": "ELBError",
+            "error": "RESTError",
             "namespace": "Network.AWS.ELB",
             "protocol": "query",
             "imports": [

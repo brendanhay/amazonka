@@ -134,8 +134,6 @@ primitive int = \case
     PBlob                -> "Base64"
     PReq                 -> "RqBody"
     PRes                 -> "RsBody"
-    -- PBool | int          -> "Boolean"
-          -- | otherwise    -> "Bool"
     PBool                -> "Bool"
     PText                -> "Text"
     PInt                 -> "Int"
@@ -426,7 +424,12 @@ instance DerivingOf Data where
         f | Newtype {} <- d = id
           | Nullary {} <- d = const [Eq', Ord', Enum', Show', Generic']
           | Empty   {} <- d = const [Eq', Ord', Show', Generic']
-          | otherwise       = delete Semigroup' . delete Monoid'
+          | otherwise       = \xs -> foldl' (flip delete) xs
+              [ Semigroup'
+              , Monoid'
+              , Enum'
+              , Num'
+              ]
 
 nestedTypes :: Data -> [Type]
 nestedTypes = concatMap universe . toListOf (dataFields . typesOf)

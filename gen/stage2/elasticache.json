@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "ElastiCache",
-        "error": "ElastiCacheError",
+        "error": "RESTError",
         "namespace": "Network.AWS.ElastiCache",
         "protocol": "query",
         "imports": [
@@ -101,7 +101,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "ElastiCache",
-            "error": "ElastiCacheError",
+            "error": "RESTError",
             "namespace": "Network.AWS.ElastiCache",
             "protocol": "query",
             "imports": [

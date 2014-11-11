@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "RDS",
-        "error": "RDSError",
+        "error": "RESTError",
         "namespace": "Network.AWS.RDS",
         "protocol": "query",
         "imports": [
@@ -141,7 +141,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "RDS",
-            "error": "RDSError",
+            "error": "RESTError",
             "namespace": "Network.AWS.RDS",
             "protocol": "query",
             "imports": [

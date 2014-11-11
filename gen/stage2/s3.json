@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "md5",
         "abbrev": "S3",
-        "error": "S3Error",
+        "error": "RESTError",
         "namespace": "Network.AWS.S3",
         "protocol": "xml",
         "imports": [
@@ -133,7 +133,7 @@
             "signature": "V4",
             "checksum": "md5",
             "abbrev": "S3",
-            "error": "S3Error",
+            "error": "RESTError",
             "namespace": "Network.AWS.S3",
             "protocol": "xml",
             "imports": [

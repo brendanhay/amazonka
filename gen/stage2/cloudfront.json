@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "CloudFront",
-        "error": "CloudFrontError",
+        "error": "RESTError",
         "namespace": "Network.AWS.CloudFront",
         "protocol": "xml",
         "imports": [
@@ -38,9 +38,7 @@
         "endpointPrefix": "cloudfront"
     },
     "cabal": {
-        "other": [
-            "Network.AWS.CloudFront.Internal"
-        ],
+        "other": [],
         "library": "amazonka-cloudfront",
         "exposed": [
             "Network.AWS.CloudFront",
@@ -77,7 +75,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "CloudFront",
-            "error": "CloudFrontError",
+            "error": "RESTError",
             "namespace": "Network.AWS.CloudFront",
             "protocol": "xml",
             "imports": [
@@ -6417,9 +6415,7 @@
                 ]
             }
         ],
-        "imports": [
-            "Network.AWS.CloudFront.Internal"
-        ]
+        "imports": []
     },
     "operations": [
         {

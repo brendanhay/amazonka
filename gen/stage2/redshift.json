@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "Redshift",
-        "error": "RedshiftError",
+        "error": "RESTError",
         "namespace": "Network.AWS.Redshift",
         "protocol": "query",
         "imports": [
@@ -139,7 +139,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "Redshift",
-            "error": "RedshiftError",
+            "error": "RESTError",
             "namespace": "Network.AWS.Redshift",
             "protocol": "query",
             "imports": [

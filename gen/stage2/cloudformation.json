@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "CloudFormation",
-        "error": "CloudFormationError",
+        "error": "RESTError",
         "namespace": "Network.AWS.CloudFormation",
         "protocol": "query",
         "imports": [
@@ -63,7 +63,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "CloudFormation",
-            "error": "CloudFormationError",
+            "error": "RESTError",
             "namespace": "Network.AWS.CloudFormation",
             "protocol": "query",
             "imports": [

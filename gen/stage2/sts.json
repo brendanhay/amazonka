@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "SecurityToken",
-        "error": "SecurityTokenError",
+        "error": "RESTError",
         "namespace": "Network.AWS.SecurityToken",
         "protocol": "query",
         "imports": [
@@ -45,7 +45,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "SecurityToken",
-            "error": "SecurityTokenError",
+            "error": "RESTError",
             "namespace": "Network.AWS.SecurityToken",
             "protocol": "query",
             "imports": [

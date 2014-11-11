@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "AutoScaling",
-        "error": "AutoScalingError",
+        "error": "RESTError",
         "namespace": "Network.AWS.AutoScaling",
         "protocol": "query",
         "imports": [
@@ -62,9 +62,7 @@
         "endpointPrefix": "autoscaling"
     },
     "cabal": {
-        "other": [
-            "Network.AWS.AutoScaling.Internal"
-        ],
+        "other": [],
         "library": "amazonka-autoscaling",
         "exposed": [
             "Network.AWS.AutoScaling",
@@ -125,7 +123,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "AutoScaling",
-            "error": "AutoScalingError",
+            "error": "RESTError",
             "namespace": "Network.AWS.AutoScaling",
             "protocol": "query",
             "imports": [
@@ -4142,9 +4140,7 @@
                 "branchPad": 31
             }
         ],
-        "imports": [
-            "Network.AWS.AutoScaling.Internal"
-        ]
+        "imports": []
     },
     "operations": [
         {

@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "CloudSearch",
-        "error": "CloudSearchError",
+        "error": "RESTError",
         "namespace": "Network.AWS.CloudSearch",
         "protocol": "query",
         "imports": [
@@ -81,7 +81,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "CloudSearch",
-            "error": "CloudSearchError",
+            "error": "RESTError",
             "namespace": "Network.AWS.CloudSearch",
             "protocol": "query",
             "imports": [
@@ -2618,9 +2618,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Enum",
-                    "Num"
+                    "Generic"
                 ],
                 "fieldPad": 25,
                 "ctor": "limits",

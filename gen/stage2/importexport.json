@@ -3,7 +3,7 @@
         "signature": "V2",
         "checksum": "sha256",
         "abbrev": "ImportExport",
-        "error": "ImportExportError",
+        "error": "RESTError",
         "namespace": "Network.AWS.ImportExport",
         "protocol": "query",
         "imports": [
@@ -43,7 +43,7 @@
             "signature": "V2",
             "checksum": "sha256",
             "abbrev": "ImportExport",
-            "error": "ImportExportError",
+            "error": "RESTError",
             "namespace": "Network.AWS.ImportExport",
             "protocol": "query",
             "imports": [

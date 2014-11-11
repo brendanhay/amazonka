@@ -3,7 +3,7 @@
         "signature": "V2",
         "checksum": "sha256",
         "abbrev": "SimpleDB",
-        "error": "SimpleDBError",
+        "error": "RESTError",
         "namespace": "Network.AWS.SimpleDB",
         "protocol": "query",
         "imports": [
@@ -53,7 +53,7 @@
             "signature": "V2",
             "checksum": "sha256",
             "abbrev": "SimpleDB",
-            "error": "SimpleDBError",
+            "error": "RESTError",
             "namespace": "Network.AWS.SimpleDB",
             "protocol": "query",
             "imports": [

@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "CloudWatch",
-        "error": "CloudWatchError",
+        "error": "RESTError",
         "namespace": "Network.AWS.CloudWatch",
         "protocol": "query",
         "imports": [
@@ -55,7 +55,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "CloudWatch",
-            "error": "CloudWatchError",
+            "error": "RESTError",
             "namespace": "Network.AWS.CloudWatch",
             "protocol": "query",
             "imports": [
@@ -86,9 +86,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Enum",
-                    "Num"
+                    "Generic"
                 ],
                 "fieldPad": 14,
                 "ctor": "statisticSet",

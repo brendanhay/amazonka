@@ -51,7 +51,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         { _cName         = name
         , _cLibrary      = overrides ^. oLibrary
         , _cVersion      = initial
-        , _cDescription  = Doc (s1 ^. s1Documentation)
+        , _cDescription  = Doc documentation
         , _cDependencies = []
         , _cExposed      = sort $
             service ^. svNamespace : typesNamespace : operationNamespaces
@@ -65,15 +65,15 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         , _svNamespace      = namespace [unAbbrev abbrev]
         , _svImports        = sort (typesNamespace : operationNamespaces)
         , _svVersion        = version
-        , _svDocumentation  = Doc (s1 ^. s1Documentation)
-        , _svProtocol       = s1 ^. mProtocol
+        , _svDocumentation  = Doc documentation
+        , _svProtocol       = protocol
         , _svEndpoint       = endpoint
         , _svEndpointPrefix = endpointPrefix
         , _svSignature      = s1 ^. mSignatureVersion
         , _svChecksum       = checksum
         , _svXmlNamespace   = fromMaybe xmlNamespace (s1 ^. mXmlNamespace)
         , _svTargetPrefix   = s1 ^. mTargetPrefix
-        , _svError          = unAbbrev abbrev <> "Error"
+        , _svError          = errorType protocol abbrev
         }
 
     types = Types
@@ -89,15 +89,16 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
 
     name = "Amazon " <> stripAWS (s1 ^. mServiceFullName)
 
-    abbrev = s1 ^. mServiceAbbreviation
+    abbrev   = s1 ^. mServiceAbbreviation
+    protocol = s1 ^. mProtocol
+    version  = s1 ^. mApiVersion
 
     (ops, ts) = dataTypes overrides abbrev s1
 
-    overrides = m ^. mOverrides
-
-    version = s1 ^. mApiVersion
-
+    documentation  = s1 ^. s1Documentation
     endpointPrefix = s1 ^. mEndpointPrefix
+
+    overrides = m ^. mOverrides
 
     endpoint = maybe Regional (const Global) (s1 ^. mGlobalEndpoint)
 
@@ -475,3 +476,14 @@ shapes p m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
 
     insert :: Text -> Type -> State (HashMap Text Type) Type
     insert k t = modify (Map.insert k t) >> return t
+
+errorType :: Protocol -> Abbrev -> Text
+errorType p a =
+    case (p, a) of
+        (Query, Abbrev "EC2") -> gen
+        (Query, _)            -> rest
+        (Xml,   _)            -> rest
+        _                     -> gen
+  where
+    gen  = unAbbrev a <> "Error"
+    rest = "RESTError"

@@ -159,7 +159,7 @@ instance AWSService CloudFormation where
     type Er CloudFormation = RESTError
 
     service = Service
-        { _svcEndpoint = Regional
+        { _svcEndpoint = regional
         , _svcAbbrev   = "CloudFormation"
         , _svcPrefix   = "cloudformation"
         , _svcVersion  = "2010-05-15"

@@ -258,7 +258,7 @@ instance AWSService AutoScaling where
     type Er AutoScaling = RESTError
 
     service = Service
-        { _svcEndpoint = Regional
+        { _svcEndpoint = regional
         , _svcAbbrev   = "AutoScaling"
         , _svcPrefix   = "autoscaling"
         , _svcVersion  = "2011-01-01"

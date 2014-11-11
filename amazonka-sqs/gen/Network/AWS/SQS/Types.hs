@@ -108,7 +108,7 @@ instance AWSService SQS where
     type Er SQS = RESTError
 
     service = Service
-        { _svcEndpoint = Regional
+        { _svcEndpoint = regional
         , _svcAbbrev   = "SQS"
         , _svcPrefix   = "sqs"
         , _svcVersion  = "2012-11-05"

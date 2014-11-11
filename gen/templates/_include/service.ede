@@ -6,7 +6,7 @@ instance AWSService {{ service.abbrev }} where
     type Er {{ service.abbrev }} = {{ service.error }}
 
     service = Service
-        { _svcEndpoint = {{ service.endpoint }}
+        { _svcEndpoint = {{ service.endpoint | toLower }}
         , _svcAbbrev   = "{{ service.abbrev }}"
         , _svcPrefix   = "{{ service.endpointPrefix }}"
         , _svcVersion  = "{{ service.version }}"

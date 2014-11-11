@@ -71,7 +71,7 @@ instance AWSService SNS where
     type Er SNS = RESTError
 
     service = Service
-        { _svcEndpoint = Regional
+        { _svcEndpoint = regional
         , _svcAbbrev   = "SNS"
         , _svcPrefix   = "sns"
         , _svcVersion  = "2010-03-31"

@@ -274,7 +274,7 @@ instance AWSService ElasticBeanstalk where
     type Er ElasticBeanstalk = RESTError
 
     service = Service
-        { _svcEndpoint = Regional
+        { _svcEndpoint = regional
         , _svcAbbrev   = "ElasticBeanstalk"
         , _svcPrefix   = "elasticbeanstalk"
         , _svcVersion  = "2010-12-01"

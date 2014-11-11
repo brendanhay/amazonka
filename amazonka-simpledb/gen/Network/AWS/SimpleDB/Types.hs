@@ -79,7 +79,7 @@ instance AWSService SimpleDB where
     type Er SimpleDB = RESTError
 
     service = Service
-        { _svcEndpoint = Regional
+        { _svcEndpoint = regional
         , _svcAbbrev   = "SimpleDB"
         , _svcPrefix   = "sdb"
         , _svcVersion  = "2009-04-15"

@@ -58,7 +58,7 @@ instance AWSService SecurityToken where
     type Er SecurityToken = RESTError
 
     service = Service
-        { _svcEndpoint = Global
+        { _svcEndpoint = global
         , _svcAbbrev   = "SecurityToken"
         , _svcPrefix   = "sts"
         , _svcVersion  = "2011-06-15"

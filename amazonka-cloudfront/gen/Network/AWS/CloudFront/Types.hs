@@ -400,7 +400,7 @@ instance AWSService CloudFront where
     type Er CloudFront = RESTError
 
     service = Service
-        { _svcEndpoint = Global
+        { _svcEndpoint = global
         , _svcAbbrev   = "CloudFront"
         , _svcPrefix   = "cloudfront"
         , _svcVersion  = "2014-05-31"

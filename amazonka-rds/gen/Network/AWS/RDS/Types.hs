@@ -421,7 +421,7 @@ instance AWSService RDS where
     type Er RDS = RESTError
 
     service = Service
-        { _svcEndpoint = Regional
+        { _svcEndpoint = regional
         , _svcAbbrev   = "RDS"
         , _svcPrefix   = "rds"
         , _svcVersion  = "2014-09-01"

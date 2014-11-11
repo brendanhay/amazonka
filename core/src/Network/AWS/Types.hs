@@ -48,6 +48,9 @@ module Network.AWS.Types
     , Endpoint      (..)
     , Host          (..)
     , endpoint
+    , global
+    , regional
+    , custom
 
     -- * Errors
     , ServiceError  (..)
@@ -87,11 +90,13 @@ module Network.AWS.Types
     , zRegion
     , zSuffix
 
+
+
     -- * Shared
     , LazyByteString
     , Base64
     , base64
-    , QueryAction   (..)
+    , Action        (..)
     , Sensitive     (..)
     , _Sensitive
 
@@ -105,7 +110,7 @@ module Network.AWS.Types
 import           Control.Applicative
 import           Control.Concurrent           (ThreadId)
 import           Control.Exception            (Exception)
-import           Control.Lens
+import           Control.Lens                 hiding (Action)
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
@@ -340,6 +345,13 @@ endpoint Service{..} reg =
             Regional -> _svcPrefix <> "." <> toBS reg <> suf
             Custom x -> x
 
+global, regional :: Endpoint
+global   = Global
+regional = Regional
+
+custom :: ByteString -> Endpoint
+custom = Custom
+
 -- | Attributes specific to an AWS service.
 data Service a = Service
     { _svcAbbrev   :: !Text
@@ -433,11 +445,11 @@ instance ToText Zone where
     toText Zone{..} = toText _zRegion `Text.snoc` _zSuffix
 
 -- | A service's query action.
-newtype QueryAction = QueryAction Text
+newtype Action = Action Text
     deriving (Eq, Ord, Show, IsString)
 
-instance ToQuery QueryAction where
-    toQuery (QueryAction a) = toQuery ("Action" :: ByteString, a)
+instance ToQuery Action where
+    toQuery (Action a) = toQuery ("Action" :: ByteString, a)
 
 -- newtype Boolean = Boolean Bool
 --     deriving (Eq, Ord, Show)

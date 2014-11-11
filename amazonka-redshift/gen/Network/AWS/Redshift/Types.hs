@@ -365,7 +365,7 @@ instance AWSService Redshift where
     type Er Redshift = RESTError
 
     service = Service
-        { _svcEndpoint = Regional
+        { _svcEndpoint = regional
         , _svcAbbrev   = "Redshift"
         , _svcPrefix   = "redshift"
         , _svcVersion  = "2012-12-01"

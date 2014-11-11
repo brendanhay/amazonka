@@ -49,7 +49,7 @@ instance AWSService ImportExport where
     type Er ImportExport = RESTError
 
     service = Service
-        { _svcEndpoint = Global
+        { _svcEndpoint = global
         , _svcAbbrev   = "ImportExport"
         , _svcPrefix   = "importexport"
         , _svcVersion  = "2010-06-01"

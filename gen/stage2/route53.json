@@ -680,8 +680,8 @@
                         "shape": "HealthCheckVersion",
                         "locationName": "HealthCheckVersion",
                         "documentation": "\u003cp\u003eThe version of the health check. You can optionally pass this value in a call to \u003ccode\u003eUpdateHealthCheck\u003c/code\u003e to prevent overwriting another change to the health check.\u003c/p\u003e",
-                        "typeExposed": "Integer",
-                        "type": "Integer"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     }
                 ],
                 "name": "HealthCheck",
@@ -727,8 +727,8 @@
                         "shape": "HealthCheckVersion",
                         "locationName": "HealthCheckVersion",
                         "documentation": "\u003cp\u003eThe version of the health check. You can optionally pass this value in a call to \u003ccode\u003eUpdateHealthCheck\u003c/code\u003e to prevent overwriting another change to the health check.\u003c/p\u003e",
-                        "typeExposed": "Integer",
-                        "type": "Integer"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "body-xml",
@@ -872,8 +872,8 @@
                         "shape": "Port",
                         "locationName": "Port",
                         "documentation": "\u003cp\u003ePort on which connection will be opened to the instance to health check. For HTTP and HTTP_STR_MATCH this defaults to 80 if the port is not specified. For HTTPS and HTTPS_STR_MATCH this defaults to 443 if the port is not specified.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "body-xml",
@@ -928,8 +928,8 @@
                         "shape": "RequestInterval",
                         "locationName": "RequestInterval",
                         "documentation": "\u003cp\u003eThe number of seconds between the time that Route 53 gets a response from your endpoint and the time that it sends the next health-check request.\u003c/p\u003e \u003cp\u003eEach Route 53 health checker makes requests at this interval. Valid values are 10 and 30. The default value is 30.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "body-xml",
@@ -942,8 +942,8 @@
                         "shape": "FailureThreshold",
                         "locationName": "FailureThreshold",
                         "documentation": "\u003cp\u003eThe number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.\u003c/p\u003e \u003cp\u003eValid values are integers between 1 and 10. For more information, see \"How Amazon Route 53 Determines Whether an Endpoint Is Healthy\" in the Amazon Route 53 Developer Guide.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -958,8 +958,8 @@
                         "shape": "FailureThreshold",
                         "locationName": "FailureThreshold",
                         "documentation": "\u003cp\u003eThe number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.\u003c/p\u003e \u003cp\u003eValid values are integers between 1 and 10. For more information, see \"How Amazon Route 53 Determines Whether an Endpoint Is Healthy\" in the Amazon Route 53 Developer Guide.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "body-xml",
@@ -1000,8 +1000,8 @@
                         "shape": "Port",
                         "locationName": "Port",
                         "documentation": "\u003cp\u003ePort on which connection will be opened to the instance to health check. For HTTP and HTTP_STR_MATCH this defaults to 80 if the port is not specified. For HTTPS and HTTPS_STR_MATCH this defaults to 443 if the port is not specified.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "body-xml",
@@ -1014,8 +1014,8 @@
                         "shape": "RequestInterval",
                         "locationName": "RequestInterval",
                         "documentation": "\u003cp\u003eThe number of seconds between the time that Route 53 gets a response from your endpoint and the time that it sends the next health-check request.\u003c/p\u003e \u003cp\u003eEach Route 53 health checker makes requests at this interval. Valid values are 10 and 30. The default value is 30.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "body-xml",
@@ -1929,8 +1929,8 @@
                         "shape": "ResourceRecordSetWeight",
                         "locationName": "Weight",
                         "documentation": "\u003cp\u003e\u003ci\u003eWeighted resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that determines what portion of traffic for the current resource record set is routed to the associated location.\u003c/p\u003e",
-                        "typeExposed": "Maybe Integer",
-                        "type": "Maybe Integer"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "body-xml",
@@ -1985,8 +1985,8 @@
                         "shape": "TTL",
                         "locationName": "TTL",
                         "documentation": "\u003cp\u003eThe cache time to live for the current resource record set.\u003c/p\u003e",
-                        "typeExposed": "Maybe Integer",
-                        "type": "Maybe Integer"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "body-xml",
@@ -2141,8 +2141,8 @@
                         "shape": "TTL",
                         "locationName": "TTL",
                         "documentation": "\u003cp\u003eThe cache time to live for the current resource record set.\u003c/p\u003e",
-                        "typeExposed": "Maybe Integer",
-                        "type": "Maybe Integer"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "body-xml",
@@ -2169,8 +2169,8 @@
                         "shape": "ResourceRecordSetWeight",
                         "locationName": "Weight",
                         "documentation": "\u003cp\u003e\u003ci\u003eWeighted resource record sets only:\u003c/i\u003e Among resource record sets that have the same combination of DNS name and type, a value that determines what portion of traffic for the current resource record set is routed to the associated location.\u003c/p\u003e",
-                        "typeExposed": "Maybe Integer",
-                        "type": "Maybe Integer"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ]
             },
@@ -8300,8 +8300,8 @@
                     "shape": "HealthCheckVersion",
                     "locationName": "HealthCheckVersion",
                     "documentation": "\u003cp\u003eOptional. When you specify a health check version, Route 53 compares this value with the current value in the health check, which prevents you from updating the health check when the versions don't match. Using \u003ccode\u003eHealthCheckVersion\u003c/code\u003e lets you prevent overwriting another change to the health check.\u003c/p\u003e",
-                    "typeExposed": "Maybe Integer",
-                    "type": "Maybe Integer"
+                    "typeExposed": "Maybe Natural",
+                    "type": "Maybe Natural"
                 },
                 "required": [
                     {
@@ -8337,8 +8337,8 @@
                         "shape": "HealthCheckVersion",
                         "locationName": "HealthCheckVersion",
                         "documentation": "\u003cp\u003eOptional. When you specify a health check version, Route 53 compares this value with the current value in the health check, which prevents you from updating the health check when the versions don't match. Using \u003ccode\u003eHealthCheckVersion\u003c/code\u003e lets you prevent overwriting another change to the health check.\u003c/p\u003e",
-                        "typeExposed": "Maybe Integer",
-                        "type": "Maybe Integer"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "body-xml",
@@ -8365,8 +8365,8 @@
                         "shape": "Port",
                         "locationName": "Port",
                         "documentation": "\u003cp\u003eThe port on which you want Route 53 to open a connection to perform health checks.\u003c/p\u003e \u003cp\u003eSpecify this value only if you want to change it.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "body-xml",
@@ -8421,8 +8421,8 @@
                         "shape": "FailureThreshold",
                         "locationName": "FailureThreshold",
                         "documentation": "\u003cp\u003eThe number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.\u003c/p\u003e \u003cp\u003eValid values are integers between 1 and 10. For more information, see \"How Amazon Route 53 Determines Whether an Endpoint Is Healthy\" in the Amazon Route 53 Developer Guide.\u003c/p\u003e \u003cp\u003eSpecify this value only if you want to change it.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -8437,8 +8437,8 @@
                         "shape": "FailureThreshold",
                         "locationName": "FailureThreshold",
                         "documentation": "\u003cp\u003eThe number of consecutive health checks that an endpoint must pass or fail for Route 53 to change the current status of the endpoint from unhealthy to healthy or vice versa.\u003c/p\u003e \u003cp\u003eValid values are integers between 1 and 10. For more information, see \"How Amazon Route 53 Determines Whether an Endpoint Is Healthy\" in the Amazon Route 53 Developer Guide.\u003c/p\u003e \u003cp\u003eSpecify this value only if you want to change it.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "body-xml",
@@ -8479,8 +8479,8 @@
                         "shape": "HealthCheckVersion",
                         "locationName": "HealthCheckVersion",
                         "documentation": "\u003cp\u003eOptional. When you specify a health check version, Route 53 compares this value with the current value in the health check, which prevents you from updating the health check when the versions don't match. Using \u003ccode\u003eHealthCheckVersion\u003c/code\u003e lets you prevent overwriting another change to the health check.\u003c/p\u003e",
-                        "typeExposed": "Maybe Integer",
-                        "type": "Maybe Integer"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "body-xml",
@@ -8507,8 +8507,8 @@
                         "shape": "Port",
                         "locationName": "Port",
                         "documentation": "\u003cp\u003eThe port on which you want Route 53 to open a connection to perform health checks.\u003c/p\u003e \u003cp\u003eSpecify this value only if you want to change it.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "body-xml",

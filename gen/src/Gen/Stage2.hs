@@ -49,7 +49,7 @@ import           Data.Text                (Text)
 import qualified Data.Text                as Text
 import           Data.Text.Manipulate
 import           Gen.IO
-import           Gen.JSON              ()
+import           Gen.JSON                 ()
 import           Gen.Names
 import           Gen.TH
 import           Gen.Types
@@ -124,6 +124,7 @@ data Prim
     | PInt
     | PInteger
     | PDouble
+    | PNatural
     | PTime !Timestamp
       deriving (Eq, Ord, Show)
 
@@ -140,6 +141,7 @@ primitive int = \case
     PInt                 -> "Int"
     PInteger             -> "Integer"
     PDouble              -> "Double"
+    PNatural             -> "Natural"
     PTime ts | int       -> timestamp ts
              | otherwise -> "UTCTime"
 
@@ -150,6 +152,7 @@ instance DerivingOf Prim where
         PInt     -> [Eq', Ord', Num', Enum']
         PInteger -> [Eq', Ord', Num', Enum']
         PDouble  -> [Eq', Ord', Num', Enum']
+        PNatural -> [Eq', Ord', Num', Enum']
         PTime _  -> [Eq', Ord']
         PBlob    -> [Eq']
         _        -> []

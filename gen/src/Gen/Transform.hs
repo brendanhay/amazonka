@@ -451,16 +451,23 @@ shapes p m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
             Struct' _ -> pure (TType k)
             List'   x -> list x <$> ref (x ^. lstMember)
             Map'    x -> TMap   <$> ref (x ^. mapKey) <*> ref (x ^. mapValue)
-            Int'    _ -> pure (TPrim PInt)
-            Long'   _ -> pure (TPrim PInteger)
             Double' _ -> pure (TPrim PDouble)
             Bool'   _ -> pure (TPrim PBool)
             Time'   x -> pure (TPrim . PTime $ defaultTS (x ^. tsTimestampFormat))
             Blob'   _ -> pure (TPrim PBlob)
+
             String' x
-                | fromMaybe False (x ^. strSensitive)
+                | Just True <- (x ^. strSensitive)
                             -> pure (TSensitive (TPrim PText))
                 | otherwise -> pure (TPrim PText)
+
+            Int'    x
+                | isNatural x -> pure (TPrim PNatural)
+                | otherwise   -> pure (TPrim PInt)
+
+            Long'   x
+                | isNatural x -> pure (TPrim PNatural)
+                | otherwise   -> pure (TPrim PInteger)
 
         list SList{..}
             | fromMaybe 0 _lstMin > 0 = TList1

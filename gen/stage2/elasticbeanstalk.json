@@ -8018,8 +8018,8 @@
                         "shape": "MaxRecords",
                         "locationName": "MaxRecords",
                         "documentation": "\u003cp\u003e Specifies the maximum number of events that can be returned, beginning with the most recent event. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -8104,8 +8104,8 @@
                         "shape": "MaxRecords",
                         "locationName": "MaxRecords",
                         "documentation": "\u003cp\u003e Specifies the maximum number of events that can be returned, beginning with the most recent event. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",

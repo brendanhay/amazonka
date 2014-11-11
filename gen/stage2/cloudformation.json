@@ -1934,8 +1934,8 @@
                         "shape": "TimeoutMinutes",
                         "locationName": "TimeoutInMinutes",
                         "documentation": "\u003cp\u003eThe amount of time within which stack creation should complete.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -2174,8 +2174,8 @@
                         "shape": "TimeoutMinutes",
                         "locationName": "TimeoutInMinutes",
                         "documentation": "\u003cp\u003eThe amount of time within which stack creation should complete.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ]
             },
@@ -2656,8 +2656,8 @@
                         "shape": "TimeoutMinutes",
                         "locationName": "TimeoutInMinutes",
                         "documentation": "\u003cp\u003eThe amount of time that can pass before the stack status becomes CREATE_FAILED; if \u003ccode\u003eDisableRollback\u003c/code\u003e is not set or is set to \u003ccode\u003efalse\u003c/code\u003e, the stack will be rolled back.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -2910,8 +2910,8 @@
                         "shape": "TimeoutMinutes",
                         "locationName": "TimeoutInMinutes",
                         "documentation": "\u003cp\u003eThe amount of time that can pass before the stack status becomes CREATE_FAILED; if \u003ccode\u003eDisableRollback\u003c/code\u003e is not set or is set to \u003ccode\u003efalse\u003c/code\u003e, the stack will be rolled back.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ]
             }

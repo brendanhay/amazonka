@@ -2518,8 +2518,8 @@
                         "shape": "BlockDeviceEbsVolumeSize",
                         "locationName": "VolumeSize",
                         "documentation": "\u003cp\u003eThe volume size, in gigabytes.\u003c/p\u003e \u003cp\u003eValid values: If the volume type is \u003ccode\u003eio1\u003c/code\u003e, the minimum size of the volume is 10.\u003c/p\u003e \u003cp\u003eDefault: If you're creating the volume from a snapshot, and you don't specify a volume size, the default is the snapshot size.\u003c/p\u003e \u003cp\u003eRequired: Required when the volume type is \u003ccode\u003eio1\u003c/code\u003e. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -2560,8 +2560,8 @@
                         "shape": "BlockDeviceEbsIops",
                         "locationName": "Iops",
                         "documentation": "\u003cp\u003eThe number of I/O operations per second (IOPS) that the volume supports.\u003c/p\u003e \u003cp\u003eThe maximum ratio of IOPS to volume size is 30.0\u003c/p\u003e \u003cp\u003eValid Values: Range is 100 to 4000.\u003c/p\u003e \u003cp\u003eDefault: None.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -2590,8 +2590,8 @@
                         "shape": "BlockDeviceEbsIops",
                         "locationName": "Iops",
                         "documentation": "\u003cp\u003eThe number of I/O operations per second (IOPS) that the volume supports.\u003c/p\u003e \u003cp\u003eThe maximum ratio of IOPS to volume size is 30.0\u003c/p\u003e \u003cp\u003eValid Values: Range is 100 to 4000.\u003c/p\u003e \u003cp\u003eDefault: None.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -2618,8 +2618,8 @@
                         "shape": "BlockDeviceEbsVolumeSize",
                         "locationName": "VolumeSize",
                         "documentation": "\u003cp\u003eThe volume size, in gigabytes.\u003c/p\u003e \u003cp\u003eValid values: If the volume type is \u003ccode\u003eio1\u003c/code\u003e, the minimum size of the volume is 10.\u003c/p\u003e \u003cp\u003eDefault: If you're creating the volume from a snapshot, and you don't specify a volume size, the default is the snapshot size.\u003c/p\u003e \u003cp\u003eRequired: Required when the volume type is \u003ccode\u003eio1\u003c/code\u003e. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",

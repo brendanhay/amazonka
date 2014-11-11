@@ -285,8 +285,8 @@
                         "shape": "PartitionCount",
                         "locationName": "SearchPartitionCount",
                         "documentation": "\u003cp\u003eThe number of partitions across which the search index is spread.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -299,8 +299,8 @@
                         "shape": "InstanceCount",
                         "locationName": "SearchInstanceCount",
                         "documentation": "\u003cp\u003eThe number of search instances that are available to process search requests.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -455,8 +455,8 @@
                         "shape": "InstanceCount",
                         "locationName": "SearchInstanceCount",
                         "documentation": "\u003cp\u003eThe number of search instances that are available to process search requests.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -483,8 +483,8 @@
                         "shape": "PartitionCount",
                         "locationName": "SearchPartitionCount",
                         "documentation": "\u003cp\u003eThe number of partitions across which the search index is spread.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -1668,8 +1668,8 @@
                         "shape": "UIntValue",
                         "locationName": "DesiredReplicationCount",
                         "documentation": "\u003cp\u003eThe number of replicas you want to preconfigure for each index partition.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -1682,8 +1682,8 @@
                         "shape": "UIntValue",
                         "locationName": "DesiredPartitionCount",
                         "documentation": "\u003cp\u003eThe number of partitions you want to preconfigure for your domain. Only valid when you select \u003ccode\u003em2.2xlarge\u003c/code\u003e as the desired instance type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -1712,8 +1712,8 @@
                         "shape": "UIntValue",
                         "locationName": "DesiredPartitionCount",
                         "documentation": "\u003cp\u003eThe number of partitions you want to preconfigure for your domain. Only valid when you select \u003ccode\u003em2.2xlarge\u003c/code\u003e as the desired instance type.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -1726,8 +1726,8 @@
                         "shape": "UIntValue",
                         "locationName": "DesiredReplicationCount",
                         "documentation": "\u003cp\u003eThe number of replicas you want to preconfigure for each index partition.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ]
             },
@@ -2637,8 +2637,8 @@
                         "shape": "MaximumReplicationCount",
                         "locationName": "MaximumReplicationCount",
                         "documentation": null,
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",
@@ -2651,8 +2651,8 @@
                         "shape": "MaximumPartitionCount",
                         "locationName": "MaximumPartitionCount",
                         "documentation": null,
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     }
                 ],
                 "name": "Limits",
@@ -2670,8 +2670,8 @@
                         "shape": "MaximumPartitionCount",
                         "locationName": "MaximumPartitionCount",
                         "documentation": null,
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",
@@ -2684,8 +2684,8 @@
                         "shape": "MaximumReplicationCount",
                         "locationName": "MaximumReplicationCount",
                         "documentation": null,
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     }
                 ]
             },
@@ -3115,8 +3115,8 @@
                         "shape": "UIntValue",
                         "locationName": "UpdateVersion",
                         "documentation": "\u003cp\u003eA unique integer that indicates when this option was last updated.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -3201,8 +3201,8 @@
                         "shape": "UIntValue",
                         "locationName": "UpdateVersion",
                         "documentation": "\u003cp\u003eA unique integer that indicates when this option was last updated.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ]
             },

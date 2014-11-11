@@ -461,8 +461,8 @@
                         "shape": "Period",
                         "locationName": "Period",
                         "documentation": "\u003cp\u003e The period in seconds over which the statistic is applied. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -489,8 +489,8 @@
                         "shape": "EvaluationPeriods",
                         "locationName": "EvaluationPeriods",
                         "documentation": "\u003cp\u003e The number of periods over which data is compared to the specified threshold. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -645,8 +645,8 @@
                         "shape": "EvaluationPeriods",
                         "locationName": "EvaluationPeriods",
                         "documentation": "\u003cp\u003e The number of periods over which data is compared to the specified threshold. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -715,8 +715,8 @@
                         "shape": "Period",
                         "locationName": "Period",
                         "documentation": "\u003cp\u003e The period in seconds over which the statistic is applied. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -2069,8 +2069,8 @@
                         "shape": "MaxRecords",
                         "locationName": "MaxRecords",
                         "documentation": "\u003cp\u003e The maximum number of alarm history records to retrieve. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -2141,8 +2141,8 @@
                         "shape": "MaxRecords",
                         "locationName": "MaxRecords",
                         "documentation": "\u003cp\u003e The maximum number of alarm history records to retrieve. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -2387,8 +2387,8 @@
                         "shape": "MaxRecords",
                         "locationName": "MaxRecords",
                         "documentation": "\u003cp\u003e The maximum number of alarm descriptions to retrieve. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -2459,8 +2459,8 @@
                         "shape": "MaxRecords",
                         "locationName": "MaxRecords",
                         "documentation": "\u003cp\u003e The maximum number of alarm descriptions to retrieve. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -2692,8 +2692,8 @@
                         "shape": "Period",
                         "locationName": "Period",
                         "documentation": "\u003cp\u003e The period in seconds over which the statistic is applied. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -2764,8 +2764,8 @@
                         "shape": "Period",
                         "locationName": "Period",
                         "documentation": "\u003cp\u003e The period in seconds over which the statistic is applied. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -3191,8 +3191,8 @@
                         "shape": "Period",
                         "locationName": "Period",
                         "documentation": "\u003cp\u003e The granularity, in seconds, of the returned datapoints. \u003ccode\u003ePeriod\u003c/code\u003e must be at least 60 seconds and must be a multiple of 60. The default value is 60. \u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",
@@ -3354,8 +3354,8 @@
                         "shape": "Period",
                         "locationName": "Period",
                         "documentation": "\u003cp\u003e The granularity, in seconds, of the returned datapoints. \u003ccode\u003ePeriod\u003c/code\u003e must be at least 60 seconds and must be a multiple of 60. The default value is 60. \u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",
@@ -3768,8 +3768,8 @@
                         "shape": "Period",
                         "locationName": "Period",
                         "documentation": "\u003cp\u003e The period in seconds over which the specified statistic is applied. \u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",
@@ -3782,8 +3782,8 @@
                         "shape": "EvaluationPeriods",
                         "locationName": "EvaluationPeriods",
                         "documentation": "\u003cp\u003e The number of periods over which data is compared to the specified threshold. \u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",
@@ -4092,8 +4092,8 @@
                         "shape": "EvaluationPeriods",
                         "locationName": "EvaluationPeriods",
                         "documentation": "\u003cp\u003e The number of periods over which data is compared to the specified threshold. \u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",
@@ -4162,8 +4162,8 @@
                         "shape": "Period",
                         "locationName": "Period",
                         "documentation": "\u003cp\u003e The period in seconds over which the specified statistic is applied. \u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",

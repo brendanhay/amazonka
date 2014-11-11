@@ -340,8 +340,8 @@
                         "shape": "minimumPasswordLengthType",
                         "locationName": "MinimumPasswordLength",
                         "documentation": "\u003cp\u003eMinimum length to require for IAM user passwords.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -438,8 +438,8 @@
                         "shape": "maxPasswordAgeType",
                         "locationName": "MaxPasswordAge",
                         "documentation": "\u003cp\u003eThe number of days that an IAM user password is valid.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -452,8 +452,8 @@
                         "shape": "passwordReusePreventionType",
                         "locationName": "PasswordReusePrevention",
                         "documentation": "\u003cp\u003eSpecifies the number of previous passwords that IAM users are prevented from reusing.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -524,8 +524,8 @@
                         "shape": "maxPasswordAgeType",
                         "locationName": "MaxPasswordAge",
                         "documentation": "\u003cp\u003eThe number of days that an IAM user password is valid.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -538,8 +538,8 @@
                         "shape": "minimumPasswordLengthType",
                         "locationName": "MinimumPasswordLength",
                         "documentation": "\u003cp\u003eMinimum length to require for IAM user passwords.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -552,8 +552,8 @@
                         "shape": "passwordReusePreventionType",
                         "locationName": "PasswordReusePrevention",
                         "documentation": "\u003cp\u003eSpecifies the number of previous passwords that IAM users are prevented from reusing.\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -7751,8 +7751,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of groups you want in the response. If there are additional groups beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -7795,8 +7795,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of groups you want in the response. If there are additional groups beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ]
             }
@@ -9834,8 +9834,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this parameter only when paginating results to indicate the maximum number of keys you want in the response. If there are additional keys beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -9864,8 +9864,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this parameter only when paginating results to indicate the maximum number of keys you want in the response. If there are additional keys beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -10063,8 +10063,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of account aliases you want in the response. If there are additional account aliases beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -10093,8 +10093,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of account aliases you want in the response. If there are additional account aliases beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ]
             }
@@ -10298,8 +10298,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of policy names you want in the response. If there are additional policy names beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -10342,8 +10342,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of policy names you want in the response. If there are additional policy names beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ]
             }
@@ -10545,8 +10545,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of groups you want in the response. If there are additional groups beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -10575,8 +10575,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of groups you want in the response. If there are additional groups beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -10793,8 +10793,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of groups you want in the response. If there are additional groups beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -10823,8 +10823,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of groups you want in the response. If there are additional groups beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -11040,8 +11040,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this parameter only when paginating results to indicate the maximum number of instance profiles you want in the response. If there are additional instance profiles beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -11070,8 +11070,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this parameter only when paginating results to indicate the maximum number of instance profiles you want in the response. If there are additional instance profiles beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -11288,8 +11288,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this parameter only when paginating results to indicate the maximum number of instance profiles you want in the response. If there are additional instance profiles beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -11318,8 +11318,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this parameter only when paginating results to indicate the maximum number of instance profiles you want in the response. If there are additional instance profiles beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -11535,8 +11535,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of MFA devices you want in the response. If there are additional MFA devices beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -11565,8 +11565,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of MFA devices you want in the response. If there are additional MFA devices beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -11887,8 +11887,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this parameter only when paginating results to indicate the maximum number of role policies you want in the response. If there are additional role policies beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -11917,8 +11917,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this parameter only when paginating results to indicate the maximum number of role policies you want in the response. If there are additional role policies beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -12134,8 +12134,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this parameter only when paginating results to indicate the maximum number of roles you want in the response. If there are additional roles beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -12164,8 +12164,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this parameter only when paginating results to indicate the maximum number of roles you want in the response. If there are additional roles beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -12484,8 +12484,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of server certificates you want in the response. If there are additional server certificates beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element will be set to \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -12514,8 +12514,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of server certificates you want in the response. If there are additional server certificates beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element will be set to \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -12731,8 +12731,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of certificate IDs you want in the response. If there are additional certificate IDs beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -12761,8 +12761,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of certificate IDs you want in the response. If there are additional certificate IDs beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -12980,8 +12980,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of policy names you want in the response. If there are additional policy names beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -13010,8 +13010,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this only when paginating results to indicate the maximum number of policy names you want in the response. If there are additional policy names beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -13227,8 +13227,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this parameter only when paginating results to indicate the maximum number of user names you want in the response. If there are additional user names beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -13257,8 +13257,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this parameter only when paginating results to indicate the maximum number of user names you want in the response. If there are additional user names beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -13474,8 +13474,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this parameter only when paginating results to indicate the maximum number of MFA devices you want in the response. If there are additional MFA devices beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -13518,8 +13518,8 @@
                         "shape": "maxItemsType",
                         "locationName": "MaxItems",
                         "documentation": "\u003cp\u003e Use this parameter only when paginating results to indicate the maximum number of MFA devices you want in the response. If there are additional MFA devices beyond the maximum you specify, the \u003ccode\u003eIsTruncated\u003c/code\u003e response element is \u003ccode\u003etrue\u003c/code\u003e. This parameter is optional. If you do not include it, it defaults to 100. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ]
             }
@@ -14860,8 +14860,8 @@
                         "shape": "minimumPasswordLengthType",
                         "locationName": "MinimumPasswordLength",
                         "documentation": "\u003cp\u003eThe minimum number of characters allowed in an IAM user password.\u003c/p\u003e \u003cp\u003eDefault value: 6\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -14944,8 +14944,8 @@
                         "shape": "maxPasswordAgeType",
                         "locationName": "MaxPasswordAge",
                         "documentation": "\u003cp\u003eThe number of days that an IAM user password is valid. The default value of 0 means IAM user passwords never expire.\u003c/p\u003e \u003cp\u003eDefault value: 0\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -14958,8 +14958,8 @@
                         "shape": "passwordReusePreventionType",
                         "locationName": "PasswordReusePrevention",
                         "documentation": "\u003cp\u003eSpecifies the number of previous passwords that IAM users are prevented from reusing. The default value of 0 means IAM users are not prevented from reusing previous passwords.\u003c/p\u003e \u003cp\u003eDefault value: 0\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -15016,8 +15016,8 @@
                         "shape": "maxPasswordAgeType",
                         "locationName": "MaxPasswordAge",
                         "documentation": "\u003cp\u003eThe number of days that an IAM user password is valid. The default value of 0 means IAM user passwords never expire.\u003c/p\u003e \u003cp\u003eDefault value: 0\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -15030,8 +15030,8 @@
                         "shape": "minimumPasswordLengthType",
                         "locationName": "MinimumPasswordLength",
                         "documentation": "\u003cp\u003eThe minimum number of characters allowed in an IAM user password.\u003c/p\u003e \u003cp\u003eDefault value: 6\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -15044,8 +15044,8 @@
                         "shape": "passwordReusePreventionType",
                         "locationName": "PasswordReusePrevention",
                         "documentation": "\u003cp\u003eSpecifies the number of previous passwords that IAM users are prevented from reusing. The default value of 0 means IAM users are not prevented from reusing previous passwords.\u003c/p\u003e \u003cp\u003eDefault value: 0\u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",

@@ -135,6 +135,11 @@ data SNum a = SNum
 
 record stage1 ''SNum
 
+isNatural :: (Ord a, Num a) => SNum a -> Bool
+isNatural n
+    | Just m <- n ^. numMin = m >= 0
+    | otherwise             = False
+
 data SBool = SBool
     { _blDocumentation :: Maybe Text
     , _blBox           :: Maybe Bool

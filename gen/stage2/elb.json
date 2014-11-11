@@ -549,8 +549,8 @@
                         "shape": "HealthCheckInterval",
                         "locationName": "Interval",
                         "documentation": "\u003cp\u003e Specifies the approximate interval, in seconds, between health checks of an individual instance. \u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",
@@ -563,8 +563,8 @@
                         "shape": "HealthCheckTimeout",
                         "locationName": "Timeout",
                         "documentation": "\u003cp\u003e Specifies the amount of time, in seconds, during which no response means a failed health probe. \u003c/p\u003e \u003cnote\u003e This value must be less than the \u003ci\u003eInterval\u003c/i\u003e value. \u003c/note\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",
@@ -577,8 +577,8 @@
                         "shape": "UnhealthyThreshold",
                         "locationName": "UnhealthyThreshold",
                         "documentation": "\u003cp\u003e Specifies the number of consecutive health probe failures required before moving the instance to the \u003ci\u003eUnhealthy\u003c/i\u003e state. \u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",
@@ -591,8 +591,8 @@
                         "shape": "HealthyThreshold",
                         "locationName": "HealthyThreshold",
                         "documentation": "\u003cp\u003e Specifies the number of consecutive health probe successes required before moving the instance to the \u003ci\u003eHealthy\u003c/i\u003e state. \u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     }
                 ],
                 "name": "HealthCheck",
@@ -610,8 +610,8 @@
                         "shape": "HealthyThreshold",
                         "locationName": "HealthyThreshold",
                         "documentation": "\u003cp\u003e Specifies the number of consecutive health probe successes required before moving the instance to the \u003ci\u003eHealthy\u003c/i\u003e state. \u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",
@@ -624,8 +624,8 @@
                         "shape": "HealthCheckInterval",
                         "locationName": "Interval",
                         "documentation": "\u003cp\u003e Specifies the approximate interval, in seconds, between health checks of an individual instance. \u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",
@@ -652,8 +652,8 @@
                         "shape": "HealthCheckTimeout",
                         "locationName": "Timeout",
                         "documentation": "\u003cp\u003e Specifies the amount of time, in seconds, during which no response means a failed health probe. \u003c/p\u003e \u003cnote\u003e This value must be less than the \u003ci\u003eInterval\u003c/i\u003e value. \u003c/note\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",
@@ -666,8 +666,8 @@
                         "shape": "UnhealthyThreshold",
                         "locationName": "UnhealthyThreshold",
                         "documentation": "\u003cp\u003e Specifies the number of consecutive health probe failures required before moving the instance to the \u003ci\u003eUnhealthy\u003c/i\u003e state. \u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     }
                 ]
             },
@@ -1906,8 +1906,8 @@
                         "shape": "InstancePort",
                         "locationName": "InstancePort",
                         "documentation": "\u003cp\u003e Provides the port on which the back-end server is listening. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -1936,8 +1936,8 @@
                         "shape": "InstancePort",
                         "locationName": "InstancePort",
                         "documentation": "\u003cp\u003e Provides the port on which the back-end server is listening. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     },
                     {
                         "location": "querystring",
@@ -2125,8 +2125,8 @@
                     "shape": "IdleTimeout",
                     "locationName": "IdleTimeout",
                     "documentation": "\u003cp\u003eSpecifies the time (in seconds) the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.\u003c/p\u003e",
-                    "typeExposed": "Int",
-                    "type": "Int"
+                    "typeExposed": "Natural",
+                    "type": "Natural"
                 },
                 "payload": null,
                 "required": [
@@ -2141,8 +2141,8 @@
                         "shape": "IdleTimeout",
                         "locationName": "IdleTimeout",
                         "documentation": "\u003cp\u003eSpecifies the time (in seconds) the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.\u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     }
                 ],
                 "name": "ConnectionSettings",
@@ -2160,8 +2160,8 @@
                         "shape": "IdleTimeout",
                         "locationName": "IdleTimeout",
                         "documentation": "\u003cp\u003eSpecifies the time (in seconds) the connection is allowed to be idle (no data has been sent over the connection) before it is closed by the load balancer.\u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     }
                 ]
             },
@@ -2417,8 +2417,8 @@
                         "shape": "InstancePort",
                         "locationName": "InstancePort",
                         "documentation": "\u003cp\u003e Specifies the TCP port on which the instance server is listening. This property cannot be modified for the life of the load balancer. \u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     }
                 ],
                 "name": "Listener",
@@ -2465,8 +2465,8 @@
                         "shape": "InstancePort",
                         "locationName": "InstancePort",
                         "documentation": "\u003cp\u003e Specifies the TCP port on which the instance server is listening. This property cannot be modified for the life of the load balancer. \u003c/p\u003e",
-                        "typeExposed": "Int",
-                        "type": "Int"
+                        "typeExposed": "Natural",
+                        "type": "Natural"
                     },
                     {
                         "location": "querystring",
@@ -5851,8 +5851,8 @@
                         "shape": "PageSize",
                         "locationName": "PageSize",
                         "documentation": "\u003cp\u003e The number of results returned in each page. The default is 400. You cannot specify a page size greater than 400 or less than 1. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ],
                 "fields": [
@@ -5895,8 +5895,8 @@
                         "shape": "PageSize",
                         "locationName": "PageSize",
                         "documentation": "\u003cp\u003e The number of results returned in each page. The default is 400. You cannot specify a page size greater than 400 or less than 1. \u003c/p\u003e",
-                        "typeExposed": "Maybe Int",
-                        "type": "Maybe Int"
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
                     }
                 ]
             }

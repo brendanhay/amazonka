@@ -73,7 +73,7 @@ instance ToPath GetPlatformApplicationAttributesInput where
 
 newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
     { _gpaarAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance IsList GetPlatformApplicationAttributesResponse where
     type Item GetPlatformApplicationAttributesResponse = (Text, Text)

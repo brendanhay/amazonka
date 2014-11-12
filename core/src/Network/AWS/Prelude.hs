@@ -40,8 +40,8 @@ module Network.AWS.Prelude
     , AWSRequest      (..)
     , AWSService      (..)
     , FromJSON        (..)
-    , IsList
-    , IsString
+    , IsList          (..)
+    , IsString        (..)
     , MonadCatch      (..)
     , MonadError      (..)
     , MonadReader     (..)
@@ -92,12 +92,12 @@ import Data.List.NonEmpty           (NonEmpty)
 import Data.Maybe                   as Export
 import Data.Monoid                  as Export hiding (All, Sum)
 import Data.Semigroup               (Semigroup)
-import Data.String                  (IsString)
+import Data.String                  (IsString(..))
 import Data.Tagged                  as Export
 import Data.Text                    (Text)
 import Data.Traversable             (Traversable)
 import Data.Typeable                (Typeable)
-import GHC.Exts                     (IsList)
+import GHC.Exts                     (IsList(..))
 import GHC.Generics                 (Generic)
 import Network.AWS.Data             as Export hiding (Query)
 import Network.AWS.Error            (RESTError)

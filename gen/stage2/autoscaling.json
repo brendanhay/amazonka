@@ -7268,8 +7268,7 @@
                     "Show",
                     "Generic",
                     "Monoid",
-                    "Semigroup",
-                    "IsString"
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "listElement": "Text",
@@ -7594,8 +7593,7 @@
                     "Show",
                     "Generic",
                     "Monoid",
-                    "Semigroup",
-                    "IsString"
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "listElement": "Text",
@@ -9357,8 +9355,7 @@
                     "Show",
                     "Generic",
                     "Monoid",
-                    "Semigroup",
-                    "IsString"
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "listElement": "Text",

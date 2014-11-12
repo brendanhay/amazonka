@@ -44,7 +44,7 @@ import Network.AWS.ElasticBeanstalk.Types
 
 newtype DescribeApplicationsMessage = DescribeApplicationsMessage
     { _damApplicationNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList DescribeApplicationsMessage where
     type Item DescribeApplicationsMessage = Text

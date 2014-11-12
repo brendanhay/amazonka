@@ -69,7 +69,7 @@ instance ToPath BuildSuggesters where
 
 newtype BuildSuggestersResponse = BuildSuggestersResponse
     { _bsrFieldNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList BuildSuggestersResponse where
     type Item BuildSuggestersResponse = Text

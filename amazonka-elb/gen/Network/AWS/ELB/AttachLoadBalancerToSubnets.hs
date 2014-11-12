@@ -85,7 +85,7 @@ instance ToPath AttachLoadBalancerToSubnetsInput where
 
 newtype AttachLoadBalancerToSubnetsOutput = AttachLoadBalancerToSubnetsOutput
     { _albtsoSubnets :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList AttachLoadBalancerToSubnetsOutput where
     type Item AttachLoadBalancerToSubnetsOutput = Text

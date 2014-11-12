@@ -46,7 +46,7 @@ import Network.AWS.SES.Types
 
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
     { _givaIdentities :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList GetIdentityVerificationAttributes where
     type Item GetIdentityVerificationAttributes = Text

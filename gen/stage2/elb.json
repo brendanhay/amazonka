@@ -3001,8 +3001,7 @@
                     "Show",
                     "Generic",
                     "Monoid",
-                    "Semigroup",
-                    "IsString"
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "listElement": "Text",
@@ -3179,8 +3178,7 @@
                     "Show",
                     "Generic",
                     "Monoid",
-                    "Semigroup",
-                    "IsString"
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "listElement": "Text",
@@ -5640,8 +5638,7 @@
                     "Show",
                     "Generic",
                     "Monoid",
-                    "Semigroup",
-                    "IsString"
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "listElement": "Text",
@@ -6018,8 +6015,7 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Semigroup",
-                    "IsString"
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "listElement": null,
@@ -6103,8 +6099,7 @@
                     "Show",
                     "Generic",
                     "Monoid",
-                    "Semigroup",
-                    "IsString"
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "listElement": "Text",
@@ -6281,8 +6276,7 @@
                     "Show",
                     "Generic",
                     "Monoid",
-                    "Semigroup",
-                    "IsString"
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "listElement": "Text",
@@ -6459,8 +6453,7 @@
                     "Show",
                     "Generic",
                     "Monoid",
-                    "Semigroup",
-                    "IsString"
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "listElement": "Text",

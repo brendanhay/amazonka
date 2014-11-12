@@ -70,7 +70,7 @@ instance ToPath GetTopicAttributesInput where
 
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
     { _gtarAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance IsList GetTopicAttributesResponse where
     type Item GetTopicAttributesResponse = (Text, Text)

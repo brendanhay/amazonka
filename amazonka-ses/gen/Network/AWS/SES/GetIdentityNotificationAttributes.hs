@@ -47,7 +47,7 @@ import Network.AWS.SES.Types
 
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
     { _ginaIdentities :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList GetIdentityNotificationAttributes where
     type Item GetIdentityNotificationAttributes = Text

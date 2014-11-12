@@ -44,7 +44,7 @@ import Network.AWS.CloudWatch.Types
 
 newtype DisableAlarmActionsInput = DisableAlarmActionsInput
     { _daaiAlarmNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList DisableAlarmActionsInput where
     type Item DisableAlarmActionsInput = Text

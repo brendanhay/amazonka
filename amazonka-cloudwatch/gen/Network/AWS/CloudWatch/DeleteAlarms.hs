@@ -43,7 +43,7 @@ import Network.AWS.CloudWatch.Types
 
 newtype DeleteAlarmsInput = DeleteAlarmsInput
     { _daiAlarmNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList DeleteAlarmsInput where
     type Item DeleteAlarmsInput = Text

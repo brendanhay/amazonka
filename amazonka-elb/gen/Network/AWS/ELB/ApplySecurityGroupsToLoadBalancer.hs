@@ -87,7 +87,7 @@ instance ToPath ApplySecurityGroupsToLoadBalancerInput where
 
 newtype ApplySecurityGroupsToLoadBalancerOutput = ApplySecurityGroupsToLoadBalancerOutput
     { _asgtlboSecurityGroups :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList ApplySecurityGroupsToLoadBalancerOutput where
     type Item ApplySecurityGroupsToLoadBalancerOutput = Text

@@ -44,7 +44,7 @@ import Network.AWS.ELB.Types
 
 newtype DescribeTagsInput = DescribeTagsInput
     { _dtiLoadBalancerNames :: List1 Text
-    } deriving (Eq, Ord, Show, Generic, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Semigroup)
 
 -- | 'DescribeTagsInput' constructor.
 --

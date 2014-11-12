@@ -47,7 +47,7 @@ import Network.AWS.ELB.Types
 
 newtype DescribeLoadBalancerPolicyTypesInput = DescribeLoadBalancerPolicyTypesInput
     { _dlbptiPolicyTypeNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList DescribeLoadBalancerPolicyTypesInput where
     type Item DescribeLoadBalancerPolicyTypesInput = Text

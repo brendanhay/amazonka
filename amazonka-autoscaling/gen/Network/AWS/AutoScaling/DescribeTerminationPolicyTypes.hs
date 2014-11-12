@@ -54,7 +54,7 @@ instance ToPath DescribeTerminationPolicyTypes where
 
 newtype DescribeTerminationPolicyTypesAnswer = DescribeTerminationPolicyTypesAnswer
     { _dtptaTerminationPolicyTypes :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList DescribeTerminationPolicyTypesAnswer where
     type Item DescribeTerminationPolicyTypesAnswer = Text

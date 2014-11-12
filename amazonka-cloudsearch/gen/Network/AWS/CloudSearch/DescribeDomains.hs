@@ -50,7 +50,7 @@ import Network.AWS.CloudSearch.Types
 
 newtype DescribeDomains = DescribeDomains
     { _ddDomainNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList DescribeDomains where
     type Item DescribeDomains = Text

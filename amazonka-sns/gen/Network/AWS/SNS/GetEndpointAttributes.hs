@@ -71,7 +71,7 @@ instance ToPath GetEndpointAttributesInput where
 
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance IsList GetEndpointAttributesResponse where
     type Item GetEndpointAttributesResponse = (Text, Text)

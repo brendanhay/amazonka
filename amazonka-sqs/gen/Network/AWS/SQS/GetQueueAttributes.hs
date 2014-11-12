@@ -103,7 +103,7 @@ instance ToPath GetQueueAttributes where
 
 newtype GetQueueAttributesResult = GetQueueAttributesResult
     { _gqarAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance IsList GetQueueAttributesResult where
     type Item GetQueueAttributesResult = (Text, Text)

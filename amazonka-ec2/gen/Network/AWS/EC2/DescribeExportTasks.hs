@@ -44,7 +44,7 @@ import Network.AWS.EC2.Types
 
 newtype DescribeExportTasks = DescribeExportTasks
     { _detExportTaskIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList DescribeExportTasks where
     type Item DescribeExportTasks = Text

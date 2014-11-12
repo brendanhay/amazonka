@@ -55,7 +55,7 @@ instance ToPath DescribeAutoScalingNotificationTypes where
 
 newtype DescribeAutoScalingNotificationTypesAnswer = DescribeAutoScalingNotificationTypesAnswer
     { _dasntaAutoScalingNotificationTypes :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList DescribeAutoScalingNotificationTypesAnswer where
     type Item DescribeAutoScalingNotificationTypesAnswer = Text

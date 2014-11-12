@@ -54,7 +54,7 @@ instance ToPath DescribeLifecycleHookTypes where
 
 newtype DescribeLifecycleHookTypesAnswer = DescribeLifecycleHookTypesAnswer
     { _dlhtaLifecycleHookTypes :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList DescribeLifecycleHookTypesAnswer where
     type Item DescribeLifecycleHookTypesAnswer = Text

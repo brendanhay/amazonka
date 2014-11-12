@@ -56,7 +56,7 @@ import Network.AWS.SES.Types
 
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
     { _gidaIdentities :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList GetIdentityDkimAttributes where
     type Item GetIdentityDkimAttributes = Text

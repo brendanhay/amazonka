@@ -78,7 +78,7 @@ instance ToPath VerifyDomainDkim where
 
 newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
     { _vddrDkimTokens :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList VerifyDomainDkimResponse where
     type Item VerifyDomainDkimResponse = Text

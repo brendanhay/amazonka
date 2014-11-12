@@ -71,7 +71,7 @@ instance ToPath ListDeadLetterSourceQueues where
 
 newtype ListDeadLetterSourceQueuesResult = ListDeadLetterSourceQueuesResult
     { _ldlsqrQueueUrls :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList ListDeadLetterSourceQueuesResult where
     type Item ListDeadLetterSourceQueuesResult = Text

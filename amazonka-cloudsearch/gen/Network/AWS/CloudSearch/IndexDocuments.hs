@@ -70,7 +70,7 @@ instance ToPath IndexDocuments where
 
 newtype IndexDocumentsResponse = IndexDocumentsResponse
     { _idrFieldNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList IndexDocumentsResponse where
     type Item IndexDocumentsResponse = Text

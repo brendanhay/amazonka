@@ -493,19 +493,19 @@ instance DerivingOf Type where
         TType      _   -> [Eq', Show', Generic']
         TTuple     _ _ -> [Eq', Show', Generic']
         TPrim      p   -> derivingOf p
-        TMaybe     x   -> mayb (derivingOf x)
+        TMaybe     x   -> prim (derivingOf x)
         TSensitive x   -> derivingOf x
         TList      x   -> list (derivingOf x)
         TList1     x   -> Set.delete Monoid' . list $ derivingOf x
         TMap       k v -> Set.delete Ord' . list $
             derivingOf k `Set.intersection` derivingOf v
       where
-        list = mappend
+        list = prim . mappend
             [ Monoid'
             , Semigroup'
             ]
 
-        mayb = flip Set.difference
+        prim = flip Set.difference
             [ Enum'
             , Num'
             , Integral'

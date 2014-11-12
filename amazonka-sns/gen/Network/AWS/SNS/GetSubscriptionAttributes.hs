@@ -70,7 +70,7 @@ instance ToPath GetSubscriptionAttributesInput where
 
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
 instance IsList GetSubscriptionAttributesResponse where
     type Item GetSubscriptionAttributesResponse = (Text, Text)

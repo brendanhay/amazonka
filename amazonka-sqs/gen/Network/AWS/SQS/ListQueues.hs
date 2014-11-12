@@ -73,7 +73,7 @@ instance ToPath ListQueues where
 
 newtype ListQueuesResult = ListQueuesResult
     { _lqrQueueUrls :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
 instance IsList ListQueuesResult where
     type Item ListQueuesResult = Text

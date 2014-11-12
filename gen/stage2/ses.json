@@ -1718,8 +1718,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "RealFloat"
+                    "Generic"
                 ],
                 "streaming": false,
                 "fieldPad": 20,

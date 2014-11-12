@@ -510,6 +510,7 @@ instance DerivingOf Type where
             , Integral'
             , Real'
             , RealFrac'
+            , RealFloat'
             , Whole'
             , IsString'
             ]

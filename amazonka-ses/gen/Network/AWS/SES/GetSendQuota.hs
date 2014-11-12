@@ -59,7 +59,7 @@ data GetSendQuotaResponse = GetSendQuotaResponse
     { _gsqrMax24HourSend   :: Maybe Double
     , _gsqrMaxSendRate     :: Maybe Double
     , _gsqrSentLast24Hours :: Maybe Double
-    } deriving (Eq, Ord, Show, Generic, RealFloat)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetSendQuotaResponse' constructor.
 --

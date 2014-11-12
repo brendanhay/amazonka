@@ -96,7 +96,7 @@ newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
     { _difrIndexFields :: [IndexFieldStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeIndexFieldsResponse
+instance IsList DescribeIndexFieldsResponse where
     type Item DescribeIndexFieldsResponse = IndexFieldStatus
 
     fromList = DescribeIndexFieldsResponse . fromList

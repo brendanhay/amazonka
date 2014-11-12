@@ -56,7 +56,7 @@ newtype DescribeTerminationPolicyTypesAnswer = DescribeTerminationPolicyTypesAns
     { _dtptaTerminationPolicyTypes :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList DescribeTerminationPolicyTypesAnswer
+instance IsList DescribeTerminationPolicyTypesAnswer where
     type Item DescribeTerminationPolicyTypesAnswer = Text
 
     fromList = DescribeTerminationPolicyTypesAnswer . fromList

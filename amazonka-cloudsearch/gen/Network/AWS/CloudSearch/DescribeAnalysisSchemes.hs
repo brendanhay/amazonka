@@ -97,7 +97,7 @@ newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
     { _dasrAnalysisSchemes :: [AnalysisSchemeStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAnalysisSchemesResponse
+instance IsList DescribeAnalysisSchemesResponse where
     type Item DescribeAnalysisSchemesResponse = AnalysisSchemeStatus
 
     fromList = DescribeAnalysisSchemesResponse . fromList

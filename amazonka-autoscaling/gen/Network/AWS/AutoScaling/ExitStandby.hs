@@ -86,7 +86,7 @@ newtype ExitStandbyAnswer = ExitStandbyAnswer
     { _esa1Activities :: [Activity]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ExitStandbyAnswer
+instance IsList ExitStandbyAnswer where
     type Item ExitStandbyAnswer = Activity
 
     fromList = ExitStandbyAnswer . fromList

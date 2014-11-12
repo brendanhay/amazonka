@@ -110,7 +110,7 @@ newtype DescribeAddressesResult = DescribeAddressesResult
     { _darAddresses :: [Address]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAddressesResult
+instance IsList DescribeAddressesResult where
     type Item DescribeAddressesResult = Address
 
     fromList = DescribeAddressesResult . fromList

@@ -112,7 +112,7 @@ newtype DescribeStackResourcesOutput = DescribeStackResourcesOutput
     { _dsroStackResources :: [StackResource]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeStackResourcesOutput
+instance IsList DescribeStackResourcesOutput where
     type Item DescribeStackResourcesOutput = StackResource
 
     fromList = DescribeStackResourcesOutput . fromList

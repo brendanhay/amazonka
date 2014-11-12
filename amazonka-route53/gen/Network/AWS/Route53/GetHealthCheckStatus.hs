@@ -82,7 +82,7 @@ newtype GetHealthCheckStatusResponse = GetHealthCheckStatusResponse
     { _ghcsrHealthCheckObservations :: [HealthCheckObservation]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetHealthCheckStatusResponse
+instance IsList GetHealthCheckStatusResponse where
     type Item GetHealthCheckStatusResponse = HealthCheckObservation
 
     fromList = GetHealthCheckStatusResponse . fromList

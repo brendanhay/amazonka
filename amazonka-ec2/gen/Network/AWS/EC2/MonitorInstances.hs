@@ -80,7 +80,7 @@ newtype MonitorInstancesResult = MonitorInstancesResult
     { _mirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList MonitorInstancesResult
+instance IsList MonitorInstancesResult where
     type Item MonitorInstancesResult = InstanceMonitoring
 
     fromList = MonitorInstancesResult . fromList

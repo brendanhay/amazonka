@@ -88,7 +88,7 @@ newtype DeregisterEndPointsOutput = DeregisterEndPointsOutput
     { _depoInstances :: [Instance]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DeregisterEndPointsOutput
+instance IsList DeregisterEndPointsOutput where
     type Item DeregisterEndPointsOutput = Instance
 
     fromList = DeregisterEndPointsOutput . fromList

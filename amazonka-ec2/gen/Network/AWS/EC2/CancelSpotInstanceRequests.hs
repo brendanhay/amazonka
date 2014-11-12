@@ -87,7 +87,7 @@ newtype CancelSpotInstanceRequestsResult = CancelSpotInstanceRequestsResult
     { _csirrCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CancelSpotInstanceRequestsResult
+instance IsList CancelSpotInstanceRequestsResult where
     type Item CancelSpotInstanceRequestsResult = CancelledSpotInstanceRequest
 
     fromList = CancelSpotInstanceRequestsResult . fromList

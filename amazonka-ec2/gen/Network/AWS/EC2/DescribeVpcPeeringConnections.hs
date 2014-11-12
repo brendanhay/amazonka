@@ -110,7 +110,7 @@ newtype DescribeVpcPeeringConnectionsResult = DescribeVpcPeeringConnectionsResul
     { _dvpcrVpcPeeringConnections :: [VpcPeeringConnection]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeVpcPeeringConnectionsResult
+instance IsList DescribeVpcPeeringConnectionsResult where
     type Item DescribeVpcPeeringConnectionsResult = VpcPeeringConnection
 
     fromList = DescribeVpcPeeringConnectionsResult . fromList

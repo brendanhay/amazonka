@@ -113,7 +113,7 @@ newtype DescribeNetworkAclsResult = DescribeNetworkAclsResult
     { _dnarNetworkAcls :: [NetworkAcl]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeNetworkAclsResult
+instance IsList DescribeNetworkAclsResult where
     type Item DescribeNetworkAclsResult = NetworkAcl
 
     fromList = DescribeNetworkAclsResult . fromList

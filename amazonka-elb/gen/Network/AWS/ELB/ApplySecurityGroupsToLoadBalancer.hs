@@ -89,7 +89,7 @@ newtype ApplySecurityGroupsToLoadBalancerOutput = ApplySecurityGroupsToLoadBalan
     { _asgtlboSecurityGroups :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList ApplySecurityGroupsToLoadBalancerOutput
+instance IsList ApplySecurityGroupsToLoadBalancerOutput where
     type Item ApplySecurityGroupsToLoadBalancerOutput = Text
 
     fromList = ApplySecurityGroupsToLoadBalancerOutput . fromList

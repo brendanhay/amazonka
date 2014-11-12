@@ -56,7 +56,7 @@ newtype ListDomainNamesResponse = ListDomainNamesResponse
     { _ldnrDomainNames :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList ListDomainNamesResponse
+instance IsList ListDomainNamesResponse where
     type Item ListDomainNamesResponse = (Text, Text)
 
     fromList = ListDomainNamesResponse . fromList

@@ -63,7 +63,7 @@ newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
     { _gcirrCheckerIpRanges :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList GetCheckerIpRangesResponse
+instance IsList GetCheckerIpRangesResponse where
     type Item GetCheckerIpRangesResponse = Text
 
     fromList = GetCheckerIpRangesResponse . fromList

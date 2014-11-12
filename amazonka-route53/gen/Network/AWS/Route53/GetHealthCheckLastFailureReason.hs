@@ -83,7 +83,7 @@ newtype GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReaso
     { _ghclfrrHealthCheckObservations :: [HealthCheckObservation]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetHealthCheckLastFailureReasonResponse
+instance IsList GetHealthCheckLastFailureReasonResponse where
     type Item GetHealthCheckLastFailureReasonResponse = HealthCheckObservation
 
     fromList = GetHealthCheckLastFailureReasonResponse . fromList

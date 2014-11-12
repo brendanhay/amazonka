@@ -56,7 +56,7 @@ newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
     { _lsamlprSAMLProviderList :: [SAMLProviderListEntry]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ListSAMLProvidersResponse
+instance IsList ListSAMLProvidersResponse where
     type Item ListSAMLProvidersResponse = SAMLProviderListEntry
 
     fromList = ListSAMLProvidersResponse . fromList

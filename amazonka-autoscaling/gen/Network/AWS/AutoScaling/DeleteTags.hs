@@ -44,7 +44,7 @@ newtype DeleteTagsType = DeleteTagsType
     { _dttTags :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DeleteTagsType
+instance IsList DeleteTagsType where
     type Item DeleteTagsType = Tag
 
     fromList = DeleteTagsType . fromList

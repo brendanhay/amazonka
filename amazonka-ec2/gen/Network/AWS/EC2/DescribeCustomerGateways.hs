@@ -105,7 +105,7 @@ newtype DescribeCustomerGatewaysResult = DescribeCustomerGatewaysResult
     { _dcgrCustomerGateways :: [CustomerGateway]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeCustomerGatewaysResult
+instance IsList DescribeCustomerGatewaysResult where
     type Item DescribeCustomerGatewaysResult = CustomerGateway
 
     fromList = DescribeCustomerGatewaysResult . fromList

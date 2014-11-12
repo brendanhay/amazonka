@@ -58,7 +58,7 @@ newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
     { _gidaIdentities :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList GetIdentityDkimAttributes
+instance IsList GetIdentityDkimAttributes where
     type Item GetIdentityDkimAttributes = Text
 
     fromList = GetIdentityDkimAttributes . fromList
@@ -89,7 +89,7 @@ newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
     { _gidarDkimAttributes :: Map Text IdentityDkimAttributes
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetIdentityDkimAttributesResponse
+instance IsList GetIdentityDkimAttributesResponse where
     type Item GetIdentityDkimAttributesResponse = (Text, IdentityDkimAttributes)
 
     fromList = GetIdentityDkimAttributesResponse . fromList

@@ -102,7 +102,7 @@ newtype DescribeDhcpOptionsResult = DescribeDhcpOptionsResult
     { _ddorDhcpOptions :: [DhcpOptions]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeDhcpOptionsResult
+instance IsList DescribeDhcpOptionsResult where
     type Item DescribeDhcpOptionsResult = DhcpOptions
 
     fromList = DescribeDhcpOptionsResult . fromList

@@ -94,7 +94,7 @@ newtype RemoveAvailabilityZonesOutput = RemoveAvailabilityZonesOutput
     { _razoAvailabilityZones :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList RemoveAvailabilityZonesOutput
+instance IsList RemoveAvailabilityZonesOutput where
     type Item RemoveAvailabilityZonesOutput = Text
 
     fromList = RemoveAvailabilityZonesOutput . fromList

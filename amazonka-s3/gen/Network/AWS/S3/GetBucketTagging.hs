@@ -76,7 +76,7 @@ newtype GetBucketTaggingOutput = GetBucketTaggingOutput
     { _gbtoTagSet :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetBucketTaggingOutput
+instance IsList GetBucketTaggingOutput where
     type Item GetBucketTaggingOutput = Tag
 
     fromList = GetBucketTaggingOutput . fromList

@@ -129,7 +129,7 @@ newtype EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage
     { _edmEnvironments :: [EnvironmentDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList EnvironmentDescriptionsMessage
+instance IsList EnvironmentDescriptionsMessage where
     type Item EnvironmentDescriptionsMessage = EnvironmentDescription
 
     fromList = EnvironmentDescriptionsMessage . fromList

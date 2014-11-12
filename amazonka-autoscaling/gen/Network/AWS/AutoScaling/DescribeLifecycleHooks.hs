@@ -84,7 +84,7 @@ newtype DescribeLifecycleHooksAnswer = DescribeLifecycleHooksAnswer
     { _dlhaLifecycleHooks :: [LifecycleHook]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeLifecycleHooksAnswer
+instance IsList DescribeLifecycleHooksAnswer where
     type Item DescribeLifecycleHooksAnswer = LifecycleHook
 
     fromList = DescribeLifecycleHooksAnswer . fromList

@@ -110,7 +110,7 @@ newtype DescribeVpnConnectionsResult = DescribeVpnConnectionsResult
     { _dvcrVpnConnections :: [VpnConnection]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeVpnConnectionsResult
+instance IsList DescribeVpnConnectionsResult where
     type Item DescribeVpnConnectionsResult = VpnConnection
 
     fromList = DescribeVpnConnectionsResult . fromList

@@ -154,7 +154,7 @@ newtype DescribeSpotInstanceRequestsResult = DescribeSpotInstanceRequestsResult
     { _dsirrSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeSpotInstanceRequestsResult
+instance IsList DescribeSpotInstanceRequestsResult where
     type Item DescribeSpotInstanceRequestsResult = SpotInstanceRequest
 
     fromList = DescribeSpotInstanceRequestsResult . fromList

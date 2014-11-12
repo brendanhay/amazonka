@@ -73,7 +73,7 @@ newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList GetEndpointAttributesResponse
+instance IsList GetEndpointAttributesResponse where
     type Item GetEndpointAttributesResponse = (Text, Text)
 
     fromList = GetEndpointAttributesResponse . fromList

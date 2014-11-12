@@ -92,7 +92,7 @@ newtype TerminateInstancesResult = TerminateInstancesResult
     { _tirTerminatingInstances :: [InstanceStateChange]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList TerminateInstancesResult
+instance IsList TerminateInstancesResult where
     type Item TerminateInstancesResult = InstanceStateChange
 
     fromList = TerminateInstancesResult . fromList

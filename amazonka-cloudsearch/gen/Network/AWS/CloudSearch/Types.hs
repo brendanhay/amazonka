@@ -1326,7 +1326,7 @@ instance ToQuery ServiceEndpoint
 data Limits = Limits
     { _lMaximumPartitionCount   :: Natural
     , _lMaximumReplicationCount :: Natural
-    } deriving (Eq, Ord, Show, Generic, Integral)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Limits' constructor.
 --

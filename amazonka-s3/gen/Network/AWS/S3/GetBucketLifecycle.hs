@@ -76,7 +76,7 @@ newtype GetBucketLifecycleOutput = GetBucketLifecycleOutput
     { _gbloRules :: [Rule]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetBucketLifecycleOutput
+instance IsList GetBucketLifecycleOutput where
     type Item GetBucketLifecycleOutput = Rule
 
     fromList = GetBucketLifecycleOutput . fromList

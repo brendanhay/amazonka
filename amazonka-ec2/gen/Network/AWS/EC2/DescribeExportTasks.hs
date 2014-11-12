@@ -46,7 +46,7 @@ newtype DescribeExportTasks = DescribeExportTasks
     { _detExportTaskIds :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList DescribeExportTasks
+instance IsList DescribeExportTasks where
     type Item DescribeExportTasks = Text
 
     fromList = DescribeExportTasks . fromList
@@ -76,7 +76,7 @@ newtype DescribeExportTasksResult = DescribeExportTasksResult
     { _detrExportTasks :: [ExportTask]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeExportTasksResult
+instance IsList DescribeExportTasksResult where
     type Item DescribeExportTasksResult = ExportTask
 
     fromList = DescribeExportTasksResult . fromList

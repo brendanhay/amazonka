@@ -117,7 +117,7 @@ newtype DescribeSecurityGroupsResult = DescribeSecurityGroupsResult
     { _dsgrSecurityGroups :: [SecurityGroup]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeSecurityGroupsResult
+instance IsList DescribeSecurityGroupsResult where
     type Item DescribeSecurityGroupsResult = SecurityGroup
 
     fromList = DescribeSecurityGroupsResult . fromList

@@ -97,7 +97,7 @@ newtype DescribeSuggestersResponse = DescribeSuggestersResponse
     { _dsrSuggesters :: [SuggesterStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeSuggestersResponse
+instance IsList DescribeSuggestersResponse where
     type Item DescribeSuggestersResponse = SuggesterStatus
 
     fromList = DescribeSuggestersResponse . fromList

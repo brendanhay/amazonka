@@ -106,7 +106,7 @@ newtype ConfigurationSettingsDescriptions = ConfigurationSettingsDescriptions
     { _csdConfigurationSettings :: [ConfigurationSettingsDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ConfigurationSettingsDescriptions
+instance IsList ConfigurationSettingsDescriptions where
     type Item ConfigurationSettingsDescriptions = ConfigurationSettingsDescription
 
     fromList = ConfigurationSettingsDescriptions . fromList

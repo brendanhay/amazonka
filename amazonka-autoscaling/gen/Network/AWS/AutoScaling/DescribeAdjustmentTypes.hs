@@ -56,7 +56,7 @@ newtype DescribeAdjustmentTypesAnswer = DescribeAdjustmentTypesAnswer
     { _dataAdjustmentTypes :: [AdjustmentType]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAdjustmentTypesAnswer
+instance IsList DescribeAdjustmentTypesAnswer where
     type Item DescribeAdjustmentTypesAnswer = AdjustmentType
 
     fromList = DescribeAdjustmentTypesAnswer . fromList

@@ -97,7 +97,7 @@ newtype DescribeExpressionsResponse = DescribeExpressionsResponse
     { _derExpressions :: [ExpressionStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeExpressionsResponse
+instance IsList DescribeExpressionsResponse where
     type Item DescribeExpressionsResponse = ExpressionStatus
 
     fromList = DescribeExpressionsResponse . fromList

@@ -89,7 +89,7 @@ newtype DescribeConversionTasksResult = DescribeConversionTasksResult
     { _dctrConversionTasks :: [ConversionTask]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeConversionTasksResult
+instance IsList DescribeConversionTasksResult where
     type Item DescribeConversionTasksResult = ConversionTask
 
     fromList = DescribeConversionTasksResult . fromList

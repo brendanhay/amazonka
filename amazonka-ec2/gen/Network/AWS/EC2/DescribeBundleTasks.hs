@@ -96,7 +96,7 @@ newtype DescribeBundleTasksResult = DescribeBundleTasksResult
     { _dbtrBundleTasks :: [BundleTask]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeBundleTasksResult
+instance IsList DescribeBundleTasksResult where
     type Item DescribeBundleTasksResult = BundleTask
 
     fromList = DescribeBundleTasksResult . fromList

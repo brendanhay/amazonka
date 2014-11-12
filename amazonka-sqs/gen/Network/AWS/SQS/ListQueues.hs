@@ -75,7 +75,7 @@ newtype ListQueuesResult = ListQueuesResult
     { _lqrQueueUrls :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList ListQueuesResult
+instance IsList ListQueuesResult where
     type Item ListQueuesResult = Text
 
     fromList = ListQueuesResult . fromList

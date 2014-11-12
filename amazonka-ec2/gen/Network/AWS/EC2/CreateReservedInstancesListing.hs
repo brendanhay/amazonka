@@ -124,7 +124,7 @@ newtype CreateReservedInstancesListingResult = CreateReservedInstancesListingRes
     { _crilr1ReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CreateReservedInstancesListingResult
+instance IsList CreateReservedInstancesListingResult where
     type Item CreateReservedInstancesListingResult = ReservedInstancesListing
 
     fromList = CreateReservedInstancesListingResult . fromList

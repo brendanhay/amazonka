@@ -49,7 +49,7 @@ newtype DescribeLoadBalancerPolicyTypesInput = DescribeLoadBalancerPolicyTypesIn
     { _dlbptiPolicyTypeNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList DescribeLoadBalancerPolicyTypesInput
+instance IsList DescribeLoadBalancerPolicyTypesInput where
     type Item DescribeLoadBalancerPolicyTypesInput = Text
 
     fromList = DescribeLoadBalancerPolicyTypesInput . fromList
@@ -82,7 +82,7 @@ newtype DescribeLoadBalancerPolicyTypesOutput = DescribeLoadBalancerPolicyTypesO
     { _dlbptoPolicyTypeDescriptions :: [PolicyTypeDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeLoadBalancerPolicyTypesOutput
+instance IsList DescribeLoadBalancerPolicyTypesOutput where
     type Item DescribeLoadBalancerPolicyTypesOutput = PolicyTypeDescription
 
     fromList = DescribeLoadBalancerPolicyTypesOutput . fromList

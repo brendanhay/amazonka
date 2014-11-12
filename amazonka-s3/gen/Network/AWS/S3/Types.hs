@@ -2023,7 +2023,7 @@ newtype Tagging = Tagging
     { _tTagSet :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList Tagging
+instance IsList Tagging where
     type Item Tagging = Tag
 
     fromList = Tagging . fromList
@@ -2093,7 +2093,7 @@ newtype CORSConfiguration = CORSConfiguration
     { _corscCORSRules :: [CORSRule]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CORSConfiguration
+instance IsList CORSConfiguration where
     type Item CORSConfiguration = CORSRule
 
     fromList = CORSConfiguration . fromList
@@ -2334,7 +2334,7 @@ newtype CompletedMultipartUpload = CompletedMultipartUpload
     { _cmuParts :: [CompletedPart]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CompletedMultipartUpload
+instance IsList CompletedMultipartUpload where
     type Item CompletedMultipartUpload = CompletedPart
 
     fromList = CompletedMultipartUpload . fromList
@@ -2594,7 +2594,7 @@ newtype LifecycleConfiguration = LifecycleConfiguration
     { _lcRules :: [Rule]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList LifecycleConfiguration
+instance IsList LifecycleConfiguration where
     type Item LifecycleConfiguration = Rule
 
     fromList = LifecycleConfiguration . fromList

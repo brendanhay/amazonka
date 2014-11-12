@@ -46,7 +46,7 @@ newtype DescribeApplicationsMessage = DescribeApplicationsMessage
     { _damApplicationNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList DescribeApplicationsMessage
+instance IsList DescribeApplicationsMessage where
     type Item DescribeApplicationsMessage = Text
 
     fromList = DescribeApplicationsMessage . fromList
@@ -78,7 +78,7 @@ newtype ApplicationDescriptionsMessage = ApplicationDescriptionsMessage
     { _admApplications :: [ApplicationDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ApplicationDescriptionsMessage
+instance IsList ApplicationDescriptionsMessage where
     type Item ApplicationDescriptionsMessage = ApplicationDescription
 
     fromList = ApplicationDescriptionsMessage . fromList

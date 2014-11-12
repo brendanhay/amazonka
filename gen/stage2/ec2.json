@@ -4316,8 +4316,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Integral"
+                    "Generic"
                 ],
                 "fieldPad": 8,
                 "ctor": "icmpTypeCode",
@@ -9451,8 +9450,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Integral"
+                    "Generic"
                 ],
                 "fieldPad": 7,
                 "ctor": "portRange",

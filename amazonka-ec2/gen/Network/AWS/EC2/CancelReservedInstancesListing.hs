@@ -75,7 +75,7 @@ newtype CancelReservedInstancesListingResult = CancelReservedInstancesListingRes
     { _crilrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CancelReservedInstancesListingResult
+instance IsList CancelReservedInstancesListingResult where
     type Item CancelReservedInstancesListingResult = ReservedInstancesListing
 
     fromList = CancelReservedInstancesListingResult . fromList

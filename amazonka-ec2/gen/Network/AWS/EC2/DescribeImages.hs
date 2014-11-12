@@ -145,7 +145,7 @@ newtype DescribeImagesResult = DescribeImagesResult
     { _dirImages :: [Image]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeImagesResult
+instance IsList DescribeImagesResult where
     type Item DescribeImagesResult = Image
 
     fromList = DescribeImagesResult . fromList

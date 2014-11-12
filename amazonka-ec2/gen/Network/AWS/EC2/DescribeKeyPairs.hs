@@ -89,7 +89,7 @@ newtype DescribeKeyPairsResult = DescribeKeyPairsResult
     { _dkprKeyPairs :: [KeyPairInfo]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeKeyPairsResult
+instance IsList DescribeKeyPairsResult where
     type Item DescribeKeyPairsResult = KeyPairInfo
 
     fromList = DescribeKeyPairsResult . fromList

@@ -72,7 +72,7 @@ newtype IndexDocumentsResponse = IndexDocumentsResponse
     { _idrFieldNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList IndexDocumentsResponse
+instance IsList IndexDocumentsResponse where
     type Item IndexDocumentsResponse = Text
 
     fromList = IndexDocumentsResponse . fromList

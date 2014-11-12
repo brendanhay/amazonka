@@ -102,7 +102,7 @@ newtype RegisterEndPointsOutput = RegisterEndPointsOutput
     { _repoInstances :: [Instance]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList RegisterEndPointsOutput
+instance IsList RegisterEndPointsOutput where
     type Item RegisterEndPointsOutput = Instance
 
     fromList = RegisterEndPointsOutput . fromList

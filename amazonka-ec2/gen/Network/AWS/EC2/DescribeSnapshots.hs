@@ -150,7 +150,7 @@ newtype DescribeSnapshotsResult = DescribeSnapshotsResult
     { _dsrSnapshots :: [Snapshot]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeSnapshotsResult
+instance IsList DescribeSnapshotsResult where
     type Item DescribeSnapshotsResult = Snapshot
 
     fromList = DescribeSnapshotsResult . fromList

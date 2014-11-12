@@ -8,7 +8,7 @@ data {{ type.name }} = {{ type.name }}
 {% endfor %}
     } deriving{% include "deriving.ede" %}
 {% if type.listElement %}
-instance IsList {{ type.name }}
+instance IsList {{ type.name }} where
     type Item {{ type.name }} = {{ type.listElement }}
 
     fromList = {{ type.name }} . fromList

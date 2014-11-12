@@ -85,7 +85,7 @@ newtype DescribeEndPointStateOutput = DescribeEndPointStateOutput
     { _depsoInstanceStates :: [InstanceState]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeEndPointStateOutput
+instance IsList DescribeEndPointStateOutput where
     type Item DescribeEndPointStateOutput = InstanceState
 
     fromList = DescribeEndPointStateOutput . fromList

@@ -46,7 +46,7 @@ newtype CreateOrUpdateTagsType = CreateOrUpdateTagsType
     { _couttTags :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CreateOrUpdateTagsType
+instance IsList CreateOrUpdateTagsType where
     type Item CreateOrUpdateTagsType = Tag
 
     fromList = CreateOrUpdateTagsType . fromList

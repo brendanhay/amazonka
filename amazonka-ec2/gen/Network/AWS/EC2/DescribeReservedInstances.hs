@@ -124,7 +124,7 @@ newtype DescribeReservedInstancesResult = DescribeReservedInstancesResult
     { _drirReservedInstances :: [ReservedInstances]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeReservedInstancesResult
+instance IsList DescribeReservedInstancesResult where
     type Item DescribeReservedInstancesResult = ReservedInstances
 
     fromList = DescribeReservedInstancesResult . fromList

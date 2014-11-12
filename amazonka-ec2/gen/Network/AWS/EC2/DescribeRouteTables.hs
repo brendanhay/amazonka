@@ -118,7 +118,7 @@ newtype DescribeRouteTablesResult = DescribeRouteTablesResult
     { _drtrRouteTables :: [RouteTable]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeRouteTablesResult
+instance IsList DescribeRouteTablesResult where
     type Item DescribeRouteTablesResult = RouteTable
 
     fromList = DescribeRouteTablesResult . fromList

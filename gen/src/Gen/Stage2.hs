@@ -508,6 +508,7 @@ instance DerivingOf Type where
         mayb = flip Set.difference
             [ Enum'
             , Num'
+            , Integral'
             , Real'
             , RealFrac'
             , Whole'
@@ -525,6 +526,7 @@ instance DerivingOf Data where
               , Monoid'
               , Enum'
               , Num'
+              , Integral'
               , Real'
               , RealFrac'
               , Whole'

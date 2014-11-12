@@ -180,7 +180,7 @@ newtype RequestSpotInstancesResult = RequestSpotInstancesResult
     { _rsirSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList RequestSpotInstancesResult
+instance IsList RequestSpotInstancesResult where
     type Item RequestSpotInstancesResult = SpotInstanceRequest
 
     fromList = RequestSpotInstancesResult . fromList

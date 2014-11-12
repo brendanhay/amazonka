@@ -89,7 +89,7 @@ newtype AddAvailabilityZonesOutput = AddAvailabilityZonesOutput
     { _aazoAvailabilityZones :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList AddAvailabilityZonesOutput
+instance IsList AddAvailabilityZonesOutput where
     type Item AddAvailabilityZonesOutput = Text
 
     fromList = AddAvailabilityZonesOutput . fromList

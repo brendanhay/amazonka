@@ -56,7 +56,7 @@ newtype DescribeLifecycleHookTypesAnswer = DescribeLifecycleHookTypesAnswer
     { _dlhtaLifecycleHookTypes :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList DescribeLifecycleHookTypesAnswer
+instance IsList DescribeLifecycleHookTypesAnswer where
     type Item DescribeLifecycleHookTypesAnswer = Text
 
     fromList = DescribeLifecycleHookTypesAnswer . fromList

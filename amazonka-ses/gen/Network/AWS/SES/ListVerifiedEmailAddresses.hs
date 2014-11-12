@@ -59,7 +59,7 @@ newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
     { _lvearVerifiedEmailAddresses :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList ListVerifiedEmailAddressesResponse
+instance IsList ListVerifiedEmailAddressesResponse where
     type Item ListVerifiedEmailAddressesResponse = Text
 
     fromList = ListVerifiedEmailAddressesResponse . fromList

@@ -100,7 +100,7 @@ newtype EnterStandbyAnswer = EnterStandbyAnswer
     { _esaActivities :: [Activity]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList EnterStandbyAnswer
+instance IsList EnterStandbyAnswer where
     type Item EnterStandbyAnswer = Activity
 
     fromList = EnterStandbyAnswer . fromList

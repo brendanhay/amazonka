@@ -1349,8 +1349,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Integral"
+                    "Generic"
                 ],
                 "streaming": false,
                 "fieldPad": 28,

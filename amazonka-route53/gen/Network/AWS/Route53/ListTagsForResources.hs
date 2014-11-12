@@ -93,7 +93,7 @@ newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse
     { _ltfrrResourceTagSets :: [ResourceTagSet]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ListTagsForResourcesResponse
+instance IsList ListTagsForResourcesResponse where
     type Item ListTagsForResourcesResponse = ResourceTagSet
 
     fromList = ListTagsForResourcesResponse . fromList

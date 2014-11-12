@@ -3124,7 +3124,7 @@ instance ToQuery CurrencyCodeValues
 data IcmpTypeCode = IcmpTypeCode
     { _itcCode :: Maybe Int
     , _itcType :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic, Integral)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'IcmpTypeCode' constructor.
 --
@@ -5281,7 +5281,7 @@ instance ToQuery BundleTaskState
 data PortRange = PortRange
     { _prFrom :: Maybe Int
     , _prTo   :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic, Integral)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PortRange' constructor.
 --

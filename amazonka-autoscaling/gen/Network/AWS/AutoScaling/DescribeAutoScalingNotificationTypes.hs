@@ -57,7 +57,7 @@ newtype DescribeAutoScalingNotificationTypesAnswer = DescribeAutoScalingNotifica
     { _dasntaAutoScalingNotificationTypes :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList DescribeAutoScalingNotificationTypesAnswer
+instance IsList DescribeAutoScalingNotificationTypesAnswer where
     type Item DescribeAutoScalingNotificationTypesAnswer = Text
 
     fromList = DescribeAutoScalingNotificationTypesAnswer . fromList

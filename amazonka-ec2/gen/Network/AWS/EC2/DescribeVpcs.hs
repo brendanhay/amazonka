@@ -101,7 +101,7 @@ newtype DescribeVpcsResult = DescribeVpcsResult
     { _dvrVpcs :: [Vpc]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeVpcsResult
+instance IsList DescribeVpcsResult where
     type Item DescribeVpcsResult = Vpc
 
     fromList = DescribeVpcsResult . fromList

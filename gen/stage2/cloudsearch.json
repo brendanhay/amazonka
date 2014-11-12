@@ -2620,8 +2620,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "Integral"
+                    "Generic"
                 ],
                 "fieldPad": 25,
                 "ctor": "limits",

@@ -118,7 +118,7 @@ newtype DescribeAlarmsForMetricOutput = DescribeAlarmsForMetricOutput
     { _dafmoMetricAlarms :: [MetricAlarm]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAlarmsForMetricOutput
+instance IsList DescribeAlarmsForMetricOutput where
     type Item DescribeAlarmsForMetricOutput = MetricAlarm
 
     fromList = DescribeAlarmsForMetricOutput . fromList

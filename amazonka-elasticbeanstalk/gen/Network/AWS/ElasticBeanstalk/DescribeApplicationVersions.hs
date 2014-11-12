@@ -83,7 +83,7 @@ newtype ApplicationVersionDescriptionsMessage = ApplicationVersionDescriptionsMe
     { _avdmApplicationVersions :: [ApplicationVersionDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ApplicationVersionDescriptionsMessage
+instance IsList ApplicationVersionDescriptionsMessage where
     type Item ApplicationVersionDescriptionsMessage = ApplicationVersionDescription
 
     fromList = ApplicationVersionDescriptionsMessage . fromList

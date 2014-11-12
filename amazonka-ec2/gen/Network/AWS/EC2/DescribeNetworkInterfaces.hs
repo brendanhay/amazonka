@@ -142,7 +142,7 @@ newtype DescribeNetworkInterfacesResult = DescribeNetworkInterfacesResult
     { _dnirNetworkInterfaces :: [NetworkInterface]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeNetworkInterfacesResult
+instance IsList DescribeNetworkInterfacesResult where
     type Item DescribeNetworkInterfacesResult = NetworkInterface
 
     fromList = DescribeNetworkInterfacesResult . fromList

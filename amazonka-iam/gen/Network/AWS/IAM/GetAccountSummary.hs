@@ -58,7 +58,7 @@ newtype GetAccountSummaryResponse = GetAccountSummaryResponse
     { _gasrSummaryMap :: Map Text Int
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetAccountSummaryResponse
+instance IsList GetAccountSummaryResponse where
     type Item GetAccountSummaryResponse = (Text, Int)
 
     fromList = GetAccountSummaryResponse . fromList

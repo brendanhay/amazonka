@@ -57,7 +57,7 @@ newtype ProcessesType = ProcessesType
     { _ptProcesses :: [ProcessType]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ProcessesType
+instance IsList ProcessesType where
     type Item ProcessesType = ProcessType
 
     fromList = ProcessesType . fromList

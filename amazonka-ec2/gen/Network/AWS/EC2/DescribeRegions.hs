@@ -90,7 +90,7 @@ newtype DescribeRegionsResult = DescribeRegionsResult
     { _drrRegions :: [Region]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeRegionsResult
+instance IsList DescribeRegionsResult where
     type Item DescribeRegionsResult = Region
 
     fromList = DescribeRegionsResult . fromList

@@ -73,7 +73,7 @@ newtype ListDeadLetterSourceQueuesResult = ListDeadLetterSourceQueuesResult
     { _ldlsqrQueueUrls :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList ListDeadLetterSourceQueuesResult
+instance IsList ListDeadLetterSourceQueuesResult where
     type Item ListDeadLetterSourceQueuesResult = Text
 
     fromList = ListDeadLetterSourceQueuesResult . fromList

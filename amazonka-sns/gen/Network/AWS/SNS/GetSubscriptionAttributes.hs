@@ -72,7 +72,7 @@ newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList GetSubscriptionAttributesResponse
+instance IsList GetSubscriptionAttributesResponse where
     type Item GetSubscriptionAttributesResponse = (Text, Text)
 
     fromList = GetSubscriptionAttributesResponse . fromList

@@ -82,7 +82,7 @@ newtype EventCategoriesMessage = EventCategoriesMessage
     { _ecmEventCategoriesMapList :: [EventCategoriesMap]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList EventCategoriesMessage
+instance IsList EventCategoriesMessage where
     type Item EventCategoriesMessage = EventCategoriesMap
 
     fromList = EventCategoriesMessage . fromList

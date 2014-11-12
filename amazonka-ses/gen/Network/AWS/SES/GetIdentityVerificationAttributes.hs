@@ -48,7 +48,7 @@ newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
     { _givaIdentities :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList GetIdentityVerificationAttributes
+instance IsList GetIdentityVerificationAttributes where
     type Item GetIdentityVerificationAttributes = Text
 
     fromList = GetIdentityVerificationAttributes . fromList
@@ -78,7 +78,7 @@ newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttri
     { _givarVerificationAttributes :: Map Text IdentityVerificationAttributes
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetIdentityVerificationAttributesResponse
+instance IsList GetIdentityVerificationAttributesResponse where
     type Item GetIdentityVerificationAttributesResponse = (Text, IdentityVerificationAttributes)
 
     fromList = GetIdentityVerificationAttributesResponse . fromList

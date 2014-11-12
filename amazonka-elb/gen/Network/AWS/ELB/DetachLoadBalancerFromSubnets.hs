@@ -87,7 +87,7 @@ newtype DetachLoadBalancerFromSubnetsOutput = DetachLoadBalancerFromSubnetsOutpu
     { _dlbfsoSubnets :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList DetachLoadBalancerFromSubnetsOutput
+instance IsList DetachLoadBalancerFromSubnetsOutput where
     type Item DetachLoadBalancerFromSubnetsOutput = Text
 
     fromList = DetachLoadBalancerFromSubnetsOutput . fromList

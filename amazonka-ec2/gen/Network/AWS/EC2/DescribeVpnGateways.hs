@@ -107,7 +107,7 @@ newtype DescribeVpnGatewaysResult = DescribeVpnGatewaysResult
     { _dvgrVpnGateways :: [VpnGateway]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeVpnGatewaysResult
+instance IsList DescribeVpnGatewaysResult where
     type Item DescribeVpnGatewaysResult = VpnGateway
 
     fromList = DescribeVpnGatewaysResult . fromList

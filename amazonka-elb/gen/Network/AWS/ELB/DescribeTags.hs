@@ -73,7 +73,7 @@ newtype DescribeTagsOutput = DescribeTagsOutput
     { _dtoTagDescriptions :: [TagDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeTagsOutput
+instance IsList DescribeTagsOutput where
     type Item DescribeTagsOutput = TagDescription
 
     fromList = DescribeTagsOutput . fromList

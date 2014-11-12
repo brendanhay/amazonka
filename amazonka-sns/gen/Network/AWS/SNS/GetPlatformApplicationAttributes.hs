@@ -75,7 +75,7 @@ newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttribu
     { _gpaarAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList GetPlatformApplicationAttributesResponse
+instance IsList GetPlatformApplicationAttributesResponse where
     type Item GetPlatformApplicationAttributesResponse = (Text, Text)
 
     fromList = GetPlatformApplicationAttributesResponse . fromList

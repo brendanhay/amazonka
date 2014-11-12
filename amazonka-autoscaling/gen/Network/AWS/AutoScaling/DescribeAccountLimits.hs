@@ -61,7 +61,7 @@ instance ToPath DescribeAccountLimits where
 data DescribeAccountLimitsAnswer = DescribeAccountLimitsAnswer
     { _dalaMaxNumberOfAutoScalingGroups    :: Maybe Int
     , _dalaMaxNumberOfLaunchConfigurations :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic, Integral)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAccountLimitsAnswer' constructor.
 --

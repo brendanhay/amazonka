@@ -79,7 +79,7 @@ newtype DescribeAccountAttributesResult = DescribeAccountAttributesResult
     { _daarAccountAttributes :: [AccountAttribute]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAccountAttributesResult
+instance IsList DescribeAccountAttributesResult where
     type Item DescribeAccountAttributesResult = AccountAttribute
 
     fromList = DescribeAccountAttributesResult . fromList

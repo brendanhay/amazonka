@@ -83,7 +83,7 @@ data DomainMetadataResult = DomainMetadataResult
     , _dmrItemCount                :: Maybe Int
     , _dmrItemNamesSizeBytes       :: Maybe Integer
     , _dmrTimestamp                :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic, Integral)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DomainMetadataResult' constructor.
 --

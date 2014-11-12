@@ -49,7 +49,7 @@ newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
     { _ginaIdentities :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList GetIdentityNotificationAttributes
+instance IsList GetIdentityNotificationAttributes where
     type Item GetIdentityNotificationAttributes = Text
 
     fromList = GetIdentityNotificationAttributes . fromList
@@ -79,7 +79,7 @@ newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttri
     { _ginarNotificationAttributes :: Map Text IdentityNotificationAttributes
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetIdentityNotificationAttributesResponse
+instance IsList GetIdentityNotificationAttributesResponse where
     type Item GetIdentityNotificationAttributesResponse = (Text, IdentityNotificationAttributes)
 
     fromList = GetIdentityNotificationAttributesResponse . fromList

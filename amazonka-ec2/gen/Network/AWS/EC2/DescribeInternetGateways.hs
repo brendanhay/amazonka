@@ -101,7 +101,7 @@ newtype DescribeInternetGatewaysResult = DescribeInternetGatewaysResult
     { _digrInternetGateways :: [InternetGateway]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeInternetGatewaysResult
+instance IsList DescribeInternetGatewaysResult where
     type Item DescribeInternetGatewaysResult = InternetGateway
 
     fromList = DescribeInternetGatewaysResult . fromList

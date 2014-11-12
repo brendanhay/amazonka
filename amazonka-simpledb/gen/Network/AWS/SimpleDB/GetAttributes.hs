@@ -108,7 +108,7 @@ newtype GetAttributesResult = GetAttributesResult
     { _garAttributes :: [Attribute]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetAttributesResult
+instance IsList GetAttributesResult where
     type Item GetAttributesResult = Attribute
 
     fromList = GetAttributesResult . fromList

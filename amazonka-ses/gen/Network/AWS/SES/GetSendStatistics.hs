@@ -59,7 +59,7 @@ newtype GetSendStatisticsResponse = GetSendStatisticsResponse
     { _gssrSendDataPoints :: [SendDataPoint]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetSendStatisticsResponse
+instance IsList GetSendStatisticsResponse where
     type Item GetSendStatisticsResponse = SendDataPoint
 
     fromList = GetSendStatisticsResponse . fromList

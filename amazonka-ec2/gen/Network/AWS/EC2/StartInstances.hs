@@ -100,7 +100,7 @@ newtype StartInstancesResult = StartInstancesResult
     { _sirStartingInstances :: [InstanceStateChange]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList StartInstancesResult
+instance IsList StartInstancesResult where
     type Item StartInstancesResult = InstanceStateChange
 
     fromList = StartInstancesResult . fromList

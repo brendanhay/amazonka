@@ -76,7 +76,7 @@ newtype GetBucketCorsOutput = GetBucketCorsOutput
     { _gbcoCORSRules :: [CORSRule]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetBucketCorsOutput
+instance IsList GetBucketCorsOutput where
     type Item GetBucketCorsOutput = CORSRule
 
     fromList = GetBucketCorsOutput . fromList

@@ -111,7 +111,7 @@ newtype StopInstancesResult = StopInstancesResult
     { _sirStoppingInstances :: [InstanceStateChange]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList StopInstancesResult
+instance IsList StopInstancesResult where
     type Item StopInstancesResult = InstanceStateChange
 
     fromList = StopInstancesResult . fromList

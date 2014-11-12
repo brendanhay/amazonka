@@ -80,7 +80,7 @@ newtype UnmonitorInstancesResult = UnmonitorInstancesResult
     { _uirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList UnmonitorInstancesResult
+instance IsList UnmonitorInstancesResult where
     type Item UnmonitorInstancesResult = InstanceMonitoring
 
     fromList = UnmonitorInstancesResult . fromList

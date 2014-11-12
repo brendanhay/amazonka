@@ -107,7 +107,7 @@ newtype DescribeSubnetsResult = DescribeSubnetsResult
     { _dsrSubnets :: [Subnet]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeSubnetsResult
+instance IsList DescribeSubnetsResult where
     type Item DescribeSubnetsResult = Subnet
 
     fromList = DescribeSubnetsResult . fromList

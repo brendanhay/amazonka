@@ -80,7 +80,7 @@ newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
     { _vddrDkimTokens :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList VerifyDomainDkimResponse
+instance IsList VerifyDomainDkimResponse where
     type Item VerifyDomainDkimResponse = Text
 
     fromList = VerifyDomainDkimResponse . fromList

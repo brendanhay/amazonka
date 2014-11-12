@@ -90,7 +90,7 @@ newtype DescribeLoadBalancerPoliciesOutput = DescribeLoadBalancerPoliciesOutput
     { _dlbpoPolicyDescriptions :: [PolicyDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeLoadBalancerPoliciesOutput
+instance IsList DescribeLoadBalancerPoliciesOutput where
     type Item DescribeLoadBalancerPoliciesOutput = PolicyDescription
 
     fromList = DescribeLoadBalancerPoliciesOutput . fromList

@@ -107,7 +107,7 @@ newtype ConfigurationSettingsValidationMessages = ConfigurationSettingsValidatio
     { _csvmMessages :: [ValidationMessage]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ConfigurationSettingsValidationMessages
+instance IsList ConfigurationSettingsValidationMessages where
     type Item ConfigurationSettingsValidationMessages = ValidationMessage
 
     fromList = ConfigurationSettingsValidationMessages . fromList

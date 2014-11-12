@@ -98,7 +98,7 @@ newtype RetrieveEnvironmentInfoResultMessage = RetrieveEnvironmentInfoResultMess
     { _reirmEnvironmentInfo :: [EnvironmentInfoDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList RetrieveEnvironmentInfoResultMessage
+instance IsList RetrieveEnvironmentInfoResultMessage where
     type Item RetrieveEnvironmentInfoResultMessage = EnvironmentInfoDescription
 
     fromList = RetrieveEnvironmentInfoResultMessage . fromList

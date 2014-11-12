@@ -96,7 +96,7 @@ newtype DescribeAvailabilityZonesResult = DescribeAvailabilityZonesResult
     { _dazrAvailabilityZones :: [AvailabilityZone]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAvailabilityZonesResult
+instance IsList DescribeAvailabilityZonesResult where
     type Item DescribeAvailabilityZonesResult = AvailabilityZone
 
     fromList = DescribeAvailabilityZonesResult . fromList

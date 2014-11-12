@@ -46,7 +46,7 @@ newtype DisableAlarmActionsInput = DisableAlarmActionsInput
     { _daaiAlarmNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList DisableAlarmActionsInput
+instance IsList DisableAlarmActionsInput where
     type Item DisableAlarmActionsInput = Text
 
     fromList = DisableAlarmActionsInput . fromList

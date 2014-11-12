@@ -45,7 +45,7 @@ newtype DeleteAlarmsInput = DeleteAlarmsInput
     { _daiAlarmNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList DeleteAlarmsInput
+instance IsList DeleteAlarmsInput where
     type Item DeleteAlarmsInput = Text
 
     fromList = DeleteAlarmsInput . fromList

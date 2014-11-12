@@ -105,7 +105,7 @@ newtype GetQueueAttributesResult = GetQueueAttributesResult
     { _gqarAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList GetQueueAttributesResult
+instance IsList GetQueueAttributesResult where
     type Item GetQueueAttributesResult = (Text, Text)
 
     fromList = GetQueueAttributesResult . fromList

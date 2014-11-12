@@ -87,7 +87,7 @@ newtype AttachLoadBalancerToSubnetsOutput = AttachLoadBalancerToSubnetsOutput
     { _albtsoSubnets :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList AttachLoadBalancerToSubnetsOutput
+instance IsList AttachLoadBalancerToSubnetsOutput where
     type Item AttachLoadBalancerToSubnetsOutput = Text
 
     fromList = AttachLoadBalancerToSubnetsOutput . fromList

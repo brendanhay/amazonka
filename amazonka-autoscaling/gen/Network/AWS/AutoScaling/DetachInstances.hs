@@ -100,7 +100,7 @@ newtype DetachInstancesAnswer = DetachInstancesAnswer
     { _diaActivities :: [Activity]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DetachInstancesAnswer
+instance IsList DetachInstancesAnswer where
     type Item DetachInstancesAnswer = Activity
 
     fromList = DetachInstancesAnswer . fromList

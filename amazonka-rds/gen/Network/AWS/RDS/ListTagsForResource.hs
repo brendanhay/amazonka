@@ -84,7 +84,7 @@ newtype TagListMessage = TagListMessage
     { _tlmTagList :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList TagListMessage
+instance IsList TagListMessage where
     type Item TagListMessage = Tag
 
     fromList = TagListMessage . fromList

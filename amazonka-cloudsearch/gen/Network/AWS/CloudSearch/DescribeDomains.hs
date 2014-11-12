@@ -52,7 +52,7 @@ newtype DescribeDomains = DescribeDomains
     { _ddDomainNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList DescribeDomains
+instance IsList DescribeDomains where
     type Item DescribeDomains = Text
 
     fromList = DescribeDomains . fromList
@@ -82,7 +82,7 @@ newtype DescribeDomainsResponse = DescribeDomainsResponse
     { _ddrDomainStatusList :: [DomainStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeDomainsResponse
+instance IsList DescribeDomainsResponse where
     type Item DescribeDomainsResponse = DomainStatus
 
     fromList = DescribeDomainsResponse . fromList

@@ -162,7 +162,7 @@ newtype ReceiveMessageResult = ReceiveMessageResult
     { _rmrMessages :: [Message]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ReceiveMessageResult
+instance IsList ReceiveMessageResult where
     type Item ReceiveMessageResult = Message
 
     fromList = ReceiveMessageResult . fromList

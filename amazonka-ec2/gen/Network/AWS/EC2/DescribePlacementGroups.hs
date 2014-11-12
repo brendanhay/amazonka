@@ -92,7 +92,7 @@ newtype DescribePlacementGroupsResult = DescribePlacementGroupsResult
     { _dpgrPlacementGroups :: [PlacementGroup]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribePlacementGroupsResult
+instance IsList DescribePlacementGroupsResult where
     type Item DescribePlacementGroupsResult = PlacementGroup
 
     fromList = DescribePlacementGroupsResult . fromList

@@ -56,7 +56,7 @@ newtype ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse
     { _loidcprOpenIDConnectProviderList :: [OpenIDConnectProviderListEntry]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ListOpenIDConnectProvidersResponse
+instance IsList ListOpenIDConnectProvidersResponse where
     type Item ListOpenIDConnectProvidersResponse = OpenIDConnectProviderListEntry
 
     fromList = ListOpenIDConnectProvidersResponse . fromList

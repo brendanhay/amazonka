@@ -71,7 +71,7 @@ newtype BuildSuggestersResponse = BuildSuggestersResponse
     { _bsrFieldNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
 
-instance IsList BuildSuggestersResponse
+instance IsList BuildSuggestersResponse where
     type Item BuildSuggestersResponse = Text
 
     fromList = BuildSuggestersResponse . fromList

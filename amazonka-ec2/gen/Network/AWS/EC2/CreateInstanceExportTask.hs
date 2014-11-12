@@ -53,7 +53,7 @@ data CreateInstanceExportTask = CreateInstanceExportTask
     , _cietExportToS3Task    :: Maybe ExportToS3TaskSpecification
     , _cietInstanceId        :: Text
     , _cietTargetEnvironment :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateInstanceExportTask' constructor.
 --
@@ -100,7 +100,7 @@ instance ToPath CreateInstanceExportTask where
 
 newtype CreateInstanceExportTaskResult = CreateInstanceExportTaskResult
     { _cietrExportTask :: Maybe ExportTask
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateInstanceExportTaskResult' constructor.
 --
@@ -115,6 +115,7 @@ createInstanceExportTaskResult = CreateInstanceExportTaskResult
 
 cietrExportTask :: Lens' CreateInstanceExportTaskResult (Maybe ExportTask)
 cietrExportTask = lens _cietrExportTask (\s a -> s { _cietrExportTask = a })
+
 instance FromXML CreateInstanceExportTaskResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateInstanceExportTaskResult"

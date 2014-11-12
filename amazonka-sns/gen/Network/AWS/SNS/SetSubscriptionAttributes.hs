@@ -47,7 +47,7 @@ data SetSubscriptionAttributesInput = SetSubscriptionAttributesInput
     { _ssaiAttributeName   :: Text
     , _ssaiAttributeValue  :: Maybe Text
     , _ssaiSubscriptionArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SetSubscriptionAttributesInput' constructor.
 --
@@ -95,6 +95,7 @@ data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
 -- | 'SetSubscriptionAttributesResponse' constructor.
 setSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse
 setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
+
 instance FromXML SetSubscriptionAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetSubscriptionAttributesResponse"

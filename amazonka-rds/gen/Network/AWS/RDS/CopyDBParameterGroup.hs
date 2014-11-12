@@ -50,7 +50,7 @@ data CopyDBParameterGroupMessage = CopyDBParameterGroupMessage
     , _cdbpgm1Tags                              :: [Tag]
     , _cdbpgm1TargetDBParameterGroupDescription :: Text
     , _cdbpgm1TargetDBParameterGroupIdentifier  :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CopyDBParameterGroupMessage' constructor.
 --
@@ -111,7 +111,7 @@ instance ToPath CopyDBParameterGroupMessage where
 
 newtype CopyDBParameterGroupResult = CopyDBParameterGroupResult
     { _cdbpgrDBParameterGroup :: Maybe DBParameterGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CopyDBParameterGroupResult' constructor.
 --
@@ -127,6 +127,7 @@ copyDBParameterGroupResult = CopyDBParameterGroupResult
 cdbpgrDBParameterGroup :: Lens' CopyDBParameterGroupResult (Maybe DBParameterGroup)
 cdbpgrDBParameterGroup =
     lens _cdbpgrDBParameterGroup (\s a -> s { _cdbpgrDBParameterGroup = a })
+
 instance FromXML CopyDBParameterGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopyDBParameterGroupResult"

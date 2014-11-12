@@ -49,7 +49,7 @@ data ModifyDBSubnetGroupMessage = ModifyDBSubnetGroupMessage
     { _mdbsgmDBSubnetGroupDescription :: Maybe Text
     , _mdbsgmDBSubnetGroupName        :: Text
     , _mdbsgmSubnetIds                :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ModifyDBSubnetGroupMessage' constructor.
 --
@@ -92,7 +92,7 @@ instance ToPath ModifyDBSubnetGroupMessage where
 
 newtype ModifyDBSubnetGroupResult = ModifyDBSubnetGroupResult
     { _mdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyDBSubnetGroupResult' constructor.
 --
@@ -108,6 +108,7 @@ modifyDBSubnetGroupResult = ModifyDBSubnetGroupResult
 mdbsgrDBSubnetGroup :: Lens' ModifyDBSubnetGroupResult (Maybe DBSubnetGroup)
 mdbsgrDBSubnetGroup =
     lens _mdbsgrDBSubnetGroup (\s a -> s { _mdbsgrDBSubnetGroup = a })
+
 instance FromXML ModifyDBSubnetGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyDBSubnetGroupResult"

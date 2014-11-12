@@ -53,7 +53,7 @@ import Network.AWS.EC2.Types
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests
     { _csirDryRun                 :: Maybe Bool
     , _csirSpotInstanceRequestIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CancelSpotInstanceRequests' constructor.
 --
@@ -84,7 +84,7 @@ instance ToPath CancelSpotInstanceRequests where
 
 newtype CancelSpotInstanceRequestsResult = CancelSpotInstanceRequestsResult
     { _csirrCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'CancelSpotInstanceRequestsResult' constructor.
 --
@@ -102,6 +102,7 @@ csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResult [Ca
 csirrCancelledSpotInstanceRequests =
     lens _csirrCancelledSpotInstanceRequests
         (\s a -> s { _csirrCancelledSpotInstanceRequests = a })
+
 instance FromXML CancelSpotInstanceRequestsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CancelSpotInstanceRequestsResult"

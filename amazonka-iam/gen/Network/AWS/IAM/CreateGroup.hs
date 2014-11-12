@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 data CreateGroup = CreateGroup
     { _cgGroupName :: Text
     , _cgPath      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateGroup' constructor.
 --
@@ -80,7 +80,7 @@ instance ToPath CreateGroup where
 
 newtype CreateGroupResponse = CreateGroupResponse
     { _cgrGroup :: Group
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateGroupResponse' constructor.
 --
@@ -97,6 +97,7 @@ createGroupResponse p1 = CreateGroupResponse
 -- | Information about the group.
 cgrGroup :: Lens' CreateGroupResponse Group
 cgrGroup = lens _cgrGroup (\s a -> s { _cgrGroup = a })
+
 instance FromXML CreateGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateGroupResponse"

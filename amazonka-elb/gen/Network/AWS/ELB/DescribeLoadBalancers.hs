@@ -53,7 +53,7 @@ data DescribeAccessPointsInput = DescribeAccessPointsInput
     { _dapiLoadBalancerNames :: [Text]
     , _dapiMarker            :: Maybe Text
     , _dapiPageSize          :: Maybe Natural
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAccessPointsInput' constructor.
 --
@@ -94,7 +94,7 @@ instance ToPath DescribeAccessPointsInput where
 data DescribeAccessPointsOutput = DescribeAccessPointsOutput
     { _dapoLoadBalancerDescriptions :: [LoadBalancerDescription]
     , _dapoNextMarker               :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeAccessPointsOutput' constructor.
 --
@@ -120,6 +120,7 @@ dapoLoadBalancerDescriptions =
 -- page of results.
 dapoNextMarker :: Lens' DescribeAccessPointsOutput (Maybe Text)
 dapoNextMarker = lens _dapoNextMarker (\s a -> s { _dapoNextMarker = a })
+
 instance FromXML DescribeAccessPointsOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAccessPointsOutput"

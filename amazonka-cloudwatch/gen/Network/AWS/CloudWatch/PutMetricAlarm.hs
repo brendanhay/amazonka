@@ -75,7 +75,7 @@ data PutMetricAlarmInput = PutMetricAlarmInput
     , _pmaiStatistic               :: Text
     , _pmaiThreshold               :: Double
     , _pmaiUnit                    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'PutMetricAlarmInput' constructor.
 --
@@ -228,6 +228,7 @@ data PutMetricAlarmResponse = PutMetricAlarmResponse
 -- | 'PutMetricAlarmResponse' constructor.
 putMetricAlarmResponse :: PutMetricAlarmResponse
 putMetricAlarmResponse = PutMetricAlarmResponse
+
 instance FromXML PutMetricAlarmResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PutMetricAlarmResponse"

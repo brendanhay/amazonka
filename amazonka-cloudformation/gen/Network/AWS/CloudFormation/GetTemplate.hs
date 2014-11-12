@@ -46,7 +46,7 @@ import Network.AWS.CloudFormation.Types
 
 newtype GetTemplateInput = GetTemplateInput
     { _gtiStackName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetTemplateInput' constructor.
 --
@@ -73,7 +73,7 @@ instance ToPath GetTemplateInput where
 
 newtype GetTemplateOutput = GetTemplateOutput
     { _gtoTemplateBody :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetTemplateOutput' constructor.
 --
@@ -90,6 +90,7 @@ getTemplateOutput = GetTemplateOutput
 -- Template Anatomy in the AWS CloudFormation User Guide.).
 gtoTemplateBody :: Lens' GetTemplateOutput (Maybe Text)
 gtoTemplateBody = lens _gtoTemplateBody (\s a -> s { _gtoTemplateBody = a })
+
 instance FromXML GetTemplateOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetTemplateOutput"

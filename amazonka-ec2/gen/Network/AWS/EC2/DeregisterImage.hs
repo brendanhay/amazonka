@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data DeregisterImage = DeregisterImage
     { _di2DryRun  :: Maybe Bool
     , _di2ImageId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeregisterImage' constructor.
 --
@@ -79,6 +79,7 @@ data DeregisterImageResponse = DeregisterImageResponse
 -- | 'DeregisterImageResponse' constructor.
 deregisterImageResponse :: DeregisterImageResponse
 deregisterImageResponse = DeregisterImageResponse
+
 instance FromXML DeregisterImageResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeregisterImageResponse"

@@ -23,6 +23,8 @@ module Network.AWS.IAM.Types
     (
     -- * Service
       IAM
+    -- ** Error
+    , RESTError
     -- ** XML
     , xmlOptions
 
@@ -234,7 +236,7 @@ data PasswordPolicy = PasswordPolicy
     , _ppRequireNumbers             :: Maybe Bool
     , _ppRequireSymbols             :: Maybe Bool
     , _ppRequireUppercaseCharacters :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'PasswordPolicy' constructor.
 --
@@ -339,7 +341,7 @@ data Group = Group
     , _gGroupId    :: Text
     , _gGroupName  :: Text
     , _gPath       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Group' constructor.
 --
@@ -404,7 +406,7 @@ data MFADevice = MFADevice
     { _mfadEnableDate   :: RFC822
     , _mfadSerialNumber :: Text
     , _mfadUserName     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'MFADevice' constructor.
 --
@@ -453,7 +455,7 @@ data InstanceProfile = InstanceProfile
     , _ipInstanceProfileName :: Text
     , _ipPath                :: Text
     , _ipRoles               :: [Role]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'InstanceProfile' constructor.
 --
@@ -548,7 +550,7 @@ data ServerCertificateMetadata = ServerCertificateMetadata
     , _scmServerCertificateId   :: Text
     , _scmServerCertificateName :: Text
     , _scmUploadDate            :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ServerCertificateMetadata' constructor.
 --
@@ -621,7 +623,7 @@ instance ToQuery ServerCertificateMetadata
 
 newtype OpenIDConnectProviderListEntry = OpenIDConnectProviderListEntry
     { _oidcpleArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'OpenIDConnectProviderListEntry' constructor.
 --
@@ -647,7 +649,7 @@ data LoginProfile = LoginProfile
     { _lpCreateDate            :: RFC822
     , _lpPasswordResetRequired :: Maybe Bool
     , _lpUserName              :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'LoginProfile' constructor.
 --
@@ -780,7 +782,7 @@ data User = User
     , _uPath             :: Text
     , _uUserId           :: Text
     , _uUserName         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'User' constructor.
 --
@@ -885,7 +887,7 @@ data SAMLProviderListEntry = SAMLProviderListEntry
     { _samlpleArn        :: Maybe Text
     , _samlpleCreateDate :: Maybe RFC822
     , _samlpleValidUntil :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SAMLProviderListEntry' constructor.
 --
@@ -933,7 +935,7 @@ data Role = Role
     , _rPath                     :: Text
     , _rRoleId                   :: Text
     , _rRoleName                 :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Role' constructor.
 --
@@ -1009,7 +1011,7 @@ data ServerCertificate = ServerCertificate
     { _scCertificateBody           :: Text
     , _scCertificateChain          :: Maybe Text
     , _scServerCertificateMetadata :: ServerCertificateMetadata
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ServerCertificate' constructor.
 --
@@ -1059,7 +1061,7 @@ data AccessKey = AccessKey
     , _akSecretAccessKey :: Sensitive Text
     , _akStatus          :: Text
     , _akUserName        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AccessKey' constructor.
 --
@@ -1124,7 +1126,7 @@ data VirtualMFADevice = VirtualMFADevice
     , _vmfadQRCodePNG        :: Maybe Base64
     , _vmfadSerialNumber     :: Text
     , _vmfadUser             :: Maybe User
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'VirtualMFADevice' constructor.
 --
@@ -1190,7 +1192,7 @@ data SigningCertificate = SigningCertificate
     , _sc1Status          :: Text
     , _sc1UploadDate      :: Maybe RFC822
     , _sc1UserName        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SigningCertificate' constructor.
 --
@@ -1253,7 +1255,7 @@ data AccessKeyMetadata = AccessKeyMetadata
     , _akmCreateDate  :: Maybe RFC822
     , _akmStatus      :: Maybe Text
     , _akmUserName    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AccessKeyMetadata' constructor.
 --

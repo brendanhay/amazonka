@@ -59,7 +59,7 @@ data DescribeOrderableDBInstanceOptionsMessage = DescribeOrderableDBInstanceOpti
     , _dodbiomMarker          :: Maybe Text
     , _dodbiomMaxRecords      :: Maybe Int
     , _dodbiomVpc             :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeOrderableDBInstanceOptionsMessage' constructor.
 --
@@ -147,7 +147,7 @@ instance ToPath DescribeOrderableDBInstanceOptionsMessage where
 data OrderableDBInstanceOptionsMessage = OrderableDBInstanceOptionsMessage
     { _odbiomMarker                     :: Maybe Text
     , _odbiomOrderableDBInstanceOptions :: [OrderableDBInstanceOption]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'OrderableDBInstanceOptionsMessage' constructor.
 --
@@ -176,6 +176,7 @@ odbiomOrderableDBInstanceOptions :: Lens' OrderableDBInstanceOptionsMessage [Ord
 odbiomOrderableDBInstanceOptions =
     lens _odbiomOrderableDBInstanceOptions
         (\s a -> s { _odbiomOrderableDBInstanceOptions = a })
+
 instance FromXML OrderableDBInstanceOptionsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "OrderableDBInstanceOptionsMessage"

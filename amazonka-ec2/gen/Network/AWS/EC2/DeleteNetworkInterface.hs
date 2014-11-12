@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data DeleteNetworkInterface = DeleteNetworkInterface
     { _dni1DryRun             :: Maybe Bool
     , _dni1NetworkInterfaceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteNetworkInterface' constructor.
 --
@@ -80,6 +80,7 @@ data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
 -- | 'DeleteNetworkInterfaceResponse' constructor.
 deleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse
 deleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
+
 instance FromXML DeleteNetworkInterfaceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteNetworkInterfaceResponse"

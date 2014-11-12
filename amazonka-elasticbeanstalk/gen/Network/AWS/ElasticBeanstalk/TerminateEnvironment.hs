@@ -62,7 +62,7 @@ data TerminateEnvironmentMessage = TerminateEnvironmentMessage
     { _temEnvironmentId      :: Maybe Text
     , _temEnvironmentName    :: Maybe Text
     , _temTerminateResources :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'TerminateEnvironmentMessage' constructor.
 --

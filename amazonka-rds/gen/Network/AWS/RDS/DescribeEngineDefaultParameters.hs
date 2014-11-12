@@ -51,7 +51,7 @@ data DescribeEngineDefaultParametersMessage = DescribeEngineDefaultParametersMes
     , _dedpmFilters                :: [Filter]
     , _dedpmMarker                 :: Maybe Text
     , _dedpmMaxRecords             :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeEngineDefaultParametersMessage' constructor.
 --
@@ -104,7 +104,7 @@ instance ToPath DescribeEngineDefaultParametersMessage where
 
 newtype DescribeEngineDefaultParametersResult = DescribeEngineDefaultParametersResult
     { _dedprEngineDefaults :: Maybe EngineDefaults
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeEngineDefaultParametersResult' constructor.
 --
@@ -120,6 +120,7 @@ describeEngineDefaultParametersResult = DescribeEngineDefaultParametersResult
 dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResult (Maybe EngineDefaults)
 dedprEngineDefaults =
     lens _dedprEngineDefaults (\s a -> s { _dedprEngineDefaults = a })
+
 instance FromXML DescribeEngineDefaultParametersResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeEngineDefaultParametersResult"

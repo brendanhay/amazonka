@@ -52,7 +52,7 @@ data DetachVpnGateway = DetachVpnGateway
     { _dvg1DryRun       :: Maybe Bool
     , _dvg1VpcId        :: Text
     , _dvg1VpnGatewayId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DetachVpnGateway' constructor.
 --
@@ -94,6 +94,7 @@ data DetachVpnGatewayResponse = DetachVpnGatewayResponse
 -- | 'DetachVpnGatewayResponse' constructor.
 detachVpnGatewayResponse :: DetachVpnGatewayResponse
 detachVpnGatewayResponse = DetachVpnGatewayResponse
+
 instance FromXML DetachVpnGatewayResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DetachVpnGatewayResponse"

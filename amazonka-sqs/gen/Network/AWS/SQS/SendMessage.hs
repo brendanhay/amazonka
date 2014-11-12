@@ -61,7 +61,7 @@ data SendMessage = SendMessage
     , _smMessageAttributes :: Map Text MessageAttributeValue
     , _smMessageBody       :: Text
     , _smQueueUrl          :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'SendMessage' constructor.
 --
@@ -116,7 +116,7 @@ data SendMessageResult = SendMessageResult
     { _smrMD5OfMessageAttributes :: Maybe Text
     , _smrMD5OfMessageBody       :: Maybe Text
     , _smrMessageId              :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SendMessageResult' constructor.
 --
@@ -157,6 +157,7 @@ smrMD5OfMessageBody =
 -- Developer Guide.
 smrMessageId :: Lens' SendMessageResult (Maybe Text)
 smrMessageId = lens _smrMessageId (\s a -> s { _smrMessageId = a })
+
 instance FromXML SendMessageResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SendMessageResult"

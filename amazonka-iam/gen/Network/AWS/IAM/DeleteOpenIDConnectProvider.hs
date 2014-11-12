@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteOpenIDConnectProvider = DeleteOpenIDConnectProvider
     { _doidcpOpenIDConnectProviderArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteOpenIDConnectProvider' constructor.
 --
@@ -79,6 +79,7 @@ data DeleteOpenIDConnectProviderResponse = DeleteOpenIDConnectProviderResponse
 -- | 'DeleteOpenIDConnectProviderResponse' constructor.
 deleteOpenIDConnectProviderResponse :: DeleteOpenIDConnectProviderResponse
 deleteOpenIDConnectProviderResponse = DeleteOpenIDConnectProviderResponse
+
 instance FromXML DeleteOpenIDConnectProviderResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteOpenIDConnectProviderResponse"

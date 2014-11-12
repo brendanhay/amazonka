@@ -56,7 +56,7 @@ import Network.AWS.SQS.Types
 data CreateQueue = CreateQueue
     { _cqAttributes :: Map Text Text
     , _cqQueueName  :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateQueue' constructor.
 --
@@ -108,7 +108,7 @@ instance ToPath CreateQueue where
 
 newtype CreateQueueResult = CreateQueueResult
     { _cqrQueueUrl :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateQueueResult' constructor.
 --
@@ -124,6 +124,7 @@ createQueueResult = CreateQueueResult
 -- | The URL for the created Amazon SQS queue.
 cqrQueueUrl :: Lens' CreateQueueResult (Maybe Text)
 cqrQueueUrl = lens _cqrQueueUrl (\s a -> s { _cqrQueueUrl = a })
+
 instance FromXML CreateQueueResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateQueueResult"

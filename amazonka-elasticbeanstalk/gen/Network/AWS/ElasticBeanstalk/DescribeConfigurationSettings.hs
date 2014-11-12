@@ -55,7 +55,7 @@ data DescribeConfigurationSettingsMessage = DescribeConfigurationSettingsMessage
     { _dcsmApplicationName :: Text
     , _dcsmEnvironmentName :: Maybe Text
     , _dcsmTemplateName    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeConfigurationSettingsMessage' constructor.
 --
@@ -103,7 +103,7 @@ instance ToPath DescribeConfigurationSettingsMessage where
 
 newtype ConfigurationSettingsDescriptions = ConfigurationSettingsDescriptions
     { _csdConfigurationSettings :: [ConfigurationSettingsDescription]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'ConfigurationSettingsDescriptions' constructor.
 --
@@ -121,6 +121,7 @@ csdConfigurationSettings :: Lens' ConfigurationSettingsDescriptions [Configurati
 csdConfigurationSettings =
     lens _csdConfigurationSettings
         (\s a -> s { _csdConfigurationSettings = a })
+
 instance FromXML ConfigurationSettingsDescriptions where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ConfigurationSettingsDescriptions"

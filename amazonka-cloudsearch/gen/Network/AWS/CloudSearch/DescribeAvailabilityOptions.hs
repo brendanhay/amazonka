@@ -50,7 +50,7 @@ import Network.AWS.CloudSearch.Types
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions
     { _daoDeployed   :: Maybe Bool
     , _daoDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAvailabilityOptions' constructor.
 --
@@ -82,7 +82,7 @@ instance ToPath DescribeAvailabilityOptions where
 
 newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
     { _daorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeAvailabilityOptionsResponse' constructor.
 --
@@ -100,6 +100,7 @@ describeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
 daorAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 daorAvailabilityOptions =
     lens _daorAvailabilityOptions (\s a -> s { _daorAvailabilityOptions = a })
+
 instance FromXML DescribeAvailabilityOptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAvailabilityOptionsResponse"

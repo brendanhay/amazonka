@@ -45,7 +45,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data RestartAppServerMessage = RestartAppServerMessage
     { _rasmEnvironmentId   :: Maybe Text
     , _rasmEnvironmentName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RestartAppServerMessage' constructor.
 --
@@ -86,6 +86,7 @@ data RestartAppServerResponse = RestartAppServerResponse
 -- | 'RestartAppServerResponse' constructor.
 restartAppServerResponse :: RestartAppServerResponse
 restartAppServerResponse = RestartAppServerResponse
+
 instance FromXML RestartAppServerResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RestartAppServerResponse"

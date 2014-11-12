@@ -42,7 +42,7 @@ import Network.AWS.AutoScaling.Types
 
 newtype DeleteTagsType = DeleteTagsType
     { _dttTags :: [Tag]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DeleteTagsType' constructor.
 --
@@ -72,6 +72,7 @@ data DeleteTagsResponse = DeleteTagsResponse
 -- | 'DeleteTagsResponse' constructor.
 deleteTagsResponse :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse
+
 instance FromXML DeleteTagsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteTagsResponse"

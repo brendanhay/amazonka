@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteAccountAlias = DeleteAccountAlias
     { _daaAccountAlias :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteAccountAlias' constructor.
 --
@@ -72,6 +72,7 @@ data DeleteAccountAliasResponse = DeleteAccountAliasResponse
 -- | 'DeleteAccountAliasResponse' constructor.
 deleteAccountAliasResponse :: DeleteAccountAliasResponse
 deleteAccountAliasResponse = DeleteAccountAliasResponse
+
 instance FromXML DeleteAccountAliasResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteAccountAliasResponse"

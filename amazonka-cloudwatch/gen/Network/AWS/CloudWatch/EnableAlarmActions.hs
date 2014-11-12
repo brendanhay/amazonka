@@ -42,7 +42,16 @@ import Network.AWS.CloudWatch.Types
 
 newtype EnableAlarmActionsInput = EnableAlarmActionsInput
     { _eaaiAlarmNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'EnableAlarmActionsInput' constructor.
 --
@@ -69,6 +78,7 @@ data EnableAlarmActionsResponse = EnableAlarmActionsResponse
 -- | 'EnableAlarmActionsResponse' constructor.
 enableAlarmActionsResponse :: EnableAlarmActionsResponse
 enableAlarmActionsResponse = EnableAlarmActionsResponse
+
 instance FromXML EnableAlarmActionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnableAlarmActionsResponse"

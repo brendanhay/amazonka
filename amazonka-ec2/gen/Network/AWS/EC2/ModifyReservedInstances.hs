@@ -52,7 +52,7 @@ data ModifyReservedInstances = ModifyReservedInstances
     { _mriClientToken          :: Maybe Text
     , _mriReservedInstancesIds :: [Text]
     , _mriTargetConfigurations :: [ReservedInstancesConfiguration]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyReservedInstances' constructor.
 --
@@ -92,7 +92,7 @@ instance ToPath ModifyReservedInstances where
 
 newtype ModifyReservedInstancesResult = ModifyReservedInstancesResult
     { _mrirReservedInstancesModificationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ModifyReservedInstancesResult' constructor.
 --
@@ -110,6 +110,7 @@ mrirReservedInstancesModificationId :: Lens' ModifyReservedInstancesResult (Mayb
 mrirReservedInstancesModificationId =
     lens _mrirReservedInstancesModificationId
         (\s a -> s { _mrirReservedInstancesModificationId = a })
+
 instance FromXML ModifyReservedInstancesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyReservedInstancesResult"

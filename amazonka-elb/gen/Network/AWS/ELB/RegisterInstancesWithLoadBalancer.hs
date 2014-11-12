@@ -66,7 +66,7 @@ import Network.AWS.ELB.Types
 data RegisterEndPointsInput = RegisterEndPointsInput
     { _repiInstances        :: [Instance]
     , _repiLoadBalancerName :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RegisterEndPointsInput' constructor.
 --
@@ -99,7 +99,7 @@ instance ToPath RegisterEndPointsInput where
 
 newtype RegisterEndPointsOutput = RegisterEndPointsOutput
     { _repoInstances :: [Instance]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'RegisterEndPointsOutput' constructor.
 --
@@ -115,6 +115,7 @@ registerEndPointsOutput = RegisterEndPointsOutput
 -- | An updated list of instances for the load balancer.
 repoInstances :: Lens' RegisterEndPointsOutput [Instance]
 repoInstances = lens _repoInstances (\s a -> s { _repoInstances = a })
+
 instance FromXML RegisterEndPointsOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RegisterEndPointsOutput"

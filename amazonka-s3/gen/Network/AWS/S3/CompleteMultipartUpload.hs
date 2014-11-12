@@ -56,7 +56,7 @@ data CompleteMultipartUpload = CompleteMultipartUpload
     , _cmuKey             :: Text
     , _cmuMultipartUpload :: Maybe CompletedMultipartUpload
     , _cmuUploadId        :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CompleteMultipartUpload' constructor.
 --
@@ -118,7 +118,7 @@ data CompleteMultipartUploadOutput = CompleteMultipartUploadOutput
     , _cmuoLocation             :: Maybe Text
     , _cmuoServerSideEncryption :: Maybe Text
     , _cmuoVersionId            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CompleteMultipartUploadOutput' constructor.
 --

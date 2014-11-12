@@ -64,7 +64,7 @@ data DescribeReservedDBInstancesMessage = DescribeReservedDBInstancesMessage
     , _drdbimProductDescription            :: Maybe Text
     , _drdbimReservedDBInstanceId          :: Maybe Text
     , _drdbimReservedDBInstancesOfferingId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeReservedDBInstancesMessage' constructor.
 --
@@ -173,7 +173,7 @@ instance ToPath DescribeReservedDBInstancesMessage where
 data ReservedDBInstanceMessage = ReservedDBInstanceMessage
     { _rdbimMarker              :: Maybe Text
     , _rdbimReservedDBInstances :: [ReservedDBInstance]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ReservedDBInstanceMessage' constructor.
 --
@@ -200,6 +200,7 @@ rdbimReservedDBInstances :: Lens' ReservedDBInstanceMessage [ReservedDBInstance]
 rdbimReservedDBInstances =
     lens _rdbimReservedDBInstances
         (\s a -> s { _rdbimReservedDBInstances = a })
+
 instance FromXML ReservedDBInstanceMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReservedDBInstanceMessage"

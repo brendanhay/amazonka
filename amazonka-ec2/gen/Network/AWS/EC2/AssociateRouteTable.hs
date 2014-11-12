@@ -54,7 +54,7 @@ data AssociateRouteTable = AssociateRouteTable
     { _artDryRun       :: Maybe Bool
     , _artRouteTableId :: Text
     , _artSubnetId     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AssociateRouteTable' constructor.
 --
@@ -92,7 +92,7 @@ instance ToPath AssociateRouteTable where
 
 newtype AssociateRouteTableResult = AssociateRouteTableResult
     { _artrAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'AssociateRouteTableResult' constructor.
 --
@@ -109,6 +109,7 @@ associateRouteTableResult = AssociateRouteTableResult
 artrAssociationId :: Lens' AssociateRouteTableResult (Maybe Text)
 artrAssociationId =
     lens _artrAssociationId (\s a -> s { _artrAssociationId = a })
+
 instance FromXML AssociateRouteTableResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AssociateRouteTableResult"

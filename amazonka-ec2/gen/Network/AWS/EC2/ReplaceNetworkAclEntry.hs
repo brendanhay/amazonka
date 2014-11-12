@@ -60,7 +60,7 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
     , _rnaeProtocol     :: Text
     , _rnaeRuleAction   :: Text
     , _rnaeRuleNumber   :: Int
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ReplaceNetworkAclEntry' constructor.
 --
@@ -151,6 +151,7 @@ data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
 -- | 'ReplaceNetworkAclEntryResponse' constructor.
 replaceNetworkAclEntryResponse :: ReplaceNetworkAclEntryResponse
 replaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
+
 instance FromXML ReplaceNetworkAclEntryResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReplaceNetworkAclEntryResponse"

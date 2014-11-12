@@ -49,7 +49,7 @@ import Network.AWS.Redshift.Types
 
 newtype RebootClusterMessage = RebootClusterMessage
     { _rcmClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'RebootClusterMessage' constructor.
 --
@@ -74,7 +74,7 @@ instance ToPath RebootClusterMessage where
 
 newtype RebootClusterResult = RebootClusterResult
     { _rcrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RebootClusterResult' constructor.
 --
@@ -89,6 +89,7 @@ rebootClusterResult = RebootClusterResult
 
 rcrCluster :: Lens' RebootClusterResult (Maybe Cluster)
 rcrCluster = lens _rcrCluster (\s a -> s { _rcrCluster = a })
+
 instance FromXML RebootClusterResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RebootClusterResult"

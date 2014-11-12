@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 
 newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
     { _dsdsDryRun :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeSpotDatafeedSubscription' constructor.
 --
@@ -67,7 +67,7 @@ instance ToPath DescribeSpotDatafeedSubscription where
 
 newtype DescribeSpotDatafeedSubscriptionResult = DescribeSpotDatafeedSubscriptionResult
     { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeSpotDatafeedSubscriptionResult' constructor.
 --
@@ -85,6 +85,7 @@ dsdsrSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResult (M
 dsdsrSpotDatafeedSubscription =
     lens _dsdsrSpotDatafeedSubscription
         (\s a -> s { _dsdsrSpotDatafeedSubscription = a })
+
 instance FromXML DescribeSpotDatafeedSubscriptionResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSpotDatafeedSubscriptionResult"

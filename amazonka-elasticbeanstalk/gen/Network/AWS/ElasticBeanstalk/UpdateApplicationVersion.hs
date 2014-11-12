@@ -48,7 +48,7 @@ data UpdateApplicationVersionMessage = UpdateApplicationVersionMessage
     { _uavmApplicationName :: Text
     , _uavmDescription     :: Maybe Text
     , _uavmVersionLabel    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateApplicationVersionMessage' constructor.
 --

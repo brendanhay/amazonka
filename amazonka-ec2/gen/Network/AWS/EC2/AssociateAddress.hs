@@ -67,7 +67,7 @@ data AssociateAddress = AssociateAddress
     , _aa1NetworkInterfaceId :: Maybe Text
     , _aa1PrivateIpAddress   :: Maybe Text
     , _aa1PublicIp           :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AssociateAddress' constructor.
 --
@@ -143,7 +143,7 @@ instance ToPath AssociateAddress where
 
 newtype AssociateAddressResult = AssociateAddressResult
     { _aarAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'AssociateAddressResult' constructor.
 --
@@ -160,6 +160,7 @@ associateAddressResult = AssociateAddressResult
 -- address with an instance.
 aarAssociationId :: Lens' AssociateAddressResult (Maybe Text)
 aarAssociationId = lens _aarAssociationId (\s a -> s { _aarAssociationId = a })
+
 instance FromXML AssociateAddressResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AssociateAddressResult"

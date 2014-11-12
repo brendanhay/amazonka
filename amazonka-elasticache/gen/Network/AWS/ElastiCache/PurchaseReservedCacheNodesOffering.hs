@@ -49,7 +49,7 @@ data PurchaseReservedCacheNodesOfferingMessage = PurchaseReservedCacheNodesOffer
     { _prcnomCacheNodeCount               :: Maybe Int
     , _prcnomReservedCacheNodeId          :: Maybe Text
     , _prcnomReservedCacheNodesOfferingId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'PurchaseReservedCacheNodesOfferingMessage' constructor.
 --
@@ -94,7 +94,7 @@ instance ToPath PurchaseReservedCacheNodesOfferingMessage where
 
 newtype PurchaseReservedCacheNodesOfferingResult = PurchaseReservedCacheNodesOfferingResult
     { _prcnorReservedCacheNode :: Maybe ReservedCacheNode
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'PurchaseReservedCacheNodesOfferingResult' constructor.
 --
@@ -110,6 +110,7 @@ purchaseReservedCacheNodesOfferingResult = PurchaseReservedCacheNodesOfferingRes
 prcnorReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResult (Maybe ReservedCacheNode)
 prcnorReservedCacheNode =
     lens _prcnorReservedCacheNode (\s a -> s { _prcnorReservedCacheNode = a })
+
 instance FromXML PurchaseReservedCacheNodesOfferingResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PurchaseReservedCacheNodesOfferingResult"

@@ -50,7 +50,7 @@ import Network.AWS.ELB.Types
 data AttachLoadBalancerToSubnetsInput = AttachLoadBalancerToSubnetsInput
     { _albtsiLoadBalancerName :: Text
     , _albtsiSubnets          :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AttachLoadBalancerToSubnetsInput' constructor.
 --
@@ -84,7 +84,16 @@ instance ToPath AttachLoadBalancerToSubnetsInput where
 
 newtype AttachLoadBalancerToSubnetsOutput = AttachLoadBalancerToSubnetsOutput
     { _albtsoSubnets :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'AttachLoadBalancerToSubnetsOutput' constructor.
 --
@@ -100,6 +109,7 @@ attachLoadBalancerToSubnetsOutput = AttachLoadBalancerToSubnetsOutput
 -- | A list of subnet IDs attached to the load balancer.
 albtsoSubnets :: Lens' AttachLoadBalancerToSubnetsOutput [Text]
 albtsoSubnets = lens _albtsoSubnets (\s a -> s { _albtsoSubnets = a })
+
 instance FromXML AttachLoadBalancerToSubnetsOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AttachLoadBalancerToSubnetsOutput"

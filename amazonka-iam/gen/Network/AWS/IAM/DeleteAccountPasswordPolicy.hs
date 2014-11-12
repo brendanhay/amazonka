@@ -55,6 +55,7 @@ data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
 -- | 'DeleteAccountPasswordPolicyResponse' constructor.
 deleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse
 deleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
+
 instance FromXML DeleteAccountPasswordPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteAccountPasswordPolicyResponse"

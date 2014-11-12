@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 data ChangePassword = ChangePassword
     { _cpNewPassword :: Sensitive Text
     , _cpOldPassword :: Sensitive Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ChangePassword' constructor.
 --
@@ -86,6 +86,7 @@ data ChangePasswordResponse = ChangePasswordResponse
 -- | 'ChangePasswordResponse' constructor.
 changePasswordResponse :: ChangePasswordResponse
 changePasswordResponse = ChangePasswordResponse
+
 instance FromXML ChangePasswordResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ChangePasswordResponse"

@@ -50,7 +50,7 @@ data CreateTags = CreateTags
     { _ctDryRun    :: Maybe Bool
     , _ctResources :: [Text]
     , _ctTags      :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateTags' constructor.
 --
@@ -92,6 +92,7 @@ data CreateTagsResponse = CreateTagsResponse
 -- | 'CreateTagsResponse' constructor.
 createTagsResponse :: CreateTagsResponse
 createTagsResponse = CreateTagsResponse
+
 instance FromXML CreateTagsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateTagsResponse"

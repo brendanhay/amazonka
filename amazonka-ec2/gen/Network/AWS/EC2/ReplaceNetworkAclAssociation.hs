@@ -51,7 +51,7 @@ data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
     { _rnaaAssociationId :: Text
     , _rnaaDryRun        :: Maybe Bool
     , _rnaaNetworkAclId  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ReplaceNetworkAclAssociation' constructor.
 --
@@ -91,7 +91,7 @@ instance ToPath ReplaceNetworkAclAssociation where
 
 newtype ReplaceNetworkAclAssociationResult = ReplaceNetworkAclAssociationResult
     { _rnaarNewAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ReplaceNetworkAclAssociationResult' constructor.
 --
@@ -108,6 +108,7 @@ replaceNetworkAclAssociationResult = ReplaceNetworkAclAssociationResult
 rnaarNewAssociationId :: Lens' ReplaceNetworkAclAssociationResult (Maybe Text)
 rnaarNewAssociationId =
     lens _rnaarNewAssociationId (\s a -> s { _rnaarNewAssociationId = a })
+
 instance FromXML ReplaceNetworkAclAssociationResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReplaceNetworkAclAssociationResult"

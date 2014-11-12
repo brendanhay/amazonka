@@ -48,7 +48,7 @@ data AbortMultipartUpload = AbortMultipartUpload
     { _amuBucket   :: Text
     , _amuKey      :: Text
     , _amuUploadId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AbortMultipartUpload' constructor.
 --

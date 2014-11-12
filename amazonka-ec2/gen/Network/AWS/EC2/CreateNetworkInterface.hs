@@ -58,7 +58,7 @@ data CreateNetworkInterface = CreateNetworkInterface
     , _cniPrivateIpAddresses             :: [PrivateIpAddressSpecification]
     , _cniSecondaryPrivateIpAddressCount :: Maybe Int
     , _cniSubnetId                       :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateNetworkInterface' constructor.
 --
@@ -138,7 +138,7 @@ instance ToPath CreateNetworkInterface where
 
 newtype CreateNetworkInterfaceResult = CreateNetworkInterfaceResult
     { _cnirNetworkInterface :: Maybe NetworkInterface
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateNetworkInterfaceResult' constructor.
 --
@@ -155,6 +155,7 @@ createNetworkInterfaceResult = CreateNetworkInterfaceResult
 cnirNetworkInterface :: Lens' CreateNetworkInterfaceResult (Maybe NetworkInterface)
 cnirNetworkInterface =
     lens _cnirNetworkInterface (\s a -> s { _cnirNetworkInterface = a })
+
 instance FromXML CreateNetworkInterfaceResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateNetworkInterfaceResult"

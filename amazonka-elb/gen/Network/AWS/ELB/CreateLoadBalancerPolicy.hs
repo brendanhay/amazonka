@@ -51,7 +51,7 @@ data CreateLoadBalancerPolicyInput = CreateLoadBalancerPolicyInput
     , _clbpiPolicyAttributes :: [PolicyAttribute]
     , _clbpiPolicyName       :: Text
     , _clbpiPolicyTypeName   :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateLoadBalancerPolicyInput' constructor.
 --
@@ -108,6 +108,7 @@ data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
 -- | 'CreateLoadBalancerPolicyResponse' constructor.
 createLoadBalancerPolicyResponse :: CreateLoadBalancerPolicyResponse
 createLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
+
 instance FromXML CreateLoadBalancerPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateLoadBalancerPolicyResponse"

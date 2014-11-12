@@ -54,7 +54,7 @@ instance ToPath CreateStorageLocation where
 
 newtype CreateStorageLocationResultMessage = CreateStorageLocationResultMessage
     { _cslrmS3Bucket :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateStorageLocationResultMessage' constructor.
 --
@@ -70,6 +70,7 @@ createStorageLocationResultMessage = CreateStorageLocationResultMessage
 -- | The name of the Amazon S3 bucket created.
 cslrmS3Bucket :: Lens' CreateStorageLocationResultMessage (Maybe Text)
 cslrmS3Bucket = lens _cslrmS3Bucket (\s a -> s { _cslrmS3Bucket = a })
+
 instance FromXML CreateStorageLocationResultMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateStorageLocationResultMessage"

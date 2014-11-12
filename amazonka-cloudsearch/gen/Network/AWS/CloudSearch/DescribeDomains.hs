@@ -50,7 +50,16 @@ import Network.AWS.CloudSearch.Types
 
 newtype DescribeDomains = DescribeDomains
     { _ddDomainNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'DescribeDomains' constructor.
 --
@@ -73,7 +82,7 @@ instance ToPath DescribeDomains where
 
 newtype DescribeDomainsResponse = DescribeDomainsResponse
     { _ddrDomainStatusList :: [DomainStatus]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeDomainsResponse' constructor.
 --
@@ -89,6 +98,7 @@ describeDomainsResponse = DescribeDomainsResponse
 ddrDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
 ddrDomainStatusList =
     lens _ddrDomainStatusList (\s a -> s { _ddrDomainStatusList = a })
+
 instance FromXML DescribeDomainsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDomainsResponse"

@@ -23,6 +23,8 @@ module Network.AWS.SecurityToken.Types
     (
     -- * Service
       SecurityToken
+    -- ** Error
+    , RESTError
     -- ** XML
     , xmlOptions
 
@@ -77,7 +79,7 @@ data Credentials = Credentials
     , _cExpiration      :: RFC822
     , _cSecretAccessKey :: Text
     , _cSessionToken    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Credentials' constructor.
 --
@@ -130,7 +132,7 @@ instance ToQuery Credentials
 data FederatedUser = FederatedUser
     { _fuArn             :: Text
     , _fuFederatedUserId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'FederatedUser' constructor.
 --
@@ -169,7 +171,7 @@ instance ToQuery FederatedUser
 data AssumedRoleUser = AssumedRoleUser
     { _aruArn           :: Text
     , _aruAssumedRoleId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AssumedRoleUser' constructor.
 --

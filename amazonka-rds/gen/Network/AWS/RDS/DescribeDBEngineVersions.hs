@@ -59,7 +59,7 @@ data DescribeDBEngineVersionsMessage = DescribeDBEngineVersionsMessage
     , _ddbevmListSupportedCharacterSets :: Maybe Bool
     , _ddbevmMarker                     :: Maybe Text
     , _ddbevmMaxRecords                 :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeDBEngineVersionsMessage' constructor.
 --
@@ -149,7 +149,7 @@ instance ToPath DescribeDBEngineVersionsMessage where
 data DBEngineVersionMessage = DBEngineVersionMessage
     { _dbevmDBEngineVersions :: [DBEngineVersion]
     , _dbevmMarker           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DBEngineVersionMessage' constructor.
 --
@@ -175,6 +175,7 @@ dbevmDBEngineVersions =
 -- marker, up to the value specified by MaxRecords.
 dbevmMarker :: Lens' DBEngineVersionMessage (Maybe Text)
 dbevmMarker = lens _dbevmMarker (\s a -> s { _dbevmMarker = a })
+
 instance FromXML DBEngineVersionMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DBEngineVersionMessage"

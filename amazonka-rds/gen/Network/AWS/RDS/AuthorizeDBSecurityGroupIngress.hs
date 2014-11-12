@@ -60,7 +60,7 @@ data AuthorizeDBSecurityGroupIngressMessage = AuthorizeDBSecurityGroupIngressMes
     , _adbsgimEC2SecurityGroupId      :: Maybe Text
     , _adbsgimEC2SecurityGroupName    :: Maybe Text
     , _adbsgimEC2SecurityGroupOwnerId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AuthorizeDBSecurityGroupIngressMessage' constructor.
 --
@@ -128,7 +128,7 @@ instance ToPath AuthorizeDBSecurityGroupIngressMessage where
 
 newtype AuthorizeDBSecurityGroupIngressResult = AuthorizeDBSecurityGroupIngressResult
     { _adbsgirDBSecurityGroup :: Maybe DBSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AuthorizeDBSecurityGroupIngressResult' constructor.
 --
@@ -144,6 +144,7 @@ authorizeDBSecurityGroupIngressResult = AuthorizeDBSecurityGroupIngressResult
 adbsgirDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResult (Maybe DBSecurityGroup)
 adbsgirDBSecurityGroup =
     lens _adbsgirDBSecurityGroup (\s a -> s { _adbsgirDBSecurityGroup = a })
+
 instance FromXML AuthorizeDBSecurityGroupIngressResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AuthorizeDBSecurityGroupIngressResult"

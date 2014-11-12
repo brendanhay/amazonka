@@ -52,7 +52,7 @@ data ConfirmSubscriptionInput = ConfirmSubscriptionInput
     { _csiAuthenticateOnUnsubscribe :: Maybe Text
     , _csiToken                     :: Text
     , _csiTopicArn                  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ConfirmSubscriptionInput' constructor.
 --
@@ -96,7 +96,7 @@ instance ToPath ConfirmSubscriptionInput where
 
 newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
     { _csrSubscriptionArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ConfirmSubscriptionResponse' constructor.
 --
@@ -113,6 +113,7 @@ confirmSubscriptionResponse = ConfirmSubscriptionResponse
 csrSubscriptionArn :: Lens' ConfirmSubscriptionResponse (Maybe Text)
 csrSubscriptionArn =
     lens _csrSubscriptionArn (\s a -> s { _csrSubscriptionArn = a })
+
 instance FromXML ConfirmSubscriptionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ConfirmSubscriptionResponse"

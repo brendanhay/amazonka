@@ -45,7 +45,7 @@ import Network.AWS.CloudSearch.Types
 
 newtype CreateDomain = CreateDomain
     { _cdDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateDomain' constructor.
 --
@@ -71,7 +71,7 @@ instance ToPath CreateDomain where
 
 newtype CreateDomainResponse = CreateDomainResponse
     { _cdrDomainStatus :: Maybe DomainStatus
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateDomainResponse' constructor.
 --
@@ -86,6 +86,7 @@ createDomainResponse = CreateDomainResponse
 
 cdrDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
 cdrDomainStatus = lens _cdrDomainStatus (\s a -> s { _cdrDomainStatus = a })
+
 instance FromXML CreateDomainResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateDomainResponse"

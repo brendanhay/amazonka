@@ -50,7 +50,7 @@ data AttachVpnGateway = AttachVpnGateway
     { _avgDryRun       :: Maybe Bool
     , _avgVpcId        :: Text
     , _avgVpnGatewayId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AttachVpnGateway' constructor.
 --
@@ -88,7 +88,7 @@ instance ToPath AttachVpnGateway where
 
 newtype AttachVpnGatewayResult = AttachVpnGatewayResult
     { _avgrVpcAttachment :: Maybe VpcAttachment
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AttachVpnGatewayResult' constructor.
 --
@@ -105,6 +105,7 @@ attachVpnGatewayResult = AttachVpnGatewayResult
 avgrVpcAttachment :: Lens' AttachVpnGatewayResult (Maybe VpcAttachment)
 avgrVpcAttachment =
     lens _avgrVpcAttachment (\s a -> s { _avgrVpcAttachment = a })
+
 instance FromXML AttachVpnGatewayResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AttachVpnGatewayResult"

@@ -54,7 +54,7 @@ data DescribePoliciesType = DescribePoliciesType
     , _dptMaxRecords           :: Maybe Int
     , _dptNextToken            :: Maybe Text
     , _dptPolicyNames          :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribePoliciesType' constructor.
 --
@@ -105,7 +105,7 @@ instance ToPath DescribePoliciesType where
 data PoliciesType = PoliciesType
     { _ptNextToken       :: Maybe Text
     , _ptScalingPolicies :: [ScalingPolicy]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'PoliciesType' constructor.
 --
@@ -129,6 +129,7 @@ ptNextToken = lens _ptNextToken (\s a -> s { _ptNextToken = a })
 ptScalingPolicies :: Lens' PoliciesType [ScalingPolicy]
 ptScalingPolicies =
     lens _ptScalingPolicies (\s a -> s { _ptScalingPolicies = a })
+
 instance FromXML PoliciesType where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PoliciesType"

@@ -56,7 +56,7 @@ data DescribeSnapshotsMessage = DescribeSnapshotsMessage
     , _dsm1MaxRecords     :: Maybe Int
     , _dsm1SnapshotName   :: Maybe Text
     , _dsm1SnapshotSource :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeSnapshotsMessage' constructor.
 --
@@ -121,7 +121,7 @@ instance ToPath DescribeSnapshotsMessage where
 data DescribeSnapshotsListMessage = DescribeSnapshotsListMessage
     { _dslmMarker    :: Maybe Text
     , _dslmSnapshots :: [Snapshot]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeSnapshotsListMessage' constructor.
 --
@@ -148,6 +148,7 @@ dslmMarker = lens _dslmMarker (\s a -> s { _dslmMarker = a })
 -- about one snapshot.
 dslmSnapshots :: Lens' DescribeSnapshotsListMessage [Snapshot]
 dslmSnapshots = lens _dslmSnapshots (\s a -> s { _dslmSnapshots = a })
+
 instance FromXML DescribeSnapshotsListMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSnapshotsListMessage"

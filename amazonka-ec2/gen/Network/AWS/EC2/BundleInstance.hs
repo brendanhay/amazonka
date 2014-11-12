@@ -51,7 +51,7 @@ data BundleInstance = BundleInstance
     { _biDryRun     :: Maybe Bool
     , _biInstanceId :: Text
     , _biStorage    :: Storage
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'BundleInstance' constructor.
 --
@@ -92,7 +92,7 @@ instance ToPath BundleInstance where
 
 newtype BundleInstanceResult = BundleInstanceResult
     { _birBundleTask :: Maybe BundleTask
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'BundleInstanceResult' constructor.
 --
@@ -108,6 +108,7 @@ bundleInstanceResult = BundleInstanceResult
 -- | Information about the bundle task.
 birBundleTask :: Lens' BundleInstanceResult (Maybe BundleTask)
 birBundleTask = lens _birBundleTask (\s a -> s { _birBundleTask = a })
+
 instance FromXML BundleInstanceResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "BundleInstanceResult"

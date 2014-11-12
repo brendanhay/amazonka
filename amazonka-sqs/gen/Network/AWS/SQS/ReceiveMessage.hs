@@ -75,7 +75,7 @@ data ReceiveMessage = ReceiveMessage
     , _rmQueueUrl              :: Text
     , _rmVisibilityTimeout     :: Maybe Int
     , _rmWaitTimeSeconds       :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ReceiveMessage' constructor.
 --
@@ -159,7 +159,7 @@ instance ToPath ReceiveMessage where
 
 newtype ReceiveMessageResult = ReceiveMessageResult
     { _rmrMessages :: [Message]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'ReceiveMessageResult' constructor.
 --
@@ -175,6 +175,7 @@ receiveMessageResult = ReceiveMessageResult
 -- | A list of messages.
 rmrMessages :: Lens' ReceiveMessageResult [Message]
 rmrMessages = lens _rmrMessages (\s a -> s { _rmrMessages = a })
+
 instance FromXML ReceiveMessageResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReceiveMessageResult"

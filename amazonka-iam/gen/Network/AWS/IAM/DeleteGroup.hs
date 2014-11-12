@@ -43,7 +43,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteGroup = DeleteGroup
     { _dgGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteGroup' constructor.
 --
@@ -71,6 +71,7 @@ data DeleteGroupResponse = DeleteGroupResponse
 -- | 'DeleteGroupResponse' constructor.
 deleteGroupResponse :: DeleteGroupResponse
 deleteGroupResponse = DeleteGroupResponse
+
 instance FromXML DeleteGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteGroupResponse"

@@ -57,7 +57,7 @@ data ListAccessKeys = ListAccessKeys
     { _lakMarker   :: Maybe Text
     , _lakMaxItems :: Maybe Natural
     , _lakUserName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListAccessKeys' constructor.
 --
@@ -102,7 +102,7 @@ data ListAccessKeysResponse = ListAccessKeysResponse
     { _lakrAccessKeyMetadata :: [AccessKeyMetadata]
     , _lakrIsTruncated       :: Maybe Bool
     , _lakrMarker            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListAccessKeysResponse' constructor.
 --
@@ -136,6 +136,7 @@ lakrIsTruncated = lens _lakrIsTruncated (\s a -> s { _lakrIsTruncated = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lakrMarker :: Lens' ListAccessKeysResponse (Maybe Text)
 lakrMarker = lens _lakrMarker (\s a -> s { _lakrMarker = a })
+
 instance FromXML ListAccessKeysResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListAccessKeysResponse"

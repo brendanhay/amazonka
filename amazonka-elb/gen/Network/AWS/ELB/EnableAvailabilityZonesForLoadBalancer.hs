@@ -52,7 +52,7 @@ import Network.AWS.ELB.Types
 data AddAvailabilityZonesInput = AddAvailabilityZonesInput
     { _aaziAvailabilityZones :: [Text]
     , _aaziLoadBalancerName  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AddAvailabilityZonesInput' constructor.
 --
@@ -86,7 +86,16 @@ instance ToPath AddAvailabilityZonesInput where
 
 newtype AddAvailabilityZonesOutput = AddAvailabilityZonesOutput
     { _aazoAvailabilityZones :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'AddAvailabilityZonesOutput' constructor.
 --
@@ -103,6 +112,7 @@ addAvailabilityZonesOutput = AddAvailabilityZonesOutput
 aazoAvailabilityZones :: Lens' AddAvailabilityZonesOutput [Text]
 aazoAvailabilityZones =
     lens _aazoAvailabilityZones (\s a -> s { _aazoAvailabilityZones = a })
+
 instance FromXML AddAvailabilityZonesOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AddAvailabilityZonesOutput"

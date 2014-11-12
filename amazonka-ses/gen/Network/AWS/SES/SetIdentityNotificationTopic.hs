@@ -51,7 +51,7 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic
     { _sintIdentity         :: Text
     , _sintNotificationType :: Text
     , _sintSnsTopic         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SetIdentityNotificationTopic' constructor.
 --
@@ -99,6 +99,7 @@ data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
 -- | 'SetIdentityNotificationTopicResponse' constructor.
 setIdentityNotificationTopicResponse :: SetIdentityNotificationTopicResponse
 setIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
+
 instance FromXML SetIdentityNotificationTopicResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetIdentityNotificationTopicResponse"

@@ -45,7 +45,7 @@ import Network.AWS.SNS.Types
 
 newtype GetTopicAttributesInput = GetTopicAttributesInput
     { _gtaiTopicArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetTopicAttributesInput' constructor.
 --
@@ -69,7 +69,7 @@ instance ToPath GetTopicAttributesInput where
 
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
     { _gtarAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'GetTopicAttributesResponse' constructor.
 --
@@ -97,6 +97,7 @@ getTopicAttributesResponse = GetTopicAttributesResponse
 gtarAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
 gtarAttributes = lens _gtarAttributes (\s a -> s { _gtarAttributes = a })
     . _Map
+
 instance FromXML GetTopicAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetTopicAttributesResponse"

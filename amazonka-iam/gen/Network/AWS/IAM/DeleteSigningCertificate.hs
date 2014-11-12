@@ -48,7 +48,7 @@ import Network.AWS.IAM.Types
 data DeleteSigningCertificate = DeleteSigningCertificate
     { _dscCertificateId :: Text
     , _dscUserName      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSigningCertificate' constructor.
 --
@@ -83,6 +83,7 @@ data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse
 -- | 'DeleteSigningCertificateResponse' constructor.
 deleteSigningCertificateResponse :: DeleteSigningCertificateResponse
 deleteSigningCertificateResponse = DeleteSigningCertificateResponse
+
 instance FromXML DeleteSigningCertificateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteSigningCertificateResponse"

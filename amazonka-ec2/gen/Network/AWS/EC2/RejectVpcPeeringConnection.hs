@@ -50,7 +50,7 @@ import Network.AWS.EC2.Types
 data RejectVpcPeeringConnection = RejectVpcPeeringConnection
     { _rvpcDryRun                 :: Maybe Bool
     , _rvpcVpcPeeringConnectionId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RejectVpcPeeringConnection' constructor.
 --
@@ -82,7 +82,7 @@ instance ToPath RejectVpcPeeringConnection where
 
 newtype RejectVpcPeeringConnectionResult = RejectVpcPeeringConnectionResult
     { _rvpcrReturn :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RejectVpcPeeringConnectionResult' constructor.
 --
@@ -98,6 +98,7 @@ rejectVpcPeeringConnectionResult = RejectVpcPeeringConnectionResult
 -- | Returns true if the request succeeds; otherwise, it returns an error.
 rvpcrReturn :: Lens' RejectVpcPeeringConnectionResult (Maybe Bool)
 rvpcrReturn = lens _rvpcrReturn (\s a -> s { _rvpcrReturn = a })
+
 instance FromXML RejectVpcPeeringConnectionResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RejectVpcPeeringConnectionResult"

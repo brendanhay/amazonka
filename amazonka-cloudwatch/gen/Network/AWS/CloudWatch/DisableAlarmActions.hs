@@ -44,7 +44,16 @@ import Network.AWS.CloudWatch.Types
 
 newtype DisableAlarmActionsInput = DisableAlarmActionsInput
     { _daaiAlarmNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'DisableAlarmActionsInput' constructor.
 --
@@ -71,6 +80,7 @@ data DisableAlarmActionsResponse = DisableAlarmActionsResponse
 -- | 'DisableAlarmActionsResponse' constructor.
 disableAlarmActionsResponse :: DisableAlarmActionsResponse
 disableAlarmActionsResponse = DisableAlarmActionsResponse
+
 instance FromXML DisableAlarmActionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DisableAlarmActionsResponse"

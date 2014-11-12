@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 data AddUserToGroup = AddUserToGroup
     { _autgGroupName :: Text
     , _autgUserName  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AddUserToGroup' constructor.
 --
@@ -80,6 +80,7 @@ data AddUserToGroupResponse = AddUserToGroupResponse
 -- | 'AddUserToGroupResponse' constructor.
 addUserToGroupResponse :: AddUserToGroupResponse
 addUserToGroupResponse = AddUserToGroupResponse
+
 instance FromXML AddUserToGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AddUserToGroupResponse"

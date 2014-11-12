@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 
 newtype GetServerCertificate = GetServerCertificate
     { _gscServerCertificateName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetServerCertificate' constructor.
 --
@@ -71,7 +71,7 @@ instance ToPath GetServerCertificate where
 
 newtype GetServerCertificateResponse = GetServerCertificateResponse
     { _gscrServerCertificate :: ServerCertificate
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetServerCertificateResponse' constructor.
 --
@@ -89,6 +89,7 @@ getServerCertificateResponse p1 = GetServerCertificateResponse
 gscrServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
 gscrServerCertificate =
     lens _gscrServerCertificate (\s a -> s { _gscrServerCertificate = a })
+
 instance FromXML GetServerCertificateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetServerCertificateResponse"

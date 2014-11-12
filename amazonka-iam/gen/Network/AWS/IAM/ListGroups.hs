@@ -51,7 +51,7 @@ data ListGroups = ListGroups
     { _lgMarker     :: Maybe Text
     , _lgMaxItems   :: Maybe Natural
     , _lgPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListGroups' constructor.
 --
@@ -98,7 +98,7 @@ data ListGroupsResponse = ListGroupsResponse
     { _lgrGroups      :: [Group]
     , _lgrIsTruncated :: Maybe Bool
     , _lgrMarker      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListGroupsResponse' constructor.
 --
@@ -131,6 +131,7 @@ lgrIsTruncated = lens _lgrIsTruncated (\s a -> s { _lgrIsTruncated = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lgrMarker :: Lens' ListGroupsResponse (Maybe Text)
 lgrMarker = lens _lgrMarker (\s a -> s { _lgrMarker = a })
+
 instance FromXML ListGroupsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListGroupsResponse"

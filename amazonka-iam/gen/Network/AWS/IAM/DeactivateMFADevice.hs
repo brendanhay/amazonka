@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 data DeactivateMFADevice = DeactivateMFADevice
     { _dmfadSerialNumber :: Text
     , _dmfadUserName     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeactivateMFADevice' constructor.
 --
@@ -85,6 +85,7 @@ data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse
 -- | 'DeactivateMFADeviceResponse' constructor.
 deactivateMFADeviceResponse :: DeactivateMFADeviceResponse
 deactivateMFADeviceResponse = DeactivateMFADeviceResponse
+
 instance FromXML DeactivateMFADeviceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeactivateMFADeviceResponse"

@@ -23,6 +23,8 @@ module Network.AWS.CloudFormation.Types
     (
     -- * Service
       CloudFormation
+    -- ** Error
+    , RESTError
     -- ** XML
     , xmlOptions
 
@@ -176,7 +178,7 @@ xmlOptions = Tagged def
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Tag' constructor.
 --
@@ -284,7 +286,7 @@ data StackEvent = StackEvent
     , _seStackId              :: Text
     , _seStackName            :: Text
     , _seTimestamp            :: RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'StackEvent' constructor.
 --
@@ -390,7 +392,7 @@ data StackSummary = StackSummary
     , _ssStackStatus         :: Text
     , _ssStackStatusReason   :: Maybe Text
     , _ssTemplateDescription :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'StackSummary' constructor.
 --
@@ -483,7 +485,7 @@ data StackResourceDetail = StackResourceDetail
     , _srdResourceType         :: Text
     , _srdStackId              :: Maybe Text
     , _srdStackName            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'StackResourceDetail' constructor.
 --
@@ -631,7 +633,7 @@ data TemplateParameter = TemplateParameter
     , _tpDescription  :: Maybe Text
     , _tpNoEcho       :: Maybe Bool
     , _tpParameterKey :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'TemplateParameter' constructor.
 --
@@ -686,7 +688,7 @@ data StackResource = StackResource
     , _srStackId              :: Maybe Text
     , _srStackName            :: Maybe Text
     , _srTimestamp            :: RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'StackResource' constructor.
 --
@@ -779,7 +781,7 @@ data Output = Output
     { _oDescription :: Maybe Text
     , _oOutputKey   :: Maybe Text
     , _oOutputValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Output' constructor.
 --
@@ -823,7 +825,7 @@ data StackResourceSummary = StackResourceSummary
     , _srsResourceStatus       :: Text
     , _srsResourceStatusReason :: Maybe Text
     , _srsResourceType         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'StackResourceSummary' constructor.
 --
@@ -926,7 +928,7 @@ data Stack = Stack
     , _sStackStatusReason :: Maybe Text
     , _sTags              :: [Tag]
     , _sTimeoutInMinutes  :: Maybe Natural
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'Stack' constructor.
 --
@@ -1079,7 +1081,7 @@ data Parameter = Parameter
     { _pParameterKey     :: Maybe Text
     , _pParameterValue   :: Maybe Text
     , _pUsePreviousValue :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Parameter' constructor.
 --

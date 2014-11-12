@@ -49,7 +49,7 @@ import Network.AWS.EC2.Types
 data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
     { _dvpc1DryRun                 :: Maybe Bool
     , _dvpc1VpcPeeringConnectionId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpcPeeringConnection' constructor.
 --
@@ -81,7 +81,7 @@ instance ToPath DeleteVpcPeeringConnection where
 
 newtype DeleteVpcPeeringConnectionResult = DeleteVpcPeeringConnectionResult
     { _dvpcrReturn :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpcPeeringConnectionResult' constructor.
 --
@@ -97,6 +97,7 @@ deleteVpcPeeringConnectionResult = DeleteVpcPeeringConnectionResult
 -- | Returns true if the request succeeds; otherwise, it returns an error.
 dvpcrReturn :: Lens' DeleteVpcPeeringConnectionResult (Maybe Bool)
 dvpcrReturn = lens _dvpcrReturn (\s a -> s { _dvpcrReturn = a })
+
 instance FromXML DeleteVpcPeeringConnectionResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteVpcPeeringConnectionResult"

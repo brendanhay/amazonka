@@ -23,6 +23,8 @@ module Network.AWS.AutoScaling.Types
     (
     -- * Service
       AutoScaling
+    -- ** Error
+    , RESTError
     -- ** XML
     , xmlOptions
 
@@ -278,7 +280,7 @@ data TagDescription = TagDescription
     , _tdResourceId        :: Text
     , _tdResourceType      :: Text
     , _tdValue             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'TagDescription' constructor.
 --
@@ -345,7 +347,7 @@ data Tag = Tag
     , _tagResourceId        :: Text
     , _tagResourceType      :: Text
     , _tagValue             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Tag' constructor.
 --
@@ -410,7 +412,7 @@ data NotificationConfiguration = NotificationConfiguration
     { _ncAutoScalingGroupName :: Maybe Text
     , _ncNotificationType     :: Maybe Text
     , _ncTopicARN             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'NotificationConfiguration' constructor.
 --
@@ -455,7 +457,7 @@ data BlockDeviceMapping = BlockDeviceMapping
     , _bdmEbs         :: Maybe Ebs
     , _bdmNoDevice    :: Maybe Bool
     , _bdmVirtualName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'BlockDeviceMapping' constructor.
 --
@@ -518,7 +520,7 @@ data LaunchConfiguration = LaunchConfiguration
     , _lcSecurityGroups           :: [Text]
     , _lcSpotPrice                :: Maybe Text
     , _lcUserData                 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'LaunchConfiguration' constructor.
 --
@@ -699,7 +701,7 @@ data AutoScalingGroup = AutoScalingGroup
     , _asgTags                    :: [TagDescription]
     , _asgTerminationPolicies     :: [Text]
     , _asgVPCZoneIdentifier       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AutoScalingGroup' constructor.
 --
@@ -901,7 +903,7 @@ data ScalingPolicy = ScalingPolicy
     , _sp1PolicyARN            :: Maybe Text
     , _sp1PolicyName           :: Maybe Text
     , _sp1ScalingAdjustment    :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ScalingPolicy' constructor.
 --
@@ -985,7 +987,7 @@ instance ToQuery ScalingPolicy
 
 newtype InstanceMonitoring = InstanceMonitoring
     { _imEnabled :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'InstanceMonitoring' constructor.
 --
@@ -1019,7 +1021,7 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction
     , _sugaScheduledActionName  :: Maybe Text
     , _sugaStartTime            :: Maybe RFC822
     , _sugaTime                 :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ScheduledUpdateGroupAction' constructor.
 --
@@ -1122,7 +1124,7 @@ instance ToQuery ScheduledUpdateGroupAction
 data ScalingProcessQuery = ScalingProcessQuery
     { _spqAutoScalingGroupName :: Text
     , _spqScalingProcesses     :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ScalingProcessQuery' constructor.
 --
@@ -1164,7 +1166,7 @@ data Ebs = Ebs
     , _ebsSnapshotId          :: Maybe Text
     , _ebsVolumeSize          :: Maybe Natural
     , _ebsVolumeType          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Ebs' constructor.
 --
@@ -1224,7 +1226,7 @@ instance ToQuery Ebs
 
 newtype AdjustmentType = AdjustmentType
     { _atAdjustmentType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'AdjustmentType' constructor.
 --
@@ -1250,7 +1252,7 @@ instance ToQuery AdjustmentType
 
 newtype MetricCollectionType = MetricCollectionType
     { _mctMetric :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'MetricCollectionType' constructor.
 --
@@ -1282,7 +1284,7 @@ data LifecycleHook = LifecycleHook
     , _lhNotificationMetadata  :: Maybe Text
     , _lhNotificationTargetARN :: Maybe Text
     , _lhRoleARN               :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'LifecycleHook' constructor.
 --
@@ -1394,7 +1396,7 @@ data Activity = Activity
     , _aStartTime            :: RFC822
     , _aStatusCode           :: Text
     , _aStatusMessage        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Activity' constructor.
 --
@@ -1492,7 +1494,7 @@ instance ToQuery Activity
 data SuspendedProcess = SuspendedProcess
     { _spProcessName      :: Maybe Text
     , _spSuspensionReason :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SuspendedProcess' constructor.
 --
@@ -1525,7 +1527,7 @@ instance ToQuery SuspendedProcess
 
 newtype MetricGranularityType = MetricGranularityType
     { _mgtGranularity :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'MetricGranularityType' constructor.
 --
@@ -1551,7 +1553,7 @@ instance ToQuery MetricGranularityType
 data Filter = Filter
     { _fName   :: Text
     , _fValues :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Filter' constructor.
 --
@@ -1585,7 +1587,7 @@ instance ToQuery Filter
 
 newtype ProcessType = ProcessType
     { _ptProcessName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ProcessType' constructor.
 --
@@ -1612,7 +1614,7 @@ instance ToQuery ProcessType
 data Alarm = Alarm
     { _aAlarmARN  :: Maybe Text
     , _aAlarmName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Alarm' constructor.
 --
@@ -1645,7 +1647,7 @@ instance ToQuery Alarm
 data EnabledMetric = EnabledMetric
     { _emGranularity :: Maybe Text
     , _emMetric      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'EnabledMetric' constructor.
 --
@@ -1681,7 +1683,7 @@ data Instance = Instance
     , _iInstanceId              :: Text
     , _iLaunchConfigurationName :: Text
     , _iLifecycleState          :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Instance' constructor.
 --
@@ -1802,7 +1804,7 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails
     , _asidInstanceId              :: Text
     , _asidLaunchConfigurationName :: Text
     , _asidLifecycleState          :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AutoScalingInstanceDetails' constructor.
 --

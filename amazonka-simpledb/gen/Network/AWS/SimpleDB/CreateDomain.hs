@@ -47,7 +47,7 @@ import Network.AWS.SimpleDB.Types
 
 newtype CreateDomain = CreateDomain
     { _cdDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateDomain' constructor.
 --
@@ -77,6 +77,7 @@ data CreateDomainResponse = CreateDomainResponse
 -- | 'CreateDomainResponse' constructor.
 createDomainResponse :: CreateDomainResponse
 createDomainResponse = CreateDomainResponse
+
 instance FromXML CreateDomainResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateDomainResponse"

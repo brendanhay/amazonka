@@ -56,7 +56,7 @@ instance ToPath GetSendStatistics where
 
 newtype GetSendStatisticsResponse = GetSendStatisticsResponse
     { _gssrSendDataPoints :: [SendDataPoint]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'GetSendStatisticsResponse' constructor.
 --
@@ -73,6 +73,7 @@ getSendStatisticsResponse = GetSendStatisticsResponse
 gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrSendDataPoints =
     lens _gssrSendDataPoints (\s a -> s { _gssrSendDataPoints = a })
+
 instance FromXML GetSendStatisticsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetSendStatisticsResponse"

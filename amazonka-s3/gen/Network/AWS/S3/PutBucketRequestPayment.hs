@@ -49,7 +49,7 @@ data PutBucketRequestPayment = PutBucketRequestPayment
     { _pbrpBucket                      :: Text
     , _pbrpContentMD5                  :: Maybe Text
     , _pbrpRequestPaymentConfiguration :: RequestPaymentConfiguration
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'PutBucketRequestPayment' constructor.
 --

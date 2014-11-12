@@ -55,7 +55,7 @@ instance ToPath ListAvailableSolutionStacks where
 data ListAvailableSolutionStacksResultMessage = ListAvailableSolutionStacksResultMessage
     { _lassrmSolutionStackDetails :: [SolutionStackDescription]
     , _lassrmSolutionStacks       :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListAvailableSolutionStacksResultMessage' constructor.
 --
@@ -81,6 +81,7 @@ lassrmSolutionStackDetails =
 lassrmSolutionStacks :: Lens' ListAvailableSolutionStacksResultMessage [Text]
 lassrmSolutionStacks =
     lens _lassrmSolutionStacks (\s a -> s { _lassrmSolutionStacks = a })
+
 instance FromXML ListAvailableSolutionStacksResultMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListAvailableSolutionStacksResultMessage"

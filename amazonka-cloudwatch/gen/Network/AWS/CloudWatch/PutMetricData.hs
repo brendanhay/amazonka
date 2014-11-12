@@ -55,7 +55,7 @@ import Network.AWS.CloudWatch.Types
 data PutMetricDataInput = PutMetricDataInput
     { _pmdiMetricData :: [MetricDatum]
     , _pmdiNamespace  :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'PutMetricDataInput' constructor.
 --
@@ -90,6 +90,7 @@ data PutMetricDataResponse = PutMetricDataResponse
 -- | 'PutMetricDataResponse' constructor.
 putMetricDataResponse :: PutMetricDataResponse
 putMetricDataResponse = PutMetricDataResponse
+
 instance FromXML PutMetricDataResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PutMetricDataResponse"

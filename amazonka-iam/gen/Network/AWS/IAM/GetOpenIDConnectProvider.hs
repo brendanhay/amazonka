@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 
 newtype GetOpenIDConnectProvider = GetOpenIDConnectProvider
     { _goidcpOpenIDConnectProviderArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetOpenIDConnectProvider' constructor.
 --
@@ -78,7 +78,7 @@ data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse
     , _goidcprCreateDate     :: Maybe RFC822
     , _goidcprThumbprintList :: [Text]
     , _goidcprUrl            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetOpenIDConnectProviderResponse' constructor.
 --
@@ -125,6 +125,7 @@ goidcprThumbprintList =
 -- information, see CreateOpenIDConnectProvider.
 goidcprUrl :: Lens' GetOpenIDConnectProviderResponse (Maybe Text)
 goidcprUrl = lens _goidcprUrl (\s a -> s { _goidcprUrl = a })
+
 instance FromXML GetOpenIDConnectProviderResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetOpenIDConnectProviderResponse"

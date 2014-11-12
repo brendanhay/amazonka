@@ -44,7 +44,7 @@ import Network.AWS.SNS.Types
 
 newtype DeletePlatformApplicationInput = DeletePlatformApplicationInput
     { _dpaiPlatformApplicationArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeletePlatformApplicationInput' constructor.
 --
@@ -74,6 +74,7 @@ data DeletePlatformApplicationResponse = DeletePlatformApplicationResponse
 -- | 'DeletePlatformApplicationResponse' constructor.
 deletePlatformApplicationResponse :: DeletePlatformApplicationResponse
 deletePlatformApplicationResponse = DeletePlatformApplicationResponse
+
 instance FromXML DeletePlatformApplicationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeletePlatformApplicationResponse"

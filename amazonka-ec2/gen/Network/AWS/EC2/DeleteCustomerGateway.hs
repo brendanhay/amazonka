@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data DeleteCustomerGateway = DeleteCustomerGateway
     { _dcg1CustomerGatewayId :: Text
     , _dcg1DryRun            :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteCustomerGateway' constructor.
 --
@@ -80,6 +80,7 @@ data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
 -- | 'DeleteCustomerGatewayResponse' constructor.
 deleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse
 deleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
+
 instance FromXML DeleteCustomerGatewayResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteCustomerGatewayResponse"

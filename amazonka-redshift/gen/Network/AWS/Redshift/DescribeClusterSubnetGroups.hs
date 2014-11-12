@@ -52,7 +52,7 @@ data DescribeClusterSubnetGroupsMessage = DescribeClusterSubnetGroupsMessage
     { _dcsgm1ClusterSubnetGroupName :: Maybe Text
     , _dcsgm1Marker                 :: Maybe Text
     , _dcsgm1MaxRecords             :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeClusterSubnetGroupsMessage' constructor.
 --
@@ -101,7 +101,7 @@ instance ToPath DescribeClusterSubnetGroupsMessage where
 data ClusterSubnetGroupMessage = ClusterSubnetGroupMessage
     { _csgmClusterSubnetGroups :: [ClusterSubnetGroup]
     , _csgmMarker              :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ClusterSubnetGroupMessage' constructor.
 --
@@ -130,6 +130,7 @@ csgmClusterSubnetGroups =
 -- request.
 csgmMarker :: Lens' ClusterSubnetGroupMessage (Maybe Text)
 csgmMarker = lens _csgmMarker (\s a -> s { _csgmMarker = a })
+
 instance FromXML ClusterSubnetGroupMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ClusterSubnetGroupMessage"

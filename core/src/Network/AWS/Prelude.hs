@@ -46,6 +46,7 @@ module Network.AWS.Prelude
     , AWSService      (..)
     , AWSRequest      (..)
     , AWSPager        (..)
+    , Semigroup
 
     -- * Endpoints
     , global
@@ -86,6 +87,7 @@ import Data.Hashable                as Export
 import Data.List.NonEmpty           (NonEmpty)
 import Data.Maybe                   as Export
 import Data.Monoid                  as Export hiding (All, Sum)
+import Data.Semigroup               (Semigroup)
 import Data.Tagged                  as Export
 import Data.Text                    (Text)
 import Data.Typeable                (Typeable)

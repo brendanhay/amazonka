@@ -57,7 +57,7 @@ instance ToPath GenerateCredentialReport where
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse
     { _gcrrDescription :: Maybe Text
     , _gcrrState       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GenerateCredentialReportResponse' constructor.
 --
@@ -80,6 +80,7 @@ gcrrDescription = lens _gcrrDescription (\s a -> s { _gcrrDescription = a })
 -- | Information about the state of a credential report.
 gcrrState :: Lens' GenerateCredentialReportResponse (Maybe Text)
 gcrrState = lens _gcrrState (\s a -> s { _gcrrState = a })
+
 instance FromXML GenerateCredentialReportResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GenerateCredentialReportResponse"

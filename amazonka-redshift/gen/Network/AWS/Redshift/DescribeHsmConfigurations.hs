@@ -51,7 +51,7 @@ data DescribeHsmConfigurationsMessage = DescribeHsmConfigurationsMessage
     { _dhcmHsmConfigurationIdentifier :: Maybe Text
     , _dhcmMarker                     :: Maybe Text
     , _dhcmMaxRecords                 :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeHsmConfigurationsMessage' constructor.
 --
@@ -102,7 +102,7 @@ instance ToPath DescribeHsmConfigurationsMessage where
 data HsmConfigurationMessage = HsmConfigurationMessage
     { _hcmHsmConfigurations :: [HsmConfiguration]
     , _hcmMarker            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'HsmConfigurationMessage' constructor.
 --
@@ -131,6 +131,7 @@ hcmHsmConfigurations =
 -- request.
 hcmMarker :: Lens' HsmConfigurationMessage (Maybe Text)
 hcmMarker = lens _hcmMarker (\s a -> s { _hcmMarker = a })
+
 instance FromXML HsmConfigurationMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "HsmConfigurationMessage"

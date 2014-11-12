@@ -49,7 +49,7 @@ data UpdateDistribution = UpdateDistribution
     { _udDistributionConfig :: DistributionConfig
     , _udId                 :: Text
     , _udIfMatch            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'UpdateDistribution' constructor.
 --
@@ -105,7 +105,7 @@ instance ToBody UpdateDistribution where
 data UpdateDistributionResult = UpdateDistributionResult
     { _udrDistribution :: Maybe Distribution
     , _udrETag         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'UpdateDistributionResult' constructor.
 --

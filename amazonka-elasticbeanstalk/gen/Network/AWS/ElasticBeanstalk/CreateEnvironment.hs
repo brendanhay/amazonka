@@ -79,7 +79,7 @@ data CreateEnvironmentMessage = CreateEnvironmentMessage
     , _cemTemplateName      :: Maybe Text
     , _cemTier              :: Maybe EnvironmentTier
     , _cemVersionLabel      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateEnvironmentMessage' constructor.
 --

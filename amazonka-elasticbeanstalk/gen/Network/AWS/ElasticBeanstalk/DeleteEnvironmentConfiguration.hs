@@ -50,7 +50,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data DeleteEnvironmentConfigurationMessage = DeleteEnvironmentConfigurationMessage
     { _decmApplicationName :: Text
     , _decmEnvironmentName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteEnvironmentConfigurationMessage' constructor.
 --
@@ -88,6 +88,7 @@ data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResp
 -- | 'DeleteEnvironmentConfigurationResponse' constructor.
 deleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse
 deleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
+
 instance FromXML DeleteEnvironmentConfigurationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteEnvironmentConfigurationResponse"

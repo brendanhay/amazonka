@@ -52,7 +52,7 @@ import Network.AWS.SimpleDB.Types
 
 newtype DomainMetadata = DomainMetadata
     { _dmDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DomainMetadata' constructor.
 --
@@ -82,7 +82,7 @@ data DomainMetadataResult = DomainMetadataResult
     , _dmrItemCount                :: Maybe Int
     , _dmrItemNamesSizeBytes       :: Maybe Integer
     , _dmrTimestamp                :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DomainMetadataResult' constructor.
 --
@@ -147,6 +147,7 @@ dmrItemNamesSizeBytes =
 -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
 dmrTimestamp :: Lens' DomainMetadataResult (Maybe Int)
 dmrTimestamp = lens _dmrTimestamp (\s a -> s { _dmrTimestamp = a })
+
 instance FromXML DomainMetadataResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DomainMetadataResult"

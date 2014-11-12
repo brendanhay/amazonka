@@ -72,7 +72,7 @@ data PutAttributes = PutAttributes
     , _paDomainName :: Text
     , _paExpected   :: Maybe UpdateCondition
     , _paItemName   :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'PutAttributes' constructor.
 --
@@ -125,6 +125,7 @@ data PutAttributesResponse = PutAttributesResponse
 -- | 'PutAttributesResponse' constructor.
 putAttributesResponse :: PutAttributesResponse
 putAttributesResponse = PutAttributesResponse
+
 instance FromXML PutAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PutAttributesResponse"

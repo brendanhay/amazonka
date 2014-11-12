@@ -49,7 +49,7 @@ data ModifyCacheSubnetGroupMessage = ModifyCacheSubnetGroupMessage
     { _mcsgmCacheSubnetGroupDescription :: Maybe Text
     , _mcsgmCacheSubnetGroupName        :: Text
     , _mcsgmSubnetIds                   :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ModifyCacheSubnetGroupMessage' constructor.
 --
@@ -93,7 +93,7 @@ instance ToPath ModifyCacheSubnetGroupMessage where
 
 newtype ModifyCacheSubnetGroupResult = ModifyCacheSubnetGroupResult
     { _mcsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyCacheSubnetGroupResult' constructor.
 --
@@ -109,6 +109,7 @@ modifyCacheSubnetGroupResult = ModifyCacheSubnetGroupResult
 mcsgrCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResult (Maybe CacheSubnetGroup)
 mcsgrCacheSubnetGroup =
     lens _mcsgrCacheSubnetGroup (\s a -> s { _mcsgrCacheSubnetGroup = a })
+
 instance FromXML ModifyCacheSubnetGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyCacheSubnetGroupResult"

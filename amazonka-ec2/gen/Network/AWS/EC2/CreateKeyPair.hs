@@ -56,7 +56,7 @@ import Network.AWS.EC2.Types
 data CreateKeyPair = CreateKeyPair
     { _ckpDryRun  :: Maybe Bool
     , _ckpKeyName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateKeyPair' constructor.
 --
@@ -88,7 +88,7 @@ data KeyPair = KeyPair
     { _kpKeyFingerprint :: Maybe Text
     , _kpKeyMaterial    :: Maybe Text
     , _kpKeyName        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'KeyPair' constructor.
 --
@@ -118,6 +118,7 @@ kpKeyMaterial = lens _kpKeyMaterial (\s a -> s { _kpKeyMaterial = a })
 -- | The name of the key pair.
 kpKeyName :: Lens' KeyPair (Maybe Text)
 kpKeyName = lens _kpKeyName (\s a -> s { _kpKeyName = a })
+
 instance FromXML KeyPair where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "KeyPair"

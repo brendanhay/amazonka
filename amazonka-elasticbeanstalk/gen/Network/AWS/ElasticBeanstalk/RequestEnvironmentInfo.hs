@@ -50,7 +50,7 @@ data RequestEnvironmentInfoMessage = RequestEnvironmentInfoMessage
     { _reim1EnvironmentId   :: Maybe Text
     , _reim1EnvironmentName :: Maybe Text
     , _reim1InfoType        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RequestEnvironmentInfoMessage' constructor.
 --
@@ -102,6 +102,7 @@ data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
 -- | 'RequestEnvironmentInfoResponse' constructor.
 requestEnvironmentInfoResponse :: RequestEnvironmentInfoResponse
 requestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
+
 instance FromXML RequestEnvironmentInfoResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RequestEnvironmentInfoResponse"

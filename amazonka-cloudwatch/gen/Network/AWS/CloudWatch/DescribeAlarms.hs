@@ -57,7 +57,7 @@ data DescribeAlarmsInput = DescribeAlarmsInput
     , _dai1MaxRecords      :: Maybe Natural
     , _dai1NextToken       :: Maybe Text
     , _dai1StateValue      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAlarmsInput' constructor.
 --
@@ -119,7 +119,7 @@ instance ToPath DescribeAlarmsInput where
 data DescribeAlarmsOutput = DescribeAlarmsOutput
     { _daoMetricAlarms :: [MetricAlarm]
     , _daoNextToken    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeAlarmsOutput' constructor.
 --
@@ -142,6 +142,7 @@ daoMetricAlarms = lens _daoMetricAlarms (\s a -> s { _daoMetricAlarms = a })
 -- | A string that marks the start of the next batch of returned results.
 daoNextToken :: Lens' DescribeAlarmsOutput (Maybe Text)
 daoNextToken = lens _daoNextToken (\s a -> s { _daoNextToken = a })
+
 instance FromXML DescribeAlarmsOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAlarmsOutput"

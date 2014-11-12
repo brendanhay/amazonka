@@ -48,7 +48,7 @@ import Network.AWS.SNS.Types
 
 newtype ListTopicsInput = ListTopicsInput
     { _ltiNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ListTopicsInput' constructor.
 --
@@ -72,7 +72,7 @@ instance ToPath ListTopicsInput where
 data ListTopicsResponse = ListTopicsResponse
     { _ltrNextToken :: Maybe Text
     , _ltrTopics    :: [Topic]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListTopicsResponse' constructor.
 --
@@ -96,6 +96,7 @@ ltrNextToken = lens _ltrNextToken (\s a -> s { _ltrNextToken = a })
 -- | A list of topic ARNs.
 ltrTopics :: Lens' ListTopicsResponse [Topic]
 ltrTopics = lens _ltrTopics (\s a -> s { _ltrTopics = a })
+
 instance FromXML ListTopicsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListTopicsResponse"

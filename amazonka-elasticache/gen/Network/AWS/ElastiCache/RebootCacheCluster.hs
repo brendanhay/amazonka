@@ -52,7 +52,7 @@ import Network.AWS.ElastiCache.Types
 data RebootCacheClusterMessage = RebootCacheClusterMessage
     { _rccmCacheClusterId       :: Text
     , _rccmCacheNodeIdsToReboot :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RebootCacheClusterMessage' constructor.
 --
@@ -89,7 +89,7 @@ instance ToPath RebootCacheClusterMessage where
 
 newtype RebootCacheClusterResult = RebootCacheClusterResult
     { _rccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RebootCacheClusterResult' constructor.
 --
@@ -104,6 +104,7 @@ rebootCacheClusterResult = RebootCacheClusterResult
 
 rccrCacheCluster :: Lens' RebootCacheClusterResult (Maybe CacheCluster)
 rccrCacheCluster = lens _rccrCacheCluster (\s a -> s { _rccrCacheCluster = a })
+
 instance FromXML RebootCacheClusterResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RebootCacheClusterResult"

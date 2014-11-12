@@ -44,7 +44,16 @@ import Network.AWS.ElasticBeanstalk.Types
 
 newtype DescribeApplicationsMessage = DescribeApplicationsMessage
     { _damApplicationNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'DescribeApplicationsMessage' constructor.
 --
@@ -69,7 +78,7 @@ instance ToPath DescribeApplicationsMessage where
 
 newtype ApplicationDescriptionsMessage = ApplicationDescriptionsMessage
     { _admApplications :: [ApplicationDescription]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'ApplicationDescriptionsMessage' constructor.
 --
@@ -85,6 +94,7 @@ applicationDescriptionsMessage = ApplicationDescriptionsMessage
 -- | This parameter contains a list of ApplicationDescription.
 admApplications :: Lens' ApplicationDescriptionsMessage [ApplicationDescription]
 admApplications = lens _admApplications (\s a -> s { _admApplications = a })
+
 instance FromXML ApplicationDescriptionsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ApplicationDescriptionsMessage"

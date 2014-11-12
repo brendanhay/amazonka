@@ -51,7 +51,7 @@ import Network.AWS.ImportExport.Types
 data ListJobsInput = ListJobsInput
     { _ljiMarker  :: Maybe Text
     , _ljiMaxJobs :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListJobsInput' constructor.
 --
@@ -80,7 +80,7 @@ instance ToPath ListJobsInput where
 data ListJobsOutput = ListJobsOutput
     { _ljoIsTruncated :: Maybe Bool
     , _ljoJobs        :: [Job]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListJobsOutput' constructor.
 --
@@ -101,6 +101,7 @@ ljoIsTruncated = lens _ljoIsTruncated (\s a -> s { _ljoIsTruncated = a })
 
 ljoJobs :: Lens' ListJobsOutput [Job]
 ljoJobs = lens _ljoJobs (\s a -> s { _ljoJobs = a })
+
 instance FromXML ListJobsOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListJobsOutput"

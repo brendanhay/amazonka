@@ -50,7 +50,7 @@ import Network.AWS.IAM.Types
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
     { _rrfipInstanceProfileName :: Text
     , _rrfipRoleName            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RemoveRoleFromInstanceProfile' constructor.
 --
@@ -88,6 +88,7 @@ data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileRespon
 -- | 'RemoveRoleFromInstanceProfileResponse' constructor.
 removeRoleFromInstanceProfileResponse :: RemoveRoleFromInstanceProfileResponse
 removeRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
+
 instance FromXML RemoveRoleFromInstanceProfileResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RemoveRoleFromInstanceProfileResponse"

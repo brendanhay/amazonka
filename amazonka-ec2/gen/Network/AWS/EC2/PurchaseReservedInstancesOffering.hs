@@ -59,7 +59,7 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
     , _prioInstanceCount               :: Int
     , _prioLimitPrice                  :: Maybe ReservedInstanceLimitPrice
     , _prioReservedInstancesOfferingId :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'PurchaseReservedInstancesOffering' constructor.
 --
@@ -109,7 +109,7 @@ instance ToPath PurchaseReservedInstancesOffering where
 
 newtype PurchaseReservedInstancesOfferingResult = PurchaseReservedInstancesOfferingResult
     { _priorReservedInstancesId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'PurchaseReservedInstancesOfferingResult' constructor.
 --
@@ -127,6 +127,7 @@ priorReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResult (Maybe
 priorReservedInstancesId =
     lens _priorReservedInstancesId
         (\s a -> s { _priorReservedInstancesId = a })
+
 instance FromXML PurchaseReservedInstancesOfferingResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PurchaseReservedInstancesOfferingResult"

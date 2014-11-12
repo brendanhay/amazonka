@@ -65,7 +65,7 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing
     , _crilInstanceCount       :: Int
     , _crilPriceSchedules      :: [PriceScheduleSpecification]
     , _crilReservedInstancesId :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateReservedInstancesListing' constructor.
 --
@@ -121,7 +121,7 @@ instance ToPath CreateReservedInstancesListing where
 
 newtype CreateReservedInstancesListingResult = CreateReservedInstancesListingResult
     { _crilr1ReservedInstancesListings :: [ReservedInstancesListing]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'CreateReservedInstancesListingResult' constructor.
 --
@@ -139,6 +139,7 @@ crilr1ReservedInstancesListings :: Lens' CreateReservedInstancesListingResult [R
 crilr1ReservedInstancesListings =
     lens _crilr1ReservedInstancesListings
         (\s a -> s { _crilr1ReservedInstancesListings = a })
+
 instance FromXML CreateReservedInstancesListingResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateReservedInstancesListingResult"

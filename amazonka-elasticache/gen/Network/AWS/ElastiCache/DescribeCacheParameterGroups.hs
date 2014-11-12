@@ -51,7 +51,7 @@ data DescribeCacheParameterGroupsMessage = DescribeCacheParameterGroupsMessage
     { _dcpgmCacheParameterGroupName :: Maybe Text
     , _dcpgmMarker                  :: Maybe Text
     , _dcpgmMaxRecords              :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeCacheParameterGroupsMessage' constructor.
 --
@@ -97,7 +97,7 @@ instance ToPath DescribeCacheParameterGroupsMessage where
 data CacheParameterGroupsMessage = CacheParameterGroupsMessage
     { _cpgmCacheParameterGroups :: [CacheParameterGroup]
     , _cpgmMarker               :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CacheParameterGroupsMessage' constructor.
 --
@@ -123,6 +123,7 @@ cpgmCacheParameterGroups =
 -- | Provides an identifier to allow retrieval of paginated results.
 cpgmMarker :: Lens' CacheParameterGroupsMessage (Maybe Text)
 cpgmMarker = lens _cpgmMarker (\s a -> s { _cpgmMarker = a })
+
 instance FromXML CacheParameterGroupsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CacheParameterGroupsMessage"

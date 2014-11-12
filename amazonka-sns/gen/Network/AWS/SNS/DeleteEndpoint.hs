@@ -43,7 +43,7 @@ import Network.AWS.SNS.Types
 
 newtype DeleteEndpointInput = DeleteEndpointInput
     { _deiEndpointArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteEndpointInput' constructor.
 --
@@ -71,6 +71,7 @@ data DeleteEndpointResponse = DeleteEndpointResponse
 -- | 'DeleteEndpointResponse' constructor.
 deleteEndpointResponse :: DeleteEndpointResponse
 deleteEndpointResponse = DeleteEndpointResponse
+
 instance FromXML DeleteEndpointResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteEndpointResponse"

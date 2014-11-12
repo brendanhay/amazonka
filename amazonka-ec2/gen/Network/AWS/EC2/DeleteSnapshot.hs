@@ -53,7 +53,7 @@ import Network.AWS.EC2.Types
 data DeleteSnapshot = DeleteSnapshot
     { _ds3DryRun     :: Maybe Bool
     , _ds3SnapshotId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSnapshot' constructor.
 --
@@ -87,6 +87,7 @@ data DeleteSnapshotResponse = DeleteSnapshotResponse
 -- | 'DeleteSnapshotResponse' constructor.
 deleteSnapshotResponse :: DeleteSnapshotResponse
 deleteSnapshotResponse = DeleteSnapshotResponse
+
 instance FromXML DeleteSnapshotResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteSnapshotResponse"

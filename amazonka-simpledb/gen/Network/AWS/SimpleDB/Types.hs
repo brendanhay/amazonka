@@ -23,6 +23,8 @@ module Network.AWS.SimpleDB.Types
     (
     -- * Service
       SimpleDB
+    -- ** Error
+    , RESTError
     -- ** XML
     , xmlOptions
 
@@ -98,7 +100,7 @@ data Attribute = Attribute
     , _aAlternateValueEncoding :: Maybe Text
     , _aName                   :: Text
     , _aValue                  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Attribute' constructor.
 --
@@ -149,7 +151,7 @@ instance ToQuery Attribute
 data DeletableItem = DeletableItem
     { _diAttributes :: [Attribute]
     , _diName       :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeletableItem' constructor.
 --
@@ -181,7 +183,7 @@ instance ToQuery DeletableItem
 data ReplaceableItem = ReplaceableItem
     { _riAttributes :: [ReplaceableAttribute]
     , _riName       :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ReplaceableItem' constructor.
 --
@@ -216,7 +218,7 @@ data UpdateCondition = UpdateCondition
     { _ucExists :: Maybe Bool
     , _ucName   :: Maybe Text
     , _ucValue  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateCondition' constructor.
 --
@@ -262,7 +264,7 @@ data ReplaceableAttribute = ReplaceableAttribute
     { _raName    :: Text
     , _raReplace :: Maybe Bool
     , _raValue   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ReplaceableAttribute' constructor.
 --
@@ -306,7 +308,7 @@ data Item = Item
     { _iAlternateNameEncoding :: Maybe Text
     , _iAttributes            :: [Attribute]
     , _iName                  :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'Item' constructor.
 --

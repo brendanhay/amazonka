@@ -54,7 +54,7 @@ data AssociateDhcpOptions = AssociateDhcpOptions
     { _adoDhcpOptionsId :: Text
     , _adoDryRun        :: Maybe Bool
     , _adoVpcId         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AssociateDhcpOptions' constructor.
 --
@@ -97,6 +97,7 @@ data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
 -- | 'AssociateDhcpOptionsResponse' constructor.
 associateDhcpOptionsResponse :: AssociateDhcpOptionsResponse
 associateDhcpOptionsResponse = AssociateDhcpOptionsResponse
+
 instance FromXML AssociateDhcpOptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AssociateDhcpOptionsResponse"

@@ -55,7 +55,7 @@ data DescribeAlarmsForMetricInput = DescribeAlarmsForMetricInput
     , _dafmiPeriod     :: Maybe Natural
     , _dafmiStatistic  :: Maybe Text
     , _dafmiUnit       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeAlarmsForMetricInput' constructor.
 --
@@ -115,7 +115,7 @@ instance ToPath DescribeAlarmsForMetricInput where
 
 newtype DescribeAlarmsForMetricOutput = DescribeAlarmsForMetricOutput
     { _dafmoMetricAlarms :: [MetricAlarm]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeAlarmsForMetricOutput' constructor.
 --
@@ -132,6 +132,7 @@ describeAlarmsForMetricOutput = DescribeAlarmsForMetricOutput
 dafmoMetricAlarms :: Lens' DescribeAlarmsForMetricOutput [MetricAlarm]
 dafmoMetricAlarms =
     lens _dafmoMetricAlarms (\s a -> s { _dafmoMetricAlarms = a })
+
 instance FromXML DescribeAlarmsForMetricOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAlarmsForMetricOutput"

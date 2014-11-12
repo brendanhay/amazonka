@@ -50,7 +50,7 @@ data EstimateTemplateCostInput = EstimateTemplateCostInput
     { _etciParameters   :: [Parameter]
     , _etciTemplateBody :: Maybe Text
     , _etciTemplateURL  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'EstimateTemplateCostInput' constructor.
 --
@@ -95,7 +95,7 @@ instance ToPath EstimateTemplateCostInput where
 
 newtype EstimateTemplateCostOutput = EstimateTemplateCostOutput
     { _etcoUrl :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'EstimateTemplateCostOutput' constructor.
 --
@@ -112,6 +112,7 @@ estimateTemplateCostOutput = EstimateTemplateCostOutput
 -- the resources required to run the template.
 etcoUrl :: Lens' EstimateTemplateCostOutput (Maybe Text)
 etcoUrl = lens _etcoUrl (\s a -> s { _etcoUrl = a })
+
 instance FromXML EstimateTemplateCostOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EstimateTemplateCostOutput"

@@ -43,7 +43,16 @@ import Network.AWS.CloudWatch.Types
 
 newtype DeleteAlarmsInput = DeleteAlarmsInput
     { _daiAlarmNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'DeleteAlarmsInput' constructor.
 --
@@ -70,6 +79,7 @@ data DeleteAlarmsResponse = DeleteAlarmsResponse
 -- | 'DeleteAlarmsResponse' constructor.
 deleteAlarmsResponse :: DeleteAlarmsResponse
 deleteAlarmsResponse = DeleteAlarmsResponse
+
 instance FromXML DeleteAlarmsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteAlarmsResponse"

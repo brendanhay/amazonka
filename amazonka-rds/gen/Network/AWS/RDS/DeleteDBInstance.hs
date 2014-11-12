@@ -55,7 +55,7 @@ data DeleteDBInstanceMessage = DeleteDBInstanceMessage
     { _ddbim1DBInstanceIdentifier      :: Text
     , _ddbim1FinalDBSnapshotIdentifier :: Maybe Text
     , _ddbim1SkipFinalSnapshot         :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteDBInstanceMessage' constructor.
 --
@@ -108,7 +108,7 @@ instance ToPath DeleteDBInstanceMessage where
 
 newtype DeleteDBInstanceResult = DeleteDBInstanceResult
     { _ddbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteDBInstanceResult' constructor.
 --
@@ -123,6 +123,7 @@ deleteDBInstanceResult = DeleteDBInstanceResult
 
 ddbirDBInstance :: Lens' DeleteDBInstanceResult (Maybe DBInstance)
 ddbirDBInstance = lens _ddbirDBInstance (\s a -> s { _ddbirDBInstance = a })
+
 instance FromXML DeleteDBInstanceResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteDBInstanceResult"

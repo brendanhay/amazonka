@@ -56,7 +56,16 @@ import Network.AWS.SES.Types
 
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
     { _gidaIdentities :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'GetIdentityDkimAttributes' constructor.
 --
@@ -80,7 +89,7 @@ instance ToPath GetIdentityDkimAttributes where
 
 newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
     { _gidarDkimAttributes :: Map Text IdentityDkimAttributes
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'GetIdentityDkimAttributesResponse' constructor.
 --
@@ -98,6 +107,7 @@ gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text Ide
 gidarDkimAttributes =
     lens _gidarDkimAttributes (\s a -> s { _gidarDkimAttributes = a })
         . _Map
+
 instance FromXML GetIdentityDkimAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetIdentityDkimAttributesResponse"

@@ -48,7 +48,7 @@ import Network.AWS.SimpleDB.Types
 data BatchDeleteAttributes = BatchDeleteAttributes
     { _bdaDomainName :: Text
     , _bdaItems      :: [DeletableItem]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'BatchDeleteAttributes' constructor.
 --
@@ -83,6 +83,7 @@ data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse
 -- | 'BatchDeleteAttributesResponse' constructor.
 batchDeleteAttributesResponse :: BatchDeleteAttributesResponse
 batchDeleteAttributesResponse = BatchDeleteAttributesResponse
+
 instance FromXML BatchDeleteAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "BatchDeleteAttributesResponse"

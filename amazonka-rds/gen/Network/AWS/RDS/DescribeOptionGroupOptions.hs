@@ -53,7 +53,7 @@ data DescribeOptionGroupOptionsMessage = DescribeOptionGroupOptionsMessage
     , _dogomMajorEngineVersion :: Maybe Text
     , _dogomMarker             :: Maybe Text
     , _dogomMaxRecords         :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeOptionGroupOptionsMessage' constructor.
 --
@@ -114,7 +114,7 @@ instance ToPath DescribeOptionGroupOptionsMessage where
 data OptionGroupOptionsMessage = OptionGroupOptionsMessage
     { _ogomMarker             :: Maybe Text
     , _ogomOptionGroupOptions :: [OptionGroupOption]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'OptionGroupOptionsMessage' constructor.
 --
@@ -139,6 +139,7 @@ ogomMarker = lens _ogomMarker (\s a -> s { _ogomMarker = a })
 ogomOptionGroupOptions :: Lens' OptionGroupOptionsMessage [OptionGroupOption]
 ogomOptionGroupOptions =
     lens _ogomOptionGroupOptions (\s a -> s { _ogomOptionGroupOptions = a })
+
 instance FromXML OptionGroupOptionsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "OptionGroupOptionsMessage"

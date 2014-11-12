@@ -63,7 +63,7 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings
     { _drilFilters                    :: [Filter]
     , _drilReservedInstancesId        :: Maybe Text
     , _drilReservedInstancesListingId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstancesListings' constructor.
 --
@@ -107,7 +107,7 @@ instance ToPath DescribeReservedInstancesListings where
 
 newtype DescribeReservedInstancesListingsResult = DescribeReservedInstancesListingsResult
     { _drilrReservedInstancesListings :: [ReservedInstancesListing]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeReservedInstancesListingsResult' constructor.
 --
@@ -125,6 +125,7 @@ drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResult 
 drilrReservedInstancesListings =
     lens _drilrReservedInstancesListings
         (\s a -> s { _drilrReservedInstancesListings = a })
+
 instance FromXML DescribeReservedInstancesListingsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeReservedInstancesListingsResult"

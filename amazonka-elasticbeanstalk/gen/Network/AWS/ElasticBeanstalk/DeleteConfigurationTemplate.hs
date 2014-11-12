@@ -44,7 +44,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data DeleteConfigurationTemplateMessage = DeleteConfigurationTemplateMessage
     { _dctmApplicationName :: Text
     , _dctmTemplateName    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteConfigurationTemplateMessage' constructor.
 --
@@ -81,6 +81,7 @@ data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
 -- | 'DeleteConfigurationTemplateResponse' constructor.
 deleteConfigurationTemplateResponse :: DeleteConfigurationTemplateResponse
 deleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
+
 instance FromXML DeleteConfigurationTemplateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteConfigurationTemplateResponse"

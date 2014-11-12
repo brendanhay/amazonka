@@ -44,7 +44,7 @@ import Network.AWS.ELB.Types
 data DeleteLoadBalancerListenerInput = DeleteLoadBalancerListenerInput
     { _dlbliLoadBalancerName  :: Text
     , _dlbliLoadBalancerPorts :: [Int]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteLoadBalancerListenerInput' constructor.
 --
@@ -81,6 +81,7 @@ data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
 -- | 'DeleteLoadBalancerListenersResponse' constructor.
 deleteLoadBalancerListenersResponse :: DeleteLoadBalancerListenersResponse
 deleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
+
 instance FromXML DeleteLoadBalancerListenersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteLoadBalancerListenersResponse"

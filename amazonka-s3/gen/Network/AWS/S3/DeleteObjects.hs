@@ -50,7 +50,7 @@ data DeleteObjects = DeleteObjects
     { _doBucket :: Text
     , _doDelete :: Delete
     , _doMFA    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteObjects' constructor.
 --
@@ -102,7 +102,7 @@ instance ToBody DeleteObjects where
 data DeleteObjectsOutput = DeleteObjectsOutput
     { _dooDeleted :: [S3ServiceError]
     , _dooErrors  :: [S3ServiceError]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteObjectsOutput' constructor.
 --

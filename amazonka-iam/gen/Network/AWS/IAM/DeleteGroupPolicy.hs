@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 data DeleteGroupPolicy = DeleteGroupPolicy
     { _dgpGroupName  :: Text
     , _dgpPolicyName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteGroupPolicy' constructor.
 --
@@ -80,6 +80,7 @@ data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse
 -- | 'DeleteGroupPolicyResponse' constructor.
 deleteGroupPolicyResponse :: DeleteGroupPolicyResponse
 deleteGroupPolicyResponse = DeleteGroupPolicyResponse
+
 instance FromXML DeleteGroupPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteGroupPolicyResponse"

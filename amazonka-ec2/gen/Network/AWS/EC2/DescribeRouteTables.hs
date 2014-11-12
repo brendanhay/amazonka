@@ -50,7 +50,7 @@ data DescribeRouteTables = DescribeRouteTables
     { _drt2DryRun        :: Maybe Bool
     , _drt2Filters       :: [Filter]
     , _drt2RouteTableIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeRouteTables' constructor.
 --
@@ -115,7 +115,7 @@ instance ToPath DescribeRouteTables where
 
 newtype DescribeRouteTablesResult = DescribeRouteTablesResult
     { _drtrRouteTables :: [RouteTable]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeRouteTablesResult' constructor.
 --
@@ -131,6 +131,7 @@ describeRouteTablesResult = DescribeRouteTablesResult
 -- | Information about one or more route tables.
 drtrRouteTables :: Lens' DescribeRouteTablesResult [RouteTable]
 drtrRouteTables = lens _drtrRouteTables (\s a -> s { _drtrRouteTables = a })
+
 instance FromXML DescribeRouteTablesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeRouteTablesResult"

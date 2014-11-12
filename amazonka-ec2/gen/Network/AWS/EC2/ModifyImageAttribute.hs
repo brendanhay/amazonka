@@ -61,7 +61,7 @@ data ModifyImageAttribute = ModifyImageAttribute
     , _miaUserGroups       :: [Text]
     , _miaUserIds          :: [Text]
     , _miaValue            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyImageAttribute' constructor.
 --
@@ -157,6 +157,7 @@ data ModifyImageAttributeResponse = ModifyImageAttributeResponse
 -- | 'ModifyImageAttributeResponse' constructor.
 modifyImageAttributeResponse :: ModifyImageAttributeResponse
 modifyImageAttributeResponse = ModifyImageAttributeResponse
+
 instance FromXML ModifyImageAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyImageAttributeResponse"

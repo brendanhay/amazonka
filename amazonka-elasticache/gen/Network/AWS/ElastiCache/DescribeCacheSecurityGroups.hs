@@ -51,7 +51,7 @@ data DescribeCacheSecurityGroupsMessage = DescribeCacheSecurityGroupsMessage
     { _dcsgm1CacheSecurityGroupName :: Maybe Text
     , _dcsgm1Marker                 :: Maybe Text
     , _dcsgm1MaxRecords             :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeCacheSecurityGroupsMessage' constructor.
 --
@@ -97,7 +97,7 @@ instance ToPath DescribeCacheSecurityGroupsMessage where
 data CacheSecurityGroupMessage = CacheSecurityGroupMessage
     { _csgmCacheSecurityGroups :: [CacheSecurityGroup]
     , _csgmMarker              :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CacheSecurityGroupMessage' constructor.
 --
@@ -122,6 +122,7 @@ csgmCacheSecurityGroups =
 -- | Provides an identifier to allow retrieval of paginated results.
 csgmMarker :: Lens' CacheSecurityGroupMessage (Maybe Text)
 csgmMarker = lens _csgmMarker (\s a -> s { _csgmMarker = a })
+
 instance FromXML CacheSecurityGroupMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CacheSecurityGroupMessage"

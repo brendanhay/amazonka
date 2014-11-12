@@ -53,7 +53,7 @@ data AddPermission = AddPermission
     , _apActions       :: [Text]
     , _apLabel         :: Text
     , _apQueueUrl      :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AddPermission' constructor.
 --
@@ -116,6 +116,7 @@ data AddPermissionResponse = AddPermissionResponse
 -- | 'AddPermissionResponse' constructor.
 addPermissionResponse :: AddPermissionResponse
 addPermissionResponse = AddPermissionResponse
+
 instance FromXML AddPermissionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AddPermissionResponse"

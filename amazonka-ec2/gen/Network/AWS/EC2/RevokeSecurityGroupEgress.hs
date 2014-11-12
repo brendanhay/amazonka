@@ -65,7 +65,7 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
     , _rsgeSourceSecurityGroupName    :: Maybe Text
     , _rsgeSourceSecurityGroupOwnerId :: Maybe Text
     , _rsgeToPort                     :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RevokeSecurityGroupEgress' constructor.
 --
@@ -162,6 +162,7 @@ data RevokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
 -- | 'RevokeSecurityGroupEgressResponse' constructor.
 revokeSecurityGroupEgressResponse :: RevokeSecurityGroupEgressResponse
 revokeSecurityGroupEgressResponse = RevokeSecurityGroupEgressResponse
+
 instance FromXML RevokeSecurityGroupEgressResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RevokeSecurityGroupEgressResponse"

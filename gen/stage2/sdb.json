@@ -1654,7 +1654,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,

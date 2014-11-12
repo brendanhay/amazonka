@@ -46,7 +46,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data DescribeEnvironmentResourcesMessage = DescribeEnvironmentResourcesMessage
     { _dermEnvironmentId   :: Maybe Text
     , _dermEnvironmentName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeEnvironmentResourcesMessage' constructor.
 --
@@ -84,7 +84,7 @@ instance ToPath DescribeEnvironmentResourcesMessage where
 
 newtype EnvironmentResourceDescriptionsMessage = EnvironmentResourceDescriptionsMessage
     { _erdmEnvironmentResources :: Maybe EnvironmentResourceDescription
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'EnvironmentResourceDescriptionsMessage' constructor.
 --
@@ -102,6 +102,7 @@ erdmEnvironmentResources :: Lens' EnvironmentResourceDescriptionsMessage (Maybe 
 erdmEnvironmentResources =
     lens _erdmEnvironmentResources
         (\s a -> s { _erdmEnvironmentResources = a })
+
 instance FromXML EnvironmentResourceDescriptionsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnvironmentResourceDescriptionsMessage"

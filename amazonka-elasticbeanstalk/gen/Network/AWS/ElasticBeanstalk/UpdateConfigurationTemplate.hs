@@ -62,7 +62,7 @@ data UpdateConfigurationTemplateMessage = UpdateConfigurationTemplateMessage
     , _uctmOptionSettings  :: [ConfigurationOptionSetting]
     , _uctmOptionsToRemove :: [OptionSpecification]
     , _uctmTemplateName    :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'UpdateConfigurationTemplateMessage' constructor.
 --

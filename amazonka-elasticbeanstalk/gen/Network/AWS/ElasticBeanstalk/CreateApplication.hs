@@ -47,7 +47,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data CreateApplicationMessage = CreateApplicationMessage
     { _camApplicationName :: Text
     , _camDescription     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateApplicationMessage' constructor.
 --

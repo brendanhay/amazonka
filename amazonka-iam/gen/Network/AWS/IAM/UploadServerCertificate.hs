@@ -56,7 +56,7 @@ data UploadServerCertificate = UploadServerCertificate
     , _uscPath                  :: Maybe Text
     , _uscPrivateKey            :: Sensitive Text
     , _uscServerCertificateName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UploadServerCertificate' constructor.
 --
@@ -119,7 +119,7 @@ instance ToPath UploadServerCertificate where
 
 newtype UploadServerCertificateResponse = UploadServerCertificateResponse
     { _uscrServerCertificateMetadata :: Maybe ServerCertificateMetadata
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'UploadServerCertificateResponse' constructor.
 --
@@ -138,6 +138,7 @@ uscrServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe Se
 uscrServerCertificateMetadata =
     lens _uscrServerCertificateMetadata
         (\s a -> s { _uscrServerCertificateMetadata = a })
+
 instance FromXML UploadServerCertificateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UploadServerCertificateResponse"

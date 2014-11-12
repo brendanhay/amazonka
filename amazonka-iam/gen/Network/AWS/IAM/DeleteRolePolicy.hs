@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 data DeleteRolePolicy = DeleteRolePolicy
     { _drpPolicyName :: Text
     , _drpRoleName   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteRolePolicy' constructor.
 --
@@ -80,6 +80,7 @@ data DeleteRolePolicyResponse = DeleteRolePolicyResponse
 -- | 'DeleteRolePolicyResponse' constructor.
 deleteRolePolicyResponse :: DeleteRolePolicyResponse
 deleteRolePolicyResponse = DeleteRolePolicyResponse
+
 instance FromXML DeleteRolePolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteRolePolicyResponse"

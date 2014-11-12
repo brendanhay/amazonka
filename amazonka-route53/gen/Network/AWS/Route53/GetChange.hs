@@ -48,7 +48,7 @@ import Network.AWS.Route53.Types
 
 newtype GetChange = GetChange
     { _gcId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetChange' constructor.
 --
@@ -81,7 +81,7 @@ instance ToHeaders GetChange
 
 newtype GetChangeResponse = GetChangeResponse
     { _gcrChangeInfo :: ChangeInfo
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetChangeResponse' constructor.
 --

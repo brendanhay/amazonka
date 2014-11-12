@@ -66,7 +66,7 @@ data DescribeCacheClustersMessage = DescribeCacheClustersMessage
     , _dccm1Marker            :: Maybe Text
     , _dccm1MaxRecords        :: Maybe Int
     , _dccm1ShowCacheNodeInfo :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeCacheClustersMessage' constructor.
 --
@@ -122,7 +122,7 @@ instance ToPath DescribeCacheClustersMessage where
 data CacheClusterMessage = CacheClusterMessage
     { _ccmCacheClusters :: [CacheCluster]
     , _ccmMarker        :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CacheClusterMessage' constructor.
 --
@@ -146,6 +146,7 @@ ccmCacheClusters = lens _ccmCacheClusters (\s a -> s { _ccmCacheClusters = a })
 -- | Provides an identifier to allow retrieval of paginated results.
 ccmMarker :: Lens' CacheClusterMessage (Maybe Text)
 ccmMarker = lens _ccmMarker (\s a -> s { _ccmMarker = a })
+
 instance FromXML CacheClusterMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CacheClusterMessage"

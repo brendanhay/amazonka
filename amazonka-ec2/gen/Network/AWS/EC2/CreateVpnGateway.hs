@@ -52,7 +52,7 @@ data CreateVpnGateway = CreateVpnGateway
     { _cvgAvailabilityZone :: Maybe Text
     , _cvgDryRun           :: Maybe Bool
     , _cvgType             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateVpnGateway' constructor.
 --
@@ -90,7 +90,7 @@ instance ToPath CreateVpnGateway where
 
 newtype CreateVpnGatewayResult = CreateVpnGatewayResult
     { _cvgrVpnGateway :: Maybe VpnGateway
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateVpnGatewayResult' constructor.
 --
@@ -106,6 +106,7 @@ createVpnGatewayResult = CreateVpnGatewayResult
 -- | Information about the virtual private gateway.
 cvgrVpnGateway :: Lens' CreateVpnGatewayResult (Maybe VpnGateway)
 cvgrVpnGateway = lens _cvgrVpnGateway (\s a -> s { _cvgrVpnGateway = a })
+
 instance FromXML CreateVpnGatewayResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateVpnGatewayResult"

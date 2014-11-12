@@ -48,7 +48,7 @@ import Network.AWS.EC2.Types
 data UnmonitorInstances = UnmonitorInstances
     { _uiDryRun      :: Maybe Bool
     , _uiInstanceIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UnmonitorInstances' constructor.
 --
@@ -77,7 +77,7 @@ instance ToPath UnmonitorInstances where
 
 newtype UnmonitorInstancesResult = UnmonitorInstancesResult
     { _uirInstanceMonitorings :: [InstanceMonitoring]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'UnmonitorInstancesResult' constructor.
 --
@@ -94,6 +94,7 @@ unmonitorInstancesResult = UnmonitorInstancesResult
 uirInstanceMonitorings :: Lens' UnmonitorInstancesResult [InstanceMonitoring]
 uirInstanceMonitorings =
     lens _uirInstanceMonitorings (\s a -> s { _uirInstanceMonitorings = a })
+
 instance FromXML UnmonitorInstancesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UnmonitorInstancesResult"

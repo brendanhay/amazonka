@@ -57,7 +57,7 @@ data DescribeScheduledActionsType = DescribeScheduledActionsType
     , _dsat2NextToken            :: Maybe Text
     , _dsat2ScheduledActionNames :: [Text]
     , _dsat2StartTime            :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeScheduledActionsType' constructor.
 --
@@ -128,7 +128,7 @@ instance ToPath DescribeScheduledActionsType where
 data ScheduledActionsType = ScheduledActionsType
     { _satNextToken                   :: Maybe Text
     , _satScheduledUpdateGroupActions :: [ScheduledUpdateGroupAction]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ScheduledActionsType' constructor.
 --
@@ -153,6 +153,7 @@ satScheduledUpdateGroupActions :: Lens' ScheduledActionsType [ScheduledUpdateGro
 satScheduledUpdateGroupActions =
     lens _satScheduledUpdateGroupActions
         (\s a -> s { _satScheduledUpdateGroupActions = a })
+
 instance FromXML ScheduledActionsType where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ScheduledActionsType"

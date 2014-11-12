@@ -45,7 +45,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteSAMLProvider = DeleteSAMLProvider
     { _dsamlpSAMLProviderArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteSAMLProvider' constructor.
 --
@@ -74,6 +74,7 @@ data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse
 -- | 'DeleteSAMLProviderResponse' constructor.
 deleteSAMLProviderResponse :: DeleteSAMLProviderResponse
 deleteSAMLProviderResponse = DeleteSAMLProviderResponse
+
 instance FromXML DeleteSAMLProviderResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteSAMLProviderResponse"

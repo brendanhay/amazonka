@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 data DeleteUserPolicy = DeleteUserPolicy
     { _dupPolicyName :: Text
     , _dupUserName   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteUserPolicy' constructor.
 --
@@ -80,6 +80,7 @@ data DeleteUserPolicyResponse = DeleteUserPolicyResponse
 -- | 'DeleteUserPolicyResponse' constructor.
 deleteUserPolicyResponse :: DeleteUserPolicyResponse
 deleteUserPolicyResponse = DeleteUserPolicyResponse
+
 instance FromXML DeleteUserPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteUserPolicyResponse"

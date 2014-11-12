@@ -48,7 +48,7 @@ data ResetSnapshotAttribute = ResetSnapshotAttribute
     { _rsaAttribute  :: Text
     , _rsaDryRun     :: Maybe Bool
     , _rsaSnapshotId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ResetSnapshotAttribute' constructor.
 --
@@ -91,6 +91,7 @@ data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
 -- | 'ResetSnapshotAttributeResponse' constructor.
 resetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse
 resetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
+
 instance FromXML ResetSnapshotAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ResetSnapshotAttributeResponse"

@@ -52,7 +52,7 @@ data CreateClusterSubnetGroupMessage = CreateClusterSubnetGroupMessage
     { _ccsgm1ClusterSubnetGroupName :: Text
     , _ccsgm1Description            :: Text
     , _ccsgm1SubnetIds              :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateClusterSubnetGroupMessage' constructor.
 --
@@ -99,7 +99,7 @@ instance ToPath CreateClusterSubnetGroupMessage where
 
 newtype CreateClusterSubnetGroupResult = CreateClusterSubnetGroupResult
     { _ccsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateClusterSubnetGroupResult' constructor.
 --
@@ -115,6 +115,7 @@ createClusterSubnetGroupResult = CreateClusterSubnetGroupResult
 ccsgrClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResult (Maybe ClusterSubnetGroup)
 ccsgrClusterSubnetGroup =
     lens _ccsgrClusterSubnetGroup (\s a -> s { _ccsgrClusterSubnetGroup = a })
+
 instance FromXML CreateClusterSubnetGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateClusterSubnetGroupResult"

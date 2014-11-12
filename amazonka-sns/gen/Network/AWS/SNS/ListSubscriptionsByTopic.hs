@@ -50,7 +50,7 @@ import Network.AWS.SNS.Types
 data ListSubscriptionsByTopicInput = ListSubscriptionsByTopicInput
     { _lsbtiNextToken :: Maybe Text
     , _lsbtiTopicArn  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListSubscriptionsByTopicInput' constructor.
 --
@@ -82,7 +82,7 @@ instance ToPath ListSubscriptionsByTopicInput where
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
     { _lsbtrNextToken     :: Maybe Text
     , _lsbtrSubscriptions :: [Subscription]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListSubscriptionsByTopicResponse' constructor.
 --
@@ -107,6 +107,7 @@ lsbtrNextToken = lens _lsbtrNextToken (\s a -> s { _lsbtrNextToken = a })
 lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
 lsbtrSubscriptions =
     lens _lsbtrSubscriptions (\s a -> s { _lsbtrSubscriptions = a })
+
 instance FromXML ListSubscriptionsByTopicResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListSubscriptionsByTopicResponse"

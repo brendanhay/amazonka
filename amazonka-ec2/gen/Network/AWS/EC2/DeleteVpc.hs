@@ -49,7 +49,7 @@ import Network.AWS.EC2.Types
 data DeleteVpc = DeleteVpc
     { _dv2DryRun :: Maybe Bool
     , _dv2VpcId  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpc' constructor.
 --
@@ -83,6 +83,7 @@ data DeleteVpcResponse = DeleteVpcResponse
 -- | 'DeleteVpcResponse' constructor.
 deleteVpcResponse :: DeleteVpcResponse
 deleteVpcResponse = DeleteVpcResponse
+
 instance FromXML DeleteVpcResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteVpcResponse"

@@ -50,7 +50,7 @@ data CopyOptionGroupMessage = CopyOptionGroupMessage
     , _cogm1Tags                         :: [Tag]
     , _cogm1TargetOptionGroupDescription :: Text
     , _cogm1TargetOptionGroupIdentifier  :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CopyOptionGroupMessage' constructor.
 --
@@ -110,7 +110,7 @@ instance ToPath CopyOptionGroupMessage where
 
 newtype CopyOptionGroupResult = CopyOptionGroupResult
     { _cogrOptionGroup :: Maybe OptionGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CopyOptionGroupResult' constructor.
 --
@@ -125,6 +125,7 @@ copyOptionGroupResult = CopyOptionGroupResult
 
 cogrOptionGroup :: Lens' CopyOptionGroupResult (Maybe OptionGroup)
 cogrOptionGroup = lens _cogrOptionGroup (\s a -> s { _cogrOptionGroup = a })
+
 instance FromXML CopyOptionGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopyOptionGroupResult"

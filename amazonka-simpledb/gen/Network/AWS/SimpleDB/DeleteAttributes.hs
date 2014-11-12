@@ -55,7 +55,7 @@ data DeleteAttributes = DeleteAttributes
     , _daDomainName :: Text
     , _daExpected   :: Maybe UpdateCondition
     , _daItemName   :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteAttributes' constructor.
 --
@@ -110,6 +110,7 @@ data DeleteAttributesResponse = DeleteAttributesResponse
 -- | 'DeleteAttributesResponse' constructor.
 deleteAttributesResponse :: DeleteAttributesResponse
 deleteAttributesResponse = DeleteAttributesResponse
+
 instance FromXML DeleteAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteAttributesResponse"

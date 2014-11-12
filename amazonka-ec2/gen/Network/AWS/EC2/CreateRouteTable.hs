@@ -49,7 +49,7 @@ import Network.AWS.EC2.Types
 data CreateRouteTable = CreateRouteTable
     { _crtDryRun :: Maybe Bool
     , _crtVpcId  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateRouteTable' constructor.
 --
@@ -79,7 +79,7 @@ instance ToPath CreateRouteTable where
 
 newtype CreateRouteTableResult = CreateRouteTableResult
     { _crtrRouteTable :: Maybe RouteTable
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateRouteTableResult' constructor.
 --
@@ -95,6 +95,7 @@ createRouteTableResult = CreateRouteTableResult
 -- | Information about the route table.
 crtrRouteTable :: Lens' CreateRouteTableResult (Maybe RouteTable)
 crtrRouteTable = lens _crtrRouteTable (\s a -> s { _crtrRouteTable = a })
+
 instance FromXML CreateRouteTableResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateRouteTableResult"

@@ -6,4 +6,4 @@ data {{ type.name }} = {{ type.name }}
 {% for field in type.fields %}
     {% if field.first %}{ {% else %}, {% endif %}{{ field.value.name | justifyLeft(type.fieldPad) }} :: {{ field.value.type }}
 {% endfor %}
-    } deriving {% include "deriving.ede" %}
+    }{% include "deriving.ede" %}

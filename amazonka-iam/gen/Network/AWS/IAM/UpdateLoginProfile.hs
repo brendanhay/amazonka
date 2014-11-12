@@ -48,7 +48,7 @@ data UpdateLoginProfile = UpdateLoginProfile
     { _ulpPassword              :: Maybe (Sensitive Text)
     , _ulpPasswordResetRequired :: Maybe Bool
     , _ulpUserName              :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateLoginProfile' constructor.
 --
@@ -93,6 +93,7 @@ data UpdateLoginProfileResponse = UpdateLoginProfileResponse
 -- | 'UpdateLoginProfileResponse' constructor.
 updateLoginProfileResponse :: UpdateLoginProfileResponse
 updateLoginProfileResponse = UpdateLoginProfileResponse
+
 instance FromXML UpdateLoginProfileResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateLoginProfileResponse"

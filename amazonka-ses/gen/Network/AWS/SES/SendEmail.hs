@@ -66,7 +66,7 @@ data SendEmail = SendEmail
     , _seReplyToAddresses :: [Text]
     , _seReturnPath       :: Maybe Text
     , _seSource           :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'SendEmail' constructor.
 --
@@ -130,7 +130,7 @@ instance ToPath SendEmail where
 
 newtype SendEmailResponse = SendEmailResponse
     { _serMessageId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'SendEmailResponse' constructor.
 --
@@ -147,6 +147,7 @@ sendEmailResponse p1 = SendEmailResponse
 -- | The unique message identifier returned from the SendEmail action.
 serMessageId :: Lens' SendEmailResponse Text
 serMessageId = lens _serMessageId (\s a -> s { _serMessageId = a })
+
 instance FromXML SendEmailResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SendEmailResponse"

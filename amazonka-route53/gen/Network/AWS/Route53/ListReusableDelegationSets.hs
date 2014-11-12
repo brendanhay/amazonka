@@ -58,7 +58,7 @@ import Network.AWS.Route53.Types
 data ListReusableDelegationSets = ListReusableDelegationSets
     { _lrdsMarker   :: Maybe Text
     , _lrdsMaxItems :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListReusableDelegationSets' constructor.
 --
@@ -102,7 +102,7 @@ data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse
     , _lrdsrMarker         :: Text
     , _lrdsrMaxItems       :: Text
     , _lrdsrNextMarker     :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListReusableDelegationSetsResponse' constructor.
 --

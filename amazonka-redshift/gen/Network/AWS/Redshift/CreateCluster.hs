@@ -92,7 +92,7 @@ data CreateClusterMessage = CreateClusterMessage
     , _ccmPreferredMaintenanceWindow       :: Maybe Text
     , _ccmPubliclyAccessible               :: Maybe Bool
     , _ccmVpcSecurityGroupIds              :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateClusterMessage' constructor.
 --
@@ -365,7 +365,7 @@ instance ToPath CreateClusterMessage where
 
 newtype CreateClusterResult = CreateClusterResult
     { _ccrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateClusterResult' constructor.
 --
@@ -380,6 +380,7 @@ createClusterResult = CreateClusterResult
 
 ccrCluster :: Lens' CreateClusterResult (Maybe Cluster)
 ccrCluster = lens _ccrCluster (\s a -> s { _ccrCluster = a })
+
 instance FromXML CreateClusterResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateClusterResult"

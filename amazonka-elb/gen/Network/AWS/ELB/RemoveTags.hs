@@ -44,7 +44,7 @@ import Network.AWS.ELB.Types
 data RemoveTagsInput = RemoveTagsInput
     { _rtiLoadBalancerNames :: [Text]
     , _rtiTags              :: List1 TagKeyOnly
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RemoveTagsInput' constructor.
 --
@@ -82,6 +82,7 @@ data RemoveTagsResponse = RemoveTagsResponse
 -- | 'RemoveTagsResponse' constructor.
 removeTagsResponse :: RemoveTagsResponse
 removeTagsResponse = RemoveTagsResponse
+
 instance FromXML RemoveTagsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RemoveTagsResponse"

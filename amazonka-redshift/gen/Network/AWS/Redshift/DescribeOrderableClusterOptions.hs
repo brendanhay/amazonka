@@ -59,7 +59,7 @@ data DescribeOrderableClusterOptionsMessage = DescribeOrderableClusterOptionsMes
     , _docomMarker         :: Maybe Text
     , _docomMaxRecords     :: Maybe Int
     , _docomNodeType       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeOrderableClusterOptionsMessage' constructor.
 --
@@ -118,7 +118,7 @@ instance ToPath DescribeOrderableClusterOptionsMessage where
 data OrderableClusterOptionsMessage = OrderableClusterOptionsMessage
     { _ocomMarker                  :: Maybe Text
     , _ocomOrderableClusterOptions :: [OrderableClusterOption]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'OrderableClusterOptionsMessage' constructor.
 --
@@ -149,6 +149,7 @@ ocomOrderableClusterOptions :: Lens' OrderableClusterOptionsMessage [OrderableCl
 ocomOrderableClusterOptions =
     lens _ocomOrderableClusterOptions
         (\s a -> s { _ocomOrderableClusterOptions = a })
+
 instance FromXML OrderableClusterOptionsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "OrderableClusterOptionsMessage"

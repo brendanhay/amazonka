@@ -61,7 +61,7 @@ data CopySnapshot = CopySnapshot
     , _csPresignedUrl      :: Maybe Text
     , _csSourceRegion      :: Text
     , _csSourceSnapshotId  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CopySnapshot' constructor.
 --
@@ -135,7 +135,7 @@ instance ToPath CopySnapshot where
 
 newtype CopySnapshotResult = CopySnapshotResult
     { _csrSnapshotId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CopySnapshotResult' constructor.
 --
@@ -151,6 +151,7 @@ copySnapshotResult = CopySnapshotResult
 -- | The ID of the new snapshot.
 csrSnapshotId :: Lens' CopySnapshotResult (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
+
 instance FromXML CopySnapshotResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopySnapshotResult"

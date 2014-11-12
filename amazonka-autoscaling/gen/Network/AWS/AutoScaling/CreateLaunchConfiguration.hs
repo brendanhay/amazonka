@@ -76,7 +76,7 @@ data CreateLaunchConfigurationType = CreateLaunchConfigurationType
     , _clctSecurityGroups           :: [Text]
     , _clctSpotPrice                :: Maybe Text
     , _clctUserData                 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateLaunchConfigurationType' constructor.
 --
@@ -285,6 +285,7 @@ data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
 -- | 'CreateLaunchConfigurationResponse' constructor.
 createLaunchConfigurationResponse :: CreateLaunchConfigurationResponse
 createLaunchConfigurationResponse = CreateLaunchConfigurationResponse
+
 instance FromXML CreateLaunchConfigurationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateLaunchConfigurationResponse"

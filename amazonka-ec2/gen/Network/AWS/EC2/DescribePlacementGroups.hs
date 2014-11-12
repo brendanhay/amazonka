@@ -50,7 +50,7 @@ data DescribePlacementGroups = DescribePlacementGroups
     { _dpg1DryRun     :: Maybe Bool
     , _dpg1Filters    :: [Filter]
     , _dpg1GroupNames :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribePlacementGroups' constructor.
 --
@@ -89,7 +89,7 @@ instance ToPath DescribePlacementGroups where
 
 newtype DescribePlacementGroupsResult = DescribePlacementGroupsResult
     { _dpgrPlacementGroups :: [PlacementGroup]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribePlacementGroupsResult' constructor.
 --
@@ -106,6 +106,7 @@ describePlacementGroupsResult = DescribePlacementGroupsResult
 dpgrPlacementGroups :: Lens' DescribePlacementGroupsResult [PlacementGroup]
 dpgrPlacementGroups =
     lens _dpgrPlacementGroups (\s a -> s { _dpgrPlacementGroups = a })
+
 instance FromXML DescribePlacementGroupsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribePlacementGroupsResult"

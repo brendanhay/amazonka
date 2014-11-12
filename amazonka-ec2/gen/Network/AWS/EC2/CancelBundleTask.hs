@@ -46,7 +46,7 @@ import Network.AWS.EC2.Types
 data CancelBundleTask = CancelBundleTask
     { _cbtBundleId :: Text
     , _cbtDryRun   :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CancelBundleTask' constructor.
 --
@@ -76,7 +76,7 @@ instance ToPath CancelBundleTask where
 
 newtype CancelBundleTaskResult = CancelBundleTaskResult
     { _cbtrBundleTask :: Maybe BundleTask
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CancelBundleTaskResult' constructor.
 --
@@ -92,6 +92,7 @@ cancelBundleTaskResult = CancelBundleTaskResult
 -- | The bundle task.
 cbtrBundleTask :: Lens' CancelBundleTaskResult (Maybe BundleTask)
 cbtrBundleTask = lens _cbtrBundleTask (\s a -> s { _cbtrBundleTask = a })
+
 instance FromXML CancelBundleTaskResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CancelBundleTaskResult"

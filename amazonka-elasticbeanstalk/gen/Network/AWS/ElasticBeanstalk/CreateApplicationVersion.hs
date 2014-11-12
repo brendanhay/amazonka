@@ -52,7 +52,7 @@ data CreateApplicationVersionMessage = CreateApplicationVersionMessage
     , _cavmDescription           :: Maybe Text
     , _cavmSourceBundle          :: Maybe S3Location
     , _cavmVersionLabel          :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateApplicationVersionMessage' constructor.
 --

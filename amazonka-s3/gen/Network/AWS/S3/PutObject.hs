@@ -93,7 +93,7 @@ data PutObject = PutObject
     , _poServerSideEncryption    :: Maybe Text
     , _poStorageClass            :: Maybe Text
     , _poWebsiteRedirectLocation :: Maybe Text
-    } deriving (Show, Generic)
+    } (Show, Generic)
 
 -- | 'PutObject' constructor.
 --
@@ -333,7 +333,7 @@ data PutObjectOutput = PutObjectOutput
     , _pooSSECustomerKeyMD5    :: Maybe Text
     , _pooServerSideEncryption :: Maybe Text
     , _pooVersionId            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'PutObjectOutput' constructor.
 --

@@ -98,7 +98,7 @@ data CreateDBInstanceMessage = CreateDBInstanceMessage
     , _cdbimTdeCredentialArn           :: Maybe Text
     , _cdbimTdeCredentialPassword      :: Maybe Text
     , _cdbimVpcSecurityGroupIds        :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateDBInstanceMessage' constructor.
 --
@@ -444,7 +444,7 @@ instance ToPath CreateDBInstanceMessage where
 
 newtype CreateDBInstanceResult = CreateDBInstanceResult
     { _cdbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateDBInstanceResult' constructor.
 --
@@ -459,6 +459,7 @@ createDBInstanceResult = CreateDBInstanceResult
 
 cdbirDBInstance :: Lens' CreateDBInstanceResult (Maybe DBInstance)
 cdbirDBInstance = lens _cdbirDBInstance (\s a -> s { _cdbirDBInstance = a })
+
 instance FromXML CreateDBInstanceResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateDBInstanceResult"

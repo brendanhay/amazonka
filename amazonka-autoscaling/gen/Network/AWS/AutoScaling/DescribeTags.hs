@@ -55,7 +55,7 @@ data DescribeTagsType = DescribeTagsType
     { _dttFilters    :: [Filter]
     , _dttMaxRecords :: Maybe Int
     , _dttNextToken  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeTagsType' constructor.
 --
@@ -96,7 +96,7 @@ instance ToPath DescribeTagsType where
 data TagsType = TagsType
     { _ttNextToken :: Maybe Text
     , _ttTags      :: [TagDescription]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'TagsType' constructor.
 --
@@ -119,6 +119,7 @@ ttNextToken = lens _ttNextToken (\s a -> s { _ttNextToken = a })
 -- | The list of tags.
 ttTags :: Lens' TagsType [TagDescription]
 ttTags = lens _ttTags (\s a -> s { _ttTags = a })
+
 instance FromXML TagsType where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "TagsType"

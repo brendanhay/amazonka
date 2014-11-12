@@ -73,7 +73,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
     , _mia1SriovNetSupport                   :: Maybe AttributeValue
     , _mia1UserData                          :: Maybe BlobAttributeValue
     , _mia1Value                             :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyInstanceAttribute' constructor.
 --
@@ -236,6 +236,7 @@ data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
 -- | 'ModifyInstanceAttributeResponse' constructor.
 modifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse
 modifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
+
 instance FromXML ModifyInstanceAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyInstanceAttributeResponse"

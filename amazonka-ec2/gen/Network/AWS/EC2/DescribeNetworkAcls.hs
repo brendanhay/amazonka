@@ -50,7 +50,7 @@ data DescribeNetworkAcls = DescribeNetworkAcls
     { _dna1DryRun        :: Maybe Bool
     , _dna1Filters       :: [Filter]
     , _dna1NetworkAclIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeNetworkAcls' constructor.
 --
@@ -110,7 +110,7 @@ instance ToPath DescribeNetworkAcls where
 
 newtype DescribeNetworkAclsResult = DescribeNetworkAclsResult
     { _dnarNetworkAcls :: [NetworkAcl]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeNetworkAclsResult' constructor.
 --
@@ -126,6 +126,7 @@ describeNetworkAclsResult = DescribeNetworkAclsResult
 -- | Information about one or more network ACLs.
 dnarNetworkAcls :: Lens' DescribeNetworkAclsResult [NetworkAcl]
 dnarNetworkAcls = lens _dnarNetworkAcls (\s a -> s { _dnarNetworkAcls = a })
+
 instance FromXML DescribeNetworkAclsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeNetworkAclsResult"

@@ -48,7 +48,7 @@ import Network.AWS.AutoScaling.Types
 data ExitStandbyQuery = ExitStandbyQuery
     { _esq1AutoScalingGroupName :: Text
     , _esq1InstanceIds          :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ExitStandbyQuery' constructor.
 --
@@ -83,7 +83,7 @@ instance ToPath ExitStandbyQuery where
 
 newtype ExitStandbyAnswer = ExitStandbyAnswer
     { _esa1Activities :: [Activity]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'ExitStandbyAnswer' constructor.
 --
@@ -100,6 +100,7 @@ exitStandbyAnswer = ExitStandbyAnswer
 -- Standby mode.
 esa1Activities :: Lens' ExitStandbyAnswer [Activity]
 esa1Activities = lens _esa1Activities (\s a -> s { _esa1Activities = a })
+
 instance FromXML ExitStandbyAnswer where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ExitStandbyAnswer"

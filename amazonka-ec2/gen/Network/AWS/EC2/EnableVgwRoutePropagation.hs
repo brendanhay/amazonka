@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
     { _evrpGatewayId    :: Text
     , _evrpRouteTableId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'EnableVgwRoutePropagation' constructor.
 --
@@ -81,6 +81,7 @@ data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
 -- | 'EnableVgwRoutePropagationResponse' constructor.
 enableVgwRoutePropagationResponse :: EnableVgwRoutePropagationResponse
 enableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
+
 instance FromXML EnableVgwRoutePropagationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnableVgwRoutePropagationResponse"

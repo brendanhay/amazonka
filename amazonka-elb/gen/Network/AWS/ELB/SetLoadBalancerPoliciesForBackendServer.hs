@@ -56,7 +56,7 @@ data SetLoadBalancerPoliciesForBackendServerInput = SetLoadBalancerPoliciesForBa
     { _slbpfbsiInstancePort     :: Int
     , _slbpfbsiLoadBalancerName :: Text
     , _slbpfbsiPolicyNames      :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SetLoadBalancerPoliciesForBackendServerInput' constructor.
 --
@@ -105,6 +105,7 @@ data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesFo
 -- | 'SetLoadBalancerPoliciesForBackendServerResponse' constructor.
 setLoadBalancerPoliciesForBackendServerResponse :: SetLoadBalancerPoliciesForBackendServerResponse
 setLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
+
 instance FromXML SetLoadBalancerPoliciesForBackendServerResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetLoadBalancerPoliciesForBackendServerResponse"

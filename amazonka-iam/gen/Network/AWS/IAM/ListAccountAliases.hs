@@ -51,7 +51,7 @@ import Network.AWS.IAM.Types
 data ListAccountAliases = ListAccountAliases
     { _laaMarker   :: Maybe Text
     , _laaMaxItems :: Maybe Natural
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListAccountAliases' constructor.
 --
@@ -89,7 +89,7 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse
     { _laarAccountAliases :: [Text]
     , _laarIsTruncated    :: Maybe Bool
     , _laarMarker         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListAccountAliasesResponse' constructor.
 --
@@ -125,6 +125,7 @@ laarIsTruncated = lens _laarIsTruncated (\s a -> s { _laarIsTruncated = a })
 -- to the value of the Marker element in the response you just received.
 laarMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
 laarMarker = lens _laarMarker (\s a -> s { _laarMarker = a })
+
 instance FromXML ListAccountAliasesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListAccountAliasesResponse"

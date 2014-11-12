@@ -62,7 +62,7 @@ data PublishInput = PublishInput
     , _piSubject           :: Maybe Text
     , _piTargetArn         :: Maybe Text
     , _piTopicArn          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'PublishInput' constructor.
 --
@@ -158,7 +158,7 @@ instance ToPath PublishInput where
 
 newtype PublishResponse = PublishResponse
     { _prMessageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'PublishResponse' constructor.
 --
@@ -175,6 +175,7 @@ publishResponse = PublishResponse
 -- Maximum 100 characters.
 prMessageId :: Lens' PublishResponse (Maybe Text)
 prMessageId = lens _prMessageId (\s a -> s { _prMessageId = a })
+
 instance FromXML PublishResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PublishResponse"

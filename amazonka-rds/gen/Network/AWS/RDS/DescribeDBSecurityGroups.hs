@@ -53,7 +53,7 @@ data DescribeDBSecurityGroupsMessage = DescribeDBSecurityGroupsMessage
     , _ddbsgm1Filters             :: [Filter]
     , _ddbsgm1Marker              :: Maybe Text
     , _ddbsgm1MaxRecords          :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeDBSecurityGroupsMessage' constructor.
 --
@@ -107,7 +107,7 @@ instance ToPath DescribeDBSecurityGroupsMessage where
 data DBSecurityGroupMessage = DBSecurityGroupMessage
     { _dbsgmDBSecurityGroups :: [DBSecurityGroup]
     , _dbsgmMarker           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DBSecurityGroupMessage' constructor.
 --
@@ -133,6 +133,7 @@ dbsgmDBSecurityGroups =
 -- marker, up to the value specified by MaxRecords.
 dbsgmMarker :: Lens' DBSecurityGroupMessage (Maybe Text)
 dbsgmMarker = lens _dbsgmMarker (\s a -> s { _dbsgmMarker = a })
+
 instance FromXML DBSecurityGroupMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DBSecurityGroupMessage"

@@ -81,7 +81,7 @@ data RestoreDBInstanceFromDBSnapshotMessage = RestoreDBInstanceFromDBSnapshotMes
     , _rdbifdbsmTags                    :: [Tag]
     , _rdbifdbsmTdeCredentialArn        :: Maybe Text
     , _rdbifdbsmTdeCredentialPassword   :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RestoreDBInstanceFromDBSnapshotMessage' constructor.
 --
@@ -295,7 +295,7 @@ instance ToPath RestoreDBInstanceFromDBSnapshotMessage where
 
 newtype RestoreDBInstanceFromDBSnapshotResult = RestoreDBInstanceFromDBSnapshotResult
     { _rdbifdbsrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RestoreDBInstanceFromDBSnapshotResult' constructor.
 --
@@ -311,6 +311,7 @@ restoreDBInstanceFromDBSnapshotResult = RestoreDBInstanceFromDBSnapshotResult
 rdbifdbsrDBInstance :: Lens' RestoreDBInstanceFromDBSnapshotResult (Maybe DBInstance)
 rdbifdbsrDBInstance =
     lens _rdbifdbsrDBInstance (\s a -> s { _rdbifdbsrDBInstance = a })
+
 instance FromXML RestoreDBInstanceFromDBSnapshotResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RestoreDBInstanceFromDBSnapshotResult"

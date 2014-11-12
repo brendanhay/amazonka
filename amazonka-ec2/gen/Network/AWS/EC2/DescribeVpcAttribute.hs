@@ -51,7 +51,7 @@ data DescribeVpcAttribute = DescribeVpcAttribute
     { _dvaAttribute :: Maybe Text
     , _dvaDryRun    :: Maybe Bool
     , _dvaVpcId     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeVpcAttribute' constructor.
 --
@@ -90,7 +90,7 @@ data DescribeVpcAttributeResult = DescribeVpcAttributeResult
     { _dvarEnableDnsHostnames :: Maybe AttributeBooleanValue
     , _dvarEnableDnsSupport   :: Maybe AttributeBooleanValue
     , _dvarVpcId              :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeVpcAttributeResult' constructor.
 --
@@ -126,6 +126,7 @@ dvarEnableDnsSupport =
 -- | The ID of the VPC.
 dvarVpcId :: Lens' DescribeVpcAttributeResult (Maybe Text)
 dvarVpcId = lens _dvarVpcId (\s a -> s { _dvarVpcId = a })
+
 instance FromXML DescribeVpcAttributeResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeVpcAttributeResult"

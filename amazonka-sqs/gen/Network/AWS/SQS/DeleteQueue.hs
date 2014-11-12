@@ -53,7 +53,7 @@ import Network.AWS.SQS.Types
 
 newtype DeleteQueue = DeleteQueue
     { _dqQueueUrl :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteQueue' constructor.
 --
@@ -81,6 +81,7 @@ data DeleteQueueResponse = DeleteQueueResponse
 -- | 'DeleteQueueResponse' constructor.
 deleteQueueResponse :: DeleteQueueResponse
 deleteQueueResponse = DeleteQueueResponse
+
 instance FromXML DeleteQueueResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteQueueResponse"

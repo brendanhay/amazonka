@@ -51,7 +51,7 @@ import Network.AWS.ElastiCache.Types
 data CreateCacheSecurityGroupMessage = CreateCacheSecurityGroupMessage
     { _ccsgmCacheSecurityGroupName :: Text
     , _ccsgmDescription            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateCacheSecurityGroupMessage' constructor.
 --
@@ -87,7 +87,7 @@ instance ToPath CreateCacheSecurityGroupMessage where
 
 newtype CreateCacheSecurityGroupResult = CreateCacheSecurityGroupResult
     { _ccsgrCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateCacheSecurityGroupResult' constructor.
 --
@@ -103,6 +103,7 @@ createCacheSecurityGroupResult = CreateCacheSecurityGroupResult
 ccsgrCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResult (Maybe CacheSecurityGroup)
 ccsgrCacheSecurityGroup =
     lens _ccsgrCacheSecurityGroup (\s a -> s { _ccsgrCacheSecurityGroup = a })
+
 instance FromXML CreateCacheSecurityGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateCacheSecurityGroupResult"

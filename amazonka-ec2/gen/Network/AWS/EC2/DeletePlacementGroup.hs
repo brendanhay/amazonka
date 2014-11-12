@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 data DeletePlacementGroup = DeletePlacementGroup
     { _dpgDryRun    :: Maybe Bool
     , _dpgGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeletePlacementGroup' constructor.
 --
@@ -81,6 +81,7 @@ data DeletePlacementGroupResponse = DeletePlacementGroupResponse
 -- | 'DeletePlacementGroupResponse' constructor.
 deletePlacementGroupResponse :: DeletePlacementGroupResponse
 deletePlacementGroupResponse = DeletePlacementGroupResponse
+
 instance FromXML DeletePlacementGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeletePlacementGroupResponse"

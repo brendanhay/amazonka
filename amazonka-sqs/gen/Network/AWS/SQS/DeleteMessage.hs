@@ -55,7 +55,7 @@ import Network.AWS.SQS.Types
 data DeleteMessage = DeleteMessage
     { _dmQueueUrl      :: Text
     , _dmReceiptHandle :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteMessage' constructor.
 --
@@ -91,6 +91,7 @@ data DeleteMessageResponse = DeleteMessageResponse
 -- | 'DeleteMessageResponse' constructor.
 deleteMessageResponse :: DeleteMessageResponse
 deleteMessageResponse = DeleteMessageResponse
+
 instance FromXML DeleteMessageResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteMessageResponse"

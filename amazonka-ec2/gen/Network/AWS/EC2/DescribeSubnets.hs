@@ -49,7 +49,7 @@ data DescribeSubnets = DescribeSubnets
     { _dsDryRun    :: Maybe Bool
     , _dsFilters   :: [Filter]
     , _dsSubnetIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeSubnets' constructor.
 --
@@ -104,7 +104,7 @@ instance ToPath DescribeSubnets where
 
 newtype DescribeSubnetsResult = DescribeSubnetsResult
     { _dsrSubnets :: [Subnet]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeSubnetsResult' constructor.
 --
@@ -120,6 +120,7 @@ describeSubnetsResult = DescribeSubnetsResult
 -- | Information about one or more subnets.
 dsrSubnets :: Lens' DescribeSubnetsResult [Subnet]
 dsrSubnets = lens _dsrSubnets (\s a -> s { _dsrSubnets = a })
+
 instance FromXML DescribeSubnetsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSubnetsResult"

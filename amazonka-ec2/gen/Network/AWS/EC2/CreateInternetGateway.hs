@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 
 newtype CreateInternetGateway = CreateInternetGateway
     { _cigDryRun :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateInternetGateway' constructor.
 --
@@ -69,7 +69,7 @@ instance ToPath CreateInternetGateway where
 
 newtype CreateInternetGatewayResult = CreateInternetGatewayResult
     { _cigrInternetGateway :: Maybe InternetGateway
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateInternetGatewayResult' constructor.
 --
@@ -86,6 +86,7 @@ createInternetGatewayResult = CreateInternetGatewayResult
 cigrInternetGateway :: Lens' CreateInternetGatewayResult (Maybe InternetGateway)
 cigrInternetGateway =
     lens _cigrInternetGateway (\s a -> s { _cigrInternetGateway = a })
+
 instance FromXML CreateInternetGatewayResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateInternetGatewayResult"

@@ -52,7 +52,7 @@ data ListRolePolicies = ListRolePolicies
     { _lrpMarker   :: Maybe Text
     , _lrpMaxItems :: Maybe Natural
     , _lrpRoleName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListRolePolicies' constructor.
 --
@@ -99,7 +99,7 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse
     { _lrprIsTruncated :: Maybe Bool
     , _lrprMarker      :: Maybe Text
     , _lrprPolicyNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListRolePoliciesResponse' constructor.
 --
@@ -133,6 +133,7 @@ lrprMarker = lens _lrprMarker (\s a -> s { _lrprMarker = a })
 -- | A list of policy names.
 lrprPolicyNames :: Lens' ListRolePoliciesResponse [Text]
 lrprPolicyNames = lens _lrprPolicyNames (\s a -> s { _lrprPolicyNames = a })
+
 instance FromXML ListRolePoliciesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListRolePoliciesResponse"

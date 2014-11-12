@@ -46,7 +46,7 @@ import Network.AWS.SES.Types
 
 newtype VerifyEmailAddress = VerifyEmailAddress
     { _veaEmailAddress :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'VerifyEmailAddress' constructor.
 --
@@ -74,6 +74,7 @@ data VerifyEmailAddressResponse = VerifyEmailAddressResponse
 -- | 'VerifyEmailAddressResponse' constructor.
 verifyEmailAddressResponse :: VerifyEmailAddressResponse
 verifyEmailAddressResponse = VerifyEmailAddressResponse
+
 instance FromXML VerifyEmailAddressResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "VerifyEmailAddressResponse"

@@ -58,7 +58,7 @@ data CopyImage = CopyImage
     , _ciName          :: Text
     , _ciSourceImageId :: Text
     , _ciSourceRegion  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CopyImage' constructor.
 --
@@ -120,7 +120,7 @@ instance ToPath CopyImage where
 
 newtype CopyImageResult = CopyImageResult
     { _cir1ImageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CopyImageResult' constructor.
 --
@@ -136,6 +136,7 @@ copyImageResult = CopyImageResult
 -- | The ID of the new AMI.
 cir1ImageId :: Lens' CopyImageResult (Maybe Text)
 cir1ImageId = lens _cir1ImageId (\s a -> s { _cir1ImageId = a })
+
 instance FromXML CopyImageResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopyImageResult"

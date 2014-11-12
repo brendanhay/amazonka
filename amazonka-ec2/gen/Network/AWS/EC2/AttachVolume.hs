@@ -74,7 +74,7 @@ data AttachVolume = AttachVolume
     , _avDryRun     :: Maybe Bool
     , _avInstanceId :: Text
     , _avVolumeId   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AttachVolume' constructor.
 --

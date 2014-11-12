@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteInstanceProfile = DeleteInstanceProfile
     { _dipInstanceProfileName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteInstanceProfile' constructor.
 --
@@ -76,6 +76,7 @@ data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse
 -- | 'DeleteInstanceProfileResponse' constructor.
 deleteInstanceProfileResponse :: DeleteInstanceProfileResponse
 deleteInstanceProfileResponse = DeleteInstanceProfileResponse
+
 instance FromXML DeleteInstanceProfileResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteInstanceProfileResponse"

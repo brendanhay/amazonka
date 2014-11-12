@@ -53,7 +53,7 @@ data DescribeClustersMessage = DescribeClustersMessage
     { _dcm1ClusterIdentifier :: Maybe Text
     , _dcm1Marker            :: Maybe Text
     , _dcm1MaxRecords        :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeClustersMessage' constructor.
 --
@@ -104,7 +104,7 @@ instance ToPath DescribeClustersMessage where
 data ClustersMessage = ClustersMessage
     { _cmClusters :: [Cluster]
     , _cmMarker   :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ClustersMessage' constructor.
 --
@@ -132,6 +132,7 @@ cmClusters = lens _cmClusters (\s a -> s { _cmClusters = a })
 -- request.
 cmMarker :: Lens' ClustersMessage (Maybe Text)
 cmMarker = lens _cmMarker (\s a -> s { _cmMarker = a })
+
 instance FromXML ClustersMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ClustersMessage"

@@ -57,7 +57,7 @@ data ReleaseAddress = ReleaseAddress
     { _raAllocationId :: Maybe Text
     , _raDryRun       :: Maybe Bool
     , _raPublicIp     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ReleaseAddress' constructor.
 --
@@ -97,6 +97,7 @@ data ReleaseAddressResponse = ReleaseAddressResponse
 -- | 'ReleaseAddressResponse' constructor.
 releaseAddressResponse :: ReleaseAddressResponse
 releaseAddressResponse = ReleaseAddressResponse
+
 instance FromXML ReleaseAddressResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReleaseAddressResponse"

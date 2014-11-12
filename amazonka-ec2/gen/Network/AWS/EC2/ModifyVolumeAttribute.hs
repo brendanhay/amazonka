@@ -52,7 +52,7 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute
     { _mvaAutoEnableIO :: Maybe AttributeBooleanValue
     , _mvaDryRun       :: Maybe Bool
     , _mvaVolumeId     :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyVolumeAttribute' constructor.
 --
@@ -93,6 +93,7 @@ data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
 -- | 'ModifyVolumeAttributeResponse' constructor.
 modifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse
 modifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
+
 instance FromXML ModifyVolumeAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyVolumeAttributeResponse"

@@ -48,7 +48,7 @@ data DescribeInternetGateways = DescribeInternetGateways
     { _digDryRun             :: Maybe Bool
     , _digFilters            :: [Filter]
     , _digInternetGatewayIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeInternetGateways' constructor.
 --
@@ -98,7 +98,7 @@ instance ToPath DescribeInternetGateways where
 
 newtype DescribeInternetGatewaysResult = DescribeInternetGatewaysResult
     { _digrInternetGateways :: [InternetGateway]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeInternetGatewaysResult' constructor.
 --
@@ -115,6 +115,7 @@ describeInternetGatewaysResult = DescribeInternetGatewaysResult
 digrInternetGateways :: Lens' DescribeInternetGatewaysResult [InternetGateway]
 digrInternetGateways =
     lens _digrInternetGateways (\s a -> s { _digrInternetGateways = a })
+
 instance FromXML DescribeInternetGatewaysResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeInternetGatewaysResult"

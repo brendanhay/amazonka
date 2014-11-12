@@ -23,6 +23,8 @@ module Network.AWS.SES.Types
     (
     -- * Service
       SES
+    -- ** Error
+    , RESTError
     -- ** XML
     , xmlOptions
 
@@ -125,7 +127,7 @@ data Destination = Destination
     { _dBccAddresses :: [Text]
     , _dCcAddresses  :: [Text]
     , _dToAddresses  :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Destination' constructor.
 --
@@ -166,7 +168,7 @@ data IdentityDkimAttributes = IdentityDkimAttributes
     { _idaDkimEnabled            :: Bool
     , _idaDkimTokens             :: [Text]
     , _idaDkimVerificationStatus :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'IdentityDkimAttributes' constructor.
 --
@@ -221,7 +223,7 @@ instance ToQuery IdentityDkimAttributes
 data Body = Body
     { _bHtml :: Maybe Content
     , _bText :: Maybe Content
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'Body' constructor.
 --
@@ -257,7 +259,7 @@ instance ToQuery Body
 data IdentityVerificationAttributes = IdentityVerificationAttributes
     { _ivaVerificationStatus :: Text
     , _ivaVerificationToken  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'IdentityVerificationAttributes' constructor.
 --
@@ -298,7 +300,7 @@ data SendDataPoint = SendDataPoint
     , _sdpDeliveryAttempts :: Maybe Integer
     , _sdpRejects          :: Maybe Integer
     , _sdpTimestamp        :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SendDataPoint' constructor.
 --
@@ -376,7 +378,7 @@ instance ToQuery IdentityType
 data Content = Content
     { _cCharset :: Maybe Text
     , _cData    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Content' constructor.
 --
@@ -412,7 +414,7 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes
     , _inaComplaintTopic    :: Text
     , _inaDeliveryTopic     :: Text
     , _inaForwardingEnabled :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'IdentityNotificationAttributes' constructor.
 --
@@ -471,7 +473,7 @@ instance ToQuery IdentityNotificationAttributes
 
 newtype RawMessage = RawMessage
     { _rmData :: Base64
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RawMessage' constructor.
 --
@@ -558,7 +560,7 @@ instance ToQuery VerificationStatus
 data Message = Message
     { _mBody    :: Body
     , _mSubject :: Content
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'Message' constructor.
 --

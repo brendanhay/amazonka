@@ -52,7 +52,7 @@ import Network.AWS.ELB.Types
 data DescribeLoadBalancerPoliciesInput = DescribeLoadBalancerPoliciesInput
     { _dlbpiLoadBalancerName :: Maybe Text
     , _dlbpiPolicyNames      :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeLoadBalancerPoliciesInput' constructor.
 --
@@ -87,7 +87,7 @@ instance ToPath DescribeLoadBalancerPoliciesInput where
 
 newtype DescribeLoadBalancerPoliciesOutput = DescribeLoadBalancerPoliciesOutput
     { _dlbpoPolicyDescriptions :: [PolicyDescription]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeLoadBalancerPoliciesOutput' constructor.
 --
@@ -104,6 +104,7 @@ describeLoadBalancerPoliciesOutput = DescribeLoadBalancerPoliciesOutput
 dlbpoPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesOutput [PolicyDescription]
 dlbpoPolicyDescriptions =
     lens _dlbpoPolicyDescriptions (\s a -> s { _dlbpoPolicyDescriptions = a })
+
 instance FromXML DescribeLoadBalancerPoliciesOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeLoadBalancerPoliciesOutput"

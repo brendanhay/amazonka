@@ -53,7 +53,7 @@ import Network.AWS.SES.Types
 
 newtype VerifyDomainDkim = VerifyDomainDkim
     { _vddDomain :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'VerifyDomainDkim' constructor.
 --
@@ -77,7 +77,16 @@ instance ToPath VerifyDomainDkim where
 
 newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
     { _vddrDkimTokens :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'VerifyDomainDkimResponse' constructor.
 --
@@ -101,6 +110,7 @@ verifyDomainDkimResponse = VerifyDomainDkimResponse
 -- the Amazon SES Developer Guide.
 vddrDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
 vddrDkimTokens = lens _vddrDkimTokens (\s a -> s { _vddrDkimTokens = a })
+
 instance FromXML VerifyDomainDkimResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "VerifyDomainDkimResponse"

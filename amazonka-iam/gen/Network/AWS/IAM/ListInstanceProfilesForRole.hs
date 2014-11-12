@@ -53,7 +53,7 @@ data ListInstanceProfilesForRole = ListInstanceProfilesForRole
     { _lipfrMarker   :: Maybe Text
     , _lipfrMaxItems :: Maybe Natural
     , _lipfrRoleName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListInstanceProfilesForRole' constructor.
 --
@@ -100,7 +100,7 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
     { _lipfrrInstanceProfiles :: [InstanceProfile]
     , _lipfrrIsTruncated      :: Maybe Bool
     , _lipfrrMarker           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListInstanceProfilesForRoleResponse' constructor.
 --
@@ -136,6 +136,7 @@ lipfrrIsTruncated =
 -- use for the Marker parameter in a subsequent pagination request.
 lipfrrMarker :: Lens' ListInstanceProfilesForRoleResponse (Maybe Text)
 lipfrrMarker = lens _lipfrrMarker (\s a -> s { _lipfrrMarker = a })
+
 instance FromXML ListInstanceProfilesForRoleResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListInstanceProfilesForRoleResponse"

@@ -55,7 +55,7 @@ data DescribeImages = DescribeImages
     , _di1Filters         :: [Filter]
     , _di1ImageIds        :: [Text]
     , _di1Owners          :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeImages' constructor.
 --
@@ -142,7 +142,7 @@ instance ToPath DescribeImages where
 
 newtype DescribeImagesResult = DescribeImagesResult
     { _dirImages :: [Image]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeImagesResult' constructor.
 --
@@ -158,6 +158,7 @@ describeImagesResult = DescribeImagesResult
 -- | Information about one or more images.
 dirImages :: Lens' DescribeImagesResult [Image]
 dirImages = lens _dirImages (\s a -> s { _dirImages = a })
+
 instance FromXML DescribeImagesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeImagesResult"

@@ -61,7 +61,7 @@ data CreatePlatformApplicationInput = CreatePlatformApplicationInput
     { _cpaiAttributes :: Map Text Text
     , _cpaiName       :: Text
     , _cpaiPlatform   :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreatePlatformApplicationInput' constructor.
 --
@@ -105,7 +105,7 @@ instance ToPath CreatePlatformApplicationInput where
 
 newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
     { _cparPlatformApplicationArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreatePlatformApplicationResponse' constructor.
 --
@@ -123,6 +123,7 @@ cparPlatformApplicationArn :: Lens' CreatePlatformApplicationResponse (Maybe Tex
 cparPlatformApplicationArn =
     lens _cparPlatformApplicationArn
         (\s a -> s { _cparPlatformApplicationArn = a })
+
 instance FromXML CreatePlatformApplicationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreatePlatformApplicationResponse"

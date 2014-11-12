@@ -50,7 +50,7 @@ data PurchaseReservedDBInstancesOfferingMessage = PurchaseReservedDBInstancesOff
     , _prdbiomReservedDBInstanceId          :: Maybe Text
     , _prdbiomReservedDBInstancesOfferingId :: Text
     , _prdbiomTags                          :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'PurchaseReservedDBInstancesOfferingMessage' constructor.
 --
@@ -101,7 +101,7 @@ instance ToPath PurchaseReservedDBInstancesOfferingMessage where
 
 newtype PurchaseReservedDBInstancesOfferingResult = PurchaseReservedDBInstancesOfferingResult
     { _prdbiorReservedDBInstance :: Maybe ReservedDBInstance
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'PurchaseReservedDBInstancesOfferingResult' constructor.
 --
@@ -118,6 +118,7 @@ prdbiorReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResult (Ma
 prdbiorReservedDBInstance =
     lens _prdbiorReservedDBInstance
         (\s a -> s { _prdbiorReservedDBInstance = a })
+
 instance FromXML PurchaseReservedDBInstancesOfferingResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PurchaseReservedDBInstancesOfferingResult"

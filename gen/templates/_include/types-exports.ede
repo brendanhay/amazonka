@@ -18,6 +18,8 @@ module {{ namespace }}
     (
     -- * Service
       {{ service.abbrev }}
+    -- ** Error
+    , {{ service.error }}
 {% case service.protocol %}
 {% when "json" %}
 {% else %}

@@ -52,7 +52,7 @@ import Network.AWS.ELB.Types
 data DeregisterEndPointsInput = DeregisterEndPointsInput
     { _depiInstances        :: [Instance]
     , _depiLoadBalancerName :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeregisterEndPointsInput' constructor.
 --
@@ -85,7 +85,7 @@ instance ToPath DeregisterEndPointsInput where
 
 newtype DeregisterEndPointsOutput = DeregisterEndPointsOutput
     { _depoInstances :: [Instance]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DeregisterEndPointsOutput' constructor.
 --
@@ -101,6 +101,7 @@ deregisterEndPointsOutput = DeregisterEndPointsOutput
 -- | An updated list of remaining instances registered with the load balancer.
 depoInstances :: Lens' DeregisterEndPointsOutput [Instance]
 depoInstances = lens _depoInstances (\s a -> s { _depoInstances = a })
+
 instance FromXML DeregisterEndPointsOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeregisterEndPointsOutput"

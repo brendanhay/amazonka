@@ -48,7 +48,7 @@ import Network.AWS.CloudSearch.Types
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
     { _usapAccessPolicies :: Text
     , _usapDomainName     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateServiceAccessPolicies' constructor.
 --
@@ -81,7 +81,7 @@ instance ToPath UpdateServiceAccessPolicies where
 
 newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
     { _usaprAccessPolicies :: AccessPoliciesStatus
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'UpdateServiceAccessPoliciesResponse' constructor.
 --
@@ -99,6 +99,7 @@ updateServiceAccessPoliciesResponse p1 = UpdateServiceAccessPoliciesResponse
 usaprAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
 usaprAccessPolicies =
     lens _usaprAccessPolicies (\s a -> s { _usaprAccessPolicies = a })
+
 instance FromXML UpdateServiceAccessPoliciesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateServiceAccessPoliciesResponse"

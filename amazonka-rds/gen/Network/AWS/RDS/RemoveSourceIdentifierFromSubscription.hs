@@ -47,7 +47,7 @@ import Network.AWS.RDS.Types
 data RemoveSourceIdentifierFromSubscriptionMessage = RemoveSourceIdentifierFromSubscriptionMessage
     { _rsifsmSourceIdentifier :: Text
     , _rsifsmSubscriptionName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RemoveSourceIdentifierFromSubscriptionMessage' constructor.
 --
@@ -83,7 +83,7 @@ instance ToPath RemoveSourceIdentifierFromSubscriptionMessage where
 
 newtype RemoveSourceIdentifierFromSubscriptionResult = RemoveSourceIdentifierFromSubscriptionResult
     { _rsifsrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RemoveSourceIdentifierFromSubscriptionResult' constructor.
 --
@@ -99,6 +99,7 @@ removeSourceIdentifierFromSubscriptionResult = RemoveSourceIdentifierFromSubscri
 rsifsrEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResult (Maybe EventSubscription)
 rsifsrEventSubscription =
     lens _rsifsrEventSubscription (\s a -> s { _rsifsrEventSubscription = a })
+
 instance FromXML RemoveSourceIdentifierFromSubscriptionResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RemoveSourceIdentifierFromSubscriptionResult"

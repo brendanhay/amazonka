@@ -53,7 +53,7 @@ data ListMetricsInput = ListMetricsInput
     , _lmiMetricName :: Maybe Text
     , _lmiNamespace  :: Maybe Text
     , _lmiNextToken  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListMetricsInput' constructor.
 --
@@ -99,7 +99,7 @@ instance ToPath ListMetricsInput where
 data ListMetricsOutput = ListMetricsOutput
     { _lmoMetrics   :: [Metric]
     , _lmoNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListMetricsOutput' constructor.
 --
@@ -122,6 +122,7 @@ lmoMetrics = lens _lmoMetrics (\s a -> s { _lmoMetrics = a })
 -- | A string that marks the start of the next batch of returned results.
 lmoNextToken :: Lens' ListMetricsOutput (Maybe Text)
 lmoNextToken = lens _lmoNextToken (\s a -> s { _lmoNextToken = a })
+
 instance FromXML ListMetricsOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListMetricsOutput"

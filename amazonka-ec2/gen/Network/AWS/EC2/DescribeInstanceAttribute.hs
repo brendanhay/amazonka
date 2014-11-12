@@ -65,7 +65,7 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute
     { _dia1Attribute  :: Text
     , _dia1DryRun     :: Maybe Bool
     , _dia1InstanceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeInstanceAttribute' constructor.
 --
@@ -116,7 +116,7 @@ data InstanceAttribute = InstanceAttribute
     , _iaSourceDestCheck                   :: Maybe AttributeBooleanValue
     , _iaSriovNetSupport                   :: Maybe AttributeValue
     , _iaUserData                          :: Maybe AttributeValue
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'InstanceAttribute' constructor.
 --
@@ -233,6 +233,7 @@ iaSriovNetSupport =
 -- | The Base64-encoded MIME user data.
 iaUserData :: Lens' InstanceAttribute (Maybe AttributeValue)
 iaUserData = lens _iaUserData (\s a -> s { _iaUserData = a })
+
 instance FromXML InstanceAttribute where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "InstanceAttribute"

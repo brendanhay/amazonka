@@ -48,7 +48,7 @@ import Network.AWS.RDS.Types
 data DescribeEventCategoriesMessage = DescribeEventCategoriesMessage
     { _decmFilters    :: [Filter]
     , _decmSourceType :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeEventCategoriesMessage' constructor.
 --
@@ -79,7 +79,7 @@ instance ToPath DescribeEventCategoriesMessage where
 
 newtype EventCategoriesMessage = EventCategoriesMessage
     { _ecmEventCategoriesMapList :: [EventCategoriesMap]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'EventCategoriesMessage' constructor.
 --
@@ -97,6 +97,7 @@ ecmEventCategoriesMapList :: Lens' EventCategoriesMessage [EventCategoriesMap]
 ecmEventCategoriesMapList =
     lens _ecmEventCategoriesMapList
         (\s a -> s { _ecmEventCategoriesMapList = a })
+
 instance FromXML EventCategoriesMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EventCategoriesMessage"

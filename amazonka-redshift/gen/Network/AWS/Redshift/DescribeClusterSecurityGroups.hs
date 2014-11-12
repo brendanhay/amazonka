@@ -53,7 +53,7 @@ data DescribeClusterSecurityGroupsMessage = DescribeClusterSecurityGroupsMessage
     { _dcsgm2ClusterSecurityGroupName :: Maybe Text
     , _dcsgm2Marker                   :: Maybe Text
     , _dcsgm2MaxRecords               :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeClusterSecurityGroupsMessage' constructor.
 --
@@ -107,7 +107,7 @@ instance ToPath DescribeClusterSecurityGroupsMessage where
 data ClusterSecurityGroupMessage = ClusterSecurityGroupMessage
     { _csgm1ClusterSecurityGroups :: [ClusterSecurityGroup]
     , _csgm1Marker                :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ClusterSecurityGroupMessage' constructor.
 --
@@ -137,6 +137,7 @@ csgm1ClusterSecurityGroups =
 -- request.
 csgm1Marker :: Lens' ClusterSecurityGroupMessage (Maybe Text)
 csgm1Marker = lens _csgm1Marker (\s a -> s { _csgm1Marker = a })
+
 instance FromXML ClusterSecurityGroupMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ClusterSecurityGroupMessage"

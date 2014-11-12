@@ -54,7 +54,7 @@ data CreateRole = CreateRole
     { _crAssumeRolePolicyDocument :: Text
     , _crPath                     :: Maybe Text
     , _crRoleName                 :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateRole' constructor.
 --
@@ -97,7 +97,7 @@ instance ToPath CreateRole where
 
 newtype CreateRoleResponse = CreateRoleResponse
     { _crrRole :: Role
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateRoleResponse' constructor.
 --
@@ -114,6 +114,7 @@ createRoleResponse p1 = CreateRoleResponse
 -- | Information about the role.
 crrRole :: Lens' CreateRoleResponse Role
 crrRole = lens _crrRole (\s a -> s { _crrRole = a })
+
 instance FromXML CreateRoleResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateRoleResponse"

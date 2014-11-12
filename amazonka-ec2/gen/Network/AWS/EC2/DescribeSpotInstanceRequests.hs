@@ -58,7 +58,7 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
     { _dsirDryRun                 :: Maybe Bool
     , _dsirFilters                :: [Filter]
     , _dsirSpotInstanceRequestIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeSpotInstanceRequests' constructor.
 --
@@ -151,7 +151,7 @@ instance ToPath DescribeSpotInstanceRequests where
 
 newtype DescribeSpotInstanceRequestsResult = DescribeSpotInstanceRequestsResult
     { _dsirrSpotInstanceRequests :: [SpotInstanceRequest]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeSpotInstanceRequestsResult' constructor.
 --
@@ -169,6 +169,7 @@ dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResult [SpotInsta
 dsirrSpotInstanceRequests =
     lens _dsirrSpotInstanceRequests
         (\s a -> s { _dsirrSpotInstanceRequests = a })
+
 instance FromXML DescribeSpotInstanceRequestsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSpotInstanceRequestsResult"

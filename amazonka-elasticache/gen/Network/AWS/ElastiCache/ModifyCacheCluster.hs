@@ -76,7 +76,7 @@ data ModifyCacheClusterMessage = ModifyCacheClusterMessage
     , _mccmSecurityGroupIds           :: [Text]
     , _mccmSnapshotRetentionLimit     :: Maybe Int
     , _mccmSnapshotWindow             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ModifyCacheClusterMessage' constructor.
 --
@@ -327,7 +327,7 @@ instance ToPath ModifyCacheClusterMessage where
 
 newtype ModifyCacheClusterResult = ModifyCacheClusterResult
     { _mccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyCacheClusterResult' constructor.
 --
@@ -342,6 +342,7 @@ modifyCacheClusterResult = ModifyCacheClusterResult
 
 mccrCacheCluster :: Lens' ModifyCacheClusterResult (Maybe CacheCluster)
 mccrCacheCluster = lens _mccrCacheCluster (\s a -> s { _mccrCacheCluster = a })
+
 instance FromXML ModifyCacheClusterResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyCacheClusterResult"

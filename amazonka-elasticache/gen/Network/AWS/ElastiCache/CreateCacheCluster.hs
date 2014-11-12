@@ -86,7 +86,7 @@ data CreateCacheClusterMessage = CreateCacheClusterMessage
     , _cccmSnapshotName               :: Maybe Text
     , _cccmSnapshotRetentionLimit     :: Maybe Int
     , _cccmSnapshotWindow             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateCacheClusterMessage' constructor.
 --
@@ -356,7 +356,7 @@ instance ToPath CreateCacheClusterMessage where
 
 newtype CreateCacheClusterResult = CreateCacheClusterResult
     { _cccrCacheCluster :: Maybe CacheCluster
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateCacheClusterResult' constructor.
 --
@@ -371,6 +371,7 @@ createCacheClusterResult = CreateCacheClusterResult
 
 cccrCacheCluster :: Lens' CreateCacheClusterResult (Maybe CacheCluster)
 cccrCacheCluster = lens _cccrCacheCluster (\s a -> s { _cccrCacheCluster = a })
+
 instance FromXML CreateCacheClusterResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateCacheClusterResult"

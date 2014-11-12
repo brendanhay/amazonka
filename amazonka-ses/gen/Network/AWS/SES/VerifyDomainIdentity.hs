@@ -44,7 +44,7 @@ import Network.AWS.SES.Types
 
 newtype VerifyDomainIdentity = VerifyDomainIdentity
     { _vdiDomain :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'VerifyDomainIdentity' constructor.
 --
@@ -68,7 +68,7 @@ instance ToPath VerifyDomainIdentity where
 
 newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
     { _vdirVerificationToken :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'VerifyDomainIdentityResponse' constructor.
 --
@@ -87,6 +87,7 @@ verifyDomainIdentityResponse p1 = VerifyDomainIdentityResponse
 vdirVerificationToken :: Lens' VerifyDomainIdentityResponse Text
 vdirVerificationToken =
     lens _vdirVerificationToken (\s a -> s { _vdirVerificationToken = a })
+
 instance FromXML VerifyDomainIdentityResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "VerifyDomainIdentityResponse"

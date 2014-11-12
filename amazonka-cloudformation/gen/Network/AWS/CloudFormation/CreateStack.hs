@@ -68,7 +68,7 @@ data CreateStackInput = CreateStackInput
     , _csiTemplateBody     :: Maybe Text
     , _csiTemplateURL      :: Maybe Text
     , _csiTimeoutInMinutes :: Maybe Natural
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateStackInput' constructor.
 --
@@ -208,7 +208,7 @@ instance ToPath CreateStackInput where
 
 newtype CreateStackOutput = CreateStackOutput
     { _csoStackId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateStackOutput' constructor.
 --
@@ -224,6 +224,7 @@ createStackOutput = CreateStackOutput
 -- | Unique identifier of the stack.
 csoStackId :: Lens' CreateStackOutput (Maybe Text)
 csoStackId = lens _csoStackId (\s a -> s { _csoStackId = a })
+
 instance FromXML CreateStackOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateStackOutput"

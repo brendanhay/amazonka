@@ -55,7 +55,7 @@ data AssociateVPCWithHostedZone = AssociateVPCWithHostedZone
     { _avpcwhzComment      :: Maybe Text
     , _avpcwhzHostedZoneId :: Text
     , _avpcwhzVPC          :: VPC
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AssociateVPCWithHostedZone' constructor.
 --
@@ -109,7 +109,7 @@ instance ToBody AssociateVPCWithHostedZone where
 
 newtype AssociateVPCWithHostedZoneResponse = AssociateVPCWithHostedZoneResponse
     { _avpcwhzrChangeInfo :: ChangeInfo
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AssociateVPCWithHostedZoneResponse' constructor.
 --

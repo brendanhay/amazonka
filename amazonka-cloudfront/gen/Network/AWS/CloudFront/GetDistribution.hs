@@ -45,7 +45,7 @@ import Network.AWS.CloudFront.Types
 
 newtype GetDistribution = GetDistribution
     { _gdId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetDistribution' constructor.
 --
@@ -77,7 +77,7 @@ instance ToHeaders GetDistribution
 data GetDistributionResult = GetDistributionResult
     { _gdrDistribution :: Maybe Distribution
     , _gdrETag         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetDistributionResult' constructor.
 --

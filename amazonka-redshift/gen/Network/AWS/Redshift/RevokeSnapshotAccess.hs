@@ -52,7 +52,7 @@ data RevokeSnapshotAccessMessage = RevokeSnapshotAccessMessage
     { _rsamAccountWithRestoreAccess  :: Text
     , _rsamSnapshotClusterIdentifier :: Maybe Text
     , _rsamSnapshotIdentifier        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RevokeSnapshotAccessMessage' constructor.
 --
@@ -100,7 +100,7 @@ instance ToPath RevokeSnapshotAccessMessage where
 
 newtype RevokeSnapshotAccessResult = RevokeSnapshotAccessResult
     { _rsarSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RevokeSnapshotAccessResult' constructor.
 --
@@ -115,6 +115,7 @@ revokeSnapshotAccessResult = RevokeSnapshotAccessResult
 
 rsarSnapshot :: Lens' RevokeSnapshotAccessResult (Maybe Snapshot)
 rsarSnapshot = lens _rsarSnapshot (\s a -> s { _rsarSnapshot = a })
+
 instance FromXML RevokeSnapshotAccessResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RevokeSnapshotAccessResult"

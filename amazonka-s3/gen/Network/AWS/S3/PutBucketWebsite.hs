@@ -46,7 +46,7 @@ data PutBucketWebsite = PutBucketWebsite
     { _pbwBucket               :: Text
     , _pbwContentMD5           :: Maybe Text
     , _pbwWebsiteConfiguration :: WebsiteConfiguration
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'PutBucketWebsite' constructor.
 --

@@ -44,7 +44,7 @@ import Network.AWS.AutoScaling.Types
 data DeletePolicyType = DeletePolicyType
     { _dpt1AutoScalingGroupName :: Maybe Text
     , _dpt1PolicyName           :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeletePolicyType' constructor.
 --
@@ -81,6 +81,7 @@ data DeletePolicyResponse = DeletePolicyResponse
 -- | 'DeletePolicyResponse' constructor.
 deletePolicyResponse :: DeletePolicyResponse
 deletePolicyResponse = DeletePolicyResponse
+
 instance FromXML DeletePolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeletePolicyResponse"

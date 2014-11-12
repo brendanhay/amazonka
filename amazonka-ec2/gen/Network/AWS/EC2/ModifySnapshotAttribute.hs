@@ -59,7 +59,7 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
     , _msaOperationType          :: Maybe Text
     , _msaSnapshotId             :: Text
     , _msaUserIds                :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifySnapshotAttribute' constructor.
 --
@@ -130,6 +130,7 @@ data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
 -- | 'ModifySnapshotAttributeResponse' constructor.
 modifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse
 modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
+
 instance FromXML ModifySnapshotAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifySnapshotAttributeResponse"

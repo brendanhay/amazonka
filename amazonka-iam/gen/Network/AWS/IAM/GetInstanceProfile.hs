@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 
 newtype GetInstanceProfile = GetInstanceProfile
     { _gipInstanceProfileName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetInstanceProfile' constructor.
 --
@@ -72,7 +72,7 @@ instance ToPath GetInstanceProfile where
 
 newtype GetInstanceProfileResponse = GetInstanceProfileResponse
     { _giprInstanceProfile :: InstanceProfile
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetInstanceProfileResponse' constructor.
 --
@@ -90,6 +90,7 @@ getInstanceProfileResponse p1 = GetInstanceProfileResponse
 giprInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
 giprInstanceProfile =
     lens _giprInstanceProfile (\s a -> s { _giprInstanceProfile = a })
+
 instance FromXML GetInstanceProfileResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetInstanceProfileResponse"

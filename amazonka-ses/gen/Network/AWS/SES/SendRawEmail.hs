@@ -67,7 +67,7 @@ data SendRawEmail = SendRawEmail
     { _sreDestinations :: [Text]
     , _sreRawMessage   :: RawMessage
     , _sreSource       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'SendRawEmail' constructor.
 --
@@ -116,7 +116,7 @@ instance ToPath SendRawEmail where
 
 newtype SendRawEmailResponse = SendRawEmailResponse
     { _srerMessageId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'SendRawEmailResponse' constructor.
 --
@@ -133,6 +133,7 @@ sendRawEmailResponse p1 = SendRawEmailResponse
 -- | The unique message identifier returned from the SendRawEmail action.
 srerMessageId :: Lens' SendRawEmailResponse Text
 srerMessageId = lens _srerMessageId (\s a -> s { _srerMessageId = a })
+
 instance FromXML SendRawEmailResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SendRawEmailResponse"

@@ -50,7 +50,7 @@ data EnableMFADevice = EnableMFADevice
     , _emfadAuthenticationCode2 :: Text
     , _emfadSerialNumber        :: Text
     , _emfadUserName            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'EnableMFADevice' constructor.
 --
@@ -108,6 +108,7 @@ data EnableMFADeviceResponse = EnableMFADeviceResponse
 -- | 'EnableMFADeviceResponse' constructor.
 enableMFADeviceResponse :: EnableMFADeviceResponse
 enableMFADeviceResponse = EnableMFADeviceResponse
+
 instance FromXML EnableMFADeviceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnableMFADeviceResponse"

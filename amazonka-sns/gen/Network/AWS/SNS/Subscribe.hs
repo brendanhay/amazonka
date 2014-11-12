@@ -51,7 +51,7 @@ data SubscribeInput = SubscribeInput
     { _siEndpoint :: Maybe Text
     , _siProtocol :: Text
     , _siTopicArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SubscribeInput' constructor.
 --
@@ -104,7 +104,7 @@ instance ToPath SubscribeInput where
 
 newtype SubscribeResponse = SubscribeResponse
     { _srSubscriptionArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'SubscribeResponse' constructor.
 --
@@ -122,6 +122,7 @@ subscribeResponse = SubscribeResponse
 srSubscriptionArn :: Lens' SubscribeResponse (Maybe Text)
 srSubscriptionArn =
     lens _srSubscriptionArn (\s a -> s { _srSubscriptionArn = a })
+
 instance FromXML SubscribeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SubscribeResponse"

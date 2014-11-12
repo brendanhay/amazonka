@@ -52,7 +52,7 @@ data CancelConversion = CancelConversion
     { _ccConversionTaskId :: Text
     , _ccDryRun           :: Maybe Bool
     , _ccReasonMessage    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CancelConversion' constructor.
 --
@@ -93,6 +93,7 @@ data CancelConversionTaskResponse = CancelConversionTaskResponse
 -- | 'CancelConversionTaskResponse' constructor.
 cancelConversionTaskResponse :: CancelConversionTaskResponse
 cancelConversionTaskResponse = CancelConversionTaskResponse
+
 instance FromXML CancelConversionTaskResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CancelConversionTaskResponse"

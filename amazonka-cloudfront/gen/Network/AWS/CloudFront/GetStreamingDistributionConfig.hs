@@ -45,7 +45,7 @@ import Network.AWS.CloudFront.Types
 
 newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig
     { _gsdcId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetStreamingDistributionConfig' constructor.
 --
@@ -78,7 +78,7 @@ instance ToHeaders GetStreamingDistributionConfig
 data GetStreamingDistributionConfigResult = GetStreamingDistributionConfigResult
     { _gsdcrETag                        :: Maybe Text
     , _gsdcrStreamingDistributionConfig :: Maybe StreamingDistributionConfig
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetStreamingDistributionConfigResult' constructor.
 --

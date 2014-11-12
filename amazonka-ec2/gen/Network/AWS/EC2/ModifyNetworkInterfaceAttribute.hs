@@ -53,7 +53,7 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     , _mniaGroups             :: [Text]
     , _mniaNetworkInterfaceId :: Text
     , _mniaSourceDestCheck    :: Maybe AttributeBooleanValue
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyNetworkInterfaceAttribute' constructor.
 --
@@ -126,6 +126,7 @@ data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeRe
 -- | 'ModifyNetworkInterfaceAttributeResponse' constructor.
 modifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse
 modifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
+
 instance FromXML ModifyNetworkInterfaceAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyNetworkInterfaceAttributeResponse"

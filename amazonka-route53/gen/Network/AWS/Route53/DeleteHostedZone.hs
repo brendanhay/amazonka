@@ -53,7 +53,7 @@ import Network.AWS.Route53.Types
 
 newtype DeleteHostedZone = DeleteHostedZone
     { _dhzId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteHostedZone' constructor.
 --
@@ -84,7 +84,7 @@ instance ToHeaders DeleteHostedZone
 
 newtype DeleteHostedZoneResponse = DeleteHostedZoneResponse
     { _dhzrChangeInfo :: ChangeInfo
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteHostedZoneResponse' constructor.
 --

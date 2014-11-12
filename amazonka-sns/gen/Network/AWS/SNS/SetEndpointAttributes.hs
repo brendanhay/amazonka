@@ -46,7 +46,7 @@ import Network.AWS.SNS.Types
 data SetEndpointAttributesInput = SetEndpointAttributesInput
     { _seaiAttributes  :: Map Text Text
     , _seaiEndpointArn :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'SetEndpointAttributesInput' constructor.
 --
@@ -91,6 +91,7 @@ data SetEndpointAttributesResponse = SetEndpointAttributesResponse
 -- | 'SetEndpointAttributesResponse' constructor.
 setEndpointAttributesResponse :: SetEndpointAttributesResponse
 setEndpointAttributesResponse = SetEndpointAttributesResponse
+
 instance FromXML SetEndpointAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetEndpointAttributesResponse"

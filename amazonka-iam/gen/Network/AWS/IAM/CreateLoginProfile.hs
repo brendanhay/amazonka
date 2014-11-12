@@ -51,7 +51,7 @@ data CreateLoginProfile = CreateLoginProfile
     { _clpPassword              :: Sensitive Text
     , _clpPasswordResetRequired :: Maybe Bool
     , _clpUserName              :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateLoginProfile' constructor.
 --
@@ -94,7 +94,7 @@ instance ToPath CreateLoginProfile where
 
 newtype CreateLoginProfileResponse = CreateLoginProfileResponse
     { _clprLoginProfile :: LoginProfile
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateLoginProfileResponse' constructor.
 --
@@ -111,6 +111,7 @@ createLoginProfileResponse p1 = CreateLoginProfileResponse
 -- | The user name and password create date.
 clprLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
 clprLoginProfile = lens _clprLoginProfile (\s a -> s { _clprLoginProfile = a })
+
 instance FromXML CreateLoginProfileResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateLoginProfileResponse"

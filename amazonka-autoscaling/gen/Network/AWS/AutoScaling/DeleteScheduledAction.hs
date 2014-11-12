@@ -45,7 +45,7 @@ import Network.AWS.AutoScaling.Types
 data DeleteScheduledActionType = DeleteScheduledActionType
     { _dsat1AutoScalingGroupName :: Maybe Text
     , _dsat1ScheduledActionName  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteScheduledActionType' constructor.
 --
@@ -84,6 +84,7 @@ data DeleteScheduledActionResponse = DeleteScheduledActionResponse
 -- | 'DeleteScheduledActionResponse' constructor.
 deleteScheduledActionResponse :: DeleteScheduledActionResponse
 deleteScheduledActionResponse = DeleteScheduledActionResponse
+
 instance FromXML DeleteScheduledActionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteScheduledActionResponse"

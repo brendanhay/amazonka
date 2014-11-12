@@ -55,7 +55,7 @@ data DescribeClusterVersionsMessage = DescribeClusterVersionsMessage
     , _dcvmClusterVersion              :: Maybe Text
     , _dcvmMarker                      :: Maybe Text
     , _dcvmMaxRecords                  :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeClusterVersionsMessage' constructor.
 --
@@ -115,7 +115,7 @@ instance ToPath DescribeClusterVersionsMessage where
 data ClusterVersionsMessage = ClusterVersionsMessage
     { _cvmClusterVersions :: [ClusterVersion]
     , _cvmMarker          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ClusterVersionsMessage' constructor.
 --
@@ -144,6 +144,7 @@ cvmClusterVersions =
 -- request.
 cvmMarker :: Lens' ClusterVersionsMessage (Maybe Text)
 cvmMarker = lens _cvmMarker (\s a -> s { _cvmMarker = a })
+
 instance FromXML ClusterVersionsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ClusterVersionsMessage"

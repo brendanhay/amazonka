@@ -45,7 +45,7 @@ import Network.AWS.IAM.Types
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
     { _uarpPolicyDocument :: Text
     , _uarpRoleName       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateAssumeRolePolicy' constructor.
 --
@@ -82,6 +82,7 @@ data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
 -- | 'UpdateAssumeRolePolicyResponse' constructor.
 updateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse
 updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
+
 instance FromXML UpdateAssumeRolePolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateAssumeRolePolicyResponse"

@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data DeleteNetworkAcl = DeleteNetworkAcl
     { _dnaDryRun       :: Maybe Bool
     , _dnaNetworkAclId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteNetworkAcl' constructor.
 --
@@ -79,6 +79,7 @@ data DeleteNetworkAclResponse = DeleteNetworkAclResponse
 -- | 'DeleteNetworkAclResponse' constructor.
 deleteNetworkAclResponse :: DeleteNetworkAclResponse
 deleteNetworkAclResponse = DeleteNetworkAclResponse
+
 instance FromXML DeleteNetworkAclResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteNetworkAclResponse"

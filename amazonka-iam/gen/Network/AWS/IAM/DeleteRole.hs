@@ -46,7 +46,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteRole = DeleteRole
     { _drRoleName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteRole' constructor.
 --
@@ -74,6 +74,7 @@ data DeleteRoleResponse = DeleteRoleResponse
 -- | 'DeleteRoleResponse' constructor.
 deleteRoleResponse :: DeleteRoleResponse
 deleteRoleResponse = DeleteRoleResponse
+
 instance FromXML DeleteRoleResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteRoleResponse"

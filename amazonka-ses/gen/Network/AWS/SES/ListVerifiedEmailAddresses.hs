@@ -56,7 +56,16 @@ instance ToPath ListVerifiedEmailAddresses where
 
 newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
     { _lvearVerifiedEmailAddresses :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'ListVerifiedEmailAddressesResponse' constructor.
 --
@@ -74,6 +83,7 @@ lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
 lvearVerifiedEmailAddresses =
     lens _lvearVerifiedEmailAddresses
         (\s a -> s { _lvearVerifiedEmailAddresses = a })
+
 instance FromXML ListVerifiedEmailAddressesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListVerifiedEmailAddressesResponse"

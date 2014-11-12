@@ -54,7 +54,7 @@ data ListMFADevices = ListMFADevices
     { _lmfadMarker   :: Maybe Text
     , _lmfadMaxItems :: Maybe Natural
     , _lmfadUserName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListMFADevices' constructor.
 --
@@ -98,7 +98,7 @@ data ListMFADevicesResponse = ListMFADevicesResponse
     { _lmfadrIsTruncated :: Maybe Bool
     , _lmfadrMFADevices  :: [MFADevice]
     , _lmfadrMarker      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListMFADevicesResponse' constructor.
 --
@@ -133,6 +133,7 @@ lmfadrMFADevices = lens _lmfadrMFADevices (\s a -> s { _lmfadrMFADevices = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lmfadrMarker :: Lens' ListMFADevicesResponse (Maybe Text)
 lmfadrMarker = lens _lmfadrMarker (\s a -> s { _lmfadrMarker = a })
+
 instance FromXML ListMFADevicesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListMFADevicesResponse"

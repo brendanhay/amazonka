@@ -51,7 +51,7 @@ data CreateDBSubnetGroupMessage = CreateDBSubnetGroupMessage
     , _cdbsgmDBSubnetGroupName        :: Text
     , _cdbsgmSubnetIds                :: [Text]
     , _cdbsgmTags                     :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateDBSubnetGroupMessage' constructor.
 --
@@ -101,7 +101,7 @@ instance ToPath CreateDBSubnetGroupMessage where
 
 newtype CreateDBSubnetGroupResult = CreateDBSubnetGroupResult
     { _cdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateDBSubnetGroupResult' constructor.
 --
@@ -117,6 +117,7 @@ createDBSubnetGroupResult = CreateDBSubnetGroupResult
 cdbsgrDBSubnetGroup :: Lens' CreateDBSubnetGroupResult (Maybe DBSubnetGroup)
 cdbsgrDBSubnetGroup =
     lens _cdbsgrDBSubnetGroup (\s a -> s { _cdbsgrDBSubnetGroup = a })
+
 instance FromXML CreateDBSubnetGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateDBSubnetGroupResult"

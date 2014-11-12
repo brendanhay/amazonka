@@ -54,7 +54,7 @@ data ResetDBParameterGroupMessage = ResetDBParameterGroupMessage
     { _rdbpgmDBParameterGroupName :: Text
     , _rdbpgmParameters           :: [Parameter]
     , _rdbpgmResetAllParameters   :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ResetDBParameterGroupMessage' constructor.
 --

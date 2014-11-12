@@ -58,7 +58,7 @@ data ListSigningCertificates = ListSigningCertificates
     { _lsc1Marker   :: Maybe Text
     , _lsc1MaxItems :: Maybe Natural
     , _lsc1UserName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListSigningCertificates' constructor.
 --
@@ -103,7 +103,7 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse
     { _lscr1Certificates :: [SigningCertificate]
     , _lscr1IsTruncated  :: Maybe Bool
     , _lscr1Marker       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListSigningCertificatesResponse' constructor.
 --
@@ -138,6 +138,7 @@ lscr1IsTruncated = lens _lscr1IsTruncated (\s a -> s { _lscr1IsTruncated = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lscr1Marker :: Lens' ListSigningCertificatesResponse (Maybe Text)
 lscr1Marker = lens _lscr1Marker (\s a -> s { _lscr1Marker = a })
+
 instance FromXML ListSigningCertificatesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListSigningCertificatesResponse"

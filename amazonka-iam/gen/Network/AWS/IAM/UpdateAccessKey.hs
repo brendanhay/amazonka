@@ -53,7 +53,7 @@ data UpdateAccessKey = UpdateAccessKey
     { _uakAccessKeyId :: Text
     , _uakStatus      :: Text
     , _uakUserName    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateAccessKey' constructor.
 --
@@ -98,6 +98,7 @@ data UpdateAccessKeyResponse = UpdateAccessKeyResponse
 -- | 'UpdateAccessKeyResponse' constructor.
 updateAccessKeyResponse :: UpdateAccessKeyResponse
 updateAccessKeyResponse = UpdateAccessKeyResponse
+
 instance FromXML UpdateAccessKeyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateAccessKeyResponse"

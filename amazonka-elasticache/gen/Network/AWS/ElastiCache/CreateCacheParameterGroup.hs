@@ -50,7 +50,7 @@ data CreateCacheParameterGroupMessage = CreateCacheParameterGroupMessage
     { _ccpgmCacheParameterGroupFamily :: Text
     , _ccpgmCacheParameterGroupName   :: Text
     , _ccpgmDescription               :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateCacheParameterGroupMessage' constructor.
 --
@@ -95,7 +95,7 @@ instance ToPath CreateCacheParameterGroupMessage where
 
 newtype CreateCacheParameterGroupResult = CreateCacheParameterGroupResult
     { _ccpgrCacheParameterGroup :: Maybe CacheParameterGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateCacheParameterGroupResult' constructor.
 --
@@ -112,6 +112,7 @@ ccpgrCacheParameterGroup :: Lens' CreateCacheParameterGroupResult (Maybe CachePa
 ccpgrCacheParameterGroup =
     lens _ccpgrCacheParameterGroup
         (\s a -> s { _ccpgrCacheParameterGroup = a })
+
 instance FromXML CreateCacheParameterGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateCacheParameterGroupResult"

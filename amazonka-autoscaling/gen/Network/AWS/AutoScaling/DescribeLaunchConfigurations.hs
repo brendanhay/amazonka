@@ -51,7 +51,7 @@ data LaunchConfigurationNamesType = LaunchConfigurationNamesType
     { _lcntLaunchConfigurationNames :: [Text]
     , _lcntMaxRecords               :: Maybe Int
     , _lcntNextToken                :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'LaunchConfigurationNamesType' constructor.
 --
@@ -91,7 +91,7 @@ instance ToPath LaunchConfigurationNamesType where
 data LaunchConfigurationsType = LaunchConfigurationsType
     { _lctLaunchConfigurations :: [LaunchConfiguration]
     , _lctNextToken            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'LaunchConfigurationsType' constructor.
 --
@@ -115,6 +115,7 @@ lctLaunchConfigurations =
 -- | A string that marks the start of the next batch of returned results.
 lctNextToken :: Lens' LaunchConfigurationsType (Maybe Text)
 lctNextToken = lens _lctNextToken (\s a -> s { _lctNextToken = a })
+
 instance FromXML LaunchConfigurationsType where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "LaunchConfigurationsType"

@@ -3690,7 +3690,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "fieldPad": 0,
                 "ctor": "createBucketConfiguration",
@@ -3763,7 +3764,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "fieldPad": 0,
                 "ctor": "tagging",
@@ -3923,7 +3927,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "fieldPad": 0,
                 "ctor": "corsconfiguration",
@@ -4194,7 +4201,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "fieldPad": 0,
                 "ctor": "commonPrefix",
@@ -4499,7 +4507,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "fieldPad": 0,
                 "ctor": "completedMultipartUpload",
@@ -4973,7 +4984,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "fieldPad": 0,
                 "ctor": "lifecycleConfiguration",
@@ -7292,7 +7306,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -9952,7 +9967,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -10124,7 +10142,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -10296,7 +10317,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -10810,7 +10832,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -10982,7 +11005,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -11154,7 +11178,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,

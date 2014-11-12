@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data DeleteSubnet = DeleteSubnet
     { _ds2DryRun   :: Maybe Bool
     , _ds2SubnetId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSubnet' constructor.
 --
@@ -79,6 +79,7 @@ data DeleteSubnetResponse = DeleteSubnetResponse
 -- | 'DeleteSubnetResponse' constructor.
 deleteSubnetResponse :: DeleteSubnetResponse
 deleteSubnetResponse = DeleteSubnetResponse
+
 instance FromXML DeleteSubnetResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteSubnetResponse"

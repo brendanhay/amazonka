@@ -54,7 +54,7 @@ data DescribeAnalysisSchemes = DescribeAnalysisSchemes
     { _das1AnalysisSchemeNames :: [Text]
     , _das1Deployed            :: Maybe Bool
     , _das1DomainName          :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAnalysisSchemes' constructor.
 --
@@ -94,7 +94,7 @@ instance ToPath DescribeAnalysisSchemes where
 
 newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
     { _dasrAnalysisSchemes :: [AnalysisSchemeStatus]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeAnalysisSchemesResponse' constructor.
 --
@@ -111,6 +111,7 @@ describeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
 dasrAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
 dasrAnalysisSchemes =
     lens _dasrAnalysisSchemes (\s a -> s { _dasrAnalysisSchemes = a })
+
 instance FromXML DescribeAnalysisSchemesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAnalysisSchemesResponse"

@@ -54,7 +54,7 @@ data AutoScalingGroupNamesType = AutoScalingGroupNamesType
     { _asgntAutoScalingGroupNames :: [Text]
     , _asgntMaxRecords            :: Maybe Int
     , _asgntNextToken             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AutoScalingGroupNamesType' constructor.
 --
@@ -94,7 +94,7 @@ instance ToPath AutoScalingGroupNamesType where
 data AutoScalingGroupsType = AutoScalingGroupsType
     { _asgtAutoScalingGroups :: [AutoScalingGroup]
     , _asgtNextToken         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AutoScalingGroupsType' constructor.
 --
@@ -118,6 +118,7 @@ asgtAutoScalingGroups =
 -- | A string that marks the start of the next batch of returned results.
 asgtNextToken :: Lens' AutoScalingGroupsType (Maybe Text)
 asgtNextToken = lens _asgtNextToken (\s a -> s { _asgtNextToken = a })
+
 instance FromXML AutoScalingGroupsType where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AutoScalingGroupsType"

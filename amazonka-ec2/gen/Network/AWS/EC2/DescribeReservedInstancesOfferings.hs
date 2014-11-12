@@ -76,7 +76,7 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     , _drioOfferingType                 :: Maybe Text
     , _drioProductDescription           :: Maybe Text
     , _drioReservedInstancesOfferingIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstancesOfferings' constructor.
 --
@@ -220,7 +220,7 @@ instance ToPath DescribeReservedInstancesOfferings where
 data DescribeReservedInstancesOfferingsResult = DescribeReservedInstancesOfferingsResult
     { _driorNextToken                  :: Maybe Text
     , _driorReservedInstancesOfferings :: [ReservedInstancesOffering]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstancesOfferingsResult' constructor.
 --
@@ -245,6 +245,7 @@ driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResul
 driorReservedInstancesOfferings =
     lens _driorReservedInstancesOfferings
         (\s a -> s { _driorReservedInstancesOfferings = a })
+
 instance FromXML DescribeReservedInstancesOfferingsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeReservedInstancesOfferingsResult"

@@ -55,7 +55,7 @@ data RevokeDBSecurityGroupIngressMessage = RevokeDBSecurityGroupIngressMessage
     , _rdbsgimEC2SecurityGroupId      :: Maybe Text
     , _rdbsgimEC2SecurityGroupName    :: Maybe Text
     , _rdbsgimEC2SecurityGroupOwnerId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RevokeDBSecurityGroupIngressMessage' constructor.
 --
@@ -127,7 +127,7 @@ instance ToPath RevokeDBSecurityGroupIngressMessage where
 
 newtype RevokeDBSecurityGroupIngressResult = RevokeDBSecurityGroupIngressResult
     { _rdbsgirDBSecurityGroup :: Maybe DBSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RevokeDBSecurityGroupIngressResult' constructor.
 --
@@ -143,6 +143,7 @@ revokeDBSecurityGroupIngressResult = RevokeDBSecurityGroupIngressResult
 rdbsgirDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResult (Maybe DBSecurityGroup)
 rdbsgirDBSecurityGroup =
     lens _rdbsgirDBSecurityGroup (\s a -> s { _rdbsgirDBSecurityGroup = a })
+
 instance FromXML RevokeDBSecurityGroupIngressResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RevokeDBSecurityGroupIngressResult"

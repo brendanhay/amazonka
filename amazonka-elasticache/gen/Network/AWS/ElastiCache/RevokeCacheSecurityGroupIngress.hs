@@ -50,7 +50,7 @@ data RevokeCacheSecurityGroupIngressMessage = RevokeCacheSecurityGroupIngressMes
     { _rcsgimCacheSecurityGroupName  :: Text
     , _rcsgimEC2SecurityGroupName    :: Text
     , _rcsgimEC2SecurityGroupOwnerId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RevokeCacheSecurityGroupIngressMessage' constructor.
 --
@@ -98,7 +98,7 @@ instance ToPath RevokeCacheSecurityGroupIngressMessage where
 
 newtype RevokeCacheSecurityGroupIngressResult = RevokeCacheSecurityGroupIngressResult
     { _rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RevokeCacheSecurityGroupIngressResult' constructor.
 --
@@ -115,6 +115,7 @@ rcsgirCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResult (Maybe C
 rcsgirCacheSecurityGroup =
     lens _rcsgirCacheSecurityGroup
         (\s a -> s { _rcsgirCacheSecurityGroup = a })
+
 instance FromXML RevokeCacheSecurityGroupIngressResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RevokeCacheSecurityGroupIngressResult"

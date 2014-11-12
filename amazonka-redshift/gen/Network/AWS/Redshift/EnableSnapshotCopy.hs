@@ -49,7 +49,7 @@ data EnableSnapshotCopyMessage = EnableSnapshotCopyMessage
     { _escmClusterIdentifier :: Text
     , _escmDestinationRegion :: Text
     , _escmRetentionPeriod   :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'EnableSnapshotCopyMessage' constructor.
 --
@@ -97,7 +97,7 @@ instance ToPath EnableSnapshotCopyMessage where
 
 newtype EnableSnapshotCopyResult = EnableSnapshotCopyResult
     { _escrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'EnableSnapshotCopyResult' constructor.
 --
@@ -112,6 +112,7 @@ enableSnapshotCopyResult = EnableSnapshotCopyResult
 
 escrCluster :: Lens' EnableSnapshotCopyResult (Maybe Cluster)
 escrCluster = lens _escrCluster (\s a -> s { _escrCluster = a })
+
 instance FromXML EnableSnapshotCopyResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnableSnapshotCopyResult"

@@ -46,7 +46,7 @@ import Network.AWS.SNS.Types
 
 newtype GetEndpointAttributesInput = GetEndpointAttributesInput
     { _geaiEndpointArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetEndpointAttributesInput' constructor.
 --
@@ -70,7 +70,7 @@ instance ToPath GetEndpointAttributesInput where
 
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'GetEndpointAttributesResponse' constructor.
 --
@@ -96,6 +96,7 @@ getEndpointAttributesResponse = GetEndpointAttributesResponse
 gearAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
 gearAttributes = lens _gearAttributes (\s a -> s { _gearAttributes = a })
     . _Map
+
 instance FromXML GetEndpointAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetEndpointAttributesResponse"

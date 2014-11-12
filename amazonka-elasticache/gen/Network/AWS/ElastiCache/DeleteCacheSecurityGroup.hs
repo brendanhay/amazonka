@@ -42,7 +42,7 @@ import Network.AWS.ElastiCache.Types
 
 newtype DeleteCacheSecurityGroupMessage = DeleteCacheSecurityGroupMessage
     { _dcsgmCacheSecurityGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteCacheSecurityGroupMessage' constructor.
 --
@@ -72,6 +72,7 @@ data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
 -- | 'DeleteCacheSecurityGroupResponse' constructor.
 deleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse
 deleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
+
 instance FromXML DeleteCacheSecurityGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteCacheSecurityGroupResponse"

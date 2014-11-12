@@ -52,7 +52,7 @@ data GetGroup = GetGroup
     { _ggGroupName :: Text
     , _ggMarker    :: Maybe Text
     , _ggMaxItems  :: Maybe Natural
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetGroup' constructor.
 --
@@ -98,7 +98,7 @@ data GetGroupResponse = GetGroupResponse
     , _ggrIsTruncated :: Maybe Bool
     , _ggrMarker      :: Maybe Text
     , _ggrUsers       :: [User]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetGroupResponse' constructor.
 --
@@ -140,6 +140,7 @@ ggrMarker = lens _ggrMarker (\s a -> s { _ggrMarker = a })
 -- | A list of users in the group.
 ggrUsers :: Lens' GetGroupResponse [User]
 ggrUsers = lens _ggrUsers (\s a -> s { _ggrUsers = a })
+
 instance FromXML GetGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetGroupResponse"

@@ -59,7 +59,7 @@ data GetCredentialReportResponse = GetCredentialReportResponse
     { _gcrrContent       :: Maybe Base64
     , _gcrrGeneratedTime :: Maybe RFC822
     , _gcrrReportFormat  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetCredentialReportResponse' constructor.
 --
@@ -92,6 +92,7 @@ gcrrGeneratedTime =
 -- | The format (MIME type) of the credential report.
 gcrrReportFormat :: Lens' GetCredentialReportResponse (Maybe Text)
 gcrrReportFormat = lens _gcrrReportFormat (\s a -> s { _gcrrReportFormat = a })
+
 instance FromXML GetCredentialReportResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetCredentialReportResponse"

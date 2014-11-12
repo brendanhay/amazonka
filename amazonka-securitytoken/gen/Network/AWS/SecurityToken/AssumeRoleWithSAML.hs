@@ -93,7 +93,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML
     , _arwsamlPrincipalArn    :: Text
     , _arwsamlRoleArn         :: Text
     , _arwsamlSAMLAssertion   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AssumeRoleWithSAML' constructor.
 --
@@ -173,7 +173,7 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
     , _arwsamlrPackedPolicySize :: Maybe Natural
     , _arwsamlrSubject          :: Maybe Text
     , _arwsamlrSubjectType      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AssumeRoleWithSAMLResponse' constructor.
 --
@@ -257,6 +257,7 @@ arwsamlrSubject = lens _arwsamlrSubject (\s a -> s { _arwsamlrSubject = a })
 arwsamlrSubjectType :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrSubjectType =
     lens _arwsamlrSubjectType (\s a -> s { _arwsamlrSubjectType = a })
+
 instance FromXML AssumeRoleWithSAMLResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AssumeRoleWithSAMLResponse"

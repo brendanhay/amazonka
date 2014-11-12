@@ -43,7 +43,7 @@ import Network.AWS.RDS.Types
 
 newtype DeleteDBParameterGroupMessage = DeleteDBParameterGroupMessage
     { _ddbpgm1DBParameterGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteDBParameterGroupMessage' constructor.
 --
@@ -75,6 +75,7 @@ data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
 -- | 'DeleteDBParameterGroupResponse' constructor.
 deleteDBParameterGroupResponse :: DeleteDBParameterGroupResponse
 deleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
+
 instance FromXML DeleteDBParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteDBParameterGroupResponse"

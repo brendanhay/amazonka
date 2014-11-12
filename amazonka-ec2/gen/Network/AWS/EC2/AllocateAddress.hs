@@ -50,7 +50,7 @@ import Network.AWS.EC2.Types
 data AllocateAddress = AllocateAddress
     { _aaDomain :: Maybe Text
     , _aaDryRun :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AllocateAddress' constructor.
 --
@@ -82,7 +82,7 @@ data AllocateAddressResult = AllocateAddressResult
     { _aarAllocationId :: Maybe Text
     , _aarDomain       :: Maybe Text
     , _aarPublicIp     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AllocateAddressResult' constructor.
 --
@@ -114,6 +114,7 @@ aarDomain = lens _aarDomain (\s a -> s { _aarDomain = a })
 -- | The Elastic IP address.
 aarPublicIp :: Lens' AllocateAddressResult (Maybe Text)
 aarPublicIp = lens _aarPublicIp (\s a -> s { _aarPublicIp = a })
+
 instance FromXML AllocateAddressResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AllocateAddressResult"

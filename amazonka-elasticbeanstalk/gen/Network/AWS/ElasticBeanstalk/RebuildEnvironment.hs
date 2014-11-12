@@ -46,7 +46,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data RebuildEnvironmentMessage = RebuildEnvironmentMessage
     { _remEnvironmentId   :: Maybe Text
     , _remEnvironmentName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RebuildEnvironmentMessage' constructor.
 --
@@ -85,6 +85,7 @@ data RebuildEnvironmentResponse = RebuildEnvironmentResponse
 -- | 'RebuildEnvironmentResponse' constructor.
 rebuildEnvironmentResponse :: RebuildEnvironmentResponse
 rebuildEnvironmentResponse = RebuildEnvironmentResponse
+
 instance FromXML RebuildEnvironmentResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RebuildEnvironmentResponse"

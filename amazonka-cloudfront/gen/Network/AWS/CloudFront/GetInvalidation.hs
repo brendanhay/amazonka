@@ -46,7 +46,7 @@ import Network.AWS.CloudFront.Types
 data GetInvalidation = GetInvalidation
     { _giDistributionId :: Text
     , _giId             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetInvalidation' constructor.
 --
@@ -87,7 +87,7 @@ instance ToHeaders GetInvalidation
 
 newtype GetInvalidationResult = GetInvalidationResult
     { _girInvalidation :: Maybe Invalidation
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetInvalidationResult' constructor.
 --

@@ -50,7 +50,7 @@ data DescribeConversionTasks = DescribeConversionTasks
     { _dctConversionTaskIds :: [Text]
     , _dctDryRun            :: Maybe Bool
     , _dctFilters           :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeConversionTasks' constructor.
 --
@@ -86,7 +86,7 @@ instance ToPath DescribeConversionTasks where
 
 newtype DescribeConversionTasksResult = DescribeConversionTasksResult
     { _dctrConversionTasks :: [ConversionTask]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeConversionTasksResult' constructor.
 --
@@ -102,6 +102,7 @@ describeConversionTasksResult = DescribeConversionTasksResult
 dctrConversionTasks :: Lens' DescribeConversionTasksResult [ConversionTask]
 dctrConversionTasks =
     lens _dctrConversionTasks (\s a -> s { _dctrConversionTasks = a })
+
 instance FromXML DescribeConversionTasksResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeConversionTasksResult"

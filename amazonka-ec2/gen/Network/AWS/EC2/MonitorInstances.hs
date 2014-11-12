@@ -48,7 +48,7 @@ import Network.AWS.EC2.Types
 data MonitorInstances = MonitorInstances
     { _miDryRun      :: Maybe Bool
     , _miInstanceIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'MonitorInstances' constructor.
 --
@@ -77,7 +77,7 @@ instance ToPath MonitorInstances where
 
 newtype MonitorInstancesResult = MonitorInstancesResult
     { _mirInstanceMonitorings :: [InstanceMonitoring]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'MonitorInstancesResult' constructor.
 --
@@ -94,6 +94,7 @@ monitorInstancesResult = MonitorInstancesResult
 mirInstanceMonitorings :: Lens' MonitorInstancesResult [InstanceMonitoring]
 mirInstanceMonitorings =
     lens _mirInstanceMonitorings (\s a -> s { _mirInstanceMonitorings = a })
+
 instance FromXML MonitorInstancesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "MonitorInstancesResult"

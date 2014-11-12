@@ -46,7 +46,7 @@ import Network.AWS.AutoScaling.Types
 data DisableMetricsCollectionQuery = DisableMetricsCollectionQuery
     { _dmcqAutoScalingGroupName :: Text
     , _dmcqMetrics              :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DisableMetricsCollectionQuery' constructor.
 --
@@ -87,6 +87,7 @@ data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
 -- | 'DisableMetricsCollectionResponse' constructor.
 disableMetricsCollectionResponse :: DisableMetricsCollectionResponse
 disableMetricsCollectionResponse = DisableMetricsCollectionResponse
+
 instance FromXML DisableMetricsCollectionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DisableMetricsCollectionResponse"

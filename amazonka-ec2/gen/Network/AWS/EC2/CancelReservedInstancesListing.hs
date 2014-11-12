@@ -46,7 +46,7 @@ import Network.AWS.EC2.Types
 
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing
     { _crilReservedInstancesListingId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CancelReservedInstancesListing' constructor.
 --
@@ -72,7 +72,7 @@ instance ToPath CancelReservedInstancesListing where
 
 newtype CancelReservedInstancesListingResult = CancelReservedInstancesListingResult
     { _crilrReservedInstancesListings :: [ReservedInstancesListing]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'CancelReservedInstancesListingResult' constructor.
 --
@@ -90,6 +90,7 @@ crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResult [Re
 crilrReservedInstancesListings =
     lens _crilrReservedInstancesListings
         (\s a -> s { _crilrReservedInstancesListings = a })
+
 instance FromXML CancelReservedInstancesListingResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CancelReservedInstancesListingResult"

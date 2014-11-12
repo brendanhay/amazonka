@@ -53,7 +53,7 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
     { _dniaAttribute          :: Maybe Text
     , _dniaDryRun             :: Maybe Bool
     , _dniaNetworkInterfaceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeNetworkInterfaceAttribute' constructor.
 --
@@ -95,7 +95,7 @@ data DescribeNetworkInterfaceAttributeResult = DescribeNetworkInterfaceAttribute
     , _dniarGroups             :: [GroupIdentifier]
     , _dniarNetworkInterfaceId :: Maybe Text
     , _dniarSourceDestCheck    :: Maybe AttributeBooleanValue
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeNetworkInterfaceAttributeResult' constructor.
 --
@@ -141,6 +141,7 @@ dniarNetworkInterfaceId =
 dniarSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResult (Maybe AttributeBooleanValue)
 dniarSourceDestCheck =
     lens _dniarSourceDestCheck (\s a -> s { _dniarSourceDestCheck = a })
+
 instance FromXML DescribeNetworkInterfaceAttributeResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeNetworkInterfaceAttributeResult"

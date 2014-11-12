@@ -47,7 +47,7 @@ import Network.AWS.AutoScaling.Types
 data DescribeLifecycleHooksType = DescribeLifecycleHooksType
     { _dlht1AutoScalingGroupName :: Text
     , _dlht1LifecycleHookNames   :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeLifecycleHooksType' constructor.
 --
@@ -81,7 +81,7 @@ instance ToPath DescribeLifecycleHooksType where
 
 newtype DescribeLifecycleHooksAnswer = DescribeLifecycleHooksAnswer
     { _dlhaLifecycleHooks :: [LifecycleHook]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeLifecycleHooksAnswer' constructor.
 --
@@ -99,6 +99,7 @@ describeLifecycleHooksAnswer = DescribeLifecycleHooksAnswer
 dlhaLifecycleHooks :: Lens' DescribeLifecycleHooksAnswer [LifecycleHook]
 dlhaLifecycleHooks =
     lens _dlhaLifecycleHooks (\s a -> s { _dlhaLifecycleHooks = a })
+
 instance FromXML DescribeLifecycleHooksAnswer where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeLifecycleHooksAnswer"

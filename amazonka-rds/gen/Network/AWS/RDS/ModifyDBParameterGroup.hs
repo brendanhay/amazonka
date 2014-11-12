@@ -58,7 +58,7 @@ import Network.AWS.RDS.Types
 data ModifyDBParameterGroupMessage = ModifyDBParameterGroupMessage
     { _mdbpgmDBParameterGroupName :: Text
     , _mdbpgmParameters           :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyDBParameterGroupMessage' constructor.
 --

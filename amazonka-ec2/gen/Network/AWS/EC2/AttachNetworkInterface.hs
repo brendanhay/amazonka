@@ -50,7 +50,7 @@ data AttachNetworkInterface = AttachNetworkInterface
     , _aniDryRun             :: Maybe Bool
     , _aniInstanceId         :: Text
     , _aniNetworkInterfaceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AttachNetworkInterface' constructor.
 --
@@ -97,7 +97,7 @@ instance ToPath AttachNetworkInterface where
 
 newtype AttachNetworkInterfaceResult = AttachNetworkInterfaceResult
     { _anirAttachmentId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'AttachNetworkInterfaceResult' constructor.
 --
@@ -113,6 +113,7 @@ attachNetworkInterfaceResult = AttachNetworkInterfaceResult
 -- | The ID of the network interface attachment.
 anirAttachmentId :: Lens' AttachNetworkInterfaceResult (Maybe Text)
 anirAttachmentId = lens _anirAttachmentId (\s a -> s { _anirAttachmentId = a })
+
 instance FromXML AttachNetworkInterfaceResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AttachNetworkInterfaceResult"

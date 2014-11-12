@@ -70,7 +70,7 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
     , _cnaeProtocol     :: Text
     , _cnaeRuleAction   :: Text
     , _cnaeRuleNumber   :: Int
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateNetworkAclEntry' constructor.
 --
@@ -163,6 +163,7 @@ data CreateNetworkAclEntryResponse = CreateNetworkAclEntryResponse
 -- | 'CreateNetworkAclEntryResponse' constructor.
 createNetworkAclEntryResponse :: CreateNetworkAclEntryResponse
 createNetworkAclEntryResponse = CreateNetworkAclEntryResponse
+
 instance FromXML CreateNetworkAclEntryResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateNetworkAclEntryResponse"

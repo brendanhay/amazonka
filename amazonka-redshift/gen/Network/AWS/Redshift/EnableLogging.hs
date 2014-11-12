@@ -54,7 +54,7 @@ data EnableLoggingMessage = EnableLoggingMessage
     { _elmBucketName        :: Text
     , _elmClusterIdentifier :: Text
     , _elmS3KeyPrefix       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'EnableLoggingMessage' constructor.
 --

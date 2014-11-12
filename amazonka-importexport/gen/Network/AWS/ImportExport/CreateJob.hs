@@ -59,7 +59,7 @@ data CreateJobInput = CreateJobInput
     , _cjiManifest         :: Text
     , _cjiManifestAddendum :: Maybe Text
     , _cjiValidateOnly     :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateJobInput' constructor.
 --
@@ -108,7 +108,7 @@ data CreateJobOutput = CreateJobOutput
     , _cjoSignature             :: Maybe Text
     , _cjoSignatureFileContents :: Maybe Text
     , _cjoWarningMessage        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateJobOutput' constructor.
 --
@@ -157,6 +157,7 @@ cjoSignatureFileContents =
 cjoWarningMessage :: Lens' CreateJobOutput (Maybe Text)
 cjoWarningMessage =
     lens _cjoWarningMessage (\s a -> s { _cjoWarningMessage = a })
+
 instance FromXML CreateJobOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateJobOutput"

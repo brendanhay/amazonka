@@ -59,7 +59,7 @@ data CreateAppCookieStickinessPolicyInput = CreateAppCookieStickinessPolicyInput
     { _cacspiCookieName       :: Text
     , _cacspiLoadBalancerName :: Text
     , _cacspiPolicyName       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateAppCookieStickinessPolicyInput' constructor.
 --
@@ -105,6 +105,7 @@ data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyRe
 -- | 'CreateAppCookieStickinessPolicyResponse' constructor.
 createAppCookieStickinessPolicyResponse :: CreateAppCookieStickinessPolicyResponse
 createAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
+
 instance FromXML CreateAppCookieStickinessPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateAppCookieStickinessPolicyResponse"

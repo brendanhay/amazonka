@@ -52,7 +52,7 @@ import Network.AWS.SimpleDB.Types
 data ListDomains = ListDomains
     { _ldMaxNumberOfDomains :: Maybe Int
     , _ldNextToken          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListDomains' constructor.
 --
@@ -86,7 +86,7 @@ instance ToPath ListDomains where
 data ListDomainsResult = ListDomainsResult
     { _ldrDomainNames :: [Text]
     , _ldrNextToken   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListDomainsResult' constructor.
 --
@@ -110,6 +110,7 @@ ldrDomainNames = lens _ldrDomainNames (\s a -> s { _ldrDomainNames = a })
 -- MaxNumberOfDomains still available.
 ldrNextToken :: Lens' ListDomainsResult (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
+
 instance FromXML ListDomainsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListDomainsResult"

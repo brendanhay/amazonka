@@ -44,7 +44,7 @@ import Network.AWS.RDS.Types
 
 newtype DeleteEventSubscriptionMessage = DeleteEventSubscriptionMessage
     { _desm1SubscriptionName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteEventSubscriptionMessage' constructor.
 --
@@ -69,7 +69,7 @@ instance ToPath DeleteEventSubscriptionMessage where
 
 newtype DeleteEventSubscriptionResult = DeleteEventSubscriptionResult
     { _desrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteEventSubscriptionResult' constructor.
 --
@@ -85,6 +85,7 @@ deleteEventSubscriptionResult = DeleteEventSubscriptionResult
 desrEventSubscription :: Lens' DeleteEventSubscriptionResult (Maybe EventSubscription)
 desrEventSubscription =
     lens _desrEventSubscription (\s a -> s { _desrEventSubscription = a })
+
 instance FromXML DeleteEventSubscriptionResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteEventSubscriptionResult"

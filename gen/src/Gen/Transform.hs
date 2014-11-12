@@ -51,7 +51,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         { _cName         = name
         , _cLibrary      = overrides ^. oLibrary
         , _cVersion      = initial
-        , _cDescription  = Doc documentation
+        , _cDescription  = help
         , _cDependencies = []
         , _cExposed      = sort $
             service ^. svNamespace : typesNamespace : operationNamespaces
@@ -65,7 +65,7 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
         , _svNamespace      = namespace [unAbbrev abbrev]
         , _svImports        = sort (typesNamespace : operationNamespaces)
         , _svVersion        = version
-        , _svDocumentation  = Doc documentation
+        , _svDocumentation  = help
         , _svProtocol       = protocol
         , _svEndpoint       = endpoint
         , _svEndpointPrefix = endpointPrefix
@@ -95,7 +95,8 @@ transformS1ToS2 m s1 = Stage2 cabal service ops types
 
     (ops, ts) = dataTypes overrides abbrev s1
 
-    documentation  = s1 ^. s1Documentation
+    help = Doc (s1 ^. s1Documentation)
+
     endpointPrefix = s1 ^. mEndpointPrefix
 
     overrides = m ^. mOverrides

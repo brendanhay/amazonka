@@ -50,7 +50,7 @@ data ResyncMFADevice = ResyncMFADevice
     , _rmfadAuthenticationCode2 :: Text
     , _rmfadSerialNumber        :: Text
     , _rmfadUserName            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ResyncMFADevice' constructor.
 --
@@ -107,6 +107,7 @@ data ResyncMFADeviceResponse = ResyncMFADeviceResponse
 -- | 'ResyncMFADeviceResponse' constructor.
 resyncMFADeviceResponse :: ResyncMFADeviceResponse
 resyncMFADeviceResponse = ResyncMFADeviceResponse
+
 instance FromXML ResyncMFADeviceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ResyncMFADeviceResponse"

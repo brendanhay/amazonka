@@ -42,7 +42,7 @@ import Network.AWS.S3.Types
 
 newtype DeleteBucketCors = DeleteBucketCors
     { _dbcBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteBucketCors' constructor.
 --

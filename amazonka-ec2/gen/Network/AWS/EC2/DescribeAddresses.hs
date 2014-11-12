@@ -53,7 +53,7 @@ data DescribeAddresses = DescribeAddresses
     , _daDryRun        :: Maybe Bool
     , _daFilters       :: [Filter]
     , _daPublicIps     :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeAddresses' constructor.
 --
@@ -107,7 +107,7 @@ instance ToPath DescribeAddresses where
 
 newtype DescribeAddressesResult = DescribeAddressesResult
     { _darAddresses :: [Address]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeAddressesResult' constructor.
 --
@@ -123,6 +123,7 @@ describeAddressesResult = DescribeAddressesResult
 -- | Information about one or more Elastic IP addresses.
 darAddresses :: Lens' DescribeAddressesResult [Address]
 darAddresses = lens _darAddresses (\s a -> s { _darAddresses = a })
+
 instance FromXML DescribeAddressesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAddressesResult"

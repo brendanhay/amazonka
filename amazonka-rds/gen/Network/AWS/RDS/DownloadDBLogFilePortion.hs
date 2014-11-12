@@ -52,7 +52,7 @@ data DownloadDBLogFilePortionMessage = DownloadDBLogFilePortionMessage
     , _ddblfpmLogFileName          :: Text
     , _ddblfpmMarker               :: Maybe Text
     , _ddblfpmNumberOfLines        :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DownloadDBLogFilePortionMessage' constructor.
 --
@@ -121,7 +121,7 @@ data DownloadDBLogFilePortionDetails = DownloadDBLogFilePortionDetails
     { _ddblfpdAdditionalDataPending :: Maybe Bool
     , _ddblfpdLogFileData           :: Maybe Text
     , _ddblfpdMarker                :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DownloadDBLogFilePortionDetails' constructor.
 --
@@ -156,6 +156,7 @@ ddblfpdLogFileData =
 -- DownloadDBLogFilePortion request.
 ddblfpdMarker :: Lens' DownloadDBLogFilePortionDetails (Maybe Text)
 ddblfpdMarker = lens _ddblfpdMarker (\s a -> s { _ddblfpdMarker = a })
+
 instance FromXML DownloadDBLogFilePortionDetails where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DownloadDBLogFilePortionDetails"

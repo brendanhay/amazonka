@@ -46,7 +46,16 @@ import Network.AWS.SES.Types
 
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
     { _givaIdentities :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'GetIdentityVerificationAttributes' constructor.
 --
@@ -69,7 +78,7 @@ instance ToPath GetIdentityVerificationAttributes where
 
 newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse
     { _givarVerificationAttributes :: Map Text IdentityVerificationAttributes
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'GetIdentityVerificationAttributesResponse' constructor.
 --
@@ -88,6 +97,7 @@ givarVerificationAttributes =
     lens _givarVerificationAttributes
         (\s a -> s { _givarVerificationAttributes = a })
             . _Map
+
 instance FromXML GetIdentityVerificationAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetIdentityVerificationAttributesResponse"

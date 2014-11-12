@@ -51,7 +51,7 @@ import Network.AWS.CloudFormation.Types
 data ListStacksInput = ListStacksInput
     { _lsiNextToken         :: Maybe Text
     , _lsiStackStatusFilter :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListStacksInput' constructor.
 --
@@ -87,7 +87,7 @@ instance ToPath ListStacksInput where
 data ListStacksOutput = ListStacksOutput
     { _lsoNextToken      :: Maybe Text
     , _lsoStackSummaries :: [StackSummary]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListStacksOutput' constructor.
 --
@@ -113,6 +113,7 @@ lsoNextToken = lens _lsoNextToken (\s a -> s { _lsoNextToken = a })
 lsoStackSummaries :: Lens' ListStacksOutput [StackSummary]
 lsoStackSummaries =
     lens _lsoStackSummaries (\s a -> s { _lsoStackSummaries = a })
+
 instance FromXML ListStacksOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListStacksOutput"

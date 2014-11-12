@@ -50,7 +50,7 @@ import Network.AWS.Redshift.Types
 
 newtype DisableLoggingMessage = DisableLoggingMessage
     { _dlmClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DisableLoggingMessage' constructor.
 --

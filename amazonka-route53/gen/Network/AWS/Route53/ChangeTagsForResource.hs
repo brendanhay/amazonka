@@ -48,7 +48,7 @@ data ChangeTagsForResource = ChangeTagsForResource
     , _ctfrRemoveTagKeys :: List1 Text
     , _ctfrResourceId    :: Text
     , _ctfrResourceType  :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ChangeTagsForResource' constructor.
 --

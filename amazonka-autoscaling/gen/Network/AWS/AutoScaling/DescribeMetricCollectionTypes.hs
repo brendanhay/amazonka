@@ -56,7 +56,7 @@ instance ToPath DescribeMetricCollectionTypes where
 data DescribeMetricCollectionTypesAnswer = DescribeMetricCollectionTypesAnswer
     { _dmctaGranularities :: [MetricGranularityType]
     , _dmctaMetrics       :: [MetricCollectionType]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeMetricCollectionTypesAnswer' constructor.
 --
@@ -83,6 +83,7 @@ dmctaGranularities =
 -- GroupTotalInstances.
 dmctaMetrics :: Lens' DescribeMetricCollectionTypesAnswer [MetricCollectionType]
 dmctaMetrics = lens _dmctaMetrics (\s a -> s { _dmctaMetrics = a })
+
 instance FromXML DescribeMetricCollectionTypesAnswer where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeMetricCollectionTypesAnswer"

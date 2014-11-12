@@ -51,7 +51,7 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
     { _csdsBucket :: Text
     , _csdsDryRun :: Maybe Bool
     , _csdsPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateSpotDatafeedSubscription' constructor.
 --
@@ -89,7 +89,7 @@ instance ToPath CreateSpotDatafeedSubscription where
 
 newtype CreateSpotDatafeedSubscriptionResult = CreateSpotDatafeedSubscriptionResult
     { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateSpotDatafeedSubscriptionResult' constructor.
 --
@@ -107,6 +107,7 @@ csdsrSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResult (May
 csdsrSpotDatafeedSubscription =
     lens _csdsrSpotDatafeedSubscription
         (\s a -> s { _csdsrSpotDatafeedSubscription = a })
+
 instance FromXML CreateSpotDatafeedSubscriptionResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateSpotDatafeedSubscriptionResult"

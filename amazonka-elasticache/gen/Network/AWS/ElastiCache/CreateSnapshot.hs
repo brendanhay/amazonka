@@ -47,7 +47,7 @@ import Network.AWS.ElastiCache.Types
 data CreateSnapshotMessage = CreateSnapshotMessage
     { _csmCacheClusterId :: Text
     , _csmSnapshotName   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateSnapshotMessage' constructor.
 --
@@ -81,7 +81,7 @@ instance ToPath CreateSnapshotMessage where
 
 newtype CreateSnapshotResult = CreateSnapshotResult
     { _csr1Snapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateSnapshotResult' constructor.
 --
@@ -96,6 +96,7 @@ createSnapshotResult = CreateSnapshotResult
 
 csr1Snapshot :: Lens' CreateSnapshotResult (Maybe Snapshot)
 csr1Snapshot = lens _csr1Snapshot (\s a -> s { _csr1Snapshot = a })
+
 instance FromXML CreateSnapshotResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateSnapshotResult"

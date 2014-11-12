@@ -45,7 +45,7 @@ import Network.AWS.CloudSearch.Types
 
 newtype BuildSuggesters = BuildSuggesters
     { _bsDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'BuildSuggesters' constructor.
 --
@@ -68,7 +68,16 @@ instance ToPath BuildSuggesters where
 
 newtype BuildSuggestersResponse = BuildSuggestersResponse
     { _bsrFieldNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'BuildSuggestersResponse' constructor.
 --
@@ -83,6 +92,7 @@ buildSuggestersResponse = BuildSuggestersResponse
 
 bsrFieldNames :: Lens' BuildSuggestersResponse [Text]
 bsrFieldNames = lens _bsrFieldNames (\s a -> s { _bsrFieldNames = a })
+
 instance FromXML BuildSuggestersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "BuildSuggestersResponse"

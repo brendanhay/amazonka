@@ -45,7 +45,7 @@ import Network.AWS.Route53.Types
 
 newtype GetHealthCheck = GetHealthCheck
     { _ghcHealthCheckId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetHealthCheck' constructor.
 --
@@ -76,7 +76,7 @@ instance ToHeaders GetHealthCheck
 
 newtype GetHealthCheckResponse = GetHealthCheckResponse
     { _ghcrHealthCheck :: HealthCheck
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetHealthCheckResponse' constructor.
 --

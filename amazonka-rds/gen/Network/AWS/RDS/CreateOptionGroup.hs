@@ -52,7 +52,7 @@ data CreateOptionGroupMessage = CreateOptionGroupMessage
     , _cogmOptionGroupDescription :: Text
     , _cogmOptionGroupName        :: Text
     , _cogmTags                   :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateOptionGroupMessage' constructor.
 --
@@ -115,7 +115,7 @@ instance ToPath CreateOptionGroupMessage where
 
 newtype CreateOptionGroupResult = CreateOptionGroupResult
     { _cogr1OptionGroup :: Maybe OptionGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateOptionGroupResult' constructor.
 --
@@ -130,6 +130,7 @@ createOptionGroupResult = CreateOptionGroupResult
 
 cogr1OptionGroup :: Lens' CreateOptionGroupResult (Maybe OptionGroup)
 cogr1OptionGroup = lens _cogr1OptionGroup (\s a -> s { _cogr1OptionGroup = a })
+
 instance FromXML CreateOptionGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateOptionGroupResult"

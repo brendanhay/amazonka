@@ -46,7 +46,7 @@ import Network.AWS.ElastiCache.Types
 
 newtype DeleteSnapshotMessage = DeleteSnapshotMessage
     { _dsmSnapshotName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteSnapshotMessage' constructor.
 --
@@ -70,7 +70,7 @@ instance ToPath DeleteSnapshotMessage where
 
 newtype DeleteSnapshotResult = DeleteSnapshotResult
     { _dsrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteSnapshotResult' constructor.
 --
@@ -85,6 +85,7 @@ deleteSnapshotResult = DeleteSnapshotResult
 
 dsrSnapshot :: Lens' DeleteSnapshotResult (Maybe Snapshot)
 dsrSnapshot = lens _dsrSnapshot (\s a -> s { _dsrSnapshot = a })
+
 instance FromXML DeleteSnapshotResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteSnapshotResult"

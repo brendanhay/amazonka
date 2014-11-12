@@ -54,7 +54,7 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     { _rrtaAssociationId :: Text
     , _rrtaDryRun        :: Maybe Bool
     , _rrtaRouteTableId  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ReplaceRouteTableAssociation' constructor.
 --
@@ -93,7 +93,7 @@ instance ToPath ReplaceRouteTableAssociation where
 
 newtype ReplaceRouteTableAssociationResult = ReplaceRouteTableAssociationResult
     { _rrtarNewAssociationId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ReplaceRouteTableAssociationResult' constructor.
 --
@@ -110,6 +110,7 @@ replaceRouteTableAssociationResult = ReplaceRouteTableAssociationResult
 rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResult (Maybe Text)
 rrtarNewAssociationId =
     lens _rrtarNewAssociationId (\s a -> s { _rrtarNewAssociationId = a })
+
 instance FromXML ReplaceRouteTableAssociationResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReplaceRouteTableAssociationResult"

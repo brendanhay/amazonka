@@ -51,7 +51,7 @@ data DescribeHsmClientCertificatesMessage = DescribeHsmClientCertificatesMessage
     { _dhccmHsmClientCertificateIdentifier :: Maybe Text
     , _dhccmMarker                         :: Maybe Text
     , _dhccmMaxRecords                     :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeHsmClientCertificatesMessage' constructor.
 --
@@ -102,7 +102,7 @@ instance ToPath DescribeHsmClientCertificatesMessage where
 data HsmClientCertificateMessage = HsmClientCertificateMessage
     { _hccmHsmClientCertificates :: [HsmClientCertificate]
     , _hccmMarker                :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'HsmClientCertificateMessage' constructor.
 --
@@ -134,6 +134,7 @@ hccmHsmClientCertificates =
 -- request.
 hccmMarker :: Lens' HsmClientCertificateMessage (Maybe Text)
 hccmMarker = lens _hccmMarker (\s a -> s { _hccmMarker = a })
+
 instance FromXML HsmClientCertificateMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "HsmClientCertificateMessage"

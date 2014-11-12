@@ -78,7 +78,7 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     , _dsphNextToken           :: Maybe Text
     , _dsphProductDescriptions :: [Text]
     , _dsphStartTime           :: Maybe RFC822
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeSpotPriceHistory' constructor.
 --
@@ -171,7 +171,7 @@ instance ToPath DescribeSpotPriceHistory where
 data DescribeSpotPriceHistoryResult = DescribeSpotPriceHistoryResult
     { _dsphrNextToken        :: Maybe Text
     , _dsphrSpotPriceHistory :: [SpotPrice]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeSpotPriceHistoryResult' constructor.
 --
@@ -196,6 +196,7 @@ dsphrNextToken = lens _dsphrNextToken (\s a -> s { _dsphrNextToken = a })
 dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResult [SpotPrice]
 dsphrSpotPriceHistory =
     lens _dsphrSpotPriceHistory (\s a -> s { _dsphrSpotPriceHistory = a })
+
 instance FromXML DescribeSpotPriceHistoryResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSpotPriceHistoryResult"

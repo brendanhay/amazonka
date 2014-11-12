@@ -42,7 +42,7 @@ import Network.AWS.Redshift.Types
 
 newtype DeleteEventSubscriptionMessage = DeleteEventSubscriptionMessage
     { _desm1SubscriptionName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteEventSubscriptionMessage' constructor.
 --
@@ -72,6 +72,7 @@ data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
 -- | 'DeleteEventSubscriptionResponse' constructor.
 deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
+
 instance FromXML DeleteEventSubscriptionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteEventSubscriptionResponse"

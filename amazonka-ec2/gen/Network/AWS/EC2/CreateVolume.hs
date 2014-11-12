@@ -76,7 +76,7 @@ data CreateVolume = CreateVolume
     , _cvSize             :: Maybe Int
     , _cvSnapshotId       :: Maybe Text
     , _cvVolumeType       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateVolume' constructor.
 --

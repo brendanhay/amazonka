@@ -49,7 +49,7 @@ data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity
     { _ucfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
     , _ucfoaiId                                   :: Text
     , _ucfoaiIfMatch                              :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'UpdateCloudFrontOriginAccessIdentity' constructor.
 --
@@ -106,7 +106,7 @@ instance ToBody UpdateCloudFrontOriginAccessIdentity where
 data UpdateCloudFrontOriginAccessIdentityResult = UpdateCloudFrontOriginAccessIdentityResult
     { _ucfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
     , _ucfoairETag                           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'UpdateCloudFrontOriginAccessIdentityResult' constructor.
 --

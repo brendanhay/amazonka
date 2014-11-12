@@ -46,7 +46,7 @@ import Network.AWS.EC2.Types
 data DeleteRouteTable = DeleteRouteTable
     { _drt1DryRun       :: Maybe Bool
     , _drt1RouteTableId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteRouteTable' constructor.
 --
@@ -80,6 +80,7 @@ data DeleteRouteTableResponse = DeleteRouteTableResponse
 -- | 'DeleteRouteTableResponse' constructor.
 deleteRouteTableResponse :: DeleteRouteTableResponse
 deleteRouteTableResponse = DeleteRouteTableResponse
+
 instance FromXML DeleteRouteTableResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteRouteTableResponse"

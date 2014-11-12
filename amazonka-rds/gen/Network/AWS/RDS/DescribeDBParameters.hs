@@ -53,7 +53,7 @@ data DescribeDBParametersMessage = DescribeDBParametersMessage
     , _ddbpmMarker               :: Maybe Text
     , _ddbpmMaxRecords           :: Maybe Int
     , _ddbpmSource               :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeDBParametersMessage' constructor.
 --
@@ -117,7 +117,7 @@ instance ToPath DescribeDBParametersMessage where
 data DBParameterGroupDetails = DBParameterGroupDetails
     { _dbpgdMarker     :: Maybe Text
     , _dbpgdParameters :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DBParameterGroupDetails' constructor.
 --
@@ -142,6 +142,7 @@ dbpgdMarker = lens _dbpgdMarker (\s a -> s { _dbpgdMarker = a })
 -- | A list of Parameter values.
 dbpgdParameters :: Lens' DBParameterGroupDetails [Parameter]
 dbpgdParameters = lens _dbpgdParameters (\s a -> s { _dbpgdParameters = a })
+
 instance FromXML DBParameterGroupDetails where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DBParameterGroupDetails"

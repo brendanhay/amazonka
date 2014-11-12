@@ -44,7 +44,7 @@ import Network.AWS.EC2.Types
 data DeleteKeyPair = DeleteKeyPair
     { _dkp1DryRun  :: Maybe Bool
     , _dkp1KeyName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteKeyPair' constructor.
 --
@@ -78,6 +78,7 @@ data DeleteKeyPairResponse = DeleteKeyPairResponse
 -- | 'DeleteKeyPairResponse' constructor.
 deleteKeyPairResponse :: DeleteKeyPairResponse
 deleteKeyPairResponse = DeleteKeyPairResponse
+
 instance FromXML DeleteKeyPairResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteKeyPairResponse"

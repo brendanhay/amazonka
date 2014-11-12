@@ -47,7 +47,7 @@ import Network.AWS.CloudSearch.Types
 data DeleteSuggester = DeleteSuggester
     { _ds3DomainName    :: Text
     , _ds3SuggesterName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSuggester' constructor.
 --
@@ -78,7 +78,7 @@ instance ToPath DeleteSuggester where
 
 newtype DeleteSuggesterResponse = DeleteSuggesterResponse
     { _dsr1Suggester :: SuggesterStatus
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteSuggesterResponse' constructor.
 --
@@ -95,6 +95,7 @@ deleteSuggesterResponse p1 = DeleteSuggesterResponse
 -- | The status of the suggester being deleted.
 dsr1Suggester :: Lens' DeleteSuggesterResponse SuggesterStatus
 dsr1Suggester = lens _dsr1Suggester (\s a -> s { _dsr1Suggester = a })
+
 instance FromXML DeleteSuggesterResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteSuggesterResponse"

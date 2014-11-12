@@ -50,7 +50,7 @@ import Network.AWS.EC2.Types
 data RebootInstances = RebootInstances
     { _ri2DryRun      :: Maybe Bool
     , _ri2InstanceIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RebootInstances' constructor.
 --
@@ -83,6 +83,7 @@ data RebootInstancesResponse = RebootInstancesResponse
 -- | 'RebootInstancesResponse' constructor.
 rebootInstancesResponse :: RebootInstancesResponse
 rebootInstancesResponse = RebootInstancesResponse
+
 instance FromXML RebootInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RebootInstancesResponse"

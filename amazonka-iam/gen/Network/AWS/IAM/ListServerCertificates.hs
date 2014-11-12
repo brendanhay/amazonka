@@ -52,7 +52,7 @@ data ListServerCertificates = ListServerCertificates
     { _lscMarker     :: Maybe Text
     , _lscMaxItems   :: Maybe Natural
     , _lscPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListServerCertificates' constructor.
 --
@@ -101,7 +101,7 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse
     { _lscrIsTruncated                   :: Maybe Bool
     , _lscrMarker                        :: Maybe Text
     , _lscrServerCertificateMetadataList :: [ServerCertificateMetadata]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListServerCertificatesResponse' constructor.
 --
@@ -137,6 +137,7 @@ lscrServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [Serve
 lscrServerCertificateMetadataList =
     lens _lscrServerCertificateMetadataList
         (\s a -> s { _lscrServerCertificateMetadataList = a })
+
 instance FromXML ListServerCertificatesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListServerCertificatesResponse"

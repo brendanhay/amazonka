@@ -48,7 +48,7 @@ data ListInvalidations = ListInvalidations
     { _liDistributionId :: Text
     , _liMarker         :: Maybe Text
     , _liMaxItems       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListInvalidations' constructor.
 --
@@ -103,7 +103,7 @@ instance ToHeaders ListInvalidations
 
 newtype ListInvalidationsResult = ListInvalidationsResult
     { _lirInvalidationList :: Maybe InvalidationList
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListInvalidationsResult' constructor.
 --

@@ -1620,7 +1620,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "streaming": false,
                 "fieldPad": 0,

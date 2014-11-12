@@ -54,7 +54,7 @@ instance ToPath GetAccountPasswordPolicy where
 
 newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
     { _gapprPasswordPolicy :: PasswordPolicy
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetAccountPasswordPolicyResponse' constructor.
 --
@@ -71,6 +71,7 @@ getAccountPasswordPolicyResponse p1 = GetAccountPasswordPolicyResponse
 gapprPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
 gapprPasswordPolicy =
     lens _gapprPasswordPolicy (\s a -> s { _gapprPasswordPolicy = a })
+
 instance FromXML GetAccountPasswordPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetAccountPasswordPolicyResponse"

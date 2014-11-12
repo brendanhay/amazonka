@@ -56,7 +56,7 @@ data ImportInstance = ImportInstance
     , _iiDryRun              :: Maybe Bool
     , _iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
     , _iiPlatform            :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ImportInstance' constructor.
 --
@@ -107,7 +107,7 @@ instance ToPath ImportInstance where
 
 newtype ImportInstanceResult = ImportInstanceResult
     { _iirConversionTask :: Maybe ConversionTask
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ImportInstanceResult' constructor.
 --
@@ -123,6 +123,7 @@ importInstanceResult = ImportInstanceResult
 iirConversionTask :: Lens' ImportInstanceResult (Maybe ConversionTask)
 iirConversionTask =
     lens _iirConversionTask (\s a -> s { _iirConversionTask = a })
+
 instance FromXML ImportInstanceResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ImportInstanceResult"

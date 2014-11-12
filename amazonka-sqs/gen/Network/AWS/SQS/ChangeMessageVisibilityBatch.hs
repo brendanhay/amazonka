@@ -54,7 +54,7 @@ import Network.AWS.SQS.Types
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
     { _cmvbEntries  :: [ChangeMessageVisibilityBatchRequestEntry]
     , _cmvbQueueUrl :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ChangeMessageVisibilityBatch' constructor.
 --
@@ -87,7 +87,7 @@ instance ToPath ChangeMessageVisibilityBatch where
 data ChangeMessageVisibilityBatchResult = ChangeMessageVisibilityBatchResult
     { _cmvbrFailed     :: [BatchResultErrorEntry]
     , _cmvbrSuccessful :: [ChangeMessageVisibilityBatchResultEntry]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ChangeMessageVisibilityBatchResult' constructor.
 --
@@ -110,6 +110,7 @@ cmvbrFailed = lens _cmvbrFailed (\s a -> s { _cmvbrFailed = a })
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.
 cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResult [ChangeMessageVisibilityBatchResultEntry]
 cmvbrSuccessful = lens _cmvbrSuccessful (\s a -> s { _cmvbrSuccessful = a })
+
 instance FromXML ChangeMessageVisibilityBatchResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ChangeMessageVisibilityBatchResult"

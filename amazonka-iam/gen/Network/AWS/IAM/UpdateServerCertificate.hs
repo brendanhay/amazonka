@@ -49,7 +49,7 @@ data UpdateServerCertificate = UpdateServerCertificate
     { _usc1NewPath                  :: Maybe Text
     , _usc1NewServerCertificateName :: Maybe Text
     , _usc1ServerCertificateName    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateServerCertificate' constructor.
 --
@@ -97,6 +97,7 @@ data UpdateServerCertificateResponse = UpdateServerCertificateResponse
 -- | 'UpdateServerCertificateResponse' constructor.
 updateServerCertificateResponse :: UpdateServerCertificateResponse
 updateServerCertificateResponse = UpdateServerCertificateResponse
+
 instance FromXML UpdateServerCertificateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateServerCertificateResponse"

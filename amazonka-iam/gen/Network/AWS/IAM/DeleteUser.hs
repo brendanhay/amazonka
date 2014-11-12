@@ -43,7 +43,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteUser = DeleteUser
     { _duUserName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteUser' constructor.
 --
@@ -71,6 +71,7 @@ data DeleteUserResponse = DeleteUserResponse
 -- | 'DeleteUserResponse' constructor.
 deleteUserResponse :: DeleteUserResponse
 deleteUserResponse = DeleteUserResponse
+
 instance FromXML DeleteUserResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteUserResponse"

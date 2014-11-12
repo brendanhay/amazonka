@@ -48,7 +48,7 @@ data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
     { _dvpcDryRun                  :: Maybe Bool
     , _dvpcFilters                 :: [Filter]
     , _dvpcVpcPeeringConnectionIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeVpcPeeringConnections' constructor.
 --
@@ -107,7 +107,7 @@ instance ToPath DescribeVpcPeeringConnections where
 
 newtype DescribeVpcPeeringConnectionsResult = DescribeVpcPeeringConnectionsResult
     { _dvpcrVpcPeeringConnections :: [VpcPeeringConnection]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeVpcPeeringConnectionsResult' constructor.
 --
@@ -125,6 +125,7 @@ dvpcrVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResult [VpcPeer
 dvpcrVpcPeeringConnections =
     lens _dvpcrVpcPeeringConnections
         (\s a -> s { _dvpcrVpcPeeringConnections = a })
+
 instance FromXML DescribeVpcPeeringConnectionsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeVpcPeeringConnectionsResult"

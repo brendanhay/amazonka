@@ -49,7 +49,7 @@ import Network.AWS.IAM.Types
 data CreateInstanceProfile = CreateInstanceProfile
     { _cipInstanceProfileName :: Text
     , _cipPath                :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateInstanceProfile' constructor.
 --
@@ -83,7 +83,7 @@ instance ToPath CreateInstanceProfile where
 
 newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
     { _ciprInstanceProfile :: InstanceProfile
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateInstanceProfileResponse' constructor.
 --
@@ -101,6 +101,7 @@ createInstanceProfileResponse p1 = CreateInstanceProfileResponse
 ciprInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
 ciprInstanceProfile =
     lens _ciprInstanceProfile (\s a -> s { _ciprInstanceProfile = a })
+
 instance FromXML CreateInstanceProfileResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateInstanceProfileResponse"

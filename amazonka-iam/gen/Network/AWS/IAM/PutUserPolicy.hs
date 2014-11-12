@@ -50,7 +50,7 @@ data PutUserPolicy = PutUserPolicy
     { _pupPolicyDocument :: Text
     , _pupPolicyName     :: Text
     , _pupUserName       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'PutUserPolicy' constructor.
 --
@@ -95,6 +95,7 @@ data PutUserPolicyResponse = PutUserPolicyResponse
 -- | 'PutUserPolicyResponse' constructor.
 putUserPolicyResponse :: PutUserPolicyResponse
 putUserPolicyResponse = PutUserPolicyResponse
+
 instance FromXML PutUserPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PutUserPolicyResponse"

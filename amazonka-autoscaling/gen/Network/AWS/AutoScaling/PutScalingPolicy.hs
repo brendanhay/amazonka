@@ -57,7 +57,7 @@ data PutScalingPolicyType = PutScalingPolicyType
     , _psptMinAdjustmentStep    :: Maybe Int
     , _psptPolicyName           :: Text
     , _psptScalingAdjustment    :: Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'PutScalingPolicyType' constructor.
 --
@@ -138,7 +138,7 @@ instance ToPath PutScalingPolicyType where
 
 newtype PolicyARNType = PolicyARNType
     { _parntPolicyARN :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'PolicyARNType' constructor.
 --
@@ -154,6 +154,7 @@ policyARNType = PolicyARNType
 -- | A policy's Amazon Resource Name (ARN).
 parntPolicyARN :: Lens' PolicyARNType (Maybe Text)
 parntPolicyARN = lens _parntPolicyARN (\s a -> s { _parntPolicyARN = a })
+
 instance FromXML PolicyARNType where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PolicyARNType"

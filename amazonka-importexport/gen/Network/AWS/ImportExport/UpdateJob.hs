@@ -55,7 +55,7 @@ data UpdateJobInput = UpdateJobInput
     , _ujiJobType      :: Text
     , _ujiManifest     :: Text
     , _ujiValidateOnly :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateJobInput' constructor.
 --
@@ -100,7 +100,7 @@ instance ToPath UpdateJobInput where
 data UpdateJobOutput = UpdateJobOutput
     { _ujoSuccess        :: Maybe Bool
     , _ujoWarningMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateJobOutput' constructor.
 --
@@ -122,6 +122,7 @@ ujoSuccess = lens _ujoSuccess (\s a -> s { _ujoSuccess = a })
 ujoWarningMessage :: Lens' UpdateJobOutput (Maybe Text)
 ujoWarningMessage =
     lens _ujoWarningMessage (\s a -> s { _ujoWarningMessage = a })
+
 instance FromXML UpdateJobOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateJobOutput"

@@ -47,7 +47,7 @@ import Network.AWS.AutoScaling.Types
 data TerminateInstanceInAutoScalingGroupType = TerminateInstanceInAutoScalingGroupType
     { _tiiasgtInstanceId                     :: Text
     , _tiiasgtShouldDecrementDesiredCapacity :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'TerminateInstanceInAutoScalingGroupType' constructor.
 --
@@ -83,7 +83,7 @@ instance ToPath TerminateInstanceInAutoScalingGroupType where
 
 newtype ActivityType = ActivityType
     { _atActivity :: Maybe Activity
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ActivityType' constructor.
 --
@@ -99,6 +99,7 @@ activityType = ActivityType
 -- | A scaling Activity.
 atActivity :: Lens' ActivityType (Maybe Activity)
 atActivity = lens _atActivity (\s a -> s { _atActivity = a })
+
 instance FromXML ActivityType where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ActivityType"

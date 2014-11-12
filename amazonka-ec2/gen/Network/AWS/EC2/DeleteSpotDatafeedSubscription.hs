@@ -43,7 +43,7 @@ import Network.AWS.EC2.Types
 
 newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
     { _dsds1DryRun :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSpotDatafeedSubscription' constructor.
 --
@@ -69,6 +69,7 @@ data DeleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResp
 -- | 'DeleteSpotDatafeedSubscriptionResponse' constructor.
 deleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse
 deleteSpotDatafeedSubscriptionResponse = DeleteSpotDatafeedSubscriptionResponse
+
 instance FromXML DeleteSpotDatafeedSubscriptionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteSpotDatafeedSubscriptionResponse"

@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 data DeleteDhcpOptions = DeleteDhcpOptions
     { _ddoDhcpOptionsId :: Text
     , _ddoDryRun        :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteDhcpOptions' constructor.
 --
@@ -81,6 +81,7 @@ data DeleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
 -- | 'DeleteDhcpOptionsResponse' constructor.
 deleteDhcpOptionsResponse :: DeleteDhcpOptionsResponse
 deleteDhcpOptionsResponse = DeleteDhcpOptionsResponse
+
 instance FromXML DeleteDhcpOptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteDhcpOptionsResponse"

@@ -55,7 +55,7 @@ data CreateVpc = CreateVpc
     { _cv1CidrBlock       :: Text
     , _cv1DryRun          :: Maybe Bool
     , _cv1InstanceTenancy :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateVpc' constructor.
 --
@@ -99,7 +99,7 @@ instance ToPath CreateVpc where
 
 newtype CreateVpcResult = CreateVpcResult
     { _cvrVpc :: Maybe Vpc
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateVpcResult' constructor.
 --
@@ -115,6 +115,7 @@ createVpcResult = CreateVpcResult
 -- | Information about the VPC.
 cvrVpc :: Lens' CreateVpcResult (Maybe Vpc)
 cvrVpc = lens _cvrVpc (\s a -> s { _cvrVpc = a })
+
 instance FromXML CreateVpcResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateVpcResult"

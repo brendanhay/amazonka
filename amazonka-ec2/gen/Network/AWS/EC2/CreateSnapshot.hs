@@ -78,7 +78,7 @@ data CreateSnapshot = CreateSnapshot
     { _cs2Description :: Maybe Text
     , _cs2DryRun      :: Maybe Bool
     , _cs2VolumeId    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateSnapshot' constructor.
 --

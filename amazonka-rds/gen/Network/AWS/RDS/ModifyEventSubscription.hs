@@ -57,7 +57,7 @@ data ModifyEventSubscriptionMessage = ModifyEventSubscriptionMessage
     , _mesmSnsTopicArn      :: Maybe Text
     , _mesmSourceType       :: Maybe Text
     , _mesmSubscriptionName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ModifyEventSubscriptionMessage' constructor.
 --
@@ -120,7 +120,7 @@ instance ToPath ModifyEventSubscriptionMessage where
 
 newtype ModifyEventSubscriptionResult = ModifyEventSubscriptionResult
     { _mesrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyEventSubscriptionResult' constructor.
 --
@@ -136,6 +136,7 @@ modifyEventSubscriptionResult = ModifyEventSubscriptionResult
 mesrEventSubscription :: Lens' ModifyEventSubscriptionResult (Maybe EventSubscription)
 mesrEventSubscription =
     lens _mesrEventSubscription (\s a -> s { _mesrEventSubscription = a })
+
 instance FromXML ModifyEventSubscriptionResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyEventSubscriptionResult"

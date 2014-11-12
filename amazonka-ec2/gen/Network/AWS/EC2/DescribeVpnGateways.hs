@@ -50,7 +50,7 @@ data DescribeVpnGateways = DescribeVpnGateways
     { _dvg2DryRun        :: Maybe Bool
     , _dvg2Filters       :: [Filter]
     , _dvg2VpnGatewayIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeVpnGateways' constructor.
 --
@@ -104,7 +104,7 @@ instance ToPath DescribeVpnGateways where
 
 newtype DescribeVpnGatewaysResult = DescribeVpnGatewaysResult
     { _dvgrVpnGateways :: [VpnGateway]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeVpnGatewaysResult' constructor.
 --
@@ -120,6 +120,7 @@ describeVpnGatewaysResult = DescribeVpnGatewaysResult
 -- | Information about one or more virtual private gateways.
 dvgrVpnGateways :: Lens' DescribeVpnGatewaysResult [VpnGateway]
 dvgrVpnGateways = lens _dvgrVpnGateways (\s a -> s { _dvgrVpnGateways = a })
+
 instance FromXML DescribeVpnGatewaysResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeVpnGatewaysResult"

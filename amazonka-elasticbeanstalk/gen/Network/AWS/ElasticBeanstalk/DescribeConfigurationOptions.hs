@@ -57,7 +57,7 @@ data DescribeConfigurationOptionsMessage = DescribeConfigurationOptionsMessage
     , _dcomOptions           :: [OptionSpecification]
     , _dcomSolutionStackName :: Maybe Text
     , _dcomTemplateName      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeConfigurationOptionsMessage' constructor.
 --
@@ -117,7 +117,7 @@ instance ToPath DescribeConfigurationOptionsMessage where
 data ConfigurationOptionsDescription = ConfigurationOptionsDescription
     { _codOptions           :: [ConfigurationOptionDescription]
     , _codSolutionStackName :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ConfigurationOptionsDescription' constructor.
 --
@@ -141,6 +141,7 @@ codOptions = lens _codOptions (\s a -> s { _codOptions = a })
 codSolutionStackName :: Lens' ConfigurationOptionsDescription (Maybe Text)
 codSolutionStackName =
     lens _codSolutionStackName (\s a -> s { _codSolutionStackName = a })
+
 instance FromXML ConfigurationOptionsDescription where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ConfigurationOptionsDescription"

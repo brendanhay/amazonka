@@ -45,7 +45,7 @@ import Network.AWS.ElasticBeanstalk.Types
 
 newtype CheckDNSAvailabilityMessage = CheckDNSAvailabilityMessage
     { _cdnsamCNAMEPrefix :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CheckDNSAvailabilityMessage' constructor.
 --
@@ -71,7 +71,7 @@ instance ToPath CheckDNSAvailabilityMessage where
 data CheckDNSAvailabilityResultMessage = CheckDNSAvailabilityResultMessage
     { _cdnsarmAvailable           :: Maybe Bool
     , _cdnsarmFullyQualifiedCNAME :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CheckDNSAvailabilityResultMessage' constructor.
 --
@@ -99,6 +99,7 @@ cdnsarmFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResultMessage (Maybe Tex
 cdnsarmFullyQualifiedCNAME =
     lens _cdnsarmFullyQualifiedCNAME
         (\s a -> s { _cdnsarmFullyQualifiedCNAME = a })
+
 instance FromXML CheckDNSAvailabilityResultMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CheckDNSAvailabilityResultMessage"

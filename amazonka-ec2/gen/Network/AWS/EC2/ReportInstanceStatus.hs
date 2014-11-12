@@ -60,7 +60,7 @@ data ReportInstanceStatus = ReportInstanceStatus
     , _risReasonCodes :: [Text]
     , _risStartTime   :: Maybe RFC822
     , _risStatus      :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ReportInstanceStatus' constructor.
 --
@@ -142,6 +142,7 @@ data ReportInstanceStatusResponse = ReportInstanceStatusResponse
 -- | 'ReportInstanceStatusResponse' constructor.
 reportInstanceStatusResponse :: ReportInstanceStatusResponse
 reportInstanceStatusResponse = ReportInstanceStatusResponse
+
 instance FromXML ReportInstanceStatusResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReportInstanceStatusResponse"

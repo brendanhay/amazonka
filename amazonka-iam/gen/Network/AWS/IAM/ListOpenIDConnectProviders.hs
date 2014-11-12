@@ -53,7 +53,7 @@ instance ToPath ListOpenIDConnectProviders where
 
 newtype ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse
     { _loidcprOpenIDConnectProviderList :: [OpenIDConnectProviderListEntry]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'ListOpenIDConnectProvidersResponse' constructor.
 --
@@ -71,6 +71,7 @@ loidcprOpenIDConnectProviderList :: Lens' ListOpenIDConnectProvidersResponse [Op
 loidcprOpenIDConnectProviderList =
     lens _loidcprOpenIDConnectProviderList
         (\s a -> s { _loidcprOpenIDConnectProviderList = a })
+
 instance FromXML ListOpenIDConnectProvidersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListOpenIDConnectProvidersResponse"

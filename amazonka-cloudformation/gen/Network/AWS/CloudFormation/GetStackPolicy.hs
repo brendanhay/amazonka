@@ -45,7 +45,7 @@ import Network.AWS.CloudFormation.Types
 
 newtype GetStackPolicyInput = GetStackPolicyInput
     { _gspiStackName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetStackPolicyInput' constructor.
 --
@@ -70,7 +70,7 @@ instance ToPath GetStackPolicyInput where
 
 newtype GetStackPolicyOutput = GetStackPolicyOutput
     { _gspoStackPolicyBody :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetStackPolicyOutput' constructor.
 --
@@ -89,6 +89,7 @@ getStackPolicyOutput = GetStackPolicyOutput
 gspoStackPolicyBody :: Lens' GetStackPolicyOutput (Maybe Text)
 gspoStackPolicyBody =
     lens _gspoStackPolicyBody (\s a -> s { _gspoStackPolicyBody = a })
+
 instance FromXML GetStackPolicyOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetStackPolicyOutput"

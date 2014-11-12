@@ -49,7 +49,7 @@ data DeleteSecurityGroup = DeleteSecurityGroup
     { _dsg1DryRun    :: Maybe Bool
     , _dsg1GroupId   :: Maybe Text
     , _dsg1GroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSecurityGroup' constructor.
 --
@@ -90,6 +90,7 @@ data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
 -- | 'DeleteSecurityGroupResponse' constructor.
 deleteSecurityGroupResponse :: DeleteSecurityGroupResponse
 deleteSecurityGroupResponse = DeleteSecurityGroupResponse
+
 instance FromXML DeleteSecurityGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteSecurityGroupResponse"

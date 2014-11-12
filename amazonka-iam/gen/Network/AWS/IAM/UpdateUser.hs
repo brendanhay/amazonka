@@ -48,7 +48,7 @@ data UpdateUser = UpdateUser
     { _uuNewPath     :: Maybe Text
     , _uuNewUserName :: Maybe Text
     , _uuUserName    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateUser' constructor.
 --
@@ -93,6 +93,7 @@ data UpdateUserResponse = UpdateUserResponse
 -- | 'UpdateUserResponse' constructor.
 updateUserResponse :: UpdateUserResponse
 updateUserResponse = UpdateUserResponse
+
 instance FromXML UpdateUserResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateUserResponse"

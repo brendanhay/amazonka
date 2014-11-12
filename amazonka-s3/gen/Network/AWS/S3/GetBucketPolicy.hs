@@ -44,7 +44,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketPolicy = GetBucketPolicy
     { _gbpBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketPolicy' constructor.
 --
@@ -74,7 +74,7 @@ instance ToHeaders GetBucketPolicy
 
 newtype GetBucketPolicyOutput = GetBucketPolicyOutput
     { _gbpoPolicy :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketPolicyOutput' constructor.
 --

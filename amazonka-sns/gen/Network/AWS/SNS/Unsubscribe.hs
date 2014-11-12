@@ -48,7 +48,7 @@ import Network.AWS.SNS.Types
 
 newtype UnsubscribeInput = UnsubscribeInput
     { _uiSubscriptionArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'UnsubscribeInput' constructor.
 --
@@ -77,6 +77,7 @@ data UnsubscribeResponse = UnsubscribeResponse
 -- | 'UnsubscribeResponse' constructor.
 unsubscribeResponse :: UnsubscribeResponse
 unsubscribeResponse = UnsubscribeResponse
+
 instance FromXML UnsubscribeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UnsubscribeResponse"

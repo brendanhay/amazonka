@@ -62,7 +62,7 @@ import Network.AWS.ImportExport.Types
 
 newtype GetStatusInput = GetStatusInput
     { _gsiJobId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetStatusInput' constructor.
 --
@@ -100,7 +100,7 @@ data GetStatusOutput = GetStatusOutput
     , _gsoSignature             :: Maybe Text
     , _gsoSignatureFileContents :: Maybe Text
     , _gsoTrackingNumber        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetStatusOutput' constructor.
 --
@@ -213,6 +213,7 @@ gsoSignatureFileContents =
 gsoTrackingNumber :: Lens' GetStatusOutput (Maybe Text)
 gsoTrackingNumber =
     lens _gsoTrackingNumber (\s a -> s { _gsoTrackingNumber = a })
+
 instance FromXML GetStatusOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetStatusOutput"

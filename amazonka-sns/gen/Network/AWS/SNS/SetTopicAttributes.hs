@@ -46,7 +46,7 @@ data SetTopicAttributesInput = SetTopicAttributesInput
     { _staiAttributeName  :: Text
     , _staiAttributeValue :: Maybe Text
     , _staiTopicArn       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SetTopicAttributesInput' constructor.
 --
@@ -93,6 +93,7 @@ data SetTopicAttributesResponse = SetTopicAttributesResponse
 -- | 'SetTopicAttributesResponse' constructor.
 setTopicAttributesResponse :: SetTopicAttributesResponse
 setTopicAttributesResponse = SetTopicAttributesResponse
+
 instance FromXML SetTopicAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetTopicAttributesResponse"

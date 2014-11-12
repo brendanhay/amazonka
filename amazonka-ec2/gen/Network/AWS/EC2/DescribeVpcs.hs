@@ -48,7 +48,7 @@ data DescribeVpcs = DescribeVpcs
     { _dv1DryRun  :: Maybe Bool
     , _dv1Filters :: [Filter]
     , _dv1VpcIds  :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeVpcs' constructor.
 --
@@ -98,7 +98,7 @@ instance ToPath DescribeVpcs where
 
 newtype DescribeVpcsResult = DescribeVpcsResult
     { _dvrVpcs :: [Vpc]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeVpcsResult' constructor.
 --
@@ -114,6 +114,7 @@ describeVpcsResult = DescribeVpcsResult
 -- | Information about one or more VPCs.
 dvrVpcs :: Lens' DescribeVpcsResult [Vpc]
 dvrVpcs = lens _dvrVpcs (\s a -> s { _dvrVpcs = a })
+
 instance FromXML DescribeVpcsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeVpcsResult"

@@ -53,7 +53,16 @@ instance ToPath DescribeLifecycleHookTypes where
 
 newtype DescribeLifecycleHookTypesAnswer = DescribeLifecycleHookTypesAnswer
     { _dlhtaLifecycleHookTypes :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'DescribeLifecycleHookTypesAnswer' constructor.
 --
@@ -72,6 +81,7 @@ describeLifecycleHookTypesAnswer = DescribeLifecycleHookTypesAnswer
 dlhtaLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesAnswer [Text]
 dlhtaLifecycleHookTypes =
     lens _dlhtaLifecycleHookTypes (\s a -> s { _dlhtaLifecycleHookTypes = a })
+
 instance FromXML DescribeLifecycleHookTypesAnswer where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeLifecycleHookTypesAnswer"

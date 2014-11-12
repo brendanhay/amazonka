@@ -50,7 +50,7 @@ data PutGroupPolicy = PutGroupPolicy
     { _pgpGroupName      :: Text
     , _pgpPolicyDocument :: Text
     , _pgpPolicyName     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'PutGroupPolicy' constructor.
 --
@@ -95,6 +95,7 @@ data PutGroupPolicyResponse = PutGroupPolicyResponse
 -- | 'PutGroupPolicyResponse' constructor.
 putGroupPolicyResponse :: PutGroupPolicyResponse
 putGroupPolicyResponse = PutGroupPolicyResponse
+
 instance FromXML PutGroupPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PutGroupPolicyResponse"

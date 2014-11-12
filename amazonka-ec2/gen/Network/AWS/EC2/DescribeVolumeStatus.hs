@@ -78,7 +78,7 @@ data DescribeVolumeStatus = DescribeVolumeStatus
     , _dvsMaxResults :: Maybe Int
     , _dvsNextToken  :: Maybe Text
     , _dvsVolumeIds  :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeVolumeStatus' constructor.
 --
@@ -144,7 +144,7 @@ instance ToPath DescribeVolumeStatus where
 data DescribeVolumeStatusResult = DescribeVolumeStatusResult
     { _dvsrNextToken      :: Maybe Text
     , _dvsrVolumeStatuses :: [VolumeStatusItem]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeVolumeStatusResult' constructor.
 --
@@ -168,6 +168,7 @@ dvsrNextToken = lens _dvsrNextToken (\s a -> s { _dvsrNextToken = a })
 dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResult [VolumeStatusItem]
 dvsrVolumeStatuses =
     lens _dvsrVolumeStatuses (\s a -> s { _dvsrVolumeStatuses = a })
+
 instance FromXML DescribeVolumeStatusResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeVolumeStatusResult"

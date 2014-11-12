@@ -62,7 +62,7 @@ data CreateVpnConnection = CreateVpnConnection
     , _cvcOptions           :: Maybe VpnConnectionOptionsSpecification
     , _cvcType              :: Text
     , _cvcVpnGatewayId      :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateVpnConnection' constructor.
 --
@@ -118,7 +118,7 @@ instance ToPath CreateVpnConnection where
 
 newtype CreateVpnConnectionResult = CreateVpnConnectionResult
     { _cvcrVpnConnection :: Maybe VpnConnection
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateVpnConnectionResult' constructor.
 --
@@ -135,6 +135,7 @@ createVpnConnectionResult = CreateVpnConnectionResult
 cvcrVpnConnection :: Lens' CreateVpnConnectionResult (Maybe VpnConnection)
 cvcrVpnConnection =
     lens _cvcrVpnConnection (\s a -> s { _cvcrVpnConnection = a })
+
 instance FromXML CreateVpnConnectionResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateVpnConnectionResult"

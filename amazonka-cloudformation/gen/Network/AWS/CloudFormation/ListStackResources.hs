@@ -49,7 +49,7 @@ import Network.AWS.CloudFormation.Types
 data ListStackResourcesInput = ListStackResourcesInput
     { _lsriNextToken :: Maybe Text
     , _lsriStackName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListStackResourcesInput' constructor.
 --
@@ -85,7 +85,7 @@ instance ToPath ListStackResourcesInput where
 data ListStackResourcesOutput = ListStackResourcesOutput
     { _lsroNextToken              :: Maybe Text
     , _lsroStackResourceSummaries :: [StackResourceSummary]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListStackResourcesOutput' constructor.
 --
@@ -111,6 +111,7 @@ lsroStackResourceSummaries :: Lens' ListStackResourcesOutput [StackResourceSumma
 lsroStackResourceSummaries =
     lens _lsroStackResourceSummaries
         (\s a -> s { _lsroStackResourceSummaries = a })
+
 instance FromXML ListStackResourcesOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListStackResourcesOutput"

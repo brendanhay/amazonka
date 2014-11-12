@@ -49,7 +49,7 @@ data DeleteTags = DeleteTags
     { _dt1DryRun    :: Maybe Bool
     , _dt1Resources :: [Text]
     , _dt1Tags      :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteTags' constructor.
 --
@@ -93,6 +93,7 @@ data DeleteTagsResponse = DeleteTagsResponse
 -- | 'DeleteTagsResponse' constructor.
 deleteTagsResponse :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse
+
 instance FromXML DeleteTagsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteTagsResponse"

@@ -50,7 +50,7 @@ import Network.AWS.Route53.Types
 
 newtype DeleteHealthCheck = DeleteHealthCheck
     { _dhcHealthCheckId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteHealthCheck' constructor.
 --

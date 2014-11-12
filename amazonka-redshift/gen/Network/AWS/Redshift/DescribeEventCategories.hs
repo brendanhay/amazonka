@@ -46,7 +46,7 @@ import Network.AWS.Redshift.Types
 
 newtype DescribeEventCategoriesMessage = DescribeEventCategoriesMessage
     { _decmSourceType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DescribeEventCategoriesMessage' constructor.
 --
@@ -71,7 +71,7 @@ instance ToPath DescribeEventCategoriesMessage where
 
 newtype EventCategoriesMessage = EventCategoriesMessage
     { _ecmEventCategoriesMapList :: [EventCategoriesMap]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'EventCategoriesMessage' constructor.
 --
@@ -89,6 +89,7 @@ ecmEventCategoriesMapList :: Lens' EventCategoriesMessage [EventCategoriesMap]
 ecmEventCategoriesMapList =
     lens _ecmEventCategoriesMapList
         (\s a -> s { _ecmEventCategoriesMapList = a })
+
 instance FromXML EventCategoriesMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EventCategoriesMessage"

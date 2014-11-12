@@ -68,7 +68,7 @@ data PutLifecycleHookType = PutLifecycleHookType
     , _plhtNotificationMetadata  :: Maybe Text
     , _plhtNotificationTargetARN :: Maybe Text
     , _plhtRoleARN               :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'PutLifecycleHookType' constructor.
 --
@@ -182,6 +182,7 @@ data PutLifecycleHookResponse = PutLifecycleHookResponse
 -- | 'PutLifecycleHookResponse' constructor.
 putLifecycleHookResponse :: PutLifecycleHookResponse
 putLifecycleHookResponse = PutLifecycleHookResponse
+
 instance FromXML PutLifecycleHookResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PutLifecycleHookResponse"

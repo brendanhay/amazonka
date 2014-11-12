@@ -69,7 +69,7 @@ import Network.AWS.EC2.Types
 data CreateDhcpOptions = CreateDhcpOptions
     { _cdoDhcpConfigurations :: [NewDhcpConfiguration]
     , _cdoDryRun             :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateDhcpOptions' constructor.
 --
@@ -99,7 +99,7 @@ instance ToPath CreateDhcpOptions where
 
 newtype CreateDhcpOptionsResult = CreateDhcpOptionsResult
     { _cdorDhcpOptions :: Maybe DhcpOptions
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateDhcpOptionsResult' constructor.
 --
@@ -115,6 +115,7 @@ createDhcpOptionsResult = CreateDhcpOptionsResult
 -- | A set of DHCP options.
 cdorDhcpOptions :: Lens' CreateDhcpOptionsResult (Maybe DhcpOptions)
 cdorDhcpOptions = lens _cdorDhcpOptions (\s a -> s { _cdorDhcpOptions = a })
+
 instance FromXML CreateDhcpOptionsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateDhcpOptionsResult"

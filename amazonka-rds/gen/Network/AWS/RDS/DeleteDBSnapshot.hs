@@ -45,7 +45,7 @@ import Network.AWS.RDS.Types
 
 newtype DeleteDBSnapshotMessage = DeleteDBSnapshotMessage
     { _ddbsm1DBSnapshotIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteDBSnapshotMessage' constructor.
 --
@@ -72,7 +72,7 @@ instance ToPath DeleteDBSnapshotMessage where
 
 newtype DeleteDBSnapshotResult = DeleteDBSnapshotResult
     { _ddbsrDBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteDBSnapshotResult' constructor.
 --
@@ -87,6 +87,7 @@ deleteDBSnapshotResult = DeleteDBSnapshotResult
 
 ddbsrDBSnapshot :: Lens' DeleteDBSnapshotResult (Maybe DBSnapshot)
 ddbsrDBSnapshot = lens _ddbsrDBSnapshot (\s a -> s { _ddbsrDBSnapshot = a })
+
 instance FromXML DeleteDBSnapshotResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteDBSnapshotResult"

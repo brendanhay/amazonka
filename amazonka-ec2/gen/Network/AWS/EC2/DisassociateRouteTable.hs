@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 data DisassociateRouteTable = DisassociateRouteTable
     { _drtAssociationId :: Text
     , _drtDryRun        :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DisassociateRouteTable' constructor.
 --
@@ -82,6 +82,7 @@ data DisassociateRouteTableResponse = DisassociateRouteTableResponse
 -- | 'DisassociateRouteTableResponse' constructor.
 disassociateRouteTableResponse :: DisassociateRouteTableResponse
 disassociateRouteTableResponse = DisassociateRouteTableResponse
+
 instance FromXML DisassociateRouteTableResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DisassociateRouteTableResponse"

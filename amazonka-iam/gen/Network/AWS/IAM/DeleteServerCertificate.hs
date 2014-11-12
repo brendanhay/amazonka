@@ -50,7 +50,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteServerCertificate = DeleteServerCertificate
     { _dscServerCertificateName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteServerCertificate' constructor.
 --
@@ -80,6 +80,7 @@ data DeleteServerCertificateResponse = DeleteServerCertificateResponse
 -- | 'DeleteServerCertificateResponse' constructor.
 deleteServerCertificateResponse :: DeleteServerCertificateResponse
 deleteServerCertificateResponse = DeleteServerCertificateResponse
+
 instance FromXML DeleteServerCertificateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteServerCertificateResponse"

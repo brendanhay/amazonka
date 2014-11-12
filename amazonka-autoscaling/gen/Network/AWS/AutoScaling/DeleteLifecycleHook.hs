@@ -46,7 +46,7 @@ import Network.AWS.AutoScaling.Types
 data DeleteLifecycleHookType = DeleteLifecycleHookType
     { _dlhtAutoScalingGroupName :: Text
     , _dlhtLifecycleHookName    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteLifecycleHookType' constructor.
 --
@@ -85,6 +85,7 @@ data DeleteLifecycleHookResponse = DeleteLifecycleHookResponse
 -- | 'DeleteLifecycleHookResponse' constructor.
 deleteLifecycleHookResponse :: DeleteLifecycleHookResponse
 deleteLifecycleHookResponse = DeleteLifecycleHookResponse
+
 instance FromXML DeleteLifecycleHookResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteLifecycleHookResponse"

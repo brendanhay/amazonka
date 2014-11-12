@@ -56,7 +56,7 @@ data DescribeImageAttribute = DescribeImageAttribute
     { _diaAttribute :: Text
     , _diaDryRun    :: Maybe Bool
     , _diaImageId   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeImageAttribute' constructor.
 --
@@ -101,7 +101,7 @@ data ImageAttribute = ImageAttribute
     , _ia1ProductCodes        :: [ProductCode]
     , _ia1RamdiskId           :: Maybe AttributeValue
     , _ia1SriovNetSupport     :: Maybe AttributeValue
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ImageAttribute' constructor.
 --
@@ -168,6 +168,7 @@ ia1RamdiskId = lens _ia1RamdiskId (\s a -> s { _ia1RamdiskId = a })
 ia1SriovNetSupport :: Lens' ImageAttribute (Maybe AttributeValue)
 ia1SriovNetSupport =
     lens _ia1SriovNetSupport (\s a -> s { _ia1SriovNetSupport = a })
+
 instance FromXML ImageAttribute where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ImageAttribute"

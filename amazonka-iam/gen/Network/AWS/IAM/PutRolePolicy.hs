@@ -49,7 +49,7 @@ data PutRolePolicy = PutRolePolicy
     { _prpPolicyDocument :: Text
     , _prpPolicyName     :: Text
     , _prpRoleName       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'PutRolePolicy' constructor.
 --
@@ -94,6 +94,7 @@ data PutRolePolicyResponse = PutRolePolicyResponse
 -- | 'PutRolePolicyResponse' constructor.
 putRolePolicyResponse :: PutRolePolicyResponse
 putRolePolicyResponse = PutRolePolicyResponse
+
 instance FromXML PutRolePolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PutRolePolicyResponse"

@@ -49,7 +49,7 @@ import Network.AWS.SES.Types
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
     { _siffeForwardingEnabled :: Bool
     , _siffeIdentity          :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SetIdentityFeedbackForwardingEnabled' constructor.
 --
@@ -93,6 +93,7 @@ data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardin
 -- | 'SetIdentityFeedbackForwardingEnabledResponse' constructor.
 setIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse
 setIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
+
 instance FromXML SetIdentityFeedbackForwardingEnabledResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetIdentityFeedbackForwardingEnabledResponse"

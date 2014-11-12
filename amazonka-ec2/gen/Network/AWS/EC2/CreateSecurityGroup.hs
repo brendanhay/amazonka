@@ -67,7 +67,7 @@ data CreateSecurityGroup = CreateSecurityGroup
     , _csgDryRun      :: Maybe Bool
     , _csgGroupName   :: Text
     , _csgVpcId       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateSecurityGroup' constructor.
 --
@@ -117,7 +117,7 @@ instance ToPath CreateSecurityGroup where
 
 newtype CreateSecurityGroupResult = CreateSecurityGroupResult
     { _csgrGroupId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateSecurityGroupResult' constructor.
 --
@@ -133,6 +133,7 @@ createSecurityGroupResult = CreateSecurityGroupResult
 -- | The ID of the security group.
 csgrGroupId :: Lens' CreateSecurityGroupResult (Maybe Text)
 csgrGroupId = lens _csgrGroupId (\s a -> s { _csgrGroupId = a })
+
 instance FromXML CreateSecurityGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateSecurityGroupResult"

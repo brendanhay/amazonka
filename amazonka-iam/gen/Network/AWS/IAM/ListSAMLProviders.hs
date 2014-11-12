@@ -53,7 +53,7 @@ instance ToPath ListSAMLProviders where
 
 newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
     { _lsamlprSAMLProviderList :: [SAMLProviderListEntry]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'ListSAMLProvidersResponse' constructor.
 --
@@ -70,6 +70,7 @@ listSAMLProvidersResponse = ListSAMLProvidersResponse
 lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
 lsamlprSAMLProviderList =
     lens _lsamlprSAMLProviderList (\s a -> s { _lsamlprSAMLProviderList = a })
+
 instance FromXML ListSAMLProvidersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListSAMLProvidersResponse"

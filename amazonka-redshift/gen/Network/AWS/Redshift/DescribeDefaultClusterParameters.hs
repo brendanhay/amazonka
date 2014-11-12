@@ -50,7 +50,7 @@ data DescribeDefaultClusterParametersMessage = DescribeDefaultClusterParametersM
     { _ddcpmMarker               :: Maybe Text
     , _ddcpmMaxRecords           :: Maybe Int
     , _ddcpmParameterGroupFamily :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeDefaultClusterParametersMessage' constructor.
 --
@@ -99,7 +99,7 @@ instance ToPath DescribeDefaultClusterParametersMessage where
 
 newtype DescribeDefaultClusterParametersResult = DescribeDefaultClusterParametersResult
     { _ddcprDefaultClusterParameters :: Maybe DefaultClusterParameters
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeDefaultClusterParametersResult' constructor.
 --
@@ -116,6 +116,7 @@ ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResult (M
 ddcprDefaultClusterParameters =
     lens _ddcprDefaultClusterParameters
         (\s a -> s { _ddcprDefaultClusterParameters = a })
+
 instance FromXML DescribeDefaultClusterParametersResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDefaultClusterParametersResult"

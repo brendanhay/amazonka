@@ -60,7 +60,7 @@ import Network.AWS.Redshift.Types
 
 newtype DescribeResizeMessage = DescribeResizeMessage
     { _drmClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DescribeResizeMessage' constructor.
 --
@@ -98,7 +98,7 @@ data ResizeProgressMessage = ResizeProgressMessage
     , _rpmTargetNodeType                     :: Maybe Text
     , _rpmTargetNumberOfNodes                :: Maybe Int
     , _rpmTotalResizeDataInMegaBytes         :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ResizeProgressMessage' constructor.
 --
@@ -228,6 +228,7 @@ rpmTotalResizeDataInMegaBytes :: Lens' ResizeProgressMessage (Maybe Integer)
 rpmTotalResizeDataInMegaBytes =
     lens _rpmTotalResizeDataInMegaBytes
         (\s a -> s { _rpmTotalResizeDataInMegaBytes = a })
+
 instance FromXML ResizeProgressMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ResizeProgressMessage"

@@ -2,7 +2,7 @@
 {% when "void" %}
 {% when "empty" %}
 data {{ type.name }} = {{ type.name }}
-    deriving {% include "deriving.ede" %}
+    deriving{% include "deriving.ede" %}
 {% when "nullary" %}
 {% include "nullary.ede" %}
 {% else %}

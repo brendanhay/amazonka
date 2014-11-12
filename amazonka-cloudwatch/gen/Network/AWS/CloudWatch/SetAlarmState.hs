@@ -51,7 +51,7 @@ data SetAlarmStateInput = SetAlarmStateInput
     , _sasiStateReason     :: Text
     , _sasiStateReasonData :: Maybe Text
     , _sasiStateValue      :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SetAlarmStateInput' constructor.
 --
@@ -106,6 +106,7 @@ data SetAlarmStateResponse = SetAlarmStateResponse
 -- | 'SetAlarmStateResponse' constructor.
 setAlarmStateResponse :: SetAlarmStateResponse
 setAlarmStateResponse = SetAlarmStateResponse
+
 instance FromXML SetAlarmStateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetAlarmStateResponse"

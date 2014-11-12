@@ -2736,7 +2736,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "fieldPad": 0,
                 "ctor": "tagKeyOnly",
@@ -2796,7 +2797,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "fieldPad": 0,
                 "ctor": "instance'",
@@ -2991,7 +2993,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -3166,7 +3171,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -3834,7 +3842,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -4861,7 +4870,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -5034,7 +5046,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -5361,7 +5376,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -5534,7 +5552,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -5608,7 +5629,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -5908,7 +5932,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -5982,6 +6009,8 @@
                     "Ord",
                     "Show",
                     "Generic",
+                    "Foldable",
+                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
@@ -6065,7 +6094,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -6240,7 +6272,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -6415,7 +6450,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -6774,7 +6812,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,

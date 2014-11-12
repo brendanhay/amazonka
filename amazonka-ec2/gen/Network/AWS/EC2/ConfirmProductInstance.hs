@@ -51,7 +51,7 @@ data ConfirmProductInstance = ConfirmProductInstance
     { _cpiDryRun      :: Maybe Bool
     , _cpiInstanceId  :: Text
     , _cpiProductCode :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ConfirmProductInstance' constructor.
 --
@@ -89,7 +89,7 @@ instance ToPath ConfirmProductInstance where
 
 newtype ConfirmProductInstanceResult = ConfirmProductInstanceResult
     { _cpirOwnerId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ConfirmProductInstanceResult' constructor.
 --
@@ -106,6 +106,7 @@ confirmProductInstanceResult = ConfirmProductInstanceResult
 -- product code is attached to the instance.
 cpirOwnerId :: Lens' ConfirmProductInstanceResult (Maybe Text)
 cpirOwnerId = lens _cpirOwnerId (\s a -> s { _cpirOwnerId = a })
+
 instance FromXML ConfirmProductInstanceResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ConfirmProductInstanceResult"

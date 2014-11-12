@@ -44,7 +44,7 @@ import Network.AWS.SNS.Types
 
 newtype GetSubscriptionAttributesInput = GetSubscriptionAttributesInput
     { _gsaiSubscriptionArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetSubscriptionAttributesInput' constructor.
 --
@@ -69,7 +69,7 @@ instance ToPath GetSubscriptionAttributesInput where
 
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'GetSubscriptionAttributesResponse' constructor.
 --
@@ -94,6 +94,7 @@ getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
 gsarAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
 gsarAttributes = lens _gsarAttributes (\s a -> s { _gsarAttributes = a })
     . _Map
+
 instance FromXML GetSubscriptionAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetSubscriptionAttributesResponse"

@@ -58,7 +58,7 @@ data CreateVpcPeeringConnection = CreateVpcPeeringConnection
     , _cvpcPeerOwnerId :: Maybe Text
     , _cvpcPeerVpcId   :: Maybe Text
     , _cvpcVpcId       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateVpcPeeringConnection' constructor.
 --
@@ -102,7 +102,7 @@ instance ToPath CreateVpcPeeringConnection where
 
 newtype CreateVpcPeeringConnectionResult = CreateVpcPeeringConnectionResult
     { _cvpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateVpcPeeringConnectionResult' constructor.
 --
@@ -120,6 +120,7 @@ cvpcrVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResult (Maybe VpcPe
 cvpcrVpcPeeringConnection =
     lens _cvpcrVpcPeeringConnection
         (\s a -> s { _cvpcrVpcPeeringConnection = a })
+
 instance FromXML CreateVpcPeeringConnectionResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateVpcPeeringConnectionResult"

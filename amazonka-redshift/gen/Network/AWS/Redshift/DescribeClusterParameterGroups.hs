@@ -55,7 +55,7 @@ data DescribeClusterParameterGroupsMessage = DescribeClusterParameterGroupsMessa
     { _dcpgm1Marker             :: Maybe Text
     , _dcpgm1MaxRecords         :: Maybe Int
     , _dcpgm1ParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeClusterParameterGroupsMessage' constructor.
 --
@@ -106,7 +106,7 @@ instance ToPath DescribeClusterParameterGroupsMessage where
 data ClusterParameterGroupsMessage = ClusterParameterGroupsMessage
     { _cpgmMarker          :: Maybe Text
     , _cpgmParameterGroups :: [ClusterParameterGroup]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ClusterParameterGroupsMessage' constructor.
 --
@@ -136,6 +136,7 @@ cpgmMarker = lens _cpgmMarker (\s a -> s { _cpgmMarker = a })
 cpgmParameterGroups :: Lens' ClusterParameterGroupsMessage [ClusterParameterGroup]
 cpgmParameterGroups =
     lens _cpgmParameterGroups (\s a -> s { _cpgmParameterGroups = a })
+
 instance FromXML ClusterParameterGroupsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ClusterParameterGroupsMessage"

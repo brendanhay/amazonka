@@ -51,7 +51,7 @@ data ListGroupsForUser = ListGroupsForUser
     { _lgfuMarker   :: Maybe Text
     , _lgfuMaxItems :: Maybe Natural
     , _lgfuUserName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListGroupsForUser' constructor.
 --
@@ -96,7 +96,7 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse
     { _lgfurGroups      :: [Group]
     , _lgfurIsTruncated :: Maybe Bool
     , _lgfurMarker      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListGroupsForUserResponse' constructor.
 --
@@ -129,6 +129,7 @@ lgfurIsTruncated = lens _lgfurIsTruncated (\s a -> s { _lgfurIsTruncated = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lgfurMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
 lgfurMarker = lens _lgfurMarker (\s a -> s { _lgfurMarker = a })
+
 instance FromXML ListGroupsForUserResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListGroupsForUserResponse"

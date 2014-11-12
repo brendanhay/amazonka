@@ -45,7 +45,7 @@ import Network.AWS.ELB.Types
 
 newtype DescribeLoadBalancerAttributesInput = DescribeLoadBalancerAttributesInput
     { _dlbaiLoadBalancerName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DescribeLoadBalancerAttributesInput' constructor.
 --
@@ -70,7 +70,7 @@ instance ToPath DescribeLoadBalancerAttributesInput where
 
 newtype DescribeLoadBalancerAttributesOutput = DescribeLoadBalancerAttributesOutput
     { _dlbaoLoadBalancerAttributes :: Maybe LoadBalancerAttributes
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeLoadBalancerAttributesOutput' constructor.
 --
@@ -88,6 +88,7 @@ dlbaoLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesOutput (Maybe
 dlbaoLoadBalancerAttributes =
     lens _dlbaoLoadBalancerAttributes
         (\s a -> s { _dlbaoLoadBalancerAttributes = a })
+
 instance FromXML DescribeLoadBalancerAttributesOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeLoadBalancerAttributesOutput"

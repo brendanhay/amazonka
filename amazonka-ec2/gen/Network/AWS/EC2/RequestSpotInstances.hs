@@ -66,7 +66,7 @@ data RequestSpotInstances = RequestSpotInstances
     , _rsiType                  :: Maybe Text
     , _rsiValidFrom             :: Maybe RFC822
     , _rsiValidUntil            :: Maybe RFC822
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RequestSpotInstances' constructor.
 --
@@ -177,7 +177,7 @@ instance ToPath RequestSpotInstances where
 
 newtype RequestSpotInstancesResult = RequestSpotInstancesResult
     { _rsirSpotInstanceRequests :: [SpotInstanceRequest]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'RequestSpotInstancesResult' constructor.
 --
@@ -195,6 +195,7 @@ rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResult [SpotInstanceReques
 rsirSpotInstanceRequests =
     lens _rsirSpotInstanceRequests
         (\s a -> s { _rsirSpotInstanceRequests = a })
+
 instance FromXML RequestSpotInstancesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RequestSpotInstancesResult"

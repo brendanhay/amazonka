@@ -42,7 +42,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice
     { _dvmfadSerialNumber :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteVirtualMFADevice' constructor.
 --
@@ -72,6 +72,7 @@ data DeleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
 -- | 'DeleteVirtualMFADeviceResponse' constructor.
 deleteVirtualMFADeviceResponse :: DeleteVirtualMFADeviceResponse
 deleteVirtualMFADeviceResponse = DeleteVirtualMFADeviceResponse
+
 instance FromXML DeleteVirtualMFADeviceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteVirtualMFADeviceResponse"

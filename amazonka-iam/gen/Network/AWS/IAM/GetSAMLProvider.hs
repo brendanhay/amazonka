@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 
 newtype GetSAMLProvider = GetSAMLProvider
     { _gsamlpSAMLProviderArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetSAMLProvider' constructor.
 --
@@ -75,7 +75,7 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse
     { _gsamlprCreateDate           :: Maybe RFC822
     , _gsamlprSAMLMetadataDocument :: Maybe Text
     , _gsamlprValidUntil           :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetSAMLProviderResponse' constructor.
 --
@@ -112,6 +112,7 @@ gsamlprValidUntil :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
 gsamlprValidUntil =
     lens _gsamlprValidUntil (\s a -> s { _gsamlprValidUntil = a })
         . mapping _Time
+
 instance FromXML GetSAMLProviderResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetSAMLProviderResponse"

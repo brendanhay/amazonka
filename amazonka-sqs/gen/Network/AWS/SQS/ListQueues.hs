@@ -47,7 +47,7 @@ import Network.AWS.SQS.Types
 
 newtype ListQueues = ListQueues
     { _lqQueueNamePrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ListQueues' constructor.
 --
@@ -72,7 +72,16 @@ instance ToPath ListQueues where
 
 newtype ListQueuesResult = ListQueuesResult
     { _lqrQueueUrls :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'ListQueuesResult' constructor.
 --
@@ -88,6 +97,7 @@ listQueuesResult = ListQueuesResult
 -- | A list of queue URLs, up to 1000 entries.
 lqrQueueUrls :: Lens' ListQueuesResult [Text]
 lqrQueueUrls = lens _lqrQueueUrls (\s a -> s { _lqrQueueUrls = a })
+
 instance FromXML ListQueuesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListQueuesResult"

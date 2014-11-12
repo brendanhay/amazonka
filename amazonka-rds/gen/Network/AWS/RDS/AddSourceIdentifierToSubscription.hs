@@ -47,7 +47,7 @@ import Network.AWS.RDS.Types
 data AddSourceIdentifierToSubscriptionMessage = AddSourceIdentifierToSubscriptionMessage
     { _asitsmSourceIdentifier :: Text
     , _asitsmSubscriptionName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AddSourceIdentifierToSubscriptionMessage' constructor.
 --
@@ -90,7 +90,7 @@ instance ToPath AddSourceIdentifierToSubscriptionMessage where
 
 newtype AddSourceIdentifierToSubscriptionResult = AddSourceIdentifierToSubscriptionResult
     { _asitsrEventSubscription :: Maybe EventSubscription
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AddSourceIdentifierToSubscriptionResult' constructor.
 --
@@ -106,6 +106,7 @@ addSourceIdentifierToSubscriptionResult = AddSourceIdentifierToSubscriptionResul
 asitsrEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResult (Maybe EventSubscription)
 asitsrEventSubscription =
     lens _asitsrEventSubscription (\s a -> s { _asitsrEventSubscription = a })
+
 instance FromXML AddSourceIdentifierToSubscriptionResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AddSourceIdentifierToSubscriptionResult"

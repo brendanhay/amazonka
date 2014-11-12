@@ -92,7 +92,7 @@ data CreateReplicationGroupMessage = CreateReplicationGroupMessage
     , _crgmSnapshotName                :: Maybe Text
     , _crgmSnapshotRetentionLimit      :: Maybe Int
     , _crgmSnapshotWindow              :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateReplicationGroupMessage' constructor.
 --
@@ -349,7 +349,7 @@ instance ToPath CreateReplicationGroupMessage where
 
 newtype CreateReplicationGroupResult = CreateReplicationGroupResult
     { _crgrReplicationGroup :: Maybe ReplicationGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateReplicationGroupResult' constructor.
 --
@@ -365,6 +365,7 @@ createReplicationGroupResult = CreateReplicationGroupResult
 crgrReplicationGroup :: Lens' CreateReplicationGroupResult (Maybe ReplicationGroup)
 crgrReplicationGroup =
     lens _crgrReplicationGroup (\s a -> s { _crgrReplicationGroup = a })
+
 instance FromXML CreateReplicationGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateReplicationGroupResult"

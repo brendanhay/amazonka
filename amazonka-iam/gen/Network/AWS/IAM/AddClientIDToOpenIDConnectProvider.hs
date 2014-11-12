@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 data AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProvider
     { _acidtoidcpClientID                 :: Text
     , _acidtoidcpOpenIDConnectProviderArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AddClientIDToOpenIDConnectProvider' constructor.
 --
@@ -89,6 +89,7 @@ data AddClientIDToOpenIDConnectProviderResponse = AddClientIDToOpenIDConnectProv
 -- | 'AddClientIDToOpenIDConnectProviderResponse' constructor.
 addClientIDToOpenIDConnectProviderResponse :: AddClientIDToOpenIDConnectProviderResponse
 addClientIDToOpenIDConnectProviderResponse = AddClientIDToOpenIDConnectProviderResponse
+
 instance FromXML AddClientIDToOpenIDConnectProviderResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AddClientIDToOpenIDConnectProviderResponse"

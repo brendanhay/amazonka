@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
     { _upiaNetworkInterfaceId :: Text
     , _upiaPrivateIpAddresses :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UnassignPrivateIpAddresses' constructor.
 --
@@ -84,6 +84,7 @@ data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
 -- | 'UnassignPrivateIpAddressesResponse' constructor.
 unassignPrivateIpAddressesResponse :: UnassignPrivateIpAddressesResponse
 unassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
+
 instance FromXML UnassignPrivateIpAddressesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UnassignPrivateIpAddressesResponse"

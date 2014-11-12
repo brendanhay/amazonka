@@ -51,7 +51,7 @@ data PutNotificationConfigurationType = PutNotificationConfigurationType
     { _pnctAutoScalingGroupName :: Text
     , _pnctNotificationTypes    :: [Text]
     , _pnctTopicARN             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'PutNotificationConfigurationType' constructor.
 --
@@ -100,6 +100,7 @@ data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse
 -- | 'PutNotificationConfigurationResponse' constructor.
 putNotificationConfigurationResponse :: PutNotificationConfigurationResponse
 putNotificationConfigurationResponse = PutNotificationConfigurationResponse
+
 instance FromXML PutNotificationConfigurationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PutNotificationConfigurationResponse"

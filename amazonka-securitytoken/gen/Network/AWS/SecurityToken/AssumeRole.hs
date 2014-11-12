@@ -112,7 +112,7 @@ data AssumeRole = AssumeRole
     , _arRoleSessionName :: Text
     , _arSerialNumber    :: Maybe Text
     , _arTokenCode       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AssumeRole' constructor.
 --
@@ -210,7 +210,7 @@ data AssumeRoleResponse = AssumeRoleResponse
     { _arrAssumedRoleUser  :: Maybe AssumedRoleUser
     , _arrCredentials      :: Maybe Credentials
     , _arrPackedPolicySize :: Maybe Natural
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AssumeRoleResponse' constructor.
 --
@@ -250,6 +250,7 @@ arrCredentials = lens _arrCredentials (\s a -> s { _arrCredentials = a })
 arrPackedPolicySize :: Lens' AssumeRoleResponse (Maybe Natural)
 arrPackedPolicySize =
     lens _arrPackedPolicySize (\s a -> s { _arrPackedPolicySize = a })
+
 instance FromXML AssumeRoleResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AssumeRoleResponse"

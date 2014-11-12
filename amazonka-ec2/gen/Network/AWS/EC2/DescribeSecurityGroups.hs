@@ -54,7 +54,7 @@ data DescribeSecurityGroups = DescribeSecurityGroups
     , _dsgFilters    :: [Filter]
     , _dsgGroupIds   :: [Text]
     , _dsgGroupNames :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeSecurityGroups' constructor.
 --
@@ -114,7 +114,7 @@ instance ToPath DescribeSecurityGroups where
 
 newtype DescribeSecurityGroupsResult = DescribeSecurityGroupsResult
     { _dsgrSecurityGroups :: [SecurityGroup]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeSecurityGroupsResult' constructor.
 --
@@ -131,6 +131,7 @@ describeSecurityGroupsResult = DescribeSecurityGroupsResult
 dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResult [SecurityGroup]
 dsgrSecurityGroups =
     lens _dsgrSecurityGroups (\s a -> s { _dsgrSecurityGroups = a })
+
 instance FromXML DescribeSecurityGroupsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSecurityGroupsResult"

@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data EnableVolumeIO = EnableVolumeIO
     { _evioDryRun   :: Maybe Bool
     , _evioVolumeId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'EnableVolumeIO' constructor.
 --
@@ -79,6 +79,7 @@ data EnableVolumeIOResponse = EnableVolumeIOResponse
 -- | 'EnableVolumeIOResponse' constructor.
 enableVolumeIOResponse :: EnableVolumeIOResponse
 enableVolumeIOResponse = EnableVolumeIOResponse
+
 instance FromXML EnableVolumeIOResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnableVolumeIOResponse"

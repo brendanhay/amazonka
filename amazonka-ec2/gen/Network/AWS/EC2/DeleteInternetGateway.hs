@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data DeleteInternetGateway = DeleteInternetGateway
     { _dig1DryRun            :: Maybe Bool
     , _dig1InternetGatewayId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteInternetGateway' constructor.
 --
@@ -80,6 +80,7 @@ data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
 -- | 'DeleteInternetGatewayResponse' constructor.
 deleteInternetGatewayResponse :: DeleteInternetGatewayResponse
 deleteInternetGatewayResponse = DeleteInternetGatewayResponse
+
 instance FromXML DeleteInternetGatewayResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteInternetGatewayResponse"

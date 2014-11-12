@@ -69,7 +69,7 @@ data StopInstances = StopInstances
     { _si1DryRun      :: Maybe Bool
     , _si1Force       :: Maybe Bool
     , _si1InstanceIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'StopInstances' constructor.
 --
@@ -108,7 +108,7 @@ instance ToPath StopInstances where
 
 newtype StopInstancesResult = StopInstancesResult
     { _sirStoppingInstances :: [InstanceStateChange]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'StopInstancesResult' constructor.
 --
@@ -125,6 +125,7 @@ stopInstancesResult = StopInstancesResult
 sirStoppingInstances :: Lens' StopInstancesResult [InstanceStateChange]
 sirStoppingInstances =
     lens _sirStoppingInstances (\s a -> s { _sirStoppingInstances = a })
+
 instance FromXML StopInstancesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "StopInstancesResult"

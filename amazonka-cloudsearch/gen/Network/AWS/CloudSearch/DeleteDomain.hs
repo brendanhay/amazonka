@@ -46,7 +46,7 @@ import Network.AWS.CloudSearch.Types
 
 newtype DeleteDomain = DeleteDomain
     { _ddDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteDomain' constructor.
 --
@@ -70,7 +70,7 @@ instance ToPath DeleteDomain where
 
 newtype DeleteDomainResponse = DeleteDomainResponse
     { _ddrDomainStatus :: Maybe DomainStatus
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteDomainResponse' constructor.
 --
@@ -85,6 +85,7 @@ deleteDomainResponse = DeleteDomainResponse
 
 ddrDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
 ddrDomainStatus = lens _ddrDomainStatus (\s a -> s { _ddrDomainStatus = a })
+
 instance FromXML DeleteDomainResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteDomainResponse"

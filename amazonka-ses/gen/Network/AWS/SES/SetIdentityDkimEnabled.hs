@@ -54,7 +54,7 @@ import Network.AWS.SES.Types
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled
     { _sideDkimEnabled :: Bool
     , _sideIdentity    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SetIdentityDkimEnabled' constructor.
 --
@@ -91,6 +91,7 @@ data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
 -- | 'SetIdentityDkimEnabledResponse' constructor.
 setIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse
 setIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
+
 instance FromXML SetIdentityDkimEnabledResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetIdentityDkimEnabledResponse"

@@ -54,7 +54,7 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
     { _drimFilters                          :: [Filter]
     , _drimNextToken                        :: Maybe Text
     , _drimReservedInstancesModificationIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstancesModifications' constructor.
 --
@@ -113,7 +113,7 @@ instance ToPath DescribeReservedInstancesModifications where
 data DescribeReservedInstancesModificationsResult = DescribeReservedInstancesModificationsResult
     { _drimrNextToken                      :: Maybe Text
     , _drimrReservedInstancesModifications :: [ReservedInstancesModification]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstancesModificationsResult' constructor.
 --
@@ -138,6 +138,7 @@ drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificati
 drimrReservedInstancesModifications =
     lens _drimrReservedInstancesModifications
         (\s a -> s { _drimrReservedInstancesModifications = a })
+
 instance FromXML DescribeReservedInstancesModificationsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeReservedInstancesModificationsResult"

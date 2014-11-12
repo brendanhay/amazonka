@@ -51,7 +51,7 @@ data DisassociateAddress = DisassociateAddress
     { _da1AssociationId :: Maybe Text
     , _da1DryRun        :: Maybe Bool
     , _da1PublicIp      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DisassociateAddress' constructor.
 --
@@ -91,6 +91,7 @@ data DisassociateAddressResponse = DisassociateAddressResponse
 -- | 'DisassociateAddressResponse' constructor.
 disassociateAddressResponse :: DisassociateAddressResponse
 disassociateAddressResponse = DisassociateAddressResponse
+
 instance FromXML DisassociateAddressResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DisassociateAddressResponse"

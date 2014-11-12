@@ -55,7 +55,7 @@ data GetAttributes = GetAttributes
     , _gaConsistentRead :: Maybe Bool
     , _gaDomainName     :: Text
     , _gaItemName       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetAttributes' constructor.
 --
@@ -105,7 +105,7 @@ instance ToPath GetAttributes where
 
 newtype GetAttributesResult = GetAttributesResult
     { _garAttributes :: [Attribute]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'GetAttributesResult' constructor.
 --
@@ -121,6 +121,7 @@ getAttributesResult = GetAttributesResult
 -- | The list of attributes returned by the operation.
 garAttributes :: Lens' GetAttributesResult [Attribute]
 garAttributes = lens _garAttributes (\s a -> s { _garAttributes = a })
+
 instance FromXML GetAttributesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetAttributesResult"

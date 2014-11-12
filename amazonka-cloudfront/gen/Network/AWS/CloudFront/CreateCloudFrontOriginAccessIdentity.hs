@@ -46,7 +46,7 @@ import Network.AWS.CloudFront.Types
 
 newtype CreateCloudFrontOriginAccessIdentity = CreateCloudFrontOriginAccessIdentity
     { _ccfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateCloudFrontOriginAccessIdentity' constructor.
 --
@@ -81,7 +81,7 @@ data CreateCloudFrontOriginAccessIdentityResult = CreateCloudFrontOriginAccessId
     { _ccfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
     , _ccfoairETag                           :: Maybe Text
     , _ccfoairLocation                       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateCloudFrontOriginAccessIdentityResult' constructor.
 --

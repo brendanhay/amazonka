@@ -1267,7 +1267,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "fieldPad": 0,
                 "ctor": "openIDConnectProviderListEntry",
@@ -3268,7 +3269,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -4011,7 +4013,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -4424,7 +4427,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -7284,7 +7288,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -9348,7 +9355,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -11592,7 +11600,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -12191,7 +12202,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Foldable",
+                    "Traversable",
+                    "Monoid",
+                    "Semigroup"
                 ],
                 "streaming": false,
                 "fieldPad": 0,
@@ -15694,7 +15708,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Monoid"
                 ],
                 "streaming": false,
                 "fieldPad": 0,

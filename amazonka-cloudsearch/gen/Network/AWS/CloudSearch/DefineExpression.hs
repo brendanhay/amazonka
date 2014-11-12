@@ -49,7 +49,7 @@ import Network.AWS.CloudSearch.Types
 data DefineExpression = DefineExpression
     { _de2DomainName :: Text
     , _de2Expression :: Expression
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DefineExpression' constructor.
 --
@@ -79,7 +79,7 @@ instance ToPath DefineExpression where
 
 newtype DefineExpressionResponse = DefineExpressionResponse
     { _derExpression :: ExpressionStatus
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DefineExpressionResponse' constructor.
 --
@@ -95,6 +95,7 @@ defineExpressionResponse p1 = DefineExpressionResponse
 
 derExpression :: Lens' DefineExpressionResponse ExpressionStatus
 derExpression = lens _derExpression (\s a -> s { _derExpression = a })
+
 instance FromXML DefineExpressionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DefineExpressionResponse"

@@ -48,7 +48,7 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces
     { _dniDryRun              :: Maybe Bool
     , _dniFilters             :: [Filter]
     , _dniNetworkInterfaceIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeNetworkInterfaces' constructor.
 --
@@ -139,7 +139,7 @@ instance ToPath DescribeNetworkInterfaces where
 
 newtype DescribeNetworkInterfacesResult = DescribeNetworkInterfacesResult
     { _dnirNetworkInterfaces :: [NetworkInterface]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeNetworkInterfacesResult' constructor.
 --
@@ -156,6 +156,7 @@ describeNetworkInterfacesResult = DescribeNetworkInterfacesResult
 dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResult [NetworkInterface]
 dnirNetworkInterfaces =
     lens _dnirNetworkInterfaces (\s a -> s { _dnirNetworkInterfaces = a })
+
 instance FromXML DescribeNetworkInterfacesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeNetworkInterfacesResult"

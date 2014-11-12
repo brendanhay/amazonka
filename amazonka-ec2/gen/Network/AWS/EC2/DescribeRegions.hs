@@ -49,7 +49,7 @@ data DescribeRegions = DescribeRegions
     { _drDryRun      :: Maybe Bool
     , _drFilters     :: [Filter]
     , _drRegionNames :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeRegions' constructor.
 --
@@ -87,7 +87,7 @@ instance ToPath DescribeRegions where
 
 newtype DescribeRegionsResult = DescribeRegionsResult
     { _drrRegions :: [Region]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeRegionsResult' constructor.
 --
@@ -103,6 +103,7 @@ describeRegionsResult = DescribeRegionsResult
 -- | Information about one or more regions.
 drrRegions :: Lens' DescribeRegionsResult [Region]
 drrRegions = lens _drrRegions (\s a -> s { _drrRegions = a })
+
 instance FromXML DescribeRegionsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeRegionsResult"

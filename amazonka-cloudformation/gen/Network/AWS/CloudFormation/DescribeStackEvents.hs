@@ -49,7 +49,7 @@ import Network.AWS.CloudFormation.Types
 data DescribeStackEventsInput = DescribeStackEventsInput
     { _dseiNextToken :: Maybe Text
     , _dseiStackName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeStackEventsInput' constructor.
 --
@@ -84,7 +84,7 @@ instance ToPath DescribeStackEventsInput where
 data DescribeStackEventsOutput = DescribeStackEventsOutput
     { _dseoNextToken   :: Maybe Text
     , _dseoStackEvents :: [StackEvent]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeStackEventsOutput' constructor.
 --
@@ -108,6 +108,7 @@ dseoNextToken = lens _dseoNextToken (\s a -> s { _dseoNextToken = a })
 -- | A list of StackEvents structures.
 dseoStackEvents :: Lens' DescribeStackEventsOutput [StackEvent]
 dseoStackEvents = lens _dseoStackEvents (\s a -> s { _dseoStackEvents = a })
+
 instance FromXML DescribeStackEventsOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeStackEventsOutput"

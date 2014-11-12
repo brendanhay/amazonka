@@ -52,7 +52,7 @@ data DescribeReservedInstances = DescribeReservedInstances
     , _driFilters              :: [Filter]
     , _driOfferingType         :: Maybe Text
     , _driReservedInstancesIds :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstances' constructor.
 --
@@ -121,7 +121,7 @@ instance ToPath DescribeReservedInstances where
 
 newtype DescribeReservedInstancesResult = DescribeReservedInstancesResult
     { _drirReservedInstances :: [ReservedInstances]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeReservedInstancesResult' constructor.
 --
@@ -138,6 +138,7 @@ describeReservedInstancesResult = DescribeReservedInstancesResult
 drirReservedInstances :: Lens' DescribeReservedInstancesResult [ReservedInstances]
 drirReservedInstances =
     lens _drirReservedInstances (\s a -> s { _drirReservedInstances = a })
+
 instance FromXML DescribeReservedInstancesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeReservedInstancesResult"

@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 
 newtype CancelExportTask = CancelExportTask
     { _cetExportTaskId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CancelExportTask' constructor.
 --
@@ -74,6 +74,7 @@ data CancelExportTaskResponse = CancelExportTaskResponse
 -- | 'CancelExportTaskResponse' constructor.
 cancelExportTaskResponse :: CancelExportTaskResponse
 cancelExportTaskResponse = CancelExportTaskResponse
+
 instance FromXML CancelExportTaskResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CancelExportTaskResponse"

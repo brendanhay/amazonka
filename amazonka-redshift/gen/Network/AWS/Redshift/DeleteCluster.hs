@@ -60,7 +60,7 @@ data DeleteClusterMessage = DeleteClusterMessage
     { _dcmClusterIdentifier              :: Text
     , _dcmFinalClusterSnapshotIdentifier :: Maybe Text
     , _dcmSkipFinalClusterSnapshot       :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteClusterMessage' constructor.
 --
@@ -113,7 +113,7 @@ instance ToPath DeleteClusterMessage where
 
 newtype DeleteClusterResult = DeleteClusterResult
     { _dcrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteClusterResult' constructor.
 --
@@ -128,6 +128,7 @@ deleteClusterResult = DeleteClusterResult
 
 dcrCluster :: Lens' DeleteClusterResult (Maybe Cluster)
 dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
+
 instance FromXML DeleteClusterResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteClusterResult"

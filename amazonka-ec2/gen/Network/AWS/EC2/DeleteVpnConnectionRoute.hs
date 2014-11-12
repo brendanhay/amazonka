@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
     { _dvcrDestinationCidrBlock :: Text
     , _dvcrVpnConnectionId      :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpnConnectionRoute' constructor.
 --
@@ -86,6 +86,7 @@ data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
 -- | 'DeleteVpnConnectionRouteResponse' constructor.
 deleteVpnConnectionRouteResponse :: DeleteVpnConnectionRouteResponse
 deleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
+
 instance FromXML DeleteVpnConnectionRouteResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteVpnConnectionRouteResponse"

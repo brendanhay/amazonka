@@ -23,6 +23,8 @@ module Network.AWS.SQS.Types
     (
     -- * Service
       SQS
+    -- ** Error
+    , RESTError
     -- ** XML
     , xmlOptions
 
@@ -180,7 +182,7 @@ instance ToQuery QueueAttributeName
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry
     { _dmbreId            :: Text
     , _dmbreReceiptHandle :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteMessageBatchRequestEntry' constructor.
 --
@@ -221,7 +223,7 @@ data MessageAttributeValue = MessageAttributeValue
     , _mavDataType         :: Text
     , _mavStringListValues :: [Text]
     , _mavStringValue      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'MessageAttributeValue' constructor.
 --
@@ -281,7 +283,7 @@ instance ToQuery MessageAttributeValue
 
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry
     { _cmvbreId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ChangeMessageVisibilityBatchResultEntry' constructor.
 --
@@ -310,7 +312,7 @@ data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequ
     { _cmvbre1Id                :: Text
     , _cmvbre1ReceiptHandle     :: Text
     , _cmvbre1VisibilityTimeout :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ChangeMessageVisibilityBatchRequestEntry' constructor.
 --
@@ -356,7 +358,7 @@ instance ToQuery ChangeMessageVisibilityBatchRequestEntry
 
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry
     { _dmbre1Id :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteMessageBatchResultEntry' constructor.
 --
@@ -388,7 +390,7 @@ data Message = Message
     , _mMessageAttributes      :: Map Text MessageAttributeValue
     , _mMessageId              :: Maybe Text
     , _mReceiptHandle          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'Message' constructor.
 --
@@ -473,7 +475,7 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry
     , _smbreId                :: Text
     , _smbreMessageAttributes :: Map Text MessageAttributeValue
     , _smbreMessageBody       :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'SendMessageBatchRequestEntry' constructor.
 --
@@ -530,7 +532,7 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry
     , _smbre1MD5OfMessageAttributes :: Maybe Text
     , _smbre1MD5OfMessageBody       :: Text
     , _smbre1MessageId              :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SendMessageBatchResultEntry' constructor.
 --
@@ -591,7 +593,7 @@ data BatchResultErrorEntry = BatchResultErrorEntry
     , _breeId          :: Text
     , _breeMessage     :: Maybe Text
     , _breeSenderFault :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'BatchResultErrorEntry' constructor.
 --

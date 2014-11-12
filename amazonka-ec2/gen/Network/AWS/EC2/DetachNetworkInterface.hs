@@ -46,7 +46,7 @@ data DetachNetworkInterface = DetachNetworkInterface
     { _dni2AttachmentId :: Text
     , _dni2DryRun       :: Maybe Bool
     , _dni2Force        :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DetachNetworkInterface' constructor.
 --
@@ -87,6 +87,7 @@ data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
 -- | 'DetachNetworkInterfaceResponse' constructor.
 detachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse
 detachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
+
 instance FromXML DetachNetworkInterfaceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DetachNetworkInterfaceResponse"

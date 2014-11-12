@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data DisableVgwRoutePropagation = DisableVgwRoutePropagation
     { _dvrpGatewayId    :: Text
     , _dvrpRouteTableId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DisableVgwRoutePropagation' constructor.
 --
@@ -81,6 +81,7 @@ data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
 -- | 'DisableVgwRoutePropagationResponse' constructor.
 disableVgwRoutePropagationResponse :: DisableVgwRoutePropagationResponse
 disableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
+
 instance FromXML DisableVgwRoutePropagationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DisableVgwRoutePropagationResponse"

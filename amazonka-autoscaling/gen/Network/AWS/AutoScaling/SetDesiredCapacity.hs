@@ -46,7 +46,7 @@ data SetDesiredCapacityType = SetDesiredCapacityType
     { _sdctAutoScalingGroupName :: Text
     , _sdctDesiredCapacity      :: Int
     , _sdctHonorCooldown        :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SetDesiredCapacityType' constructor.
 --
@@ -97,6 +97,7 @@ data SetDesiredCapacityResponse = SetDesiredCapacityResponse
 -- | 'SetDesiredCapacityResponse' constructor.
 setDesiredCapacityResponse :: SetDesiredCapacityResponse
 setDesiredCapacityResponse = SetDesiredCapacityResponse
+
 instance FromXML SetDesiredCapacityResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetDesiredCapacityResponse"

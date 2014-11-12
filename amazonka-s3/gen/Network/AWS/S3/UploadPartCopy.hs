@@ -78,7 +78,7 @@ data UploadPartCopy = UploadPartCopy
     , _upcSSECustomerKey                 :: Maybe (Sensitive Text)
     , _upcSSECustomerKeyMD5              :: Maybe Text
     , _upcUploadId                       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UploadPartCopy' constructor.
 --
@@ -282,7 +282,7 @@ data UploadPartCopyOutput = UploadPartCopyOutput
     , _upcoSSECustomerAlgorithm :: Maybe Text
     , _upcoSSECustomerKeyMD5    :: Maybe Text
     , _upcoServerSideEncryption :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'UploadPartCopyOutput' constructor.
 --

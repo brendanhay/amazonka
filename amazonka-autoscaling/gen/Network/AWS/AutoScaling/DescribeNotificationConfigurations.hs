@@ -50,7 +50,7 @@ data DescribeNotificationConfigurationsType = DescribeNotificationConfigurations
     { _dnctAutoScalingGroupNames :: [Text]
     , _dnctMaxRecords            :: Maybe Int
     , _dnctNextToken             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeNotificationConfigurationsType' constructor.
 --
@@ -91,7 +91,7 @@ instance ToPath DescribeNotificationConfigurationsType where
 data DescribeNotificationConfigurationsAnswer = DescribeNotificationConfigurationsAnswer
     { _dncaNextToken                  :: Maybe Text
     , _dncaNotificationConfigurations :: [NotificationConfiguration]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeNotificationConfigurationsAnswer' constructor.
 --
@@ -117,6 +117,7 @@ dncaNotificationConfigurations :: Lens' DescribeNotificationConfigurationsAnswer
 dncaNotificationConfigurations =
     lens _dncaNotificationConfigurations
         (\s a -> s { _dncaNotificationConfigurations = a })
+
 instance FromXML DescribeNotificationConfigurationsAnswer where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeNotificationConfigurationsAnswer"

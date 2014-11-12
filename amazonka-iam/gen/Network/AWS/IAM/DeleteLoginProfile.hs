@@ -48,7 +48,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteLoginProfile = DeleteLoginProfile
     { _dlpUserName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteLoginProfile' constructor.
 --
@@ -76,6 +76,7 @@ data DeleteLoginProfileResponse = DeleteLoginProfileResponse
 -- | 'DeleteLoginProfileResponse' constructor.
 deleteLoginProfileResponse :: DeleteLoginProfileResponse
 deleteLoginProfileResponse = DeleteLoginProfileResponse
+
 instance FromXML DeleteLoginProfileResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteLoginProfileResponse"

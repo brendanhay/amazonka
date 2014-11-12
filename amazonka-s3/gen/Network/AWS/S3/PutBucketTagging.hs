@@ -46,7 +46,7 @@ data PutBucketTagging = PutBucketTagging
     { _pbtBucket     :: Text
     , _pbtContentMD5 :: Maybe Text
     , _pbtTagging    :: Tagging
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'PutBucketTagging' constructor.
 --

@@ -48,7 +48,7 @@ data DetachInternetGateway = DetachInternetGateway
     { _dig2DryRun            :: Maybe Bool
     , _dig2InternetGatewayId :: Text
     , _dig2VpcId             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DetachInternetGateway' constructor.
 --
@@ -91,6 +91,7 @@ data DetachInternetGatewayResponse = DetachInternetGatewayResponse
 -- | 'DetachInternetGatewayResponse' constructor.
 detachInternetGatewayResponse :: DetachInternetGatewayResponse
 detachInternetGatewayResponse = DetachInternetGatewayResponse
+
 instance FromXML DetachInternetGatewayResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DetachInternetGatewayResponse"

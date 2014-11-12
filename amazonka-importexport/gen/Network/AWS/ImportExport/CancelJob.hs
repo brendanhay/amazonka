@@ -45,7 +45,7 @@ import Network.AWS.ImportExport.Types
 
 newtype CancelJobInput = CancelJobInput
     { _cjiJobId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CancelJobInput' constructor.
 --
@@ -68,7 +68,7 @@ instance ToPath CancelJobInput where
 
 newtype CancelJobOutput = CancelJobOutput
     { _cjoSuccess :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CancelJobOutput' constructor.
 --
@@ -83,6 +83,7 @@ cancelJobOutput = CancelJobOutput
 
 cjoSuccess :: Lens' CancelJobOutput (Maybe Bool)
 cjoSuccess = lens _cjoSuccess (\s a -> s { _cjoSuccess = a })
+
 instance FromXML CancelJobOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CancelJobOutput"

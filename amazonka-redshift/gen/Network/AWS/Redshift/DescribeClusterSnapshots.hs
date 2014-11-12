@@ -63,7 +63,7 @@ data DescribeClusterSnapshotsMessage = DescribeClusterSnapshotsMessage
     , _dcsm1SnapshotIdentifier :: Maybe Text
     , _dcsm1SnapshotType       :: Maybe Text
     , _dcsm1StartTime          :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeClusterSnapshotsMessage' constructor.
 --
@@ -164,7 +164,7 @@ instance ToPath DescribeClusterSnapshotsMessage where
 data SnapshotMessage = SnapshotMessage
     { _smMarker    :: Maybe Text
     , _smSnapshots :: [Snapshot]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'SnapshotMessage' constructor.
 --
@@ -192,6 +192,7 @@ smMarker = lens _smMarker (\s a -> s { _smMarker = a })
 -- | A list of Snapshot instances.
 smSnapshots :: Lens' SnapshotMessage [Snapshot]
 smSnapshots = lens _smSnapshots (\s a -> s { _smSnapshots = a })
+
 instance FromXML SnapshotMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SnapshotMessage"

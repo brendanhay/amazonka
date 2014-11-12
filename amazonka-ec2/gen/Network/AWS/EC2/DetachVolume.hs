@@ -66,7 +66,7 @@ data DetachVolume = DetachVolume
     , _dv4Force      :: Maybe Bool
     , _dv4InstanceId :: Maybe Text
     , _dv4VolumeId   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DetachVolume' constructor.
 --

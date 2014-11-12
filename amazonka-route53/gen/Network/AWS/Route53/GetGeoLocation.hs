@@ -50,7 +50,7 @@ data GetGeoLocation = GetGeoLocation
     { _gglContinentCode   :: Maybe Text
     , _gglCountryCode     :: Maybe Text
     , _gglSubdivisionCode :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetGeoLocation' constructor.
 --
@@ -105,7 +105,7 @@ instance ToHeaders GetGeoLocation
 
 newtype GetGeoLocationResponse = GetGeoLocationResponse
     { _gglrGeoLocationDetails :: GeoLocationDetails
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetGeoLocationResponse' constructor.
 --

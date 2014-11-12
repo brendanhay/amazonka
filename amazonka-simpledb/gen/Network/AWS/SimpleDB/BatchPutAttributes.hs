@@ -76,7 +76,7 @@ import Network.AWS.SimpleDB.Types
 data BatchPutAttributes = BatchPutAttributes
     { _bpaDomainName :: Text
     , _bpaItems      :: [ReplaceableItem]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'BatchPutAttributes' constructor.
 --
@@ -111,6 +111,7 @@ data BatchPutAttributesResponse = BatchPutAttributesResponse
 -- | 'BatchPutAttributesResponse' constructor.
 batchPutAttributesResponse :: BatchPutAttributesResponse
 batchPutAttributesResponse = BatchPutAttributesResponse
+
 instance FromXML BatchPutAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "BatchPutAttributesResponse"

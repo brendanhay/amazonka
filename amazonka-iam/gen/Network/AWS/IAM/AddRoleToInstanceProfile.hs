@@ -46,7 +46,7 @@ import Network.AWS.IAM.Types
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile
     { _artipInstanceProfileName :: Text
     , _artipRoleName            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AddRoleToInstanceProfile' constructor.
 --
@@ -84,6 +84,7 @@ data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
 -- | 'AddRoleToInstanceProfileResponse' constructor.
 addRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse
 addRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
+
 instance FromXML AddRoleToInstanceProfileResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AddRoleToInstanceProfileResponse"

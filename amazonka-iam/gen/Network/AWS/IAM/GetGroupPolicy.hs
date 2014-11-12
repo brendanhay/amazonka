@@ -50,7 +50,7 @@ import Network.AWS.IAM.Types
 data GetGroupPolicy = GetGroupPolicy
     { _ggpGroupName  :: Text
     , _ggpPolicyName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetGroupPolicy' constructor.
 --
@@ -84,7 +84,7 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse
     { _ggprGroupName      :: Text
     , _ggprPolicyDocument :: Text
     , _ggprPolicyName     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetGroupPolicyResponse' constructor.
 --
@@ -118,6 +118,7 @@ ggprPolicyDocument =
 -- | The name of the policy.
 ggprPolicyName :: Lens' GetGroupPolicyResponse Text
 ggprPolicyName = lens _ggprPolicyName (\s a -> s { _ggprPolicyName = a })
+
 instance FromXML GetGroupPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetGroupPolicyResponse"

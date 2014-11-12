@@ -57,7 +57,7 @@ data DescribeAlarmHistoryInput = DescribeAlarmHistoryInput
     , _dahiMaxRecords      :: Maybe Natural
     , _dahiNextToken       :: Maybe Text
     , _dahiStartDate       :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAlarmHistoryInput' constructor.
 --
@@ -120,7 +120,7 @@ instance ToPath DescribeAlarmHistoryInput where
 data DescribeAlarmHistoryOutput = DescribeAlarmHistoryOutput
     { _dahoAlarmHistoryItems :: [AlarmHistoryItem]
     , _dahoNextToken         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeAlarmHistoryOutput' constructor.
 --
@@ -144,6 +144,7 @@ dahoAlarmHistoryItems =
 -- | A string that marks the start of the next batch of returned results.
 dahoNextToken :: Lens' DescribeAlarmHistoryOutput (Maybe Text)
 dahoNextToken = lens _dahoNextToken (\s a -> s { _dahoNextToken = a })
+
 instance FromXML DescribeAlarmHistoryOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAlarmHistoryOutput"

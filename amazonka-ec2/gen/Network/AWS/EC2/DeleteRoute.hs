@@ -46,7 +46,7 @@ data DeleteRoute = DeleteRoute
     { _dr1DestinationCidrBlock :: Text
     , _dr1DryRun               :: Maybe Bool
     , _dr1RouteTableId         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteRoute' constructor.
 --
@@ -90,6 +90,7 @@ data DeleteRouteResponse = DeleteRouteResponse
 -- | 'DeleteRouteResponse' constructor.
 deleteRouteResponse :: DeleteRouteResponse
 deleteRouteResponse = DeleteRouteResponse
+
 instance FromXML DeleteRouteResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteRouteResponse"

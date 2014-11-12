@@ -50,7 +50,7 @@ import Network.AWS.ELB.Types
 data DescribeEndPointStateInput = DescribeEndPointStateInput
     { _depsiInstances        :: [Instance]
     , _depsiLoadBalancerName :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeEndPointStateInput' constructor.
 --
@@ -82,7 +82,7 @@ instance ToPath DescribeEndPointStateInput where
 
 newtype DescribeEndPointStateOutput = DescribeEndPointStateOutput
     { _depsoInstanceStates :: [InstanceState]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeEndPointStateOutput' constructor.
 --
@@ -99,6 +99,7 @@ describeEndPointStateOutput = DescribeEndPointStateOutput
 depsoInstanceStates :: Lens' DescribeEndPointStateOutput [InstanceState]
 depsoInstanceStates =
     lens _depsoInstanceStates (\s a -> s { _depsoInstanceStates = a })
+
 instance FromXML DescribeEndPointStateOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeEndPointStateOutput"

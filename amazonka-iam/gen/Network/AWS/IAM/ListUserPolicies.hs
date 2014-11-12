@@ -52,7 +52,7 @@ data ListUserPolicies = ListUserPolicies
     { _lupMarker   :: Maybe Text
     , _lupMaxItems :: Maybe Natural
     , _lupUserName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListUserPolicies' constructor.
 --
@@ -98,7 +98,7 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse
     { _luprIsTruncated :: Maybe Bool
     , _luprMarker      :: Maybe Text
     , _luprPolicyNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListUserPoliciesResponse' constructor.
 --
@@ -132,6 +132,7 @@ luprMarker = lens _luprMarker (\s a -> s { _luprMarker = a })
 -- | A list of policy names.
 luprPolicyNames :: Lens' ListUserPoliciesResponse [Text]
 luprPolicyNames = lens _luprPolicyNames (\s a -> s { _luprPolicyNames = a })
+
 instance FromXML ListUserPoliciesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListUserPoliciesResponse"

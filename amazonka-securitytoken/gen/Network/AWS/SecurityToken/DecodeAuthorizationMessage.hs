@@ -60,7 +60,7 @@ import Network.AWS.SecurityToken.Types
 
 newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage
     { _damEncodedMessage :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DecodeAuthorizationMessage' constructor.
 --
@@ -85,7 +85,7 @@ instance ToPath DecodeAuthorizationMessage where
 
 newtype DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
     { _damrDecodedMessage :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DecodeAuthorizationMessageResponse' constructor.
 --
@@ -103,6 +103,7 @@ decodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
 damrDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
 damrDecodedMessage =
     lens _damrDecodedMessage (\s a -> s { _damrDecodedMessage = a })
+
 instance FromXML DecodeAuthorizationMessageResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DecodeAuthorizationMessageResponse"

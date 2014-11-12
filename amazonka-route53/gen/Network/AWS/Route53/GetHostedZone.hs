@@ -49,7 +49,7 @@ import Network.AWS.Route53.Types
 
 newtype GetHostedZone = GetHostedZone
     { _ghzId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetHostedZone' constructor.
 --
@@ -83,7 +83,7 @@ data GetHostedZoneResponse = GetHostedZoneResponse
     { _ghzrDelegationSet :: Maybe DelegationSet
     , _ghzrHostedZone    :: HostedZone
     , _ghzrVPCs          :: List1 VPC
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetHostedZoneResponse' constructor.
 --

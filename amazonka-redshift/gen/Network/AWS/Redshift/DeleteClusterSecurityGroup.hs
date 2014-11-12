@@ -44,7 +44,7 @@ import Network.AWS.Redshift.Types
 
 newtype DeleteClusterSecurityGroupMessage = DeleteClusterSecurityGroupMessage
     { _dcsgmClusterSecurityGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteClusterSecurityGroupMessage' constructor.
 --
@@ -74,6 +74,7 @@ data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
 -- | 'DeleteClusterSecurityGroupResponse' constructor.
 deleteClusterSecurityGroupResponse :: DeleteClusterSecurityGroupResponse
 deleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
+
 instance FromXML DeleteClusterSecurityGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteClusterSecurityGroupResponse"

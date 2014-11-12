@@ -23,6 +23,8 @@ module Network.AWS.ElastiCache.Types
     (
     -- * Service
       ElastiCache
+    -- ** Error
+    , RESTError
     -- ** XML
     , xmlOptions
 
@@ -352,7 +354,7 @@ data NodeSnapshot = NodeSnapshot
     , _nsCacheNodeId         :: Maybe Text
     , _nsCacheSize           :: Maybe Text
     , _nsSnapshotCreateTime  :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'NodeSnapshot' constructor.
 --
@@ -423,7 +425,7 @@ data Snapshot = Snapshot
     , _sSnapshotWindow             :: Maybe Text
     , _sTopicArn                   :: Maybe Text
     , _sVpcId                      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'Snapshot' constructor.
 --
@@ -616,7 +618,7 @@ data Event = Event
     , _eMessage          :: Maybe Text
     , _eSourceIdentifier :: Maybe Text
     , _eSourceType       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Event' constructor.
 --
@@ -670,7 +672,7 @@ data NodeGroup = NodeGroup
     , _ngNodeGroupMembers :: [NodeGroupMember]
     , _ngPrimaryEndpoint  :: Maybe Endpoint
     , _ngStatus           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'NodeGroup' constructor.
 --
@@ -720,7 +722,7 @@ instance ToQuery NodeGroup
 data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue
     { _cntsvCacheNodeType :: Maybe Text
     , _cntsvValue         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CacheNodeTypeSpecificValue' constructor.
 --
@@ -776,7 +778,7 @@ instance ToQuery PendingAutomaticFailoverStatus
 data NotificationConfiguration = NotificationConfiguration
     { _ncTopicArn    :: Maybe Text
     , _ncTopicStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'NotificationConfiguration' constructor.
 --
@@ -809,7 +811,7 @@ instance ToQuery NotificationConfiguration
 data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues
     { _rgpmvAutomaticFailoverStatus :: Maybe Text
     , _rgpmvPrimaryClusterId        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ReplicationGroupPendingModifiedValues' constructor.
 --
@@ -848,7 +850,7 @@ data EC2SecurityGroup = EC2SecurityGroup
     { _ecsgEC2SecurityGroupName    :: Maybe Text
     , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
     , _ecsgStatus                  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'EC2SecurityGroup' constructor.
 --
@@ -892,7 +894,7 @@ instance ToQuery EC2SecurityGroup
 data ParameterNameValue = ParameterNameValue
     { _pnvParameterName  :: Maybe Text
     , _pnvParameterValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ParameterNameValue' constructor.
 --
@@ -956,7 +958,7 @@ data CacheSubnetGroup = CacheSubnetGroup
     , _csgCacheSubnetGroupName        :: Maybe Text
     , _csgSubnets                     :: [Subnet]
     , _csgVpcId                       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CacheSubnetGroup' constructor.
 --
@@ -1017,7 +1019,7 @@ data ReservedCacheNode = ReservedCacheNode
     , _rcnStartTime                    :: Maybe RFC822
     , _rcnState                        :: Maybe Text
     , _rcnUsagePrice                   :: Maybe Double
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ReservedCacheNode' constructor.
 --
@@ -1127,7 +1129,7 @@ instance ToQuery ReservedCacheNode
 data Subnet = Subnet
     { _sSubnetAvailabilityZone :: Maybe AvailabilityZone
     , _sSubnetIdentifier       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'Subnet' constructor.
 --
@@ -1162,7 +1164,7 @@ instance ToQuery Subnet
 data SecurityGroupMembership = SecurityGroupMembership
     { _sgmSecurityGroupId :: Maybe Text
     , _sgmStatus          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SecurityGroupMembership' constructor.
 --
@@ -1218,7 +1220,7 @@ data CacheCluster = CacheCluster
     , _ccSecurityGroups             :: [SecurityGroupMembership]
     , _ccSnapshotRetentionLimit     :: Maybe Int
     , _ccSnapshotWindow             :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CacheCluster' constructor.
 --
@@ -1428,7 +1430,7 @@ data EngineDefaults = EngineDefaults
     , _edCacheParameterGroupFamily       :: Maybe Text
     , _edMarker                          :: Maybe Text
     , _edParameters                      :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'EngineDefaults' constructor.
 --
@@ -1482,7 +1484,7 @@ data CacheParameterGroupStatus = CacheParameterGroupStatus
     { _cpgsCacheNodeIdsToReboot    :: [Text]
     , _cpgsCacheParameterGroupName :: Maybe Text
     , _cpgsParameterApplyStatus    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CacheParameterGroupStatus' constructor.
 --
@@ -1535,7 +1537,7 @@ data CacheNode = CacheNode
     , _cnEndpoint                 :: Maybe Endpoint
     , _cnParameterGroupStatus     :: Maybe Text
     , _cnSourceCacheNodeId        :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CacheNode' constructor.
 --
@@ -1614,7 +1616,7 @@ instance ToQuery CacheNode
 data CacheSecurityGroupMembership = CacheSecurityGroupMembership
     { _csgmCacheSecurityGroupName :: Maybe Text
     , _csgmStatus                 :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CacheSecurityGroupMembership' constructor.
 --
@@ -1650,7 +1652,7 @@ instance ToQuery CacheSecurityGroupMembership
 
 newtype AvailabilityZone = AvailabilityZone
     { _azName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'AvailabilityZone' constructor.
 --
@@ -1679,7 +1681,7 @@ data NodeGroupMember = NodeGroupMember
     , _ngmCurrentRole               :: Maybe Text
     , _ngmPreferredAvailabilityZone :: Maybe Text
     , _ngmReadEndpoint              :: Maybe Endpoint
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'NodeGroupMember' constructor.
 --
@@ -1737,7 +1739,7 @@ data CacheParameterGroup = CacheParameterGroup
     { _cpgCacheParameterGroupFamily :: Maybe Text
     , _cpgCacheParameterGroupName   :: Maybe Text
     , _cpgDescription               :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CacheParameterGroup' constructor.
 --
@@ -1812,7 +1814,7 @@ data CacheSecurityGroup = CacheSecurityGroup
     , _csgDescription            :: Maybe Text
     , _csgEC2SecurityGroups      :: [EC2SecurityGroup]
     , _csgOwnerId                :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CacheSecurityGroup' constructor.
 --
@@ -1869,7 +1871,7 @@ data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter
     , _cntspMinimumEngineVersion        :: Maybe Text
     , _cntspParameterName               :: Maybe Text
     , _cntspSource                      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CacheNodeTypeSpecificParameter' constructor.
 --
@@ -1979,7 +1981,7 @@ data CacheEngineVersion = CacheEngineVersion
     , _cevCacheParameterGroupFamily     :: Maybe Text
     , _cevEngine                        :: Maybe Text
     , _cevEngineVersion                 :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CacheEngineVersion' constructor.
 --
@@ -2046,7 +2048,7 @@ data ReplicationGroup = ReplicationGroup
     , _rgReplicationGroupId    :: Maybe Text
     , _rgSnapshottingClusterId :: Maybe Text
     , _rgStatus                :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ReplicationGroup' constructor.
 --
@@ -2129,7 +2131,7 @@ instance ToQuery ReplicationGroup
 data RecurringCharge = RecurringCharge
     { _rcRecurringChargeAmount    :: Maybe Double
     , _rcRecurringChargeFrequency :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RecurringCharge' constructor.
 --
@@ -2171,7 +2173,7 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering
     , _rcnoRecurringCharges             :: [RecurringCharge]
     , _rcnoReservedCacheNodesOfferingId :: Maybe Text
     , _rcnoUsagePrice                   :: Maybe Double
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ReservedCacheNodesOffering' constructor.
 --
@@ -2251,7 +2253,7 @@ instance ToQuery ReservedCacheNodesOffering
 data Endpoint = Endpoint
     { _eAddress :: Maybe Text
     , _ePort    :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Endpoint' constructor.
 --
@@ -2285,7 +2287,7 @@ data PendingModifiedValues = PendingModifiedValues
     { _pmvCacheNodeIdsToRemove :: [Text]
     , _pmvEngineVersion        :: Maybe Text
     , _pmvNumCacheNodes        :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'PendingModifiedValues' constructor.
 --
@@ -2326,7 +2328,7 @@ instance ToQuery PendingModifiedValues
 
 newtype CacheParameterGroupNameMessage = CacheParameterGroupNameMessage
     { _cpgnmCacheParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CacheParameterGroupNameMessage' constructor.
 --
@@ -2360,7 +2362,7 @@ data Parameter = Parameter
     , _pParameterName        :: Maybe Text
     , _pParameterValue       :: Maybe Text
     , _pSource               :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Parameter' constructor.
 --

@@ -46,7 +46,7 @@ import Network.AWS.SNS.Types
 data SetPlatformApplicationAttributesInput = SetPlatformApplicationAttributesInput
     { _spaaiAttributes             :: Map Text Text
     , _spaaiPlatformApplicationArn :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'SetPlatformApplicationAttributesInput' constructor.
 --
@@ -98,6 +98,7 @@ data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributes
 -- | 'SetPlatformApplicationAttributesResponse' constructor.
 setPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse
 setPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
+
 instance FromXML SetPlatformApplicationAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetPlatformApplicationAttributesResponse"

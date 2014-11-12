@@ -71,7 +71,7 @@ data UpdateStackInput = UpdateStackInput
     , _usiTemplateBody                :: Maybe Text
     , _usiTemplateURL                 :: Maybe Text
     , _usiUsePreviousTemplate         :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'UpdateStackInput' constructor.
 --
@@ -212,7 +212,7 @@ instance ToPath UpdateStackInput where
 
 newtype UpdateStackOutput = UpdateStackOutput
     { _usoStackId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'UpdateStackOutput' constructor.
 --
@@ -228,6 +228,7 @@ updateStackOutput = UpdateStackOutput
 -- | Unique identifier of the stack.
 usoStackId :: Lens' UpdateStackOutput (Maybe Text)
 usoStackId = lens _usoStackId (\s a -> s { _usoStackId = a })
+
 instance FromXML UpdateStackOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateStackOutput"

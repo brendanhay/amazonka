@@ -55,7 +55,7 @@ data DescribeOptionGroupsMessage = DescribeOptionGroupsMessage
     , _dogm1Marker             :: Maybe Text
     , _dogm1MaxRecords         :: Maybe Int
     , _dogm1OptionGroupName    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeOptionGroupsMessage' constructor.
 --
@@ -125,7 +125,7 @@ instance ToPath DescribeOptionGroupsMessage where
 data OptionGroups = OptionGroups
     { _ogMarker           :: Maybe Text
     , _ogOptionGroupsList :: [OptionGroup]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'OptionGroups' constructor.
 --
@@ -151,6 +151,7 @@ ogMarker = lens _ogMarker (\s a -> s { _ogMarker = a })
 ogOptionGroupsList :: Lens' OptionGroups [OptionGroup]
 ogOptionGroupsList =
     lens _ogOptionGroupsList (\s a -> s { _ogOptionGroupsList = a })
+
 instance FromXML OptionGroups where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "OptionGroups"

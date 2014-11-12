@@ -101,7 +101,7 @@ data DescribeInstanceStatus = DescribeInstanceStatus
     , _disInstanceIds         :: [Text]
     , _disMaxResults          :: Maybe Int
     , _disNextToken           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeInstanceStatus' constructor.
 --
@@ -187,7 +187,7 @@ instance ToPath DescribeInstanceStatus where
 data DescribeInstanceStatusResult = DescribeInstanceStatusResult
     { _disrInstanceStatuses :: [InstanceStatus]
     , _disrNextToken        :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeInstanceStatusResult' constructor.
 --
@@ -211,6 +211,7 @@ disrInstanceStatuses =
 -- | The next paginated set of results to return.
 disrNextToken :: Lens' DescribeInstanceStatusResult (Maybe Text)
 disrNextToken = lens _disrNextToken (\s a -> s { _disrNextToken = a })
+
 instance FromXML DescribeInstanceStatusResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeInstanceStatusResult"

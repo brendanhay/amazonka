@@ -48,7 +48,7 @@ import Network.AWS.CloudFormation.Types
 data DescribeStacksInput = DescribeStacksInput
     { _dsiNextToken :: Maybe Text
     , _dsiStackName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeStacksInput' constructor.
 --
@@ -83,7 +83,7 @@ instance ToPath DescribeStacksInput where
 data DescribeStacksOutput = DescribeStacksOutput
     { _dsoNextToken :: Maybe Text
     , _dsoStacks    :: [Stack]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeStacksOutput' constructor.
 --
@@ -107,6 +107,7 @@ dsoNextToken = lens _dsoNextToken (\s a -> s { _dsoNextToken = a })
 -- | A list of stack structures.
 dsoStacks :: Lens' DescribeStacksOutput [Stack]
 dsoStacks = lens _dsoStacks (\s a -> s { _dsoStacks = a })
+
 instance FromXML DescribeStacksOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeStacksOutput"

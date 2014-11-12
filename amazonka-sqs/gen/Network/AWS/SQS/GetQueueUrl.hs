@@ -52,7 +52,7 @@ import Network.AWS.SQS.Types
 data GetQueueUrl = GetQueueUrl
     { _gquQueueName              :: Text
     , _gquQueueOwnerAWSAccountId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetQueueUrl' constructor.
 --
@@ -86,7 +86,7 @@ instance ToPath GetQueueUrl where
 
 newtype GetQueueUrlResult = GetQueueUrlResult
     { _gqurQueueUrl :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetQueueUrlResult' constructor.
 --
@@ -102,6 +102,7 @@ getQueueUrlResult = GetQueueUrlResult
 -- | The URL for the queue.
 gqurQueueUrl :: Lens' GetQueueUrlResult (Maybe Text)
 gqurQueueUrl = lens _gqurQueueUrl (\s a -> s { _gqurQueueUrl = a })
+
 instance FromXML GetQueueUrlResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetQueueUrlResult"

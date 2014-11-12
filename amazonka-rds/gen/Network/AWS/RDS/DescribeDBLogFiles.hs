@@ -57,7 +57,7 @@ data DescribeDBLogFilesMessage = DescribeDBLogFilesMessage
     , _ddblfmFilters              :: [Filter]
     , _ddblfmMarker               :: Maybe Text
     , _ddblfmMaxRecords           :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeDBLogFilesMessage' constructor.
 --
@@ -138,7 +138,7 @@ instance ToPath DescribeDBLogFilesMessage where
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
     { _ddblfrDescribeDBLogFiles :: [DescribeDBLogFilesDetails]
     , _ddblfrMarker             :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeDBLogFilesResponse' constructor.
 --
@@ -164,6 +164,7 @@ ddblfrDescribeDBLogFiles =
 -- request.
 ddblfrMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
 ddblfrMarker = lens _ddblfrMarker (\s a -> s { _ddblfrMarker = a })
+
 instance FromXML DescribeDBLogFilesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDBLogFilesResponse"

@@ -47,7 +47,7 @@ data SetLoadBalancerPoliciesOfListenerInput = SetLoadBalancerPoliciesOfListenerI
     { _slbpoliLoadBalancerName :: Text
     , _slbpoliLoadBalancerPort :: Int
     , _slbpoliPolicyNames      :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SetLoadBalancerPoliciesOfListenerInput' constructor.
 --
@@ -94,6 +94,7 @@ data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListen
 -- | 'SetLoadBalancerPoliciesOfListenerResponse' constructor.
 setLoadBalancerPoliciesOfListenerResponse :: SetLoadBalancerPoliciesOfListenerResponse
 setLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
+
 instance FromXML SetLoadBalancerPoliciesOfListenerResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetLoadBalancerPoliciesOfListenerResponse"

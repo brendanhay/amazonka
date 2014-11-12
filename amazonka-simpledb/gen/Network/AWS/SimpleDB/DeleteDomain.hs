@@ -44,7 +44,7 @@ import Network.AWS.SimpleDB.Types
 
 newtype DeleteDomain = DeleteDomain
     { _ddDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteDomain' constructor.
 --
@@ -72,6 +72,7 @@ data DeleteDomainResponse = DeleteDomainResponse
 -- | 'DeleteDomainResponse' constructor.
 deleteDomainResponse :: DeleteDomainResponse
 deleteDomainResponse = DeleteDomainResponse
+
 instance FromXML DeleteDomainResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteDomainResponse"

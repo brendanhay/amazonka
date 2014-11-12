@@ -51,7 +51,7 @@ import Network.AWS.CloudSearch.Types
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
     { _dsapDeployed   :: Maybe Bool
     , _dsapDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeServiceAccessPolicies' constructor.
 --
@@ -83,7 +83,7 @@ instance ToPath DescribeServiceAccessPolicies where
 
 newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse
     { _dsaprAccessPolicies :: AccessPoliciesStatus
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeServiceAccessPoliciesResponse' constructor.
 --
@@ -101,6 +101,7 @@ describeServiceAccessPoliciesResponse p1 = DescribeServiceAccessPoliciesResponse
 dsaprAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
 dsaprAccessPolicies =
     lens _dsaprAccessPolicies (\s a -> s { _dsaprAccessPolicies = a })
+
 instance FromXML DescribeServiceAccessPoliciesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeServiceAccessPoliciesResponse"

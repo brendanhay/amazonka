@@ -46,7 +46,7 @@ data ExecutePolicyType = ExecutePolicyType
     { _eptAutoScalingGroupName :: Maybe Text
     , _eptHonorCooldown        :: Maybe Bool
     , _eptPolicyName           :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ExecutePolicyType' constructor.
 --
@@ -94,6 +94,7 @@ data ExecutePolicyResponse = ExecutePolicyResponse
 -- | 'ExecutePolicyResponse' constructor.
 executePolicyResponse :: ExecutePolicyResponse
 executePolicyResponse = ExecutePolicyResponse
+
 instance FromXML ExecutePolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ExecutePolicyResponse"

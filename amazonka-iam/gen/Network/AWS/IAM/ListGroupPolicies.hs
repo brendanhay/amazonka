@@ -52,7 +52,7 @@ data ListGroupPolicies = ListGroupPolicies
     { _lgpGroupName :: Text
     , _lgpMarker    :: Maybe Text
     , _lgpMaxItems  :: Maybe Natural
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListGroupPolicies' constructor.
 --
@@ -98,7 +98,7 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse
     { _lgprIsTruncated :: Maybe Bool
     , _lgprMarker      :: Maybe Text
     , _lgprPolicyNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListGroupPoliciesResponse' constructor.
 --
@@ -132,6 +132,7 @@ lgprMarker = lens _lgprMarker (\s a -> s { _lgprMarker = a })
 -- | A list of policy names.
 lgprPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
 lgprPolicyNames = lens _lgprPolicyNames (\s a -> s { _lgprPolicyNames = a })
+
 instance FromXML ListGroupPoliciesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListGroupPoliciesResponse"

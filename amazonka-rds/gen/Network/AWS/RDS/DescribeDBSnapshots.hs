@@ -55,7 +55,7 @@ data DescribeDBSnapshotsMessage = DescribeDBSnapshotsMessage
     , _ddbsmMarker               :: Maybe Text
     , _ddbsmMaxRecords           :: Maybe Int
     , _ddbsmSnapshotType         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeDBSnapshotsMessage' constructor.
 --
@@ -135,7 +135,7 @@ instance ToPath DescribeDBSnapshotsMessage where
 data DBSnapshotMessage = DBSnapshotMessage
     { _dbsmDBSnapshots :: [DBSnapshot]
     , _dbsmMarker      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DBSnapshotMessage' constructor.
 --
@@ -160,6 +160,7 @@ dbsmDBSnapshots = lens _dbsmDBSnapshots (\s a -> s { _dbsmDBSnapshots = a })
 -- marker, up to the value specified by MaxRecords.
 dbsmMarker :: Lens' DBSnapshotMessage (Maybe Text)
 dbsmMarker = lens _dbsmMarker (\s a -> s { _dbsmMarker = a })
+
 instance FromXML DBSnapshotMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DBSnapshotMessage"

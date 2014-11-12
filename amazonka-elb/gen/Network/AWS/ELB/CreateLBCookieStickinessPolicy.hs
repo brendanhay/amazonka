@@ -59,7 +59,7 @@ data CreateLBCookieStickinessPolicyInput = CreateLBCookieStickinessPolicyInput
     { _clbcspiCookieExpirationPeriod :: Maybe Integer
     , _clbcspiLoadBalancerName       :: Text
     , _clbcspiPolicyName             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateLBCookieStickinessPolicyInput' constructor.
 --
@@ -109,6 +109,7 @@ data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResp
 -- | 'CreateLBCookieStickinessPolicyResponse' constructor.
 createLBCookieStickinessPolicyResponse :: CreateLBCookieStickinessPolicyResponse
 createLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
+
 instance FromXML CreateLBCookieStickinessPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateLBCookieStickinessPolicyResponse"

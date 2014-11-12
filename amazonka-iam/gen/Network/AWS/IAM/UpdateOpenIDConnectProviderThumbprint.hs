@@ -50,7 +50,7 @@ import Network.AWS.IAM.Types
 data UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbprint
     { _uoidcptOpenIDConnectProviderArn :: Text
     , _uoidcptThumbprintList           :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateOpenIDConnectProviderThumbprint' constructor.
 --
@@ -92,6 +92,7 @@ data UpdateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProvider
 -- | 'UpdateOpenIDConnectProviderThumbprintResponse' constructor.
 updateOpenIDConnectProviderThumbprintResponse :: UpdateOpenIDConnectProviderThumbprintResponse
 updateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProviderThumbprintResponse
+
 instance FromXML UpdateOpenIDConnectProviderThumbprintResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateOpenIDConnectProviderThumbprintResponse"

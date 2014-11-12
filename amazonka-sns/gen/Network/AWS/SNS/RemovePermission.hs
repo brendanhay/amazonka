@@ -44,7 +44,7 @@ import Network.AWS.SNS.Types
 data RemovePermissionInput = RemovePermissionInput
     { _rpiLabel    :: Text
     , _rpiTopicArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RemovePermissionInput' constructor.
 --
@@ -80,6 +80,7 @@ data RemovePermissionResponse = RemovePermissionResponse
 -- | 'RemovePermissionResponse' constructor.
 removePermissionResponse :: RemovePermissionResponse
 removePermissionResponse = RemovePermissionResponse
+
 instance FromXML RemovePermissionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RemovePermissionResponse"

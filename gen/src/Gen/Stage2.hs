@@ -60,17 +60,6 @@ default (Text, FilePath)
 newtype Exposed  a = Exposed  a
 newtype Internal a = Internal a
 
-newtype Doc = Doc Text
-    deriving (Eq, Ord, Show, ToJSON, IsString)
-
-documentation :: Maybe Text -> Doc
-documentation = Doc . fromMaybe ""
-
-rewrap :: Pair -> Value -> Value
-rewrap (k, v) = Object . \case
-    Object o -> Map.insert    k v o
-    _        -> Map.singleton k v
-
 data Derive
     = Eq'
     | Ord'
@@ -78,6 +67,8 @@ data Derive
     | Generic'
     | Enum'
     | Num'
+    | Foldable'
+    | Traversable'
     | Monoid'
     | Semigroup'
       deriving (Eq, Ord, Show)
@@ -115,6 +106,17 @@ constructor = reserved
     . breakWord
     . view nameOf
 
+newtype Doc = Doc Text
+    deriving (Eq, Ord, Show, ToJSON, IsString)
+
+documentation :: Maybe Text -> Doc
+documentation = Doc . fromMaybe ""
+
+rewrap :: Pair -> Value -> Value
+rewrap (k, v) = Object . \case
+    Object o -> Map.insert    k v o
+    _        -> Map.singleton k v
+
 data Prim
     = PBlob
     | PReq
@@ -142,20 +144,6 @@ primitive int = \case
     PNatural             -> "Natural"
     PTime ts | int       -> timestamp ts
              | otherwise -> "UTCTime"
-
-instance DerivingOf Prim where
-    derivingOf = (def ++) . \case
-        PBool    -> [Eq', Ord', Enum']
-        PText    -> [Eq', Ord', Monoid']
-        PInt     -> [Eq', Ord', Num', Enum']
-        PInteger -> [Eq', Ord', Num', Enum']
-        PDouble  -> [Eq', Ord', Num', Enum']
-        PNatural -> [Eq', Ord', Num', Enum']
-        PTime _  -> [Eq', Ord']
-        PBlob    -> [Eq']
-        _        -> []
-      where
-        def = [Show', Generic']
 
 data Type
     = TType      !Text
@@ -265,16 +253,6 @@ typesOf = typeOf . go
         TMaybe     x   -> TMaybe     <$> f x
         TSensitive x   -> TSensitive <$> f x
         t              -> pure t
-
-instance DerivingOf Type where
-    derivingOf = \case
-        TType      _   -> [Eq', Show', Generic']
-        TPrim      p   -> derivingOf p
-        TList      x   -> Monoid'    : derivingOf x
-        TList1     x   -> Semigroup' : derivingOf x
-        TMap       k v -> Monoid'    : delete Ord' (derivingOf k `intersect` derivingOf v)
-        TMaybe     x   -> delete Monoid' . delete Enum' . delete Num' $ derivingOf x
-        TSensitive x   -> derivingOf x
 
 data Field = Field
     { _fName          :: !Text
@@ -418,19 +396,6 @@ instance ToJSON Data where
                 (req, opt) = parameters fs
                 pay        = find isPayload fs
 
-instance DerivingOf Data where
-    derivingOf d = f . nub . derivingOf $ toListOf (dataFields . typeOf) d
-      where
-        f | Newtype {} <- d = id
-          | Nullary {} <- d = const [Eq', Ord', Enum', Show', Generic']
-          | Empty   {} <- d = const [Eq', Ord', Show', Generic']
-          | otherwise       = \xs -> foldl' (flip delete) xs
-              [ Semigroup'
-              , Monoid'
-              , Enum'
-              , Num'
-              ]
-
 nestedTypes :: Data -> [Type]
 nestedTypes = concatMap universe . toListOf (dataFields . typesOf)
 
@@ -483,6 +448,53 @@ setStreaming rq = dataFields %~ go
 isVoid :: Data -> Bool
 isVoid Void = True
 isVoid _    = False
+
+instance DerivingOf Prim where
+    derivingOf = nub . (def ++) . \case
+        PBool    -> [Eq', Ord', Enum']
+        PText    -> [Eq', Ord', Monoid']
+        PInt     -> [Eq', Ord', Num', Enum']
+        PInteger -> [Eq', Ord', Num', Enum']
+        PDouble  -> [Eq', Ord', Num', Enum']
+        PNatural -> [Eq', Ord', Num', Enum']
+        PTime _  -> [Eq', Ord']
+        PBlob    -> [Eq']
+        _        -> []
+      where
+        def = [Show', Generic']
+
+instance DerivingOf Type where
+    derivingOf = nub . \case
+        TType      _   -> [Eq', Show', Generic']
+        TPrim      p   -> derivingOf p
+        TMaybe     x   -> delete Enum' . delete Num' $ derivingOf x
+        TSensitive x   -> derivingOf x
+        TList      x   -> list (derivingOf x)
+        TList1     x   -> delete Monoid' . list $ derivingOf x
+        TMap       k v ->
+            delete Ord' . list $ derivingOf k `intersect` derivingOf v
+      where
+        list xs =
+              Monoid'
+            : Semigroup'
+            : Foldable'
+            : Traversable'
+            : nub xs
+
+instance DerivingOf Data where
+    derivingOf d = f . nub . derivingOf $ toListOf (dataFields . typeOf) d
+      where
+        f | Newtype {} <- d = id
+          | Nullary {} <- d = const [Eq', Ord', Enum', Show', Generic']
+          | Empty   {} <- d = const [Eq', Ord', Show', Generic']
+          | otherwise       = \xs -> foldl' (flip delete) xs
+              [ Semigroup'
+              , Monoid'
+              , Enum'
+              , Num'
+              , Foldable'
+              , Traversable'
+              ]
 
 data Request = Request
     { _rqUri    :: !URI

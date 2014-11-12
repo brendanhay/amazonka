@@ -44,7 +44,7 @@ import Network.AWS.ElastiCache.Types
 
 newtype DeleteCacheParameterGroupMessage = DeleteCacheParameterGroupMessage
     { _dcpgm1CacheParameterGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteCacheParameterGroupMessage' constructor.
 --
@@ -74,6 +74,7 @@ data DeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
 -- | 'DeleteCacheParameterGroupResponse' constructor.
 deleteCacheParameterGroupResponse :: DeleteCacheParameterGroupResponse
 deleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
+
 instance FromXML DeleteCacheParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteCacheParameterGroupResponse"

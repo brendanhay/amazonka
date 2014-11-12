@@ -54,7 +54,7 @@ instance ToPath DescribeScalingProcessTypes where
 
 newtype ProcessesType = ProcessesType
     { _ptProcesses :: [ProcessType]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'ProcessesType' constructor.
 --
@@ -70,6 +70,7 @@ processesType = ProcessesType
 -- | A list of ProcessType names.
 ptProcesses :: Lens' ProcessesType [ProcessType]
 ptProcesses = lens _ptProcesses (\s a -> s { _ptProcesses = a })
+
 instance FromXML ProcessesType where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ProcessesType"

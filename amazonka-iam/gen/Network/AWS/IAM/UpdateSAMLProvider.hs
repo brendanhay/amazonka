@@ -46,7 +46,7 @@ import Network.AWS.IAM.Types
 data UpdateSAMLProvider = UpdateSAMLProvider
     { _usamlpSAMLMetadataDocument :: Text
     , _usamlpSAMLProviderArn      :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateSAMLProvider' constructor.
 --
@@ -86,7 +86,7 @@ instance ToPath UpdateSAMLProvider where
 
 newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse
     { _usamlprSAMLProviderArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'UpdateSAMLProviderResponse' constructor.
 --
@@ -103,6 +103,7 @@ updateSAMLProviderResponse = UpdateSAMLProviderResponse
 usamlprSAMLProviderArn :: Lens' UpdateSAMLProviderResponse (Maybe Text)
 usamlprSAMLProviderArn =
     lens _usamlprSAMLProviderArn (\s a -> s { _usamlprSAMLProviderArn = a })
+
 instance FromXML UpdateSAMLProviderResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateSAMLProviderResponse"

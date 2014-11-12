@@ -54,7 +54,7 @@ data DescribeDBSubnetGroupsMessage = DescribeDBSubnetGroupsMessage
     , _ddbsgmFilters           :: [Filter]
     , _ddbsgmMarker            :: Maybe Text
     , _ddbsgmMaxRecords        :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeDBSubnetGroupsMessage' constructor.
 --
@@ -106,7 +106,7 @@ instance ToPath DescribeDBSubnetGroupsMessage where
 data DBSubnetGroupMessage = DBSubnetGroupMessage
     { _dbsgm1DBSubnetGroups :: [DBSubnetGroup]
     , _dbsgm1Marker         :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DBSubnetGroupMessage' constructor.
 --
@@ -132,6 +132,7 @@ dbsgm1DBSubnetGroups =
 -- marker, up to the value specified by MaxRecords.
 dbsgm1Marker :: Lens' DBSubnetGroupMessage (Maybe Text)
 dbsgm1Marker = lens _dbsgm1Marker (\s a -> s { _dbsgm1Marker = a })
+
 instance FromXML DBSubnetGroupMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DBSubnetGroupMessage"

@@ -53,7 +53,7 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute
     { _dsaAttribute  :: Text
     , _dsaDryRun     :: Maybe Bool
     , _dsaSnapshotId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeSnapshotAttribute' constructor.
 --
@@ -93,7 +93,7 @@ data DescribeSnapshotAttributeResult = DescribeSnapshotAttributeResult
     { _dsarCreateVolumePermissions :: [CreateVolumePermission]
     , _dsarProductCodes            :: [ProductCode]
     , _dsarSnapshotId              :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeSnapshotAttributeResult' constructor.
 --
@@ -125,6 +125,7 @@ dsarProductCodes = lens _dsarProductCodes (\s a -> s { _dsarProductCodes = a })
 -- | The ID of the Amazon EBS snapshot.
 dsarSnapshotId :: Lens' DescribeSnapshotAttributeResult (Maybe Text)
 dsarSnapshotId = lens _dsarSnapshotId (\s a -> s { _dsarSnapshotId = a })
+
 instance FromXML DescribeSnapshotAttributeResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSnapshotAttributeResult"

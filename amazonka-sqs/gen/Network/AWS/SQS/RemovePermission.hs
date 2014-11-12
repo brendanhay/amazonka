@@ -45,7 +45,7 @@ import Network.AWS.SQS.Types
 data RemovePermission = RemovePermission
     { _rpLabel    :: Text
     , _rpQueueUrl :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RemovePermission' constructor.
 --
@@ -82,6 +82,7 @@ data RemovePermissionResponse = RemovePermissionResponse
 -- | 'RemovePermissionResponse' constructor.
 removePermissionResponse :: RemovePermissionResponse
 removePermissionResponse = RemovePermissionResponse
+
 instance FromXML RemovePermissionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RemovePermissionResponse"

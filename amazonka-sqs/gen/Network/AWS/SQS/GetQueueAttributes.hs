@@ -70,7 +70,7 @@ import Network.AWS.SQS.Types
 data GetQueueAttributes = GetQueueAttributes
     { _gqaAttributeNames :: [Text]
     , _gqaQueueUrl       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetQueueAttributes' constructor.
 --
@@ -102,7 +102,7 @@ instance ToPath GetQueueAttributes where
 
 newtype GetQueueAttributesResult = GetQueueAttributesResult
     { _gqarAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'GetQueueAttributesResult' constructor.
 --
@@ -119,6 +119,7 @@ getQueueAttributesResult = GetQueueAttributesResult
 gqarAttributes :: Lens' GetQueueAttributesResult (HashMap Text Text)
 gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a })
     . _Map
+
 instance FromXML GetQueueAttributesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetQueueAttributesResult"

@@ -60,7 +60,7 @@ import Network.AWS.EC2.Types
 data TerminateInstances = TerminateInstances
     { _tiDryRun      :: Maybe Bool
     , _tiInstanceIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'TerminateInstances' constructor.
 --
@@ -89,7 +89,7 @@ instance ToPath TerminateInstances where
 
 newtype TerminateInstancesResult = TerminateInstancesResult
     { _tirTerminatingInstances :: [InstanceStateChange]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'TerminateInstancesResult' constructor.
 --
@@ -106,6 +106,7 @@ terminateInstancesResult = TerminateInstancesResult
 tirTerminatingInstances :: Lens' TerminateInstancesResult [InstanceStateChange]
 tirTerminatingInstances =
     lens _tirTerminatingInstances (\s a -> s { _tirTerminatingInstances = a })
+
 instance FromXML TerminateInstancesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "TerminateInstancesResult"

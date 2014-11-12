@@ -46,7 +46,7 @@ import Network.AWS.EC2.Types
 data DescribeAccountAttributes = DescribeAccountAttributes
     { _daaAttributeNames :: [Text]
     , _daaDryRun         :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAccountAttributes' constructor.
 --
@@ -76,7 +76,7 @@ instance ToPath DescribeAccountAttributes where
 
 newtype DescribeAccountAttributesResult = DescribeAccountAttributesResult
     { _daarAccountAttributes :: [AccountAttribute]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeAccountAttributesResult' constructor.
 --
@@ -93,6 +93,7 @@ describeAccountAttributesResult = DescribeAccountAttributesResult
 daarAccountAttributes :: Lens' DescribeAccountAttributesResult [AccountAttribute]
 daarAccountAttributes =
     lens _daarAccountAttributes (\s a -> s { _daarAccountAttributes = a })
+
 instance FromXML DescribeAccountAttributesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAccountAttributesResult"

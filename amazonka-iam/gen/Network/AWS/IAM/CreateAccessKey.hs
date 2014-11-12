@@ -55,7 +55,7 @@ import Network.AWS.IAM.Types
 
 newtype CreateAccessKey = CreateAccessKey
     { _cakUserName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateAccessKey' constructor.
 --
@@ -78,7 +78,7 @@ instance ToPath CreateAccessKey where
 
 newtype CreateAccessKeyResponse = CreateAccessKeyResponse
     { _cakrAccessKey :: AccessKey
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateAccessKeyResponse' constructor.
 --
@@ -95,6 +95,7 @@ createAccessKeyResponse p1 = CreateAccessKeyResponse
 -- | Information about the access key.
 cakrAccessKey :: Lens' CreateAccessKeyResponse AccessKey
 cakrAccessKey = lens _cakrAccessKey (\s a -> s { _cakrAccessKey = a })
+
 instance FromXML CreateAccessKeyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateAccessKeyResponse"

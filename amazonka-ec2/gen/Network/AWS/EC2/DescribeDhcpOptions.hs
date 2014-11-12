@@ -50,7 +50,7 @@ data DescribeDhcpOptions = DescribeDhcpOptions
     { _ddo1DhcpOptionsIds :: [Text]
     , _ddo1DryRun         :: Maybe Bool
     , _ddo1Filters        :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeDhcpOptions' constructor.
 --
@@ -99,7 +99,7 @@ instance ToPath DescribeDhcpOptions where
 
 newtype DescribeDhcpOptionsResult = DescribeDhcpOptionsResult
     { _ddorDhcpOptions :: [DhcpOptions]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeDhcpOptionsResult' constructor.
 --
@@ -115,6 +115,7 @@ describeDhcpOptionsResult = DescribeDhcpOptionsResult
 -- | Information about one or more DHCP options sets.
 ddorDhcpOptions :: Lens' DescribeDhcpOptionsResult [DhcpOptions]
 ddorDhcpOptions = lens _ddorDhcpOptions (\s a -> s { _ddorDhcpOptions = a })
+
 instance FromXML DescribeDhcpOptionsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeDhcpOptionsResult"

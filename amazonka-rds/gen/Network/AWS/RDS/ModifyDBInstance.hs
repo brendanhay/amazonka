@@ -86,7 +86,7 @@ data ModifyDBInstanceMessage = ModifyDBInstanceMessage
     , _mdbimTdeCredentialArn           :: Maybe Text
     , _mdbimTdeCredentialPassword      :: Maybe Text
     , _mdbimVpcSecurityGroupIds        :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ModifyDBInstanceMessage' constructor.
 --
@@ -441,7 +441,7 @@ instance ToPath ModifyDBInstanceMessage where
 
 newtype ModifyDBInstanceResult = ModifyDBInstanceResult
     { _mdbirDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyDBInstanceResult' constructor.
 --
@@ -456,6 +456,7 @@ modifyDBInstanceResult = ModifyDBInstanceResult
 
 mdbirDBInstance :: Lens' ModifyDBInstanceResult (Maybe DBInstance)
 mdbirDBInstance = lens _mdbirDBInstance (\s a -> s { _mdbirDBInstance = a })
+
 instance FromXML ModifyDBInstanceResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyDBInstanceResult"

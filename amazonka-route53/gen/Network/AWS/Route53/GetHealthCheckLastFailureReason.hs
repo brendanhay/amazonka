@@ -47,7 +47,7 @@ import Network.AWS.Route53.Types
 
 newtype GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReason
     { _ghclfrHealthCheckId :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetHealthCheckLastFailureReason' constructor.
 --
@@ -81,7 +81,7 @@ instance ToHeaders GetHealthCheckLastFailureReason
 
 newtype GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse
     { _ghclfrrHealthCheckObservations :: [HealthCheckObservation]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'GetHealthCheckLastFailureReasonResponse' constructor.
 --

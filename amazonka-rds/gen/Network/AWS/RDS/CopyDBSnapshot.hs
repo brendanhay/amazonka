@@ -49,7 +49,7 @@ data CopyDBSnapshotMessage = CopyDBSnapshotMessage
     { _cdbsmSourceDBSnapshotIdentifier :: Text
     , _cdbsmTags                       :: [Tag]
     , _cdbsmTargetDBSnapshotIdentifier :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CopyDBSnapshotMessage' constructor.
 --
@@ -101,7 +101,7 @@ instance ToPath CopyDBSnapshotMessage where
 
 newtype CopyDBSnapshotResult = CopyDBSnapshotResult
     { _cdbsr1DBSnapshot :: Maybe DBSnapshot
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CopyDBSnapshotResult' constructor.
 --
@@ -116,6 +116,7 @@ copyDBSnapshotResult = CopyDBSnapshotResult
 
 cdbsr1DBSnapshot :: Lens' CopyDBSnapshotResult (Maybe DBSnapshot)
 cdbsr1DBSnapshot = lens _cdbsr1DBSnapshot (\s a -> s { _cdbsr1DBSnapshot = a })
+
 instance FromXML CopyDBSnapshotResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CopyDBSnapshotResult"

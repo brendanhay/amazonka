@@ -79,7 +79,7 @@ data GetMetricStatisticsInput = GetMetricStatisticsInput
     , _gmsiStartTime  :: RFC822
     , _gmsiStatistics :: List1 Text
     , _gmsiUnit       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetMetricStatisticsInput' constructor.
 --
@@ -170,7 +170,7 @@ instance ToPath GetMetricStatisticsInput where
 data GetMetricStatisticsOutput = GetMetricStatisticsOutput
     { _gmsoDatapoints :: [Datapoint]
     , _gmsoLabel      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetMetricStatisticsOutput' constructor.
 --
@@ -193,6 +193,7 @@ gmsoDatapoints = lens _gmsoDatapoints (\s a -> s { _gmsoDatapoints = a })
 -- | A label describing the specified metric.
 gmsoLabel :: Lens' GetMetricStatisticsOutput (Maybe Text)
 gmsoLabel = lens _gmsoLabel (\s a -> s { _gmsoLabel = a })
+
 instance FromXML GetMetricStatisticsOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetMetricStatisticsOutput"

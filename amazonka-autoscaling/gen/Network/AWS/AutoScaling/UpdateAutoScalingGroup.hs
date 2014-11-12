@@ -67,7 +67,7 @@ data UpdateAutoScalingGroupType = UpdateAutoScalingGroupType
     , _uasgtPlacementGroup          :: Maybe Text
     , _uasgtTerminationPolicies     :: [Text]
     , _uasgtVPCZoneIdentifier       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateAutoScalingGroupType' constructor.
 --
@@ -206,6 +206,7 @@ data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
 -- | 'UpdateAutoScalingGroupResponse' constructor.
 updateAutoScalingGroupResponse :: UpdateAutoScalingGroupResponse
 updateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
+
 instance FromXML UpdateAutoScalingGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateAutoScalingGroupResponse"

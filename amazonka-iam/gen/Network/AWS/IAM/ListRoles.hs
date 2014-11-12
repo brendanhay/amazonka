@@ -55,7 +55,7 @@ data ListRoles = ListRoles
     { _lrMarker     :: Maybe Text
     , _lrMaxItems   :: Maybe Natural
     , _lrPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListRoles' constructor.
 --
@@ -103,7 +103,7 @@ data ListRolesResponse = ListRolesResponse
     { _lrrIsTruncated :: Maybe Bool
     , _lrrMarker      :: Maybe Text
     , _lrrRoles       :: [Role]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListRolesResponse' constructor.
 --
@@ -136,6 +136,7 @@ lrrMarker = lens _lrrMarker (\s a -> s { _lrrMarker = a })
 -- | A list of roles.
 lrrRoles :: Lens' ListRolesResponse [Role]
 lrrRoles = lens _lrrRoles (\s a -> s { _lrrRoles = a })
+
 instance FromXML ListRolesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListRolesResponse"

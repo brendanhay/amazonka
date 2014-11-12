@@ -54,7 +54,7 @@ data DescribeAutoScalingInstancesType = DescribeAutoScalingInstancesType
     { _dasitInstanceIds :: [Text]
     , _dasitMaxRecords  :: Maybe Int
     , _dasitNextToken   :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAutoScalingInstancesType' constructor.
 --
@@ -97,7 +97,7 @@ instance ToPath DescribeAutoScalingInstancesType where
 data AutoScalingInstancesType = AutoScalingInstancesType
     { _asitAutoScalingInstances :: [AutoScalingInstanceDetails]
     , _asitNextToken            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AutoScalingInstancesType' constructor.
 --
@@ -122,6 +122,7 @@ asitAutoScalingInstances =
 -- | A string that marks the start of the next batch of returned results.
 asitNextToken :: Lens' AutoScalingInstancesType (Maybe Text)
 asitNextToken = lens _asitNextToken (\s a -> s { _asitNextToken = a })
+
 instance FromXML AutoScalingInstancesType where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AutoScalingInstancesType"

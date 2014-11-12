@@ -53,7 +53,7 @@ import Network.AWS.CloudSearch.Types
 data DefineIndexField = DefineIndexField
     { _dif2DomainName :: Text
     , _dif2IndexField :: IndexField
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DefineIndexField' constructor.
 --
@@ -84,7 +84,7 @@ instance ToPath DefineIndexField where
 
 newtype DefineIndexFieldResponse = DefineIndexFieldResponse
     { _difr1IndexField :: IndexFieldStatus
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DefineIndexFieldResponse' constructor.
 --
@@ -100,6 +100,7 @@ defineIndexFieldResponse p1 = DefineIndexFieldResponse
 
 difr1IndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
 difr1IndexField = lens _difr1IndexField (\s a -> s { _difr1IndexField = a })
+
 instance FromXML DefineIndexFieldResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DefineIndexFieldResponse"

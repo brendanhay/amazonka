@@ -61,7 +61,7 @@ data CreateCustomerGateway = CreateCustomerGateway
     , _ccgDryRun   :: Maybe Bool
     , _ccgPublicIp :: Text
     , _ccgType     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateCustomerGateway' constructor.
 --
@@ -109,7 +109,7 @@ instance ToPath CreateCustomerGateway where
 
 newtype CreateCustomerGatewayResult = CreateCustomerGatewayResult
     { _ccgrCustomerGateway :: Maybe CustomerGateway
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateCustomerGatewayResult' constructor.
 --
@@ -126,6 +126,7 @@ createCustomerGatewayResult = CreateCustomerGatewayResult
 ccgrCustomerGateway :: Lens' CreateCustomerGatewayResult (Maybe CustomerGateway)
 ccgrCustomerGateway =
     lens _ccgrCustomerGateway (\s a -> s { _ccgrCustomerGateway = a })
+
 instance FromXML CreateCustomerGatewayResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateCustomerGatewayResult"

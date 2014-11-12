@@ -53,7 +53,7 @@ data DescribeDBParameterGroupsMessage = DescribeDBParameterGroupsMessage
     , _ddbpgmFilters              :: [Filter]
     , _ddbpgmMarker               :: Maybe Text
     , _ddbpgmMaxRecords           :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeDBParameterGroupsMessage' constructor.
 --
@@ -109,7 +109,7 @@ instance ToPath DescribeDBParameterGroupsMessage where
 data DBParameterGroupsMessage = DBParameterGroupsMessage
     { _dbpgmDBParameterGroups :: [DBParameterGroup]
     , _dbpgmMarker            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DBParameterGroupsMessage' constructor.
 --
@@ -135,6 +135,7 @@ dbpgmDBParameterGroups =
 -- marker, up to the value specified by MaxRecords.
 dbpgmMarker :: Lens' DBParameterGroupsMessage (Maybe Text)
 dbpgmMarker = lens _dbpgmMarker (\s a -> s { _dbpgmMarker = a })
+
 instance FromXML DBParameterGroupsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DBParameterGroupsMessage"

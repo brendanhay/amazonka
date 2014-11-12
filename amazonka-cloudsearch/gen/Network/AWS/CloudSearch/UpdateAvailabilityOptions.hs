@@ -51,7 +51,7 @@ import Network.AWS.CloudSearch.Types
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions
     { _uaoDomainName :: Text
     , _uaoMultiAZ    :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateAvailabilityOptions' constructor.
 --
@@ -85,7 +85,7 @@ instance ToPath UpdateAvailabilityOptions where
 
 newtype UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
     { _uaorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'UpdateAvailabilityOptionsResponse' constructor.
 --
@@ -103,6 +103,7 @@ updateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
 uaorAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 uaorAvailabilityOptions =
     lens _uaorAvailabilityOptions (\s a -> s { _uaorAvailabilityOptions = a })
+
 instance FromXML UpdateAvailabilityOptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateAvailabilityOptionsResponse"

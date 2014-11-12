@@ -44,7 +44,16 @@ import Network.AWS.EC2.Types
 
 newtype DescribeExportTasks = DescribeExportTasks
     { _detExportTaskIds :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'DescribeExportTasks' constructor.
 --
@@ -67,7 +76,7 @@ instance ToPath DescribeExportTasks where
 
 newtype DescribeExportTasksResult = DescribeExportTasksResult
     { _detrExportTasks :: [ExportTask]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeExportTasksResult' constructor.
 --
@@ -82,6 +91,7 @@ describeExportTasksResult = DescribeExportTasksResult
 
 detrExportTasks :: Lens' DescribeExportTasksResult [ExportTask]
 detrExportTasks = lens _detrExportTasks (\s a -> s { _detrExportTasks = a })
+
 instance FromXML DescribeExportTasksResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeExportTasksResult"

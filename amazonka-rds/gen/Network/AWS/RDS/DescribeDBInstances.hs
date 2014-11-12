@@ -52,7 +52,7 @@ data DescribeDBInstancesMessage = DescribeDBInstancesMessage
     , _ddbimFilters              :: [Filter]
     , _ddbimMarker               :: Maybe Text
     , _ddbimMaxRecords           :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeDBInstancesMessage' constructor.
 --
@@ -108,7 +108,7 @@ instance ToPath DescribeDBInstancesMessage where
 data DBInstanceMessage = DBInstanceMessage
     { _dbimDBInstances :: [DBInstance]
     , _dbimMarker      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DBInstanceMessage' constructor.
 --
@@ -133,6 +133,7 @@ dbimDBInstances = lens _dbimDBInstances (\s a -> s { _dbimDBInstances = a })
 -- marker, up to the value specified by MaxRecords .
 dbimMarker :: Lens' DBInstanceMessage (Maybe Text)
 dbimMarker = lens _dbimMarker (\s a -> s { _dbimMarker = a })
+
 instance FromXML DBInstanceMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DBInstanceMessage"

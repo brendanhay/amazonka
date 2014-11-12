@@ -58,7 +58,7 @@ data CompleteLifecycleActionType = CompleteLifecycleActionType
     , _clatLifecycleActionResult :: Text
     , _clatLifecycleActionToken  :: Text
     , _clatLifecycleHookName     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CompleteLifecycleActionType' constructor.
 --
@@ -121,6 +121,7 @@ data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse
 -- | 'CompleteLifecycleActionResponse' constructor.
 completeLifecycleActionResponse :: CompleteLifecycleActionResponse
 completeLifecycleActionResponse = CompleteLifecycleActionResponse
+
 instance FromXML CompleteLifecycleActionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CompleteLifecycleActionResponse"

@@ -49,7 +49,7 @@ import Network.AWS.EC2.Types
 data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
     { _avpcDryRun                 :: Maybe Bool
     , _avpcVpcPeeringConnectionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AcceptVpcPeeringConnection' constructor.
 --
@@ -80,7 +80,7 @@ instance ToPath AcceptVpcPeeringConnection where
 
 newtype AcceptVpcPeeringConnectionResult = AcceptVpcPeeringConnectionResult
     { _avpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AcceptVpcPeeringConnectionResult' constructor.
 --
@@ -98,6 +98,7 @@ avpcrVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResult (Maybe VpcPe
 avpcrVpcPeeringConnection =
     lens _avpcrVpcPeeringConnection
         (\s a -> s { _avpcrVpcPeeringConnection = a })
+
 instance FromXML AcceptVpcPeeringConnectionResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AcceptVpcPeeringConnectionResult"

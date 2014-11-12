@@ -42,7 +42,7 @@ import Network.AWS.RDS.Types
 
 newtype DeleteDBSubnetGroupMessage = DeleteDBSubnetGroupMessage
     { _ddbsgm1DBSubnetGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteDBSubnetGroupMessage' constructor.
 --
@@ -74,6 +74,7 @@ data DeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
 -- | 'DeleteDBSubnetGroupResponse' constructor.
 deleteDBSubnetGroupResponse :: DeleteDBSubnetGroupResponse
 deleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
+
 instance FromXML DeleteDBSubnetGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteDBSubnetGroupResponse"

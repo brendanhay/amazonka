@@ -55,7 +55,7 @@ instance ToPath GetAccountSummary where
 
 newtype GetAccountSummaryResponse = GetAccountSummaryResponse
     { _gasrSummaryMap :: Map Text Int
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'GetAccountSummaryResponse' constructor.
 --
@@ -93,6 +93,7 @@ getAccountSummaryResponse = GetAccountSummaryResponse
 gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap Text Int)
 gasrSummaryMap = lens _gasrSummaryMap (\s a -> s { _gasrSummaryMap = a })
     . _Map
+
 instance FromXML GetAccountSummaryResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetAccountSummaryResponse"

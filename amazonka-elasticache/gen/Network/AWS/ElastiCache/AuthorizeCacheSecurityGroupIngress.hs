@@ -51,7 +51,7 @@ data AuthorizeCacheSecurityGroupIngressMessage = AuthorizeCacheSecurityGroupIngr
     { _acsgimCacheSecurityGroupName  :: Text
     , _acsgimEC2SecurityGroupName    :: Text
     , _acsgimEC2SecurityGroupOwnerId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AuthorizeCacheSecurityGroupIngressMessage' constructor.
 --
@@ -100,7 +100,7 @@ instance ToPath AuthorizeCacheSecurityGroupIngressMessage where
 
 newtype AuthorizeCacheSecurityGroupIngressResult = AuthorizeCacheSecurityGroupIngressResult
     { _acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AuthorizeCacheSecurityGroupIngressResult' constructor.
 --
@@ -117,6 +117,7 @@ acsgirCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResult (Mayb
 acsgirCacheSecurityGroup =
     lens _acsgirCacheSecurityGroup
         (\s a -> s { _acsgirCacheSecurityGroup = a })
+
 instance FromXML AuthorizeCacheSecurityGroupIngressResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AuthorizeCacheSecurityGroupIngressResult"

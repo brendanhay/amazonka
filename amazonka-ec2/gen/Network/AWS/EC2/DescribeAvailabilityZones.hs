@@ -53,7 +53,7 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones
     { _dazDryRun    :: Maybe Bool
     , _dazFilters   :: [Filter]
     , _dazZoneNames :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeAvailabilityZones' constructor.
 --
@@ -93,7 +93,7 @@ instance ToPath DescribeAvailabilityZones where
 
 newtype DescribeAvailabilityZonesResult = DescribeAvailabilityZonesResult
     { _dazrAvailabilityZones :: [AvailabilityZone]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeAvailabilityZonesResult' constructor.
 --
@@ -110,6 +110,7 @@ describeAvailabilityZonesResult = DescribeAvailabilityZonesResult
 dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResult [AvailabilityZone]
 dazrAvailabilityZones =
     lens _dazrAvailabilityZones (\s a -> s { _dazrAvailabilityZones = a })
+
 instance FromXML DescribeAvailabilityZonesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAvailabilityZonesResult"

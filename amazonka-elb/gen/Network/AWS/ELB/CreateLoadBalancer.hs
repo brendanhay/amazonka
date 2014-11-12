@@ -70,7 +70,7 @@ data CreateAccessPointInput = CreateAccessPointInput
     , _capiSecurityGroups    :: [Text]
     , _capiSubnets           :: [Text]
     , _capiTags              :: List1 Tag
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateAccessPointInput' constructor.
 --
@@ -157,7 +157,7 @@ instance ToPath CreateAccessPointInput where
 
 newtype CreateAccessPointOutput = CreateAccessPointOutput
     { _capoDNSName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateAccessPointOutput' constructor.
 --
@@ -173,6 +173,7 @@ createAccessPointOutput = CreateAccessPointOutput
 -- | The DNS name for the load balancer.
 capoDNSName :: Lens' CreateAccessPointOutput (Maybe Text)
 capoDNSName = lens _capoDNSName (\s a -> s { _capoDNSName = a })
+
 instance FromXML CreateAccessPointOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateAccessPointOutput"

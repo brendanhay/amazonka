@@ -45,7 +45,7 @@ import Network.AWS.SNS.Types
 
 newtype DeleteTopicInput = DeleteTopicInput
     { _dtiTopicArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteTopicInput' constructor.
 --
@@ -73,6 +73,7 @@ data DeleteTopicResponse = DeleteTopicResponse
 -- | 'DeleteTopicResponse' constructor.
 deleteTopicResponse :: DeleteTopicResponse
 deleteTopicResponse = DeleteTopicResponse
+
 instance FromXML DeleteTopicResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteTopicResponse"

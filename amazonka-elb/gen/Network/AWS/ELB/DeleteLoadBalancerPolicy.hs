@@ -45,7 +45,7 @@ import Network.AWS.ELB.Types
 data DeleteLoadBalancerPolicyInput = DeleteLoadBalancerPolicyInput
     { _dlbpi1LoadBalancerName :: Text
     , _dlbpi1PolicyName       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteLoadBalancerPolicyInput' constructor.
 --
@@ -82,6 +82,7 @@ data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
 -- | 'DeleteLoadBalancerPolicyResponse' constructor.
 deleteLoadBalancerPolicyResponse :: DeleteLoadBalancerPolicyResponse
 deleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
+
 instance FromXML DeleteLoadBalancerPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteLoadBalancerPolicyResponse"

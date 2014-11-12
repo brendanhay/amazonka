@@ -78,7 +78,7 @@ data DescribeSnapshots = DescribeSnapshots
     , _ds1OwnerIds            :: [Text]
     , _ds1RestorableByUserIds :: [Text]
     , _ds1SnapshotIds         :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeSnapshots' constructor.
 --
@@ -147,7 +147,7 @@ instance ToPath DescribeSnapshots where
 
 newtype DescribeSnapshotsResult = DescribeSnapshotsResult
     { _dsrSnapshots :: [Snapshot]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeSnapshotsResult' constructor.
 --
@@ -162,6 +162,7 @@ describeSnapshotsResult = DescribeSnapshotsResult
 
 dsrSnapshots :: Lens' DescribeSnapshotsResult [Snapshot]
 dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a })
+
 instance FromXML DescribeSnapshotsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSnapshotsResult"

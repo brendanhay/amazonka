@@ -46,7 +46,7 @@ data DeleteApplicationVersionMessage = DeleteApplicationVersionMessage
     { _davmApplicationName    :: Text
     , _davmDeleteSourceBundle :: Maybe Bool
     , _davmVersionLabel       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteApplicationVersionMessage' constructor.
 --
@@ -94,6 +94,7 @@ data DeleteApplicationVersionResponse = DeleteApplicationVersionResponse
 -- | 'DeleteApplicationVersionResponse' constructor.
 deleteApplicationVersionResponse :: DeleteApplicationVersionResponse
 deleteApplicationVersionResponse = DeleteApplicationVersionResponse
+
 instance FromXML DeleteApplicationVersionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteApplicationVersionResponse"

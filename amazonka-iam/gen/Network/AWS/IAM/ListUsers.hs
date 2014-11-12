@@ -53,7 +53,7 @@ data ListUsers = ListUsers
     { _luMarker     :: Maybe Text
     , _luMaxItems   :: Maybe Natural
     , _luPathPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListUsers' constructor.
 --
@@ -103,7 +103,7 @@ data ListUsersResponse = ListUsersResponse
     { _lurIsTruncated :: Maybe Bool
     , _lurMarker      :: Maybe Text
     , _lurUsers       :: [User]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListUsersResponse' constructor.
 --
@@ -136,6 +136,7 @@ lurMarker = lens _lurMarker (\s a -> s { _lurMarker = a })
 -- | A list of users.
 lurUsers :: Lens' ListUsersResponse [User]
 lurUsers = lens _lurUsers (\s a -> s { _lurUsers = a })
+
 instance FromXML ListUsersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListUsersResponse"

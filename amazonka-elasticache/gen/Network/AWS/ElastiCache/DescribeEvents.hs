@@ -62,7 +62,7 @@ data DescribeEventsMessage = DescribeEventsMessage
     , _demSourceIdentifier :: Maybe Text
     , _demSourceType       :: Maybe Text
     , _demStartTime        :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeEventsMessage' constructor.
 --
@@ -142,7 +142,7 @@ instance ToPath DescribeEventsMessage where
 data EventsMessage = EventsMessage
     { _emEvents :: [Event]
     , _emMarker :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'EventsMessage' constructor.
 --
@@ -166,6 +166,7 @@ emEvents = lens _emEvents (\s a -> s { _emEvents = a })
 -- | Provides an identifier to allow retrieval of paginated results.
 emMarker :: Lens' EventsMessage (Maybe Text)
 emMarker = lens _emMarker (\s a -> s { _emMarker = a })
+
 instance FromXML EventsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EventsMessage"

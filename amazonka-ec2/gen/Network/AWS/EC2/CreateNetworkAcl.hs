@@ -49,7 +49,7 @@ import Network.AWS.EC2.Types
 data CreateNetworkAcl = CreateNetworkAcl
     { _cnaDryRun :: Maybe Bool
     , _cnaVpcId  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateNetworkAcl' constructor.
 --
@@ -79,7 +79,7 @@ instance ToPath CreateNetworkAcl where
 
 newtype CreateNetworkAclResult = CreateNetworkAclResult
     { _cnarNetworkAcl :: Maybe NetworkAcl
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateNetworkAclResult' constructor.
 --
@@ -95,6 +95,7 @@ createNetworkAclResult = CreateNetworkAclResult
 -- | Information about the network ACL.
 cnarNetworkAcl :: Lens' CreateNetworkAclResult (Maybe NetworkAcl)
 cnarNetworkAcl = lens _cnarNetworkAcl (\s a -> s { _cnarNetworkAcl = a })
+
 instance FromXML CreateNetworkAclResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateNetworkAclResult"

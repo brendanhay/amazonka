@@ -46,7 +46,7 @@ import Network.AWS.SNS.Types
 
 newtype GetPlatformApplicationAttributesInput = GetPlatformApplicationAttributesInput
     { _gpaaiPlatformApplicationArn :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetPlatformApplicationAttributesInput' constructor.
 --
@@ -72,7 +72,7 @@ instance ToPath GetPlatformApplicationAttributesInput where
 
 newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
     { _gpaarAttributes :: Map Text Text
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'GetPlatformApplicationAttributesResponse' constructor.
 --
@@ -96,6 +96,7 @@ getPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesRespo
 gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
 gpaarAttributes = lens _gpaarAttributes (\s a -> s { _gpaarAttributes = a })
     . _Map
+
 instance FromXML GetPlatformApplicationAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetPlatformApplicationAttributesResponse"

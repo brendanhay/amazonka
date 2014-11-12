@@ -44,7 +44,7 @@ import Network.AWS.SES.Types
 
 newtype VerifyEmailIdentity = VerifyEmailIdentity
     { _veiEmailAddress :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'VerifyEmailIdentity' constructor.
 --
@@ -72,6 +72,7 @@ data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse
 -- | 'VerifyEmailIdentityResponse' constructor.
 verifyEmailIdentityResponse :: VerifyEmailIdentityResponse
 verifyEmailIdentityResponse = VerifyEmailIdentityResponse
+
 instance FromXML VerifyEmailIdentityResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "VerifyEmailIdentityResponse"

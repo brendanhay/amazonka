@@ -60,7 +60,7 @@ data DescribeVolumes = DescribeVolumes
     , _dvMaxResults :: Maybe Int
     , _dvNextToken  :: Maybe Text
     , _dvVolumeIds  :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeVolumes' constructor.
 --
@@ -144,7 +144,7 @@ instance ToPath DescribeVolumes where
 data DescribeVolumesResult = DescribeVolumesResult
     { _dvrNextToken :: Maybe Text
     , _dvrVolumes   :: [Volume]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeVolumesResult' constructor.
 --
@@ -169,6 +169,7 @@ dvrNextToken = lens _dvrNextToken (\s a -> s { _dvrNextToken = a })
 
 dvrVolumes :: Lens' DescribeVolumesResult [Volume]
 dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a })
+
 instance FromXML DescribeVolumesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeVolumesResult"

@@ -42,7 +42,7 @@ import Network.AWS.Redshift.Types
 
 newtype DeleteHsmClientCertificateMessage = DeleteHsmClientCertificateMessage
     { _dhccm1HsmClientCertificateIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteHsmClientCertificateMessage' constructor.
 --
@@ -72,6 +72,7 @@ data DeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
 -- | 'DeleteHsmClientCertificateResponse' constructor.
 deleteHsmClientCertificateResponse :: DeleteHsmClientCertificateResponse
 deleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
+
 instance FromXML DeleteHsmClientCertificateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteHsmClientCertificateResponse"

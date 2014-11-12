@@ -58,7 +58,7 @@ data GetSendQuotaResponse = GetSendQuotaResponse
     { _gsqrMax24HourSend   :: Maybe Double
     , _gsqrMaxSendRate     :: Maybe Double
     , _gsqrSentLast24Hours :: Maybe Double
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetSendQuotaResponse' constructor.
 --
@@ -91,6 +91,7 @@ gsqrMaxSendRate = lens _gsqrMaxSendRate (\s a -> s { _gsqrMaxSendRate = a })
 gsqrSentLast24Hours :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrSentLast24Hours =
     lens _gsqrSentLast24Hours (\s a -> s { _gsqrSentLast24Hours = a })
+
 instance FromXML GetSendQuotaResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetSendQuotaResponse"

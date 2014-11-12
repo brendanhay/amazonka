@@ -50,7 +50,7 @@ data ModifyOptionGroupMessage = ModifyOptionGroupMessage
     , _mogmOptionGroupName  :: Text
     , _mogmOptionsToInclude :: [OptionConfiguration]
     , _mogmOptionsToRemove  :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyOptionGroupMessage' constructor.
 --
@@ -106,7 +106,7 @@ instance ToPath ModifyOptionGroupMessage where
 
 newtype ModifyOptionGroupResult = ModifyOptionGroupResult
     { _mogrOptionGroup :: Maybe OptionGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyOptionGroupResult' constructor.
 --
@@ -121,6 +121,7 @@ modifyOptionGroupResult = ModifyOptionGroupResult
 
 mogrOptionGroup :: Lens' ModifyOptionGroupResult (Maybe OptionGroup)
 mogrOptionGroup = lens _mogrOptionGroup (\s a -> s { _mogrOptionGroup = a })
+
 instance FromXML ModifyOptionGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyOptionGroupResult"

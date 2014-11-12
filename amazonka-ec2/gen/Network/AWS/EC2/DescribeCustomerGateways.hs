@@ -50,7 +50,7 @@ data DescribeCustomerGateways = DescribeCustomerGateways
     { _dcgCustomerGatewayIds :: [Text]
     , _dcgDryRun             :: Maybe Bool
     , _dcgFilters            :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeCustomerGateways' constructor.
 --
@@ -102,7 +102,7 @@ instance ToPath DescribeCustomerGateways where
 
 newtype DescribeCustomerGatewaysResult = DescribeCustomerGatewaysResult
     { _dcgrCustomerGateways :: [CustomerGateway]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeCustomerGatewaysResult' constructor.
 --
@@ -119,6 +119,7 @@ describeCustomerGatewaysResult = DescribeCustomerGatewaysResult
 dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResult [CustomerGateway]
 dcgrCustomerGateways =
     lens _dcgrCustomerGateways (\s a -> s { _dcgrCustomerGateways = a })
+
 instance FromXML DescribeCustomerGatewaysResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeCustomerGatewaysResult"

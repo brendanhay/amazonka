@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 data RemoveUserFromGroup = RemoveUserFromGroup
     { _rufgGroupName :: Text
     , _rufgUserName  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RemoveUserFromGroup' constructor.
 --
@@ -80,6 +80,7 @@ data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse
 -- | 'RemoveUserFromGroupResponse' constructor.
 removeUserFromGroupResponse :: RemoveUserFromGroupResponse
 removeUserFromGroupResponse = RemoveUserFromGroupResponse
+
 instance FromXML RemoveUserFromGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RemoveUserFromGroupResponse"

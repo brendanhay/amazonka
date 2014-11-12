@@ -72,7 +72,7 @@ data CreateAutoScalingGroupType = CreateAutoScalingGroupType
     , _casgtTags                    :: [Tag]
     , _casgtTerminationPolicies     :: [Text]
     , _casgtVPCZoneIdentifier       :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateAutoScalingGroupType' constructor.
 --
@@ -265,6 +265,7 @@ data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
 -- | 'CreateAutoScalingGroupResponse' constructor.
 createAutoScalingGroupResponse :: CreateAutoScalingGroupResponse
 createAutoScalingGroupResponse = CreateAutoScalingGroupResponse
+
 instance FromXML CreateAutoScalingGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateAutoScalingGroupResponse"

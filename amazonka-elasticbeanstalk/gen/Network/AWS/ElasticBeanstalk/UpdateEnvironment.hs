@@ -80,7 +80,7 @@ data UpdateEnvironmentMessage = UpdateEnvironmentMessage
     , _uemTemplateName    :: Maybe Text
     , _uemTier            :: Maybe EnvironmentTier
     , _uemVersionLabel    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'UpdateEnvironmentMessage' constructor.
 --

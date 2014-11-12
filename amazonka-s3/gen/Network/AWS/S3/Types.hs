@@ -23,6 +23,8 @@ module Network.AWS.S3.Types
     (
     -- * Service
       S3
+    -- ** Error
+    , RESTError
     -- ** XML
     , xmlOptions
 
@@ -437,7 +439,7 @@ instance ToXML Event where
 
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration
     { _nveNoncurrentDays :: Int
-    } deriving (Eq, Ord, Show, Generic, Enum, Num)
+    } (Eq, Ord, Show, Generic, Enum, Num)
 
 -- | 'NoncurrentVersionExpiration' constructor.
 --
@@ -471,7 +473,7 @@ data Transition = Transition
     { _tDate         :: Maybe ISO8601
     , _tDays         :: Maybe Int
     , _tStorageClass :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Transition' constructor.
 --
@@ -519,7 +521,7 @@ data DeleteMarkerEntry = DeleteMarkerEntry
     , _dmeLastModified :: Maybe RFC822
     , _dmeOwner        :: Maybe Owner
     , _dmeVersionId    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteMarkerEntry' constructor.
 --
@@ -602,7 +604,7 @@ data Part = Part
     , _pLastModified :: Maybe RFC822
     , _pPartNumber   :: Maybe Int
     , _pSize         :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Part' constructor.
 --
@@ -652,7 +654,7 @@ instance ToXML Part where
 data VersioningConfiguration = VersioningConfiguration
     { _vcMFADelete :: Maybe Text
     , _vcStatus    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'VersioningConfiguration' constructor.
 --
@@ -690,7 +692,7 @@ instance ToXML VersioningConfiguration where
 data Tag = Tag
     { _tagKey   :: Text
     , _tagValue :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Tag' constructor.
 --
@@ -778,7 +780,7 @@ instance ToXML MetadataDirective where
 data RedirectAllRequestsTo = RedirectAllRequestsTo
     { _rartHostName :: Text
     , _rartProtocol :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RedirectAllRequestsTo' constructor.
 --
@@ -815,7 +817,7 @@ instance ToXML RedirectAllRequestsTo where
 data RoutingRule = RoutingRule
     { _rrCondition :: Maybe Condition
     , _rrRedirect  :: Redirect
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RoutingRule' constructor.
 --
@@ -856,7 +858,7 @@ instance ToXML RoutingRule where
 
 newtype NotificationConfiguration = NotificationConfiguration
     { _ncTopicConfiguration :: TopicConfiguration
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'NotificationConfiguration' constructor.
 --
@@ -887,7 +889,7 @@ data S3ServiceError = S3ServiceError
     , _sseKey       :: Maybe Text
     , _sseMessage   :: Maybe Text
     , _sseVersionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'S3ServiceError' constructor.
 --
@@ -994,7 +996,7 @@ data DeletedObject = DeletedObject
     , _doDeleteMarkerVersionId :: Maybe Text
     , _doKey                   :: Maybe Text
     , _doVersionId             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeletedObject' constructor.
 --
@@ -1060,7 +1062,7 @@ instance ToXML ObjectVersionStorageClass where
 data CopyPartResult = CopyPartResult
     { _cprETag         :: Maybe Text
     , _cprLastModified :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CopyPartResult' constructor.
 --
@@ -1115,7 +1117,7 @@ instance ToXML EncodingType where
 
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration
     { _rpcPayer :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'RequestPaymentConfiguration' constructor.
 --
@@ -1147,7 +1149,7 @@ data CORSRule = CORSRule
     , _corsrAllowedOrigins :: [Text]
     , _corsrExposeHeaders  :: [Text]
     , _corsrMaxAgeSeconds  :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CORSRule' constructor.
 --
@@ -1215,7 +1217,7 @@ data WebsiteConfiguration = WebsiteConfiguration
     , _wcIndexDocument         :: Maybe IndexDocument
     , _wcRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
     , _wcRoutingRules          :: [RoutingRule]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'WebsiteConfiguration' constructor.
 --
@@ -1261,7 +1263,7 @@ instance ToXML WebsiteConfiguration where
 data NoncurrentVersionTransition = NoncurrentVersionTransition
     { _nvtNoncurrentDays :: Int
     , _nvtStorageClass   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'NoncurrentVersionTransition' constructor.
 --
@@ -1302,7 +1304,7 @@ instance ToXML NoncurrentVersionTransition where
 data Initiator = Initiator
     { _iDisplayName :: Maybe Text
     , _iID          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Initiator' constructor.
 --
@@ -1338,7 +1340,7 @@ instance ToXML Initiator where
 data ObjectIdentifier = ObjectIdentifier
     { _oiKey       :: Text
     , _oiVersionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ObjectIdentifier' constructor.
 --
@@ -1374,7 +1376,7 @@ instance ToXML ObjectIdentifier where
 data Bucket = Bucket
     { _bCreationDate :: Maybe RFC822
     , _bName         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Bucket' constructor.
 --
@@ -1434,7 +1436,7 @@ instance ToXML Protocol where
 data Grant = Grant
     { _gGrantee    :: Maybe Grantee
     , _gPermission :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'Grant' constructor.
 --
@@ -1473,7 +1475,7 @@ data Rule = Rule
     , _rPrefix                      :: Text
     , _rStatus                      :: Text
     , _rTransition                  :: Maybe Transition
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'Rule' constructor.
 --
@@ -1547,7 +1549,7 @@ instance ToXML Rule where
 data TopicConfiguration = TopicConfiguration
     { _tcEvent :: Maybe Text
     , _tcTopic :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'TopicConfiguration' constructor.
 --
@@ -1583,7 +1585,7 @@ instance ToXML TopicConfiguration where
 data Owner = Owner
     { _oDisplayName :: Maybe Text
     , _oID          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Owner' constructor.
 --
@@ -1615,7 +1617,7 @@ instance ToXML Owner where
 
 newtype BucketLoggingStatus = BucketLoggingStatus
     { _blsLoggingEnabled :: Maybe LoggingEnabled
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'BucketLoggingStatus' constructor.
 --
@@ -1642,7 +1644,7 @@ instance ToXML BucketLoggingStatus where
 
 newtype ErrorDocument = ErrorDocument
     { _edKey :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ErrorDocument' constructor.
 --
@@ -1701,7 +1703,7 @@ data ObjectVersion = ObjectVersion
     , _ovSize         :: Maybe Int
     , _ovStorageClass :: Maybe Text
     , _ovVersionId    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ObjectVersion' constructor.
 --
@@ -1778,7 +1780,7 @@ instance ToXML ObjectVersion where
 data TargetGrant = TargetGrant
     { _tgGrantee    :: Maybe Grantee
     , _tgPermission :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'TargetGrant' constructor.
 --
@@ -1863,7 +1865,7 @@ data Redirect = Redirect
     , _rProtocol             :: Maybe Text
     , _rReplaceKeyPrefixWith :: Maybe Text
     , _rReplaceKeyWith       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Redirect' constructor.
 --
@@ -1957,7 +1959,7 @@ instance ToXML BucketLogsPermission where
 data CompletedPart = CompletedPart
     { _cpETag       :: Maybe Text
     , _cpPartNumber :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CompletedPart' constructor.
 --
@@ -1991,7 +1993,7 @@ instance ToXML CompletedPart where
 
 newtype CreateBucketConfiguration = CreateBucketConfiguration
     { _cbcLocationConstraint :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateBucketConfiguration' constructor.
 --
@@ -2019,7 +2021,7 @@ instance ToXML CreateBucketConfiguration where
 
 newtype Tagging = Tagging
     { _tTagSet :: [Tag]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'Tagging' constructor.
 --
@@ -2046,7 +2048,7 @@ instance ToXML Tagging where
 data LifecycleExpiration = LifecycleExpiration
     { _leDate :: Maybe ISO8601
     , _leDays :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'LifecycleExpiration' constructor.
 --
@@ -2083,7 +2085,7 @@ instance ToXML LifecycleExpiration where
 
 newtype CORSConfiguration = CORSConfiguration
     { _corscCORSRules :: [CORSRule]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'CORSConfiguration' constructor.
 --
@@ -2114,7 +2116,7 @@ data Object = Object
     , _oOwner        :: Owner
     , _oSize         :: Int
     , _oStorageClass :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'Object' constructor.
 --
@@ -2178,7 +2180,7 @@ instance ToXML Object where
 
 newtype CommonPrefix = CommonPrefix
     { _cpPrefix :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CommonPrefix' constructor.
 --
@@ -2209,7 +2211,7 @@ data MultipartUpload = MultipartUpload
     , _muOwner        :: Maybe Owner
     , _muStorageClass :: Maybe Text
     , _muUploadId     :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'MultipartUpload' constructor.
 --
@@ -2318,7 +2320,7 @@ instance ToXML TransitionStorageClass where
 
 newtype CompletedMultipartUpload = CompletedMultipartUpload
     { _cmuParts :: [CompletedPart]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'CompletedMultipartUpload' constructor.
 --
@@ -2345,7 +2347,7 @@ instance ToXML CompletedMultipartUpload where
 data Condition = Condition
     { _cHttpErrorCodeReturnedEquals :: Maybe Text
     , _cKeyPrefixEquals             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Condition' constructor.
 --
@@ -2425,7 +2427,7 @@ instance ToXML Permission where
 data AccessControlPolicy = AccessControlPolicy
     { _acpGrants :: [Grant]
     , _acpOwner  :: Maybe Owner
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AccessControlPolicy' constructor.
 --
@@ -2516,7 +2518,7 @@ data Grantee = Grantee
     , _gID           :: Maybe Text
     , _gType         :: Text
     , _gURI          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Grantee' constructor.
 --
@@ -2572,7 +2574,7 @@ instance ToXML Grantee where
 
 newtype LifecycleConfiguration = LifecycleConfiguration
     { _lcRules :: [Rule]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'LifecycleConfiguration' constructor.
 --
@@ -2600,7 +2602,7 @@ data LoggingEnabled = LoggingEnabled
     { _leTargetBucket :: Maybe Text
     , _leTargetGrants :: [TargetGrant]
     , _leTargetPrefix :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'LoggingEnabled' constructor.
 --
@@ -2666,7 +2668,7 @@ instance ToXML ServerSideEncryption where
 
 newtype IndexDocument = IndexDocument
     { _idSuffix :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'IndexDocument' constructor.
 --
@@ -2699,7 +2701,7 @@ instance ToXML IndexDocument where
 data CopyObjectResult = CopyObjectResult
     { _corETag         :: Maybe Text
     , _corLastModified :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CopyObjectResult' constructor.
 --
@@ -2733,7 +2735,7 @@ instance ToXML CopyObjectResult where
 data Delete = Delete
     { _dObjects :: [ObjectIdentifier]
     , _dQuiet   :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'Delete' constructor.
 --
@@ -2767,7 +2769,7 @@ instance ToXML Delete where
 
 newtype RestoreRequest = RestoreRequest
     { _rDays :: Int
-    } deriving (Eq, Ord, Show, Generic, Enum, Num)
+    } (Eq, Ord, Show, Generic, Enum, Num)
 
 -- | 'RestoreRequest' constructor.
 --

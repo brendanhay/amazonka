@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 
 newtype CreateAccountAlias = CreateAccountAlias
     { _caaAccountAlias :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateAccountAlias' constructor.
 --
@@ -72,6 +72,7 @@ data CreateAccountAliasResponse = CreateAccountAliasResponse
 -- | 'CreateAccountAliasResponse' constructor.
 createAccountAliasResponse :: CreateAccountAliasResponse
 createAccountAliasResponse = CreateAccountAliasResponse
+
 instance FromXML CreateAccountAliasResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateAccountAliasResponse"

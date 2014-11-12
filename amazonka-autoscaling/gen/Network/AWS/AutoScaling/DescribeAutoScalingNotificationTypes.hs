@@ -54,7 +54,16 @@ instance ToPath DescribeAutoScalingNotificationTypes where
 
 newtype DescribeAutoScalingNotificationTypesAnswer = DescribeAutoScalingNotificationTypesAnswer
     { _dasntaAutoScalingNotificationTypes :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'DescribeAutoScalingNotificationTypesAnswer' constructor.
 --
@@ -75,6 +84,7 @@ dasntaAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypes
 dasntaAutoScalingNotificationTypes =
     lens _dasntaAutoScalingNotificationTypes
         (\s a -> s { _dasntaAutoScalingNotificationTypes = a })
+
 instance FromXML DescribeAutoScalingNotificationTypesAnswer where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAutoScalingNotificationTypesAnswer"

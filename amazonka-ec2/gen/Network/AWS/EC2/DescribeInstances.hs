@@ -60,7 +60,7 @@ data DescribeInstances = DescribeInstances
     , _diInstanceIds :: [Text]
     , _diMaxResults  :: Maybe Int
     , _diNextToken   :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeInstances' constructor.
 --
@@ -240,7 +240,7 @@ instance ToPath DescribeInstances where
 data DescribeInstancesResult = DescribeInstancesResult
     { _dirNextToken    :: Maybe Text
     , _dirReservations :: [Reservation]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeInstancesResult' constructor.
 --
@@ -264,6 +264,7 @@ dirNextToken = lens _dirNextToken (\s a -> s { _dirNextToken = a })
 -- | One or more reservations.
 dirReservations :: Lens' DescribeInstancesResult [Reservation]
 dirReservations = lens _dirReservations (\s a -> s { _dirReservations = a })
+
 instance FromXML DescribeInstancesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeInstancesResult"

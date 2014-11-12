@@ -56,7 +56,7 @@ data ImportVolume = ImportVolume
     , _ivDryRun           :: Maybe Bool
     , _ivImage            :: DiskImageDetail
     , _ivVolume           :: VolumeDetail
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ImportVolume' constructor.
 --
@@ -108,7 +108,7 @@ instance ToPath ImportVolume where
 
 newtype ImportVolumeResult = ImportVolumeResult
     { _ivrConversionTask :: Maybe ConversionTask
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ImportVolumeResult' constructor.
 --
@@ -124,6 +124,7 @@ importVolumeResult = ImportVolumeResult
 ivrConversionTask :: Lens' ImportVolumeResult (Maybe ConversionTask)
 ivrConversionTask =
     lens _ivrConversionTask (\s a -> s { _ivrConversionTask = a })
+
 instance FromXML ImportVolumeResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ImportVolumeResult"

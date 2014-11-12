@@ -49,7 +49,7 @@ import Network.AWS.ELB.Types
 data AddTagsInput = AddTagsInput
     { _atiLoadBalancerNames :: [Text]
     , _atiTags              :: List1 Tag
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AddTagsInput' constructor.
 --
@@ -87,6 +87,7 @@ data AddTagsResponse = AddTagsResponse
 -- | 'AddTagsResponse' constructor.
 addTagsResponse :: AddTagsResponse
 addTagsResponse = AddTagsResponse
+
 instance FromXML AddTagsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AddTagsResponse"

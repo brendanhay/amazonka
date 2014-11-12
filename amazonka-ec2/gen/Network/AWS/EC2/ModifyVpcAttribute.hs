@@ -46,7 +46,7 @@ data ModifyVpcAttribute = ModifyVpcAttribute
     { _mvaEnableDnsHostnames :: Maybe AttributeBooleanValue
     , _mvaEnableDnsSupport   :: Maybe AttributeBooleanValue
     , _mvaVpcId              :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyVpcAttribute' constructor.
 --
@@ -97,6 +97,7 @@ data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
 -- | 'ModifyVpcAttributeResponse' constructor.
 modifyVpcAttributeResponse :: ModifyVpcAttributeResponse
 modifyVpcAttributeResponse = ModifyVpcAttributeResponse
+
 instance FromXML ModifyVpcAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyVpcAttributeResponse"

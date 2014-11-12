@@ -57,7 +57,7 @@ data Select = Select
     { _sConsistentRead   :: Maybe Bool
     , _sNextToken        :: Maybe Text
     , _sSelectExpression :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Select' constructor.
 --
@@ -102,7 +102,7 @@ instance ToPath Select where
 data SelectResult = SelectResult
     { _srItems     :: [Item]
     , _srNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'SelectResult' constructor.
 --
@@ -127,6 +127,7 @@ srItems = lens _srItems (\s a -> s { _srItems = a })
 -- exceeded 5 seconds.
 srNextToken :: Lens' SelectResult (Maybe Text)
 srNextToken = lens _srNextToken (\s a -> s { _srNextToken = a })
+
 instance FromXML SelectResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SelectResult"

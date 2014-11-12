@@ -58,7 +58,7 @@ data ReplaceRoute = ReplaceRoute
     , _rrNetworkInterfaceId     :: Maybe Text
     , _rrRouteTableId           :: Text
     , _rrVpcPeeringConnectionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ReplaceRoute' constructor.
 --
@@ -133,6 +133,7 @@ data ReplaceRouteResponse = ReplaceRouteResponse
 -- | 'ReplaceRouteResponse' constructor.
 replaceRouteResponse :: ReplaceRouteResponse
 replaceRouteResponse = ReplaceRouteResponse
+
 instance FromXML ReplaceRouteResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReplaceRouteResponse"

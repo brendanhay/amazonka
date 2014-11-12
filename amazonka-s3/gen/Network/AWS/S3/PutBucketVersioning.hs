@@ -49,7 +49,7 @@ data PutBucketVersioning = PutBucketVersioning
     , _pbvContentMD5              :: Maybe Text
     , _pbvMFA                     :: Maybe Text
     , _pbvVersioningConfiguration :: VersioningConfiguration
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'PutBucketVersioning' constructor.
 --

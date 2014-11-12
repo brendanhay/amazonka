@@ -46,7 +46,7 @@ data ResetImageAttribute = ResetImageAttribute
     { _riaAttribute :: Text
     , _riaDryRun    :: Maybe Bool
     , _riaImageId   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ResetImageAttribute' constructor.
 --
@@ -89,6 +89,7 @@ data ResetImageAttributeResponse = ResetImageAttributeResponse
 -- | 'ResetImageAttributeResponse' constructor.
 resetImageAttributeResponse :: ResetImageAttributeResponse
 resetImageAttributeResponse = ResetImageAttributeResponse
+
 instance FromXML ResetImageAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ResetImageAttributeResponse"

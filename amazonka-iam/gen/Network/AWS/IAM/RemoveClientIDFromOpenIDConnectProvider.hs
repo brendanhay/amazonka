@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 data RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectProvider
     { _rcidfoidcpClientID                 :: Text
     , _rcidfoidcpOpenIDConnectProviderArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RemoveClientIDFromOpenIDConnectProvider' constructor.
 --
@@ -90,6 +90,7 @@ data RemoveClientIDFromOpenIDConnectProviderResponse = RemoveClientIDFromOpenIDC
 -- | 'RemoveClientIDFromOpenIDConnectProviderResponse' constructor.
 removeClientIDFromOpenIDConnectProviderResponse :: RemoveClientIDFromOpenIDConnectProviderResponse
 removeClientIDFromOpenIDConnectProviderResponse = RemoveClientIDFromOpenIDConnectProviderResponse
+
 instance FromXML RemoveClientIDFromOpenIDConnectProviderResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RemoveClientIDFromOpenIDConnectProviderResponse"

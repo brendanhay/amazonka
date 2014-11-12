@@ -48,7 +48,7 @@ import Network.AWS.SNS.Types
 
 newtype CreateTopicInput = CreateTopicInput
     { _ctiName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateTopicInput' constructor.
 --
@@ -74,7 +74,7 @@ instance ToPath CreateTopicInput where
 
 newtype CreateTopicResponse = CreateTopicResponse
     { _ctrTopicArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateTopicResponse' constructor.
 --
@@ -90,6 +90,7 @@ createTopicResponse = CreateTopicResponse
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
 ctrTopicArn :: Lens' CreateTopicResponse (Maybe Text)
 ctrTopicArn = lens _ctrTopicArn (\s a -> s { _ctrTopicArn = a })
+
 instance FromXML CreateTopicResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateTopicResponse"

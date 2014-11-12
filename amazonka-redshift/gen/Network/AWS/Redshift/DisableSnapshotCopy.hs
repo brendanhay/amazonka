@@ -45,7 +45,7 @@ import Network.AWS.Redshift.Types
 
 newtype DisableSnapshotCopyMessage = DisableSnapshotCopyMessage
     { _dscmClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DisableSnapshotCopyMessage' constructor.
 --
@@ -73,7 +73,7 @@ instance ToPath DisableSnapshotCopyMessage where
 
 newtype DisableSnapshotCopyResult = DisableSnapshotCopyResult
     { _dscrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DisableSnapshotCopyResult' constructor.
 --
@@ -88,6 +88,7 @@ disableSnapshotCopyResult = DisableSnapshotCopyResult
 
 dscrCluster :: Lens' DisableSnapshotCopyResult (Maybe Cluster)
 dscrCluster = lens _dscrCluster (\s a -> s { _dscrCluster = a })
+
 instance FromXML DisableSnapshotCopyResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DisableSnapshotCopyResult"

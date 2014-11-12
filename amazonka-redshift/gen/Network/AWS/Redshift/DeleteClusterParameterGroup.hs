@@ -42,7 +42,7 @@ import Network.AWS.Redshift.Types
 
 newtype DeleteClusterParameterGroupMessage = DeleteClusterParameterGroupMessage
     { _dcpgmParameterGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteClusterParameterGroupMessage' constructor.
 --
@@ -73,6 +73,7 @@ data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
 -- | 'DeleteClusterParameterGroupResponse' constructor.
 deleteClusterParameterGroupResponse :: DeleteClusterParameterGroupResponse
 deleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
+
 instance FromXML DeleteClusterParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteClusterParameterGroupResponse"

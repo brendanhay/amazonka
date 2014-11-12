@@ -60,7 +60,7 @@ data AuthorizeClusterSecurityGroupIngressMessage = AuthorizeClusterSecurityGroup
     , _acsgimClusterSecurityGroupName :: Text
     , _acsgimEC2SecurityGroupName     :: Maybe Text
     , _acsgimEC2SecurityGroupOwnerId  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AuthorizeClusterSecurityGroupIngressMessage' constructor.
 --
@@ -113,7 +113,7 @@ instance ToPath AuthorizeClusterSecurityGroupIngressMessage where
 
 newtype AuthorizeClusterSecurityGroupIngressResult = AuthorizeClusterSecurityGroupIngressResult
     { _acsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AuthorizeClusterSecurityGroupIngressResult' constructor.
 --
@@ -130,6 +130,7 @@ acsgirClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResult (
 acsgirClusterSecurityGroup =
     lens _acsgirClusterSecurityGroup
         (\s a -> s { _acsgirClusterSecurityGroup = a })
+
 instance FromXML AuthorizeClusterSecurityGroupIngressResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AuthorizeClusterSecurityGroupIngressResult"

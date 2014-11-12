@@ -49,7 +49,7 @@ import Network.AWS.CloudFormation.Types
 data ValidateTemplateInput = ValidateTemplateInput
     { _vtiTemplateBody :: Maybe Text
     , _vtiTemplateURL  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ValidateTemplateInput' constructor.
 --
@@ -90,7 +90,7 @@ data ValidateTemplateOutput = ValidateTemplateOutput
     , _vtoCapabilitiesReason :: Maybe Text
     , _vtoDescription        :: Maybe Text
     , _vtoParameters         :: [TemplateParameter]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ValidateTemplateOutput' constructor.
 --
@@ -132,6 +132,7 @@ vtoDescription = lens _vtoDescription (\s a -> s { _vtoDescription = a })
 -- | A list of TemplateParameter structures.
 vtoParameters :: Lens' ValidateTemplateOutput [TemplateParameter]
 vtoParameters = lens _vtoParameters (\s a -> s { _vtoParameters = a })
+
 instance FromXML ValidateTemplateOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ValidateTemplateOutput"

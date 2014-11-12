@@ -56,7 +56,7 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     , _apiaNetworkInterfaceId             :: Text
     , _apiaPrivateIpAddresses             :: [Text]
     , _apiaSecondaryPrivateIpAddressCount :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AssignPrivateIpAddresses' constructor.
 --
@@ -118,6 +118,7 @@ data AssignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
 -- | 'AssignPrivateIpAddressesResponse' constructor.
 assignPrivateIpAddressesResponse :: AssignPrivateIpAddressesResponse
 assignPrivateIpAddressesResponse = AssignPrivateIpAddressesResponse
+
 instance FromXML AssignPrivateIpAddressesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AssignPrivateIpAddressesResponse"

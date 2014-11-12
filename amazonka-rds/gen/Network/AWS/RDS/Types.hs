@@ -23,6 +23,8 @@ module Network.AWS.RDS.Types
     (
     -- * Service
       RDS
+    -- ** Error
+    , RESTError
     -- ** XML
     , xmlOptions
 
@@ -443,7 +445,7 @@ data OptionGroup = OptionGroup
     , _ogOptionGroupName                       :: Maybe Text
     , _ogOptions                               :: [Option]
     , _ogVpcId                                 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'OptionGroup' constructor.
 --
@@ -523,7 +525,7 @@ instance ToQuery OptionGroup
 data DBParameterGroupStatus = DBParameterGroupStatus
     { _dbpgsDBParameterGroupName :: Maybe Text
     , _dbpgsParameterApplyStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DBParameterGroupStatus' constructor.
 --
@@ -563,7 +565,7 @@ data Event = Event
     , _eMessage          :: Maybe Text
     , _eSourceIdentifier :: Maybe Text
     , _eSourceType       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Event' constructor.
 --
@@ -623,7 +625,7 @@ data DBSecurityGroup = DBSecurityGroup
     , _dbsgIPRanges                   :: [IPRange]
     , _dbsgOwnerId                    :: Maybe Text
     , _dbsgVpcId                      :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DBSecurityGroup' constructor.
 --
@@ -688,7 +690,7 @@ instance ToQuery DBSecurityGroup
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Tag' constructor.
 --
@@ -734,7 +736,7 @@ data DBEngineVersion = DBEngineVersion
     , _dbevEngine                     :: Maybe Text
     , _dbevEngineVersion              :: Maybe Text
     , _dbevSupportedCharacterSets     :: [CharacterSet]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DBEngineVersion' constructor.
 --
@@ -832,7 +834,7 @@ data DBSnapshot = DBSnapshot
     , _dbsStorageType          :: Maybe Text
     , _dbsTdeCredentialArn     :: Maybe Text
     , _dbsVpcId                :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DBSnapshot' constructor.
 --
@@ -1008,7 +1010,7 @@ instance ToQuery DBSnapshot
 data DBSecurityGroupMembership = DBSecurityGroupMembership
     { _dbsgmDBSecurityGroupName :: Maybe Text
     , _dbsgmStatus              :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DBSecurityGroupMembership' constructor.
 --
@@ -1045,7 +1047,7 @@ data EC2SecurityGroup = EC2SecurityGroup
     , _ecsgEC2SecurityGroupName    :: Maybe Text
     , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
     , _ecsgStatus                  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'EC2SecurityGroup' constructor.
 --
@@ -1128,7 +1130,7 @@ data DBParameterGroup = DBParameterGroup
     { _dbpgDBParameterGroupFamily :: Maybe Text
     , _dbpgDBParameterGroupName   :: Maybe Text
     , _dbpgDescription            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DBParameterGroup' constructor.
 --
@@ -1181,7 +1183,7 @@ data ReservedDBInstancesOffering = ReservedDBInstancesOffering
     , _rdbioRecurringCharges              :: [RecurringCharge]
     , _rdbioReservedDBInstancesOfferingId :: Maybe Text
     , _rdbioUsagePrice                    :: Maybe Double
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ReservedDBInstancesOffering' constructor.
 --
@@ -1299,7 +1301,7 @@ instance ToQuery ApplyMethod
 data CharacterSet = CharacterSet
     { _csCharacterSetDescription :: Maybe Text
     , _csCharacterSetName        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CharacterSet' constructor.
 --
@@ -1336,7 +1338,7 @@ data Subnet = Subnet
     { _sSubnetAvailabilityZone :: Maybe AvailabilityZone
     , _sSubnetIdentifier       :: Maybe Text
     , _sSubnetStatus           :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'Subnet' constructor.
 --
@@ -1389,7 +1391,7 @@ data ReservedDBInstance = ReservedDBInstance
     , _rdbiStartTime                     :: Maybe RFC822
     , _rdbiState                         :: Maybe Text
     , _rdbiUsagePrice                    :: Maybe Double
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ReservedDBInstance' constructor.
 --
@@ -1516,7 +1518,7 @@ data EngineDefaults = EngineDefaults
     { _edDBParameterGroupFamily :: Maybe Text
     , _edMarker                 :: Maybe Text
     , _edParameters             :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'EngineDefaults' constructor.
 --
@@ -1560,7 +1562,7 @@ instance ToQuery EngineDefaults
 
 newtype DBParameterGroupNameMessage = DBParameterGroupNameMessage
     { _dbpgnmDBParameterGroupName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DBParameterGroupNameMessage' constructor.
 --
@@ -1597,7 +1599,7 @@ data OptionGroupOption = OptionGroupOption
     , _ogoPermanent                         :: Maybe Bool
     , _ogoPersistent                        :: Maybe Bool
     , _ogoPortRequired                      :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'OptionGroupOption' constructor.
 --
@@ -1736,7 +1738,7 @@ data DBInstance = DBInstance
     , _dbiStorageType                           :: Maybe Text
     , _dbiTdeCredentialArn                      :: Maybe Text
     , _dbiVpcSecurityGroups                     :: [VpcSecurityGroupMembership]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DBInstance' constructor.
 --
@@ -2058,7 +2060,7 @@ instance ToQuery DBInstance
 
 newtype AvailabilityZone = AvailabilityZone
     { _azName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'AvailabilityZone' constructor.
 --
@@ -2091,7 +2093,7 @@ data EventSubscription = EventSubscription
     , _esSourceType               :: Maybe Text
     , _esStatus                   :: Maybe Text
     , _esSubscriptionCreationTime :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'EventSubscription' constructor.
 --
@@ -2187,7 +2189,7 @@ data DBSubnetGroup = DBSubnetGroup
     , _dbsg1SubnetGroupStatus        :: Maybe Text
     , _dbsg1Subnets                  :: [Subnet]
     , _dbsg1VpcId                    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DBSubnetGroup' constructor.
 --
@@ -2247,7 +2249,7 @@ data DBInstanceStatusInfo = DBInstanceStatusInfo
     , _dbisiNormal     :: Maybe Bool
     , _dbisiStatus     :: Maybe Text
     , _dbisiStatusType :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DBInstanceStatusInfo' constructor.
 --
@@ -2304,7 +2306,7 @@ data OptionSetting = OptionSetting
     , _osIsModifiable  :: Maybe Bool
     , _osName          :: Maybe Text
     , _osValue         :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'OptionSetting' constructor.
 --
@@ -2388,7 +2390,7 @@ data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails
     { _ddblfdLastWritten :: Maybe Integer
     , _ddblfdLogFileName :: Maybe Text
     , _ddblfdSize        :: Maybe Integer
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeDBLogFilesDetails' constructor.
 --
@@ -2438,7 +2440,7 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption
     , _odbioStorageType        :: Maybe Text
     , _odbioSupportsIops       :: Maybe Bool
     , _odbioVpc                :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'OrderableDBInstanceOption' constructor.
 --
@@ -2534,7 +2536,7 @@ instance ToQuery OrderableDBInstanceOption
 data Filter = Filter
     { _fName   :: Text
     , _fValues :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Filter' constructor.
 --
@@ -2568,7 +2570,7 @@ instance ToQuery Filter
 data RecurringCharge = RecurringCharge
     { _rcRecurringChargeAmount    :: Maybe Double
     , _rcRecurringChargeFrequency :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RecurringCharge' constructor.
 --
@@ -2604,7 +2606,7 @@ instance ToQuery RecurringCharge
 data Endpoint = Endpoint
     { _eAddress :: Maybe Text
     , _ePort    :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Endpoint' constructor.
 --
@@ -2640,7 +2642,7 @@ data OptionConfiguration = OptionConfiguration
     , _ocOptionSettings              :: [OptionSetting]
     , _ocPort                        :: Maybe Int
     , _ocVpcSecurityGroupMemberships :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'OptionConfiguration' constructor.
 --
@@ -2705,7 +2707,7 @@ data Option = Option
     , _oPersistent                  :: Maybe Bool
     , _oPort                        :: Maybe Int
     , _oVpcSecurityGroupMemberships :: [VpcSecurityGroupMembership]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'Option' constructor.
 --
@@ -2787,7 +2789,7 @@ instance ToQuery Option
 data IPRange = IPRange
     { _iprCIDRIP :: Maybe Text
     , _iprStatus :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'IPRange' constructor.
 --
@@ -2821,7 +2823,7 @@ instance ToQuery IPRange
 data OptionGroupMembership = OptionGroupMembership
     { _ogmOptionGroupName :: Maybe Text
     , _ogmStatus          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'OptionGroupMembership' constructor.
 --
@@ -2856,7 +2858,7 @@ instance ToQuery OptionGroupMembership
 data EventCategoriesMap = EventCategoriesMap
     { _ecmEventCategories :: [Text]
     , _ecmSourceType      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'EventCategoriesMap' constructor.
 --
@@ -2898,7 +2900,7 @@ data PendingModifiedValues = PendingModifiedValues
     , _pmvMultiAZ               :: Maybe Bool
     , _pmvPort                  :: Maybe Int
     , _pmvStorageType           :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'PendingModifiedValues' constructor.
 --
@@ -3000,7 +3002,7 @@ instance ToQuery PendingModifiedValues
 data VpcSecurityGroupMembership = VpcSecurityGroupMembership
     { _vsgmStatus             :: Maybe Text
     , _vsgmVpcSecurityGroupId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'VpcSecurityGroupMembership' constructor.
 --
@@ -3042,7 +3044,7 @@ data Parameter = Parameter
     , _pParameterName        :: Maybe Text
     , _pParameterValue       :: Maybe Text
     , _pSource               :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Parameter' constructor.
 --
@@ -3138,7 +3140,7 @@ data OptionGroupOptionSetting = OptionGroupOptionSetting
     , _ogosIsModifiable       :: Maybe Bool
     , _ogosSettingDescription :: Maybe Text
     , _ogosSettingName        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'OptionGroupOptionSetting' constructor.
 --

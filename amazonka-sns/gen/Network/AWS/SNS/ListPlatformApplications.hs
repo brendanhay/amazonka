@@ -52,7 +52,7 @@ import Network.AWS.SNS.Types
 
 newtype ListPlatformApplicationsInput = ListPlatformApplicationsInput
     { _lpaiNextToken :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ListPlatformApplicationsInput' constructor.
 --
@@ -78,7 +78,7 @@ instance ToPath ListPlatformApplicationsInput where
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
     { _lparNextToken            :: Maybe Text
     , _lparPlatformApplications :: [PlatformApplication]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListPlatformApplicationsResponse' constructor.
 --
@@ -105,6 +105,7 @@ lparPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformAppl
 lparPlatformApplications =
     lens _lparPlatformApplications
         (\s a -> s { _lparPlatformApplications = a })
+
 instance FromXML ListPlatformApplicationsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListPlatformApplicationsResponse"

@@ -53,7 +53,7 @@ instance ToPath DescribeAdjustmentTypes where
 
 newtype DescribeAdjustmentTypesAnswer = DescribeAdjustmentTypesAnswer
     { _dataAdjustmentTypes :: [AdjustmentType]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeAdjustmentTypesAnswer' constructor.
 --
@@ -70,6 +70,7 @@ describeAdjustmentTypesAnswer = DescribeAdjustmentTypesAnswer
 dataAdjustmentTypes :: Lens' DescribeAdjustmentTypesAnswer [AdjustmentType]
 dataAdjustmentTypes =
     lens _dataAdjustmentTypes (\s a -> s { _dataAdjustmentTypes = a })
+
 instance FromXML DescribeAdjustmentTypesAnswer where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAdjustmentTypesAnswer"

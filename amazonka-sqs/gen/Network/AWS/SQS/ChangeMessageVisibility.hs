@@ -65,7 +65,7 @@ data ChangeMessageVisibility = ChangeMessageVisibility
     { _cmvQueueUrl          :: Text
     , _cmvReceiptHandle     :: Text
     , _cmvVisibilityTimeout :: Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ChangeMessageVisibility' constructor.
 --
@@ -113,6 +113,7 @@ data ChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse
 -- | 'ChangeMessageVisibilityResponse' constructor.
 changeMessageVisibilityResponse :: ChangeMessageVisibilityResponse
 changeMessageVisibilityResponse = ChangeMessageVisibilityResponse
+
 instance FromXML ChangeMessageVisibilityResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ChangeMessageVisibilityResponse"

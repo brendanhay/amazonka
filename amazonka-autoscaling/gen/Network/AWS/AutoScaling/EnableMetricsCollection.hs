@@ -50,7 +50,7 @@ data EnableMetricsCollectionQuery = EnableMetricsCollectionQuery
     { _emcqAutoScalingGroupName :: Text
     , _emcqGranularity          :: Text
     , _emcqMetrics              :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'EnableMetricsCollectionQuery' constructor.
 --
@@ -100,6 +100,7 @@ data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse
 -- | 'EnableMetricsCollectionResponse' constructor.
 enableMetricsCollectionResponse :: EnableMetricsCollectionResponse
 enableMetricsCollectionResponse = EnableMetricsCollectionResponse
+
 instance FromXML EnableMetricsCollectionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnableMetricsCollectionResponse"

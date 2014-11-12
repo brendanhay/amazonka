@@ -53,7 +53,7 @@ data ValidateConfigurationSettingsMessage = ValidateConfigurationSettingsMessage
     , _vcsmEnvironmentName :: Maybe Text
     , _vcsmOptionSettings  :: [ConfigurationOptionSetting]
     , _vcsmTemplateName    :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ValidateConfigurationSettingsMessage' constructor.
 --
@@ -104,7 +104,7 @@ instance ToPath ValidateConfigurationSettingsMessage where
 
 newtype ConfigurationSettingsValidationMessages = ConfigurationSettingsValidationMessages
     { _csvmMessages :: [ValidationMessage]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'ConfigurationSettingsValidationMessages' constructor.
 --
@@ -120,6 +120,7 @@ configurationSettingsValidationMessages = ConfigurationSettingsValidationMessage
 -- | A list of ValidationMessage.
 csvmMessages :: Lens' ConfigurationSettingsValidationMessages [ValidationMessage]
 csvmMessages = lens _csvmMessages (\s a -> s { _csvmMessages = a })
+
 instance FromXML ConfigurationSettingsValidationMessages where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ConfigurationSettingsValidationMessages"

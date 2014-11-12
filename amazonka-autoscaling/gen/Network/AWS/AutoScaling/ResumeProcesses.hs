@@ -46,7 +46,7 @@ import Network.AWS.AutoScaling.Types
 data ResumeProcesses = ResumeProcesses
     { _rpAutoScalingGroupName :: Text
     , _rpScalingProcesses     :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ResumeProcesses' constructor.
 --
@@ -86,6 +86,7 @@ data ResumeProcessesResponse = ResumeProcessesResponse
 -- | 'ResumeProcessesResponse' constructor.
 resumeProcessesResponse :: ResumeProcessesResponse
 resumeProcessesResponse = ResumeProcessesResponse
+
 instance FromXML ResumeProcessesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ResumeProcessesResponse"

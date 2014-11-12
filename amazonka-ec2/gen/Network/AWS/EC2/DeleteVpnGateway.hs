@@ -48,7 +48,7 @@ import Network.AWS.EC2.Types
 data DeleteVpnGateway = DeleteVpnGateway
     { _dvgDryRun       :: Maybe Bool
     , _dvgVpnGatewayId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpnGateway' constructor.
 --
@@ -82,6 +82,7 @@ data DeleteVpnGatewayResponse = DeleteVpnGatewayResponse
 -- | 'DeleteVpnGatewayResponse' constructor.
 deleteVpnGatewayResponse :: DeleteVpnGatewayResponse
 deleteVpnGatewayResponse = DeleteVpnGatewayResponse
+
 instance FromXML DeleteVpnGatewayResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteVpnGatewayResponse"

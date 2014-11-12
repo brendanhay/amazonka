@@ -45,7 +45,7 @@ import Network.AWS.SES.Types
 
 newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
     { _dveaEmailAddress :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteVerifiedEmailAddress' constructor.
 --
@@ -73,6 +73,7 @@ data DeleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
 -- | 'DeleteVerifiedEmailAddressResponse' constructor.
 deleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse
 deleteVerifiedEmailAddressResponse = DeleteVerifiedEmailAddressResponse
+
 instance FromXML DeleteVerifiedEmailAddressResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteVerifiedEmailAddressResponse"

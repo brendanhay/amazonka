@@ -61,7 +61,7 @@ data CreateHsmConfigurationMessage = CreateHsmConfigurationMessage
     , _chcmHsmPartitionName           :: Text
     , _chcmHsmPartitionPassword       :: Text
     , _chcmHsmServerPublicCertificate :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateHsmConfigurationMessage' constructor.
 --
@@ -136,7 +136,7 @@ instance ToPath CreateHsmConfigurationMessage where
 
 newtype CreateHsmConfigurationResult = CreateHsmConfigurationResult
     { _chcrHsmConfiguration :: Maybe HsmConfiguration
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateHsmConfigurationResult' constructor.
 --
@@ -152,6 +152,7 @@ createHsmConfigurationResult = CreateHsmConfigurationResult
 chcrHsmConfiguration :: Lens' CreateHsmConfigurationResult (Maybe HsmConfiguration)
 chcrHsmConfiguration =
     lens _chcrHsmConfiguration (\s a -> s { _chcrHsmConfiguration = a })
+
 instance FromXML CreateHsmConfigurationResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateHsmConfigurationResult"

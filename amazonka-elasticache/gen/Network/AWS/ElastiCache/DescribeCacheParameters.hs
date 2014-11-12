@@ -53,7 +53,7 @@ data DescribeCacheParametersMessage = DescribeCacheParametersMessage
     , _dcpmMarker                  :: Maybe Text
     , _dcpmMaxRecords              :: Maybe Int
     , _dcpmSource                  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeCacheParametersMessage' constructor.
 --
@@ -109,7 +109,7 @@ data CacheParameterGroupDetails = CacheParameterGroupDetails
     { _cpgdCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
     , _cpgdMarker                          :: Maybe Text
     , _cpgdParameters                      :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CacheParameterGroupDetails' constructor.
 --
@@ -142,6 +142,7 @@ cpgdMarker = lens _cpgdMarker (\s a -> s { _cpgdMarker = a })
 -- | A list of Parameter instances.
 cpgdParameters :: Lens' CacheParameterGroupDetails [Parameter]
 cpgdParameters = lens _cpgdParameters (\s a -> s { _cpgdParameters = a })
+
 instance FromXML CacheParameterGroupDetails where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CacheParameterGroupDetails"

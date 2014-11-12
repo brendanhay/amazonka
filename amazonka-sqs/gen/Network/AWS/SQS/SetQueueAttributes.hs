@@ -47,7 +47,7 @@ import Network.AWS.SQS.Types
 data SetQueueAttributes = SetQueueAttributes
     { _sqaAttributes :: Map Text Text
     , _sqaQueueUrl   :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'SetQueueAttributes' constructor.
 --
@@ -106,6 +106,7 @@ data SetQueueAttributesResponse = SetQueueAttributesResponse
 -- | 'SetQueueAttributesResponse' constructor.
 setQueueAttributesResponse :: SetQueueAttributesResponse
 setQueueAttributesResponse = SetQueueAttributesResponse
+
 instance FromXML SetQueueAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetQueueAttributesResponse"

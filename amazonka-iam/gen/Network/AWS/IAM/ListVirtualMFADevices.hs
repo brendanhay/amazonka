@@ -53,7 +53,7 @@ data ListVirtualMFADevices = ListVirtualMFADevices
     { _lvmfadAssignmentStatus :: Maybe Text
     , _lvmfadMarker           :: Maybe Text
     , _lvmfadMaxItems         :: Maybe Natural
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListVirtualMFADevices' constructor.
 --
@@ -102,7 +102,7 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     { _lvmfadrIsTruncated       :: Maybe Bool
     , _lvmfadrMarker            :: Maybe Text
     , _lvmfadrVirtualMFADevices :: [VirtualMFADevice]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListVirtualMFADevicesResponse' constructor.
 --
@@ -139,6 +139,7 @@ lvmfadrVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevic
 lvmfadrVirtualMFADevices =
     lens _lvmfadrVirtualMFADevices
         (\s a -> s { _lvmfadrVirtualMFADevices = a })
+
 instance FromXML ListVirtualMFADevicesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListVirtualMFADevicesResponse"

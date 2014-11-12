@@ -59,7 +59,7 @@ import Network.AWS.IAM.Types
 data CreateSAMLProvider = CreateSAMLProvider
     { _csamlpName                 :: Text
     , _csamlpSAMLMetadataDocument :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateSAMLProvider' constructor.
 --
@@ -100,7 +100,7 @@ instance ToPath CreateSAMLProvider where
 
 newtype CreateSAMLProviderResponse = CreateSAMLProviderResponse
     { _csamlprSAMLProviderArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateSAMLProviderResponse' constructor.
 --
@@ -117,6 +117,7 @@ createSAMLProviderResponse = CreateSAMLProviderResponse
 csamlprSAMLProviderArn :: Lens' CreateSAMLProviderResponse (Maybe Text)
 csamlprSAMLProviderArn =
     lens _csamlprSAMLProviderArn (\s a -> s { _csamlprSAMLProviderArn = a })
+
 instance FromXML CreateSAMLProviderResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateSAMLProviderResponse"

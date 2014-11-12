@@ -47,7 +47,7 @@ import Network.AWS.RDS.Types
 data ListTagsForResourceMessage = ListTagsForResourceMessage
     { _ltfrmFilters      :: [Filter]
     , _ltfrmResourceName :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListTagsForResourceMessage' constructor.
 --
@@ -81,7 +81,7 @@ instance ToPath ListTagsForResourceMessage where
 
 newtype TagListMessage = TagListMessage
     { _tlmTagList :: [Tag]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'TagListMessage' constructor.
 --
@@ -97,6 +97,7 @@ tagListMessage = TagListMessage
 -- | List of tags returned by the ListTagsForResource operation.
 tlmTagList :: Lens' TagListMessage [Tag]
 tlmTagList = lens _tlmTagList (\s a -> s { _tlmTagList = a })
+
 instance FromXML TagListMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "TagListMessage"

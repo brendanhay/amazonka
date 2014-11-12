@@ -47,7 +47,7 @@ import Network.AWS.CloudSearch.Types
 
 newtype DescribeScalingParameters = DescribeScalingParameters
     { _dspDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DescribeScalingParameters' constructor.
 --
@@ -70,7 +70,7 @@ instance ToPath DescribeScalingParameters where
 
 newtype DescribeScalingParametersResponse = DescribeScalingParametersResponse
     { _dsprScalingParameters :: ScalingParametersStatus
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeScalingParametersResponse' constructor.
 --
@@ -87,6 +87,7 @@ describeScalingParametersResponse p1 = DescribeScalingParametersResponse
 dsprScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParametersStatus
 dsprScalingParameters =
     lens _dsprScalingParameters (\s a -> s { _dsprScalingParameters = a })
+
 instance FromXML DescribeScalingParametersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeScalingParametersResponse"

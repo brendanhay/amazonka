@@ -51,7 +51,7 @@ data DescribeEventSubscriptionsMessage = DescribeEventSubscriptionsMessage
     { _desmMarker           :: Maybe Text
     , _desmMaxRecords       :: Maybe Int
     , _desmSubscriptionName :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeEventSubscriptionsMessage' constructor.
 --
@@ -100,7 +100,7 @@ instance ToPath DescribeEventSubscriptionsMessage where
 data EventSubscriptionsMessage = EventSubscriptionsMessage
     { _esmEventSubscriptionsList :: [EventSubscription]
     , _esmMarker                 :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'EventSubscriptionsMessage' constructor.
 --
@@ -130,6 +130,7 @@ esmEventSubscriptionsList =
 -- request.
 esmMarker :: Lens' EventSubscriptionsMessage (Maybe Text)
 esmMarker = lens _esmMarker (\s a -> s { _esmMarker = a })
+
 instance FromXML EventSubscriptionsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EventSubscriptionsMessage"

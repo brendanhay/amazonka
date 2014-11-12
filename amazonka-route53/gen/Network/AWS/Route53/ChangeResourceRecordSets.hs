@@ -65,7 +65,7 @@ import Network.AWS.Route53.Types
 data ChangeResourceRecordSets = ChangeResourceRecordSets
     { _crrsChangeBatch  :: ChangeBatch
     , _crrsHostedZoneId :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ChangeResourceRecordSets' constructor.
 --
@@ -109,7 +109,7 @@ instance ToBody ChangeResourceRecordSets where
 
 newtype ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse
     { _crrsrChangeInfo :: ChangeInfo
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ChangeResourceRecordSetsResponse' constructor.
 --

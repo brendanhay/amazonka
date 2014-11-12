@@ -53,7 +53,7 @@ data DescribeTags = DescribeTags
     , _dtFilters    :: [Filter]
     , _dtMaxResults :: Maybe Int
     , _dtNextToken  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeTags' constructor.
 --
@@ -106,7 +106,7 @@ instance ToPath DescribeTags where
 data DescribeTagsResult = DescribeTagsResult
     { _dtrNextToken :: Maybe Text
     , _dtrTags      :: [TagDescription]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeTagsResult' constructor.
 --
@@ -130,6 +130,7 @@ dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 -- | A list of tags.
 dtrTags :: Lens' DescribeTagsResult [TagDescription]
 dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
+
 instance FromXML DescribeTagsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeTagsResult"

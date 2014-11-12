@@ -68,7 +68,7 @@ data CreateConfigurationTemplateMessage = CreateConfigurationTemplateMessage
     , _cctmSolutionStackName   :: Maybe Text
     , _cctmSourceConfiguration :: Maybe SourceConfiguration
     , _cctmTemplateName        :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateConfigurationTemplateMessage' constructor.
 --

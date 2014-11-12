@@ -54,7 +54,7 @@ data UpdateSigningCertificate = UpdateSigningCertificate
     { _uscCertificateId :: Text
     , _uscStatus        :: Text
     , _uscUserName      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateSigningCertificate' constructor.
 --
@@ -99,6 +99,7 @@ data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse
 -- | 'UpdateSigningCertificateResponse' constructor.
 updateSigningCertificateResponse :: UpdateSigningCertificateResponse
 updateSigningCertificateResponse = UpdateSigningCertificateResponse
+
 instance FromXML UpdateSigningCertificateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateSigningCertificateResponse"

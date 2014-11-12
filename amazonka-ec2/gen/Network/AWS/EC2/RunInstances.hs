@@ -110,7 +110,7 @@ data RunInstances = RunInstances
     , _ri1SecurityGroups                    :: [Text]
     , _ri1SubnetId                          :: Maybe Text
     , _ri1UserData                          :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RunInstances' constructor.
 --

@@ -44,7 +44,7 @@ import Network.AWS.AutoScaling.Types
 
 newtype LaunchConfigurationNameType = LaunchConfigurationNameType
     { _lcntLaunchConfigurationName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'LaunchConfigurationNameType' constructor.
 --
@@ -74,6 +74,7 @@ data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
 -- | 'DeleteLaunchConfigurationResponse' constructor.
 deleteLaunchConfigurationResponse :: DeleteLaunchConfigurationResponse
 deleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
+
 instance FromXML DeleteLaunchConfigurationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteLaunchConfigurationResponse"

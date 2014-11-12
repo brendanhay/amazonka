@@ -61,7 +61,7 @@ import Network.AWS.SQS.Types
 data SendMessageBatch = SendMessageBatch
     { _smbEntries  :: [SendMessageBatchRequestEntry]
     , _smbQueueUrl :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'SendMessageBatch' constructor.
 --
@@ -93,7 +93,7 @@ instance ToPath SendMessageBatch where
 data SendMessageBatchResult = SendMessageBatchResult
     { _smbrFailed     :: [BatchResultErrorEntry]
     , _smbrSuccessful :: [SendMessageBatchResultEntry]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'SendMessageBatchResult' constructor.
 --
@@ -117,6 +117,7 @@ smbrFailed = lens _smbrFailed (\s a -> s { _smbrFailed = a })
 -- | A list of SendMessageBatchResultEntry items.
 smbrSuccessful :: Lens' SendMessageBatchResult [SendMessageBatchResultEntry]
 smbrSuccessful = lens _smbrSuccessful (\s a -> s { _smbrSuccessful = a })
+
 instance FromXML SendMessageBatchResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SendMessageBatchResult"

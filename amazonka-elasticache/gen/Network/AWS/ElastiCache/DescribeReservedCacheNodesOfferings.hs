@@ -58,7 +58,7 @@ data DescribeReservedCacheNodesOfferingsMessage = DescribeReservedCacheNodesOffe
     , _drcnomOfferingType                 :: Maybe Text
     , _drcnomProductDescription           :: Maybe Text
     , _drcnomReservedCacheNodesOfferingId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeReservedCacheNodesOfferingsMessage' constructor.
 --
@@ -144,7 +144,7 @@ instance ToPath DescribeReservedCacheNodesOfferingsMessage where
 data ReservedCacheNodesOfferingMessage = ReservedCacheNodesOfferingMessage
     { _rcnomMarker                      :: Maybe Text
     , _rcnomReservedCacheNodesOfferings :: [ReservedCacheNodesOffering]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ReservedCacheNodesOfferingMessage' constructor.
 --
@@ -170,6 +170,7 @@ rcnomReservedCacheNodesOfferings :: Lens' ReservedCacheNodesOfferingMessage [Res
 rcnomReservedCacheNodesOfferings =
     lens _rcnomReservedCacheNodesOfferings
         (\s a -> s { _rcnomReservedCacheNodesOfferings = a })
+
 instance FromXML ReservedCacheNodesOfferingMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReservedCacheNodesOfferingMessage"

@@ -51,7 +51,7 @@ import Network.AWS.AutoScaling.Types
 data SuspendProcesses = SuspendProcesses
     { _spAutoScalingGroupName :: Text
     , _spScalingProcesses     :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SuspendProcesses' constructor.
 --
@@ -91,6 +91,7 @@ data SuspendProcessesResponse = SuspendProcessesResponse
 -- | 'SuspendProcessesResponse' constructor.
 suspendProcessesResponse :: SuspendProcessesResponse
 suspendProcessesResponse = SuspendProcessesResponse
+
 instance FromXML SuspendProcessesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SuspendProcessesResponse"

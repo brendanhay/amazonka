@@ -46,7 +46,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data DeleteApplicationMessage = DeleteApplicationMessage
     { _damApplicationName     :: Text
     , _damTerminateEnvByForce :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteApplicationMessage' constructor.
 --
@@ -84,6 +84,7 @@ data DeleteApplicationResponse = DeleteApplicationResponse
 -- | 'DeleteApplicationResponse' constructor.
 deleteApplicationResponse :: DeleteApplicationResponse
 deleteApplicationResponse = DeleteApplicationResponse
+
 instance FromXML DeleteApplicationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteApplicationResponse"

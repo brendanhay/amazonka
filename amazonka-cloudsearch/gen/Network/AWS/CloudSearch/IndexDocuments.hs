@@ -46,7 +46,7 @@ import Network.AWS.CloudSearch.Types
 
 newtype IndexDocuments = IndexDocuments
     { _idDomainName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'IndexDocuments' constructor.
 --
@@ -69,7 +69,16 @@ instance ToPath IndexDocuments where
 
 newtype IndexDocumentsResponse = IndexDocumentsResponse
     { _idrFieldNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'IndexDocumentsResponse' constructor.
 --
@@ -85,6 +94,7 @@ indexDocumentsResponse = IndexDocumentsResponse
 -- | The names of the fields that are currently being indexed.
 idrFieldNames :: Lens' IndexDocumentsResponse [Text]
 idrFieldNames = lens _idrFieldNames (\s a -> s { _idrFieldNames = a })
+
 instance FromXML IndexDocumentsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "IndexDocumentsResponse"

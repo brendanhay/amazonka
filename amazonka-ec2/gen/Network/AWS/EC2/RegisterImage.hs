@@ -73,7 +73,7 @@ data RegisterImage = RegisterImage
     , _riRootDeviceName      :: Maybe Text
     , _riSriovNetSupport     :: Maybe Text
     , _riVirtualizationType  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RegisterImage' constructor.
 --
@@ -177,7 +177,7 @@ instance ToPath RegisterImage where
 
 newtype RegisterImageResult = RegisterImageResult
     { _rirImageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'RegisterImageResult' constructor.
 --
@@ -193,6 +193,7 @@ registerImageResult = RegisterImageResult
 -- | The ID of the newly registered AMI.
 rirImageId :: Lens' RegisterImageResult (Maybe Text)
 rirImageId = lens _rirImageId (\s a -> s { _rirImageId = a })
+
 instance FromXML RegisterImageResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RegisterImageResult"

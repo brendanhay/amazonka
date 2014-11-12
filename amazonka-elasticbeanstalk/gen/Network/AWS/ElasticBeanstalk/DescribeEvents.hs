@@ -66,7 +66,7 @@ data DescribeEventsMessage = DescribeEventsMessage
     , _dem1StartTime       :: Maybe RFC822
     , _dem1TemplateName    :: Maybe Text
     , _dem1VersionLabel    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeEventsMessage' constructor.
 --
@@ -176,7 +176,7 @@ instance ToPath DescribeEventsMessage where
 data EventDescriptionsMessage = EventDescriptionsMessage
     { _edmEvents    :: [EventDescription]
     , _edmNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'EventDescriptionsMessage' constructor.
 --
@@ -201,6 +201,7 @@ edmEvents = lens _edmEvents (\s a -> s { _edmEvents = a })
 -- events.
 edmNextToken :: Lens' EventDescriptionsMessage (Maybe Text)
 edmNextToken = lens _edmNextToken (\s a -> s { _edmNextToken = a })
+
 instance FromXML EventDescriptionsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EventDescriptionsMessage"

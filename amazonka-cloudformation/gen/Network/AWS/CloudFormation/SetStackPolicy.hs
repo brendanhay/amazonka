@@ -46,7 +46,7 @@ data SetStackPolicyInput = SetStackPolicyInput
     { _sspiStackName       :: Text
     , _sspiStackPolicyBody :: Maybe Text
     , _sspiStackPolicyURL  :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SetStackPolicyInput' constructor.
 --
@@ -96,6 +96,7 @@ data SetStackPolicyResponse = SetStackPolicyResponse
 -- | 'SetStackPolicyResponse' constructor.
 setStackPolicyResponse :: SetStackPolicyResponse
 setStackPolicyResponse = SetStackPolicyResponse
+
 instance FromXML SetStackPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetStackPolicyResponse"

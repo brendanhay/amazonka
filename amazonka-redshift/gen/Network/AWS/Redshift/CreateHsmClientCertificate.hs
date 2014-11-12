@@ -51,7 +51,7 @@ import Network.AWS.Redshift.Types
 
 newtype CreateHsmClientCertificateMessage = CreateHsmClientCertificateMessage
     { _chccmHsmClientCertificateIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateHsmClientCertificateMessage' constructor.
 --
@@ -79,7 +79,7 @@ instance ToPath CreateHsmClientCertificateMessage where
 
 newtype CreateHsmClientCertificateResult = CreateHsmClientCertificateResult
     { _chccrHsmClientCertificate :: Maybe HsmClientCertificate
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateHsmClientCertificateResult' constructor.
 --
@@ -96,6 +96,7 @@ chccrHsmClientCertificate :: Lens' CreateHsmClientCertificateResult (Maybe HsmCl
 chccrHsmClientCertificate =
     lens _chccrHsmClientCertificate
         (\s a -> s { _chccrHsmClientCertificate = a })
+
 instance FromXML CreateHsmClientCertificateResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateHsmClientCertificateResult"

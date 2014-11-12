@@ -105,7 +105,7 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity
     , _arwwiRoleArn          :: Text
     , _arwwiRoleSessionName  :: Text
     , _arwwiWebIdentityToken :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AssumeRoleWithWebIdentity' constructor.
 --
@@ -197,7 +197,7 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
     , _arwwirPackedPolicySize            :: Maybe Natural
     , _arwwirProvider                    :: Maybe Text
     , _arwwirSubjectFromWebIdentityToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AssumeRoleWithWebIdentityResponse' constructor.
 --
@@ -272,6 +272,7 @@ arwwirSubjectFromWebIdentityToken :: Lens' AssumeRoleWithWebIdentityResponse (Ma
 arwwirSubjectFromWebIdentityToken =
     lens _arwwirSubjectFromWebIdentityToken
         (\s a -> s { _arwwirSubjectFromWebIdentityToken = a })
+
 instance FromXML AssumeRoleWithWebIdentityResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AssumeRoleWithWebIdentityResponse"

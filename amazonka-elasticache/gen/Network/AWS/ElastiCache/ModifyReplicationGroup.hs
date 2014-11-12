@@ -75,7 +75,7 @@ data ModifyReplicationGroupMessage = ModifyReplicationGroupMessage
     , _mrgmSnapshotRetentionLimit      :: Maybe Int
     , _mrgmSnapshotWindow              :: Maybe Text
     , _mrgmSnapshottingClusterId       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ModifyReplicationGroupMessage' constructor.
 --
@@ -272,7 +272,7 @@ instance ToPath ModifyReplicationGroupMessage where
 
 newtype ModifyReplicationGroupResult = ModifyReplicationGroupResult
     { _mrgrReplicationGroup :: Maybe ReplicationGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyReplicationGroupResult' constructor.
 --
@@ -288,6 +288,7 @@ modifyReplicationGroupResult = ModifyReplicationGroupResult
 mrgrReplicationGroup :: Lens' ModifyReplicationGroupResult (Maybe ReplicationGroup)
 mrgrReplicationGroup =
     lens _mrgrReplicationGroup (\s a -> s { _mrgrReplicationGroup = a })
+
 instance FromXML ModifyReplicationGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifyReplicationGroupResult"

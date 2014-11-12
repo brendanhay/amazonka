@@ -42,7 +42,7 @@ import Network.AWS.Redshift.Types
 
 newtype DeleteHsmConfigurationMessage = DeleteHsmConfigurationMessage
     { _dhcm1HsmConfigurationIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteHsmConfigurationMessage' constructor.
 --
@@ -72,6 +72,7 @@ data DeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
 -- | 'DeleteHsmConfigurationResponse' constructor.
 deleteHsmConfigurationResponse :: DeleteHsmConfigurationResponse
 deleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
+
 instance FromXML DeleteHsmConfigurationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteHsmConfigurationResponse"

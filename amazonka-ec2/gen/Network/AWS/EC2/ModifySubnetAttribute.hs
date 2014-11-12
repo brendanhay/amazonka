@@ -44,7 +44,7 @@ import Network.AWS.EC2.Types
 data ModifySubnetAttribute = ModifySubnetAttribute
     { _msaMapPublicIpOnLaunch :: Maybe AttributeBooleanValue
     , _msaSubnetId            :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifySubnetAttribute' constructor.
 --
@@ -79,6 +79,7 @@ data ModifySubnetAttributeResponse = ModifySubnetAttributeResponse
 -- | 'ModifySubnetAttributeResponse' constructor.
 modifySubnetAttributeResponse :: ModifySubnetAttributeResponse
 modifySubnetAttributeResponse = ModifySubnetAttributeResponse
+
 instance FromXML ModifySubnetAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ModifySubnetAttributeResponse"

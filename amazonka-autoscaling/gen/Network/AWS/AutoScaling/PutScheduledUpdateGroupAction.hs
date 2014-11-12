@@ -62,7 +62,7 @@ data PutScheduledUpdateGroupActionType = PutScheduledUpdateGroupActionType
     , _psugatScheduledActionName  :: Text
     , _psugatStartTime            :: Maybe RFC822
     , _psugatTime                 :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'PutScheduledUpdateGroupActionType' constructor.
 --
@@ -166,6 +166,7 @@ data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionRespon
 -- | 'PutScheduledUpdateGroupActionResponse' constructor.
 putScheduledUpdateGroupActionResponse :: PutScheduledUpdateGroupActionResponse
 putScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
+
 instance FromXML PutScheduledUpdateGroupActionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PutScheduledUpdateGroupActionResponse"

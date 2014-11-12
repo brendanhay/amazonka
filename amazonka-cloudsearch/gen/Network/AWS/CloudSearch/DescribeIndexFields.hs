@@ -53,7 +53,7 @@ data DescribeIndexFields = DescribeIndexFields
     { _difDeployed   :: Maybe Bool
     , _difDomainName :: Text
     , _difFieldNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeIndexFields' constructor.
 --
@@ -93,7 +93,7 @@ instance ToPath DescribeIndexFields where
 
 newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
     { _difrIndexFields :: [IndexFieldStatus]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeIndexFieldsResponse' constructor.
 --
@@ -109,6 +109,7 @@ describeIndexFieldsResponse = DescribeIndexFieldsResponse
 -- | The index fields configured for the domain.
 difrIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
 difrIndexFields = lens _difrIndexFields (\s a -> s { _difrIndexFields = a })
+
 instance FromXML DescribeIndexFieldsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeIndexFieldsResponse"

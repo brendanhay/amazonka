@@ -53,7 +53,7 @@ data ResetClusterParameterGroupMessage = ResetClusterParameterGroupMessage
     { _rcpgmParameterGroupName :: Text
     , _rcpgmParameters         :: [Parameter]
     , _rcpgmResetAllParameters :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ResetClusterParameterGroupMessage' constructor.
 --

@@ -51,7 +51,7 @@ import Network.AWS.Route53.Types
 data CreateHealthCheck = CreateHealthCheck
     { _chcCallerReference   :: Text
     , _chcHealthCheckConfig :: HealthCheckConfig
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateHealthCheck' constructor.
 --
@@ -99,7 +99,7 @@ instance ToBody CreateHealthCheck where
 data CreateHealthCheckResponse = CreateHealthCheckResponse
     { _chcrHealthCheck :: HealthCheck
     , _chcrLocation    :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateHealthCheckResponse' constructor.
 --

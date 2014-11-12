@@ -50,7 +50,7 @@ import Network.AWS.ELB.Types
 
 newtype DeleteAccessPointInput = DeleteAccessPointInput
     { _dapiLoadBalancerName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteAccessPointInput' constructor.
 --
@@ -79,6 +79,7 @@ data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
 -- | 'DeleteLoadBalancerResponse' constructor.
 deleteLoadBalancerResponse :: DeleteLoadBalancerResponse
 deleteLoadBalancerResponse = DeleteLoadBalancerResponse
+
 instance FromXML DeleteLoadBalancerResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteLoadBalancerResponse"

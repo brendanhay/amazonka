@@ -51,7 +51,7 @@ data DescribeReplicationGroupsMessage = DescribeReplicationGroupsMessage
     { _drgmMarker             :: Maybe Text
     , _drgmMaxRecords         :: Maybe Int
     , _drgmReplicationGroupId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeReplicationGroupsMessage' constructor.
 --
@@ -98,7 +98,7 @@ instance ToPath DescribeReplicationGroupsMessage where
 data ReplicationGroupMessage = ReplicationGroupMessage
     { _rgmMarker            :: Maybe Text
     , _rgmReplicationGroups :: [ReplicationGroup]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ReplicationGroupMessage' constructor.
 --
@@ -123,6 +123,7 @@ rgmMarker = lens _rgmMarker (\s a -> s { _rgmMarker = a })
 rgmReplicationGroups :: Lens' ReplicationGroupMessage [ReplicationGroup]
 rgmReplicationGroups =
     lens _rgmReplicationGroups (\s a -> s { _rgmReplicationGroups = a })
+
 instance FromXML ReplicationGroupMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReplicationGroupMessage"

@@ -45,7 +45,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketAcl = GetBucketAcl
     { _gbaBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketAcl' constructor.
 --
@@ -76,7 +76,7 @@ instance ToHeaders GetBucketAcl
 data GetBucketAclOutput = GetBucketAclOutput
     { _gbaoGrants :: [Grant]
     , _gbaoOwner  :: Maybe Owner
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetBucketAclOutput' constructor.
 --

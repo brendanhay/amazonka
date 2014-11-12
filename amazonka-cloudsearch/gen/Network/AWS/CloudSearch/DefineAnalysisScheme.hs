@@ -49,7 +49,7 @@ import Network.AWS.CloudSearch.Types
 data DefineAnalysisScheme = DefineAnalysisScheme
     { _das2AnalysisScheme :: AnalysisScheme
     , _das2DomainName     :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DefineAnalysisScheme' constructor.
 --
@@ -80,7 +80,7 @@ instance ToPath DefineAnalysisScheme where
 
 newtype DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse
     { _dasr1AnalysisScheme :: AnalysisSchemeStatus
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DefineAnalysisSchemeResponse' constructor.
 --
@@ -97,6 +97,7 @@ defineAnalysisSchemeResponse p1 = DefineAnalysisSchemeResponse
 dasr1AnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
 dasr1AnalysisScheme =
     lens _dasr1AnalysisScheme (\s a -> s { _dasr1AnalysisScheme = a })
+
 instance FromXML DefineAnalysisSchemeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DefineAnalysisSchemeResponse"

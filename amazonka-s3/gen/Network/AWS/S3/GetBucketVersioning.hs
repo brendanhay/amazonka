@@ -45,7 +45,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketVersioning = GetBucketVersioning
     { _gbvBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketVersioning' constructor.
 --
@@ -76,7 +76,7 @@ instance ToHeaders GetBucketVersioning
 data GetBucketVersioningOutput = GetBucketVersioningOutput
     { _gbvoMFADelete :: Maybe Text
     , _gbvoStatus    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetBucketVersioningOutput' constructor.
 --

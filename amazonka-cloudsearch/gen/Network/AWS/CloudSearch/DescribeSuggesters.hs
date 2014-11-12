@@ -54,7 +54,7 @@ data DescribeSuggesters = DescribeSuggesters
     { _ds1Deployed       :: Maybe Bool
     , _ds1DomainName     :: Text
     , _ds1SuggesterNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeSuggesters' constructor.
 --
@@ -94,7 +94,7 @@ instance ToPath DescribeSuggesters where
 
 newtype DescribeSuggestersResponse = DescribeSuggestersResponse
     { _dsrSuggesters :: [SuggesterStatus]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeSuggestersResponse' constructor.
 --
@@ -110,6 +110,7 @@ describeSuggestersResponse = DescribeSuggestersResponse
 -- | The suggesters configured for the domain specified in the request.
 dsrSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
 dsrSuggesters = lens _dsrSuggesters (\s a -> s { _dsrSuggesters = a })
+
 instance FromXML DescribeSuggestersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeSuggestersResponse"

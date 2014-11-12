@@ -48,7 +48,7 @@ data PromoteReadReplicaMessage = PromoteReadReplicaMessage
     { _prrmBackupRetentionPeriod :: Maybe Int
     , _prrmDBInstanceIdentifier  :: Text
     , _prrmPreferredBackupWindow :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'PromoteReadReplicaMessage' constructor.
 --
@@ -105,7 +105,7 @@ instance ToPath PromoteReadReplicaMessage where
 
 newtype PromoteReadReplicaResult = PromoteReadReplicaResult
     { _prrrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'PromoteReadReplicaResult' constructor.
 --
@@ -120,6 +120,7 @@ promoteReadReplicaResult = PromoteReadReplicaResult
 
 prrrDBInstance :: Lens' PromoteReadReplicaResult (Maybe DBInstance)
 prrrDBInstance = lens _prrrDBInstance (\s a -> s { _prrrDBInstance = a })
+
 instance FromXML PromoteReadReplicaResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PromoteReadReplicaResult"

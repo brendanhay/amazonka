@@ -47,7 +47,16 @@ import Network.AWS.SES.Types
 
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
     { _ginaIdentities :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'GetIdentityNotificationAttributes' constructor.
 --
@@ -70,7 +79,7 @@ instance ToPath GetIdentityNotificationAttributes where
 
 newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
     { _ginarNotificationAttributes :: Map Text IdentityNotificationAttributes
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'GetIdentityNotificationAttributesResponse' constructor.
 --
@@ -89,6 +98,7 @@ ginarNotificationAttributes =
     lens _ginarNotificationAttributes
         (\s a -> s { _ginarNotificationAttributes = a })
             . _Map
+
 instance FromXML GetIdentityNotificationAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetIdentityNotificationAttributesResponse"

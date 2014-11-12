@@ -60,7 +60,7 @@ instance ToPath DescribeAccountLimits where
 data DescribeAccountLimitsAnswer = DescribeAccountLimitsAnswer
     { _dalaMaxNumberOfAutoScalingGroups    :: Maybe Int
     , _dalaMaxNumberOfLaunchConfigurations :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAccountLimitsAnswer' constructor.
 --
@@ -87,6 +87,7 @@ dalaMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsAnswer (Maybe 
 dalaMaxNumberOfLaunchConfigurations =
     lens _dalaMaxNumberOfLaunchConfigurations
         (\s a -> s { _dalaMaxNumberOfLaunchConfigurations = a })
+
 instance FromXML DescribeAccountLimitsAnswer where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeAccountLimitsAnswer"

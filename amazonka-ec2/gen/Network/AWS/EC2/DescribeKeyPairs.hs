@@ -49,7 +49,7 @@ data DescribeKeyPairs = DescribeKeyPairs
     { _dkpDryRun   :: Maybe Bool
     , _dkpFilters  :: [Filter]
     , _dkpKeyNames :: [Text]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeKeyPairs' constructor.
 --
@@ -86,7 +86,7 @@ instance ToPath DescribeKeyPairs where
 
 newtype DescribeKeyPairsResult = DescribeKeyPairsResult
     { _dkprKeyPairs :: [KeyPairInfo]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeKeyPairsResult' constructor.
 --
@@ -102,6 +102,7 @@ describeKeyPairsResult = DescribeKeyPairsResult
 -- | Information about one or more key pairs.
 dkprKeyPairs :: Lens' DescribeKeyPairsResult [KeyPairInfo]
 dkprKeyPairs = lens _dkprKeyPairs (\s a -> s { _dkprKeyPairs = a })
+
 instance FromXML DescribeKeyPairsResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeKeyPairsResult"

@@ -49,7 +49,7 @@ data AddPermissionInput = AddPermissionInput
     , _apiActionName   :: [Text]
     , _apiLabel        :: Text
     , _apiTopicArn     :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AddPermissionInput' constructor.
 --
@@ -102,6 +102,7 @@ data AddPermissionResponse = AddPermissionResponse
 -- | 'AddPermissionResponse' constructor.
 addPermissionResponse :: AddPermissionResponse
 addPermissionResponse = AddPermissionResponse
+
 instance FromXML AddPermissionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AddPermissionResponse"

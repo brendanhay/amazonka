@@ -47,7 +47,7 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
     { _rniaDryRun             :: Maybe Bool
     , _rniaNetworkInterfaceId :: Text
     , _rniaSourceDestCheck    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ResetNetworkInterfaceAttribute' constructor.
 --
@@ -90,6 +90,7 @@ data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResp
 -- | 'ResetNetworkInterfaceAttributeResponse' constructor.
 resetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse
 resetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
+
 instance FromXML ResetNetworkInterfaceAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ResetNetworkInterfaceAttributeResponse"

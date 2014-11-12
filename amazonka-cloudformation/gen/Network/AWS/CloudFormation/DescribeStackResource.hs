@@ -48,7 +48,7 @@ import Network.AWS.CloudFormation.Types
 data DescribeStackResourceInput = DescribeStackResourceInput
     { _dsri1LogicalResourceId :: Text
     , _dsri1StackName         :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeStackResourceInput' constructor.
 --
@@ -85,7 +85,7 @@ instance ToPath DescribeStackResourceInput where
 
 newtype DescribeStackResourceOutput = DescribeStackResourceOutput
     { _dsroStackResourceDetail :: Maybe StackResourceDetail
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeStackResourceOutput' constructor.
 --
@@ -103,6 +103,7 @@ describeStackResourceOutput = DescribeStackResourceOutput
 dsroStackResourceDetail :: Lens' DescribeStackResourceOutput (Maybe StackResourceDetail)
 dsroStackResourceDetail =
     lens _dsroStackResourceDetail (\s a -> s { _dsroStackResourceDetail = a })
+
 instance FromXML DescribeStackResourceOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeStackResourceOutput"

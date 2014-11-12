@@ -51,7 +51,7 @@ data DescribeCacheSubnetGroupsMessage = DescribeCacheSubnetGroupsMessage
     { _dcsgmCacheSubnetGroupName :: Maybe Text
     , _dcsgmMarker               :: Maybe Text
     , _dcsgmMaxRecords           :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeCacheSubnetGroupsMessage' constructor.
 --
@@ -97,7 +97,7 @@ instance ToPath DescribeCacheSubnetGroupsMessage where
 data CacheSubnetGroupMessage = CacheSubnetGroupMessage
     { _csgm1CacheSubnetGroups :: [CacheSubnetGroup]
     , _csgm1Marker            :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CacheSubnetGroupMessage' constructor.
 --
@@ -122,6 +122,7 @@ csgm1CacheSubnetGroups =
 -- | Provides an identifier to allow retrieval of paginated results.
 csgm1Marker :: Lens' CacheSubnetGroupMessage (Maybe Text)
 csgm1Marker = lens _csgm1Marker (\s a -> s { _csgm1Marker = a })
+
 instance FromXML CacheSubnetGroupMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CacheSubnetGroupMessage"

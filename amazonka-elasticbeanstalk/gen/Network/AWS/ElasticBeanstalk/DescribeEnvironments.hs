@@ -54,7 +54,7 @@ data DescribeEnvironmentsMessage = DescribeEnvironmentsMessage
     , _demIncludeDeleted        :: Maybe Bool
     , _demIncludedDeletedBackTo :: Maybe RFC822
     , _demVersionLabel          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeEnvironmentsMessage' constructor.
 --
@@ -126,7 +126,7 @@ instance ToPath DescribeEnvironmentsMessage where
 
 newtype EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage
     { _edmEnvironments :: [EnvironmentDescription]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'EnvironmentDescriptionsMessage' constructor.
 --
@@ -142,6 +142,7 @@ environmentDescriptionsMessage = EnvironmentDescriptionsMessage
 -- | Returns an EnvironmentDescription list.
 edmEnvironments :: Lens' EnvironmentDescriptionsMessage [EnvironmentDescription]
 edmEnvironments = lens _edmEnvironments (\s a -> s { _edmEnvironments = a })
+
 instance FromXML EnvironmentDescriptionsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnvironmentDescriptionsMessage"

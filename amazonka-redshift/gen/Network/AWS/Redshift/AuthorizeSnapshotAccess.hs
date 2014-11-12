@@ -50,7 +50,7 @@ data AuthorizeSnapshotAccessMessage = AuthorizeSnapshotAccessMessage
     { _asamAccountWithRestoreAccess  :: Text
     , _asamSnapshotClusterIdentifier :: Maybe Text
     , _asamSnapshotIdentifier        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AuthorizeSnapshotAccessMessage' constructor.
 --
@@ -98,7 +98,7 @@ instance ToPath AuthorizeSnapshotAccessMessage where
 
 newtype AuthorizeSnapshotAccessResult = AuthorizeSnapshotAccessResult
     { _asarSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AuthorizeSnapshotAccessResult' constructor.
 --
@@ -113,6 +113,7 @@ authorizeSnapshotAccessResult = AuthorizeSnapshotAccessResult
 
 asarSnapshot :: Lens' AuthorizeSnapshotAccessResult (Maybe Snapshot)
 asarSnapshot = lens _asarSnapshot (\s a -> s { _asarSnapshot = a })
+
 instance FromXML AuthorizeSnapshotAccessResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AuthorizeSnapshotAccessResult"

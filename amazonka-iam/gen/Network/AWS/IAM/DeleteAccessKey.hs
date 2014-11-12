@@ -48,7 +48,7 @@ import Network.AWS.IAM.Types
 data DeleteAccessKey = DeleteAccessKey
     { _dakAccessKeyId :: Text
     , _dakUserName    :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteAccessKey' constructor.
 --
@@ -84,6 +84,7 @@ data DeleteAccessKeyResponse = DeleteAccessKeyResponse
 -- | 'DeleteAccessKeyResponse' constructor.
 deleteAccessKeyResponse :: DeleteAccessKeyResponse
 deleteAccessKeyResponse = DeleteAccessKeyResponse
+
 instance FromXML DeleteAccessKeyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteAccessKeyResponse"

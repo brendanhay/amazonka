@@ -52,7 +52,7 @@ import Network.AWS.SQS.Types
 data DeleteMessageBatch = DeleteMessageBatch
     { _dmbEntries  :: [DeleteMessageBatchRequestEntry]
     , _dmbQueueUrl :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteMessageBatch' constructor.
 --
@@ -84,7 +84,7 @@ instance ToPath DeleteMessageBatch where
 data DeleteMessageBatchResult = DeleteMessageBatchResult
     { _dmbrFailed     :: [BatchResultErrorEntry]
     , _dmbrSuccessful :: [DeleteMessageBatchResultEntry]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteMessageBatchResult' constructor.
 --
@@ -107,6 +107,7 @@ dmbrFailed = lens _dmbrFailed (\s a -> s { _dmbrFailed = a })
 -- | A list of DeleteMessageBatchResultEntry items.
 dmbrSuccessful :: Lens' DeleteMessageBatchResult [DeleteMessageBatchResultEntry]
 dmbrSuccessful = lens _dmbrSuccessful (\s a -> s { _dmbrSuccessful = a })
+
 instance FromXML DeleteMessageBatchResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteMessageBatchResult"

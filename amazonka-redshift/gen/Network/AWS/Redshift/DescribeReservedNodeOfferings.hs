@@ -56,7 +56,7 @@ data DescribeReservedNodeOfferingsMessage = DescribeReservedNodeOfferingsMessage
     { _drnomMarker                 :: Maybe Text
     , _drnomMaxRecords             :: Maybe Int
     , _drnomReservedNodeOfferingId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeReservedNodeOfferingsMessage' constructor.
 --
@@ -105,7 +105,7 @@ instance ToPath DescribeReservedNodeOfferingsMessage where
 data ReservedNodeOfferingsMessage = ReservedNodeOfferingsMessage
     { _rnomMarker                :: Maybe Text
     , _rnomReservedNodeOfferings :: [ReservedNodeOffering]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ReservedNodeOfferingsMessage' constructor.
 --
@@ -135,6 +135,7 @@ rnomReservedNodeOfferings :: Lens' ReservedNodeOfferingsMessage [ReservedNodeOff
 rnomReservedNodeOfferings =
     lens _rnomReservedNodeOfferings
         (\s a -> s { _rnomReservedNodeOfferings = a })
+
 instance FromXML ReservedNodeOfferingsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReservedNodeOfferingsMessage"

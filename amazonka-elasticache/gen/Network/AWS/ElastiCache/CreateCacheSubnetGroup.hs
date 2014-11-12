@@ -50,7 +50,7 @@ data CreateCacheSubnetGroupMessage = CreateCacheSubnetGroupMessage
     { _ccsgmCacheSubnetGroupDescription :: Text
     , _ccsgmCacheSubnetGroupName        :: Text
     , _ccsgmSubnetIds                   :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateCacheSubnetGroupMessage' constructor.
 --
@@ -95,7 +95,7 @@ instance ToPath CreateCacheSubnetGroupMessage where
 
 newtype CreateCacheSubnetGroupResult = CreateCacheSubnetGroupResult
     { _ccsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateCacheSubnetGroupResult' constructor.
 --
@@ -111,6 +111,7 @@ createCacheSubnetGroupResult = CreateCacheSubnetGroupResult
 ccsgrCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResult (Maybe CacheSubnetGroup)
 ccsgrCacheSubnetGroup =
     lens _ccsgrCacheSubnetGroup (\s a -> s { _ccsgrCacheSubnetGroup = a })
+
 instance FromXML CreateCacheSubnetGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateCacheSubnetGroupResult"

@@ -46,7 +46,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data DescribeApplicationVersionsMessage = DescribeApplicationVersionsMessage
     { _davm1ApplicationName :: Maybe Text
     , _davm1VersionLabels   :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeApplicationVersionsMessage' constructor.
 --
@@ -80,7 +80,7 @@ instance ToPath DescribeApplicationVersionsMessage where
 
 newtype ApplicationVersionDescriptionsMessage = ApplicationVersionDescriptionsMessage
     { _avdmApplicationVersions :: [ApplicationVersionDescription]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'ApplicationVersionDescriptionsMessage' constructor.
 --
@@ -97,6 +97,7 @@ applicationVersionDescriptionsMessage = ApplicationVersionDescriptionsMessage
 avdmApplicationVersions :: Lens' ApplicationVersionDescriptionsMessage [ApplicationVersionDescription]
 avdmApplicationVersions =
     lens _avdmApplicationVersions (\s a -> s { _avdmApplicationVersions = a })
+
 instance FromXML ApplicationVersionDescriptionsMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ApplicationVersionDescriptionsMessage"

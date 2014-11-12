@@ -92,7 +92,7 @@ data CreateMultipartUpload = CreateMultipartUpload
     , _cmu1ServerSideEncryption    :: Maybe Text
     , _cmu1StorageClass            :: Maybe Text
     , _cmu1WebsiteRedirectLocation :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateMultipartUpload' constructor.
 --
@@ -312,7 +312,7 @@ data CreateMultipartUploadOutput = CreateMultipartUploadOutput
     , _cmuo1SSECustomerKeyMD5    :: Maybe Text
     , _cmuo1ServerSideEncryption :: Maybe Text
     , _cmuo1UploadId             :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateMultipartUploadOutput' constructor.
 --

@@ -60,7 +60,7 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     , _uappRequireNumbers             :: Maybe Bool
     , _uappRequireSymbols             :: Maybe Bool
     , _uappRequireUppercaseCharacters :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateAccountPasswordPolicy' constructor.
 --
@@ -170,6 +170,7 @@ data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
 -- | 'UpdateAccountPasswordPolicyResponse' constructor.
 updateAccountPasswordPolicyResponse :: UpdateAccountPasswordPolicyResponse
 updateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
+
 instance FromXML UpdateAccountPasswordPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateAccountPasswordPolicyResponse"

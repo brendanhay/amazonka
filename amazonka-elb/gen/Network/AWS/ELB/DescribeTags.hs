@@ -44,7 +44,16 @@ import Network.AWS.ELB.Types
 
 newtype DescribeTagsInput = DescribeTagsInput
     { _dtiLoadBalancerNames :: List1 Text
-    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'DescribeTagsInput' constructor.
 --
@@ -70,7 +79,7 @@ instance ToPath DescribeTagsInput where
 
 newtype DescribeTagsOutput = DescribeTagsOutput
     { _dtoTagDescriptions :: [TagDescription]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeTagsOutput' constructor.
 --
@@ -87,6 +96,7 @@ describeTagsOutput = DescribeTagsOutput
 dtoTagDescriptions :: Lens' DescribeTagsOutput [TagDescription]
 dtoTagDescriptions =
     lens _dtoTagDescriptions (\s a -> s { _dtoTagDescriptions = a })
+
 instance FromXML DescribeTagsOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeTagsOutput"

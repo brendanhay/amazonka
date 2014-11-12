@@ -72,7 +72,7 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
     , _asgeSourceSecurityGroupName    :: Maybe Text
     , _asgeSourceSecurityGroupOwnerId :: Maybe Text
     , _asgeToPort                     :: Maybe Int
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AuthorizeSecurityGroupEgress' constructor.
 --
@@ -169,6 +169,7 @@ data AuthorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
 -- | 'AuthorizeSecurityGroupEgressResponse' constructor.
 authorizeSecurityGroupEgressResponse :: AuthorizeSecurityGroupEgressResponse
 authorizeSecurityGroupEgressResponse = AuthorizeSecurityGroupEgressResponse
+
 instance FromXML AuthorizeSecurityGroupEgressResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AuthorizeSecurityGroupEgressResponse"

@@ -42,7 +42,7 @@ import Network.AWS.RDS.Types
 
 newtype DeleteDBSecurityGroupMessage = DeleteDBSecurityGroupMessage
     { _ddbsgmDBSecurityGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteDBSecurityGroupMessage' constructor.
 --
@@ -75,6 +75,7 @@ data DeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
 -- | 'DeleteDBSecurityGroupResponse' constructor.
 deleteDBSecurityGroupResponse :: DeleteDBSecurityGroupResponse
 deleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
+
 instance FromXML DeleteDBSecurityGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteDBSecurityGroupResponse"

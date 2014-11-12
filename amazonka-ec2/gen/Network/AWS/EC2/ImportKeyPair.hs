@@ -55,7 +55,7 @@ data ImportKeyPair = ImportKeyPair
     { _ikpDryRun            :: Maybe Bool
     , _ikpKeyName           :: Text
     , _ikpPublicKeyMaterial :: Base64
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ImportKeyPair' constructor.
 --
@@ -96,7 +96,7 @@ instance ToPath ImportKeyPair where
 data ImportKeyPairResult = ImportKeyPairResult
     { _ikprKeyFingerprint :: Maybe Text
     , _ikprKeyName        :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ImportKeyPairResult' constructor.
 --
@@ -120,6 +120,7 @@ ikprKeyFingerprint =
 -- | The key pair name you provided.
 ikprKeyName :: Lens' ImportKeyPairResult (Maybe Text)
 ikprKeyName = lens _ikprKeyName (\s a -> s { _ikprKeyName = a })
+
 instance FromXML ImportKeyPairResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ImportKeyPairResult"

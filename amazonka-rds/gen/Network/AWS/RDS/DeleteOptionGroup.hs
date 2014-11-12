@@ -42,7 +42,7 @@ import Network.AWS.RDS.Types
 
 newtype DeleteOptionGroupMessage = DeleteOptionGroupMessage
     { _dogmOptionGroupName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteOptionGroupMessage' constructor.
 --
@@ -71,6 +71,7 @@ data DeleteOptionGroupResponse = DeleteOptionGroupResponse
 -- | 'DeleteOptionGroupResponse' constructor.
 deleteOptionGroupResponse :: DeleteOptionGroupResponse
 deleteOptionGroupResponse = DeleteOptionGroupResponse
+
 instance FromXML DeleteOptionGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteOptionGroupResponse"

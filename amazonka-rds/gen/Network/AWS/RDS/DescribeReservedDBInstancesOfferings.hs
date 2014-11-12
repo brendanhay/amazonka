@@ -61,7 +61,7 @@ data DescribeReservedDBInstancesOfferingsMessage = DescribeReservedDBInstancesOf
     , _drdbiomOfferingType                  :: Maybe Text
     , _drdbiomProductDescription            :: Maybe Text
     , _drdbiomReservedDBInstancesOfferingId :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeReservedDBInstancesOfferingsMessage' constructor.
 --
@@ -162,7 +162,7 @@ instance ToPath DescribeReservedDBInstancesOfferingsMessage where
 data ReservedDBInstancesOfferingMessage = ReservedDBInstancesOfferingMessage
     { _rdbiomMarker                       :: Maybe Text
     , _rdbiomReservedDBInstancesOfferings :: [ReservedDBInstancesOffering]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ReservedDBInstancesOfferingMessage' constructor.
 --
@@ -189,6 +189,7 @@ rdbiomReservedDBInstancesOfferings :: Lens' ReservedDBInstancesOfferingMessage [
 rdbiomReservedDBInstancesOfferings =
     lens _rdbiomReservedDBInstancesOfferings
         (\s a -> s { _rdbiomReservedDBInstancesOfferings = a })
+
 instance FromXML ReservedDBInstancesOfferingMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ReservedDBInstancesOfferingMessage"

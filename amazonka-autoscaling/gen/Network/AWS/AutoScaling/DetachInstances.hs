@@ -51,7 +51,7 @@ data DetachInstancesQuery = DetachInstancesQuery
     { _diqAutoScalingGroupName           :: Text
     , _diqInstanceIds                    :: [Text]
     , _diqShouldDecrementDesiredCapacity :: Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DetachInstancesQuery' constructor.
 --
@@ -97,7 +97,7 @@ instance ToPath DetachInstancesQuery where
 
 newtype DetachInstancesAnswer = DetachInstancesAnswer
     { _diaActivities :: [Activity]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DetachInstancesAnswer' constructor.
 --
@@ -114,6 +114,7 @@ detachInstancesAnswer = DetachInstancesAnswer
 -- the Auto Scaling group.
 diaActivities :: Lens' DetachInstancesAnswer [Activity]
 diaActivities = lens _diaActivities (\s a -> s { _diaActivities = a })
+
 instance FromXML DetachInstancesAnswer where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DetachInstancesAnswer"

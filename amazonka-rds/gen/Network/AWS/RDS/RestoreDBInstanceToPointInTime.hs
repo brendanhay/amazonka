@@ -86,7 +86,7 @@ data RestoreDBInstanceToPointInTimeMessage = RestoreDBInstanceToPointInTimeMessa
     , _rdbitpitmTdeCredentialArn           :: Maybe Text
     , _rdbitpitmTdeCredentialPassword      :: Maybe Text
     , _rdbitpitmUseLatestRestorableTime    :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RestoreDBInstanceToPointInTimeMessage' constructor.
 --
@@ -320,7 +320,7 @@ instance ToPath RestoreDBInstanceToPointInTimeMessage where
 
 newtype RestoreDBInstanceToPointInTimeResult = RestoreDBInstanceToPointInTimeResult
     { _rdbitpitrDBInstance :: Maybe DBInstance
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RestoreDBInstanceToPointInTimeResult' constructor.
 --
@@ -336,6 +336,7 @@ restoreDBInstanceToPointInTimeResult = RestoreDBInstanceToPointInTimeResult
 rdbitpitrDBInstance :: Lens' RestoreDBInstanceToPointInTimeResult (Maybe DBInstance)
 rdbitpitrDBInstance =
     lens _rdbitpitrDBInstance (\s a -> s { _rdbitpitrDBInstance = a })
+
 instance FromXML RestoreDBInstanceToPointInTimeResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RestoreDBInstanceToPointInTimeResult"

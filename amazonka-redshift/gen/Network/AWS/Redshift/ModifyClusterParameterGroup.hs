@@ -49,7 +49,7 @@ import Network.AWS.Redshift.Types
 data ModifyClusterParameterGroupMessage = ModifyClusterParameterGroupMessage
     { _mcpgmParameterGroupName :: Text
     , _mcpgmParameters         :: [Parameter]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ModifyClusterParameterGroupMessage' constructor.
 --

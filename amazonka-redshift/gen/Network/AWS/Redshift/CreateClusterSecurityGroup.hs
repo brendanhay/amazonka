@@ -49,7 +49,7 @@ import Network.AWS.Redshift.Types
 data CreateClusterSecurityGroupMessage = CreateClusterSecurityGroupMessage
     { _ccsgmClusterSecurityGroupName :: Text
     , _ccsgmDescription              :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateClusterSecurityGroupMessage' constructor.
 --
@@ -87,7 +87,7 @@ instance ToPath CreateClusterSecurityGroupMessage where
 
 newtype CreateClusterSecurityGroupResult = CreateClusterSecurityGroupResult
     { _ccsgrClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateClusterSecurityGroupResult' constructor.
 --
@@ -104,6 +104,7 @@ ccsgrClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResult (Maybe Clust
 ccsgrClusterSecurityGroup =
     lens _ccsgrClusterSecurityGroup
         (\s a -> s { _ccsgrClusterSecurityGroup = a })
+
 instance FromXML CreateClusterSecurityGroupResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateClusterSecurityGroupResult"

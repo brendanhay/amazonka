@@ -45,7 +45,7 @@ import Network.AWS.RDS.Types
 data RemoveTagsFromResourceMessage = RemoveTagsFromResourceMessage
     { _rtfrmResourceName :: Text
     , _rtfrmTagKeys      :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RemoveTagsFromResourceMessage' constructor.
 --
@@ -83,6 +83,7 @@ data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse
 -- | 'RemoveTagsFromResourceResponse' constructor.
 removeTagsFromResourceResponse :: RemoveTagsFromResourceResponse
 removeTagsFromResourceResponse = RemoveTagsFromResourceResponse
+
 instance FromXML RemoveTagsFromResourceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RemoveTagsFromResourceResponse"

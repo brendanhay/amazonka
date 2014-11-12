@@ -47,7 +47,7 @@ import Network.AWS.AutoScaling.Types
 data AttachInstancesQuery = AttachInstancesQuery
     { _aiqAutoScalingGroupName :: Text
     , _aiqInstanceIds          :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AttachInstancesQuery' constructor.
 --
@@ -85,6 +85,7 @@ data AttachInstancesResponse = AttachInstancesResponse
 -- | 'AttachInstancesResponse' constructor.
 attachInstancesResponse :: AttachInstancesResponse
 attachInstancesResponse = AttachInstancesResponse
+
 instance FromXML AttachInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AttachInstancesResponse"

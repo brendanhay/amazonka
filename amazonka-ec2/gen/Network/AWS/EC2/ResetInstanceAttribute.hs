@@ -53,7 +53,7 @@ data ResetInstanceAttribute = ResetInstanceAttribute
     { _ria1Attribute  :: Text
     , _ria1DryRun     :: Maybe Bool
     , _ria1InstanceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ResetInstanceAttribute' constructor.
 --
@@ -95,6 +95,7 @@ data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
 -- | 'ResetInstanceAttributeResponse' constructor.
 resetInstanceAttributeResponse :: ResetInstanceAttributeResponse
 resetInstanceAttributeResponse = ResetInstanceAttributeResponse
+
 instance FromXML ResetInstanceAttributeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ResetInstanceAttributeResponse"

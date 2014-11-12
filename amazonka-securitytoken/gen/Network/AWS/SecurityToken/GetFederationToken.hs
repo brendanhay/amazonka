@@ -99,7 +99,7 @@ data GetFederationToken = GetFederationToken
     { _gftDurationSeconds :: Maybe Natural
     , _gftName            :: Text
     , _gftPolicy          :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetFederationToken' constructor.
 --
@@ -164,7 +164,7 @@ data GetFederationTokenResponse = GetFederationTokenResponse
     { _gftrCredentials      :: Maybe Credentials
     , _gftrFederatedUser    :: Maybe FederatedUser
     , _gftrPackedPolicySize :: Maybe Natural
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetFederationTokenResponse' constructor.
 --
@@ -201,6 +201,7 @@ gftrFederatedUser =
 gftrPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Natural)
 gftrPackedPolicySize =
     lens _gftrPackedPolicySize (\s a -> s { _gftrPackedPolicySize = a })
+
 instance FromXML GetFederationTokenResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetFederationTokenResponse"

@@ -53,7 +53,7 @@ instance ToPath ListDomainNames where
 
 newtype ListDomainNamesResponse = ListDomainNamesResponse
     { _ldnrDomainNames :: Map Text Text
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'ListDomainNamesResponse' constructor.
 --
@@ -70,6 +70,7 @@ listDomainNamesResponse = ListDomainNamesResponse
 ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
 ldnrDomainNames = lens _ldnrDomainNames (\s a -> s { _ldnrDomainNames = a })
     . _Map
+
 instance FromXML ListDomainNamesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListDomainNamesResponse"

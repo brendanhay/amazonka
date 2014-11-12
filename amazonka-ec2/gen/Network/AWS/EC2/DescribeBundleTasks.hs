@@ -48,7 +48,7 @@ data DescribeBundleTasks = DescribeBundleTasks
     { _dbtBundleIds :: [Text]
     , _dbtDryRun    :: Maybe Bool
     , _dbtFilters   :: [Filter]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DescribeBundleTasks' constructor.
 --
@@ -93,7 +93,7 @@ instance ToPath DescribeBundleTasks where
 
 newtype DescribeBundleTasksResult = DescribeBundleTasksResult
     { _dbtrBundleTasks :: [BundleTask]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeBundleTasksResult' constructor.
 --
@@ -109,6 +109,7 @@ describeBundleTasksResult = DescribeBundleTasksResult
 -- | Information about one or more bundle tasks.
 dbtrBundleTasks :: Lens' DescribeBundleTasksResult [BundleTask]
 dbtrBundleTasks = lens _dbtrBundleTasks (\s a -> s { _dbtrBundleTasks = a })
+
 instance FromXML DescribeBundleTasksResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeBundleTasksResult"

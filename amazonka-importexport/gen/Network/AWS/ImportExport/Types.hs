@@ -23,6 +23,8 @@ module Network.AWS.ImportExport.Types
     (
     -- * Service
       ImportExport
+    -- ** Error
+    , RESTError
     -- ** XML
     , xmlOptions
 
@@ -90,7 +92,7 @@ data Job = Job
     , _jobIsCanceled   :: Bool
     , _jobJobId        :: Text
     , _jobJobType      :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'Job' constructor.
 --

@@ -50,7 +50,7 @@ data SetLoadBalancerListenerSSLCertificateInput = SetLoadBalancerListenerSSLCert
     { _slblsslciLoadBalancerName :: Text
     , _slblsslciLoadBalancerPort :: Int
     , _slblsslciSSLCertificateId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SetLoadBalancerListenerSSLCertificateInput' constructor.
 --
@@ -102,6 +102,7 @@ data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLC
 -- | 'SetLoadBalancerListenerSSLCertificateResponse' constructor.
 setLoadBalancerListenerSSLCertificateResponse :: SetLoadBalancerListenerSSLCertificateResponse
 setLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
+
 instance FromXML SetLoadBalancerListenerSSLCertificateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetLoadBalancerListenerSSLCertificateResponse"

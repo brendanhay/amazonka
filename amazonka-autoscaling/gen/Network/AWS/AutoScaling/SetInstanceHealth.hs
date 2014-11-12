@@ -48,7 +48,7 @@ data SetInstanceHealthQuery = SetInstanceHealthQuery
     { _sihqHealthStatus             :: Text
     , _sihqInstanceId               :: Text
     , _sihqShouldRespectGracePeriod :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SetInstanceHealthQuery' constructor.
 --
@@ -101,6 +101,7 @@ data SetInstanceHealthResponse = SetInstanceHealthResponse
 -- | 'SetInstanceHealthResponse' constructor.
 setInstanceHealthResponse :: SetInstanceHealthResponse
 setInstanceHealthResponse = SetInstanceHealthResponse
+
 instance FromXML SetInstanceHealthResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetInstanceHealthResponse"

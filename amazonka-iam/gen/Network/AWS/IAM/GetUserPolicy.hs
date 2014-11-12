@@ -50,7 +50,7 @@ import Network.AWS.IAM.Types
 data GetUserPolicy = GetUserPolicy
     { _gupPolicyName :: Text
     , _gupUserName   :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetUserPolicy' constructor.
 --
@@ -84,7 +84,7 @@ data GetUserPolicyResponse = GetUserPolicyResponse
     { _guprPolicyDocument :: Text
     , _guprPolicyName     :: Text
     , _guprUserName       :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetUserPolicyResponse' constructor.
 --
@@ -118,6 +118,7 @@ guprPolicyName = lens _guprPolicyName (\s a -> s { _guprPolicyName = a })
 -- | The user the policy is associated with.
 guprUserName :: Lens' GetUserPolicyResponse Text
 guprUserName = lens _guprUserName (\s a -> s { _guprUserName = a })
+
 instance FromXML GetUserPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetUserPolicyResponse"

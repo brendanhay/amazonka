@@ -46,7 +46,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data UpdateApplicationMessage = UpdateApplicationMessage
     { _uamApplicationName :: Text
     , _uamDescription     :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateApplicationMessage' constructor.
 --

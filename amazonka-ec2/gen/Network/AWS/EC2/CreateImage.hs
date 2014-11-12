@@ -60,7 +60,7 @@ data CreateImage = CreateImage
     , _ci1InstanceId          :: Text
     , _ci1Name                :: Text
     , _ci1NoReboot            :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateImage' constructor.
 --
@@ -127,7 +127,7 @@ instance ToPath CreateImage where
 
 newtype CreateImageResult = CreateImageResult
     { _cirImageId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateImageResult' constructor.
 --
@@ -143,6 +143,7 @@ createImageResult = CreateImageResult
 -- | The ID of the new AMI.
 cirImageId :: Lens' CreateImageResult (Maybe Text)
 cirImageId = lens _cirImageId (\s a -> s { _cirImageId = a })
+
 instance FromXML CreateImageResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateImageResult"

@@ -56,7 +56,7 @@ data DescribeCacheEngineVersionsMessage = DescribeCacheEngineVersionsMessage
     , _dcevmEngineVersion             :: Maybe Text
     , _dcevmMarker                    :: Maybe Text
     , _dcevmMaxRecords                :: Maybe Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeCacheEngineVersionsMessage' constructor.
 --
@@ -128,7 +128,7 @@ instance ToPath DescribeCacheEngineVersionsMessage where
 data CacheEngineVersionMessage = CacheEngineVersionMessage
     { _cevmCacheEngineVersions :: [CacheEngineVersion]
     , _cevmMarker              :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CacheEngineVersionMessage' constructor.
 --
@@ -153,6 +153,7 @@ cevmCacheEngineVersions =
 -- | Provides an identifier to allow retrieval of paginated results.
 cevmMarker :: Lens' CacheEngineVersionMessage (Maybe Text)
 cevmMarker = lens _cevmMarker (\s a -> s { _cevmMarker = a })
+
 instance FromXML CacheEngineVersionMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CacheEngineVersionMessage"

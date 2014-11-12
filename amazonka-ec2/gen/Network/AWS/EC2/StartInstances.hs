@@ -61,7 +61,7 @@ data StartInstances = StartInstances
     { _siAdditionalInfo :: Maybe Text
     , _siDryRun         :: Maybe Bool
     , _siInstanceIds    :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'StartInstances' constructor.
 --
@@ -97,7 +97,7 @@ instance ToPath StartInstances where
 
 newtype StartInstancesResult = StartInstancesResult
     { _sirStartingInstances :: [InstanceStateChange]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'StartInstancesResult' constructor.
 --
@@ -114,6 +114,7 @@ startInstancesResult = StartInstancesResult
 sirStartingInstances :: Lens' StartInstancesResult [InstanceStateChange]
 sirStartingInstances =
     lens _sirStartingInstances (\s a -> s { _sirStartingInstances = a })
+
 instance FromXML StartInstancesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "StartInstancesResult"

@@ -48,7 +48,7 @@ data AttachInternetGateway = AttachInternetGateway
     { _aigDryRun            :: Maybe Bool
     , _aigInternetGatewayId :: Text
     , _aigVpcId             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'AttachInternetGateway' constructor.
 --
@@ -91,6 +91,7 @@ data AttachInternetGatewayResponse = AttachInternetGatewayResponse
 -- | 'AttachInternetGatewayResponse' constructor.
 attachInternetGatewayResponse :: AttachInternetGatewayResponse
 attachInternetGatewayResponse = AttachInternetGatewayResponse
+
 instance FromXML AttachInternetGatewayResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AttachInternetGatewayResponse"

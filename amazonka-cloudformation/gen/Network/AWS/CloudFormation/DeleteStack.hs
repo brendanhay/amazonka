@@ -44,7 +44,7 @@ import Network.AWS.CloudFormation.Types
 
 newtype DeleteStackInput = DeleteStackInput
     { _dsi1StackName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteStackInput' constructor.
 --
@@ -72,6 +72,7 @@ data DeleteStackResponse = DeleteStackResponse
 -- | 'DeleteStackResponse' constructor.
 deleteStackResponse :: DeleteStackResponse
 deleteStackResponse = DeleteStackResponse
+
 instance FromXML DeleteStackResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteStackResponse"

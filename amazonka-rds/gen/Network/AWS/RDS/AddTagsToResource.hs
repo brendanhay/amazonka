@@ -48,7 +48,7 @@ import Network.AWS.RDS.Types
 data AddTagsToResourceMessage = AddTagsToResourceMessage
     { _attrmResourceName :: Text
     , _attrmTags         :: [Tag]
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'AddTagsToResourceMessage' constructor.
 --
@@ -86,6 +86,7 @@ data AddTagsToResourceResponse = AddTagsToResourceResponse
 -- | 'AddTagsToResourceResponse' constructor.
 addTagsToResourceResponse :: AddTagsToResourceResponse
 addTagsToResourceResponse = AddTagsToResourceResponse
+
 instance FromXML AddTagsToResourceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AddTagsToResourceResponse"

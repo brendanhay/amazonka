@@ -52,7 +52,7 @@ data ResetCacheParameterGroupMessage = ResetCacheParameterGroupMessage
     { _rcpgmCacheParameterGroupName :: Text
     , _rcpgmParameterNameValues     :: [ParameterNameValue]
     , _rcpgmResetAllParameters      :: Maybe Bool
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ResetCacheParameterGroupMessage' constructor.
 --

@@ -50,7 +50,7 @@ import Network.AWS.ELB.Types
 data ApplySecurityGroupsToLoadBalancerInput = ApplySecurityGroupsToLoadBalancerInput
     { _asgtlbiLoadBalancerName :: Text
     , _asgtlbiSecurityGroups   :: [Text]
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ApplySecurityGroupsToLoadBalancerInput' constructor.
 --
@@ -86,7 +86,16 @@ instance ToPath ApplySecurityGroupsToLoadBalancerInput where
 
 newtype ApplySecurityGroupsToLoadBalancerOutput = ApplySecurityGroupsToLoadBalancerOutput
     { _asgtlboSecurityGroups :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'ApplySecurityGroupsToLoadBalancerOutput' constructor.
 --
@@ -103,6 +112,7 @@ applySecurityGroupsToLoadBalancerOutput = ApplySecurityGroupsToLoadBalancerOutpu
 asgtlboSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerOutput [Text]
 asgtlboSecurityGroups =
     lens _asgtlboSecurityGroups (\s a -> s { _asgtlboSecurityGroups = a })
+
 instance FromXML ApplySecurityGroupsToLoadBalancerOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ApplySecurityGroupsToLoadBalancerOutput"

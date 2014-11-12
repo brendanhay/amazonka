@@ -65,7 +65,7 @@ data CreateRoute = CreateRoute
     , _crNetworkInterfaceId     :: Maybe Text
     , _crRouteTableId           :: Text
     , _crVpcPeeringConnectionId :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateRoute' constructor.
 --
@@ -142,6 +142,7 @@ data CreateRouteResponse = CreateRouteResponse
 -- | 'CreateRouteResponse' constructor.
 createRouteResponse :: CreateRouteResponse
 createRouteResponse = CreateRouteResponse
+
 instance FromXML CreateRouteResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateRouteResponse"

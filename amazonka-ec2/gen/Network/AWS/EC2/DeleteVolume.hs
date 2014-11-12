@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 data DeleteVolume = DeleteVolume
     { _dv3DryRun   :: Maybe Bool
     , _dv3VolumeId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVolume' constructor.
 --
@@ -81,6 +81,7 @@ data DeleteVolumeResponse = DeleteVolumeResponse
 -- | 'DeleteVolumeResponse' constructor.
 deleteVolumeResponse :: DeleteVolumeResponse
 deleteVolumeResponse = DeleteVolumeResponse
+
 instance FromXML DeleteVolumeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteVolumeResponse"

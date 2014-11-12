@@ -57,7 +57,7 @@ data DescribeScalingActivitiesType = DescribeScalingActivitiesType
     , _dsatAutoScalingGroupName :: Maybe Text
     , _dsatMaxRecords           :: Maybe Int
     , _dsatNextToken            :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DescribeScalingActivitiesType' constructor.
 --
@@ -109,7 +109,7 @@ instance ToPath DescribeScalingActivitiesType where
 data ActivitiesType = ActivitiesType
     { _atActivities :: [Activity]
     , _atNextToken  :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ActivitiesType' constructor.
 --
@@ -134,6 +134,7 @@ atActivities = lens _atActivities (\s a -> s { _atActivities = a })
 -- in to subsequent calls to return additional results.
 atNextToken :: Lens' ActivitiesType (Maybe Text)
 atNextToken = lens _atNextToken (\s a -> s { _atNextToken = a })
+
 instance FromXML ActivitiesType where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ActivitiesType"

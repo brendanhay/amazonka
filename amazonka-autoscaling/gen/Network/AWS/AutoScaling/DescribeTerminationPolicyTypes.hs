@@ -53,7 +53,16 @@ instance ToPath DescribeTerminationPolicyTypes where
 
 newtype DescribeTerminationPolicyTypesAnswer = DescribeTerminationPolicyTypesAnswer
     { _dtptaTerminationPolicyTypes :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'DescribeTerminationPolicyTypesAnswer' constructor.
 --
@@ -73,6 +82,7 @@ dtptaTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesAnswer [Text]
 dtptaTerminationPolicyTypes =
     lens _dtptaTerminationPolicyTypes
         (\s a -> s { _dtptaTerminationPolicyTypes = a })
+
 instance FromXML DescribeTerminationPolicyTypesAnswer where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeTerminationPolicyTypesAnswer"

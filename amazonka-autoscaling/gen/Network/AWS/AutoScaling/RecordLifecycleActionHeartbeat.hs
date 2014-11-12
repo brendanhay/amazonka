@@ -57,7 +57,7 @@ data RecordLifecycleActionHeartbeatType = RecordLifecycleActionHeartbeatType
     { _rlahtAutoScalingGroupName :: Text
     , _rlahtLifecycleActionToken :: Text
     , _rlahtLifecycleHookName    :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RecordLifecycleActionHeartbeatType' constructor.
 --
@@ -108,6 +108,7 @@ data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResp
 -- | 'RecordLifecycleActionHeartbeatResponse' constructor.
 recordLifecycleActionHeartbeatResponse :: RecordLifecycleActionHeartbeatResponse
 recordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
+
 instance FromXML RecordLifecycleActionHeartbeatResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RecordLifecycleActionHeartbeatResponse"

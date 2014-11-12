@@ -43,7 +43,7 @@ import Network.AWS.SES.Types
 
 newtype DeleteIdentity = DeleteIdentity
     { _diIdentity :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'DeleteIdentity' constructor.
 --
@@ -72,6 +72,7 @@ data DeleteIdentityResponse = DeleteIdentityResponse
 -- | 'DeleteIdentityResponse' constructor.
 deleteIdentityResponse :: DeleteIdentityResponse
 deleteIdentityResponse = DeleteIdentityResponse
+
 instance FromXML DeleteIdentityResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteIdentityResponse"

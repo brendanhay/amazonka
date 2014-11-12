@@ -49,7 +49,7 @@ data DeleteNetworkAclEntry = DeleteNetworkAclEntry
     , _dnaeEgress       :: Bool
     , _dnaeNetworkAclId :: Text
     , _dnaeRuleNumber   :: Int
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteNetworkAclEntry' constructor.
 --
@@ -99,6 +99,7 @@ data DeleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
 -- | 'DeleteNetworkAclEntryResponse' constructor.
 deleteNetworkAclEntryResponse :: DeleteNetworkAclEntryResponse
 deleteNetworkAclEntryResponse = DeleteNetworkAclEntryResponse
+
 instance FromXML DeleteNetworkAclEntryResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteNetworkAclEntryResponse"

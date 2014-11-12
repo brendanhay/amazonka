@@ -46,7 +46,7 @@ import Network.AWS.IAM.Types
 
 newtype GetLoginProfile = GetLoginProfile
     { _glpUserName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetLoginProfile' constructor.
 --
@@ -70,7 +70,7 @@ instance ToPath GetLoginProfile where
 
 newtype GetLoginProfileResponse = GetLoginProfileResponse
     { _glprLoginProfile :: LoginProfile
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetLoginProfileResponse' constructor.
 --
@@ -87,6 +87,7 @@ getLoginProfileResponse p1 = GetLoginProfileResponse
 -- | The user name and password create date for the user.
 glprLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
 glprLoginProfile = lens _glprLoginProfile (\s a -> s { _glprLoginProfile = a })
+
 instance FromXML GetLoginProfileResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetLoginProfileResponse"

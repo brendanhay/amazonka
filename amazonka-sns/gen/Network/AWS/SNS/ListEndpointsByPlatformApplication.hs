@@ -55,7 +55,7 @@ import Network.AWS.SNS.Types
 data ListEndpointsByPlatformApplicationInput = ListEndpointsByPlatformApplicationInput
     { _lebpaiNextToken              :: Maybe Text
     , _lebpaiPlatformApplicationArn :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'ListEndpointsByPlatformApplicationInput' constructor.
 --
@@ -92,7 +92,7 @@ instance ToPath ListEndpointsByPlatformApplicationInput where
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
     { _lebparEndpoints :: [Endpoint]
     , _lebparNextToken :: Maybe Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'ListEndpointsByPlatformApplicationResponse' constructor.
 --
@@ -117,6 +117,7 @@ lebparEndpoints = lens _lebparEndpoints (\s a -> s { _lebparEndpoints = a })
 -- available after the first page results.
 lebparNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
 lebparNextToken = lens _lebparNextToken (\s a -> s { _lebparNextToken = a })
+
 instance FromXML ListEndpointsByPlatformApplicationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListEndpointsByPlatformApplicationResponse"

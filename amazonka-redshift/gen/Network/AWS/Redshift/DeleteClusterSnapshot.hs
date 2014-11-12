@@ -52,7 +52,7 @@ import Network.AWS.Redshift.Types
 data DeleteClusterSnapshotMessage = DeleteClusterSnapshotMessage
     { _dcsmSnapshotClusterIdentifier :: Maybe Text
     , _dcsmSnapshotIdentifier        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteClusterSnapshotMessage' constructor.
 --
@@ -90,7 +90,7 @@ instance ToPath DeleteClusterSnapshotMessage where
 
 newtype DeleteClusterSnapshotResult = DeleteClusterSnapshotResult
     { _dcsrSnapshot :: Maybe Snapshot
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'DeleteClusterSnapshotResult' constructor.
 --
@@ -105,6 +105,7 @@ deleteClusterSnapshotResult = DeleteClusterSnapshotResult
 
 dcsrSnapshot :: Lens' DeleteClusterSnapshotResult (Maybe Snapshot)
 dcsrSnapshot = lens _dcsrSnapshot (\s a -> s { _dcsrSnapshot = a })
+
 instance FromXML DeleteClusterSnapshotResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteClusterSnapshotResult"

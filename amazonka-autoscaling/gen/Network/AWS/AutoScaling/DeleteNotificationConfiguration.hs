@@ -44,7 +44,7 @@ import Network.AWS.AutoScaling.Types
 data DeleteNotificationConfigurationType = DeleteNotificationConfigurationType
     { _dnctAutoScalingGroupName :: Text
     , _dnctTopicARN             :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteNotificationConfigurationType' constructor.
 --
@@ -83,6 +83,7 @@ data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationRe
 -- | 'DeleteNotificationConfigurationResponse' constructor.
 deleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse
 deleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
+
 instance FromXML DeleteNotificationConfigurationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteNotificationConfigurationResponse"

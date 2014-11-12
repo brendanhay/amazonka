@@ -48,7 +48,7 @@ import Network.AWS.ELB.Types
 data CreateLoadBalancerListenerInput = CreateLoadBalancerListenerInput
     { _clbliListeners        :: [Listener]
     , _clbliLoadBalancerName :: Text
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateLoadBalancerListenerInput' constructor.
 --
@@ -85,6 +85,7 @@ data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
 -- | 'CreateLoadBalancerListenersResponse' constructor.
 createLoadBalancerListenersResponse :: CreateLoadBalancerListenersResponse
 createLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
+
 instance FromXML CreateLoadBalancerListenersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateLoadBalancerListenersResponse"

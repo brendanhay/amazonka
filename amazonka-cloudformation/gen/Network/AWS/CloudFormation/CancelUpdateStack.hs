@@ -44,7 +44,7 @@ import Network.AWS.CloudFormation.Types
 
 newtype CancelUpdateStackInput = CancelUpdateStackInput
     { _cusiStackName :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CancelUpdateStackInput' constructor.
 --
@@ -72,6 +72,7 @@ data CancelUpdateStackResponse = CancelUpdateStackResponse
 -- | 'CancelUpdateStackResponse' constructor.
 cancelUpdateStackResponse :: CancelUpdateStackResponse
 cancelUpdateStackResponse = CancelUpdateStackResponse
+
 instance FromXML CancelUpdateStackResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CancelUpdateStackResponse"

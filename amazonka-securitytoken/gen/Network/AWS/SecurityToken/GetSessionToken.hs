@@ -70,7 +70,7 @@ data GetSessionToken = GetSessionToken
     { _gstDurationSeconds :: Maybe Natural
     , _gstSerialNumber    :: Maybe Text
     , _gstTokenCode       :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetSessionToken' constructor.
 --
@@ -125,7 +125,7 @@ instance ToPath GetSessionToken where
 
 newtype GetSessionTokenResponse = GetSessionTokenResponse
     { _gstrCredentials :: Maybe Credentials
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'GetSessionTokenResponse' constructor.
 --
@@ -141,6 +141,7 @@ getSessionTokenResponse = GetSessionTokenResponse
 -- | The session credentials for API authentication.
 gstrCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
 gstrCredentials = lens _gstrCredentials (\s a -> s { _gstrCredentials = a })
+
 instance FromXML GetSessionTokenResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetSessionTokenResponse"

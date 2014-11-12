@@ -57,7 +57,7 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider
     { _coidcpClientIDList   :: [Text]
     , _coidcpThumbprintList :: [Text]
     , _coidcpUrl            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateOpenIDConnectProvider' constructor.
 --
@@ -124,7 +124,7 @@ instance ToPath CreateOpenIDConnectProvider where
 
 newtype CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse
     { _coidcprOpenIDConnectProviderArn :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateOpenIDConnectProviderResponse' constructor.
 --
@@ -143,6 +143,7 @@ coidcprOpenIDConnectProviderArn :: Lens' CreateOpenIDConnectProviderResponse (Ma
 coidcprOpenIDConnectProviderArn =
     lens _coidcprOpenIDConnectProviderArn
         (\s a -> s { _coidcprOpenIDConnectProviderArn = a })
+
 instance FromXML CreateOpenIDConnectProviderResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateOpenIDConnectProviderResponse"

@@ -57,7 +57,7 @@ import Network.AWS.EC2.Types
 data GetPasswordData = GetPasswordData
     { _gpdDryRun     :: Maybe Bool
     , _gpdInstanceId :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetPasswordData' constructor.
 --
@@ -89,7 +89,7 @@ data GetPasswordDataResult = GetPasswordDataResult
     { _gpdrInstanceId   :: Maybe Text
     , _gpdrPasswordData :: Maybe Text
     , _gpdrTimestamp    :: Maybe RFC822
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'GetPasswordDataResult' constructor.
 --
@@ -120,6 +120,7 @@ gpdrPasswordData = lens _gpdrPasswordData (\s a -> s { _gpdrPasswordData = a })
 gpdrTimestamp :: Lens' GetPasswordDataResult (Maybe UTCTime)
 gpdrTimestamp = lens _gpdrTimestamp (\s a -> s { _gpdrTimestamp = a })
     . mapping _Time
+
 instance FromXML GetPasswordDataResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetPasswordDataResult"

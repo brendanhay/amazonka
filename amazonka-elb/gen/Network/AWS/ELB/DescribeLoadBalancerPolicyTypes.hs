@@ -47,7 +47,16 @@ import Network.AWS.ELB.Types
 
 newtype DescribeLoadBalancerPolicyTypesInput = DescribeLoadBalancerPolicyTypesInput
     { _dlbptiPolicyTypeNames :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'DescribeLoadBalancerPolicyTypesInput' constructor.
 --
@@ -73,7 +82,7 @@ instance ToPath DescribeLoadBalancerPolicyTypesInput where
 
 newtype DescribeLoadBalancerPolicyTypesOutput = DescribeLoadBalancerPolicyTypesOutput
     { _dlbptoPolicyTypeDescriptions :: [PolicyTypeDescription]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'DescribeLoadBalancerPolicyTypesOutput' constructor.
 --
@@ -93,6 +102,7 @@ dlbptoPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesOutput [Pol
 dlbptoPolicyTypeDescriptions =
     lens _dlbptoPolicyTypeDescriptions
         (\s a -> s { _dlbptoPolicyTypeDescriptions = a })
+
 instance FromXML DescribeLoadBalancerPolicyTypesOutput where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DescribeLoadBalancerPolicyTypesOutput"

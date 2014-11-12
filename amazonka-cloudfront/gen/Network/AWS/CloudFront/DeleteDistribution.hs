@@ -44,7 +44,7 @@ import Network.AWS.CloudFront.Types
 data DeleteDistribution = DeleteDistribution
     { _ddId      :: Text
     , _ddIfMatch :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteDistribution' constructor.
 --

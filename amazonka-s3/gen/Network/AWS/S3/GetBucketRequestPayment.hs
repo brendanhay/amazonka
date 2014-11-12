@@ -44,7 +44,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketRequestPayment = GetBucketRequestPayment
     { _gbrpBucket :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketRequestPayment' constructor.
 --
@@ -74,7 +74,7 @@ instance ToHeaders GetBucketRequestPayment
 
 newtype GetBucketRequestPaymentOutput = GetBucketRequestPaymentOutput
     { _gbrpoPayer :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketRequestPaymentOutput' constructor.
 --

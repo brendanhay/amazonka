@@ -67,7 +67,7 @@ data CreateSubnet = CreateSubnet
     , _cs1CidrBlock        :: Text
     , _cs1DryRun           :: Maybe Bool
     , _cs1VpcId            :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreateSubnet' constructor.
 --
@@ -115,7 +115,7 @@ instance ToPath CreateSubnet where
 
 newtype CreateSubnetResult = CreateSubnetResult
     { _csrSubnet :: Maybe Subnet
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'CreateSubnetResult' constructor.
 --
@@ -131,6 +131,7 @@ createSubnetResult = CreateSubnetResult
 -- | Information about the subnet.
 csrSubnet :: Lens' CreateSubnetResult (Maybe Subnet)
 csrSubnet = lens _csrSubnet (\s a -> s { _csrSubnet = a })
+
 instance FromXML CreateSubnetResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateSubnetResult"

@@ -44,7 +44,7 @@ import Network.AWS.AutoScaling.Types
 
 newtype CreateOrUpdateTagsType = CreateOrUpdateTagsType
     { _couttTags :: [Tag]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'CreateOrUpdateTagsType' constructor.
 --
@@ -84,6 +84,7 @@ data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
 -- | 'CreateOrUpdateTagsResponse' constructor.
 createOrUpdateTagsResponse :: CreateOrUpdateTagsResponse
 createOrUpdateTagsResponse = CreateOrUpdateTagsResponse
+
 instance FromXML CreateOrUpdateTagsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateOrUpdateTagsResponse"

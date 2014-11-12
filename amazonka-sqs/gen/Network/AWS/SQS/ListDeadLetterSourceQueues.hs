@@ -46,7 +46,7 @@ import Network.AWS.SQS.Types
 
 newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
     { _ldlsqQueueUrl :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ListDeadLetterSourceQueues' constructor.
 --
@@ -70,7 +70,16 @@ instance ToPath ListDeadLetterSourceQueues where
 
 newtype ListDeadLetterSourceQueuesResult = ListDeadLetterSourceQueuesResult
     { _ldlsqrQueueUrls :: [Text]
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } deriving
+        ( Eq
+        , Ord
+        , Show
+        , Generic
+        , Foldable
+        , Traversable
+        , Monoid
+        , Semigroup
+        )
 
 -- | 'ListDeadLetterSourceQueuesResult' constructor.
 --
@@ -87,6 +96,7 @@ listDeadLetterSourceQueuesResult = ListDeadLetterSourceQueuesResult
 -- configured with a dead letter queue.
 ldlsqrQueueUrls :: Lens' ListDeadLetterSourceQueuesResult [Text]
 ldlsqrQueueUrls = lens _ldlsqrQueueUrls (\s a -> s { _ldlsqrQueueUrls = a })
+
 instance FromXML ListDeadLetterSourceQueuesResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListDeadLetterSourceQueuesResult"

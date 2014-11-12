@@ -48,7 +48,7 @@ data UpdateGroup = UpdateGroup
     { _ugGroupName    :: Text
     , _ugNewGroupName :: Maybe Text
     , _ugNewPath      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'UpdateGroup' constructor.
 --
@@ -91,6 +91,7 @@ data UpdateGroupResponse = UpdateGroupResponse
 -- | 'UpdateGroupResponse' constructor.
 updateGroupResponse :: UpdateGroupResponse
 updateGroupResponse = UpdateGroupResponse
+
 instance FromXML UpdateGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateGroupResponse"

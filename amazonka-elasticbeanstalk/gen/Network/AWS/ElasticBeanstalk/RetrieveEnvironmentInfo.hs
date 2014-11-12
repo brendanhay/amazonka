@@ -49,7 +49,7 @@ data RetrieveEnvironmentInfoMessage = RetrieveEnvironmentInfoMessage
     { _reimEnvironmentId   :: Maybe Text
     , _reimEnvironmentName :: Maybe Text
     , _reimInfoType        :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'RetrieveEnvironmentInfoMessage' constructor.
 --
@@ -95,7 +95,7 @@ instance ToPath RetrieveEnvironmentInfoMessage where
 
 newtype RetrieveEnvironmentInfoResultMessage = RetrieveEnvironmentInfoResultMessage
     { _reirmEnvironmentInfo :: [EnvironmentInfoDescription]
-    } deriving (Eq, Show, Generic, Monoid)
+    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
 
 -- | 'RetrieveEnvironmentInfoResultMessage' constructor.
 --
@@ -112,6 +112,7 @@ retrieveEnvironmentInfoResultMessage = RetrieveEnvironmentInfoResultMessage
 reirmEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResultMessage [EnvironmentInfoDescription]
 reirmEnvironmentInfo =
     lens _reirmEnvironmentInfo (\s a -> s { _reirmEnvironmentInfo = a })
+
 instance FromXML RetrieveEnvironmentInfoResultMessage where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RetrieveEnvironmentInfoResultMessage"

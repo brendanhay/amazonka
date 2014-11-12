@@ -48,7 +48,7 @@ data SwapEnvironmentCNAMEsMessage = SwapEnvironmentCNAMEsMessage
     , _secnamemDestinationEnvironmentName :: Maybe Text
     , _secnamemSourceEnvironmentId        :: Maybe Text
     , _secnamemSourceEnvironmentName      :: Maybe Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'SwapEnvironmentCNAMEsMessage' constructor.
 --
@@ -116,6 +116,7 @@ data SwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
 -- | 'SwapEnvironmentCNAMEsResponse' constructor.
 swapEnvironmentCNAMEsResponse :: SwapEnvironmentCNAMEsResponse
 swapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
+
 instance FromXML SwapEnvironmentCNAMEsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SwapEnvironmentCNAMEsResponse"

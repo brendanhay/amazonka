@@ -45,7 +45,7 @@ import Network.AWS.AutoScaling.Types
 data DeleteAutoScalingGroupType = DeleteAutoScalingGroupType
     { _dasgtAutoScalingGroupName :: Text
     , _dasgtForceDelete          :: Maybe Bool
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'DeleteAutoScalingGroupType' constructor.
 --
@@ -85,6 +85,7 @@ data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
 -- | 'DeleteAutoScalingGroupResponse' constructor.
 deleteAutoScalingGroupResponse :: DeleteAutoScalingGroupResponse
 deleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
+
 instance FromXML DeleteAutoScalingGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteAutoScalingGroupResponse"

@@ -44,7 +44,7 @@ import Network.AWS.Redshift.Types
 
 newtype RotateEncryptionKeyMessage = RotateEncryptionKeyMessage
     { _rekmClusterIdentifier :: Text
-    } deriving (Eq, Ord, Show, Generic, Monoid)
+    } (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'RotateEncryptionKeyMessage' constructor.
 --
@@ -71,7 +71,7 @@ instance ToPath RotateEncryptionKeyMessage where
 
 newtype RotateEncryptionKeyResult = RotateEncryptionKeyResult
     { _rekrCluster :: Maybe Cluster
-    } deriving (Eq, Show, Generic)
+    } (Eq, Show, Generic)
 
 -- | 'RotateEncryptionKeyResult' constructor.
 --
@@ -86,6 +86,7 @@ rotateEncryptionKeyResult = RotateEncryptionKeyResult
 
 rekrCluster :: Lens' RotateEncryptionKeyResult (Maybe Cluster)
 rekrCluster = lens _rekrCluster (\s a -> s { _rekrCluster = a })
+
 instance FromXML RotateEncryptionKeyResult where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RotateEncryptionKeyResult"

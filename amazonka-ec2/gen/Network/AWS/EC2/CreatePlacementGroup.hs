@@ -49,7 +49,7 @@ data CreatePlacementGroup = CreatePlacementGroup
     { _cpgDryRun    :: Maybe Bool
     , _cpgGroupName :: Text
     , _cpgStrategy  :: Text
-    } deriving (Eq, Ord, Show, Generic)
+    } (Eq, Ord, Show, Generic)
 
 -- | 'CreatePlacementGroup' constructor.
 --
@@ -91,6 +91,7 @@ data CreatePlacementGroupResponse = CreatePlacementGroupResponse
 -- | 'CreatePlacementGroupResponse' constructor.
 createPlacementGroupResponse :: CreatePlacementGroupResponse
 createPlacementGroupResponse = CreatePlacementGroupResponse
+
 instance FromXML CreatePlacementGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreatePlacementGroupResponse"

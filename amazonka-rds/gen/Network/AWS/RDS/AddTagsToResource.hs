@@ -30,7 +30,7 @@ module Network.AWS.RDS.AddTagsToResource
     -- * Request
       AddTagsToResourceMessage
     -- ** Request constructor
-    , addTagsToResourceMessage
+    , addTagsToResource
     -- ** Request lenses
     , attrmResourceName
     , attrmTags
@@ -58,9 +58,9 @@ data AddTagsToResourceMessage = AddTagsToResourceMessage
 --
 -- * 'attrmTags' @::@ ['Tag']
 --
-addTagsToResourceMessage :: Text -- ^ 'attrmResourceName'
-                         -> AddTagsToResourceMessage
-addTagsToResourceMessage p1 = AddTagsToResourceMessage
+addTagsToResource :: Text -- ^ 'attrmResourceName'
+                  -> AddTagsToResourceMessage
+addTagsToResource p1 = AddTagsToResourceMessage
     { _attrmResourceName = p1
     , _attrmTags         = mempty
     }

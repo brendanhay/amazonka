@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     -- * Request
       DescribeStackEventsInput
     -- ** Request constructor
-    , describeStackEventsInput
+    , describeStackEvents
     -- ** Request lenses
     , dseiNextToken
     , dseiStackName
@@ -36,7 +36,7 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     -- * Response
     , DescribeStackEventsOutput
     -- ** Response constructor
-    , describeStackEventsOutput
+    , describeStackEventsResponse
     -- ** Response lenses
     , dseoNextToken
     , dseoStackEvents
@@ -59,8 +59,8 @@ data DescribeStackEventsInput = DescribeStackEventsInput
 --
 -- * 'dseiStackName' @::@ 'Maybe' 'Text'
 --
-describeStackEventsInput :: DescribeStackEventsInput
-describeStackEventsInput = DescribeStackEventsInput
+describeStackEvents :: DescribeStackEventsInput
+describeStackEvents = DescribeStackEventsInput
     { _dseiStackName = Nothing
     , _dseiNextToken = Nothing
     }
@@ -95,8 +95,8 @@ data DescribeStackEventsOutput = DescribeStackEventsOutput
 --
 -- * 'dseoStackEvents' @::@ ['StackEvent']
 --
-describeStackEventsOutput :: DescribeStackEventsOutput
-describeStackEventsOutput = DescribeStackEventsOutput
+describeStackEventsResponse :: DescribeStackEventsOutput
+describeStackEventsResponse = DescribeStackEventsOutput
     { _dseoStackEvents = mempty
     , _dseoNextToken   = Nothing
     }

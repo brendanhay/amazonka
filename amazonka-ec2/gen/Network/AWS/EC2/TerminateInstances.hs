@@ -48,7 +48,7 @@ module Network.AWS.EC2.TerminateInstances
     -- * Response
     , TerminateInstancesResult
     -- ** Response constructor
-    , terminateInstancesResult
+    , terminateInstancesResponse
     -- ** Response lenses
     , tirTerminatingInstances
     ) where
@@ -104,8 +104,8 @@ instance IsList TerminateInstancesResult where
 --
 -- * 'tirTerminatingInstances' @::@ ['InstanceStateChange']
 --
-terminateInstancesResult :: TerminateInstancesResult
-terminateInstancesResult = TerminateInstancesResult
+terminateInstancesResponse :: TerminateInstancesResult
+terminateInstancesResponse = TerminateInstancesResult
     { _tirTerminatingInstances = mempty
     }
 

@@ -47,7 +47,7 @@ module Network.AWS.EC2.RequestSpotInstances
     -- * Response
     , RequestSpotInstancesResult
     -- ** Response constructor
-    , requestSpotInstancesResult
+    , requestSpotInstancesResponse
     -- ** Response lenses
     , rsirSpotInstanceRequests
     ) where
@@ -192,8 +192,8 @@ instance IsList RequestSpotInstancesResult where
 --
 -- * 'rsirSpotInstanceRequests' @::@ ['SpotInstanceRequest']
 --
-requestSpotInstancesResult :: RequestSpotInstancesResult
-requestSpotInstancesResult = RequestSpotInstancesResult
+requestSpotInstancesResponse :: RequestSpotInstancesResult
+requestSpotInstancesResponse = RequestSpotInstancesResult
     { _rsirSpotInstanceRequests = mempty
     }
 

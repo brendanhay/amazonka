@@ -63,7 +63,7 @@ module Network.AWS.EC2.DescribeSnapshots
     -- * Response
     , DescribeSnapshotsResult
     -- ** Response constructor
-    , describeSnapshotsResult
+    , describeSnapshotsResponse
     -- ** Response lenses
     , dsrSnapshots
     ) where
@@ -162,8 +162,8 @@ instance IsList DescribeSnapshotsResult where
 --
 -- * 'dsrSnapshots' @::@ ['Snapshot']
 --
-describeSnapshotsResult :: DescribeSnapshotsResult
-describeSnapshotsResult = DescribeSnapshotsResult
+describeSnapshotsResponse :: DescribeSnapshotsResult
+describeSnapshotsResponse = DescribeSnapshotsResult
     { _dsrSnapshots = mempty
     }
 

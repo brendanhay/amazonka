@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     -- * Request
       TerminateInstanceInAutoScalingGroupType
     -- ** Request constructor
-    , terminateInstanceInAutoScalingGroupType
+    , terminateInstanceInAutoScalingGroup
     -- ** Request lenses
     , tiiasgtInstanceId
     , tiiasgtShouldDecrementDesiredCapacity
@@ -35,7 +35,7 @@ module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     -- * Response
     , ActivityType
     -- ** Response constructor
-    , activityType
+    , terminateInstanceInAutoScalingGroupResponse
     -- ** Response lenses
     , atActivity
     ) where
@@ -57,10 +57,10 @@ data TerminateInstanceInAutoScalingGroupType = TerminateInstanceInAutoScalingGro
 --
 -- * 'tiiasgtShouldDecrementDesiredCapacity' @::@ 'Bool'
 --
-terminateInstanceInAutoScalingGroupType :: Text -- ^ 'tiiasgtInstanceId'
-                                        -> Bool -- ^ 'tiiasgtShouldDecrementDesiredCapacity'
-                                        -> TerminateInstanceInAutoScalingGroupType
-terminateInstanceInAutoScalingGroupType p1 p2 = TerminateInstanceInAutoScalingGroupType
+terminateInstanceInAutoScalingGroup :: Text -- ^ 'tiiasgtInstanceId'
+                                    -> Bool -- ^ 'tiiasgtShouldDecrementDesiredCapacity'
+                                    -> TerminateInstanceInAutoScalingGroupType
+terminateInstanceInAutoScalingGroup p1 p2 = TerminateInstanceInAutoScalingGroupType
     { _tiiasgtInstanceId                     = p1
     , _tiiasgtShouldDecrementDesiredCapacity = p2
     }
@@ -92,8 +92,8 @@ newtype ActivityType = ActivityType
 --
 -- * 'atActivity' @::@ 'Maybe' 'Activity'
 --
-activityType :: ActivityType
-activityType = ActivityType
+terminateInstanceInAutoScalingGroupResponse :: ActivityType
+terminateInstanceInAutoScalingGroupResponse = ActivityType
     { _atActivity = Nothing
     }
 

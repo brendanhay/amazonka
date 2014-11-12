@@ -21970,7 +21970,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "acceptVpcPeeringConnectionResult",
+                "ctor": "acceptVpcPeeringConnectionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -22143,7 +22143,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "allocateAddressResult",
+                "ctor": "allocateAddressResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -22555,7 +22555,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "associateAddressResult",
+                "ctor": "associateAddressResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -23057,7 +23057,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "associateRouteTableResult",
+                "ctor": "associateRouteTableResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -23428,7 +23428,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "attachNetworkInterfaceResult",
+                "ctor": "attachNetworkInterfaceResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -24034,7 +24034,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "attachVpnGatewayResult",
+                "ctor": "attachVpnGatewayResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -24991,7 +24991,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "bundleInstanceResult",
+                "ctor": "bundleInstanceResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -25197,7 +25197,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "cancelBundleTaskResult",
+                "ctor": "cancelBundleTaskResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -25399,7 +25399,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "cancelConversion",
+                "ctor": "cancelConversionTask",
                 "headerPad": 0,
                 "path": [
                     {
@@ -25647,7 +25647,7 @@
                 "streaming": false,
                 "listElement": "ReservedInstancesListing",
                 "fieldPad": 0,
-                "ctor": "cancelReservedInstancesListingResult",
+                "ctor": "cancelReservedInstancesListingResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -25806,7 +25806,7 @@
                 "streaming": false,
                 "listElement": "CancelledSpotInstanceRequest",
                 "fieldPad": 0,
-                "ctor": "cancelSpotInstanceRequestsResult",
+                "ctor": "cancelSpotInstanceRequestsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -25981,7 +25981,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "confirmProductInstanceResult",
+                "ctor": "confirmProductInstanceResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -26190,7 +26190,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "copyImageResult",
+                "ctor": "copyImageResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -26498,7 +26498,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "copySnapshotResult",
+                "ctor": "copySnapshotResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -26804,7 +26804,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createCustomerGatewayResult",
+                "ctor": "createCustomerGatewayResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -27044,7 +27044,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createDhcpOptionsResult",
+                "ctor": "createDhcpOptionsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -27218,7 +27218,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createImageResult",
+                "ctor": "createImageResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -27523,7 +27523,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createInstanceExportTaskResult",
+                "ctor": "createInstanceExportTaskResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -27762,7 +27762,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createInternetGatewayResult",
+                "ctor": "createInternetGatewayResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -27917,7 +27917,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "keyPair",
+                "ctor": "createKeyPairResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -28133,7 +28133,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createNetworkAclResult",
+                "ctor": "createNetworkAclResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -28666,7 +28666,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createNetworkInterfaceResult",
+                "ctor": "createNetworkInterfaceResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -29168,7 +29168,7 @@
                 "streaming": false,
                 "listElement": "ReservedInstancesListing",
                 "fieldPad": 0,
-                "ctor": "createReservedInstancesListingResult",
+                "ctor": "createReservedInstancesListingResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -29701,7 +29701,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createRouteTableResult",
+                "ctor": "createRouteTableResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -29877,7 +29877,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createSecurityGroupResult",
+                "ctor": "createSecurityGroupResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -30589,7 +30589,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createSpotDatafeedSubscriptionResult",
+                "ctor": "createSpotDatafeedSubscriptionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -30796,7 +30796,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createSubnetResult",
+                "ctor": "createSubnetResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -31800,7 +31800,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createVpcResult",
+                "ctor": "createVpcResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -32007,7 +32007,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createVpcPeeringConnectionResult",
+                "ctor": "createVpcPeeringConnectionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -32246,7 +32246,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createVpnConnectionResult",
+                "ctor": "createVpnConnectionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -32646,7 +32646,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createVpnGatewayResult",
+                "ctor": "createVpnGatewayResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -35190,7 +35190,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "deleteVpcPeeringConnectionResult",
+                "ctor": "deleteVpcPeeringConnectionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -35881,7 +35881,7 @@
                 "streaming": false,
                 "listElement": "AccountAttribute",
                 "fieldPad": 0,
-                "ctor": "describeAccountAttributesResult",
+                "ctor": "describeAccountAttributesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -36056,7 +36056,7 @@
                 "streaming": false,
                 "listElement": "Address",
                 "fieldPad": 0,
-                "ctor": "describeAddressesResult",
+                "ctor": "describeAddressesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -36296,7 +36296,7 @@
                 "streaming": false,
                 "listElement": "AvailabilityZone",
                 "fieldPad": 0,
-                "ctor": "describeAvailabilityZonesResult",
+                "ctor": "describeAvailabilityZonesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -36503,7 +36503,7 @@
                 "streaming": false,
                 "listElement": "BundleTask",
                 "fieldPad": 0,
-                "ctor": "describeBundleTasksResult",
+                "ctor": "describeBundleTasksResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -36710,7 +36710,7 @@
                 "streaming": false,
                 "listElement": "ConversionTask",
                 "fieldPad": 0,
-                "ctor": "describeConversionTasksResult",
+                "ctor": "describeConversionTasksResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -36917,7 +36917,7 @@
                 "streaming": false,
                 "listElement": "CustomerGateway",
                 "fieldPad": 0,
-                "ctor": "describeCustomerGatewaysResult",
+                "ctor": "describeCustomerGatewaysResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -37124,7 +37124,7 @@
                 "streaming": false,
                 "listElement": "DhcpOptions",
                 "fieldPad": 0,
-                "ctor": "describeDhcpOptionsResult",
+                "ctor": "describeDhcpOptionsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -37331,7 +37331,7 @@
                 "streaming": false,
                 "listElement": "ExportTask",
                 "fieldPad": 0,
-                "ctor": "describeExportTasksResult",
+                "ctor": "describeExportTasksResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -37487,7 +37487,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "imageAttribute",
+                "ctor": "describeImageAttributeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -37878,7 +37878,7 @@
                 "streaming": false,
                 "listElement": "Image",
                 "fieldPad": 0,
-                "ctor": "describeImagesResult",
+                "ctor": "describeImagesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -38148,7 +38148,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 36,
-                "ctor": "instanceAttribute",
+                "ctor": "describeInstanceAttributeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -38704,7 +38704,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "describeInstanceStatusResult",
+                "ctor": "describeInstanceStatusResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -39021,7 +39021,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "describeInstancesResult",
+                "ctor": "describeInstancesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -39308,7 +39308,7 @@
                 "streaming": false,
                 "listElement": "InternetGateway",
                 "fieldPad": 0,
-                "ctor": "describeInternetGatewaysResult",
+                "ctor": "describeInternetGatewaysResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -39515,7 +39515,7 @@
                 "streaming": false,
                 "listElement": "KeyPairInfo",
                 "fieldPad": 0,
-                "ctor": "describeKeyPairsResult",
+                "ctor": "describeKeyPairsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -39722,7 +39722,7 @@
                 "streaming": false,
                 "listElement": "NetworkAcl",
                 "fieldPad": 0,
-                "ctor": "describeNetworkAclsResult",
+                "ctor": "describeNetworkAclsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -39926,7 +39926,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "describeNetworkInterfaceAttributeResult",
+                "ctor": "describeNetworkInterfaceAttributeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -40233,7 +40233,7 @@
                 "streaming": false,
                 "listElement": "NetworkInterface",
                 "fieldPad": 0,
-                "ctor": "describeNetworkInterfacesResult",
+                "ctor": "describeNetworkInterfacesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -40440,7 +40440,7 @@
                 "streaming": false,
                 "listElement": "PlacementGroup",
                 "fieldPad": 0,
-                "ctor": "describePlacementGroupsResult",
+                "ctor": "describePlacementGroupsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -40647,7 +40647,7 @@
                 "streaming": false,
                 "listElement": "Region",
                 "fieldPad": 0,
-                "ctor": "describeRegionsResult",
+                "ctor": "describeRegionsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -40854,7 +40854,7 @@
                 "streaming": false,
                 "listElement": "ReservedInstances",
                 "fieldPad": 0,
-                "ctor": "describeReservedInstancesResult",
+                "ctor": "describeReservedInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -41094,7 +41094,7 @@
                 "streaming": false,
                 "listElement": "ReservedInstancesListing",
                 "fieldPad": 0,
-                "ctor": "describeReservedInstancesListingsResult",
+                "ctor": "describeReservedInstancesListingsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -41298,7 +41298,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 36,
-                "ctor": "describeReservedInstancesModificationsResult",
+                "ctor": "describeReservedInstancesModificationsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -41516,7 +41516,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 32,
-                "ctor": "describeReservedInstancesOfferingsResult",
+                "ctor": "describeReservedInstancesOfferingsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -42100,7 +42100,7 @@
                 "streaming": false,
                 "listElement": "RouteTable",
                 "fieldPad": 0,
-                "ctor": "describeRouteTablesResult",
+                "ctor": "describeRouteTablesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -42307,7 +42307,7 @@
                 "streaming": false,
                 "listElement": "SecurityGroup",
                 "fieldPad": 0,
-                "ctor": "describeSecurityGroupsResult",
+                "ctor": "describeSecurityGroupsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -42544,7 +42544,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "describeSnapshotAttributeResult",
+                "ctor": "describeSnapshotAttributeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -42795,7 +42795,7 @@
                 "streaming": false,
                 "listElement": "Snapshot",
                 "fieldPad": 0,
-                "ctor": "describeSnapshotsResult",
+                "ctor": "describeSnapshotsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -43066,7 +43066,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "describeSpotDatafeedSubscriptionResult",
+                "ctor": "describeSpotDatafeedSubscriptionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -43223,7 +43223,7 @@
                 "streaming": false,
                 "listElement": "SpotInstanceRequest",
                 "fieldPad": 0,
-                "ctor": "describeSpotInstanceRequestsResult",
+                "ctor": "describeSpotInstanceRequestsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -43427,7 +43427,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "describeSpotPriceHistoryResult",
+                "ctor": "describeSpotPriceHistoryResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -43846,7 +43846,7 @@
                 "streaming": false,
                 "listElement": "Subnet",
                 "fieldPad": 0,
-                "ctor": "describeSubnetsResult",
+                "ctor": "describeSubnetsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -44050,7 +44050,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 13,
-                "ctor": "describeTagsResult",
+                "ctor": "describeTagsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -44301,7 +44301,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "describeVolumeAttributeResult",
+                "ctor": "describeVolumeAttributeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -44549,7 +44549,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "describeVolumeStatusResult",
+                "ctor": "describeVolumeStatusResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -44833,7 +44833,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 13,
-                "ctor": "describeVolumesResult",
+                "ctor": "describeVolumesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -45117,7 +45117,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "describeVpcAttributeResult",
+                "ctor": "describeVpcAttributeResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -45368,7 +45368,7 @@
                 "streaming": false,
                 "listElement": "VpcPeeringConnection",
                 "fieldPad": 0,
-                "ctor": "describeVpcPeeringConnectionsResult",
+                "ctor": "describeVpcPeeringConnectionsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -45575,7 +45575,7 @@
                 "streaming": false,
                 "listElement": "Vpc",
                 "fieldPad": 0,
-                "ctor": "describeVpcsResult",
+                "ctor": "describeVpcsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -45782,7 +45782,7 @@
                 "streaming": false,
                 "listElement": "VpnConnection",
                 "fieldPad": 0,
-                "ctor": "describeVpnConnectionsResult",
+                "ctor": "describeVpnConnectionsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -45989,7 +45989,7 @@
                 "streaming": false,
                 "listElement": "VpnGateway",
                 "fieldPad": 0,
-                "ctor": "describeVpnGatewaysResult",
+                "ctor": "describeVpnGatewaysResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -47754,7 +47754,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 15,
-                "ctor": "getConsoleOutputResult",
+                "ctor": "getConsoleOutputResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -47970,7 +47970,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "getPasswordDataResult",
+                "ctor": "getPasswordDataResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -48186,7 +48186,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "importInstanceResult",
+                "ctor": "importInstanceResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -48458,7 +48458,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "importKeyPairResult",
+                "ctor": "importKeyPairResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -48678,7 +48678,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "importVolumeResult",
+                "ctor": "importVolumeResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -50161,7 +50161,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "modifyReservedInstancesResult",
+                "ctor": "modifyReservedInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -51111,7 +51111,7 @@
                 "streaming": false,
                 "listElement": "InstanceMonitoring",
                 "fieldPad": 0,
-                "ctor": "monitorInstancesResult",
+                "ctor": "monitorInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -51286,7 +51286,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "purchaseReservedInstancesOfferingResult",
+                "ctor": "purchaseReservedInstancesOfferingResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -51655,7 +51655,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "registerImageResult",
+                "ctor": "registerImageResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -52126,7 +52126,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "rejectVpcPeeringConnectionResult",
+                "ctor": "rejectVpcPeeringConnectionResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -52463,7 +52463,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "replaceNetworkAclAssociationResult",
+                "ctor": "replaceNetworkAclAssociationResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -53325,7 +53325,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "replaceRouteTableAssociationResult",
+                "ctor": "replaceRouteTableAssociationResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -53828,7 +53828,7 @@
                 "streaming": false,
                 "listElement": "SpotInstanceRequest",
                 "fieldPad": 0,
-                "ctor": "requestSpotInstancesResult",
+                "ctor": "requestSpotInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -56595,7 +56595,7 @@
                 "streaming": false,
                 "listElement": "InstanceStateChange",
                 "fieldPad": 0,
-                "ctor": "startInstancesResult",
+                "ctor": "startInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -56803,7 +56803,7 @@
                 "streaming": false,
                 "listElement": "InstanceStateChange",
                 "fieldPad": 0,
-                "ctor": "stopInstancesResult",
+                "ctor": "stopInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -57011,7 +57011,7 @@
                 "streaming": false,
                 "listElement": "InstanceStateChange",
                 "fieldPad": 0,
-                "ctor": "terminateInstancesResult",
+                "ctor": "terminateInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -57315,7 +57315,7 @@
                 "streaming": false,
                 "listElement": "InstanceMonitoring",
                 "fieldPad": 0,
-                "ctor": "unmonitorInstancesResult",
+                "ctor": "unmonitorInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,

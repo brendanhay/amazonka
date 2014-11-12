@@ -634,7 +634,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "addPermissionInput",
+                "ctor": "addPermission",
                 "headerPad": 0,
                 "path": [
                     {
@@ -876,7 +876,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "confirmSubscriptionInput",
+                "ctor": "confirmSubscription",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1084,7 +1084,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 15,
-                "ctor": "createPlatformApplicationInput",
+                "ctor": "createPlatformApplication",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1220,7 +1220,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createEndpointResponse",
+                "ctor": "createPlatformEndpointResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -1292,7 +1292,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "createPlatformEndpointInput",
+                "ctor": "createPlatformEndpoint",
                 "headerPad": 0,
                 "path": [
                     {
@@ -1537,7 +1537,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createTopicInput",
+                "ctor": "createTopic",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1649,7 +1649,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "deleteEndpointInput",
+                "ctor": "deleteEndpoint",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1761,7 +1761,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "deletePlatformApplicationInput",
+                "ctor": "deletePlatformApplication",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1873,7 +1873,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "deleteTopicInput",
+                "ctor": "deleteTopic",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2032,7 +2032,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getEndpointAttributesInput",
+                "ctor": "getEndpointAttributes",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2191,7 +2191,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getPlatformApplicationAttributesInput",
+                "ctor": "getPlatformApplicationAttributes",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2350,7 +2350,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getSubscriptionAttributesInput",
+                "ctor": "getSubscriptionAttributes",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2509,7 +2509,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getTopicAttributesInput",
+                "ctor": "getTopicAttributes",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2676,7 +2676,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "listEndpointsByPlatformApplicationInput",
+                "ctor": "listEndpointsByPlatformApplication",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2865,7 +2865,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "listPlatformApplicationsInput",
+                "ctor": "listPlatformApplications",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -3034,7 +3034,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "listSubscriptionsInput",
+                "ctor": "listSubscriptions",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -3201,7 +3201,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 15,
-                "ctor": "listSubscriptionsByTopicInput",
+                "ctor": "listSubscriptionsByTopic",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3390,7 +3390,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "listTopicsInput",
+                "ctor": "listTopics",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -3545,7 +3545,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "publishInput",
+                "ctor": "publish",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3806,7 +3806,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 12,
-                "ctor": "removePermissionInput",
+                "ctor": "removePermission",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3933,7 +3933,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "setEndpointAttributesInput",
+                "ctor": "setEndpointAttributes",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4061,7 +4061,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "setPlatformApplicationAttributesInput",
+                "ctor": "setPlatformApplicationAttributes",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4190,7 +4190,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "setSubscriptionAttributesInput",
+                "ctor": "setSubscriptionAttributes",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4352,7 +4352,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "setTopicAttributesInput",
+                "ctor": "setTopicAttributes",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4561,7 +4561,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "subscribeInput",
+                "ctor": "subscribe",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4726,7 +4726,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "unsubscribeInput",
+                "ctor": "unsubscribe",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",

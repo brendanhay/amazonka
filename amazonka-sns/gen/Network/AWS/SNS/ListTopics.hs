@@ -29,7 +29,7 @@ module Network.AWS.SNS.ListTopics
     -- * Request
       ListTopicsInput
     -- ** Request constructor
-    , listTopicsInput
+    , listTopics
     -- ** Request lenses
     , ltiNextToken
 
@@ -56,8 +56,8 @@ newtype ListTopicsInput = ListTopicsInput
 --
 -- * 'ltiNextToken' @::@ 'Maybe' 'Text'
 --
-listTopicsInput :: ListTopicsInput
-listTopicsInput = ListTopicsInput
+listTopics :: ListTopicsInput
+listTopics = ListTopicsInput
     { _ltiNextToken = Nothing
     }
 

@@ -34,7 +34,7 @@ module Network.AWS.Redshift.CopyClusterSnapshot
     -- * Request
       CopyClusterSnapshotMessage
     -- ** Request constructor
-    , copyClusterSnapshotMessage
+    , copyClusterSnapshot
     -- ** Request lenses
     , ccsmSourceSnapshotClusterIdentifier
     , ccsmSourceSnapshotIdentifier
@@ -43,7 +43,7 @@ module Network.AWS.Redshift.CopyClusterSnapshot
     -- * Response
     , CopyClusterSnapshotResult
     -- ** Response constructor
-    , copyClusterSnapshotResult
+    , copyClusterSnapshotResponse
     -- ** Response lenses
     , ccsrSnapshot
     ) where
@@ -68,10 +68,10 @@ data CopyClusterSnapshotMessage = CopyClusterSnapshotMessage
 --
 -- * 'ccsmTargetSnapshotIdentifier' @::@ 'Text'
 --
-copyClusterSnapshotMessage :: Text -- ^ 'ccsmSourceSnapshotIdentifier'
-                           -> Text -- ^ 'ccsmTargetSnapshotIdentifier'
-                           -> CopyClusterSnapshotMessage
-copyClusterSnapshotMessage p1 p2 = CopyClusterSnapshotMessage
+copyClusterSnapshot :: Text -- ^ 'ccsmSourceSnapshotIdentifier'
+                    -> Text -- ^ 'ccsmTargetSnapshotIdentifier'
+                    -> CopyClusterSnapshotMessage
+copyClusterSnapshot p1 p2 = CopyClusterSnapshotMessage
     { _ccsmSourceSnapshotIdentifier        = p1
     , _ccsmTargetSnapshotIdentifier        = p2
     , _ccsmSourceSnapshotClusterIdentifier = Nothing
@@ -118,8 +118,8 @@ newtype CopyClusterSnapshotResult = CopyClusterSnapshotResult
 --
 -- * 'ccsrSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-copyClusterSnapshotResult :: CopyClusterSnapshotResult
-copyClusterSnapshotResult = CopyClusterSnapshotResult
+copyClusterSnapshotResponse :: CopyClusterSnapshotResult
+copyClusterSnapshotResponse = CopyClusterSnapshotResult
     { _ccsrSnapshot = Nothing
     }
 

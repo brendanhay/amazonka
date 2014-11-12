@@ -44,7 +44,7 @@ module Network.AWS.EC2.CreateVpcPeeringConnection
     -- * Response
     , CreateVpcPeeringConnectionResult
     -- ** Response constructor
-    , createVpcPeeringConnectionResult
+    , createVpcPeeringConnectionResponse
     -- ** Response lenses
     , cvpcrVpcPeeringConnection
     ) where
@@ -111,8 +111,8 @@ newtype CreateVpcPeeringConnectionResult = CreateVpcPeeringConnectionResult
 --
 -- * 'cvpcrVpcPeeringConnection' @::@ 'Maybe' 'VpcPeeringConnection'
 --
-createVpcPeeringConnectionResult :: CreateVpcPeeringConnectionResult
-createVpcPeeringConnectionResult = CreateVpcPeeringConnectionResult
+createVpcPeeringConnectionResponse :: CreateVpcPeeringConnectionResult
+createVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResult
     { _cvpcrVpcPeeringConnection = Nothing
     }
 

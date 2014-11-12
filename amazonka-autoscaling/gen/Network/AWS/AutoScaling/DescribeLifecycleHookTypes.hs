@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     -- * Response
     , DescribeLifecycleHookTypesAnswer
     -- ** Response constructor
-    , describeLifecycleHookTypesAnswer
+    , describeLifecycleHookTypesResponse
     -- ** Response lenses
     , dlhtaLifecycleHookTypes
     ) where
@@ -68,8 +68,8 @@ instance IsList DescribeLifecycleHookTypesAnswer where
 --
 -- * 'dlhtaLifecycleHookTypes' @::@ ['Text']
 --
-describeLifecycleHookTypesAnswer :: DescribeLifecycleHookTypesAnswer
-describeLifecycleHookTypesAnswer = DescribeLifecycleHookTypesAnswer
+describeLifecycleHookTypesResponse :: DescribeLifecycleHookTypesAnswer
+describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesAnswer
     { _dlhtaLifecycleHookTypes = mempty
     }
 

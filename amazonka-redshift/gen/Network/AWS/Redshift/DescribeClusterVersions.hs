@@ -30,7 +30,7 @@ module Network.AWS.Redshift.DescribeClusterVersions
     -- * Request
       DescribeClusterVersionsMessage
     -- ** Request constructor
-    , describeClusterVersionsMessage
+    , describeClusterVersions
     -- ** Request lenses
     , dcvmClusterParameterGroupFamily
     , dcvmClusterVersion
@@ -40,7 +40,7 @@ module Network.AWS.Redshift.DescribeClusterVersions
     -- * Response
     , ClusterVersionsMessage
     -- ** Response constructor
-    , clusterVersionsMessage
+    , describeClusterVersionsResponse
     -- ** Response lenses
     , cvmClusterVersions
     , cvmMarker
@@ -69,8 +69,8 @@ data DescribeClusterVersionsMessage = DescribeClusterVersionsMessage
 --
 -- * 'dcvmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeClusterVersionsMessage :: DescribeClusterVersionsMessage
-describeClusterVersionsMessage = DescribeClusterVersionsMessage
+describeClusterVersions :: DescribeClusterVersionsMessage
+describeClusterVersions = DescribeClusterVersionsMessage
     { _dcvmClusterVersion              = Nothing
     , _dcvmClusterParameterGroupFamily = Nothing
     , _dcvmMaxRecords                  = Nothing
@@ -126,8 +126,8 @@ data ClusterVersionsMessage = ClusterVersionsMessage
 --
 -- * 'cvmMarker' @::@ 'Maybe' 'Text'
 --
-clusterVersionsMessage :: ClusterVersionsMessage
-clusterVersionsMessage = ClusterVersionsMessage
+describeClusterVersionsResponse :: ClusterVersionsMessage
+describeClusterVersionsResponse = ClusterVersionsMessage
     { _cvmMarker          = Nothing
     , _cvmClusterVersions = mempty
     }

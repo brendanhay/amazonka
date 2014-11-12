@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeInternetGateways
     -- * Response
     , DescribeInternetGatewaysResult
     -- ** Response constructor
-    , describeInternetGatewaysResult
+    , describeInternetGatewaysResponse
     -- ** Response lenses
     , digrInternetGateways
     ) where
@@ -113,8 +113,8 @@ instance IsList DescribeInternetGatewaysResult where
 --
 -- * 'digrInternetGateways' @::@ ['InternetGateway']
 --
-describeInternetGatewaysResult :: DescribeInternetGatewaysResult
-describeInternetGatewaysResult = DescribeInternetGatewaysResult
+describeInternetGatewaysResponse :: DescribeInternetGatewaysResult
+describeInternetGatewaysResponse = DescribeInternetGatewaysResult
     { _digrInternetGateways = mempty
     }
 

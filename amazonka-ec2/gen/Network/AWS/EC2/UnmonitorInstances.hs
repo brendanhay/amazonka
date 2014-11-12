@@ -36,7 +36,7 @@ module Network.AWS.EC2.UnmonitorInstances
     -- * Response
     , UnmonitorInstancesResult
     -- ** Response constructor
-    , unmonitorInstancesResult
+    , unmonitorInstancesResponse
     -- ** Response lenses
     , uirInstanceMonitorings
     ) where
@@ -92,8 +92,8 @@ instance IsList UnmonitorInstancesResult where
 --
 -- * 'uirInstanceMonitorings' @::@ ['InstanceMonitoring']
 --
-unmonitorInstancesResult :: UnmonitorInstancesResult
-unmonitorInstancesResult = UnmonitorInstancesResult
+unmonitorInstancesResponse :: UnmonitorInstancesResult
+unmonitorInstancesResponse = UnmonitorInstancesResult
     { _uirInstanceMonitorings = mempty
     }
 

@@ -27,7 +27,7 @@ module Network.AWS.SNS.SetSubscriptionAttributes
     -- * Request
       SetSubscriptionAttributesInput
     -- ** Request constructor
-    , setSubscriptionAttributesInput
+    , setSubscriptionAttributes
     -- ** Request lenses
     , ssaiAttributeName
     , ssaiAttributeValue
@@ -59,10 +59,10 @@ data SetSubscriptionAttributesInput = SetSubscriptionAttributesInput
 --
 -- * 'ssaiSubscriptionArn' @::@ 'Text'
 --
-setSubscriptionAttributesInput :: Text -- ^ 'ssaiSubscriptionArn'
-                               -> Text -- ^ 'ssaiAttributeName'
-                               -> SetSubscriptionAttributesInput
-setSubscriptionAttributesInput p1 p2 = SetSubscriptionAttributesInput
+setSubscriptionAttributes :: Text -- ^ 'ssaiSubscriptionArn'
+                          -> Text -- ^ 'ssaiAttributeName'
+                          -> SetSubscriptionAttributesInput
+setSubscriptionAttributes p1 p2 = SetSubscriptionAttributesInput
     { _ssaiSubscriptionArn = p1
     , _ssaiAttributeName   = p2
     , _ssaiAttributeValue  = Nothing

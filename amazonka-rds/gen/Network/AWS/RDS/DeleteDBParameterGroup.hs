@@ -27,7 +27,7 @@ module Network.AWS.RDS.DeleteDBParameterGroup
     -- * Request
       DeleteDBParameterGroupMessage
     -- ** Request constructor
-    , deleteDBParameterGroupMessage
+    , deleteDBParameterGroup
     -- ** Request lenses
     , ddbpgm1DBParameterGroupName
 
@@ -51,9 +51,9 @@ newtype DeleteDBParameterGroupMessage = DeleteDBParameterGroupMessage
 --
 -- * 'ddbpgm1DBParameterGroupName' @::@ 'Text'
 --
-deleteDBParameterGroupMessage :: Text -- ^ 'ddbpgm1DBParameterGroupName'
-                              -> DeleteDBParameterGroupMessage
-deleteDBParameterGroupMessage p1 = DeleteDBParameterGroupMessage
+deleteDBParameterGroup :: Text -- ^ 'ddbpgm1DBParameterGroupName'
+                       -> DeleteDBParameterGroupMessage
+deleteDBParameterGroup p1 = DeleteDBParameterGroupMessage
     { _ddbpgm1DBParameterGroupName = p1
     }
 

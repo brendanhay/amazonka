@@ -30,7 +30,7 @@ module Network.AWS.ELB.DescribeInstanceHealth
     -- * Request
       DescribeEndPointStateInput
     -- ** Request constructor
-    , describeEndPointStateInput
+    , describeInstanceHealth
     -- ** Request lenses
     , depsiInstances
     , depsiLoadBalancerName
@@ -38,7 +38,7 @@ module Network.AWS.ELB.DescribeInstanceHealth
     -- * Response
     , DescribeEndPointStateOutput
     -- ** Response constructor
-    , describeEndPointStateOutput
+    , describeInstanceHealthResponse
     -- ** Response lenses
     , depsoInstanceStates
     ) where
@@ -60,9 +60,9 @@ data DescribeEndPointStateInput = DescribeEndPointStateInput
 --
 -- * 'depsiLoadBalancerName' @::@ 'Text'
 --
-describeEndPointStateInput :: Text -- ^ 'depsiLoadBalancerName'
-                           -> DescribeEndPointStateInput
-describeEndPointStateInput p1 = DescribeEndPointStateInput
+describeInstanceHealth :: Text -- ^ 'depsiLoadBalancerName'
+                       -> DescribeEndPointStateInput
+describeInstanceHealth p1 = DescribeEndPointStateInput
     { _depsiLoadBalancerName = p1
     , _depsiInstances        = mempty
     }
@@ -97,8 +97,8 @@ instance IsList DescribeEndPointStateOutput where
 --
 -- * 'depsoInstanceStates' @::@ ['InstanceState']
 --
-describeEndPointStateOutput :: DescribeEndPointStateOutput
-describeEndPointStateOutput = DescribeEndPointStateOutput
+describeInstanceHealthResponse :: DescribeEndPointStateOutput
+describeInstanceHealthResponse = DescribeEndPointStateOutput
     { _depsoInstanceStates = mempty
     }
 

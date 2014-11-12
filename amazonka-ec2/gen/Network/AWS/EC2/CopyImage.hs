@@ -42,7 +42,7 @@ module Network.AWS.EC2.CopyImage
     -- * Response
     , CopyImageResult
     -- ** Response constructor
-    , copyImageResult
+    , copyImageResponse
     -- ** Response lenses
     , cir1ImageId
     ) where
@@ -129,8 +129,8 @@ newtype CopyImageResult = CopyImageResult
 --
 -- * 'cir1ImageId' @::@ 'Maybe' 'Text'
 --
-copyImageResult :: CopyImageResult
-copyImageResult = CopyImageResult
+copyImageResponse :: CopyImageResult
+copyImageResponse = CopyImageResult
     { _cir1ImageId = Nothing
     }
 

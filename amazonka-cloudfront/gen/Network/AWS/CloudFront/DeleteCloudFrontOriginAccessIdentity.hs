@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
     -- * Request
       DeleteCloudFrontOriginAccessIdentity
     -- ** Request constructor
-    , deleteCloudFrontOriginAccessIdentity
+    , deleteCloudFrontOriginAccessIdentity2014_05_31
     -- ** Request lenses
     , dcfoaiId
     , dcfoaiIfMatch
@@ -54,9 +54,9 @@ data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
 --
 -- * 'dcfoaiIfMatch' @::@ 'Maybe' 'Text'
 --
-deleteCloudFrontOriginAccessIdentity :: Text -- ^ 'dcfoaiId'
-                                     -> DeleteCloudFrontOriginAccessIdentity
-deleteCloudFrontOriginAccessIdentity p1 = DeleteCloudFrontOriginAccessIdentity
+deleteCloudFrontOriginAccessIdentity2014_05_31 :: Text -- ^ 'dcfoaiId'
+                                               -> DeleteCloudFrontOriginAccessIdentity
+deleteCloudFrontOriginAccessIdentity2014_05_31 p1 = DeleteCloudFrontOriginAccessIdentity
     { _dcfoaiId      = p1
     , _dcfoaiIfMatch = Nothing
     }

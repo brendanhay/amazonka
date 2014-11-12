@@ -26,7 +26,7 @@ module Network.AWS.AutoScaling.ExecutePolicy
     -- * Request
       ExecutePolicyType
     -- ** Request constructor
-    , executePolicyType
+    , executePolicy
     -- ** Request lenses
     , eptAutoScalingGroupName
     , eptHonorCooldown
@@ -58,9 +58,9 @@ data ExecutePolicyType = ExecutePolicyType
 --
 -- * 'eptPolicyName' @::@ 'Text'
 --
-executePolicyType :: Text -- ^ 'eptPolicyName'
-                  -> ExecutePolicyType
-executePolicyType p1 = ExecutePolicyType
+executePolicy :: Text -- ^ 'eptPolicyName'
+              -> ExecutePolicyType
+executePolicy p1 = ExecutePolicyType
     { _eptPolicyName           = p1
     , _eptAutoScalingGroupName = Nothing
     , _eptHonorCooldown        = Nothing

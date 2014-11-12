@@ -86,8 +86,7 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic",
-                    "RealFloat"
+                    "Generic"
                 ],
                 "fieldPad": 14,
                 "ctor": "statisticSet",
@@ -1788,7 +1787,7 @@
                 "streaming": false,
                 "listElement": "Text",
                 "fieldPad": 0,
-                "ctor": "deleteAlarmsInput",
+                "ctor": "deleteAlarms",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -1868,7 +1867,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "describeAlarmHistoryOutput",
+                "ctor": "describeAlarmHistoryResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -1955,7 +1954,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "describeAlarmHistoryInput",
+                "ctor": "describeAlarmHistory",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2186,7 +2185,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "describeAlarmsOutput",
+                "ctor": "describeAlarmsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -2273,7 +2272,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "describeAlarmsInput",
+                "ctor": "describeAlarms",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2507,7 +2506,7 @@
                 "streaming": false,
                 "listElement": "MetricAlarm",
                 "fieldPad": 0,
-                "ctor": "describeAlarmsForMetricOutput",
+                "ctor": "describeAlarmsForMetricResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -2579,7 +2578,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "describeAlarmsForMetricInput",
+                "ctor": "describeAlarmsForMetric",
                 "headerPad": 0,
                 "path": [
                     {
@@ -2843,7 +2842,7 @@
                 "streaming": false,
                 "listElement": "Text",
                 "fieldPad": 0,
-                "ctor": "disableAlarmActionsInput",
+                "ctor": "disableAlarmActions",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -2955,7 +2954,7 @@
                 "streaming": false,
                 "listElement": "Text",
                 "fieldPad": 0,
-                "ctor": "enableAlarmActionsInput",
+                "ctor": "enableAlarmActions",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -3035,7 +3034,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 15,
-                "ctor": "getMetricStatisticsOutput",
+                "ctor": "getMetricStatisticsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -3121,7 +3120,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 15,
-                "ctor": "getMetricStatisticsInput",
+                "ctor": "getMetricStatistics",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3419,7 +3418,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 13,
-                "ctor": "listMetricsOutput",
+                "ctor": "listMetricsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -3505,7 +3504,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 14,
-                "ctor": "listMetricsInput",
+                "ctor": "listMetrics",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3698,7 +3697,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "putMetricAlarmInput",
+                "ctor": "putMetricAlarm",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4255,7 +4254,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 15,
-                "ctor": "putMetricDataInput",
+                "ctor": "putMetricData",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4384,7 +4383,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 20,
-                "ctor": "setAlarmStateInput",
+                "ctor": "setAlarmState",
                 "headerPad": 0,
                 "path": [
                     {

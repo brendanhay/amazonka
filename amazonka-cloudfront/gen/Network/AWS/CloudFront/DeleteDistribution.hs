@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.DeleteDistribution
     -- * Request
       DeleteDistribution
     -- ** Request constructor
-    , deleteDistribution
+    , deleteDistribution2014_05_31
     -- ** Request lenses
     , ddId
     , ddIfMatch
@@ -54,9 +54,9 @@ data DeleteDistribution = DeleteDistribution
 --
 -- * 'ddIfMatch' @::@ 'Maybe' 'Text'
 --
-deleteDistribution :: Text -- ^ 'ddId'
-                   -> DeleteDistribution
-deleteDistribution p1 = DeleteDistribution
+deleteDistribution2014_05_31 :: Text -- ^ 'ddId'
+                             -> DeleteDistribution
+deleteDistribution2014_05_31 p1 = DeleteDistribution
     { _ddId      = p1
     , _ddIfMatch = Nothing
     }

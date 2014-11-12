@@ -26,7 +26,7 @@ module Network.AWS.CloudFormation.ValidateTemplate
     -- * Request
       ValidateTemplateInput
     -- ** Request constructor
-    , validateTemplateInput
+    , validateTemplate
     -- ** Request lenses
     , vtiTemplateBody
     , vtiTemplateURL
@@ -34,7 +34,7 @@ module Network.AWS.CloudFormation.ValidateTemplate
     -- * Response
     , ValidateTemplateOutput
     -- ** Response constructor
-    , validateTemplateOutput
+    , validateTemplateResponse
     -- ** Response lenses
     , vtoCapabilities
     , vtoCapabilitiesReason
@@ -59,8 +59,8 @@ data ValidateTemplateInput = ValidateTemplateInput
 --
 -- * 'vtiTemplateURL' @::@ 'Maybe' 'Text'
 --
-validateTemplateInput :: ValidateTemplateInput
-validateTemplateInput = ValidateTemplateInput
+validateTemplate :: ValidateTemplateInput
+validateTemplate = ValidateTemplateInput
     { _vtiTemplateBody = Nothing
     , _vtiTemplateURL  = Nothing
     }
@@ -105,8 +105,8 @@ data ValidateTemplateOutput = ValidateTemplateOutput
 --
 -- * 'vtoParameters' @::@ ['TemplateParameter']
 --
-validateTemplateOutput :: ValidateTemplateOutput
-validateTemplateOutput = ValidateTemplateOutput
+validateTemplateResponse :: ValidateTemplateOutput
+validateTemplateResponse = ValidateTemplateOutput
     { _vtoParameters         = mempty
     , _vtoDescription        = Nothing
     , _vtoCapabilities       = mempty

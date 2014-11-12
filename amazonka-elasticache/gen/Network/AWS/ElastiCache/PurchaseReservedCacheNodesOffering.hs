@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     -- * Request
       PurchaseReservedCacheNodesOfferingMessage
     -- ** Request constructor
-    , purchaseReservedCacheNodesOfferingMessage
+    , purchaseReservedCacheNodesOffering
     -- ** Request lenses
     , prcnomCacheNodeCount
     , prcnomReservedCacheNodeId
@@ -36,7 +36,7 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     -- * Response
     , PurchaseReservedCacheNodesOfferingResult
     -- ** Response constructor
-    , purchaseReservedCacheNodesOfferingResult
+    , purchaseReservedCacheNodesOfferingResponse
     -- ** Response lenses
     , prcnorReservedCacheNode
     ) where
@@ -61,9 +61,9 @@ data PurchaseReservedCacheNodesOfferingMessage = PurchaseReservedCacheNodesOffer
 --
 -- * 'prcnomReservedCacheNodesOfferingId' @::@ 'Text'
 --
-purchaseReservedCacheNodesOfferingMessage :: Text -- ^ 'prcnomReservedCacheNodesOfferingId'
-                                          -> PurchaseReservedCacheNodesOfferingMessage
-purchaseReservedCacheNodesOfferingMessage p1 = PurchaseReservedCacheNodesOfferingMessage
+purchaseReservedCacheNodesOffering :: Text -- ^ 'prcnomReservedCacheNodesOfferingId'
+                                   -> PurchaseReservedCacheNodesOfferingMessage
+purchaseReservedCacheNodesOffering p1 = PurchaseReservedCacheNodesOfferingMessage
     { _prcnomReservedCacheNodesOfferingId = p1
     , _prcnomReservedCacheNodeId          = Nothing
     , _prcnomCacheNodeCount               = Nothing
@@ -103,8 +103,8 @@ newtype PurchaseReservedCacheNodesOfferingResult = PurchaseReservedCacheNodesOff
 --
 -- * 'prcnorReservedCacheNode' @::@ 'Maybe' 'ReservedCacheNode'
 --
-purchaseReservedCacheNodesOfferingResult :: PurchaseReservedCacheNodesOfferingResult
-purchaseReservedCacheNodesOfferingResult = PurchaseReservedCacheNodesOfferingResult
+purchaseReservedCacheNodesOfferingResponse :: PurchaseReservedCacheNodesOfferingResult
+purchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResult
     { _prcnorReservedCacheNode = Nothing
     }
 

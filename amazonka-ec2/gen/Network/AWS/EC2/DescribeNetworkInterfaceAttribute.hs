@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     -- * Response
     , DescribeNetworkInterfaceAttributeResult
     -- ** Response constructor
-    , describeNetworkInterfaceAttributeResult
+    , describeNetworkInterfaceAttributeResponse
     -- ** Response lenses
     , dniarAttachment
     , dniarDescription
@@ -112,8 +112,8 @@ data DescribeNetworkInterfaceAttributeResult = DescribeNetworkInterfaceAttribute
 --
 -- * 'dniarSourceDestCheck' @::@ 'Maybe' 'AttributeBooleanValue'
 --
-describeNetworkInterfaceAttributeResult :: DescribeNetworkInterfaceAttributeResult
-describeNetworkInterfaceAttributeResult = DescribeNetworkInterfaceAttributeResult
+describeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResult
+describeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResult
     { _dniarNetworkInterfaceId = Nothing
     , _dniarDescription        = Nothing
     , _dniarSourceDestCheck    = Nothing

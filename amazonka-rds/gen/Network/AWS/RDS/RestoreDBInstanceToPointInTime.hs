@@ -30,7 +30,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     -- * Request
       RestoreDBInstanceToPointInTimeMessage
     -- ** Request constructor
-    , restoreDBInstanceToPointInTimeMessage
+    , restoreDBInstanceToPointInTime
     -- ** Request lenses
     , rdbitpitmAutoMinorVersionUpgrade
     , rdbitpitmAvailabilityZone
@@ -56,7 +56,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
     -- * Response
     , RestoreDBInstanceToPointInTimeResult
     -- ** Response constructor
-    , restoreDBInstanceToPointInTimeResult
+    , restoreDBInstanceToPointInTimeResponse
     -- ** Response lenses
     , rdbitpitrDBInstance
     ) where
@@ -132,10 +132,10 @@ data RestoreDBInstanceToPointInTimeMessage = RestoreDBInstanceToPointInTimeMessa
 --
 -- * 'rdbitpitmUseLatestRestorableTime' @::@ 'Maybe' 'Bool'
 --
-restoreDBInstanceToPointInTimeMessage :: Text -- ^ 'rdbitpitmSourceDBInstanceIdentifier'
-                                      -> Text -- ^ 'rdbitpitmTargetDBInstanceIdentifier'
-                                      -> RestoreDBInstanceToPointInTimeMessage
-restoreDBInstanceToPointInTimeMessage p1 p2 = RestoreDBInstanceToPointInTimeMessage
+restoreDBInstanceToPointInTime :: Text -- ^ 'rdbitpitmSourceDBInstanceIdentifier'
+                               -> Text -- ^ 'rdbitpitmTargetDBInstanceIdentifier'
+                               -> RestoreDBInstanceToPointInTimeMessage
+restoreDBInstanceToPointInTime p1 p2 = RestoreDBInstanceToPointInTimeMessage
     { _rdbitpitmSourceDBInstanceIdentifier = p1
     , _rdbitpitmTargetDBInstanceIdentifier = p2
     , _rdbitpitmRestoreTime                = Nothing
@@ -329,8 +329,8 @@ newtype RestoreDBInstanceToPointInTimeResult = RestoreDBInstanceToPointInTimeRes
 --
 -- * 'rdbitpitrDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-restoreDBInstanceToPointInTimeResult :: RestoreDBInstanceToPointInTimeResult
-restoreDBInstanceToPointInTimeResult = RestoreDBInstanceToPointInTimeResult
+restoreDBInstanceToPointInTimeResponse :: RestoreDBInstanceToPointInTimeResult
+restoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResult
     { _rdbitpitrDBInstance = Nothing
     }
 

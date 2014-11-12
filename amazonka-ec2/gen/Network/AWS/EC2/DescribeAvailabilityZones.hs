@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     -- * Response
     , DescribeAvailabilityZonesResult
     -- ** Response constructor
-    , describeAvailabilityZonesResult
+    , describeAvailabilityZonesResponse
     -- ** Response lenses
     , dazrAvailabilityZones
     ) where
@@ -108,8 +108,8 @@ instance IsList DescribeAvailabilityZonesResult where
 --
 -- * 'dazrAvailabilityZones' @::@ ['AvailabilityZone']
 --
-describeAvailabilityZonesResult :: DescribeAvailabilityZonesResult
-describeAvailabilityZonesResult = DescribeAvailabilityZonesResult
+describeAvailabilityZonesResponse :: DescribeAvailabilityZonesResult
+describeAvailabilityZonesResponse = DescribeAvailabilityZonesResult
     { _dazrAvailabilityZones = mempty
     }
 

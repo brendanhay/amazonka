@@ -57,7 +57,7 @@ module Network.AWS.EC2.CreateDhcpOptions
     -- * Response
     , CreateDhcpOptionsResult
     -- ** Response constructor
-    , createDhcpOptionsResult
+    , createDhcpOptionsResponse
     -- ** Response lenses
     , cdorDhcpOptions
     ) where
@@ -108,8 +108,8 @@ newtype CreateDhcpOptionsResult = CreateDhcpOptionsResult
 --
 -- * 'cdorDhcpOptions' @::@ 'Maybe' 'DhcpOptions'
 --
-createDhcpOptionsResult :: CreateDhcpOptionsResult
-createDhcpOptionsResult = CreateDhcpOptionsResult
+createDhcpOptionsResponse :: CreateDhcpOptionsResult
+createDhcpOptionsResponse = CreateDhcpOptionsResult
     { _cdorDhcpOptions = Nothing
     }
 

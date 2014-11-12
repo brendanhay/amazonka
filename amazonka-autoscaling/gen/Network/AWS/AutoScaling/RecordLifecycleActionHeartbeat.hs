@@ -37,7 +37,7 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     -- * Request
       RecordLifecycleActionHeartbeatType
     -- ** Request constructor
-    , recordLifecycleActionHeartbeatType
+    , recordLifecycleActionHeartbeat
     -- ** Request lenses
     , rlahtAutoScalingGroupName
     , rlahtLifecycleActionToken
@@ -69,11 +69,11 @@ data RecordLifecycleActionHeartbeatType = RecordLifecycleActionHeartbeatType
 --
 -- * 'rlahtLifecycleHookName' @::@ 'Text'
 --
-recordLifecycleActionHeartbeatType :: Text -- ^ 'rlahtLifecycleHookName'
-                                   -> Text -- ^ 'rlahtAutoScalingGroupName'
-                                   -> Text -- ^ 'rlahtLifecycleActionToken'
-                                   -> RecordLifecycleActionHeartbeatType
-recordLifecycleActionHeartbeatType p1 p2 p3 = RecordLifecycleActionHeartbeatType
+recordLifecycleActionHeartbeat :: Text -- ^ 'rlahtLifecycleHookName'
+                               -> Text -- ^ 'rlahtAutoScalingGroupName'
+                               -> Text -- ^ 'rlahtLifecycleActionToken'
+                               -> RecordLifecycleActionHeartbeatType
+recordLifecycleActionHeartbeat p1 p2 p3 = RecordLifecycleActionHeartbeatType
     { _rlahtLifecycleHookName    = p1
     , _rlahtAutoScalingGroupName = p2
     , _rlahtLifecycleActionToken = p3

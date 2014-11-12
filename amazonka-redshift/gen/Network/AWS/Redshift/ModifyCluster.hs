@@ -35,7 +35,7 @@ module Network.AWS.Redshift.ModifyCluster
     -- * Request
       ModifyClusterMessage
     -- ** Request constructor
-    , modifyClusterMessage
+    , modifyCluster
     -- ** Request lenses
     , mcmAllowVersionUpgrade
     , mcmAutomatedSnapshotRetentionPeriod
@@ -56,7 +56,7 @@ module Network.AWS.Redshift.ModifyCluster
     -- * Response
     , ModifyClusterResult
     -- ** Response constructor
-    , modifyClusterResult
+    , modifyClusterResponse
     -- ** Response lenses
     , mcrCluster
     ) where
@@ -117,9 +117,9 @@ data ModifyClusterMessage = ModifyClusterMessage
 --
 -- * 'mcmVpcSecurityGroupIds' @::@ ['Text']
 --
-modifyClusterMessage :: Text -- ^ 'mcmClusterIdentifier'
-                     -> ModifyClusterMessage
-modifyClusterMessage p1 = ModifyClusterMessage
+modifyCluster :: Text -- ^ 'mcmClusterIdentifier'
+              -> ModifyClusterMessage
+modifyCluster p1 = ModifyClusterMessage
     { _mcmClusterIdentifier                = p1
     , _mcmClusterType                      = Nothing
     , _mcmNodeType                         = Nothing
@@ -300,8 +300,8 @@ newtype ModifyClusterResult = ModifyClusterResult
 --
 -- * 'mcrCluster' @::@ 'Maybe' 'Cluster'
 --
-modifyClusterResult :: ModifyClusterResult
-modifyClusterResult = ModifyClusterResult
+modifyClusterResponse :: ModifyClusterResult
+modifyClusterResponse = ModifyClusterResult
     { _mcrCluster = Nothing
     }
 

@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     -- * Request
       DescribeEnvironmentsMessage
     -- ** Request constructor
-    , describeEnvironmentsMessage
+    , describeEnvironments
     -- ** Request lenses
     , demApplicationName
     , demEnvironmentIds
@@ -38,7 +38,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     -- * Response
     , EnvironmentDescriptionsMessage
     -- ** Response constructor
-    , environmentDescriptionsMessage
+    , describeEnvironmentsResponse
     -- ** Response lenses
     , edmEnvironments
     ) where
@@ -72,8 +72,8 @@ data DescribeEnvironmentsMessage = DescribeEnvironmentsMessage
 --
 -- * 'demVersionLabel' @::@ 'Maybe' 'Text'
 --
-describeEnvironmentsMessage :: DescribeEnvironmentsMessage
-describeEnvironmentsMessage = DescribeEnvironmentsMessage
+describeEnvironments :: DescribeEnvironmentsMessage
+describeEnvironments = DescribeEnvironmentsMessage
     { _demApplicationName       = Nothing
     , _demVersionLabel          = Nothing
     , _demEnvironmentIds        = mempty
@@ -141,8 +141,8 @@ instance IsList EnvironmentDescriptionsMessage where
 --
 -- * 'edmEnvironments' @::@ ['EnvironmentDescription']
 --
-environmentDescriptionsMessage :: EnvironmentDescriptionsMessage
-environmentDescriptionsMessage = EnvironmentDescriptionsMessage
+describeEnvironmentsResponse :: EnvironmentDescriptionsMessage
+describeEnvironmentsResponse = EnvironmentDescriptionsMessage
     { _edmEnvironments = mempty
     }
 

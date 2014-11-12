@@ -48,7 +48,7 @@ module Network.AWS.EC2.StartInstances
     -- * Response
     , StartInstancesResult
     -- ** Response constructor
-    , startInstancesResult
+    , startInstancesResponse
     -- ** Response lenses
     , sirStartingInstances
     ) where
@@ -112,8 +112,8 @@ instance IsList StartInstancesResult where
 --
 -- * 'sirStartingInstances' @::@ ['InstanceStateChange']
 --
-startInstancesResult :: StartInstancesResult
-startInstancesResult = StartInstancesResult
+startInstancesResponse :: StartInstancesResult
+startInstancesResponse = StartInstancesResult
     { _sirStartingInstances = mempty
     }
 

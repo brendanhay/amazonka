@@ -32,7 +32,7 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
     -- * Request
       PurchaseReservedNodeOfferingMessage
     -- ** Request constructor
-    , purchaseReservedNodeOfferingMessage
+    , purchaseReservedNodeOffering
     -- ** Request lenses
     , prnomNodeCount
     , prnomReservedNodeOfferingId
@@ -40,7 +40,7 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
     -- * Response
     , PurchaseReservedNodeOfferingResult
     -- ** Response constructor
-    , purchaseReservedNodeOfferingResult
+    , purchaseReservedNodeOfferingResponse
     -- ** Response lenses
     , prnorReservedNode
     ) where
@@ -62,9 +62,9 @@ data PurchaseReservedNodeOfferingMessage = PurchaseReservedNodeOfferingMessage
 --
 -- * 'prnomReservedNodeOfferingId' @::@ 'Text'
 --
-purchaseReservedNodeOfferingMessage :: Text -- ^ 'prnomReservedNodeOfferingId'
-                                    -> PurchaseReservedNodeOfferingMessage
-purchaseReservedNodeOfferingMessage p1 = PurchaseReservedNodeOfferingMessage
+purchaseReservedNodeOffering :: Text -- ^ 'prnomReservedNodeOfferingId'
+                             -> PurchaseReservedNodeOfferingMessage
+purchaseReservedNodeOffering p1 = PurchaseReservedNodeOfferingMessage
     { _prnomReservedNodeOfferingId = p1
     , _prnomNodeCount              = Nothing
     }
@@ -94,8 +94,8 @@ newtype PurchaseReservedNodeOfferingResult = PurchaseReservedNodeOfferingResult
 --
 -- * 'prnorReservedNode' @::@ 'Maybe' 'ReservedNode'
 --
-purchaseReservedNodeOfferingResult :: PurchaseReservedNodeOfferingResult
-purchaseReservedNodeOfferingResult = PurchaseReservedNodeOfferingResult
+purchaseReservedNodeOfferingResponse :: PurchaseReservedNodeOfferingResult
+purchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResult
     { _prnorReservedNode = Nothing
     }
 

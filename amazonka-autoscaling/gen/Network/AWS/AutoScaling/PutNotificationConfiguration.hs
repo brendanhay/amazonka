@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.PutNotificationConfiguration
     -- * Request
       PutNotificationConfigurationType
     -- ** Request constructor
-    , putNotificationConfigurationType
+    , putNotificationConfiguration
     -- ** Request lenses
     , pnctAutoScalingGroupName
     , pnctNotificationTypes
@@ -63,10 +63,10 @@ data PutNotificationConfigurationType = PutNotificationConfigurationType
 --
 -- * 'pnctTopicARN' @::@ 'Text'
 --
-putNotificationConfigurationType :: Text -- ^ 'pnctAutoScalingGroupName'
-                                 -> Text -- ^ 'pnctTopicARN'
-                                 -> PutNotificationConfigurationType
-putNotificationConfigurationType p1 p2 = PutNotificationConfigurationType
+putNotificationConfiguration :: Text -- ^ 'pnctAutoScalingGroupName'
+                             -> Text -- ^ 'pnctTopicARN'
+                             -> PutNotificationConfigurationType
+putNotificationConfiguration p1 p2 = PutNotificationConfigurationType
     { _pnctAutoScalingGroupName = p1
     , _pnctTopicARN             = p2
     , _pnctNotificationTypes    = mempty

@@ -30,7 +30,7 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     -- * Request
       CreateConfigurationTemplateMessage
     -- ** Request constructor
-    , createConfigurationTemplateMessage
+    , createConfigurationTemplate
     -- ** Request lenses
     , cctmApplicationName
     , cctmDescription
@@ -88,10 +88,10 @@ data CreateConfigurationTemplateMessage = CreateConfigurationTemplateMessage
 --
 -- * 'cctmTemplateName' @::@ 'Text'
 --
-createConfigurationTemplateMessage :: Text -- ^ 'cctmApplicationName'
-                                   -> Text -- ^ 'cctmTemplateName'
-                                   -> CreateConfigurationTemplateMessage
-createConfigurationTemplateMessage p1 p2 = CreateConfigurationTemplateMessage
+createConfigurationTemplate :: Text -- ^ 'cctmApplicationName'
+                            -> Text -- ^ 'cctmTemplateName'
+                            -> CreateConfigurationTemplateMessage
+createConfigurationTemplate p1 p2 = CreateConfigurationTemplateMessage
     { _cctmApplicationName     = p1
     , _cctmTemplateName        = p2
     , _cctmSolutionStackName   = Nothing

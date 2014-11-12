@@ -41,7 +41,7 @@ module Network.AWS.SimpleDB.GetAttributes
     -- * Response
     , GetAttributesResult
     -- ** Response constructor
-    , getAttributesResult
+    , getAttributesResponse
     -- ** Response lenses
     , garAttributes
     ) where
@@ -120,8 +120,8 @@ instance IsList GetAttributesResult where
 --
 -- * 'garAttributes' @::@ ['Attribute']
 --
-getAttributesResult :: GetAttributesResult
-getAttributesResult = GetAttributesResult
+getAttributesResponse :: GetAttributesResult
+getAttributesResponse = GetAttributesResult
     { _garAttributes = mempty
     }
 

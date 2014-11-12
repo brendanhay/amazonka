@@ -27,7 +27,7 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     -- * Request
       AddSourceIdentifierToSubscriptionMessage
     -- ** Request constructor
-    , addSourceIdentifierToSubscriptionMessage
+    , addSourceIdentifierToSubscription
     -- ** Request lenses
     , asitsmSourceIdentifier
     , asitsmSubscriptionName
@@ -35,7 +35,7 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     -- * Response
     , AddSourceIdentifierToSubscriptionResult
     -- ** Response constructor
-    , addSourceIdentifierToSubscriptionResult
+    , addSourceIdentifierToSubscriptionResponse
     -- ** Response lenses
     , asitsrEventSubscription
     ) where
@@ -57,10 +57,10 @@ data AddSourceIdentifierToSubscriptionMessage = AddSourceIdentifierToSubscriptio
 --
 -- * 'asitsmSubscriptionName' @::@ 'Text'
 --
-addSourceIdentifierToSubscriptionMessage :: Text -- ^ 'asitsmSubscriptionName'
-                                         -> Text -- ^ 'asitsmSourceIdentifier'
-                                         -> AddSourceIdentifierToSubscriptionMessage
-addSourceIdentifierToSubscriptionMessage p1 p2 = AddSourceIdentifierToSubscriptionMessage
+addSourceIdentifierToSubscription :: Text -- ^ 'asitsmSubscriptionName'
+                                  -> Text -- ^ 'asitsmSourceIdentifier'
+                                  -> AddSourceIdentifierToSubscriptionMessage
+addSourceIdentifierToSubscription p1 p2 = AddSourceIdentifierToSubscriptionMessage
     { _asitsmSubscriptionName = p1
     , _asitsmSourceIdentifier = p2
     }
@@ -99,8 +99,8 @@ newtype AddSourceIdentifierToSubscriptionResult = AddSourceIdentifierToSubscript
 --
 -- * 'asitsrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-addSourceIdentifierToSubscriptionResult :: AddSourceIdentifierToSubscriptionResult
-addSourceIdentifierToSubscriptionResult = AddSourceIdentifierToSubscriptionResult
+addSourceIdentifierToSubscriptionResponse :: AddSourceIdentifierToSubscriptionResult
+addSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResult
     { _asitsrEventSubscription = Nothing
     }
 

@@ -26,7 +26,7 @@ module Network.AWS.RDS.CopyDBParameterGroup
     -- * Request
       CopyDBParameterGroupMessage
     -- ** Request constructor
-    , copyDBParameterGroupMessage
+    , copyDBParameterGroup
     -- ** Request lenses
     , cdbpgm1SourceDBParameterGroupIdentifier
     , cdbpgm1Tags
@@ -36,7 +36,7 @@ module Network.AWS.RDS.CopyDBParameterGroup
     -- * Response
     , CopyDBParameterGroupResult
     -- ** Response constructor
-    , copyDBParameterGroupResult
+    , copyDBParameterGroupResponse
     -- ** Response lenses
     , cdbpgrDBParameterGroup
     ) where
@@ -64,11 +64,11 @@ data CopyDBParameterGroupMessage = CopyDBParameterGroupMessage
 --
 -- * 'cdbpgm1TargetDBParameterGroupIdentifier' @::@ 'Text'
 --
-copyDBParameterGroupMessage :: Text -- ^ 'cdbpgm1SourceDBParameterGroupIdentifier'
-                            -> Text -- ^ 'cdbpgm1TargetDBParameterGroupIdentifier'
-                            -> Text -- ^ 'cdbpgm1TargetDBParameterGroupDescription'
-                            -> CopyDBParameterGroupMessage
-copyDBParameterGroupMessage p1 p2 p3 = CopyDBParameterGroupMessage
+copyDBParameterGroup :: Text -- ^ 'cdbpgm1SourceDBParameterGroupIdentifier'
+                     -> Text -- ^ 'cdbpgm1TargetDBParameterGroupIdentifier'
+                     -> Text -- ^ 'cdbpgm1TargetDBParameterGroupDescription'
+                     -> CopyDBParameterGroupMessage
+copyDBParameterGroup p1 p2 p3 = CopyDBParameterGroupMessage
     { _cdbpgm1SourceDBParameterGroupIdentifier  = p1
     , _cdbpgm1TargetDBParameterGroupIdentifier  = p2
     , _cdbpgm1TargetDBParameterGroupDescription = p3
@@ -120,8 +120,8 @@ newtype CopyDBParameterGroupResult = CopyDBParameterGroupResult
 --
 -- * 'cdbpgrDBParameterGroup' @::@ 'Maybe' 'DBParameterGroup'
 --
-copyDBParameterGroupResult :: CopyDBParameterGroupResult
-copyDBParameterGroupResult = CopyDBParameterGroupResult
+copyDBParameterGroupResponse :: CopyDBParameterGroupResult
+copyDBParameterGroupResponse = CopyDBParameterGroupResult
     { _cdbpgrDBParameterGroup = Nothing
     }
 

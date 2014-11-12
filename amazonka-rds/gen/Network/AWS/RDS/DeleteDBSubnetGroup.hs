@@ -26,7 +26,7 @@ module Network.AWS.RDS.DeleteDBSubnetGroup
     -- * Request
       DeleteDBSubnetGroupMessage
     -- ** Request constructor
-    , deleteDBSubnetGroupMessage
+    , deleteDBSubnetGroup
     -- ** Request lenses
     , ddbsgm1DBSubnetGroupName
 
@@ -50,9 +50,9 @@ newtype DeleteDBSubnetGroupMessage = DeleteDBSubnetGroupMessage
 --
 -- * 'ddbsgm1DBSubnetGroupName' @::@ 'Text'
 --
-deleteDBSubnetGroupMessage :: Text -- ^ 'ddbsgm1DBSubnetGroupName'
-                           -> DeleteDBSubnetGroupMessage
-deleteDBSubnetGroupMessage p1 = DeleteDBSubnetGroupMessage
+deleteDBSubnetGroup :: Text -- ^ 'ddbsgm1DBSubnetGroupName'
+                    -> DeleteDBSubnetGroupMessage
+deleteDBSubnetGroup p1 = DeleteDBSubnetGroupMessage
     { _ddbsgm1DBSubnetGroupName = p1
     }
 

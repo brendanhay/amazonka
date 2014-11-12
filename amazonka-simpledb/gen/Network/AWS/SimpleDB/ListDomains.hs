@@ -39,7 +39,7 @@ module Network.AWS.SimpleDB.ListDomains
     -- * Response
     , ListDomainsResult
     -- ** Response constructor
-    , listDomainsResult
+    , listDomainsResponse
     -- ** Response lenses
     , ldrDomainNames
     , ldrNextToken
@@ -97,8 +97,8 @@ data ListDomainsResult = ListDomainsResult
 --
 -- * 'ldrNextToken' @::@ 'Maybe' 'Text'
 --
-listDomainsResult :: ListDomainsResult
-listDomainsResult = ListDomainsResult
+listDomainsResponse :: ListDomainsResult
+listDomainsResponse = ListDomainsResult
     { _ldrDomainNames = mempty
     , _ldrNextToken   = Nothing
     }

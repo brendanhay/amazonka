@@ -26,7 +26,7 @@ module Network.AWS.Redshift.DeleteClusterParameterGroup
     -- * Request
       DeleteClusterParameterGroupMessage
     -- ** Request constructor
-    , deleteClusterParameterGroupMessage
+    , deleteClusterParameterGroup
     -- ** Request lenses
     , dcpgmParameterGroupName
 
@@ -50,9 +50,9 @@ newtype DeleteClusterParameterGroupMessage = DeleteClusterParameterGroupMessage
 --
 -- * 'dcpgmParameterGroupName' @::@ 'Text'
 --
-deleteClusterParameterGroupMessage :: Text -- ^ 'dcpgmParameterGroupName'
-                                   -> DeleteClusterParameterGroupMessage
-deleteClusterParameterGroupMessage p1 = DeleteClusterParameterGroupMessage
+deleteClusterParameterGroup :: Text -- ^ 'dcpgmParameterGroupName'
+                            -> DeleteClusterParameterGroupMessage
+deleteClusterParameterGroup p1 = DeleteClusterParameterGroupMessage
     { _dcpgmParameterGroupName = p1
     }
 

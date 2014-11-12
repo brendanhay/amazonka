@@ -28,7 +28,7 @@ module Network.AWS.Redshift.DeleteClusterSecurityGroup
     -- * Request
       DeleteClusterSecurityGroupMessage
     -- ** Request constructor
-    , deleteClusterSecurityGroupMessage
+    , deleteClusterSecurityGroup
     -- ** Request lenses
     , dcsgmClusterSecurityGroupName
 
@@ -52,9 +52,9 @@ newtype DeleteClusterSecurityGroupMessage = DeleteClusterSecurityGroupMessage
 --
 -- * 'dcsgmClusterSecurityGroupName' @::@ 'Text'
 --
-deleteClusterSecurityGroupMessage :: Text -- ^ 'dcsgmClusterSecurityGroupName'
-                                  -> DeleteClusterSecurityGroupMessage
-deleteClusterSecurityGroupMessage p1 = DeleteClusterSecurityGroupMessage
+deleteClusterSecurityGroup :: Text -- ^ 'dcsgmClusterSecurityGroupName'
+                           -> DeleteClusterSecurityGroupMessage
+deleteClusterSecurityGroup p1 = DeleteClusterSecurityGroupMessage
     { _dcsgmClusterSecurityGroupName = p1
     }
 

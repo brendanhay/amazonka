@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribePlacementGroups
     -- * Response
     , DescribePlacementGroupsResult
     -- ** Response constructor
-    , describePlacementGroupsResult
+    , describePlacementGroupsResponse
     -- ** Response lenses
     , dpgrPlacementGroups
     ) where
@@ -104,8 +104,8 @@ instance IsList DescribePlacementGroupsResult where
 --
 -- * 'dpgrPlacementGroups' @::@ ['PlacementGroup']
 --
-describePlacementGroupsResult :: DescribePlacementGroupsResult
-describePlacementGroupsResult = DescribePlacementGroupsResult
+describePlacementGroupsResponse :: DescribePlacementGroupsResult
+describePlacementGroupsResponse = DescribePlacementGroupsResult
     { _dpgrPlacementGroups = mempty
     }
 

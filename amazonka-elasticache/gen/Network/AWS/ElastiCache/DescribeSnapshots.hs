@@ -29,7 +29,7 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     -- * Request
       DescribeSnapshotsMessage
     -- ** Request constructor
-    , describeSnapshotsMessage
+    , describeSnapshots
     -- ** Request lenses
     , dsm1CacheClusterId
     , dsm1Marker
@@ -40,7 +40,7 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     -- * Response
     , DescribeSnapshotsListMessage
     -- ** Response constructor
-    , describeSnapshotsListMessage
+    , describeSnapshotsResponse
     -- ** Response lenses
     , dslmMarker
     , dslmSnapshots
@@ -72,8 +72,8 @@ data DescribeSnapshotsMessage = DescribeSnapshotsMessage
 --
 -- * 'dsm1SnapshotSource' @::@ 'Maybe' 'Text'
 --
-describeSnapshotsMessage :: DescribeSnapshotsMessage
-describeSnapshotsMessage = DescribeSnapshotsMessage
+describeSnapshots :: DescribeSnapshotsMessage
+describeSnapshots = DescribeSnapshotsMessage
     { _dsm1CacheClusterId = Nothing
     , _dsm1SnapshotName   = Nothing
     , _dsm1SnapshotSource = Nothing
@@ -132,8 +132,8 @@ data DescribeSnapshotsListMessage = DescribeSnapshotsListMessage
 --
 -- * 'dslmSnapshots' @::@ ['Snapshot']
 --
-describeSnapshotsListMessage :: DescribeSnapshotsListMessage
-describeSnapshotsListMessage = DescribeSnapshotsListMessage
+describeSnapshotsResponse :: DescribeSnapshotsListMessage
+describeSnapshotsResponse = DescribeSnapshotsListMessage
     { _dslmMarker    = Nothing
     , _dslmSnapshots = mempty
     }

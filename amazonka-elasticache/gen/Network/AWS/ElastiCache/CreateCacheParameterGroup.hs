@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     -- * Request
       CreateCacheParameterGroupMessage
     -- ** Request constructor
-    , createCacheParameterGroupMessage
+    , createCacheParameterGroup
     -- ** Request lenses
     , ccpgmCacheParameterGroupFamily
     , ccpgmCacheParameterGroupName
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     -- * Response
     , CreateCacheParameterGroupResult
     -- ** Response constructor
-    , createCacheParameterGroupResult
+    , createCacheParameterGroupResponse
     -- ** Response lenses
     , ccpgrCacheParameterGroup
     ) where
@@ -62,11 +62,11 @@ data CreateCacheParameterGroupMessage = CreateCacheParameterGroupMessage
 --
 -- * 'ccpgmDescription' @::@ 'Text'
 --
-createCacheParameterGroupMessage :: Text -- ^ 'ccpgmCacheParameterGroupName'
-                                 -> Text -- ^ 'ccpgmCacheParameterGroupFamily'
-                                 -> Text -- ^ 'ccpgmDescription'
-                                 -> CreateCacheParameterGroupMessage
-createCacheParameterGroupMessage p1 p2 p3 = CreateCacheParameterGroupMessage
+createCacheParameterGroup :: Text -- ^ 'ccpgmCacheParameterGroupName'
+                          -> Text -- ^ 'ccpgmCacheParameterGroupFamily'
+                          -> Text -- ^ 'ccpgmDescription'
+                          -> CreateCacheParameterGroupMessage
+createCacheParameterGroup p1 p2 p3 = CreateCacheParameterGroupMessage
     { _ccpgmCacheParameterGroupName   = p1
     , _ccpgmCacheParameterGroupFamily = p2
     , _ccpgmDescription               = p3
@@ -104,8 +104,8 @@ newtype CreateCacheParameterGroupResult = CreateCacheParameterGroupResult
 --
 -- * 'ccpgrCacheParameterGroup' @::@ 'Maybe' 'CacheParameterGroup'
 --
-createCacheParameterGroupResult :: CreateCacheParameterGroupResult
-createCacheParameterGroupResult = CreateCacheParameterGroupResult
+createCacheParameterGroupResponse :: CreateCacheParameterGroupResult
+createCacheParameterGroupResponse = CreateCacheParameterGroupResult
     { _ccpgrCacheParameterGroup = Nothing
     }
 

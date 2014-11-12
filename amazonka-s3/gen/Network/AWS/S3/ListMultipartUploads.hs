@@ -39,7 +39,7 @@ module Network.AWS.S3.ListMultipartUploads
     -- * Response
     , ListMultipartUploadsOutput
     -- ** Response constructor
-    , listMultipartUploadsOutput
+    , listMultipartUploadsResponse
     -- ** Response lenses
     , lmuoBucket
     , lmuoCommonPrefixes
@@ -190,8 +190,8 @@ data ListMultipartUploadsOutput = ListMultipartUploadsOutput
 --
 -- * 'lmuoUploads' @::@ ['MultipartUpload']
 --
-listMultipartUploadsOutput :: ListMultipartUploadsOutput
-listMultipartUploadsOutput = ListMultipartUploadsOutput
+listMultipartUploadsResponse :: ListMultipartUploadsOutput
+listMultipartUploadsResponse = ListMultipartUploadsOutput
     { _lmuoBucket             = Nothing
     , _lmuoKeyMarker          = Nothing
     , _lmuoUploadIdMarker     = Nothing

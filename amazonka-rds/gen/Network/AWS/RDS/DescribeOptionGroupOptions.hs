@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     -- * Request
       DescribeOptionGroupOptionsMessage
     -- ** Request constructor
-    , describeOptionGroupOptionsMessage
+    , describeOptionGroupOptions
     -- ** Request lenses
     , dogomEngineName
     , dogomFilters
@@ -37,7 +37,7 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     -- * Response
     , OptionGroupOptionsMessage
     -- ** Response constructor
-    , optionGroupOptionsMessage
+    , describeOptionGroupOptionsResponse
     -- ** Response lenses
     , ogomMarker
     , ogomOptionGroupOptions
@@ -69,9 +69,9 @@ data DescribeOptionGroupOptionsMessage = DescribeOptionGroupOptionsMessage
 --
 -- * 'dogomMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeOptionGroupOptionsMessage :: Text -- ^ 'dogomEngineName'
-                                  -> DescribeOptionGroupOptionsMessage
-describeOptionGroupOptionsMessage p1 = DescribeOptionGroupOptionsMessage
+describeOptionGroupOptions :: Text -- ^ 'dogomEngineName'
+                           -> DescribeOptionGroupOptionsMessage
+describeOptionGroupOptions p1 = DescribeOptionGroupOptionsMessage
     { _dogomEngineName         = p1
     , _dogomMajorEngineVersion = Nothing
     , _dogomFilters            = mempty
@@ -125,8 +125,8 @@ data OptionGroupOptionsMessage = OptionGroupOptionsMessage
 --
 -- * 'ogomOptionGroupOptions' @::@ ['OptionGroupOption']
 --
-optionGroupOptionsMessage :: OptionGroupOptionsMessage
-optionGroupOptionsMessage = OptionGroupOptionsMessage
+describeOptionGroupOptionsResponse :: OptionGroupOptionsMessage
+describeOptionGroupOptionsResponse = OptionGroupOptionsMessage
     { _ogomOptionGroupOptions = mempty
     , _ogomMarker             = Nothing
     }

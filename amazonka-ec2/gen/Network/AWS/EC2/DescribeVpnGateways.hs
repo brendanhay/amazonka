@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeVpnGateways
     -- * Response
     , DescribeVpnGatewaysResult
     -- ** Response constructor
-    , describeVpnGatewaysResult
+    , describeVpnGatewaysResponse
     -- ** Response lenses
     , dvgrVpnGateways
     ) where
@@ -119,8 +119,8 @@ instance IsList DescribeVpnGatewaysResult where
 --
 -- * 'dvgrVpnGateways' @::@ ['VpnGateway']
 --
-describeVpnGatewaysResult :: DescribeVpnGatewaysResult
-describeVpnGatewaysResult = DescribeVpnGatewaysResult
+describeVpnGatewaysResponse :: DescribeVpnGatewaysResult
+describeVpnGatewaysResponse = DescribeVpnGatewaysResult
     { _dvgrVpnGateways = mempty
     }
 

@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeDBParameters
     -- * Request
       DescribeDBParametersMessage
     -- ** Request constructor
-    , describeDBParametersMessage
+    , describeDBParameters
     -- ** Request lenses
     , ddbpmDBParameterGroupName
     , ddbpmFilters
@@ -37,7 +37,7 @@ module Network.AWS.RDS.DescribeDBParameters
     -- * Response
     , DBParameterGroupDetails
     -- ** Response constructor
-    , dbparameterGroupDetails
+    , describeDBParametersResponse
     -- ** Response lenses
     , dbpgdMarker
     , dbpgdParameters
@@ -69,9 +69,9 @@ data DescribeDBParametersMessage = DescribeDBParametersMessage
 --
 -- * 'ddbpmSource' @::@ 'Maybe' 'Text'
 --
-describeDBParametersMessage :: Text -- ^ 'ddbpmDBParameterGroupName'
-                            -> DescribeDBParametersMessage
-describeDBParametersMessage p1 = DescribeDBParametersMessage
+describeDBParameters :: Text -- ^ 'ddbpmDBParameterGroupName'
+                     -> DescribeDBParametersMessage
+describeDBParameters p1 = DescribeDBParametersMessage
     { _ddbpmDBParameterGroupName = p1
     , _ddbpmSource               = Nothing
     , _ddbpmFilters              = mempty
@@ -128,8 +128,8 @@ data DBParameterGroupDetails = DBParameterGroupDetails
 --
 -- * 'dbpgdParameters' @::@ ['Parameter']
 --
-dbparameterGroupDetails :: DBParameterGroupDetails
-dbparameterGroupDetails = DBParameterGroupDetails
+describeDBParametersResponse :: DBParameterGroupDetails
+describeDBParametersResponse = DBParameterGroupDetails
     { _dbpgdParameters = mempty
     , _dbpgdMarker     = Nothing
     }

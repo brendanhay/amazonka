@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeSubnets
     -- * Response
     , DescribeSubnetsResult
     -- ** Response constructor
-    , describeSubnetsResult
+    , describeSubnetsResponse
     -- ** Response lenses
     , dsrSubnets
     ) where
@@ -119,8 +119,8 @@ instance IsList DescribeSubnetsResult where
 --
 -- * 'dsrSubnets' @::@ ['Subnet']
 --
-describeSubnetsResult :: DescribeSubnetsResult
-describeSubnetsResult = DescribeSubnetsResult
+describeSubnetsResponse :: DescribeSubnetsResult
+describeSubnetsResponse = DescribeSubnetsResult
     { _dsrSubnets = mempty
     }
 

@@ -26,7 +26,7 @@ module Network.AWS.AutoScaling.DeletePolicy
     -- * Request
       DeletePolicyType
     -- ** Request constructor
-    , deletePolicyType
+    , deletePolicy
     -- ** Request lenses
     , dpt1AutoScalingGroupName
     , dpt1PolicyName
@@ -54,9 +54,9 @@ data DeletePolicyType = DeletePolicyType
 --
 -- * 'dpt1PolicyName' @::@ 'Text'
 --
-deletePolicyType :: Text -- ^ 'dpt1PolicyName'
-                 -> DeletePolicyType
-deletePolicyType p1 = DeletePolicyType
+deletePolicy :: Text -- ^ 'dpt1PolicyName'
+             -> DeletePolicyType
+deletePolicy p1 = DeletePolicyType
     { _dpt1PolicyName           = p1
     , _dpt1AutoScalingGroupName = Nothing
     }

@@ -26,7 +26,7 @@ module Network.AWS.RDS.DeleteOptionGroup
     -- * Request
       DeleteOptionGroupMessage
     -- ** Request constructor
-    , deleteOptionGroupMessage
+    , deleteOptionGroup
     -- ** Request lenses
     , dogmOptionGroupName
 
@@ -50,9 +50,9 @@ newtype DeleteOptionGroupMessage = DeleteOptionGroupMessage
 --
 -- * 'dogmOptionGroupName' @::@ 'Text'
 --
-deleteOptionGroupMessage :: Text -- ^ 'dogmOptionGroupName'
-                         -> DeleteOptionGroupMessage
-deleteOptionGroupMessage p1 = DeleteOptionGroupMessage
+deleteOptionGroup :: Text -- ^ 'dogmOptionGroupName'
+                  -> DeleteOptionGroupMessage
+deleteOptionGroup p1 = DeleteOptionGroupMessage
     { _dogmOptionGroupName = p1
     }
 

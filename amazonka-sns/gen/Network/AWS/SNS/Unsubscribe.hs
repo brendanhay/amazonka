@@ -32,7 +32,7 @@ module Network.AWS.SNS.Unsubscribe
     -- * Request
       UnsubscribeInput
     -- ** Request constructor
-    , unsubscribeInput
+    , unsubscribe
     -- ** Request lenses
     , uiSubscriptionArn
 
@@ -56,9 +56,9 @@ newtype UnsubscribeInput = UnsubscribeInput
 --
 -- * 'uiSubscriptionArn' @::@ 'Text'
 --
-unsubscribeInput :: Text -- ^ 'uiSubscriptionArn'
-                 -> UnsubscribeInput
-unsubscribeInput p1 = UnsubscribeInput
+unsubscribe :: Text -- ^ 'uiSubscriptionArn'
+            -> UnsubscribeInput
+unsubscribe p1 = UnsubscribeInput
     { _uiSubscriptionArn = p1
     }
 

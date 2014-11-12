@@ -28,7 +28,7 @@ module Network.AWS.ElasticBeanstalk.DeleteApplication
     -- * Request
       DeleteApplicationMessage
     -- ** Request constructor
-    , deleteApplicationMessage
+    , deleteApplication
     -- ** Request lenses
     , damApplicationName
     , damTerminateEnvByForce
@@ -56,9 +56,9 @@ data DeleteApplicationMessage = DeleteApplicationMessage
 --
 -- * 'damTerminateEnvByForce' @::@ 'Maybe' 'Bool'
 --
-deleteApplicationMessage :: Text -- ^ 'damApplicationName'
-                         -> DeleteApplicationMessage
-deleteApplicationMessage p1 = DeleteApplicationMessage
+deleteApplication :: Text -- ^ 'damApplicationName'
+                  -> DeleteApplicationMessage
+deleteApplication p1 = DeleteApplicationMessage
     { _damApplicationName     = p1
     , _damTerminateEnvByForce = Nothing
     }

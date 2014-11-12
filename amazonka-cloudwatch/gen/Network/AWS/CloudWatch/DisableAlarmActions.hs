@@ -28,7 +28,7 @@ module Network.AWS.CloudWatch.DisableAlarmActions
     -- * Request
       DisableAlarmActionsInput
     -- ** Request constructor
-    , disableAlarmActionsInput
+    , disableAlarmActions
     -- ** Request lenses
     , daaiAlarmNames
 
@@ -58,8 +58,8 @@ instance IsList DisableAlarmActionsInput where
 --
 -- * 'daaiAlarmNames' @::@ ['Text']
 --
-disableAlarmActionsInput :: DisableAlarmActionsInput
-disableAlarmActionsInput = DisableAlarmActionsInput
+disableAlarmActions :: DisableAlarmActionsInput
+disableAlarmActions = DisableAlarmActionsInput
     { _daaiAlarmNames = mempty
     }
 

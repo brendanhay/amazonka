@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     -- * Request
       DescribeCacheEngineVersionsMessage
     -- ** Request constructor
-    , describeCacheEngineVersionsMessage
+    , describeCacheEngineVersions
     -- ** Request lenses
     , dcevmCacheParameterGroupFamily
     , dcevmDefaultOnly
@@ -39,7 +39,7 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     -- * Response
     , CacheEngineVersionMessage
     -- ** Response constructor
-    , cacheEngineVersionMessage
+    , describeCacheEngineVersionsResponse
     -- ** Response lenses
     , cevmCacheEngineVersions
     , cevmMarker
@@ -74,8 +74,8 @@ data DescribeCacheEngineVersionsMessage = DescribeCacheEngineVersionsMessage
 --
 -- * 'dcevmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeCacheEngineVersionsMessage :: DescribeCacheEngineVersionsMessage
-describeCacheEngineVersionsMessage = DescribeCacheEngineVersionsMessage
+describeCacheEngineVersions :: DescribeCacheEngineVersionsMessage
+describeCacheEngineVersions = DescribeCacheEngineVersionsMessage
     { _dcevmEngine                    = Nothing
     , _dcevmEngineVersion             = Nothing
     , _dcevmCacheParameterGroupFamily = Nothing
@@ -139,8 +139,8 @@ data CacheEngineVersionMessage = CacheEngineVersionMessage
 --
 -- * 'cevmMarker' @::@ 'Maybe' 'Text'
 --
-cacheEngineVersionMessage :: CacheEngineVersionMessage
-cacheEngineVersionMessage = CacheEngineVersionMessage
+describeCacheEngineVersionsResponse :: CacheEngineVersionMessage
+describeCacheEngineVersionsResponse = CacheEngineVersionMessage
     { _cevmMarker              = Nothing
     , _cevmCacheEngineVersions = mempty
     }

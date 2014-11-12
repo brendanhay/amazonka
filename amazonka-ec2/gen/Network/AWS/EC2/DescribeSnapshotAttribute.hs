@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     -- * Response
     , DescribeSnapshotAttributeResult
     -- ** Response constructor
-    , describeSnapshotAttributeResult
+    , describeSnapshotAttributeResponse
     -- ** Response lenses
     , dsarCreateVolumePermissions
     , dsarProductCodes
@@ -106,8 +106,8 @@ data DescribeSnapshotAttributeResult = DescribeSnapshotAttributeResult
 --
 -- * 'dsarSnapshotId' @::@ 'Maybe' 'Text'
 --
-describeSnapshotAttributeResult :: DescribeSnapshotAttributeResult
-describeSnapshotAttributeResult = DescribeSnapshotAttributeResult
+describeSnapshotAttributeResponse :: DescribeSnapshotAttributeResult
+describeSnapshotAttributeResponse = DescribeSnapshotAttributeResult
     { _dsarSnapshotId              = Nothing
     , _dsarCreateVolumePermissions = mempty
     , _dsarProductCodes            = mempty

@@ -26,7 +26,7 @@ module Network.AWS.ELB.RemoveTags
     -- * Request
       RemoveTagsInput
     -- ** Request constructor
-    , removeTagsInput
+    , removeTags
     -- ** Request lenses
     , rtiLoadBalancerNames
     , rtiTags
@@ -54,9 +54,9 @@ data RemoveTagsInput = RemoveTagsInput
 --
 -- * 'rtiTags' @::@ 'NonEmpty' 'TagKeyOnly'
 --
-removeTagsInput :: NonEmpty TagKeyOnly -- ^ 'rtiTags'
-                -> RemoveTagsInput
-removeTagsInput p1 = RemoveTagsInput
+removeTags :: NonEmpty TagKeyOnly -- ^ 'rtiTags'
+           -> RemoveTagsInput
+removeTags p1 = RemoveTagsInput
     { _rtiTags              = withIso _List1 (const id) p1
     , _rtiLoadBalancerNames = mempty
     }

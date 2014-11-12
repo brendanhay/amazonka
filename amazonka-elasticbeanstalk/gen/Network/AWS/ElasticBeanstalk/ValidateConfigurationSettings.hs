@@ -29,7 +29,7 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     -- * Request
       ValidateConfigurationSettingsMessage
     -- ** Request constructor
-    , validateConfigurationSettingsMessage
+    , validateConfigurationSettings
     -- ** Request lenses
     , vcsmApplicationName
     , vcsmEnvironmentName
@@ -39,7 +39,7 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     -- * Response
     , ConfigurationSettingsValidationMessages
     -- ** Response constructor
-    , configurationSettingsValidationMessages
+    , validateConfigurationSettingsResponse
     -- ** Response lenses
     , csvmMessages
     ) where
@@ -67,9 +67,9 @@ data ValidateConfigurationSettingsMessage = ValidateConfigurationSettingsMessage
 --
 -- * 'vcsmTemplateName' @::@ 'Maybe' 'Text'
 --
-validateConfigurationSettingsMessage :: Text -- ^ 'vcsmApplicationName'
-                                     -> ValidateConfigurationSettingsMessage
-validateConfigurationSettingsMessage p1 = ValidateConfigurationSettingsMessage
+validateConfigurationSettings :: Text -- ^ 'vcsmApplicationName'
+                              -> ValidateConfigurationSettingsMessage
+validateConfigurationSettings p1 = ValidateConfigurationSettingsMessage
     { _vcsmApplicationName = p1
     , _vcsmTemplateName    = Nothing
     , _vcsmEnvironmentName = Nothing
@@ -119,8 +119,8 @@ instance IsList ConfigurationSettingsValidationMessages where
 --
 -- * 'csvmMessages' @::@ ['ValidationMessage']
 --
-configurationSettingsValidationMessages :: ConfigurationSettingsValidationMessages
-configurationSettingsValidationMessages = ConfigurationSettingsValidationMessages
+validateConfigurationSettingsResponse :: ConfigurationSettingsValidationMessages
+validateConfigurationSettingsResponse = ConfigurationSettingsValidationMessages
     { _csvmMessages = mempty
     }
 

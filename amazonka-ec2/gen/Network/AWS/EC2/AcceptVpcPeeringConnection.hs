@@ -37,7 +37,7 @@ module Network.AWS.EC2.AcceptVpcPeeringConnection
     -- * Response
     , AcceptVpcPeeringConnectionResult
     -- ** Response constructor
-    , acceptVpcPeeringConnectionResult
+    , acceptVpcPeeringConnectionResponse
     -- ** Response lenses
     , avpcrVpcPeeringConnection
     ) where
@@ -89,8 +89,8 @@ newtype AcceptVpcPeeringConnectionResult = AcceptVpcPeeringConnectionResult
 --
 -- * 'avpcrVpcPeeringConnection' @::@ 'Maybe' 'VpcPeeringConnection'
 --
-acceptVpcPeeringConnectionResult :: AcceptVpcPeeringConnectionResult
-acceptVpcPeeringConnectionResult = AcceptVpcPeeringConnectionResult
+acceptVpcPeeringConnectionResponse :: AcceptVpcPeeringConnectionResult
+acceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResult
     { _avpcrVpcPeeringConnection = Nothing
     }
 

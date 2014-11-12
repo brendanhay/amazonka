@@ -40,7 +40,7 @@ module Network.AWS.ELB.CreateLoadBalancer
     -- * Request
       CreateAccessPointInput
     -- ** Request constructor
-    , createAccessPointInput
+    , createLoadBalancer
     -- ** Request lenses
     , capiAvailabilityZones
     , capiListeners
@@ -53,7 +53,7 @@ module Network.AWS.ELB.CreateLoadBalancer
     -- * Response
     , CreateAccessPointOutput
     -- ** Response constructor
-    , createAccessPointOutput
+    , createLoadBalancerResponse
     -- ** Response lenses
     , capoDNSName
     ) where
@@ -90,10 +90,10 @@ data CreateAccessPointInput = CreateAccessPointInput
 --
 -- * 'capiTags' @::@ 'NonEmpty' 'Tag'
 --
-createAccessPointInput :: Text -- ^ 'capiLoadBalancerName'
-                       -> NonEmpty Tag -- ^ 'capiTags'
-                       -> CreateAccessPointInput
-createAccessPointInput p1 p2 = CreateAccessPointInput
+createLoadBalancer :: Text -- ^ 'capiLoadBalancerName'
+                   -> NonEmpty Tag -- ^ 'capiTags'
+                   -> CreateAccessPointInput
+createLoadBalancer p1 p2 = CreateAccessPointInput
     { _capiLoadBalancerName  = p1
     , _capiTags              = withIso _List1 (const id) p2
     , _capiListeners         = mempty
@@ -166,8 +166,8 @@ newtype CreateAccessPointOutput = CreateAccessPointOutput
 --
 -- * 'capoDNSName' @::@ 'Maybe' 'Text'
 --
-createAccessPointOutput :: CreateAccessPointOutput
-createAccessPointOutput = CreateAccessPointOutput
+createLoadBalancerResponse :: CreateAccessPointOutput
+createLoadBalancerResponse = CreateAccessPointOutput
     { _capoDNSName = Nothing
     }
 

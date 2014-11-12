@@ -58,7 +58,7 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     -- * Response
     , DescribeSpotPriceHistoryResult
     -- ** Response constructor
-    , describeSpotPriceHistoryResult
+    , describeSpotPriceHistoryResponse
     -- ** Response lenses
     , dsphrNextToken
     , dsphrSpotPriceHistory
@@ -182,8 +182,8 @@ data DescribeSpotPriceHistoryResult = DescribeSpotPriceHistoryResult
 --
 -- * 'dsphrSpotPriceHistory' @::@ ['SpotPrice']
 --
-describeSpotPriceHistoryResult :: DescribeSpotPriceHistoryResult
-describeSpotPriceHistoryResult = DescribeSpotPriceHistoryResult
+describeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResult
+describeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResult
     { _dsphrSpotPriceHistory = mempty
     , _dsphrNextToken        = Nothing
     }

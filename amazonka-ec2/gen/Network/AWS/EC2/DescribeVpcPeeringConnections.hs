@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeVpcPeeringConnections
     -- * Response
     , DescribeVpcPeeringConnectionsResult
     -- ** Response constructor
-    , describeVpcPeeringConnectionsResult
+    , describeVpcPeeringConnectionsResponse
     -- ** Response lenses
     , dvpcrVpcPeeringConnections
     ) where
@@ -122,8 +122,8 @@ instance IsList DescribeVpcPeeringConnectionsResult where
 --
 -- * 'dvpcrVpcPeeringConnections' @::@ ['VpcPeeringConnection']
 --
-describeVpcPeeringConnectionsResult :: DescribeVpcPeeringConnectionsResult
-describeVpcPeeringConnectionsResult = DescribeVpcPeeringConnectionsResult
+describeVpcPeeringConnectionsResponse :: DescribeVpcPeeringConnectionsResult
+describeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResult
     { _dvpcrVpcPeeringConnections = mempty
     }
 

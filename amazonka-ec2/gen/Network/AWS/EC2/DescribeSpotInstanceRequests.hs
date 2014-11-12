@@ -45,7 +45,7 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     -- * Response
     , DescribeSpotInstanceRequestsResult
     -- ** Response constructor
-    , describeSpotInstanceRequestsResult
+    , describeSpotInstanceRequestsResponse
     -- ** Response lenses
     , dsirrSpotInstanceRequests
     ) where
@@ -166,8 +166,8 @@ instance IsList DescribeSpotInstanceRequestsResult where
 --
 -- * 'dsirrSpotInstanceRequests' @::@ ['SpotInstanceRequest']
 --
-describeSpotInstanceRequestsResult :: DescribeSpotInstanceRequestsResult
-describeSpotInstanceRequestsResult = DescribeSpotInstanceRequestsResult
+describeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResult
+describeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResult
     { _dsirrSpotInstanceRequests = mempty
     }
 

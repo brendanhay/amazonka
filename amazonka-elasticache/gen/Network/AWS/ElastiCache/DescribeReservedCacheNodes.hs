@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     -- * Request
       DescribeReservedCacheNodesMessage
     -- ** Request constructor
-    , describeReservedCacheNodesMessage
+    , describeReservedCacheNodes
     -- ** Request lenses
     , drcnmCacheNodeType
     , drcnmDuration
@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodes
     -- * Response
     , ReservedCacheNodeMessage
     -- ** Response constructor
-    , reservedCacheNodeMessage
+    , describeReservedCacheNodesResponse
     -- ** Response lenses
     , rcnmMarker
     , rcnmReservedCacheNodes
@@ -82,8 +82,8 @@ data DescribeReservedCacheNodesMessage = DescribeReservedCacheNodesMessage
 --
 -- * 'drcnmReservedCacheNodesOfferingId' @::@ 'Maybe' 'Text'
 --
-describeReservedCacheNodesMessage :: DescribeReservedCacheNodesMessage
-describeReservedCacheNodesMessage = DescribeReservedCacheNodesMessage
+describeReservedCacheNodes :: DescribeReservedCacheNodesMessage
+describeReservedCacheNodes = DescribeReservedCacheNodesMessage
     { _drcnmReservedCacheNodeId          = Nothing
     , _drcnmReservedCacheNodesOfferingId = Nothing
     , _drcnmCacheNodeType                = Nothing
@@ -165,8 +165,8 @@ data ReservedCacheNodeMessage = ReservedCacheNodeMessage
 --
 -- * 'rcnmReservedCacheNodes' @::@ ['ReservedCacheNode']
 --
-reservedCacheNodeMessage :: ReservedCacheNodeMessage
-reservedCacheNodeMessage = ReservedCacheNodeMessage
+describeReservedCacheNodesResponse :: ReservedCacheNodeMessage
+describeReservedCacheNodesResponse = ReservedCacheNodeMessage
     { _rcnmMarker             = Nothing
     , _rcnmReservedCacheNodes = mempty
     }

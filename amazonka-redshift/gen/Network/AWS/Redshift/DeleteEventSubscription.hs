@@ -26,7 +26,7 @@ module Network.AWS.Redshift.DeleteEventSubscription
     -- * Request
       DeleteEventSubscriptionMessage
     -- ** Request constructor
-    , deleteEventSubscriptionMessage
+    , deleteEventSubscription
     -- ** Request lenses
     , desm1SubscriptionName
 
@@ -50,9 +50,9 @@ newtype DeleteEventSubscriptionMessage = DeleteEventSubscriptionMessage
 --
 -- * 'desm1SubscriptionName' @::@ 'Text'
 --
-deleteEventSubscriptionMessage :: Text -- ^ 'desm1SubscriptionName'
-                               -> DeleteEventSubscriptionMessage
-deleteEventSubscriptionMessage p1 = DeleteEventSubscriptionMessage
+deleteEventSubscription :: Text -- ^ 'desm1SubscriptionName'
+                        -> DeleteEventSubscriptionMessage
+deleteEventSubscription p1 = DeleteEventSubscriptionMessage
     { _desm1SubscriptionName = p1
     }
 

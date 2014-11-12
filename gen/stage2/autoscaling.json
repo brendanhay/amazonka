@@ -4191,7 +4191,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "attachInstancesQuery",
+                "ctor": "attachInstances",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4320,7 +4320,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "completeLifecycleActionType",
+                "ctor": "completeLifecycleAction",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4513,7 +4513,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "createAutoScalingGroupType",
+                "ctor": "createAutoScalingGroup",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5070,7 +5070,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "createLaunchConfigurationType",
+                "ctor": "createLaunchConfiguration",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5663,7 +5663,7 @@
                 "streaming": false,
                 "listElement": "Tag",
                 "fieldPad": 0,
-                "ctor": "createOrUpdateTagsType",
+                "ctor": "createOrUpdateTags",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -5772,7 +5772,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "deleteAutoScalingGroupType",
+                "ctor": "deleteAutoScalingGroup",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5904,7 +5904,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "launchConfigurationNameType",
+                "ctor": "deleteLaunchConfiguration",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -6013,7 +6013,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "deleteLifecycleHookType",
+                "ctor": "deleteLifecycleHook",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6141,7 +6141,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "deleteNotificationConfigurationType",
+                "ctor": "deleteNotificationConfiguration",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6269,7 +6269,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "deletePolicyType",
+                "ctor": "deletePolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6398,7 +6398,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "deleteScheduledActionType",
+                "ctor": "deleteScheduledAction",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6529,7 +6529,7 @@
                 "streaming": false,
                 "listElement": "Tag",
                 "fieldPad": 0,
-                "ctor": "deleteTagsType",
+                "ctor": "deleteTags",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -6610,7 +6610,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 36,
-                "ctor": "describeAccountLimitsAnswer",
+                "ctor": "describeAccountLimitsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -6729,7 +6729,7 @@
                 "streaming": false,
                 "listElement": "AdjustmentType",
                 "fieldPad": 0,
-                "ctor": "describeAdjustmentTypesAnswer",
+                "ctor": "describeAdjustmentTypesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6831,7 +6831,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "autoScalingGroupsType",
+                "ctor": "describeAutoScalingGroupsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -6918,7 +6918,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "autoScalingGroupNamesType",
+                "ctor": "describeAutoScalingGroups",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7050,7 +7050,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "autoScalingInstancesType",
+                "ctor": "describeAutoScalingInstancesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -7137,7 +7137,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 17,
-                "ctor": "describeAutoScalingInstancesType",
+                "ctor": "describeAutoScalingInstances",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7273,7 +7273,7 @@
                 "streaming": false,
                 "listElement": "Text",
                 "fieldPad": 0,
-                "ctor": "describeAutoScalingNotificationTypesAnswer",
+                "ctor": "describeAutoScalingNotificationTypesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7375,7 +7375,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "launchConfigurationsType",
+                "ctor": "describeLaunchConfigurationsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -7462,7 +7462,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "launchConfigurationNamesType",
+                "ctor": "describeLaunchConfigurations",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7598,7 +7598,7 @@
                 "streaming": false,
                 "listElement": "Text",
                 "fieldPad": 0,
-                "ctor": "describeLifecycleHookTypesAnswer",
+                "ctor": "describeLifecycleHookTypesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7703,7 +7703,7 @@
                 "streaming": false,
                 "listElement": "LifecycleHook",
                 "fieldPad": 0,
-                "ctor": "describeLifecycleHooksAnswer",
+                "ctor": "describeLifecycleHooksResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -7776,7 +7776,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "describeLifecycleHooksType",
+                "ctor": "describeLifecycleHooks",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7876,7 +7876,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 19,
-                "ctor": "describeMetricCollectionTypesAnswer",
+                "ctor": "describeMetricCollectionTypesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -7992,7 +7992,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "describeNotificationConfigurationsAnswer",
+                "ctor": "describeNotificationConfigurationsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -8079,7 +8079,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "describeNotificationConfigurationsType",
+                "ctor": "describeNotificationConfigurations",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8211,7 +8211,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 18,
-                "ctor": "policiesType",
+                "ctor": "describePoliciesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -8298,7 +8298,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "describePoliciesType",
+                "ctor": "describePolicies",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8463,7 +8463,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 13,
-                "ctor": "activitiesType",
+                "ctor": "describeScalingActivitiesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -8550,7 +8550,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "describeScalingActivitiesType",
+                "ctor": "describeScalingActivities",
                 "headerPad": 0,
                 "path": [
                     {
@@ -8718,7 +8718,7 @@
                 "streaming": false,
                 "listElement": "ProcessType",
                 "fieldPad": 0,
-                "ctor": "processesType",
+                "ctor": "describeScalingProcessTypesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -8820,7 +8820,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 31,
-                "ctor": "scheduledActionsType",
+                "ctor": "describeScheduledActionsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -8907,7 +8907,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "describeScheduledActionsType",
+                "ctor": "describeScheduledActions",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9138,7 +9138,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 12,
-                "ctor": "tagsType",
+                "ctor": "describeTagsResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -9224,7 +9224,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 14,
-                "ctor": "describeTagsType",
+                "ctor": "describeTags",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9360,7 +9360,7 @@
                 "streaming": false,
                 "listElement": "Text",
                 "fieldPad": 0,
-                "ctor": "describeTerminationPolicyTypesAnswer",
+                "ctor": "describeTerminationPolicyTypesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -9465,7 +9465,7 @@
                 "streaming": false,
                 "listElement": "Activity",
                 "fieldPad": 0,
-                "ctor": "detachInstancesAnswer",
+                "ctor": "detachInstancesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -9538,7 +9538,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 34,
-                "ctor": "detachInstancesQuery",
+                "ctor": "detachInstances",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9700,7 +9700,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "disableMetricsCollectionQuery",
+                "ctor": "disableMetricsCollection",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9829,7 +9829,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "enableMetricsCollectionQuery",
+                "ctor": "enableMetricsCollection",
                 "headerPad": 0,
                 "path": [
                     {
@@ -9965,7 +9965,7 @@
                 "streaming": false,
                 "listElement": "Activity",
                 "fieldPad": 0,
-                "ctor": "enterStandbyAnswer",
+                "ctor": "enterStandbyResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -10038,7 +10038,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 34,
-                "ctor": "enterStandbyQuery",
+                "ctor": "enterStandby",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10200,7 +10200,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "executePolicyType",
+                "ctor": "executePolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10336,7 +10336,7 @@
                 "streaming": false,
                 "listElement": "Activity",
                 "fieldPad": 0,
-                "ctor": "exitStandbyAnswer",
+                "ctor": "exitStandbyResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -10409,7 +10409,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "exitStandbyQuery",
+                "ctor": "exitStandby",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10538,7 +10538,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "putLifecycleHookType",
+                "ctor": "putLifecycleHook",
                 "headerPad": 0,
                 "path": [
                     {
@@ -10865,7 +10865,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "putNotificationConfigurationType",
+                "ctor": "putNotificationConfiguration",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11001,7 +11001,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "policyARNType",
+                "ctor": "putScalingPolicyResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -11074,7 +11074,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "putScalingPolicyType",
+                "ctor": "putScalingPolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11335,7 +11335,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "putScheduledUpdateGroupActionType",
+                "ctor": "putScheduledUpdateGroupAction",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11695,7 +11695,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "recordLifecycleActionHeartbeatType",
+                "ctor": "recordLifecycleActionHeartbeat",
                 "headerPad": 0,
                 "path": [
                     {
@@ -11985,7 +11985,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "setDesiredCapacityType",
+                "ctor": "setDesiredCapacity",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12147,7 +12147,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "setInstanceHealthQuery",
+                "ctor": "setInstanceHealth",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12410,7 +12410,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "activityType",
+                "ctor": "terminateInstanceInAutoScalingGroupResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -12483,7 +12483,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 38,
-                "ctor": "terminateInstanceInAutoScalingGroupType",
+                "ctor": "terminateInstanceInAutoScalingGroup",
                 "headerPad": 0,
                 "path": [
                     {
@@ -12611,7 +12611,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "updateAutoScalingGroupType",
+                "ctor": "updateAutoScalingGroup",
                 "headerPad": 0,
                 "path": [
                     {

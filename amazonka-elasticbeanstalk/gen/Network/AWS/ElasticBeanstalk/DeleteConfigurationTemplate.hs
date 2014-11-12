@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     -- * Request
       DeleteConfigurationTemplateMessage
     -- ** Request constructor
-    , deleteConfigurationTemplateMessage
+    , deleteConfigurationTemplate
     -- ** Request lenses
     , dctmApplicationName
     , dctmTemplateName
@@ -54,10 +54,10 @@ data DeleteConfigurationTemplateMessage = DeleteConfigurationTemplateMessage
 --
 -- * 'dctmTemplateName' @::@ 'Text'
 --
-deleteConfigurationTemplateMessage :: Text -- ^ 'dctmApplicationName'
-                                   -> Text -- ^ 'dctmTemplateName'
-                                   -> DeleteConfigurationTemplateMessage
-deleteConfigurationTemplateMessage p1 p2 = DeleteConfigurationTemplateMessage
+deleteConfigurationTemplate :: Text -- ^ 'dctmApplicationName'
+                            -> Text -- ^ 'dctmTemplateName'
+                            -> DeleteConfigurationTemplateMessage
+deleteConfigurationTemplate p1 p2 = DeleteConfigurationTemplateMessage
     { _dctmApplicationName = p1
     , _dctmTemplateName    = p2
     }

@@ -84,7 +84,7 @@ module Network.AWS.EC2.DescribeInstanceStatus
     -- * Response
     , DescribeInstanceStatusResult
     -- ** Response constructor
-    , describeInstanceStatusResult
+    , describeInstanceStatusResponse
     -- ** Response lenses
     , disrInstanceStatuses
     , disrNextToken
@@ -198,8 +198,8 @@ data DescribeInstanceStatusResult = DescribeInstanceStatusResult
 --
 -- * 'disrNextToken' @::@ 'Maybe' 'Text'
 --
-describeInstanceStatusResult :: DescribeInstanceStatusResult
-describeInstanceStatusResult = DescribeInstanceStatusResult
+describeInstanceStatusResponse :: DescribeInstanceStatusResult
+describeInstanceStatusResponse = DescribeInstanceStatusResult
     { _disrInstanceStatuses = mempty
     , _disrNextToken        = Nothing
     }

@@ -28,7 +28,7 @@ module Network.AWS.Redshift.ModifyClusterParameterGroup
     -- * Request
       ModifyClusterParameterGroupMessage
     -- ** Request constructor
-    , modifyClusterParameterGroupMessage
+    , modifyClusterParameterGroup
     -- ** Request lenses
     , mcpgmParameterGroupName
     , mcpgmParameters
@@ -59,9 +59,9 @@ data ModifyClusterParameterGroupMessage = ModifyClusterParameterGroupMessage
 --
 -- * 'mcpgmParameters' @::@ ['Parameter']
 --
-modifyClusterParameterGroupMessage :: Text -- ^ 'mcpgmParameterGroupName'
-                                   -> ModifyClusterParameterGroupMessage
-modifyClusterParameterGroupMessage p1 = ModifyClusterParameterGroupMessage
+modifyClusterParameterGroup :: Text -- ^ 'mcpgmParameterGroupName'
+                            -> ModifyClusterParameterGroupMessage
+modifyClusterParameterGroup p1 = ModifyClusterParameterGroupMessage
     { _mcpgmParameterGroupName = p1
     , _mcpgmParameters         = mempty
     }

@@ -38,7 +38,7 @@ module Network.AWS.AutoScaling.PutLifecycleHook
     -- * Request
       PutLifecycleHookType
     -- ** Request constructor
-    , putLifecycleHookType
+    , putLifecycleHook
     -- ** Request lenses
     , plhtAutoScalingGroupName
     , plhtDefaultResult
@@ -90,10 +90,10 @@ data PutLifecycleHookType = PutLifecycleHookType
 --
 -- * 'plhtRoleARN' @::@ 'Maybe' 'Text'
 --
-putLifecycleHookType :: Text -- ^ 'plhtLifecycleHookName'
-                     -> Text -- ^ 'plhtAutoScalingGroupName'
-                     -> PutLifecycleHookType
-putLifecycleHookType p1 p2 = PutLifecycleHookType
+putLifecycleHook :: Text -- ^ 'plhtLifecycleHookName'
+                 -> Text -- ^ 'plhtAutoScalingGroupName'
+                 -> PutLifecycleHookType
+putLifecycleHook p1 p2 = PutLifecycleHookType
     { _plhtLifecycleHookName     = p1
     , _plhtAutoScalingGroupName  = p2
     , _plhtLifecycleTransition   = Nothing

@@ -38,7 +38,7 @@ module Network.AWS.EC2.RejectVpcPeeringConnection
     -- * Response
     , RejectVpcPeeringConnectionResult
     -- ** Response constructor
-    , rejectVpcPeeringConnectionResult
+    , rejectVpcPeeringConnectionResponse
     -- ** Response lenses
     , rvpcrReturn
     ) where
@@ -91,8 +91,8 @@ newtype RejectVpcPeeringConnectionResult = RejectVpcPeeringConnectionResult
 --
 -- * 'rvpcrReturn' @::@ 'Maybe' 'Bool'
 --
-rejectVpcPeeringConnectionResult :: RejectVpcPeeringConnectionResult
-rejectVpcPeeringConnectionResult = RejectVpcPeeringConnectionResult
+rejectVpcPeeringConnectionResponse :: RejectVpcPeeringConnectionResult
+rejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResult
     { _rvpcrReturn = Nothing
     }
 

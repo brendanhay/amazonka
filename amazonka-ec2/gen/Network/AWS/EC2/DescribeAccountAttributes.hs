@@ -34,7 +34,7 @@ module Network.AWS.EC2.DescribeAccountAttributes
     -- * Response
     , DescribeAccountAttributesResult
     -- ** Response constructor
-    , describeAccountAttributesResult
+    , describeAccountAttributesResponse
     -- ** Response lenses
     , daarAccountAttributes
     ) where
@@ -91,8 +91,8 @@ instance IsList DescribeAccountAttributesResult where
 --
 -- * 'daarAccountAttributes' @::@ ['AccountAttribute']
 --
-describeAccountAttributesResult :: DescribeAccountAttributesResult
-describeAccountAttributesResult = DescribeAccountAttributesResult
+describeAccountAttributesResponse :: DescribeAccountAttributesResult
+describeAccountAttributesResponse = DescribeAccountAttributesResult
     { _daarAccountAttributes = mempty
     }
 

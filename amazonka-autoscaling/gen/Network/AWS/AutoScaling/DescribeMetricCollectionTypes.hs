@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     -- * Response
     , DescribeMetricCollectionTypesAnswer
     -- ** Response constructor
-    , describeMetricCollectionTypesAnswer
+    , describeMetricCollectionTypesResponse
     -- ** Response lenses
     , dmctaGranularities
     , dmctaMetrics
@@ -67,8 +67,8 @@ data DescribeMetricCollectionTypesAnswer = DescribeMetricCollectionTypesAnswer
 --
 -- * 'dmctaMetrics' @::@ ['MetricCollectionType']
 --
-describeMetricCollectionTypesAnswer :: DescribeMetricCollectionTypesAnswer
-describeMetricCollectionTypesAnswer = DescribeMetricCollectionTypesAnswer
+describeMetricCollectionTypesResponse :: DescribeMetricCollectionTypesAnswer
+describeMetricCollectionTypesResponse = DescribeMetricCollectionTypesAnswer
     { _dmctaMetrics       = mempty
     , _dmctaGranularities = mempty
     }

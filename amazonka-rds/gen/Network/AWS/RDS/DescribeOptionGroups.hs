@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeOptionGroups
     -- * Request
       DescribeOptionGroupsMessage
     -- ** Request constructor
-    , describeOptionGroupsMessage
+    , describeOptionGroups
     -- ** Request lenses
     , dogm1EngineName
     , dogm1Filters
@@ -38,7 +38,7 @@ module Network.AWS.RDS.DescribeOptionGroups
     -- * Response
     , OptionGroups
     -- ** Response constructor
-    , optionGroups
+    , describeOptionGroupsResponse
     -- ** Response lenses
     , ogMarker
     , ogOptionGroupsList
@@ -73,8 +73,8 @@ data DescribeOptionGroupsMessage = DescribeOptionGroupsMessage
 --
 -- * 'dogm1OptionGroupName' @::@ 'Maybe' 'Text'
 --
-describeOptionGroupsMessage :: DescribeOptionGroupsMessage
-describeOptionGroupsMessage = DescribeOptionGroupsMessage
+describeOptionGroups :: DescribeOptionGroupsMessage
+describeOptionGroups = DescribeOptionGroupsMessage
     { _dogm1OptionGroupName    = Nothing
     , _dogm1Filters            = mempty
     , _dogm1Marker             = Nothing
@@ -136,8 +136,8 @@ data OptionGroups = OptionGroups
 --
 -- * 'ogOptionGroupsList' @::@ ['OptionGroup']
 --
-optionGroups :: OptionGroups
-optionGroups = OptionGroups
+describeOptionGroupsResponse :: OptionGroups
+describeOptionGroupsResponse = OptionGroups
     { _ogOptionGroupsList = mempty
     , _ogMarker           = Nothing
     }

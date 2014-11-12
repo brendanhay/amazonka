@@ -48,7 +48,7 @@ module Network.AWS.SQS.SendMessageBatch
     -- * Response
     , SendMessageBatchResult
     -- ** Response constructor
-    , sendMessageBatchResult
+    , sendMessageBatchResponse
     -- ** Response lenses
     , smbrFailed
     , smbrSuccessful
@@ -104,8 +104,8 @@ data SendMessageBatchResult = SendMessageBatchResult
 --
 -- * 'smbrSuccessful' @::@ ['SendMessageBatchResultEntry']
 --
-sendMessageBatchResult :: SendMessageBatchResult
-sendMessageBatchResult = SendMessageBatchResult
+sendMessageBatchResponse :: SendMessageBatchResult
+sendMessageBatchResponse = SendMessageBatchResult
     { _smbrSuccessful = mempty
     , _smbrFailed     = mempty
     }

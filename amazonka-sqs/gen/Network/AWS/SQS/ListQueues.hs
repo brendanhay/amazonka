@@ -36,7 +36,7 @@ module Network.AWS.SQS.ListQueues
     -- * Response
     , ListQueuesResult
     -- ** Response constructor
-    , listQueuesResult
+    , listQueuesResponse
     -- ** Response lenses
     , lqrQueueUrls
     ) where
@@ -87,8 +87,8 @@ instance IsList ListQueuesResult where
 --
 -- * 'lqrQueueUrls' @::@ ['Text']
 --
-listQueuesResult :: ListQueuesResult
-listQueuesResult = ListQueuesResult
+listQueuesResponse :: ListQueuesResult
+listQueuesResponse = ListQueuesResult
     { _lqrQueueUrls = mempty
     }
 

@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.ListStackResources
     -- * Request
       ListStackResourcesInput
     -- ** Request constructor
-    , listStackResourcesInput
+    , listStackResources
     -- ** Request lenses
     , lsriNextToken
     , lsriStackName
@@ -36,7 +36,7 @@ module Network.AWS.CloudFormation.ListStackResources
     -- * Response
     , ListStackResourcesOutput
     -- ** Response constructor
-    , listStackResourcesOutput
+    , listStackResourcesResponse
     -- ** Response lenses
     , lsroNextToken
     , lsroStackResourceSummaries
@@ -59,9 +59,9 @@ data ListStackResourcesInput = ListStackResourcesInput
 --
 -- * 'lsriStackName' @::@ 'Text'
 --
-listStackResourcesInput :: Text -- ^ 'lsriStackName'
-                        -> ListStackResourcesInput
-listStackResourcesInput p1 = ListStackResourcesInput
+listStackResources :: Text -- ^ 'lsriStackName'
+                   -> ListStackResourcesInput
+listStackResources p1 = ListStackResourcesInput
     { _lsriStackName = p1
     , _lsriNextToken = Nothing
     }
@@ -96,8 +96,8 @@ data ListStackResourcesOutput = ListStackResourcesOutput
 --
 -- * 'lsroStackResourceSummaries' @::@ ['StackResourceSummary']
 --
-listStackResourcesOutput :: ListStackResourcesOutput
-listStackResourcesOutput = ListStackResourcesOutput
+listStackResourcesResponse :: ListStackResourcesOutput
+listStackResourcesResponse = ListStackResourcesOutput
     { _lsroStackResourceSummaries = mempty
     , _lsroNextToken              = Nothing
     }

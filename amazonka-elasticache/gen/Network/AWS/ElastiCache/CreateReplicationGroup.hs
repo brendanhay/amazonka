@@ -34,7 +34,7 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     -- * Request
       CreateReplicationGroupMessage
     -- ** Request constructor
-    , createReplicationGroupMessage
+    , createReplicationGroup
     -- ** Request lenses
     , crgmAutoMinorVersionUpgrade
     , crgmAutomaticFailoverEnabled
@@ -61,7 +61,7 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
     -- * Response
     , CreateReplicationGroupResult
     -- ** Response constructor
-    , createReplicationGroupResult
+    , createReplicationGroupResponse
     -- ** Response lenses
     , crgrReplicationGroup
     ) where
@@ -140,10 +140,10 @@ data CreateReplicationGroupMessage = CreateReplicationGroupMessage
 --
 -- * 'crgmSnapshotWindow' @::@ 'Maybe' 'Text'
 --
-createReplicationGroupMessage :: Text -- ^ 'crgmReplicationGroupId'
-                              -> Text -- ^ 'crgmReplicationGroupDescription'
-                              -> CreateReplicationGroupMessage
-createReplicationGroupMessage p1 p2 = CreateReplicationGroupMessage
+createReplicationGroup :: Text -- ^ 'crgmReplicationGroupId'
+                       -> Text -- ^ 'crgmReplicationGroupDescription'
+                       -> CreateReplicationGroupMessage
+createReplicationGroup p1 p2 = CreateReplicationGroupMessage
     { _crgmReplicationGroupId          = p1
     , _crgmReplicationGroupDescription = p2
     , _crgmPrimaryClusterId            = Nothing
@@ -358,8 +358,8 @@ newtype CreateReplicationGroupResult = CreateReplicationGroupResult
 --
 -- * 'crgrReplicationGroup' @::@ 'Maybe' 'ReplicationGroup'
 --
-createReplicationGroupResult :: CreateReplicationGroupResult
-createReplicationGroupResult = CreateReplicationGroupResult
+createReplicationGroupResponse :: CreateReplicationGroupResult
+createReplicationGroupResponse = CreateReplicationGroupResult
     { _crgrReplicationGroup = Nothing
     }
 

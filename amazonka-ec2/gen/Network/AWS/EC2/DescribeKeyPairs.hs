@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeKeyPairs
     -- * Response
     , DescribeKeyPairsResult
     -- ** Response constructor
-    , describeKeyPairsResult
+    , describeKeyPairsResponse
     -- ** Response lenses
     , dkprKeyPairs
     ) where
@@ -101,8 +101,8 @@ instance IsList DescribeKeyPairsResult where
 --
 -- * 'dkprKeyPairs' @::@ ['KeyPairInfo']
 --
-describeKeyPairsResult :: DescribeKeyPairsResult
-describeKeyPairsResult = DescribeKeyPairsResult
+describeKeyPairsResponse :: DescribeKeyPairsResult
+describeKeyPairsResponse = DescribeKeyPairsResult
     { _dkprKeyPairs = mempty
     }
 

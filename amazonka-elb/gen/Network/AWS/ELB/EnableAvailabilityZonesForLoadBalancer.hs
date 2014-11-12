@@ -32,7 +32,7 @@ module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     -- * Request
       AddAvailabilityZonesInput
     -- ** Request constructor
-    , addAvailabilityZonesInput
+    , enableAvailabilityZonesForLoadBalancer
     -- ** Request lenses
     , aaziAvailabilityZones
     , aaziLoadBalancerName
@@ -40,7 +40,7 @@ module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     -- * Response
     , AddAvailabilityZonesOutput
     -- ** Response constructor
-    , addAvailabilityZonesOutput
+    , enableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
     , aazoAvailabilityZones
     ) where
@@ -62,9 +62,9 @@ data AddAvailabilityZonesInput = AddAvailabilityZonesInput
 --
 -- * 'aaziLoadBalancerName' @::@ 'Text'
 --
-addAvailabilityZonesInput :: Text -- ^ 'aaziLoadBalancerName'
-                          -> AddAvailabilityZonesInput
-addAvailabilityZonesInput p1 = AddAvailabilityZonesInput
+enableAvailabilityZonesForLoadBalancer :: Text -- ^ 'aaziLoadBalancerName'
+                                       -> AddAvailabilityZonesInput
+enableAvailabilityZonesForLoadBalancer p1 = AddAvailabilityZonesInput
     { _aaziLoadBalancerName  = p1
     , _aaziAvailabilityZones = mempty
     }
@@ -101,8 +101,8 @@ instance IsList AddAvailabilityZonesOutput where
 --
 -- * 'aazoAvailabilityZones' @::@ ['Text']
 --
-addAvailabilityZonesOutput :: AddAvailabilityZonesOutput
-addAvailabilityZonesOutput = AddAvailabilityZonesOutput
+enableAvailabilityZonesForLoadBalancerResponse :: AddAvailabilityZonesOutput
+enableAvailabilityZonesForLoadBalancerResponse = AddAvailabilityZonesOutput
     { _aazoAvailabilityZones = mempty
     }
 

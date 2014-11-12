@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     -- * Request
       ModifyReplicationGroupMessage
     -- ** Request constructor
-    , modifyReplicationGroupMessage
+    , modifyReplicationGroup
     -- ** Request lenses
     , mrgmApplyImmediately
     , mrgmAutoMinorVersionUpgrade
@@ -49,7 +49,7 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
     -- * Response
     , ModifyReplicationGroupResult
     -- ** Response constructor
-    , modifyReplicationGroupResult
+    , modifyReplicationGroupResponse
     -- ** Response lenses
     , mrgrReplicationGroup
     ) where
@@ -113,9 +113,9 @@ data ModifyReplicationGroupMessage = ModifyReplicationGroupMessage
 --
 -- * 'mrgmSnapshottingClusterId' @::@ 'Maybe' 'Text'
 --
-modifyReplicationGroupMessage :: Text -- ^ 'mrgmReplicationGroupId'
-                              -> ModifyReplicationGroupMessage
-modifyReplicationGroupMessage p1 = ModifyReplicationGroupMessage
+modifyReplicationGroup :: Text -- ^ 'mrgmReplicationGroupId'
+                       -> ModifyReplicationGroupMessage
+modifyReplicationGroup p1 = ModifyReplicationGroupMessage
     { _mrgmReplicationGroupId          = p1
     , _mrgmReplicationGroupDescription = Nothing
     , _mrgmPrimaryClusterId            = Nothing
@@ -281,8 +281,8 @@ newtype ModifyReplicationGroupResult = ModifyReplicationGroupResult
 --
 -- * 'mrgrReplicationGroup' @::@ 'Maybe' 'ReplicationGroup'
 --
-modifyReplicationGroupResult :: ModifyReplicationGroupResult
-modifyReplicationGroupResult = ModifyReplicationGroupResult
+modifyReplicationGroupResponse :: ModifyReplicationGroupResult
+modifyReplicationGroupResponse = ModifyReplicationGroupResult
     { _mrgrReplicationGroup = Nothing
     }
 

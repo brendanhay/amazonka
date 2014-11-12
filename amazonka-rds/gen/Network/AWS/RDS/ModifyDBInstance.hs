@@ -28,7 +28,7 @@ module Network.AWS.RDS.ModifyDBInstance
     -- * Request
       ModifyDBInstanceMessage
     -- ** Request constructor
-    , modifyDBInstanceMessage
+    , modifyDBInstance
     -- ** Request lenses
     , mdbimAllocatedStorage
     , mdbimAllowMajorVersionUpgrade
@@ -55,7 +55,7 @@ module Network.AWS.RDS.ModifyDBInstance
     -- * Response
     , ModifyDBInstanceResult
     -- ** Response constructor
-    , modifyDBInstanceResult
+    , modifyDBInstanceResponse
     -- ** Response lenses
     , mdbirDBInstance
     ) where
@@ -134,9 +134,9 @@ data ModifyDBInstanceMessage = ModifyDBInstanceMessage
 --
 -- * 'mdbimVpcSecurityGroupIds' @::@ ['Text']
 --
-modifyDBInstanceMessage :: Text -- ^ 'mdbimDBInstanceIdentifier'
-                        -> ModifyDBInstanceMessage
-modifyDBInstanceMessage p1 = ModifyDBInstanceMessage
+modifyDBInstance :: Text -- ^ 'mdbimDBInstanceIdentifier'
+                 -> ModifyDBInstanceMessage
+modifyDBInstance p1 = ModifyDBInstanceMessage
     { _mdbimDBInstanceIdentifier       = p1
     , _mdbimAllocatedStorage           = Nothing
     , _mdbimDBInstanceClass            = Nothing
@@ -450,8 +450,8 @@ newtype ModifyDBInstanceResult = ModifyDBInstanceResult
 --
 -- * 'mdbirDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-modifyDBInstanceResult :: ModifyDBInstanceResult
-modifyDBInstanceResult = ModifyDBInstanceResult
+modifyDBInstanceResponse :: ModifyDBInstanceResult
+modifyDBInstanceResponse = ModifyDBInstanceResult
     { _mdbirDBInstance = Nothing
     }
 

@@ -29,7 +29,7 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     -- * Request
       DescribeDBSubnetGroupsMessage
     -- ** Request constructor
-    , describeDBSubnetGroupsMessage
+    , describeDBSubnetGroups
     -- ** Request lenses
     , ddbsgmDBSubnetGroupName
     , ddbsgmFilters
@@ -39,7 +39,7 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
     -- * Response
     , DBSubnetGroupMessage
     -- ** Response constructor
-    , dbsubnetGroupMessage
+    , describeDBSubnetGroupsResponse
     -- ** Response lenses
     , dbsgm1DBSubnetGroups
     , dbsgm1Marker
@@ -68,8 +68,8 @@ data DescribeDBSubnetGroupsMessage = DescribeDBSubnetGroupsMessage
 --
 -- * 'ddbsgmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBSubnetGroupsMessage :: DescribeDBSubnetGroupsMessage
-describeDBSubnetGroupsMessage = DescribeDBSubnetGroupsMessage
+describeDBSubnetGroups :: DescribeDBSubnetGroupsMessage
+describeDBSubnetGroups = DescribeDBSubnetGroupsMessage
     { _ddbsgmDBSubnetGroupName = Nothing
     , _ddbsgmFilters           = mempty
     , _ddbsgmMaxRecords        = Nothing
@@ -117,8 +117,8 @@ data DBSubnetGroupMessage = DBSubnetGroupMessage
 --
 -- * 'dbsgm1Marker' @::@ 'Maybe' 'Text'
 --
-dbsubnetGroupMessage :: DBSubnetGroupMessage
-dbsubnetGroupMessage = DBSubnetGroupMessage
+describeDBSubnetGroupsResponse :: DBSubnetGroupMessage
+describeDBSubnetGroupsResponse = DBSubnetGroupMessage
     { _dbsgm1Marker         = Nothing
     , _dbsgm1DBSubnetGroups = mempty
     }

@@ -36,7 +36,7 @@ module Network.AWS.EC2.MonitorInstances
     -- * Response
     , MonitorInstancesResult
     -- ** Response constructor
-    , monitorInstancesResult
+    , monitorInstancesResponse
     -- ** Response lenses
     , mirInstanceMonitorings
     ) where
@@ -92,8 +92,8 @@ instance IsList MonitorInstancesResult where
 --
 -- * 'mirInstanceMonitorings' @::@ ['InstanceMonitoring']
 --
-monitorInstancesResult :: MonitorInstancesResult
-monitorInstancesResult = MonitorInstancesResult
+monitorInstancesResponse :: MonitorInstancesResult
+monitorInstancesResponse = MonitorInstancesResult
     { _mirInstanceMonitorings = mempty
     }
 

@@ -33,7 +33,7 @@ module Network.AWS.EC2.DescribeExportTasks
     -- * Response
     , DescribeExportTasksResult
     -- ** Response constructor
-    , describeExportTasksResult
+    , describeExportTasksResponse
     -- ** Response lenses
     , detrExportTasks
     ) where
@@ -88,8 +88,8 @@ instance IsList DescribeExportTasksResult where
 --
 -- * 'detrExportTasks' @::@ ['ExportTask']
 --
-describeExportTasksResult :: DescribeExportTasksResult
-describeExportTasksResult = DescribeExportTasksResult
+describeExportTasksResponse :: DescribeExportTasksResult
+describeExportTasksResponse = DescribeExportTasksResult
     { _detrExportTasks = mempty
     }
 

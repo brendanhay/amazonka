@@ -34,7 +34,7 @@ module Network.AWS.S3.GetBucketLogging
     -- * Response
     , GetBucketLoggingOutput
     -- ** Response constructor
-    , getBucketLoggingOutput
+    , getBucketLoggingResponse
     -- ** Response lenses
     , gbloLoggingEnabled
     ) where
@@ -83,8 +83,8 @@ newtype GetBucketLoggingOutput = GetBucketLoggingOutput
 --
 -- * 'gbloLoggingEnabled' @::@ 'Maybe' 'LoggingEnabled'
 --
-getBucketLoggingOutput :: GetBucketLoggingOutput
-getBucketLoggingOutput = GetBucketLoggingOutput
+getBucketLoggingResponse :: GetBucketLoggingOutput
+getBucketLoggingResponse = GetBucketLoggingOutput
     { _gbloLoggingEnabled = Nothing
     }
 

@@ -46,7 +46,7 @@ module Network.AWS.EC2.GetConsoleOutput
     -- * Response
     , GetConsoleOutputResult
     -- ** Response constructor
-    , getConsoleOutputResult
+    , getConsoleOutputResponse
     -- ** Response lenses
     , gcorInstanceId
     , gcorOutput
@@ -105,8 +105,8 @@ data GetConsoleOutputResult = GetConsoleOutputResult
 --
 -- * 'gcorTimestamp' @::@ 'Maybe' 'UTCTime'
 --
-getConsoleOutputResult :: GetConsoleOutputResult
-getConsoleOutputResult = GetConsoleOutputResult
+getConsoleOutputResponse :: GetConsoleOutputResult
+getConsoleOutputResponse = GetConsoleOutputResult
     { _gcorInstanceId = Nothing
     , _gcorTimestamp  = Nothing
     , _gcorOutput     = Nothing

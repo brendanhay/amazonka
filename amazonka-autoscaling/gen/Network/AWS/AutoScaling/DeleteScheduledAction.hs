@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.DeleteScheduledAction
     -- * Request
       DeleteScheduledActionType
     -- ** Request constructor
-    , deleteScheduledActionType
+    , deleteScheduledAction
     -- ** Request lenses
     , dsat1AutoScalingGroupName
     , dsat1ScheduledActionName
@@ -55,9 +55,9 @@ data DeleteScheduledActionType = DeleteScheduledActionType
 --
 -- * 'dsat1ScheduledActionName' @::@ 'Text'
 --
-deleteScheduledActionType :: Text -- ^ 'dsat1ScheduledActionName'
-                          -> DeleteScheduledActionType
-deleteScheduledActionType p1 = DeleteScheduledActionType
+deleteScheduledAction :: Text -- ^ 'dsat1ScheduledActionName'
+                      -> DeleteScheduledActionType
+deleteScheduledAction p1 = DeleteScheduledActionType
     { _dsat1ScheduledActionName  = p1
     , _dsat1AutoScalingGroupName = Nothing
     }

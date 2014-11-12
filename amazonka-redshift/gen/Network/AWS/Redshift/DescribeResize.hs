@@ -31,14 +31,14 @@ module Network.AWS.Redshift.DescribeResize
     -- * Request
       DescribeResizeMessage
     -- ** Request constructor
-    , describeResizeMessage
+    , describeResize
     -- ** Request lenses
     , drmClusterIdentifier
 
     -- * Response
     , ResizeProgressMessage
     -- ** Response constructor
-    , resizeProgressMessage
+    , describeResizeResponse
     -- ** Response lenses
     , rpmAvgResizeRateInMegaBytesPerSecond
     , rpmElapsedTimeInSeconds
@@ -68,9 +68,9 @@ newtype DescribeResizeMessage = DescribeResizeMessage
 --
 -- * 'drmClusterIdentifier' @::@ 'Text'
 --
-describeResizeMessage :: Text -- ^ 'drmClusterIdentifier'
-                      -> DescribeResizeMessage
-describeResizeMessage p1 = DescribeResizeMessage
+describeResize :: Text -- ^ 'drmClusterIdentifier'
+               -> DescribeResizeMessage
+describeResize p1 = DescribeResizeMessage
     { _drmClusterIdentifier = p1
     }
 
@@ -129,8 +129,8 @@ data ResizeProgressMessage = ResizeProgressMessage
 --
 -- * 'rpmTotalResizeDataInMegaBytes' @::@ 'Maybe' 'Integer'
 --
-resizeProgressMessage :: ResizeProgressMessage
-resizeProgressMessage = ResizeProgressMessage
+describeResizeResponse :: ResizeProgressMessage
+describeResizeResponse = ResizeProgressMessage
     { _rpmTargetNodeType                     = Nothing
     , _rpmTargetNumberOfNodes                = Nothing
     , _rpmTargetClusterType                  = Nothing

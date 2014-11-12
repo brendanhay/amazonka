@@ -29,7 +29,7 @@ module Network.AWS.AutoScaling.DetachInstances
     -- * Request
       DetachInstancesQuery
     -- ** Request constructor
-    , detachInstancesQuery
+    , detachInstances
     -- ** Request lenses
     , diqAutoScalingGroupName
     , diqInstanceIds
@@ -38,7 +38,7 @@ module Network.AWS.AutoScaling.DetachInstances
     -- * Response
     , DetachInstancesAnswer
     -- ** Response constructor
-    , detachInstancesAnswer
+    , detachInstancesResponse
     -- ** Response lenses
     , diaActivities
     ) where
@@ -63,10 +63,10 @@ data DetachInstancesQuery = DetachInstancesQuery
 --
 -- * 'diqShouldDecrementDesiredCapacity' @::@ 'Bool'
 --
-detachInstancesQuery :: Text -- ^ 'diqAutoScalingGroupName'
-                     -> Bool -- ^ 'diqShouldDecrementDesiredCapacity'
-                     -> DetachInstancesQuery
-detachInstancesQuery p1 p2 = DetachInstancesQuery
+detachInstances :: Text -- ^ 'diqAutoScalingGroupName'
+                -> Bool -- ^ 'diqShouldDecrementDesiredCapacity'
+                -> DetachInstancesQuery
+detachInstances p1 p2 = DetachInstancesQuery
     { _diqAutoScalingGroupName           = p1
     , _diqShouldDecrementDesiredCapacity = p2
     , _diqInstanceIds                    = mempty
@@ -112,8 +112,8 @@ instance IsList DetachInstancesAnswer where
 --
 -- * 'diaActivities' @::@ ['Activity']
 --
-detachInstancesAnswer :: DetachInstancesAnswer
-detachInstancesAnswer = DetachInstancesAnswer
+detachInstancesResponse :: DetachInstancesAnswer
+detachInstancesResponse = DetachInstancesAnswer
     { _diaActivities = mempty
     }
 

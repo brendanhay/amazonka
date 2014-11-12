@@ -28,14 +28,14 @@ module Network.AWS.Redshift.DescribeEventCategories
     -- * Request
       DescribeEventCategoriesMessage
     -- ** Request constructor
-    , describeEventCategoriesMessage
+    , describeEventCategories
     -- ** Request lenses
     , decmSourceType
 
     -- * Response
     , EventCategoriesMessage
     -- ** Response constructor
-    , eventCategoriesMessage
+    , describeEventCategoriesResponse
     -- ** Response lenses
     , ecmEventCategoriesMapList
     ) where
@@ -54,8 +54,8 @@ newtype DescribeEventCategoriesMessage = DescribeEventCategoriesMessage
 --
 -- * 'decmSourceType' @::@ 'Maybe' 'Text'
 --
-describeEventCategoriesMessage :: DescribeEventCategoriesMessage
-describeEventCategoriesMessage = DescribeEventCategoriesMessage
+describeEventCategories :: DescribeEventCategoriesMessage
+describeEventCategories = DescribeEventCategoriesMessage
     { _decmSourceType = Nothing
     }
 
@@ -86,8 +86,8 @@ instance IsList EventCategoriesMessage where
 --
 -- * 'ecmEventCategoriesMapList' @::@ ['EventCategoriesMap']
 --
-eventCategoriesMessage :: EventCategoriesMessage
-eventCategoriesMessage = EventCategoriesMessage
+describeEventCategoriesResponse :: EventCategoriesMessage
+describeEventCategoriesResponse = EventCategoriesMessage
     { _ecmEventCategoriesMapList = mempty
     }
 

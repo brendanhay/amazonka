@@ -38,7 +38,7 @@ module Network.AWS.S3.DeleteObject
     -- * Response
     , DeleteObjectOutput
     -- ** Response constructor
-    , deleteObjectOutput
+    , deleteObjectResponse
     -- ** Response lenses
     , dooDeleteMarker
     , dooVersionId
@@ -121,8 +121,8 @@ data DeleteObjectOutput = DeleteObjectOutput
 --
 -- * 'dooVersionId' @::@ 'Maybe' 'Text'
 --
-deleteObjectOutput :: DeleteObjectOutput
-deleteObjectOutput = DeleteObjectOutput
+deleteObjectResponse :: DeleteObjectOutput
+deleteObjectResponse = DeleteObjectOutput
     { _dooDeleteMarker = Nothing
     , _dooVersionId    = Nothing
     }

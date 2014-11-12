@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     -- * Request
       DescribeOrderableDBInstanceOptionsMessage
     -- ** Request constructor
-    , describeOrderableDBInstanceOptionsMessage
+    , describeOrderableDBInstanceOptions
     -- ** Request lenses
     , dodbiomDBInstanceClass
     , dodbiomEngine
@@ -40,7 +40,7 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
     -- * Response
     , OrderableDBInstanceOptionsMessage
     -- ** Response constructor
-    , orderableDBInstanceOptionsMessage
+    , describeOrderableDBInstanceOptionsResponse
     -- ** Response lenses
     , odbiomMarker
     , odbiomOrderableDBInstanceOptions
@@ -81,9 +81,9 @@ data DescribeOrderableDBInstanceOptionsMessage = DescribeOrderableDBInstanceOpti
 --
 -- * 'dodbiomVpc' @::@ 'Maybe' 'Bool'
 --
-describeOrderableDBInstanceOptionsMessage :: Text -- ^ 'dodbiomEngine'
-                                          -> DescribeOrderableDBInstanceOptionsMessage
-describeOrderableDBInstanceOptionsMessage p1 = DescribeOrderableDBInstanceOptionsMessage
+describeOrderableDBInstanceOptions :: Text -- ^ 'dodbiomEngine'
+                                   -> DescribeOrderableDBInstanceOptionsMessage
+describeOrderableDBInstanceOptions p1 = DescribeOrderableDBInstanceOptionsMessage
     { _dodbiomEngine          = p1
     , _dodbiomEngineVersion   = Nothing
     , _dodbiomDBInstanceClass = Nothing
@@ -158,8 +158,8 @@ data OrderableDBInstanceOptionsMessage = OrderableDBInstanceOptionsMessage
 --
 -- * 'odbiomOrderableDBInstanceOptions' @::@ ['OrderableDBInstanceOption']
 --
-orderableDBInstanceOptionsMessage :: OrderableDBInstanceOptionsMessage
-orderableDBInstanceOptionsMessage = OrderableDBInstanceOptionsMessage
+describeOrderableDBInstanceOptionsResponse :: OrderableDBInstanceOptionsMessage
+describeOrderableDBInstanceOptionsResponse = OrderableDBInstanceOptionsMessage
     { _odbiomOrderableDBInstanceOptions = mempty
     , _odbiomMarker                     = Nothing
     }

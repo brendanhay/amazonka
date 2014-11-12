@@ -28,7 +28,7 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     -- * Request
       DescribeDBParameterGroupsMessage
     -- ** Request constructor
-    , describeDBParameterGroupsMessage
+    , describeDBParameterGroups
     -- ** Request lenses
     , ddbpgmDBParameterGroupName
     , ddbpgmFilters
@@ -38,7 +38,7 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     -- * Response
     , DBParameterGroupsMessage
     -- ** Response constructor
-    , dbparameterGroupsMessage
+    , describeDBParameterGroupsResponse
     -- ** Response lenses
     , dbpgmDBParameterGroups
     , dbpgmMarker
@@ -67,8 +67,8 @@ data DescribeDBParameterGroupsMessage = DescribeDBParameterGroupsMessage
 --
 -- * 'ddbpgmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBParameterGroupsMessage :: DescribeDBParameterGroupsMessage
-describeDBParameterGroupsMessage = DescribeDBParameterGroupsMessage
+describeDBParameterGroups :: DescribeDBParameterGroupsMessage
+describeDBParameterGroups = DescribeDBParameterGroupsMessage
     { _ddbpgmDBParameterGroupName = Nothing
     , _ddbpgmFilters              = mempty
     , _ddbpgmMaxRecords           = Nothing
@@ -120,8 +120,8 @@ data DBParameterGroupsMessage = DBParameterGroupsMessage
 --
 -- * 'dbpgmMarker' @::@ 'Maybe' 'Text'
 --
-dbparameterGroupsMessage :: DBParameterGroupsMessage
-dbparameterGroupsMessage = DBParameterGroupsMessage
+describeDBParameterGroupsResponse :: DBParameterGroupsMessage
+describeDBParameterGroupsResponse = DBParameterGroupsMessage
     { _dbpgmMarker            = Nothing
     , _dbpgmDBParameterGroups = mempty
     }

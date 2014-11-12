@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     -- * Response
     , DescribeTerminationPolicyTypesAnswer
     -- ** Response constructor
-    , describeTerminationPolicyTypesAnswer
+    , describeTerminationPolicyTypesResponse
     -- ** Response lenses
     , dtptaTerminationPolicyTypes
     ) where
@@ -68,8 +68,8 @@ instance IsList DescribeTerminationPolicyTypesAnswer where
 --
 -- * 'dtptaTerminationPolicyTypes' @::@ ['Text']
 --
-describeTerminationPolicyTypesAnswer :: DescribeTerminationPolicyTypesAnswer
-describeTerminationPolicyTypesAnswer = DescribeTerminationPolicyTypesAnswer
+describeTerminationPolicyTypesResponse :: DescribeTerminationPolicyTypesAnswer
+describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesAnswer
     { _dtptaTerminationPolicyTypes = mempty
     }
 

@@ -45,7 +45,7 @@ module Network.AWS.EC2.CopySnapshot
     -- * Response
     , CopySnapshotResult
     -- ** Response constructor
-    , copySnapshotResult
+    , copySnapshotResponse
     -- ** Response lenses
     , csrSnapshotId
     ) where
@@ -144,8 +144,8 @@ newtype CopySnapshotResult = CopySnapshotResult
 --
 -- * 'csrSnapshotId' @::@ 'Maybe' 'Text'
 --
-copySnapshotResult :: CopySnapshotResult
-copySnapshotResult = CopySnapshotResult
+copySnapshotResponse :: CopySnapshotResult
+copySnapshotResponse = CopySnapshotResult
     { _csrSnapshotId = Nothing
     }
 

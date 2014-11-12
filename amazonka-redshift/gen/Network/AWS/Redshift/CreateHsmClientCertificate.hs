@@ -33,14 +33,14 @@ module Network.AWS.Redshift.CreateHsmClientCertificate
     -- * Request
       CreateHsmClientCertificateMessage
     -- ** Request constructor
-    , createHsmClientCertificateMessage
+    , createHsmClientCertificate
     -- ** Request lenses
     , chccmHsmClientCertificateIdentifier
 
     -- * Response
     , CreateHsmClientCertificateResult
     -- ** Response constructor
-    , createHsmClientCertificateResult
+    , createHsmClientCertificateResponse
     -- ** Response lenses
     , chccrHsmClientCertificate
     ) where
@@ -59,9 +59,9 @@ newtype CreateHsmClientCertificateMessage = CreateHsmClientCertificateMessage
 --
 -- * 'chccmHsmClientCertificateIdentifier' @::@ 'Text'
 --
-createHsmClientCertificateMessage :: Text -- ^ 'chccmHsmClientCertificateIdentifier'
-                                  -> CreateHsmClientCertificateMessage
-createHsmClientCertificateMessage p1 = CreateHsmClientCertificateMessage
+createHsmClientCertificate :: Text -- ^ 'chccmHsmClientCertificateIdentifier'
+                           -> CreateHsmClientCertificateMessage
+createHsmClientCertificate p1 = CreateHsmClientCertificateMessage
     { _chccmHsmClientCertificateIdentifier = p1
     }
 
@@ -88,8 +88,8 @@ newtype CreateHsmClientCertificateResult = CreateHsmClientCertificateResult
 --
 -- * 'chccrHsmClientCertificate' @::@ 'Maybe' 'HsmClientCertificate'
 --
-createHsmClientCertificateResult :: CreateHsmClientCertificateResult
-createHsmClientCertificateResult = CreateHsmClientCertificateResult
+createHsmClientCertificateResponse :: CreateHsmClientCertificateResult
+createHsmClientCertificateResponse = CreateHsmClientCertificateResult
     { _chccrHsmClientCertificate = Nothing
     }
 

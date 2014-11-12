@@ -36,7 +36,7 @@ module Network.AWS.EC2.AllocateAddress
     -- * Response
     , AllocateAddressResult
     -- ** Response constructor
-    , allocateAddressResult
+    , allocateAddressResponse
     -- ** Response lenses
     , aarAllocationId
     , aarDomain
@@ -95,8 +95,8 @@ data AllocateAddressResult = AllocateAddressResult
 --
 -- * 'aarPublicIp' @::@ 'Maybe' 'Text'
 --
-allocateAddressResult :: AllocateAddressResult
-allocateAddressResult = AllocateAddressResult
+allocateAddressResponse :: AllocateAddressResult
+allocateAddressResponse = AllocateAddressResult
     { _aarPublicIp     = Nothing
     , _aarDomain       = Nothing
     , _aarAllocationId = Nothing

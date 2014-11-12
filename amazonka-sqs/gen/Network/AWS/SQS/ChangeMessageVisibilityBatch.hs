@@ -41,7 +41,7 @@ module Network.AWS.SQS.ChangeMessageVisibilityBatch
     -- * Response
     , ChangeMessageVisibilityBatchResult
     -- ** Response constructor
-    , changeMessageVisibilityBatchResult
+    , changeMessageVisibilityBatchResponse
     -- ** Response lenses
     , cmvbrFailed
     , cmvbrSuccessful
@@ -98,8 +98,8 @@ data ChangeMessageVisibilityBatchResult = ChangeMessageVisibilityBatchResult
 --
 -- * 'cmvbrSuccessful' @::@ ['ChangeMessageVisibilityBatchResultEntry']
 --
-changeMessageVisibilityBatchResult :: ChangeMessageVisibilityBatchResult
-changeMessageVisibilityBatchResult = ChangeMessageVisibilityBatchResult
+changeMessageVisibilityBatchResponse :: ChangeMessageVisibilityBatchResult
+changeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResult
     { _cmvbrSuccessful = mempty
     , _cmvbrFailed     = mempty
     }

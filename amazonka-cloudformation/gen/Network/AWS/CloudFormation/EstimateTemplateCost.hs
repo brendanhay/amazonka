@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.EstimateTemplateCost
     -- * Request
       EstimateTemplateCostInput
     -- ** Request constructor
-    , estimateTemplateCostInput
+    , estimateTemplateCost
     -- ** Request lenses
     , etciParameters
     , etciTemplateBody
@@ -37,7 +37,7 @@ module Network.AWS.CloudFormation.EstimateTemplateCost
     -- * Response
     , EstimateTemplateCostOutput
     -- ** Response constructor
-    , estimateTemplateCostOutput
+    , estimateTemplateCostResponse
     -- ** Response lenses
     , etcoUrl
     ) where
@@ -62,8 +62,8 @@ data EstimateTemplateCostInput = EstimateTemplateCostInput
 --
 -- * 'etciTemplateURL' @::@ 'Maybe' 'Text'
 --
-estimateTemplateCostInput :: EstimateTemplateCostInput
-estimateTemplateCostInput = EstimateTemplateCostInput
+estimateTemplateCost :: EstimateTemplateCostInput
+estimateTemplateCost = EstimateTemplateCostInput
     { _etciTemplateBody = Nothing
     , _etciTemplateURL  = Nothing
     , _etciParameters   = mempty
@@ -104,8 +104,8 @@ newtype EstimateTemplateCostOutput = EstimateTemplateCostOutput
 --
 -- * 'etcoUrl' @::@ 'Maybe' 'Text'
 --
-estimateTemplateCostOutput :: EstimateTemplateCostOutput
-estimateTemplateCostOutput = EstimateTemplateCostOutput
+estimateTemplateCostResponse :: EstimateTemplateCostOutput
+estimateTemplateCostResponse = EstimateTemplateCostOutput
     { _etcoUrl = Nothing
     }
 

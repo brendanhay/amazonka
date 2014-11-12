@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     -- * Request
       CreateCacheClusterMessage
     -- ** Request constructor
-    , createCacheClusterMessage
+    , createCacheCluster
     -- ** Request lenses
     , cccmAZMode
     , cccmAutoMinorVersionUpgrade
@@ -55,7 +55,7 @@ module Network.AWS.ElastiCache.CreateCacheCluster
     -- * Response
     , CreateCacheClusterResult
     -- ** Response constructor
-    , createCacheClusterResult
+    , createCacheClusterResponse
     -- ** Response lenses
     , cccrCacheCluster
     ) where
@@ -134,9 +134,9 @@ data CreateCacheClusterMessage = CreateCacheClusterMessage
 --
 -- * 'cccmSnapshotWindow' @::@ 'Maybe' 'Text'
 --
-createCacheClusterMessage :: Text -- ^ 'cccmCacheClusterId'
-                          -> CreateCacheClusterMessage
-createCacheClusterMessage p1 = CreateCacheClusterMessage
+createCacheCluster :: Text -- ^ 'cccmCacheClusterId'
+                   -> CreateCacheClusterMessage
+createCacheCluster p1 = CreateCacheClusterMessage
     { _cccmCacheClusterId             = p1
     , _cccmReplicationGroupId         = Nothing
     , _cccmAZMode                     = Nothing
@@ -365,8 +365,8 @@ newtype CreateCacheClusterResult = CreateCacheClusterResult
 --
 -- * 'cccrCacheCluster' @::@ 'Maybe' 'CacheCluster'
 --
-createCacheClusterResult :: CreateCacheClusterResult
-createCacheClusterResult = CreateCacheClusterResult
+createCacheClusterResponse :: CreateCacheClusterResult
+createCacheClusterResponse = CreateCacheClusterResult
     { _cccrCacheCluster = Nothing
     }
 

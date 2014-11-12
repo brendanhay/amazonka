@@ -32,7 +32,7 @@ module Network.AWS.Redshift.DeleteClusterSnapshot
     -- * Request
       DeleteClusterSnapshotMessage
     -- ** Request constructor
-    , deleteClusterSnapshotMessage
+    , deleteClusterSnapshot
     -- ** Request lenses
     , dcsmSnapshotClusterIdentifier
     , dcsmSnapshotIdentifier
@@ -40,7 +40,7 @@ module Network.AWS.Redshift.DeleteClusterSnapshot
     -- * Response
     , DeleteClusterSnapshotResult
     -- ** Response constructor
-    , deleteClusterSnapshotResult
+    , deleteClusterSnapshotResponse
     -- ** Response lenses
     , dcsrSnapshot
     ) where
@@ -62,9 +62,9 @@ data DeleteClusterSnapshotMessage = DeleteClusterSnapshotMessage
 --
 -- * 'dcsmSnapshotIdentifier' @::@ 'Text'
 --
-deleteClusterSnapshotMessage :: Text -- ^ 'dcsmSnapshotIdentifier'
-                             -> DeleteClusterSnapshotMessage
-deleteClusterSnapshotMessage p1 = DeleteClusterSnapshotMessage
+deleteClusterSnapshot :: Text -- ^ 'dcsmSnapshotIdentifier'
+                      -> DeleteClusterSnapshotMessage
+deleteClusterSnapshot p1 = DeleteClusterSnapshotMessage
     { _dcsmSnapshotIdentifier        = p1
     , _dcsmSnapshotClusterIdentifier = Nothing
     }
@@ -99,8 +99,8 @@ newtype DeleteClusterSnapshotResult = DeleteClusterSnapshotResult
 --
 -- * 'dcsrSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-deleteClusterSnapshotResult :: DeleteClusterSnapshotResult
-deleteClusterSnapshotResult = DeleteClusterSnapshotResult
+deleteClusterSnapshotResponse :: DeleteClusterSnapshotResult
+deleteClusterSnapshotResponse = DeleteClusterSnapshotResult
     { _dcsrSnapshot = Nothing
     }
 

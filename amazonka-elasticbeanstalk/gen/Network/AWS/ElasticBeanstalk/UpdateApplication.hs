@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
     -- * Request
       UpdateApplicationMessage
     -- ** Request constructor
-    , updateApplicationMessage
+    , updateApplication
     -- ** Request lenses
     , uamApplicationName
     , uamDescription
@@ -56,9 +56,9 @@ data UpdateApplicationMessage = UpdateApplicationMessage
 --
 -- * 'uamDescription' @::@ 'Maybe' 'Text'
 --
-updateApplicationMessage :: Text -- ^ 'uamApplicationName'
-                         -> UpdateApplicationMessage
-updateApplicationMessage p1 = UpdateApplicationMessage
+updateApplication :: Text -- ^ 'uamApplicationName'
+                  -> UpdateApplicationMessage
+updateApplication p1 = UpdateApplicationMessage
     { _uamApplicationName = p1
     , _uamDescription     = Nothing
     }

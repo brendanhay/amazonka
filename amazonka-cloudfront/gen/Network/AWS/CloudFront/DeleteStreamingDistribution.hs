@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
     -- * Request
       DeleteStreamingDistribution
     -- ** Request constructor
-    , deleteStreamingDistribution
+    , deleteStreamingDistribution2014_05_31
     -- ** Request lenses
     , dsdId
     , dsdIfMatch
@@ -54,9 +54,9 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution
 --
 -- * 'dsdIfMatch' @::@ 'Maybe' 'Text'
 --
-deleteStreamingDistribution :: Text -- ^ 'dsdId'
-                            -> DeleteStreamingDistribution
-deleteStreamingDistribution p1 = DeleteStreamingDistribution
+deleteStreamingDistribution2014_05_31 :: Text -- ^ 'dsdId'
+                                      -> DeleteStreamingDistribution
+deleteStreamingDistribution2014_05_31 p1 = DeleteStreamingDistribution
     { _dsdId      = p1
     , _dsdIfMatch = Nothing
     }

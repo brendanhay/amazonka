@@ -39,7 +39,7 @@ module Network.AWS.EC2.DescribeAddresses
     -- * Response
     , DescribeAddressesResult
     -- ** Response constructor
-    , describeAddressesResult
+    , describeAddressesResponse
     -- ** Response lenses
     , darAddresses
     ) where
@@ -122,8 +122,8 @@ instance IsList DescribeAddressesResult where
 --
 -- * 'darAddresses' @::@ ['Address']
 --
-describeAddressesResult :: DescribeAddressesResult
-describeAddressesResult = DescribeAddressesResult
+describeAddressesResponse :: DescribeAddressesResult
+describeAddressesResponse = DescribeAddressesResult
     { _darAddresses = mempty
     }
 

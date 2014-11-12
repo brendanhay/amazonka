@@ -35,7 +35,7 @@ module Network.AWS.EC2.CancelReservedInstancesListing
     -- * Response
     , CancelReservedInstancesListingResult
     -- ** Response constructor
-    , cancelReservedInstancesListingResult
+    , cancelReservedInstancesListingResponse
     -- ** Response lenses
     , crilrReservedInstancesListings
     ) where
@@ -87,8 +87,8 @@ instance IsList CancelReservedInstancesListingResult where
 --
 -- * 'crilrReservedInstancesListings' @::@ ['ReservedInstancesListing']
 --
-cancelReservedInstancesListingResult :: CancelReservedInstancesListingResult
-cancelReservedInstancesListingResult = CancelReservedInstancesListingResult
+cancelReservedInstancesListingResponse :: CancelReservedInstancesListingResult
+cancelReservedInstancesListingResponse = CancelReservedInstancesListingResult
     { _crilrReservedInstancesListings = mempty
     }
 

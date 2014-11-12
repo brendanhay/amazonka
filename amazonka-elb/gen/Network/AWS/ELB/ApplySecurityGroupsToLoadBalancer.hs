@@ -30,7 +30,7 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     -- * Request
       ApplySecurityGroupsToLoadBalancerInput
     -- ** Request constructor
-    , applySecurityGroupsToLoadBalancerInput
+    , applySecurityGroupsToLoadBalancer
     -- ** Request lenses
     , asgtlbiLoadBalancerName
     , asgtlbiSecurityGroups
@@ -38,7 +38,7 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     -- * Response
     , ApplySecurityGroupsToLoadBalancerOutput
     -- ** Response constructor
-    , applySecurityGroupsToLoadBalancerOutput
+    , applySecurityGroupsToLoadBalancerResponse
     -- ** Response lenses
     , asgtlboSecurityGroups
     ) where
@@ -60,9 +60,9 @@ data ApplySecurityGroupsToLoadBalancerInput = ApplySecurityGroupsToLoadBalancerI
 --
 -- * 'asgtlbiSecurityGroups' @::@ ['Text']
 --
-applySecurityGroupsToLoadBalancerInput :: Text -- ^ 'asgtlbiLoadBalancerName'
-                                       -> ApplySecurityGroupsToLoadBalancerInput
-applySecurityGroupsToLoadBalancerInput p1 = ApplySecurityGroupsToLoadBalancerInput
+applySecurityGroupsToLoadBalancer :: Text -- ^ 'asgtlbiLoadBalancerName'
+                                  -> ApplySecurityGroupsToLoadBalancerInput
+applySecurityGroupsToLoadBalancer p1 = ApplySecurityGroupsToLoadBalancerInput
     { _asgtlbiLoadBalancerName = p1
     , _asgtlbiSecurityGroups   = mempty
     }
@@ -101,8 +101,8 @@ instance IsList ApplySecurityGroupsToLoadBalancerOutput where
 --
 -- * 'asgtlboSecurityGroups' @::@ ['Text']
 --
-applySecurityGroupsToLoadBalancerOutput :: ApplySecurityGroupsToLoadBalancerOutput
-applySecurityGroupsToLoadBalancerOutput = ApplySecurityGroupsToLoadBalancerOutput
+applySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerOutput
+applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerOutput
     { _asgtlboSecurityGroups = mempty
     }
 

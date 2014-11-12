@@ -26,7 +26,7 @@ module Network.AWS.CloudFormation.SetStackPolicy
     -- * Request
       SetStackPolicyInput
     -- ** Request constructor
-    , setStackPolicyInput
+    , setStackPolicy
     -- ** Request lenses
     , sspiStackName
     , sspiStackPolicyBody
@@ -58,9 +58,9 @@ data SetStackPolicyInput = SetStackPolicyInput
 --
 -- * 'sspiStackPolicyURL' @::@ 'Maybe' 'Text'
 --
-setStackPolicyInput :: Text -- ^ 'sspiStackName'
-                    -> SetStackPolicyInput
-setStackPolicyInput p1 = SetStackPolicyInput
+setStackPolicy :: Text -- ^ 'sspiStackName'
+               -> SetStackPolicyInput
+setStackPolicy p1 = SetStackPolicyInput
     { _sspiStackName       = p1
     , _sspiStackPolicyBody = Nothing
     , _sspiStackPolicyURL  = Nothing

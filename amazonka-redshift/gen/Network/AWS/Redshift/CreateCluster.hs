@@ -32,7 +32,7 @@ module Network.AWS.Redshift.CreateCluster
     -- * Request
       CreateClusterMessage
     -- ** Request constructor
-    , createClusterMessage
+    , createCluster
     -- ** Request lenses
     , ccmAllowVersionUpgrade
     , ccmAutomatedSnapshotRetentionPeriod
@@ -60,7 +60,7 @@ module Network.AWS.Redshift.CreateCluster
     -- * Response
     , CreateClusterResult
     -- ** Response constructor
-    , createClusterResult
+    , createClusterResponse
     -- ** Response lenses
     , ccrCluster
     ) where
@@ -142,12 +142,12 @@ data CreateClusterMessage = CreateClusterMessage
 --
 -- * 'ccmVpcSecurityGroupIds' @::@ ['Text']
 --
-createClusterMessage :: Text -- ^ 'ccmClusterIdentifier'
-                     -> Text -- ^ 'ccmNodeType'
-                     -> Text -- ^ 'ccmMasterUsername'
-                     -> Text -- ^ 'ccmMasterUserPassword'
-                     -> CreateClusterMessage
-createClusterMessage p1 p2 p3 p4 = CreateClusterMessage
+createCluster :: Text -- ^ 'ccmClusterIdentifier'
+              -> Text -- ^ 'ccmNodeType'
+              -> Text -- ^ 'ccmMasterUsername'
+              -> Text -- ^ 'ccmMasterUserPassword'
+              -> CreateClusterMessage
+createCluster p1 p2 p3 p4 = CreateClusterMessage
     { _ccmClusterIdentifier                = p1
     , _ccmNodeType                         = p2
     , _ccmMasterUsername                   = p3
@@ -374,8 +374,8 @@ newtype CreateClusterResult = CreateClusterResult
 --
 -- * 'ccrCluster' @::@ 'Maybe' 'Cluster'
 --
-createClusterResult :: CreateClusterResult
-createClusterResult = CreateClusterResult
+createClusterResponse :: CreateClusterResult
+createClusterResponse = CreateClusterResult
     { _ccrCluster = Nothing
     }
 

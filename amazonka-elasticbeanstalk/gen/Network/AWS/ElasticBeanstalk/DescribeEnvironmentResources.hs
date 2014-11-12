@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     -- * Request
       DescribeEnvironmentResourcesMessage
     -- ** Request constructor
-    , describeEnvironmentResourcesMessage
+    , describeEnvironmentResources
     -- ** Request lenses
     , dermEnvironmentId
     , dermEnvironmentName
@@ -34,7 +34,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     -- * Response
     , EnvironmentResourceDescriptionsMessage
     -- ** Response constructor
-    , environmentResourceDescriptionsMessage
+    , describeEnvironmentResourcesResponse
     -- ** Response lenses
     , erdmEnvironmentResources
     ) where
@@ -56,8 +56,8 @@ data DescribeEnvironmentResourcesMessage = DescribeEnvironmentResourcesMessage
 --
 -- * 'dermEnvironmentName' @::@ 'Maybe' 'Text'
 --
-describeEnvironmentResourcesMessage :: DescribeEnvironmentResourcesMessage
-describeEnvironmentResourcesMessage = DescribeEnvironmentResourcesMessage
+describeEnvironmentResources :: DescribeEnvironmentResourcesMessage
+describeEnvironmentResources = DescribeEnvironmentResourcesMessage
     { _dermEnvironmentId   = Nothing
     , _dermEnvironmentName = Nothing
     }
@@ -93,8 +93,8 @@ newtype EnvironmentResourceDescriptionsMessage = EnvironmentResourceDescriptions
 --
 -- * 'erdmEnvironmentResources' @::@ 'Maybe' 'EnvironmentResourceDescription'
 --
-environmentResourceDescriptionsMessage :: EnvironmentResourceDescriptionsMessage
-environmentResourceDescriptionsMessage = EnvironmentResourceDescriptionsMessage
+describeEnvironmentResourcesResponse :: EnvironmentResourceDescriptionsMessage
+describeEnvironmentResourcesResponse = EnvironmentResourceDescriptionsMessage
     { _erdmEnvironmentResources = Nothing
     }
 

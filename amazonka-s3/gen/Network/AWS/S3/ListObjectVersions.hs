@@ -39,7 +39,7 @@ module Network.AWS.S3.ListObjectVersions
     -- * Response
     , ListObjectVersionsOutput
     -- ** Response constructor
-    , listObjectVersionsOutput
+    , listObjectVersionsResponse
     -- ** Response lenses
     , lovoCommonPrefixes
     , lovoDeleteMarkers
@@ -189,8 +189,8 @@ data ListObjectVersionsOutput = ListObjectVersionsOutput
 --
 -- * 'lovoVersions' @::@ ['ObjectVersion']
 --
-listObjectVersionsOutput :: ListObjectVersionsOutput
-listObjectVersionsOutput = ListObjectVersionsOutput
+listObjectVersionsResponse :: ListObjectVersionsOutput
+listObjectVersionsResponse = ListObjectVersionsOutput
     { _lovoIsTruncated         = Nothing
     , _lovoKeyMarker           = Nothing
     , _lovoVersionIdMarker     = Nothing

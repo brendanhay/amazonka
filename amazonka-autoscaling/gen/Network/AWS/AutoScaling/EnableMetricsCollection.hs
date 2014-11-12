@@ -30,7 +30,7 @@ module Network.AWS.AutoScaling.EnableMetricsCollection
     -- * Request
       EnableMetricsCollectionQuery
     -- ** Request constructor
-    , enableMetricsCollectionQuery
+    , enableMetricsCollection
     -- ** Request lenses
     , emcqAutoScalingGroupName
     , emcqGranularity
@@ -62,10 +62,10 @@ data EnableMetricsCollectionQuery = EnableMetricsCollectionQuery
 --
 -- * 'emcqMetrics' @::@ ['Text']
 --
-enableMetricsCollectionQuery :: Text -- ^ 'emcqAutoScalingGroupName'
-                             -> Text -- ^ 'emcqGranularity'
-                             -> EnableMetricsCollectionQuery
-enableMetricsCollectionQuery p1 p2 = EnableMetricsCollectionQuery
+enableMetricsCollection :: Text -- ^ 'emcqAutoScalingGroupName'
+                        -> Text -- ^ 'emcqGranularity'
+                        -> EnableMetricsCollectionQuery
+enableMetricsCollection p1 p2 = EnableMetricsCollectionQuery
     { _emcqAutoScalingGroupName = p1
     , _emcqGranularity          = p2
     , _emcqMetrics              = mempty

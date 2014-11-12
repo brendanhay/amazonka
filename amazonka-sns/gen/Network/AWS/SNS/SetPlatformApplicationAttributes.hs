@@ -28,7 +28,7 @@ module Network.AWS.SNS.SetPlatformApplicationAttributes
     -- * Request
       SetPlatformApplicationAttributesInput
     -- ** Request constructor
-    , setPlatformApplicationAttributesInput
+    , setPlatformApplicationAttributes
     -- ** Request lenses
     , spaaiAttributes
     , spaaiPlatformApplicationArn
@@ -56,9 +56,9 @@ data SetPlatformApplicationAttributesInput = SetPlatformApplicationAttributesInp
 --
 -- * 'spaaiPlatformApplicationArn' @::@ 'Text'
 --
-setPlatformApplicationAttributesInput :: Text -- ^ 'spaaiPlatformApplicationArn'
-                                      -> SetPlatformApplicationAttributesInput
-setPlatformApplicationAttributesInput p1 = SetPlatformApplicationAttributesInput
+setPlatformApplicationAttributes :: Text -- ^ 'spaaiPlatformApplicationArn'
+                                 -> SetPlatformApplicationAttributesInput
+setPlatformApplicationAttributes p1 = SetPlatformApplicationAttributesInput
     { _spaaiPlatformApplicationArn = p1
     , _spaaiAttributes             = mempty
     }

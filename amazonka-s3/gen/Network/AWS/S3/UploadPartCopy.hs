@@ -48,7 +48,7 @@ module Network.AWS.S3.UploadPartCopy
     -- * Response
     , UploadPartCopyOutput
     -- ** Response constructor
-    , uploadPartCopyOutput
+    , uploadPartCopyResponse
     -- ** Response lenses
     , upcoCopyPartResult
     , upcoCopySourceVersionId
@@ -298,8 +298,8 @@ data UploadPartCopyOutput = UploadPartCopyOutput
 --
 -- * 'upcoServerSideEncryption' @::@ 'Maybe' 'Text'
 --
-uploadPartCopyOutput :: UploadPartCopyOutput
-uploadPartCopyOutput = UploadPartCopyOutput
+uploadPartCopyResponse :: UploadPartCopyOutput
+uploadPartCopyResponse = UploadPartCopyOutput
     { _upcoCopySourceVersionId  = Nothing
     , _upcoCopyPartResult       = Nothing
     , _upcoServerSideEncryption = Nothing

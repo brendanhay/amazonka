@@ -32,7 +32,7 @@ module Network.AWS.ElastiCache.DeleteReplicationGroup
     -- * Request
       DeleteReplicationGroupMessage
     -- ** Request constructor
-    , deleteReplicationGroupMessage
+    , deleteReplicationGroup
     -- ** Request lenses
     , drgm1FinalSnapshotIdentifier
     , drgm1ReplicationGroupId
@@ -41,7 +41,7 @@ module Network.AWS.ElastiCache.DeleteReplicationGroup
     -- * Response
     , DeleteReplicationGroupResult
     -- ** Response constructor
-    , deleteReplicationGroupResult
+    , deleteReplicationGroupResponse
     -- ** Response lenses
     , drgrReplicationGroup
     ) where
@@ -66,9 +66,9 @@ data DeleteReplicationGroupMessage = DeleteReplicationGroupMessage
 --
 -- * 'drgm1RetainPrimaryCluster' @::@ 'Maybe' 'Bool'
 --
-deleteReplicationGroupMessage :: Text -- ^ 'drgm1ReplicationGroupId'
-                              -> DeleteReplicationGroupMessage
-deleteReplicationGroupMessage p1 = DeleteReplicationGroupMessage
+deleteReplicationGroup :: Text -- ^ 'drgm1ReplicationGroupId'
+                       -> DeleteReplicationGroupMessage
+deleteReplicationGroup p1 = DeleteReplicationGroupMessage
     { _drgm1ReplicationGroupId      = p1
     , _drgm1RetainPrimaryCluster    = Nothing
     , _drgm1FinalSnapshotIdentifier = Nothing
@@ -111,8 +111,8 @@ newtype DeleteReplicationGroupResult = DeleteReplicationGroupResult
 --
 -- * 'drgrReplicationGroup' @::@ 'Maybe' 'ReplicationGroup'
 --
-deleteReplicationGroupResult :: DeleteReplicationGroupResult
-deleteReplicationGroupResult = DeleteReplicationGroupResult
+deleteReplicationGroupResponse :: DeleteReplicationGroupResult
+deleteReplicationGroupResponse = DeleteReplicationGroupResult
     { _drgrReplicationGroup = Nothing
     }
 

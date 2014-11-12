@@ -30,7 +30,7 @@ module Network.AWS.SNS.CreateTopic
     -- * Request
       CreateTopicInput
     -- ** Request constructor
-    , createTopicInput
+    , createTopic
     -- ** Request lenses
     , ctiName
 
@@ -56,9 +56,9 @@ newtype CreateTopicInput = CreateTopicInput
 --
 -- * 'ctiName' @::@ 'Text'
 --
-createTopicInput :: Text -- ^ 'ctiName'
-                 -> CreateTopicInput
-createTopicInput p1 = CreateTopicInput
+createTopic :: Text -- ^ 'ctiName'
+            -> CreateTopicInput
+createTopic p1 = CreateTopicInput
     { _ctiName = p1
     }
 

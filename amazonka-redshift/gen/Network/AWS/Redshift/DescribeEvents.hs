@@ -30,7 +30,7 @@ module Network.AWS.Redshift.DescribeEvents
     -- * Request
       DescribeEventsMessage
     -- ** Request constructor
-    , describeEventsMessage
+    , describeEvents
     -- ** Request lenses
     , demDuration
     , demEndTime
@@ -43,7 +43,7 @@ module Network.AWS.Redshift.DescribeEvents
     -- * Response
     , EventsMessage
     -- ** Response constructor
-    , eventsMessage
+    , describeEventsResponse
     -- ** Response lenses
     , emEvents
     , emMarker
@@ -81,8 +81,8 @@ data DescribeEventsMessage = DescribeEventsMessage
 --
 -- * 'demStartTime' @::@ 'Maybe' 'UTCTime'
 --
-describeEventsMessage :: DescribeEventsMessage
-describeEventsMessage = DescribeEventsMessage
+describeEvents :: DescribeEventsMessage
+describeEvents = DescribeEventsMessage
     { _demSourceIdentifier = Nothing
     , _demSourceType       = Nothing
     , _demStartTime        = Nothing
@@ -171,8 +171,8 @@ data EventsMessage = EventsMessage
 --
 -- * 'emMarker' @::@ 'Maybe' 'Text'
 --
-eventsMessage :: EventsMessage
-eventsMessage = EventsMessage
+describeEventsResponse :: EventsMessage
+describeEventsResponse = EventsMessage
     { _emMarker = Nothing
     , _emEvents = mempty
     }

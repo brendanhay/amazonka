@@ -32,7 +32,7 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     -- * Request
       DescribeLoadBalancerPoliciesInput
     -- ** Request constructor
-    , describeLoadBalancerPoliciesInput
+    , describeLoadBalancerPolicies
     -- ** Request lenses
     , dlbpiLoadBalancerName
     , dlbpiPolicyNames
@@ -40,7 +40,7 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     -- * Response
     , DescribeLoadBalancerPoliciesOutput
     -- ** Response constructor
-    , describeLoadBalancerPoliciesOutput
+    , describeLoadBalancerPoliciesResponse
     -- ** Response lenses
     , dlbpoPolicyDescriptions
     ) where
@@ -62,8 +62,8 @@ data DescribeLoadBalancerPoliciesInput = DescribeLoadBalancerPoliciesInput
 --
 -- * 'dlbpiPolicyNames' @::@ ['Text']
 --
-describeLoadBalancerPoliciesInput :: DescribeLoadBalancerPoliciesInput
-describeLoadBalancerPoliciesInput = DescribeLoadBalancerPoliciesInput
+describeLoadBalancerPolicies :: DescribeLoadBalancerPoliciesInput
+describeLoadBalancerPolicies = DescribeLoadBalancerPoliciesInput
     { _dlbpiLoadBalancerName = Nothing
     , _dlbpiPolicyNames      = mempty
     }
@@ -102,8 +102,8 @@ instance IsList DescribeLoadBalancerPoliciesOutput where
 --
 -- * 'dlbpoPolicyDescriptions' @::@ ['PolicyDescription']
 --
-describeLoadBalancerPoliciesOutput :: DescribeLoadBalancerPoliciesOutput
-describeLoadBalancerPoliciesOutput = DescribeLoadBalancerPoliciesOutput
+describeLoadBalancerPoliciesResponse :: DescribeLoadBalancerPoliciesOutput
+describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesOutput
     { _dlbpoPolicyDescriptions = mempty
     }
 

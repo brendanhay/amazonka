@@ -55,7 +55,7 @@ module Network.AWS.S3.PutObject
     -- * Response
     , PutObjectOutput
     -- ** Response constructor
-    , putObjectOutput
+    , putObjectResponse
     -- ** Response lenses
     , pooETag
     , pooExpiration
@@ -351,8 +351,8 @@ data PutObjectOutput = PutObjectOutput
 --
 -- * 'pooVersionId' @::@ 'Maybe' 'Text'
 --
-putObjectOutput :: PutObjectOutput
-putObjectOutput = PutObjectOutput
+putObjectResponse :: PutObjectOutput
+putObjectResponse = PutObjectOutput
     { _pooExpiration           = Nothing
     , _pooETag                 = Nothing
     , _pooServerSideEncryption = Nothing

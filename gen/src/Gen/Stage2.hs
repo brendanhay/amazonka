@@ -529,6 +529,7 @@ instance DerivingOf Data where
               , Integral'
               , Real'
               , RealFrac'
+              , RealFloat'
               , Whole'
               , IsString'
               ]
@@ -588,7 +589,7 @@ operationJSON n d = y <> x
   where
     Object x = toJSON d
     Object y = object
-        [ "name"      .= n
+        [ "ctor"      .= constructor n
         , "streaming" .= stream
         ]
 

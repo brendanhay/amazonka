@@ -27,7 +27,7 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     -- * Request
       EnableSnapshotCopyMessage
     -- ** Request constructor
-    , enableSnapshotCopyMessage
+    , enableSnapshotCopy
     -- ** Request lenses
     , escmClusterIdentifier
     , escmDestinationRegion
@@ -36,7 +36,7 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     -- * Response
     , EnableSnapshotCopyResult
     -- ** Response constructor
-    , enableSnapshotCopyResult
+    , enableSnapshotCopyResponse
     -- ** Response lenses
     , escrCluster
     ) where
@@ -61,10 +61,10 @@ data EnableSnapshotCopyMessage = EnableSnapshotCopyMessage
 --
 -- * 'escmRetentionPeriod' @::@ 'Maybe' 'Int'
 --
-enableSnapshotCopyMessage :: Text -- ^ 'escmClusterIdentifier'
-                          -> Text -- ^ 'escmDestinationRegion'
-                          -> EnableSnapshotCopyMessage
-enableSnapshotCopyMessage p1 p2 = EnableSnapshotCopyMessage
+enableSnapshotCopy :: Text -- ^ 'escmClusterIdentifier'
+                   -> Text -- ^ 'escmDestinationRegion'
+                   -> EnableSnapshotCopyMessage
+enableSnapshotCopy p1 p2 = EnableSnapshotCopyMessage
     { _escmClusterIdentifier = p1
     , _escmDestinationRegion = p2
     , _escmRetentionPeriod   = Nothing
@@ -106,8 +106,8 @@ newtype EnableSnapshotCopyResult = EnableSnapshotCopyResult
 --
 -- * 'escrCluster' @::@ 'Maybe' 'Cluster'
 --
-enableSnapshotCopyResult :: EnableSnapshotCopyResult
-enableSnapshotCopyResult = EnableSnapshotCopyResult
+enableSnapshotCopyResponse :: EnableSnapshotCopyResult
+enableSnapshotCopyResponse = EnableSnapshotCopyResult
     { _escrCluster = Nothing
     }
 

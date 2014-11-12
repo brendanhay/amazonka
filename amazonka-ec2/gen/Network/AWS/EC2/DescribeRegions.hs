@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeRegions
     -- * Response
     , DescribeRegionsResult
     -- ** Response constructor
-    , describeRegionsResult
+    , describeRegionsResponse
     -- ** Response lenses
     , drrRegions
     ) where
@@ -102,8 +102,8 @@ instance IsList DescribeRegionsResult where
 --
 -- * 'drrRegions' @::@ ['Region']
 --
-describeRegionsResult :: DescribeRegionsResult
-describeRegionsResult = DescribeRegionsResult
+describeRegionsResponse :: DescribeRegionsResult
+describeRegionsResponse = DescribeRegionsResult
     { _drrRegions = mempty
     }
 

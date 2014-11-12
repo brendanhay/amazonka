@@ -27,7 +27,7 @@ module Network.AWS.RDS.DescribeDBInstances
     -- * Request
       DescribeDBInstancesMessage
     -- ** Request constructor
-    , describeDBInstancesMessage
+    , describeDBInstances
     -- ** Request lenses
     , ddbimDBInstanceIdentifier
     , ddbimFilters
@@ -37,7 +37,7 @@ module Network.AWS.RDS.DescribeDBInstances
     -- * Response
     , DBInstanceMessage
     -- ** Response constructor
-    , dbinstanceMessage
+    , describeDBInstancesResponse
     -- ** Response lenses
     , dbimDBInstances
     , dbimMarker
@@ -66,8 +66,8 @@ data DescribeDBInstancesMessage = DescribeDBInstancesMessage
 --
 -- * 'ddbimMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBInstancesMessage :: DescribeDBInstancesMessage
-describeDBInstancesMessage = DescribeDBInstancesMessage
+describeDBInstances :: DescribeDBInstancesMessage
+describeDBInstances = DescribeDBInstancesMessage
     { _ddbimDBInstanceIdentifier = Nothing
     , _ddbimFilters              = mempty
     , _ddbimMaxRecords           = Nothing
@@ -119,8 +119,8 @@ data DBInstanceMessage = DBInstanceMessage
 --
 -- * 'dbimMarker' @::@ 'Maybe' 'Text'
 --
-dbinstanceMessage :: DBInstanceMessage
-dbinstanceMessage = DBInstanceMessage
+describeDBInstancesResponse :: DBInstanceMessage
+describeDBInstancesResponse = DBInstanceMessage
     { _dbimMarker      = Nothing
     , _dbimDBInstances = mempty
     }

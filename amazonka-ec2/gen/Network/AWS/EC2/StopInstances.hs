@@ -56,7 +56,7 @@ module Network.AWS.EC2.StopInstances
     -- * Response
     , StopInstancesResult
     -- ** Response constructor
-    , stopInstancesResult
+    , stopInstancesResponse
     -- ** Response lenses
     , sirStoppingInstances
     ) where
@@ -123,8 +123,8 @@ instance IsList StopInstancesResult where
 --
 -- * 'sirStoppingInstances' @::@ ['InstanceStateChange']
 --
-stopInstancesResult :: StopInstancesResult
-stopInstancesResult = StopInstancesResult
+stopInstancesResponse :: StopInstancesResult
+stopInstancesResponse = StopInstancesResult
     { _sirStoppingInstances = mempty
     }
 

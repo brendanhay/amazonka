@@ -27,7 +27,7 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
     -- * Request
       CreateEnvironmentMessage
     -- ** Request constructor
-    , createEnvironmentMessage
+    , createEnvironment
     -- ** Request lenses
     , cemApplicationName
     , cemCNAMEPrefix
@@ -107,10 +107,10 @@ data CreateEnvironmentMessage = CreateEnvironmentMessage
 --
 -- * 'cemVersionLabel' @::@ 'Maybe' 'Text'
 --
-createEnvironmentMessage :: Text -- ^ 'cemApplicationName'
-                         -> Text -- ^ 'cemEnvironmentName'
-                         -> CreateEnvironmentMessage
-createEnvironmentMessage p1 p2 = CreateEnvironmentMessage
+createEnvironment :: Text -- ^ 'cemApplicationName'
+                  -> Text -- ^ 'cemEnvironmentName'
+                  -> CreateEnvironmentMessage
+createEnvironment p1 p2 = CreateEnvironmentMessage
     { _cemApplicationName   = p1
     , _cemEnvironmentName   = p2
     , _cemDescription       = Nothing

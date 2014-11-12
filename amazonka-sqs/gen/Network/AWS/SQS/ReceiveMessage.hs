@@ -59,7 +59,7 @@ module Network.AWS.SQS.ReceiveMessage
     -- * Response
     , ReceiveMessageResult
     -- ** Response constructor
-    , receiveMessageResult
+    , receiveMessageResponse
     -- ** Response lenses
     , rmrMessages
     ) where
@@ -174,8 +174,8 @@ instance IsList ReceiveMessageResult where
 --
 -- * 'rmrMessages' @::@ ['Message']
 --
-receiveMessageResult :: ReceiveMessageResult
-receiveMessageResult = ReceiveMessageResult
+receiveMessageResponse :: ReceiveMessageResult
+receiveMessageResponse = ReceiveMessageResult
     { _rmrMessages = mempty
     }
 

@@ -40,7 +40,7 @@ module Network.AWS.SQS.GetQueueUrl
     -- * Response
     , GetQueueUrlResult
     -- ** Response constructor
-    , getQueueUrlResult
+    , getQueueUrlResponse
     -- ** Response lenses
     , gqurQueueUrl
     ) where
@@ -95,8 +95,8 @@ newtype GetQueueUrlResult = GetQueueUrlResult
 --
 -- * 'gqurQueueUrl' @::@ 'Maybe' 'Text'
 --
-getQueueUrlResult :: GetQueueUrlResult
-getQueueUrlResult = GetQueueUrlResult
+getQueueUrlResponse :: GetQueueUrlResult
+getQueueUrlResponse = GetQueueUrlResult
     { _gqurQueueUrl = Nothing
     }
 

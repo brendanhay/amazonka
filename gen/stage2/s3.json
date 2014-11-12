@@ -5700,7 +5700,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "completeMultipartUploadOutput",
+                "ctor": "completeMultipartUploadResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -6116,7 +6116,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "copyObjectOutput",
+                "ctor": "copyObjectResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -7324,7 +7324,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createBucketOutput",
+                "ctor": "createBucketResponse",
                 "field": {
                     "location": "header",
                     "iso": null,
@@ -7703,7 +7703,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "createMultipartUploadOutput",
+                "ctor": "createMultipartUploadResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -9308,7 +9308,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 16,
-                "ctor": "deleteObjectOutput",
+                "ctor": "deleteObjectResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -9565,7 +9565,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "deleteObjectsOutput",
+                "ctor": "deleteObjectsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -9810,7 +9810,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "getBucketAclOutput",
+                "ctor": "getBucketAclResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -10000,7 +10000,7 @@
                 "streaming": false,
                 "listElement": "CORSRule",
                 "fieldPad": 0,
-                "ctor": "getBucketCorsOutput",
+                "ctor": "getBucketCorsResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -10176,7 +10176,7 @@
                 "streaming": false,
                 "listElement": "Rule",
                 "fieldPad": 0,
-                "ctor": "getBucketLifecycleOutput",
+                "ctor": "getBucketLifecycleResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -10352,7 +10352,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getBucketLocationOutput",
+                "ctor": "getBucketLocationResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -10526,7 +10526,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getBucketLoggingOutput",
+                "ctor": "getBucketLoggingResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -10700,7 +10700,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getBucketNotificationOutput",
+                "ctor": "getBucketNotificationResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -10876,7 +10876,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getBucketPolicyOutput",
+                "ctor": "getBucketPolicyResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -11052,7 +11052,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getBucketRequestPaymentOutput",
+                "ctor": "getBucketRequestPaymentResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -11228,7 +11228,7 @@
                 "streaming": false,
                 "listElement": "Tag",
                 "fieldPad": 0,
-                "ctor": "getBucketTaggingOutput",
+                "ctor": "getBucketTaggingResponse",
                 "field": {
                     "location": "body-xml",
                     "iso": null,
@@ -11402,7 +11402,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 14,
-                "ctor": "getBucketVersioningOutput",
+                "ctor": "getBucketVersioningResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -11589,7 +11589,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "getBucketWebsiteOutput",
+                "ctor": "getBucketWebsiteResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -11831,7 +11831,7 @@
                 ],
                 "streaming": true,
                 "fieldPad": 27,
-                "ctor": "getObjectOutput",
+                "ctor": "getObjectResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body",
@@ -13063,7 +13063,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "getObjectAclOutput",
+                "ctor": "getObjectAclResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -13303,7 +13303,7 @@
                 "streaming": true,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "getObjectTorrentOutput",
+                "ctor": "getObjectTorrentResponse",
                 "field": {
                     "location": "body",
                     "iso": null,
@@ -13606,7 +13606,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 27,
-                "ctor": "headObjectOutput",
+                "ctor": "headObjectResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -14598,7 +14598,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 11,
-                "ctor": "listBucketsOutput",
+                "ctor": "listBucketsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -14728,7 +14728,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "listMultipartUploadsOutput",
+                "ctor": "listMultipartUploadsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -15349,7 +15349,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "listObjectVersionsOutput",
+                "ctor": "listObjectVersionsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -15998,7 +15998,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 18,
-                "ctor": "listObjectsOutput",
+                "ctor": "listObjectsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -16526,7 +16526,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "listPartsOutput",
+                "ctor": "listPartsResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",
@@ -19053,7 +19053,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "putObjectOutput",
+                "ctor": "putObjectResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -20672,7 +20672,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "uploadPartOutput",
+                "ctor": "uploadPartResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -21189,7 +21189,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "uploadPartCopyOutput",
+                "ctor": "uploadPartCopyResponse",
                 "wrapper": false,
                 "payload": {
                     "location": "body-xml",

@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeRouteTables
     -- * Response
     , DescribeRouteTablesResult
     -- ** Response constructor
-    , describeRouteTablesResult
+    , describeRouteTablesResponse
     -- ** Response lenses
     , drtrRouteTables
     ) where
@@ -130,8 +130,8 @@ instance IsList DescribeRouteTablesResult where
 --
 -- * 'drtrRouteTables' @::@ ['RouteTable']
 --
-describeRouteTablesResult :: DescribeRouteTablesResult
-describeRouteTablesResult = DescribeRouteTablesResult
+describeRouteTablesResponse :: DescribeRouteTablesResult
+describeRouteTablesResponse = DescribeRouteTablesResult
     { _drtrRouteTables = mempty
     }
 

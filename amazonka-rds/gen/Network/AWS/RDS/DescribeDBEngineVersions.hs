@@ -26,7 +26,7 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     -- * Request
       DescribeDBEngineVersionsMessage
     -- ** Request constructor
-    , describeDBEngineVersionsMessage
+    , describeDBEngineVersions
     -- ** Request lenses
     , ddbevmDBParameterGroupFamily
     , ddbevmDefaultOnly
@@ -40,7 +40,7 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     -- * Response
     , DBEngineVersionMessage
     -- ** Response constructor
-    , dbengineVersionMessage
+    , describeDBEngineVersionsResponse
     -- ** Response lenses
     , dbevmDBEngineVersions
     , dbevmMarker
@@ -81,8 +81,8 @@ data DescribeDBEngineVersionsMessage = DescribeDBEngineVersionsMessage
 --
 -- * 'ddbevmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBEngineVersionsMessage :: DescribeDBEngineVersionsMessage
-describeDBEngineVersionsMessage = DescribeDBEngineVersionsMessage
+describeDBEngineVersions :: DescribeDBEngineVersionsMessage
+describeDBEngineVersions = DescribeDBEngineVersionsMessage
     { _ddbevmEngine                     = Nothing
     , _ddbevmEngineVersion              = Nothing
     , _ddbevmDBParameterGroupFamily     = Nothing
@@ -160,8 +160,8 @@ data DBEngineVersionMessage = DBEngineVersionMessage
 --
 -- * 'dbevmMarker' @::@ 'Maybe' 'Text'
 --
-dbengineVersionMessage :: DBEngineVersionMessage
-dbengineVersionMessage = DBEngineVersionMessage
+describeDBEngineVersionsResponse :: DBEngineVersionMessage
+describeDBEngineVersionsResponse = DBEngineVersionMessage
     { _dbevmMarker           = Nothing
     , _dbevmDBEngineVersions = mempty
     }

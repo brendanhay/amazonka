@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketTagging
     -- * Response
     , GetBucketTaggingOutput
     -- ** Response constructor
-    , getBucketTaggingOutput
+    , getBucketTaggingResponse
     -- ** Response lenses
     , gbtoTagSet
     ) where
@@ -88,8 +88,8 @@ instance IsList GetBucketTaggingOutput where
 --
 -- * 'gbtoTagSet' @::@ ['Tag']
 --
-getBucketTaggingOutput :: GetBucketTaggingOutput
-getBucketTaggingOutput = GetBucketTaggingOutput
+getBucketTaggingResponse :: GetBucketTaggingOutput
+getBucketTaggingResponse = GetBucketTaggingOutput
     { _gbtoTagSet = mempty
     }
 

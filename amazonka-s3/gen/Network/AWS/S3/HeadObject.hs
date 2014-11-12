@@ -45,7 +45,7 @@ module Network.AWS.S3.HeadObject
     -- * Response
     , HeadObjectOutput
     -- ** Response constructor
-    , headObjectOutput
+    , headObjectResponse
     -- ** Response lenses
     , hooAcceptRanges
     , hooCacheControl
@@ -282,8 +282,8 @@ data HeadObjectOutput = HeadObjectOutput
 --
 -- * 'hooWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
-headObjectOutput :: HeadObjectOutput
-headObjectOutput = HeadObjectOutput
+headObjectResponse :: HeadObjectOutput
+headObjectResponse = HeadObjectOutput
     { _hooDeleteMarker            = Nothing
     , _hooAcceptRanges            = Nothing
     , _hooExpiration              = Nothing

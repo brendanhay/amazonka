@@ -34,7 +34,7 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     -- * Request
       AuthorizeDBSecurityGroupIngressMessage
     -- ** Request constructor
-    , authorizeDBSecurityGroupIngressMessage
+    , authorizeDBSecurityGroupIngress
     -- ** Request lenses
     , adbsgimCIDRIP
     , adbsgimDBSecurityGroupName
@@ -45,7 +45,7 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     -- * Response
     , AuthorizeDBSecurityGroupIngressResult
     -- ** Response constructor
-    , authorizeDBSecurityGroupIngressResult
+    , authorizeDBSecurityGroupIngressResponse
     -- ** Response lenses
     , adbsgirDBSecurityGroup
     ) where
@@ -76,9 +76,9 @@ data AuthorizeDBSecurityGroupIngressMessage = AuthorizeDBSecurityGroupIngressMes
 --
 -- * 'adbsgimEC2SecurityGroupOwnerId' @::@ 'Maybe' 'Text'
 --
-authorizeDBSecurityGroupIngressMessage :: Text -- ^ 'adbsgimDBSecurityGroupName'
-                                       -> AuthorizeDBSecurityGroupIngressMessage
-authorizeDBSecurityGroupIngressMessage p1 = AuthorizeDBSecurityGroupIngressMessage
+authorizeDBSecurityGroupIngress :: Text -- ^ 'adbsgimDBSecurityGroupName'
+                                -> AuthorizeDBSecurityGroupIngressMessage
+authorizeDBSecurityGroupIngress p1 = AuthorizeDBSecurityGroupIngressMessage
     { _adbsgimDBSecurityGroupName     = p1
     , _adbsgimCIDRIP                  = Nothing
     , _adbsgimEC2SecurityGroupName    = Nothing
@@ -137,8 +137,8 @@ newtype AuthorizeDBSecurityGroupIngressResult = AuthorizeDBSecurityGroupIngressR
 --
 -- * 'adbsgirDBSecurityGroup' @::@ 'Maybe' 'DBSecurityGroup'
 --
-authorizeDBSecurityGroupIngressResult :: AuthorizeDBSecurityGroupIngressResult
-authorizeDBSecurityGroupIngressResult = AuthorizeDBSecurityGroupIngressResult
+authorizeDBSecurityGroupIngressResponse :: AuthorizeDBSecurityGroupIngressResult
+authorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResult
     { _adbsgirDBSecurityGroup = Nothing
     }
 

@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeImages
     -- * Response
     , DescribeImagesResult
     -- ** Response constructor
-    , describeImagesResult
+    , describeImagesResponse
     -- ** Response lenses
     , dirImages
     ) where
@@ -157,8 +157,8 @@ instance IsList DescribeImagesResult where
 --
 -- * 'dirImages' @::@ ['Image']
 --
-describeImagesResult :: DescribeImagesResult
-describeImagesResult = DescribeImagesResult
+describeImagesResponse :: DescribeImagesResult
+describeImagesResponse = DescribeImagesResult
     { _dirImages = mempty
     }
 

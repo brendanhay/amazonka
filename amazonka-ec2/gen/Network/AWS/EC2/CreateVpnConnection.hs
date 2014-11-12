@@ -47,7 +47,7 @@ module Network.AWS.EC2.CreateVpnConnection
     -- * Response
     , CreateVpnConnectionResult
     -- ** Response constructor
-    , createVpnConnectionResult
+    , createVpnConnectionResponse
     -- ** Response lenses
     , cvcrVpnConnection
     ) where
@@ -127,8 +127,8 @@ newtype CreateVpnConnectionResult = CreateVpnConnectionResult
 --
 -- * 'cvcrVpnConnection' @::@ 'Maybe' 'VpnConnection'
 --
-createVpnConnectionResult :: CreateVpnConnectionResult
-createVpnConnectionResult = CreateVpnConnectionResult
+createVpnConnectionResponse :: CreateVpnConnectionResult
+createVpnConnectionResponse = CreateVpnConnectionResult
     { _cvcrVpnConnection = Nothing
     }
 

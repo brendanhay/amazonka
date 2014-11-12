@@ -26,7 +26,7 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     -- * Request
       TerminateEnvironmentMessage
     -- ** Request constructor
-    , terminateEnvironmentMessage
+    , terminateEnvironment
     -- ** Request lenses
     , temEnvironmentId
     , temEnvironmentName
@@ -74,8 +74,8 @@ data TerminateEnvironmentMessage = TerminateEnvironmentMessage
 --
 -- * 'temTerminateResources' @::@ 'Maybe' 'Bool'
 --
-terminateEnvironmentMessage :: TerminateEnvironmentMessage
-terminateEnvironmentMessage = TerminateEnvironmentMessage
+terminateEnvironment :: TerminateEnvironmentMessage
+terminateEnvironment = TerminateEnvironmentMessage
     { _temEnvironmentId      = Nothing
     , _temEnvironmentName    = Nothing
     , _temTerminateResources = Nothing

@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeSecurityGroups
     -- * Response
     , DescribeSecurityGroupsResult
     -- ** Response constructor
-    , describeSecurityGroupsResult
+    , describeSecurityGroupsResponse
     -- ** Response lenses
     , dsgrSecurityGroups
     ) where
@@ -129,8 +129,8 @@ instance IsList DescribeSecurityGroupsResult where
 --
 -- * 'dsgrSecurityGroups' @::@ ['SecurityGroup']
 --
-describeSecurityGroupsResult :: DescribeSecurityGroupsResult
-describeSecurityGroupsResult = DescribeSecurityGroupsResult
+describeSecurityGroupsResponse :: DescribeSecurityGroupsResult
+describeSecurityGroupsResponse = DescribeSecurityGroupsResult
     { _dsgrSecurityGroups = mempty
     }
 

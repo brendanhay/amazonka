@@ -32,7 +32,7 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     -- * Request
       DeregisterEndPointsInput
     -- ** Request constructor
-    , deregisterEndPointsInput
+    , deregisterInstancesFromLoadBalancer
     -- ** Request lenses
     , depiInstances
     , depiLoadBalancerName
@@ -40,7 +40,7 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     -- * Response
     , DeregisterEndPointsOutput
     -- ** Response constructor
-    , deregisterEndPointsOutput
+    , deregisterInstancesFromLoadBalancerResponse
     -- ** Response lenses
     , depoInstances
     ) where
@@ -62,9 +62,9 @@ data DeregisterEndPointsInput = DeregisterEndPointsInput
 --
 -- * 'depiLoadBalancerName' @::@ 'Text'
 --
-deregisterEndPointsInput :: Text -- ^ 'depiLoadBalancerName'
-                         -> DeregisterEndPointsInput
-deregisterEndPointsInput p1 = DeregisterEndPointsInput
+deregisterInstancesFromLoadBalancer :: Text -- ^ 'depiLoadBalancerName'
+                                    -> DeregisterEndPointsInput
+deregisterInstancesFromLoadBalancer p1 = DeregisterEndPointsInput
     { _depiLoadBalancerName = p1
     , _depiInstances        = mempty
     }
@@ -100,8 +100,8 @@ instance IsList DeregisterEndPointsOutput where
 --
 -- * 'depoInstances' @::@ ['Instance']
 --
-deregisterEndPointsOutput :: DeregisterEndPointsOutput
-deregisterEndPointsOutput = DeregisterEndPointsOutput
+deregisterInstancesFromLoadBalancerResponse :: DeregisterEndPointsOutput
+deregisterInstancesFromLoadBalancerResponse = DeregisterEndPointsOutput
     { _depoInstances = mempty
     }
 

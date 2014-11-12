@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.CreateOrUpdateTags
     -- * Request
       CreateOrUpdateTagsType
     -- ** Request constructor
-    , createOrUpdateTagsType
+    , createOrUpdateTags
     -- ** Request lenses
     , couttTags
 
@@ -58,8 +58,8 @@ instance IsList CreateOrUpdateTagsType where
 --
 -- * 'couttTags' @::@ ['Tag']
 --
-createOrUpdateTagsType :: CreateOrUpdateTagsType
-createOrUpdateTagsType = CreateOrUpdateTagsType
+createOrUpdateTags :: CreateOrUpdateTagsType
+createOrUpdateTags = CreateOrUpdateTagsType
     { _couttTags = mempty
     }
 

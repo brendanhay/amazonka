@@ -26,7 +26,7 @@ module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     -- * Request
       DeleteNotificationConfigurationType
     -- ** Request constructor
-    , deleteNotificationConfigurationType
+    , deleteNotificationConfiguration
     -- ** Request lenses
     , dnctAutoScalingGroupName
     , dnctTopicARN
@@ -54,10 +54,10 @@ data DeleteNotificationConfigurationType = DeleteNotificationConfigurationType
 --
 -- * 'dnctTopicARN' @::@ 'Text'
 --
-deleteNotificationConfigurationType :: Text -- ^ 'dnctAutoScalingGroupName'
-                                    -> Text -- ^ 'dnctTopicARN'
-                                    -> DeleteNotificationConfigurationType
-deleteNotificationConfigurationType p1 p2 = DeleteNotificationConfigurationType
+deleteNotificationConfiguration :: Text -- ^ 'dnctAutoScalingGroupName'
+                                -> Text -- ^ 'dnctTopicARN'
+                                -> DeleteNotificationConfigurationType
+deleteNotificationConfiguration p1 p2 = DeleteNotificationConfigurationType
     { _dnctAutoScalingGroupName = p1
     , _dnctTopicARN             = p2
     }

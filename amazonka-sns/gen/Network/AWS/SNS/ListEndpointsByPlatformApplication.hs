@@ -34,7 +34,7 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     -- * Request
       ListEndpointsByPlatformApplicationInput
     -- ** Request constructor
-    , listEndpointsByPlatformApplicationInput
+    , listEndpointsByPlatformApplication
     -- ** Request lenses
     , lebpaiNextToken
     , lebpaiPlatformApplicationArn
@@ -65,9 +65,9 @@ data ListEndpointsByPlatformApplicationInput = ListEndpointsByPlatformApplicatio
 --
 -- * 'lebpaiPlatformApplicationArn' @::@ 'Text'
 --
-listEndpointsByPlatformApplicationInput :: Text -- ^ 'lebpaiPlatformApplicationArn'
-                                        -> ListEndpointsByPlatformApplicationInput
-listEndpointsByPlatformApplicationInput p1 = ListEndpointsByPlatformApplicationInput
+listEndpointsByPlatformApplication :: Text -- ^ 'lebpaiPlatformApplicationArn'
+                                   -> ListEndpointsByPlatformApplicationInput
+listEndpointsByPlatformApplication p1 = ListEndpointsByPlatformApplicationInput
     { _lebpaiPlatformApplicationArn = p1
     , _lebpaiNextToken              = Nothing
     }

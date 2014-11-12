@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.ListDistributions
     -- * Request
       ListDistributions
     -- ** Request constructor
-    , listDistributions
+    , listDistributions2014_05_31
     -- ** Request lenses
     , ldMarker
     , ldMaxItems
@@ -34,7 +34,7 @@ module Network.AWS.CloudFront.ListDistributions
     -- * Response
     , ListDistributionsResult
     -- ** Response constructor
-    , listDistributionsResult
+    , listDistributions2014_05_31Response
     -- ** Response lenses
     , ldrDistributionList
     ) where
@@ -56,8 +56,8 @@ data ListDistributions = ListDistributions
 --
 -- * 'ldMaxItems' @::@ 'Maybe' 'Text'
 --
-listDistributions :: ListDistributions
-listDistributions = ListDistributions
+listDistributions2014_05_31 :: ListDistributions
+listDistributions2014_05_31 = ListDistributions
     { _ldMarker   = Nothing
     , _ldMaxItems = Nothing
     }
@@ -95,8 +95,8 @@ newtype ListDistributionsResult = ListDistributionsResult
 --
 -- * 'ldrDistributionList' @::@ 'Maybe' 'DistributionList'
 --
-listDistributionsResult :: ListDistributionsResult
-listDistributionsResult = ListDistributionsResult
+listDistributions2014_05_31Response :: ListDistributionsResult
+listDistributions2014_05_31Response = ListDistributionsResult
     { _ldrDistributionList = Nothing
     }
 

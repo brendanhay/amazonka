@@ -31,7 +31,7 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     -- * Response
     , ListAvailableSolutionStacksResultMessage
     -- ** Response constructor
-    , listAvailableSolutionStacksResultMessage
+    , listAvailableSolutionStacksResponse
     -- ** Response lenses
     , lassrmSolutionStackDetails
     , lassrmSolutionStacks
@@ -66,8 +66,8 @@ data ListAvailableSolutionStacksResultMessage = ListAvailableSolutionStacksResul
 --
 -- * 'lassrmSolutionStacks' @::@ ['Text']
 --
-listAvailableSolutionStacksResultMessage :: ListAvailableSolutionStacksResultMessage
-listAvailableSolutionStacksResultMessage = ListAvailableSolutionStacksResultMessage
+listAvailableSolutionStacksResponse :: ListAvailableSolutionStacksResultMessage
+listAvailableSolutionStacksResponse = ListAvailableSolutionStacksResultMessage
     { _lassrmSolutionStacks       = mempty
     , _lassrmSolutionStackDetails = mempty
     }

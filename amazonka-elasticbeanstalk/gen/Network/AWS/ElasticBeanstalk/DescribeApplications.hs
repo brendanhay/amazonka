@@ -26,14 +26,14 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
     -- * Request
       DescribeApplicationsMessage
     -- ** Request constructor
-    , describeApplicationsMessage
+    , describeApplications
     -- ** Request lenses
     , damApplicationNames
 
     -- * Response
     , ApplicationDescriptionsMessage
     -- ** Response constructor
-    , applicationDescriptionsMessage
+    , describeApplicationsResponse
     -- ** Response lenses
     , admApplications
     ) where
@@ -58,8 +58,8 @@ instance IsList DescribeApplicationsMessage where
 --
 -- * 'damApplicationNames' @::@ ['Text']
 --
-describeApplicationsMessage :: DescribeApplicationsMessage
-describeApplicationsMessage = DescribeApplicationsMessage
+describeApplications :: DescribeApplicationsMessage
+describeApplications = DescribeApplicationsMessage
     { _damApplicationNames = mempty
     }
 
@@ -90,8 +90,8 @@ instance IsList ApplicationDescriptionsMessage where
 --
 -- * 'admApplications' @::@ ['ApplicationDescription']
 --
-applicationDescriptionsMessage :: ApplicationDescriptionsMessage
-applicationDescriptionsMessage = ApplicationDescriptionsMessage
+describeApplicationsResponse :: ApplicationDescriptionsMessage
+describeApplicationsResponse = ApplicationDescriptionsMessage
     { _admApplications = mempty
     }
 

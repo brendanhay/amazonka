@@ -27,7 +27,7 @@ module Network.AWS.Redshift.EnableLogging
     -- * Request
       EnableLoggingMessage
     -- ** Request constructor
-    , enableLoggingMessage
+    , enableLogging
     -- ** Request lenses
     , elmBucketName
     , elmClusterIdentifier
@@ -66,10 +66,10 @@ data EnableLoggingMessage = EnableLoggingMessage
 --
 -- * 'elmS3KeyPrefix' @::@ 'Maybe' 'Text'
 --
-enableLoggingMessage :: Text -- ^ 'elmClusterIdentifier'
-                     -> Text -- ^ 'elmBucketName'
-                     -> EnableLoggingMessage
-enableLoggingMessage p1 p2 = EnableLoggingMessage
+enableLogging :: Text -- ^ 'elmClusterIdentifier'
+              -> Text -- ^ 'elmBucketName'
+              -> EnableLoggingMessage
+enableLogging p1 p2 = EnableLoggingMessage
     { _elmClusterIdentifier = p1
     , _elmBucketName        = p2
     , _elmS3KeyPrefix       = Nothing

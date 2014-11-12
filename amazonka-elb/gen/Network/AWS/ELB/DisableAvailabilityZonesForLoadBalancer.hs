@@ -36,7 +36,7 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     -- * Request
       RemoveAvailabilityZonesInput
     -- ** Request constructor
-    , removeAvailabilityZonesInput
+    , disableAvailabilityZonesForLoadBalancer
     -- ** Request lenses
     , raziAvailabilityZones
     , raziLoadBalancerName
@@ -44,7 +44,7 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     -- * Response
     , RemoveAvailabilityZonesOutput
     -- ** Response constructor
-    , removeAvailabilityZonesOutput
+    , disableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
     , razoAvailabilityZones
     ) where
@@ -66,9 +66,9 @@ data RemoveAvailabilityZonesInput = RemoveAvailabilityZonesInput
 --
 -- * 'raziLoadBalancerName' @::@ 'Text'
 --
-removeAvailabilityZonesInput :: Text -- ^ 'raziLoadBalancerName'
-                             -> RemoveAvailabilityZonesInput
-removeAvailabilityZonesInput p1 = RemoveAvailabilityZonesInput
+disableAvailabilityZonesForLoadBalancer :: Text -- ^ 'raziLoadBalancerName'
+                                        -> RemoveAvailabilityZonesInput
+disableAvailabilityZonesForLoadBalancer p1 = RemoveAvailabilityZonesInput
     { _raziLoadBalancerName  = p1
     , _raziAvailabilityZones = mempty
     }
@@ -106,8 +106,8 @@ instance IsList RemoveAvailabilityZonesOutput where
 --
 -- * 'razoAvailabilityZones' @::@ ['Text']
 --
-removeAvailabilityZonesOutput :: RemoveAvailabilityZonesOutput
-removeAvailabilityZonesOutput = RemoveAvailabilityZonesOutput
+disableAvailabilityZonesForLoadBalancerResponse :: RemoveAvailabilityZonesOutput
+disableAvailabilityZonesForLoadBalancerResponse = RemoveAvailabilityZonesOutput
     { _razoAvailabilityZones = mempty
     }
 

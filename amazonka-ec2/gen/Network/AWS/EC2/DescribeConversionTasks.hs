@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeConversionTasks
     -- * Response
     , DescribeConversionTasksResult
     -- ** Response constructor
-    , describeConversionTasksResult
+    , describeConversionTasksResponse
     -- ** Response lenses
     , dctrConversionTasks
     ) where
@@ -101,8 +101,8 @@ instance IsList DescribeConversionTasksResult where
 --
 -- * 'dctrConversionTasks' @::@ ['ConversionTask']
 --
-describeConversionTasksResult :: DescribeConversionTasksResult
-describeConversionTasksResult = DescribeConversionTasksResult
+describeConversionTasksResponse :: DescribeConversionTasksResult
+describeConversionTasksResponse = DescribeConversionTasksResult
     { _dctrConversionTasks = mempty
     }
 

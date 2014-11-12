@@ -36,7 +36,7 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     -- * Request
       CompleteLifecycleActionType
     -- ** Request constructor
-    , completeLifecycleActionType
+    , completeLifecycleAction
     -- ** Request lenses
     , clatAutoScalingGroupName
     , clatLifecycleActionResult
@@ -72,12 +72,12 @@ data CompleteLifecycleActionType = CompleteLifecycleActionType
 --
 -- * 'clatLifecycleHookName' @::@ 'Text'
 --
-completeLifecycleActionType :: Text -- ^ 'clatLifecycleHookName'
-                            -> Text -- ^ 'clatAutoScalingGroupName'
-                            -> Text -- ^ 'clatLifecycleActionToken'
-                            -> Text -- ^ 'clatLifecycleActionResult'
-                            -> CompleteLifecycleActionType
-completeLifecycleActionType p1 p2 p3 p4 = CompleteLifecycleActionType
+completeLifecycleAction :: Text -- ^ 'clatLifecycleHookName'
+                        -> Text -- ^ 'clatAutoScalingGroupName'
+                        -> Text -- ^ 'clatLifecycleActionToken'
+                        -> Text -- ^ 'clatLifecycleActionResult'
+                        -> CompleteLifecycleActionType
+completeLifecycleAction p1 p2 p3 p4 = CompleteLifecycleActionType
     { _clatLifecycleHookName     = p1
     , _clatAutoScalingGroupName  = p2
     , _clatLifecycleActionToken  = p3

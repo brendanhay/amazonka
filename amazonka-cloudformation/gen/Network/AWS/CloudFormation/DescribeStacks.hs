@@ -27,7 +27,7 @@ module Network.AWS.CloudFormation.DescribeStacks
     -- * Request
       DescribeStacksInput
     -- ** Request constructor
-    , describeStacksInput
+    , describeStacks
     -- ** Request lenses
     , dsiNextToken
     , dsiStackName
@@ -35,7 +35,7 @@ module Network.AWS.CloudFormation.DescribeStacks
     -- * Response
     , DescribeStacksOutput
     -- ** Response constructor
-    , describeStacksOutput
+    , describeStacksResponse
     -- ** Response lenses
     , dsoNextToken
     , dsoStacks
@@ -58,8 +58,8 @@ data DescribeStacksInput = DescribeStacksInput
 --
 -- * 'dsiStackName' @::@ 'Maybe' 'Text'
 --
-describeStacksInput :: DescribeStacksInput
-describeStacksInput = DescribeStacksInput
+describeStacks :: DescribeStacksInput
+describeStacks = DescribeStacksInput
     { _dsiStackName = Nothing
     , _dsiNextToken = Nothing
     }
@@ -94,8 +94,8 @@ data DescribeStacksOutput = DescribeStacksOutput
 --
 -- * 'dsoStacks' @::@ ['Stack']
 --
-describeStacksOutput :: DescribeStacksOutput
-describeStacksOutput = DescribeStacksOutput
+describeStacksResponse :: DescribeStacksOutput
+describeStacksResponse = DescribeStacksOutput
     { _dsoStacks    = mempty
     , _dsoNextToken = Nothing
     }

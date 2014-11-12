@@ -2902,7 +2902,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "addTagsInput",
+                "ctor": "addTags",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3006,7 +3006,7 @@
                 "streaming": false,
                 "listElement": "Text",
                 "fieldPad": 0,
-                "ctor": "applySecurityGroupsToLoadBalancerOutput",
+                "ctor": "applySecurityGroupsToLoadBalancerResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3079,7 +3079,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "applySecurityGroupsToLoadBalancerInput",
+                "ctor": "applySecurityGroupsToLoadBalancer",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3183,7 +3183,7 @@
                 "streaming": false,
                 "listElement": "Text",
                 "fieldPad": 0,
-                "ctor": "attachLoadBalancerToSubnetsOutput",
+                "ctor": "attachLoadBalancerToSubnetsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3256,7 +3256,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "attachLoadBalancerToSubnetsInput",
+                "ctor": "attachLoadBalancerToSubnets",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3357,7 +3357,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "configureHealthCheckOutput",
+                "ctor": "configureHealthCheckResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3429,7 +3429,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "configureHealthCheckInput",
+                "ctor": "configureHealthCheck",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3557,7 +3557,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "createAppCookieStickinessPolicyInput",
+                "ctor": "createAppCookieStickinessPolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3718,7 +3718,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 30,
-                "ctor": "createLBCookieStickinessPolicyInput",
+                "ctor": "createLBCookieStickinessPolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -3854,7 +3854,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "createAccessPointOutput",
+                "ctor": "createLoadBalancerResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -3926,7 +3926,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "createAccessPointInput",
+                "ctor": "createLoadBalancer",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4219,7 +4219,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "createLoadBalancerListenerInput",
+                "ctor": "createLoadBalancerListeners",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4347,7 +4347,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "createLoadBalancerPolicyInput",
+                "ctor": "createLoadBalancerPolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4545,7 +4545,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "deleteAccessPointInput",
+                "ctor": "deleteLoadBalancer",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -4654,7 +4654,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "deleteLoadBalancerListenerInput",
+                "ctor": "deleteLoadBalancerListeners",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4783,7 +4783,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "deleteLoadBalancerPolicyInput",
+                "ctor": "deleteLoadBalancerPolicy",
                 "headerPad": 0,
                 "path": [
                     {
@@ -4885,7 +4885,7 @@
                 "streaming": false,
                 "listElement": "Instance",
                 "fieldPad": 0,
-                "ctor": "deregisterEndPointsOutput",
+                "ctor": "deregisterInstancesFromLoadBalancerResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -4957,7 +4957,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "deregisterEndPointsInput",
+                "ctor": "deregisterInstancesFromLoadBalancer",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5060,7 +5060,7 @@
                 "streaming": false,
                 "listElement": "InstanceState",
                 "fieldPad": 0,
-                "ctor": "describeEndPointStateOutput",
+                "ctor": "describeInstanceHealthResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -5132,7 +5132,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "describeEndPointStateInput",
+                "ctor": "describeInstanceHealth",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5233,7 +5233,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "describeLoadBalancerAttributesOutput",
+                "ctor": "describeLoadBalancerAttributesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -5309,7 +5309,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "describeLoadBalancerAttributesInput",
+                "ctor": "describeLoadBalancerAttributes",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -5392,7 +5392,7 @@
                 "streaming": false,
                 "listElement": "PolicyDescription",
                 "fieldPad": 0,
-                "ctor": "describeLoadBalancerPoliciesOutput",
+                "ctor": "describeLoadBalancerPoliciesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -5465,7 +5465,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "describeLoadBalancerPoliciesInput",
+                "ctor": "describeLoadBalancerPolicies",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5567,7 +5567,7 @@
                 "streaming": false,
                 "listElement": "PolicyTypeDescription",
                 "fieldPad": 0,
-                "ctor": "describeLoadBalancerPolicyTypesOutput",
+                "ctor": "describeLoadBalancerPolicyTypesResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -5643,7 +5643,7 @@
                 "streaming": false,
                 "listElement": "Text",
                 "fieldPad": 0,
-                "ctor": "describeLoadBalancerPolicyTypesInput",
+                "ctor": "describeLoadBalancerPolicyTypes",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -5723,7 +5723,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 29,
-                "ctor": "describeAccessPointsOutput",
+                "ctor": "describeLoadBalancersResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -5810,7 +5810,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "describeAccessPointsInput",
+                "ctor": "describeLoadBalancers",
                 "headerPad": 0,
                 "path": [
                     {
@@ -5945,7 +5945,7 @@
                 "streaming": false,
                 "listElement": "TagDescription",
                 "fieldPad": 0,
-                "ctor": "describeTagsOutput",
+                "ctor": "describeTagsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6020,7 +6020,7 @@
                 "streaming": false,
                 "listElement": null,
                 "fieldPad": 0,
-                "ctor": "describeTagsInput",
+                "ctor": "describeTags",
                 "headerPad": 0,
                 "field": {
                     "location": "querystring",
@@ -6104,7 +6104,7 @@
                 "streaming": false,
                 "listElement": "Text",
                 "fieldPad": 0,
-                "ctor": "detachLoadBalancerFromSubnetsOutput",
+                "ctor": "detachLoadBalancerFromSubnetsResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6177,7 +6177,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 23,
-                "ctor": "detachLoadBalancerFromSubnetsInput",
+                "ctor": "detachLoadBalancerFromSubnets",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6281,7 +6281,7 @@
                 "streaming": false,
                 "listElement": "Text",
                 "fieldPad": 0,
-                "ctor": "removeAvailabilityZonesOutput",
+                "ctor": "disableAvailabilityZonesForLoadBalancerResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6354,7 +6354,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "removeAvailabilityZonesInput",
+                "ctor": "disableAvailabilityZonesForLoadBalancer",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6458,7 +6458,7 @@
                 "streaming": false,
                 "listElement": "Text",
                 "fieldPad": 0,
-                "ctor": "addAvailabilityZonesOutput",
+                "ctor": "enableAvailabilityZonesForLoadBalancerResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6531,7 +6531,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 22,
-                "ctor": "addAvailabilityZonesInput",
+                "ctor": "enableAvailabilityZonesForLoadBalancer",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6631,7 +6631,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "modifyLoadBalancerAttributesOutput",
+                "ctor": "modifyLoadBalancerAttributesResponse",
                 "wrapper": false,
                 "payload": null,
                 "required": [],
@@ -6717,7 +6717,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 28,
-                "ctor": "modifyLoadBalancerAttributesInput",
+                "ctor": "modifyLoadBalancerAttributes",
                 "headerPad": 0,
                 "path": [
                     {
@@ -6819,7 +6819,7 @@
                 "streaming": false,
                 "listElement": "Instance",
                 "fieldPad": 0,
-                "ctor": "registerEndPointsOutput",
+                "ctor": "registerInstancesWithLoadBalancerResponse",
                 "field": {
                     "location": "querystring",
                     "iso": null,
@@ -6891,7 +6891,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "registerEndPointsInput",
+                "ctor": "registerInstancesWithLoadBalancer",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7019,7 +7019,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 21,
-                "ctor": "removeTagsInput",
+                "ctor": "removeTags",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7148,7 +7148,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 26,
-                "ctor": "setLoadBalancerListenerSSLCertificateInput",
+                "ctor": "setLoadBalancerListenerSSLCertificate",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7309,7 +7309,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 25,
-                "ctor": "setLoadBalancerPoliciesForBackendServerInput",
+                "ctor": "setLoadBalancerPoliciesForBackendServer",
                 "headerPad": 0,
                 "path": [
                     {
@@ -7471,7 +7471,7 @@
                 ],
                 "streaming": false,
                 "fieldPad": 24,
-                "ctor": "setLoadBalancerPoliciesOfListenerInput",
+                "ctor": "setLoadBalancerPoliciesOfListener",
                 "headerPad": 0,
                 "path": [
                     {

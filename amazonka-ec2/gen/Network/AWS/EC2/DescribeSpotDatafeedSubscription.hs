@@ -34,7 +34,7 @@ module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     -- * Response
     , DescribeSpotDatafeedSubscriptionResult
     -- ** Response constructor
-    , describeSpotDatafeedSubscriptionResult
+    , describeSpotDatafeedSubscriptionResponse
     -- ** Response lenses
     , dsdsrSpotDatafeedSubscription
     ) where
@@ -76,8 +76,8 @@ newtype DescribeSpotDatafeedSubscriptionResult = DescribeSpotDatafeedSubscriptio
 --
 -- * 'dsdsrSpotDatafeedSubscription' @::@ 'Maybe' 'SpotDatafeedSubscription'
 --
-describeSpotDatafeedSubscriptionResult :: DescribeSpotDatafeedSubscriptionResult
-describeSpotDatafeedSubscriptionResult = DescribeSpotDatafeedSubscriptionResult
+describeSpotDatafeedSubscriptionResponse :: DescribeSpotDatafeedSubscriptionResult
+describeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResult
     { _dsdsrSpotDatafeedSubscription = Nothing
     }
 

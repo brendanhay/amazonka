@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeVpnConnections
     -- * Response
     , DescribeVpnConnectionsResult
     -- ** Response constructor
-    , describeVpnConnectionsResult
+    , describeVpnConnectionsResponse
     -- ** Response lenses
     , dvcrVpnConnections
     ) where
@@ -122,8 +122,8 @@ instance IsList DescribeVpnConnectionsResult where
 --
 -- * 'dvcrVpnConnections' @::@ ['VpnConnection']
 --
-describeVpnConnectionsResult :: DescribeVpnConnectionsResult
-describeVpnConnectionsResult = DescribeVpnConnectionsResult
+describeVpnConnectionsResponse :: DescribeVpnConnectionsResult
+describeVpnConnectionsResponse = DescribeVpnConnectionsResult
     { _dvcrVpnConnections = mempty
     }
 

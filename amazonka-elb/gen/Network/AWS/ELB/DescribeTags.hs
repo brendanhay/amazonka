@@ -26,14 +26,14 @@ module Network.AWS.ELB.DescribeTags
     -- * Request
       DescribeTagsInput
     -- ** Request constructor
-    , describeTagsInput
+    , describeTags
     -- ** Request lenses
     , dtiLoadBalancerNames
 
     -- * Response
     , DescribeTagsOutput
     -- ** Response constructor
-    , describeTagsOutput
+    , describeTagsResponse
     -- ** Response lenses
     , dtoTagDescriptions
     ) where
@@ -52,9 +52,9 @@ newtype DescribeTagsInput = DescribeTagsInput
 --
 -- * 'dtiLoadBalancerNames' @::@ 'NonEmpty' 'Text'
 --
-describeTagsInput :: NonEmpty Text -- ^ 'dtiLoadBalancerNames'
-                  -> DescribeTagsInput
-describeTagsInput p1 = DescribeTagsInput
+describeTags :: NonEmpty Text -- ^ 'dtiLoadBalancerNames'
+             -> DescribeTagsInput
+describeTags p1 = DescribeTagsInput
     { _dtiLoadBalancerNames = withIso _List1 (const id) p1
     }
 
@@ -85,8 +85,8 @@ instance IsList DescribeTagsOutput where
 --
 -- * 'dtoTagDescriptions' @::@ ['TagDescription']
 --
-describeTagsOutput :: DescribeTagsOutput
-describeTagsOutput = DescribeTagsOutput
+describeTagsResponse :: DescribeTagsOutput
+describeTagsResponse = DescribeTagsOutput
     { _dtoTagDescriptions = mempty
     }
 

@@ -36,7 +36,7 @@ module Network.AWS.S3.CompleteMultipartUpload
     -- * Response
     , CompleteMultipartUploadOutput
     -- ** Response constructor
-    , completeMultipartUploadOutput
+    , completeMultipartUploadResponse
     -- ** Response lenses
     , cmuoBucket
     , cmuoETag
@@ -138,8 +138,8 @@ data CompleteMultipartUploadOutput = CompleteMultipartUploadOutput
 --
 -- * 'cmuoVersionId' @::@ 'Maybe' 'Text'
 --
-completeMultipartUploadOutput :: CompleteMultipartUploadOutput
-completeMultipartUploadOutput = CompleteMultipartUploadOutput
+completeMultipartUploadResponse :: CompleteMultipartUploadOutput
+completeMultipartUploadResponse = CompleteMultipartUploadOutput
     { _cmuoLocation             = Nothing
     , _cmuoBucket               = Nothing
     , _cmuoKey                  = Nothing

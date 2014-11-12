@@ -50,7 +50,7 @@ module Network.AWS.EC2.AssociateAddress
     -- * Response
     , AssociateAddressResult
     -- ** Response constructor
-    , associateAddressResult
+    , associateAddressResponse
     -- ** Response lenses
     , aarAssociationId
     ) where
@@ -152,8 +152,8 @@ newtype AssociateAddressResult = AssociateAddressResult
 --
 -- * 'aarAssociationId' @::@ 'Maybe' 'Text'
 --
-associateAddressResult :: AssociateAddressResult
-associateAddressResult = AssociateAddressResult
+associateAddressResponse :: AssociateAddressResult
+associateAddressResponse = AssociateAddressResult
     { _aarAssociationId = Nothing
     }
 

@@ -30,7 +30,7 @@ module Network.AWS.ELB.CreateLoadBalancerListeners
     -- * Request
       CreateLoadBalancerListenerInput
     -- ** Request constructor
-    , createLoadBalancerListenerInput
+    , createLoadBalancerListeners
     -- ** Request lenses
     , clbliListeners
     , clbliLoadBalancerName
@@ -58,9 +58,9 @@ data CreateLoadBalancerListenerInput = CreateLoadBalancerListenerInput
 --
 -- * 'clbliLoadBalancerName' @::@ 'Text'
 --
-createLoadBalancerListenerInput :: Text -- ^ 'clbliLoadBalancerName'
-                                -> CreateLoadBalancerListenerInput
-createLoadBalancerListenerInput p1 = CreateLoadBalancerListenerInput
+createLoadBalancerListeners :: Text -- ^ 'clbliLoadBalancerName'
+                            -> CreateLoadBalancerListenerInput
+createLoadBalancerListeners p1 = CreateLoadBalancerListenerInput
     { _clbliLoadBalancerName = p1
     , _clbliListeners        = mempty
     }

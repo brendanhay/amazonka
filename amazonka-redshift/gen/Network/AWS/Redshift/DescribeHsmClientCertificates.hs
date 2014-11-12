@@ -28,7 +28,7 @@ module Network.AWS.Redshift.DescribeHsmClientCertificates
     -- * Request
       DescribeHsmClientCertificatesMessage
     -- ** Request constructor
-    , describeHsmClientCertificatesMessage
+    , describeHsmClientCertificates
     -- ** Request lenses
     , dhccmHsmClientCertificateIdentifier
     , dhccmMarker
@@ -37,7 +37,7 @@ module Network.AWS.Redshift.DescribeHsmClientCertificates
     -- * Response
     , HsmClientCertificateMessage
     -- ** Response constructor
-    , hsmClientCertificateMessage
+    , describeHsmClientCertificatesResponse
     -- ** Response lenses
     , hccmHsmClientCertificates
     , hccmMarker
@@ -63,8 +63,8 @@ data DescribeHsmClientCertificatesMessage = DescribeHsmClientCertificatesMessage
 --
 -- * 'dhccmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeHsmClientCertificatesMessage :: DescribeHsmClientCertificatesMessage
-describeHsmClientCertificatesMessage = DescribeHsmClientCertificatesMessage
+describeHsmClientCertificates :: DescribeHsmClientCertificatesMessage
+describeHsmClientCertificates = DescribeHsmClientCertificatesMessage
     { _dhccmHsmClientCertificateIdentifier = Nothing
     , _dhccmMaxRecords                     = Nothing
     , _dhccmMarker                         = Nothing
@@ -113,8 +113,8 @@ data HsmClientCertificateMessage = HsmClientCertificateMessage
 --
 -- * 'hccmMarker' @::@ 'Maybe' 'Text'
 --
-hsmClientCertificateMessage :: HsmClientCertificateMessage
-hsmClientCertificateMessage = HsmClientCertificateMessage
+describeHsmClientCertificatesResponse :: HsmClientCertificateMessage
+describeHsmClientCertificatesResponse = HsmClientCertificateMessage
     { _hccmMarker                = Nothing
     , _hccmHsmClientCertificates = mempty
     }

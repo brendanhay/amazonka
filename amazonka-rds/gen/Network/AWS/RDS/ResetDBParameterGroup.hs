@@ -32,7 +32,7 @@ module Network.AWS.RDS.ResetDBParameterGroup
     -- * Request
       ResetDBParameterGroupMessage
     -- ** Request constructor
-    , resetDBParameterGroupMessage
+    , resetDBParameterGroup
     -- ** Request lenses
     , rdbpgmDBParameterGroupName
     , rdbpgmParameters
@@ -66,9 +66,9 @@ data ResetDBParameterGroupMessage = ResetDBParameterGroupMessage
 --
 -- * 'rdbpgmResetAllParameters' @::@ 'Maybe' 'Bool'
 --
-resetDBParameterGroupMessage :: Text -- ^ 'rdbpgmDBParameterGroupName'
-                             -> ResetDBParameterGroupMessage
-resetDBParameterGroupMessage p1 = ResetDBParameterGroupMessage
+resetDBParameterGroup :: Text -- ^ 'rdbpgmDBParameterGroupName'
+                      -> ResetDBParameterGroupMessage
+resetDBParameterGroup p1 = ResetDBParameterGroupMessage
     { _rdbpgmDBParameterGroupName = p1
     , _rdbpgmResetAllParameters   = Nothing
     , _rdbpgmParameters           = mempty

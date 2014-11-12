@@ -28,7 +28,7 @@ module Network.AWS.CloudFormation.DeleteStack
     -- * Request
       DeleteStackInput
     -- ** Request constructor
-    , deleteStackInput
+    , deleteStack
     -- ** Request lenses
     , dsi1StackName
 
@@ -52,9 +52,9 @@ newtype DeleteStackInput = DeleteStackInput
 --
 -- * 'dsi1StackName' @::@ 'Text'
 --
-deleteStackInput :: Text -- ^ 'dsi1StackName'
-                 -> DeleteStackInput
-deleteStackInput p1 = DeleteStackInput
+deleteStack :: Text -- ^ 'dsi1StackName'
+            -> DeleteStackInput
+deleteStack p1 = DeleteStackInput
     { _dsi1StackName = p1
     }
 

@@ -35,7 +35,7 @@ module Network.AWS.SimpleDB.DomainMetadata
     -- * Response
     , DomainMetadataResult
     -- ** Response constructor
-    , domainMetadataResult
+    , domainMetadataResponse
     -- ** Response lenses
     , dmrAttributeNameCount
     , dmrAttributeNamesSizeBytes
@@ -103,8 +103,8 @@ data DomainMetadataResult = DomainMetadataResult
 --
 -- * 'dmrTimestamp' @::@ 'Maybe' 'Int'
 --
-domainMetadataResult :: DomainMetadataResult
-domainMetadataResult = DomainMetadataResult
+domainMetadataResponse :: DomainMetadataResult
+domainMetadataResponse = DomainMetadataResult
     { _dmrItemCount                = Nothing
     , _dmrItemNamesSizeBytes       = Nothing
     , _dmrAttributeNameCount       = Nothing

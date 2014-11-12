@@ -32,7 +32,7 @@ module Network.AWS.S3.ListBuckets
     -- * Response
     , ListBucketsOutput
     -- ** Response constructor
-    , listBucketsOutput
+    , listBucketsResponse
     -- ** Response lenses
     , lboBuckets
     , lboOwner
@@ -70,8 +70,8 @@ data ListBucketsOutput = ListBucketsOutput
 --
 -- * 'lboOwner' @::@ 'Maybe' 'Owner'
 --
-listBucketsOutput :: ListBucketsOutput
-listBucketsOutput = ListBucketsOutput
+listBucketsResponse :: ListBucketsOutput
+listBucketsResponse = ListBucketsOutput
     { _lboBuckets = mempty
     , _lboOwner   = Nothing
     }

@@ -26,7 +26,7 @@ module Network.AWS.ElastiCache.CopySnapshot
     -- * Request
       CopySnapshotMessage
     -- ** Request constructor
-    , copySnapshotMessage
+    , copySnapshot
     -- ** Request lenses
     , csmSourceSnapshotName
     , csmTargetSnapshotName
@@ -34,7 +34,7 @@ module Network.AWS.ElastiCache.CopySnapshot
     -- * Response
     , CopySnapshotResult
     -- ** Response constructor
-    , copySnapshotResult
+    , copySnapshotResponse
     -- ** Response lenses
     , csrSnapshot
     ) where
@@ -56,10 +56,10 @@ data CopySnapshotMessage = CopySnapshotMessage
 --
 -- * 'csmTargetSnapshotName' @::@ 'Text'
 --
-copySnapshotMessage :: Text -- ^ 'csmSourceSnapshotName'
-                    -> Text -- ^ 'csmTargetSnapshotName'
-                    -> CopySnapshotMessage
-copySnapshotMessage p1 p2 = CopySnapshotMessage
+copySnapshot :: Text -- ^ 'csmSourceSnapshotName'
+             -> Text -- ^ 'csmTargetSnapshotName'
+             -> CopySnapshotMessage
+copySnapshot p1 p2 = CopySnapshotMessage
     { _csmSourceSnapshotName = p1
     , _csmTargetSnapshotName = p2
     }
@@ -89,8 +89,8 @@ newtype CopySnapshotResult = CopySnapshotResult
 --
 -- * 'csrSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-copySnapshotResult :: CopySnapshotResult
-copySnapshotResult = CopySnapshotResult
+copySnapshotResponse :: CopySnapshotResult
+copySnapshotResponse = CopySnapshotResult
     { _csrSnapshot = Nothing
     }
 

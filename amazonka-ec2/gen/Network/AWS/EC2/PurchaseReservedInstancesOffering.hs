@@ -45,7 +45,7 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     -- * Response
     , PurchaseReservedInstancesOfferingResult
     -- ** Response constructor
-    , purchaseReservedInstancesOfferingResult
+    , purchaseReservedInstancesOfferingResponse
     -- ** Response lenses
     , priorReservedInstancesId
     ) where
@@ -118,8 +118,8 @@ newtype PurchaseReservedInstancesOfferingResult = PurchaseReservedInstancesOffer
 --
 -- * 'priorReservedInstancesId' @::@ 'Maybe' 'Text'
 --
-purchaseReservedInstancesOfferingResult :: PurchaseReservedInstancesOfferingResult
-purchaseReservedInstancesOfferingResult = PurchaseReservedInstancesOfferingResult
+purchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResult
+purchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResult
     { _priorReservedInstancesId = Nothing
     }
 

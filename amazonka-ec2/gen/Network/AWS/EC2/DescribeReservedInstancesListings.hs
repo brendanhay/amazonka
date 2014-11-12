@@ -50,7 +50,7 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     -- * Response
     , DescribeReservedInstancesListingsResult
     -- ** Response constructor
-    , describeReservedInstancesListingsResult
+    , describeReservedInstancesListingsResponse
     -- ** Response lenses
     , drilrReservedInstancesListings
     ) where
@@ -122,8 +122,8 @@ instance IsList DescribeReservedInstancesListingsResult where
 --
 -- * 'drilrReservedInstancesListings' @::@ ['ReservedInstancesListing']
 --
-describeReservedInstancesListingsResult :: DescribeReservedInstancesListingsResult
-describeReservedInstancesListingsResult = DescribeReservedInstancesListingsResult
+describeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResult
+describeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResult
     { _drilrReservedInstancesListings = mempty
     }
 

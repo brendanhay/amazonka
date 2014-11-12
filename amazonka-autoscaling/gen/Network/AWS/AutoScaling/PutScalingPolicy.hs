@@ -29,7 +29,7 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     -- * Request
       PutScalingPolicyType
     -- ** Request constructor
-    , putScalingPolicyType
+    , putScalingPolicy
     -- ** Request lenses
     , psptAdjustmentType
     , psptAutoScalingGroupName
@@ -41,7 +41,7 @@ module Network.AWS.AutoScaling.PutScalingPolicy
     -- * Response
     , PolicyARNType
     -- ** Response constructor
-    , policyARNType
+    , putScalingPolicyResponse
     -- ** Response lenses
     , parntPolicyARN
     ) where
@@ -75,12 +75,12 @@ data PutScalingPolicyType = PutScalingPolicyType
 --
 -- * 'psptScalingAdjustment' @::@ 'Int'
 --
-putScalingPolicyType :: Text -- ^ 'psptAutoScalingGroupName'
-                     -> Text -- ^ 'psptPolicyName'
-                     -> Int -- ^ 'psptScalingAdjustment'
-                     -> Text -- ^ 'psptAdjustmentType'
-                     -> PutScalingPolicyType
-putScalingPolicyType p1 p2 p3 p4 = PutScalingPolicyType
+putScalingPolicy :: Text -- ^ 'psptAutoScalingGroupName'
+                 -> Text -- ^ 'psptPolicyName'
+                 -> Int -- ^ 'psptScalingAdjustment'
+                 -> Text -- ^ 'psptAdjustmentType'
+                 -> PutScalingPolicyType
+putScalingPolicy p1 p2 p3 p4 = PutScalingPolicyType
     { _psptAutoScalingGroupName = p1
     , _psptPolicyName           = p2
     , _psptScalingAdjustment    = p3
@@ -147,8 +147,8 @@ newtype PolicyARNType = PolicyARNType
 --
 -- * 'parntPolicyARN' @::@ 'Maybe' 'Text'
 --
-policyARNType :: PolicyARNType
-policyARNType = PolicyARNType
+putScalingPolicyResponse :: PolicyARNType
+putScalingPolicyResponse = PolicyARNType
     { _parntPolicyARN = Nothing
     }
 

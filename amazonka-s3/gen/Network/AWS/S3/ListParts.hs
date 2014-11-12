@@ -37,7 +37,7 @@ module Network.AWS.S3.ListParts
     -- * Response
     , ListPartsOutput
     -- ** Response constructor
-    , listPartsOutput
+    , listPartsResponse
     -- ** Response lenses
     , lpoBucket
     , lpoInitiator
@@ -167,8 +167,8 @@ data ListPartsOutput = ListPartsOutput
 --
 -- * 'lpoUploadId' @::@ 'Maybe' 'Text'
 --
-listPartsOutput :: ListPartsOutput
-listPartsOutput = ListPartsOutput
+listPartsResponse :: ListPartsOutput
+listPartsResponse = ListPartsOutput
     { _lpoBucket               = Nothing
     , _lpoKey                  = Nothing
     , _lpoUploadId             = Nothing

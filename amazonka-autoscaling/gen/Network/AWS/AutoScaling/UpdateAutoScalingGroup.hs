@@ -29,7 +29,7 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     -- * Request
       UpdateAutoScalingGroupType
     -- ** Request constructor
-    , updateAutoScalingGroupType
+    , updateAutoScalingGroup
     -- ** Request lenses
     , uasgtAutoScalingGroupName
     , uasgtAvailabilityZones
@@ -97,10 +97,10 @@ data UpdateAutoScalingGroupType = UpdateAutoScalingGroupType
 --
 -- * 'uasgtVPCZoneIdentifier' @::@ 'Maybe' 'Text'
 --
-updateAutoScalingGroupType :: Text -- ^ 'uasgtAutoScalingGroupName'
-                           -> NonEmpty Text -- ^ 'uasgtAvailabilityZones'
-                           -> UpdateAutoScalingGroupType
-updateAutoScalingGroupType p1 p2 = UpdateAutoScalingGroupType
+updateAutoScalingGroup :: Text -- ^ 'uasgtAutoScalingGroupName'
+                       -> NonEmpty Text -- ^ 'uasgtAvailabilityZones'
+                       -> UpdateAutoScalingGroupType
+updateAutoScalingGroup p1 p2 = UpdateAutoScalingGroupType
     { _uasgtAutoScalingGroupName    = p1
     , _uasgtAvailabilityZones       = withIso _List1 (const id) p2
     , _uasgtLaunchConfigurationName = Nothing

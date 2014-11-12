@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     -- * Request
       DescribeScalingActivitiesType
     -- ** Request constructor
-    , describeScalingActivitiesType
+    , describeScalingActivities
     -- ** Request lenses
     , dsatActivityIds
     , dsatAutoScalingGroupName
@@ -42,7 +42,7 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     -- * Response
     , ActivitiesType
     -- ** Response constructor
-    , activitiesType
+    , describeScalingActivitiesResponse
     -- ** Response lenses
     , atActivities
     , atNextToken
@@ -71,8 +71,8 @@ data DescribeScalingActivitiesType = DescribeScalingActivitiesType
 --
 -- * 'dsatNextToken' @::@ 'Maybe' 'Text'
 --
-describeScalingActivitiesType :: DescribeScalingActivitiesType
-describeScalingActivitiesType = DescribeScalingActivitiesType
+describeScalingActivities :: DescribeScalingActivitiesType
+describeScalingActivities = DescribeScalingActivitiesType
     { _dsatActivityIds          = mempty
     , _dsatAutoScalingGroupName = Nothing
     , _dsatMaxRecords           = Nothing
@@ -120,8 +120,8 @@ data ActivitiesType = ActivitiesType
 --
 -- * 'atNextToken' @::@ 'Maybe' 'Text'
 --
-activitiesType :: ActivitiesType
-activitiesType = ActivitiesType
+describeScalingActivitiesResponse :: ActivitiesType
+describeScalingActivitiesResponse = ActivitiesType
     { _atActivities = mempty
     , _atNextToken  = Nothing
     }

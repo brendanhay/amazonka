@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketCors
     -- * Response
     , GetBucketCorsOutput
     -- ** Response constructor
-    , getBucketCorsOutput
+    , getBucketCorsResponse
     -- ** Response lenses
     , gbcoCORSRules
     ) where
@@ -88,8 +88,8 @@ instance IsList GetBucketCorsOutput where
 --
 -- * 'gbcoCORSRules' @::@ ['CORSRule']
 --
-getBucketCorsOutput :: GetBucketCorsOutput
-getBucketCorsOutput = GetBucketCorsOutput
+getBucketCorsResponse :: GetBucketCorsOutput
+getBucketCorsResponse = GetBucketCorsOutput
     { _gbcoCORSRules = mempty
     }
 

@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeVpcs
     -- * Response
     , DescribeVpcsResult
     -- ** Response constructor
-    , describeVpcsResult
+    , describeVpcsResponse
     -- ** Response lenses
     , dvrVpcs
     ) where
@@ -113,8 +113,8 @@ instance IsList DescribeVpcsResult where
 --
 -- * 'dvrVpcs' @::@ ['Vpc']
 --
-describeVpcsResult :: DescribeVpcsResult
-describeVpcsResult = DescribeVpcsResult
+describeVpcsResponse :: DescribeVpcsResult
+describeVpcsResponse = DescribeVpcsResult
     { _dvrVpcs = mempty
     }
 

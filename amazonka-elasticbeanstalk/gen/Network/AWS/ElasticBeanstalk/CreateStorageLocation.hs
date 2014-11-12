@@ -32,7 +32,7 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     -- * Response
     , CreateStorageLocationResultMessage
     -- ** Response constructor
-    , createStorageLocationResultMessage
+    , createStorageLocationResponse
     -- ** Response lenses
     , cslrmS3Bucket
     ) where
@@ -63,8 +63,8 @@ newtype CreateStorageLocationResultMessage = CreateStorageLocationResultMessage
 --
 -- * 'cslrmS3Bucket' @::@ 'Maybe' 'Text'
 --
-createStorageLocationResultMessage :: CreateStorageLocationResultMessage
-createStorageLocationResultMessage = CreateStorageLocationResultMessage
+createStorageLocationResponse :: CreateStorageLocationResultMessage
+createStorageLocationResponse = CreateStorageLocationResultMessage
     { _cslrmS3Bucket = Nothing
     }
 

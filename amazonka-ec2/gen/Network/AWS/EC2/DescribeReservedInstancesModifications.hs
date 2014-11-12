@@ -40,7 +40,7 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     -- * Response
     , DescribeReservedInstancesModificationsResult
     -- ** Response constructor
-    , describeReservedInstancesModificationsResult
+    , describeReservedInstancesModificationsResponse
     -- ** Response lenses
     , drimrNextToken
     , drimrReservedInstancesModifications
@@ -124,8 +124,8 @@ data DescribeReservedInstancesModificationsResult = DescribeReservedInstancesMod
 --
 -- * 'drimrReservedInstancesModifications' @::@ ['ReservedInstancesModification']
 --
-describeReservedInstancesModificationsResult :: DescribeReservedInstancesModificationsResult
-describeReservedInstancesModificationsResult = DescribeReservedInstancesModificationsResult
+describeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResult
+describeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResult
     { _drimrReservedInstancesModifications = mempty
     , _drimrNextToken                      = Nothing
     }

@@ -31,7 +31,7 @@ module Network.AWS.RDS.ModifyEventSubscription
     -- * Request
       ModifyEventSubscriptionMessage
     -- ** Request constructor
-    , modifyEventSubscriptionMessage
+    , modifyEventSubscription
     -- ** Request lenses
     , mesmEnabled
     , mesmEventCategories
@@ -42,7 +42,7 @@ module Network.AWS.RDS.ModifyEventSubscription
     -- * Response
     , ModifyEventSubscriptionResult
     -- ** Response constructor
-    , modifyEventSubscriptionResult
+    , modifyEventSubscriptionResponse
     -- ** Response lenses
     , mesrEventSubscription
     ) where
@@ -73,9 +73,9 @@ data ModifyEventSubscriptionMessage = ModifyEventSubscriptionMessage
 --
 -- * 'mesmSubscriptionName' @::@ 'Text'
 --
-modifyEventSubscriptionMessage :: Text -- ^ 'mesmSubscriptionName'
-                               -> ModifyEventSubscriptionMessage
-modifyEventSubscriptionMessage p1 = ModifyEventSubscriptionMessage
+modifyEventSubscription :: Text -- ^ 'mesmSubscriptionName'
+                        -> ModifyEventSubscriptionMessage
+modifyEventSubscription p1 = ModifyEventSubscriptionMessage
     { _mesmSubscriptionName = p1
     , _mesmSnsTopicArn      = Nothing
     , _mesmSourceType       = Nothing
@@ -129,8 +129,8 @@ newtype ModifyEventSubscriptionResult = ModifyEventSubscriptionResult
 --
 -- * 'mesrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-modifyEventSubscriptionResult :: ModifyEventSubscriptionResult
-modifyEventSubscriptionResult = ModifyEventSubscriptionResult
+modifyEventSubscriptionResponse :: ModifyEventSubscriptionResult
+modifyEventSubscriptionResponse = ModifyEventSubscriptionResult
     { _mesrEventSubscription = Nothing
     }
 

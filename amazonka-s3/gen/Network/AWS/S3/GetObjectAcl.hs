@@ -35,7 +35,7 @@ module Network.AWS.S3.GetObjectAcl
     -- * Response
     , GetObjectAclOutput
     -- ** Response constructor
-    , getObjectAclOutput
+    , getObjectAclResponse
     -- ** Response lenses
     , goaoGrants
     , goaoOwner
@@ -109,8 +109,8 @@ data GetObjectAclOutput = GetObjectAclOutput
 --
 -- * 'goaoOwner' @::@ 'Maybe' 'Owner'
 --
-getObjectAclOutput :: GetObjectAclOutput
-getObjectAclOutput = GetObjectAclOutput
+getObjectAclResponse :: GetObjectAclOutput
+getObjectAclResponse = GetObjectAclOutput
     { _goaoOwner  = Nothing
     , _goaoGrants = mempty
     }

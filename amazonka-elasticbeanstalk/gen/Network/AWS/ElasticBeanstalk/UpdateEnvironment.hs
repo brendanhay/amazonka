@@ -34,7 +34,7 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
     -- * Request
       UpdateEnvironmentMessage
     -- ** Request constructor
-    , updateEnvironmentMessage
+    , updateEnvironment
     -- ** Request lenses
     , uemDescription
     , uemEnvironmentId
@@ -102,8 +102,8 @@ data UpdateEnvironmentMessage = UpdateEnvironmentMessage
 --
 -- * 'uemVersionLabel' @::@ 'Maybe' 'Text'
 --
-updateEnvironmentMessage :: UpdateEnvironmentMessage
-updateEnvironmentMessage = UpdateEnvironmentMessage
+updateEnvironment :: UpdateEnvironmentMessage
+updateEnvironment = UpdateEnvironmentMessage
     { _uemEnvironmentId   = Nothing
     , _uemEnvironmentName = Nothing
     , _uemDescription     = Nothing

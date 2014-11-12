@@ -26,7 +26,7 @@ module Network.AWS.RDS.CreateDBSnapshot
     -- * Request
       CreateDBSnapshotMessage
     -- ** Request constructor
-    , createDBSnapshotMessage
+    , createDBSnapshot
     -- ** Request lenses
     , cdbsm1DBInstanceIdentifier
     , cdbsm1DBSnapshotIdentifier
@@ -35,7 +35,7 @@ module Network.AWS.RDS.CreateDBSnapshot
     -- * Response
     , CreateDBSnapshotResult
     -- ** Response constructor
-    , createDBSnapshotResult
+    , createDBSnapshotResponse
     -- ** Response lenses
     , cdbsrDBSnapshot
     ) where
@@ -60,10 +60,10 @@ data CreateDBSnapshotMessage = CreateDBSnapshotMessage
 --
 -- * 'cdbsm1Tags' @::@ ['Tag']
 --
-createDBSnapshotMessage :: Text -- ^ 'cdbsm1DBSnapshotIdentifier'
-                        -> Text -- ^ 'cdbsm1DBInstanceIdentifier'
-                        -> CreateDBSnapshotMessage
-createDBSnapshotMessage p1 p2 = CreateDBSnapshotMessage
+createDBSnapshot :: Text -- ^ 'cdbsm1DBSnapshotIdentifier'
+                 -> Text -- ^ 'cdbsm1DBInstanceIdentifier'
+                 -> CreateDBSnapshotMessage
+createDBSnapshot p1 p2 = CreateDBSnapshotMessage
     { _cdbsm1DBSnapshotIdentifier = p1
     , _cdbsm1DBInstanceIdentifier = p2
     , _cdbsm1Tags                 = mempty
@@ -105,8 +105,8 @@ newtype CreateDBSnapshotResult = CreateDBSnapshotResult
 --
 -- * 'cdbsrDBSnapshot' @::@ 'Maybe' 'DBSnapshot'
 --
-createDBSnapshotResult :: CreateDBSnapshotResult
-createDBSnapshotResult = CreateDBSnapshotResult
+createDBSnapshotResponse :: CreateDBSnapshotResult
+createDBSnapshotResponse = CreateDBSnapshotResult
     { _cdbsrDBSnapshot = Nothing
     }
 

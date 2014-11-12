@@ -39,7 +39,7 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     -- * Response
     , InstanceAttribute
     -- ** Response constructor
-    , instanceAttribute
+    , describeInstanceAttributeResponse
     -- ** Response lenses
     , iaBlockDeviceMappings
     , iaDisableApiTermination
@@ -151,8 +151,8 @@ data InstanceAttribute = InstanceAttribute
 --
 -- * 'iaUserData' @::@ 'Maybe' 'AttributeValue'
 --
-instanceAttribute :: InstanceAttribute
-instanceAttribute = InstanceAttribute
+describeInstanceAttributeResponse :: InstanceAttribute
+describeInstanceAttributeResponse = InstanceAttribute
     { _iaInstanceId                        = Nothing
     , _iaInstanceType                      = Nothing
     , _iaKernelId                          = Nothing

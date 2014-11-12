@@ -26,7 +26,7 @@ module Network.AWS.SNS.GetSubscriptionAttributes
     -- * Request
       GetSubscriptionAttributesInput
     -- ** Request constructor
-    , getSubscriptionAttributesInput
+    , getSubscriptionAttributes
     -- ** Request lenses
     , gsaiSubscriptionArn
 
@@ -52,9 +52,9 @@ newtype GetSubscriptionAttributesInput = GetSubscriptionAttributesInput
 --
 -- * 'gsaiSubscriptionArn' @::@ 'Text'
 --
-getSubscriptionAttributesInput :: Text -- ^ 'gsaiSubscriptionArn'
-                               -> GetSubscriptionAttributesInput
-getSubscriptionAttributesInput p1 = GetSubscriptionAttributesInput
+getSubscriptionAttributes :: Text -- ^ 'gsaiSubscriptionArn'
+                          -> GetSubscriptionAttributesInput
+getSubscriptionAttributes p1 = GetSubscriptionAttributesInput
     { _gsaiSubscriptionArn = p1
     }
 

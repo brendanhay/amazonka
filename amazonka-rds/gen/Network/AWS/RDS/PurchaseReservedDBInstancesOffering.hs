@@ -26,7 +26,7 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     -- * Request
       PurchaseReservedDBInstancesOfferingMessage
     -- ** Request constructor
-    , purchaseReservedDBInstancesOfferingMessage
+    , purchaseReservedDBInstancesOffering
     -- ** Request lenses
     , prdbiomDBInstanceCount
     , prdbiomReservedDBInstanceId
@@ -36,7 +36,7 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     -- * Response
     , PurchaseReservedDBInstancesOfferingResult
     -- ** Response constructor
-    , purchaseReservedDBInstancesOfferingResult
+    , purchaseReservedDBInstancesOfferingResponse
     -- ** Response lenses
     , prdbiorReservedDBInstance
     ) where
@@ -64,9 +64,9 @@ data PurchaseReservedDBInstancesOfferingMessage = PurchaseReservedDBInstancesOff
 --
 -- * 'prdbiomTags' @::@ ['Tag']
 --
-purchaseReservedDBInstancesOfferingMessage :: Text -- ^ 'prdbiomReservedDBInstancesOfferingId'
-                                           -> PurchaseReservedDBInstancesOfferingMessage
-purchaseReservedDBInstancesOfferingMessage p1 = PurchaseReservedDBInstancesOfferingMessage
+purchaseReservedDBInstancesOffering :: Text -- ^ 'prdbiomReservedDBInstancesOfferingId'
+                                    -> PurchaseReservedDBInstancesOfferingMessage
+purchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOfferingMessage
     { _prdbiomReservedDBInstancesOfferingId = p1
     , _prdbiomReservedDBInstanceId          = Nothing
     , _prdbiomDBInstanceCount               = Nothing
@@ -110,8 +110,8 @@ newtype PurchaseReservedDBInstancesOfferingResult = PurchaseReservedDBInstancesO
 --
 -- * 'prdbiorReservedDBInstance' @::@ 'Maybe' 'ReservedDBInstance'
 --
-purchaseReservedDBInstancesOfferingResult :: PurchaseReservedDBInstancesOfferingResult
-purchaseReservedDBInstancesOfferingResult = PurchaseReservedDBInstancesOfferingResult
+purchaseReservedDBInstancesOfferingResponse :: PurchaseReservedDBInstancesOfferingResult
+purchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResult
     { _prdbiorReservedDBInstance = Nothing
     }
 

@@ -28,7 +28,7 @@ module Network.AWS.SNS.DeletePlatformApplication
     -- * Request
       DeletePlatformApplicationInput
     -- ** Request constructor
-    , deletePlatformApplicationInput
+    , deletePlatformApplication
     -- ** Request lenses
     , dpaiPlatformApplicationArn
 
@@ -52,9 +52,9 @@ newtype DeletePlatformApplicationInput = DeletePlatformApplicationInput
 --
 -- * 'dpaiPlatformApplicationArn' @::@ 'Text'
 --
-deletePlatformApplicationInput :: Text -- ^ 'dpaiPlatformApplicationArn'
-                               -> DeletePlatformApplicationInput
-deletePlatformApplicationInput p1 = DeletePlatformApplicationInput
+deletePlatformApplication :: Text -- ^ 'dpaiPlatformApplicationArn'
+                          -> DeletePlatformApplicationInput
+deletePlatformApplication p1 = DeletePlatformApplicationInput
     { _dpaiPlatformApplicationArn = p1
     }
 

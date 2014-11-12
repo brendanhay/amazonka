@@ -51,7 +51,7 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     -- * Response
     , DescribeReservedInstancesOfferingsResult
     -- ** Response constructor
-    , describeReservedInstancesOfferingsResult
+    , describeReservedInstancesOfferingsResponse
     -- ** Response lenses
     , driorNextToken
     , driorReservedInstancesOfferings
@@ -231,8 +231,8 @@ data DescribeReservedInstancesOfferingsResult = DescribeReservedInstancesOfferin
 --
 -- * 'driorReservedInstancesOfferings' @::@ ['ReservedInstancesOffering']
 --
-describeReservedInstancesOfferingsResult :: DescribeReservedInstancesOfferingsResult
-describeReservedInstancesOfferingsResult = DescribeReservedInstancesOfferingsResult
+describeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResult
+describeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResult
     { _driorReservedInstancesOfferings = mempty
     , _driorNextToken                  = Nothing
     }

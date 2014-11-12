@@ -26,14 +26,14 @@ module Network.AWS.CloudFront.GetStreamingDistributionConfig
     -- * Request
       GetStreamingDistributionConfig
     -- ** Request constructor
-    , getStreamingDistributionConfig
+    , getStreamingDistributionConfig2014_05_31
     -- ** Request lenses
     , gsdcId
 
     -- * Response
     , GetStreamingDistributionConfigResult
     -- ** Response constructor
-    , getStreamingDistributionConfigResult
+    , getStreamingDistributionConfig2014_05_31Response
     -- ** Response lenses
     , gsdcrETag
     , gsdcrStreamingDistributionConfig
@@ -53,9 +53,9 @@ newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig
 --
 -- * 'gsdcId' @::@ 'Text'
 --
-getStreamingDistributionConfig :: Text -- ^ 'gsdcId'
-                               -> GetStreamingDistributionConfig
-getStreamingDistributionConfig p1 = GetStreamingDistributionConfig
+getStreamingDistributionConfig2014_05_31 :: Text -- ^ 'gsdcId'
+                                         -> GetStreamingDistributionConfig
+getStreamingDistributionConfig2014_05_31 p1 = GetStreamingDistributionConfig
     { _gsdcId = p1
     }
 
@@ -88,8 +88,8 @@ data GetStreamingDistributionConfigResult = GetStreamingDistributionConfigResult
 --
 -- * 'gsdcrStreamingDistributionConfig' @::@ 'Maybe' 'StreamingDistributionConfig'
 --
-getStreamingDistributionConfigResult :: GetStreamingDistributionConfigResult
-getStreamingDistributionConfigResult = GetStreamingDistributionConfigResult
+getStreamingDistributionConfig2014_05_31Response :: GetStreamingDistributionConfigResult
+getStreamingDistributionConfig2014_05_31Response = GetStreamingDistributionConfigResult
     { _gsdcrStreamingDistributionConfig = Nothing
     , _gsdcrETag                        = Nothing
     }

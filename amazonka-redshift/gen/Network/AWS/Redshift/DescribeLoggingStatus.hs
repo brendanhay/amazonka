@@ -27,7 +27,7 @@ module Network.AWS.Redshift.DescribeLoggingStatus
     -- * Request
       DescribeLoggingStatusMessage
     -- ** Request constructor
-    , describeLoggingStatusMessage
+    , describeLoggingStatus
     -- ** Request lenses
     , dlsmClusterIdentifier
 
@@ -58,9 +58,9 @@ newtype DescribeLoggingStatusMessage = DescribeLoggingStatusMessage
 --
 -- * 'dlsmClusterIdentifier' @::@ 'Text'
 --
-describeLoggingStatusMessage :: Text -- ^ 'dlsmClusterIdentifier'
-                             -> DescribeLoggingStatusMessage
-describeLoggingStatusMessage p1 = DescribeLoggingStatusMessage
+describeLoggingStatus :: Text -- ^ 'dlsmClusterIdentifier'
+                      -> DescribeLoggingStatusMessage
+describeLoggingStatus p1 = DescribeLoggingStatusMessage
     { _dlsmClusterIdentifier = p1
     }
 

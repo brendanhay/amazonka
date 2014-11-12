@@ -30,7 +30,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     -- * Request
       DescribeConfigurationOptionsMessage
     -- ** Request constructor
-    , describeConfigurationOptionsMessage
+    , describeConfigurationOptions
     -- ** Request lenses
     , dcomApplicationName
     , dcomEnvironmentName
@@ -41,7 +41,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     -- * Response
     , ConfigurationOptionsDescription
     -- ** Response constructor
-    , configurationOptionsDescription
+    , describeConfigurationOptionsResponse
     -- ** Response lenses
     , codOptions
     , codSolutionStackName
@@ -73,8 +73,8 @@ data DescribeConfigurationOptionsMessage = DescribeConfigurationOptionsMessage
 --
 -- * 'dcomTemplateName' @::@ 'Maybe' 'Text'
 --
-describeConfigurationOptionsMessage :: DescribeConfigurationOptionsMessage
-describeConfigurationOptionsMessage = DescribeConfigurationOptionsMessage
+describeConfigurationOptions :: DescribeConfigurationOptionsMessage
+describeConfigurationOptions = DescribeConfigurationOptionsMessage
     { _dcomApplicationName   = Nothing
     , _dcomTemplateName      = Nothing
     , _dcomEnvironmentName   = Nothing
@@ -128,8 +128,8 @@ data ConfigurationOptionsDescription = ConfigurationOptionsDescription
 --
 -- * 'codSolutionStackName' @::@ 'Maybe' 'Text'
 --
-configurationOptionsDescription :: ConfigurationOptionsDescription
-configurationOptionsDescription = ConfigurationOptionsDescription
+describeConfigurationOptionsResponse :: ConfigurationOptionsDescription
+describeConfigurationOptionsResponse = ConfigurationOptionsDescription
     { _codSolutionStackName = Nothing
     , _codOptions           = mempty
     }

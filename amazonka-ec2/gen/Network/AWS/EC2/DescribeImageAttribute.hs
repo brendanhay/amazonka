@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeImageAttribute
     -- * Response
     , ImageAttribute
     -- ** Response constructor
-    , imageAttribute
+    , describeImageAttributeResponse
     -- ** Response lenses
     , ia1BlockDeviceMappings
     , ia1Description
@@ -124,8 +124,8 @@ data ImageAttribute = ImageAttribute
 --
 -- * 'ia1SriovNetSupport' @::@ 'Maybe' 'AttributeValue'
 --
-imageAttribute :: ImageAttribute
-imageAttribute = ImageAttribute
+describeImageAttributeResponse :: ImageAttribute
+describeImageAttributeResponse = ImageAttribute
     { _ia1ImageId             = Nothing
     , _ia1LaunchPermissions   = mempty
     , _ia1ProductCodes        = mempty

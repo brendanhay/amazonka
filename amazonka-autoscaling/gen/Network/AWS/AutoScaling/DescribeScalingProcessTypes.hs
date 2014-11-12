@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     -- * Response
     , ProcessesType
     -- ** Response constructor
-    , processesType
+    , describeScalingProcessTypesResponse
     -- ** Response lenses
     , ptProcesses
     ) where
@@ -69,8 +69,8 @@ instance IsList ProcessesType where
 --
 -- * 'ptProcesses' @::@ ['ProcessType']
 --
-processesType :: ProcessesType
-processesType = ProcessesType
+describeScalingProcessTypesResponse :: ProcessesType
+describeScalingProcessTypesResponse = ProcessesType
     { _ptProcesses = mempty
     }
 

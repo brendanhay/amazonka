@@ -41,7 +41,7 @@ module Network.AWS.EC2.AssociateRouteTable
     -- * Response
     , AssociateRouteTableResult
     -- ** Response constructor
-    , associateRouteTableResult
+    , associateRouteTableResponse
     -- ** Response lenses
     , artrAssociationId
     ) where
@@ -101,8 +101,8 @@ newtype AssociateRouteTableResult = AssociateRouteTableResult
 --
 -- * 'artrAssociationId' @::@ 'Maybe' 'Text'
 --
-associateRouteTableResult :: AssociateRouteTableResult
-associateRouteTableResult = AssociateRouteTableResult
+associateRouteTableResponse :: AssociateRouteTableResult
+associateRouteTableResponse = AssociateRouteTableResult
     { _artrAssociationId = Nothing
     }
 

@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketLifecycle
     -- * Response
     , GetBucketLifecycleOutput
     -- ** Response constructor
-    , getBucketLifecycleOutput
+    , getBucketLifecycleResponse
     -- ** Response lenses
     , gbloRules
     ) where
@@ -88,8 +88,8 @@ instance IsList GetBucketLifecycleOutput where
 --
 -- * 'gbloRules' @::@ ['Rule']
 --
-getBucketLifecycleOutput :: GetBucketLifecycleOutput
-getBucketLifecycleOutput = GetBucketLifecycleOutput
+getBucketLifecycleResponse :: GetBucketLifecycleOutput
+getBucketLifecycleResponse = GetBucketLifecycleOutput
     { _gbloRules = mempty
     }
 

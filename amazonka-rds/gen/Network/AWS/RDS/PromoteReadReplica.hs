@@ -26,7 +26,7 @@ module Network.AWS.RDS.PromoteReadReplica
     -- * Request
       PromoteReadReplicaMessage
     -- ** Request constructor
-    , promoteReadReplicaMessage
+    , promoteReadReplica
     -- ** Request lenses
     , prrmBackupRetentionPeriod
     , prrmDBInstanceIdentifier
@@ -35,7 +35,7 @@ module Network.AWS.RDS.PromoteReadReplica
     -- * Response
     , PromoteReadReplicaResult
     -- ** Response constructor
-    , promoteReadReplicaResult
+    , promoteReadReplicaResponse
     -- ** Response lenses
     , prrrDBInstance
     ) where
@@ -60,9 +60,9 @@ data PromoteReadReplicaMessage = PromoteReadReplicaMessage
 --
 -- * 'prrmPreferredBackupWindow' @::@ 'Maybe' 'Text'
 --
-promoteReadReplicaMessage :: Text -- ^ 'prrmDBInstanceIdentifier'
-                          -> PromoteReadReplicaMessage
-promoteReadReplicaMessage p1 = PromoteReadReplicaMessage
+promoteReadReplica :: Text -- ^ 'prrmDBInstanceIdentifier'
+                   -> PromoteReadReplicaMessage
+promoteReadReplica p1 = PromoteReadReplicaMessage
     { _prrmDBInstanceIdentifier  = p1
     , _prrmBackupRetentionPeriod = Nothing
     , _prrmPreferredBackupWindow = Nothing
@@ -114,8 +114,8 @@ newtype PromoteReadReplicaResult = PromoteReadReplicaResult
 --
 -- * 'prrrDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-promoteReadReplicaResult :: PromoteReadReplicaResult
-promoteReadReplicaResult = PromoteReadReplicaResult
+promoteReadReplicaResponse :: PromoteReadReplicaResult
+promoteReadReplicaResponse = PromoteReadReplicaResult
     { _prrrDBInstance = Nothing
     }
 

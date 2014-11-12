@@ -51,7 +51,7 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     -- * Response
     , CreateReservedInstancesListingResult
     -- ** Response constructor
-    , createReservedInstancesListingResult
+    , createReservedInstancesListingResponse
     -- ** Response lenses
     , crilr1ReservedInstancesListings
     ) where
@@ -136,8 +136,8 @@ instance IsList CreateReservedInstancesListingResult where
 --
 -- * 'crilr1ReservedInstancesListings' @::@ ['ReservedInstancesListing']
 --
-createReservedInstancesListingResult :: CreateReservedInstancesListingResult
-createReservedInstancesListingResult = CreateReservedInstancesListingResult
+createReservedInstancesListingResponse :: CreateReservedInstancesListingResult
+createReservedInstancesListingResponse = CreateReservedInstancesListingResult
     { _crilr1ReservedInstancesListings = mempty
     }
 

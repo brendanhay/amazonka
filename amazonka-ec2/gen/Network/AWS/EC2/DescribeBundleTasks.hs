@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeBundleTasks
     -- * Response
     , DescribeBundleTasksResult
     -- ** Response constructor
-    , describeBundleTasksResult
+    , describeBundleTasksResponse
     -- ** Response lenses
     , dbtrBundleTasks
     ) where
@@ -108,8 +108,8 @@ instance IsList DescribeBundleTasksResult where
 --
 -- * 'dbtrBundleTasks' @::@ ['BundleTask']
 --
-describeBundleTasksResult :: DescribeBundleTasksResult
-describeBundleTasksResult = DescribeBundleTasksResult
+describeBundleTasksResponse :: DescribeBundleTasksResult
+describeBundleTasksResponse = DescribeBundleTasksResult
     { _dbtrBundleTasks = mempty
     }
 

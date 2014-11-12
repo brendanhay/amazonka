@@ -35,7 +35,7 @@ module Network.AWS.CloudFormation.DescribeStackResources
     -- * Request
       DescribeStackResourcesInput
     -- ** Request constructor
-    , describeStackResourcesInput
+    , describeStackResources
     -- ** Request lenses
     , dsriLogicalResourceId
     , dsriPhysicalResourceId
@@ -44,7 +44,7 @@ module Network.AWS.CloudFormation.DescribeStackResources
     -- * Response
     , DescribeStackResourcesOutput
     -- ** Response constructor
-    , describeStackResourcesOutput
+    , describeStackResourcesResponse
     -- ** Response lenses
     , dsroStackResources
     ) where
@@ -69,8 +69,8 @@ data DescribeStackResourcesInput = DescribeStackResourcesInput
 --
 -- * 'dsriStackName' @::@ 'Maybe' 'Text'
 --
-describeStackResourcesInput :: DescribeStackResourcesInput
-describeStackResourcesInput = DescribeStackResourcesInput
+describeStackResources :: DescribeStackResourcesInput
+describeStackResources = DescribeStackResourcesInput
     { _dsriStackName          = Nothing
     , _dsriLogicalResourceId  = Nothing
     , _dsriPhysicalResourceId = Nothing
@@ -124,8 +124,8 @@ instance IsList DescribeStackResourcesOutput where
 --
 -- * 'dsroStackResources' @::@ ['StackResource']
 --
-describeStackResourcesOutput :: DescribeStackResourcesOutput
-describeStackResourcesOutput = DescribeStackResourcesOutput
+describeStackResourcesResponse :: DescribeStackResourcesOutput
+describeStackResourcesResponse = DescribeStackResourcesOutput
     { _dsroStackResources = mempty
     }
 

@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.DescribeLifecycleHooks
     -- * Request
       DescribeLifecycleHooksType
     -- ** Request constructor
-    , describeLifecycleHooksType
+    , describeLifecycleHooks
     -- ** Request lenses
     , dlht1AutoScalingGroupName
     , dlht1LifecycleHookNames
@@ -35,7 +35,7 @@ module Network.AWS.AutoScaling.DescribeLifecycleHooks
     -- * Response
     , DescribeLifecycleHooksAnswer
     -- ** Response constructor
-    , describeLifecycleHooksAnswer
+    , describeLifecycleHooksResponse
     -- ** Response lenses
     , dlhaLifecycleHooks
     ) where
@@ -57,9 +57,9 @@ data DescribeLifecycleHooksType = DescribeLifecycleHooksType
 --
 -- * 'dlht1LifecycleHookNames' @::@ ['Text']
 --
-describeLifecycleHooksType :: Text -- ^ 'dlht1AutoScalingGroupName'
-                           -> DescribeLifecycleHooksType
-describeLifecycleHooksType p1 = DescribeLifecycleHooksType
+describeLifecycleHooks :: Text -- ^ 'dlht1AutoScalingGroupName'
+                       -> DescribeLifecycleHooksType
+describeLifecycleHooks p1 = DescribeLifecycleHooksType
     { _dlht1AutoScalingGroupName = p1
     , _dlht1LifecycleHookNames   = mempty
     }
@@ -96,8 +96,8 @@ instance IsList DescribeLifecycleHooksAnswer where
 --
 -- * 'dlhaLifecycleHooks' @::@ ['LifecycleHook']
 --
-describeLifecycleHooksAnswer :: DescribeLifecycleHooksAnswer
-describeLifecycleHooksAnswer = DescribeLifecycleHooksAnswer
+describeLifecycleHooksResponse :: DescribeLifecycleHooksAnswer
+describeLifecycleHooksResponse = DescribeLifecycleHooksAnswer
     { _dlhaLifecycleHooks = mempty
     }
 

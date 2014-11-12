@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     -- * Response
     , DescribeNetworkInterfacesResult
     -- ** Response constructor
-    , describeNetworkInterfacesResult
+    , describeNetworkInterfacesResponse
     -- ** Response lenses
     , dnirNetworkInterfaces
     ) where
@@ -154,8 +154,8 @@ instance IsList DescribeNetworkInterfacesResult where
 --
 -- * 'dnirNetworkInterfaces' @::@ ['NetworkInterface']
 --
-describeNetworkInterfacesResult :: DescribeNetworkInterfacesResult
-describeNetworkInterfacesResult = DescribeNetworkInterfacesResult
+describeNetworkInterfacesResponse :: DescribeNetworkInterfacesResult
+describeNetworkInterfacesResponse = DescribeNetworkInterfacesResult
     { _dnirNetworkInterfaces = mempty
     }
 

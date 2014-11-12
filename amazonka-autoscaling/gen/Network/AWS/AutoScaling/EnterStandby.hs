@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.EnterStandby
     -- * Request
       EnterStandbyQuery
     -- ** Request constructor
-    , enterStandbyQuery
+    , enterStandby
     -- ** Request lenses
     , esqAutoScalingGroupName
     , esqInstanceIds
@@ -37,7 +37,7 @@ module Network.AWS.AutoScaling.EnterStandby
     -- * Response
     , EnterStandbyAnswer
     -- ** Response constructor
-    , enterStandbyAnswer
+    , enterStandbyResponse
     -- ** Response lenses
     , esaActivities
     ) where
@@ -62,10 +62,10 @@ data EnterStandbyQuery = EnterStandbyQuery
 --
 -- * 'esqShouldDecrementDesiredCapacity' @::@ 'Bool'
 --
-enterStandbyQuery :: Text -- ^ 'esqAutoScalingGroupName'
-                  -> Bool -- ^ 'esqShouldDecrementDesiredCapacity'
-                  -> EnterStandbyQuery
-enterStandbyQuery p1 p2 = EnterStandbyQuery
+enterStandby :: Text -- ^ 'esqAutoScalingGroupName'
+             -> Bool -- ^ 'esqShouldDecrementDesiredCapacity'
+             -> EnterStandbyQuery
+enterStandby p1 p2 = EnterStandbyQuery
     { _esqAutoScalingGroupName           = p1
     , _esqShouldDecrementDesiredCapacity = p2
     , _esqInstanceIds                    = mempty
@@ -112,8 +112,8 @@ instance IsList EnterStandbyAnswer where
 --
 -- * 'esaActivities' @::@ ['Activity']
 --
-enterStandbyAnswer :: EnterStandbyAnswer
-enterStandbyAnswer = EnterStandbyAnswer
+enterStandbyResponse :: EnterStandbyAnswer
+enterStandbyResponse = EnterStandbyAnswer
     { _esaActivities = mempty
     }
 

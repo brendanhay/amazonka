@@ -156,7 +156,7 @@ data StatisticSet = StatisticSet
     , _ssMinimum     :: Double
     , _ssSampleCount :: Double
     , _ssSum         :: Double
-    } deriving (Eq, Ord, Show, Generic, RealFloat)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StatisticSet' constructor.
 --

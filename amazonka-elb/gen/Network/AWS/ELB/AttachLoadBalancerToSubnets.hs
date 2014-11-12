@@ -30,7 +30,7 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     -- * Request
       AttachLoadBalancerToSubnetsInput
     -- ** Request constructor
-    , attachLoadBalancerToSubnetsInput
+    , attachLoadBalancerToSubnets
     -- ** Request lenses
     , albtsiLoadBalancerName
     , albtsiSubnets
@@ -38,7 +38,7 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     -- * Response
     , AttachLoadBalancerToSubnetsOutput
     -- ** Response constructor
-    , attachLoadBalancerToSubnetsOutput
+    , attachLoadBalancerToSubnetsResponse
     -- ** Response lenses
     , albtsoSubnets
     ) where
@@ -60,9 +60,9 @@ data AttachLoadBalancerToSubnetsInput = AttachLoadBalancerToSubnetsInput
 --
 -- * 'albtsiSubnets' @::@ ['Text']
 --
-attachLoadBalancerToSubnetsInput :: Text -- ^ 'albtsiLoadBalancerName'
-                                 -> AttachLoadBalancerToSubnetsInput
-attachLoadBalancerToSubnetsInput p1 = AttachLoadBalancerToSubnetsInput
+attachLoadBalancerToSubnets :: Text -- ^ 'albtsiLoadBalancerName'
+                            -> AttachLoadBalancerToSubnetsInput
+attachLoadBalancerToSubnets p1 = AttachLoadBalancerToSubnetsInput
     { _albtsiLoadBalancerName = p1
     , _albtsiSubnets          = mempty
     }
@@ -99,8 +99,8 @@ instance IsList AttachLoadBalancerToSubnetsOutput where
 --
 -- * 'albtsoSubnets' @::@ ['Text']
 --
-attachLoadBalancerToSubnetsOutput :: AttachLoadBalancerToSubnetsOutput
-attachLoadBalancerToSubnetsOutput = AttachLoadBalancerToSubnetsOutput
+attachLoadBalancerToSubnetsResponse :: AttachLoadBalancerToSubnetsOutput
+attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsOutput
     { _albtsoSubnets = mempty
     }
 

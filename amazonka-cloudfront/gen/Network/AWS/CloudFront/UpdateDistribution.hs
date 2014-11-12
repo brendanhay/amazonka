@@ -26,7 +26,7 @@ module Network.AWS.CloudFront.UpdateDistribution
     -- * Request
       UpdateDistribution
     -- ** Request constructor
-    , updateDistribution
+    , updateDistribution2014_05_31
     -- ** Request lenses
     , udDistributionConfig
     , udId
@@ -35,7 +35,7 @@ module Network.AWS.CloudFront.UpdateDistribution
     -- * Response
     , UpdateDistributionResult
     -- ** Response constructor
-    , updateDistributionResult
+    , updateDistribution2014_05_31Response
     -- ** Response lenses
     , udrDistribution
     , udrETag
@@ -61,10 +61,10 @@ data UpdateDistribution = UpdateDistribution
 --
 -- * 'udIfMatch' @::@ 'Maybe' 'Text'
 --
-updateDistribution :: DistributionConfig -- ^ 'udDistributionConfig'
-                   -> Text -- ^ 'udId'
-                   -> UpdateDistribution
-updateDistribution p1 p2 = UpdateDistribution
+updateDistribution2014_05_31 :: DistributionConfig -- ^ 'udDistributionConfig'
+                             -> Text -- ^ 'udId'
+                             -> UpdateDistribution
+updateDistribution2014_05_31 p1 p2 = UpdateDistribution
     { _udDistributionConfig = p1
     , _udId                 = p2
     , _udIfMatch            = Nothing
@@ -115,8 +115,8 @@ data UpdateDistributionResult = UpdateDistributionResult
 --
 -- * 'udrETag' @::@ 'Maybe' 'Text'
 --
-updateDistributionResult :: UpdateDistributionResult
-updateDistributionResult = UpdateDistributionResult
+updateDistribution2014_05_31Response :: UpdateDistributionResult
+updateDistribution2014_05_31Response = UpdateDistributionResult
     { _udrDistribution = Nothing
     , _udrETag         = Nothing
     }

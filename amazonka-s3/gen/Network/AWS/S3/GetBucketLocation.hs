@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketLocation
     -- * Response
     , GetBucketLocationOutput
     -- ** Response constructor
-    , getBucketLocationOutput
+    , getBucketLocationResponse
     -- ** Response lenses
     , gbloLocationConstraint
     ) where
@@ -82,8 +82,8 @@ newtype GetBucketLocationOutput = GetBucketLocationOutput
 --
 -- * 'gbloLocationConstraint' @::@ 'Maybe' 'Text'
 --
-getBucketLocationOutput :: GetBucketLocationOutput
-getBucketLocationOutput = GetBucketLocationOutput
+getBucketLocationResponse :: GetBucketLocationOutput
+getBucketLocationResponse = GetBucketLocationOutput
     { _gbloLocationConstraint = Nothing
     }
 

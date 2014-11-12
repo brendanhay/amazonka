@@ -39,7 +39,7 @@ module Network.AWS.EC2.ModifyReservedInstances
     -- * Response
     , ModifyReservedInstancesResult
     -- ** Response constructor
-    , modifyReservedInstancesResult
+    , modifyReservedInstancesResponse
     -- ** Response lenses
     , mrirReservedInstancesModificationId
     ) where
@@ -101,8 +101,8 @@ newtype ModifyReservedInstancesResult = ModifyReservedInstancesResult
 --
 -- * 'mrirReservedInstancesModificationId' @::@ 'Maybe' 'Text'
 --
-modifyReservedInstancesResult :: ModifyReservedInstancesResult
-modifyReservedInstancesResult = ModifyReservedInstancesResult
+modifyReservedInstancesResponse :: ModifyReservedInstancesResult
+modifyReservedInstancesResponse = ModifyReservedInstancesResult
     { _mrirReservedInstancesModificationId = Nothing
     }
 

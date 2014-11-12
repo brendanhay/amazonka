@@ -27,7 +27,7 @@ module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     -- * Request
       RemoveSourceIdentifierFromSubscriptionMessage
     -- ** Request constructor
-    , removeSourceIdentifierFromSubscriptionMessage
+    , removeSourceIdentifierFromSubscription
     -- ** Request lenses
     , rsifsmSourceIdentifier
     , rsifsmSubscriptionName
@@ -35,7 +35,7 @@ module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     -- * Response
     , RemoveSourceIdentifierFromSubscriptionResult
     -- ** Response constructor
-    , removeSourceIdentifierFromSubscriptionResult
+    , removeSourceIdentifierFromSubscriptionResponse
     -- ** Response lenses
     , rsifsrEventSubscription
     ) where
@@ -57,10 +57,10 @@ data RemoveSourceIdentifierFromSubscriptionMessage = RemoveSourceIdentifierFromS
 --
 -- * 'rsifsmSubscriptionName' @::@ 'Text'
 --
-removeSourceIdentifierFromSubscriptionMessage :: Text -- ^ 'rsifsmSubscriptionName'
-                                              -> Text -- ^ 'rsifsmSourceIdentifier'
-                                              -> RemoveSourceIdentifierFromSubscriptionMessage
-removeSourceIdentifierFromSubscriptionMessage p1 p2 = RemoveSourceIdentifierFromSubscriptionMessage
+removeSourceIdentifierFromSubscription :: Text -- ^ 'rsifsmSubscriptionName'
+                                       -> Text -- ^ 'rsifsmSourceIdentifier'
+                                       -> RemoveSourceIdentifierFromSubscriptionMessage
+removeSourceIdentifierFromSubscription p1 p2 = RemoveSourceIdentifierFromSubscriptionMessage
     { _rsifsmSubscriptionName = p1
     , _rsifsmSourceIdentifier = p2
     }
@@ -92,8 +92,8 @@ newtype RemoveSourceIdentifierFromSubscriptionResult = RemoveSourceIdentifierFro
 --
 -- * 'rsifsrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-removeSourceIdentifierFromSubscriptionResult :: RemoveSourceIdentifierFromSubscriptionResult
-removeSourceIdentifierFromSubscriptionResult = RemoveSourceIdentifierFromSubscriptionResult
+removeSourceIdentifierFromSubscriptionResponse :: RemoveSourceIdentifierFromSubscriptionResult
+removeSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResult
     { _rsifsrEventSubscription = Nothing
     }
 

@@ -39,7 +39,7 @@ module Network.AWS.EC2.CreateInstanceExportTask
     -- * Response
     , CreateInstanceExportTaskResult
     -- ** Response constructor
-    , createInstanceExportTaskResult
+    , createInstanceExportTaskResponse
     -- ** Response lenses
     , cietrExportTask
     ) where
@@ -109,8 +109,8 @@ newtype CreateInstanceExportTaskResult = CreateInstanceExportTaskResult
 --
 -- * 'cietrExportTask' @::@ 'Maybe' 'ExportTask'
 --
-createInstanceExportTaskResult :: CreateInstanceExportTaskResult
-createInstanceExportTaskResult = CreateInstanceExportTaskResult
+createInstanceExportTaskResponse :: CreateInstanceExportTaskResult
+createInstanceExportTaskResponse = CreateInstanceExportTaskResult
     { _cietrExportTask = Nothing
     }
 

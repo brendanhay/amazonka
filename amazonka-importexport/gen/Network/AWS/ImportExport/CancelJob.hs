@@ -27,14 +27,14 @@ module Network.AWS.ImportExport.CancelJob
     -- * Request
       CancelJobInput
     -- ** Request constructor
-    , cancelJobInput
+    , cancelJob
     -- ** Request lenses
     , cjiJobId
 
     -- * Response
     , CancelJobOutput
     -- ** Response constructor
-    , cancelJobOutput
+    , cancelJobResponse
     -- ** Response lenses
     , cjoSuccess
     ) where
@@ -53,9 +53,9 @@ newtype CancelJobInput = CancelJobInput
 --
 -- * 'cjiJobId' @::@ 'Text'
 --
-cancelJobInput :: Text -- ^ 'cjiJobId'
-               -> CancelJobInput
-cancelJobInput p1 = CancelJobInput
+cancelJob :: Text -- ^ 'cjiJobId'
+          -> CancelJobInput
+cancelJob p1 = CancelJobInput
     { _cjiJobId = p1
     }
 
@@ -77,8 +77,8 @@ newtype CancelJobOutput = CancelJobOutput
 --
 -- * 'cjoSuccess' @::@ 'Maybe' 'Bool'
 --
-cancelJobOutput :: CancelJobOutput
-cancelJobOutput = CancelJobOutput
+cancelJobResponse :: CancelJobOutput
+cancelJobResponse = CancelJobOutput
     { _cjoSuccess = Nothing
     }
 

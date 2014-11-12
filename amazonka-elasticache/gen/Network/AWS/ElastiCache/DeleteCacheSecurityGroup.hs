@@ -26,7 +26,7 @@ module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     -- * Request
       DeleteCacheSecurityGroupMessage
     -- ** Request constructor
-    , deleteCacheSecurityGroupMessage
+    , deleteCacheSecurityGroup
     -- ** Request lenses
     , dcsgmCacheSecurityGroupName
 
@@ -50,9 +50,9 @@ newtype DeleteCacheSecurityGroupMessage = DeleteCacheSecurityGroupMessage
 --
 -- * 'dcsgmCacheSecurityGroupName' @::@ 'Text'
 --
-deleteCacheSecurityGroupMessage :: Text -- ^ 'dcsgmCacheSecurityGroupName'
-                                -> DeleteCacheSecurityGroupMessage
-deleteCacheSecurityGroupMessage p1 = DeleteCacheSecurityGroupMessage
+deleteCacheSecurityGroup :: Text -- ^ 'dcsgmCacheSecurityGroupName'
+                         -> DeleteCacheSecurityGroupMessage
+deleteCacheSecurityGroup p1 = DeleteCacheSecurityGroupMessage
     { _dcsgmCacheSecurityGroupName = p1
     }
 

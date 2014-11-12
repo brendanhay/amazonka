@@ -256,9 +256,9 @@ operation a proto ns ss n o = op
 
     prefixURI x = o ^. oHttp.hRequestUri & uriSegments.segVars %~ mappend x
 
-    request = go (\x -> Request (prefixURI x)) True
+    request = go (\x -> Request (prefixURI x)) rqName True
 
-    response r = go (const (Response w k)) False r
+    response r = go (const (Response w k)) rsName False r
       where
         w = fromMaybe False (join (_refWrapper <$> r))
         k = join (_refResultWrapper <$> r)
@@ -269,11 +269,12 @@ operation a proto ns ss n o = op
     name = o ^. oName
 
     go :: (Text -> Text -> Bool -> Data -> a)
+       -> Text
        -> Bool
        -> Maybe Ref
        -> State (HashMap Text Data) a
-    go c rq Nothing  = return $! placeholder c rq
-    go c rq (Just x) = do
+    go c _   rq Nothing  = return $! placeholder c rq
+    go c key rq (Just x) = do
         let k = x ^. refShape
             p = Set.member k ss
         m <- gets (^. at k)
@@ -284,9 +285,11 @@ operation a proto ns ss n o = op
                 let d' = setStreaming rq d
                     k' = operationName k
                     t  = fromMaybe "" (fieldPrefix d')
-                unless p $
-                    modify (Map.delete k)
-                return $! c t k' p (dataRename k' d')
+                if not p
+                    then do
+                         modify (Map.delete k)
+                         return $! c t key p (dataRename k' d')
+                    else return $! c t k'  p (dataRename k' d')
 
     placeholder c True  = c "" rqName False (Empty rqName)
     placeholder c False = c "" rsName False (Empty rsName)

@@ -36,7 +36,7 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     -- * Request
       SetLoadBalancerPoliciesForBackendServerInput
     -- ** Request constructor
-    , setLoadBalancerPoliciesForBackendServerInput
+    , setLoadBalancerPoliciesForBackendServer
     -- ** Request lenses
     , slbpfbsiInstancePort
     , slbpfbsiLoadBalancerName
@@ -68,10 +68,10 @@ data SetLoadBalancerPoliciesForBackendServerInput = SetLoadBalancerPoliciesForBa
 --
 -- * 'slbpfbsiPolicyNames' @::@ ['Text']
 --
-setLoadBalancerPoliciesForBackendServerInput :: Text -- ^ 'slbpfbsiLoadBalancerName'
-                                             -> Int -- ^ 'slbpfbsiInstancePort'
-                                             -> SetLoadBalancerPoliciesForBackendServerInput
-setLoadBalancerPoliciesForBackendServerInput p1 p2 = SetLoadBalancerPoliciesForBackendServerInput
+setLoadBalancerPoliciesForBackendServer :: Text -- ^ 'slbpfbsiLoadBalancerName'
+                                        -> Int -- ^ 'slbpfbsiInstancePort'
+                                        -> SetLoadBalancerPoliciesForBackendServerInput
+setLoadBalancerPoliciesForBackendServer p1 p2 = SetLoadBalancerPoliciesForBackendServerInput
     { _slbpfbsiLoadBalancerName = p1
     , _slbpfbsiInstancePort     = p2
     , _slbpfbsiPolicyNames      = mempty

@@ -53,7 +53,7 @@ module Network.AWS.EC2.CreateSubnet
     -- * Response
     , CreateSubnetResult
     -- ** Response constructor
-    , createSubnetResult
+    , createSubnetResponse
     -- ** Response lenses
     , csrSubnet
     ) where
@@ -124,8 +124,8 @@ newtype CreateSubnetResult = CreateSubnetResult
 --
 -- * 'csrSubnet' @::@ 'Maybe' 'Subnet'
 --
-createSubnetResult :: CreateSubnetResult
-createSubnetResult = CreateSubnetResult
+createSubnetResponse :: CreateSubnetResult
+createSubnetResponse = CreateSubnetResult
     { _csrSubnet = Nothing
     }
 

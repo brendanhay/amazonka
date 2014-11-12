@@ -28,7 +28,7 @@ module Network.AWS.RDS.DescribeEventCategories
     -- * Request
       DescribeEventCategoriesMessage
     -- ** Request constructor
-    , describeEventCategoriesMessage
+    , describeEventCategories
     -- ** Request lenses
     , decmFilters
     , decmSourceType
@@ -36,7 +36,7 @@ module Network.AWS.RDS.DescribeEventCategories
     -- * Response
     , EventCategoriesMessage
     -- ** Response constructor
-    , eventCategoriesMessage
+    , describeEventCategoriesResponse
     -- ** Response lenses
     , ecmEventCategoriesMapList
     ) where
@@ -58,8 +58,8 @@ data DescribeEventCategoriesMessage = DescribeEventCategoriesMessage
 --
 -- * 'decmSourceType' @::@ 'Maybe' 'Text'
 --
-describeEventCategoriesMessage :: DescribeEventCategoriesMessage
-describeEventCategoriesMessage = DescribeEventCategoriesMessage
+describeEventCategories :: DescribeEventCategoriesMessage
+describeEventCategories = DescribeEventCategoriesMessage
     { _decmSourceType = Nothing
     , _decmFilters    = mempty
     }
@@ -94,8 +94,8 @@ instance IsList EventCategoriesMessage where
 --
 -- * 'ecmEventCategoriesMapList' @::@ ['EventCategoriesMap']
 --
-eventCategoriesMessage :: EventCategoriesMessage
-eventCategoriesMessage = EventCategoriesMessage
+describeEventCategoriesResponse :: EventCategoriesMessage
+describeEventCategoriesResponse = EventCategoriesMessage
     { _ecmEventCategoriesMapList = mempty
     }
 

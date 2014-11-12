@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeReservedInstances
     -- * Response
     , DescribeReservedInstancesResult
     -- ** Response constructor
-    , describeReservedInstancesResult
+    , describeReservedInstancesResponse
     -- ** Response lenses
     , drirReservedInstances
     ) where
@@ -136,8 +136,8 @@ instance IsList DescribeReservedInstancesResult where
 --
 -- * 'drirReservedInstances' @::@ ['ReservedInstances']
 --
-describeReservedInstancesResult :: DescribeReservedInstancesResult
-describeReservedInstancesResult = DescribeReservedInstancesResult
+describeReservedInstancesResponse :: DescribeReservedInstancesResult
+describeReservedInstancesResponse = DescribeReservedInstancesResult
     { _drirReservedInstances = mempty
     }
 

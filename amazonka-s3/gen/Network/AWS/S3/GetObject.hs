@@ -49,7 +49,7 @@ module Network.AWS.S3.GetObject
     -- * Response
     , GetObjectOutput
     -- ** Response constructor
-    , getObjectOutput
+    , getObjectResponse
     -- ** Response lenses
     , gooAcceptRanges
     , gooBody
@@ -356,9 +356,9 @@ data GetObjectOutput = GetObjectOutput
 --
 -- * 'gooWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
-getObjectOutput :: RsBody -- ^ 'gooBody'
-                -> GetObjectOutput
-getObjectOutput p1 = GetObjectOutput
+getObjectResponse :: RsBody -- ^ 'gooBody'
+                  -> GetObjectOutput
+getObjectResponse p1 = GetObjectOutput
     { _gooBody                    = p1
     , _gooDeleteMarker            = Nothing
     , _gooAcceptRanges            = Nothing

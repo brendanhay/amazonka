@@ -26,7 +26,7 @@ module Network.AWS.AutoScaling.DeleteTags
     -- * Request
       DeleteTagsType
     -- ** Request constructor
-    , deleteTagsType
+    , deleteTags
     -- ** Request lenses
     , dttTags
 
@@ -56,8 +56,8 @@ instance IsList DeleteTagsType where
 --
 -- * 'dttTags' @::@ ['Tag']
 --
-deleteTagsType :: DeleteTagsType
-deleteTagsType = DeleteTagsType
+deleteTags :: DeleteTagsType
+deleteTags = DeleteTagsType
     { _dttTags = mempty
     }
 

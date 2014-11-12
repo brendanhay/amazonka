@@ -26,7 +26,7 @@ module Network.AWS.Redshift.DeleteHsmClientCertificate
     -- * Request
       DeleteHsmClientCertificateMessage
     -- ** Request constructor
-    , deleteHsmClientCertificateMessage
+    , deleteHsmClientCertificate
     -- ** Request lenses
     , dhccm1HsmClientCertificateIdentifier
 
@@ -50,9 +50,9 @@ newtype DeleteHsmClientCertificateMessage = DeleteHsmClientCertificateMessage
 --
 -- * 'dhccm1HsmClientCertificateIdentifier' @::@ 'Text'
 --
-deleteHsmClientCertificateMessage :: Text -- ^ 'dhccm1HsmClientCertificateIdentifier'
-                                  -> DeleteHsmClientCertificateMessage
-deleteHsmClientCertificateMessage p1 = DeleteHsmClientCertificateMessage
+deleteHsmClientCertificate :: Text -- ^ 'dhccm1HsmClientCertificateIdentifier'
+                           -> DeleteHsmClientCertificateMessage
+deleteHsmClientCertificate p1 = DeleteHsmClientCertificateMessage
     { _dhccm1HsmClientCertificateIdentifier = p1
     }
 

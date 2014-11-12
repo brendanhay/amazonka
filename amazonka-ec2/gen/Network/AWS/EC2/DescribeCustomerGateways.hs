@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeCustomerGateways
     -- * Response
     , DescribeCustomerGatewaysResult
     -- ** Response constructor
-    , describeCustomerGatewaysResult
+    , describeCustomerGatewaysResponse
     -- ** Response lenses
     , dcgrCustomerGateways
     ) where
@@ -117,8 +117,8 @@ instance IsList DescribeCustomerGatewaysResult where
 --
 -- * 'dcgrCustomerGateways' @::@ ['CustomerGateway']
 --
-describeCustomerGatewaysResult :: DescribeCustomerGatewaysResult
-describeCustomerGatewaysResult = DescribeCustomerGatewaysResult
+describeCustomerGatewaysResponse :: DescribeCustomerGatewaysResult
+describeCustomerGatewaysResponse = DescribeCustomerGatewaysResult
     { _dcgrCustomerGateways = mempty
     }
 

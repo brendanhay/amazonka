@@ -26,7 +26,7 @@ module Network.AWS.Redshift.DeleteClusterSubnetGroup
     -- * Request
       DeleteClusterSubnetGroupMessage
     -- ** Request constructor
-    , deleteClusterSubnetGroupMessage
+    , deleteClusterSubnetGroup
     -- ** Request lenses
     , dcsgmClusterSubnetGroupName
 
@@ -50,9 +50,9 @@ newtype DeleteClusterSubnetGroupMessage = DeleteClusterSubnetGroupMessage
 --
 -- * 'dcsgmClusterSubnetGroupName' @::@ 'Text'
 --
-deleteClusterSubnetGroupMessage :: Text -- ^ 'dcsgmClusterSubnetGroupName'
-                                -> DeleteClusterSubnetGroupMessage
-deleteClusterSubnetGroupMessage p1 = DeleteClusterSubnetGroupMessage
+deleteClusterSubnetGroup :: Text -- ^ 'dcsgmClusterSubnetGroupName'
+                         -> DeleteClusterSubnetGroupMessage
+deleteClusterSubnetGroup p1 = DeleteClusterSubnetGroupMessage
     { _dcsgmClusterSubnetGroupName = p1
     }
 

@@ -35,7 +35,7 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
     -- * Response
     , ListDeadLetterSourceQueuesResult
     -- ** Response constructor
-    , listDeadLetterSourceQueuesResult
+    , listDeadLetterSourceQueuesResponse
     -- ** Response lenses
     , ldlsqrQueueUrls
     ) where
@@ -85,8 +85,8 @@ instance IsList ListDeadLetterSourceQueuesResult where
 --
 -- * 'ldlsqrQueueUrls' @::@ ['Text']
 --
-listDeadLetterSourceQueuesResult :: ListDeadLetterSourceQueuesResult
-listDeadLetterSourceQueuesResult = ListDeadLetterSourceQueuesResult
+listDeadLetterSourceQueuesResponse :: ListDeadLetterSourceQueuesResult
+listDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResult
     { _ldlsqrQueueUrls = mempty
     }
 

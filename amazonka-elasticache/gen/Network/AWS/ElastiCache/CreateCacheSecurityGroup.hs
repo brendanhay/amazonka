@@ -31,7 +31,7 @@ module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     -- * Request
       CreateCacheSecurityGroupMessage
     -- ** Request constructor
-    , createCacheSecurityGroupMessage
+    , createCacheSecurityGroup
     -- ** Request lenses
     , ccsgmCacheSecurityGroupName
     , ccsgmDescription
@@ -39,7 +39,7 @@ module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     -- * Response
     , CreateCacheSecurityGroupResult
     -- ** Response constructor
-    , createCacheSecurityGroupResult
+    , createCacheSecurityGroupResponse
     -- ** Response lenses
     , ccsgrCacheSecurityGroup
     ) where
@@ -61,10 +61,10 @@ data CreateCacheSecurityGroupMessage = CreateCacheSecurityGroupMessage
 --
 -- * 'ccsgmDescription' @::@ 'Text'
 --
-createCacheSecurityGroupMessage :: Text -- ^ 'ccsgmCacheSecurityGroupName'
-                                -> Text -- ^ 'ccsgmDescription'
-                                -> CreateCacheSecurityGroupMessage
-createCacheSecurityGroupMessage p1 p2 = CreateCacheSecurityGroupMessage
+createCacheSecurityGroup :: Text -- ^ 'ccsgmCacheSecurityGroupName'
+                         -> Text -- ^ 'ccsgmDescription'
+                         -> CreateCacheSecurityGroupMessage
+createCacheSecurityGroup p1 p2 = CreateCacheSecurityGroupMessage
     { _ccsgmCacheSecurityGroupName = p1
     , _ccsgmDescription            = p2
     }
@@ -96,8 +96,8 @@ newtype CreateCacheSecurityGroupResult = CreateCacheSecurityGroupResult
 --
 -- * 'ccsgrCacheSecurityGroup' @::@ 'Maybe' 'CacheSecurityGroup'
 --
-createCacheSecurityGroupResult :: CreateCacheSecurityGroupResult
-createCacheSecurityGroupResult = CreateCacheSecurityGroupResult
+createCacheSecurityGroupResponse :: CreateCacheSecurityGroupResult
+createCacheSecurityGroupResponse = CreateCacheSecurityGroupResult
     { _ccsgrCacheSecurityGroup = Nothing
     }
 

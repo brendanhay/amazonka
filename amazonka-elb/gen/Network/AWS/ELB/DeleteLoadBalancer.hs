@@ -34,7 +34,7 @@ module Network.AWS.ELB.DeleteLoadBalancer
     -- * Request
       DeleteAccessPointInput
     -- ** Request constructor
-    , deleteAccessPointInput
+    , deleteLoadBalancer
     -- ** Request lenses
     , dapiLoadBalancerName
 
@@ -58,9 +58,9 @@ newtype DeleteAccessPointInput = DeleteAccessPointInput
 --
 -- * 'dapiLoadBalancerName' @::@ 'Text'
 --
-deleteAccessPointInput :: Text -- ^ 'dapiLoadBalancerName'
-                       -> DeleteAccessPointInput
-deleteAccessPointInput p1 = DeleteAccessPointInput
+deleteLoadBalancer :: Text -- ^ 'dapiLoadBalancerName'
+                   -> DeleteAccessPointInput
+deleteLoadBalancer p1 = DeleteAccessPointInput
     { _dapiLoadBalancerName = p1
     }
 

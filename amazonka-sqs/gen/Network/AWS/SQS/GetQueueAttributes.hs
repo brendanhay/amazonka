@@ -58,7 +58,7 @@ module Network.AWS.SQS.GetQueueAttributes
     -- * Response
     , GetQueueAttributesResult
     -- ** Response constructor
-    , getQueueAttributesResult
+    , getQueueAttributesResponse
     -- ** Response lenses
     , gqarAttributes
     ) where
@@ -111,8 +111,8 @@ newtype GetQueueAttributesResult = GetQueueAttributesResult
 --
 -- * 'gqarAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
-getQueueAttributesResult :: GetQueueAttributesResult
-getQueueAttributesResult = GetQueueAttributesResult
+getQueueAttributesResponse :: GetQueueAttributesResult
+getQueueAttributesResponse = GetQueueAttributesResult
     { _gqarAttributes = mempty
     }
 

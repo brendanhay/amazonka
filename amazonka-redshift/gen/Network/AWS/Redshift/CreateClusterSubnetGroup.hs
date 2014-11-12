@@ -30,7 +30,7 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     -- * Request
       CreateClusterSubnetGroupMessage
     -- ** Request constructor
-    , createClusterSubnetGroupMessage
+    , createClusterSubnetGroup
     -- ** Request lenses
     , ccsgm1ClusterSubnetGroupName
     , ccsgm1Description
@@ -39,7 +39,7 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     -- * Response
     , CreateClusterSubnetGroupResult
     -- ** Response constructor
-    , createClusterSubnetGroupResult
+    , createClusterSubnetGroupResponse
     -- ** Response lenses
     , ccsgrClusterSubnetGroup
     ) where
@@ -64,10 +64,10 @@ data CreateClusterSubnetGroupMessage = CreateClusterSubnetGroupMessage
 --
 -- * 'ccsgm1SubnetIds' @::@ ['Text']
 --
-createClusterSubnetGroupMessage :: Text -- ^ 'ccsgm1ClusterSubnetGroupName'
-                                -> Text -- ^ 'ccsgm1Description'
-                                -> CreateClusterSubnetGroupMessage
-createClusterSubnetGroupMessage p1 p2 = CreateClusterSubnetGroupMessage
+createClusterSubnetGroup :: Text -- ^ 'ccsgm1ClusterSubnetGroupName'
+                         -> Text -- ^ 'ccsgm1Description'
+                         -> CreateClusterSubnetGroupMessage
+createClusterSubnetGroup p1 p2 = CreateClusterSubnetGroupMessage
     { _ccsgm1ClusterSubnetGroupName = p1
     , _ccsgm1Description            = p2
     , _ccsgm1SubnetIds              = mempty
@@ -108,8 +108,8 @@ newtype CreateClusterSubnetGroupResult = CreateClusterSubnetGroupResult
 --
 -- * 'ccsgrClusterSubnetGroup' @::@ 'Maybe' 'ClusterSubnetGroup'
 --
-createClusterSubnetGroupResult :: CreateClusterSubnetGroupResult
-createClusterSubnetGroupResult = CreateClusterSubnetGroupResult
+createClusterSubnetGroupResponse :: CreateClusterSubnetGroupResult
+createClusterSubnetGroupResponse = CreateClusterSubnetGroupResult
     { _ccsgrClusterSubnetGroup = Nothing
     }
 

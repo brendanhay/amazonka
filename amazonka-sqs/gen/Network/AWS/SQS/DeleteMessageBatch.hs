@@ -39,7 +39,7 @@ module Network.AWS.SQS.DeleteMessageBatch
     -- * Response
     , DeleteMessageBatchResult
     -- ** Response constructor
-    , deleteMessageBatchResult
+    , deleteMessageBatchResponse
     -- ** Response lenses
     , dmbrFailed
     , dmbrSuccessful
@@ -95,8 +95,8 @@ data DeleteMessageBatchResult = DeleteMessageBatchResult
 --
 -- * 'dmbrSuccessful' @::@ ['DeleteMessageBatchResultEntry']
 --
-deleteMessageBatchResult :: DeleteMessageBatchResult
-deleteMessageBatchResult = DeleteMessageBatchResult
+deleteMessageBatchResponse :: DeleteMessageBatchResult
+deleteMessageBatchResponse = DeleteMessageBatchResult
     { _dmbrSuccessful = mempty
     , _dmbrFailed     = mempty
     }

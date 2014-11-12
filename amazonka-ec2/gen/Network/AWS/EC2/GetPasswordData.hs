@@ -43,7 +43,7 @@ module Network.AWS.EC2.GetPasswordData
     -- * Response
     , GetPasswordDataResult
     -- ** Response constructor
-    , getPasswordDataResult
+    , getPasswordDataResponse
     -- ** Response lenses
     , gpdrInstanceId
     , gpdrPasswordData
@@ -102,8 +102,8 @@ data GetPasswordDataResult = GetPasswordDataResult
 --
 -- * 'gpdrTimestamp' @::@ 'Maybe' 'UTCTime'
 --
-getPasswordDataResult :: GetPasswordDataResult
-getPasswordDataResult = GetPasswordDataResult
+getPasswordDataResponse :: GetPasswordDataResult
+getPasswordDataResponse = GetPasswordDataResult
     { _gpdrInstanceId   = Nothing
     , _gpdrTimestamp    = Nothing
     , _gpdrPasswordData = Nothing

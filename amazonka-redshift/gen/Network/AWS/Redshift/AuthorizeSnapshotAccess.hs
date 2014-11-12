@@ -28,7 +28,7 @@ module Network.AWS.Redshift.AuthorizeSnapshotAccess
     -- * Request
       AuthorizeSnapshotAccessMessage
     -- ** Request constructor
-    , authorizeSnapshotAccessMessage
+    , authorizeSnapshotAccess
     -- ** Request lenses
     , asamAccountWithRestoreAccess
     , asamSnapshotClusterIdentifier
@@ -37,7 +37,7 @@ module Network.AWS.Redshift.AuthorizeSnapshotAccess
     -- * Response
     , AuthorizeSnapshotAccessResult
     -- ** Response constructor
-    , authorizeSnapshotAccessResult
+    , authorizeSnapshotAccessResponse
     -- ** Response lenses
     , asarSnapshot
     ) where
@@ -62,10 +62,10 @@ data AuthorizeSnapshotAccessMessage = AuthorizeSnapshotAccessMessage
 --
 -- * 'asamSnapshotIdentifier' @::@ 'Text'
 --
-authorizeSnapshotAccessMessage :: Text -- ^ 'asamSnapshotIdentifier'
-                               -> Text -- ^ 'asamAccountWithRestoreAccess'
-                               -> AuthorizeSnapshotAccessMessage
-authorizeSnapshotAccessMessage p1 p2 = AuthorizeSnapshotAccessMessage
+authorizeSnapshotAccess :: Text -- ^ 'asamSnapshotIdentifier'
+                        -> Text -- ^ 'asamAccountWithRestoreAccess'
+                        -> AuthorizeSnapshotAccessMessage
+authorizeSnapshotAccess p1 p2 = AuthorizeSnapshotAccessMessage
     { _asamSnapshotIdentifier        = p1
     , _asamAccountWithRestoreAccess  = p2
     , _asamSnapshotClusterIdentifier = Nothing
@@ -107,8 +107,8 @@ newtype AuthorizeSnapshotAccessResult = AuthorizeSnapshotAccessResult
 --
 -- * 'asarSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-authorizeSnapshotAccessResult :: AuthorizeSnapshotAccessResult
-authorizeSnapshotAccessResult = AuthorizeSnapshotAccessResult
+authorizeSnapshotAccessResponse :: AuthorizeSnapshotAccessResult
+authorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResult
     { _asarSnapshot = Nothing
     }
 

@@ -40,7 +40,7 @@ module Network.AWS.S3.ListObjects
     -- * Response
     , ListObjectsOutput
     -- ** Response constructor
-    , listObjectsOutput
+    , listObjectsResponse
     -- ** Response lenses
     , looCommonPrefixes
     , looContents
@@ -167,8 +167,8 @@ data ListObjectsOutput = ListObjectsOutput
 --
 -- * 'looPrefix' @::@ 'Maybe' 'Text'
 --
-listObjectsOutput :: ListObjectsOutput
-listObjectsOutput = ListObjectsOutput
+listObjectsResponse :: ListObjectsOutput
+listObjectsResponse = ListObjectsOutput
     { _looIsTruncated    = Nothing
     , _looMarker         = Nothing
     , _looNextMarker     = Nothing

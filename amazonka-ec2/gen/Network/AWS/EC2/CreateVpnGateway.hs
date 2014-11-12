@@ -39,7 +39,7 @@ module Network.AWS.EC2.CreateVpnGateway
     -- * Response
     , CreateVpnGatewayResult
     -- ** Response constructor
-    , createVpnGatewayResult
+    , createVpnGatewayResponse
     -- ** Response lenses
     , cvgrVpnGateway
     ) where
@@ -99,8 +99,8 @@ newtype CreateVpnGatewayResult = CreateVpnGatewayResult
 --
 -- * 'cvgrVpnGateway' @::@ 'Maybe' 'VpnGateway'
 --
-createVpnGatewayResult :: CreateVpnGatewayResult
-createVpnGatewayResult = CreateVpnGatewayResult
+createVpnGatewayResponse :: CreateVpnGatewayResult
+createVpnGatewayResponse = CreateVpnGatewayResult
     { _cvgrVpnGateway = Nothing
     }
 

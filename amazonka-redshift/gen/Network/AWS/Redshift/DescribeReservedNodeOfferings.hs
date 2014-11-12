@@ -33,7 +33,7 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
     -- * Request
       DescribeReservedNodeOfferingsMessage
     -- ** Request constructor
-    , describeReservedNodeOfferingsMessage
+    , describeReservedNodeOfferings
     -- ** Request lenses
     , drnomMarker
     , drnomMaxRecords
@@ -42,7 +42,7 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
     -- * Response
     , ReservedNodeOfferingsMessage
     -- ** Response constructor
-    , reservedNodeOfferingsMessage
+    , describeReservedNodeOfferingsResponse
     -- ** Response lenses
     , rnomMarker
     , rnomReservedNodeOfferings
@@ -68,8 +68,8 @@ data DescribeReservedNodeOfferingsMessage = DescribeReservedNodeOfferingsMessage
 --
 -- * 'drnomReservedNodeOfferingId' @::@ 'Maybe' 'Text'
 --
-describeReservedNodeOfferingsMessage :: DescribeReservedNodeOfferingsMessage
-describeReservedNodeOfferingsMessage = DescribeReservedNodeOfferingsMessage
+describeReservedNodeOfferings :: DescribeReservedNodeOfferingsMessage
+describeReservedNodeOfferings = DescribeReservedNodeOfferingsMessage
     { _drnomReservedNodeOfferingId = Nothing
     , _drnomMaxRecords             = Nothing
     , _drnomMarker                 = Nothing
@@ -116,8 +116,8 @@ data ReservedNodeOfferingsMessage = ReservedNodeOfferingsMessage
 --
 -- * 'rnomReservedNodeOfferings' @::@ ['ReservedNodeOffering']
 --
-reservedNodeOfferingsMessage :: ReservedNodeOfferingsMessage
-reservedNodeOfferingsMessage = ReservedNodeOfferingsMessage
+describeReservedNodeOfferingsResponse :: ReservedNodeOfferingsMessage
+describeReservedNodeOfferingsResponse = ReservedNodeOfferingsMessage
     { _rnomMarker                = Nothing
     , _rnomReservedNodeOfferings = mempty
     }

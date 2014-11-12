@@ -28,7 +28,7 @@ module Network.AWS.SNS.SetEndpointAttributes
     -- * Request
       SetEndpointAttributesInput
     -- ** Request constructor
-    , setEndpointAttributesInput
+    , setEndpointAttributes
     -- ** Request lenses
     , seaiAttributes
     , seaiEndpointArn
@@ -56,9 +56,9 @@ data SetEndpointAttributesInput = SetEndpointAttributesInput
 --
 -- * 'seaiEndpointArn' @::@ 'Text'
 --
-setEndpointAttributesInput :: Text -- ^ 'seaiEndpointArn'
-                           -> SetEndpointAttributesInput
-setEndpointAttributesInput p1 = SetEndpointAttributesInput
+setEndpointAttributes :: Text -- ^ 'seaiEndpointArn'
+                      -> SetEndpointAttributesInput
+setEndpointAttributes p1 = SetEndpointAttributesInput
     { _seaiEndpointArn = p1
     , _seaiAttributes  = mempty
     }

@@ -32,7 +32,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     -- * Response
     , DescribeAutoScalingNotificationTypesAnswer
     -- ** Response constructor
-    , describeAutoScalingNotificationTypesAnswer
+    , describeAutoScalingNotificationTypesResponse
     -- ** Response lenses
     , dasntaAutoScalingNotificationTypes
     ) where
@@ -69,8 +69,8 @@ instance IsList DescribeAutoScalingNotificationTypesAnswer where
 --
 -- * 'dasntaAutoScalingNotificationTypes' @::@ ['Text']
 --
-describeAutoScalingNotificationTypesAnswer :: DescribeAutoScalingNotificationTypesAnswer
-describeAutoScalingNotificationTypesAnswer = DescribeAutoScalingNotificationTypesAnswer
+describeAutoScalingNotificationTypesResponse :: DescribeAutoScalingNotificationTypesAnswer
+describeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesAnswer
     { _dasntaAutoScalingNotificationTypes = mempty
     }
 

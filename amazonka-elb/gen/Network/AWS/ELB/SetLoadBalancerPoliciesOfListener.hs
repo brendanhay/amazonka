@@ -27,7 +27,7 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     -- * Request
       SetLoadBalancerPoliciesOfListenerInput
     -- ** Request constructor
-    , setLoadBalancerPoliciesOfListenerInput
+    , setLoadBalancerPoliciesOfListener
     -- ** Request lenses
     , slbpoliLoadBalancerName
     , slbpoliLoadBalancerPort
@@ -59,10 +59,10 @@ data SetLoadBalancerPoliciesOfListenerInput = SetLoadBalancerPoliciesOfListenerI
 --
 -- * 'slbpoliPolicyNames' @::@ ['Text']
 --
-setLoadBalancerPoliciesOfListenerInput :: Text -- ^ 'slbpoliLoadBalancerName'
-                                       -> Int -- ^ 'slbpoliLoadBalancerPort'
-                                       -> SetLoadBalancerPoliciesOfListenerInput
-setLoadBalancerPoliciesOfListenerInput p1 p2 = SetLoadBalancerPoliciesOfListenerInput
+setLoadBalancerPoliciesOfListener :: Text -- ^ 'slbpoliLoadBalancerName'
+                                  -> Int -- ^ 'slbpoliLoadBalancerPort'
+                                  -> SetLoadBalancerPoliciesOfListenerInput
+setLoadBalancerPoliciesOfListener p1 p2 = SetLoadBalancerPoliciesOfListenerInput
     { _slbpoliLoadBalancerName = p1
     , _slbpoliLoadBalancerPort = p2
     , _slbpoliPolicyNames      = mempty

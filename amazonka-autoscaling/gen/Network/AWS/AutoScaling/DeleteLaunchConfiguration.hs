@@ -28,7 +28,7 @@ module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     -- * Request
       LaunchConfigurationNameType
     -- ** Request constructor
-    , launchConfigurationNameType
+    , deleteLaunchConfiguration
     -- ** Request lenses
     , lcntLaunchConfigurationName
 
@@ -52,9 +52,9 @@ newtype LaunchConfigurationNameType = LaunchConfigurationNameType
 --
 -- * 'lcntLaunchConfigurationName' @::@ 'Text'
 --
-launchConfigurationNameType :: Text -- ^ 'lcntLaunchConfigurationName'
-                            -> LaunchConfigurationNameType
-launchConfigurationNameType p1 = LaunchConfigurationNameType
+deleteLaunchConfiguration :: Text -- ^ 'lcntLaunchConfigurationName'
+                          -> LaunchConfigurationNameType
+deleteLaunchConfiguration p1 = LaunchConfigurationNameType
     { _lcntLaunchConfigurationName = p1
     }
 

@@ -34,7 +34,7 @@ module Network.AWS.Redshift.DescribeClusterParameters
     -- * Request
       DescribeClusterParametersMessage
     -- ** Request constructor
-    , describeClusterParametersMessage
+    , describeClusterParameters
     -- ** Request lenses
     , dcpmMarker
     , dcpmMaxRecords
@@ -44,7 +44,7 @@ module Network.AWS.Redshift.DescribeClusterParameters
     -- * Response
     , ClusterParameterGroupDetails
     -- ** Response constructor
-    , clusterParameterGroupDetails
+    , describeClusterParametersResponse
     -- ** Response lenses
     , cpgdMarker
     , cpgdParameters
@@ -73,9 +73,9 @@ data DescribeClusterParametersMessage = DescribeClusterParametersMessage
 --
 -- * 'dcpmSource' @::@ 'Maybe' 'Text'
 --
-describeClusterParametersMessage :: Text -- ^ 'dcpmParameterGroupName'
-                                 -> DescribeClusterParametersMessage
-describeClusterParametersMessage p1 = DescribeClusterParametersMessage
+describeClusterParameters :: Text -- ^ 'dcpmParameterGroupName'
+                          -> DescribeClusterParametersMessage
+describeClusterParameters p1 = DescribeClusterParametersMessage
     { _dcpmParameterGroupName = p1
     , _dcpmSource             = Nothing
     , _dcpmMaxRecords         = Nothing
@@ -129,8 +129,8 @@ data ClusterParameterGroupDetails = ClusterParameterGroupDetails
 --
 -- * 'cpgdParameters' @::@ ['Parameter']
 --
-clusterParameterGroupDetails :: ClusterParameterGroupDetails
-clusterParameterGroupDetails = ClusterParameterGroupDetails
+describeClusterParametersResponse :: ClusterParameterGroupDetails
+describeClusterParametersResponse = ClusterParameterGroupDetails
     { _cpgdParameters = mempty
     , _cpgdMarker     = Nothing
     }

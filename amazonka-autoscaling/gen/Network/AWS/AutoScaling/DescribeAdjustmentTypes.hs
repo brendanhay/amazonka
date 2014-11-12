@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     -- * Response
     , DescribeAdjustmentTypesAnswer
     -- ** Response constructor
-    , describeAdjustmentTypesAnswer
+    , describeAdjustmentTypesResponse
     -- ** Response lenses
     , dataAdjustmentTypes
     ) where
@@ -68,8 +68,8 @@ instance IsList DescribeAdjustmentTypesAnswer where
 --
 -- * 'dataAdjustmentTypes' @::@ ['AdjustmentType']
 --
-describeAdjustmentTypesAnswer :: DescribeAdjustmentTypesAnswer
-describeAdjustmentTypesAnswer = DescribeAdjustmentTypesAnswer
+describeAdjustmentTypesResponse :: DescribeAdjustmentTypesAnswer
+describeAdjustmentTypesResponse = DescribeAdjustmentTypesAnswer
     { _dataAdjustmentTypes = mempty
     }
 

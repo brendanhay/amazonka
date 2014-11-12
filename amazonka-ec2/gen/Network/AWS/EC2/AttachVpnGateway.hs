@@ -37,7 +37,7 @@ module Network.AWS.EC2.AttachVpnGateway
     -- * Response
     , AttachVpnGatewayResult
     -- ** Response constructor
-    , attachVpnGatewayResult
+    , attachVpnGatewayResponse
     -- ** Response lenses
     , avgrVpcAttachment
     ) where
@@ -97,8 +97,8 @@ newtype AttachVpnGatewayResult = AttachVpnGatewayResult
 --
 -- * 'avgrVpcAttachment' @::@ 'Maybe' 'VpcAttachment'
 --
-attachVpnGatewayResult :: AttachVpnGatewayResult
-attachVpnGatewayResult = AttachVpnGatewayResult
+attachVpnGatewayResponse :: AttachVpnGatewayResult
+attachVpnGatewayResponse = AttachVpnGatewayResult
     { _avgrVpcAttachment = Nothing
     }
 

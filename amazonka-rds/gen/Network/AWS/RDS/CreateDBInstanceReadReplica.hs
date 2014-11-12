@@ -31,7 +31,7 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     -- * Request
       CreateDBInstanceReadReplicaMessage
     -- ** Request constructor
-    , createDBInstanceReadReplicaMessage
+    , createDBInstanceReadReplica
     -- ** Request lenses
     , cdbirrmAutoMinorVersionUpgrade
     , cdbirrmAvailabilityZone
@@ -49,7 +49,7 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     -- * Response
     , CreateDBInstanceReadReplicaResult
     -- ** Response constructor
-    , createDBInstanceReadReplicaResult
+    , createDBInstanceReadReplicaResponse
     -- ** Response lenses
     , cdbirrrDBInstance
     ) where
@@ -101,10 +101,10 @@ data CreateDBInstanceReadReplicaMessage = CreateDBInstanceReadReplicaMessage
 --
 -- * 'cdbirrmTags' @::@ ['Tag']
 --
-createDBInstanceReadReplicaMessage :: Text -- ^ 'cdbirrmDBInstanceIdentifier'
-                                   -> Text -- ^ 'cdbirrmSourceDBInstanceIdentifier'
-                                   -> CreateDBInstanceReadReplicaMessage
-createDBInstanceReadReplicaMessage p1 p2 = CreateDBInstanceReadReplicaMessage
+createDBInstanceReadReplica :: Text -- ^ 'cdbirrmDBInstanceIdentifier'
+                            -> Text -- ^ 'cdbirrmSourceDBInstanceIdentifier'
+                            -> CreateDBInstanceReadReplicaMessage
+createDBInstanceReadReplica p1 p2 = CreateDBInstanceReadReplicaMessage
     { _cdbirrmDBInstanceIdentifier       = p1
     , _cdbirrmSourceDBInstanceIdentifier = p2
     , _cdbirrmDBInstanceClass            = Nothing
@@ -241,8 +241,8 @@ newtype CreateDBInstanceReadReplicaResult = CreateDBInstanceReadReplicaResult
 --
 -- * 'cdbirrrDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-createDBInstanceReadReplicaResult :: CreateDBInstanceReadReplicaResult
-createDBInstanceReadReplicaResult = CreateDBInstanceReadReplicaResult
+createDBInstanceReadReplicaResponse :: CreateDBInstanceReadReplicaResult
+createDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResult
     { _cdbirrrDBInstance = Nothing
     }
 

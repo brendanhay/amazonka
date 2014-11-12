@@ -36,7 +36,7 @@ module Network.AWS.AutoScaling.DescribeAccountLimits
     -- * Response
     , DescribeAccountLimitsAnswer
     -- ** Response constructor
-    , describeAccountLimitsAnswer
+    , describeAccountLimitsResponse
     -- ** Response lenses
     , dalaMaxNumberOfAutoScalingGroups
     , dalaMaxNumberOfLaunchConfigurations
@@ -71,8 +71,8 @@ data DescribeAccountLimitsAnswer = DescribeAccountLimitsAnswer
 --
 -- * 'dalaMaxNumberOfLaunchConfigurations' @::@ 'Maybe' 'Int'
 --
-describeAccountLimitsAnswer :: DescribeAccountLimitsAnswer
-describeAccountLimitsAnswer = DescribeAccountLimitsAnswer
+describeAccountLimitsResponse :: DescribeAccountLimitsAnswer
+describeAccountLimitsResponse = DescribeAccountLimitsAnswer
     { _dalaMaxNumberOfAutoScalingGroups    = Nothing
     , _dalaMaxNumberOfLaunchConfigurations = Nothing
     }

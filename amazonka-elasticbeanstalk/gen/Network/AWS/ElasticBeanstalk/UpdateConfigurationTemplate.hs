@@ -28,7 +28,7 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     -- * Request
       UpdateConfigurationTemplateMessage
     -- ** Request constructor
-    , updateConfigurationTemplateMessage
+    , updateConfigurationTemplate
     -- ** Request lenses
     , uctmApplicationName
     , uctmDescription
@@ -78,10 +78,10 @@ data UpdateConfigurationTemplateMessage = UpdateConfigurationTemplateMessage
 --
 -- * 'uctmTemplateName' @::@ 'Text'
 --
-updateConfigurationTemplateMessage :: Text -- ^ 'uctmApplicationName'
-                                   -> Text -- ^ 'uctmTemplateName'
-                                   -> UpdateConfigurationTemplateMessage
-updateConfigurationTemplateMessage p1 p2 = UpdateConfigurationTemplateMessage
+updateConfigurationTemplate :: Text -- ^ 'uctmApplicationName'
+                            -> Text -- ^ 'uctmTemplateName'
+                            -> UpdateConfigurationTemplateMessage
+updateConfigurationTemplate p1 p2 = UpdateConfigurationTemplateMessage
     { _uctmApplicationName = p1
     , _uctmTemplateName    = p2
     , _uctmDescription     = Nothing

@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeNetworkAcls
     -- * Response
     , DescribeNetworkAclsResult
     -- ** Response constructor
-    , describeNetworkAclsResult
+    , describeNetworkAclsResponse
     -- ** Response lenses
     , dnarNetworkAcls
     ) where
@@ -125,8 +125,8 @@ instance IsList DescribeNetworkAclsResult where
 --
 -- * 'dnarNetworkAcls' @::@ ['NetworkAcl']
 --
-describeNetworkAclsResult :: DescribeNetworkAclsResult
-describeNetworkAclsResult = DescribeNetworkAclsResult
+describeNetworkAclsResponse :: DescribeNetworkAclsResult
+describeNetworkAclsResponse = DescribeNetworkAclsResult
     { _dnarNetworkAcls = mempty
     }
 

@@ -27,7 +27,7 @@ module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     -- * Request
       DescribeEngineDefaultParametersMessage
     -- ** Request constructor
-    , describeEngineDefaultParametersMessage
+    , describeEngineDefaultParameters
     -- ** Request lenses
     , dedpmCacheParameterGroupFamily
     , dedpmMarker
@@ -36,7 +36,7 @@ module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     -- * Response
     , DescribeEngineDefaultParametersResult
     -- ** Response constructor
-    , describeEngineDefaultParametersResult
+    , describeEngineDefaultParametersResponse
     -- ** Response lenses
     , dedprEngineDefaults
     ) where
@@ -61,9 +61,9 @@ data DescribeEngineDefaultParametersMessage = DescribeEngineDefaultParametersMes
 --
 -- * 'dedpmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeEngineDefaultParametersMessage :: Text -- ^ 'dedpmCacheParameterGroupFamily'
-                                       -> DescribeEngineDefaultParametersMessage
-describeEngineDefaultParametersMessage p1 = DescribeEngineDefaultParametersMessage
+describeEngineDefaultParameters :: Text -- ^ 'dedpmCacheParameterGroupFamily'
+                                -> DescribeEngineDefaultParametersMessage
+describeEngineDefaultParameters p1 = DescribeEngineDefaultParametersMessage
     { _dedpmCacheParameterGroupFamily = p1
     , _dedpmMaxRecords                = Nothing
     , _dedpmMarker                    = Nothing
@@ -105,8 +105,8 @@ newtype DescribeEngineDefaultParametersResult = DescribeEngineDefaultParametersR
 --
 -- * 'dedprEngineDefaults' @::@ 'Maybe' 'EngineDefaults'
 --
-describeEngineDefaultParametersResult :: DescribeEngineDefaultParametersResult
-describeEngineDefaultParametersResult = DescribeEngineDefaultParametersResult
+describeEngineDefaultParametersResponse :: DescribeEngineDefaultParametersResult
+describeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResult
     { _dedprEngineDefaults = Nothing
     }
 

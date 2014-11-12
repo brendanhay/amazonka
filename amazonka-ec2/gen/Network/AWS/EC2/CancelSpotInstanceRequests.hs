@@ -41,7 +41,7 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     -- * Response
     , CancelSpotInstanceRequestsResult
     -- ** Response constructor
-    , cancelSpotInstanceRequestsResult
+    , cancelSpotInstanceRequestsResponse
     -- ** Response lenses
     , csirrCancelledSpotInstanceRequests
     ) where
@@ -99,8 +99,8 @@ instance IsList CancelSpotInstanceRequestsResult where
 --
 -- * 'csirrCancelledSpotInstanceRequests' @::@ ['CancelledSpotInstanceRequest']
 --
-cancelSpotInstanceRequestsResult :: CancelSpotInstanceRequestsResult
-cancelSpotInstanceRequestsResult = CancelSpotInstanceRequestsResult
+cancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResult
+cancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResult
     { _csirrCancelledSpotInstanceRequests = mempty
     }
 

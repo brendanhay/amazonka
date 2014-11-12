@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeDhcpOptions
     -- * Response
     , DescribeDhcpOptionsResult
     -- ** Response constructor
-    , describeDhcpOptionsResult
+    , describeDhcpOptionsResponse
     -- ** Response lenses
     , ddorDhcpOptions
     ) where
@@ -114,8 +114,8 @@ instance IsList DescribeDhcpOptionsResult where
 --
 -- * 'ddorDhcpOptions' @::@ ['DhcpOptions']
 --
-describeDhcpOptionsResult :: DescribeDhcpOptionsResult
-describeDhcpOptionsResult = DescribeDhcpOptionsResult
+describeDhcpOptionsResponse :: DescribeDhcpOptionsResult
+describeDhcpOptionsResponse = DescribeDhcpOptionsResult
     { _ddorDhcpOptions = mempty
     }
 

@@ -40,7 +40,7 @@ module Network.AWS.S3.CreateBucket
     -- * Response
     , CreateBucketOutput
     -- ** Response constructor
-    , createBucketOutput
+    , createBucketResponse
     -- ** Response lenses
     , cboLocation
     ) where
@@ -159,8 +159,8 @@ newtype CreateBucketOutput = CreateBucketOutput
 --
 -- * 'cboLocation' @::@ 'Maybe' 'Text'
 --
-createBucketOutput :: CreateBucketOutput
-createBucketOutput = CreateBucketOutput
+createBucketResponse :: CreateBucketOutput
+createBucketResponse = CreateBucketOutput
     { _cboLocation = Nothing
     }
 

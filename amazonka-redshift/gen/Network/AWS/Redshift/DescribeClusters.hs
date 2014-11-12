@@ -30,7 +30,7 @@ module Network.AWS.Redshift.DescribeClusters
     -- * Request
       DescribeClustersMessage
     -- ** Request constructor
-    , describeClustersMessage
+    , describeClusters
     -- ** Request lenses
     , dcm1ClusterIdentifier
     , dcm1Marker
@@ -39,7 +39,7 @@ module Network.AWS.Redshift.DescribeClusters
     -- * Response
     , ClustersMessage
     -- ** Response constructor
-    , clustersMessage
+    , describeClustersResponse
     -- ** Response lenses
     , cmClusters
     , cmMarker
@@ -65,8 +65,8 @@ data DescribeClustersMessage = DescribeClustersMessage
 --
 -- * 'dcm1MaxRecords' @::@ 'Maybe' 'Int'
 --
-describeClustersMessage :: DescribeClustersMessage
-describeClustersMessage = DescribeClustersMessage
+describeClusters :: DescribeClustersMessage
+describeClusters = DescribeClustersMessage
     { _dcm1ClusterIdentifier = Nothing
     , _dcm1MaxRecords        = Nothing
     , _dcm1Marker            = Nothing
@@ -115,8 +115,8 @@ data ClustersMessage = ClustersMessage
 --
 -- * 'cmMarker' @::@ 'Maybe' 'Text'
 --
-clustersMessage :: ClustersMessage
-clustersMessage = ClustersMessage
+describeClustersResponse :: ClustersMessage
+describeClustersResponse = ClustersMessage
     { _cmMarker   = Nothing
     , _cmClusters = mempty
     }

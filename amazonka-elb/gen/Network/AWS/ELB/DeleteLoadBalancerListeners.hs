@@ -26,7 +26,7 @@ module Network.AWS.ELB.DeleteLoadBalancerListeners
     -- * Request
       DeleteLoadBalancerListenerInput
     -- ** Request constructor
-    , deleteLoadBalancerListenerInput
+    , deleteLoadBalancerListeners
     -- ** Request lenses
     , dlbliLoadBalancerName
     , dlbliLoadBalancerPorts
@@ -54,9 +54,9 @@ data DeleteLoadBalancerListenerInput = DeleteLoadBalancerListenerInput
 --
 -- * 'dlbliLoadBalancerPorts' @::@ ['Int']
 --
-deleteLoadBalancerListenerInput :: Text -- ^ 'dlbliLoadBalancerName'
-                                -> DeleteLoadBalancerListenerInput
-deleteLoadBalancerListenerInput p1 = DeleteLoadBalancerListenerInput
+deleteLoadBalancerListeners :: Text -- ^ 'dlbliLoadBalancerName'
+                            -> DeleteLoadBalancerListenerInput
+deleteLoadBalancerListeners p1 = DeleteLoadBalancerListenerInput
     { _dlbliLoadBalancerName  = p1
     , _dlbliLoadBalancerPorts = mempty
     }

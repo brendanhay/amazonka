@@ -27,7 +27,7 @@ module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     -- * Request
       ModifySnapshotCopyRetentionPeriodMessage
     -- ** Request constructor
-    , modifySnapshotCopyRetentionPeriodMessage
+    , modifySnapshotCopyRetentionPeriod
     -- ** Request lenses
     , mscrpmClusterIdentifier
     , mscrpmRetentionPeriod
@@ -35,7 +35,7 @@ module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     -- * Response
     , ModifySnapshotCopyRetentionPeriodResult
     -- ** Response constructor
-    , modifySnapshotCopyRetentionPeriodResult
+    , modifySnapshotCopyRetentionPeriodResponse
     -- ** Response lenses
     , mscrprCluster
     ) where
@@ -57,10 +57,10 @@ data ModifySnapshotCopyRetentionPeriodMessage = ModifySnapshotCopyRetentionPerio
 --
 -- * 'mscrpmRetentionPeriod' @::@ 'Int'
 --
-modifySnapshotCopyRetentionPeriodMessage :: Text -- ^ 'mscrpmClusterIdentifier'
-                                         -> Int -- ^ 'mscrpmRetentionPeriod'
-                                         -> ModifySnapshotCopyRetentionPeriodMessage
-modifySnapshotCopyRetentionPeriodMessage p1 p2 = ModifySnapshotCopyRetentionPeriodMessage
+modifySnapshotCopyRetentionPeriod :: Text -- ^ 'mscrpmClusterIdentifier'
+                                  -> Int -- ^ 'mscrpmRetentionPeriod'
+                                  -> ModifySnapshotCopyRetentionPeriodMessage
+modifySnapshotCopyRetentionPeriod p1 p2 = ModifySnapshotCopyRetentionPeriodMessage
     { _mscrpmClusterIdentifier = p1
     , _mscrpmRetentionPeriod   = p2
     }
@@ -98,8 +98,8 @@ newtype ModifySnapshotCopyRetentionPeriodResult = ModifySnapshotCopyRetentionPer
 --
 -- * 'mscrprCluster' @::@ 'Maybe' 'Cluster'
 --
-modifySnapshotCopyRetentionPeriodResult :: ModifySnapshotCopyRetentionPeriodResult
-modifySnapshotCopyRetentionPeriodResult = ModifySnapshotCopyRetentionPeriodResult
+modifySnapshotCopyRetentionPeriodResponse :: ModifySnapshotCopyRetentionPeriodResult
+modifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResult
     { _mscrprCluster = Nothing
     }
 

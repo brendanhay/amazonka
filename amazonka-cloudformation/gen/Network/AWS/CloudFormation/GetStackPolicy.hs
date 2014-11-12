@@ -27,14 +27,14 @@ module Network.AWS.CloudFormation.GetStackPolicy
     -- * Request
       GetStackPolicyInput
     -- ** Request constructor
-    , getStackPolicyInput
+    , getStackPolicy
     -- ** Request lenses
     , gspiStackName
 
     -- * Response
     , GetStackPolicyOutput
     -- ** Response constructor
-    , getStackPolicyOutput
+    , getStackPolicyResponse
     -- ** Response lenses
     , gspoStackPolicyBody
     ) where
@@ -53,9 +53,9 @@ newtype GetStackPolicyInput = GetStackPolicyInput
 --
 -- * 'gspiStackName' @::@ 'Text'
 --
-getStackPolicyInput :: Text -- ^ 'gspiStackName'
-                    -> GetStackPolicyInput
-getStackPolicyInput p1 = GetStackPolicyInput
+getStackPolicy :: Text -- ^ 'gspiStackName'
+               -> GetStackPolicyInput
+getStackPolicy p1 = GetStackPolicyInput
     { _gspiStackName = p1
     }
 
@@ -79,8 +79,8 @@ newtype GetStackPolicyOutput = GetStackPolicyOutput
 --
 -- * 'gspoStackPolicyBody' @::@ 'Maybe' 'Text'
 --
-getStackPolicyOutput :: GetStackPolicyOutput
-getStackPolicyOutput = GetStackPolicyOutput
+getStackPolicyResponse :: GetStackPolicyOutput
+getStackPolicyResponse = GetStackPolicyOutput
     { _gspoStackPolicyBody = Nothing
     }
 

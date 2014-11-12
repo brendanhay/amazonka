@@ -27,7 +27,7 @@ module Network.AWS.Redshift.DisableLogging
     -- * Request
       DisableLoggingMessage
     -- ** Request constructor
-    , disableLoggingMessage
+    , disableLogging
     -- ** Request lenses
     , dlmClusterIdentifier
 
@@ -58,9 +58,9 @@ newtype DisableLoggingMessage = DisableLoggingMessage
 --
 -- * 'dlmClusterIdentifier' @::@ 'Text'
 --
-disableLoggingMessage :: Text -- ^ 'dlmClusterIdentifier'
-                      -> DisableLoggingMessage
-disableLoggingMessage p1 = DisableLoggingMessage
+disableLogging :: Text -- ^ 'dlmClusterIdentifier'
+               -> DisableLoggingMessage
+disableLogging p1 = DisableLoggingMessage
     { _dlmClusterIdentifier = p1
     }
 

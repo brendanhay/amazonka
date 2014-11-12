@@ -44,7 +44,7 @@ module Network.AWS.EC2.DescribeVolumes
     -- * Response
     , DescribeVolumesResult
     -- ** Response constructor
-    , describeVolumesResult
+    , describeVolumesResponse
     -- ** Response lenses
     , dvrNextToken
     , dvrVolumes
@@ -155,8 +155,8 @@ data DescribeVolumesResult = DescribeVolumesResult
 --
 -- * 'dvrVolumes' @::@ ['Volume']
 --
-describeVolumesResult :: DescribeVolumesResult
-describeVolumesResult = DescribeVolumesResult
+describeVolumesResponse :: DescribeVolumesResult
+describeVolumesResponse = DescribeVolumesResult
     { _dvrVolumes   = mempty
     , _dvrNextToken = Nothing
     }

@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
     -- * Request
       ModifyCacheParameterGroupMessage
     -- ** Request constructor
-    , modifyCacheParameterGroupMessage
+    , modifyCacheParameterGroup
     -- ** Request lenses
     , mcpgmCacheParameterGroupName
     , mcpgmParameterNameValues
@@ -58,9 +58,9 @@ data ModifyCacheParameterGroupMessage = ModifyCacheParameterGroupMessage
 --
 -- * 'mcpgmParameterNameValues' @::@ ['ParameterNameValue']
 --
-modifyCacheParameterGroupMessage :: Text -- ^ 'mcpgmCacheParameterGroupName'
-                                 -> ModifyCacheParameterGroupMessage
-modifyCacheParameterGroupMessage p1 = ModifyCacheParameterGroupMessage
+modifyCacheParameterGroup :: Text -- ^ 'mcpgmCacheParameterGroupName'
+                          -> ModifyCacheParameterGroupMessage
+modifyCacheParameterGroup p1 = ModifyCacheParameterGroupMessage
     { _mcpgmCacheParameterGroupName = p1
     , _mcpgmParameterNameValues     = mempty
     }

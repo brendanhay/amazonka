@@ -31,7 +31,7 @@ module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     -- * Request
       DetachLoadBalancerFromSubnetsInput
     -- ** Request constructor
-    , detachLoadBalancerFromSubnetsInput
+    , detachLoadBalancerFromSubnets
     -- ** Request lenses
     , dlbfsiLoadBalancerName
     , dlbfsiSubnets
@@ -39,7 +39,7 @@ module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     -- * Response
     , DetachLoadBalancerFromSubnetsOutput
     -- ** Response constructor
-    , detachLoadBalancerFromSubnetsOutput
+    , detachLoadBalancerFromSubnetsResponse
     -- ** Response lenses
     , dlbfsoSubnets
     ) where
@@ -61,9 +61,9 @@ data DetachLoadBalancerFromSubnetsInput = DetachLoadBalancerFromSubnetsInput
 --
 -- * 'dlbfsiSubnets' @::@ ['Text']
 --
-detachLoadBalancerFromSubnetsInput :: Text -- ^ 'dlbfsiLoadBalancerName'
-                                   -> DetachLoadBalancerFromSubnetsInput
-detachLoadBalancerFromSubnetsInput p1 = DetachLoadBalancerFromSubnetsInput
+detachLoadBalancerFromSubnets :: Text -- ^ 'dlbfsiLoadBalancerName'
+                              -> DetachLoadBalancerFromSubnetsInput
+detachLoadBalancerFromSubnets p1 = DetachLoadBalancerFromSubnetsInput
     { _dlbfsiLoadBalancerName = p1
     , _dlbfsiSubnets          = mempty
     }
@@ -99,8 +99,8 @@ instance IsList DetachLoadBalancerFromSubnetsOutput where
 --
 -- * 'dlbfsoSubnets' @::@ ['Text']
 --
-detachLoadBalancerFromSubnetsOutput :: DetachLoadBalancerFromSubnetsOutput
-detachLoadBalancerFromSubnetsOutput = DetachLoadBalancerFromSubnetsOutput
+detachLoadBalancerFromSubnetsResponse :: DetachLoadBalancerFromSubnetsOutput
+detachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsOutput
     { _dlbfsoSubnets = mempty
     }
 

@@ -26,7 +26,7 @@ module Network.AWS.RDS.CreateDBInstance
     -- * Request
       CreateDBInstanceMessage
     -- ** Request constructor
-    , createDBInstanceMessage
+    , createDBInstance
     -- ** Request lenses
     , cdbimAllocatedStorage
     , cdbimAutoMinorVersionUpgrade
@@ -60,7 +60,7 @@ module Network.AWS.RDS.CreateDBInstance
     -- * Response
     , CreateDBInstanceResult
     -- ** Response constructor
-    , createDBInstanceResult
+    , createDBInstanceResponse
     -- ** Response lenses
     , cdbirDBInstance
     ) where
@@ -160,14 +160,14 @@ data CreateDBInstanceMessage = CreateDBInstanceMessage
 --
 -- * 'cdbimVpcSecurityGroupIds' @::@ ['Text']
 --
-createDBInstanceMessage :: Text -- ^ 'cdbimDBInstanceIdentifier'
-                        -> Int -- ^ 'cdbimAllocatedStorage'
-                        -> Text -- ^ 'cdbimDBInstanceClass'
-                        -> Text -- ^ 'cdbimEngine'
-                        -> Text -- ^ 'cdbimMasterUsername'
-                        -> Text -- ^ 'cdbimMasterUserPassword'
-                        -> CreateDBInstanceMessage
-createDBInstanceMessage p1 p2 p3 p4 p5 p6 = CreateDBInstanceMessage
+createDBInstance :: Text -- ^ 'cdbimDBInstanceIdentifier'
+                 -> Int -- ^ 'cdbimAllocatedStorage'
+                 -> Text -- ^ 'cdbimDBInstanceClass'
+                 -> Text -- ^ 'cdbimEngine'
+                 -> Text -- ^ 'cdbimMasterUsername'
+                 -> Text -- ^ 'cdbimMasterUserPassword'
+                 -> CreateDBInstanceMessage
+createDBInstance p1 p2 p3 p4 p5 p6 = CreateDBInstanceMessage
     { _cdbimDBInstanceIdentifier       = p1
     , _cdbimAllocatedStorage           = p2
     , _cdbimDBInstanceClass            = p3
@@ -453,8 +453,8 @@ newtype CreateDBInstanceResult = CreateDBInstanceResult
 --
 -- * 'cdbirDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-createDBInstanceResult :: CreateDBInstanceResult
-createDBInstanceResult = CreateDBInstanceResult
+createDBInstanceResponse :: CreateDBInstanceResult
+createDBInstanceResponse = CreateDBInstanceResult
     { _cdbirDBInstance = Nothing
     }
 

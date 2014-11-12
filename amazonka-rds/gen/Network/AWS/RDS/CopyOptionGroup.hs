@@ -26,7 +26,7 @@ module Network.AWS.RDS.CopyOptionGroup
     -- * Request
       CopyOptionGroupMessage
     -- ** Request constructor
-    , copyOptionGroupMessage
+    , copyOptionGroup
     -- ** Request lenses
     , cogm1SourceOptionGroupIdentifier
     , cogm1Tags
@@ -36,7 +36,7 @@ module Network.AWS.RDS.CopyOptionGroup
     -- * Response
     , CopyOptionGroupResult
     -- ** Response constructor
-    , copyOptionGroupResult
+    , copyOptionGroupResponse
     -- ** Response lenses
     , cogrOptionGroup
     ) where
@@ -64,11 +64,11 @@ data CopyOptionGroupMessage = CopyOptionGroupMessage
 --
 -- * 'cogm1TargetOptionGroupIdentifier' @::@ 'Text'
 --
-copyOptionGroupMessage :: Text -- ^ 'cogm1SourceOptionGroupIdentifier'
-                       -> Text -- ^ 'cogm1TargetOptionGroupIdentifier'
-                       -> Text -- ^ 'cogm1TargetOptionGroupDescription'
-                       -> CopyOptionGroupMessage
-copyOptionGroupMessage p1 p2 p3 = CopyOptionGroupMessage
+copyOptionGroup :: Text -- ^ 'cogm1SourceOptionGroupIdentifier'
+                -> Text -- ^ 'cogm1TargetOptionGroupIdentifier'
+                -> Text -- ^ 'cogm1TargetOptionGroupDescription'
+                -> CopyOptionGroupMessage
+copyOptionGroup p1 p2 p3 = CopyOptionGroupMessage
     { _cogm1SourceOptionGroupIdentifier  = p1
     , _cogm1TargetOptionGroupIdentifier  = p2
     , _cogm1TargetOptionGroupDescription = p3
@@ -119,8 +119,8 @@ newtype CopyOptionGroupResult = CopyOptionGroupResult
 --
 -- * 'cogrOptionGroup' @::@ 'Maybe' 'OptionGroup'
 --
-copyOptionGroupResult :: CopyOptionGroupResult
-copyOptionGroupResult = CopyOptionGroupResult
+copyOptionGroupResponse :: CopyOptionGroupResult
+copyOptionGroupResponse = CopyOptionGroupResult
     { _cogrOptionGroup = Nothing
     }
 

@@ -28,7 +28,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     -- * Request
       DescribeCacheParameterGroupsMessage
     -- ** Request constructor
-    , describeCacheParameterGroupsMessage
+    , describeCacheParameterGroups
     -- ** Request lenses
     , dcpgmCacheParameterGroupName
     , dcpgmMarker
@@ -37,7 +37,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     -- * Response
     , CacheParameterGroupsMessage
     -- ** Response constructor
-    , cacheParameterGroupsMessage
+    , describeCacheParameterGroupsResponse
     -- ** Response lenses
     , cpgmCacheParameterGroups
     , cpgmMarker
@@ -63,8 +63,8 @@ data DescribeCacheParameterGroupsMessage = DescribeCacheParameterGroupsMessage
 --
 -- * 'dcpgmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeCacheParameterGroupsMessage :: DescribeCacheParameterGroupsMessage
-describeCacheParameterGroupsMessage = DescribeCacheParameterGroupsMessage
+describeCacheParameterGroups :: DescribeCacheParameterGroupsMessage
+describeCacheParameterGroups = DescribeCacheParameterGroupsMessage
     { _dcpgmCacheParameterGroupName = Nothing
     , _dcpgmMaxRecords              = Nothing
     , _dcpgmMarker                  = Nothing
@@ -108,8 +108,8 @@ data CacheParameterGroupsMessage = CacheParameterGroupsMessage
 --
 -- * 'cpgmMarker' @::@ 'Maybe' 'Text'
 --
-cacheParameterGroupsMessage :: CacheParameterGroupsMessage
-cacheParameterGroupsMessage = CacheParameterGroupsMessage
+describeCacheParameterGroupsResponse :: CacheParameterGroupsMessage
+describeCacheParameterGroupsResponse = CacheParameterGroupsMessage
     { _cpgmMarker               = Nothing
     , _cpgmCacheParameterGroups = mempty
     }

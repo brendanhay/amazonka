@@ -29,7 +29,7 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     -- * Request
       AuthorizeCacheSecurityGroupIngressMessage
     -- ** Request constructor
-    , authorizeCacheSecurityGroupIngressMessage
+    , authorizeCacheSecurityGroupIngress
     -- ** Request lenses
     , acsgimCacheSecurityGroupName
     , acsgimEC2SecurityGroupName
@@ -38,7 +38,7 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     -- * Response
     , AuthorizeCacheSecurityGroupIngressResult
     -- ** Response constructor
-    , authorizeCacheSecurityGroupIngressResult
+    , authorizeCacheSecurityGroupIngressResponse
     -- ** Response lenses
     , acsgirCacheSecurityGroup
     ) where
@@ -63,11 +63,11 @@ data AuthorizeCacheSecurityGroupIngressMessage = AuthorizeCacheSecurityGroupIngr
 --
 -- * 'acsgimEC2SecurityGroupOwnerId' @::@ 'Text'
 --
-authorizeCacheSecurityGroupIngressMessage :: Text -- ^ 'acsgimCacheSecurityGroupName'
-                                          -> Text -- ^ 'acsgimEC2SecurityGroupName'
-                                          -> Text -- ^ 'acsgimEC2SecurityGroupOwnerId'
-                                          -> AuthorizeCacheSecurityGroupIngressMessage
-authorizeCacheSecurityGroupIngressMessage p1 p2 p3 = AuthorizeCacheSecurityGroupIngressMessage
+authorizeCacheSecurityGroupIngress :: Text -- ^ 'acsgimCacheSecurityGroupName'
+                                   -> Text -- ^ 'acsgimEC2SecurityGroupName'
+                                   -> Text -- ^ 'acsgimEC2SecurityGroupOwnerId'
+                                   -> AuthorizeCacheSecurityGroupIngressMessage
+authorizeCacheSecurityGroupIngress p1 p2 p3 = AuthorizeCacheSecurityGroupIngressMessage
     { _acsgimCacheSecurityGroupName  = p1
     , _acsgimEC2SecurityGroupName    = p2
     , _acsgimEC2SecurityGroupOwnerId = p3
@@ -109,8 +109,8 @@ newtype AuthorizeCacheSecurityGroupIngressResult = AuthorizeCacheSecurityGroupIn
 --
 -- * 'acsgirCacheSecurityGroup' @::@ 'Maybe' 'CacheSecurityGroup'
 --
-authorizeCacheSecurityGroupIngressResult :: AuthorizeCacheSecurityGroupIngressResult
-authorizeCacheSecurityGroupIngressResult = AuthorizeCacheSecurityGroupIngressResult
+authorizeCacheSecurityGroupIngressResponse :: AuthorizeCacheSecurityGroupIngressResult
+authorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResult
     { _acsgirCacheSecurityGroup = Nothing
     }
 

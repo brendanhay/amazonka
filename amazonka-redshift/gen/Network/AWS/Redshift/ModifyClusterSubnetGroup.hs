@@ -28,7 +28,7 @@ module Network.AWS.Redshift.ModifyClusterSubnetGroup
     -- * Request
       ModifyClusterSubnetGroupMessage
     -- ** Request constructor
-    , modifyClusterSubnetGroupMessage
+    , modifyClusterSubnetGroup
     -- ** Request lenses
     , mcsgmClusterSubnetGroupName
     , mcsgmDescription
@@ -37,7 +37,7 @@ module Network.AWS.Redshift.ModifyClusterSubnetGroup
     -- * Response
     , ModifyClusterSubnetGroupResult
     -- ** Response constructor
-    , modifyClusterSubnetGroupResult
+    , modifyClusterSubnetGroupResponse
     -- ** Response lenses
     , mcsgrClusterSubnetGroup
     ) where
@@ -62,9 +62,9 @@ data ModifyClusterSubnetGroupMessage = ModifyClusterSubnetGroupMessage
 --
 -- * 'mcsgmSubnetIds' @::@ ['Text']
 --
-modifyClusterSubnetGroupMessage :: Text -- ^ 'mcsgmClusterSubnetGroupName'
-                                -> ModifyClusterSubnetGroupMessage
-modifyClusterSubnetGroupMessage p1 = ModifyClusterSubnetGroupMessage
+modifyClusterSubnetGroup :: Text -- ^ 'mcsgmClusterSubnetGroupName'
+                         -> ModifyClusterSubnetGroupMessage
+modifyClusterSubnetGroup p1 = ModifyClusterSubnetGroupMessage
     { _mcsgmClusterSubnetGroupName = p1
     , _mcsgmDescription            = Nothing
     , _mcsgmSubnetIds              = mempty
@@ -100,8 +100,8 @@ newtype ModifyClusterSubnetGroupResult = ModifyClusterSubnetGroupResult
 --
 -- * 'mcsgrClusterSubnetGroup' @::@ 'Maybe' 'ClusterSubnetGroup'
 --
-modifyClusterSubnetGroupResult :: ModifyClusterSubnetGroupResult
-modifyClusterSubnetGroupResult = ModifyClusterSubnetGroupResult
+modifyClusterSubnetGroupResponse :: ModifyClusterSubnetGroupResult
+modifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResult
     { _mcsgrClusterSubnetGroup = Nothing
     }
 

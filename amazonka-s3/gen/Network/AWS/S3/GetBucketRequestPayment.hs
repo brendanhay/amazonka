@@ -33,7 +33,7 @@ module Network.AWS.S3.GetBucketRequestPayment
     -- * Response
     , GetBucketRequestPaymentOutput
     -- ** Response constructor
-    , getBucketRequestPaymentOutput
+    , getBucketRequestPaymentResponse
     -- ** Response lenses
     , gbrpoPayer
     ) where
@@ -82,8 +82,8 @@ newtype GetBucketRequestPaymentOutput = GetBucketRequestPaymentOutput
 --
 -- * 'gbrpoPayer' @::@ 'Maybe' 'Text'
 --
-getBucketRequestPaymentOutput :: GetBucketRequestPaymentOutput
-getBucketRequestPaymentOutput = GetBucketRequestPaymentOutput
+getBucketRequestPaymentResponse :: GetBucketRequestPaymentOutput
+getBucketRequestPaymentResponse = GetBucketRequestPaymentOutput
     { _gbrpoPayer = Nothing
     }
 

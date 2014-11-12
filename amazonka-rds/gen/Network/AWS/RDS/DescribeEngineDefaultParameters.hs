@@ -27,7 +27,7 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     -- * Request
       DescribeEngineDefaultParametersMessage
     -- ** Request constructor
-    , describeEngineDefaultParametersMessage
+    , describeEngineDefaultParameters
     -- ** Request lenses
     , dedpmDBParameterGroupFamily
     , dedpmFilters
@@ -37,7 +37,7 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     -- * Response
     , DescribeEngineDefaultParametersResult
     -- ** Response constructor
-    , describeEngineDefaultParametersResult
+    , describeEngineDefaultParametersResponse
     -- ** Response lenses
     , dedprEngineDefaults
     ) where
@@ -65,9 +65,9 @@ data DescribeEngineDefaultParametersMessage = DescribeEngineDefaultParametersMes
 --
 -- * 'dedpmMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeEngineDefaultParametersMessage :: Text -- ^ 'dedpmDBParameterGroupFamily'
-                                       -> DescribeEngineDefaultParametersMessage
-describeEngineDefaultParametersMessage p1 = DescribeEngineDefaultParametersMessage
+describeEngineDefaultParameters :: Text -- ^ 'dedpmDBParameterGroupFamily'
+                                -> DescribeEngineDefaultParametersMessage
+describeEngineDefaultParameters p1 = DescribeEngineDefaultParametersMessage
     { _dedpmDBParameterGroupFamily = p1
     , _dedpmFilters                = mempty
     , _dedpmMaxRecords             = Nothing
@@ -113,8 +113,8 @@ newtype DescribeEngineDefaultParametersResult = DescribeEngineDefaultParametersR
 --
 -- * 'dedprEngineDefaults' @::@ 'Maybe' 'EngineDefaults'
 --
-describeEngineDefaultParametersResult :: DescribeEngineDefaultParametersResult
-describeEngineDefaultParametersResult = DescribeEngineDefaultParametersResult
+describeEngineDefaultParametersResponse :: DescribeEngineDefaultParametersResult
+describeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResult
     { _dedprEngineDefaults = Nothing
     }
 

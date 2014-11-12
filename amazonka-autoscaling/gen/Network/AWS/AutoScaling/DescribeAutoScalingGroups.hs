@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     -- * Request
       AutoScalingGroupNamesType
     -- ** Request constructor
-    , autoScalingGroupNamesType
+    , describeAutoScalingGroups
     -- ** Request lenses
     , asgntAutoScalingGroupNames
     , asgntMaxRecords
@@ -40,7 +40,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     -- * Response
     , AutoScalingGroupsType
     -- ** Response constructor
-    , autoScalingGroupsType
+    , describeAutoScalingGroupsResponse
     -- ** Response lenses
     , asgtAutoScalingGroups
     , asgtNextToken
@@ -66,8 +66,8 @@ data AutoScalingGroupNamesType = AutoScalingGroupNamesType
 --
 -- * 'asgntNextToken' @::@ 'Maybe' 'Text'
 --
-autoScalingGroupNamesType :: AutoScalingGroupNamesType
-autoScalingGroupNamesType = AutoScalingGroupNamesType
+describeAutoScalingGroups :: AutoScalingGroupNamesType
+describeAutoScalingGroups = AutoScalingGroupNamesType
     { _asgntAutoScalingGroupNames = mempty
     , _asgntNextToken             = Nothing
     , _asgntMaxRecords            = Nothing
@@ -105,8 +105,8 @@ data AutoScalingGroupsType = AutoScalingGroupsType
 --
 -- * 'asgtNextToken' @::@ 'Maybe' 'Text'
 --
-autoScalingGroupsType :: AutoScalingGroupsType
-autoScalingGroupsType = AutoScalingGroupsType
+describeAutoScalingGroupsResponse :: AutoScalingGroupsType
+describeAutoScalingGroupsResponse = AutoScalingGroupsType
     { _asgtAutoScalingGroups = mempty
     , _asgtNextToken         = Nothing
     }

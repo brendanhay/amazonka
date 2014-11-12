@@ -62,7 +62,7 @@ module Network.AWS.EC2.DescribeVolumeStatus
     -- * Response
     , DescribeVolumeStatusResult
     -- ** Response constructor
-    , describeVolumeStatusResult
+    , describeVolumeStatusResponse
     -- ** Response lenses
     , dvsrNextToken
     , dvsrVolumeStatuses
@@ -155,8 +155,8 @@ data DescribeVolumeStatusResult = DescribeVolumeStatusResult
 --
 -- * 'dvsrVolumeStatuses' @::@ ['VolumeStatusItem']
 --
-describeVolumeStatusResult :: DescribeVolumeStatusResult
-describeVolumeStatusResult = DescribeVolumeStatusResult
+describeVolumeStatusResponse :: DescribeVolumeStatusResult
+describeVolumeStatusResponse = DescribeVolumeStatusResult
     { _dvsrVolumeStatuses = mempty
     , _dvsrNextToken      = Nothing
     }

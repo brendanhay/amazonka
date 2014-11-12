@@ -1245,7 +1245,7 @@
                     "Semigroup"
                 ],
                 "streaming": false,
-                "listElement": "(Text, IdentityDkimAttributes)",
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getIdentityDkimAttributesResponse",
                 "field": {
@@ -1404,7 +1404,7 @@
                     "Semigroup"
                 ],
                 "streaming": false,
-                "listElement": "(Text, IdentityNotificationAttributes)",
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getIdentityNotificationAttributesResponse",
                 "field": {
@@ -1563,7 +1563,7 @@
                     "Semigroup"
                 ],
                 "streaming": false,
-                "listElement": "(Text, IdentityVerificationAttributes)",
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getIdentityVerificationAttributesResponse",
                 "field": {

@@ -73,12 +73,6 @@ newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetEndpointAttributesResponse where
-    type Item GetEndpointAttributesResponse = (Text, Text)
-
-    fromList = GetEndpointAttributesResponse . fromList
-    toList   = toList . _gearAttributes
-
 -- | 'GetEndpointAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

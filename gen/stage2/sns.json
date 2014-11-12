@@ -1954,7 +1954,7 @@
                     "Semigroup"
                 ],
                 "streaming": false,
-                "listElement": "(Text, Text)",
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getEndpointAttributesResponse",
                 "field": {
@@ -2113,7 +2113,7 @@
                     "Semigroup"
                 ],
                 "streaming": false,
-                "listElement": "(Text, Text)",
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getPlatformApplicationAttributesResponse",
                 "field": {
@@ -2272,7 +2272,7 @@
                     "Semigroup"
                 ],
                 "streaming": false,
-                "listElement": "(Text, Text)",
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getSubscriptionAttributesResponse",
                 "field": {
@@ -2431,7 +2431,7 @@
                     "Semigroup"
                 ],
                 "streaming": false,
-                "listElement": "(Text, Text)",
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getTopicAttributesResponse",
                 "field": {

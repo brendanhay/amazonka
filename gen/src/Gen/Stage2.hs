@@ -180,9 +180,8 @@ isMonoid (TMap _ _) = True
 isMonoid _          = False
 
 listElement :: Type -> Maybe Type
-listElement (TList l)  = Just l
-listElement (TMap k v) = Just (TTuple k v)
-listElement _          = Nothing
+listElement (TList l) = Just l
+listElement _         = Nothing
 
 instance Plated Type where
     plate f = \case

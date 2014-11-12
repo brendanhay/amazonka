@@ -79,12 +79,6 @@ newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttri
     { _ginarNotificationAttributes :: Map Text IdentityNotificationAttributes
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetIdentityNotificationAttributesResponse where
-    type Item GetIdentityNotificationAttributesResponse = (Text, IdentityNotificationAttributes)
-
-    fromList = GetIdentityNotificationAttributesResponse . fromList
-    toList   = toList . _ginarNotificationAttributes
-
 -- | 'GetIdentityNotificationAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

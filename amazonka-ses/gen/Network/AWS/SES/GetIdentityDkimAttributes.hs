@@ -89,12 +89,6 @@ newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
     { _gidarDkimAttributes :: Map Text IdentityDkimAttributes
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetIdentityDkimAttributesResponse where
-    type Item GetIdentityDkimAttributesResponse = (Text, IdentityDkimAttributes)
-
-    fromList = GetIdentityDkimAttributesResponse . fromList
-    toList   = toList . _gidarDkimAttributes
-
 -- | 'GetIdentityDkimAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

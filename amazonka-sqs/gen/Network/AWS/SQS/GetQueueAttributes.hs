@@ -105,12 +105,6 @@ newtype GetQueueAttributesResult = GetQueueAttributesResult
     { _gqarAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetQueueAttributesResult where
-    type Item GetQueueAttributesResult = (Text, Text)
-
-    fromList = GetQueueAttributesResult . fromList
-    toList   = toList . _gqarAttributes
-
 -- | 'GetQueueAttributesResult' constructor.
 --
 -- The fields accessible through corresponding lenses are:

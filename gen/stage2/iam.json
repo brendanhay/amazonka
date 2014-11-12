@@ -7326,7 +7326,7 @@
                     "Semigroup"
                 ],
                 "streaming": false,
-                "listElement": "(Text, Int)",
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getAccountSummaryResponse",
                 "field": {

@@ -58,12 +58,6 @@ newtype GetAccountSummaryResponse = GetAccountSummaryResponse
     { _gasrSummaryMap :: Map Text Int
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetAccountSummaryResponse where
-    type Item GetAccountSummaryResponse = (Text, Int)
-
-    fromList = GetAccountSummaryResponse . fromList
-    toList   = toList . _gasrSummaryMap
-
 -- | 'GetAccountSummaryResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

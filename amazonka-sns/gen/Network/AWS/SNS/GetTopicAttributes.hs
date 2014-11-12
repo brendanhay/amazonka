@@ -72,12 +72,6 @@ newtype GetTopicAttributesResponse = GetTopicAttributesResponse
     { _gtarAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetTopicAttributesResponse where
-    type Item GetTopicAttributesResponse = (Text, Text)
-
-    fromList = GetTopicAttributesResponse . fromList
-    toList   = toList . _gtarAttributes
-
 -- | 'GetTopicAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

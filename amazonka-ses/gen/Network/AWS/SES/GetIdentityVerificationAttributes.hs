@@ -78,12 +78,6 @@ newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttri
     { _givarVerificationAttributes :: Map Text IdentityVerificationAttributes
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetIdentityVerificationAttributesResponse where
-    type Item GetIdentityVerificationAttributesResponse = (Text, IdentityVerificationAttributes)
-
-    fromList = GetIdentityVerificationAttributesResponse . fromList
-    toList   = toList . _givarVerificationAttributes
-
 -- | 'GetIdentityVerificationAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

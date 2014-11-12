@@ -72,12 +72,6 @@ newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetSubscriptionAttributesResponse where
-    type Item GetSubscriptionAttributesResponse = (Text, Text)
-
-    fromList = GetSubscriptionAttributesResponse . fromList
-    toList   = toList . _gsarAttributes
-
 -- | 'GetSubscriptionAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

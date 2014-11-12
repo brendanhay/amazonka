@@ -75,12 +75,6 @@ newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttribu
     { _gpaarAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetPlatformApplicationAttributesResponse where
-    type Item GetPlatformApplicationAttributesResponse = (Text, Text)
-
-    fromList = GetPlatformApplicationAttributesResponse . fromList
-    toList   = toList . _gpaarAttributes
-
 -- | 'GetPlatformApplicationAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:

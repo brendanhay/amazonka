@@ -7888,7 +7888,7 @@
                     "Semigroup"
                 ],
                 "streaming": false,
-                "listElement": "(Text, Text)",
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "listDomainNamesResponse",
                 "field": {

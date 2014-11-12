@@ -1,6 +1,7 @@
 {-# LANGUAGE BangPatterns               #-}
 {-# LANGUAGE DataKinds                  #-}
 {-# LANGUAGE DeriveFunctor              #-}
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE ExtendedDefaultRules       #-}
 {-# LANGUAGE FlexibleInstances          #-}
@@ -8,6 +9,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE MultiParamTypeClasses      #-}
+{-# LANGUAGE OverloadedLists            #-}
 {-# LANGUAGE OverloadedStrings          #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE TemplateHaskell            #-}
@@ -41,6 +43,9 @@ import           Data.Char
 import           Data.Function            (on)
 import           Data.HashMap.Strict      (HashMap)
 import qualified Data.HashMap.Strict      as Map
+import           Data.HashSet             (HashSet)
+import qualified Data.HashSet             as Set
+import           Data.Hashable
 import           Data.List
 import           Data.Monoid              hiding (Product)
 import           Data.SemVer
@@ -48,6 +53,7 @@ import           Data.String
 import           Data.Text                (Text)
 import qualified Data.Text                as Text
 import           Data.Text.Manipulate
+import           GHC.Generics
 import           Gen.IO
 import           Gen.JSON                 ()
 import           Gen.Names
@@ -67,28 +73,36 @@ data Derive
     | Generic'
     | Enum'
     | Num'
-    | Foldable'
-    | Traversable'
+    | Integral'
+    | Whole'
+    | Real'
+    | RealFrac'
+    | RealFloat'
     | Monoid'
     | Semigroup'
-      deriving (Eq, Ord, Show)
+    | IsString'
+      deriving (Eq, Ord, Show, Generic)
+
+instance Hashable Derive
 
 instance ToJSON Derive where
     toJSON = toJSON . takeWhile (/= '\'') . show
 
 class DerivingOf a where
-    derivingOf :: a -> [Derive]
+    derivingOf :: a -> HashSet Derive
 
 instance DerivingOf a => DerivingOf [a] where
     derivingOf xs =
         case map derivingOf xs of
-            []   -> []
-            y:ys -> sort (foldl' intersect y ys)
+            y:ys -> foldl' Set.intersection y ys
+            _    -> mempty
 
 data Derived a = Derived !a !Value
 
 instance (DerivingOf a, ToJSON a) => ToJSON (Derived a) where
-    toJSON (Derived x v) = rewrap ("deriving", toJSON (nub (derivingOf x))) v
+    toJSON (Derived x v) = rewrap ("deriving", toJSON xs) v
+      where
+        xs = sort . Set.toList $ derivingOf x
 
 class HasName a where
     nameOf :: Lens' a Text
@@ -153,6 +167,7 @@ data Type
     | TMap       !Type !Type
     | TMaybe     !Type
     | TSensitive !Type
+    | TTuple     !Type !Type
       deriving (Eq, Ord, Show)
 
 isRequired :: Type -> Bool
@@ -163,6 +178,11 @@ isMonoid :: Type -> Bool
 isMonoid (TList  _) = True
 isMonoid (TMap _ _) = True
 isMonoid _          = False
+
+listElement :: Type -> Maybe Type
+listElement (TList l)  = Just l
+listElement (TMap k v) = Just (TTuple k v)
+listElement _          = Nothing
 
 instance Plated Type where
     plate f = \case
@@ -184,6 +204,7 @@ instance ToJSON (Exposed Type) where
             TMap       k v -> "HashMap "   <> wrap (go k) <> " " <> wrap (go v)
             TMaybe     x   -> "Maybe "     <> wrap (go x)
             TSensitive x   -> wrap (go x)
+            TTuple     a b -> wrap (go a <> ", " <> go b)
 
         wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
         parens t = "(" <> t <> ")"
@@ -199,6 +220,7 @@ instance ToJSON (Internal Type) where
             TMap       k v -> "Map "       <> wrap (go k) <> " " <> wrap (go v)
             TMaybe     x   -> "Maybe "     <> wrap (go x)
             TSensitive x   -> "Sensitive " <> wrap (go x)
+            TTuple     a b -> parens (go a <> ", " <> go b)
 
         wrap   t = maybe t (const (parens t)) (Text.findIndex isSpace t)
         parens t = "(" <> t <> ")"
@@ -216,9 +238,10 @@ typeMapping t
         TMap       _ _ -> maybeToList (typeIso y)
         TMaybe     x   -> wrap (go x)
         TSensitive x   -> maybeToList (typeIso y) ++ go x
+        TTuple     _ _ -> []
 
-    wrap []     = []
     wrap (x:xs) = "mapping " <> x : xs
+    wrap _      = []
 
 typeIso :: Type -> Maybe Text
 typeIso = \case
@@ -252,6 +275,7 @@ typesOf = typeOf . go
         TMap       k v -> TMap       <$> f k <*> f v
         TMaybe     x   -> TMaybe     <$> f x
         TSensitive x   -> TSensitive <$> f x
+        TTuple     a b -> TTuple     <$> f a <*> f b
         t              -> pure t
 
 data Field = Field
@@ -340,57 +364,58 @@ instance ToJSON Data where
     toJSON d = toJSON . Derived d $
         case d of
             Void         -> object
-                [ "type"      .= "void"
+                [ "type"        .= "void"
                 ]
 
             Empty   n    -> object
-                [ "type"      .= "empty"
-                , "name"      .= n
-                , "ctor"      .= constructor n
-                , "fieldPad"  .= (0 :: Int)
-                , "fields"    .= ([] :: [Text])
-                , "optional"  .= ([] :: [Text])
-                , "required"  .= ([] :: [Text])
+                [ "type"        .= "empty"
+                , "name"        .= n
+                , "ctor"        .= constructor n
+                , "fieldPad"    .= (0 :: Int)
+                , "fields"      .= ([] :: [Text])
+                , "optional"    .= ([] :: [Text])
+                , "required"    .= ([] :: [Text])
                 ]
 
             Product n fs -> object
-                [ "type"      .= "product"
-                , "name"      .= n
-                , "slots"     .= map Internal fs
+                [ "type"        .= "product"
+                , "name"        .= n
+                , "slots"       .= map Internal fs
                 ]
 
             Nullary n fs -> object
-                [ "type"      .= "nullary"
-                , "name"      .= n
-                , "branches"  .= fs
-                , "branchPad" .= maximum (map Text.length $ Map.keys fs)
-                , "valuePad"  .= (maximum (map Text.length $ Map.elems fs) + 1)
+                [ "type"        .= "nullary"
+                , "name"        .= n
+                , "branches"    .= fs
+                , "branchPad"   .= maximum (map Text.length $ Map.keys fs)
+                , "valuePad"    .= (maximum (map Text.length $ Map.elems fs) + 1)
                 ]
 
             Newtype n f  -> object
-                [ "type"     .= "newtype"
-                , "name"     .= n
-                , "ctor"     .= constructor n
-                , "field"    .= f
-                , "fields"   .= [f]
-                , "fieldPad" .= (0 :: Int)
-                , "required" .= req
-                , "optional" .= opt
-                , "payload"  .= pay
+                [ "type"        .= "newtype"
+                , "name"        .= n
+                , "ctor"        .= constructor n
+                , "field"       .= f
+                , "fields"      .= ([f] :: [Field])
+                , "fieldPad"    .= (0 :: Int)
+                , "required"    .= req
+                , "optional"    .= opt
+                , "payload"     .= pay
+                , "listElement" .= fmap Internal (listElement (f ^. typeOf))
                 ]
               where
                 (req, opt) = parameters [f]
                 pay        = find isPayload [f]
 
             Record  n fs -> object
-                [ "type"     .= "record"
-                , "name"     .= n
-                , "ctor"     .= constructor n
-                , "fields"   .= sort fs
-                , "fieldPad" .= (maximum (map (Text.length . view nameOf) fs) + 1)
-                , "required" .= req
-                , "optional" .= opt
-                , "payload"  .= pay
+                [ "type"        .= "record"
+                , "name"        .= n
+                , "ctor"        .= constructor n
+                , "fields"      .= sort fs
+                , "fieldPad"    .= (maximum (map (Text.length . view nameOf) fs) + 1)
+                , "required"    .= req
+                , "optional"    .= opt
+                , "payload"     .= pay
                 ]
               where
                 (req, opt) = parameters fs
@@ -450,13 +475,13 @@ isVoid Void = True
 isVoid _    = False
 
 instance DerivingOf Prim where
-    derivingOf = nub . (def ++) . \case
+    derivingOf = (def <>) . \case
         PBool    -> [Eq', Ord', Enum']
-        PText    -> [Eq', Ord', Monoid']
-        PInt     -> [Eq', Ord', Num', Enum']
-        PInteger -> [Eq', Ord', Num', Enum']
-        PDouble  -> [Eq', Ord', Num', Enum']
-        PNatural -> [Eq', Ord', Num', Enum']
+        PText    -> [Eq', Ord', Monoid', IsString']
+        PInt     -> [Eq', Ord', Num', Enum', Integral', Real']
+        PInteger -> [Eq', Ord', Num', Enum', Integral', Real']
+        PDouble  -> [Eq', Ord', Num', Enum', RealFrac', RealFloat', Real']
+        PNatural -> [Eq', Ord', Num', Enum', Integral', Whole', Real']
         PTime _  -> [Eq', Ord']
         PBlob    -> [Eq']
         _        -> []
@@ -464,36 +489,46 @@ instance DerivingOf Prim where
         def = [Show', Generic']
 
 instance DerivingOf Type where
-    derivingOf = nub . \case
+    derivingOf = \case
         TType      _   -> [Eq', Show', Generic']
+        TTuple     _ _ -> [Eq', Show', Generic']
         TPrim      p   -> derivingOf p
-        TMaybe     x   -> delete Enum' . delete Num' $ derivingOf x
+        TMaybe     x   -> mayb (derivingOf x)
         TSensitive x   -> derivingOf x
         TList      x   -> list (derivingOf x)
-        TList1     x   -> delete Monoid' . list $ derivingOf x
-        TMap       k v ->
-            delete Ord' . list $ derivingOf k `intersect` derivingOf v
+        TList1     x   -> Set.delete Monoid' . list $ derivingOf x
+        TMap       k v -> Set.delete Ord' . list $
+            derivingOf k `Set.intersection` derivingOf v
       where
-        list xs =
-              Monoid'
-            : Semigroup'
-            : Foldable'
-            : Traversable'
-            : nub xs
+        list = mappend
+            [ Monoid'
+            , Semigroup'
+            ]
+
+        mayb = flip Set.difference
+            [ Enum'
+            , Num'
+            , Real'
+            , RealFrac'
+            , Whole'
+            , IsString'
+            ]
 
 instance DerivingOf Data where
-    derivingOf d = f . nub . derivingOf $ toListOf (dataFields . typeOf) d
+    derivingOf d = f . derivingOf $ toListOf (dataFields . typeOf) d
       where
         f | Newtype {} <- d = id
           | Nullary {} <- d = const [Eq', Ord', Enum', Show', Generic']
           | Empty   {} <- d = const [Eq', Ord', Show', Generic']
-          | otherwise       = \xs -> foldl' (flip delete) xs
+          | otherwise       = flip Set.difference
               [ Semigroup'
               , Monoid'
               , Enum'
               , Num'
-              , Foldable'
-              , Traversable'
+              , Real'
+              , RealFrac'
+              , Whole'
+              , IsString'
               ]
 
 data Request = Request

@@ -6,4 +6,12 @@ data {{ type.name }} = {{ type.name }}
 {% for field in type.fields %}
     {% if field.first %}{ {% else %}, {% endif %}{{ field.value.name | justifyLeft(type.fieldPad) }} :: {{ field.value.type }}
 {% endfor %}
-    }{% include "deriving.ede" %}
+    } deriving{% include "deriving.ede" %}
+{% if type.listElement %}
+instance IsList {{ type.name }}
+    type Item {{ type.name }} = {{ type.listElement }}
+
+    fromList = {{ type.name }} . fromList
+    toList   = toList . {{ type.field.name }}
+
+{% endif %}

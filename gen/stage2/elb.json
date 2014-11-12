@@ -679,6 +679,7 @@
                     "Generic",
                     "Enum"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "crossZoneLoadBalancing",
                 "field": {
@@ -2110,8 +2111,12 @@
                     "Show",
                     "Generic",
                     "Enum",
-                    "Num"
+                    "Num",
+                    "Integral",
+                    "Whole",
+                    "Real"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "connectionSettings",
                 "field": {
@@ -2739,6 +2744,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "tagKeyOnly",
                 "field": {
@@ -2800,6 +2806,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "instance'",
                 "field": {
@@ -2993,12 +3000,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "applySecurityGroupsToLoadBalancerOutput",
                 "field": {
@@ -3171,12 +3178,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "attachLoadBalancerToSubnetsOutput",
                 "field": {
@@ -3350,6 +3357,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "configureHealthCheckOutput",
                 "field": {
@@ -3846,6 +3854,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createAccessPointOutput",
                 "field": {
@@ -4532,9 +4541,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteAccessPointInput",
                 "headerPad": 0,
@@ -4870,12 +4881,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Instance",
                 "fieldPad": 0,
                 "ctor": "deregisterEndPointsOutput",
                 "field": {
@@ -5046,12 +5056,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "InstanceState",
                 "fieldPad": 0,
                 "ctor": "describeEndPointStateOutput",
                 "field": {
@@ -5224,6 +5233,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeLoadBalancerAttributesOutput",
                 "field": {
@@ -5295,9 +5305,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeLoadBalancerAttributesInput",
                 "headerPad": 0,
@@ -5376,12 +5388,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "PolicyDescription",
                 "fieldPad": 0,
                 "ctor": "describeLoadBalancerPoliciesOutput",
                 "field": {
@@ -5552,12 +5563,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "PolicyTypeDescription",
                 "fieldPad": 0,
                 "ctor": "describeLoadBalancerPolicyTypesOutput",
                 "field": {
@@ -5629,12 +5639,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "describeLoadBalancerPolicyTypesInput",
                 "headerPad": 0,
@@ -5932,12 +5942,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "TagDescription",
                 "fieldPad": 0,
                 "ctor": "describeTagsOutput",
                 "field": {
@@ -6009,12 +6018,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
-                    "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeTagsInput",
                 "headerPad": 0,
@@ -6094,12 +6102,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "detachLoadBalancerFromSubnetsOutput",
                 "field": {
@@ -6272,12 +6280,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "removeAvailabilityZonesOutput",
                 "field": {
@@ -6450,12 +6458,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "addAvailabilityZonesOutput",
                 "field": {
@@ -6812,12 +6820,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Instance",
                 "fieldPad": 0,
                 "ctor": "registerEndPointsOutput",
                 "field": {

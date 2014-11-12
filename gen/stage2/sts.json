@@ -1624,6 +1624,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "decodeAuthorizationMessageResponse",
                 "field": {
@@ -1695,9 +1696,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "decodeAuthorizationMessage",
                 "headerPad": 0,
@@ -2026,6 +2029,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getSessionTokenResponse",
                 "field": {

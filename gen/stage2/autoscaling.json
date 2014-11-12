@@ -2051,6 +2051,7 @@
                     "Show",
                     "Generic"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "instanceMonitoring",
                 "field": {
@@ -2643,6 +2644,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "adjustmentType",
                 "field": {
@@ -2704,6 +2706,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "metricCollectionType",
                 "field": {
@@ -3408,6 +3411,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "metricGranularityType",
                 "field": {
@@ -3542,8 +3546,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "processType",
                 "field": {
@@ -3907,9 +3913,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "PendingWait": "Pending:Wait",
@@ -4121,9 +4127,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "WaitingForSpotInstanceId": "WaitingForSpotInstanceId",
@@ -5651,12 +5657,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Tag",
                 "fieldPad": 0,
                 "ctor": "createOrUpdateTagsType",
                 "headerPad": 0,
@@ -5893,9 +5898,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "launchConfigurationNameType",
                 "headerPad": 0,
@@ -6516,12 +6523,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Tag",
                 "fieldPad": 0,
                 "ctor": "deleteTagsType",
                 "headerPad": 0,
@@ -6600,7 +6606,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Integral"
                 ],
                 "streaming": false,
                 "fieldPad": 36,
@@ -6717,12 +6724,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "AdjustmentType",
                 "fieldPad": 0,
                 "ctor": "describeAdjustmentTypesAnswer",
                 "field": {
@@ -7262,12 +7268,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "describeAutoScalingNotificationTypesAnswer",
                 "field": {
@@ -7588,12 +7594,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "describeLifecycleHookTypesAnswer",
                 "field": {
@@ -7694,12 +7700,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "LifecycleHook",
                 "fieldPad": 0,
                 "ctor": "describeLifecycleHooksAnswer",
                 "field": {
@@ -8710,12 +8715,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "ProcessType",
                 "fieldPad": 0,
                 "ctor": "processesType",
                 "field": {
@@ -9353,12 +9357,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "describeTerminationPolicyTypesAnswer",
                 "field": {
@@ -9459,12 +9463,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Activity",
                 "fieldPad": 0,
                 "ctor": "detachInstancesAnswer",
                 "field": {
@@ -9960,12 +9963,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Activity",
                 "fieldPad": 0,
                 "ctor": "enterStandbyAnswer",
                 "field": {
@@ -10332,12 +10334,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Activity",
                 "fieldPad": 0,
                 "ctor": "exitStandbyAnswer",
                 "field": {
@@ -11002,6 +11003,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "policyARNType",
                 "field": {
@@ -12410,6 +12412,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "activityType",
                 "field": {

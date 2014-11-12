@@ -617,9 +617,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "ITEmailAddress": "EmailAddress",
@@ -841,6 +841,7 @@
                     "Show",
                     "Generic"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "rawMessage",
                 "field": {
@@ -898,9 +899,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Delivery": "Delivery",
@@ -916,9 +917,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "NotStarted": "NotStarted",
@@ -1045,9 +1046,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteIdentity",
                 "headerPad": 0,
@@ -1155,9 +1158,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteVerifiedEmailAddress",
                 "headerPad": 0,
@@ -1236,12 +1241,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "(Text, IdentityDkimAttributes)",
                 "fieldPad": 0,
                 "ctor": "getIdentityDkimAttributesResponse",
                 "field": {
@@ -1313,12 +1317,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "getIdentityDkimAttributes",
                 "headerPad": 0,
@@ -1397,12 +1401,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "(Text, IdentityNotificationAttributes)",
                 "fieldPad": 0,
                 "ctor": "getIdentityNotificationAttributesResponse",
                 "field": {
@@ -1474,12 +1477,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "getIdentityNotificationAttributes",
                 "headerPad": 0,
@@ -1558,12 +1561,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "(Text, IdentityVerificationAttributes)",
                 "fieldPad": 0,
                 "ctor": "getIdentityVerificationAttributesResponse",
                 "field": {
@@ -1635,12 +1637,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "getIdentityVerificationAttributes",
                 "headerPad": 0,
@@ -1719,7 +1721,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "RealFloat"
                 ],
                 "streaming": false,
                 "fieldPad": 20,
@@ -1864,12 +1867,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "SendDataPoint",
                 "fieldPad": 0,
                 "ctor": "getSendStatisticsResponse",
                 "field": {
@@ -2191,12 +2193,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "listVerifiedEmailAddressesResponse",
                 "field": {
@@ -2298,9 +2300,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "sendEmailResponse",
                 "field": {
@@ -2571,9 +2575,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "sendRawEmailResponse",
                 "field": {
@@ -3196,12 +3202,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "verifyDomainDkimResponse",
                 "field": {
@@ -3273,9 +3279,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "verifyDomainDkim",
                 "headerPad": 0,
@@ -3355,9 +3363,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "verifyDomainIdentityResponse",
                 "field": {
@@ -3429,9 +3439,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "verifyDomainIdentity",
                 "headerPad": 0,
@@ -3539,9 +3551,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "verifyEmailAddress",
                 "headerPad": 0,
@@ -3649,9 +3663,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "verifyEmailIdentity",
                 "headerPad": 0,

@@ -100,9 +100,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "MessageRetentionPeriod": "MessageRetentionPeriod",
@@ -362,8 +362,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "changeMessageVisibilityBatchResultEntry",
                 "field": {
@@ -526,8 +528,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteMessageBatchResultEntry",
                 "field": {
@@ -1743,6 +1747,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createQueueResult",
                 "field": {
@@ -2256,9 +2261,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteQueue",
                 "headerPad": 0,
@@ -2337,12 +2344,12 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "(Text, Text)",
                 "fieldPad": 0,
                 "ctor": "getQueueAttributesResult",
                 "field": {
@@ -2518,6 +2525,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getQueueUrlResult",
                 "field": {
@@ -2690,12 +2698,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "listDeadLetterSourceQueuesResult",
                 "field": {
@@ -2767,9 +2775,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "listDeadLetterSourceQueues",
                 "headerPad": 0,
@@ -2849,12 +2859,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "listQueuesResult",
                 "field": {
@@ -2929,6 +2939,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "listQueues",
                 "headerPad": 0,
@@ -3007,12 +3018,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Message",
                 "fieldPad": 0,
                 "ctor": "receiveMessageResult",
                 "field": {

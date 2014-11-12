@@ -1194,9 +1194,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Enabled": "enabled",
@@ -1535,9 +1535,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "STCacheSecurityGroup": "cache-security-group",
@@ -3338,6 +3338,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "availabilityZone",
                 "field": {
@@ -3654,9 +3655,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "AFSEnabling": "enabling",
@@ -4043,9 +4044,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "SingleAz": "single-az",
@@ -4954,6 +4955,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "cacheParameterGroupNameMessage",
                 "field": {
@@ -5262,6 +5264,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "authorizeCacheSecurityGroupIngressResult",
                 "field": {
@@ -5467,6 +5470,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "copySnapshotResult",
                 "field": {
@@ -5639,6 +5643,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createCacheClusterResult",
                 "field": {
@@ -6439,6 +6444,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createCacheParameterGroupResult",
                 "field": {
@@ -6644,6 +6650,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createCacheSecurityGroupResult",
                 "field": {
@@ -6816,6 +6823,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createCacheSubnetGroupResult",
                 "field": {
@@ -7022,6 +7030,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createReplicationGroupResult",
                 "field": {
@@ -7822,6 +7831,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createSnapshotResult",
                 "field": {
@@ -7994,6 +8004,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteCacheClusterResult",
                 "field": {
@@ -8194,9 +8205,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteCacheParameterGroupMessage",
                 "headerPad": 0,
@@ -8304,9 +8317,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteCacheSecurityGroupMessage",
                 "headerPad": 0,
@@ -8414,9 +8429,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteCacheSubnetGroupMessage",
                 "headerPad": 0,
@@ -8497,6 +8514,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteReplicationGroupResult",
                 "field": {
@@ -8703,6 +8721,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteSnapshotResult",
                 "field": {
@@ -8774,9 +8793,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteSnapshotMessage",
                 "headerPad": 0,
@@ -10365,6 +10386,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeEngineDefaultParametersResult",
                 "field": {
@@ -12161,6 +12183,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "modifyCacheClusterResult",
                 "field": {
@@ -12798,6 +12821,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "cacheParameterGroupNameMessage",
                 "field": {
@@ -12970,6 +12994,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "modifyCacheSubnetGroupResult",
                 "field": {
@@ -13176,6 +13201,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "modifyReplicationGroupResult",
                 "field": {
@@ -13811,6 +13837,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "purchaseReservedCacheNodesOfferingResult",
                 "field": {
@@ -14017,6 +14044,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "rebootCacheClusterResult",
                 "field": {
@@ -14192,6 +14220,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "cacheParameterGroupNameMessage",
                 "field": {
@@ -14397,6 +14426,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "revokeCacheSecurityGroupIngressResult",
                 "field": {

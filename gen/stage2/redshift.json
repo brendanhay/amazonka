@@ -2740,9 +2740,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "STCluster": "cluster",
@@ -4309,6 +4309,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "accountWithRestoreAccess",
                 "field": {
@@ -4370,6 +4371,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "availabilityZone",
                 "field": {
@@ -6041,6 +6043,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "authorizeClusterSecurityGroupIngressResult",
                 "field": {
@@ -6280,6 +6283,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "authorizeSnapshotAccessResult",
                 "field": {
@@ -6486,6 +6490,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "copyClusterSnapshotResult",
                 "field": {
@@ -6692,6 +6697,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createClusterResult",
                 "field": {
@@ -7525,6 +7531,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createClusterParameterGroupResult",
                 "field": {
@@ -7730,6 +7737,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createClusterSecurityGroupResult",
                 "field": {
@@ -7902,6 +7910,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createClusterSnapshotResult",
                 "field": {
@@ -8074,6 +8083,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createClusterSubnetGroupResult",
                 "field": {
@@ -8280,6 +8290,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createEventSubscriptionResult",
                 "field": {
@@ -8618,6 +8629,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createHsmClientCertificateResult",
                 "field": {
@@ -8689,9 +8701,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createHsmClientCertificateMessage",
                 "headerPad": 0,
@@ -8772,6 +8786,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createHsmConfigurationResult",
                 "field": {
@@ -9076,6 +9091,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteClusterResult",
                 "field": {
@@ -9309,9 +9325,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteClusterParameterGroupMessage",
                 "headerPad": 0,
@@ -9419,9 +9437,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteClusterSecurityGroupMessage",
                 "headerPad": 0,
@@ -9502,6 +9522,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteClusterSnapshotResult",
                 "field": {
@@ -9702,9 +9723,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteClusterSubnetGroupMessage",
                 "headerPad": 0,
@@ -9812,9 +9835,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteEventSubscriptionMessage",
                 "headerPad": 0,
@@ -9922,9 +9947,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteHsmClientCertificateMessage",
                 "headerPad": 0,
@@ -10032,9 +10059,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteHsmConfigurationMessage",
                 "headerPad": 0,
@@ -11880,6 +11909,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeDefaultClusterParametersResult",
                 "field": {
@@ -12084,12 +12114,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "EventCategoriesMap",
                 "fieldPad": 0,
                 "ctor": "eventCategoriesMessage",
                 "field": {
@@ -12164,6 +12193,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeEventCategoriesMessage",
                 "headerPad": 0,
@@ -13450,9 +13480,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeLoggingStatusMessage",
                 "headerPad": 0,
@@ -14589,9 +14621,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeResizeMessage",
                 "headerPad": 0,
@@ -14870,9 +14904,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "disableLoggingMessage",
                 "headerPad": 0,
@@ -14953,6 +14989,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "disableSnapshotCopyResult",
                 "field": {
@@ -15024,9 +15061,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "disableSnapshotCopyMessage",
                 "headerPad": 0,
@@ -15440,6 +15479,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "enableSnapshotCopyResult",
                 "field": {
@@ -15646,6 +15686,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "modifyClusterResult",
                 "field": {
@@ -16435,6 +16476,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "modifyClusterSubnetGroupResult",
                 "field": {
@@ -16641,6 +16683,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "modifyEventSubscriptionResult",
                 "field": {
@@ -16979,6 +17022,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "modifySnapshotCopyRetentionPeriodResult",
                 "field": {
@@ -17151,6 +17195,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "purchaseReservedNodeOfferingResult",
                 "field": {
@@ -17324,6 +17369,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "rebootClusterResult",
                 "field": {
@@ -17395,9 +17441,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "rebootClusterMessage",
                 "headerPad": 0,
@@ -17698,6 +17746,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "restoreFromClusterSnapshotResult",
                 "field": {
@@ -18366,6 +18415,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "revokeClusterSecurityGroupIngressResult",
                 "field": {
@@ -18605,6 +18655,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "revokeSnapshotAccessResult",
                 "field": {
@@ -18811,6 +18862,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "rotateEncryptionKeyResult",
                 "field": {
@@ -18882,9 +18934,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "rotateEncryptionKeyMessage",
                 "headerPad": 0,

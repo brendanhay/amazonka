@@ -301,9 +301,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Assigned": "Assigned",
@@ -1063,9 +1063,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "TextCsv": "text/csv"
@@ -1270,6 +1270,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "openIDConnectProviderListEntry",
                 "field": {
@@ -1430,9 +1431,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "UsersQuota": "UsersQuota",
@@ -1459,9 +1460,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Inprogress": "INPROGRESS",
@@ -1664,9 +1665,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Inactive": "Inactive",
@@ -3199,6 +3200,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createAccessKeyResponse",
                 "field": {
@@ -3273,6 +3275,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createAccessKey",
                 "headerPad": 0,
@@ -3380,9 +3383,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createAccountAlias",
                 "headerPad": 0,
@@ -3463,6 +3468,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createGroupResponse",
                 "field": {
@@ -3636,6 +3642,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createInstanceProfileResponse",
                 "field": {
@@ -3809,6 +3816,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createLoginProfileResponse",
                 "field": {
@@ -4017,6 +4025,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createOpenIDConnectProviderResponse",
                 "field": {
@@ -4223,6 +4232,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createRoleResponse",
                 "field": {
@@ -4431,6 +4441,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createSAMLProviderResponse",
                 "field": {
@@ -4603,6 +4614,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createUserResponse",
                 "field": {
@@ -4776,6 +4788,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createVirtualMFADeviceResponse",
                 "field": {
@@ -5233,9 +5246,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteAccountAlias",
                 "headerPad": 0,
@@ -5401,9 +5416,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteGroup",
                 "headerPad": 0,
@@ -5639,9 +5656,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteInstanceProfile",
                 "headerPad": 0,
@@ -5749,9 +5768,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteLoginProfile",
                 "headerPad": 0,
@@ -5859,9 +5880,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteOpenIDConnectProvider",
                 "headerPad": 0,
@@ -5969,9 +5992,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteRole",
                 "headerPad": 0,
@@ -6207,9 +6232,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteSAMLProvider",
                 "headerPad": 0,
@@ -6317,9 +6344,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteServerCertificate",
                 "headerPad": 0,
@@ -6556,9 +6585,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteUser",
                 "headerPad": 0,
@@ -6794,9 +6825,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteVirtualMFADevice",
                 "headerPad": 0,
@@ -7188,6 +7221,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getAccountPasswordPolicyResponse",
                 "field": {
@@ -7288,12 +7322,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "(Text, Int)",
                 "fieldPad": 0,
                 "ctor": "getAccountSummaryResponse",
                 "field": {
@@ -8032,6 +8065,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getInstanceProfileResponse",
                 "field": {
@@ -8103,9 +8137,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getInstanceProfile",
                 "headerPad": 0,
@@ -8186,6 +8222,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getLoginProfileResponse",
                 "field": {
@@ -8257,9 +8294,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getLoginProfile",
                 "headerPad": 0,
@@ -8482,9 +8521,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getOpenIDConnectProvider",
                 "headerPad": 0,
@@ -8565,6 +8606,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getRoleResponse",
                 "field": {
@@ -8636,9 +8678,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getRole",
                 "headerPad": 0,
@@ -9048,9 +9092,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getSAMLProvider",
                 "headerPad": 0,
@@ -9131,6 +9177,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getServerCertificateResponse",
                 "field": {
@@ -9202,9 +9249,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getServerCertificate",
                 "headerPad": 0,
@@ -9285,6 +9334,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getUserResponse",
                 "field": {
@@ -9359,6 +9409,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getUser",
                 "headerPad": 0,
@@ -11600,12 +11651,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "OpenIDConnectProviderListEntry",
                 "fieldPad": 0,
                 "ctor": "listOpenIDConnectProvidersResponse",
                 "field": {
@@ -12202,12 +12252,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "SAMLProviderListEntry",
                 "fieldPad": 0,
                 "ctor": "listSAMLProvidersResponse",
                 "field": {
@@ -15712,6 +15761,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "updateSAMLProviderResponse",
                 "field": {
@@ -16370,6 +16420,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "uploadServerCertificateResponse",
                 "field": {
@@ -16642,6 +16693,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "uploadSigningCertificateResponse",
                 "field": {

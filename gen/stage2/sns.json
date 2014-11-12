@@ -131,6 +131,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "topic",
                 "field": {
@@ -800,6 +801,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "confirmSubscriptionResponse",
                 "field": {
@@ -1008,6 +1010,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createPlatformApplicationResponse",
                 "field": {
@@ -1215,6 +1218,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createEndpointResponse",
                 "field": {
@@ -1455,6 +1459,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createTopicResponse",
                 "field": {
@@ -1526,9 +1531,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createTopicInput",
                 "headerPad": 0,
@@ -1636,9 +1643,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteEndpointInput",
                 "headerPad": 0,
@@ -1746,9 +1755,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deletePlatformApplicationInput",
                 "headerPad": 0,
@@ -1856,9 +1867,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteTopicInput",
                 "headerPad": 0,
@@ -1937,12 +1950,12 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "(Text, Text)",
                 "fieldPad": 0,
                 "ctor": "getEndpointAttributesResponse",
                 "field": {
@@ -2014,9 +2027,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getEndpointAttributesInput",
                 "headerPad": 0,
@@ -2095,12 +2110,12 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "(Text, Text)",
                 "fieldPad": 0,
                 "ctor": "getPlatformApplicationAttributesResponse",
                 "field": {
@@ -2172,9 +2187,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getPlatformApplicationAttributesInput",
                 "headerPad": 0,
@@ -2253,12 +2270,12 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "(Text, Text)",
                 "fieldPad": 0,
                 "ctor": "getSubscriptionAttributesResponse",
                 "field": {
@@ -2330,9 +2347,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getSubscriptionAttributesInput",
                 "headerPad": 0,
@@ -2411,12 +2430,12 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "(Text, Text)",
                 "fieldPad": 0,
                 "ctor": "getTopicAttributesResponse",
                 "field": {
@@ -2488,9 +2507,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getTopicAttributesInput",
                 "headerPad": 0,
@@ -2846,6 +2867,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "listPlatformApplicationsInput",
                 "headerPad": 0,
@@ -3014,6 +3036,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "listSubscriptionsInput",
                 "headerPad": 0,
@@ -3369,6 +3392,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "listTopicsInput",
                 "headerPad": 0,
@@ -3451,6 +3475,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "publishResponse",
                 "field": {
@@ -4465,6 +4490,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "subscribeResponse",
                 "field": {
@@ -4698,9 +4724,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "unsubscribeInput",
                 "headerPad": 0,

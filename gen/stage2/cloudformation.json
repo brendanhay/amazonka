@@ -171,9 +171,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "UpdateRollbackCompleteCleanupInProgress": "UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS",
@@ -1043,9 +1043,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "RSCreateComplete": "CREATE_COMPLETE",
@@ -1757,9 +1757,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "CapabilityIam": "CAPABILITY_IAM"
@@ -2183,9 +2183,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Rollback": "ROLLBACK",
@@ -2339,9 +2339,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "cancelUpdateStackInput",
                 "headerPad": 0,
@@ -2424,6 +2426,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createStackOutput",
                 "field": {
@@ -2953,9 +2956,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteStackInput",
                 "headerPad": 0,
@@ -3222,6 +3227,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeStackResourceOutput",
                 "field": {
@@ -3392,12 +3398,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "StackResource",
                 "fieldPad": 0,
                 "ctor": "describeStackResourcesOutput",
                 "field": {
@@ -3791,6 +3796,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "estimateTemplateCostOutput",
                 "field": {
@@ -3997,6 +4003,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getStackPolicyOutput",
                 "field": {
@@ -4068,9 +4075,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getStackPolicyInput",
                 "headerPad": 0,
@@ -4153,6 +4162,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getTemplateOutput",
                 "field": {
@@ -4224,9 +4234,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getTemplateInput",
                 "headerPad": 0,
@@ -4844,6 +4856,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "updateStackOutput",
                 "field": {

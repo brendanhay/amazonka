@@ -32,6 +32,7 @@ executable amazonka-gen
         , ede                  == 0.2.3.1
         , errors
         , filepath
+        , hashable
         , jason
         , lens                 == 4.5.*
         , mtl

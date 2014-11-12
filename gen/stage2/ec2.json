@@ -516,9 +516,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "ImageKernel": "kernel",
@@ -537,9 +537,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "All": "all"
@@ -768,6 +768,7 @@
                     "Show",
                     "Generic"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "blobAttributeValue",
                 "field": {
@@ -1753,9 +1754,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Static": "Static"
@@ -2066,9 +2067,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Spot": "spot"
@@ -2082,9 +2083,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Paravirtual": "paravirtual",
@@ -2099,9 +2100,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "InUse": "in-use",
@@ -2118,9 +2119,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Windows": "Windows"
@@ -2282,9 +2283,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Hourly": "Hourly"
@@ -2696,9 +2697,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "VSError": "error",
@@ -2721,6 +2722,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "attributeValue",
                 "field": {
@@ -3634,9 +3636,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "SupportedPlatforms": "supported-platforms",
@@ -3869,6 +3871,7 @@
                     "Generic",
                     "Enum"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "runInstancesMonitoringEnabled",
                 "field": {
@@ -4230,9 +4233,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "VpcStatePending": "pending",
@@ -4247,9 +4250,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "RTSecurityGroup": "security-group",
@@ -4279,9 +4282,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Ok": "ok",
@@ -4296,9 +4299,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Usd": "USD"
@@ -4313,7 +4316,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Integral"
                 ],
                 "fieldPad": 8,
                 "ctor": "icmpTypeCode",
@@ -4934,9 +4938,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "ASDetached": "detached",
@@ -4953,9 +4957,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "OriginCreateRouteTable": "CreateRouteTable",
@@ -4971,9 +4975,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "LSPending": "pending",
@@ -5425,9 +5429,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "AZSAvailable": "available"
@@ -7197,9 +7201,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "SSNotApplicable": "not-applicable",
@@ -7485,9 +7489,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Allow": "allow",
@@ -8023,9 +8027,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Down": "DOWN",
@@ -8456,9 +8460,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Pending": "pending",
@@ -8884,6 +8888,7 @@
                     "Show",
                     "Generic"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "vpnConnectionOptionsSpecification",
                 "field": {
@@ -9183,9 +9188,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "VASAttached": "attached",
@@ -9276,9 +9281,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Blackhole": "blackhole",
@@ -9423,9 +9428,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "BTSComplete": "complete",
@@ -9446,7 +9451,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Integral"
                 ],
                 "fieldPad": 7,
                 "ctor": "portRange",
@@ -9519,9 +9525,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "EnableDnsHostnames": "enableDnsHostnames",
@@ -9740,9 +9746,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "SISCancelled": "cancelled",
@@ -9763,6 +9769,7 @@
                     "Show",
                     "Generic"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "vpnConnectionOptions",
                 "field": {
@@ -10616,9 +10623,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "I22xlarge": "i2.2xlarge",
@@ -11070,6 +11077,7 @@
                     "Show",
                     "Generic"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "storage",
                 "field": {
@@ -11369,9 +11377,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "CSIRSClosed": "closed",
@@ -11389,9 +11397,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "PGSDeleting": "deleting",
@@ -11610,9 +11618,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Citrix": "citrix",
@@ -12129,9 +12137,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Stop": "stop",
@@ -12356,6 +12364,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "monitoring",
                 "field": {
@@ -12413,9 +12422,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "SSAvailable": "available",
@@ -12430,9 +12439,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Ova": "ova"
@@ -12450,6 +12459,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "availabilityZoneMessage",
                 "field": {
@@ -12654,9 +12664,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "InsufficientData": "insufficient-data",
@@ -12802,9 +12812,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "SourceDestCheck": "sourceDestCheck",
@@ -12821,9 +12831,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Machine": "machine",
@@ -12913,9 +12923,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "SANProductCodes": "productCodes",
@@ -13059,9 +13069,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "VpnStatePending": "pending",
@@ -13263,9 +13273,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Xen": "xen",
@@ -13530,9 +13540,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "RISPaymentPending": "payment-pending",
@@ -13549,9 +13559,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "IANInstanceKernel": "kernel",
@@ -13735,9 +13745,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "CTSCancelled": "cancelled",
@@ -13855,9 +13865,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Default": "default",
@@ -14178,9 +14188,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Cluster": "cluster"
@@ -15307,9 +15317,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "I386": "i386",
@@ -15324,9 +15334,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "PerformanceOther": "performance-other",
@@ -15737,9 +15747,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "InstanceStore": "instance-store",
@@ -15754,9 +15764,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "DTStandard": "standard",
@@ -15849,6 +15859,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "propagatingVgw",
                 "field": {
@@ -15906,9 +15917,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "MediumUtilization": "Medium Utilization",
@@ -16184,9 +16195,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Standard": "standard",
@@ -16488,9 +16499,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "ISAvailable": "available",
@@ -16505,9 +16516,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Ipsec1": "ipsec.1"
@@ -16682,6 +16693,7 @@
                     "Show",
                     "Generic"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "attributeBooleanValue",
                 "field": {
@@ -16961,9 +16973,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "MSEnabled": "enabled",
@@ -16983,6 +16995,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "reservedInstancesId",
                 "field": {
@@ -17040,9 +17053,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Reachability": "reachability"
@@ -17158,9 +17171,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "IoPerformance": "io-performance",
@@ -17175,9 +17188,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "ProductCodes": "productCodes",
@@ -17497,9 +17510,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "ListingStatusClosed": "closed",
@@ -17518,8 +17531,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "ipRange",
                 "field": {
@@ -17577,9 +17592,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "VSISInsufficientData": "insufficient-data",
@@ -17599,6 +17614,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "accountAttributeValue",
                 "field": {
@@ -17656,9 +17672,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "RIPDLinuxUNIX": "Linux/UNIX",
@@ -18521,9 +18537,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "DSSInactive": "Inactive",
@@ -18538,9 +18554,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "ETSCompleted": "completed",
@@ -18557,9 +18573,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Marketplace": "marketplace",
@@ -19047,9 +19063,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "InstanceReboot": "instance-reboot",
@@ -19067,9 +19083,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Persistent": "persistent",
@@ -19686,9 +19702,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "ISNStopped": "stopped",
@@ -20945,9 +20961,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "RIANLaunchPermission": "launchPermission"
@@ -21429,8 +21445,11 @@
                     "Show",
                     "Generic",
                     "Enum",
-                    "Num"
+                    "Num",
+                    "Integral",
+                    "Real"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "volumeDetail",
                 "field": {
@@ -21691,9 +21710,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Raw": "RAW",
@@ -21951,6 +21970,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "acceptVpcPeeringConnectionResult",
                 "field": {
@@ -22535,6 +22555,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "associateAddressResult",
                 "field": {
@@ -23036,6 +23057,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "associateRouteTableResult",
                 "field": {
@@ -23406,6 +23428,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "attachNetworkInterfaceResult",
                 "field": {
@@ -24011,6 +24034,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "attachVpnGatewayResult",
                 "field": {
@@ -24967,6 +24991,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "bundleInstanceResult",
                 "field": {
@@ -25172,6 +25197,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "cancelBundleTaskResult",
                 "field": {
@@ -25534,9 +25560,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "cancelExportTask",
                 "headerPad": 0,
@@ -25615,12 +25643,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "ReservedInstancesListing",
                 "fieldPad": 0,
                 "ctor": "cancelReservedInstancesListingResult",
                 "field": {
@@ -25692,9 +25719,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "cancelReservedInstancesListing",
                 "headerPad": 0,
@@ -25773,12 +25802,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "CancelledSpotInstanceRequest",
                 "fieldPad": 0,
                 "ctor": "cancelSpotInstanceRequestsResult",
                 "field": {
@@ -25953,6 +25981,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "confirmProductInstanceResult",
                 "field": {
@@ -26161,6 +26190,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "copyImageResult",
                 "field": {
@@ -26468,6 +26498,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "copySnapshotResult",
                 "field": {
@@ -26773,6 +26804,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createCustomerGatewayResult",
                 "field": {
@@ -27012,6 +27044,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createDhcpOptionsResult",
                 "field": {
@@ -27185,6 +27218,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createImageResult",
                 "field": {
@@ -27489,6 +27523,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createInstanceExportTaskResult",
                 "field": {
@@ -27727,6 +27762,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createInternetGatewayResult",
                 "field": {
@@ -27800,6 +27836,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createInternetGateway",
                 "headerPad": 0,
@@ -28096,6 +28133,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createNetworkAclResult",
                 "field": {
@@ -28628,6 +28666,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createNetworkInterfaceResult",
                 "field": {
@@ -29125,12 +29164,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "ReservedInstancesListing",
                 "fieldPad": 0,
                 "ctor": "createReservedInstancesListingResult",
                 "field": {
@@ -29663,6 +29701,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createRouteTableResult",
                 "field": {
@@ -29838,6 +29877,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createSecurityGroupResult",
                 "field": {
@@ -30549,6 +30589,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createSpotDatafeedSubscriptionResult",
                 "field": {
@@ -30755,6 +30796,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createSubnetResult",
                 "field": {
@@ -31758,6 +31800,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createVpcResult",
                 "field": {
@@ -31964,6 +32007,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createVpcPeeringConnectionResult",
                 "field": {
@@ -32202,6 +32246,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createVpnConnectionResult",
                 "field": {
@@ -32601,6 +32646,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createVpnGatewayResult",
                 "field": {
@@ -34515,6 +34561,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteSpotDatafeedSubscription",
                 "headerPad": 0,
@@ -35143,6 +35190,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteVpcPeeringConnectionResult",
                 "field": {
@@ -35829,12 +35877,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "AccountAttribute",
                 "fieldPad": 0,
                 "ctor": "describeAccountAttributesResult",
                 "field": {
@@ -36005,12 +36052,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Address",
                 "fieldPad": 0,
                 "ctor": "describeAddressesResult",
                 "field": {
@@ -36246,12 +36292,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "AvailabilityZone",
                 "fieldPad": 0,
                 "ctor": "describeAvailabilityZonesResult",
                 "field": {
@@ -36454,12 +36499,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "BundleTask",
                 "fieldPad": 0,
                 "ctor": "describeBundleTasksResult",
                 "field": {
@@ -36662,12 +36706,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "ConversionTask",
                 "fieldPad": 0,
                 "ctor": "describeConversionTasksResult",
                 "field": {
@@ -36870,12 +36913,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "CustomerGateway",
                 "fieldPad": 0,
                 "ctor": "describeCustomerGatewaysResult",
                 "field": {
@@ -37078,12 +37120,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "DhcpOptions",
                 "fieldPad": 0,
                 "ctor": "describeDhcpOptionsResult",
                 "field": {
@@ -37286,12 +37327,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "ExportTask",
                 "fieldPad": 0,
                 "ctor": "describeExportTasksResult",
                 "field": {
@@ -37363,12 +37403,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "describeExportTasks",
                 "headerPad": 0,
@@ -37835,12 +37875,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Image",
                 "fieldPad": 0,
                 "ctor": "describeImagesResult",
                 "field": {
@@ -39266,12 +39305,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "InternetGateway",
                 "fieldPad": 0,
                 "ctor": "describeInternetGatewaysResult",
                 "field": {
@@ -39474,12 +39512,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "KeyPairInfo",
                 "fieldPad": 0,
                 "ctor": "describeKeyPairsResult",
                 "field": {
@@ -39682,12 +39719,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "NetworkAcl",
                 "fieldPad": 0,
                 "ctor": "describeNetworkAclsResult",
                 "field": {
@@ -40194,12 +40230,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "NetworkInterface",
                 "fieldPad": 0,
                 "ctor": "describeNetworkInterfacesResult",
                 "field": {
@@ -40402,12 +40437,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "PlacementGroup",
                 "fieldPad": 0,
                 "ctor": "describePlacementGroupsResult",
                 "field": {
@@ -40610,12 +40644,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Region",
                 "fieldPad": 0,
                 "ctor": "describeRegionsResult",
                 "field": {
@@ -40818,12 +40851,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "ReservedInstances",
                 "fieldPad": 0,
                 "ctor": "describeReservedInstancesResult",
                 "field": {
@@ -41059,12 +41091,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "ReservedInstancesListing",
                 "fieldPad": 0,
                 "ctor": "describeReservedInstancesListingsResult",
                 "field": {
@@ -42066,12 +42097,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "RouteTable",
                 "fieldPad": 0,
                 "ctor": "describeRouteTablesResult",
                 "field": {
@@ -42274,12 +42304,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "SecurityGroup",
                 "fieldPad": 0,
                 "ctor": "describeSecurityGroupsResult",
                 "field": {
@@ -42763,12 +42792,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Snapshot",
                 "fieldPad": 0,
                 "ctor": "describeSnapshotsResult",
                 "field": {
@@ -43039,6 +43067,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeSpotDatafeedSubscriptionResult",
                 "field": {
@@ -43112,6 +43141,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeSpotDatafeedSubscription",
                 "headerPad": 0,
@@ -43190,12 +43220,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "SpotInstanceRequest",
                 "fieldPad": 0,
                 "ctor": "describeSpotInstanceRequestsResult",
                 "field": {
@@ -43814,12 +43843,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Subnet",
                 "fieldPad": 0,
                 "ctor": "describeSubnetsResult",
                 "field": {
@@ -45337,12 +45365,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "VpcPeeringConnection",
                 "fieldPad": 0,
                 "ctor": "describeVpcPeeringConnectionsResult",
                 "field": {
@@ -45545,12 +45572,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Vpc",
                 "fieldPad": 0,
                 "ctor": "describeVpcsResult",
                 "field": {
@@ -45753,12 +45779,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "VpnConnection",
                 "fieldPad": 0,
                 "ctor": "describeVpnConnectionsResult",
                 "field": {
@@ -45961,12 +45986,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "VpnGateway",
                 "fieldPad": 0,
                 "ctor": "describeVpnGatewaysResult",
                 "field": {
@@ -48163,6 +48187,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "importInstanceResult",
                 "field": {
@@ -48654,6 +48679,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "importVolumeResult",
                 "field": {
@@ -50136,6 +50162,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "modifyReservedInstancesResult",
                 "field": {
@@ -51081,12 +51108,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "InstanceMonitoring",
                 "fieldPad": 0,
                 "ctor": "monitorInstancesResult",
                 "field": {
@@ -51261,6 +51287,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "purchaseReservedInstancesOfferingResult",
                 "field": {
@@ -51629,6 +51656,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "registerImageResult",
                 "field": {
@@ -52099,6 +52127,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "rejectVpcPeeringConnectionResult",
                 "field": {
@@ -52435,6 +52464,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "replaceNetworkAclAssociationResult",
                 "field": {
@@ -53296,6 +53326,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "replaceRouteTableAssociationResult",
                 "field": {
@@ -53794,12 +53825,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "SpotInstanceRequest",
                 "fieldPad": 0,
                 "ctor": "requestSpotInstancesResult",
                 "field": {
@@ -56562,12 +56592,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "InstanceStateChange",
                 "fieldPad": 0,
                 "ctor": "startInstancesResult",
                 "field": {
@@ -56771,12 +56800,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "InstanceStateChange",
                 "fieldPad": 0,
                 "ctor": "stopInstancesResult",
                 "field": {
@@ -56980,12 +57008,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "InstanceStateChange",
                 "fieldPad": 0,
                 "ctor": "terminateInstancesResult",
                 "field": {
@@ -57285,12 +57312,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "InstanceMonitoring",
                 "fieldPad": 0,
                 "ctor": "unmonitorInstancesResult",
                 "field": {

@@ -1,5 +1,5 @@
 {% if (type.deriving | joinedLength(", ")) > 62 %}
- deriving
+
   {% for d in type.deriving %}
         {% if d.first %}( {% else %}, {% endif %}{{ d.value }}
   {% endfor %}

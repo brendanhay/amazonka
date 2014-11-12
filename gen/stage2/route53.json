@@ -250,8 +250,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "resourceRecord",
                 "field": {
@@ -750,9 +752,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "ApNortheast1": "ap-northeast-1",
@@ -775,9 +777,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Create": "CREATE",
@@ -793,9 +795,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Healthcheck": "healthcheck"
@@ -1151,9 +1153,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Secondary": "SECONDARY",
@@ -1454,9 +1456,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Pending": "PENDING",
@@ -1645,9 +1647,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Https": "HTTPS",
@@ -2648,6 +2650,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "associateVPCWithHostedZoneResponse",
                 "field": {
@@ -2871,6 +2874,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "changeResourceRecordSetsResponse",
                 "field": {
@@ -4061,9 +4065,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteHealthCheck",
                 "headerPad": 0,
@@ -4142,6 +4148,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteHostedZoneResponse",
                 "field": {
@@ -4226,9 +4233,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteHostedZone",
                 "headerPad": 0,
@@ -4334,9 +4343,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteReusableDelegationSet",
                 "headerPad": 0,
@@ -4415,6 +4426,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "disassociateVPCFromHostedZoneResponse",
                 "field": {
@@ -4638,6 +4650,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getChangeResponse",
                 "field": {
@@ -4722,9 +4735,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getChange",
                 "headerPad": 0,
@@ -4802,12 +4817,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "getCheckerIpRangesResponse",
                 "field": {
@@ -4923,6 +4938,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getGeoLocationResponse",
                 "field": {
@@ -5141,6 +5157,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getHealthCheckResponse",
                 "field": {
@@ -5225,9 +5242,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getHealthCheck",
                 "headerPad": 0,
@@ -5306,9 +5325,12 @@
                     "Show",
                     "Generic",
                     "Enum",
-                    "Num"
+                    "Num",
+                    "Integral",
+                    "Real"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getHealthCheckCountResponse",
                 "field": {
@@ -5422,12 +5444,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "HealthCheckObservation",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckLastFailureReasonResponse",
                 "field": {
@@ -5512,9 +5533,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getHealthCheckLastFailureReason",
                 "headerPad": 0,
@@ -5595,12 +5618,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "HealthCheckObservation",
                 "fieldPad": 0,
                 "ctor": "getHealthCheckStatusResponse",
                 "field": {
@@ -5685,9 +5707,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getHealthCheckStatus",
                 "headerPad": 0,
@@ -5897,9 +5921,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getHostedZone",
                 "headerPad": 0,
@@ -5978,6 +6004,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getReusableDelegationSetResponse",
                 "field": {
@@ -6062,9 +6089,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getReusableDelegationSet",
                 "headerPad": 0,
@@ -7821,6 +7850,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "listTagsForResourceResponse",
                 "field": {
@@ -8005,12 +8035,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "ResourceTagSet",
                 "fieldPad": 0,
                 "ctor": "listTagsForResourcesResponse",
                 "field": {
@@ -8202,6 +8231,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "updateHealthCheckResponse",
                 "field": {

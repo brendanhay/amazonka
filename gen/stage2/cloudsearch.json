@@ -1335,9 +1335,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "FailedToValidate": "FailedToValidate",
@@ -1512,9 +1512,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "None": "none",
@@ -2561,6 +2561,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "serviceEndpoint",
                 "field": {
@@ -2619,7 +2620,8 @@
                     "Eq",
                     "Ord",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Integral"
                 ],
                 "fieldPad": 25,
                 "ctor": "limits",
@@ -2765,9 +2767,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "IFTDoubleArray": "double-array",
@@ -3599,9 +3601,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "SFMHigh": "high",
@@ -3775,9 +3777,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Mul": "mul",
@@ -3825,9 +3827,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "SearchM22xlarge": "search.m2.2xlarge",
@@ -4370,12 +4372,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "buildSuggestersResponse",
                 "field": {
@@ -4447,9 +4449,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "buildSuggesters",
                 "headerPad": 0,
@@ -4530,6 +4534,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createDomainResponse",
                 "field": {
@@ -4601,9 +4606,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createDomain",
                 "headerPad": 0,
@@ -4684,6 +4691,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "defineAnalysisSchemeResponse",
                 "field": {
@@ -4855,6 +4863,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "defineExpressionResponse",
                 "field": {
@@ -5026,6 +5035,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "defineIndexFieldResponse",
                 "field": {
@@ -5197,6 +5207,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "defineSuggesterResponse",
                 "field": {
@@ -5368,6 +5379,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteAnalysisSchemeResponse",
                 "field": {
@@ -5540,6 +5552,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteDomainResponse",
                 "field": {
@@ -5611,9 +5624,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteDomain",
                 "headerPad": 0,
@@ -5694,6 +5709,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteExpressionResponse",
                 "field": {
@@ -5866,6 +5882,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteIndexFieldResponse",
                 "field": {
@@ -6038,6 +6055,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteSuggesterResponse",
                 "field": {
@@ -6208,12 +6226,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "AnalysisSchemeStatus",
                 "fieldPad": 0,
                 "ctor": "describeAnalysisSchemesResponse",
                 "field": {
@@ -6420,6 +6437,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeAvailabilityOptionsResponse",
                 "field": {
@@ -6591,12 +6609,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "DomainStatus",
                 "fieldPad": 0,
                 "ctor": "describeDomainsResponse",
                 "field": {
@@ -6668,12 +6685,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "describeDomains",
                 "headerPad": 0,
@@ -6752,12 +6769,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "ExpressionStatus",
                 "fieldPad": 0,
                 "ctor": "describeExpressionsResponse",
                 "field": {
@@ -6962,12 +6978,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "IndexFieldStatus",
                 "fieldPad": 0,
                 "ctor": "describeIndexFieldsResponse",
                 "field": {
@@ -7174,6 +7189,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeScalingParametersResponse",
                 "field": {
@@ -7245,9 +7261,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeScalingParameters",
                 "headerPad": 0,
@@ -7328,6 +7346,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeServiceAccessPoliciesResponse",
                 "field": {
@@ -7499,12 +7518,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "SuggesterStatus",
                 "fieldPad": 0,
                 "ctor": "describeSuggestersResponse",
                 "field": {
@@ -7710,12 +7728,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "indexDocumentsResponse",
                 "field": {
@@ -7787,9 +7805,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "indexDocuments",
                 "headerPad": 0,
@@ -7868,12 +7888,12 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "(Text, Text)",
                 "fieldPad": 0,
                 "ctor": "listDomainNamesResponse",
                 "field": {
@@ -7976,6 +7996,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "updateAvailabilityOptionsResponse",
                 "field": {
@@ -8148,6 +8169,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "updateScalingParametersResponse",
                 "field": {
@@ -8319,6 +8341,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "updateServiceAccessPoliciesResponse",
                 "field": {

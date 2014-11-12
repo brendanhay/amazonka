@@ -456,9 +456,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Vip": "vip",
@@ -791,9 +791,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "HttpsOnly": "https-only",
@@ -1435,9 +1435,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "HttpOnly": "http-only",
@@ -3444,9 +3444,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "PriceClass200": "PriceClass_200",
@@ -3551,8 +3551,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "s3OriginConfig",
                 "field": {
@@ -4031,6 +4033,7 @@
                     "Show",
                     "Generic"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "restrictions",
                 "field": {
@@ -4187,9 +4190,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Head": "HEAD",
@@ -4440,9 +4443,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "None": "none",
@@ -6257,9 +6260,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "GRTBlacklist": "blacklist",
@@ -6554,6 +6557,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createCloudFrontOriginAccessIdentity",
                 "headerPad": 0,
@@ -6768,6 +6772,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createDistribution",
                 "headerPad": 0,
@@ -7190,6 +7195,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createStreamingDistribution",
                 "headerPad": 0,
@@ -7759,9 +7765,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getCloudFrontOriginAccessIdentity",
                 "headerPad": 0,
@@ -7938,9 +7946,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getCloudFrontOriginAccessIdentityConfig",
                 "headerPad": 0,
@@ -8121,9 +8131,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getDistribution",
                 "headerPad": 0,
@@ -8300,9 +8312,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getDistributionConfig",
                 "headerPad": 0,
@@ -8385,6 +8399,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getInvalidationResult",
                 "field": {
@@ -8669,9 +8684,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getStreamingDistribution",
                 "headerPad": 0,
@@ -8848,9 +8865,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getStreamingDistributionConfig",
                 "headerPad": 0,
@@ -8933,6 +8952,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "listCloudFrontOriginAccessIdentitiesResult",
                 "field": {
@@ -9118,6 +9138,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "listDistributionsResult",
                 "field": {
@@ -9303,6 +9324,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "listInvalidationsResult",
                 "field": {
@@ -9525,6 +9547,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "listStreamingDistributionsResult",
                 "field": {

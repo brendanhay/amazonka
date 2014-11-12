@@ -201,9 +201,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "S3ReducedRedundancyLostObject": "s3:ReducedRedundancyLostObject"
@@ -220,8 +220,11 @@
                     "Show",
                     "Generic",
                     "Enum",
-                    "Num"
+                    "Num",
+                    "Integral",
+                    "Real"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "noncurrentVersionExpiration",
                 "field": {
@@ -577,9 +580,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Enabled": "Enabled",
@@ -911,9 +914,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Glacier": "GLACIER",
@@ -929,9 +932,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Replace": "REPLACE",
@@ -1123,6 +1126,7 @@
                     "Show",
                     "Generic"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "notificationConfiguration",
                 "field": {
@@ -1336,9 +1340,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Private": "private",
@@ -1357,9 +1361,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "BVSSuspended": "Suspended",
@@ -1517,9 +1521,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "OVSCStandard": "STANDARD"
@@ -1620,9 +1624,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Url": "url"
@@ -1638,8 +1642,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "requestPaymentConfiguration",
                 "field": {
@@ -2372,9 +2378,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Https": "https",
@@ -2878,6 +2884,7 @@
                     "Show",
                     "Generic"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "bucketLoggingStatus",
                 "field": {
@@ -2950,8 +2957,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "errorDocument",
                 "field": {
@@ -3022,9 +3031,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "SCReducedRedundancy": "REDUCED_REDUNDANCY",
@@ -3379,9 +3388,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "MFADSDisabled": "Disabled",
@@ -3396,9 +3405,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "BucketOwner": "BucketOwner",
@@ -3584,9 +3593,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "FullControl": "FULL_CONTROL",
@@ -3693,6 +3702,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createBucketConfiguration",
                 "field": {
@@ -3764,11 +3774,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
+                "listElement": "Tag",
                 "fieldPad": 0,
                 "ctor": "tagging",
                 "field": {
@@ -3927,11 +3936,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
+                "listElement": "CORSRule",
                 "fieldPad": 0,
                 "ctor": "corsconfiguration",
                 "field": {
@@ -4204,6 +4212,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "commonPrefix",
                 "field": {
@@ -4472,9 +4481,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Group": "Group",
@@ -4490,9 +4499,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "TSCGlacier": "GLACIER"
@@ -4507,11 +4516,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
+                "listElement": "CompletedPart",
                 "fieldPad": 0,
                 "ctor": "completedMultipartUpload",
                 "field": {
@@ -4669,9 +4677,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "PFullControl": "FULL_CONTROL",
@@ -4775,9 +4783,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "CannedPublicReadWrite": "public-read-write",
@@ -4794,9 +4802,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "MFADDisabled": "Disabled",
@@ -4984,11 +4992,10 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
+                "listElement": "Rule",
                 "fieldPad": 0,
                 "ctor": "lifecycleConfiguration",
                 "field": {
@@ -5173,9 +5180,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "AES256": "AES256"
@@ -5191,8 +5198,10 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "indexDocument",
                 "field": {
@@ -5439,8 +5448,11 @@
                     "Show",
                     "Generic",
                     "Enum",
-                    "Num"
+                    "Num",
+                    "Integral",
+                    "Real"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "restoreRequest",
                 "field": {
@@ -7310,6 +7322,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createBucketOutput",
                 "field": {
@@ -8630,9 +8643,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteBucket",
                 "headerPad": 0,
@@ -8739,9 +8754,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteBucketCors",
                 "headerPad": 0,
@@ -8853,9 +8870,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteBucketLifecycle",
                 "headerPad": 0,
@@ -8967,9 +8986,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteBucketPolicy",
                 "headerPad": 0,
@@ -9081,9 +9102,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteBucketTagging",
                 "headerPad": 0,
@@ -9195,9 +9218,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteBucketWebsite",
                 "headerPad": 0,
@@ -9883,9 +9908,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketAcl",
                 "headerPad": 0,
@@ -9967,12 +9994,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "CORSRule",
                 "fieldPad": 0,
                 "ctor": "getBucketCorsOutput",
                 "field": {
@@ -10058,9 +10084,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketCors",
                 "headerPad": 0,
@@ -10142,12 +10170,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Rule",
                 "fieldPad": 0,
                 "ctor": "getBucketLifecycleOutput",
                 "field": {
@@ -10233,9 +10260,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketLifecycle",
                 "headerPad": 0,
@@ -10321,6 +10350,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketLocationOutput",
                 "field": {
@@ -10406,9 +10436,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketLocation",
                 "headerPad": 0,
@@ -10492,6 +10524,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketLoggingOutput",
                 "field": {
@@ -10577,9 +10610,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketLogging",
                 "headerPad": 0,
@@ -10663,6 +10698,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketNotificationOutput",
                 "field": {
@@ -10748,9 +10784,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketNotification",
                 "headerPad": 0,
@@ -10836,6 +10874,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketPolicyOutput",
                 "field": {
@@ -10921,9 +10960,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketPolicy",
                 "headerPad": 0,
@@ -11009,6 +11050,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketRequestPaymentOutput",
                 "field": {
@@ -11094,9 +11136,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketRequestPayment",
                 "headerPad": 0,
@@ -11178,12 +11222,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Tag",
                 "fieldPad": 0,
                 "ctor": "getBucketTaggingOutput",
                 "field": {
@@ -11269,9 +11312,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketTagging",
                 "headerPad": 0,
@@ -11455,9 +11500,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketVersioning",
                 "headerPad": 0,
@@ -11696,9 +11743,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getBucketWebsite",
                 "headerPad": 0,
@@ -13252,6 +13301,7 @@
                     "Generic"
                 ],
                 "streaming": true,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "getObjectTorrentOutput",
                 "field": {
@@ -13472,9 +13522,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "headBucket",
                 "headerPad": 0,

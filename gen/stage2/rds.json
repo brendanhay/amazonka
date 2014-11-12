@@ -1913,9 +1913,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "DbSecurityGroup": "db-security-group",
@@ -2331,9 +2331,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "PendingReboot": "pending-reboot",
@@ -3037,6 +3037,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "dbparameterGroupNameMessage",
                 "field": {
@@ -4364,6 +4365,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "availabilityZone",
                 "field": {
@@ -7356,6 +7358,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "addSourceIdentifierToSubscriptionResult",
                 "field": {
@@ -7656,6 +7659,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "authorizeDBSecurityGroupIngressResult",
                 "field": {
@@ -7928,6 +7932,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "copyDBParameterGroupResult",
                 "field": {
@@ -8166,6 +8171,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "copyDBSnapshotResult",
                 "field": {
@@ -8371,6 +8377,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "copyOptionGroupResult",
                 "field": {
@@ -8609,6 +8616,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createDBInstanceResult",
                 "field": {
@@ -9639,6 +9647,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createDBInstanceReadReplicaResult",
                 "field": {
@@ -10141,6 +10150,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createDBParameterGroupResult",
                 "field": {
@@ -10379,6 +10389,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createDBSecurityGroupResult",
                 "field": {
@@ -10584,6 +10595,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createDBSnapshotResult",
                 "field": {
@@ -10789,6 +10801,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createDBSubnetGroupResult",
                 "field": {
@@ -11027,6 +11040,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createEventSubscriptionResult",
                 "field": {
@@ -11364,6 +11378,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createOptionGroupResult",
                 "field": {
@@ -11635,6 +11650,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteDBInstanceResult",
                 "field": {
@@ -11868,9 +11884,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteDBParameterGroupMessage",
                 "headerPad": 0,
@@ -11978,9 +11996,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteDBSecurityGroupMessage",
                 "headerPad": 0,
@@ -12061,6 +12081,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteDBSnapshotResult",
                 "field": {
@@ -12132,9 +12153,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteDBSnapshotMessage",
                 "headerPad": 0,
@@ -12242,9 +12265,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteDBSubnetGroupMessage",
                 "headerPad": 0,
@@ -12325,6 +12350,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteEventSubscriptionResult",
                 "field": {
@@ -12396,9 +12422,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteEventSubscriptionMessage",
                 "headerPad": 0,
@@ -12506,9 +12534,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "deleteOptionGroupMessage",
                 "headerPad": 0,
@@ -14929,6 +14959,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "describeEngineDefaultParametersResult",
                 "field": {
@@ -15165,12 +15196,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "EventCategoriesMap",
                 "fieldPad": 0,
                 "ctor": "eventCategoriesMessage",
                 "field": {
@@ -18140,12 +18170,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "Tag",
                 "fieldPad": 0,
                 "ctor": "tagListMessage",
                 "field": {
@@ -18318,6 +18347,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "modifyDBInstanceResult",
                 "field": {
@@ -19120,6 +19150,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "dbparameterGroupNameMessage",
                 "field": {
@@ -19292,6 +19323,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "modifyDBSubnetGroupResult",
                 "field": {
@@ -19498,6 +19530,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "modifyEventSubscriptionResult",
                 "field": {
@@ -19770,6 +19803,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "modifyOptionGroupResult",
                 "field": {
@@ -20008,6 +20042,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "promoteReadReplicaResult",
                 "field": {
@@ -20214,6 +20249,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "purchaseReservedDBInstancesOfferingResult",
                 "field": {
@@ -20452,6 +20488,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "rebootDBInstanceResult",
                 "field": {
@@ -20625,6 +20662,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "removeSourceIdentifierFromSubscriptionResult",
                 "field": {
@@ -20928,6 +20966,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "dbparameterGroupNameMessage",
                 "field": {
@@ -21133,6 +21172,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "restoreDBInstanceFromDBSnapshotResult",
                 "field": {
@@ -21833,6 +21873,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "restoreDBInstanceToPointInTimeResult",
                 "field": {
@@ -22599,6 +22640,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "revokeDBSecurityGroupIngressResult",
                 "field": {

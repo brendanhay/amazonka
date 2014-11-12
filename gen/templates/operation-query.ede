@@ -4,6 +4,7 @@ import Network.AWS.Prelude
 {% include "_include/imports.ede" %}
 
 {% include "_include/datatype.ede" with type = request %}
+
 instance ToQuery {{ request.name }}
 
 {% include "_include/path.ede" %}

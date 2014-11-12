@@ -325,9 +325,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Error": "ERROR",
@@ -666,6 +666,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "launchConfiguration",
                 "field": {
@@ -725,6 +726,7 @@
                     "Show",
                     "Generic"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "applicationVersionDescriptionMessage",
                 "field": {
@@ -786,6 +788,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "autoScalingGroup",
                 "field": {
@@ -843,9 +846,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Pending": "pending",
@@ -963,9 +966,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "List": "List",
@@ -1795,9 +1798,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Updating": "Updating",
@@ -1918,6 +1921,7 @@
                     "Show",
                     "Generic"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "applicationDescriptionMessage",
                 "field": {
@@ -2081,6 +2085,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "loadBalancer",
                 "field": {
@@ -2140,6 +2145,7 @@
                     "Show",
                     "Generic"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "environmentResourcesDescription",
                 "field": {
@@ -3004,9 +3010,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "VSError": "error",
@@ -3025,6 +3031,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "trigger",
                 "field": {
@@ -3082,9 +3089,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Tail": "tail"
@@ -3609,9 +3616,9 @@
                 "deriving": [
                     "Eq",
                     "Ord",
-                    "Enum",
                     "Show",
-                    "Generic"
+                    "Generic",
+                    "Enum"
                 ],
                 "branches": {
                     "Red": "Red",
@@ -3632,6 +3639,7 @@
                     "Generic",
                     "Monoid"
                 ],
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "instance'",
                 "field": {
@@ -3858,9 +3866,11 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Monoid"
+                    "Monoid",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "checkDNSAvailabilityMessage",
                 "headerPad": 0,
@@ -3941,6 +3951,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "applicationDescriptionMessage",
                 "field": {
@@ -4114,6 +4125,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "applicationVersionDescriptionMessage",
                 "field": {
@@ -5781,6 +5793,7 @@
                     "Monoid"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "createStorageLocationResultMessage",
                 "field": {
@@ -6428,12 +6441,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "ApplicationVersionDescription",
                 "fieldPad": 0,
                 "ctor": "applicationVersionDescriptionsMessage",
                 "field": {
@@ -6604,12 +6616,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "ApplicationDescription",
                 "fieldPad": 0,
                 "ctor": "applicationDescriptionsMessage",
                 "field": {
@@ -6681,12 +6692,12 @@
                     "Ord",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
-                    "Semigroup"
+                    "Semigroup",
+                    "IsString"
                 ],
                 "streaming": false,
+                "listElement": "Text",
                 "fieldPad": 0,
                 "ctor": "describeApplicationsMessage",
                 "headerPad": 0,
@@ -7049,12 +7060,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "ConfigurationSettingsDescription",
                 "fieldPad": 0,
                 "ctor": "configurationSettingsDescriptions",
                 "field": {
@@ -7261,6 +7271,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "environmentResourceDescriptionsMessage",
                 "field": {
@@ -7431,12 +7442,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "EnvironmentDescription",
                 "fieldPad": 0,
                 "ctor": "environmentDescriptionsMessage",
                 "field": {
@@ -8756,12 +8766,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "EnvironmentInfoDescription",
                 "fieldPad": 0,
                 "ctor": "retrieveEnvironmentInfoResultMessage",
                 "field": {
@@ -9745,6 +9754,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "applicationDescriptionMessage",
                 "field": {
@@ -9918,6 +9928,7 @@
                     "Generic"
                 ],
                 "streaming": false,
+                "listElement": null,
                 "fieldPad": 0,
                 "ctor": "applicationVersionDescriptionMessage",
                 "field": {
@@ -11350,12 +11361,11 @@
                     "Eq",
                     "Show",
                     "Generic",
-                    "Foldable",
-                    "Traversable",
                     "Monoid",
                     "Semigroup"
                 ],
                 "streaming": false,
+                "listElement": "ValidationMessage",
                 "fieldPad": 0,
                 "ctor": "configurationSettingsValidationMessages",
                 "field": {

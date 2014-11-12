@@ -58,7 +58,7 @@ data CreateBucket = CreateBucket
     , _cbGrantReadACP              :: Maybe Text
     , _cbGrantWrite                :: Maybe Text
     , _cbGrantWriteACP             :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateBucket' constructor.
 --
@@ -151,7 +151,7 @@ instance ToBody CreateBucket where
 
 newtype CreateBucketOutput = CreateBucketOutput
     { _cboLocation :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateBucketOutput' constructor.
 --

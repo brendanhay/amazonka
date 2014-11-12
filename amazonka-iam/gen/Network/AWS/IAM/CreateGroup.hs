@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 data CreateGroup = CreateGroup
     { _cgGroupName :: Text
     , _cgPath      :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateGroup' constructor.
 --
@@ -73,6 +73,7 @@ cgGroupName = lens _cgGroupName (\s a -> s { _cgGroupName = a })
 -- not included, it defaults to a slash (/).
 cgPath :: Lens' CreateGroup (Maybe Text)
 cgPath = lens _cgPath (\s a -> s { _cgPath = a })
+
 instance ToQuery CreateGroup
 
 instance ToPath CreateGroup where
@@ -80,7 +81,7 @@ instance ToPath CreateGroup where
 
 newtype CreateGroupResponse = CreateGroupResponse
     { _cgrGroup :: Group
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateGroupResponse' constructor.
 --

@@ -69,7 +69,7 @@ data StopInstances = StopInstances
     { _si1DryRun      :: Maybe Bool
     , _si1Force       :: Maybe Bool
     , _si1InstanceIds :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StopInstances' constructor.
 --
@@ -101,6 +101,7 @@ si1Force = lens _si1Force (\s a -> s { _si1Force = a })
 -- | One or more instance IDs.
 si1InstanceIds :: Lens' StopInstances [Text]
 si1InstanceIds = lens _si1InstanceIds (\s a -> s { _si1InstanceIds = a })
+
 instance ToQuery StopInstances
 
 instance ToPath StopInstances where
@@ -108,7 +109,13 @@ instance ToPath StopInstances where
 
 newtype StopInstancesResult = StopInstancesResult
     { _sirStoppingInstances :: [InstanceStateChange]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList StopInstancesResult
+    type Item StopInstancesResult = InstanceStateChange
+
+    fromList = StopInstancesResult . fromList
+    toList   = toList . _sirStoppingInstances
 
 -- | 'StopInstancesResult' constructor.
 --

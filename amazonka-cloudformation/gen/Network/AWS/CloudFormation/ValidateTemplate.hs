@@ -49,7 +49,7 @@ import Network.AWS.CloudFormation.Types
 data ValidateTemplateInput = ValidateTemplateInput
     { _vtiTemplateBody :: Maybe Text
     , _vtiTemplateURL  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ValidateTemplateInput' constructor.
 --
@@ -80,6 +80,7 @@ vtiTemplateBody = lens _vtiTemplateBody (\s a -> s { _vtiTemplateBody = a })
 -- TemplateBody. If both are passed, only TemplateBody is used.
 vtiTemplateURL :: Lens' ValidateTemplateInput (Maybe Text)
 vtiTemplateURL = lens _vtiTemplateURL (\s a -> s { _vtiTemplateURL = a })
+
 instance ToQuery ValidateTemplateInput
 
 instance ToPath ValidateTemplateInput where
@@ -90,7 +91,7 @@ data ValidateTemplateOutput = ValidateTemplateOutput
     , _vtoCapabilitiesReason :: Maybe Text
     , _vtoDescription        :: Maybe Text
     , _vtoParameters         :: [TemplateParameter]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ValidateTemplateOutput' constructor.
 --

@@ -52,7 +52,7 @@ data CancelConversion = CancelConversion
     { _ccConversionTaskId :: Text
     , _ccDryRun           :: Maybe Bool
     , _ccReasonMessage    :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CancelConversion' constructor.
 --
@@ -82,6 +82,7 @@ ccDryRun = lens _ccDryRun (\s a -> s { _ccDryRun = a })
 
 ccReasonMessage :: Lens' CancelConversion (Maybe Text)
 ccReasonMessage = lens _ccReasonMessage (\s a -> s { _ccReasonMessage = a })
+
 instance ToQuery CancelConversion
 
 instance ToPath CancelConversion where

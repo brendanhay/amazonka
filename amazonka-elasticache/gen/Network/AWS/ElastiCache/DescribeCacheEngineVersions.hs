@@ -56,7 +56,7 @@ data DescribeCacheEngineVersionsMessage = DescribeCacheEngineVersionsMessage
     , _dcevmEngineVersion             :: Maybe Text
     , _dcevmMarker                    :: Maybe Text
     , _dcevmMaxRecords                :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeCacheEngineVersionsMessage' constructor.
 --
@@ -120,6 +120,7 @@ dcevmMarker = lens _dcevmMarker (\s a -> s { _dcevmMarker = a })
 -- Constraints: minimum 20; maximum 100.
 dcevmMaxRecords :: Lens' DescribeCacheEngineVersionsMessage (Maybe Int)
 dcevmMaxRecords = lens _dcevmMaxRecords (\s a -> s { _dcevmMaxRecords = a })
+
 instance ToQuery DescribeCacheEngineVersionsMessage
 
 instance ToPath DescribeCacheEngineVersionsMessage where
@@ -128,7 +129,7 @@ instance ToPath DescribeCacheEngineVersionsMessage where
 data CacheEngineVersionMessage = CacheEngineVersionMessage
     { _cevmCacheEngineVersions :: [CacheEngineVersion]
     , _cevmMarker              :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CacheEngineVersionMessage' constructor.
 --

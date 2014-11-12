@@ -57,7 +57,7 @@ data ReleaseAddress = ReleaseAddress
     { _raAllocationId :: Maybe Text
     , _raDryRun       :: Maybe Bool
     , _raPublicIp     :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ReleaseAddress' constructor.
 --
@@ -86,6 +86,7 @@ raDryRun = lens _raDryRun (\s a -> s { _raDryRun = a })
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
 raPublicIp :: Lens' ReleaseAddress (Maybe Text)
 raPublicIp = lens _raPublicIp (\s a -> s { _raPublicIp = a })
+
 instance ToQuery ReleaseAddress
 
 instance ToPath ReleaseAddress where

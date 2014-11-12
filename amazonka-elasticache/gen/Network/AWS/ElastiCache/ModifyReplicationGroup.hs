@@ -75,7 +75,7 @@ data ModifyReplicationGroupMessage = ModifyReplicationGroupMessage
     , _mrgmSnapshotRetentionLimit      :: Maybe Int
     , _mrgmSnapshotWindow              :: Maybe Text
     , _mrgmSnapshottingClusterId       :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifyReplicationGroupMessage' constructor.
 --
@@ -265,6 +265,7 @@ mrgmSnapshottingClusterId :: Lens' ModifyReplicationGroupMessage (Maybe Text)
 mrgmSnapshottingClusterId =
     lens _mrgmSnapshottingClusterId
         (\s a -> s { _mrgmSnapshottingClusterId = a })
+
 instance ToQuery ModifyReplicationGroupMessage
 
 instance ToPath ModifyReplicationGroupMessage where
@@ -272,7 +273,7 @@ instance ToPath ModifyReplicationGroupMessage where
 
 newtype ModifyReplicationGroupResult = ModifyReplicationGroupResult
     { _mrgrReplicationGroup :: Maybe ReplicationGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyReplicationGroupResult' constructor.
 --

@@ -48,7 +48,7 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces
     { _dniDryRun              :: Maybe Bool
     , _dniFilters             :: [Filter]
     , _dniNetworkInterfaceIds :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeNetworkInterfaces' constructor.
 --
@@ -132,6 +132,7 @@ dniFilters = lens _dniFilters (\s a -> s { _dniFilters = a })
 dniNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
 dniNetworkInterfaceIds =
     lens _dniNetworkInterfaceIds (\s a -> s { _dniNetworkInterfaceIds = a })
+
 instance ToQuery DescribeNetworkInterfaces
 
 instance ToPath DescribeNetworkInterfaces where
@@ -139,7 +140,13 @@ instance ToPath DescribeNetworkInterfaces where
 
 newtype DescribeNetworkInterfacesResult = DescribeNetworkInterfacesResult
     { _dnirNetworkInterfaces :: [NetworkInterface]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeNetworkInterfacesResult
+    type Item DescribeNetworkInterfacesResult = NetworkInterface
+
+    fromList = DescribeNetworkInterfacesResult . fromList
+    toList   = toList . _dnirNetworkInterfaces
 
 -- | 'DescribeNetworkInterfacesResult' constructor.
 --

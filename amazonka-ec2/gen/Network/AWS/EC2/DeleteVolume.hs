@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 data DeleteVolume = DeleteVolume
     { _dv3DryRun   :: Maybe Bool
     , _dv3VolumeId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVolume' constructor.
 --
@@ -70,6 +70,7 @@ dv3DryRun = lens _dv3DryRun (\s a -> s { _dv3DryRun = a })
 -- | The ID of the volume.
 dv3VolumeId :: Lens' DeleteVolume Text
 dv3VolumeId = lens _dv3VolumeId (\s a -> s { _dv3VolumeId = a })
+
 instance ToQuery DeleteVolume
 
 instance ToPath DeleteVolume where

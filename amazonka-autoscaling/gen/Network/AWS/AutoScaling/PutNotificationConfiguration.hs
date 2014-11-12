@@ -51,7 +51,7 @@ data PutNotificationConfigurationType = PutNotificationConfigurationType
     { _pnctAutoScalingGroupName :: Text
     , _pnctNotificationTypes    :: [Text]
     , _pnctTopicARN             :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutNotificationConfigurationType' constructor.
 --
@@ -89,6 +89,7 @@ pnctNotificationTypes =
 -- (SNS) topic.
 pnctTopicARN :: Lens' PutNotificationConfigurationType Text
 pnctTopicARN = lens _pnctTopicARN (\s a -> s { _pnctTopicARN = a })
+
 instance ToQuery PutNotificationConfigurationType
 
 instance ToPath PutNotificationConfigurationType where

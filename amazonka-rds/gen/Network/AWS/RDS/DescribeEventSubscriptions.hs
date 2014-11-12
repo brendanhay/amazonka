@@ -54,7 +54,7 @@ data DescribeEventSubscriptionsMessage = DescribeEventSubscriptionsMessage
     , _desmMarker           :: Maybe Text
     , _desmMaxRecords       :: Maybe Int
     , _desmSubscriptionName :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeEventSubscriptionsMessage' constructor.
 --
@@ -98,6 +98,7 @@ desmMaxRecords = lens _desmMaxRecords (\s a -> s { _desmMaxRecords = a })
 desmSubscriptionName :: Lens' DescribeEventSubscriptionsMessage (Maybe Text)
 desmSubscriptionName =
     lens _desmSubscriptionName (\s a -> s { _desmSubscriptionName = a })
+
 instance ToQuery DescribeEventSubscriptionsMessage
 
 instance ToPath DescribeEventSubscriptionsMessage where
@@ -106,7 +107,7 @@ instance ToPath DescribeEventSubscriptionsMessage where
 data EventSubscriptionsMessage = EventSubscriptionsMessage
     { _esmEventSubscriptionsList :: [EventSubscription]
     , _esmMarker                 :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'EventSubscriptionsMessage' constructor.
 --

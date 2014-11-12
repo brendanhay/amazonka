@@ -56,7 +56,7 @@ data DescribeImageAttribute = DescribeImageAttribute
     { _diaAttribute :: Text
     , _diaDryRun    :: Maybe Bool
     , _diaImageId   :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeImageAttribute' constructor.
 --
@@ -87,6 +87,7 @@ diaDryRun = lens _diaDryRun (\s a -> s { _diaDryRun = a })
 -- | The ID of the AMI.
 diaImageId :: Lens' DescribeImageAttribute Text
 diaImageId = lens _diaImageId (\s a -> s { _diaImageId = a })
+
 instance ToQuery DescribeImageAttribute
 
 instance ToPath DescribeImageAttribute where
@@ -101,7 +102,7 @@ data ImageAttribute = ImageAttribute
     , _ia1ProductCodes        :: [ProductCode]
     , _ia1RamdiskId           :: Maybe AttributeValue
     , _ia1SriovNetSupport     :: Maybe AttributeValue
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ImageAttribute' constructor.
 --

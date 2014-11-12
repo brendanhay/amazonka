@@ -59,7 +59,7 @@ data DescribeOrderableClusterOptionsMessage = DescribeOrderableClusterOptionsMes
     , _docomMarker         :: Maybe Text
     , _docomMaxRecords     :: Maybe Int
     , _docomNodeType       :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeOrderableClusterOptionsMessage' constructor.
 --
@@ -110,6 +110,7 @@ docomMaxRecords = lens _docomMaxRecords (\s a -> s { _docomMaxRecords = a })
 -- available offerings matching the specified node type.
 docomNodeType :: Lens' DescribeOrderableClusterOptionsMessage (Maybe Text)
 docomNodeType = lens _docomNodeType (\s a -> s { _docomNodeType = a })
+
 instance ToQuery DescribeOrderableClusterOptionsMessage
 
 instance ToPath DescribeOrderableClusterOptionsMessage where
@@ -118,7 +119,7 @@ instance ToPath DescribeOrderableClusterOptionsMessage where
 data OrderableClusterOptionsMessage = OrderableClusterOptionsMessage
     { _ocomMarker                  :: Maybe Text
     , _ocomOrderableClusterOptions :: [OrderableClusterOption]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'OrderableClusterOptionsMessage' constructor.
 --

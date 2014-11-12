@@ -65,7 +65,7 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing
     , _crilInstanceCount       :: Int
     , _crilPriceSchedules      :: [PriceScheduleSpecification]
     , _crilReservedInstancesId :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateReservedInstancesListing' constructor.
 --
@@ -114,6 +114,7 @@ crilPriceSchedules =
 crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
 crilReservedInstancesId =
     lens _crilReservedInstancesId (\s a -> s { _crilReservedInstancesId = a })
+
 instance ToQuery CreateReservedInstancesListing
 
 instance ToPath CreateReservedInstancesListing where
@@ -121,7 +122,13 @@ instance ToPath CreateReservedInstancesListing where
 
 newtype CreateReservedInstancesListingResult = CreateReservedInstancesListingResult
     { _crilr1ReservedInstancesListings :: [ReservedInstancesListing]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList CreateReservedInstancesListingResult
+    type Item CreateReservedInstancesListingResult = ReservedInstancesListing
+
+    fromList = CreateReservedInstancesListingResult . fromList
+    toList   = toList . _crilr1ReservedInstancesListings
 
 -- | 'CreateReservedInstancesListingResult' constructor.
 --

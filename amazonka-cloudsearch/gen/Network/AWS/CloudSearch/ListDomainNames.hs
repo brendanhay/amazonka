@@ -46,6 +46,7 @@ data ListDomainNames = ListDomainNames
 -- | 'ListDomainNames' constructor.
 listDomainNames :: ListDomainNames
 listDomainNames = ListDomainNames
+
 instance ToQuery ListDomainNames
 
 instance ToPath ListDomainNames where
@@ -53,7 +54,13 @@ instance ToPath ListDomainNames where
 
 newtype ListDomainNamesResponse = ListDomainNamesResponse
     { _ldnrDomainNames :: Map Text Text
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList ListDomainNamesResponse
+    type Item ListDomainNamesResponse = (Text, Text)
+
+    fromList = ListDomainNamesResponse . fromList
+    toList   = toList . _ldnrDomainNames
 
 -- | 'ListDomainNamesResponse' constructor.
 --

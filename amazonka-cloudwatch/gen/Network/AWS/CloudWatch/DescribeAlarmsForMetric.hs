@@ -55,7 +55,7 @@ data DescribeAlarmsForMetricInput = DescribeAlarmsForMetricInput
     , _dafmiPeriod     :: Maybe Natural
     , _dafmiStatistic  :: Maybe Text
     , _dafmiUnit       :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeAlarmsForMetricInput' constructor.
 --
@@ -108,6 +108,7 @@ dafmiStatistic = lens _dafmiStatistic (\s a -> s { _dafmiStatistic = a })
 -- | The unit for the metric.
 dafmiUnit :: Lens' DescribeAlarmsForMetricInput (Maybe Text)
 dafmiUnit = lens _dafmiUnit (\s a -> s { _dafmiUnit = a })
+
 instance ToQuery DescribeAlarmsForMetricInput
 
 instance ToPath DescribeAlarmsForMetricInput where
@@ -115,7 +116,13 @@ instance ToPath DescribeAlarmsForMetricInput where
 
 newtype DescribeAlarmsForMetricOutput = DescribeAlarmsForMetricOutput
     { _dafmoMetricAlarms :: [MetricAlarm]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeAlarmsForMetricOutput
+    type Item DescribeAlarmsForMetricOutput = MetricAlarm
+
+    fromList = DescribeAlarmsForMetricOutput . fromList
+    toList   = toList . _dafmoMetricAlarms
 
 -- | 'DescribeAlarmsForMetricOutput' constructor.
 --

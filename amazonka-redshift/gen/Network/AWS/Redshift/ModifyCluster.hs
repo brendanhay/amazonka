@@ -81,7 +81,7 @@ data ModifyClusterMessage = ModifyClusterMessage
     , _mcmNumberOfNodes                    :: Maybe Int
     , _mcmPreferredMaintenanceWindow       :: Maybe Text
     , _mcmVpcSecurityGroupIds              :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifyClusterMessage' constructor.
 --
@@ -284,6 +284,7 @@ mcmPreferredMaintenanceWindow =
 mcmVpcSecurityGroupIds :: Lens' ModifyClusterMessage [Text]
 mcmVpcSecurityGroupIds =
     lens _mcmVpcSecurityGroupIds (\s a -> s { _mcmVpcSecurityGroupIds = a })
+
 instance ToQuery ModifyClusterMessage
 
 instance ToPath ModifyClusterMessage where
@@ -291,7 +292,7 @@ instance ToPath ModifyClusterMessage where
 
 newtype ModifyClusterResult = ModifyClusterResult
     { _mcrCluster :: Maybe Cluster
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyClusterResult' constructor.
 --

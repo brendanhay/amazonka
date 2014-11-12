@@ -48,6 +48,7 @@ data GetAccountSummary = GetAccountSummary
 -- | 'GetAccountSummary' constructor.
 getAccountSummary :: GetAccountSummary
 getAccountSummary = GetAccountSummary
+
 instance ToQuery GetAccountSummary
 
 instance ToPath GetAccountSummary where
@@ -55,7 +56,13 @@ instance ToPath GetAccountSummary where
 
 newtype GetAccountSummaryResponse = GetAccountSummaryResponse
     { _gasrSummaryMap :: Map Text Int
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList GetAccountSummaryResponse
+    type Item GetAccountSummaryResponse = (Text, Int)
+
+    fromList = GetAccountSummaryResponse . fromList
+    toList   = toList . _gasrSummaryMap
 
 -- | 'GetAccountSummaryResponse' constructor.
 --

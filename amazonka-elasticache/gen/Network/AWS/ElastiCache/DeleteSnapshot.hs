@@ -46,7 +46,7 @@ import Network.AWS.ElastiCache.Types
 
 newtype DeleteSnapshotMessage = DeleteSnapshotMessage
     { _dsmSnapshotName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteSnapshotMessage' constructor.
 --
@@ -63,6 +63,7 @@ deleteSnapshotMessage p1 = DeleteSnapshotMessage
 -- | The name of the snapshot to be deleted.
 dsmSnapshotName :: Lens' DeleteSnapshotMessage Text
 dsmSnapshotName = lens _dsmSnapshotName (\s a -> s { _dsmSnapshotName = a })
+
 instance ToQuery DeleteSnapshotMessage
 
 instance ToPath DeleteSnapshotMessage where
@@ -70,7 +71,7 @@ instance ToPath DeleteSnapshotMessage where
 
 newtype DeleteSnapshotResult = DeleteSnapshotResult
     { _dsrSnapshot :: Maybe Snapshot
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteSnapshotResult' constructor.
 --

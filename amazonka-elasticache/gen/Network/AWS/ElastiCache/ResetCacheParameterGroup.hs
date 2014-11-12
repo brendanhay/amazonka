@@ -52,7 +52,7 @@ data ResetCacheParameterGroupMessage = ResetCacheParameterGroupMessage
     { _rcpgmCacheParameterGroupName :: Text
     , _rcpgmParameterNameValues     :: [ParameterNameValue]
     , _rcpgmResetAllParameters      :: Maybe Bool
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ResetCacheParameterGroupMessage' constructor.
 --
@@ -92,6 +92,7 @@ rcpgmParameterNameValues =
 rcpgmResetAllParameters :: Lens' ResetCacheParameterGroupMessage (Maybe Bool)
 rcpgmResetAllParameters =
     lens _rcpgmResetAllParameters (\s a -> s { _rcpgmResetAllParameters = a })
+
 instance ToQuery ResetCacheParameterGroupMessage
 
 instance ToPath ResetCacheParameterGroupMessage where

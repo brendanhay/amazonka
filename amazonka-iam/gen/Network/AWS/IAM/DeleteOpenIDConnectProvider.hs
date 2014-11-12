@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteOpenIDConnectProvider = DeleteOpenIDConnectProvider
     { _doidcpOpenIDConnectProviderArn :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteOpenIDConnectProvider' constructor.
 --
@@ -68,6 +68,7 @@ doidcpOpenIDConnectProviderArn :: Lens' DeleteOpenIDConnectProvider Text
 doidcpOpenIDConnectProviderArn =
     lens _doidcpOpenIDConnectProviderArn
         (\s a -> s { _doidcpOpenIDConnectProviderArn = a })
+
 instance ToQuery DeleteOpenIDConnectProvider
 
 instance ToPath DeleteOpenIDConnectProvider where

@@ -45,7 +45,7 @@ import Network.AWS.RDS.Types
 data RemoveTagsFromResourceMessage = RemoveTagsFromResourceMessage
     { _rtfrmResourceName :: Text
     , _rtfrmTagKeys      :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RemoveTagsFromResourceMessage' constructor.
 --
@@ -72,6 +72,7 @@ rtfrmResourceName =
 -- | The tag key (name) of the tag to be removed.
 rtfrmTagKeys :: Lens' RemoveTagsFromResourceMessage [Text]
 rtfrmTagKeys = lens _rtfrmTagKeys (\s a -> s { _rtfrmTagKeys = a })
+
 instance ToQuery RemoveTagsFromResourceMessage
 
 instance ToPath RemoveTagsFromResourceMessage where

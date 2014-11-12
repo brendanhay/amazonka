@@ -44,16 +44,13 @@ import Network.AWS.CloudWatch.Types
 
 newtype DisableAlarmActionsInput = DisableAlarmActionsInput
     { _daaiAlarmNames :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList DisableAlarmActionsInput
+    type Item DisableAlarmActionsInput = Text
+
+    fromList = DisableAlarmActionsInput . fromList
+    toList   = toList . _daaiAlarmNames
 
 -- | 'DisableAlarmActionsInput' constructor.
 --
@@ -69,6 +66,7 @@ disableAlarmActionsInput = DisableAlarmActionsInput
 -- | The names of the alarms to disable actions for.
 daaiAlarmNames :: Lens' DisableAlarmActionsInput [Text]
 daaiAlarmNames = lens _daaiAlarmNames (\s a -> s { _daaiAlarmNames = a })
+
 instance ToQuery DisableAlarmActionsInput
 
 instance ToPath DisableAlarmActionsInput where

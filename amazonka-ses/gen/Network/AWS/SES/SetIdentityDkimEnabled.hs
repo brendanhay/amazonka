@@ -54,7 +54,7 @@ import Network.AWS.SES.Types
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled
     { _sideDkimEnabled :: Bool
     , _sideIdentity    :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetIdentityDkimEnabled' constructor.
 --
@@ -80,6 +80,7 @@ sideDkimEnabled = lens _sideDkimEnabled (\s a -> s { _sideDkimEnabled = a })
 -- | The identity for which DKIM signing should be enabled or disabled.
 sideIdentity :: Lens' SetIdentityDkimEnabled Text
 sideIdentity = lens _sideIdentity (\s a -> s { _sideIdentity = a })
+
 instance ToQuery SetIdentityDkimEnabled
 
 instance ToPath SetIdentityDkimEnabled where

@@ -73,7 +73,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute
     , _mia1SriovNetSupport                   :: Maybe AttributeValue
     , _mia1UserData                          :: Maybe BlobAttributeValue
     , _mia1Value                             :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyInstanceAttribute' constructor.
 --
@@ -225,6 +225,7 @@ mia1UserData = lens _mia1UserData (\s a -> s { _mia1UserData = a })
 -- attribute.
 mia1Value :: Lens' ModifyInstanceAttribute (Maybe Text)
 mia1Value = lens _mia1Value (\s a -> s { _mia1Value = a })
+
 instance ToQuery ModifyInstanceAttribute
 
 instance ToPath ModifyInstanceAttribute where

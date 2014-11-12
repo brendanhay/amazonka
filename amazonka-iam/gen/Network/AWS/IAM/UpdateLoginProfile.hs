@@ -48,7 +48,7 @@ data UpdateLoginProfile = UpdateLoginProfile
     { _ulpPassword              :: Maybe (Sensitive Text)
     , _ulpPasswordResetRequired :: Maybe Bool
     , _ulpUserName              :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateLoginProfile' constructor.
 --
@@ -82,6 +82,7 @@ ulpPasswordResetRequired =
 -- | The name of the user whose password you want to update.
 ulpUserName :: Lens' UpdateLoginProfile Text
 ulpUserName = lens _ulpUserName (\s a -> s { _ulpUserName = a })
+
 instance ToQuery UpdateLoginProfile
 
 instance ToPath UpdateLoginProfile where

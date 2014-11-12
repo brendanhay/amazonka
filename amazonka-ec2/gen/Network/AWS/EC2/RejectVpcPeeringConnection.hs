@@ -50,7 +50,7 @@ import Network.AWS.EC2.Types
 data RejectVpcPeeringConnection = RejectVpcPeeringConnection
     { _rvpcDryRun                 :: Maybe Bool
     , _rvpcVpcPeeringConnectionId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RejectVpcPeeringConnection' constructor.
 --
@@ -75,6 +75,7 @@ rvpcVpcPeeringConnectionId :: Lens' RejectVpcPeeringConnection Text
 rvpcVpcPeeringConnectionId =
     lens _rvpcVpcPeeringConnectionId
         (\s a -> s { _rvpcVpcPeeringConnectionId = a })
+
 instance ToQuery RejectVpcPeeringConnection
 
 instance ToPath RejectVpcPeeringConnection where
@@ -82,7 +83,7 @@ instance ToPath RejectVpcPeeringConnection where
 
 newtype RejectVpcPeeringConnectionResult = RejectVpcPeeringConnectionResult
     { _rvpcrReturn :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RejectVpcPeeringConnectionResult' constructor.
 --

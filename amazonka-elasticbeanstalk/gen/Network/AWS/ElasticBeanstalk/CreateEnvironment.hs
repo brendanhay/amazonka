@@ -79,7 +79,7 @@ data CreateEnvironmentMessage = CreateEnvironmentMessage
     , _cemTemplateName      :: Maybe Text
     , _cemTier              :: Maybe EnvironmentTier
     , _cemVersionLabel      :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateEnvironmentMessage' constructor.
 --
@@ -203,6 +203,7 @@ cemTier = lens _cemTier (\s a -> s { _cemTier = a })
 -- application in the container.
 cemVersionLabel :: Lens' CreateEnvironmentMessage (Maybe Text)
 cemVersionLabel = lens _cemVersionLabel (\s a -> s { _cemVersionLabel = a })
+
 instance ToQuery CreateEnvironmentMessage
 
 instance ToPath CreateEnvironmentMessage where

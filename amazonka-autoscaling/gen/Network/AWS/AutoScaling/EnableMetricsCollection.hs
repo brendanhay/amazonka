@@ -50,7 +50,7 @@ data EnableMetricsCollectionQuery = EnableMetricsCollectionQuery
     { _emcqAutoScalingGroupName :: Text
     , _emcqGranularity          :: Text
     , _emcqMetrics              :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EnableMetricsCollectionQuery' constructor.
 --
@@ -89,6 +89,7 @@ emcqGranularity = lens _emcqGranularity (\s a -> s { _emcqGranularity = a })
 -- GroupTotalInstances.
 emcqMetrics :: Lens' EnableMetricsCollectionQuery [Text]
 emcqMetrics = lens _emcqMetrics (\s a -> s { _emcqMetrics = a })
+
 instance ToQuery EnableMetricsCollectionQuery
 
 instance ToPath EnableMetricsCollectionQuery where

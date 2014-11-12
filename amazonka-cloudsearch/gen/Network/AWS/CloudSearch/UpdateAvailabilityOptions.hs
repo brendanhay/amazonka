@@ -51,7 +51,7 @@ import Network.AWS.CloudSearch.Types
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions
     { _uaoDomainName :: Text
     , _uaoMultiAZ    :: Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateAvailabilityOptions' constructor.
 --
@@ -78,6 +78,7 @@ uaoDomainName = lens _uaoDomainName (\s a -> s { _uaoDomainName = a })
 -- setting the Multi-AZ option to false.
 uaoMultiAZ :: Lens' UpdateAvailabilityOptions Bool
 uaoMultiAZ = lens _uaoMultiAZ (\s a -> s { _uaoMultiAZ = a })
+
 instance ToQuery UpdateAvailabilityOptions
 
 instance ToPath UpdateAvailabilityOptions where
@@ -85,7 +86,7 @@ instance ToPath UpdateAvailabilityOptions where
 
 newtype UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
     { _uaorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UpdateAvailabilityOptionsResponse' constructor.
 --

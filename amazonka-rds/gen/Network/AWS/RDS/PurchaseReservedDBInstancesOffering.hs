@@ -50,7 +50,7 @@ data PurchaseReservedDBInstancesOfferingMessage = PurchaseReservedDBInstancesOff
     , _prdbiomReservedDBInstanceId          :: Maybe Text
     , _prdbiomReservedDBInstancesOfferingId :: Text
     , _prdbiomTags                          :: [Tag]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PurchaseReservedDBInstancesOfferingMessage' constructor.
 --
@@ -94,6 +94,7 @@ prdbiomReservedDBInstancesOfferingId =
 
 prdbiomTags :: Lens' PurchaseReservedDBInstancesOfferingMessage [Tag]
 prdbiomTags = lens _prdbiomTags (\s a -> s { _prdbiomTags = a })
+
 instance ToQuery PurchaseReservedDBInstancesOfferingMessage
 
 instance ToPath PurchaseReservedDBInstancesOfferingMessage where
@@ -101,7 +102,7 @@ instance ToPath PurchaseReservedDBInstancesOfferingMessage where
 
 newtype PurchaseReservedDBInstancesOfferingResult = PurchaseReservedDBInstancesOfferingResult
     { _prdbiorReservedDBInstance :: Maybe ReservedDBInstance
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PurchaseReservedDBInstancesOfferingResult' constructor.
 --

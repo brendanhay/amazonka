@@ -48,7 +48,7 @@ data UpdateGroup = UpdateGroup
     { _ugGroupName    :: Text
     , _ugNewGroupName :: Maybe Text
     , _ugNewPath      :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateGroup' constructor.
 --
@@ -80,6 +80,7 @@ ugNewGroupName = lens _ugNewGroupName (\s a -> s { _ugNewGroupName = a })
 -- | New path for the group. Only include this if changing the group's path.
 ugNewPath :: Lens' UpdateGroup (Maybe Text)
 ugNewPath = lens _ugNewPath (\s a -> s { _ugNewPath = a })
+
 instance ToQuery UpdateGroup
 
 instance ToPath UpdateGroup where

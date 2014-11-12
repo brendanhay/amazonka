@@ -46,7 +46,7 @@ data DetachNetworkInterface = DetachNetworkInterface
     { _dni2AttachmentId :: Text
     , _dni2DryRun       :: Maybe Bool
     , _dni2Force        :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DetachNetworkInterface' constructor.
 --
@@ -76,6 +76,7 @@ dni2DryRun = lens _dni2DryRun (\s a -> s { _dni2DryRun = a })
 -- | Specifies whether to force a detachment.
 dni2Force :: Lens' DetachNetworkInterface (Maybe Bool)
 dni2Force = lens _dni2Force (\s a -> s { _dni2Force = a })
+
 instance ToQuery DetachNetworkInterface
 
 instance ToPath DetachNetworkInterface where

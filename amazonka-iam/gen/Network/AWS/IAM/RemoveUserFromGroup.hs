@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 data RemoveUserFromGroup = RemoveUserFromGroup
     { _rufgGroupName :: Text
     , _rufgUserName  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RemoveUserFromGroup' constructor.
 --
@@ -69,6 +69,7 @@ rufgGroupName = lens _rufgGroupName (\s a -> s { _rufgGroupName = a })
 -- | The name of the user to remove.
 rufgUserName :: Lens' RemoveUserFromGroup Text
 rufgUserName = lens _rufgUserName (\s a -> s { _rufgUserName = a })
+
 instance ToQuery RemoveUserFromGroup
 
 instance ToPath RemoveUserFromGroup where

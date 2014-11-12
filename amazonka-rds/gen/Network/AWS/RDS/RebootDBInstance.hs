@@ -60,7 +60,7 @@ import Network.AWS.RDS.Types
 data RebootDBInstanceMessage = RebootDBInstanceMessage
     { _rdbimDBInstanceIdentifier :: Text
     , _rdbimForceFailover        :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RebootDBInstanceMessage' constructor.
 --
@@ -92,6 +92,7 @@ rdbimDBInstanceIdentifier =
 rdbimForceFailover :: Lens' RebootDBInstanceMessage (Maybe Bool)
 rdbimForceFailover =
     lens _rdbimForceFailover (\s a -> s { _rdbimForceFailover = a })
+
 instance ToQuery RebootDBInstanceMessage
 
 instance ToPath RebootDBInstanceMessage where
@@ -99,7 +100,7 @@ instance ToPath RebootDBInstanceMessage where
 
 newtype RebootDBInstanceResult = RebootDBInstanceResult
     { _rdbirDBInstance :: Maybe DBInstance
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RebootDBInstanceResult' constructor.
 --

@@ -49,7 +49,7 @@ data UpdateServerCertificate = UpdateServerCertificate
     { _usc1NewPath                  :: Maybe Text
     , _usc1NewServerCertificateName :: Maybe Text
     , _usc1ServerCertificateName    :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateServerCertificate' constructor.
 --
@@ -86,6 +86,7 @@ usc1ServerCertificateName :: Lens' UpdateServerCertificate Text
 usc1ServerCertificateName =
     lens _usc1ServerCertificateName
         (\s a -> s { _usc1ServerCertificateName = a })
+
 instance ToQuery UpdateServerCertificate
 
 instance ToPath UpdateServerCertificate where

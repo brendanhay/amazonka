@@ -57,7 +57,7 @@ data DescribeScalingActivitiesType = DescribeScalingActivitiesType
     , _dsatAutoScalingGroupName :: Maybe Text
     , _dsatMaxRecords           :: Maybe Int
     , _dsatNextToken            :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeScalingActivitiesType' constructor.
 --
@@ -101,6 +101,7 @@ dsatMaxRecords = lens _dsatMaxRecords (\s a -> s { _dsatMaxRecords = a })
 -- pagination.
 dsatNextToken :: Lens' DescribeScalingActivitiesType (Maybe Text)
 dsatNextToken = lens _dsatNextToken (\s a -> s { _dsatNextToken = a })
+
 instance ToQuery DescribeScalingActivitiesType
 
 instance ToPath DescribeScalingActivitiesType where
@@ -109,7 +110,7 @@ instance ToPath DescribeScalingActivitiesType where
 data ActivitiesType = ActivitiesType
     { _atActivities :: [Activity]
     , _atNextToken  :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ActivitiesType' constructor.
 --

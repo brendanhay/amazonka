@@ -51,7 +51,7 @@ import Network.AWS.IAM.Types
 data ListAccountAliases = ListAccountAliases
     { _laaMarker   :: Maybe Text
     , _laaMaxItems :: Maybe Natural
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListAccountAliases' constructor.
 --
@@ -80,6 +80,7 @@ laaMarker = lens _laaMarker (\s a -> s { _laaMarker = a })
 -- defaults to 100.
 laaMaxItems :: Lens' ListAccountAliases (Maybe Natural)
 laaMaxItems = lens _laaMaxItems (\s a -> s { _laaMaxItems = a })
+
 instance ToQuery ListAccountAliases
 
 instance ToPath ListAccountAliases where
@@ -89,7 +90,7 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse
     { _laarAccountAliases :: [Text]
     , _laarIsTruncated    :: Maybe Bool
     , _laarMarker         :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListAccountAliasesResponse' constructor.
 --

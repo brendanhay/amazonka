@@ -52,7 +52,7 @@ data ListRolePolicies = ListRolePolicies
     { _lrpMarker   :: Maybe Text
     , _lrpMaxItems :: Maybe Natural
     , _lrpRoleName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListRolePolicies' constructor.
 --
@@ -90,6 +90,7 @@ lrpMaxItems = lens _lrpMaxItems (\s a -> s { _lrpMaxItems = a })
 -- | The name of the role to list policies for.
 lrpRoleName :: Lens' ListRolePolicies Text
 lrpRoleName = lens _lrpRoleName (\s a -> s { _lrpRoleName = a })
+
 instance ToQuery ListRolePolicies
 
 instance ToPath ListRolePolicies where
@@ -99,7 +100,7 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse
     { _lrprIsTruncated :: Maybe Bool
     , _lrprMarker      :: Maybe Text
     , _lrprPolicyNames :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListRolePoliciesResponse' constructor.
 --

@@ -50,7 +50,7 @@ data EstimateTemplateCostInput = EstimateTemplateCostInput
     { _etciParameters   :: [Parameter]
     , _etciTemplateBody :: Maybe Text
     , _etciTemplateURL  :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'EstimateTemplateCostInput' constructor.
 --
@@ -88,6 +88,7 @@ etciTemplateBody = lens _etciTemplateBody (\s a -> s { _etciTemplateBody = a })
 -- are passed, only TemplateBody is used.
 etciTemplateURL :: Lens' EstimateTemplateCostInput (Maybe Text)
 etciTemplateURL = lens _etciTemplateURL (\s a -> s { _etciTemplateURL = a })
+
 instance ToQuery EstimateTemplateCostInput
 
 instance ToPath EstimateTemplateCostInput where
@@ -95,7 +96,7 @@ instance ToPath EstimateTemplateCostInput where
 
 newtype EstimateTemplateCostOutput = EstimateTemplateCostOutput
     { _etcoUrl :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'EstimateTemplateCostOutput' constructor.
 --

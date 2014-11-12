@@ -42,7 +42,7 @@ import Network.AWS.Redshift.Types
 
 newtype DeleteClusterParameterGroupMessage = DeleteClusterParameterGroupMessage
     { _dcpgmParameterGroupName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteClusterParameterGroupMessage' constructor.
 --
@@ -62,6 +62,7 @@ deleteClusterParameterGroupMessage p1 = DeleteClusterParameterGroupMessage
 dcpgmParameterGroupName :: Lens' DeleteClusterParameterGroupMessage Text
 dcpgmParameterGroupName =
     lens _dcpgmParameterGroupName (\s a -> s { _dcpgmParameterGroupName = a })
+
 instance ToQuery DeleteClusterParameterGroupMessage
 
 instance ToPath DeleteClusterParameterGroupMessage where

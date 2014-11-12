@@ -35,18 +35,21 @@ module Network.AWS.Prelude
     , Text
 
     -- * Classes
-    , MonadCatch      (..)
-    , MonadResource   (..)
-    , MonadReader     (..)
-    , MonadError      (..)
-    , State
-    , FromJSON        (..)
-    , ToJSON          (..)
     , AWSError        (..)
-    , AWSService      (..)
-    , AWSRequest      (..)
     , AWSPager        (..)
+    , AWSRequest      (..)
+    , AWSService      (..)
+    , FromJSON        (..)
+    , IsList
+    , IsString
+    , MonadCatch      (..)
+    , MonadError      (..)
+    , MonadReader     (..)
+    , MonadResource   (..)
     , Semigroup
+    , State
+    , ToJSON          (..)
+    , Whole
 
     -- * Endpoints
     , global
@@ -82,15 +85,19 @@ import Data.Aeson                   (FromJSON(..), ToJSON(..))
 import Data.Bifunctor               as Export
 import Data.ByteString              (ByteString)
 import Data.Default.Class           as Export
+import Data.Foldable                (Foldable)
 import Data.HashMap.Strict          (HashMap)
 import Data.Hashable                as Export
 import Data.List.NonEmpty           (NonEmpty)
 import Data.Maybe                   as Export
 import Data.Monoid                  as Export hiding (All, Sum)
 import Data.Semigroup               (Semigroup)
+import Data.String                  (IsString)
 import Data.Tagged                  as Export
 import Data.Text                    (Text)
+import Data.Traversable             (Traversable)
 import Data.Typeable                (Typeable)
+import GHC.Exts                     (IsList)
 import GHC.Generics                 (Generic)
 import Network.AWS.Data             as Export hiding (Query)
 import Network.AWS.Error            (RESTError)
@@ -98,7 +105,7 @@ import Network.AWS.Response         as Export
 import Network.AWS.Types
 import Network.HTTP.Client          (HttpException, RequestBody)
 import Network.HTTP.Types.Status    (Status)
-import Numeric.Natural              (Natural)
+import Numeric.Natural              (Natural, Whole)
 import Prelude                      as Export hiding (head, error)
 
 import Control.Lens                 as Lens

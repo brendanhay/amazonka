@@ -51,7 +51,7 @@ import Network.AWS.CloudSearch.Types
 data DefineSuggester = DefineSuggester
     { _ds2DomainName :: Text
     , _ds2Suggester  :: Suggester
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DefineSuggester' constructor.
 --
@@ -74,6 +74,7 @@ ds2DomainName = lens _ds2DomainName (\s a -> s { _ds2DomainName = a })
 
 ds2Suggester :: Lens' DefineSuggester Suggester
 ds2Suggester = lens _ds2Suggester (\s a -> s { _ds2Suggester = a })
+
 instance ToQuery DefineSuggester
 
 instance ToPath DefineSuggester where
@@ -81,7 +82,7 @@ instance ToPath DefineSuggester where
 
 newtype DefineSuggesterResponse = DefineSuggesterResponse
     { _dsrSuggester :: SuggesterStatus
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DefineSuggesterResponse' constructor.
 --

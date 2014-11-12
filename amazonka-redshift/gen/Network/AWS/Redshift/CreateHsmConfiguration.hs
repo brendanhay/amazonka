@@ -61,7 +61,7 @@ data CreateHsmConfigurationMessage = CreateHsmConfigurationMessage
     , _chcmHsmPartitionName           :: Text
     , _chcmHsmPartitionPassword       :: Text
     , _chcmHsmServerPublicCertificate :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateHsmConfigurationMessage' constructor.
 --
@@ -129,6 +129,7 @@ chcmHsmServerPublicCertificate :: Lens' CreateHsmConfigurationMessage Text
 chcmHsmServerPublicCertificate =
     lens _chcmHsmServerPublicCertificate
         (\s a -> s { _chcmHsmServerPublicCertificate = a })
+
 instance ToQuery CreateHsmConfigurationMessage
 
 instance ToPath CreateHsmConfigurationMessage where
@@ -136,7 +137,7 @@ instance ToPath CreateHsmConfigurationMessage where
 
 newtype CreateHsmConfigurationResult = CreateHsmConfigurationResult
     { _chcrHsmConfiguration :: Maybe HsmConfiguration
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateHsmConfigurationResult' constructor.
 --

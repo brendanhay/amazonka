@@ -49,6 +49,7 @@ data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
 -- | 'ListVerifiedEmailAddresses' constructor.
 listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
 listVerifiedEmailAddresses = ListVerifiedEmailAddresses
+
 instance ToQuery ListVerifiedEmailAddresses
 
 instance ToPath ListVerifiedEmailAddresses where
@@ -56,16 +57,13 @@ instance ToPath ListVerifiedEmailAddresses where
 
 newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
     { _lvearVerifiedEmailAddresses :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList ListVerifiedEmailAddressesResponse
+    type Item ListVerifiedEmailAddressesResponse = Text
+
+    fromList = ListVerifiedEmailAddressesResponse . fromList
+    toList   = toList . _lvearVerifiedEmailAddresses
 
 -- | 'ListVerifiedEmailAddressesResponse' constructor.
 --

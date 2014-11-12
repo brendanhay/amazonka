@@ -51,7 +51,7 @@ data ConfirmProductInstance = ConfirmProductInstance
     { _cpiDryRun      :: Maybe Bool
     , _cpiInstanceId  :: Text
     , _cpiProductCode :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ConfirmProductInstance' constructor.
 --
@@ -82,6 +82,7 @@ cpiInstanceId = lens _cpiInstanceId (\s a -> s { _cpiInstanceId = a })
 -- | The product code. This must be a product code that you own.
 cpiProductCode :: Lens' ConfirmProductInstance Text
 cpiProductCode = lens _cpiProductCode (\s a -> s { _cpiProductCode = a })
+
 instance ToQuery ConfirmProductInstance
 
 instance ToPath ConfirmProductInstance where
@@ -89,7 +90,7 @@ instance ToPath ConfirmProductInstance where
 
 newtype ConfirmProductInstanceResult = ConfirmProductInstanceResult
     { _cpirOwnerId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ConfirmProductInstanceResult' constructor.
 --

@@ -44,7 +44,7 @@ import Network.AWS.Redshift.Types
 
 newtype DeleteClusterSecurityGroupMessage = DeleteClusterSecurityGroupMessage
     { _dcsgmClusterSecurityGroupName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteClusterSecurityGroupMessage' constructor.
 --
@@ -63,6 +63,7 @@ dcsgmClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroupMessage Text
 dcsgmClusterSecurityGroupName =
     lens _dcsgmClusterSecurityGroupName
         (\s a -> s { _dcsgmClusterSecurityGroupName = a })
+
 instance ToQuery DeleteClusterSecurityGroupMessage
 
 instance ToPath DeleteClusterSecurityGroupMessage where

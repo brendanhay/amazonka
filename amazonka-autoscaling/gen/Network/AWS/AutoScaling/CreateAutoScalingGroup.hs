@@ -72,7 +72,7 @@ data CreateAutoScalingGroupType = CreateAutoScalingGroupType
     , _casgtTags                    :: [Tag]
     , _casgtTerminationPolicies     :: [Text]
     , _casgtVPCZoneIdentifier       :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateAutoScalingGroupType' constructor.
 --
@@ -254,6 +254,7 @@ casgtTerminationPolicies =
 casgtVPCZoneIdentifier :: Lens' CreateAutoScalingGroupType (Maybe Text)
 casgtVPCZoneIdentifier =
     lens _casgtVPCZoneIdentifier (\s a -> s { _casgtVPCZoneIdentifier = a })
+
 instance ToQuery CreateAutoScalingGroupType
 
 instance ToPath CreateAutoScalingGroupType where

@@ -44,7 +44,7 @@ import Network.AWS.CloudFront.Types
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity
     { _dcfoaiId      :: Text
     , _dcfoaiIfMatch :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteCloudFrontOriginAccessIdentity' constructor.
 --

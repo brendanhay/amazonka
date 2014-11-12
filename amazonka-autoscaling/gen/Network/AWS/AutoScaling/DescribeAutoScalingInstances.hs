@@ -54,7 +54,7 @@ data DescribeAutoScalingInstancesType = DescribeAutoScalingInstancesType
     { _dasitInstanceIds :: [Text]
     , _dasitMaxRecords  :: Maybe Int
     , _dasitNextToken   :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAutoScalingInstancesType' constructor.
 --
@@ -89,6 +89,7 @@ dasitMaxRecords = lens _dasitMaxRecords (\s a -> s { _dasitMaxRecords = a })
 -- available.
 dasitNextToken :: Lens' DescribeAutoScalingInstancesType (Maybe Text)
 dasitNextToken = lens _dasitNextToken (\s a -> s { _dasitNextToken = a })
+
 instance ToQuery DescribeAutoScalingInstancesType
 
 instance ToPath DescribeAutoScalingInstancesType where
@@ -97,7 +98,7 @@ instance ToPath DescribeAutoScalingInstancesType where
 data AutoScalingInstancesType = AutoScalingInstancesType
     { _asitAutoScalingInstances :: [AutoScalingInstanceDetails]
     , _asitNextToken            :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AutoScalingInstancesType' constructor.
 --

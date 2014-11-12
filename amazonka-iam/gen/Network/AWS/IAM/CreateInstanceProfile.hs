@@ -49,7 +49,7 @@ import Network.AWS.IAM.Types
 data CreateInstanceProfile = CreateInstanceProfile
     { _cipInstanceProfileName :: Text
     , _cipPath                :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateInstanceProfile' constructor.
 --
@@ -76,6 +76,7 @@ cipInstanceProfileName =
 -- is not included, it defaults to a slash (/).
 cipPath :: Lens' CreateInstanceProfile (Maybe Text)
 cipPath = lens _cipPath (\s a -> s { _cipPath = a })
+
 instance ToQuery CreateInstanceProfile
 
 instance ToPath CreateInstanceProfile where
@@ -83,7 +84,7 @@ instance ToPath CreateInstanceProfile where
 
 newtype CreateInstanceProfileResponse = CreateInstanceProfileResponse
     { _ciprInstanceProfile :: InstanceProfile
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateInstanceProfileResponse' constructor.
 --

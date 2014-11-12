@@ -46,16 +46,13 @@ import Network.AWS.SES.Types
 
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
     { _givaIdentities :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList GetIdentityVerificationAttributes
+    type Item GetIdentityVerificationAttributes = Text
+
+    fromList = GetIdentityVerificationAttributes . fromList
+    toList   = toList . _givaIdentities
 
 -- | 'GetIdentityVerificationAttributes' constructor.
 --
@@ -71,6 +68,7 @@ getIdentityVerificationAttributes = GetIdentityVerificationAttributes
 -- | A list of identities.
 givaIdentities :: Lens' GetIdentityVerificationAttributes [Text]
 givaIdentities = lens _givaIdentities (\s a -> s { _givaIdentities = a })
+
 instance ToQuery GetIdentityVerificationAttributes
 
 instance ToPath GetIdentityVerificationAttributes where
@@ -78,7 +76,13 @@ instance ToPath GetIdentityVerificationAttributes where
 
 newtype GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse
     { _givarVerificationAttributes :: Map Text IdentityVerificationAttributes
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList GetIdentityVerificationAttributesResponse
+    type Item GetIdentityVerificationAttributesResponse = (Text, IdentityVerificationAttributes)
+
+    fromList = GetIdentityVerificationAttributesResponse . fromList
+    toList   = toList . _givarVerificationAttributes
 
 -- | 'GetIdentityVerificationAttributesResponse' constructor.
 --

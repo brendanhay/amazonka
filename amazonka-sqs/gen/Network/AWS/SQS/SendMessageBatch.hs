@@ -61,7 +61,7 @@ import Network.AWS.SQS.Types
 data SendMessageBatch = SendMessageBatch
     { _smbEntries  :: [SendMessageBatchRequestEntry]
     , _smbQueueUrl :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'SendMessageBatch' constructor.
 --
@@ -85,6 +85,7 @@ smbEntries = lens _smbEntries (\s a -> s { _smbEntries = a })
 -- | The URL of the Amazon SQS queue to take action on.
 smbQueueUrl :: Lens' SendMessageBatch Text
 smbQueueUrl = lens _smbQueueUrl (\s a -> s { _smbQueueUrl = a })
+
 instance ToQuery SendMessageBatch
 
 instance ToPath SendMessageBatch where
@@ -93,7 +94,7 @@ instance ToPath SendMessageBatch where
 data SendMessageBatchResult = SendMessageBatchResult
     { _smbrFailed     :: [BatchResultErrorEntry]
     , _smbrSuccessful :: [SendMessageBatchResultEntry]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'SendMessageBatchResult' constructor.
 --

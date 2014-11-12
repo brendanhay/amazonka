@@ -60,7 +60,7 @@ data DescribeVolumes = DescribeVolumes
     , _dvMaxResults :: Maybe Int
     , _dvNextToken  :: Maybe Text
     , _dvVolumeIds  :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVolumes' constructor.
 --
@@ -136,6 +136,7 @@ dvNextToken = lens _dvNextToken (\s a -> s { _dvNextToken = a })
 -- | One or more volume IDs.
 dvVolumeIds :: Lens' DescribeVolumes [Text]
 dvVolumeIds = lens _dvVolumeIds (\s a -> s { _dvVolumeIds = a })
+
 instance ToQuery DescribeVolumes
 
 instance ToPath DescribeVolumes where
@@ -144,7 +145,7 @@ instance ToPath DescribeVolumes where
 data DescribeVolumesResult = DescribeVolumesResult
     { _dvrNextToken :: Maybe Text
     , _dvrVolumes   :: [Volume]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVolumesResult' constructor.
 --

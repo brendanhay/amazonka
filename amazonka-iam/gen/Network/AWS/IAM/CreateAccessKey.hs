@@ -55,7 +55,7 @@ import Network.AWS.IAM.Types
 
 newtype CreateAccessKey = CreateAccessKey
     { _cakUserName :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateAccessKey' constructor.
 --
@@ -71,6 +71,7 @@ createAccessKey = CreateAccessKey
 -- | The user name that the new key will belong to.
 cakUserName :: Lens' CreateAccessKey (Maybe Text)
 cakUserName = lens _cakUserName (\s a -> s { _cakUserName = a })
+
 instance ToQuery CreateAccessKey
 
 instance ToPath CreateAccessKey where
@@ -78,7 +79,7 @@ instance ToPath CreateAccessKey where
 
 newtype CreateAccessKeyResponse = CreateAccessKeyResponse
     { _cakrAccessKey :: AccessKey
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateAccessKeyResponse' constructor.
 --

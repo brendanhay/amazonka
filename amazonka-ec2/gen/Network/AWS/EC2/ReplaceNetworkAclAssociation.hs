@@ -51,7 +51,7 @@ data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
     { _rnaaAssociationId :: Text
     , _rnaaDryRun        :: Maybe Bool
     , _rnaaNetworkAclId  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ReplaceNetworkAclAssociation' constructor.
 --
@@ -84,6 +84,7 @@ rnaaDryRun = lens _rnaaDryRun (\s a -> s { _rnaaDryRun = a })
 -- | The ID of the new network ACL to associate with the subnet.
 rnaaNetworkAclId :: Lens' ReplaceNetworkAclAssociation Text
 rnaaNetworkAclId = lens _rnaaNetworkAclId (\s a -> s { _rnaaNetworkAclId = a })
+
 instance ToQuery ReplaceNetworkAclAssociation
 
 instance ToPath ReplaceNetworkAclAssociation where
@@ -91,7 +92,7 @@ instance ToPath ReplaceNetworkAclAssociation where
 
 newtype ReplaceNetworkAclAssociationResult = ReplaceNetworkAclAssociationResult
     { _rnaarNewAssociationId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ReplaceNetworkAclAssociationResult' constructor.
 --

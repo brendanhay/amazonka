@@ -45,7 +45,7 @@ import Network.AWS.SNS.Types
 
 newtype GetTopicAttributesInput = GetTopicAttributesInput
     { _gtaiTopicArn :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetTopicAttributesInput' constructor.
 --
@@ -62,6 +62,7 @@ getTopicAttributesInput p1 = GetTopicAttributesInput
 -- | The ARN of the topic whose properties you want to get.
 gtaiTopicArn :: Lens' GetTopicAttributesInput Text
 gtaiTopicArn = lens _gtaiTopicArn (\s a -> s { _gtaiTopicArn = a })
+
 instance ToQuery GetTopicAttributesInput
 
 instance ToPath GetTopicAttributesInput where
@@ -69,7 +70,13 @@ instance ToPath GetTopicAttributesInput where
 
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
     { _gtarAttributes :: Map Text Text
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList GetTopicAttributesResponse
+    type Item GetTopicAttributesResponse = (Text, Text)
+
+    fromList = GetTopicAttributesResponse . fromList
+    toList   = toList . _gtarAttributes
 
 -- | 'GetTopicAttributesResponse' constructor.
 --

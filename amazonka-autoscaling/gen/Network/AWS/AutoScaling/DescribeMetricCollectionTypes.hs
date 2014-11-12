@@ -48,6 +48,7 @@ data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
 -- | 'DescribeMetricCollectionTypes' constructor.
 describeMetricCollectionTypes :: DescribeMetricCollectionTypes
 describeMetricCollectionTypes = DescribeMetricCollectionTypes
+
 instance ToQuery DescribeMetricCollectionTypes
 
 instance ToPath DescribeMetricCollectionTypes where
@@ -56,7 +57,7 @@ instance ToPath DescribeMetricCollectionTypes where
 data DescribeMetricCollectionTypesAnswer = DescribeMetricCollectionTypesAnswer
     { _dmctaGranularities :: [MetricGranularityType]
     , _dmctaMetrics       :: [MetricCollectionType]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeMetricCollectionTypesAnswer' constructor.
 --

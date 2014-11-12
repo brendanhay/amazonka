@@ -62,7 +62,7 @@ data CreatePlatformEndpointInput = CreatePlatformEndpointInput
     , _cpeiCustomUserData         :: Maybe Text
     , _cpeiPlatformApplicationArn :: Text
     , _cpeiToken                  :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreatePlatformEndpointInput' constructor.
 --
@@ -112,6 +112,7 @@ cpeiPlatformApplicationArn =
 -- ID.
 cpeiToken :: Lens' CreatePlatformEndpointInput Text
 cpeiToken = lens _cpeiToken (\s a -> s { _cpeiToken = a })
+
 instance ToQuery CreatePlatformEndpointInput
 
 instance ToPath CreatePlatformEndpointInput where
@@ -119,7 +120,7 @@ instance ToPath CreatePlatformEndpointInput where
 
 newtype CreateEndpointResponse = CreateEndpointResponse
     { _cerEndpointArn :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateEndpointResponse' constructor.
 --

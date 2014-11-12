@@ -52,7 +52,7 @@ data CreateClusterSubnetGroupMessage = CreateClusterSubnetGroupMessage
     { _ccsgm1ClusterSubnetGroupName :: Text
     , _ccsgm1Description            :: Text
     , _ccsgm1SubnetIds              :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateClusterSubnetGroupMessage' constructor.
 --
@@ -92,6 +92,7 @@ ccsgm1Description =
 -- single request.
 ccsgm1SubnetIds :: Lens' CreateClusterSubnetGroupMessage [Text]
 ccsgm1SubnetIds = lens _ccsgm1SubnetIds (\s a -> s { _ccsgm1SubnetIds = a })
+
 instance ToQuery CreateClusterSubnetGroupMessage
 
 instance ToPath CreateClusterSubnetGroupMessage where
@@ -99,7 +100,7 @@ instance ToPath CreateClusterSubnetGroupMessage where
 
 newtype CreateClusterSubnetGroupResult = CreateClusterSubnetGroupResult
     { _ccsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateClusterSubnetGroupResult' constructor.
 --

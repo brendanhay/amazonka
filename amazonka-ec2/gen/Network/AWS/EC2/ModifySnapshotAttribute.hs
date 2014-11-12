@@ -59,7 +59,7 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute
     , _msaOperationType          :: Maybe Text
     , _msaSnapshotId             :: Text
     , _msaUserIds                :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifySnapshotAttribute' constructor.
 --
@@ -119,6 +119,7 @@ msaSnapshotId = lens _msaSnapshotId (\s a -> s { _msaSnapshotId = a })
 -- | The account ID to modify for the snapshot.
 msaUserIds :: Lens' ModifySnapshotAttribute [Text]
 msaUserIds = lens _msaUserIds (\s a -> s { _msaUserIds = a })
+
 instance ToQuery ModifySnapshotAttribute
 
 instance ToPath ModifySnapshotAttribute where

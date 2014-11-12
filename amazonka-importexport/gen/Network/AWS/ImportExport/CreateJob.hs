@@ -59,7 +59,7 @@ data CreateJobInput = CreateJobInput
     , _cjiManifest         :: Text
     , _cjiManifestAddendum :: Maybe Text
     , _cjiValidateOnly     :: Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateJobInput' constructor.
 --
@@ -96,6 +96,7 @@ cjiManifestAddendum =
 
 cjiValidateOnly :: Lens' CreateJobInput Bool
 cjiValidateOnly = lens _cjiValidateOnly (\s a -> s { _cjiValidateOnly = a })
+
 instance ToQuery CreateJobInput
 
 instance ToPath CreateJobInput where
@@ -108,7 +109,7 @@ data CreateJobOutput = CreateJobOutput
     , _cjoSignature             :: Maybe Text
     , _cjoSignatureFileContents :: Maybe Text
     , _cjoWarningMessage        :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateJobOutput' constructor.
 --

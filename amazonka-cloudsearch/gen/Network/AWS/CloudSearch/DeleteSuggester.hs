@@ -47,7 +47,7 @@ import Network.AWS.CloudSearch.Types
 data DeleteSuggester = DeleteSuggester
     { _ds3DomainName    :: Text
     , _ds3SuggesterName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSuggester' constructor.
 --
@@ -71,6 +71,7 @@ ds3DomainName = lens _ds3DomainName (\s a -> s { _ds3DomainName = a })
 -- | Specifies the name of the suggester you want to delete.
 ds3SuggesterName :: Lens' DeleteSuggester Text
 ds3SuggesterName = lens _ds3SuggesterName (\s a -> s { _ds3SuggesterName = a })
+
 instance ToQuery DeleteSuggester
 
 instance ToPath DeleteSuggester where
@@ -78,7 +79,7 @@ instance ToPath DeleteSuggester where
 
 newtype DeleteSuggesterResponse = DeleteSuggesterResponse
     { _dsr1Suggester :: SuggesterStatus
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteSuggesterResponse' constructor.
 --

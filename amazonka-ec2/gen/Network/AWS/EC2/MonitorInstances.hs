@@ -48,7 +48,7 @@ import Network.AWS.EC2.Types
 data MonitorInstances = MonitorInstances
     { _miDryRun      :: Maybe Bool
     , _miInstanceIds :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'MonitorInstances' constructor.
 --
@@ -70,6 +70,7 @@ miDryRun = lens _miDryRun (\s a -> s { _miDryRun = a })
 -- | One or more instance IDs.
 miInstanceIds :: Lens' MonitorInstances [Text]
 miInstanceIds = lens _miInstanceIds (\s a -> s { _miInstanceIds = a })
+
 instance ToQuery MonitorInstances
 
 instance ToPath MonitorInstances where
@@ -77,7 +78,13 @@ instance ToPath MonitorInstances where
 
 newtype MonitorInstancesResult = MonitorInstancesResult
     { _mirInstanceMonitorings :: [InstanceMonitoring]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList MonitorInstancesResult
+    type Item MonitorInstancesResult = InstanceMonitoring
+
+    fromList = MonitorInstancesResult . fromList
+    toList   = toList . _mirInstanceMonitorings
 
 -- | 'MonitorInstancesResult' constructor.
 --

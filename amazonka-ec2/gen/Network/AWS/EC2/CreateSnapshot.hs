@@ -78,7 +78,7 @@ data CreateSnapshot = CreateSnapshot
     { _cs2Description :: Maybe Text
     , _cs2DryRun      :: Maybe Bool
     , _cs2VolumeId    :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateSnapshot' constructor.
 --
@@ -108,6 +108,7 @@ cs2DryRun = lens _cs2DryRun (\s a -> s { _cs2DryRun = a })
 -- | The ID of the Amazon EBS volume.
 cs2VolumeId :: Lens' CreateSnapshot Text
 cs2VolumeId = lens _cs2VolumeId (\s a -> s { _cs2VolumeId = a })
+
 instance ToQuery CreateSnapshot
 
 instance ToPath CreateSnapshot where

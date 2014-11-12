@@ -49,7 +49,7 @@ import Network.AWS.EC2.Types
 data CreateRouteTable = CreateRouteTable
     { _crtDryRun :: Maybe Bool
     , _crtVpcId  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateRouteTable' constructor.
 --
@@ -72,6 +72,7 @@ crtDryRun = lens _crtDryRun (\s a -> s { _crtDryRun = a })
 -- | The ID of the VPC.
 crtVpcId :: Lens' CreateRouteTable Text
 crtVpcId = lens _crtVpcId (\s a -> s { _crtVpcId = a })
+
 instance ToQuery CreateRouteTable
 
 instance ToPath CreateRouteTable where
@@ -79,7 +80,7 @@ instance ToPath CreateRouteTable where
 
 newtype CreateRouteTableResult = CreateRouteTableResult
     { _crtrRouteTable :: Maybe RouteTable
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateRouteTableResult' constructor.
 --

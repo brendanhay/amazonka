@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 data AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProvider
     { _acidtoidcpClientID                 :: Text
     , _acidtoidcpOpenIDConnectProviderArn :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AddClientIDToOpenIDConnectProvider' constructor.
 --
@@ -78,6 +78,7 @@ acidtoidcpOpenIDConnectProviderArn :: Lens' AddClientIDToOpenIDConnectProvider T
 acidtoidcpOpenIDConnectProviderArn =
     lens _acidtoidcpOpenIDConnectProviderArn
         (\s a -> s { _acidtoidcpOpenIDConnectProviderArn = a })
+
 instance ToQuery AddClientIDToOpenIDConnectProvider
 
 instance ToPath AddClientIDToOpenIDConnectProvider where

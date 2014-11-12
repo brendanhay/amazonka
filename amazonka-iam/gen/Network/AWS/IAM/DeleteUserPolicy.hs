@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 data DeleteUserPolicy = DeleteUserPolicy
     { _dupPolicyName :: Text
     , _dupUserName   :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteUserPolicy' constructor.
 --
@@ -69,6 +69,7 @@ dupPolicyName = lens _dupPolicyName (\s a -> s { _dupPolicyName = a })
 -- | The name of the user the policy is associated with.
 dupUserName :: Lens' DeleteUserPolicy Text
 dupUserName = lens _dupUserName (\s a -> s { _dupUserName = a })
+
 instance ToQuery DeleteUserPolicy
 
 instance ToPath DeleteUserPolicy where

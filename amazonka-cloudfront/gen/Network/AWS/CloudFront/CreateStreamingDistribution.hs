@@ -46,7 +46,7 @@ import Network.AWS.CloudFront.Types
 
 newtype CreateStreamingDistribution = CreateStreamingDistribution
     { _csdStreamingDistributionConfig :: StreamingDistributionConfig
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateStreamingDistribution' constructor.
 --
@@ -81,7 +81,7 @@ data CreateStreamingDistributionResult = CreateStreamingDistributionResult
     { _csdrETag                  :: Maybe Text
     , _csdrLocation              :: Maybe Text
     , _csdrStreamingDistribution :: Maybe StreamingDistribution
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateStreamingDistributionResult' constructor.
 --

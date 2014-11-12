@@ -50,7 +50,7 @@ data DescribeRouteTables = DescribeRouteTables
     { _drt2DryRun        :: Maybe Bool
     , _drt2Filters       :: [Filter]
     , _drt2RouteTableIds :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeRouteTables' constructor.
 --
@@ -108,6 +108,7 @@ drt2Filters = lens _drt2Filters (\s a -> s { _drt2Filters = a })
 drt2RouteTableIds :: Lens' DescribeRouteTables [Text]
 drt2RouteTableIds =
     lens _drt2RouteTableIds (\s a -> s { _drt2RouteTableIds = a })
+
 instance ToQuery DescribeRouteTables
 
 instance ToPath DescribeRouteTables where
@@ -115,7 +116,13 @@ instance ToPath DescribeRouteTables where
 
 newtype DescribeRouteTablesResult = DescribeRouteTablesResult
     { _drtrRouteTables :: [RouteTable]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeRouteTablesResult
+    type Item DescribeRouteTablesResult = RouteTable
+
+    fromList = DescribeRouteTablesResult . fromList
+    toList   = toList . _drtrRouteTables
 
 -- | 'DescribeRouteTablesResult' constructor.
 --

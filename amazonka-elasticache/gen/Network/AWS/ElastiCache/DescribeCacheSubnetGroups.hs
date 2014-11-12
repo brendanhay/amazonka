@@ -51,7 +51,7 @@ data DescribeCacheSubnetGroupsMessage = DescribeCacheSubnetGroupsMessage
     { _dcsgmCacheSubnetGroupName :: Maybe Text
     , _dcsgmMarker               :: Maybe Text
     , _dcsgmMaxRecords           :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeCacheSubnetGroupsMessage' constructor.
 --
@@ -89,6 +89,7 @@ dcsgmMarker = lens _dcsgmMarker (\s a -> s { _dcsgmMarker = a })
 -- Constraints: minimum 20; maximum 100.
 dcsgmMaxRecords :: Lens' DescribeCacheSubnetGroupsMessage (Maybe Int)
 dcsgmMaxRecords = lens _dcsgmMaxRecords (\s a -> s { _dcsgmMaxRecords = a })
+
 instance ToQuery DescribeCacheSubnetGroupsMessage
 
 instance ToPath DescribeCacheSubnetGroupsMessage where
@@ -97,7 +98,7 @@ instance ToPath DescribeCacheSubnetGroupsMessage where
 data CacheSubnetGroupMessage = CacheSubnetGroupMessage
     { _csgm1CacheSubnetGroups :: [CacheSubnetGroup]
     , _csgm1Marker            :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CacheSubnetGroupMessage' constructor.
 --

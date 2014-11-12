@@ -46,7 +46,7 @@ import Network.AWS.Route53.Types
 data ListTagsForResources = ListTagsForResources
     { _ltfrResourceIds  :: List1 Text
     , _ltfrResourceType :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListTagsForResources' constructor.
 --
@@ -91,7 +91,13 @@ instance ToBody ListTagsForResources where
 
 newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse
     { _ltfrrResourceTagSets :: [ResourceTagSet]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList ListTagsForResourcesResponse
+    type Item ListTagsForResourcesResponse = ResourceTagSet
+
+    fromList = ListTagsForResourcesResponse . fromList
+    toList   = toList . _ltfrrResourceTagSets
 
 -- | 'ListTagsForResourcesResponse' constructor.
 --

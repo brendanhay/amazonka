@@ -51,7 +51,7 @@ data DetachInstancesQuery = DetachInstancesQuery
     { _diqAutoScalingGroupName           :: Text
     , _diqInstanceIds                    :: [Text]
     , _diqShouldDecrementDesiredCapacity :: Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DetachInstancesQuery' constructor.
 --
@@ -90,6 +90,7 @@ diqShouldDecrementDesiredCapacity :: Lens' DetachInstancesQuery Bool
 diqShouldDecrementDesiredCapacity =
     lens _diqShouldDecrementDesiredCapacity
         (\s a -> s { _diqShouldDecrementDesiredCapacity = a })
+
 instance ToQuery DetachInstancesQuery
 
 instance ToPath DetachInstancesQuery where
@@ -97,7 +98,13 @@ instance ToPath DetachInstancesQuery where
 
 newtype DetachInstancesAnswer = DetachInstancesAnswer
     { _diaActivities :: [Activity]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DetachInstancesAnswer
+    type Item DetachInstancesAnswer = Activity
+
+    fromList = DetachInstancesAnswer . fromList
+    toList   = toList . _diaActivities
 
 -- | 'DetachInstancesAnswer' constructor.
 --

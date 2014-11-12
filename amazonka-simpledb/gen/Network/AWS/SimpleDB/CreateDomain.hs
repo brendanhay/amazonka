@@ -47,7 +47,7 @@ import Network.AWS.SimpleDB.Types
 
 newtype CreateDomain = CreateDomain
     { _cdDomainName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'CreateDomain' constructor.
 --
@@ -66,6 +66,7 @@ createDomain p1 = CreateDomain
 -- '-', and '.'.
 cdDomainName :: Lens' CreateDomain Text
 cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
+
 instance ToQuery CreateDomain
 
 instance ToPath CreateDomain where

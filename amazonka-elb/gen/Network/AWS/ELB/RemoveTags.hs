@@ -44,7 +44,7 @@ import Network.AWS.ELB.Types
 data RemoveTagsInput = RemoveTagsInput
     { _rtiLoadBalancerNames :: [Text]
     , _rtiTags              :: List1 TagKeyOnly
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RemoveTagsInput' constructor.
 --
@@ -71,6 +71,7 @@ rtiLoadBalancerNames =
 rtiTags :: Lens' RemoveTagsInput (NonEmpty TagKeyOnly)
 rtiTags = lens _rtiTags (\s a -> s { _rtiTags = a })
     . _List1
+
 instance ToQuery RemoveTagsInput
 
 instance ToPath RemoveTagsInput where

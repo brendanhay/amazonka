@@ -54,7 +54,7 @@ data ListMFADevices = ListMFADevices
     { _lmfadMarker   :: Maybe Text
     , _lmfadMaxItems :: Maybe Natural
     , _lmfadUserName :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListMFADevices' constructor.
 --
@@ -89,6 +89,7 @@ lmfadMaxItems = lens _lmfadMaxItems (\s a -> s { _lmfadMaxItems = a })
 -- | The name of the user whose MFA devices you want to list.
 lmfadUserName :: Lens' ListMFADevices (Maybe Text)
 lmfadUserName = lens _lmfadUserName (\s a -> s { _lmfadUserName = a })
+
 instance ToQuery ListMFADevices
 
 instance ToPath ListMFADevices where
@@ -98,7 +99,7 @@ data ListMFADevicesResponse = ListMFADevicesResponse
     { _lmfadrIsTruncated :: Maybe Bool
     , _lmfadrMFADevices  :: [MFADevice]
     , _lmfadrMarker      :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListMFADevicesResponse' constructor.
 --

@@ -46,7 +46,7 @@ data DeleteRoute = DeleteRoute
     { _dr1DestinationCidrBlock :: Text
     , _dr1DryRun               :: Maybe Bool
     , _dr1RouteTableId         :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteRoute' constructor.
 --
@@ -79,6 +79,7 @@ dr1DryRun = lens _dr1DryRun (\s a -> s { _dr1DryRun = a })
 -- | The ID of the route table.
 dr1RouteTableId :: Lens' DeleteRoute Text
 dr1RouteTableId = lens _dr1RouteTableId (\s a -> s { _dr1RouteTableId = a })
+
 instance ToQuery DeleteRoute
 
 instance ToPath DeleteRoute where

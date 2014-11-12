@@ -44,7 +44,7 @@ import Network.AWS.SimpleDB.Types
 
 newtype DeleteDomain = DeleteDomain
     { _ddDomainName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteDomain' constructor.
 --
@@ -61,6 +61,7 @@ deleteDomain p1 = DeleteDomain
 -- | The name of the domain to delete.
 ddDomainName :: Lens' DeleteDomain Text
 ddDomainName = lens _ddDomainName (\s a -> s { _ddDomainName = a })
+
 instance ToQuery DeleteDomain
 
 instance ToPath DeleteDomain where

@@ -60,7 +60,7 @@ data AuthorizeDBSecurityGroupIngressMessage = AuthorizeDBSecurityGroupIngressMes
     , _adbsgimEC2SecurityGroupId      :: Maybe Text
     , _adbsgimEC2SecurityGroupName    :: Maybe Text
     , _adbsgimEC2SecurityGroupOwnerId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AuthorizeDBSecurityGroupIngressMessage' constructor.
 --
@@ -121,6 +121,7 @@ adbsgimEC2SecurityGroupOwnerId :: Lens' AuthorizeDBSecurityGroupIngressMessage (
 adbsgimEC2SecurityGroupOwnerId =
     lens _adbsgimEC2SecurityGroupOwnerId
         (\s a -> s { _adbsgimEC2SecurityGroupOwnerId = a })
+
 instance ToQuery AuthorizeDBSecurityGroupIngressMessage
 
 instance ToPath AuthorizeDBSecurityGroupIngressMessage where
@@ -128,7 +129,7 @@ instance ToPath AuthorizeDBSecurityGroupIngressMessage where
 
 newtype AuthorizeDBSecurityGroupIngressResult = AuthorizeDBSecurityGroupIngressResult
     { _adbsgirDBSecurityGroup :: Maybe DBSecurityGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AuthorizeDBSecurityGroupIngressResult' constructor.
 --

@@ -80,7 +80,7 @@ data UpdateEnvironmentMessage = UpdateEnvironmentMessage
     , _uemTemplateName    :: Maybe Text
     , _uemTier            :: Maybe EnvironmentTier
     , _uemVersionLabel    :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UpdateEnvironmentMessage' constructor.
 --
@@ -168,6 +168,7 @@ uemTier = lens _uemTier (\s a -> s { _uemTier = a })
 -- found, returns an InvalidParameterValue error.
 uemVersionLabel :: Lens' UpdateEnvironmentMessage (Maybe Text)
 uemVersionLabel = lens _uemVersionLabel (\s a -> s { _uemVersionLabel = a })
+
 instance ToQuery UpdateEnvironmentMessage
 
 instance ToPath UpdateEnvironmentMessage where

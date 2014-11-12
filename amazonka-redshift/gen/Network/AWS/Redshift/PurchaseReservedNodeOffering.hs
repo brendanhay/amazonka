@@ -52,7 +52,7 @@ import Network.AWS.Redshift.Types
 data PurchaseReservedNodeOfferingMessage = PurchaseReservedNodeOfferingMessage
     { _prnomNodeCount              :: Maybe Int
     , _prnomReservedNodeOfferingId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PurchaseReservedNodeOfferingMessage' constructor.
 --
@@ -78,6 +78,7 @@ prnomReservedNodeOfferingId :: Lens' PurchaseReservedNodeOfferingMessage Text
 prnomReservedNodeOfferingId =
     lens _prnomReservedNodeOfferingId
         (\s a -> s { _prnomReservedNodeOfferingId = a })
+
 instance ToQuery PurchaseReservedNodeOfferingMessage
 
 instance ToPath PurchaseReservedNodeOfferingMessage where
@@ -85,7 +86,7 @@ instance ToPath PurchaseReservedNodeOfferingMessage where
 
 newtype PurchaseReservedNodeOfferingResult = PurchaseReservedNodeOfferingResult
     { _prnorReservedNode :: Maybe ReservedNode
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PurchaseReservedNodeOfferingResult' constructor.
 --

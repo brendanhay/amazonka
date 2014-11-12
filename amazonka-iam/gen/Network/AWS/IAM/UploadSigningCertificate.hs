@@ -53,7 +53,7 @@ import Network.AWS.IAM.Types
 data UploadSigningCertificate = UploadSigningCertificate
     { _usc1CertificateBody :: Text
     , _usc1UserName        :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UploadSigningCertificate' constructor.
 --
@@ -78,6 +78,7 @@ usc1CertificateBody =
 -- | The name of the user the signing certificate is for.
 usc1UserName :: Lens' UploadSigningCertificate (Maybe Text)
 usc1UserName = lens _usc1UserName (\s a -> s { _usc1UserName = a })
+
 instance ToQuery UploadSigningCertificate
 
 instance ToPath UploadSigningCertificate where
@@ -85,7 +86,7 @@ instance ToPath UploadSigningCertificate where
 
 newtype UploadSigningCertificateResponse = UploadSigningCertificateResponse
     { _uscrCertificate :: SigningCertificate
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UploadSigningCertificateResponse' constructor.
 --

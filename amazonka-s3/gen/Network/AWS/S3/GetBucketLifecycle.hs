@@ -44,7 +44,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketLifecycle = GetBucketLifecycle
     { _gbl1Bucket :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetBucketLifecycle' constructor.
 --
@@ -74,7 +74,13 @@ instance ToHeaders GetBucketLifecycle
 
 newtype GetBucketLifecycleOutput = GetBucketLifecycleOutput
     { _gbloRules :: [Rule]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList GetBucketLifecycleOutput
+    type Item GetBucketLifecycleOutput = Rule
+
+    fromList = GetBucketLifecycleOutput . fromList
+    toList   = toList . _gbloRules
 
 -- | 'GetBucketLifecycleOutput' constructor.
 --

@@ -49,7 +49,7 @@ data DeleteTags = DeleteTags
     { _dt1DryRun    :: Maybe Bool
     , _dt1Resources :: [Text]
     , _dt1Tags      :: [Tag]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteTags' constructor.
 --
@@ -82,6 +82,7 @@ dt1Resources = lens _dt1Resources (\s a -> s { _dt1Resources = a })
 -- empty string.
 dt1Tags :: Lens' DeleteTags [Tag]
 dt1Tags = lens _dt1Tags (\s a -> s { _dt1Tags = a })
+
 instance ToQuery DeleteTags
 
 instance ToPath DeleteTags where

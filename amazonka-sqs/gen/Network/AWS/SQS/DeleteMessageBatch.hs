@@ -52,7 +52,7 @@ import Network.AWS.SQS.Types
 data DeleteMessageBatch = DeleteMessageBatch
     { _dmbEntries  :: [DeleteMessageBatchRequestEntry]
     , _dmbQueueUrl :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteMessageBatch' constructor.
 --
@@ -76,6 +76,7 @@ dmbEntries = lens _dmbEntries (\s a -> s { _dmbEntries = a })
 -- | The URL of the Amazon SQS queue to take action on.
 dmbQueueUrl :: Lens' DeleteMessageBatch Text
 dmbQueueUrl = lens _dmbQueueUrl (\s a -> s { _dmbQueueUrl = a })
+
 instance ToQuery DeleteMessageBatch
 
 instance ToPath DeleteMessageBatch where
@@ -84,7 +85,7 @@ instance ToPath DeleteMessageBatch where
 data DeleteMessageBatchResult = DeleteMessageBatchResult
     { _dmbrFailed     :: [BatchResultErrorEntry]
     , _dmbrSuccessful :: [DeleteMessageBatchResultEntry]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteMessageBatchResult' constructor.
 --

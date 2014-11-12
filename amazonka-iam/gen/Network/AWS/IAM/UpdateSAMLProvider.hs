@@ -46,7 +46,7 @@ import Network.AWS.IAM.Types
 data UpdateSAMLProvider = UpdateSAMLProvider
     { _usamlpSAMLMetadataDocument :: Text
     , _usamlpSAMLProviderArn      :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateSAMLProvider' constructor.
 --
@@ -79,6 +79,7 @@ usamlpSAMLMetadataDocument =
 usamlpSAMLProviderArn :: Lens' UpdateSAMLProvider Text
 usamlpSAMLProviderArn =
     lens _usamlpSAMLProviderArn (\s a -> s { _usamlpSAMLProviderArn = a })
+
 instance ToQuery UpdateSAMLProvider
 
 instance ToPath UpdateSAMLProvider where
@@ -86,7 +87,7 @@ instance ToPath UpdateSAMLProvider where
 
 newtype UpdateSAMLProviderResponse = UpdateSAMLProviderResponse
     { _usamlprSAMLProviderArn :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'UpdateSAMLProviderResponse' constructor.
 --

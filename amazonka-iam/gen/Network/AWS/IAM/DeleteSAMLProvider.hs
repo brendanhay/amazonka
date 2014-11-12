@@ -45,7 +45,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteSAMLProvider = DeleteSAMLProvider
     { _dsamlpSAMLProviderArn :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteSAMLProvider' constructor.
 --
@@ -63,6 +63,7 @@ deleteSAMLProvider p1 = DeleteSAMLProvider
 dsamlpSAMLProviderArn :: Lens' DeleteSAMLProvider Text
 dsamlpSAMLProviderArn =
     lens _dsamlpSAMLProviderArn (\s a -> s { _dsamlpSAMLProviderArn = a })
+
 instance ToQuery DeleteSAMLProvider
 
 instance ToPath DeleteSAMLProvider where

@@ -56,7 +56,7 @@ import Network.AWS.EC2.Types
 data CreateKeyPair = CreateKeyPair
     { _ckpDryRun  :: Maybe Bool
     , _ckpKeyName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateKeyPair' constructor.
 --
@@ -79,6 +79,7 @@ ckpDryRun = lens _ckpDryRun (\s a -> s { _ckpDryRun = a })
 -- | A unique name for the key pair. Constraints: Up to 255 ASCII characters.
 ckpKeyName :: Lens' CreateKeyPair Text
 ckpKeyName = lens _ckpKeyName (\s a -> s { _ckpKeyName = a })
+
 instance ToQuery CreateKeyPair
 
 instance ToPath CreateKeyPair where
@@ -88,7 +89,7 @@ data KeyPair = KeyPair
     { _kpKeyFingerprint :: Maybe Text
     , _kpKeyMaterial    :: Maybe Text
     , _kpKeyName        :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'KeyPair' constructor.
 --

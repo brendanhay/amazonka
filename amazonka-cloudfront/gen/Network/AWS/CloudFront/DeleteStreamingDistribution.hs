@@ -44,7 +44,7 @@ import Network.AWS.CloudFront.Types
 data DeleteStreamingDistribution = DeleteStreamingDistribution
     { _dsdId      :: Text
     , _dsdIfMatch :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteStreamingDistribution' constructor.
 --

@@ -61,7 +61,7 @@ data PutObjectAcl = PutObjectAcl
     , _poaGrantWrite          :: Maybe Text
     , _poaGrantWriteACP       :: Maybe Text
     , _poaKey                 :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PutObjectAcl' constructor.
 --

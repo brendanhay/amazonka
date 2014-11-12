@@ -57,7 +57,7 @@ data DescribeScheduledActionsType = DescribeScheduledActionsType
     , _dsat2NextToken            :: Maybe Text
     , _dsat2ScheduledActionNames :: [Text]
     , _dsat2StartTime            :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeScheduledActionsType' constructor.
 --
@@ -120,6 +120,7 @@ dsat2ScheduledActionNames =
 dsat2StartTime :: Lens' DescribeScheduledActionsType (Maybe UTCTime)
 dsat2StartTime = lens _dsat2StartTime (\s a -> s { _dsat2StartTime = a })
     . mapping _Time
+
 instance ToQuery DescribeScheduledActionsType
 
 instance ToPath DescribeScheduledActionsType where
@@ -128,7 +129,7 @@ instance ToPath DescribeScheduledActionsType where
 data ScheduledActionsType = ScheduledActionsType
     { _satNextToken                   :: Maybe Text
     , _satScheduledUpdateGroupActions :: [ScheduledUpdateGroupAction]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ScheduledActionsType' constructor.
 --

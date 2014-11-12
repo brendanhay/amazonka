@@ -51,7 +51,7 @@ data BundleInstance = BundleInstance
     { _biDryRun     :: Maybe Bool
     , _biInstanceId :: Text
     , _biStorage    :: Storage
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'BundleInstance' constructor.
 --
@@ -85,6 +85,7 @@ biInstanceId = lens _biInstanceId (\s a -> s { _biInstanceId = a })
 -- error.
 biStorage :: Lens' BundleInstance Storage
 biStorage = lens _biStorage (\s a -> s { _biStorage = a })
+
 instance ToQuery BundleInstance
 
 instance ToPath BundleInstance where
@@ -92,7 +93,7 @@ instance ToPath BundleInstance where
 
 newtype BundleInstanceResult = BundleInstanceResult
     { _birBundleTask :: Maybe BundleTask
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'BundleInstanceResult' constructor.
 --

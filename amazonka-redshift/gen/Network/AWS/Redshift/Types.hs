@@ -407,7 +407,7 @@ data Snapshot = Snapshot
     , _sStatus                                 :: Maybe Text
     , _sTotalBackupSizeInMegaBytes             :: Maybe Double
     , _sVpcId                                  :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Snapshot' constructor.
 --
@@ -642,7 +642,7 @@ data ClusterParameterGroup = ClusterParameterGroup
     { _cpgDescription          :: Maybe Text
     , _cpgParameterGroupFamily :: Maybe Text
     , _cpgParameterGroupName   :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ClusterParameterGroup' constructor.
 --
@@ -689,7 +689,7 @@ data RestoreStatus = RestoreStatus
     , _rsProgressInMegaBytes                    :: Maybe Integer
     , _rsSnapshotSizeInMegaBytes                :: Maybe Integer
     , _rsStatus                                 :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RestoreStatus' constructor.
 --
@@ -767,7 +767,7 @@ data Event = Event
     , _eSeverity         :: Maybe Text
     , _eSourceIdentifier :: Maybe Text
     , _eSourceType       :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Event' constructor.
 --
@@ -837,7 +837,7 @@ instance ToQuery Event
 data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus
     { _cscsDestinationRegion :: Maybe Text
     , _cscsRetentionPeriod   :: Maybe Integer
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ClusterSnapshotCopyStatus' constructor.
 --
@@ -874,7 +874,7 @@ instance ToQuery ClusterSnapshotCopyStatus
 data HsmClientCertificate = HsmClientCertificate
     { _hccHsmClientCertificateIdentifier :: Maybe Text
     , _hccHsmClientCertificatePublicKey  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'HsmClientCertificate' constructor.
 --
@@ -939,7 +939,7 @@ data Cluster = Cluster
     , _cRestoreStatus                    :: Maybe RestoreStatus
     , _cVpcId                            :: Maybe Text
     , _cVpcSecurityGroups                :: [VpcSecurityGroupMembership]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Cluster' constructor.
 --
@@ -1202,7 +1202,7 @@ data ClusterNode = ClusterNode
     { _cnNodeRole         :: Maybe Text
     , _cnPrivateIPAddress :: Maybe Text
     , _cnPublicIPAddress  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ClusterNode' constructor.
 --
@@ -1245,7 +1245,7 @@ data EC2SecurityGroup = EC2SecurityGroup
     { _ecsgEC2SecurityGroupName    :: Maybe Text
     , _ecsgEC2SecurityGroupOwnerId :: Maybe Text
     , _ecsgStatus                  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EC2SecurityGroup' constructor.
 --
@@ -1292,7 +1292,7 @@ data OrderableClusterOption = OrderableClusterOption
     , _ocoClusterType       :: Maybe Text
     , _ocoClusterVersion    :: Maybe Text
     , _ocoNodeType          :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'OrderableClusterOption' constructor.
 --
@@ -1343,7 +1343,7 @@ data SourceType
     | STClusterParameterGroup -- ^ cluster-parameter-group
     | STClusterSecurityGroup  -- ^ cluster-security-group
     | STClusterSnapshot       -- ^ cluster-snapshot
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable SourceType
 
@@ -1369,7 +1369,7 @@ instance ToQuery SourceType
 data ClusterParameterGroupStatus = ClusterParameterGroupStatus
     { _cpgsParameterApplyStatus :: Maybe Text
     , _cpgsParameterGroupName   :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ClusterParameterGroupStatus' constructor.
 --
@@ -1406,7 +1406,7 @@ data Subnet = Subnet
     { _sSubnetAvailabilityZone :: Maybe AvailabilityZone
     , _sSubnetIdentifier       :: Maybe Text
     , _sSubnetStatus           :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Subnet' constructor.
 --
@@ -1449,7 +1449,7 @@ data ClusterSecurityGroup = ClusterSecurityGroup
     , _csgDescription              :: Maybe Text
     , _csgEC2SecurityGroups        :: [EC2SecurityGroup]
     , _csgIPRanges                 :: [IPRange]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ClusterSecurityGroup' constructor.
 --
@@ -1503,7 +1503,7 @@ data DefaultClusterParameters = DefaultClusterParameters
     { _dcpMarker               :: Maybe Text
     , _dcpParameterGroupFamily :: Maybe Text
     , _dcpParameters           :: [Parameter]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DefaultClusterParameters' constructor.
 --
@@ -1553,7 +1553,7 @@ data ClusterSubnetGroup = ClusterSubnetGroup
     , _csg1SubnetGroupStatus      :: Maybe Text
     , _csg1Subnets                :: [Subnet]
     , _csg1VpcId                  :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ClusterSubnetGroup' constructor.
 --
@@ -1613,7 +1613,7 @@ data EventInfoMap = EventInfoMap
     , _eimEventDescription :: Maybe Text
     , _eimEventId          :: Maybe Text
     , _eimSeverity         :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EventInfoMap' constructor.
 --
@@ -1662,7 +1662,7 @@ instance ToQuery EventInfoMap
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership
     { _csgmClusterSecurityGroupName :: Maybe Text
     , _csgmStatus                   :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ClusterSecurityGroupMembership' constructor.
 --
@@ -1703,7 +1703,7 @@ data ReservedNodeOffering = ReservedNodeOffering
     , _rnoRecurringCharges       :: [RecurringCharge]
     , _rnoReservedNodeOfferingId :: Maybe Text
     , _rnoUsagePrice             :: Maybe Double
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ReservedNodeOffering' constructor.
 --
@@ -1796,7 +1796,7 @@ data ReservedNode = ReservedNode
     , _rnStartTime              :: Maybe RFC822
     , _rnState                  :: Maybe Text
     , _rnUsagePrice             :: Maybe Double
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ReservedNode' constructor.
 --
@@ -1913,7 +1913,7 @@ data LoggingStatus = LoggingStatus
     , _lsLastSuccessfulDeliveryTime :: Maybe RFC822
     , _lsLoggingEnabled             :: Maybe Bool
     , _lsS3KeyPrefix                :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'LoggingStatus' constructor.
 --
@@ -1979,7 +1979,7 @@ instance ToQuery LoggingStatus
 
 newtype AccountWithRestoreAccess = AccountWithRestoreAccess
     { _awraAccountId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'AccountWithRestoreAccess' constructor.
 --
@@ -2005,7 +2005,7 @@ instance ToQuery AccountWithRestoreAccess
 
 newtype AvailabilityZone = AvailabilityZone
     { _azName :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'AvailabilityZone' constructor.
 --
@@ -2039,7 +2039,7 @@ data EventSubscription = EventSubscription
     , _esSourceType               :: Maybe Text
     , _esStatus                   :: Maybe Text
     , _esSubscriptionCreationTime :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EventSubscription' constructor.
 --
@@ -2148,7 +2148,7 @@ data HsmStatus = HsmStatus
     { _hsHsmClientCertificateIdentifier :: Maybe Text
     , _hsHsmConfigurationIdentifier     :: Maybe Text
     , _hsStatus                         :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'HsmStatus' constructor.
 --
@@ -2196,7 +2196,7 @@ instance ToQuery HsmStatus
 data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage
     { _cpgnmParameterGroupName   :: Maybe Text
     , _cpgnmParameterGroupStatus :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ClusterParameterGroupNameMessage' constructor.
 --
@@ -2234,7 +2234,7 @@ instance ToQuery ClusterParameterGroupNameMessage
 data ElasticIpStatus = ElasticIpStatus
     { _eisElasticIp :: Maybe Text
     , _eisStatus    :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ElasticIpStatus' constructor.
 --
@@ -2268,7 +2268,7 @@ data ClusterVersion = ClusterVersion
     { _cvClusterParameterGroupFamily :: Maybe Text
     , _cvClusterVersion              :: Maybe Text
     , _cvDescription                 :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ClusterVersion' constructor.
 --
@@ -2310,7 +2310,7 @@ instance ToQuery ClusterVersion
 data RecurringCharge = RecurringCharge
     { _rcRecurringChargeAmount    :: Maybe Double
     , _rcRecurringChargeFrequency :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RecurringCharge' constructor.
 --
@@ -2347,7 +2347,7 @@ instance ToQuery RecurringCharge
 data Endpoint = Endpoint
     { _eAddress :: Maybe Text
     , _ePort    :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Endpoint' constructor.
 --
@@ -2380,7 +2380,7 @@ instance ToQuery Endpoint
 data IPRange = IPRange
     { _iprCIDRIP :: Maybe Text
     , _iprStatus :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'IPRange' constructor.
 --
@@ -2413,7 +2413,7 @@ instance ToQuery IPRange
 data EventCategoriesMap = EventCategoriesMap
     { _ecmEvents     :: [EventInfoMap]
     , _ecmSourceType :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'EventCategoriesMap' constructor.
 --
@@ -2449,7 +2449,7 @@ data HsmConfiguration = HsmConfiguration
     , _hcHsmConfigurationIdentifier :: Maybe Text
     , _hcHsmIpAddress               :: Maybe Text
     , _hcHsmPartitionName           :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'HsmConfiguration' constructor.
 --
@@ -2506,7 +2506,7 @@ data PendingModifiedValues = PendingModifiedValues
     , _pmvMasterUserPassword               :: Maybe Text
     , _pmvNodeType                         :: Maybe Text
     , _pmvNumberOfNodes                    :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PendingModifiedValues' constructor.
 --
@@ -2581,7 +2581,7 @@ instance ToQuery PendingModifiedValues
 data VpcSecurityGroupMembership = VpcSecurityGroupMembership
     { _vsgmStatus             :: Maybe Text
     , _vsgmVpcSecurityGroupId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'VpcSecurityGroupMembership' constructor.
 --
@@ -2619,7 +2619,7 @@ data Parameter = Parameter
     , _pParameterName        :: Maybe Text
     , _pParameterValue       :: Maybe Text
     , _pSource               :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Parameter' constructor.
 --

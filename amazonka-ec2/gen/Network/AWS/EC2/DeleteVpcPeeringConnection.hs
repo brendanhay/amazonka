@@ -49,7 +49,7 @@ import Network.AWS.EC2.Types
 data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
     { _dvpc1DryRun                 :: Maybe Bool
     , _dvpc1VpcPeeringConnectionId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpcPeeringConnection' constructor.
 --
@@ -74,6 +74,7 @@ dvpc1VpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection Text
 dvpc1VpcPeeringConnectionId =
     lens _dvpc1VpcPeeringConnectionId
         (\s a -> s { _dvpc1VpcPeeringConnectionId = a })
+
 instance ToQuery DeleteVpcPeeringConnection
 
 instance ToPath DeleteVpcPeeringConnection where
@@ -81,7 +82,7 @@ instance ToPath DeleteVpcPeeringConnection where
 
 newtype DeleteVpcPeeringConnectionResult = DeleteVpcPeeringConnectionResult
     { _dvpcrReturn :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpcPeeringConnectionResult' constructor.
 --

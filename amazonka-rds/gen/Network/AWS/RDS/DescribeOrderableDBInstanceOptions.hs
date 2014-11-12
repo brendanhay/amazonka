@@ -59,7 +59,7 @@ data DescribeOrderableDBInstanceOptionsMessage = DescribeOrderableDBInstanceOpti
     , _dodbiomMarker          :: Maybe Text
     , _dodbiomMaxRecords      :: Maybe Int
     , _dodbiomVpc             :: Maybe Bool
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeOrderableDBInstanceOptionsMessage' constructor.
 --
@@ -139,6 +139,7 @@ dodbiomMaxRecords =
 -- VPC or non-VPC offerings.
 dodbiomVpc :: Lens' DescribeOrderableDBInstanceOptionsMessage (Maybe Bool)
 dodbiomVpc = lens _dodbiomVpc (\s a -> s { _dodbiomVpc = a })
+
 instance ToQuery DescribeOrderableDBInstanceOptionsMessage
 
 instance ToPath DescribeOrderableDBInstanceOptionsMessage where
@@ -147,7 +148,7 @@ instance ToPath DescribeOrderableDBInstanceOptionsMessage where
 data OrderableDBInstanceOptionsMessage = OrderableDBInstanceOptionsMessage
     { _odbiomMarker                     :: Maybe Text
     , _odbiomOrderableDBInstanceOptions :: [OrderableDBInstanceOption]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'OrderableDBInstanceOptionsMessage' constructor.
 --

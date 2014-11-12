@@ -50,7 +50,7 @@ data DescribeDefaultClusterParametersMessage = DescribeDefaultClusterParametersM
     { _ddcpmMarker               :: Maybe Text
     , _ddcpmMaxRecords           :: Maybe Int
     , _ddcpmParameterGroupFamily :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeDefaultClusterParametersMessage' constructor.
 --
@@ -92,6 +92,7 @@ ddcpmParameterGroupFamily :: Lens' DescribeDefaultClusterParametersMessage Text
 ddcpmParameterGroupFamily =
     lens _ddcpmParameterGroupFamily
         (\s a -> s { _ddcpmParameterGroupFamily = a })
+
 instance ToQuery DescribeDefaultClusterParametersMessage
 
 instance ToPath DescribeDefaultClusterParametersMessage where
@@ -99,7 +100,7 @@ instance ToPath DescribeDefaultClusterParametersMessage where
 
 newtype DescribeDefaultClusterParametersResult = DescribeDefaultClusterParametersResult
     { _ddcprDefaultClusterParameters :: Maybe DefaultClusterParameters
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeDefaultClusterParametersResult' constructor.
 --

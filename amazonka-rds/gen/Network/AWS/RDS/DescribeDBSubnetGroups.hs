@@ -54,7 +54,7 @@ data DescribeDBSubnetGroupsMessage = DescribeDBSubnetGroupsMessage
     , _ddbsgmFilters           :: [Filter]
     , _ddbsgmMarker            :: Maybe Text
     , _ddbsgmMaxRecords        :: Maybe Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeDBSubnetGroupsMessage' constructor.
 --
@@ -98,6 +98,7 @@ ddbsgmMarker = lens _ddbsgmMarker (\s a -> s { _ddbsgmMarker = a })
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbsgmMaxRecords :: Lens' DescribeDBSubnetGroupsMessage (Maybe Int)
 ddbsgmMaxRecords = lens _ddbsgmMaxRecords (\s a -> s { _ddbsgmMaxRecords = a })
+
 instance ToQuery DescribeDBSubnetGroupsMessage
 
 instance ToPath DescribeDBSubnetGroupsMessage where
@@ -106,7 +107,7 @@ instance ToPath DescribeDBSubnetGroupsMessage where
 data DBSubnetGroupMessage = DBSubnetGroupMessage
     { _dbsgm1DBSubnetGroups :: [DBSubnetGroup]
     , _dbsgm1Marker         :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DBSubnetGroupMessage' constructor.
 --

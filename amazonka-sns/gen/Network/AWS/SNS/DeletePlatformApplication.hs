@@ -44,7 +44,7 @@ import Network.AWS.SNS.Types
 
 newtype DeletePlatformApplicationInput = DeletePlatformApplicationInput
     { _dpaiPlatformApplicationArn :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeletePlatformApplicationInput' constructor.
 --
@@ -63,6 +63,7 @@ dpaiPlatformApplicationArn :: Lens' DeletePlatformApplicationInput Text
 dpaiPlatformApplicationArn =
     lens _dpaiPlatformApplicationArn
         (\s a -> s { _dpaiPlatformApplicationArn = a })
+
 instance ToQuery DeletePlatformApplicationInput
 
 instance ToPath DeletePlatformApplicationInput where

@@ -48,7 +48,7 @@ import Network.AWS.CloudFormation.Types
 data DescribeStacksInput = DescribeStacksInput
     { _dsiNextToken :: Maybe Text
     , _dsiStackName :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeStacksInput' constructor.
 --
@@ -75,6 +75,7 @@ dsiNextToken = lens _dsiNextToken (\s a -> s { _dsiNextToken = a })
 -- unique stack ID. Default: There is no default value.
 dsiStackName :: Lens' DescribeStacksInput (Maybe Text)
 dsiStackName = lens _dsiStackName (\s a -> s { _dsiStackName = a })
+
 instance ToQuery DescribeStacksInput
 
 instance ToPath DescribeStacksInput where
@@ -83,7 +84,7 @@ instance ToPath DescribeStacksInput where
 data DescribeStacksOutput = DescribeStacksOutput
     { _dsoNextToken :: Maybe Text
     , _dsoStacks    :: [Stack]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeStacksOutput' constructor.
 --

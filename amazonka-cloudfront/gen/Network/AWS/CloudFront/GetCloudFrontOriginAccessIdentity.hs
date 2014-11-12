@@ -45,7 +45,7 @@ import Network.AWS.CloudFront.Types
 
 newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity
     { _gcfoaiId :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetCloudFrontOriginAccessIdentity' constructor.
 --
@@ -77,7 +77,7 @@ instance ToHeaders GetCloudFrontOriginAccessIdentity
 data GetCloudFrontOriginAccessIdentityResult = GetCloudFrontOriginAccessIdentityResult
     { _gcfoairCloudFrontOriginAccessIdentity :: Maybe CloudFrontOriginAccessIdentity
     , _gcfoairETag                           :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetCloudFrontOriginAccessIdentityResult' constructor.
 --

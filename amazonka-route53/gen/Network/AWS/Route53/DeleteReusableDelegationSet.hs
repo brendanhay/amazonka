@@ -49,7 +49,7 @@ import Network.AWS.Route53.Types
 
 newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet
     { _drdsId :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteReusableDelegationSet' constructor.
 --

@@ -70,7 +70,7 @@ data CreateNetworkAclEntry = CreateNetworkAclEntry
     , _cnaeProtocol     :: Text
     , _cnaeRuleAction   :: Text
     , _cnaeRuleNumber   :: Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateNetworkAclEntry' constructor.
 --
@@ -152,6 +152,7 @@ cnaeRuleAction = lens _cnaeRuleAction (\s a -> s { _cnaeRuleAction = a })
 -- integer from 1 to 32766.
 cnaeRuleNumber :: Lens' CreateNetworkAclEntry Int
 cnaeRuleNumber = lens _cnaeRuleNumber (\s a -> s { _cnaeRuleNumber = a })
+
 instance ToQuery CreateNetworkAclEntry
 
 instance ToPath CreateNetworkAclEntry where

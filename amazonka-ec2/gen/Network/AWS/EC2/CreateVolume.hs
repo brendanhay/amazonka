@@ -76,7 +76,7 @@ data CreateVolume = CreateVolume
     , _cvSize             :: Maybe Int
     , _cvSnapshotId       :: Maybe Text
     , _cvVolumeType       :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateVolume' constructor.
 --
@@ -143,6 +143,7 @@ cvSnapshotId = lens _cvSnapshotId (\s a -> s { _cvSnapshotId = a })
 -- Default: standard.
 cvVolumeType :: Lens' CreateVolume (Maybe Text)
 cvVolumeType = lens _cvVolumeType (\s a -> s { _cvVolumeType = a })
+
 instance ToQuery CreateVolume
 
 instance ToPath CreateVolume where

@@ -67,7 +67,7 @@ data CreateDBParameterGroupMessage = CreateDBParameterGroupMessage
     , _cdbpgmDBParameterGroupName   :: Text
     , _cdbpgmDescription            :: Text
     , _cdbpgmTags                   :: [Tag]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDBParameterGroupMessage' constructor.
 --
@@ -116,6 +116,7 @@ cdbpgmDescription =
 
 cdbpgmTags :: Lens' CreateDBParameterGroupMessage [Tag]
 cdbpgmTags = lens _cdbpgmTags (\s a -> s { _cdbpgmTags = a })
+
 instance ToQuery CreateDBParameterGroupMessage
 
 instance ToPath CreateDBParameterGroupMessage where
@@ -123,7 +124,7 @@ instance ToPath CreateDBParameterGroupMessage where
 
 newtype CreateDBParameterGroupResult = CreateDBParameterGroupResult
     { _cdbpgr1DBParameterGroup :: Maybe DBParameterGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDBParameterGroupResult' constructor.
 --

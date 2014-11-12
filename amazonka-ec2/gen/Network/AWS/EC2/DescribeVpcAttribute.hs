@@ -51,7 +51,7 @@ data DescribeVpcAttribute = DescribeVpcAttribute
     { _dvaAttribute :: Maybe Text
     , _dvaDryRun    :: Maybe Bool
     , _dvaVpcId     :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeVpcAttribute' constructor.
 --
@@ -81,6 +81,7 @@ dvaDryRun = lens _dvaDryRun (\s a -> s { _dvaDryRun = a })
 -- | The ID of the VPC.
 dvaVpcId :: Lens' DescribeVpcAttribute Text
 dvaVpcId = lens _dvaVpcId (\s a -> s { _dvaVpcId = a })
+
 instance ToQuery DescribeVpcAttribute
 
 instance ToPath DescribeVpcAttribute where
@@ -90,7 +91,7 @@ data DescribeVpcAttributeResult = DescribeVpcAttributeResult
     { _dvarEnableDnsHostnames :: Maybe AttributeBooleanValue
     , _dvarEnableDnsSupport   :: Maybe AttributeBooleanValue
     , _dvarVpcId              :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVpcAttributeResult' constructor.
 --

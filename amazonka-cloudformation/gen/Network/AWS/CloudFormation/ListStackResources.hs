@@ -49,7 +49,7 @@ import Network.AWS.CloudFormation.Types
 data ListStackResourcesInput = ListStackResourcesInput
     { _lsriNextToken :: Maybe Text
     , _lsriStackName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListStackResourcesInput' constructor.
 --
@@ -77,6 +77,7 @@ lsriNextToken = lens _lsriNextToken (\s a -> s { _lsriNextToken = a })
 -- unique stack ID. Default: There is no default value.
 lsriStackName :: Lens' ListStackResourcesInput Text
 lsriStackName = lens _lsriStackName (\s a -> s { _lsriStackName = a })
+
 instance ToQuery ListStackResourcesInput
 
 instance ToPath ListStackResourcesInput where
@@ -85,7 +86,7 @@ instance ToPath ListStackResourcesInput where
 data ListStackResourcesOutput = ListStackResourcesOutput
     { _lsroNextToken              :: Maybe Text
     , _lsroStackResourceSummaries :: [StackResourceSummary]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListStackResourcesOutput' constructor.
 --

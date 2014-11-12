@@ -46,7 +46,7 @@ import Network.AWS.EC2.Types
 data DeleteRouteTable = DeleteRouteTable
     { _drt1DryRun       :: Maybe Bool
     , _drt1RouteTableId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteRouteTable' constructor.
 --
@@ -69,6 +69,7 @@ drt1DryRun = lens _drt1DryRun (\s a -> s { _drt1DryRun = a })
 -- | The ID of the route table.
 drt1RouteTableId :: Lens' DeleteRouteTable Text
 drt1RouteTableId = lens _drt1RouteTableId (\s a -> s { _drt1RouteTableId = a })
+
 instance ToQuery DeleteRouteTable
 
 instance ToPath DeleteRouteTable where

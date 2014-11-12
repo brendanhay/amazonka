@@ -44,7 +44,7 @@ import Network.AWS.SES.Types
 
 newtype VerifyDomainIdentity = VerifyDomainIdentity
     { _vdiDomain :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'VerifyDomainIdentity' constructor.
 --
@@ -61,6 +61,7 @@ verifyDomainIdentity p1 = VerifyDomainIdentity
 -- | The domain to be verified.
 vdiDomain :: Lens' VerifyDomainIdentity Text
 vdiDomain = lens _vdiDomain (\s a -> s { _vdiDomain = a })
+
 instance ToQuery VerifyDomainIdentity
 
 instance ToPath VerifyDomainIdentity where
@@ -68,7 +69,7 @@ instance ToPath VerifyDomainIdentity where
 
 newtype VerifyDomainIdentityResponse = VerifyDomainIdentityResponse
     { _vdirVerificationToken :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'VerifyDomainIdentityResponse' constructor.
 --

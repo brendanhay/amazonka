@@ -46,7 +46,7 @@ data SetDesiredCapacityType = SetDesiredCapacityType
     { _sdctAutoScalingGroupName :: Text
     , _sdctDesiredCapacity      :: Int
     , _sdctHonorCooldown        :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetDesiredCapacityType' constructor.
 --
@@ -86,6 +86,7 @@ sdctDesiredCapacity =
 sdctHonorCooldown :: Lens' SetDesiredCapacityType (Maybe Bool)
 sdctHonorCooldown =
     lens _sdctHonorCooldown (\s a -> s { _sdctHonorCooldown = a })
+
 instance ToQuery SetDesiredCapacityType
 
 instance ToPath SetDesiredCapacityType where

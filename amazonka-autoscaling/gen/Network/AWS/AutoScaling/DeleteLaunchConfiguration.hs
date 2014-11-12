@@ -44,7 +44,7 @@ import Network.AWS.AutoScaling.Types
 
 newtype LaunchConfigurationNameType = LaunchConfigurationNameType
     { _lcntLaunchConfigurationName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'LaunchConfigurationNameType' constructor.
 --
@@ -63,6 +63,7 @@ lcntLaunchConfigurationName :: Lens' LaunchConfigurationNameType Text
 lcntLaunchConfigurationName =
     lens _lcntLaunchConfigurationName
         (\s a -> s { _lcntLaunchConfigurationName = a })
+
 instance ToQuery LaunchConfigurationNameType
 
 instance ToPath LaunchConfigurationNameType where

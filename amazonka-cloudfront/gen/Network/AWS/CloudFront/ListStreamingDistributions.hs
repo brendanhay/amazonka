@@ -46,7 +46,7 @@ import Network.AWS.CloudFront.Types
 data ListStreamingDistributions = ListStreamingDistributions
     { _lsdMarker   :: Maybe Text
     , _lsdMaxItems :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListStreamingDistributions' constructor.
 --
@@ -88,7 +88,7 @@ instance ToHeaders ListStreamingDistributions
 
 newtype ListStreamingDistributionsResult = ListStreamingDistributionsResult
     { _lsdrStreamingDistributionList :: Maybe StreamingDistributionList
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListStreamingDistributionsResult' constructor.
 --

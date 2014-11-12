@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 data DeleteDhcpOptions = DeleteDhcpOptions
     { _ddoDhcpOptionsId :: Text
     , _ddoDryRun        :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteDhcpOptions' constructor.
 --
@@ -70,6 +70,7 @@ ddoDhcpOptionsId = lens _ddoDhcpOptionsId (\s a -> s { _ddoDhcpOptionsId = a })
 
 ddoDryRun :: Lens' DeleteDhcpOptions (Maybe Bool)
 ddoDryRun = lens _ddoDryRun (\s a -> s { _ddoDryRun = a })
+
 instance ToQuery DeleteDhcpOptions
 
 instance ToPath DeleteDhcpOptions where

@@ -58,7 +58,7 @@ data ReplaceRoute = ReplaceRoute
     , _rrNetworkInterfaceId     :: Maybe Text
     , _rrRouteTableId           :: Text
     , _rrVpcPeeringConnectionId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ReplaceRoute' constructor.
 --
@@ -122,6 +122,7 @@ rrVpcPeeringConnectionId :: Lens' ReplaceRoute (Maybe Text)
 rrVpcPeeringConnectionId =
     lens _rrVpcPeeringConnectionId
         (\s a -> s { _rrVpcPeeringConnectionId = a })
+
 instance ToQuery ReplaceRoute
 
 instance ToPath ReplaceRoute where

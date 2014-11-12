@@ -54,7 +54,7 @@ data DescribeSuggesters = DescribeSuggesters
     { _ds1Deployed       :: Maybe Bool
     , _ds1DomainName     :: Text
     , _ds1SuggesterNames :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeSuggesters' constructor.
 --
@@ -87,6 +87,7 @@ ds1DomainName = lens _ds1DomainName (\s a -> s { _ds1DomainName = a })
 ds1SuggesterNames :: Lens' DescribeSuggesters [Text]
 ds1SuggesterNames =
     lens _ds1SuggesterNames (\s a -> s { _ds1SuggesterNames = a })
+
 instance ToQuery DescribeSuggesters
 
 instance ToPath DescribeSuggesters where
@@ -94,7 +95,13 @@ instance ToPath DescribeSuggesters where
 
 newtype DescribeSuggestersResponse = DescribeSuggestersResponse
     { _dsrSuggesters :: [SuggesterStatus]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeSuggestersResponse
+    type Item DescribeSuggestersResponse = SuggesterStatus
+
+    fromList = DescribeSuggestersResponse . fromList
+    toList   = toList . _dsrSuggesters
 
 -- | 'DescribeSuggestersResponse' constructor.
 --

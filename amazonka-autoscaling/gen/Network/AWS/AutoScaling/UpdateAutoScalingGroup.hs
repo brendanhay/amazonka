@@ -67,7 +67,7 @@ data UpdateAutoScalingGroupType = UpdateAutoScalingGroupType
     , _uasgtPlacementGroup          :: Maybe Text
     , _uasgtTerminationPolicies     :: [Text]
     , _uasgtVPCZoneIdentifier       :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateAutoScalingGroupType' constructor.
 --
@@ -195,6 +195,7 @@ uasgtTerminationPolicies =
 uasgtVPCZoneIdentifier :: Lens' UpdateAutoScalingGroupType (Maybe Text)
 uasgtVPCZoneIdentifier =
     lens _uasgtVPCZoneIdentifier (\s a -> s { _uasgtVPCZoneIdentifier = a })
+
 instance ToQuery UpdateAutoScalingGroupType
 
 instance ToPath UpdateAutoScalingGroupType where

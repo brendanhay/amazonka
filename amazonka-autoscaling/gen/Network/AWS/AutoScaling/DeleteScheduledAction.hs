@@ -45,7 +45,7 @@ import Network.AWS.AutoScaling.Types
 data DeleteScheduledActionType = DeleteScheduledActionType
     { _dsat1AutoScalingGroupName :: Maybe Text
     , _dsat1ScheduledActionName  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteScheduledActionType' constructor.
 --
@@ -73,6 +73,7 @@ dsat1ScheduledActionName :: Lens' DeleteScheduledActionType Text
 dsat1ScheduledActionName =
     lens _dsat1ScheduledActionName
         (\s a -> s { _dsat1ScheduledActionName = a })
+
 instance ToQuery DeleteScheduledActionType
 
 instance ToPath DeleteScheduledActionType where

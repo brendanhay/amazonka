@@ -52,7 +52,7 @@ import Network.AWS.EC2.Types
 data DeleteVpnConnection = DeleteVpnConnection
     { _dvcDryRun          :: Maybe Bool
     , _dvcVpnConnectionId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpnConnection' constructor.
 --
@@ -76,6 +76,7 @@ dvcDryRun = lens _dvcDryRun (\s a -> s { _dvcDryRun = a })
 dvcVpnConnectionId :: Lens' DeleteVpnConnection Text
 dvcVpnConnectionId =
     lens _dvcVpnConnectionId (\s a -> s { _dvcVpnConnectionId = a })
+
 instance ToQuery DeleteVpnConnection
 
 instance ToPath DeleteVpnConnection where

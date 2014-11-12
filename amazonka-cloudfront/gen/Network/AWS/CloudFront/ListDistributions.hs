@@ -46,7 +46,7 @@ import Network.AWS.CloudFront.Types
 data ListDistributions = ListDistributions
     { _ldMarker   :: Maybe Text
     , _ldMaxItems :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListDistributions' constructor.
 --
@@ -87,7 +87,7 @@ instance ToHeaders ListDistributions
 
 newtype ListDistributionsResult = ListDistributionsResult
     { _ldrDistributionList :: Maybe DistributionList
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListDistributionsResult' constructor.
 --

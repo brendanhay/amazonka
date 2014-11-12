@@ -65,7 +65,7 @@ data ChangeMessageVisibility = ChangeMessageVisibility
     { _cmvQueueUrl          :: Text
     , _cmvReceiptHandle     :: Text
     , _cmvVisibilityTimeout :: Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ChangeMessageVisibility' constructor.
 --
@@ -102,6 +102,7 @@ cmvReceiptHandle = lens _cmvReceiptHandle (\s a -> s { _cmvReceiptHandle = a })
 cmvVisibilityTimeout :: Lens' ChangeMessageVisibility Int
 cmvVisibilityTimeout =
     lens _cmvVisibilityTimeout (\s a -> s { _cmvVisibilityTimeout = a })
+
 instance ToQuery ChangeMessageVisibility
 
 instance ToPath ChangeMessageVisibility where

@@ -44,16 +44,7 @@ import Network.AWS.ELB.Types
 
 newtype DescribeTagsInput = DescribeTagsInput
     { _dtiLoadBalancerNames :: List1 Text
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Semigroup, IsString)
 
 -- | 'DescribeTagsInput' constructor.
 --
@@ -72,6 +63,7 @@ dtiLoadBalancerNames :: Lens' DescribeTagsInput (NonEmpty Text)
 dtiLoadBalancerNames =
     lens _dtiLoadBalancerNames (\s a -> s { _dtiLoadBalancerNames = a })
         . _List1
+
 instance ToQuery DescribeTagsInput
 
 instance ToPath DescribeTagsInput where
@@ -79,7 +71,13 @@ instance ToPath DescribeTagsInput where
 
 newtype DescribeTagsOutput = DescribeTagsOutput
     { _dtoTagDescriptions :: [TagDescription]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeTagsOutput
+    type Item DescribeTagsOutput = TagDescription
+
+    fromList = DescribeTagsOutput . fromList
+    toList   = toList . _dtoTagDescriptions
 
 -- | 'DescribeTagsOutput' constructor.
 --

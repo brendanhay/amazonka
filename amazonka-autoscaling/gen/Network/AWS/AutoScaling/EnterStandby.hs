@@ -50,7 +50,7 @@ data EnterStandbyQuery = EnterStandbyQuery
     { _esqAutoScalingGroupName           :: Text
     , _esqInstanceIds                    :: [Text]
     , _esqShouldDecrementDesiredCapacity :: Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EnterStandbyQuery' constructor.
 --
@@ -90,6 +90,7 @@ esqShouldDecrementDesiredCapacity :: Lens' EnterStandbyQuery Bool
 esqShouldDecrementDesiredCapacity =
     lens _esqShouldDecrementDesiredCapacity
         (\s a -> s { _esqShouldDecrementDesiredCapacity = a })
+
 instance ToQuery EnterStandbyQuery
 
 instance ToPath EnterStandbyQuery where
@@ -97,7 +98,13 @@ instance ToPath EnterStandbyQuery where
 
 newtype EnterStandbyAnswer = EnterStandbyAnswer
     { _esaActivities :: [Activity]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList EnterStandbyAnswer
+    type Item EnterStandbyAnswer = Activity
+
+    fromList = EnterStandbyAnswer . fromList
+    toList   = toList . _esaActivities
 
 -- | 'EnterStandbyAnswer' constructor.
 --

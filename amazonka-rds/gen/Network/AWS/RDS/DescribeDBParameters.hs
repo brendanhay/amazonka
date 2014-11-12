@@ -53,7 +53,7 @@ data DescribeDBParametersMessage = DescribeDBParametersMessage
     , _ddbpmMarker               :: Maybe Text
     , _ddbpmMaxRecords           :: Maybe Int
     , _ddbpmSource               :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeDBParametersMessage' constructor.
 --
@@ -109,6 +109,7 @@ ddbpmMaxRecords = lens _ddbpmMaxRecords (\s a -> s { _ddbpmMaxRecords = a })
 -- Valid Values: user | system | engine-default.
 ddbpmSource :: Lens' DescribeDBParametersMessage (Maybe Text)
 ddbpmSource = lens _ddbpmSource (\s a -> s { _ddbpmSource = a })
+
 instance ToQuery DescribeDBParametersMessage
 
 instance ToPath DescribeDBParametersMessage where
@@ -117,7 +118,7 @@ instance ToPath DescribeDBParametersMessage where
 data DBParameterGroupDetails = DBParameterGroupDetails
     { _dbpgdMarker     :: Maybe Text
     , _dbpgdParameters :: [Parameter]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DBParameterGroupDetails' constructor.
 --

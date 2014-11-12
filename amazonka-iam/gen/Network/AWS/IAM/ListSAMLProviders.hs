@@ -46,6 +46,7 @@ data ListSAMLProviders = ListSAMLProviders
 -- | 'ListSAMLProviders' constructor.
 listSAMLProviders :: ListSAMLProviders
 listSAMLProviders = ListSAMLProviders
+
 instance ToQuery ListSAMLProviders
 
 instance ToPath ListSAMLProviders where
@@ -53,7 +54,13 @@ instance ToPath ListSAMLProviders where
 
 newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
     { _lsamlprSAMLProviderList :: [SAMLProviderListEntry]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList ListSAMLProvidersResponse
+    type Item ListSAMLProvidersResponse = SAMLProviderListEntry
+
+    fromList = ListSAMLProvidersResponse . fromList
+    toList   = toList . _lsamlprSAMLProviderList
 
 -- | 'ListSAMLProvidersResponse' constructor.
 --

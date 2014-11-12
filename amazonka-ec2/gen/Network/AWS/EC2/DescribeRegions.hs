@@ -49,7 +49,7 @@ data DescribeRegions = DescribeRegions
     { _drDryRun      :: Maybe Bool
     , _drFilters     :: [Filter]
     , _drRegionNames :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeRegions' constructor.
 --
@@ -80,6 +80,7 @@ drFilters = lens _drFilters (\s a -> s { _drFilters = a })
 -- | The names of one or more regions.
 drRegionNames :: Lens' DescribeRegions [Text]
 drRegionNames = lens _drRegionNames (\s a -> s { _drRegionNames = a })
+
 instance ToQuery DescribeRegions
 
 instance ToPath DescribeRegions where
@@ -87,7 +88,13 @@ instance ToPath DescribeRegions where
 
 newtype DescribeRegionsResult = DescribeRegionsResult
     { _drrRegions :: [Region]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeRegionsResult
+    type Item DescribeRegionsResult = Region
+
+    fromList = DescribeRegionsResult . fromList
+    toList   = toList . _drrRegions
 
 -- | 'DescribeRegionsResult' constructor.
 --

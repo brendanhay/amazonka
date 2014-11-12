@@ -48,7 +48,7 @@ import Network.AWS.IAM.Types
 data CreateUser = CreateUser
     { _cuPath     :: Maybe Text
     , _cuUserName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateUser' constructor.
 --
@@ -74,6 +74,7 @@ cuPath = lens _cuPath (\s a -> s { _cuPath = a })
 -- | The name of the user to create.
 cuUserName :: Lens' CreateUser Text
 cuUserName = lens _cuUserName (\s a -> s { _cuUserName = a })
+
 instance ToQuery CreateUser
 
 instance ToPath CreateUser where
@@ -81,7 +82,7 @@ instance ToPath CreateUser where
 
 newtype CreateUserResponse = CreateUserResponse
     { _curUser :: Maybe User
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateUserResponse' constructor.
 --

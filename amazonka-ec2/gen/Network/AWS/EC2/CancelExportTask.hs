@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 
 newtype CancelExportTask = CancelExportTask
     { _cetExportTaskId :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'CancelExportTask' constructor.
 --
@@ -63,6 +63,7 @@ cancelExportTask p1 = CancelExportTask
 -- CreateInstanceExportTask.
 cetExportTaskId :: Lens' CancelExportTask Text
 cetExportTaskId = lens _cetExportTaskId (\s a -> s { _cetExportTaskId = a })
+
 instance ToQuery CancelExportTask
 
 instance ToPath CancelExportTask where

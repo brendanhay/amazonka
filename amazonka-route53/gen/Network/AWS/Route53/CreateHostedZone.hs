@@ -71,7 +71,7 @@ data CreateHostedZone = CreateHostedZone
     , _chzHostedZoneConfig :: Maybe HostedZoneConfig
     , _chzName             :: Text
     , _chzVPC              :: Maybe VPC
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateHostedZone' constructor.
 --
@@ -155,7 +155,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse
     , _chzrHostedZone    :: HostedZone
     , _chzrLocation      :: Text
     , _chzrVPC           :: Maybe VPC
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateHostedZoneResponse' constructor.
 --

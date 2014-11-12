@@ -49,7 +49,7 @@ data DeleteSecurityGroup = DeleteSecurityGroup
     { _dsg1DryRun    :: Maybe Bool
     , _dsg1GroupId   :: Maybe Text
     , _dsg1GroupName :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSecurityGroup' constructor.
 --
@@ -79,6 +79,7 @@ dsg1GroupId = lens _dsg1GroupId (\s a -> s { _dsg1GroupId = a })
 -- specify either the security group name or the security group ID.
 dsg1GroupName :: Lens' DeleteSecurityGroup (Maybe Text)
 dsg1GroupName = lens _dsg1GroupName (\s a -> s { _dsg1GroupName = a })
+
 instance ToQuery DeleteSecurityGroup
 
 instance ToPath DeleteSecurityGroup where

@@ -56,7 +56,7 @@ data UploadServerCertificate = UploadServerCertificate
     , _uscPath                  :: Maybe Text
     , _uscPrivateKey            :: Sensitive Text
     , _uscServerCertificateName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UploadServerCertificate' constructor.
 --
@@ -112,6 +112,7 @@ uscServerCertificateName :: Lens' UploadServerCertificate Text
 uscServerCertificateName =
     lens _uscServerCertificateName
         (\s a -> s { _uscServerCertificateName = a })
+
 instance ToQuery UploadServerCertificate
 
 instance ToPath UploadServerCertificate where
@@ -119,7 +120,7 @@ instance ToPath UploadServerCertificate where
 
 newtype UploadServerCertificateResponse = UploadServerCertificateResponse
     { _uscrServerCertificateMetadata :: Maybe ServerCertificateMetadata
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UploadServerCertificateResponse' constructor.
 --

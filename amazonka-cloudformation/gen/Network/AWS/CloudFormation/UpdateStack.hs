@@ -71,7 +71,7 @@ data UpdateStackInput = UpdateStackInput
     , _usiTemplateBody                :: Maybe Text
     , _usiTemplateURL                 :: Maybe Text
     , _usiUsePreviousTemplate         :: Maybe Bool
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UpdateStackInput' constructor.
 --
@@ -205,6 +205,7 @@ usiTemplateURL = lens _usiTemplateURL (\s a -> s { _usiTemplateURL = a })
 usiUsePreviousTemplate :: Lens' UpdateStackInput (Maybe Bool)
 usiUsePreviousTemplate =
     lens _usiUsePreviousTemplate (\s a -> s { _usiUsePreviousTemplate = a })
+
 instance ToQuery UpdateStackInput
 
 instance ToPath UpdateStackInput where
@@ -212,7 +213,7 @@ instance ToPath UpdateStackInput where
 
 newtype UpdateStackOutput = UpdateStackOutput
     { _usoStackId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'UpdateStackOutput' constructor.
 --

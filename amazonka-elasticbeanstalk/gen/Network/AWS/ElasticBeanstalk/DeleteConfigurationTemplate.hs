@@ -44,7 +44,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data DeleteConfigurationTemplateMessage = DeleteConfigurationTemplateMessage
     { _dctmApplicationName :: Text
     , _dctmTemplateName    :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteConfigurationTemplateMessage' constructor.
 --
@@ -70,6 +70,7 @@ dctmApplicationName =
 -- | The name of the configuration template to delete.
 dctmTemplateName :: Lens' DeleteConfigurationTemplateMessage Text
 dctmTemplateName = lens _dctmTemplateName (\s a -> s { _dctmTemplateName = a })
+
 instance ToQuery DeleteConfigurationTemplateMessage
 
 instance ToPath DeleteConfigurationTemplateMessage where

@@ -56,7 +56,7 @@ import Network.AWS.ELB.Types
 data RemoveAvailabilityZonesInput = RemoveAvailabilityZonesInput
     { _raziAvailabilityZones :: [Text]
     , _raziLoadBalancerName  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RemoveAvailabilityZonesInput' constructor.
 --
@@ -84,6 +84,7 @@ raziAvailabilityZones =
 raziLoadBalancerName :: Lens' RemoveAvailabilityZonesInput Text
 raziLoadBalancerName =
     lens _raziLoadBalancerName (\s a -> s { _raziLoadBalancerName = a })
+
 instance ToQuery RemoveAvailabilityZonesInput
 
 instance ToPath RemoveAvailabilityZonesInput where
@@ -91,16 +92,13 @@ instance ToPath RemoveAvailabilityZonesInput where
 
 newtype RemoveAvailabilityZonesOutput = RemoveAvailabilityZonesOutput
     { _razoAvailabilityZones :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList RemoveAvailabilityZonesOutput
+    type Item RemoveAvailabilityZonesOutput = Text
+
+    fromList = RemoveAvailabilityZonesOutput . fromList
+    toList   = toList . _razoAvailabilityZones
 
 -- | 'RemoveAvailabilityZonesOutput' constructor.
 --

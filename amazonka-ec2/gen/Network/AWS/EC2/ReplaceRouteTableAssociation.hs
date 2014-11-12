@@ -54,7 +54,7 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     { _rrtaAssociationId :: Text
     , _rrtaDryRun        :: Maybe Bool
     , _rrtaRouteTableId  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ReplaceRouteTableAssociation' constructor.
 --
@@ -86,6 +86,7 @@ rrtaDryRun = lens _rrtaDryRun (\s a -> s { _rrtaDryRun = a })
 -- | The ID of the new route table to associate with the subnet.
 rrtaRouteTableId :: Lens' ReplaceRouteTableAssociation Text
 rrtaRouteTableId = lens _rrtaRouteTableId (\s a -> s { _rrtaRouteTableId = a })
+
 instance ToQuery ReplaceRouteTableAssociation
 
 instance ToPath ReplaceRouteTableAssociation where
@@ -93,7 +94,7 @@ instance ToPath ReplaceRouteTableAssociation where
 
 newtype ReplaceRouteTableAssociationResult = ReplaceRouteTableAssociationResult
     { _rrtarNewAssociationId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ReplaceRouteTableAssociationResult' constructor.
 --

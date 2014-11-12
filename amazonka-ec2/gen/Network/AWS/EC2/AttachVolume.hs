@@ -74,7 +74,7 @@ data AttachVolume = AttachVolume
     , _avDryRun     :: Maybe Bool
     , _avInstanceId :: Text
     , _avVolumeId   :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AttachVolume' constructor.
 --
@@ -115,6 +115,7 @@ avInstanceId = lens _avInstanceId (\s a -> s { _avInstanceId = a })
 -- the same Availability Zone.
 avVolumeId :: Lens' AttachVolume Text
 avVolumeId = lens _avVolumeId (\s a -> s { _avVolumeId = a })
+
 instance ToQuery AttachVolume
 
 instance ToPath AttachVolume where

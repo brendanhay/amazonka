@@ -62,7 +62,7 @@ data UpdateConfigurationTemplateMessage = UpdateConfigurationTemplateMessage
     , _uctmOptionSettings  :: [ConfigurationOptionSetting]
     , _uctmOptionsToRemove :: [OptionSpecification]
     , _uctmTemplateName    :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UpdateConfigurationTemplateMessage' constructor.
 --
@@ -117,6 +117,7 @@ uctmOptionsToRemove =
 -- InvalidParameterValue error.
 uctmTemplateName :: Lens' UpdateConfigurationTemplateMessage Text
 uctmTemplateName = lens _uctmTemplateName (\s a -> s { _uctmTemplateName = a })
+
 instance ToQuery UpdateConfigurationTemplateMessage
 
 instance ToPath UpdateConfigurationTemplateMessage where

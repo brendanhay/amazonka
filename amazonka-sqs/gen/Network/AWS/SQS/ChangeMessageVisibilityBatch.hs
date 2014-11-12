@@ -54,7 +54,7 @@ import Network.AWS.SQS.Types
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
     { _cmvbEntries  :: [ChangeMessageVisibilityBatchRequestEntry]
     , _cmvbQueueUrl :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ChangeMessageVisibilityBatch' constructor.
 --
@@ -79,6 +79,7 @@ cmvbEntries = lens _cmvbEntries (\s a -> s { _cmvbEntries = a })
 -- | The URL of the Amazon SQS queue to take action on.
 cmvbQueueUrl :: Lens' ChangeMessageVisibilityBatch Text
 cmvbQueueUrl = lens _cmvbQueueUrl (\s a -> s { _cmvbQueueUrl = a })
+
 instance ToQuery ChangeMessageVisibilityBatch
 
 instance ToPath ChangeMessageVisibilityBatch where
@@ -87,7 +88,7 @@ instance ToPath ChangeMessageVisibilityBatch where
 data ChangeMessageVisibilityBatchResult = ChangeMessageVisibilityBatchResult
     { _cmvbrFailed     :: [BatchResultErrorEntry]
     , _cmvbrSuccessful :: [ChangeMessageVisibilityBatchResultEntry]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ChangeMessageVisibilityBatchResult' constructor.
 --

@@ -48,7 +48,7 @@ import Network.AWS.CloudSearch.Types
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
     { _usapAccessPolicies :: Text
     , _usapDomainName     :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateServiceAccessPolicies' constructor.
 --
@@ -74,6 +74,7 @@ usapAccessPolicies =
 
 usapDomainName :: Lens' UpdateServiceAccessPolicies Text
 usapDomainName = lens _usapDomainName (\s a -> s { _usapDomainName = a })
+
 instance ToQuery UpdateServiceAccessPolicies
 
 instance ToPath UpdateServiceAccessPolicies where
@@ -81,7 +82,7 @@ instance ToPath UpdateServiceAccessPolicies where
 
 newtype UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse
     { _usaprAccessPolicies :: AccessPoliciesStatus
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UpdateServiceAccessPoliciesResponse' constructor.
 --

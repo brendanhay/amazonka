@@ -1426,7 +1426,7 @@ data ImageAttributeName
     | ImageLaunchPermission   -- ^ launchPermission
     | ImageProductCodes       -- ^ productCodes
     | ImageRamdisk            -- ^ ramdisk
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ImageAttributeName
 
@@ -1455,7 +1455,7 @@ instance ToQuery ImageAttributeName
 
 data PermissionGroup
     = All -- ^ all
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable PermissionGroup
 
@@ -1479,7 +1479,7 @@ data NetworkAclEntry = NetworkAclEntry
     , _naeProtocol     :: Maybe Text
     , _naeRuleAction   :: Maybe Text
     , _naeRuleNumber   :: Maybe Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'NetworkAclEntry' constructor.
 --
@@ -1548,7 +1548,7 @@ instance ToQuery NetworkAclEntry
 
 newtype BlobAttributeValue = BlobAttributeValue
     { _bavValue :: Maybe Base64
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'BlobAttributeValue' constructor.
 --
@@ -1582,7 +1582,7 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification
     , _iilsPrivateIpAddress                  :: Maybe Text
     , _iilsSubnetId                          :: Maybe Text
     , _iilsUserData                          :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ImportInstanceLaunchSpecification' constructor.
 --
@@ -1691,7 +1691,7 @@ data Snapshot = Snapshot
     , _sTags        :: [Tag]
     , _sVolumeId    :: Maybe Text
     , _sVolumeSize  :: Maybe Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Snapshot' constructor.
 --
@@ -1789,7 +1789,7 @@ instance ToQuery Snapshot
 data SpotInstanceStateFault = SpotInstanceStateFault
     { _sisfCode    :: Maybe Text
     , _sisfMessage :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SpotInstanceStateFault' constructor.
 --
@@ -1824,7 +1824,7 @@ data TagDescription = TagDescription
     , _tdResourceId   :: Text
     , _tdResourceType :: Text
     , _tdValue        :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'TagDescription' constructor.
 --
@@ -1875,7 +1875,7 @@ instance ToQuery TagDescription
 data GroupIdentifier = GroupIdentifier
     { _giGroupId   :: Maybe Text
     , _giGroupName :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GroupIdentifier' constructor.
 --
@@ -1907,7 +1907,7 @@ instance ToQuery GroupIdentifier
 
 data VpnStaticRouteSource
     = Static -- ^ Static
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable VpnStaticRouteSource
 
@@ -1934,7 +1934,7 @@ data ReservedInstancesListing = ReservedInstancesListing
     , _rilStatusMessage              :: Maybe Text
     , _rilTags                       :: [Tag]
     , _rilUpdateDate                 :: Maybe RFC822
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ReservedInstancesListing' constructor.
 --
@@ -2030,7 +2030,7 @@ instance ToQuery ReservedInstancesListing
 
 data InstanceLifecycleType
     = Spot -- ^ spot
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable InstanceLifecycleType
 
@@ -2049,7 +2049,7 @@ instance ToQuery InstanceLifecycleType
 data VirtualizationType
     = Hvm         -- ^ hvm
     | Paravirtual -- ^ paravirtual
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable VirtualizationType
 
@@ -2073,7 +2073,7 @@ data NetworkInterfaceStatus
     | Available -- ^ available
     | Detaching -- ^ detaching
     | InUse     -- ^ in-use
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable NetworkInterfaceStatus
 
@@ -2098,7 +2098,7 @@ instance ToQuery NetworkInterfaceStatus
 
 data PlatformValues
     = Windows -- ^ Windows
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable PlatformValues
 
@@ -2117,7 +2117,7 @@ instance ToQuery PlatformValues
 data CreateVolumePermission = CreateVolumePermission
     { _cvpGroup  :: Maybe Text
     , _cvpUserId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateVolumePermission' constructor.
 --
@@ -2152,7 +2152,7 @@ instance ToQuery CreateVolumePermission
 data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges
     { _niacAttachmentId        :: Maybe Text
     , _niacDeleteOnTermination :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'NetworkInterfaceAttachmentChanges' constructor.
 --
@@ -2186,7 +2186,7 @@ instance ToQuery NetworkInterfaceAttachmentChanges
 
 data RecurringChargeFrequency
     = Hourly -- ^ Hourly
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable RecurringChargeFrequency
 
@@ -2206,7 +2206,7 @@ data DhcpOptions = DhcpOptions
     { _doDhcpConfigurations :: [DhcpConfiguration]
     , _doDhcpOptionsId      :: Maybe Text
     , _doTags               :: [Tag]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DhcpOptions' constructor.
 --
@@ -2255,7 +2255,7 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
     , _inisPrivateIpAddresses             :: [PrivateIpAddressSpecification]
     , _inisSecondaryPrivateIpAddressCount :: Maybe Int
     , _inisSubnetId                       :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'InstanceNetworkInterfaceSpecification' constructor.
 --
@@ -2372,7 +2372,7 @@ data VolumeState
     | VSDeleting  -- ^ deleting
     | VSError     -- ^ error
     | VSInUse     -- ^ in-use
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable VolumeState
 
@@ -2401,7 +2401,7 @@ instance ToQuery VolumeState
 
 newtype AttributeValue = AttributeValue
     { _avValue :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'AttributeValue' constructor.
 --
@@ -2426,7 +2426,7 @@ instance ToQuery AttributeValue
 data PrivateIpAddressSpecification = PrivateIpAddressSpecification
     { _piasPrimary          :: Maybe Bool
     , _piasPrivateIpAddress :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PrivateIpAddressSpecification' constructor.
 --
@@ -2482,7 +2482,7 @@ data Image = Image
     , _iStateReason         :: Maybe StateReason
     , _iTags                :: [Tag]
     , _iVirtualizationType  :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Image' constructor.
 --
@@ -2675,7 +2675,7 @@ instance ToQuery Image
 data DhcpConfiguration = DhcpConfiguration
     { _dcKey    :: Maybe Text
     , _dcValues :: [AttributeValue]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DhcpConfiguration' constructor.
 --
@@ -2708,7 +2708,7 @@ instance ToQuery DhcpConfiguration
 data Tag = Tag
     { _tagKey   :: Text
     , _tagValue :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Tag' constructor.
 --
@@ -2745,7 +2745,7 @@ instance ToQuery Tag
 data AccountAttributeName
     = DefaultVpc         -- ^ default-vpc
     | SupportedPlatforms -- ^ supported-platforms
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable AccountAttributeName
 
@@ -2772,7 +2772,7 @@ data NetworkInterfaceAttachment = NetworkInterfaceAttachment
     , _niaInstanceId          :: Maybe Text
     , _niaInstanceOwnerId     :: Maybe Text
     , _niaStatus              :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'NetworkInterfaceAttachment' constructor.
 --
@@ -2843,7 +2843,7 @@ instance ToQuery NetworkInterfaceAttachment
 
 newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled
     { _rimeEnabled :: Bool
-    } (Eq, Ord, Show, Generic, Enum)
+    } deriving (Eq, Ord, Show, Generic, Enum)
 
 -- | 'RunInstancesMonitoringEnabled' constructor.
 --
@@ -2870,7 +2870,7 @@ instance ToQuery RunInstancesMonitoringEnabled
 data VolumeStatusInfo = VolumeStatusInfo
     { _vsiDetails :: [VolumeStatusDetails]
     , _vsiStatus  :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'VolumeStatusInfo' constructor.
 --
@@ -2906,7 +2906,7 @@ data NetworkInterfaceAssociation = NetworkInterfaceAssociation
     , _niaIpOwnerId     :: Maybe Text
     , _niaPublicDnsName :: Maybe Text
     , _niaPublicIp      :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'NetworkInterfaceAssociation' constructor.
 --
@@ -2960,7 +2960,7 @@ instance ToQuery NetworkInterfaceAssociation
 data CreateVolumePermissionModifications = CreateVolumePermissionModifications
     { _cvpmAdd    :: [CreateVolumePermission]
     , _cvpmRemove :: [CreateVolumePermission]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateVolumePermissionModifications' constructor.
 --
@@ -2995,7 +2995,7 @@ instance ToQuery CreateVolumePermissionModifications
 data VpcState
     = VpcStateAvailable -- ^ available
     | VpcStatePending   -- ^ pending
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable VpcState
 
@@ -3032,7 +3032,7 @@ data ResourceType
     | RTVpc                  -- ^ vpc
     | RTVpnConnection        -- ^ vpn-connection
     | RTVpnGateway           -- ^ vpn-gateway
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ResourceType
 
@@ -3084,7 +3084,7 @@ instance ToQuery ResourceType
 data ReportStatusType
     = Impaired -- ^ impaired
     | Ok       -- ^ ok
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ReportStatusType
 
@@ -3105,7 +3105,7 @@ instance ToQuery ReportStatusType
 
 data CurrencyCodeValues
     = Usd -- ^ USD
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable CurrencyCodeValues
 
@@ -3124,7 +3124,7 @@ instance ToQuery CurrencyCodeValues
 data IcmpTypeCode = IcmpTypeCode
     { _itcCode :: Maybe Int
     , _itcType :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Integral)
 
 -- | 'IcmpTypeCode' constructor.
 --
@@ -3157,7 +3157,7 @@ instance ToQuery IcmpTypeCode
 data InstanceCount = InstanceCount
     { _icInstanceCount :: Maybe Int
     , _icState         :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'InstanceCount' constructor.
 --
@@ -3193,7 +3193,7 @@ data ExportToS3Task = ExportToS3Task
     , _etstDiskImageFormat :: Maybe Text
     , _etstS3Bucket        :: Maybe Text
     , _etstS3Key           :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ExportToS3Task' constructor.
 --
@@ -3246,7 +3246,7 @@ data BlockDeviceMapping = BlockDeviceMapping
     , _bdmEbs         :: Maybe EbsBlockDevice
     , _bdmNoDevice    :: Maybe Text
     , _bdmVirtualName :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'BlockDeviceMapping' constructor.
 --
@@ -3306,7 +3306,7 @@ data ConversionTask = ConversionTask
     , _ct1State            :: Text
     , _ct1StatusMessage    :: Maybe Text
     , _ct1Tags             :: [Tag]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ConversionTask' constructor.
 --
@@ -3383,7 +3383,7 @@ data AttachmentStatus
     | ASAttaching -- ^ attaching
     | ASDetached  -- ^ detached
     | ASDetaching -- ^ detaching
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable AttachmentStatus
 
@@ -3410,7 +3410,7 @@ data RouteOrigin
     = OriginCreateRoute               -- ^ CreateRoute
     | OriginCreateRouteTable          -- ^ CreateRouteTable
     | OriginEnableVgwRoutePropagation -- ^ EnableVgwRoutePropagation
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable RouteOrigin
 
@@ -3436,7 +3436,7 @@ data ListingState
     | LSCancelled -- ^ cancelled
     | LSPending   -- ^ pending
     | LSSold      -- ^ sold
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ListingState
 
@@ -3465,7 +3465,7 @@ data SpotPrice = SpotPrice
     , _spProductDescription :: Maybe Text
     , _spSpotPrice          :: Maybe Text
     , _spTimestamp          :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SpotPrice' constructor.
 --
@@ -3522,7 +3522,7 @@ instance ToQuery SpotPrice
 data InstanceMonitoring = InstanceMonitoring
     { _imInstanceId :: Maybe Text
     , _imMonitoring :: Maybe Monitoring
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'InstanceMonitoring' constructor.
 --
@@ -3556,7 +3556,7 @@ data PriceScheduleSpecification = PriceScheduleSpecification
     { _pssCurrencyCode :: Maybe Text
     , _pssPrice        :: Maybe Double
     , _pssTerm         :: Maybe Integer
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PriceScheduleSpecification' constructor.
 --
@@ -3599,7 +3599,7 @@ data SpotInstanceStatus = SpotInstanceStatus
     { _sisCode       :: Maybe Text
     , _sisMessage    :: Maybe Text
     , _sisUpdateTime :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SpotInstanceStatus' constructor.
 --
@@ -3639,7 +3639,7 @@ instance ToQuery SpotInstanceStatus
 
 data AvailabilityZoneState
     = AZSAvailable -- ^ available
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable AvailabilityZoneState
 
@@ -3672,7 +3672,7 @@ data SpotInstanceRequest = SpotInstanceRequest
     , _siType                     :: Maybe Text
     , _siValidFrom                :: Maybe RFC822
     , _siValidUntil               :: Maybe RFC822
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'SpotInstanceRequest' constructor.
 --
@@ -3840,7 +3840,7 @@ data LaunchSpecification = LaunchSpecification
     , _lsSecurityGroups      :: [GroupIdentifier]
     , _lsSubnetId            :: Maybe Text
     , _lsUserData            :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'LaunchSpecification' constructor.
 --
@@ -3976,7 +3976,7 @@ data VolumeStatusEvent = VolumeStatusEvent
     , _vseEventType   :: Maybe Text
     , _vseNotAfter    :: Maybe RFC822
     , _vseNotBefore   :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'VolumeStatusEvent' constructor.
 --
@@ -4041,7 +4041,7 @@ data Volume = Volume
     , _vTags             :: [Tag]
     , _vVolumeId         :: Maybe Text
     , _vVolumeType       :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Volume' constructor.
 --
@@ -4152,7 +4152,7 @@ data Reservation = Reservation
     , _rOwnerId       :: Maybe Text
     , _rRequesterId   :: Maybe Text
     , _rReservationId :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Reservation' constructor.
 --
@@ -4212,7 +4212,7 @@ data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem
     , _iivdiStatus           :: Text
     , _iivdiStatusMessage    :: Maybe Text
     , _iivdiVolume           :: DiskImageVolumeDescription
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ImportInstanceVolumeDetailItem' constructor.
 --
@@ -4289,7 +4289,7 @@ data SummaryStatus
     | SSInsufficientData -- ^ insufficient-data
     | SSNotApplicable    -- ^ not-applicable
     | SSOk               -- ^ ok
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable SummaryStatus
 
@@ -4322,7 +4322,7 @@ data ReservedInstancesModification = ReservedInstancesModification
     , _rimStatus                          :: Maybe Text
     , _rimStatusMessage                   :: Maybe Text
     , _rimUpdateDate                      :: Maybe RFC822
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ReservedInstancesModification' constructor.
 --
@@ -4413,7 +4413,7 @@ instance ToQuery ReservedInstancesModification
 data RuleAction
     = Allow -- ^ allow
     | Deny  -- ^ deny
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable RuleAction
 
@@ -4451,7 +4451,7 @@ data NetworkInterface = NetworkInterface
     , _niSubnetId           :: Maybe Text
     , _niTagSet             :: [Tag]
     , _niVpcId              :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'NetworkInterface' constructor.
 --
@@ -4604,7 +4604,7 @@ instance ToQuery NetworkInterface
 data TelemetryStatus
     = Down -- ^ DOWN
     | Up   -- ^ UP
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable TelemetryStatus
 
@@ -4633,7 +4633,7 @@ data Subnet = Subnet
     , _s1SubnetId                :: Maybe Text
     , _s1Tags                    :: [Tag]
     , _s1VpcId                   :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Subnet' constructor.
 --
@@ -4721,7 +4721,7 @@ instance ToQuery Subnet
 data KeyPairInfo = KeyPairInfo
     { _kpiKeyFingerprint :: Maybe Text
     , _kpiKeyName        :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'KeyPairInfo' constructor.
 --
@@ -4758,7 +4758,7 @@ instance ToQuery KeyPairInfo
 data LaunchPermissionModifications = LaunchPermissionModifications
     { _lpmAdd    :: [LaunchPermission]
     , _lpmRemove :: [LaunchPermission]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'LaunchPermissionModifications' constructor.
 --
@@ -4793,7 +4793,7 @@ data SnapshotState
     = Completed -- ^ completed
     | Error     -- ^ error
     | Pending   -- ^ pending
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable SnapshotState
 
@@ -4818,7 +4818,7 @@ data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation
     { _iniaIpOwnerId     :: Maybe Text
     , _iniaPublicDnsName :: Maybe Text
     , _iniaPublicIp      :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'InstanceNetworkInterfaceAssociation' constructor.
 --
@@ -4861,7 +4861,7 @@ data DiskImageDetail = DiskImageDetail
     { _didBytes             :: Integer
     , _didFormat            :: Text
     , _didImportManifestUrl :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DiskImageDetail' constructor.
 --
@@ -4910,7 +4910,7 @@ data InstancePrivateIpAddress = InstancePrivateIpAddress
     , _ipiaPrimary          :: Maybe Bool
     , _ipiaPrivateDnsName   :: Maybe Text
     , _ipiaPrivateIpAddress :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'InstancePrivateIpAddress' constructor.
 --
@@ -4961,7 +4961,7 @@ instance ToQuery InstancePrivateIpAddress
 data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest
     { _csiSpotInstanceRequestId :: Maybe Text
     , _csiState                 :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CancelledSpotInstanceRequest' constructor.
 --
@@ -4995,7 +4995,7 @@ instance ToQuery CancelledSpotInstanceRequest
 
 newtype VpnConnectionOptionsSpecification = VpnConnectionOptionsSpecification
     { _vcosStaticRoutesOnly :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'VpnConnectionOptionsSpecification' constructor.
 --
@@ -5029,7 +5029,7 @@ data Address = Address
     , _aNetworkInterfaceOwnerId :: Maybe Text
     , _aPrivateIpAddress        :: Maybe Text
     , _aPublicIp                :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Address' constructor.
 --
@@ -5112,7 +5112,7 @@ data VolumeAttachmentState
     | VASAttaching -- ^ attaching
     | VASDetached  -- ^ detached
     | VASDetaching -- ^ detaching
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable VolumeAttachmentState
 
@@ -5138,7 +5138,7 @@ instance ToQuery VolumeAttachmentState
 data LaunchPermission = LaunchPermission
     { _lpGroup  :: Maybe Text
     , _lpUserId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'LaunchPermission' constructor.
 --
@@ -5171,7 +5171,7 @@ instance ToQuery LaunchPermission
 data RouteState
     = Active    -- ^ active
     | Blackhole -- ^ blackhole
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable RouteState
 
@@ -5195,7 +5195,7 @@ data RouteTableAssociation = RouteTableAssociation
     , _rtaRouteTableAssociationId :: Maybe Text
     , _rtaRouteTableId            :: Maybe Text
     , _rtaSubnetId                :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RouteTableAssociation' constructor.
 --
@@ -5249,7 +5249,7 @@ data BundleTaskState
     | BTSPending            -- ^ pending
     | BTSStoring            -- ^ storing
     | BTSWaitingForShutdown -- ^ waiting-for-shutdown
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable BundleTaskState
 
@@ -5281,7 +5281,7 @@ instance ToQuery BundleTaskState
 data PortRange = PortRange
     { _prFrom :: Maybe Int
     , _prTo   :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Integral)
 
 -- | 'PortRange' constructor.
 --
@@ -5314,7 +5314,7 @@ instance ToQuery PortRange
 data VpcAttributeName
     = EnableDnsHostnames -- ^ enableDnsHostnames
     | EnableDnsSupport   -- ^ enableDnsSupport
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable VpcAttributeName
 
@@ -5338,7 +5338,7 @@ data ReservedInstancesConfiguration = ReservedInstancesConfiguration
     , _ricInstanceCount    :: Maybe Int
     , _ricInstanceType     :: Maybe Text
     , _ricPlatform         :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ReservedInstancesConfiguration' constructor.
 --
@@ -5387,7 +5387,7 @@ instance ToQuery ReservedInstancesConfiguration
 data VolumeStatusDetails = VolumeStatusDetails
     { _vsdName   :: Maybe Text
     , _vsdStatus :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'VolumeStatusDetails' constructor.
 --
@@ -5423,7 +5423,7 @@ data SpotInstanceState
     | SISClosed    -- ^ closed
     | SISFailed    -- ^ failed
     | SISOpen      -- ^ open
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable SpotInstanceState
 
@@ -5450,7 +5450,7 @@ instance ToQuery SpotInstanceState
 
 newtype VpnConnectionOptions = VpnConnectionOptions
     { _vcoStaticRoutesOnly :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'VpnConnectionOptions' constructor.
 --
@@ -5479,7 +5479,7 @@ data UserIdGroupPair = UserIdGroupPair
     { _uigpGroupId   :: Maybe Text
     , _uigpGroupName :: Maybe Text
     , _uigpUserId    :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UserIdGroupPair' constructor.
 --
@@ -5519,7 +5519,7 @@ instance ToQuery UserIdGroupPair
 data InstanceStatusSummary = InstanceStatusSummary
     { _issDetails :: [InstanceStatusDetails]
     , _issStatus  :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'InstanceStatusSummary' constructor.
 --
@@ -5552,7 +5552,7 @@ instance ToQuery InstanceStatusSummary
 data SpotPlacement = SpotPlacement
     { _sp1AvailabilityZone :: Maybe Text
     , _sp1GroupName        :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SpotPlacement' constructor.
 --
@@ -5586,7 +5586,7 @@ instance ToQuery SpotPlacement
 data EbsInstanceBlockDeviceSpecification = EbsInstanceBlockDeviceSpecification
     { _eibdsDeleteOnTermination :: Maybe Bool
     , _eibdsVolumeId            :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EbsInstanceBlockDeviceSpecification' constructor.
 --
@@ -5622,7 +5622,7 @@ data NetworkAclAssociation = NetworkAclAssociation
     { _naaNetworkAclAssociationId :: Maybe Text
     , _naaNetworkAclId            :: Maybe Text
     , _naaSubnetId                :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'NetworkAclAssociation' constructor.
 --
@@ -5670,7 +5670,7 @@ data BundleTask = BundleTask
     , _btState           :: Maybe Text
     , _btStorage         :: Maybe Storage
     , _btUpdateTime      :: Maybe RFC822
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'BundleTask' constructor.
 --
@@ -5750,7 +5750,7 @@ data InstanceStatusEvent = InstanceStatusEvent
     , _iseDescription :: Maybe Text
     , _iseNotAfter    :: Maybe RFC822
     , _iseNotBefore   :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'InstanceStatusEvent' constructor.
 --
@@ -5835,7 +5835,7 @@ data InstanceType
     | T2Medium   -- ^ t2.medium
     | T2Micro    -- ^ t2.micro
     | T2Small    -- ^ t2.small
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable InstanceType
 
@@ -5935,7 +5935,7 @@ data Route = Route
     , _rOrigin                 :: Maybe Text
     , _rState                  :: Maybe Text
     , _rVpcPeeringConnectionId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Route' constructor.
 --
@@ -6022,7 +6022,7 @@ data SpotDatafeedSubscription = SpotDatafeedSubscription
     , _sdsOwnerId :: Maybe Text
     , _sdsPrefix  :: Maybe Text
     , _sdsState   :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'SpotDatafeedSubscription' constructor.
 --
@@ -6075,7 +6075,7 @@ instance ToQuery SpotDatafeedSubscription
 
 newtype Storage = Storage
     { _sS3 :: Maybe S3Storage
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Storage' constructor.
 --
@@ -6107,7 +6107,7 @@ data SecurityGroup = SecurityGroup
     , _sgOwnerId             :: Text
     , _sgTags                :: [Tag]
     , _sgVpcId               :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'SecurityGroup' constructor.
 --
@@ -6190,7 +6190,7 @@ data CancelSpotInstanceRequestState
     | CSIRSClosed    -- ^ closed
     | CSIRSCompleted -- ^ completed
     | CSIRSOpen      -- ^ open
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable CancelSpotInstanceRequestState
 
@@ -6220,7 +6220,7 @@ data PlacementGroupState
     | PGSDeleted   -- ^ deleted
     | PGSDeleting  -- ^ deleting
     | PGSPending   -- ^ pending
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable PlacementGroupState
 
@@ -6246,7 +6246,7 @@ instance ToQuery PlacementGroupState
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult
     { _rimrReservedInstancesId :: Maybe Text
     , _rimrTargetConfiguration :: Maybe ReservedInstancesConfiguration
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ReservedInstancesModificationResult' constructor.
 --
@@ -6286,7 +6286,7 @@ data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecifi
     , _ibdmsEbs         :: Maybe EbsInstanceBlockDeviceSpecification
     , _ibdmsNoDevice    :: Maybe Text
     , _ibdmsVirtualName :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'InstanceBlockDeviceMappingSpecification' constructor.
 --
@@ -6335,7 +6335,7 @@ data ExportEnvironment
     = Citrix    -- ^ citrix
     | Microsoft -- ^ microsoft
     | Vmware    -- ^ vmware
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ExportEnvironment
 
@@ -6363,7 +6363,7 @@ data VolumeAttachment = VolumeAttachment
     , _vaInstanceId          :: Maybe Text
     , _vaState               :: Maybe Text
     , _vaVolumeId            :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'VolumeAttachment' constructor.
 --
@@ -6431,7 +6431,7 @@ data CustomerGateway = CustomerGateway
     , _cgState             :: Maybe Text
     , _cgTags              :: [Tag]
     , _cgType              :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CustomerGateway' constructor.
 --
@@ -6498,7 +6498,7 @@ data EbsInstanceBlockDevice = EbsInstanceBlockDevice
     , _eibdDeleteOnTermination :: Maybe Bool
     , _eibdStatus              :: Maybe Text
     , _eibdVolumeId            :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EbsInstanceBlockDevice' constructor.
 --
@@ -6547,7 +6547,7 @@ instance ToQuery EbsInstanceBlockDevice
 data ShutdownBehavior
     = Stop      -- ^ stop
     | Terminate -- ^ terminate
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ShutdownBehavior
 
@@ -6571,7 +6571,7 @@ data DiskImageDescription = DiskImageDescription
     , _did1Format            :: Text
     , _did1ImportManifestUrl :: Text
     , _did1Size              :: Integer
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DiskImageDescription' constructor.
 --
@@ -6626,7 +6626,7 @@ instance ToQuery DiskImageDescription
 data DiskImageVolumeDescription = DiskImageVolumeDescription
     { _divdId   :: Text
     , _divdSize :: Maybe Integer
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DiskImageVolumeDescription' constructor.
 --
@@ -6659,7 +6659,7 @@ instance ToQuery DiskImageVolumeDescription
 
 newtype Monitoring = Monitoring
     { _mState :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'Monitoring' constructor.
 --
@@ -6685,7 +6685,7 @@ instance ToQuery Monitoring
 data SubnetState
     = SSAvailable -- ^ available
     | SSPending   -- ^ pending
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable SubnetState
 
@@ -6706,7 +6706,7 @@ instance ToQuery SubnetState
 
 data ContainerFormat
     = Ova -- ^ ova
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ContainerFormat
 
@@ -6724,7 +6724,7 @@ instance ToQuery ContainerFormat
 
 newtype AvailabilityZoneMessage = AvailabilityZoneMessage
     { _azmMessage :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'AvailabilityZoneMessage' constructor.
 --
@@ -6750,7 +6750,7 @@ instance ToQuery AvailabilityZoneMessage
 data VpcAttachment = VpcAttachment
     { _va1State :: Maybe Text
     , _va1VpcId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'VpcAttachment' constructor.
 --
@@ -6783,7 +6783,7 @@ instance ToQuery VpcAttachment
 data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping
     { _ibdmDeviceName :: Maybe Text
     , _ibdmEbs        :: Maybe EbsInstanceBlockDevice
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'InstanceBlockDeviceMapping' constructor.
 --
@@ -6818,7 +6818,7 @@ data StatusType
     = Failed           -- ^ failed
     | InsufficientData -- ^ insufficient-data
     | Passed           -- ^ passed
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable StatusType
 
@@ -6844,7 +6844,7 @@ data ExportToS3TaskSpecification = ExportToS3TaskSpecification
     , _etstsDiskImageFormat :: Maybe Text
     , _etstsS3Bucket        :: Maybe Text
     , _etstsS3Prefix        :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ExportToS3TaskSpecification' constructor.
 --
@@ -6893,7 +6893,7 @@ data NetworkInterfaceAttribute
     | Description     -- ^ description
     | GroupSet        -- ^ groupSet
     | SourceDestCheck -- ^ sourceDestCheck
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable NetworkInterfaceAttribute
 
@@ -6920,7 +6920,7 @@ data ImageTypeValues
     = Kernel  -- ^ kernel
     | Machine -- ^ machine
     | Ramdisk -- ^ ramdisk
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ImageTypeValues
 
@@ -6944,7 +6944,7 @@ instance ToQuery ImageTypeValues
 data InstanceExportDetails = InstanceExportDetails
     { _iedInstanceId        :: Maybe Text
     , _iedTargetEnvironment :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'InstanceExportDetails' constructor.
 --
@@ -6978,7 +6978,7 @@ instance ToQuery InstanceExportDetails
 data SnapshotAttributeName
     = SANCreateVolumePermission -- ^ createVolumePermission
     | SANProductCodes           -- ^ productCodes
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable SnapshotAttributeName
 
@@ -7002,7 +7002,7 @@ data AvailabilityZone = AvailabilityZone
     , _azRegionName :: Maybe Text
     , _azState      :: Maybe Text
     , _azZoneName   :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AvailabilityZone' constructor.
 --
@@ -7051,7 +7051,7 @@ data VpnState
     | VpnStateDeleted   -- ^ deleted
     | VpnStateDeleting  -- ^ deleting
     | VpnStatePending   -- ^ pending
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable VpnState
 
@@ -7081,7 +7081,7 @@ data RouteTable = RouteTable
     , _rtRoutes          :: [Route]
     , _rtTags            :: [Tag]
     , _rtVpcId           :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RouteTable' constructor.
 --
@@ -7143,7 +7143,7 @@ instance ToQuery RouteTable
 data HypervisorType
     = Ovm -- ^ ovm
     | Xen -- ^ xen
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable HypervisorType
 
@@ -7166,7 +7166,7 @@ data InstanceStatusDetails = InstanceStatusDetails
     { _isdImpairedSince :: Maybe RFC822
     , _isdName          :: Maybe Text
     , _isdStatus        :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'InstanceStatusDetails' constructor.
 --
@@ -7208,7 +7208,7 @@ instance ToQuery InstanceStatusDetails
 data IamInstanceProfile = IamInstanceProfile
     { _iipArn :: Maybe Text
     , _iipId  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'IamInstanceProfile' constructor.
 --
@@ -7241,7 +7241,7 @@ instance ToQuery IamInstanceProfile
 data InternetGatewayAttachment = InternetGatewayAttachment
     { _igaState :: Text
     , _igaVpcId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'InternetGatewayAttachment' constructor.
 --
@@ -7278,7 +7278,7 @@ data ReservedInstanceState
     | RISPaymentFailed  -- ^ payment-failed
     | RISPaymentPending -- ^ payment-pending
     | RISRetired        -- ^ retired
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ReservedInstanceState
 
@@ -7315,7 +7315,7 @@ data InstanceAttributeName
     | IANInstanceSourceDestCheck                   -- ^ sourceDestCheck
     | IANInstanceSriovNetSupport                   -- ^ sriovNetSupport
     | IANInstanceUserData                          -- ^ userData
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable InstanceAttributeName
 
@@ -7362,7 +7362,7 @@ data IpPermission = IpPermission
     , _ipIpRanges         :: [IpRange]
     , _ipToPort           :: Int
     , _ipUserIdGroupPairs :: [UserIdGroupPair]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'IpPermission' constructor.
 --
@@ -7427,7 +7427,7 @@ data ConversionTaskState
     | CTSCancelled  -- ^ cancelled
     | CTSCancelling -- ^ cancelling
     | CTSCompleted  -- ^ completed
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ConversionTaskState
 
@@ -7454,7 +7454,7 @@ data DiskImage = DiskImage
     { _diDescription :: Maybe Text
     , _diImage       :: Maybe DiskImageDetail
     , _diVolume      :: Maybe VolumeDetail
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DiskImage' constructor.
 --
@@ -7491,7 +7491,7 @@ instance ToQuery DiskImage
 data Tenancy
     = Dedicated -- ^ dedicated
     | Default   -- ^ default
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable Tenancy
 
@@ -7513,7 +7513,7 @@ instance ToQuery Tenancy
 data VpcPeeringConnectionStateReason = VpcPeeringConnectionStateReason
     { _vpcsrCode    :: Maybe Text
     , _vpcsrMessage :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'VpcPeeringConnectionStateReason' constructor.
 --
@@ -7546,7 +7546,7 @@ instance ToQuery VpcPeeringConnectionStateReason
 data IamInstanceProfileSpecification = IamInstanceProfileSpecification
     { _iipsArn  :: Maybe Text
     , _iipsName :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'IamInstanceProfileSpecification' constructor.
 --
@@ -7582,7 +7582,7 @@ data ImportVolumeTaskDetails = ImportVolumeTaskDetails
     , _ivtdDescription      :: Maybe Text
     , _ivtdImage            :: DiskImageDescription
     , _ivtdVolume           :: DiskImageVolumeDescription
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ImportVolumeTaskDetails' constructor.
 --
@@ -7641,7 +7641,7 @@ instance ToQuery ImportVolumeTaskDetails
 
 data PlacementStrategy
     = Cluster -- ^ cluster
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable PlacementStrategy
 
@@ -7672,7 +7672,7 @@ data InstanceNetworkInterface = InstanceNetworkInterface
     , _iniStatus             :: Maybe Text
     , _iniSubnetId           :: Maybe Text
     , _iniVpcId              :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'InstanceNetworkInterface' constructor.
 --
@@ -7798,7 +7798,7 @@ data VolumeStatusAction = VolumeStatusAction
     , _vsaDescription :: Maybe Text
     , _vsaEventId     :: Maybe Text
     , _vsaEventType   :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'VolumeStatusAction' constructor.
 --
@@ -7846,7 +7846,7 @@ data VpcPeeringConnectionVpcInfo = VpcPeeringConnectionVpcInfo
     { _vpcviCidrBlock :: Maybe Text
     , _vpcviOwnerId   :: Maybe Text
     , _vpcviVpcId     :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'VpcPeeringConnectionVpcInfo' constructor.
 --
@@ -7886,7 +7886,7 @@ instance ToQuery VpcPeeringConnectionVpcInfo
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice
     { _rilpAmount       :: Maybe Double
     , _rilpCurrencyCode :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ReservedInstanceLimitPrice' constructor.
 --
@@ -7926,7 +7926,7 @@ data Vpc = Vpc
     , _vpcState           :: Maybe Text
     , _vpcTags            :: [Tag]
     , _vpcVpcId           :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Vpc' constructor.
 --
@@ -8000,7 +8000,7 @@ data InstanceStatus = InstanceStatus
     , _isInstanceState    :: Maybe InstanceState
     , _isInstanceStatus   :: Maybe InstanceStatusSummary
     , _isSystemStatus     :: Maybe InstanceStatusSummary
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'InstanceStatus' constructor.
 --
@@ -8066,7 +8066,7 @@ instance ToQuery InstanceStatus
 data ArchitectureValues
     = I386  -- ^ i386
     | X8664 -- ^ x86_64
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ArchitectureValues
 
@@ -8095,7 +8095,7 @@ data ReportInstanceReasonCodes
     | PerformanceNetwork       -- ^ performance-network
     | PerformanceOther         -- ^ performance-other
     | Unresponsive             -- ^ unresponsive
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ReportInstanceReasonCodes
 
@@ -8135,7 +8135,7 @@ data EbsBlockDevice = EbsBlockDevice
     , _ebdSnapshotId          :: Maybe Text
     , _ebdVolumeSize          :: Maybe Int
     , _ebdVolumeType          :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EbsBlockDevice' constructor.
 --
@@ -8217,7 +8217,7 @@ instance ToQuery EbsBlockDevice
 data AccountAttribute = AccountAttribute
     { _aaAttributeName   :: Maybe Text
     , _aaAttributeValues :: [AccountAttributeValue]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AccountAttribute' constructor.
 --
@@ -8253,7 +8253,7 @@ data PriceSchedule = PriceSchedule
     , _psCurrencyCode :: Maybe Text
     , _psPrice        :: Maybe Double
     , _psTerm         :: Maybe Integer
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PriceSchedule' constructor.
 --
@@ -8310,7 +8310,7 @@ instance ToQuery PriceSchedule
 data DeviceType
     = Ebs           -- ^ ebs
     | InstanceStore -- ^ instance-store
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable DeviceType
 
@@ -8332,7 +8332,7 @@ instance ToQuery DeviceType
 data DomainType
     = DTStandard -- ^ standard
     | DTVpc      -- ^ vpc
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable DomainType
 
@@ -8354,7 +8354,7 @@ instance ToQuery DomainType
 data Region = Region
     { _rEndpoint   :: Maybe Text
     , _rRegionName :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Region' constructor.
 --
@@ -8386,7 +8386,7 @@ instance ToQuery Region
 
 newtype PropagatingVgw = PropagatingVgw
     { _pvGatewayId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'PropagatingVgw' constructor.
 --
@@ -8413,7 +8413,7 @@ data OfferingTypeValues
     = HeavyUtilization  -- ^ Heavy Utilization
     | LightUtilization  -- ^ Light Utilization
     | MediumUtilization -- ^ Medium Utilization
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable OfferingTypeValues
 
@@ -8441,7 +8441,7 @@ data VpnGateway = VpnGateway
     , _vgType             :: Maybe Text
     , _vgVpcAttachments   :: [VpcAttachment]
     , _vgVpnGatewayId     :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'VpnGateway' constructor.
 --
@@ -8503,7 +8503,7 @@ instance ToQuery VpnGateway
 data Filter = Filter
     { _fName   :: Text
     , _fValues :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Filter' constructor.
 --
@@ -8538,7 +8538,7 @@ data VolumeType
     = Gp2      -- ^ gp2
     | Io1      -- ^ io1
     | Standard -- ^ standard
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable VolumeType
 
@@ -8563,7 +8563,7 @@ data InstanceStateChange = InstanceStateChange
     { _iscCurrentState  :: Maybe InstanceState
     , _iscInstanceId    :: Maybe Text
     , _iscPreviousState :: Maybe InstanceState
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'InstanceStateChange' constructor.
 --
@@ -8607,7 +8607,7 @@ data NetworkAcl = NetworkAcl
     , _naNetworkAclId :: Maybe Text
     , _naTags         :: [Tag]
     , _naVpcId        :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'NetworkAcl' constructor.
 --
@@ -8668,7 +8668,7 @@ instance ToQuery NetworkAcl
 data ImageState
     = ISAvailable    -- ^ available
     | ISDeregistered -- ^ deregistered
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ImageState
 
@@ -8689,7 +8689,7 @@ instance ToQuery ImageState
 
 data GatewayType
     = Ipsec1 -- ^ ipsec.1
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable GatewayType
 
@@ -8711,7 +8711,7 @@ data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment
     , _iniaDeleteOnTermination :: Maybe Bool
     , _iniaDeviceIndex         :: Maybe Int
     , _iniaStatus              :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'InstanceNetworkInterfaceAttachment' constructor.
 --
@@ -8768,7 +8768,7 @@ instance ToQuery InstanceNetworkInterfaceAttachment
 
 newtype AttributeBooleanValue = AttributeBooleanValue
     { _abvValue :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AttributeBooleanValue' constructor.
 --
@@ -8793,7 +8793,7 @@ instance ToQuery AttributeBooleanValue
 data RecurringCharge = RecurringCharge
     { _rcAmount    :: Maybe Double
     , _rcFrequency :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RecurringCharge' constructor.
 --
@@ -8826,7 +8826,7 @@ instance ToQuery RecurringCharge
 data NewDhcpConfiguration = NewDhcpConfiguration
     { _ndcKey    :: Maybe Text
     , _ndcValues :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'NewDhcpConfiguration' constructor.
 --
@@ -8857,7 +8857,7 @@ instance ToQuery NewDhcpConfiguration
 data StateReason = StateReason
     { _srCode    :: Maybe Text
     , _srMessage :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StateReason' constructor.
 --
@@ -8901,7 +8901,7 @@ data MonitoringState
     = MSDisabled -- ^ disabled
     | MSEnabled  -- ^ enabled
     | MSPending  -- ^ pending
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable MonitoringState
 
@@ -8924,7 +8924,7 @@ instance ToQuery MonitoringState
 
 newtype ReservedInstancesId = ReservedInstancesId
     { _riiReservedInstancesId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ReservedInstancesId' constructor.
 --
@@ -8950,7 +8950,7 @@ instance ToQuery ReservedInstancesId
 
 data StatusName
     = Reachability -- ^ reachability
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable StatusName
 
@@ -8970,7 +8970,7 @@ data InternetGateway = InternetGateway
     { _igAttachments       :: [InternetGatewayAttachment]
     , _igInternetGatewayId :: Text
     , _igTags              :: [Tag]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'InternetGateway' constructor.
 --
@@ -9012,7 +9012,7 @@ instance ToQuery InternetGateway
 data VolumeStatusName
     = IoEnabled     -- ^ io-enabled
     | IoPerformance -- ^ io-performance
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable VolumeStatusName
 
@@ -9034,7 +9034,7 @@ instance ToQuery VolumeStatusName
 data VolumeAttributeName
     = AutoEnableIO -- ^ autoEnableIO
     | ProductCodes -- ^ productCodes
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable VolumeAttributeName
 
@@ -9058,7 +9058,7 @@ data ImportInstanceTaskDetails = ImportInstanceTaskDetails
     , _iitdInstanceId  :: Maybe Text
     , _iitdPlatform    :: Maybe Text
     , _iitdVolumes     :: [ImportInstanceVolumeDetailItem]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ImportInstanceTaskDetails' constructor.
 --
@@ -9103,7 +9103,7 @@ data PlacementGroup = PlacementGroup
     { _pgGroupName :: Maybe Text
     , _pgState     :: Maybe Text
     , _pgStrategy  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PlacementGroup' constructor.
 --
@@ -9143,7 +9143,7 @@ instance ToQuery PlacementGroup
 data ProductCode = ProductCode
     { _pcProductCodeId   :: Maybe Text
     , _pcProductCodeType :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ProductCode' constructor.
 --
@@ -9179,7 +9179,7 @@ data ListingStatus
     | ListingStatusCancelled -- ^ cancelled
     | ListingStatusClosed    -- ^ closed
     | ListingStatusPending   -- ^ pending
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ListingStatus
 
@@ -9204,7 +9204,7 @@ instance ToQuery ListingStatus
 
 newtype IpRange = IpRange
     { _irCidrIp :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'IpRange' constructor.
 --
@@ -9233,7 +9233,7 @@ data VolumeStatusInfoStatus
     = VSISImpaired         -- ^ impaired
     | VSISInsufficientData -- ^ insufficient-data
     | VSISOk               -- ^ ok
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable VolumeStatusInfoStatus
 
@@ -9256,7 +9256,7 @@ instance ToQuery VolumeStatusInfoStatus
 
 newtype AccountAttributeValue = AccountAttributeValue
     { _aavAttributeValue :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'AccountAttributeValue' constructor.
 --
@@ -9285,7 +9285,7 @@ data RIProductDescription
     | RIPDLinuxUNIXAmazonVPC -- ^ Linux/UNIX (Amazon VPC)
     | RIPDWindows            -- ^ Windows
     | RIPDWindowsAmazonVPC   -- ^ Windows (Amazon VPC)
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable RIProductDescription
 
@@ -9322,7 +9322,7 @@ data ReservedInstancesOffering = ReservedInstancesOffering
     , _rioRecurringCharges            :: [RecurringCharge]
     , _rioReservedInstancesOfferingId :: Maybe Text
     , _rioUsagePrice                  :: Maybe Double
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ReservedInstancesOffering' constructor.
 --
@@ -9457,7 +9457,7 @@ data ReservedInstances = ReservedInstances
     , _riState               :: Maybe Text
     , _riTags                :: [Tag]
     , _riUsagePrice          :: Maybe Double
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ReservedInstances' constructor.
 --
@@ -9597,7 +9597,7 @@ instance ToQuery ReservedInstances
 data DatafeedSubscriptionState
     = DSSActive   -- ^ Active
     | DSSInactive -- ^ Inactive
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable DatafeedSubscriptionState
 
@@ -9621,7 +9621,7 @@ data ExportTaskState
     | ETSCancelled  -- ^ cancelled
     | ETSCancelling -- ^ cancelling
     | ETSCompleted  -- ^ completed
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ExportTaskState
 
@@ -9647,7 +9647,7 @@ instance ToQuery ExportTaskState
 data ProductCodeValues
     = Devpay      -- ^ devpay
     | Marketplace -- ^ marketplace
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ProductCodeValues
 
@@ -9677,7 +9677,7 @@ data VpnConnection = VpnConnection
     , _vcVgwTelemetry                 :: [VgwTelemetry]
     , _vcVpnConnectionId              :: Maybe Text
     , _vcVpnGatewayId                 :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'VpnConnection' constructor.
 --
@@ -9775,7 +9775,7 @@ instance ToQuery VpnConnection
 data InstanceState = InstanceState
     { _isCode :: Int
     , _isName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'InstanceState' constructor.
 --
@@ -9813,7 +9813,7 @@ data Placement = Placement
     { _pAvailabilityZone :: Maybe Text
     , _pGroupName        :: Maybe Text
     , _pTenancy          :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Placement' constructor.
 --
@@ -9859,7 +9859,7 @@ data EventCode
     | InstanceStop       -- ^ instance-stop
     | SystemMaintenance  -- ^ system-maintenance
     | SystemReboot       -- ^ system-reboot
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable EventCode
 
@@ -9887,7 +9887,7 @@ instance ToQuery EventCode
 data SpotInstanceType
     = OneTime    -- ^ one-time
     | Persistent -- ^ persistent
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable SpotInstanceType
 
@@ -9913,7 +9913,7 @@ data VpcPeeringConnection = VpcPeeringConnection
     , _vpc1Status                 :: Maybe VpcPeeringConnectionStateReason
     , _vpc1Tags                   :: [Tag]
     , _vpc1VpcPeeringConnectionId :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'VpcPeeringConnection' constructor.
 --
@@ -9983,7 +9983,7 @@ data S3Storage = S3Storage
     , _ssPrefix                :: Maybe Text
     , _ssUploadPolicy          :: Maybe Base64
     , _ssUploadPolicySignature :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'S3Storage' constructor.
 --
@@ -10047,7 +10047,7 @@ data VgwTelemetry = VgwTelemetry
     , _vtOutsideIpAddress   :: Maybe Text
     , _vtStatus             :: Maybe Text
     , _vtStatusMessage      :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'VgwTelemetry' constructor.
 --
@@ -10107,7 +10107,7 @@ data VpnStaticRoute = VpnStaticRoute
     { _vsrDestinationCidrBlock :: Maybe Text
     , _vsrSource               :: Maybe Text
     , _vsrState                :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'VpnStaticRoute' constructor.
 --
@@ -10153,7 +10153,7 @@ data InstanceStateName
     | ISNStopped      -- ^ stopped
     | ISNStopping     -- ^ stopping
     | ISNTerminated   -- ^ terminated
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable InstanceStateName
 
@@ -10218,7 +10218,7 @@ data Instance = Instance
     , _i1Tags                  :: [Tag]
     , _i1VirtualizationType    :: Maybe Text
     , _i1VpcId                 :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Instance' constructor.
 --
@@ -10528,7 +10528,7 @@ data ExportTask = ExportTask
     , _etInstanceExportDetails :: Maybe InstanceExportDetails
     , _etState                 :: Maybe Text
     , _etStatusMessage         :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ExportTask' constructor.
 --
@@ -10588,7 +10588,7 @@ instance ToQuery ExportTask
 
 data ResetImageAttributeName
     = RIANLaunchPermission -- ^ launchPermission
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ResetImageAttributeName
 
@@ -10621,7 +10621,7 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification
     , _rslsSecurityGroups      :: [Text]
     , _rslsSubnetId            :: Maybe Text
     , _rslsUserData            :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RequestSpotLaunchSpecification' constructor.
 --
@@ -10758,7 +10758,7 @@ instance ToQuery RequestSpotLaunchSpecification
 
 newtype VolumeDetail = VolumeDetail
     { _vdSize :: Integer
-    } (Eq, Ord, Show, Generic, Enum, Num)
+    } deriving (Eq, Ord, Show, Generic, Enum, Num, Integral, Real)
 
 -- | 'VolumeDetail' constructor.
 --
@@ -10785,7 +10785,7 @@ instance ToQuery VolumeDetail
 data PricingDetail = PricingDetail
     { _pdCount :: Maybe Int
     , _pdPrice :: Maybe Double
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PricingDetail' constructor.
 --
@@ -10820,7 +10820,7 @@ data NetworkInterfacePrivateIpAddress = NetworkInterfacePrivateIpAddress
     , _nipiaPrimary          :: Maybe Bool
     , _nipiaPrivateDnsName   :: Maybe Text
     , _nipiaPrivateIpAddress :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'NetworkInterfacePrivateIpAddress' constructor.
 --
@@ -10872,7 +10872,7 @@ data DiskImageFormat
     = Raw  -- ^ RAW
     | Vhd  -- ^ VHD
     | Vmdk -- ^ VMDK
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable DiskImageFormat
 
@@ -10896,7 +10896,7 @@ instance ToQuery DiskImageFormat
 data BundleTaskError = BundleTaskError
     { _bteCode    :: Maybe Text
     , _bteMessage :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'BundleTaskError' constructor.
 --
@@ -10932,7 +10932,7 @@ data VolumeStatusItem = VolumeStatusItem
     , _vsiEvents           :: [VolumeStatusEvent]
     , _vsiVolumeId         :: Maybe Text
     , _vsiVolumeStatus     :: Maybe VolumeStatusInfo
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'VolumeStatusItem' constructor.
 --

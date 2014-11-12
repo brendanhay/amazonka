@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 data RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectProvider
     { _rcidfoidcpClientID                 :: Text
     , _rcidfoidcpOpenIDConnectProviderArn :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RemoveClientIDFromOpenIDConnectProvider' constructor.
 --
@@ -79,6 +79,7 @@ rcidfoidcpOpenIDConnectProviderArn :: Lens' RemoveClientIDFromOpenIDConnectProvi
 rcidfoidcpOpenIDConnectProviderArn =
     lens _rcidfoidcpOpenIDConnectProviderArn
         (\s a -> s { _rcidfoidcpOpenIDConnectProviderArn = a })
+
 instance ToQuery RemoveClientIDFromOpenIDConnectProvider
 
 instance ToPath RemoveClientIDFromOpenIDConnectProvider where

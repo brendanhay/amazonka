@@ -50,7 +50,7 @@ data CopyOptionGroupMessage = CopyOptionGroupMessage
     , _cogm1Tags                         :: [Tag]
     , _cogm1TargetOptionGroupDescription :: Text
     , _cogm1TargetOptionGroupIdentifier  :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CopyOptionGroupMessage' constructor.
 --
@@ -103,6 +103,7 @@ cogm1TargetOptionGroupIdentifier :: Lens' CopyOptionGroupMessage Text
 cogm1TargetOptionGroupIdentifier =
     lens _cogm1TargetOptionGroupIdentifier
         (\s a -> s { _cogm1TargetOptionGroupIdentifier = a })
+
 instance ToQuery CopyOptionGroupMessage
 
 instance ToPath CopyOptionGroupMessage where
@@ -110,7 +111,7 @@ instance ToPath CopyOptionGroupMessage where
 
 newtype CopyOptionGroupResult = CopyOptionGroupResult
     { _cogrOptionGroup :: Maybe OptionGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CopyOptionGroupResult' constructor.
 --

@@ -50,7 +50,7 @@ data SetLoadBalancerListenerSSLCertificateInput = SetLoadBalancerListenerSSLCert
     { _slblsslciLoadBalancerName :: Text
     , _slblsslciLoadBalancerPort :: Int
     , _slblsslciSSLCertificateId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetLoadBalancerListenerSSLCertificateInput' constructor.
 --
@@ -91,6 +91,7 @@ slblsslciSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificateInput Te
 slblsslciSSLCertificateId =
     lens _slblsslciSSLCertificateId
         (\s a -> s { _slblsslciSSLCertificateId = a })
+
 instance ToQuery SetLoadBalancerListenerSSLCertificateInput
 
 instance ToPath SetLoadBalancerListenerSSLCertificateInput where

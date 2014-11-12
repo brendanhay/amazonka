@@ -50,7 +50,7 @@ import Network.AWS.CloudSearch.Types
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions
     { _daoDeployed   :: Maybe Bool
     , _daoDomainName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAvailabilityOptions' constructor.
 --
@@ -75,6 +75,7 @@ daoDeployed = lens _daoDeployed (\s a -> s { _daoDeployed = a })
 -- | The name of the domain you want to describe.
 daoDomainName :: Lens' DescribeAvailabilityOptions Text
 daoDomainName = lens _daoDomainName (\s a -> s { _daoDomainName = a })
+
 instance ToQuery DescribeAvailabilityOptions
 
 instance ToPath DescribeAvailabilityOptions where
@@ -82,7 +83,7 @@ instance ToPath DescribeAvailabilityOptions where
 
 newtype DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
     { _daorAvailabilityOptions :: Maybe AvailabilityOptionsStatus
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeAvailabilityOptionsResponse' constructor.
 --

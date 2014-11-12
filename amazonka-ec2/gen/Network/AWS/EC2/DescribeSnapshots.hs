@@ -78,7 +78,7 @@ data DescribeSnapshots = DescribeSnapshots
     , _ds1OwnerIds            :: [Text]
     , _ds1RestorableByUserIds :: [Text]
     , _ds1SnapshotIds         :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeSnapshots' constructor.
 --
@@ -140,6 +140,7 @@ ds1RestorableByUserIds =
 -- launch permissions.
 ds1SnapshotIds :: Lens' DescribeSnapshots [Text]
 ds1SnapshotIds = lens _ds1SnapshotIds (\s a -> s { _ds1SnapshotIds = a })
+
 instance ToQuery DescribeSnapshots
 
 instance ToPath DescribeSnapshots where
@@ -147,7 +148,13 @@ instance ToPath DescribeSnapshots where
 
 newtype DescribeSnapshotsResult = DescribeSnapshotsResult
     { _dsrSnapshots :: [Snapshot]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeSnapshotsResult
+    type Item DescribeSnapshotsResult = Snapshot
+
+    fromList = DescribeSnapshotsResult . fromList
+    toList   = toList . _dsrSnapshots
 
 -- | 'DescribeSnapshotsResult' constructor.
 --

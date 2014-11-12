@@ -48,7 +48,7 @@ import Network.AWS.IAM.Types
 data DeleteSigningCertificate = DeleteSigningCertificate
     { _dscCertificateId :: Text
     , _dscUserName      :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSigningCertificate' constructor.
 --
@@ -72,6 +72,7 @@ dscCertificateId = lens _dscCertificateId (\s a -> s { _dscCertificateId = a })
 -- | The name of the user the signing certificate belongs to.
 dscUserName :: Lens' DeleteSigningCertificate (Maybe Text)
 dscUserName = lens _dscUserName (\s a -> s { _dscUserName = a })
+
 instance ToQuery DeleteSigningCertificate
 
 instance ToPath DeleteSigningCertificate where

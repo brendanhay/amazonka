@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteInstanceProfile = DeleteInstanceProfile
     { _dipInstanceProfileName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteInstanceProfile' constructor.
 --
@@ -65,6 +65,7 @@ deleteInstanceProfile p1 = DeleteInstanceProfile
 dipInstanceProfileName :: Lens' DeleteInstanceProfile Text
 dipInstanceProfileName =
     lens _dipInstanceProfileName (\s a -> s { _dipInstanceProfileName = a })
+
 instance ToQuery DeleteInstanceProfile
 
 instance ToPath DeleteInstanceProfile where

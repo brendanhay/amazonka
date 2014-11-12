@@ -57,7 +57,7 @@ data DescribeStackResourcesInput = DescribeStackResourcesInput
     { _dsriLogicalResourceId  :: Maybe Text
     , _dsriPhysicalResourceId :: Maybe Text
     , _dsriStackName          :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeStackResourcesInput' constructor.
 --
@@ -102,6 +102,7 @@ dsriPhysicalResourceId =
 -- PhysicalResourceId.
 dsriStackName :: Lens' DescribeStackResourcesInput (Maybe Text)
 dsriStackName = lens _dsriStackName (\s a -> s { _dsriStackName = a })
+
 instance ToQuery DescribeStackResourcesInput
 
 instance ToPath DescribeStackResourcesInput where
@@ -109,7 +110,13 @@ instance ToPath DescribeStackResourcesInput where
 
 newtype DescribeStackResourcesOutput = DescribeStackResourcesOutput
     { _dsroStackResources :: [StackResource]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeStackResourcesOutput
+    type Item DescribeStackResourcesOutput = StackResource
+
+    fromList = DescribeStackResourcesOutput . fromList
+    toList   = toList . _dsroStackResources
 
 -- | 'DescribeStackResourcesOutput' constructor.
 --

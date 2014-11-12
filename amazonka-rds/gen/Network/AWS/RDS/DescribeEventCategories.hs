@@ -48,7 +48,7 @@ import Network.AWS.RDS.Types
 data DescribeEventCategoriesMessage = DescribeEventCategoriesMessage
     { _decmFilters    :: [Filter]
     , _decmSourceType :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeEventCategoriesMessage' constructor.
 --
@@ -72,6 +72,7 @@ decmFilters = lens _decmFilters (\s a -> s { _decmFilters = a })
 -- db-instance | db-parameter-group | db-security-group | db-snapshot.
 decmSourceType :: Lens' DescribeEventCategoriesMessage (Maybe Text)
 decmSourceType = lens _decmSourceType (\s a -> s { _decmSourceType = a })
+
 instance ToQuery DescribeEventCategoriesMessage
 
 instance ToPath DescribeEventCategoriesMessage where
@@ -79,7 +80,13 @@ instance ToPath DescribeEventCategoriesMessage where
 
 newtype EventCategoriesMessage = EventCategoriesMessage
     { _ecmEventCategoriesMapList :: [EventCategoriesMap]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList EventCategoriesMessage
+    type Item EventCategoriesMessage = EventCategoriesMap
+
+    fromList = EventCategoriesMessage . fromList
+    toList   = toList . _ecmEventCategoriesMapList
 
 -- | 'EventCategoriesMessage' constructor.
 --

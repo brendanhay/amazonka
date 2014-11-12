@@ -156,7 +156,7 @@ data StatisticSet = StatisticSet
     , _ssMinimum     :: Double
     , _ssSampleCount :: Double
     , _ssSum         :: Double
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, RealFloat)
 
 -- | 'StatisticSet' constructor.
 --
@@ -226,7 +226,7 @@ data MetricAlarm = MetricAlarm
     , _maStatistic                          :: Maybe Text
     , _maThreshold                          :: Maybe Double
     , _maUnit                               :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'MetricAlarm' constructor.
 --
@@ -426,7 +426,7 @@ data HistoryItemType
     = Action              -- ^ Action
     | ConfigurationUpdate -- ^ ConfigurationUpdate
     | StateUpdate         -- ^ StateUpdate
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable HistoryItemType
 
@@ -454,7 +454,7 @@ data MetricDatum = MetricDatum
     , _mdTimestamp       :: Maybe RFC822
     , _mdUnit            :: Maybe Text
     , _mdValue           :: Maybe Double
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'MetricDatum' constructor.
 --
@@ -553,7 +553,7 @@ data StandardUnit
     | TerabitsSecond  -- ^ Terabits/Second
     | Terabytes       -- ^ Terabytes
     | TerabytesSecond -- ^ Terabytes/Second
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable StandardUnit
 
@@ -625,7 +625,7 @@ instance ToQuery StandardUnit
 data Dimension = Dimension
     { _dName  :: Text
     , _dValue :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Dimension' constructor.
 --
@@ -662,7 +662,7 @@ data ComparisonOperator
     | GreaterThanThreshold          -- ^ GreaterThanThreshold
     | LessThanOrEqualToThreshold    -- ^ LessThanOrEqualToThreshold
     | LessThanThreshold             -- ^ LessThanThreshold
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ComparisonOperator
 
@@ -691,7 +691,7 @@ data AlarmHistoryItem = AlarmHistoryItem
     , _ahiHistoryItemType :: Maybe Text
     , _ahiHistorySummary  :: Maybe Text
     , _ahiTimestamp       :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AlarmHistoryItem' constructor.
 --
@@ -752,7 +752,7 @@ data Metric = Metric
     { _mDimensions :: [Dimension]
     , _mMetricName :: Maybe Text
     , _mNamespace  :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Metric' constructor.
 --
@@ -793,7 +793,7 @@ data StateValue
     = Alarm            -- ^ ALARM
     | InsufficientData -- ^ INSUFFICIENT_DATA
     | Ok               -- ^ OK
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable StateValue
 
@@ -822,7 +822,7 @@ data Datapoint = Datapoint
     , _dSum         :: Maybe Double
     , _dTimestamp   :: Maybe RFC822
     , _dUnit        :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Datapoint' constructor.
 --
@@ -895,7 +895,7 @@ instance ToQuery Datapoint
 data DimensionFilter = DimensionFilter
     { _dfName  :: Text
     , _dfValue :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DimensionFilter' constructor.
 --
@@ -932,7 +932,7 @@ data Statistic
     | Minimum     -- ^ Minimum
     | SampleCount -- ^ SampleCount
     | Sum         -- ^ Sum
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable Statistic
 

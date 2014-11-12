@@ -59,7 +59,7 @@ data CreateLBCookieStickinessPolicyInput = CreateLBCookieStickinessPolicyInput
     { _clbcspiCookieExpirationPeriod :: Maybe Integer
     , _clbcspiLoadBalancerName       :: Text
     , _clbcspiPolicyName             :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateLBCookieStickinessPolicyInput' constructor.
 --
@@ -98,6 +98,7 @@ clbcspiLoadBalancerName =
 clbcspiPolicyName :: Lens' CreateLBCookieStickinessPolicyInput Text
 clbcspiPolicyName =
     lens _clbcspiPolicyName (\s a -> s { _clbcspiPolicyName = a })
+
 instance ToQuery CreateLBCookieStickinessPolicyInput
 
 instance ToPath CreateLBCookieStickinessPolicyInput where

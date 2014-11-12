@@ -51,7 +51,7 @@ data DescribeHsmConfigurationsMessage = DescribeHsmConfigurationsMessage
     { _dhcmHsmConfigurationIdentifier :: Maybe Text
     , _dhcmMarker                     :: Maybe Text
     , _dhcmMaxRecords                 :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeHsmConfigurationsMessage' constructor.
 --
@@ -94,6 +94,7 @@ dhcmMarker = lens _dhcmMarker (\s a -> s { _dhcmMarker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dhcmMaxRecords :: Lens' DescribeHsmConfigurationsMessage (Maybe Int)
 dhcmMaxRecords = lens _dhcmMaxRecords (\s a -> s { _dhcmMaxRecords = a })
+
 instance ToQuery DescribeHsmConfigurationsMessage
 
 instance ToPath DescribeHsmConfigurationsMessage where
@@ -102,7 +103,7 @@ instance ToPath DescribeHsmConfigurationsMessage where
 data HsmConfigurationMessage = HsmConfigurationMessage
     { _hcmHsmConfigurations :: [HsmConfiguration]
     , _hcmMarker            :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'HsmConfigurationMessage' constructor.
 --

@@ -44,7 +44,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketTagging = GetBucketTagging
     { _gbtBucket :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetBucketTagging' constructor.
 --
@@ -74,7 +74,13 @@ instance ToHeaders GetBucketTagging
 
 newtype GetBucketTaggingOutput = GetBucketTaggingOutput
     { _gbtoTagSet :: [Tag]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList GetBucketTaggingOutput
+    type Item GetBucketTaggingOutput = Tag
+
+    fromList = GetBucketTaggingOutput . fromList
+    toList   = toList . _gbtoTagSet
 
 -- | 'GetBucketTaggingOutput' constructor.
 --

@@ -71,7 +71,7 @@ data CreateDBInstanceReadReplicaMessage = CreateDBInstanceReadReplicaMessage
     , _cdbirrmSourceDBInstanceIdentifier :: Text
     , _cdbirrmStorageType                :: Maybe Text
     , _cdbirrmTags                       :: [Tag]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDBInstanceReadReplicaMessage' constructor.
 --
@@ -225,6 +225,7 @@ cdbirrmStorageType =
 
 cdbirrmTags :: Lens' CreateDBInstanceReadReplicaMessage [Tag]
 cdbirrmTags = lens _cdbirrmTags (\s a -> s { _cdbirrmTags = a })
+
 instance ToQuery CreateDBInstanceReadReplicaMessage
 
 instance ToPath CreateDBInstanceReadReplicaMessage where
@@ -232,7 +233,7 @@ instance ToPath CreateDBInstanceReadReplicaMessage where
 
 newtype CreateDBInstanceReadReplicaResult = CreateDBInstanceReadReplicaResult
     { _cdbirrrDBInstance :: Maybe DBInstance
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDBInstanceReadReplicaResult' constructor.
 --

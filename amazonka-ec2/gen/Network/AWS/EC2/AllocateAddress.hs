@@ -50,7 +50,7 @@ import Network.AWS.EC2.Types
 data AllocateAddress = AllocateAddress
     { _aaDomain :: Maybe Text
     , _aaDryRun :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AllocateAddress' constructor.
 --
@@ -73,6 +73,7 @@ aaDomain = lens _aaDomain (\s a -> s { _aaDomain = a })
 
 aaDryRun :: Lens' AllocateAddress (Maybe Bool)
 aaDryRun = lens _aaDryRun (\s a -> s { _aaDryRun = a })
+
 instance ToQuery AllocateAddress
 
 instance ToPath AllocateAddress where
@@ -82,7 +83,7 @@ data AllocateAddressResult = AllocateAddressResult
     { _aarAllocationId :: Maybe Text
     , _aarDomain       :: Maybe Text
     , _aarPublicIp     :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AllocateAddressResult' constructor.
 --

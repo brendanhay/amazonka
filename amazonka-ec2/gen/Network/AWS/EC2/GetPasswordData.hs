@@ -57,7 +57,7 @@ import Network.AWS.EC2.Types
 data GetPasswordData = GetPasswordData
     { _gpdDryRun     :: Maybe Bool
     , _gpdInstanceId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetPasswordData' constructor.
 --
@@ -80,6 +80,7 @@ gpdDryRun = lens _gpdDryRun (\s a -> s { _gpdDryRun = a })
 -- | The ID of the Windows instance.
 gpdInstanceId :: Lens' GetPasswordData Text
 gpdInstanceId = lens _gpdInstanceId (\s a -> s { _gpdInstanceId = a })
+
 instance ToQuery GetPasswordData
 
 instance ToPath GetPasswordData where
@@ -89,7 +90,7 @@ data GetPasswordDataResult = GetPasswordDataResult
     { _gpdrInstanceId   :: Maybe Text
     , _gpdrPasswordData :: Maybe Text
     , _gpdrTimestamp    :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetPasswordDataResult' constructor.
 --

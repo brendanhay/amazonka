@@ -58,7 +58,7 @@ data CreateNetworkInterface = CreateNetworkInterface
     , _cniPrivateIpAddresses             :: [PrivateIpAddressSpecification]
     , _cniSecondaryPrivateIpAddressCount :: Maybe Int
     , _cniSubnetId                       :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateNetworkInterface' constructor.
 --
@@ -131,6 +131,7 @@ cniSecondaryPrivateIpAddressCount =
 -- | The ID of the subnet to associate with the network interface.
 cniSubnetId :: Lens' CreateNetworkInterface Text
 cniSubnetId = lens _cniSubnetId (\s a -> s { _cniSubnetId = a })
+
 instance ToQuery CreateNetworkInterface
 
 instance ToPath CreateNetworkInterface where
@@ -138,7 +139,7 @@ instance ToPath CreateNetworkInterface where
 
 newtype CreateNetworkInterfaceResult = CreateNetworkInterfaceResult
     { _cnirNetworkInterface :: Maybe NetworkInterface
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateNetworkInterfaceResult' constructor.
 --

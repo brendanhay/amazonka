@@ -98,7 +98,7 @@ data CreateDBInstanceMessage = CreateDBInstanceMessage
     , _cdbimTdeCredentialArn           :: Maybe Text
     , _cdbimTdeCredentialPassword      :: Maybe Text
     , _cdbimVpcSecurityGroupIds        :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDBInstanceMessage' constructor.
 --
@@ -437,6 +437,7 @@ cdbimVpcSecurityGroupIds :: Lens' CreateDBInstanceMessage [Text]
 cdbimVpcSecurityGroupIds =
     lens _cdbimVpcSecurityGroupIds
         (\s a -> s { _cdbimVpcSecurityGroupIds = a })
+
 instance ToQuery CreateDBInstanceMessage
 
 instance ToPath CreateDBInstanceMessage where
@@ -444,7 +445,7 @@ instance ToPath CreateDBInstanceMessage where
 
 newtype CreateDBInstanceResult = CreateDBInstanceResult
     { _cdbirDBInstance :: Maybe DBInstance
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDBInstanceResult' constructor.
 --

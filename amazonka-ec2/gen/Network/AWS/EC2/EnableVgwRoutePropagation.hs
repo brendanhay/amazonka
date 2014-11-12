@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
     { _evrpGatewayId    :: Text
     , _evrpRouteTableId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EnableVgwRoutePropagation' constructor.
 --
@@ -70,6 +70,7 @@ evrpGatewayId = lens _evrpGatewayId (\s a -> s { _evrpGatewayId = a })
 -- | The ID of the route table.
 evrpRouteTableId :: Lens' EnableVgwRoutePropagation Text
 evrpRouteTableId = lens _evrpRouteTableId (\s a -> s { _evrpRouteTableId = a })
+
 instance ToQuery EnableVgwRoutePropagation
 
 instance ToPath EnableVgwRoutePropagation where

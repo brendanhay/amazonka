@@ -53,7 +53,7 @@ data DescribeCacheParametersMessage = DescribeCacheParametersMessage
     , _dcpmMarker                  :: Maybe Text
     , _dcpmMaxRecords              :: Maybe Int
     , _dcpmSource                  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeCacheParametersMessage' constructor.
 --
@@ -100,6 +100,7 @@ dcpmMaxRecords = lens _dcpmMaxRecords (\s a -> s { _dcpmMaxRecords = a })
 -- engine-default.
 dcpmSource :: Lens' DescribeCacheParametersMessage (Maybe Text)
 dcpmSource = lens _dcpmSource (\s a -> s { _dcpmSource = a })
+
 instance ToQuery DescribeCacheParametersMessage
 
 instance ToPath DescribeCacheParametersMessage where
@@ -109,7 +110,7 @@ data CacheParameterGroupDetails = CacheParameterGroupDetails
     { _cpgdCacheNodeTypeSpecificParameters :: [CacheNodeTypeSpecificParameter]
     , _cpgdMarker                          :: Maybe Text
     , _cpgdParameters                      :: [Parameter]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CacheParameterGroupDetails' constructor.
 --

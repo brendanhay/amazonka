@@ -53,7 +53,7 @@ import Network.AWS.SES.Types
 
 newtype VerifyDomainDkim = VerifyDomainDkim
     { _vddDomain :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'VerifyDomainDkim' constructor.
 --
@@ -70,6 +70,7 @@ verifyDomainDkim p1 = VerifyDomainDkim
 -- | The name of the domain to be verified for Easy DKIM signing.
 vddDomain :: Lens' VerifyDomainDkim Text
 vddDomain = lens _vddDomain (\s a -> s { _vddDomain = a })
+
 instance ToQuery VerifyDomainDkim
 
 instance ToPath VerifyDomainDkim where
@@ -77,16 +78,13 @@ instance ToPath VerifyDomainDkim where
 
 newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
     { _vddrDkimTokens :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList VerifyDomainDkimResponse
+    type Item VerifyDomainDkimResponse = Text
+
+    fromList = VerifyDomainDkimResponse . fromList
+    toList   = toList . _vddrDkimTokens
 
 -- | 'VerifyDomainDkimResponse' constructor.
 --

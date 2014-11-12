@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 
 newtype GetUser = GetUser
     { _guUserName :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetUser' constructor.
 --
@@ -65,6 +65,7 @@ getUser = GetUser
 -- request.
 guUserName :: Lens' GetUser (Maybe Text)
 guUserName = lens _guUserName (\s a -> s { _guUserName = a })
+
 instance ToQuery GetUser
 
 instance ToPath GetUser where
@@ -72,7 +73,7 @@ instance ToPath GetUser where
 
 newtype GetUserResponse = GetUserResponse
     { _gurUser :: User
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetUserResponse' constructor.
 --

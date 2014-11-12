@@ -50,7 +50,7 @@ data EnableMFADevice = EnableMFADevice
     , _emfadAuthenticationCode2 :: Text
     , _emfadSerialNumber        :: Text
     , _emfadUserName            :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EnableMFADevice' constructor.
 --
@@ -97,6 +97,7 @@ emfadSerialNumber =
 -- | The name of the user for whom you want to enable the MFA device.
 emfadUserName :: Lens' EnableMFADevice Text
 emfadUserName = lens _emfadUserName (\s a -> s { _emfadUserName = a })
+
 instance ToQuery EnableMFADevice
 
 instance ToPath EnableMFADevice where

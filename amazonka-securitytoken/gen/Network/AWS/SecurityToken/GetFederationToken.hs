@@ -99,7 +99,7 @@ data GetFederationToken = GetFederationToken
     { _gftDurationSeconds :: Maybe Natural
     , _gftName            :: Text
     , _gftPolicy          :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetFederationToken' constructor.
 --
@@ -155,6 +155,7 @@ gftName = lens _gftName (\s a -> s { _gftName = a })
 -- Credentials.
 gftPolicy :: Lens' GetFederationToken (Maybe Text)
 gftPolicy = lens _gftPolicy (\s a -> s { _gftPolicy = a })
+
 instance ToQuery GetFederationToken
 
 instance ToPath GetFederationToken where
@@ -164,7 +165,7 @@ data GetFederationTokenResponse = GetFederationTokenResponse
     { _gftrCredentials      :: Maybe Credentials
     , _gftrFederatedUser    :: Maybe FederatedUser
     , _gftrPackedPolicySize :: Maybe Natural
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetFederationTokenResponse' constructor.
 --

@@ -51,7 +51,7 @@ import Network.AWS.Redshift.Types
 
 newtype CreateHsmClientCertificateMessage = CreateHsmClientCertificateMessage
     { _chccmHsmClientCertificateIdentifier :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'CreateHsmClientCertificateMessage' constructor.
 --
@@ -72,6 +72,7 @@ chccmHsmClientCertificateIdentifier :: Lens' CreateHsmClientCertificateMessage T
 chccmHsmClientCertificateIdentifier =
     lens _chccmHsmClientCertificateIdentifier
         (\s a -> s { _chccmHsmClientCertificateIdentifier = a })
+
 instance ToQuery CreateHsmClientCertificateMessage
 
 instance ToPath CreateHsmClientCertificateMessage where
@@ -79,7 +80,7 @@ instance ToPath CreateHsmClientCertificateMessage where
 
 newtype CreateHsmClientCertificateResult = CreateHsmClientCertificateResult
     { _chccrHsmClientCertificate :: Maybe HsmClientCertificate
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateHsmClientCertificateResult' constructor.
 --

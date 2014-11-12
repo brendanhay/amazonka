@@ -50,7 +50,7 @@ import Network.AWS.Redshift.Types
 
 newtype DescribeLoggingStatusMessage = DescribeLoggingStatusMessage
     { _dlsmClusterIdentifier :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DescribeLoggingStatusMessage' constructor.
 --
@@ -69,6 +69,7 @@ describeLoggingStatusMessage p1 = DescribeLoggingStatusMessage
 dlsmClusterIdentifier :: Lens' DescribeLoggingStatusMessage Text
 dlsmClusterIdentifier =
     lens _dlsmClusterIdentifier (\s a -> s { _dlsmClusterIdentifier = a })
+
 instance ToQuery DescribeLoggingStatusMessage
 
 instance ToPath DescribeLoggingStatusMessage where

@@ -86,7 +86,7 @@ data ModifyDBInstanceMessage = ModifyDBInstanceMessage
     , _mdbimTdeCredentialArn           :: Maybe Text
     , _mdbimTdeCredentialPassword      :: Maybe Text
     , _mdbimVpcSecurityGroupIds        :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifyDBInstanceMessage' constructor.
 --
@@ -434,6 +434,7 @@ mdbimVpcSecurityGroupIds :: Lens' ModifyDBInstanceMessage [Text]
 mdbimVpcSecurityGroupIds =
     lens _mdbimVpcSecurityGroupIds
         (\s a -> s { _mdbimVpcSecurityGroupIds = a })
+
 instance ToQuery ModifyDBInstanceMessage
 
 instance ToPath ModifyDBInstanceMessage where
@@ -441,7 +442,7 @@ instance ToPath ModifyDBInstanceMessage where
 
 newtype ModifyDBInstanceResult = ModifyDBInstanceResult
     { _mdbirDBInstance :: Maybe DBInstance
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyDBInstanceResult' constructor.
 --

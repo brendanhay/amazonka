@@ -53,7 +53,7 @@ data ListInstanceProfilesForRole = ListInstanceProfilesForRole
     { _lipfrMarker   :: Maybe Text
     , _lipfrMaxItems :: Maybe Natural
     , _lipfrRoleName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListInstanceProfilesForRole' constructor.
 --
@@ -91,6 +91,7 @@ lipfrMaxItems = lens _lipfrMaxItems (\s a -> s { _lipfrMaxItems = a })
 -- | The name of the role to list instance profiles for.
 lipfrRoleName :: Lens' ListInstanceProfilesForRole Text
 lipfrRoleName = lens _lipfrRoleName (\s a -> s { _lipfrRoleName = a })
+
 instance ToQuery ListInstanceProfilesForRole
 
 instance ToPath ListInstanceProfilesForRole where
@@ -100,7 +101,7 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse
     { _lipfrrInstanceProfiles :: [InstanceProfile]
     , _lipfrrIsTruncated      :: Maybe Bool
     , _lipfrrMarker           :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListInstanceProfilesForRoleResponse' constructor.
 --

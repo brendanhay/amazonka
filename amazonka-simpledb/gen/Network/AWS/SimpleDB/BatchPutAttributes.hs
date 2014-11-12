@@ -76,7 +76,7 @@ import Network.AWS.SimpleDB.Types
 data BatchPutAttributes = BatchPutAttributes
     { _bpaDomainName :: Text
     , _bpaItems      :: [ReplaceableItem]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'BatchPutAttributes' constructor.
 --
@@ -100,6 +100,7 @@ bpaDomainName = lens _bpaDomainName (\s a -> s { _bpaDomainName = a })
 -- | A list of items on which to perform the operation.
 bpaItems :: Lens' BatchPutAttributes [ReplaceableItem]
 bpaItems = lens _bpaItems (\s a -> s { _bpaItems = a })
+
 instance ToQuery BatchPutAttributes
 
 instance ToPath BatchPutAttributes where

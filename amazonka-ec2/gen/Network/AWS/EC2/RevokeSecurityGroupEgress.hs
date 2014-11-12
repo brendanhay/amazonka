@@ -65,7 +65,7 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress
     , _rsgeSourceSecurityGroupName    :: Maybe Text
     , _rsgeSourceSecurityGroupOwnerId :: Maybe Text
     , _rsgeToPort                     :: Maybe Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RevokeSecurityGroupEgress' constructor.
 --
@@ -151,6 +151,7 @@ rsgeSourceSecurityGroupOwnerId =
 -- the ICMP type.
 rsgeToPort :: Lens' RevokeSecurityGroupEgress (Maybe Int)
 rsgeToPort = lens _rsgeToPort (\s a -> s { _rsgeToPort = a })
+
 instance ToQuery RevokeSecurityGroupEgress
 
 instance ToPath RevokeSecurityGroupEgress where

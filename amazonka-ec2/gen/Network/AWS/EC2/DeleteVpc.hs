@@ -49,7 +49,7 @@ import Network.AWS.EC2.Types
 data DeleteVpc = DeleteVpc
     { _dv2DryRun :: Maybe Bool
     , _dv2VpcId  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpc' constructor.
 --
@@ -72,6 +72,7 @@ dv2DryRun = lens _dv2DryRun (\s a -> s { _dv2DryRun = a })
 -- | The ID of the VPC.
 dv2VpcId :: Lens' DeleteVpc Text
 dv2VpcId = lens _dv2VpcId (\s a -> s { _dv2VpcId = a })
+
 instance ToQuery DeleteVpc
 
 instance ToPath DeleteVpc where

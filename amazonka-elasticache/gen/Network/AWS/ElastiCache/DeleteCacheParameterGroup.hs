@@ -44,7 +44,7 @@ import Network.AWS.ElastiCache.Types
 
 newtype DeleteCacheParameterGroupMessage = DeleteCacheParameterGroupMessage
     { _dcpgm1CacheParameterGroupName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteCacheParameterGroupMessage' constructor.
 --
@@ -63,6 +63,7 @@ dcpgm1CacheParameterGroupName :: Lens' DeleteCacheParameterGroupMessage Text
 dcpgm1CacheParameterGroupName =
     lens _dcpgm1CacheParameterGroupName
         (\s a -> s { _dcpgm1CacheParameterGroupName = a })
+
 instance ToQuery DeleteCacheParameterGroupMessage
 
 instance ToPath DeleteCacheParameterGroupMessage where

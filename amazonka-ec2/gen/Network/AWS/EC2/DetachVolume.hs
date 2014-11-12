@@ -66,7 +66,7 @@ data DetachVolume = DetachVolume
     , _dv4Force      :: Maybe Bool
     , _dv4InstanceId :: Maybe Text
     , _dv4VolumeId   :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DetachVolume' constructor.
 --
@@ -116,6 +116,7 @@ dv4InstanceId = lens _dv4InstanceId (\s a -> s { _dv4InstanceId = a })
 -- | The ID of the volume.
 dv4VolumeId :: Lens' DetachVolume Text
 dv4VolumeId = lens _dv4VolumeId (\s a -> s { _dv4VolumeId = a })
+
 instance ToQuery DetachVolume
 
 instance ToPath DetachVolume where

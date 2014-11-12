@@ -47,7 +47,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketWebsite = GetBucketWebsite
     { _gbwBucket :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetBucketWebsite' constructor.
 --
@@ -80,7 +80,7 @@ data GetBucketWebsiteOutput = GetBucketWebsiteOutput
     , _gbwoIndexDocument         :: Maybe IndexDocument
     , _gbwoRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
     , _gbwoRoutingRules          :: [RoutingRule]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetBucketWebsiteOutput' constructor.
 --

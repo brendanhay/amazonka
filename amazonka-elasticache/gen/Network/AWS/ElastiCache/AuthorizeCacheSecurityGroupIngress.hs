@@ -51,7 +51,7 @@ data AuthorizeCacheSecurityGroupIngressMessage = AuthorizeCacheSecurityGroupIngr
     { _acsgimCacheSecurityGroupName  :: Text
     , _acsgimEC2SecurityGroupName    :: Text
     , _acsgimEC2SecurityGroupOwnerId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AuthorizeCacheSecurityGroupIngressMessage' constructor.
 --
@@ -93,6 +93,7 @@ acsgimEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngressMessage
 acsgimEC2SecurityGroupOwnerId =
     lens _acsgimEC2SecurityGroupOwnerId
         (\s a -> s { _acsgimEC2SecurityGroupOwnerId = a })
+
 instance ToQuery AuthorizeCacheSecurityGroupIngressMessage
 
 instance ToPath AuthorizeCacheSecurityGroupIngressMessage where
@@ -100,7 +101,7 @@ instance ToPath AuthorizeCacheSecurityGroupIngressMessage where
 
 newtype AuthorizeCacheSecurityGroupIngressResult = AuthorizeCacheSecurityGroupIngressResult
     { _acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AuthorizeCacheSecurityGroupIngressResult' constructor.
 --

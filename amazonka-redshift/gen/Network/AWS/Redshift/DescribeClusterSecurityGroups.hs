@@ -53,7 +53,7 @@ data DescribeClusterSecurityGroupsMessage = DescribeClusterSecurityGroupsMessage
     { _dcsgm2ClusterSecurityGroupName :: Maybe Text
     , _dcsgm2Marker                   :: Maybe Text
     , _dcsgm2MaxRecords               :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeClusterSecurityGroupsMessage' constructor.
 --
@@ -99,6 +99,7 @@ dcsgm2Marker = lens _dcsgm2Marker (\s a -> s { _dcsgm2Marker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcsgm2MaxRecords :: Lens' DescribeClusterSecurityGroupsMessage (Maybe Int)
 dcsgm2MaxRecords = lens _dcsgm2MaxRecords (\s a -> s { _dcsgm2MaxRecords = a })
+
 instance ToQuery DescribeClusterSecurityGroupsMessage
 
 instance ToPath DescribeClusterSecurityGroupsMessage where
@@ -107,7 +108,7 @@ instance ToPath DescribeClusterSecurityGroupsMessage where
 data ClusterSecurityGroupMessage = ClusterSecurityGroupMessage
     { _csgm1ClusterSecurityGroups :: [ClusterSecurityGroup]
     , _csgm1Marker                :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ClusterSecurityGroupMessage' constructor.
 --

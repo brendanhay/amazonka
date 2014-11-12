@@ -62,7 +62,7 @@ data PutScheduledUpdateGroupActionType = PutScheduledUpdateGroupActionType
     , _psugatScheduledActionName  :: Text
     , _psugatStartTime            :: Maybe RFC822
     , _psugatTime                 :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutScheduledUpdateGroupActionType' constructor.
 --
@@ -155,6 +155,7 @@ psugatStartTime = lens _psugatStartTime (\s a -> s { _psugatStartTime = a })
 psugatTime :: Lens' PutScheduledUpdateGroupActionType (Maybe UTCTime)
 psugatTime = lens _psugatTime (\s a -> s { _psugatTime = a })
     . mapping _Time
+
 instance ToQuery PutScheduledUpdateGroupActionType
 
 instance ToPath PutScheduledUpdateGroupActionType where

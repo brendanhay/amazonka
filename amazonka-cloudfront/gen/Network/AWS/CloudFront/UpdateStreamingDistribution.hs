@@ -49,7 +49,7 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution
     { _usdId                          :: Text
     , _usdIfMatch                     :: Maybe Text
     , _usdStreamingDistributionConfig :: StreamingDistributionConfig
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UpdateStreamingDistribution' constructor.
 --
@@ -106,7 +106,7 @@ instance ToBody UpdateStreamingDistribution where
 data UpdateStreamingDistributionResult = UpdateStreamingDistributionResult
     { _usdrETag                  :: Maybe Text
     , _usdrStreamingDistribution :: Maybe StreamingDistribution
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UpdateStreamingDistributionResult' constructor.
 --

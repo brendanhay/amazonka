@@ -67,7 +67,7 @@ data CreateSubnet = CreateSubnet
     , _cs1CidrBlock        :: Text
     , _cs1DryRun           :: Maybe Bool
     , _cs1VpcId            :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateSubnet' constructor.
 --
@@ -108,6 +108,7 @@ cs1DryRun = lens _cs1DryRun (\s a -> s { _cs1DryRun = a })
 -- | The ID of the VPC.
 cs1VpcId :: Lens' CreateSubnet Text
 cs1VpcId = lens _cs1VpcId (\s a -> s { _cs1VpcId = a })
+
 instance ToQuery CreateSubnet
 
 instance ToPath CreateSubnet where
@@ -115,7 +116,7 @@ instance ToPath CreateSubnet where
 
 newtype CreateSubnetResult = CreateSubnetResult
     { _csrSubnet :: Maybe Subnet
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateSubnetResult' constructor.
 --

@@ -52,7 +52,7 @@ data DetachVpnGateway = DetachVpnGateway
     { _dvg1DryRun       :: Maybe Bool
     , _dvg1VpcId        :: Text
     , _dvg1VpnGatewayId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DetachVpnGateway' constructor.
 --
@@ -83,6 +83,7 @@ dvg1VpcId = lens _dvg1VpcId (\s a -> s { _dvg1VpcId = a })
 -- | The ID of the virtual private gateway.
 dvg1VpnGatewayId :: Lens' DetachVpnGateway Text
 dvg1VpnGatewayId = lens _dvg1VpnGatewayId (\s a -> s { _dvg1VpnGatewayId = a })
+
 instance ToQuery DetachVpnGateway
 
 instance ToPath DetachVpnGateway where

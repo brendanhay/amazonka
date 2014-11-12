@@ -52,7 +52,7 @@ import Network.AWS.SNS.Types
 
 newtype ListPlatformApplicationsInput = ListPlatformApplicationsInput
     { _lpaiNextToken :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ListPlatformApplicationsInput' constructor.
 --
@@ -70,6 +70,7 @@ listPlatformApplicationsInput = ListPlatformApplicationsInput
 -- results.
 lpaiNextToken :: Lens' ListPlatformApplicationsInput (Maybe Text)
 lpaiNextToken = lens _lpaiNextToken (\s a -> s { _lpaiNextToken = a })
+
 instance ToQuery ListPlatformApplicationsInput
 
 instance ToPath ListPlatformApplicationsInput where
@@ -78,7 +79,7 @@ instance ToPath ListPlatformApplicationsInput where
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
     { _lparNextToken            :: Maybe Text
     , _lparPlatformApplications :: [PlatformApplication]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListPlatformApplicationsResponse' constructor.
 --

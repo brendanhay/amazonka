@@ -78,7 +78,7 @@ data DescribeSpotPriceHistory = DescribeSpotPriceHistory
     , _dsphNextToken           :: Maybe Text
     , _dsphProductDescriptions :: [Text]
     , _dsphStartTime           :: Maybe RFC822
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeSpotPriceHistory' constructor.
 --
@@ -163,6 +163,7 @@ dsphProductDescriptions =
 dsphStartTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
 dsphStartTime = lens _dsphStartTime (\s a -> s { _dsphStartTime = a })
     . mapping _Time
+
 instance ToQuery DescribeSpotPriceHistory
 
 instance ToPath DescribeSpotPriceHistory where
@@ -171,7 +172,7 @@ instance ToPath DescribeSpotPriceHistory where
 data DescribeSpotPriceHistoryResult = DescribeSpotPriceHistoryResult
     { _dsphrNextToken        :: Maybe Text
     , _dsphrSpotPriceHistory :: [SpotPrice]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeSpotPriceHistoryResult' constructor.
 --

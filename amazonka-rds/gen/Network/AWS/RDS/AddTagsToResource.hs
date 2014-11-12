@@ -48,7 +48,7 @@ import Network.AWS.RDS.Types
 data AddTagsToResourceMessage = AddTagsToResourceMessage
     { _attrmResourceName :: Text
     , _attrmTags         :: [Tag]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AddTagsToResourceMessage' constructor.
 --
@@ -75,6 +75,7 @@ attrmResourceName =
 -- | The tags to be assigned to the Amazon RDS resource.
 attrmTags :: Lens' AddTagsToResourceMessage [Tag]
 attrmTags = lens _attrmTags (\s a -> s { _attrmTags = a })
+
 instance ToQuery AddTagsToResourceMessage
 
 instance ToPath AddTagsToResourceMessage where

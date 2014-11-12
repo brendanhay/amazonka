@@ -68,7 +68,7 @@ data PutLifecycleHookType = PutLifecycleHookType
     , _plhtNotificationMetadata  :: Maybe Text
     , _plhtNotificationTargetARN :: Maybe Text
     , _plhtRoleARN               :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutLifecycleHookType' constructor.
 --
@@ -171,6 +171,7 @@ plhtNotificationTargetARN =
 -- publish to the specified notification target.
 plhtRoleARN :: Lens' PutLifecycleHookType (Maybe Text)
 plhtRoleARN = lens _plhtRoleARN (\s a -> s { _plhtRoleARN = a })
+
 instance ToQuery PutLifecycleHookType
 
 instance ToPath PutLifecycleHookType where

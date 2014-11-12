@@ -51,7 +51,7 @@ data SubscribeInput = SubscribeInput
     { _siEndpoint :: Maybe Text
     , _siProtocol :: Text
     , _siTopicArn :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SubscribeInput' constructor.
 --
@@ -97,6 +97,7 @@ siProtocol = lens _siProtocol (\s a -> s { _siProtocol = a })
 -- | The ARN of the topic you want to subscribe to.
 siTopicArn :: Lens' SubscribeInput Text
 siTopicArn = lens _siTopicArn (\s a -> s { _siTopicArn = a })
+
 instance ToQuery SubscribeInput
 
 instance ToPath SubscribeInput where
@@ -104,7 +105,7 @@ instance ToPath SubscribeInput where
 
 newtype SubscribeResponse = SubscribeResponse
     { _srSubscriptionArn :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'SubscribeResponse' constructor.
 --

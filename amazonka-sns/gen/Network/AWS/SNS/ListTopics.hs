@@ -48,7 +48,7 @@ import Network.AWS.SNS.Types
 
 newtype ListTopicsInput = ListTopicsInput
     { _ltiNextToken :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ListTopicsInput' constructor.
 --
@@ -64,6 +64,7 @@ listTopicsInput = ListTopicsInput
 -- | Token returned by the previous ListTopics request.
 ltiNextToken :: Lens' ListTopicsInput (Maybe Text)
 ltiNextToken = lens _ltiNextToken (\s a -> s { _ltiNextToken = a })
+
 instance ToQuery ListTopicsInput
 
 instance ToPath ListTopicsInput where
@@ -72,7 +73,7 @@ instance ToPath ListTopicsInput where
 data ListTopicsResponse = ListTopicsResponse
     { _ltrNextToken :: Maybe Text
     , _ltrTopics    :: [Topic]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListTopicsResponse' constructor.
 --

@@ -50,7 +50,7 @@ import Network.AWS.IAM.Types
 data GetUserPolicy = GetUserPolicy
     { _gupPolicyName :: Text
     , _gupUserName   :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetUserPolicy' constructor.
 --
@@ -75,6 +75,7 @@ gupPolicyName = lens _gupPolicyName (\s a -> s { _gupPolicyName = a })
 -- | The name of the user who the policy is associated with.
 gupUserName :: Lens' GetUserPolicy Text
 gupUserName = lens _gupUserName (\s a -> s { _gupUserName = a })
+
 instance ToQuery GetUserPolicy
 
 instance ToPath GetUserPolicy where
@@ -84,7 +85,7 @@ data GetUserPolicyResponse = GetUserPolicyResponse
     { _guprPolicyDocument :: Text
     , _guprPolicyName     :: Text
     , _guprUserName       :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetUserPolicyResponse' constructor.
 --

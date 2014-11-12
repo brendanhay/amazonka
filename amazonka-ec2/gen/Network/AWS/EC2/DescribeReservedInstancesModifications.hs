@@ -54,7 +54,7 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
     { _drimFilters                          :: [Filter]
     , _drimNextToken                        :: Maybe Text
     , _drimReservedInstancesModificationIds :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstancesModifications' constructor.
 --
@@ -105,6 +105,7 @@ drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModificat
 drimReservedInstancesModificationIds =
     lens _drimReservedInstancesModificationIds
         (\s a -> s { _drimReservedInstancesModificationIds = a })
+
 instance ToQuery DescribeReservedInstancesModifications
 
 instance ToPath DescribeReservedInstancesModifications where
@@ -113,7 +114,7 @@ instance ToPath DescribeReservedInstancesModifications where
 data DescribeReservedInstancesModificationsResult = DescribeReservedInstancesModificationsResult
     { _drimrNextToken                      :: Maybe Text
     , _drimrReservedInstancesModifications :: [ReservedInstancesModification]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstancesModificationsResult' constructor.
 --

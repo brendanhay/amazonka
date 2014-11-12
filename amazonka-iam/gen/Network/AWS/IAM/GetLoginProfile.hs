@@ -46,7 +46,7 @@ import Network.AWS.IAM.Types
 
 newtype GetLoginProfile = GetLoginProfile
     { _glpUserName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetLoginProfile' constructor.
 --
@@ -63,6 +63,7 @@ getLoginProfile p1 = GetLoginProfile
 -- | The name of the user whose login profile you want to retrieve.
 glpUserName :: Lens' GetLoginProfile Text
 glpUserName = lens _glpUserName (\s a -> s { _glpUserName = a })
+
 instance ToQuery GetLoginProfile
 
 instance ToPath GetLoginProfile where
@@ -70,7 +71,7 @@ instance ToPath GetLoginProfile where
 
 newtype GetLoginProfileResponse = GetLoginProfileResponse
     { _glprLoginProfile :: LoginProfile
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetLoginProfileResponse' constructor.
 --

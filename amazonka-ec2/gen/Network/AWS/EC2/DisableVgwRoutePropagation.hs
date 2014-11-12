@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data DisableVgwRoutePropagation = DisableVgwRoutePropagation
     { _dvrpGatewayId    :: Text
     , _dvrpRouteTableId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DisableVgwRoutePropagation' constructor.
 --
@@ -70,6 +70,7 @@ dvrpGatewayId = lens _dvrpGatewayId (\s a -> s { _dvrpGatewayId = a })
 -- | The ID of the route table.
 dvrpRouteTableId :: Lens' DisableVgwRoutePropagation Text
 dvrpRouteTableId = lens _dvrpRouteTableId (\s a -> s { _dvrpRouteTableId = a })
+
 instance ToQuery DisableVgwRoutePropagation
 
 instance ToPath DisableVgwRoutePropagation where

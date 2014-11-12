@@ -60,7 +60,7 @@ data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
     , _rnaeProtocol     :: Text
     , _rnaeRuleAction   :: Text
     , _rnaeRuleNumber   :: Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ReplaceNetworkAclEntry' constructor.
 --
@@ -140,6 +140,7 @@ rnaeRuleAction = lens _rnaeRuleAction (\s a -> s { _rnaeRuleAction = a })
 -- | The rule number of the entry to replace.
 rnaeRuleNumber :: Lens' ReplaceNetworkAclEntry Int
 rnaeRuleNumber = lens _rnaeRuleNumber (\s a -> s { _rnaeRuleNumber = a })
+
 instance ToQuery ReplaceNetworkAclEntry
 
 instance ToPath ReplaceNetworkAclEntry where

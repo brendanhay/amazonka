@@ -53,7 +53,7 @@ import Network.AWS.EC2.Types
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests
     { _csirDryRun                 :: Maybe Bool
     , _csirSpotInstanceRequestIds :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CancelSpotInstanceRequests' constructor.
 --
@@ -77,6 +77,7 @@ csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
 csirSpotInstanceRequestIds =
     lens _csirSpotInstanceRequestIds
         (\s a -> s { _csirSpotInstanceRequestIds = a })
+
 instance ToQuery CancelSpotInstanceRequests
 
 instance ToPath CancelSpotInstanceRequests where
@@ -84,7 +85,13 @@ instance ToPath CancelSpotInstanceRequests where
 
 newtype CancelSpotInstanceRequestsResult = CancelSpotInstanceRequestsResult
     { _csirrCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList CancelSpotInstanceRequestsResult
+    type Item CancelSpotInstanceRequestsResult = CancelledSpotInstanceRequest
+
+    fromList = CancelSpotInstanceRequestsResult . fromList
+    toList   = toList . _csirrCancelledSpotInstanceRequests
 
 -- | 'CancelSpotInstanceRequestsResult' constructor.
 --

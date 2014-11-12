@@ -49,7 +49,7 @@ data AddPermissionInput = AddPermissionInput
     , _apiActionName   :: [Text]
     , _apiLabel        :: Text
     , _apiTopicArn     :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AddPermissionInput' constructor.
 --
@@ -91,6 +91,7 @@ apiLabel = lens _apiLabel (\s a -> s { _apiLabel = a })
 -- | The ARN of the topic whose access control policy you wish to modify.
 apiTopicArn :: Lens' AddPermissionInput Text
 apiTopicArn = lens _apiTopicArn (\s a -> s { _apiTopicArn = a })
+
 instance ToQuery AddPermissionInput
 
 instance ToPath AddPermissionInput where

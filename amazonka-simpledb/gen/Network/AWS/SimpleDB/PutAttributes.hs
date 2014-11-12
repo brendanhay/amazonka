@@ -72,7 +72,7 @@ data PutAttributes = PutAttributes
     , _paDomainName :: Text
     , _paExpected   :: Maybe UpdateCondition
     , _paItemName   :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PutAttributes' constructor.
 --
@@ -114,6 +114,7 @@ paExpected = lens _paExpected (\s a -> s { _paExpected = a })
 -- | The name of the item.
 paItemName :: Lens' PutAttributes Text
 paItemName = lens _paItemName (\s a -> s { _paItemName = a })
+
 instance ToQuery PutAttributes
 
 instance ToPath PutAttributes where

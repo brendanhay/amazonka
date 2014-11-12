@@ -45,7 +45,7 @@ import Network.AWS.Redshift.Types
 
 newtype DisableSnapshotCopyMessage = DisableSnapshotCopyMessage
     { _dscmClusterIdentifier :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DisableSnapshotCopyMessage' constructor.
 --
@@ -66,6 +66,7 @@ disableSnapshotCopyMessage p1 = DisableSnapshotCopyMessage
 dscmClusterIdentifier :: Lens' DisableSnapshotCopyMessage Text
 dscmClusterIdentifier =
     lens _dscmClusterIdentifier (\s a -> s { _dscmClusterIdentifier = a })
+
 instance ToQuery DisableSnapshotCopyMessage
 
 instance ToPath DisableSnapshotCopyMessage where
@@ -73,7 +74,7 @@ instance ToPath DisableSnapshotCopyMessage where
 
 newtype DisableSnapshotCopyResult = DisableSnapshotCopyResult
     { _dscrCluster :: Maybe Cluster
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DisableSnapshotCopyResult' constructor.
 --

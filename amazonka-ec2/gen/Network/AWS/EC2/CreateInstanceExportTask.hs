@@ -53,7 +53,7 @@ data CreateInstanceExportTask = CreateInstanceExportTask
     , _cietExportToS3Task    :: Maybe ExportToS3TaskSpecification
     , _cietInstanceId        :: Text
     , _cietTargetEnvironment :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateInstanceExportTask' constructor.
 --
@@ -93,6 +93,7 @@ cietInstanceId = lens _cietInstanceId (\s a -> s { _cietInstanceId = a })
 cietTargetEnvironment :: Lens' CreateInstanceExportTask (Maybe Text)
 cietTargetEnvironment =
     lens _cietTargetEnvironment (\s a -> s { _cietTargetEnvironment = a })
+
 instance ToQuery CreateInstanceExportTask
 
 instance ToPath CreateInstanceExportTask where
@@ -100,7 +101,7 @@ instance ToPath CreateInstanceExportTask where
 
 newtype CreateInstanceExportTaskResult = CreateInstanceExportTaskResult
     { _cietrExportTask :: Maybe ExportTask
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateInstanceExportTaskResult' constructor.
 --

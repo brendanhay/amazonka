@@ -48,7 +48,7 @@ data CreateDBSnapshotMessage = CreateDBSnapshotMessage
     { _cdbsm1DBInstanceIdentifier :: Text
     , _cdbsm1DBSnapshotIdentifier :: Text
     , _cdbsm1Tags                 :: [Tag]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDBSnapshotMessage' constructor.
 --
@@ -89,6 +89,7 @@ cdbsm1DBSnapshotIdentifier =
 
 cdbsm1Tags :: Lens' CreateDBSnapshotMessage [Tag]
 cdbsm1Tags = lens _cdbsm1Tags (\s a -> s { _cdbsm1Tags = a })
+
 instance ToQuery CreateDBSnapshotMessage
 
 instance ToPath CreateDBSnapshotMessage where
@@ -96,7 +97,7 @@ instance ToPath CreateDBSnapshotMessage where
 
 newtype CreateDBSnapshotResult = CreateDBSnapshotResult
     { _cdbsrDBSnapshot :: Maybe DBSnapshot
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDBSnapshotResult' constructor.
 --

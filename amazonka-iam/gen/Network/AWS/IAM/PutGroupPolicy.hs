@@ -50,7 +50,7 @@ data PutGroupPolicy = PutGroupPolicy
     { _pgpGroupName      :: Text
     , _pgpPolicyDocument :: Text
     , _pgpPolicyName     :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutGroupPolicy' constructor.
 --
@@ -84,6 +84,7 @@ pgpPolicyDocument =
 -- | The name of the policy document.
 pgpPolicyName :: Lens' PutGroupPolicy Text
 pgpPolicyName = lens _pgpPolicyName (\s a -> s { _pgpPolicyName = a })
+
 instance ToQuery PutGroupPolicy
 
 instance ToPath PutGroupPolicy where

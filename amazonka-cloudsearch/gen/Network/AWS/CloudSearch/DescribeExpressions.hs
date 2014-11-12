@@ -53,7 +53,7 @@ data DescribeExpressions = DescribeExpressions
     { _de1Deployed        :: Maybe Bool
     , _de1DomainName      :: Text
     , _de1ExpressionNames :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeExpressions' constructor.
 --
@@ -87,6 +87,7 @@ de1DomainName = lens _de1DomainName (\s a -> s { _de1DomainName = a })
 de1ExpressionNames :: Lens' DescribeExpressions [Text]
 de1ExpressionNames =
     lens _de1ExpressionNames (\s a -> s { _de1ExpressionNames = a })
+
 instance ToQuery DescribeExpressions
 
 instance ToPath DescribeExpressions where
@@ -94,7 +95,13 @@ instance ToPath DescribeExpressions where
 
 newtype DescribeExpressionsResponse = DescribeExpressionsResponse
     { _derExpressions :: [ExpressionStatus]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeExpressionsResponse
+    type Item DescribeExpressionsResponse = ExpressionStatus
+
+    fromList = DescribeExpressionsResponse . fromList
+    toList   = toList . _derExpressions
 
 -- | 'DescribeExpressionsResponse' constructor.
 --

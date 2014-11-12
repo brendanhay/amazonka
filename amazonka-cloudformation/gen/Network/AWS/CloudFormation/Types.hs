@@ -178,7 +178,7 @@ xmlOptions = Tagged def
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Tag' constructor.
 --
@@ -228,7 +228,7 @@ data StackStatus
     | UpdateRollbackCompleteCleanupInProgress -- ^ UPDATE_ROLLBACK_COMPLETE_CLEANUP_IN_PROGRESS
     | UpdateRollbackFailed                    -- ^ UPDATE_ROLLBACK_FAILED
     | UpdateRollbackInProgress                -- ^ UPDATE_ROLLBACK_IN_PROGRESS
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable StackStatus
 
@@ -286,7 +286,7 @@ data StackEvent = StackEvent
     , _seStackId              :: Text
     , _seStackName            :: Text
     , _seTimestamp            :: RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StackEvent' constructor.
 --
@@ -392,7 +392,7 @@ data StackSummary = StackSummary
     , _ssStackStatus         :: Text
     , _ssStackStatusReason   :: Maybe Text
     , _ssTemplateDescription :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StackSummary' constructor.
 --
@@ -485,7 +485,7 @@ data StackResourceDetail = StackResourceDetail
     , _srdResourceType         :: Text
     , _srdStackId              :: Maybe Text
     , _srdStackName            :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StackResourceDetail' constructor.
 --
@@ -595,7 +595,7 @@ data ResourceStatus
     | RSUpdateComplete   -- ^ UPDATE_COMPLETE
     | RSUpdateFailed     -- ^ UPDATE_FAILED
     | RSUpdateInProgress -- ^ UPDATE_IN_PROGRESS
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ResourceStatus
 
@@ -633,7 +633,7 @@ data TemplateParameter = TemplateParameter
     , _tpDescription  :: Maybe Text
     , _tpNoEcho       :: Maybe Bool
     , _tpParameterKey :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'TemplateParameter' constructor.
 --
@@ -688,7 +688,7 @@ data StackResource = StackResource
     , _srStackId              :: Maybe Text
     , _srStackName            :: Maybe Text
     , _srTimestamp            :: RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StackResource' constructor.
 --
@@ -781,7 +781,7 @@ data Output = Output
     { _oDescription :: Maybe Text
     , _oOutputKey   :: Maybe Text
     , _oOutputValue :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Output' constructor.
 --
@@ -825,7 +825,7 @@ data StackResourceSummary = StackResourceSummary
     , _srsResourceStatus       :: Text
     , _srsResourceStatusReason :: Maybe Text
     , _srsResourceType         :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StackResourceSummary' constructor.
 --
@@ -897,7 +897,7 @@ instance ToQuery StackResourceSummary
 
 data Capability
     = CapabilityIam -- ^ CAPABILITY_IAM
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable Capability
 
@@ -928,7 +928,7 @@ data Stack = Stack
     , _sStackStatusReason :: Maybe Text
     , _sTags              :: [Tag]
     , _sTimeoutInMinutes  :: Maybe Natural
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Stack' constructor.
 --
@@ -1056,7 +1056,7 @@ data OnFailure
     = Delete    -- ^ DELETE
     | DoNothing -- ^ DO_NOTHING
     | Rollback  -- ^ ROLLBACK
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable OnFailure
 
@@ -1081,7 +1081,7 @@ data Parameter = Parameter
     { _pParameterKey     :: Maybe Text
     , _pParameterValue   :: Maybe Text
     , _pUsePreviousValue :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Parameter' constructor.
 --

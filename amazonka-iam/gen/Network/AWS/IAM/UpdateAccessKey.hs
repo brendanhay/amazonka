@@ -53,7 +53,7 @@ data UpdateAccessKey = UpdateAccessKey
     { _uakAccessKeyId :: Text
     , _uakStatus      :: Text
     , _uakUserName    :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateAccessKey' constructor.
 --
@@ -87,6 +87,7 @@ uakStatus = lens _uakStatus (\s a -> s { _uakStatus = a })
 -- | The name of the user whose key you want to update.
 uakUserName :: Lens' UpdateAccessKey (Maybe Text)
 uakUserName = lens _uakUserName (\s a -> s { _uakUserName = a })
+
 instance ToQuery UpdateAccessKey
 
 instance ToPath UpdateAccessKey where

@@ -52,7 +52,7 @@ data ListUserPolicies = ListUserPolicies
     { _lupMarker   :: Maybe Text
     , _lupMaxItems :: Maybe Natural
     , _lupUserName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListUserPolicies' constructor.
 --
@@ -89,6 +89,7 @@ lupMaxItems = lens _lupMaxItems (\s a -> s { _lupMaxItems = a })
 -- | The name of the user to list policies for.
 lupUserName :: Lens' ListUserPolicies Text
 lupUserName = lens _lupUserName (\s a -> s { _lupUserName = a })
+
 instance ToQuery ListUserPolicies
 
 instance ToPath ListUserPolicies where
@@ -98,7 +99,7 @@ data ListUserPoliciesResponse = ListUserPoliciesResponse
     { _luprIsTruncated :: Maybe Bool
     , _luprMarker      :: Maybe Text
     , _luprPolicyNames :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListUserPoliciesResponse' constructor.
 --

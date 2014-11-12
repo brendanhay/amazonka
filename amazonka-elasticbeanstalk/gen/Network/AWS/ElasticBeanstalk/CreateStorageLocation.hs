@@ -47,6 +47,7 @@ data CreateStorageLocation = CreateStorageLocation
 -- | 'CreateStorageLocation' constructor.
 createStorageLocation :: CreateStorageLocation
 createStorageLocation = CreateStorageLocation
+
 instance ToQuery CreateStorageLocation
 
 instance ToPath CreateStorageLocation where
@@ -54,7 +55,7 @@ instance ToPath CreateStorageLocation where
 
 newtype CreateStorageLocationResultMessage = CreateStorageLocationResultMessage
     { _cslrmS3Bucket :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateStorageLocationResultMessage' constructor.
 --

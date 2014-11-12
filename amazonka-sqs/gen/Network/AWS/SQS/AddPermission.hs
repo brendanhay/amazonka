@@ -53,7 +53,7 @@ data AddPermission = AddPermission
     , _apActions       :: [Text]
     , _apLabel         :: Text
     , _apQueueUrl      :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AddPermission' constructor.
 --
@@ -105,6 +105,7 @@ apLabel = lens _apLabel (\s a -> s { _apLabel = a })
 -- | The URL of the Amazon SQS queue to take action on.
 apQueueUrl :: Lens' AddPermission Text
 apQueueUrl = lens _apQueueUrl (\s a -> s { _apQueueUrl = a })
+
 instance ToQuery AddPermission
 
 instance ToPath AddPermission where

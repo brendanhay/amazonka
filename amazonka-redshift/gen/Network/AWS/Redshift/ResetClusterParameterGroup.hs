@@ -53,7 +53,7 @@ data ResetClusterParameterGroupMessage = ResetClusterParameterGroupMessage
     { _rcpgmParameterGroupName :: Text
     , _rcpgmParameters         :: [Parameter]
     , _rcpgmResetAllParameters :: Maybe Bool
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ResetClusterParameterGroupMessage' constructor.
 --
@@ -89,6 +89,7 @@ rcpgmParameters = lens _rcpgmParameters (\s a -> s { _rcpgmParameters = a })
 rcpgmResetAllParameters :: Lens' ResetClusterParameterGroupMessage (Maybe Bool)
 rcpgmResetAllParameters =
     lens _rcpgmResetAllParameters (\s a -> s { _rcpgmResetAllParameters = a })
+
 instance ToQuery ResetClusterParameterGroupMessage
 
 instance ToPath ResetClusterParameterGroupMessage where

@@ -53,7 +53,7 @@ data ListInstanceProfiles = ListInstanceProfiles
     { _lipMarker     :: Maybe Text
     , _lipMaxItems   :: Maybe Natural
     , _lipPathPrefix :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListInstanceProfiles' constructor.
 --
@@ -94,6 +94,7 @@ lipMaxItems = lens _lipMaxItems (\s a -> s { _lipMaxItems = a })
 -- profiles.
 lipPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
 lipPathPrefix = lens _lipPathPrefix (\s a -> s { _lipPathPrefix = a })
+
 instance ToQuery ListInstanceProfiles
 
 instance ToPath ListInstanceProfiles where
@@ -103,7 +104,7 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse
     { _liprInstanceProfiles :: [InstanceProfile]
     , _liprIsTruncated      :: Maybe Bool
     , _liprMarker           :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListInstanceProfilesResponse' constructor.
 --

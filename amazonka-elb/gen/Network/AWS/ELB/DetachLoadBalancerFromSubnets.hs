@@ -51,7 +51,7 @@ import Network.AWS.ELB.Types
 data DetachLoadBalancerFromSubnetsInput = DetachLoadBalancerFromSubnetsInput
     { _dlbfsiLoadBalancerName :: Text
     , _dlbfsiSubnets          :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DetachLoadBalancerFromSubnetsInput' constructor.
 --
@@ -77,6 +77,7 @@ dlbfsiLoadBalancerName =
 -- load balancer.
 dlbfsiSubnets :: Lens' DetachLoadBalancerFromSubnetsInput [Text]
 dlbfsiSubnets = lens _dlbfsiSubnets (\s a -> s { _dlbfsiSubnets = a })
+
 instance ToQuery DetachLoadBalancerFromSubnetsInput
 
 instance ToPath DetachLoadBalancerFromSubnetsInput where
@@ -84,16 +85,13 @@ instance ToPath DetachLoadBalancerFromSubnetsInput where
 
 newtype DetachLoadBalancerFromSubnetsOutput = DetachLoadBalancerFromSubnetsOutput
     { _dlbfsoSubnets :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList DetachLoadBalancerFromSubnetsOutput
+    type Item DetachLoadBalancerFromSubnetsOutput = Text
+
+    fromList = DetachLoadBalancerFromSubnetsOutput . fromList
+    toList   = toList . _dlbfsoSubnets
 
 -- | 'DetachLoadBalancerFromSubnetsOutput' constructor.
 --

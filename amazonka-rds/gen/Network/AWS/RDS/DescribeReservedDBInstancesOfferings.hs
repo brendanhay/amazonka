@@ -61,7 +61,7 @@ data DescribeReservedDBInstancesOfferingsMessage = DescribeReservedDBInstancesOf
     , _drdbiomOfferingType                  :: Maybe Text
     , _drdbiomProductDescription            :: Maybe Text
     , _drdbiomReservedDBInstancesOfferingId :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeReservedDBInstancesOfferingsMessage' constructor.
 --
@@ -154,6 +154,7 @@ drdbiomReservedDBInstancesOfferingId :: Lens' DescribeReservedDBInstancesOfferin
 drdbiomReservedDBInstancesOfferingId =
     lens _drdbiomReservedDBInstancesOfferingId
         (\s a -> s { _drdbiomReservedDBInstancesOfferingId = a })
+
 instance ToQuery DescribeReservedDBInstancesOfferingsMessage
 
 instance ToPath DescribeReservedDBInstancesOfferingsMessage where
@@ -162,7 +163,7 @@ instance ToPath DescribeReservedDBInstancesOfferingsMessage where
 data ReservedDBInstancesOfferingMessage = ReservedDBInstancesOfferingMessage
     { _rdbiomMarker                       :: Maybe Text
     , _rdbiomReservedDBInstancesOfferings :: [ReservedDBInstancesOffering]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ReservedDBInstancesOfferingMessage' constructor.
 --

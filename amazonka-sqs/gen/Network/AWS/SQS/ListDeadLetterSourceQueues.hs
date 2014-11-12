@@ -46,7 +46,7 @@ import Network.AWS.SQS.Types
 
 newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
     { _ldlsqQueueUrl :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'ListDeadLetterSourceQueues' constructor.
 --
@@ -63,6 +63,7 @@ listDeadLetterSourceQueues p1 = ListDeadLetterSourceQueues
 -- | The queue URL of a dead letter queue.
 ldlsqQueueUrl :: Lens' ListDeadLetterSourceQueues Text
 ldlsqQueueUrl = lens _ldlsqQueueUrl (\s a -> s { _ldlsqQueueUrl = a })
+
 instance ToQuery ListDeadLetterSourceQueues
 
 instance ToPath ListDeadLetterSourceQueues where
@@ -70,16 +71,13 @@ instance ToPath ListDeadLetterSourceQueues where
 
 newtype ListDeadLetterSourceQueuesResult = ListDeadLetterSourceQueuesResult
     { _ldlsqrQueueUrls :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList ListDeadLetterSourceQueuesResult
+    type Item ListDeadLetterSourceQueuesResult = Text
+
+    fromList = ListDeadLetterSourceQueuesResult . fromList
+    toList   = toList . _ldlsqrQueueUrls
 
 -- | 'ListDeadLetterSourceQueuesResult' constructor.
 --

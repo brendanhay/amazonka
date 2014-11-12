@@ -47,7 +47,7 @@ import Network.AWS.AutoScaling.Types
 data AttachInstancesQuery = AttachInstancesQuery
     { _aiqAutoScalingGroupName :: Text
     , _aiqInstanceIds          :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AttachInstancesQuery' constructor.
 --
@@ -74,6 +74,7 @@ aiqAutoScalingGroupName =
 -- Auto Scaling group. You must specify at least one instance ID.
 aiqInstanceIds :: Lens' AttachInstancesQuery [Text]
 aiqInstanceIds = lens _aiqInstanceIds (\s a -> s { _aiqInstanceIds = a })
+
 instance ToQuery AttachInstancesQuery
 
 instance ToPath AttachInstancesQuery where

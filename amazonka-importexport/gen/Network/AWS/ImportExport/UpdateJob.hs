@@ -55,7 +55,7 @@ data UpdateJobInput = UpdateJobInput
     , _ujiJobType      :: Text
     , _ujiManifest     :: Text
     , _ujiValidateOnly :: Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateJobInput' constructor.
 --
@@ -92,6 +92,7 @@ ujiManifest = lens _ujiManifest (\s a -> s { _ujiManifest = a })
 
 ujiValidateOnly :: Lens' UpdateJobInput Bool
 ujiValidateOnly = lens _ujiValidateOnly (\s a -> s { _ujiValidateOnly = a })
+
 instance ToQuery UpdateJobInput
 
 instance ToPath UpdateJobInput where
@@ -100,7 +101,7 @@ instance ToPath UpdateJobInput where
 data UpdateJobOutput = UpdateJobOutput
     { _ujoSuccess        :: Maybe Bool
     , _ujoWarningMessage :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateJobOutput' constructor.
 --

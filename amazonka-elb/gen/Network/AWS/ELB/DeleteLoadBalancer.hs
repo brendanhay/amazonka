@@ -50,7 +50,7 @@ import Network.AWS.ELB.Types
 
 newtype DeleteAccessPointInput = DeleteAccessPointInput
     { _dapiLoadBalancerName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteAccessPointInput' constructor.
 --
@@ -68,6 +68,7 @@ deleteAccessPointInput p1 = DeleteAccessPointInput
 dapiLoadBalancerName :: Lens' DeleteAccessPointInput Text
 dapiLoadBalancerName =
     lens _dapiLoadBalancerName (\s a -> s { _dapiLoadBalancerName = a })
+
 instance ToQuery DeleteAccessPointInput
 
 instance ToPath DeleteAccessPointInput where

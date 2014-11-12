@@ -75,7 +75,7 @@ data ReceiveMessage = ReceiveMessage
     , _rmQueueUrl              :: Text
     , _rmVisibilityTimeout     :: Maybe Int
     , _rmWaitTimeSeconds       :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ReceiveMessage' constructor.
 --
@@ -152,6 +152,7 @@ rmVisibilityTimeout =
 rmWaitTimeSeconds :: Lens' ReceiveMessage (Maybe Int)
 rmWaitTimeSeconds =
     lens _rmWaitTimeSeconds (\s a -> s { _rmWaitTimeSeconds = a })
+
 instance ToQuery ReceiveMessage
 
 instance ToPath ReceiveMessage where
@@ -159,7 +160,13 @@ instance ToPath ReceiveMessage where
 
 newtype ReceiveMessageResult = ReceiveMessageResult
     { _rmrMessages :: [Message]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList ReceiveMessageResult
+    type Item ReceiveMessageResult = Message
+
+    fromList = ReceiveMessageResult . fromList
+    toList   = toList . _rmrMessages
 
 -- | 'ReceiveMessageResult' constructor.
 --

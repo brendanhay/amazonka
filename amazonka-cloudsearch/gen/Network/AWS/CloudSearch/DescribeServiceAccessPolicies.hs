@@ -51,7 +51,7 @@ import Network.AWS.CloudSearch.Types
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
     { _dsapDeployed   :: Maybe Bool
     , _dsapDomainName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeServiceAccessPolicies' constructor.
 --
@@ -76,6 +76,7 @@ dsapDeployed = lens _dsapDeployed (\s a -> s { _dsapDeployed = a })
 -- | The name of the domain you want to describe.
 dsapDomainName :: Lens' DescribeServiceAccessPolicies Text
 dsapDomainName = lens _dsapDomainName (\s a -> s { _dsapDomainName = a })
+
 instance ToQuery DescribeServiceAccessPolicies
 
 instance ToPath DescribeServiceAccessPolicies where
@@ -83,7 +84,7 @@ instance ToPath DescribeServiceAccessPolicies where
 
 newtype DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse
     { _dsaprAccessPolicies :: AccessPoliciesStatus
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeServiceAccessPoliciesResponse' constructor.
 --

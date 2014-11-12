@@ -46,7 +46,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data DescribeApplicationVersionsMessage = DescribeApplicationVersionsMessage
     { _davm1ApplicationName :: Maybe Text
     , _davm1VersionLabels   :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeApplicationVersionsMessage' constructor.
 --
@@ -73,6 +73,7 @@ davm1ApplicationName =
 davm1VersionLabels :: Lens' DescribeApplicationVersionsMessage [Text]
 davm1VersionLabels =
     lens _davm1VersionLabels (\s a -> s { _davm1VersionLabels = a })
+
 instance ToQuery DescribeApplicationVersionsMessage
 
 instance ToPath DescribeApplicationVersionsMessage where
@@ -80,7 +81,13 @@ instance ToPath DescribeApplicationVersionsMessage where
 
 newtype ApplicationVersionDescriptionsMessage = ApplicationVersionDescriptionsMessage
     { _avdmApplicationVersions :: [ApplicationVersionDescription]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList ApplicationVersionDescriptionsMessage
+    type Item ApplicationVersionDescriptionsMessage = ApplicationVersionDescription
+
+    fromList = ApplicationVersionDescriptionsMessage . fromList
+    toList   = toList . _avdmApplicationVersions
 
 -- | 'ApplicationVersionDescriptionsMessage' constructor.
 --

@@ -47,16 +47,13 @@ import Network.AWS.ELB.Types
 
 newtype DescribeLoadBalancerPolicyTypesInput = DescribeLoadBalancerPolicyTypesInput
     { _dlbptiPolicyTypeNames :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList DescribeLoadBalancerPolicyTypesInput
+    type Item DescribeLoadBalancerPolicyTypesInput = Text
+
+    fromList = DescribeLoadBalancerPolicyTypesInput . fromList
+    toList   = toList . _dlbptiPolicyTypeNames
 
 -- | 'DescribeLoadBalancerPolicyTypesInput' constructor.
 --
@@ -75,6 +72,7 @@ describeLoadBalancerPolicyTypesInput = DescribeLoadBalancerPolicyTypesInput
 dlbptiPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypesInput [Text]
 dlbptiPolicyTypeNames =
     lens _dlbptiPolicyTypeNames (\s a -> s { _dlbptiPolicyTypeNames = a })
+
 instance ToQuery DescribeLoadBalancerPolicyTypesInput
 
 instance ToPath DescribeLoadBalancerPolicyTypesInput where
@@ -82,7 +80,13 @@ instance ToPath DescribeLoadBalancerPolicyTypesInput where
 
 newtype DescribeLoadBalancerPolicyTypesOutput = DescribeLoadBalancerPolicyTypesOutput
     { _dlbptoPolicyTypeDescriptions :: [PolicyTypeDescription]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeLoadBalancerPolicyTypesOutput
+    type Item DescribeLoadBalancerPolicyTypesOutput = PolicyTypeDescription
+
+    fromList = DescribeLoadBalancerPolicyTypesOutput . fromList
+    toList   = toList . _dlbptoPolicyTypeDescriptions
 
 -- | 'DescribeLoadBalancerPolicyTypesOutput' constructor.
 --

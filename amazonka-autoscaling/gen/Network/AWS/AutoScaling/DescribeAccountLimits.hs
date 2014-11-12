@@ -52,6 +52,7 @@ data DescribeAccountLimits = DescribeAccountLimits
 -- | 'DescribeAccountLimits' constructor.
 describeAccountLimits :: DescribeAccountLimits
 describeAccountLimits = DescribeAccountLimits
+
 instance ToQuery DescribeAccountLimits
 
 instance ToPath DescribeAccountLimits where
@@ -60,7 +61,7 @@ instance ToPath DescribeAccountLimits where
 data DescribeAccountLimitsAnswer = DescribeAccountLimitsAnswer
     { _dalaMaxNumberOfAutoScalingGroups    :: Maybe Int
     , _dalaMaxNumberOfLaunchConfigurations :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Integral)
 
 -- | 'DescribeAccountLimitsAnswer' constructor.
 --

@@ -49,7 +49,7 @@ import Network.AWS.EC2.Types
 data CreateVpnConnectionRoute = CreateVpnConnectionRoute
     { _cvcrDestinationCidrBlock :: Text
     , _cvcrVpnConnectionId      :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateVpnConnectionRoute' constructor.
 --
@@ -77,6 +77,7 @@ cvcrDestinationCidrBlock =
 cvcrVpnConnectionId :: Lens' CreateVpnConnectionRoute Text
 cvcrVpnConnectionId =
     lens _cvcrVpnConnectionId (\s a -> s { _cvcrVpnConnectionId = a })
+
 instance ToQuery CreateVpnConnectionRoute
 
 instance ToPath CreateVpnConnectionRoute where

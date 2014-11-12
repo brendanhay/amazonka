@@ -59,7 +59,7 @@ data CreateAppCookieStickinessPolicyInput = CreateAppCookieStickinessPolicyInput
     { _cacspiCookieName       :: Text
     , _cacspiLoadBalancerName :: Text
     , _cacspiPolicyName       :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateAppCookieStickinessPolicyInput' constructor.
 --
@@ -94,6 +94,7 @@ cacspiLoadBalancerName =
 -- set of policies for this load balancer.
 cacspiPolicyName :: Lens' CreateAppCookieStickinessPolicyInput Text
 cacspiPolicyName = lens _cacspiPolicyName (\s a -> s { _cacspiPolicyName = a })
+
 instance ToQuery CreateAppCookieStickinessPolicyInput
 
 instance ToPath CreateAppCookieStickinessPolicyInput where

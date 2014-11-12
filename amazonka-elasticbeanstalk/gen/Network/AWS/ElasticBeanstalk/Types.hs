@@ -297,7 +297,7 @@ data ApplicationDescription = ApplicationDescription
     , _adDateUpdated            :: Maybe RFC822
     , _adDescription            :: Maybe Text
     , _adVersions               :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ApplicationDescription' constructor.
 --
@@ -368,7 +368,7 @@ data EventSeverity
     | Info  -- ^ INFO
     | Trace -- ^ TRACE
     | Warn  -- ^ WARN
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable EventSeverity
 
@@ -398,7 +398,7 @@ instance ToQuery EventSeverity
 data Tag = Tag
     { _tagKey   :: Maybe Text
     , _tagValue :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Tag' constructor.
 --
@@ -437,7 +437,7 @@ data EventDescription = EventDescription
     , _edSeverity        :: Maybe Text
     , _edTemplateName    :: Maybe Text
     , _edVersionLabel    :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EventDescription' constructor.
 --
@@ -514,7 +514,7 @@ instance ToQuery EventDescription
 
 newtype LaunchConfiguration = LaunchConfiguration
     { _lcName :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'LaunchConfiguration' constructor.
 --
@@ -539,7 +539,7 @@ instance ToQuery LaunchConfiguration
 
 newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage
     { _avdmApplicationVersion :: Maybe ApplicationVersionDescription
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ApplicationVersionDescriptionMessage' constructor.
 --
@@ -565,7 +565,7 @@ instance ToQuery ApplicationVersionDescriptionMessage
 
 newtype AutoScalingGroup = AutoScalingGroup
     { _asgName :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'AutoScalingGroup' constructor.
 --
@@ -592,7 +592,7 @@ data ConfigurationDeploymentStatus
     = Deployed -- ^ deployed
     | Failed   -- ^ failed
     | Pending  -- ^ pending
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ConfigurationDeploymentStatus
 
@@ -617,7 +617,7 @@ data ConfigurationOptionSetting = ConfigurationOptionSetting
     { _cosNamespace  :: Maybe Text
     , _cosOptionName :: Maybe Text
     , _cosValue      :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ConfigurationOptionSetting' constructor.
 --
@@ -657,7 +657,7 @@ instance ToQuery ConfigurationOptionSetting
 data ConfigurationOptionValueType
     = List   -- ^ List
     | Scalar -- ^ Scalar
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ConfigurationOptionValueType
 
@@ -686,7 +686,7 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription
     , _csdOptionSettings    :: [ConfigurationOptionSetting]
     , _csdSolutionStackName :: Maybe Text
     , _csdTemplateName      :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ConfigurationSettingsDescription' constructor.
 --
@@ -794,7 +794,7 @@ data ApplicationVersionDescription = ApplicationVersionDescription
     , _avdDescription     :: Maybe Text
     , _avdSourceBundle    :: Maybe S3Location
     , _avdVersionLabel    :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ApplicationVersionDescription' constructor.
 --
@@ -858,7 +858,7 @@ instance ToQuery ApplicationVersionDescription
 data OptionSpecification = OptionSpecification
     { _osNamespace  :: Maybe Text
     , _osOptionName :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'OptionSpecification' constructor.
 --
@@ -896,7 +896,7 @@ data EnvironmentResourceDescription = EnvironmentResourceDescription
     , _erdLoadBalancers        :: [LoadBalancer]
     , _erdQueues               :: [Queue]
     , _erdTriggers             :: [Trigger]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'EnvironmentResourceDescription' constructor.
 --
@@ -967,7 +967,7 @@ instance ToQuery EnvironmentResourceDescription
 data Queue = Queue
     { _qName :: Maybe Text
     , _qURL  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Queue' constructor.
 --
@@ -1003,7 +1003,7 @@ data EnvironmentStatus
     | Terminated  -- ^ Terminated
     | Terminating -- ^ Terminating
     | Updating    -- ^ Updating
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable EnvironmentStatus
 
@@ -1032,7 +1032,7 @@ data LoadBalancerDescription = LoadBalancerDescription
     { _lbdDomain           :: Maybe Text
     , _lbdListeners        :: [Listener]
     , _lbdLoadBalancerName :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'LoadBalancerDescription' constructor.
 --
@@ -1072,7 +1072,7 @@ instance ToQuery LoadBalancerDescription
 
 newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage
     { _admApplication :: Maybe ApplicationDescription
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ApplicationDescriptionMessage' constructor.
 --
@@ -1099,7 +1099,7 @@ data EnvironmentTier = EnvironmentTier
     { _etName    :: Maybe Text
     , _etType    :: Maybe Text
     , _etVersion :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EnvironmentTier' constructor.
 --
@@ -1138,7 +1138,7 @@ instance ToQuery EnvironmentTier
 
 newtype LoadBalancer = LoadBalancer
     { _lbName :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'LoadBalancer' constructor.
 --
@@ -1163,7 +1163,7 @@ instance ToQuery LoadBalancer
 
 newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription
     { _erdLoadBalancer :: Maybe LoadBalancerDescription
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'EnvironmentResourcesDescription' constructor.
 --
@@ -1189,7 +1189,7 @@ instance ToQuery EnvironmentResourcesDescription
 data OptionRestrictionRegex = OptionRestrictionRegex
     { _orrLabel   :: Maybe Text
     , _orrPattern :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'OptionRestrictionRegex' constructor.
 --
@@ -1232,7 +1232,7 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription
     , _codUserDefined    :: Maybe Bool
     , _codValueOptions   :: [Text]
     , _codValueType      :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ConfigurationOptionDescription' constructor.
 --
@@ -1366,7 +1366,7 @@ instance ToQuery ConfigurationOptionDescription
 data SourceConfiguration = SourceConfiguration
     { _scApplicationName :: Maybe Text
     , _scTemplateName    :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SourceConfiguration' constructor.
 --
@@ -1402,7 +1402,7 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription
     , _eidInfoType        :: Maybe Text
     , _eidMessage         :: Maybe Text
     , _eidSampleTimestamp :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EnvironmentInfoDescription' constructor.
 --
@@ -1451,7 +1451,7 @@ instance ToQuery EnvironmentInfoDescription
 data S3Location = S3Location
     { _slS3Bucket :: Maybe Text
     , _slS3Key    :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'S3Location' constructor.
 --
@@ -1486,7 +1486,7 @@ data ValidationMessage = ValidationMessage
     , _vmNamespace  :: Maybe Text
     , _vmOptionName :: Maybe Text
     , _vmSeverity   :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ValidationMessage' constructor.
 --
@@ -1538,7 +1538,7 @@ instance ToQuery ValidationMessage
 data ValidationSeverity
     = VSError   -- ^ error
     | VSWarning -- ^ warning
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ValidationSeverity
 
@@ -1559,7 +1559,7 @@ instance ToQuery ValidationSeverity
 
 newtype Trigger = Trigger
     { _tName :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'Trigger' constructor.
 --
@@ -1584,7 +1584,7 @@ instance ToQuery Trigger
 
 data EnvironmentInfoType
     = Tail -- ^ tail
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable EnvironmentInfoType
 
@@ -1616,7 +1616,7 @@ data EnvironmentDescription = EnvironmentDescription
     , _ed1TemplateName      :: Maybe Text
     , _ed1Tier              :: Maybe EnvironmentTier
     , _ed1VersionLabel      :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'EnvironmentDescription' constructor.
 --
@@ -1764,7 +1764,7 @@ instance ToQuery EnvironmentDescription
 data Listener = Listener
     { _lPort     :: Maybe Int
     , _lProtocol :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Listener' constructor.
 --
@@ -1799,7 +1799,7 @@ data EnvironmentHealth
     | Grey   -- ^ Grey
     | Red    -- ^ Red
     | Yellow -- ^ Yellow
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable EnvironmentHealth
 
@@ -1824,7 +1824,7 @@ instance ToQuery EnvironmentHealth
 
 newtype Instance = Instance
     { _iId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'Instance' constructor.
 --
@@ -1850,7 +1850,7 @@ instance ToQuery Instance
 data SolutionStackDescription = SolutionStackDescription
     { _ssdPermittedFileTypes :: [Text]
     , _ssdSolutionStackName  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SolutionStackDescription' constructor.
 --

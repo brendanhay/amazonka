@@ -51,7 +51,7 @@ import Network.AWS.IAM.Types
 data GetRolePolicy = GetRolePolicy
     { _grpPolicyName :: Text
     , _grpRoleName   :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetRolePolicy' constructor.
 --
@@ -76,6 +76,7 @@ grpPolicyName = lens _grpPolicyName (\s a -> s { _grpPolicyName = a })
 -- | The name of the role associated with the policy.
 grpRoleName :: Lens' GetRolePolicy Text
 grpRoleName = lens _grpRoleName (\s a -> s { _grpRoleName = a })
+
 instance ToQuery GetRolePolicy
 
 instance ToPath GetRolePolicy where
@@ -85,7 +86,7 @@ data GetRolePolicyResponse = GetRolePolicyResponse
     { _grprPolicyDocument :: Text
     , _grprPolicyName     :: Text
     , _grprRoleName       :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetRolePolicyResponse' constructor.
 --

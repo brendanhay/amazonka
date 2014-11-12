@@ -48,7 +48,7 @@ data DescribeVpcs = DescribeVpcs
     { _dv1DryRun  :: Maybe Bool
     , _dv1Filters :: [Filter]
     , _dv1VpcIds  :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVpcs' constructor.
 --
@@ -91,6 +91,7 @@ dv1Filters = lens _dv1Filters (\s a -> s { _dv1Filters = a })
 -- | One or more VPC IDs. Default: Describes all your VPCs.
 dv1VpcIds :: Lens' DescribeVpcs [Text]
 dv1VpcIds = lens _dv1VpcIds (\s a -> s { _dv1VpcIds = a })
+
 instance ToQuery DescribeVpcs
 
 instance ToPath DescribeVpcs where
@@ -98,7 +99,13 @@ instance ToPath DescribeVpcs where
 
 newtype DescribeVpcsResult = DescribeVpcsResult
     { _dvrVpcs :: [Vpc]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeVpcsResult
+    type Item DescribeVpcsResult = Vpc
+
+    fromList = DescribeVpcsResult . fromList
+    toList   = toList . _dvrVpcs
 
 -- | 'DescribeVpcsResult' constructor.
 --

@@ -50,7 +50,7 @@ data CreateCacheSubnetGroupMessage = CreateCacheSubnetGroupMessage
     { _ccsgmCacheSubnetGroupDescription :: Text
     , _ccsgmCacheSubnetGroupName        :: Text
     , _ccsgmSubnetIds                   :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateCacheSubnetGroupMessage' constructor.
 --
@@ -88,6 +88,7 @@ ccsgmCacheSubnetGroupName =
 -- | A list of VPC subnet IDs for the cache subnet group.
 ccsgmSubnetIds :: Lens' CreateCacheSubnetGroupMessage [Text]
 ccsgmSubnetIds = lens _ccsgmSubnetIds (\s a -> s { _ccsgmSubnetIds = a })
+
 instance ToQuery CreateCacheSubnetGroupMessage
 
 instance ToPath CreateCacheSubnetGroupMessage where
@@ -95,7 +96,7 @@ instance ToPath CreateCacheSubnetGroupMessage where
 
 newtype CreateCacheSubnetGroupResult = CreateCacheSubnetGroupResult
     { _ccsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateCacheSubnetGroupResult' constructor.
 --

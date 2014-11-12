@@ -50,7 +50,7 @@ data DescribeVpnGateways = DescribeVpnGateways
     { _dvg2DryRun        :: Maybe Bool
     , _dvg2Filters       :: [Filter]
     , _dvg2VpnGatewayIds :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVpnGateways' constructor.
 --
@@ -97,6 +97,7 @@ dvg2Filters = lens _dvg2Filters (\s a -> s { _dvg2Filters = a })
 dvg2VpnGatewayIds :: Lens' DescribeVpnGateways [Text]
 dvg2VpnGatewayIds =
     lens _dvg2VpnGatewayIds (\s a -> s { _dvg2VpnGatewayIds = a })
+
 instance ToQuery DescribeVpnGateways
 
 instance ToPath DescribeVpnGateways where
@@ -104,7 +105,13 @@ instance ToPath DescribeVpnGateways where
 
 newtype DescribeVpnGatewaysResult = DescribeVpnGatewaysResult
     { _dvgrVpnGateways :: [VpnGateway]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeVpnGatewaysResult
+    type Item DescribeVpnGatewaysResult = VpnGateway
+
+    fromList = DescribeVpnGatewaysResult . fromList
+    toList   = toList . _dvgrVpnGateways
 
 -- | 'DescribeVpnGatewaysResult' constructor.
 --

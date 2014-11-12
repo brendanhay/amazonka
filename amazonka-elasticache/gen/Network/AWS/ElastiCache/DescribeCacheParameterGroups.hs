@@ -51,7 +51,7 @@ data DescribeCacheParameterGroupsMessage = DescribeCacheParameterGroupsMessage
     { _dcpgmCacheParameterGroupName :: Maybe Text
     , _dcpgmMarker                  :: Maybe Text
     , _dcpgmMaxRecords              :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeCacheParameterGroupsMessage' constructor.
 --
@@ -89,6 +89,7 @@ dcpgmMarker = lens _dcpgmMarker (\s a -> s { _dcpgmMarker = a })
 -- Constraints: minimum 20; maximum 100.
 dcpgmMaxRecords :: Lens' DescribeCacheParameterGroupsMessage (Maybe Int)
 dcpgmMaxRecords = lens _dcpgmMaxRecords (\s a -> s { _dcpgmMaxRecords = a })
+
 instance ToQuery DescribeCacheParameterGroupsMessage
 
 instance ToPath DescribeCacheParameterGroupsMessage where
@@ -97,7 +98,7 @@ instance ToPath DescribeCacheParameterGroupsMessage where
 data CacheParameterGroupsMessage = CacheParameterGroupsMessage
     { _cpgmCacheParameterGroups :: [CacheParameterGroup]
     , _cpgmMarker               :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CacheParameterGroupsMessage' constructor.
 --

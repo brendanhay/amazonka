@@ -61,16 +61,13 @@ instance ToHeaders GetCheckerIpRanges
 
 newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
     { _gcirrCheckerIpRanges :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList GetCheckerIpRangesResponse
+    type Item GetCheckerIpRangesResponse = Text
+
+    fromList = GetCheckerIpRangesResponse . fromList
+    toList   = toList . _gcirrCheckerIpRanges
 
 -- | 'GetCheckerIpRangesResponse' constructor.
 --

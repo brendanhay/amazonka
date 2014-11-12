@@ -57,7 +57,7 @@ data PutScalingPolicyType = PutScalingPolicyType
     , _psptMinAdjustmentStep    :: Maybe Int
     , _psptPolicyName           :: Text
     , _psptScalingAdjustment    :: Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutScalingPolicyType' constructor.
 --
@@ -131,6 +131,7 @@ psptPolicyName = lens _psptPolicyName (\s a -> s { _psptPolicyName = a })
 psptScalingAdjustment :: Lens' PutScalingPolicyType Int
 psptScalingAdjustment =
     lens _psptScalingAdjustment (\s a -> s { _psptScalingAdjustment = a })
+
 instance ToQuery PutScalingPolicyType
 
 instance ToPath PutScalingPolicyType where
@@ -138,7 +139,7 @@ instance ToPath PutScalingPolicyType where
 
 newtype PolicyARNType = PolicyARNType
     { _parntPolicyARN :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'PolicyARNType' constructor.
 --

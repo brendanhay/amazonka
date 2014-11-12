@@ -51,7 +51,7 @@ import Network.AWS.ImportExport.Types
 data ListJobsInput = ListJobsInput
     { _ljiMarker  :: Maybe Text
     , _ljiMaxJobs :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListJobsInput' constructor.
 --
@@ -72,6 +72,7 @@ ljiMarker = lens _ljiMarker (\s a -> s { _ljiMarker = a })
 
 ljiMaxJobs :: Lens' ListJobsInput (Maybe Int)
 ljiMaxJobs = lens _ljiMaxJobs (\s a -> s { _ljiMaxJobs = a })
+
 instance ToQuery ListJobsInput
 
 instance ToPath ListJobsInput where
@@ -80,7 +81,7 @@ instance ToPath ListJobsInput where
 data ListJobsOutput = ListJobsOutput
     { _ljoIsTruncated :: Maybe Bool
     , _ljoJobs        :: [Job]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListJobsOutput' constructor.
 --

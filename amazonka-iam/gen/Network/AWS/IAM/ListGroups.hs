@@ -51,7 +51,7 @@ data ListGroups = ListGroups
     { _lgMarker     :: Maybe Text
     , _lgMaxItems   :: Maybe Natural
     , _lgPathPrefix :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListGroups' constructor.
 --
@@ -89,6 +89,7 @@ lgMaxItems = lens _lgMaxItems (\s a -> s { _lgMaxItems = a })
 -- included, it defaults to a slash (/), listing all groups.
 lgPathPrefix :: Lens' ListGroups (Maybe Text)
 lgPathPrefix = lens _lgPathPrefix (\s a -> s { _lgPathPrefix = a })
+
 instance ToQuery ListGroups
 
 instance ToPath ListGroups where
@@ -98,7 +99,7 @@ data ListGroupsResponse = ListGroupsResponse
     { _lgrGroups      :: [Group]
     , _lgrIsTruncated :: Maybe Bool
     , _lgrMarker      :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListGroupsResponse' constructor.
 --

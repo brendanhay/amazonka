@@ -52,7 +52,7 @@ import Network.AWS.ElastiCache.Types
 data DeleteCacheClusterMessage = DeleteCacheClusterMessage
     { _dccmCacheClusterId          :: Text
     , _dccmFinalSnapshotIdentifier :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteCacheClusterMessage' constructor.
 --
@@ -82,6 +82,7 @@ dccmFinalSnapshotIdentifier :: Lens' DeleteCacheClusterMessage (Maybe Text)
 dccmFinalSnapshotIdentifier =
     lens _dccmFinalSnapshotIdentifier
         (\s a -> s { _dccmFinalSnapshotIdentifier = a })
+
 instance ToQuery DeleteCacheClusterMessage
 
 instance ToPath DeleteCacheClusterMessage where
@@ -89,7 +90,7 @@ instance ToPath DeleteCacheClusterMessage where
 
 newtype DeleteCacheClusterResult = DeleteCacheClusterResult
     { _dccrCacheCluster :: Maybe CacheCluster
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteCacheClusterResult' constructor.
 --

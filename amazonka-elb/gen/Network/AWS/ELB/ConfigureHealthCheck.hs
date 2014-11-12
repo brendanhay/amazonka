@@ -48,7 +48,7 @@ import Network.AWS.ELB.Types
 data ConfigureHealthCheckInput = ConfigureHealthCheckInput
     { _chciHealthCheck      :: HealthCheck
     , _chciLoadBalancerName :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ConfigureHealthCheckInput' constructor.
 --
@@ -76,6 +76,7 @@ chciHealthCheck = lens _chciHealthCheck (\s a -> s { _chciHealthCheck = a })
 chciLoadBalancerName :: Lens' ConfigureHealthCheckInput Text
 chciLoadBalancerName =
     lens _chciLoadBalancerName (\s a -> s { _chciLoadBalancerName = a })
+
 instance ToQuery ConfigureHealthCheckInput
 
 instance ToPath ConfigureHealthCheckInput where
@@ -83,7 +84,7 @@ instance ToPath ConfigureHealthCheckInput where
 
 newtype ConfigureHealthCheckOutput = ConfigureHealthCheckOutput
     { _chcoHealthCheck :: Maybe HealthCheck
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ConfigureHealthCheckOutput' constructor.
 --

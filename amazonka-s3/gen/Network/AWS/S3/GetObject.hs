@@ -96,7 +96,7 @@ data GetObject = GetObject
     , _goSSECustomerKey             :: Maybe (Sensitive Text)
     , _goSSECustomerKeyMD5          :: Maybe Text
     , _goVersionId                  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetObject' constructor.
 --
@@ -308,7 +308,7 @@ data GetObjectOutput = GetObjectOutput
     , _gooServerSideEncryption    :: Maybe Text
     , _gooVersionId               :: Maybe Text
     , _gooWebsiteRedirectLocation :: Maybe Text
-    } (Show, Generic)
+    } deriving (Show, Generic)
 
 -- | 'GetObjectOutput' constructor.
 --

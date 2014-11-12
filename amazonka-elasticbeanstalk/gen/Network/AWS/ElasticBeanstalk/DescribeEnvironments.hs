@@ -54,7 +54,7 @@ data DescribeEnvironmentsMessage = DescribeEnvironmentsMessage
     , _demIncludeDeleted        :: Maybe Bool
     , _demIncludedDeletedBackTo :: Maybe RFC822
     , _demVersionLabel          :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeEnvironmentsMessage' constructor.
 --
@@ -119,6 +119,7 @@ demIncludedDeletedBackTo =
 -- to include only those that are associated with this application version.
 demVersionLabel :: Lens' DescribeEnvironmentsMessage (Maybe Text)
 demVersionLabel = lens _demVersionLabel (\s a -> s { _demVersionLabel = a })
+
 instance ToQuery DescribeEnvironmentsMessage
 
 instance ToPath DescribeEnvironmentsMessage where
@@ -126,7 +127,13 @@ instance ToPath DescribeEnvironmentsMessage where
 
 newtype EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage
     { _edmEnvironments :: [EnvironmentDescription]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList EnvironmentDescriptionsMessage
+    type Item EnvironmentDescriptionsMessage = EnvironmentDescription
+
+    fromList = EnvironmentDescriptionsMessage . fromList
+    toList   = toList . _edmEnvironments
 
 -- | 'EnvironmentDescriptionsMessage' constructor.
 --

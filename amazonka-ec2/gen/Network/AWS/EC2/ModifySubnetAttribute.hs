@@ -44,7 +44,7 @@ import Network.AWS.EC2.Types
 data ModifySubnetAttribute = ModifySubnetAttribute
     { _msaMapPublicIpOnLaunch :: Maybe AttributeBooleanValue
     , _msaSubnetId            :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifySubnetAttribute' constructor.
 --
@@ -68,6 +68,7 @@ msaMapPublicIpOnLaunch =
 -- | The ID of the subnet.
 msaSubnetId :: Lens' ModifySubnetAttribute Text
 msaSubnetId = lens _msaSubnetId (\s a -> s { _msaSubnetId = a })
+
 instance ToQuery ModifySubnetAttribute
 
 instance ToPath ModifySubnetAttribute where

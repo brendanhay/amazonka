@@ -52,7 +52,7 @@ import Network.AWS.CloudSearch.Types
 data UpdateScalingParameters = UpdateScalingParameters
     { _uspDomainName        :: Text
     , _uspScalingParameters :: ScalingParameters
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UpdateScalingParameters' constructor.
 --
@@ -76,6 +76,7 @@ uspDomainName = lens _uspDomainName (\s a -> s { _uspDomainName = a })
 uspScalingParameters :: Lens' UpdateScalingParameters ScalingParameters
 uspScalingParameters =
     lens _uspScalingParameters (\s a -> s { _uspScalingParameters = a })
+
 instance ToQuery UpdateScalingParameters
 
 instance ToPath UpdateScalingParameters where
@@ -83,7 +84,7 @@ instance ToPath UpdateScalingParameters where
 
 newtype UpdateScalingParametersResponse = UpdateScalingParametersResponse
     { _usprScalingParameters :: ScalingParametersStatus
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UpdateScalingParametersResponse' constructor.
 --

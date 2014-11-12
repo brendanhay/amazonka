@@ -56,7 +56,7 @@ data ImportInstance = ImportInstance
     , _iiDryRun              :: Maybe Bool
     , _iiLaunchSpecification :: Maybe ImportInstanceLaunchSpecification
     , _iiPlatform            :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ImportInstance' constructor.
 --
@@ -100,6 +100,7 @@ iiLaunchSpecification =
 -- | The instance operating system.
 iiPlatform :: Lens' ImportInstance Text
 iiPlatform = lens _iiPlatform (\s a -> s { _iiPlatform = a })
+
 instance ToQuery ImportInstance
 
 instance ToPath ImportInstance where
@@ -107,7 +108,7 @@ instance ToPath ImportInstance where
 
 newtype ImportInstanceResult = ImportInstanceResult
     { _iirConversionTask :: Maybe ConversionTask
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ImportInstanceResult' constructor.
 --

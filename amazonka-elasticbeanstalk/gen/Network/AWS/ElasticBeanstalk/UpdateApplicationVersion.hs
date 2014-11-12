@@ -48,7 +48,7 @@ data UpdateApplicationVersionMessage = UpdateApplicationVersionMessage
     { _uavmApplicationName :: Text
     , _uavmDescription     :: Maybe Text
     , _uavmVersionLabel    :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateApplicationVersionMessage' constructor.
 --
@@ -85,6 +85,7 @@ uavmDescription = lens _uavmDescription (\s a -> s { _uavmDescription = a })
 -- error.
 uavmVersionLabel :: Lens' UpdateApplicationVersionMessage Text
 uavmVersionLabel = lens _uavmVersionLabel (\s a -> s { _uavmVersionLabel = a })
+
 instance ToQuery UpdateApplicationVersionMessage
 
 instance ToPath UpdateApplicationVersionMessage where

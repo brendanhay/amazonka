@@ -46,7 +46,7 @@ data ExecutePolicyType = ExecutePolicyType
     { _eptAutoScalingGroupName :: Maybe Text
     , _eptHonorCooldown        :: Maybe Bool
     , _eptPolicyName           :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ExecutePolicyType' constructor.
 --
@@ -83,6 +83,7 @@ eptHonorCooldown = lens _eptHonorCooldown (\s a -> s { _eptHonorCooldown = a })
 -- | The name or ARN of the policy you want to run.
 eptPolicyName :: Lens' ExecutePolicyType Text
 eptPolicyName = lens _eptPolicyName (\s a -> s { _eptPolicyName = a })
+
 instance ToQuery ExecutePolicyType
 
 instance ToPath ExecutePolicyType where

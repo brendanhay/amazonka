@@ -57,7 +57,7 @@ data ModifyEventSubscriptionMessage = ModifyEventSubscriptionMessage
     , _mesmSnsTopicArn      :: Maybe Text
     , _mesmSourceType       :: Maybe Text
     , _mesmSubscriptionName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifyEventSubscriptionMessage' constructor.
 --
@@ -113,6 +113,7 @@ mesmSourceType = lens _mesmSourceType (\s a -> s { _mesmSourceType = a })
 mesmSubscriptionName :: Lens' ModifyEventSubscriptionMessage Text
 mesmSubscriptionName =
     lens _mesmSubscriptionName (\s a -> s { _mesmSubscriptionName = a })
+
 instance ToQuery ModifyEventSubscriptionMessage
 
 instance ToPath ModifyEventSubscriptionMessage where
@@ -120,7 +121,7 @@ instance ToPath ModifyEventSubscriptionMessage where
 
 newtype ModifyEventSubscriptionResult = ModifyEventSubscriptionResult
     { _mesrEventSubscription :: Maybe EventSubscription
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyEventSubscriptionResult' constructor.
 --

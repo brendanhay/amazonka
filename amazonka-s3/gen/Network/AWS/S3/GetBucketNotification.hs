@@ -44,7 +44,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketNotification = GetBucketNotification
     { _gbnBucket :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetBucketNotification' constructor.
 --
@@ -74,7 +74,7 @@ instance ToHeaders GetBucketNotification
 
 newtype GetBucketNotificationOutput = GetBucketNotificationOutput
     { _gbnoTopicConfiguration :: Maybe TopicConfiguration
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetBucketNotificationOutput' constructor.
 --

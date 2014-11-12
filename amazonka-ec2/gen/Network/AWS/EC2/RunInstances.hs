@@ -110,7 +110,7 @@ data RunInstances = RunInstances
     , _ri1SecurityGroups                    :: [Text]
     , _ri1SubnetId                          :: Maybe Text
     , _ri1UserData                          :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RunInstances' constructor.
 --
@@ -335,6 +335,7 @@ ri1SubnetId = lens _ri1SubnetId (\s a -> s { _ri1SubnetId = a })
 -- | The Base64-encoded MIME user data for the instances.
 ri1UserData :: Lens' RunInstances (Maybe Text)
 ri1UserData = lens _ri1UserData (\s a -> s { _ri1UserData = a })
+
 instance ToQuery RunInstances
 
 instance ToPath RunInstances where

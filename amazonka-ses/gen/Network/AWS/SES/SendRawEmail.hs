@@ -67,7 +67,7 @@ data SendRawEmail = SendRawEmail
     { _sreDestinations :: [Text]
     , _sreRawMessage   :: RawMessage
     , _sreSource       :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'SendRawEmail' constructor.
 --
@@ -109,6 +109,7 @@ sreRawMessage = lens _sreRawMessage (\s a -> s { _sreRawMessage = a })
 -- =?charset?encoding?encoded-text?=. For more information, see RFC 2047.
 sreSource :: Lens' SendRawEmail (Maybe Text)
 sreSource = lens _sreSource (\s a -> s { _sreSource = a })
+
 instance ToQuery SendRawEmail
 
 instance ToPath SendRawEmail where
@@ -116,7 +117,7 @@ instance ToPath SendRawEmail where
 
 newtype SendRawEmailResponse = SendRawEmailResponse
     { _srerMessageId :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'SendRawEmailResponse' constructor.
 --

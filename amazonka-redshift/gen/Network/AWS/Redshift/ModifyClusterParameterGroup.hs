@@ -49,7 +49,7 @@ import Network.AWS.Redshift.Types
 data ModifyClusterParameterGroupMessage = ModifyClusterParameterGroupMessage
     { _mcpgmParameterGroupName :: Text
     , _mcpgmParameters         :: [Parameter]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyClusterParameterGroupMessage' constructor.
 --
@@ -79,6 +79,7 @@ mcpgmParameterGroupName =
 -- wlm_json_configuration parameter.
 mcpgmParameters :: Lens' ModifyClusterParameterGroupMessage [Parameter]
 mcpgmParameters = lens _mcpgmParameters (\s a -> s { _mcpgmParameters = a })
+
 instance ToQuery ModifyClusterParameterGroupMessage
 
 instance ToPath ModifyClusterParameterGroupMessage where

@@ -45,7 +45,7 @@ import Network.AWS.CloudSearch.Types
 
 newtype CreateDomain = CreateDomain
     { _cdDomainName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'CreateDomain' constructor.
 --
@@ -64,6 +64,7 @@ createDomain p1 = CreateDomain
 -- letter or number and be at least 3 and no more than 28 characters long.
 cdDomainName :: Lens' CreateDomain Text
 cdDomainName = lens _cdDomainName (\s a -> s { _cdDomainName = a })
+
 instance ToQuery CreateDomain
 
 instance ToPath CreateDomain where
@@ -71,7 +72,7 @@ instance ToPath CreateDomain where
 
 newtype CreateDomainResponse = CreateDomainResponse
     { _cdrDomainStatus :: Maybe DomainStatus
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDomainResponse' constructor.
 --

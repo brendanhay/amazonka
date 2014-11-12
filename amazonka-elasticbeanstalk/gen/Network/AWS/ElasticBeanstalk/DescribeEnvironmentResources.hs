@@ -46,7 +46,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data DescribeEnvironmentResourcesMessage = DescribeEnvironmentResourcesMessage
     { _dermEnvironmentId   :: Maybe Text
     , _dermEnvironmentName :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeEnvironmentResourcesMessage' constructor.
 --
@@ -77,6 +77,7 @@ dermEnvironmentId =
 dermEnvironmentName :: Lens' DescribeEnvironmentResourcesMessage (Maybe Text)
 dermEnvironmentName =
     lens _dermEnvironmentName (\s a -> s { _dermEnvironmentName = a })
+
 instance ToQuery DescribeEnvironmentResourcesMessage
 
 instance ToPath DescribeEnvironmentResourcesMessage where
@@ -84,7 +85,7 @@ instance ToPath DescribeEnvironmentResourcesMessage where
 
 newtype EnvironmentResourceDescriptionsMessage = EnvironmentResourceDescriptionsMessage
     { _erdmEnvironmentResources :: Maybe EnvironmentResourceDescription
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'EnvironmentResourceDescriptionsMessage' constructor.
 --

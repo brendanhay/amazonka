@@ -45,7 +45,7 @@ import Network.AWS.Route53.Types
 
 newtype GetReusableDelegationSet = GetReusableDelegationSet
     { _grdsId :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetReusableDelegationSet' constructor.
 --
@@ -77,7 +77,7 @@ instance ToHeaders GetReusableDelegationSet
 
 newtype GetReusableDelegationSetResponse = GetReusableDelegationSetResponse
     { _grdsrDelegationSet :: DelegationSet
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetReusableDelegationSetResponse' constructor.
 --

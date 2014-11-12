@@ -421,7 +421,7 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList
     , _cfoailMaxItems    :: Int
     , _cfoailNextMarker  :: Maybe Text
     , _cfoailQuantity    :: Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CloudFrontOriginAccessIdentityList' constructor.
 --
@@ -499,7 +499,7 @@ data Invalidation = Invalidation
     , _iId                :: Text
     , _iInvalidationBatch :: InvalidationBatch
     , _iStatus            :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Invalidation' constructor.
 --
@@ -556,7 +556,7 @@ instance ToXML Invalidation where
 data SSLSupportMethod
     = SniOnly -- ^ sni-only
     | Vip     -- ^ vip
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable SSLSupportMethod
 
@@ -580,7 +580,7 @@ instance ToXML SSLSupportMethod where
 data AllowedMethods = AllowedMethods
     { _amItems    :: [Text]
     , _amQuantity :: Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AllowedMethods' constructor.
 --
@@ -619,7 +619,7 @@ instance ToXML AllowedMethods where
 data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig
     { _cfoaicCallerReference :: Text
     , _cfoaicComment         :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CloudFrontOriginAccessIdentityConfig' constructor.
 --
@@ -670,7 +670,7 @@ data Origin = Origin
     , _oDomainName         :: Text
     , _oId                 :: Text
     , _oS3OriginConfig     :: Maybe S3OriginConfig
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Origin' constructor.
 --
@@ -733,7 +733,7 @@ data ViewerProtocolPolicy
     = AllowAll        -- ^ allow-all
     | HttpsOnly       -- ^ https-only
     | RedirectToHttps -- ^ redirect-to-https
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ViewerProtocolPolicy
 
@@ -763,7 +763,7 @@ data StreamingDistributionList = StreamingDistributionList
     , _sdlMaxItems    :: Int
     , _sdlNextMarker  :: Maybe Text
     , _sdlQuantity    :: Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'StreamingDistributionList' constructor.
 --
@@ -843,7 +843,7 @@ data StreamingDistributionConfig = StreamingDistributionConfig
     , _sdcPriceClass      :: Text
     , _sdcS3Origin        :: S3Origin
     , _sdcTrustedSigners  :: TrustedSigners
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'StreamingDistributionConfig' constructor.
 --
@@ -956,7 +956,7 @@ instance ToXML StreamingDistributionConfig where
 data Signer = Signer
     { _sAwsAccountNumber :: Maybe Text
     , _sKeyPairIds       :: Maybe KeyPairIds
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Signer' constructor.
 --
@@ -996,7 +996,7 @@ instance ToXML Signer where
 data CookiePreference = CookiePreference
     { _cpForward          :: Text
     , _cpWhitelistedNames :: Maybe CookieNames
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CookiePreference' constructor.
 --
@@ -1038,7 +1038,7 @@ instance ToXML CookiePreference where
 data OriginProtocolPolicy
     = HttpOnly    -- ^ http-only
     | MatchViewer -- ^ match-viewer
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable OriginProtocolPolicy
 
@@ -1067,7 +1067,7 @@ data Distribution = Distribution
     , _dInProgressInvalidationBatches :: Int
     , _dLastModifiedTime              :: RFC822
     , _dStatus                        :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Distribution' constructor.
 --
@@ -1161,7 +1161,7 @@ data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySumma
     { _cfoaisComment           :: Text
     , _cfoaisId                :: Text
     , _cfoaisS3CanonicalUserId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CloudFrontOriginAccessIdentitySummary' constructor.
 --
@@ -1218,7 +1218,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary
     , _sdsS3Origin         :: S3Origin
     , _sdsStatus           :: Text
     , _sdsTrustedSigners   :: TrustedSigners
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'StreamingDistributionSummary' constructor.
 --
@@ -1339,7 +1339,7 @@ data CustomOriginConfig = CustomOriginConfig
     { _cocHTTPPort             :: Int
     , _cocHTTPSPort            :: Int
     , _cocOriginProtocolPolicy :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CustomOriginConfig' constructor.
 --
@@ -1385,7 +1385,7 @@ instance ToXML CustomOriginConfig where
 data Aliases = Aliases
     { _aItems    :: [Text]
     , _aQuantity :: Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Aliases' constructor.
 --
@@ -1422,7 +1422,7 @@ instance ToXML Aliases where
 data InvalidationBatch = InvalidationBatch
     { _ibCallerReference :: Text
     , _ibPaths           :: Paths
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'InvalidationBatch' constructor.
 --
@@ -1476,7 +1476,7 @@ data InvalidationSummary = InvalidationSummary
     { _isCreateTime :: RFC822
     , _isId         :: Text
     , _isStatus     :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'InvalidationSummary' constructor.
 --
@@ -1532,7 +1532,7 @@ data DistributionConfig = DistributionConfig
     , _dcPriceClass           :: Text
     , _dcRestrictions         :: Maybe Restrictions
     , _dcViewerCertificate    :: Maybe ViewerCertificate
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DistributionConfig' constructor.
 --
@@ -1689,7 +1689,7 @@ data CacheBehavior = CacheBehavior
     , _cbTargetOriginId       :: Text
     , _cbTrustedSigners       :: TrustedSigners
     , _cbViewerProtocolPolicy :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CacheBehavior' constructor.
 --
@@ -1811,7 +1811,7 @@ data DistributionList = DistributionList
     , _dlMaxItems    :: Int
     , _dlNextMarker  :: Maybe Text
     , _dlQuantity    :: Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DistributionList' constructor.
 --
@@ -1884,7 +1884,7 @@ instance ToXML DistributionList where
 data KeyPairIds = KeyPairIds
     { _kpiItems    :: [Text]
     , _kpiQuantity :: Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'KeyPairIds' constructor.
 --
@@ -1922,7 +1922,7 @@ data PriceClass
     = PriceClass100 -- ^ PriceClass_100
     | PriceClass200 -- ^ PriceClass_200
     | PriceClassAll -- ^ PriceClass_All
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable PriceClass
 
@@ -1948,7 +1948,7 @@ instance ToXML PriceClass where
 data CustomErrorResponses = CustomErrorResponses
     { _cerItems    :: [CustomErrorResponse]
     , _cerQuantity :: Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CustomErrorResponses' constructor.
 --
@@ -1984,7 +1984,7 @@ instance ToXML CustomErrorResponses where
 
 newtype S3OriginConfig = S3OriginConfig
     { _socOriginAccessIdentity :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'S3OriginConfig' constructor.
 --
@@ -2026,7 +2026,7 @@ data GeoRestriction = GeoRestriction
     { _grItems           :: [Text]
     , _grQuantity        :: Int
     , _grRestrictionType :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GeoRestriction' constructor.
 --
@@ -2088,7 +2088,7 @@ instance ToXML GeoRestriction where
 data S3Origin = S3Origin
     { _soDomainName           :: Text
     , _soOriginAccessIdentity :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'S3Origin' constructor.
 --
@@ -2126,7 +2126,7 @@ instance ToXML S3Origin where
 data Headers = Headers
     { _hItems    :: [Text]
     , _hQuantity :: Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Headers' constructor.
 --
@@ -2171,7 +2171,7 @@ data ViewerCertificate = ViewerCertificate
     { _vcCloudFrontDefaultCertificate :: Maybe Bool
     , _vcIAMCertificateId             :: Maybe Text
     , _vcSSLSupportMethod             :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ViewerCertificate' constructor.
 --
@@ -2232,7 +2232,7 @@ instance ToXML ViewerCertificate where
 
 newtype Restrictions = Restrictions
     { _rGeoRestriction :: GeoRestriction
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Restrictions' constructor.
 --
@@ -2260,7 +2260,7 @@ instance ToXML Restrictions where
 data Origins = Origins
     { _oItems    :: List1 Origin
     , _oQuantity :: Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Origins' constructor.
 --
@@ -2303,7 +2303,7 @@ data Method
     | Patch   -- ^ PATCH
     | Post    -- ^ POST
     | Put     -- ^ PUT
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable Method
 
@@ -2338,7 +2338,7 @@ data ForwardedValues = ForwardedValues
     { _fvCookies     :: CookiePreference
     , _fvHeaders     :: Maybe Headers
     , _fvQueryString :: Bool
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ForwardedValues' constructor.
 --
@@ -2386,7 +2386,7 @@ data TrustedSigners = TrustedSigners
     { _tsEnabled  :: Bool
     , _tsItems    :: [Text]
     , _tsQuantity :: Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'TrustedSigners' constructor.
 --
@@ -2433,7 +2433,7 @@ data ItemSelection
     = All       -- ^ all
     | None      -- ^ none
     | Whitelist -- ^ whitelist
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable ItemSelection
 
@@ -2460,7 +2460,7 @@ data StreamingLoggingConfig = StreamingLoggingConfig
     { _slcBucket  :: Text
     , _slcEnabled :: Bool
     , _slcPrefix  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StreamingLoggingConfig' constructor.
 --
@@ -2514,7 +2514,7 @@ instance ToXML StreamingLoggingConfig where
 data CookieNames = CookieNames
     { _cnItems    :: [Text]
     , _cnQuantity :: Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CookieNames' constructor.
 --
@@ -2553,7 +2553,7 @@ data CustomErrorResponse = CustomErrorResponse
     , _cerErrorCode          :: Int
     , _cerResponseCode       :: Maybe Text
     , _cerResponsePagePath   :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CustomErrorResponse' constructor.
 --
@@ -2616,7 +2616,7 @@ instance ToXML CustomErrorResponse where
 data CacheBehaviors = CacheBehaviors
     { _cbItems    :: [CacheBehavior]
     , _cbQuantity :: Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CacheBehaviors' constructor.
 --
@@ -2658,7 +2658,7 @@ data DefaultCacheBehavior = DefaultCacheBehavior
     , _dcbTargetOriginId       :: Text
     , _dcbTrustedSigners       :: TrustedSigners
     , _dcbViewerProtocolPolicy :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DefaultCacheBehavior' constructor.
 --
@@ -2768,7 +2768,7 @@ data InvalidationList = InvalidationList
     , _ilMaxItems    :: Int
     , _ilNextMarker  :: Maybe Text
     , _ilQuantity    :: Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'InvalidationList' constructor.
 --
@@ -2846,7 +2846,7 @@ data StreamingDistribution = StreamingDistribution
     , _sdLastModifiedTime            :: Maybe RFC822
     , _sdStatus                      :: Text
     , _sdStreamingDistributionConfig :: StreamingDistributionConfig
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'StreamingDistribution' constructor.
 --
@@ -2930,7 +2930,7 @@ instance ToXML StreamingDistribution where
 data Paths = Paths
     { _pItems    :: [Text]
     , _pQuantity :: Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Paths' constructor.
 --
@@ -2968,7 +2968,7 @@ data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity
     { _cfoaiCloudFrontOriginAccessIdentityConfig :: Maybe CloudFrontOriginAccessIdentityConfig
     , _cfoaiId                                   :: Text
     , _cfoaiS3CanonicalUserId                    :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CloudFrontOriginAccessIdentity' constructor.
 --
@@ -3018,7 +3018,7 @@ data ActiveTrustedSigners = ActiveTrustedSigners
     { _atsEnabled  :: Bool
     , _atsItems    :: [Signer]
     , _atsQuantity :: Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ActiveTrustedSigners' constructor.
 --
@@ -3079,7 +3079,7 @@ data DistributionSummary = DistributionSummary
     , _dsRestrictions         :: Restrictions
     , _dsStatus               :: Text
     , _dsViewerCertificate    :: ViewerCertificate
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DistributionSummary' constructor.
 --
@@ -3224,7 +3224,7 @@ data GeoRestrictionType
     = GRTBlacklist -- ^ blacklist
     | GRTNone      -- ^ none
     | GRTWhitelist -- ^ whitelist
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable GeoRestrictionType
 
@@ -3252,7 +3252,7 @@ data LoggingConfig = LoggingConfig
     , _lcEnabled        :: Bool
     , _lcIncludeCookies :: Bool
     , _lcPrefix         :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'LoggingConfig' constructor.
 --

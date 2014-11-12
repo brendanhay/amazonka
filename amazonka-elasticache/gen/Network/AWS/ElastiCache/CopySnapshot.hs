@@ -46,7 +46,7 @@ import Network.AWS.ElastiCache.Types
 data CopySnapshotMessage = CopySnapshotMessage
     { _csmSourceSnapshotName :: Text
     , _csmTargetSnapshotName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CopySnapshotMessage' constructor.
 --
@@ -73,6 +73,7 @@ csmSourceSnapshotName =
 csmTargetSnapshotName :: Lens' CopySnapshotMessage Text
 csmTargetSnapshotName =
     lens _csmTargetSnapshotName (\s a -> s { _csmTargetSnapshotName = a })
+
 instance ToQuery CopySnapshotMessage
 
 instance ToPath CopySnapshotMessage where
@@ -80,7 +81,7 @@ instance ToPath CopySnapshotMessage where
 
 newtype CopySnapshotResult = CopySnapshotResult
     { _csrSnapshot :: Maybe Snapshot
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CopySnapshotResult' constructor.
 --

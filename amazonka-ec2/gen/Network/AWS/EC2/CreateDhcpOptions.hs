@@ -69,7 +69,7 @@ import Network.AWS.EC2.Types
 data CreateDhcpOptions = CreateDhcpOptions
     { _cdoDhcpConfigurations :: [NewDhcpConfiguration]
     , _cdoDryRun             :: Maybe Bool
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDhcpOptions' constructor.
 --
@@ -92,6 +92,7 @@ cdoDhcpConfigurations =
 
 cdoDryRun :: Lens' CreateDhcpOptions (Maybe Bool)
 cdoDryRun = lens _cdoDryRun (\s a -> s { _cdoDryRun = a })
+
 instance ToQuery CreateDhcpOptions
 
 instance ToPath CreateDhcpOptions where
@@ -99,7 +100,7 @@ instance ToPath CreateDhcpOptions where
 
 newtype CreateDhcpOptionsResult = CreateDhcpOptionsResult
     { _cdorDhcpOptions :: Maybe DhcpOptions
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDhcpOptionsResult' constructor.
 --

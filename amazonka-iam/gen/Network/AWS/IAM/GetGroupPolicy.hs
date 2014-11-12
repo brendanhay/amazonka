@@ -50,7 +50,7 @@ import Network.AWS.IAM.Types
 data GetGroupPolicy = GetGroupPolicy
     { _ggpGroupName  :: Text
     , _ggpPolicyName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetGroupPolicy' constructor.
 --
@@ -75,6 +75,7 @@ ggpGroupName = lens _ggpGroupName (\s a -> s { _ggpGroupName = a })
 -- | The name of the policy document to get.
 ggpPolicyName :: Lens' GetGroupPolicy Text
 ggpPolicyName = lens _ggpPolicyName (\s a -> s { _ggpPolicyName = a })
+
 instance ToQuery GetGroupPolicy
 
 instance ToPath GetGroupPolicy where
@@ -84,7 +85,7 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse
     { _ggprGroupName      :: Text
     , _ggprPolicyDocument :: Text
     , _ggprPolicyName     :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetGroupPolicyResponse' constructor.
 --

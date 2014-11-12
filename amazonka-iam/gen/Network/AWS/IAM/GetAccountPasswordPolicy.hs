@@ -47,6 +47,7 @@ data GetAccountPasswordPolicy = GetAccountPasswordPolicy
 -- | 'GetAccountPasswordPolicy' constructor.
 getAccountPasswordPolicy :: GetAccountPasswordPolicy
 getAccountPasswordPolicy = GetAccountPasswordPolicy
+
 instance ToQuery GetAccountPasswordPolicy
 
 instance ToPath GetAccountPasswordPolicy where
@@ -54,7 +55,7 @@ instance ToPath GetAccountPasswordPolicy where
 
 newtype GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse
     { _gapprPasswordPolicy :: PasswordPolicy
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetAccountPasswordPolicyResponse' constructor.
 --

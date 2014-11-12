@@ -45,7 +45,7 @@ import Network.AWS.ELB.Types
 
 newtype DescribeLoadBalancerAttributesInput = DescribeLoadBalancerAttributesInput
     { _dlbaiLoadBalancerName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DescribeLoadBalancerAttributesInput' constructor.
 --
@@ -63,6 +63,7 @@ describeLoadBalancerAttributesInput p1 = DescribeLoadBalancerAttributesInput
 dlbaiLoadBalancerName :: Lens' DescribeLoadBalancerAttributesInput Text
 dlbaiLoadBalancerName =
     lens _dlbaiLoadBalancerName (\s a -> s { _dlbaiLoadBalancerName = a })
+
 instance ToQuery DescribeLoadBalancerAttributesInput
 
 instance ToPath DescribeLoadBalancerAttributesInput where
@@ -70,7 +71,7 @@ instance ToPath DescribeLoadBalancerAttributesInput where
 
 newtype DescribeLoadBalancerAttributesOutput = DescribeLoadBalancerAttributesOutput
     { _dlbaoLoadBalancerAttributes :: Maybe LoadBalancerAttributes
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeLoadBalancerAttributesOutput' constructor.
 --

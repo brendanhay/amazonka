@@ -48,7 +48,7 @@ data DescribeInternetGateways = DescribeInternetGateways
     { _digDryRun             :: Maybe Bool
     , _digFilters            :: [Filter]
     , _digInternetGatewayIds :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeInternetGateways' constructor.
 --
@@ -91,6 +91,7 @@ digFilters = lens _digFilters (\s a -> s { _digFilters = a })
 digInternetGatewayIds :: Lens' DescribeInternetGateways [Text]
 digInternetGatewayIds =
     lens _digInternetGatewayIds (\s a -> s { _digInternetGatewayIds = a })
+
 instance ToQuery DescribeInternetGateways
 
 instance ToPath DescribeInternetGateways where
@@ -98,7 +99,13 @@ instance ToPath DescribeInternetGateways where
 
 newtype DescribeInternetGatewaysResult = DescribeInternetGatewaysResult
     { _digrInternetGateways :: [InternetGateway]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeInternetGatewaysResult
+    type Item DescribeInternetGatewaysResult = InternetGateway
+
+    fromList = DescribeInternetGatewaysResult . fromList
+    toList   = toList . _digrInternetGateways
 
 -- | 'DescribeInternetGatewaysResult' constructor.
 --

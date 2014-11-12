@@ -50,7 +50,7 @@ data DescribeVpnConnections = DescribeVpnConnections
     { _dvc1DryRun           :: Maybe Bool
     , _dvc1Filters          :: [Filter]
     , _dvc1VpnConnectionIds :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVpnConnections' constructor.
 --
@@ -100,6 +100,7 @@ dvc1Filters = lens _dvc1Filters (\s a -> s { _dvc1Filters = a })
 dvc1VpnConnectionIds :: Lens' DescribeVpnConnections [Text]
 dvc1VpnConnectionIds =
     lens _dvc1VpnConnectionIds (\s a -> s { _dvc1VpnConnectionIds = a })
+
 instance ToQuery DescribeVpnConnections
 
 instance ToPath DescribeVpnConnections where
@@ -107,7 +108,13 @@ instance ToPath DescribeVpnConnections where
 
 newtype DescribeVpnConnectionsResult = DescribeVpnConnectionsResult
     { _dvcrVpnConnections :: [VpnConnection]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeVpnConnectionsResult
+    type Item DescribeVpnConnectionsResult = VpnConnection
+
+    fromList = DescribeVpnConnectionsResult . fromList
+    toList   = toList . _dvcrVpnConnections
 
 -- | 'DescribeVpnConnectionsResult' constructor.
 --

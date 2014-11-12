@@ -53,7 +53,7 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     , _mniaGroups             :: [Text]
     , _mniaNetworkInterfaceId :: Text
     , _mniaSourceDestCheck    :: Maybe AttributeBooleanValue
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyNetworkInterfaceAttribute' constructor.
 --
@@ -115,6 +115,7 @@ mniaNetworkInterfaceId =
 mniaSourceDestCheck :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeBooleanValue)
 mniaSourceDestCheck =
     lens _mniaSourceDestCheck (\s a -> s { _mniaSourceDestCheck = a })
+
 instance ToQuery ModifyNetworkInterfaceAttribute
 
 instance ToPath ModifyNetworkInterfaceAttribute where

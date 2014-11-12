@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data DeleteCustomerGateway = DeleteCustomerGateway
     { _dcg1CustomerGatewayId :: Text
     , _dcg1DryRun            :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteCustomerGateway' constructor.
 --
@@ -69,6 +69,7 @@ dcg1CustomerGatewayId =
 
 dcg1DryRun :: Lens' DeleteCustomerGateway (Maybe Bool)
 dcg1DryRun = lens _dcg1DryRun (\s a -> s { _dcg1DryRun = a })
+
 instance ToQuery DeleteCustomerGateway
 
 instance ToPath DeleteCustomerGateway where

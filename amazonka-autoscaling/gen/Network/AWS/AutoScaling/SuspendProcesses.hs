@@ -51,7 +51,7 @@ import Network.AWS.AutoScaling.Types
 data SuspendProcesses = SuspendProcesses
     { _spAutoScalingGroupName :: Text
     , _spScalingProcesses     :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SuspendProcesses' constructor.
 --
@@ -80,6 +80,7 @@ spAutoScalingGroupName =
 spScalingProcesses :: Lens' SuspendProcesses [Text]
 spScalingProcesses =
     lens _spScalingProcesses (\s a -> s { _spScalingProcesses = a })
+
 instance ToQuery SuspendProcesses
 
 instance ToPath SuspendProcesses where

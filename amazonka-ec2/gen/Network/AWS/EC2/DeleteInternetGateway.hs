@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data DeleteInternetGateway = DeleteInternetGateway
     { _dig1DryRun            :: Maybe Bool
     , _dig1InternetGatewayId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteInternetGateway' constructor.
 --
@@ -69,6 +69,7 @@ dig1DryRun = lens _dig1DryRun (\s a -> s { _dig1DryRun = a })
 dig1InternetGatewayId :: Lens' DeleteInternetGateway Text
 dig1InternetGatewayId =
     lens _dig1InternetGatewayId (\s a -> s { _dig1InternetGatewayId = a })
+
 instance ToQuery DeleteInternetGateway
 
 instance ToPath DeleteInternetGateway where

@@ -51,7 +51,7 @@ data DescribeHsmClientCertificatesMessage = DescribeHsmClientCertificatesMessage
     { _dhccmHsmClientCertificateIdentifier :: Maybe Text
     , _dhccmMarker                         :: Maybe Text
     , _dhccmMaxRecords                     :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeHsmClientCertificatesMessage' constructor.
 --
@@ -94,6 +94,7 @@ dhccmMarker = lens _dhccmMarker (\s a -> s { _dhccmMarker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dhccmMaxRecords :: Lens' DescribeHsmClientCertificatesMessage (Maybe Int)
 dhccmMaxRecords = lens _dhccmMaxRecords (\s a -> s { _dhccmMaxRecords = a })
+
 instance ToQuery DescribeHsmClientCertificatesMessage
 
 instance ToPath DescribeHsmClientCertificatesMessage where
@@ -102,7 +103,7 @@ instance ToPath DescribeHsmClientCertificatesMessage where
 data HsmClientCertificateMessage = HsmClientCertificateMessage
     { _hccmHsmClientCertificates :: [HsmClientCertificate]
     , _hccmMarker                :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'HsmClientCertificateMessage' constructor.
 --

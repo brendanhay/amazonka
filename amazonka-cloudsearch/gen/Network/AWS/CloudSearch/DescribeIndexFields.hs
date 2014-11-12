@@ -53,7 +53,7 @@ data DescribeIndexFields = DescribeIndexFields
     { _difDeployed   :: Maybe Bool
     , _difDomainName :: Text
     , _difFieldNames :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeIndexFields' constructor.
 --
@@ -86,6 +86,7 @@ difDomainName = lens _difDomainName (\s a -> s { _difDomainName = a })
 -- information is returned for all configured index fields.
 difFieldNames :: Lens' DescribeIndexFields [Text]
 difFieldNames = lens _difFieldNames (\s a -> s { _difFieldNames = a })
+
 instance ToQuery DescribeIndexFields
 
 instance ToPath DescribeIndexFields where
@@ -93,7 +94,13 @@ instance ToPath DescribeIndexFields where
 
 newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
     { _difrIndexFields :: [IndexFieldStatus]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeIndexFieldsResponse
+    type Item DescribeIndexFieldsResponse = IndexFieldStatus
+
+    fromList = DescribeIndexFieldsResponse . fromList
+    toList   = toList . _difrIndexFields
 
 -- | 'DescribeIndexFieldsResponse' constructor.
 --

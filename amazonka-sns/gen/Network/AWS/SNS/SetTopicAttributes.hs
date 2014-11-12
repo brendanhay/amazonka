@@ -46,7 +46,7 @@ data SetTopicAttributesInput = SetTopicAttributesInput
     { _staiAttributeName  :: Text
     , _staiAttributeValue :: Maybe Text
     , _staiTopicArn       :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetTopicAttributesInput' constructor.
 --
@@ -82,6 +82,7 @@ staiAttributeValue =
 -- | The ARN of the topic to modify.
 staiTopicArn :: Lens' SetTopicAttributesInput Text
 staiTopicArn = lens _staiTopicArn (\s a -> s { _staiTopicArn = a })
+
 instance ToQuery SetTopicAttributesInput
 
 instance ToPath SetTopicAttributesInput where

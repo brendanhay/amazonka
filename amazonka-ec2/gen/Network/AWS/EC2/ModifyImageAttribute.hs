@@ -61,7 +61,7 @@ data ModifyImageAttribute = ModifyImageAttribute
     , _miaUserGroups       :: [Text]
     , _miaUserIds          :: [Text]
     , _miaValue            :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyImageAttribute' constructor.
 --
@@ -146,6 +146,7 @@ miaUserIds = lens _miaUserIds (\s a -> s { _miaUserIds = a })
 -- modifying the description attribute.
 miaValue :: Lens' ModifyImageAttribute (Maybe Text)
 miaValue = lens _miaValue (\s a -> s { _miaValue = a })
+
 instance ToQuery ModifyImageAttribute
 
 instance ToPath ModifyImageAttribute where

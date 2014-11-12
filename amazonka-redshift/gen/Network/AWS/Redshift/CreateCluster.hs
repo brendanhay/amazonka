@@ -92,7 +92,7 @@ data CreateClusterMessage = CreateClusterMessage
     , _ccmPreferredMaintenanceWindow       :: Maybe Text
     , _ccmPubliclyAccessible               :: Maybe Bool
     , _ccmVpcSecurityGroupIds              :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateClusterMessage' constructor.
 --
@@ -358,6 +358,7 @@ ccmPubliclyAccessible =
 ccmVpcSecurityGroupIds :: Lens' CreateClusterMessage [Text]
 ccmVpcSecurityGroupIds =
     lens _ccmVpcSecurityGroupIds (\s a -> s { _ccmVpcSecurityGroupIds = a })
+
 instance ToQuery CreateClusterMessage
 
 instance ToPath CreateClusterMessage where
@@ -365,7 +366,7 @@ instance ToPath CreateClusterMessage where
 
 newtype CreateClusterResult = CreateClusterResult
     { _ccrCluster :: Maybe Cluster
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateClusterResult' constructor.
 --

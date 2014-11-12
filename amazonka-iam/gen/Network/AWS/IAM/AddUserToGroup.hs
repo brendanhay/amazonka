@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 data AddUserToGroup = AddUserToGroup
     { _autgGroupName :: Text
     , _autgUserName  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AddUserToGroup' constructor.
 --
@@ -69,6 +69,7 @@ autgGroupName = lens _autgGroupName (\s a -> s { _autgGroupName = a })
 -- | The name of the user to add.
 autgUserName :: Lens' AddUserToGroup Text
 autgUserName = lens _autgUserName (\s a -> s { _autgUserName = a })
+
 instance ToQuery AddUserToGroup
 
 instance ToPath AddUserToGroup where

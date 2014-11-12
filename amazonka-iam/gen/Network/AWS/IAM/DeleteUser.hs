@@ -43,7 +43,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteUser = DeleteUser
     { _duUserName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteUser' constructor.
 --
@@ -60,6 +60,7 @@ deleteUser p1 = DeleteUser
 -- | The name of the user to delete.
 duUserName :: Lens' DeleteUser Text
 duUserName = lens _duUserName (\s a -> s { _duUserName = a })
+
 instance ToQuery DeleteUser
 
 instance ToPath DeleteUser where

@@ -48,7 +48,7 @@ import Network.AWS.SNS.Types
 
 newtype ListSubscriptionsInput = ListSubscriptionsInput
     { _lsiNextToken :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ListSubscriptionsInput' constructor.
 --
@@ -64,6 +64,7 @@ listSubscriptionsInput = ListSubscriptionsInput
 -- | Token returned by the previous ListSubscriptions request.
 lsiNextToken :: Lens' ListSubscriptionsInput (Maybe Text)
 lsiNextToken = lens _lsiNextToken (\s a -> s { _lsiNextToken = a })
+
 instance ToQuery ListSubscriptionsInput
 
 instance ToPath ListSubscriptionsInput where
@@ -72,7 +73,7 @@ instance ToPath ListSubscriptionsInput where
 data ListSubscriptionsResponse = ListSubscriptionsResponse
     { _lsrNextToken     :: Maybe Text
     , _lsrSubscriptions :: [Subscription]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListSubscriptionsResponse' constructor.
 --

@@ -58,7 +58,7 @@ data CompleteLifecycleActionType = CompleteLifecycleActionType
     , _clatLifecycleActionResult :: Text
     , _clatLifecycleActionToken  :: Text
     , _clatLifecycleHookName     :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CompleteLifecycleActionType' constructor.
 --
@@ -110,6 +110,7 @@ clatLifecycleActionToken =
 clatLifecycleHookName :: Lens' CompleteLifecycleActionType Text
 clatLifecycleHookName =
     lens _clatLifecycleHookName (\s a -> s { _clatLifecycleHookName = a })
+
 instance ToQuery CompleteLifecycleActionType
 
 instance ToPath CompleteLifecycleActionType where

@@ -58,7 +58,7 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
     { _dsirDryRun                 :: Maybe Bool
     , _dsirFilters                :: [Filter]
     , _dsirSpotInstanceRequestIds :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeSpotInstanceRequests' constructor.
 --
@@ -144,6 +144,7 @@ dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
 dsirSpotInstanceRequestIds =
     lens _dsirSpotInstanceRequestIds
         (\s a -> s { _dsirSpotInstanceRequestIds = a })
+
 instance ToQuery DescribeSpotInstanceRequests
 
 instance ToPath DescribeSpotInstanceRequests where
@@ -151,7 +152,13 @@ instance ToPath DescribeSpotInstanceRequests where
 
 newtype DescribeSpotInstanceRequestsResult = DescribeSpotInstanceRequestsResult
     { _dsirrSpotInstanceRequests :: [SpotInstanceRequest]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeSpotInstanceRequestsResult
+    type Item DescribeSpotInstanceRequestsResult = SpotInstanceRequest
+
+    fromList = DescribeSpotInstanceRequestsResult . fromList
+    toList   = toList . _dsirrSpotInstanceRequests
 
 -- | 'DescribeSpotInstanceRequestsResult' constructor.
 --

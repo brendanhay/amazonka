@@ -42,16 +42,13 @@ import Network.AWS.CloudWatch.Types
 
 newtype EnableAlarmActionsInput = EnableAlarmActionsInput
     { _eaaiAlarmNames :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList EnableAlarmActionsInput
+    type Item EnableAlarmActionsInput = Text
+
+    fromList = EnableAlarmActionsInput . fromList
+    toList   = toList . _eaaiAlarmNames
 
 -- | 'EnableAlarmActionsInput' constructor.
 --
@@ -67,6 +64,7 @@ enableAlarmActionsInput = EnableAlarmActionsInput
 -- | The names of the alarms to enable actions for.
 eaaiAlarmNames :: Lens' EnableAlarmActionsInput [Text]
 eaaiAlarmNames = lens _eaaiAlarmNames (\s a -> s { _eaaiAlarmNames = a })
+
 instance ToQuery EnableAlarmActionsInput
 
 instance ToPath EnableAlarmActionsInput where

@@ -47,7 +47,7 @@ import Network.AWS.SQS.Types
 data SetQueueAttributes = SetQueueAttributes
     { _sqaAttributes :: Map Text Text
     , _sqaQueueUrl   :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'SetQueueAttributes' constructor.
 --
@@ -95,6 +95,7 @@ sqaAttributes = lens _sqaAttributes (\s a -> s { _sqaAttributes = a })
 -- | The URL of the Amazon SQS queue to take action on.
 sqaQueueUrl :: Lens' SetQueueAttributes Text
 sqaQueueUrl = lens _sqaQueueUrl (\s a -> s { _sqaQueueUrl = a })
+
 instance ToQuery SetQueueAttributes
 
 instance ToPath SetQueueAttributes where

@@ -105,7 +105,7 @@ data CopyObject = CopyObject
     , _coServerSideEncryption           :: Maybe Text
     , _coStorageClass                   :: Maybe Text
     , _coWebsiteRedirectLocation        :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CopyObject' constructor.
 --
@@ -418,7 +418,7 @@ data CopyObjectOutput = CopyObjectOutput
     , _cooSSECustomerAlgorithm :: Maybe Text
     , _cooSSECustomerKeyMD5    :: Maybe Text
     , _cooServerSideEncryption :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CopyObjectOutput' constructor.
 --

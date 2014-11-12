@@ -53,7 +53,7 @@ import Network.AWS.ELB.Types
 data ModifyLoadBalancerAttributesInput = ModifyLoadBalancerAttributesInput
     { _mlbaiLoadBalancerAttributes :: LoadBalancerAttributes
     , _mlbaiLoadBalancerName       :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyLoadBalancerAttributesInput' constructor.
 --
@@ -81,6 +81,7 @@ mlbaiLoadBalancerAttributes =
 mlbaiLoadBalancerName :: Lens' ModifyLoadBalancerAttributesInput Text
 mlbaiLoadBalancerName =
     lens _mlbaiLoadBalancerName (\s a -> s { _mlbaiLoadBalancerName = a })
+
 instance ToQuery ModifyLoadBalancerAttributesInput
 
 instance ToPath ModifyLoadBalancerAttributesInput where
@@ -89,7 +90,7 @@ instance ToPath ModifyLoadBalancerAttributesInput where
 data ModifyLoadBalancerAttributesOutput = ModifyLoadBalancerAttributesOutput
     { _mlbaoLoadBalancerAttributes :: Maybe LoadBalancerAttributes
     , _mlbaoLoadBalancerName       :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyLoadBalancerAttributesOutput' constructor.
 --

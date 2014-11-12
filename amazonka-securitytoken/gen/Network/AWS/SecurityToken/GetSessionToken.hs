@@ -70,7 +70,7 @@ data GetSessionToken = GetSessionToken
     { _gstDurationSeconds :: Maybe Natural
     , _gstSerialNumber    :: Maybe Text
     , _gstTokenCode       :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetSessionToken' constructor.
 --
@@ -118,6 +118,7 @@ gstSerialNumber = lens _gstSerialNumber (\s a -> s { _gstSerialNumber = a })
 -- authentication.
 gstTokenCode :: Lens' GetSessionToken (Maybe Text)
 gstTokenCode = lens _gstTokenCode (\s a -> s { _gstTokenCode = a })
+
 instance ToQuery GetSessionToken
 
 instance ToPath GetSessionToken where
@@ -125,7 +126,7 @@ instance ToPath GetSessionToken where
 
 newtype GetSessionTokenResponse = GetSessionTokenResponse
     { _gstrCredentials :: Maybe Credentials
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetSessionTokenResponse' constructor.
 --

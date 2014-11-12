@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data DeleteSubnet = DeleteSubnet
     { _ds2DryRun   :: Maybe Bool
     , _ds2SubnetId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSubnet' constructor.
 --
@@ -68,6 +68,7 @@ ds2DryRun = lens _ds2DryRun (\s a -> s { _ds2DryRun = a })
 -- | The ID of the subnet.
 ds2SubnetId :: Lens' DeleteSubnet Text
 ds2SubnetId = lens _ds2SubnetId (\s a -> s { _ds2SubnetId = a })
+
 instance ToQuery DeleteSubnet
 
 instance ToPath DeleteSubnet where

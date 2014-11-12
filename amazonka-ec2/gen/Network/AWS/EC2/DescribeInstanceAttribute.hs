@@ -65,7 +65,7 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute
     { _dia1Attribute  :: Text
     , _dia1DryRun     :: Maybe Bool
     , _dia1InstanceId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeInstanceAttribute' constructor.
 --
@@ -96,6 +96,7 @@ dia1DryRun = lens _dia1DryRun (\s a -> s { _dia1DryRun = a })
 -- | The ID of the instance.
 dia1InstanceId :: Lens' DescribeInstanceAttribute Text
 dia1InstanceId = lens _dia1InstanceId (\s a -> s { _dia1InstanceId = a })
+
 instance ToQuery DescribeInstanceAttribute
 
 instance ToPath DescribeInstanceAttribute where
@@ -116,7 +117,7 @@ data InstanceAttribute = InstanceAttribute
     , _iaSourceDestCheck                   :: Maybe AttributeBooleanValue
     , _iaSriovNetSupport                   :: Maybe AttributeValue
     , _iaUserData                          :: Maybe AttributeValue
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'InstanceAttribute' constructor.
 --

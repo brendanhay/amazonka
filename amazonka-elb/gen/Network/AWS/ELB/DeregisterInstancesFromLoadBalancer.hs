@@ -52,7 +52,7 @@ import Network.AWS.ELB.Types
 data DeregisterEndPointsInput = DeregisterEndPointsInput
     { _depiInstances        :: [Instance]
     , _depiLoadBalancerName :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeregisterEndPointsInput' constructor.
 --
@@ -78,6 +78,7 @@ depiInstances = lens _depiInstances (\s a -> s { _depiInstances = a })
 depiLoadBalancerName :: Lens' DeregisterEndPointsInput Text
 depiLoadBalancerName =
     lens _depiLoadBalancerName (\s a -> s { _depiLoadBalancerName = a })
+
 instance ToQuery DeregisterEndPointsInput
 
 instance ToPath DeregisterEndPointsInput where
@@ -85,7 +86,13 @@ instance ToPath DeregisterEndPointsInput where
 
 newtype DeregisterEndPointsOutput = DeregisterEndPointsOutput
     { _depoInstances :: [Instance]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DeregisterEndPointsOutput
+    type Item DeregisterEndPointsOutput = Instance
+
+    fromList = DeregisterEndPointsOutput . fromList
+    toList   = toList . _depoInstances
 
 -- | 'DeregisterEndPointsOutput' constructor.
 --

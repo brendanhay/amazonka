@@ -44,7 +44,7 @@ import Network.AWS.CloudFormation.Types
 
 newtype CancelUpdateStackInput = CancelUpdateStackInput
     { _cusiStackName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'CancelUpdateStackInput' constructor.
 --
@@ -61,6 +61,7 @@ cancelUpdateStackInput p1 = CancelUpdateStackInput
 -- | The name or the unique identifier associated with the stack.
 cusiStackName :: Lens' CancelUpdateStackInput Text
 cusiStackName = lens _cusiStackName (\s a -> s { _cusiStackName = a })
+
 instance ToQuery CancelUpdateStackInput
 
 instance ToPath CancelUpdateStackInput where

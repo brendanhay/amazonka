@@ -44,6 +44,7 @@ data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
 -- | 'DeleteAccountPasswordPolicy' constructor.
 deleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
 deleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
+
 instance ToQuery DeleteAccountPasswordPolicy
 
 instance ToPath DeleteAccountPasswordPolicy where

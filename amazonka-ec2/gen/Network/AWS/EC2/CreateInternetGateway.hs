@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 
 newtype CreateInternetGateway = CreateInternetGateway
     { _cigDryRun :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateInternetGateway' constructor.
 --
@@ -62,6 +62,7 @@ createInternetGateway = CreateInternetGateway
 
 cigDryRun :: Lens' CreateInternetGateway (Maybe Bool)
 cigDryRun = lens _cigDryRun (\s a -> s { _cigDryRun = a })
+
 instance ToQuery CreateInternetGateway
 
 instance ToPath CreateInternetGateway where
@@ -69,7 +70,7 @@ instance ToPath CreateInternetGateway where
 
 newtype CreateInternetGatewayResult = CreateInternetGatewayResult
     { _cigrInternetGateway :: Maybe InternetGateway
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateInternetGatewayResult' constructor.
 --

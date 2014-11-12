@@ -44,7 +44,7 @@ import Network.AWS.ELB.Types
 data DeleteLoadBalancerListenerInput = DeleteLoadBalancerListenerInput
     { _dlbliLoadBalancerName  :: Text
     , _dlbliLoadBalancerPorts :: [Int]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteLoadBalancerListenerInput' constructor.
 --
@@ -70,6 +70,7 @@ dlbliLoadBalancerName =
 dlbliLoadBalancerPorts :: Lens' DeleteLoadBalancerListenerInput [Int]
 dlbliLoadBalancerPorts =
     lens _dlbliLoadBalancerPorts (\s a -> s { _dlbliLoadBalancerPorts = a })
+
 instance ToQuery DeleteLoadBalancerListenerInput
 
 instance ToPath DeleteLoadBalancerListenerInput where

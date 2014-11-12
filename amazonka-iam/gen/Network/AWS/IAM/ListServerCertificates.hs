@@ -52,7 +52,7 @@ data ListServerCertificates = ListServerCertificates
     { _lscMarker     :: Maybe Text
     , _lscMaxItems   :: Maybe Natural
     , _lscPathPrefix :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListServerCertificates' constructor.
 --
@@ -92,6 +92,7 @@ lscMaxItems = lens _lscMaxItems (\s a -> s { _lscMaxItems = a })
 -- certificates.
 lscPathPrefix :: Lens' ListServerCertificates (Maybe Text)
 lscPathPrefix = lens _lscPathPrefix (\s a -> s { _lscPathPrefix = a })
+
 instance ToQuery ListServerCertificates
 
 instance ToPath ListServerCertificates where
@@ -101,7 +102,7 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse
     { _lscrIsTruncated                   :: Maybe Bool
     , _lscrMarker                        :: Maybe Text
     , _lscrServerCertificateMetadataList :: [ServerCertificateMetadata]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListServerCertificatesResponse' constructor.
 --

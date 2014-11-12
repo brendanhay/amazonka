@@ -52,7 +52,7 @@ data ConfirmSubscriptionInput = ConfirmSubscriptionInput
     { _csiAuthenticateOnUnsubscribe :: Maybe Text
     , _csiToken                     :: Text
     , _csiTopicArn                  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ConfirmSubscriptionInput' constructor.
 --
@@ -89,6 +89,7 @@ csiToken = lens _csiToken (\s a -> s { _csiToken = a })
 -- | The ARN of the topic for which you wish to confirm a subscription.
 csiTopicArn :: Lens' ConfirmSubscriptionInput Text
 csiTopicArn = lens _csiTopicArn (\s a -> s { _csiTopicArn = a })
+
 instance ToQuery ConfirmSubscriptionInput
 
 instance ToPath ConfirmSubscriptionInput where
@@ -96,7 +97,7 @@ instance ToPath ConfirmSubscriptionInput where
 
 newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
     { _csrSubscriptionArn :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ConfirmSubscriptionResponse' constructor.
 --

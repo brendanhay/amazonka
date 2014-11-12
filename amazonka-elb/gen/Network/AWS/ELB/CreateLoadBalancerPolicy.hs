@@ -51,7 +51,7 @@ data CreateLoadBalancerPolicyInput = CreateLoadBalancerPolicyInput
     , _clbpiPolicyAttributes :: [PolicyAttribute]
     , _clbpiPolicyName       :: Text
     , _clbpiPolicyTypeName   :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateLoadBalancerPolicyInput' constructor.
 --
@@ -97,6 +97,7 @@ clbpiPolicyName = lens _clbpiPolicyName (\s a -> s { _clbpiPolicyName = a })
 clbpiPolicyTypeName :: Lens' CreateLoadBalancerPolicyInput Text
 clbpiPolicyTypeName =
     lens _clbpiPolicyTypeName (\s a -> s { _clbpiPolicyTypeName = a })
+
 instance ToQuery CreateLoadBalancerPolicyInput
 
 instance ToPath CreateLoadBalancerPolicyInput where

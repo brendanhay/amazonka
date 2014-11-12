@@ -49,7 +49,7 @@ data CreatePlacementGroup = CreatePlacementGroup
     { _cpgDryRun    :: Maybe Bool
     , _cpgGroupName :: Text
     , _cpgStrategy  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreatePlacementGroup' constructor.
 --
@@ -80,6 +80,7 @@ cpgGroupName = lens _cpgGroupName (\s a -> s { _cpgGroupName = a })
 -- | The placement strategy.
 cpgStrategy :: Lens' CreatePlacementGroup Text
 cpgStrategy = lens _cpgStrategy (\s a -> s { _cpgStrategy = a })
+
 instance ToQuery CreatePlacementGroup
 
 instance ToPath CreatePlacementGroup where

@@ -48,7 +48,7 @@ data RestoreObject = RestoreObject
     , _roKey            :: Text
     , _roRestoreRequest :: Maybe RestoreRequest
     , _roVersionId      :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RestoreObject' constructor.
 --

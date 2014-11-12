@@ -52,7 +52,7 @@ data CreateVpnGateway = CreateVpnGateway
     { _cvgAvailabilityZone :: Maybe Text
     , _cvgDryRun           :: Maybe Bool
     , _cvgType             :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateVpnGateway' constructor.
 --
@@ -83,6 +83,7 @@ cvgDryRun = lens _cvgDryRun (\s a -> s { _cvgDryRun = a })
 -- | The type of VPN connection this virtual private gateway supports.
 cvgType :: Lens' CreateVpnGateway Text
 cvgType = lens _cvgType (\s a -> s { _cvgType = a })
+
 instance ToQuery CreateVpnGateway
 
 instance ToPath CreateVpnGateway where
@@ -90,7 +91,7 @@ instance ToPath CreateVpnGateway where
 
 newtype CreateVpnGatewayResult = CreateVpnGatewayResult
     { _cvgrVpnGateway :: Maybe VpnGateway
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateVpnGatewayResult' constructor.
 --

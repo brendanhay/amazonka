@@ -53,7 +53,7 @@ import Network.AWS.CloudSearch.Types
 data DefineIndexField = DefineIndexField
     { _dif2DomainName :: Text
     , _dif2IndexField :: IndexField
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DefineIndexField' constructor.
 --
@@ -77,6 +77,7 @@ dif2DomainName = lens _dif2DomainName (\s a -> s { _dif2DomainName = a })
 -- | The index field and field options you want to configure.
 dif2IndexField :: Lens' DefineIndexField IndexField
 dif2IndexField = lens _dif2IndexField (\s a -> s { _dif2IndexField = a })
+
 instance ToQuery DefineIndexField
 
 instance ToPath DefineIndexField where
@@ -84,7 +85,7 @@ instance ToPath DefineIndexField where
 
 newtype DefineIndexFieldResponse = DefineIndexFieldResponse
     { _difr1IndexField :: IndexFieldStatus
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DefineIndexFieldResponse' constructor.
 --

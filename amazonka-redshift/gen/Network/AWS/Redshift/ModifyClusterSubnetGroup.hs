@@ -50,7 +50,7 @@ data ModifyClusterSubnetGroupMessage = ModifyClusterSubnetGroupMessage
     { _mcsgmClusterSubnetGroupName :: Text
     , _mcsgmDescription            :: Maybe Text
     , _mcsgmSubnetIds              :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifyClusterSubnetGroupMessage' constructor.
 --
@@ -84,6 +84,7 @@ mcsgmDescription = lens _mcsgmDescription (\s a -> s { _mcsgmDescription = a })
 -- single request.
 mcsgmSubnetIds :: Lens' ModifyClusterSubnetGroupMessage [Text]
 mcsgmSubnetIds = lens _mcsgmSubnetIds (\s a -> s { _mcsgmSubnetIds = a })
+
 instance ToQuery ModifyClusterSubnetGroupMessage
 
 instance ToPath ModifyClusterSubnetGroupMessage where
@@ -91,7 +92,7 @@ instance ToPath ModifyClusterSubnetGroupMessage where
 
 newtype ModifyClusterSubnetGroupResult = ModifyClusterSubnetGroupResult
     { _mcsgrClusterSubnetGroup :: Maybe ClusterSubnetGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyClusterSubnetGroupResult' constructor.
 --

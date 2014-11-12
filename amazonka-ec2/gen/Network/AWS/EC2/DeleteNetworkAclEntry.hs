@@ -49,7 +49,7 @@ data DeleteNetworkAclEntry = DeleteNetworkAclEntry
     , _dnaeEgress       :: Bool
     , _dnaeNetworkAclId :: Text
     , _dnaeRuleNumber   :: Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteNetworkAclEntry' constructor.
 --
@@ -88,6 +88,7 @@ dnaeNetworkAclId = lens _dnaeNetworkAclId (\s a -> s { _dnaeNetworkAclId = a })
 -- | The rule number of the entry to delete.
 dnaeRuleNumber :: Lens' DeleteNetworkAclEntry Int
 dnaeRuleNumber = lens _dnaeRuleNumber (\s a -> s { _dnaeRuleNumber = a })
+
 instance ToQuery DeleteNetworkAclEntry
 
 instance ToPath DeleteNetworkAclEntry where

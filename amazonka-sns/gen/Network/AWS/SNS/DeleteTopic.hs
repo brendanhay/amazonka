@@ -45,7 +45,7 @@ import Network.AWS.SNS.Types
 
 newtype DeleteTopicInput = DeleteTopicInput
     { _dtiTopicArn :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteTopicInput' constructor.
 --
@@ -62,6 +62,7 @@ deleteTopicInput p1 = DeleteTopicInput
 -- | The ARN of the topic you want to delete.
 dtiTopicArn :: Lens' DeleteTopicInput Text
 dtiTopicArn = lens _dtiTopicArn (\s a -> s { _dtiTopicArn = a })
+
 instance ToQuery DeleteTopicInput
 
 instance ToPath DeleteTopicInput where

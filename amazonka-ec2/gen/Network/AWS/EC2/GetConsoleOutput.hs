@@ -60,7 +60,7 @@ import Network.AWS.EC2.Types
 data GetConsoleOutput = GetConsoleOutput
     { _gcoDryRun     :: Maybe Bool
     , _gcoInstanceId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetConsoleOutput' constructor.
 --
@@ -83,6 +83,7 @@ gcoDryRun = lens _gcoDryRun (\s a -> s { _gcoDryRun = a })
 -- | The ID of the instance.
 gcoInstanceId :: Lens' GetConsoleOutput Text
 gcoInstanceId = lens _gcoInstanceId (\s a -> s { _gcoInstanceId = a })
+
 instance ToQuery GetConsoleOutput
 
 instance ToPath GetConsoleOutput where
@@ -92,7 +93,7 @@ data GetConsoleOutputResult = GetConsoleOutputResult
     { _gcorInstanceId :: Maybe Text
     , _gcorOutput     :: Maybe Text
     , _gcorTimestamp  :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetConsoleOutputResult' constructor.
 --

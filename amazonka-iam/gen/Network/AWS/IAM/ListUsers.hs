@@ -53,7 +53,7 @@ data ListUsers = ListUsers
     { _luMarker     :: Maybe Text
     , _luMaxItems   :: Maybe Natural
     , _luPathPrefix :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListUsers' constructor.
 --
@@ -94,6 +94,7 @@ luMaxItems = lens _luMaxItems (\s a -> s { _luMaxItems = a })
 -- names.
 luPathPrefix :: Lens' ListUsers (Maybe Text)
 luPathPrefix = lens _luPathPrefix (\s a -> s { _luPathPrefix = a })
+
 instance ToQuery ListUsers
 
 instance ToPath ListUsers where
@@ -103,7 +104,7 @@ data ListUsersResponse = ListUsersResponse
     { _lurIsTruncated :: Maybe Bool
     , _lurMarker      :: Maybe Text
     , _lurUsers       :: [User]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListUsersResponse' constructor.
 --

@@ -46,7 +46,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data RebuildEnvironmentMessage = RebuildEnvironmentMessage
     { _remEnvironmentId   :: Maybe Text
     , _remEnvironmentName :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RebuildEnvironmentMessage' constructor.
 --
@@ -74,6 +74,7 @@ remEnvironmentId = lens _remEnvironmentId (\s a -> s { _remEnvironmentId = a })
 remEnvironmentName :: Lens' RebuildEnvironmentMessage (Maybe Text)
 remEnvironmentName =
     lens _remEnvironmentName (\s a -> s { _remEnvironmentName = a })
+
 instance ToQuery RebuildEnvironmentMessage
 
 instance ToPath RebuildEnvironmentMessage where

@@ -53,7 +53,7 @@ data DeleteObject = DeleteObject
     , _do1Key       :: Text
     , _do1MFA       :: Maybe Text
     , _do1VersionId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteObject' constructor.
 --
@@ -111,7 +111,7 @@ instance ToHeaders DeleteObject where
 data DeleteObjectOutput = DeleteObjectOutput
     { _dooDeleteMarker :: Maybe Bool
     , _dooVersionId    :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteObjectOutput' constructor.
 --

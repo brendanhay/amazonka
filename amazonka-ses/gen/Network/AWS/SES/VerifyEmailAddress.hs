@@ -46,7 +46,7 @@ import Network.AWS.SES.Types
 
 newtype VerifyEmailAddress = VerifyEmailAddress
     { _veaEmailAddress :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'VerifyEmailAddress' constructor.
 --
@@ -63,6 +63,7 @@ verifyEmailAddress p1 = VerifyEmailAddress
 -- | The email address to be verified.
 veaEmailAddress :: Lens' VerifyEmailAddress Text
 veaEmailAddress = lens _veaEmailAddress (\s a -> s { _veaEmailAddress = a })
+
 instance ToQuery VerifyEmailAddress
 
 instance ToPath VerifyEmailAddress where

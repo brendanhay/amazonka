@@ -47,7 +47,7 @@ import Network.AWS.CloudSearch.Types
 data DeleteIndexField = DeleteIndexField
     { _dif1DomainName     :: Text
     , _dif1IndexFieldName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteIndexField' constructor.
 --
@@ -73,6 +73,7 @@ dif1DomainName = lens _dif1DomainName (\s a -> s { _dif1DomainName = a })
 dif1IndexFieldName :: Lens' DeleteIndexField Text
 dif1IndexFieldName =
     lens _dif1IndexFieldName (\s a -> s { _dif1IndexFieldName = a })
+
 instance ToQuery DeleteIndexField
 
 instance ToPath DeleteIndexField where
@@ -80,7 +81,7 @@ instance ToPath DeleteIndexField where
 
 newtype DeleteIndexFieldResponse = DeleteIndexFieldResponse
     { _difrIndexField :: IndexFieldStatus
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteIndexFieldResponse' constructor.
 --

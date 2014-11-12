@@ -66,7 +66,7 @@ data DescribeEventsMessage = DescribeEventsMessage
     , _dem1StartTime       :: Maybe RFC822
     , _dem1TemplateName    :: Maybe Text
     , _dem1VersionLabel    :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeEventsMessage' constructor.
 --
@@ -168,6 +168,7 @@ dem1TemplateName = lens _dem1TemplateName (\s a -> s { _dem1TemplateName = a })
 -- to those associated with this application version.
 dem1VersionLabel :: Lens' DescribeEventsMessage (Maybe Text)
 dem1VersionLabel = lens _dem1VersionLabel (\s a -> s { _dem1VersionLabel = a })
+
 instance ToQuery DescribeEventsMessage
 
 instance ToPath DescribeEventsMessage where
@@ -176,7 +177,7 @@ instance ToPath DescribeEventsMessage where
 data EventDescriptionsMessage = EventDescriptionsMessage
     { _edmEvents    :: [EventDescription]
     , _edmNextToken :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'EventDescriptionsMessage' constructor.
 --

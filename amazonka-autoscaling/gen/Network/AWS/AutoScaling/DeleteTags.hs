@@ -42,7 +42,13 @@ import Network.AWS.AutoScaling.Types
 
 newtype DeleteTagsType = DeleteTagsType
     { _dttTags :: [Tag]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DeleteTagsType
+    type Item DeleteTagsType = Tag
+
+    fromList = DeleteTagsType . fromList
+    toList   = toList . _dttTags
 
 -- | 'DeleteTagsType' constructor.
 --
@@ -61,6 +67,7 @@ deleteTagsType = DeleteTagsType
 -- value=value, propagate=true or false.
 dttTags :: Lens' DeleteTagsType [Tag]
 dttTags = lens _dttTags (\s a -> s { _dttTags = a })
+
 instance ToQuery DeleteTagsType
 
 instance ToPath DeleteTagsType where

@@ -54,7 +54,7 @@ data DescribePoliciesType = DescribePoliciesType
     , _dptMaxRecords           :: Maybe Int
     , _dptNextToken            :: Maybe Text
     , _dptPolicyNames          :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribePoliciesType' constructor.
 --
@@ -97,6 +97,7 @@ dptNextToken = lens _dptNextToken (\s a -> s { _dptNextToken = a })
 -- are requested, they are ignored with no error.
 dptPolicyNames :: Lens' DescribePoliciesType [Text]
 dptPolicyNames = lens _dptPolicyNames (\s a -> s { _dptPolicyNames = a })
+
 instance ToQuery DescribePoliciesType
 
 instance ToPath DescribePoliciesType where
@@ -105,7 +106,7 @@ instance ToPath DescribePoliciesType where
 data PoliciesType = PoliciesType
     { _ptNextToken       :: Maybe Text
     , _ptScalingPolicies :: [ScalingPolicy]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PoliciesType' constructor.
 --

@@ -46,7 +46,7 @@ import Network.AWS.EC2.Types
 data DescribeAccountAttributes = DescribeAccountAttributes
     { _daaAttributeNames :: [Text]
     , _daaDryRun         :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAccountAttributes' constructor.
 --
@@ -69,6 +69,7 @@ daaAttributeNames =
 
 daaDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
 daaDryRun = lens _daaDryRun (\s a -> s { _daaDryRun = a })
+
 instance ToQuery DescribeAccountAttributes
 
 instance ToPath DescribeAccountAttributes where
@@ -76,7 +77,13 @@ instance ToPath DescribeAccountAttributes where
 
 newtype DescribeAccountAttributesResult = DescribeAccountAttributesResult
     { _daarAccountAttributes :: [AccountAttribute]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeAccountAttributesResult
+    type Item DescribeAccountAttributesResult = AccountAttribute
+
+    fromList = DescribeAccountAttributesResult . fromList
+    toList   = toList . _daarAccountAttributes
 
 -- | 'DescribeAccountAttributesResult' constructor.
 --

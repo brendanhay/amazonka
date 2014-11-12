@@ -49,7 +49,7 @@ import Network.AWS.IAM.Types
 
 newtype GetRole = GetRole
     { _grRoleName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetRole' constructor.
 --
@@ -66,6 +66,7 @@ getRole p1 = GetRole
 -- | The name of the role to get information about.
 grRoleName :: Lens' GetRole Text
 grRoleName = lens _grRoleName (\s a -> s { _grRoleName = a })
+
 instance ToQuery GetRole
 
 instance ToPath GetRole where
@@ -73,7 +74,7 @@ instance ToPath GetRole where
 
 newtype GetRoleResponse = GetRoleResponse
     { _grrRole :: Role
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetRoleResponse' constructor.
 --

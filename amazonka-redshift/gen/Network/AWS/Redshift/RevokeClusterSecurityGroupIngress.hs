@@ -54,7 +54,7 @@ data RevokeClusterSecurityGroupIngressMessage = RevokeClusterSecurityGroupIngres
     , _rcsgimClusterSecurityGroupName :: Text
     , _rcsgimEC2SecurityGroupName     :: Maybe Text
     , _rcsgimEC2SecurityGroupOwnerId  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RevokeClusterSecurityGroupIngressMessage' constructor.
 --
@@ -107,6 +107,7 @@ rcsgimEC2SecurityGroupOwnerId :: Lens' RevokeClusterSecurityGroupIngressMessage 
 rcsgimEC2SecurityGroupOwnerId =
     lens _rcsgimEC2SecurityGroupOwnerId
         (\s a -> s { _rcsgimEC2SecurityGroupOwnerId = a })
+
 instance ToQuery RevokeClusterSecurityGroupIngressMessage
 
 instance ToPath RevokeClusterSecurityGroupIngressMessage where
@@ -114,7 +115,7 @@ instance ToPath RevokeClusterSecurityGroupIngressMessage where
 
 newtype RevokeClusterSecurityGroupIngressResult = RevokeClusterSecurityGroupIngressResult
     { _rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RevokeClusterSecurityGroupIngressResult' constructor.
 --

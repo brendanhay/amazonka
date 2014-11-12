@@ -51,7 +51,7 @@ data DescribeEngineDefaultParametersMessage = DescribeEngineDefaultParametersMes
     , _dedpmFilters                :: [Filter]
     , _dedpmMarker                 :: Maybe Text
     , _dedpmMaxRecords             :: Maybe Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeEngineDefaultParametersMessage' constructor.
 --
@@ -97,6 +97,7 @@ dedpmMarker = lens _dedpmMarker (\s a -> s { _dedpmMarker = a })
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 dedpmMaxRecords :: Lens' DescribeEngineDefaultParametersMessage (Maybe Int)
 dedpmMaxRecords = lens _dedpmMaxRecords (\s a -> s { _dedpmMaxRecords = a })
+
 instance ToQuery DescribeEngineDefaultParametersMessage
 
 instance ToPath DescribeEngineDefaultParametersMessage where
@@ -104,7 +105,7 @@ instance ToPath DescribeEngineDefaultParametersMessage where
 
 newtype DescribeEngineDefaultParametersResult = DescribeEngineDefaultParametersResult
     { _dedprEngineDefaults :: Maybe EngineDefaults
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeEngineDefaultParametersResult' constructor.
 --

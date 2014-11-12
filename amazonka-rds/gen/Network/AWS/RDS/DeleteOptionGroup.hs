@@ -42,7 +42,7 @@ import Network.AWS.RDS.Types
 
 newtype DeleteOptionGroupMessage = DeleteOptionGroupMessage
     { _dogmOptionGroupName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteOptionGroupMessage' constructor.
 --
@@ -60,6 +60,7 @@ deleteOptionGroupMessage p1 = DeleteOptionGroupMessage
 dogmOptionGroupName :: Lens' DeleteOptionGroupMessage Text
 dogmOptionGroupName =
     lens _dogmOptionGroupName (\s a -> s { _dogmOptionGroupName = a })
+
 instance ToQuery DeleteOptionGroupMessage
 
 instance ToPath DeleteOptionGroupMessage where

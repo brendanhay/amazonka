@@ -52,7 +52,7 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute
     { _mvaAutoEnableIO :: Maybe AttributeBooleanValue
     , _mvaDryRun       :: Maybe Bool
     , _mvaVolumeId     :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyVolumeAttribute' constructor.
 --
@@ -82,6 +82,7 @@ mvaDryRun = lens _mvaDryRun (\s a -> s { _mvaDryRun = a })
 -- | The ID of the volume.
 mvaVolumeId :: Lens' ModifyVolumeAttribute Text
 mvaVolumeId = lens _mvaVolumeId (\s a -> s { _mvaVolumeId = a })
+
 instance ToQuery ModifyVolumeAttribute
 
 instance ToPath ModifyVolumeAttribute where

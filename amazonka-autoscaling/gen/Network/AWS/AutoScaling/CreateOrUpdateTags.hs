@@ -44,7 +44,13 @@ import Network.AWS.AutoScaling.Types
 
 newtype CreateOrUpdateTagsType = CreateOrUpdateTagsType
     { _couttTags :: [Tag]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList CreateOrUpdateTagsType
+    type Item CreateOrUpdateTagsType = Tag
+
+    fromList = CreateOrUpdateTagsType . fromList
+    toList   = toList . _couttTags
 
 -- | 'CreateOrUpdateTagsType' constructor.
 --
@@ -73,6 +79,7 @@ createOrUpdateTagsType = CreateOrUpdateTagsType
 -- the previous tag definition, but you will not get an error message.
 couttTags :: Lens' CreateOrUpdateTagsType [Tag]
 couttTags = lens _couttTags (\s a -> s { _couttTags = a })
+
 instance ToQuery CreateOrUpdateTagsType
 
 instance ToPath CreateOrUpdateTagsType where

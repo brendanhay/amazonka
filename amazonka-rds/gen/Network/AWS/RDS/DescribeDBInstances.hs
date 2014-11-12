@@ -52,7 +52,7 @@ data DescribeDBInstancesMessage = DescribeDBInstancesMessage
     , _ddbimFilters              :: [Filter]
     , _ddbimMarker               :: Maybe Text
     , _ddbimMaxRecords           :: Maybe Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeDBInstancesMessage' constructor.
 --
@@ -100,6 +100,7 @@ ddbimMarker = lens _ddbimMarker (\s a -> s { _ddbimMarker = a })
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbimMaxRecords :: Lens' DescribeDBInstancesMessage (Maybe Int)
 ddbimMaxRecords = lens _ddbimMaxRecords (\s a -> s { _ddbimMaxRecords = a })
+
 instance ToQuery DescribeDBInstancesMessage
 
 instance ToPath DescribeDBInstancesMessage where
@@ -108,7 +109,7 @@ instance ToPath DescribeDBInstancesMessage where
 data DBInstanceMessage = DBInstanceMessage
     { _dbimDBInstances :: [DBInstance]
     , _dbimMarker      :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DBInstanceMessage' constructor.
 --

@@ -55,7 +55,7 @@ data CreateVpc = CreateVpc
     { _cv1CidrBlock       :: Text
     , _cv1DryRun          :: Maybe Bool
     , _cv1InstanceTenancy :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateVpc' constructor.
 --
@@ -92,6 +92,7 @@ cv1DryRun = lens _cv1DryRun (\s a -> s { _cv1DryRun = a })
 cv1InstanceTenancy :: Lens' CreateVpc (Maybe Text)
 cv1InstanceTenancy =
     lens _cv1InstanceTenancy (\s a -> s { _cv1InstanceTenancy = a })
+
 instance ToQuery CreateVpc
 
 instance ToPath CreateVpc where
@@ -99,7 +100,7 @@ instance ToPath CreateVpc where
 
 newtype CreateVpcResult = CreateVpcResult
     { _cvrVpc :: Maybe Vpc
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateVpcResult' constructor.
 --

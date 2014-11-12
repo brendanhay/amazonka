@@ -60,7 +60,7 @@ data AuthorizeClusterSecurityGroupIngressMessage = AuthorizeClusterSecurityGroup
     , _acsgimClusterSecurityGroupName :: Text
     , _acsgimEC2SecurityGroupName     :: Maybe Text
     , _acsgimEC2SecurityGroupOwnerId  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AuthorizeClusterSecurityGroupIngressMessage' constructor.
 --
@@ -106,6 +106,7 @@ acsgimEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngressMessa
 acsgimEC2SecurityGroupOwnerId =
     lens _acsgimEC2SecurityGroupOwnerId
         (\s a -> s { _acsgimEC2SecurityGroupOwnerId = a })
+
 instance ToQuery AuthorizeClusterSecurityGroupIngressMessage
 
 instance ToPath AuthorizeClusterSecurityGroupIngressMessage where
@@ -113,7 +114,7 @@ instance ToPath AuthorizeClusterSecurityGroupIngressMessage where
 
 newtype AuthorizeClusterSecurityGroupIngressResult = AuthorizeClusterSecurityGroupIngressResult
     { _acsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AuthorizeClusterSecurityGroupIngressResult' constructor.
 --

@@ -48,7 +48,7 @@ data DetachInternetGateway = DetachInternetGateway
     { _dig2DryRun            :: Maybe Bool
     , _dig2InternetGatewayId :: Text
     , _dig2VpcId             :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DetachInternetGateway' constructor.
 --
@@ -80,6 +80,7 @@ dig2InternetGatewayId =
 -- | The ID of the VPC.
 dig2VpcId :: Lens' DetachInternetGateway Text
 dig2VpcId = lens _dig2VpcId (\s a -> s { _dig2VpcId = a })
+
 instance ToQuery DetachInternetGateway
 
 instance ToPath DetachInternetGateway where

@@ -46,7 +46,7 @@ import Network.AWS.SNS.Types
 
 newtype GetEndpointAttributesInput = GetEndpointAttributesInput
     { _geaiEndpointArn :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetEndpointAttributesInput' constructor.
 --
@@ -63,6 +63,7 @@ getEndpointAttributesInput p1 = GetEndpointAttributesInput
 -- | EndpointArn for GetEndpointAttributes input.
 geaiEndpointArn :: Lens' GetEndpointAttributesInput Text
 geaiEndpointArn = lens _geaiEndpointArn (\s a -> s { _geaiEndpointArn = a })
+
 instance ToQuery GetEndpointAttributesInput
 
 instance ToPath GetEndpointAttributesInput where
@@ -70,7 +71,13 @@ instance ToPath GetEndpointAttributesInput where
 
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
     { _gearAttributes :: Map Text Text
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList GetEndpointAttributesResponse
+    type Item GetEndpointAttributesResponse = (Text, Text)
+
+    fromList = GetEndpointAttributesResponse . fromList
+    toList   = toList . _gearAttributes
 
 -- | 'GetEndpointAttributesResponse' constructor.
 --

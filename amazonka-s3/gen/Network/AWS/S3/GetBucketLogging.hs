@@ -45,7 +45,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketLogging = GetBucketLogging
     { _gbl2Bucket :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetBucketLogging' constructor.
 --
@@ -75,7 +75,7 @@ instance ToHeaders GetBucketLogging
 
 newtype GetBucketLoggingOutput = GetBucketLoggingOutput
     { _gbloLoggingEnabled :: Maybe LoggingEnabled
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetBucketLoggingOutput' constructor.
 --

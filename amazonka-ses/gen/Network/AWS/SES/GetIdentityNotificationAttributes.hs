@@ -47,16 +47,13 @@ import Network.AWS.SES.Types
 
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
     { _ginaIdentities :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList GetIdentityNotificationAttributes
+    type Item GetIdentityNotificationAttributes = Text
+
+    fromList = GetIdentityNotificationAttributes . fromList
+    toList   = toList . _ginaIdentities
 
 -- | 'GetIdentityNotificationAttributes' constructor.
 --
@@ -72,6 +69,7 @@ getIdentityNotificationAttributes = GetIdentityNotificationAttributes
 -- | A list of one or more identities.
 ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
 ginaIdentities = lens _ginaIdentities (\s a -> s { _ginaIdentities = a })
+
 instance ToQuery GetIdentityNotificationAttributes
 
 instance ToPath GetIdentityNotificationAttributes where
@@ -79,7 +77,13 @@ instance ToPath GetIdentityNotificationAttributes where
 
 newtype GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse
     { _ginarNotificationAttributes :: Map Text IdentityNotificationAttributes
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList GetIdentityNotificationAttributesResponse
+    type Item GetIdentityNotificationAttributesResponse = (Text, IdentityNotificationAttributes)
+
+    fromList = GetIdentityNotificationAttributesResponse . fromList
+    toList   = toList . _ginarNotificationAttributes
 
 -- | 'GetIdentityNotificationAttributesResponse' constructor.
 --

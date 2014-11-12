@@ -47,7 +47,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data CreateApplicationMessage = CreateApplicationMessage
     { _camApplicationName :: Text
     , _camDescription     :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateApplicationMessage' constructor.
 --
@@ -74,6 +74,7 @@ camApplicationName =
 -- | Describes the application.
 camDescription :: Lens' CreateApplicationMessage (Maybe Text)
 camDescription = lens _camDescription (\s a -> s { _camDescription = a })
+
 instance ToQuery CreateApplicationMessage
 
 instance ToPath CreateApplicationMessage where

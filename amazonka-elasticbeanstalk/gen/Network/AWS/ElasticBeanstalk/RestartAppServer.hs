@@ -45,7 +45,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data RestartAppServerMessage = RestartAppServerMessage
     { _rasmEnvironmentId   :: Maybe Text
     , _rasmEnvironmentName :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RestartAppServerMessage' constructor.
 --
@@ -75,6 +75,7 @@ rasmEnvironmentId =
 rasmEnvironmentName :: Lens' RestartAppServerMessage (Maybe Text)
 rasmEnvironmentName =
     lens _rasmEnvironmentName (\s a -> s { _rasmEnvironmentName = a })
+
 instance ToQuery RestartAppServerMessage
 
 instance ToPath RestartAppServerMessage where

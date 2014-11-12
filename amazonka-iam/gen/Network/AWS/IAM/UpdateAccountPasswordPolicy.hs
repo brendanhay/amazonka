@@ -60,7 +60,7 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     , _uappRequireNumbers             :: Maybe Bool
     , _uappRequireSymbols             :: Maybe Bool
     , _uappRequireUppercaseCharacters :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateAccountPasswordPolicy' constructor.
 --
@@ -159,6 +159,7 @@ uappRequireUppercaseCharacters :: Lens' UpdateAccountPasswordPolicy (Maybe Bool)
 uappRequireUppercaseCharacters =
     lens _uappRequireUppercaseCharacters
         (\s a -> s { _uappRequireUppercaseCharacters = a })
+
 instance ToQuery UpdateAccountPasswordPolicy
 
 instance ToPath UpdateAccountPasswordPolicy where

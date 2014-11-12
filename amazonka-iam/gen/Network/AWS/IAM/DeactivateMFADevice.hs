@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 data DeactivateMFADevice = DeactivateMFADevice
     { _dmfadSerialNumber :: Text
     , _dmfadUserName     :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeactivateMFADevice' constructor.
 --
@@ -74,6 +74,7 @@ dmfadSerialNumber =
 -- | The name of the user whose MFA device you want to deactivate.
 dmfadUserName :: Lens' DeactivateMFADevice Text
 dmfadUserName = lens _dmfadUserName (\s a -> s { _dmfadUserName = a })
+
 instance ToQuery DeactivateMFADevice
 
 instance ToPath DeactivateMFADevice where

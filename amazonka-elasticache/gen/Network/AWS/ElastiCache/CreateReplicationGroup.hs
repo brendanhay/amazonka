@@ -92,7 +92,7 @@ data CreateReplicationGroupMessage = CreateReplicationGroupMessage
     , _crgmSnapshotName                :: Maybe Text
     , _crgmSnapshotRetentionLimit      :: Maybe Int
     , _crgmSnapshotWindow              :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateReplicationGroupMessage' constructor.
 --
@@ -342,6 +342,7 @@ crgmSnapshotRetentionLimit =
 crgmSnapshotWindow :: Lens' CreateReplicationGroupMessage (Maybe Text)
 crgmSnapshotWindow =
     lens _crgmSnapshotWindow (\s a -> s { _crgmSnapshotWindow = a })
+
 instance ToQuery CreateReplicationGroupMessage
 
 instance ToPath CreateReplicationGroupMessage where
@@ -349,7 +350,7 @@ instance ToPath CreateReplicationGroupMessage where
 
 newtype CreateReplicationGroupResult = CreateReplicationGroupResult
     { _crgrReplicationGroup :: Maybe ReplicationGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateReplicationGroupResult' constructor.
 --

@@ -49,7 +49,7 @@ data DescribeSubnets = DescribeSubnets
     { _dsDryRun    :: Maybe Bool
     , _dsFilters   :: [Filter]
     , _dsSubnetIds :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeSubnets' constructor.
 --
@@ -97,6 +97,7 @@ dsFilters = lens _dsFilters (\s a -> s { _dsFilters = a })
 -- | One or more subnet IDs. Default: Describes all your subnets.
 dsSubnetIds :: Lens' DescribeSubnets [Text]
 dsSubnetIds = lens _dsSubnetIds (\s a -> s { _dsSubnetIds = a })
+
 instance ToQuery DescribeSubnets
 
 instance ToPath DescribeSubnets where
@@ -104,7 +105,13 @@ instance ToPath DescribeSubnets where
 
 newtype DescribeSubnetsResult = DescribeSubnetsResult
     { _dsrSubnets :: [Subnet]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeSubnetsResult
+    type Item DescribeSubnetsResult = Subnet
+
+    fromList = DescribeSubnetsResult . fromList
+    toList   = toList . _dsrSubnets
 
 -- | 'DescribeSubnetsResult' constructor.
 --

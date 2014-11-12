@@ -46,7 +46,7 @@ import Network.AWS.CloudFront.Types
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
     { _lcfoaiMarker   :: Maybe Text
     , _lcfoaiMaxItems :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListCloudFrontOriginAccessIdentities' constructor.
 --
@@ -88,7 +88,7 @@ instance ToHeaders ListCloudFrontOriginAccessIdentities
 
 newtype ListCloudFrontOriginAccessIdentitiesResult = ListCloudFrontOriginAccessIdentitiesResult
     { _lcfoairCloudFrontOriginAccessIdentityList :: Maybe CloudFrontOriginAccessIdentityList
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListCloudFrontOriginAccessIdentitiesResult' constructor.
 --

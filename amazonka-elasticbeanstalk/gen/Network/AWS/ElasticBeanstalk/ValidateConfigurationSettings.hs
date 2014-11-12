@@ -53,7 +53,7 @@ data ValidateConfigurationSettingsMessage = ValidateConfigurationSettingsMessage
     , _vcsmEnvironmentName :: Maybe Text
     , _vcsmOptionSettings  :: [ConfigurationOptionSetting]
     , _vcsmTemplateName    :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ValidateConfigurationSettingsMessage' constructor.
 --
@@ -97,6 +97,7 @@ vcsmOptionSettings =
 -- Condition: You cannot specify both this and an environment name.
 vcsmTemplateName :: Lens' ValidateConfigurationSettingsMessage (Maybe Text)
 vcsmTemplateName = lens _vcsmTemplateName (\s a -> s { _vcsmTemplateName = a })
+
 instance ToQuery ValidateConfigurationSettingsMessage
 
 instance ToPath ValidateConfigurationSettingsMessage where
@@ -104,7 +105,13 @@ instance ToPath ValidateConfigurationSettingsMessage where
 
 newtype ConfigurationSettingsValidationMessages = ConfigurationSettingsValidationMessages
     { _csvmMessages :: [ValidationMessage]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList ConfigurationSettingsValidationMessages
+    type Item ConfigurationSettingsValidationMessages = ValidationMessage
+
+    fromList = ConfigurationSettingsValidationMessages . fromList
+    toList   = toList . _csvmMessages
 
 -- | 'ConfigurationSettingsValidationMessages' constructor.
 --

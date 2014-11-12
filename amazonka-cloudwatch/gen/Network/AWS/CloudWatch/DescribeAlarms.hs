@@ -57,7 +57,7 @@ data DescribeAlarmsInput = DescribeAlarmsInput
     , _dai1MaxRecords      :: Maybe Natural
     , _dai1NextToken       :: Maybe Text
     , _dai1StateValue      :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAlarmsInput' constructor.
 --
@@ -111,6 +111,7 @@ dai1NextToken = lens _dai1NextToken (\s a -> s { _dai1NextToken = a })
 -- | The state value to be used in matching alarms.
 dai1StateValue :: Lens' DescribeAlarmsInput (Maybe Text)
 dai1StateValue = lens _dai1StateValue (\s a -> s { _dai1StateValue = a })
+
 instance ToQuery DescribeAlarmsInput
 
 instance ToPath DescribeAlarmsInput where
@@ -119,7 +120,7 @@ instance ToPath DescribeAlarmsInput where
 data DescribeAlarmsOutput = DescribeAlarmsOutput
     { _daoMetricAlarms :: [MetricAlarm]
     , _daoNextToken    :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeAlarmsOutput' constructor.
 --

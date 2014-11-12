@@ -68,7 +68,7 @@ data CreateConfigurationTemplateMessage = CreateConfigurationTemplateMessage
     , _cctmSolutionStackName   :: Maybe Text
     , _cctmSourceConfiguration :: Maybe SourceConfiguration
     , _cctmTemplateName        :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateConfigurationTemplateMessage' constructor.
 --
@@ -158,6 +158,7 @@ cctmSourceConfiguration =
 -- InvalidParameterValue error.
 cctmTemplateName :: Lens' CreateConfigurationTemplateMessage Text
 cctmTemplateName = lens _cctmTemplateName (\s a -> s { _cctmTemplateName = a })
+
 instance ToQuery CreateConfigurationTemplateMessage
 
 instance ToPath CreateConfigurationTemplateMessage where

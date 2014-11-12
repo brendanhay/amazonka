@@ -48,7 +48,7 @@ import Network.AWS.ELB.Types
 data CreateLoadBalancerListenerInput = CreateLoadBalancerListenerInput
     { _clbliListeners        :: [Listener]
     , _clbliLoadBalancerName :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateLoadBalancerListenerInput' constructor.
 --
@@ -74,6 +74,7 @@ clbliListeners = lens _clbliListeners (\s a -> s { _clbliListeners = a })
 clbliLoadBalancerName :: Lens' CreateLoadBalancerListenerInput Text
 clbliLoadBalancerName =
     lens _clbliLoadBalancerName (\s a -> s { _clbliLoadBalancerName = a })
+
 instance ToQuery CreateLoadBalancerListenerInput
 
 instance ToPath CreateLoadBalancerListenerInput where

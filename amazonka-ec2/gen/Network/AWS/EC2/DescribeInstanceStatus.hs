@@ -101,7 +101,7 @@ data DescribeInstanceStatus = DescribeInstanceStatus
     , _disInstanceIds         :: [Text]
     , _disMaxResults          :: Maybe Int
     , _disNextToken           :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeInstanceStatus' constructor.
 --
@@ -179,6 +179,7 @@ disMaxResults = lens _disMaxResults (\s a -> s { _disMaxResults = a })
 -- from a prior call.).
 disNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
 disNextToken = lens _disNextToken (\s a -> s { _disNextToken = a })
+
 instance ToQuery DescribeInstanceStatus
 
 instance ToPath DescribeInstanceStatus where
@@ -187,7 +188,7 @@ instance ToPath DescribeInstanceStatus where
 data DescribeInstanceStatusResult = DescribeInstanceStatusResult
     { _disrInstanceStatuses :: [InstanceStatus]
     , _disrNextToken        :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeInstanceStatusResult' constructor.
 --

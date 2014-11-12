@@ -66,7 +66,7 @@ data ListGeoLocations = ListGeoLocations
     , _lglStartContinentCode   :: Maybe Text
     , _lglStartCountryCode     :: Maybe Text
     , _lglStartSubdivisionCode :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListGeoLocations' constructor.
 --
@@ -137,7 +137,7 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse
     , _lglrNextContinentCode      :: Maybe Text
     , _lglrNextCountryCode        :: Maybe Text
     , _lglrNextSubdivisionCode    :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListGeoLocationsResponse' constructor.
 --

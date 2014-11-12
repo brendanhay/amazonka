@@ -57,7 +57,7 @@ data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider
     { _coidcpClientIDList   :: [Text]
     , _coidcpThumbprintList :: [Text]
     , _coidcpUrl            :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateOpenIDConnectProvider' constructor.
 --
@@ -117,6 +117,7 @@ coidcpThumbprintList =
 -- provider in the AWS account, you will get an error.
 coidcpUrl :: Lens' CreateOpenIDConnectProvider Text
 coidcpUrl = lens _coidcpUrl (\s a -> s { _coidcpUrl = a })
+
 instance ToQuery CreateOpenIDConnectProvider
 
 instance ToPath CreateOpenIDConnectProvider where
@@ -124,7 +125,7 @@ instance ToPath CreateOpenIDConnectProvider where
 
 newtype CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse
     { _coidcprOpenIDConnectProviderArn :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateOpenIDConnectProviderResponse' constructor.
 --

@@ -50,7 +50,7 @@ import Network.AWS.IAM.Types
 data UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbprint
     { _uoidcptOpenIDConnectProviderArn :: Text
     , _uoidcptThumbprintList           :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateOpenIDConnectProviderThumbprint' constructor.
 --
@@ -81,6 +81,7 @@ uoidcptOpenIDConnectProviderArn =
 uoidcptThumbprintList :: Lens' UpdateOpenIDConnectProviderThumbprint [Text]
 uoidcptThumbprintList =
     lens _uoidcptThumbprintList (\s a -> s { _uoidcptThumbprintList = a })
+
 instance ToQuery UpdateOpenIDConnectProviderThumbprint
 
 instance ToPath UpdateOpenIDConnectProviderThumbprint where

@@ -50,7 +50,7 @@ data DescribePlacementGroups = DescribePlacementGroups
     { _dpg1DryRun     :: Maybe Bool
     , _dpg1Filters    :: [Filter]
     , _dpg1GroupNames :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribePlacementGroups' constructor.
 --
@@ -82,6 +82,7 @@ dpg1Filters = lens _dpg1Filters (\s a -> s { _dpg1Filters = a })
 -- groups, or only those otherwise specified.
 dpg1GroupNames :: Lens' DescribePlacementGroups [Text]
 dpg1GroupNames = lens _dpg1GroupNames (\s a -> s { _dpg1GroupNames = a })
+
 instance ToQuery DescribePlacementGroups
 
 instance ToPath DescribePlacementGroups where
@@ -89,7 +90,13 @@ instance ToPath DescribePlacementGroups where
 
 newtype DescribePlacementGroupsResult = DescribePlacementGroupsResult
     { _dpgrPlacementGroups :: [PlacementGroup]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribePlacementGroupsResult
+    type Item DescribePlacementGroupsResult = PlacementGroup
+
+    fromList = DescribePlacementGroupsResult . fromList
+    toList   = toList . _dpgrPlacementGroups
 
 -- | 'DescribePlacementGroupsResult' constructor.
 --

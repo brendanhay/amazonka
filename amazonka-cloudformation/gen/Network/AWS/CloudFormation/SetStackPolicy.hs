@@ -46,7 +46,7 @@ data SetStackPolicyInput = SetStackPolicyInput
     { _sspiStackName       :: Text
     , _sspiStackPolicyBody :: Maybe Text
     , _sspiStackPolicyURL  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetStackPolicyInput' constructor.
 --
@@ -85,6 +85,7 @@ sspiStackPolicyBody =
 sspiStackPolicyURL :: Lens' SetStackPolicyInput (Maybe Text)
 sspiStackPolicyURL =
     lens _sspiStackPolicyURL (\s a -> s { _sspiStackPolicyURL = a })
+
 instance ToQuery SetStackPolicyInput
 
 instance ToPath SetStackPolicyInput where

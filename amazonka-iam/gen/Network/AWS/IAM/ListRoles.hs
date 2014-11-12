@@ -55,7 +55,7 @@ data ListRoles = ListRoles
     { _lrMarker     :: Maybe Text
     , _lrMaxItems   :: Maybe Natural
     , _lrPathPrefix :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListRoles' constructor.
 --
@@ -94,6 +94,7 @@ lrMaxItems = lens _lrMaxItems (\s a -> s { _lrMaxItems = a })
 -- included, it defaults to a slash (/), listing all roles.
 lrPathPrefix :: Lens' ListRoles (Maybe Text)
 lrPathPrefix = lens _lrPathPrefix (\s a -> s { _lrPathPrefix = a })
+
 instance ToQuery ListRoles
 
 instance ToPath ListRoles where
@@ -103,7 +104,7 @@ data ListRolesResponse = ListRolesResponse
     { _lrrIsTruncated :: Maybe Bool
     , _lrrMarker      :: Maybe Text
     , _lrrRoles       :: [Role]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListRolesResponse' constructor.
 --

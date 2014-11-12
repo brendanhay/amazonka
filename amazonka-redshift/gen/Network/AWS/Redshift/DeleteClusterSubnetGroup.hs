@@ -42,7 +42,7 @@ import Network.AWS.Redshift.Types
 
 newtype DeleteClusterSubnetGroupMessage = DeleteClusterSubnetGroupMessage
     { _dcsgmClusterSubnetGroupName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteClusterSubnetGroupMessage' constructor.
 --
@@ -61,6 +61,7 @@ dcsgmClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroupMessage Text
 dcsgmClusterSubnetGroupName =
     lens _dcsgmClusterSubnetGroupName
         (\s a -> s { _dcsgmClusterSubnetGroupName = a })
+
 instance ToQuery DeleteClusterSubnetGroupMessage
 
 instance ToPath DeleteClusterSubnetGroupMessage where

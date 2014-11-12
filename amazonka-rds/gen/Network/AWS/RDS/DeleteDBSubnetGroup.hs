@@ -42,7 +42,7 @@ import Network.AWS.RDS.Types
 
 newtype DeleteDBSubnetGroupMessage = DeleteDBSubnetGroupMessage
     { _ddbsgm1DBSubnetGroupName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteDBSubnetGroupMessage' constructor.
 --
@@ -63,6 +63,7 @@ ddbsgm1DBSubnetGroupName :: Lens' DeleteDBSubnetGroupMessage Text
 ddbsgm1DBSubnetGroupName =
     lens _ddbsgm1DBSubnetGroupName
         (\s a -> s { _ddbsgm1DBSubnetGroupName = a })
+
 instance ToQuery DeleteDBSubnetGroupMessage
 
 instance ToPath DeleteDBSubnetGroupMessage where

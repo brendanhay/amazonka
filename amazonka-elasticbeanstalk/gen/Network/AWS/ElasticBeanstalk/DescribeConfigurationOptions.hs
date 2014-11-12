@@ -57,7 +57,7 @@ data DescribeConfigurationOptionsMessage = DescribeConfigurationOptionsMessage
     , _dcomOptions           :: [OptionSpecification]
     , _dcomSolutionStackName :: Maybe Text
     , _dcomTemplateName      :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeConfigurationOptionsMessage' constructor.
 --
@@ -109,6 +109,7 @@ dcomSolutionStackName =
 -- want to describe.
 dcomTemplateName :: Lens' DescribeConfigurationOptionsMessage (Maybe Text)
 dcomTemplateName = lens _dcomTemplateName (\s a -> s { _dcomTemplateName = a })
+
 instance ToQuery DescribeConfigurationOptionsMessage
 
 instance ToPath DescribeConfigurationOptionsMessage where
@@ -117,7 +118,7 @@ instance ToPath DescribeConfigurationOptionsMessage where
 data ConfigurationOptionsDescription = ConfigurationOptionsDescription
     { _codOptions           :: [ConfigurationOptionDescription]
     , _codSolutionStackName :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ConfigurationOptionsDescription' constructor.
 --

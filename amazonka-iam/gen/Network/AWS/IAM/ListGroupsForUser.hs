@@ -51,7 +51,7 @@ data ListGroupsForUser = ListGroupsForUser
     { _lgfuMarker   :: Maybe Text
     , _lgfuMaxItems :: Maybe Natural
     , _lgfuUserName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListGroupsForUser' constructor.
 --
@@ -87,6 +87,7 @@ lgfuMaxItems = lens _lgfuMaxItems (\s a -> s { _lgfuMaxItems = a })
 -- | The name of the user to list groups for.
 lgfuUserName :: Lens' ListGroupsForUser Text
 lgfuUserName = lens _lgfuUserName (\s a -> s { _lgfuUserName = a })
+
 instance ToQuery ListGroupsForUser
 
 instance ToPath ListGroupsForUser where
@@ -96,7 +97,7 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse
     { _lgfurGroups      :: [Group]
     , _lgfurIsTruncated :: Maybe Bool
     , _lgfurMarker      :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListGroupsForUserResponse' constructor.
 --

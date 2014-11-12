@@ -75,7 +75,7 @@ data PutMetricAlarmInput = PutMetricAlarmInput
     , _pmaiStatistic               :: Text
     , _pmaiThreshold               :: Double
     , _pmaiUnit                    :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PutMetricAlarmInput' constructor.
 --
@@ -217,6 +217,7 @@ pmaiThreshold = lens _pmaiThreshold (\s a -> s { _pmaiThreshold = a })
 -- | The unit for the alarm's associated metric.
 pmaiUnit :: Lens' PutMetricAlarmInput (Maybe Text)
 pmaiUnit = lens _pmaiUnit (\s a -> s { _pmaiUnit = a })
+
 instance ToQuery PutMetricAlarmInput
 
 instance ToPath PutMetricAlarmInput where

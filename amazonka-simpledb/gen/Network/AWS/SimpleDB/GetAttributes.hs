@@ -55,7 +55,7 @@ data GetAttributes = GetAttributes
     , _gaConsistentRead :: Maybe Bool
     , _gaDomainName     :: Text
     , _gaItemName       :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetAttributes' constructor.
 --
@@ -98,6 +98,7 @@ gaDomainName = lens _gaDomainName (\s a -> s { _gaDomainName = a })
 -- | The name of the item.
 gaItemName :: Lens' GetAttributes Text
 gaItemName = lens _gaItemName (\s a -> s { _gaItemName = a })
+
 instance ToQuery GetAttributes
 
 instance ToPath GetAttributes where
@@ -105,7 +106,13 @@ instance ToPath GetAttributes where
 
 newtype GetAttributesResult = GetAttributesResult
     { _garAttributes :: [Attribute]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList GetAttributesResult
+    type Item GetAttributesResult = Attribute
+
+    fromList = GetAttributesResult . fromList
+    toList   = toList . _garAttributes
 
 -- | 'GetAttributesResult' constructor.
 --

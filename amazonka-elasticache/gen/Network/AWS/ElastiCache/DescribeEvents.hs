@@ -62,7 +62,7 @@ data DescribeEventsMessage = DescribeEventsMessage
     , _demSourceIdentifier :: Maybe Text
     , _demSourceType       :: Maybe Text
     , _demStartTime        :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeEventsMessage' constructor.
 --
@@ -134,6 +134,7 @@ demSourceType = lens _demSourceType (\s a -> s { _demSourceType = a })
 demStartTime :: Lens' DescribeEventsMessage (Maybe UTCTime)
 demStartTime = lens _demStartTime (\s a -> s { _demStartTime = a })
     . mapping _Time
+
 instance ToQuery DescribeEventsMessage
 
 instance ToPath DescribeEventsMessage where
@@ -142,7 +143,7 @@ instance ToPath DescribeEventsMessage where
 data EventsMessage = EventsMessage
     { _emEvents :: [Event]
     , _emMarker :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'EventsMessage' constructor.
 --

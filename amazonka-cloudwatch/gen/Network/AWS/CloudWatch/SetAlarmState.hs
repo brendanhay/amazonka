@@ -51,7 +51,7 @@ data SetAlarmStateInput = SetAlarmStateInput
     , _sasiStateReason     :: Text
     , _sasiStateReasonData :: Maybe Text
     , _sasiStateValue      :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetAlarmStateInput' constructor.
 --
@@ -95,6 +95,7 @@ sasiStateReasonData =
 -- | The value of the state.
 sasiStateValue :: Lens' SetAlarmStateInput Text
 sasiStateValue = lens _sasiStateValue (\s a -> s { _sasiStateValue = a })
+
 instance ToQuery SetAlarmStateInput
 
 instance ToPath SetAlarmStateInput where

@@ -43,16 +43,13 @@ import Network.AWS.CloudWatch.Types
 
 newtype DeleteAlarmsInput = DeleteAlarmsInput
     { _daiAlarmNames :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList DeleteAlarmsInput
+    type Item DeleteAlarmsInput = Text
+
+    fromList = DeleteAlarmsInput . fromList
+    toList   = toList . _daiAlarmNames
 
 -- | 'DeleteAlarmsInput' constructor.
 --
@@ -68,6 +65,7 @@ deleteAlarmsInput = DeleteAlarmsInput
 -- | A list of alarms to be deleted.
 daiAlarmNames :: Lens' DeleteAlarmsInput [Text]
 daiAlarmNames = lens _daiAlarmNames (\s a -> s { _daiAlarmNames = a })
+
 instance ToQuery DeleteAlarmsInput
 
 instance ToPath DeleteAlarmsInput where

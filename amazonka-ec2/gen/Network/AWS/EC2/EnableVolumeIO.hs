@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data EnableVolumeIO = EnableVolumeIO
     { _evioDryRun   :: Maybe Bool
     , _evioVolumeId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EnableVolumeIO' constructor.
 --
@@ -68,6 +68,7 @@ evioDryRun = lens _evioDryRun (\s a -> s { _evioDryRun = a })
 -- | The ID of the volume.
 evioVolumeId :: Lens' EnableVolumeIO Text
 evioVolumeId = lens _evioVolumeId (\s a -> s { _evioVolumeId = a })
+
 instance ToQuery EnableVolumeIO
 
 instance ToPath EnableVolumeIO where

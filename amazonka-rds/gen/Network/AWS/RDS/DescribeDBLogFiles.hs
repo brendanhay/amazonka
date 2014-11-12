@@ -57,7 +57,7 @@ data DescribeDBLogFilesMessage = DescribeDBLogFilesMessage
     , _ddblfmFilters              :: [Filter]
     , _ddblfmMarker               :: Maybe Text
     , _ddblfmMaxRecords           :: Maybe Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeDBLogFilesMessage' constructor.
 --
@@ -130,6 +130,7 @@ ddblfmMarker = lens _ddblfmMarker (\s a -> s { _ddblfmMarker = a })
 -- retrieved.
 ddblfmMaxRecords :: Lens' DescribeDBLogFilesMessage (Maybe Int)
 ddblfmMaxRecords = lens _ddblfmMaxRecords (\s a -> s { _ddblfmMaxRecords = a })
+
 instance ToQuery DescribeDBLogFilesMessage
 
 instance ToPath DescribeDBLogFilesMessage where
@@ -138,7 +139,7 @@ instance ToPath DescribeDBLogFilesMessage where
 data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse
     { _ddblfrDescribeDBLogFiles :: [DescribeDBLogFilesDetails]
     , _ddblfrMarker             :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeDBLogFilesResponse' constructor.
 --

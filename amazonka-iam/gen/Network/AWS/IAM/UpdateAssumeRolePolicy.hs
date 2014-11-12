@@ -45,7 +45,7 @@ import Network.AWS.IAM.Types
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
     { _uarpPolicyDocument :: Text
     , _uarpRoleName       :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateAssumeRolePolicy' constructor.
 --
@@ -71,6 +71,7 @@ uarpPolicyDocument =
 -- | The name of the role to update.
 uarpRoleName :: Lens' UpdateAssumeRolePolicy Text
 uarpRoleName = lens _uarpRoleName (\s a -> s { _uarpRoleName = a })
+
 instance ToQuery UpdateAssumeRolePolicy
 
 instance ToPath UpdateAssumeRolePolicy where

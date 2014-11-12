@@ -48,7 +48,7 @@ data AttachInternetGateway = AttachInternetGateway
     { _aigDryRun            :: Maybe Bool
     , _aigInternetGatewayId :: Text
     , _aigVpcId             :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AttachInternetGateway' constructor.
 --
@@ -80,6 +80,7 @@ aigInternetGatewayId =
 -- | The ID of the VPC.
 aigVpcId :: Lens' AttachInternetGateway Text
 aigVpcId = lens _aigVpcId (\s a -> s { _aigVpcId = a })
+
 instance ToQuery AttachInternetGateway
 
 instance ToPath AttachInternetGateway where

@@ -48,7 +48,7 @@ import Network.AWS.ElastiCache.Types
 data ModifyCacheParameterGroupMessage = ModifyCacheParameterGroupMessage
     { _mcpgmCacheParameterGroupName :: Text
     , _mcpgmParameterNameValues     :: [ParameterNameValue]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyCacheParameterGroupMessage' constructor.
 --
@@ -78,6 +78,7 @@ mcpgmParameterNameValues :: Lens' ModifyCacheParameterGroupMessage [ParameterNam
 mcpgmParameterNameValues =
     lens _mcpgmParameterNameValues
         (\s a -> s { _mcpgmParameterNameValues = a })
+
 instance ToQuery ModifyCacheParameterGroupMessage
 
 instance ToPath ModifyCacheParameterGroupMessage where

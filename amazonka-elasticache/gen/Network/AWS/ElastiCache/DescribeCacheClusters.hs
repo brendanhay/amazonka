@@ -66,7 +66,7 @@ data DescribeCacheClustersMessage = DescribeCacheClustersMessage
     , _dccm1Marker            :: Maybe Text
     , _dccm1MaxRecords        :: Maybe Int
     , _dccm1ShowCacheNodeInfo :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeCacheClustersMessage' constructor.
 --
@@ -114,6 +114,7 @@ dccm1MaxRecords = lens _dccm1MaxRecords (\s a -> s { _dccm1MaxRecords = a })
 dccm1ShowCacheNodeInfo :: Lens' DescribeCacheClustersMessage (Maybe Bool)
 dccm1ShowCacheNodeInfo =
     lens _dccm1ShowCacheNodeInfo (\s a -> s { _dccm1ShowCacheNodeInfo = a })
+
 instance ToQuery DescribeCacheClustersMessage
 
 instance ToPath DescribeCacheClustersMessage where
@@ -122,7 +123,7 @@ instance ToPath DescribeCacheClustersMessage where
 data CacheClusterMessage = CacheClusterMessage
     { _ccmCacheClusters :: [CacheCluster]
     , _ccmMarker        :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CacheClusterMessage' constructor.
 --

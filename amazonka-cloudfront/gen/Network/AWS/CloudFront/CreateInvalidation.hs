@@ -47,7 +47,7 @@ import Network.AWS.CloudFront.Types
 data CreateInvalidation = CreateInvalidation
     { _ciDistributionId    :: Text
     , _ciInvalidationBatch :: InvalidationBatch
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateInvalidation' constructor.
 --
@@ -92,7 +92,7 @@ instance ToBody CreateInvalidation where
 data CreateInvalidationResult = CreateInvalidationResult
     { _cirInvalidation :: Maybe Invalidation
     , _cirLocation     :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateInvalidationResult' constructor.
 --

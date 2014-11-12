@@ -53,7 +53,7 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
     { _dniaAttribute          :: Maybe Text
     , _dniaDryRun             :: Maybe Bool
     , _dniaNetworkInterfaceId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeNetworkInterfaceAttribute' constructor.
 --
@@ -84,6 +84,7 @@ dniaDryRun = lens _dniaDryRun (\s a -> s { _dniaDryRun = a })
 dniaNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttribute Text
 dniaNetworkInterfaceId =
     lens _dniaNetworkInterfaceId (\s a -> s { _dniaNetworkInterfaceId = a })
+
 instance ToQuery DescribeNetworkInterfaceAttribute
 
 instance ToPath DescribeNetworkInterfaceAttribute where
@@ -95,7 +96,7 @@ data DescribeNetworkInterfaceAttributeResult = DescribeNetworkInterfaceAttribute
     , _dniarGroups             :: [GroupIdentifier]
     , _dniarNetworkInterfaceId :: Maybe Text
     , _dniarSourceDestCheck    :: Maybe AttributeBooleanValue
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeNetworkInterfaceAttributeResult' constructor.
 --

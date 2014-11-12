@@ -52,7 +52,7 @@ import Network.AWS.SimpleDB.Types
 
 newtype DomainMetadata = DomainMetadata
     { _dmDomainName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DomainMetadata' constructor.
 --
@@ -69,6 +69,7 @@ domainMetadata p1 = DomainMetadata
 -- | The name of the domain for which to display the metadata of.
 dmDomainName :: Lens' DomainMetadata Text
 dmDomainName = lens _dmDomainName (\s a -> s { _dmDomainName = a })
+
 instance ToQuery DomainMetadata
 
 instance ToPath DomainMetadata where
@@ -82,7 +83,7 @@ data DomainMetadataResult = DomainMetadataResult
     , _dmrItemCount                :: Maybe Int
     , _dmrItemNamesSizeBytes       :: Maybe Integer
     , _dmrTimestamp                :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, Integral)
 
 -- | 'DomainMetadataResult' constructor.
 --

@@ -50,7 +50,7 @@ import Network.AWS.ELB.Types
 data DescribeEndPointStateInput = DescribeEndPointStateInput
     { _depsiInstances        :: [Instance]
     , _depsiLoadBalancerName :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeEndPointStateInput' constructor.
 --
@@ -75,6 +75,7 @@ depsiInstances = lens _depsiInstances (\s a -> s { _depsiInstances = a })
 depsiLoadBalancerName :: Lens' DescribeEndPointStateInput Text
 depsiLoadBalancerName =
     lens _depsiLoadBalancerName (\s a -> s { _depsiLoadBalancerName = a })
+
 instance ToQuery DescribeEndPointStateInput
 
 instance ToPath DescribeEndPointStateInput where
@@ -82,7 +83,13 @@ instance ToPath DescribeEndPointStateInput where
 
 newtype DescribeEndPointStateOutput = DescribeEndPointStateOutput
     { _depsoInstanceStates :: [InstanceState]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeEndPointStateOutput
+    type Item DescribeEndPointStateOutput = InstanceState
+
+    fromList = DescribeEndPointStateOutput . fromList
+    toList   = toList . _depsoInstanceStates
 
 -- | 'DescribeEndPointStateOutput' constructor.
 --

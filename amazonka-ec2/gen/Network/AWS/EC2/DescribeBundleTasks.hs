@@ -48,7 +48,7 @@ data DescribeBundleTasks = DescribeBundleTasks
     { _dbtBundleIds :: [Text]
     , _dbtDryRun    :: Maybe Bool
     , _dbtFilters   :: [Filter]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeBundleTasks' constructor.
 --
@@ -86,6 +86,7 @@ dbtDryRun = lens _dbtDryRun (\s a -> s { _dbtDryRun = a })
 -- the task.
 dbtFilters :: Lens' DescribeBundleTasks [Filter]
 dbtFilters = lens _dbtFilters (\s a -> s { _dbtFilters = a })
+
 instance ToQuery DescribeBundleTasks
 
 instance ToPath DescribeBundleTasks where
@@ -93,7 +94,13 @@ instance ToPath DescribeBundleTasks where
 
 newtype DescribeBundleTasksResult = DescribeBundleTasksResult
     { _dbtrBundleTasks :: [BundleTask]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeBundleTasksResult
+    type Item DescribeBundleTasksResult = BundleTask
+
+    fromList = DescribeBundleTasksResult . fromList
+    toList   = toList . _dbtrBundleTasks
 
 -- | 'DescribeBundleTasksResult' constructor.
 --

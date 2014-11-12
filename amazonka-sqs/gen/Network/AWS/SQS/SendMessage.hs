@@ -61,7 +61,7 @@ data SendMessage = SendMessage
     , _smMessageAttributes :: Map Text MessageAttributeValue
     , _smMessageBody       :: Text
     , _smQueueUrl          :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'SendMessage' constructor.
 --
@@ -107,6 +107,7 @@ smMessageBody = lens _smMessageBody (\s a -> s { _smMessageBody = a })
 -- | The URL of the Amazon SQS queue to take action on.
 smQueueUrl :: Lens' SendMessage Text
 smQueueUrl = lens _smQueueUrl (\s a -> s { _smQueueUrl = a })
+
 instance ToQuery SendMessage
 
 instance ToPath SendMessage where
@@ -116,7 +117,7 @@ data SendMessageResult = SendMessageResult
     { _smrMD5OfMessageAttributes :: Maybe Text
     , _smrMD5OfMessageBody       :: Maybe Text
     , _smrMessageId              :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SendMessageResult' constructor.
 --

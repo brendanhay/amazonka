@@ -44,7 +44,7 @@ import Network.AWS.AutoScaling.Types
 data DeleteNotificationConfigurationType = DeleteNotificationConfigurationType
     { _dnctAutoScalingGroupName :: Text
     , _dnctTopicARN             :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteNotificationConfigurationType' constructor.
 --
@@ -72,6 +72,7 @@ dnctAutoScalingGroupName =
 -- (SNS) topic.
 dnctTopicARN :: Lens' DeleteNotificationConfigurationType Text
 dnctTopicARN = lens _dnctTopicARN (\s a -> s { _dnctTopicARN = a })
+
 instance ToQuery DeleteNotificationConfigurationType
 
 instance ToPath DeleteNotificationConfigurationType where

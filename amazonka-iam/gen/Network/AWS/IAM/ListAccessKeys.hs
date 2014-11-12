@@ -57,7 +57,7 @@ data ListAccessKeys = ListAccessKeys
     { _lakMarker   :: Maybe Text
     , _lakMaxItems :: Maybe Natural
     , _lakUserName :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListAccessKeys' constructor.
 --
@@ -93,6 +93,7 @@ lakMaxItems = lens _lakMaxItems (\s a -> s { _lakMaxItems = a })
 -- | The name of the user.
 lakUserName :: Lens' ListAccessKeys (Maybe Text)
 lakUserName = lens _lakUserName (\s a -> s { _lakUserName = a })
+
 instance ToQuery ListAccessKeys
 
 instance ToPath ListAccessKeys where
@@ -102,7 +103,7 @@ data ListAccessKeysResponse = ListAccessKeysResponse
     { _lakrAccessKeyMetadata :: [AccessKeyMetadata]
     , _lakrIsTruncated       :: Maybe Bool
     , _lakrMarker            :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListAccessKeysResponse' constructor.
 --

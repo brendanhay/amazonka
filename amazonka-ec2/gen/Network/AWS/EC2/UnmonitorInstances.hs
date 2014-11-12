@@ -48,7 +48,7 @@ import Network.AWS.EC2.Types
 data UnmonitorInstances = UnmonitorInstances
     { _uiDryRun      :: Maybe Bool
     , _uiInstanceIds :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UnmonitorInstances' constructor.
 --
@@ -70,6 +70,7 @@ uiDryRun = lens _uiDryRun (\s a -> s { _uiDryRun = a })
 -- | One or more instance IDs.
 uiInstanceIds :: Lens' UnmonitorInstances [Text]
 uiInstanceIds = lens _uiInstanceIds (\s a -> s { _uiInstanceIds = a })
+
 instance ToQuery UnmonitorInstances
 
 instance ToPath UnmonitorInstances where
@@ -77,7 +78,13 @@ instance ToPath UnmonitorInstances where
 
 newtype UnmonitorInstancesResult = UnmonitorInstancesResult
     { _uirInstanceMonitorings :: [InstanceMonitoring]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList UnmonitorInstancesResult
+    type Item UnmonitorInstancesResult = InstanceMonitoring
+
+    fromList = UnmonitorInstancesResult . fromList
+    toList   = toList . _uirInstanceMonitorings
 
 -- | 'UnmonitorInstancesResult' constructor.
 --

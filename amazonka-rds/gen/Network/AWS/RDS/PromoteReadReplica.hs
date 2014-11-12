@@ -48,7 +48,7 @@ data PromoteReadReplicaMessage = PromoteReadReplicaMessage
     { _prrmBackupRetentionPeriod :: Maybe Int
     , _prrmDBInstanceIdentifier  :: Text
     , _prrmPreferredBackupWindow :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PromoteReadReplicaMessage' constructor.
 --
@@ -98,6 +98,7 @@ prrmPreferredBackupWindow :: Lens' PromoteReadReplicaMessage (Maybe Text)
 prrmPreferredBackupWindow =
     lens _prrmPreferredBackupWindow
         (\s a -> s { _prrmPreferredBackupWindow = a })
+
 instance ToQuery PromoteReadReplicaMessage
 
 instance ToPath PromoteReadReplicaMessage where
@@ -105,7 +106,7 @@ instance ToPath PromoteReadReplicaMessage where
 
 newtype PromoteReadReplicaResult = PromoteReadReplicaResult
     { _prrrDBInstance :: Maybe DBInstance
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PromoteReadReplicaResult' constructor.
 --

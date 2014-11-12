@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 
 newtype GetInstanceProfile = GetInstanceProfile
     { _gipInstanceProfileName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetInstanceProfile' constructor.
 --
@@ -65,6 +65,7 @@ getInstanceProfile p1 = GetInstanceProfile
 gipInstanceProfileName :: Lens' GetInstanceProfile Text
 gipInstanceProfileName =
     lens _gipInstanceProfileName (\s a -> s { _gipInstanceProfileName = a })
+
 instance ToQuery GetInstanceProfile
 
 instance ToPath GetInstanceProfile where
@@ -72,7 +73,7 @@ instance ToPath GetInstanceProfile where
 
 newtype GetInstanceProfileResponse = GetInstanceProfileResponse
     { _giprInstanceProfile :: InstanceProfile
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetInstanceProfileResponse' constructor.
 --

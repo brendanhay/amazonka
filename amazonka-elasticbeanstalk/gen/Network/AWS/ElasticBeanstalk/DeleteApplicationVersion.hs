@@ -46,7 +46,7 @@ data DeleteApplicationVersionMessage = DeleteApplicationVersionMessage
     { _davmApplicationName    :: Text
     , _davmDeleteSourceBundle :: Maybe Bool
     , _davmVersionLabel       :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteApplicationVersionMessage' constructor.
 --
@@ -83,6 +83,7 @@ davmDeleteSourceBundle =
 -- | The label of the version to delete.
 davmVersionLabel :: Lens' DeleteApplicationVersionMessage Text
 davmVersionLabel = lens _davmVersionLabel (\s a -> s { _davmVersionLabel = a })
+
 instance ToQuery DeleteApplicationVersionMessage
 
 instance ToPath DeleteApplicationVersionMessage where

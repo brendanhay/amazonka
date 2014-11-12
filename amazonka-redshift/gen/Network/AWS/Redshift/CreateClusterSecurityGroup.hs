@@ -49,7 +49,7 @@ import Network.AWS.Redshift.Types
 data CreateClusterSecurityGroupMessage = CreateClusterSecurityGroupMessage
     { _ccsgmClusterSecurityGroupName :: Text
     , _ccsgmDescription              :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateClusterSecurityGroupMessage' constructor.
 --
@@ -80,6 +80,7 @@ ccsgmClusterSecurityGroupName =
 -- | A description for the security group.
 ccsgmDescription :: Lens' CreateClusterSecurityGroupMessage Text
 ccsgmDescription = lens _ccsgmDescription (\s a -> s { _ccsgmDescription = a })
+
 instance ToQuery CreateClusterSecurityGroupMessage
 
 instance ToPath CreateClusterSecurityGroupMessage where
@@ -87,7 +88,7 @@ instance ToPath CreateClusterSecurityGroupMessage where
 
 newtype CreateClusterSecurityGroupResult = CreateClusterSecurityGroupResult
     { _ccsgrClusterSecurityGroup :: Maybe ClusterSecurityGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateClusterSecurityGroupResult' constructor.
 --

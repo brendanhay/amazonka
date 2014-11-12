@@ -53,7 +53,7 @@ data DescribeAddresses = DescribeAddresses
     , _daDryRun        :: Maybe Bool
     , _daFilters       :: [Filter]
     , _daPublicIps     :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeAddresses' constructor.
 --
@@ -100,6 +100,7 @@ daFilters = lens _daFilters (\s a -> s { _daFilters = a })
 -- your Elastic IP addresses.
 daPublicIps :: Lens' DescribeAddresses [Text]
 daPublicIps = lens _daPublicIps (\s a -> s { _daPublicIps = a })
+
 instance ToQuery DescribeAddresses
 
 instance ToPath DescribeAddresses where
@@ -107,7 +108,13 @@ instance ToPath DescribeAddresses where
 
 newtype DescribeAddressesResult = DescribeAddressesResult
     { _darAddresses :: [Address]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeAddressesResult
+    type Item DescribeAddressesResult = Address
+
+    fromList = DescribeAddressesResult . fromList
+    toList   = toList . _darAddresses
 
 -- | 'DescribeAddressesResult' constructor.
 --

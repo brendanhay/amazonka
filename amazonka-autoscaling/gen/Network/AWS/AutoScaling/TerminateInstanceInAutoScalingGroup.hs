@@ -47,7 +47,7 @@ import Network.AWS.AutoScaling.Types
 data TerminateInstanceInAutoScalingGroupType = TerminateInstanceInAutoScalingGroupType
     { _tiiasgtInstanceId                     :: Text
     , _tiiasgtShouldDecrementDesiredCapacity :: Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'TerminateInstanceInAutoScalingGroupType' constructor.
 --
@@ -76,6 +76,7 @@ tiiasgtShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGro
 tiiasgtShouldDecrementDesiredCapacity =
     lens _tiiasgtShouldDecrementDesiredCapacity
         (\s a -> s { _tiiasgtShouldDecrementDesiredCapacity = a })
+
 instance ToQuery TerminateInstanceInAutoScalingGroupType
 
 instance ToPath TerminateInstanceInAutoScalingGroupType where
@@ -83,7 +84,7 @@ instance ToPath TerminateInstanceInAutoScalingGroupType where
 
 newtype ActivityType = ActivityType
     { _atActivity :: Maybe Activity
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ActivityType' constructor.
 --

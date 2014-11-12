@@ -50,7 +50,7 @@ import Network.AWS.EC2.Types
 data RebootInstances = RebootInstances
     { _ri2DryRun      :: Maybe Bool
     , _ri2InstanceIds :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RebootInstances' constructor.
 --
@@ -72,6 +72,7 @@ ri2DryRun = lens _ri2DryRun (\s a -> s { _ri2DryRun = a })
 -- | One or more instance IDs.
 ri2InstanceIds :: Lens' RebootInstances [Text]
 ri2InstanceIds = lens _ri2InstanceIds (\s a -> s { _ri2InstanceIds = a })
+
 instance ToQuery RebootInstances
 
 instance ToPath RebootInstances where

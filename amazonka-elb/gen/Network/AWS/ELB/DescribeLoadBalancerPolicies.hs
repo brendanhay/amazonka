@@ -52,7 +52,7 @@ import Network.AWS.ELB.Types
 data DescribeLoadBalancerPoliciesInput = DescribeLoadBalancerPoliciesInput
     { _dlbpiLoadBalancerName :: Maybe Text
     , _dlbpiPolicyNames      :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeLoadBalancerPoliciesInput' constructor.
 --
@@ -80,6 +80,7 @@ dlbpiLoadBalancerName =
 -- Balancing sample policy names.
 dlbpiPolicyNames :: Lens' DescribeLoadBalancerPoliciesInput [Text]
 dlbpiPolicyNames = lens _dlbpiPolicyNames (\s a -> s { _dlbpiPolicyNames = a })
+
 instance ToQuery DescribeLoadBalancerPoliciesInput
 
 instance ToPath DescribeLoadBalancerPoliciesInput where
@@ -87,7 +88,13 @@ instance ToPath DescribeLoadBalancerPoliciesInput where
 
 newtype DescribeLoadBalancerPoliciesOutput = DescribeLoadBalancerPoliciesOutput
     { _dlbpoPolicyDescriptions :: [PolicyDescription]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeLoadBalancerPoliciesOutput
+    type Item DescribeLoadBalancerPoliciesOutput = PolicyDescription
+
+    fromList = DescribeLoadBalancerPoliciesOutput . fromList
+    toList   = toList . _dlbpoPolicyDescriptions
 
 -- | 'DescribeLoadBalancerPoliciesOutput' constructor.
 --

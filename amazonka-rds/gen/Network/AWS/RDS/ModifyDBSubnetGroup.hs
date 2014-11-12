@@ -49,7 +49,7 @@ data ModifyDBSubnetGroupMessage = ModifyDBSubnetGroupMessage
     { _mdbsgmDBSubnetGroupDescription :: Maybe Text
     , _mdbsgmDBSubnetGroupName        :: Text
     , _mdbsgmSubnetIds                :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifyDBSubnetGroupMessage' constructor.
 --
@@ -85,6 +85,7 @@ mdbsgmDBSubnetGroupName =
 -- | The EC2 subnet IDs for the DB subnet group.
 mdbsgmSubnetIds :: Lens' ModifyDBSubnetGroupMessage [Text]
 mdbsgmSubnetIds = lens _mdbsgmSubnetIds (\s a -> s { _mdbsgmSubnetIds = a })
+
 instance ToQuery ModifyDBSubnetGroupMessage
 
 instance ToPath ModifyDBSubnetGroupMessage where
@@ -92,7 +93,7 @@ instance ToPath ModifyDBSubnetGroupMessage where
 
 newtype ModifyDBSubnetGroupResult = ModifyDBSubnetGroupResult
     { _mdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyDBSubnetGroupResult' constructor.
 --

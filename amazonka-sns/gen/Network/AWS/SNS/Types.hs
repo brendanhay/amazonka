@@ -89,7 +89,7 @@ xmlOptions = Tagged def
 
 newtype Topic = Topic
     { _tTopicArn :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'Topic' constructor.
 --
@@ -116,7 +116,7 @@ data MessageAttributeValue = MessageAttributeValue
     { _mavBinaryValue :: Maybe Base64
     , _mavDataType    :: Text
     , _mavStringValue :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'MessageAttributeValue' constructor.
 --
@@ -160,7 +160,7 @@ instance ToQuery MessageAttributeValue
 data PlatformApplication = PlatformApplication
     { _paAttributes             :: Map Text Text
     , _paPlatformApplicationArn :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PlatformApplication' constructor.
 --
@@ -199,7 +199,7 @@ data Subscription = Subscription
     , _sProtocol        :: Maybe Text
     , _sSubscriptionArn :: Maybe Text
     , _sTopicArn        :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Subscription' constructor.
 --
@@ -253,7 +253,7 @@ instance ToQuery Subscription
 data Endpoint = Endpoint
     { _eAttributes  :: Map Text Text
     , _eEndpointArn :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Endpoint' constructor.
 --

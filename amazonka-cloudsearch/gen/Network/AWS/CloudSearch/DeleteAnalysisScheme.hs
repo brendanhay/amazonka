@@ -47,7 +47,7 @@ import Network.AWS.CloudSearch.Types
 data DeleteAnalysisScheme = DeleteAnalysisScheme
     { _dasAnalysisSchemeName :: Text
     , _dasDomainName         :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteAnalysisScheme' constructor.
 --
@@ -72,6 +72,7 @@ dasAnalysisSchemeName =
 
 dasDomainName :: Lens' DeleteAnalysisScheme Text
 dasDomainName = lens _dasDomainName (\s a -> s { _dasDomainName = a })
+
 instance ToQuery DeleteAnalysisScheme
 
 instance ToPath DeleteAnalysisScheme where
@@ -79,7 +80,7 @@ instance ToPath DeleteAnalysisScheme where
 
 newtype DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse
     { _dasrAnalysisScheme :: AnalysisSchemeStatus
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteAnalysisSchemeResponse' constructor.
 --

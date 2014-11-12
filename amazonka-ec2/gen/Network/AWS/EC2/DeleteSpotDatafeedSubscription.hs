@@ -43,7 +43,7 @@ import Network.AWS.EC2.Types
 
 newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
     { _dsds1DryRun :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSpotDatafeedSubscription' constructor.
 --
@@ -58,6 +58,7 @@ deleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription
 
 dsds1DryRun :: Lens' DeleteSpotDatafeedSubscription (Maybe Bool)
 dsds1DryRun = lens _dsds1DryRun (\s a -> s { _dsds1DryRun = a })
+
 instance ToQuery DeleteSpotDatafeedSubscription
 
 instance ToPath DeleteSpotDatafeedSubscription where

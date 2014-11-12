@@ -46,7 +46,7 @@ data ModifyVpcAttribute = ModifyVpcAttribute
     { _mvaEnableDnsHostnames :: Maybe AttributeBooleanValue
     , _mvaEnableDnsSupport   :: Maybe AttributeBooleanValue
     , _mvaVpcId              :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyVpcAttribute' constructor.
 --
@@ -86,6 +86,7 @@ mvaEnableDnsSupport =
 -- | The ID of the VPC.
 mvaVpcId :: Lens' ModifyVpcAttribute Text
 mvaVpcId = lens _mvaVpcId (\s a -> s { _mvaVpcId = a })
+
 instance ToQuery ModifyVpcAttribute
 
 instance ToPath ModifyVpcAttribute where

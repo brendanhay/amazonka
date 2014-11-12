@@ -56,7 +56,7 @@ data AssignPrivateIpAddresses = AssignPrivateIpAddresses
     , _apiaNetworkInterfaceId             :: Text
     , _apiaPrivateIpAddresses             :: [Text]
     , _apiaSecondaryPrivateIpAddressCount :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AssignPrivateIpAddresses' constructor.
 --
@@ -107,6 +107,7 @@ apiaSecondaryPrivateIpAddressCount :: Lens' AssignPrivateIpAddresses (Maybe Int)
 apiaSecondaryPrivateIpAddressCount =
     lens _apiaSecondaryPrivateIpAddressCount
         (\s a -> s { _apiaSecondaryPrivateIpAddressCount = a })
+
 instance ToQuery AssignPrivateIpAddresses
 
 instance ToPath AssignPrivateIpAddresses where

@@ -42,7 +42,7 @@ import Network.AWS.Redshift.Types
 
 newtype DeleteEventSubscriptionMessage = DeleteEventSubscriptionMessage
     { _desm1SubscriptionName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteEventSubscriptionMessage' constructor.
 --
@@ -61,6 +61,7 @@ deleteEventSubscriptionMessage p1 = DeleteEventSubscriptionMessage
 desm1SubscriptionName :: Lens' DeleteEventSubscriptionMessage Text
 desm1SubscriptionName =
     lens _desm1SubscriptionName (\s a -> s { _desm1SubscriptionName = a })
+
 instance ToQuery DeleteEventSubscriptionMessage
 
 instance ToPath DeleteEventSubscriptionMessage where

@@ -46,7 +46,7 @@ import Network.AWS.AutoScaling.Types
 data DisableMetricsCollectionQuery = DisableMetricsCollectionQuery
     { _dmcqAutoScalingGroupName :: Text
     , _dmcqMetrics              :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DisableMetricsCollectionQuery' constructor.
 --
@@ -76,6 +76,7 @@ dmcqAutoScalingGroupName =
 -- GroupTotalInstances.
 dmcqMetrics :: Lens' DisableMetricsCollectionQuery [Text]
 dmcqMetrics = lens _dmcqMetrics (\s a -> s { _dmcqMetrics = a })
+
 instance ToQuery DisableMetricsCollectionQuery
 
 instance ToPath DisableMetricsCollectionQuery where

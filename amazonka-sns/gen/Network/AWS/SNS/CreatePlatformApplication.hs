@@ -61,7 +61,7 @@ data CreatePlatformApplicationInput = CreatePlatformApplicationInput
     { _cpaiAttributes :: Map Text Text
     , _cpaiName       :: Text
     , _cpaiPlatform   :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreatePlatformApplicationInput' constructor.
 --
@@ -98,6 +98,7 @@ cpaiName = lens _cpaiName (\s a -> s { _cpaiName = a })
 -- Cloud Messaging).
 cpaiPlatform :: Lens' CreatePlatformApplicationInput Text
 cpaiPlatform = lens _cpaiPlatform (\s a -> s { _cpaiPlatform = a })
+
 instance ToQuery CreatePlatformApplicationInput
 
 instance ToPath CreatePlatformApplicationInput where
@@ -105,7 +106,7 @@ instance ToPath CreatePlatformApplicationInput where
 
 newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
     { _cparPlatformApplicationArn :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreatePlatformApplicationResponse' constructor.
 --

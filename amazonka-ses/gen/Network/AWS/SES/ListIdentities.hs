@@ -51,7 +51,7 @@ data ListIdentities = ListIdentities
     { _liIdentityType :: Maybe Text
     , _liMaxItems     :: Maybe Int
     , _liNextToken    :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListIdentities' constructor.
 --
@@ -84,6 +84,7 @@ liMaxItems = lens _liMaxItems (\s a -> s { _liMaxItems = a })
 -- | The token to use for pagination.
 liNextToken :: Lens' ListIdentities (Maybe Text)
 liNextToken = lens _liNextToken (\s a -> s { _liNextToken = a })
+
 instance ToQuery ListIdentities
 
 instance ToPath ListIdentities where
@@ -92,7 +93,7 @@ instance ToPath ListIdentities where
 data ListIdentitiesResponse = ListIdentitiesResponse
     { _lirIdentities :: [Text]
     , _lirNextToken  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListIdentitiesResponse' constructor.
 --

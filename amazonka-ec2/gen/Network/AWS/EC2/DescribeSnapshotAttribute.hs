@@ -53,7 +53,7 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute
     { _dsaAttribute  :: Text
     , _dsaDryRun     :: Maybe Bool
     , _dsaSnapshotId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeSnapshotAttribute' constructor.
 --
@@ -84,6 +84,7 @@ dsaDryRun = lens _dsaDryRun (\s a -> s { _dsaDryRun = a })
 -- | The ID of the Amazon EBS snapshot.
 dsaSnapshotId :: Lens' DescribeSnapshotAttribute Text
 dsaSnapshotId = lens _dsaSnapshotId (\s a -> s { _dsaSnapshotId = a })
+
 instance ToQuery DescribeSnapshotAttribute
 
 instance ToPath DescribeSnapshotAttribute where
@@ -93,7 +94,7 @@ data DescribeSnapshotAttributeResult = DescribeSnapshotAttributeResult
     { _dsarCreateVolumePermissions :: [CreateVolumePermission]
     , _dsarProductCodes            :: [ProductCode]
     , _dsarSnapshotId              :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeSnapshotAttributeResult' constructor.
 --

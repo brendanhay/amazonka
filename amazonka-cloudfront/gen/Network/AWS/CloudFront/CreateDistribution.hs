@@ -46,7 +46,7 @@ import Network.AWS.CloudFront.Types
 
 newtype CreateDistribution = CreateDistribution
     { _cdDistributionConfig :: DistributionConfig
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDistribution' constructor.
 --
@@ -80,7 +80,7 @@ data CreateDistributionResult = CreateDistributionResult
     { _cdrDistribution :: Maybe Distribution
     , _cdrETag         :: Maybe Text
     , _cdrLocation     :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDistributionResult' constructor.
 --

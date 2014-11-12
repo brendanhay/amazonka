@@ -46,6 +46,7 @@ data DescribeAdjustmentTypes = DescribeAdjustmentTypes
 -- | 'DescribeAdjustmentTypes' constructor.
 describeAdjustmentTypes :: DescribeAdjustmentTypes
 describeAdjustmentTypes = DescribeAdjustmentTypes
+
 instance ToQuery DescribeAdjustmentTypes
 
 instance ToPath DescribeAdjustmentTypes where
@@ -53,7 +54,13 @@ instance ToPath DescribeAdjustmentTypes where
 
 newtype DescribeAdjustmentTypesAnswer = DescribeAdjustmentTypesAnswer
     { _dataAdjustmentTypes :: [AdjustmentType]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeAdjustmentTypesAnswer
+    type Item DescribeAdjustmentTypesAnswer = AdjustmentType
+
+    fromList = DescribeAdjustmentTypesAnswer . fromList
+    toList   = toList . _dataAdjustmentTypes
 
 -- | 'DescribeAdjustmentTypesAnswer' constructor.
 --

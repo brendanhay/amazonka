@@ -46,6 +46,7 @@ data ListOpenIDConnectProviders = ListOpenIDConnectProviders
 -- | 'ListOpenIDConnectProviders' constructor.
 listOpenIDConnectProviders :: ListOpenIDConnectProviders
 listOpenIDConnectProviders = ListOpenIDConnectProviders
+
 instance ToQuery ListOpenIDConnectProviders
 
 instance ToPath ListOpenIDConnectProviders where
@@ -53,7 +54,13 @@ instance ToPath ListOpenIDConnectProviders where
 
 newtype ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse
     { _loidcprOpenIDConnectProviderList :: [OpenIDConnectProviderListEntry]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList ListOpenIDConnectProvidersResponse
+    type Item ListOpenIDConnectProvidersResponse = OpenIDConnectProviderListEntry
+
+    fromList = ListOpenIDConnectProvidersResponse . fromList
+    toList   = toList . _loidcprOpenIDConnectProviderList
 
 -- | 'ListOpenIDConnectProvidersResponse' constructor.
 --

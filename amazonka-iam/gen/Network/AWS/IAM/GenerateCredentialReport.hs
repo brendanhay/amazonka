@@ -49,6 +49,7 @@ data GenerateCredentialReport = GenerateCredentialReport
 -- | 'GenerateCredentialReport' constructor.
 generateCredentialReport :: GenerateCredentialReport
 generateCredentialReport = GenerateCredentialReport
+
 instance ToQuery GenerateCredentialReport
 
 instance ToPath GenerateCredentialReport where
@@ -57,7 +58,7 @@ instance ToPath GenerateCredentialReport where
 data GenerateCredentialReportResponse = GenerateCredentialReportResponse
     { _gcrrDescription :: Maybe Text
     , _gcrrState       :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GenerateCredentialReportResponse' constructor.
 --

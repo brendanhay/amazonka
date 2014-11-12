@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data DeleteNetworkAcl = DeleteNetworkAcl
     { _dnaDryRun       :: Maybe Bool
     , _dnaNetworkAclId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteNetworkAcl' constructor.
 --
@@ -68,6 +68,7 @@ dnaDryRun = lens _dnaDryRun (\s a -> s { _dnaDryRun = a })
 -- | The ID of the network ACL.
 dnaNetworkAclId :: Lens' DeleteNetworkAcl Text
 dnaNetworkAclId = lens _dnaNetworkAclId (\s a -> s { _dnaNetworkAclId = a })
+
 instance ToQuery DeleteNetworkAcl
 
 instance ToPath DeleteNetworkAcl where

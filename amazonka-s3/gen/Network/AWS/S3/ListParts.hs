@@ -62,7 +62,7 @@ data ListParts = ListParts
     , _lpMaxParts         :: Maybe Int
     , _lpPartNumberMarker :: Maybe Int
     , _lpUploadId         :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListParts' constructor.
 --
@@ -139,7 +139,7 @@ data ListPartsOutput = ListPartsOutput
     , _lpoParts                :: [Part]
     , _lpoStorageClass         :: Maybe Text
     , _lpoUploadId             :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListPartsOutput' constructor.
 --

@@ -52,7 +52,7 @@ data ListGroupPolicies = ListGroupPolicies
     { _lgpGroupName :: Text
     , _lgpMarker    :: Maybe Text
     , _lgpMaxItems  :: Maybe Natural
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListGroupPolicies' constructor.
 --
@@ -89,6 +89,7 @@ lgpMarker = lens _lgpMarker (\s a -> s { _lgpMarker = a })
 -- to 100.
 lgpMaxItems :: Lens' ListGroupPolicies (Maybe Natural)
 lgpMaxItems = lens _lgpMaxItems (\s a -> s { _lgpMaxItems = a })
+
 instance ToQuery ListGroupPolicies
 
 instance ToPath ListGroupPolicies where
@@ -98,7 +99,7 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse
     { _lgprIsTruncated :: Maybe Bool
     , _lgprMarker      :: Maybe Text
     , _lgprPolicyNames :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListGroupPoliciesResponse' constructor.
 --

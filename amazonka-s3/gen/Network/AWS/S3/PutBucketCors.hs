@@ -46,7 +46,7 @@ data PutBucketCors = PutBucketCors
     { _pbcBucket            :: Text
     , _pbcCORSConfiguration :: Maybe CORSConfiguration
     , _pbcContentMD5        :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketCors' constructor.
 --

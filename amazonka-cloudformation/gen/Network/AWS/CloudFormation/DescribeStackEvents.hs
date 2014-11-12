@@ -49,7 +49,7 @@ import Network.AWS.CloudFormation.Types
 data DescribeStackEventsInput = DescribeStackEventsInput
     { _dseiNextToken :: Maybe Text
     , _dseiStackName :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeStackEventsInput' constructor.
 --
@@ -76,6 +76,7 @@ dseiNextToken = lens _dseiNextToken (\s a -> s { _dseiNextToken = a })
 -- unique stack ID. Default: There is no default value.
 dseiStackName :: Lens' DescribeStackEventsInput (Maybe Text)
 dseiStackName = lens _dseiStackName (\s a -> s { _dseiStackName = a })
+
 instance ToQuery DescribeStackEventsInput
 
 instance ToPath DescribeStackEventsInput where
@@ -84,7 +85,7 @@ instance ToPath DescribeStackEventsInput where
 data DescribeStackEventsOutput = DescribeStackEventsOutput
     { _dseoNextToken   :: Maybe Text
     , _dseoStackEvents :: [StackEvent]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeStackEventsOutput' constructor.
 --

@@ -55,7 +55,7 @@ import Network.AWS.SQS.Types
 data DeleteMessage = DeleteMessage
     { _dmQueueUrl      :: Text
     , _dmReceiptHandle :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteMessage' constructor.
 --
@@ -80,6 +80,7 @@ dmQueueUrl = lens _dmQueueUrl (\s a -> s { _dmQueueUrl = a })
 -- | The receipt handle associated with the message to delete.
 dmReceiptHandle :: Lens' DeleteMessage Text
 dmReceiptHandle = lens _dmReceiptHandle (\s a -> s { _dmReceiptHandle = a })
+
 instance ToQuery DeleteMessage
 
 instance ToPath DeleteMessage where

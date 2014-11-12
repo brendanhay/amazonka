@@ -42,7 +42,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice
     { _dvmfadSerialNumber :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteVirtualMFADevice' constructor.
 --
@@ -61,6 +61,7 @@ deleteVirtualMFADevice p1 = DeleteVirtualMFADevice
 dvmfadSerialNumber :: Lens' DeleteVirtualMFADevice Text
 dvmfadSerialNumber =
     lens _dvmfadSerialNumber (\s a -> s { _dvmfadSerialNumber = a })
+
 instance ToQuery DeleteVirtualMFADevice
 
 instance ToPath DeleteVirtualMFADevice where

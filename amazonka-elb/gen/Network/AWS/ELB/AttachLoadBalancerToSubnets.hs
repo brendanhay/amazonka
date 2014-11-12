@@ -50,7 +50,7 @@ import Network.AWS.ELB.Types
 data AttachLoadBalancerToSubnetsInput = AttachLoadBalancerToSubnetsInput
     { _albtsiLoadBalancerName :: Text
     , _albtsiSubnets          :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AttachLoadBalancerToSubnetsInput' constructor.
 --
@@ -77,6 +77,7 @@ albtsiLoadBalancerName =
 -- subnet per Availability Zone.
 albtsiSubnets :: Lens' AttachLoadBalancerToSubnetsInput [Text]
 albtsiSubnets = lens _albtsiSubnets (\s a -> s { _albtsiSubnets = a })
+
 instance ToQuery AttachLoadBalancerToSubnetsInput
 
 instance ToPath AttachLoadBalancerToSubnetsInput where
@@ -84,16 +85,13 @@ instance ToPath AttachLoadBalancerToSubnetsInput where
 
 newtype AttachLoadBalancerToSubnetsOutput = AttachLoadBalancerToSubnetsOutput
     { _albtsoSubnets :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList AttachLoadBalancerToSubnetsOutput
+    type Item AttachLoadBalancerToSubnetsOutput = Text
+
+    fromList = AttachLoadBalancerToSubnetsOutput . fromList
+    toList   = toList . _albtsoSubnets
 
 -- | 'AttachLoadBalancerToSubnetsOutput' constructor.
 --

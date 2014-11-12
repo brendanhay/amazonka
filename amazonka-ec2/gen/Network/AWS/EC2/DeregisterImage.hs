@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data DeregisterImage = DeregisterImage
     { _di2DryRun  :: Maybe Bool
     , _di2ImageId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeregisterImage' constructor.
 --
@@ -68,6 +68,7 @@ di2DryRun = lens _di2DryRun (\s a -> s { _di2DryRun = a })
 -- | The ID of the AMI.
 di2ImageId :: Lens' DeregisterImage Text
 di2ImageId = lens _di2ImageId (\s a -> s { _di2ImageId = a })
+
 instance ToQuery DeregisterImage
 
 instance ToPath DeregisterImage where

@@ -56,7 +56,7 @@ import Network.AWS.SQS.Types
 data CreateQueue = CreateQueue
     { _cqAttributes :: Map Text Text
     , _cqQueueName  :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateQueue' constructor.
 --
@@ -101,6 +101,7 @@ cqAttributes = lens _cqAttributes (\s a -> s { _cqAttributes = a })
 -- | The name for the queue to be created.
 cqQueueName :: Lens' CreateQueue Text
 cqQueueName = lens _cqQueueName (\s a -> s { _cqQueueName = a })
+
 instance ToQuery CreateQueue
 
 instance ToPath CreateQueue where
@@ -108,7 +109,7 @@ instance ToPath CreateQueue where
 
 newtype CreateQueueResult = CreateQueueResult
     { _cqrQueueUrl :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateQueueResult' constructor.
 --

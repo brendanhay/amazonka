@@ -47,7 +47,7 @@ import Network.AWS.CloudSearch.Types
 data DeleteExpression = DeleteExpression
     { _deDomainName     :: Text
     , _deExpressionName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteExpression' constructor.
 --
@@ -71,6 +71,7 @@ deDomainName = lens _deDomainName (\s a -> s { _deDomainName = a })
 -- | The name of the Expression to delete.
 deExpressionName :: Lens' DeleteExpression Text
 deExpressionName = lens _deExpressionName (\s a -> s { _deExpressionName = a })
+
 instance ToQuery DeleteExpression
 
 instance ToPath DeleteExpression where
@@ -78,7 +79,7 @@ instance ToPath DeleteExpression where
 
 newtype DeleteExpressionResponse = DeleteExpressionResponse
     { _der1Expression :: ExpressionStatus
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteExpressionResponse' constructor.
 --

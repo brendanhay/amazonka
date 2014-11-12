@@ -62,7 +62,7 @@ data CreateVpnConnection = CreateVpnConnection
     , _cvcOptions           :: Maybe VpnConnectionOptionsSpecification
     , _cvcType              :: Text
     , _cvcVpnGatewayId      :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateVpnConnection' constructor.
 --
@@ -111,6 +111,7 @@ cvcType = lens _cvcType (\s a -> s { _cvcType = a })
 -- | The ID of the virtual private gateway.
 cvcVpnGatewayId :: Lens' CreateVpnConnection Text
 cvcVpnGatewayId = lens _cvcVpnGatewayId (\s a -> s { _cvcVpnGatewayId = a })
+
 instance ToQuery CreateVpnConnection
 
 instance ToPath CreateVpnConnection where
@@ -118,7 +119,7 @@ instance ToPath CreateVpnConnection where
 
 newtype CreateVpnConnectionResult = CreateVpnConnectionResult
     { _cvcrVpnConnection :: Maybe VpnConnection
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateVpnConnectionResult' constructor.
 --

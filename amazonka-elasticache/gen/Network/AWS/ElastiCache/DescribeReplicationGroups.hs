@@ -51,7 +51,7 @@ data DescribeReplicationGroupsMessage = DescribeReplicationGroupsMessage
     { _drgmMarker             :: Maybe Text
     , _drgmMaxRecords         :: Maybe Int
     , _drgmReplicationGroupId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeReplicationGroupsMessage' constructor.
 --
@@ -90,6 +90,7 @@ drgmMaxRecords = lens _drgmMaxRecords (\s a -> s { _drgmMaxRecords = a })
 drgmReplicationGroupId :: Lens' DescribeReplicationGroupsMessage (Maybe Text)
 drgmReplicationGroupId =
     lens _drgmReplicationGroupId (\s a -> s { _drgmReplicationGroupId = a })
+
 instance ToQuery DescribeReplicationGroupsMessage
 
 instance ToPath DescribeReplicationGroupsMessage where
@@ -98,7 +99,7 @@ instance ToPath DescribeReplicationGroupsMessage where
 data ReplicationGroupMessage = ReplicationGroupMessage
     { _rgmMarker            :: Maybe Text
     , _rgmReplicationGroups :: [ReplicationGroup]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ReplicationGroupMessage' constructor.
 --

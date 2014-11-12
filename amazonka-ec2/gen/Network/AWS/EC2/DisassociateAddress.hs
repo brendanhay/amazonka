@@ -51,7 +51,7 @@ data DisassociateAddress = DisassociateAddress
     { _da1AssociationId :: Maybe Text
     , _da1DryRun        :: Maybe Bool
     , _da1PublicIp      :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DisassociateAddress' constructor.
 --
@@ -80,6 +80,7 @@ da1DryRun = lens _da1DryRun (\s a -> s { _da1DryRun = a })
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
 da1PublicIp :: Lens' DisassociateAddress (Maybe Text)
 da1PublicIp = lens _da1PublicIp (\s a -> s { _da1PublicIp = a })
+
 instance ToQuery DisassociateAddress
 
 instance ToPath DisassociateAddress where

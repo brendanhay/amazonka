@@ -51,7 +51,7 @@ import Network.AWS.ElastiCache.Types
 data CreateCacheSecurityGroupMessage = CreateCacheSecurityGroupMessage
     { _ccsgmCacheSecurityGroupName :: Text
     , _ccsgmDescription            :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateCacheSecurityGroupMessage' constructor.
 --
@@ -80,6 +80,7 @@ ccsgmCacheSecurityGroupName =
 -- | A description for the cache security group.
 ccsgmDescription :: Lens' CreateCacheSecurityGroupMessage Text
 ccsgmDescription = lens _ccsgmDescription (\s a -> s { _ccsgmDescription = a })
+
 instance ToQuery CreateCacheSecurityGroupMessage
 
 instance ToPath CreateCacheSecurityGroupMessage where
@@ -87,7 +88,7 @@ instance ToPath CreateCacheSecurityGroupMessage where
 
 newtype CreateCacheSecurityGroupResult = CreateCacheSecurityGroupResult
     { _ccsgrCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateCacheSecurityGroupResult' constructor.
 --

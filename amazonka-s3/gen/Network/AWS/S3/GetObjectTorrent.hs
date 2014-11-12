@@ -46,7 +46,7 @@ import Network.AWS.S3.Types
 data GetObjectTorrent = GetObjectTorrent
     { _gotBucket :: Text
     , _gotKey    :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetObjectTorrent' constructor.
 --
@@ -85,7 +85,7 @@ instance ToHeaders GetObjectTorrent
 
 newtype GetObjectTorrentOutput = GetObjectTorrentOutput
     { _gotoBody :: RsBody
-    } (Show, Generic)
+    } deriving (Show, Generic)
 
 -- | 'GetObjectTorrentOutput' constructor.
 --

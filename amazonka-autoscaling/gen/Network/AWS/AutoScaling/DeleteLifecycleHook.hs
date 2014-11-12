@@ -46,7 +46,7 @@ import Network.AWS.AutoScaling.Types
 data DeleteLifecycleHookType = DeleteLifecycleHookType
     { _dlhtAutoScalingGroupName :: Text
     , _dlhtLifecycleHookName    :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteLifecycleHookType' constructor.
 --
@@ -74,6 +74,7 @@ dlhtAutoScalingGroupName =
 dlhtLifecycleHookName :: Lens' DeleteLifecycleHookType Text
 dlhtLifecycleHookName =
     lens _dlhtLifecycleHookName (\s a -> s { _dlhtLifecycleHookName = a })
+
 instance ToQuery DeleteLifecycleHookType
 
 instance ToPath DeleteLifecycleHookType where

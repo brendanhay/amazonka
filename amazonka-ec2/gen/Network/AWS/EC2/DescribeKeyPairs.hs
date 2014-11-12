@@ -49,7 +49,7 @@ data DescribeKeyPairs = DescribeKeyPairs
     { _dkpDryRun   :: Maybe Bool
     , _dkpFilters  :: [Filter]
     , _dkpKeyNames :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeKeyPairs' constructor.
 --
@@ -79,6 +79,7 @@ dkpFilters = lens _dkpFilters (\s a -> s { _dkpFilters = a })
 -- | One or more key pair names. Default: Describes all your key pairs.
 dkpKeyNames :: Lens' DescribeKeyPairs [Text]
 dkpKeyNames = lens _dkpKeyNames (\s a -> s { _dkpKeyNames = a })
+
 instance ToQuery DescribeKeyPairs
 
 instance ToPath DescribeKeyPairs where
@@ -86,7 +87,13 @@ instance ToPath DescribeKeyPairs where
 
 newtype DescribeKeyPairsResult = DescribeKeyPairsResult
     { _dkprKeyPairs :: [KeyPairInfo]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeKeyPairsResult
+    type Item DescribeKeyPairsResult = KeyPairInfo
+
+    fromList = DescribeKeyPairsResult . fromList
+    toList   = toList . _dkprKeyPairs
 
 -- | 'DescribeKeyPairsResult' constructor.
 --

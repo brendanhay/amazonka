@@ -81,7 +81,7 @@ data RestoreDBInstanceFromDBSnapshotMessage = RestoreDBInstanceFromDBSnapshotMes
     , _rdbifdbsmTags                    :: [Tag]
     , _rdbifdbsmTdeCredentialArn        :: Maybe Text
     , _rdbifdbsmTdeCredentialPassword   :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RestoreDBInstanceFromDBSnapshotMessage' constructor.
 --
@@ -288,6 +288,7 @@ rdbifdbsmTdeCredentialPassword :: Lens' RestoreDBInstanceFromDBSnapshotMessage (
 rdbifdbsmTdeCredentialPassword =
     lens _rdbifdbsmTdeCredentialPassword
         (\s a -> s { _rdbifdbsmTdeCredentialPassword = a })
+
 instance ToQuery RestoreDBInstanceFromDBSnapshotMessage
 
 instance ToPath RestoreDBInstanceFromDBSnapshotMessage where
@@ -295,7 +296,7 @@ instance ToPath RestoreDBInstanceFromDBSnapshotMessage where
 
 newtype RestoreDBInstanceFromDBSnapshotResult = RestoreDBInstanceFromDBSnapshotResult
     { _rdbifdbsrDBInstance :: Maybe DBInstance
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RestoreDBInstanceFromDBSnapshotResult' constructor.
 --

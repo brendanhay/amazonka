@@ -49,7 +49,7 @@ data PurchaseReservedCacheNodesOfferingMessage = PurchaseReservedCacheNodesOffer
     { _prcnomCacheNodeCount               :: Maybe Int
     , _prcnomReservedCacheNodeId          :: Maybe Text
     , _prcnomReservedCacheNodesOfferingId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PurchaseReservedCacheNodesOfferingMessage' constructor.
 --
@@ -87,6 +87,7 @@ prcnomReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOfferingMe
 prcnomReservedCacheNodesOfferingId =
     lens _prcnomReservedCacheNodesOfferingId
         (\s a -> s { _prcnomReservedCacheNodesOfferingId = a })
+
 instance ToQuery PurchaseReservedCacheNodesOfferingMessage
 
 instance ToPath PurchaseReservedCacheNodesOfferingMessage where
@@ -94,7 +95,7 @@ instance ToPath PurchaseReservedCacheNodesOfferingMessage where
 
 newtype PurchaseReservedCacheNodesOfferingResult = PurchaseReservedCacheNodesOfferingResult
     { _prcnorReservedCacheNode :: Maybe ReservedCacheNode
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PurchaseReservedCacheNodesOfferingResult' constructor.
 --

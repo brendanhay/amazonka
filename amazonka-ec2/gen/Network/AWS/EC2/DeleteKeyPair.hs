@@ -44,7 +44,7 @@ import Network.AWS.EC2.Types
 data DeleteKeyPair = DeleteKeyPair
     { _dkp1DryRun  :: Maybe Bool
     , _dkp1KeyName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteKeyPair' constructor.
 --
@@ -67,6 +67,7 @@ dkp1DryRun = lens _dkp1DryRun (\s a -> s { _dkp1DryRun = a })
 -- | The name of the key pair.
 dkp1KeyName :: Lens' DeleteKeyPair Text
 dkp1KeyName = lens _dkp1KeyName (\s a -> s { _dkp1KeyName = a })
+
 instance ToQuery DeleteKeyPair
 
 instance ToPath DeleteKeyPair where

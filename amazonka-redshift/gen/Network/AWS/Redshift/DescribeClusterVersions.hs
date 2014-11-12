@@ -55,7 +55,7 @@ data DescribeClusterVersionsMessage = DescribeClusterVersionsMessage
     , _dcvmClusterVersion              :: Maybe Text
     , _dcvmMarker                      :: Maybe Text
     , _dcvmMaxRecords                  :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeClusterVersionsMessage' constructor.
 --
@@ -107,6 +107,7 @@ dcvmMarker = lens _dcvmMarker (\s a -> s { _dcvmMarker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcvmMaxRecords :: Lens' DescribeClusterVersionsMessage (Maybe Int)
 dcvmMaxRecords = lens _dcvmMaxRecords (\s a -> s { _dcvmMaxRecords = a })
+
 instance ToQuery DescribeClusterVersionsMessage
 
 instance ToPath DescribeClusterVersionsMessage where
@@ -115,7 +116,7 @@ instance ToPath DescribeClusterVersionsMessage where
 data ClusterVersionsMessage = ClusterVersionsMessage
     { _cvmClusterVersions :: [ClusterVersion]
     , _cvmMarker          :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ClusterVersionsMessage' constructor.
 --

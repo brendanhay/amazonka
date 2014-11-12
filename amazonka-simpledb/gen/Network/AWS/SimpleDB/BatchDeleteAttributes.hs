@@ -48,7 +48,7 @@ import Network.AWS.SimpleDB.Types
 data BatchDeleteAttributes = BatchDeleteAttributes
     { _bdaDomainName :: Text
     , _bdaItems      :: [DeletableItem]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'BatchDeleteAttributes' constructor.
 --
@@ -72,6 +72,7 @@ bdaDomainName = lens _bdaDomainName (\s a -> s { _bdaDomainName = a })
 -- | A list of items on which to perform the operation.
 bdaItems :: Lens' BatchDeleteAttributes [DeletableItem]
 bdaItems = lens _bdaItems (\s a -> s { _bdaItems = a })
+
 instance ToQuery BatchDeleteAttributes
 
 instance ToPath BatchDeleteAttributes where

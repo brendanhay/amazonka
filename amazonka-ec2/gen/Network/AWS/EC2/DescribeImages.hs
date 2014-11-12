@@ -55,7 +55,7 @@ data DescribeImages = DescribeImages
     , _di1Filters         :: [Filter]
     , _di1ImageIds        :: [Text]
     , _di1Owners          :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeImages' constructor.
 --
@@ -135,6 +135,7 @@ di1ImageIds = lens _di1ImageIds (\s a -> s { _di1ImageIds = a })
 -- the sender of the request), or all (all owners).
 di1Owners :: Lens' DescribeImages [Text]
 di1Owners = lens _di1Owners (\s a -> s { _di1Owners = a })
+
 instance ToQuery DescribeImages
 
 instance ToPath DescribeImages where
@@ -142,7 +143,13 @@ instance ToPath DescribeImages where
 
 newtype DescribeImagesResult = DescribeImagesResult
     { _dirImages :: [Image]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeImagesResult
+    type Item DescribeImagesResult = Image
+
+    fromList = DescribeImagesResult . fromList
+    toList   = toList . _dirImages
 
 -- | 'DescribeImagesResult' constructor.
 --

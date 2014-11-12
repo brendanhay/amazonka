@@ -49,6 +49,7 @@ data GetSendQuota = GetSendQuota
 -- | 'GetSendQuota' constructor.
 getSendQuota :: GetSendQuota
 getSendQuota = GetSendQuota
+
 instance ToQuery GetSendQuota
 
 instance ToPath GetSendQuota where
@@ -58,7 +59,7 @@ data GetSendQuotaResponse = GetSendQuotaResponse
     { _gsqrMax24HourSend   :: Maybe Double
     , _gsqrMaxSendRate     :: Maybe Double
     , _gsqrSentLast24Hours :: Maybe Double
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic, RealFloat)
 
 -- | 'GetSendQuotaResponse' constructor.
 --

@@ -50,7 +50,7 @@ import Network.AWS.ELB.Types
 data ApplySecurityGroupsToLoadBalancerInput = ApplySecurityGroupsToLoadBalancerInput
     { _asgtlbiLoadBalancerName :: Text
     , _asgtlbiSecurityGroups   :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ApplySecurityGroupsToLoadBalancerInput' constructor.
 --
@@ -79,6 +79,7 @@ asgtlbiLoadBalancerName =
 asgtlbiSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerInput [Text]
 asgtlbiSecurityGroups =
     lens _asgtlbiSecurityGroups (\s a -> s { _asgtlbiSecurityGroups = a })
+
 instance ToQuery ApplySecurityGroupsToLoadBalancerInput
 
 instance ToPath ApplySecurityGroupsToLoadBalancerInput where
@@ -86,16 +87,13 @@ instance ToPath ApplySecurityGroupsToLoadBalancerInput where
 
 newtype ApplySecurityGroupsToLoadBalancerOutput = ApplySecurityGroupsToLoadBalancerOutput
     { _asgtlboSecurityGroups :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList ApplySecurityGroupsToLoadBalancerOutput
+    type Item ApplySecurityGroupsToLoadBalancerOutput = Text
+
+    fromList = ApplySecurityGroupsToLoadBalancerOutput . fromList
+    toList   = toList . _asgtlboSecurityGroups
 
 -- | 'ApplySecurityGroupsToLoadBalancerOutput' constructor.
 --

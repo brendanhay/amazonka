@@ -48,7 +48,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteLoginProfile = DeleteLoginProfile
     { _dlpUserName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteLoginProfile' constructor.
 --
@@ -65,6 +65,7 @@ deleteLoginProfile p1 = DeleteLoginProfile
 -- | The name of the user whose password you want to delete.
 dlpUserName :: Lens' DeleteLoginProfile Text
 dlpUserName = lens _dlpUserName (\s a -> s { _dlpUserName = a })
+
 instance ToQuery DeleteLoginProfile
 
 instance ToPath DeleteLoginProfile where

@@ -56,7 +56,7 @@ data SetLoadBalancerPoliciesForBackendServerInput = SetLoadBalancerPoliciesForBa
     { _slbpfbsiInstancePort     :: Int
     , _slbpfbsiLoadBalancerName :: Text
     , _slbpfbsiPolicyNames      :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetLoadBalancerPoliciesForBackendServerInput' constructor.
 --
@@ -94,6 +94,7 @@ slbpfbsiLoadBalancerName =
 slbpfbsiPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServerInput [Text]
 slbpfbsiPolicyNames =
     lens _slbpfbsiPolicyNames (\s a -> s { _slbpfbsiPolicyNames = a })
+
 instance ToQuery SetLoadBalancerPoliciesForBackendServerInput
 
 instance ToPath SetLoadBalancerPoliciesForBackendServerInput where

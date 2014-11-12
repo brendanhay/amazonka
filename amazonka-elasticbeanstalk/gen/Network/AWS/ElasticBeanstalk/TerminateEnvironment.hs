@@ -62,7 +62,7 @@ data TerminateEnvironmentMessage = TerminateEnvironmentMessage
     { _temEnvironmentId      :: Maybe Text
     , _temEnvironmentName    :: Maybe Text
     , _temTerminateResources :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'TerminateEnvironmentMessage' constructor.
 --
@@ -107,6 +107,7 @@ temEnvironmentName =
 temTerminateResources :: Lens' TerminateEnvironmentMessage (Maybe Bool)
 temTerminateResources =
     lens _temTerminateResources (\s a -> s { _temTerminateResources = a })
+
 instance ToQuery TerminateEnvironmentMessage
 
 instance ToPath TerminateEnvironmentMessage where

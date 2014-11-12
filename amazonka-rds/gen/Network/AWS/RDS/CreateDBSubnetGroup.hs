@@ -51,7 +51,7 @@ data CreateDBSubnetGroupMessage = CreateDBSubnetGroupMessage
     , _cdbsgmDBSubnetGroupName        :: Text
     , _cdbsgmSubnetIds                :: [Text]
     , _cdbsgmTags                     :: [Tag]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDBSubnetGroupMessage' constructor.
 --
@@ -94,6 +94,7 @@ cdbsgmSubnetIds = lens _cdbsgmSubnetIds (\s a -> s { _cdbsgmSubnetIds = a })
 
 cdbsgmTags :: Lens' CreateDBSubnetGroupMessage [Tag]
 cdbsgmTags = lens _cdbsgmTags (\s a -> s { _cdbsgmTags = a })
+
 instance ToQuery CreateDBSubnetGroupMessage
 
 instance ToPath CreateDBSubnetGroupMessage where
@@ -101,7 +102,7 @@ instance ToPath CreateDBSubnetGroupMessage where
 
 newtype CreateDBSubnetGroupResult = CreateDBSubnetGroupResult
     { _cdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDBSubnetGroupResult' constructor.
 --

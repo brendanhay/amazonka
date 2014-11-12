@@ -50,7 +50,7 @@ data DescribeCustomerGateways = DescribeCustomerGateways
     { _dcgCustomerGatewayIds :: [Text]
     , _dcgDryRun             :: Maybe Bool
     , _dcgFilters            :: [Filter]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeCustomerGateways' constructor.
 --
@@ -95,6 +95,7 @@ dcgDryRun = lens _dcgDryRun (\s a -> s { _dcgDryRun = a })
 -- resource. This filter is independent of the tag-key filter.
 dcgFilters :: Lens' DescribeCustomerGateways [Filter]
 dcgFilters = lens _dcgFilters (\s a -> s { _dcgFilters = a })
+
 instance ToQuery DescribeCustomerGateways
 
 instance ToPath DescribeCustomerGateways where
@@ -102,7 +103,13 @@ instance ToPath DescribeCustomerGateways where
 
 newtype DescribeCustomerGatewaysResult = DescribeCustomerGatewaysResult
     { _dcgrCustomerGateways :: [CustomerGateway]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeCustomerGatewaysResult
+    type Item DescribeCustomerGatewaysResult = CustomerGateway
+
+    fromList = DescribeCustomerGatewaysResult . fromList
+    toList   = toList . _dcgrCustomerGateways
 
 -- | 'DescribeCustomerGatewaysResult' constructor.
 --

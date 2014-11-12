@@ -56,7 +56,7 @@ data CopyClusterSnapshotMessage = CopyClusterSnapshotMessage
     { _ccsmSourceSnapshotClusterIdentifier :: Maybe Text
     , _ccsmSourceSnapshotIdentifier        :: Text
     , _ccsmTargetSnapshotIdentifier        :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CopyClusterSnapshotMessage' constructor.
 --
@@ -102,6 +102,7 @@ ccsmTargetSnapshotIdentifier :: Lens' CopyClusterSnapshotMessage Text
 ccsmTargetSnapshotIdentifier =
     lens _ccsmTargetSnapshotIdentifier
         (\s a -> s { _ccsmTargetSnapshotIdentifier = a })
+
 instance ToQuery CopyClusterSnapshotMessage
 
 instance ToPath CopyClusterSnapshotMessage where
@@ -109,7 +110,7 @@ instance ToPath CopyClusterSnapshotMessage where
 
 newtype CopyClusterSnapshotResult = CopyClusterSnapshotResult
     { _ccsrSnapshot :: Maybe Snapshot
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CopyClusterSnapshotResult' constructor.
 --

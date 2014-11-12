@@ -54,7 +54,7 @@ data DescribeAnalysisSchemes = DescribeAnalysisSchemes
     { _das1AnalysisSchemeNames :: [Text]
     , _das1Deployed            :: Maybe Bool
     , _das1DomainName          :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAnalysisSchemes' constructor.
 --
@@ -87,6 +87,7 @@ das1Deployed = lens _das1Deployed (\s a -> s { _das1Deployed = a })
 -- | The name of the domain you want to describe.
 das1DomainName :: Lens' DescribeAnalysisSchemes Text
 das1DomainName = lens _das1DomainName (\s a -> s { _das1DomainName = a })
+
 instance ToQuery DescribeAnalysisSchemes
 
 instance ToPath DescribeAnalysisSchemes where
@@ -94,7 +95,13 @@ instance ToPath DescribeAnalysisSchemes where
 
 newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
     { _dasrAnalysisSchemes :: [AnalysisSchemeStatus]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeAnalysisSchemesResponse
+    type Item DescribeAnalysisSchemesResponse = AnalysisSchemeStatus
+
+    fromList = DescribeAnalysisSchemesResponse . fromList
+    toList   = toList . _dasrAnalysisSchemes
 
 -- | 'DescribeAnalysisSchemesResponse' constructor.
 --

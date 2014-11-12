@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
     { _dvcrDestinationCidrBlock :: Text
     , _dvcrVpnConnectionId      :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpnConnectionRoute' constructor.
 --
@@ -75,6 +75,7 @@ dvcrDestinationCidrBlock =
 dvcrVpnConnectionId :: Lens' DeleteVpnConnectionRoute Text
 dvcrVpnConnectionId =
     lens _dvcrVpnConnectionId (\s a -> s { _dvcrVpnConnectionId = a })
+
 instance ToQuery DeleteVpnConnectionRoute
 
 instance ToPath DeleteVpnConnectionRoute where

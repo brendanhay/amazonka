@@ -79,7 +79,7 @@ data GetMetricStatisticsInput = GetMetricStatisticsInput
     , _gmsiStartTime  :: RFC822
     , _gmsiStatistics :: List1 Text
     , _gmsiUnit       :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetMetricStatisticsInput' constructor.
 --
@@ -162,6 +162,7 @@ gmsiStatistics = lens _gmsiStatistics (\s a -> s { _gmsiStatistics = a })
 -- | The unit for the metric.
 gmsiUnit :: Lens' GetMetricStatisticsInput (Maybe Text)
 gmsiUnit = lens _gmsiUnit (\s a -> s { _gmsiUnit = a })
+
 instance ToQuery GetMetricStatisticsInput
 
 instance ToPath GetMetricStatisticsInput where
@@ -170,7 +171,7 @@ instance ToPath GetMetricStatisticsInput where
 data GetMetricStatisticsOutput = GetMetricStatisticsOutput
     { _gmsoDatapoints :: [Datapoint]
     , _gmsoLabel      :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetMetricStatisticsOutput' constructor.
 --

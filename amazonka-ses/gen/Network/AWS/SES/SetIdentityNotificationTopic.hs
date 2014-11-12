@@ -51,7 +51,7 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic
     { _sintIdentity         :: Text
     , _sintNotificationType :: Text
     , _sintSnsTopic         :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetIdentityNotificationTopic' constructor.
 --
@@ -88,6 +88,7 @@ sintNotificationType =
 -- cleared and publishing is disabled.
 sintSnsTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
 sintSnsTopic = lens _sintSnsTopic (\s a -> s { _sintSnsTopic = a })
+
 instance ToQuery SetIdentityNotificationTopic
 
 instance ToPath SetIdentityNotificationTopic where

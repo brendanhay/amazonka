@@ -48,7 +48,7 @@ import Network.AWS.SNS.Types
 
 newtype UnsubscribeInput = UnsubscribeInput
     { _uiSubscriptionArn :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'UnsubscribeInput' constructor.
 --
@@ -66,6 +66,7 @@ unsubscribeInput p1 = UnsubscribeInput
 uiSubscriptionArn :: Lens' UnsubscribeInput Text
 uiSubscriptionArn =
     lens _uiSubscriptionArn (\s a -> s { _uiSubscriptionArn = a })
+
 instance ToQuery UnsubscribeInput
 
 instance ToPath UnsubscribeInput where

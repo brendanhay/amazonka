@@ -46,7 +46,7 @@ import Network.AWS.CloudSearch.Types
 
 newtype IndexDocuments = IndexDocuments
     { _idDomainName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'IndexDocuments' constructor.
 --
@@ -62,6 +62,7 @@ indexDocuments p1 = IndexDocuments
 
 idDomainName :: Lens' IndexDocuments Text
 idDomainName = lens _idDomainName (\s a -> s { _idDomainName = a })
+
 instance ToQuery IndexDocuments
 
 instance ToPath IndexDocuments where
@@ -69,16 +70,13 @@ instance ToPath IndexDocuments where
 
 newtype IndexDocumentsResponse = IndexDocumentsResponse
     { _idrFieldNames :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList IndexDocumentsResponse
+    type Item IndexDocumentsResponse = Text
+
+    fromList = IndexDocumentsResponse . fromList
+    toList   = toList . _idrFieldNames
 
 -- | 'IndexDocumentsResponse' constructor.
 --

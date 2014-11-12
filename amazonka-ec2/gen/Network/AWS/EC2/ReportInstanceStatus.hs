@@ -60,7 +60,7 @@ data ReportInstanceStatus = ReportInstanceStatus
     , _risReasonCodes :: [Text]
     , _risStartTime   :: Maybe RFC822
     , _risStatus      :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ReportInstanceStatus' constructor.
 --
@@ -131,6 +131,7 @@ risStartTime = lens _risStartTime (\s a -> s { _risStartTime = a })
 -- | The status of all instances listed.
 risStatus :: Lens' ReportInstanceStatus Text
 risStatus = lens _risStatus (\s a -> s { _risStatus = a })
+
 instance ToQuery ReportInstanceStatus
 
 instance ToPath ReportInstanceStatus where

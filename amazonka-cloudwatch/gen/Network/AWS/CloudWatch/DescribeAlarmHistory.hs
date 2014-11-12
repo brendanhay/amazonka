@@ -57,7 +57,7 @@ data DescribeAlarmHistoryInput = DescribeAlarmHistoryInput
     , _dahiMaxRecords      :: Maybe Natural
     , _dahiNextToken       :: Maybe Text
     , _dahiStartDate       :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAlarmHistoryInput' constructor.
 --
@@ -112,6 +112,7 @@ dahiNextToken = lens _dahiNextToken (\s a -> s { _dahiNextToken = a })
 dahiStartDate :: Lens' DescribeAlarmHistoryInput (Maybe UTCTime)
 dahiStartDate = lens _dahiStartDate (\s a -> s { _dahiStartDate = a })
     . mapping _Time
+
 instance ToQuery DescribeAlarmHistoryInput
 
 instance ToPath DescribeAlarmHistoryInput where
@@ -120,7 +121,7 @@ instance ToPath DescribeAlarmHistoryInput where
 data DescribeAlarmHistoryOutput = DescribeAlarmHistoryOutput
     { _dahoAlarmHistoryItems :: [AlarmHistoryItem]
     , _dahoNextToken         :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeAlarmHistoryOutput' constructor.
 --

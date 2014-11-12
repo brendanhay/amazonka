@@ -85,7 +85,7 @@ data HeadObject = HeadObject
     , _hoSSECustomerKey       :: Maybe (Sensitive Text)
     , _hoSSECustomerKeyMD5    :: Maybe Text
     , _hoVersionId            :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'HeadObject' constructor.
 --
@@ -236,7 +236,7 @@ data HeadObjectOutput = HeadObjectOutput
     , _hooServerSideEncryption    :: Maybe Text
     , _hooVersionId               :: Maybe Text
     , _hooWebsiteRedirectLocation :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'HeadObjectOutput' constructor.
 --

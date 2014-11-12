@@ -54,7 +54,7 @@ data UpdateSigningCertificate = UpdateSigningCertificate
     { _uscCertificateId :: Text
     , _uscStatus        :: Text
     , _uscUserName      :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateSigningCertificate' constructor.
 --
@@ -88,6 +88,7 @@ uscStatus = lens _uscStatus (\s a -> s { _uscStatus = a })
 -- | The name of the user the signing certificate belongs to.
 uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
 uscUserName = lens _uscUserName (\s a -> s { _uscUserName = a })
+
 instance ToQuery UpdateSigningCertificate
 
 instance ToPath UpdateSigningCertificate where

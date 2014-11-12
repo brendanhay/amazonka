@@ -46,6 +46,7 @@ data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes
 -- | 'DescribeLifecycleHookTypes' constructor.
 describeLifecycleHookTypes :: DescribeLifecycleHookTypes
 describeLifecycleHookTypes = DescribeLifecycleHookTypes
+
 instance ToQuery DescribeLifecycleHookTypes
 
 instance ToPath DescribeLifecycleHookTypes where
@@ -53,16 +54,13 @@ instance ToPath DescribeLifecycleHookTypes where
 
 newtype DescribeLifecycleHookTypesAnswer = DescribeLifecycleHookTypesAnswer
     { _dlhtaLifecycleHookTypes :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList DescribeLifecycleHookTypesAnswer
+    type Item DescribeLifecycleHookTypesAnswer = Text
+
+    fromList = DescribeLifecycleHookTypesAnswer . fromList
+    toList   = toList . _dlhtaLifecycleHookTypes
 
 -- | 'DescribeLifecycleHookTypesAnswer' constructor.
 --

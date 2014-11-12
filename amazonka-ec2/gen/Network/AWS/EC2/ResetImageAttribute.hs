@@ -46,7 +46,7 @@ data ResetImageAttribute = ResetImageAttribute
     { _riaAttribute :: Text
     , _riaDryRun    :: Maybe Bool
     , _riaImageId   :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResetImageAttribute' constructor.
 --
@@ -78,6 +78,7 @@ riaDryRun = lens _riaDryRun (\s a -> s { _riaDryRun = a })
 -- | The ID of the AMI.
 riaImageId :: Lens' ResetImageAttribute Text
 riaImageId = lens _riaImageId (\s a -> s { _riaImageId = a })
+
 instance ToQuery ResetImageAttribute
 
 instance ToPath ResetImageAttribute where

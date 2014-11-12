@@ -60,7 +60,7 @@ data DeleteClusterMessage = DeleteClusterMessage
     { _dcmClusterIdentifier              :: Text
     , _dcmFinalClusterSnapshotIdentifier :: Maybe Text
     , _dcmSkipFinalClusterSnapshot       :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteClusterMessage' constructor.
 --
@@ -106,6 +106,7 @@ dcmSkipFinalClusterSnapshot :: Lens' DeleteClusterMessage (Maybe Bool)
 dcmSkipFinalClusterSnapshot =
     lens _dcmSkipFinalClusterSnapshot
         (\s a -> s { _dcmSkipFinalClusterSnapshot = a })
+
 instance ToQuery DeleteClusterMessage
 
 instance ToPath DeleteClusterMessage where
@@ -113,7 +114,7 @@ instance ToPath DeleteClusterMessage where
 
 newtype DeleteClusterResult = DeleteClusterResult
     { _dcrCluster :: Maybe Cluster
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteClusterResult' constructor.
 --

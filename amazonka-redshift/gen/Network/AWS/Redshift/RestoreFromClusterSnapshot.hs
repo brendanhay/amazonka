@@ -85,7 +85,7 @@ data RestoreFromClusterSnapshotMessage = RestoreFromClusterSnapshotMessage
     , _rfcsmSnapshotClusterIdentifier        :: Maybe Text
     , _rfcsmSnapshotIdentifier               :: Text
     , _rfcsmVpcSecurityGroupIds              :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RestoreFromClusterSnapshotMessage' constructor.
 --
@@ -277,6 +277,7 @@ rfcsmVpcSecurityGroupIds :: Lens' RestoreFromClusterSnapshotMessage [Text]
 rfcsmVpcSecurityGroupIds =
     lens _rfcsmVpcSecurityGroupIds
         (\s a -> s { _rfcsmVpcSecurityGroupIds = a })
+
 instance ToQuery RestoreFromClusterSnapshotMessage
 
 instance ToPath RestoreFromClusterSnapshotMessage where
@@ -284,7 +285,7 @@ instance ToPath RestoreFromClusterSnapshotMessage where
 
 newtype RestoreFromClusterSnapshotResult = RestoreFromClusterSnapshotResult
     { _rfcsrCluster :: Maybe Cluster
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RestoreFromClusterSnapshotResult' constructor.
 --

@@ -47,7 +47,7 @@ import Network.AWS.ElastiCache.Types
 data CreateSnapshotMessage = CreateSnapshotMessage
     { _csmCacheClusterId :: Text
     , _csmSnapshotName   :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateSnapshotMessage' constructor.
 --
@@ -74,6 +74,7 @@ csmCacheClusterId =
 -- | A name for the snapshot being created.
 csmSnapshotName :: Lens' CreateSnapshotMessage Text
 csmSnapshotName = lens _csmSnapshotName (\s a -> s { _csmSnapshotName = a })
+
 instance ToQuery CreateSnapshotMessage
 
 instance ToPath CreateSnapshotMessage where
@@ -81,7 +82,7 @@ instance ToPath CreateSnapshotMessage where
 
 newtype CreateSnapshotResult = CreateSnapshotResult
     { _csr1Snapshot :: Maybe Snapshot
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateSnapshotResult' constructor.
 --

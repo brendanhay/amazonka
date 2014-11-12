@@ -53,7 +53,7 @@ data DescribeTags = DescribeTags
     , _dtFilters    :: [Filter]
     , _dtMaxResults :: Maybe Int
     , _dtNextToken  :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeTags' constructor.
 --
@@ -98,6 +98,7 @@ dtMaxResults = lens _dtMaxResults (\s a -> s { _dtMaxResults = a })
 -- from a prior call.).
 dtNextToken :: Lens' DescribeTags (Maybe Text)
 dtNextToken = lens _dtNextToken (\s a -> s { _dtNextToken = a })
+
 instance ToQuery DescribeTags
 
 instance ToPath DescribeTags where
@@ -106,7 +107,7 @@ instance ToPath DescribeTags where
 data DescribeTagsResult = DescribeTagsResult
     { _dtrNextToken :: Maybe Text
     , _dtrTags      :: [TagDescription]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeTagsResult' constructor.
 --

@@ -45,7 +45,7 @@ import Network.AWS.SQS.Types
 data RemovePermission = RemovePermission
     { _rpLabel    :: Text
     , _rpQueueUrl :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RemovePermission' constructor.
 --
@@ -71,6 +71,7 @@ rpLabel = lens _rpLabel (\s a -> s { _rpLabel = a })
 -- | The URL of the Amazon SQS queue to take action on.
 rpQueueUrl :: Lens' RemovePermission Text
 rpQueueUrl = lens _rpQueueUrl (\s a -> s { _rpQueueUrl = a })
+
 instance ToQuery RemovePermission
 
 instance ToPath RemovePermission where

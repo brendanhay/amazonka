@@ -56,7 +56,7 @@ data DescribeSnapshotsMessage = DescribeSnapshotsMessage
     , _dsm1MaxRecords     :: Maybe Int
     , _dsm1SnapshotName   :: Maybe Text
     , _dsm1SnapshotSource :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeSnapshotsMessage' constructor.
 --
@@ -113,6 +113,7 @@ dsm1SnapshotName = lens _dsm1SnapshotName (\s a -> s { _dsm1SnapshotName = a })
 dsm1SnapshotSource :: Lens' DescribeSnapshotsMessage (Maybe Text)
 dsm1SnapshotSource =
     lens _dsm1SnapshotSource (\s a -> s { _dsm1SnapshotSource = a })
+
 instance ToQuery DescribeSnapshotsMessage
 
 instance ToPath DescribeSnapshotsMessage where
@@ -121,7 +122,7 @@ instance ToPath DescribeSnapshotsMessage where
 data DescribeSnapshotsListMessage = DescribeSnapshotsListMessage
     { _dslmMarker    :: Maybe Text
     , _dslmSnapshots :: [Snapshot]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeSnapshotsListMessage' constructor.
 --

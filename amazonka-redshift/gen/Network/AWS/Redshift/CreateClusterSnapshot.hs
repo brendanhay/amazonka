@@ -48,7 +48,7 @@ import Network.AWS.Redshift.Types
 data CreateClusterSnapshotMessage = CreateClusterSnapshotMessage
     { _ccsmClusterIdentifier  :: Text
     , _ccsmSnapshotIdentifier :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateClusterSnapshotMessage' constructor.
 --
@@ -80,6 +80,7 @@ ccsmClusterIdentifier =
 ccsmSnapshotIdentifier :: Lens' CreateClusterSnapshotMessage Text
 ccsmSnapshotIdentifier =
     lens _ccsmSnapshotIdentifier (\s a -> s { _ccsmSnapshotIdentifier = a })
+
 instance ToQuery CreateClusterSnapshotMessage
 
 instance ToPath CreateClusterSnapshotMessage where
@@ -87,7 +88,7 @@ instance ToPath CreateClusterSnapshotMessage where
 
 newtype CreateClusterSnapshotResult = CreateClusterSnapshotResult
     { _ccsr1Snapshot :: Maybe Snapshot
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateClusterSnapshotResult' constructor.
 --

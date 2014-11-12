@@ -51,7 +51,7 @@ data DescribeCacheSecurityGroupsMessage = DescribeCacheSecurityGroupsMessage
     { _dcsgm1CacheSecurityGroupName :: Maybe Text
     , _dcsgm1Marker                 :: Maybe Text
     , _dcsgm1MaxRecords             :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeCacheSecurityGroupsMessage' constructor.
 --
@@ -89,6 +89,7 @@ dcsgm1Marker = lens _dcsgm1Marker (\s a -> s { _dcsgm1Marker = a })
 -- Constraints: minimum 20; maximum 100.
 dcsgm1MaxRecords :: Lens' DescribeCacheSecurityGroupsMessage (Maybe Int)
 dcsgm1MaxRecords = lens _dcsgm1MaxRecords (\s a -> s { _dcsgm1MaxRecords = a })
+
 instance ToQuery DescribeCacheSecurityGroupsMessage
 
 instance ToPath DescribeCacheSecurityGroupsMessage where
@@ -97,7 +98,7 @@ instance ToPath DescribeCacheSecurityGroupsMessage where
 data CacheSecurityGroupMessage = CacheSecurityGroupMessage
     { _csgmCacheSecurityGroups :: [CacheSecurityGroup]
     , _csgmMarker              :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CacheSecurityGroupMessage' constructor.
 --

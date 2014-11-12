@@ -112,7 +112,7 @@ data AssumeRole = AssumeRole
     , _arRoleSessionName :: Text
     , _arSerialNumber    :: Maybe Text
     , _arTokenCode       :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AssumeRole' constructor.
 --
@@ -201,6 +201,7 @@ arSerialNumber = lens _arSerialNumber (\s a -> s { _arSerialNumber = a })
 -- "access denied" error.
 arTokenCode :: Lens' AssumeRole (Maybe Text)
 arTokenCode = lens _arTokenCode (\s a -> s { _arTokenCode = a })
+
 instance ToQuery AssumeRole
 
 instance ToPath AssumeRole where
@@ -210,7 +211,7 @@ data AssumeRoleResponse = AssumeRoleResponse
     { _arrAssumedRoleUser  :: Maybe AssumedRoleUser
     , _arrCredentials      :: Maybe Credentials
     , _arrPackedPolicySize :: Maybe Natural
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AssumeRoleResponse' constructor.
 --

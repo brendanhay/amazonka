@@ -60,7 +60,7 @@ data CreateImage = CreateImage
     , _ci1InstanceId          :: Text
     , _ci1Name                :: Text
     , _ci1NoReboot            :: Maybe Bool
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateImage' constructor.
 --
@@ -120,6 +120,7 @@ ci1Name = lens _ci1Name (\s a -> s { _ci1Name = a })
 -- guaranteed.
 ci1NoReboot :: Lens' CreateImage (Maybe Bool)
 ci1NoReboot = lens _ci1NoReboot (\s a -> s { _ci1NoReboot = a })
+
 instance ToQuery CreateImage
 
 instance ToPath CreateImage where
@@ -127,7 +128,7 @@ instance ToPath CreateImage where
 
 newtype CreateImageResult = CreateImageResult
     { _cirImageId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateImageResult' constructor.
 --

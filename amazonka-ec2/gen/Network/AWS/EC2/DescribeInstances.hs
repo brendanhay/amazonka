@@ -60,7 +60,7 @@ data DescribeInstances = DescribeInstances
     , _diInstanceIds :: [Text]
     , _diMaxResults  :: Maybe Int
     , _diNextToken   :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeInstances' constructor.
 --
@@ -232,6 +232,7 @@ diMaxResults = lens _diMaxResults (\s a -> s { _diMaxResults = a })
 -- from a prior call.).
 diNextToken :: Lens' DescribeInstances (Maybe Text)
 diNextToken = lens _diNextToken (\s a -> s { _diNextToken = a })
+
 instance ToQuery DescribeInstances
 
 instance ToPath DescribeInstances where
@@ -240,7 +241,7 @@ instance ToPath DescribeInstances where
 data DescribeInstancesResult = DescribeInstancesResult
     { _dirNextToken    :: Maybe Text
     , _dirReservations :: [Reservation]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeInstancesResult' constructor.
 --

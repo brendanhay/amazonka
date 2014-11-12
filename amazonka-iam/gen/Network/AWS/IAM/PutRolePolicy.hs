@@ -49,7 +49,7 @@ data PutRolePolicy = PutRolePolicy
     { _prpPolicyDocument :: Text
     , _prpPolicyName     :: Text
     , _prpRoleName       :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutRolePolicy' constructor.
 --
@@ -83,6 +83,7 @@ prpPolicyName = lens _prpPolicyName (\s a -> s { _prpPolicyName = a })
 -- | The name of the role to associate the policy with.
 prpRoleName :: Lens' PutRolePolicy Text
 prpRoleName = lens _prpRoleName (\s a -> s { _prpRoleName = a })
+
 instance ToQuery PutRolePolicy
 
 instance ToPath PutRolePolicy where

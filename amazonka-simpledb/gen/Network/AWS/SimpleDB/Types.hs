@@ -100,7 +100,7 @@ data Attribute = Attribute
     , _aAlternateValueEncoding :: Maybe Text
     , _aName                   :: Text
     , _aValue                  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Attribute' constructor.
 --
@@ -151,7 +151,7 @@ instance ToQuery Attribute
 data DeletableItem = DeletableItem
     { _diAttributes :: [Attribute]
     , _diName       :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeletableItem' constructor.
 --
@@ -183,7 +183,7 @@ instance ToQuery DeletableItem
 data ReplaceableItem = ReplaceableItem
     { _riAttributes :: [ReplaceableAttribute]
     , _riName       :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ReplaceableItem' constructor.
 --
@@ -218,7 +218,7 @@ data UpdateCondition = UpdateCondition
     { _ucExists :: Maybe Bool
     , _ucName   :: Maybe Text
     , _ucValue  :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateCondition' constructor.
 --
@@ -264,7 +264,7 @@ data ReplaceableAttribute = ReplaceableAttribute
     { _raName    :: Text
     , _raReplace :: Maybe Bool
     , _raValue   :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ReplaceableAttribute' constructor.
 --
@@ -308,7 +308,7 @@ data Item = Item
     { _iAlternateNameEncoding :: Maybe Text
     , _iAttributes            :: [Attribute]
     , _iName                  :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'Item' constructor.
 --

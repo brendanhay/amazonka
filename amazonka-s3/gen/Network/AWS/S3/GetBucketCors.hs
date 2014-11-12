@@ -44,7 +44,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketCors = GetBucketCors
     { _gbcBucket :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetBucketCors' constructor.
 --
@@ -74,7 +74,13 @@ instance ToHeaders GetBucketCors
 
 newtype GetBucketCorsOutput = GetBucketCorsOutput
     { _gbcoCORSRules :: [CORSRule]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList GetBucketCorsOutput
+    type Item GetBucketCorsOutput = CORSRule
+
+    fromList = GetBucketCorsOutput . fromList
+    toList   = toList . _gbcoCORSRules
 
 -- | 'GetBucketCorsOutput' constructor.
 --

@@ -44,7 +44,7 @@ import Network.AWS.S3.Types
 
 newtype DeleteBucket = DeleteBucket
     { _dbBucket :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteBucket' constructor.
 --

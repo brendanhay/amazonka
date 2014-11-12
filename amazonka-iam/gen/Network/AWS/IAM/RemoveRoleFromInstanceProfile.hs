@@ -50,7 +50,7 @@ import Network.AWS.IAM.Types
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
     { _rrfipInstanceProfileName :: Text
     , _rrfipRoleName            :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RemoveRoleFromInstanceProfile' constructor.
 --
@@ -77,6 +77,7 @@ rrfipInstanceProfileName =
 -- | The name of the role to remove.
 rrfipRoleName :: Lens' RemoveRoleFromInstanceProfile Text
 rrfipRoleName = lens _rrfipRoleName (\s a -> s { _rrfipRoleName = a })
+
 instance ToQuery RemoveRoleFromInstanceProfile
 
 instance ToPath RemoveRoleFromInstanceProfile where

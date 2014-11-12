@@ -56,16 +56,13 @@ import Network.AWS.SES.Types
 
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
     { _gidaIdentities :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList GetIdentityDkimAttributes
+    type Item GetIdentityDkimAttributes = Text
+
+    fromList = GetIdentityDkimAttributes . fromList
+    toList   = toList . _gidaIdentities
 
 -- | 'GetIdentityDkimAttributes' constructor.
 --
@@ -82,6 +79,7 @@ getIdentityDkimAttributes = GetIdentityDkimAttributes
 -- both.
 gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
 gidaIdentities = lens _gidaIdentities (\s a -> s { _gidaIdentities = a })
+
 instance ToQuery GetIdentityDkimAttributes
 
 instance ToPath GetIdentityDkimAttributes where
@@ -89,7 +87,13 @@ instance ToPath GetIdentityDkimAttributes where
 
 newtype GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse
     { _gidarDkimAttributes :: Map Text IdentityDkimAttributes
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList GetIdentityDkimAttributesResponse
+    type Item GetIdentityDkimAttributesResponse = (Text, IdentityDkimAttributes)
+
+    fromList = GetIdentityDkimAttributesResponse . fromList
+    toList   = toList . _gidarDkimAttributes
 
 -- | 'GetIdentityDkimAttributesResponse' constructor.
 --

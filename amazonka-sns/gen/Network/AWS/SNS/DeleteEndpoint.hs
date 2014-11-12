@@ -43,7 +43,7 @@ import Network.AWS.SNS.Types
 
 newtype DeleteEndpointInput = DeleteEndpointInput
     { _deiEndpointArn :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteEndpointInput' constructor.
 --
@@ -60,6 +60,7 @@ deleteEndpointInput p1 = DeleteEndpointInput
 -- | EndpointArn of endpoint to delete.
 deiEndpointArn :: Lens' DeleteEndpointInput Text
 deiEndpointArn = lens _deiEndpointArn (\s a -> s { _deiEndpointArn = a })
+
 instance ToQuery DeleteEndpointInput
 
 instance ToPath DeleteEndpointInput where

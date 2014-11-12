@@ -45,7 +45,7 @@ import Network.AWS.SES.Types
 
 newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress
     { _dveaEmailAddress :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteVerifiedEmailAddress' constructor.
 --
@@ -62,6 +62,7 @@ deleteVerifiedEmailAddress p1 = DeleteVerifiedEmailAddress
 -- | An email address to be removed from the list of verified addresses.
 dveaEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
 dveaEmailAddress = lens _dveaEmailAddress (\s a -> s { _dveaEmailAddress = a })
+
 instance ToQuery DeleteVerifiedEmailAddress
 
 instance ToPath DeleteVerifiedEmailAddress where

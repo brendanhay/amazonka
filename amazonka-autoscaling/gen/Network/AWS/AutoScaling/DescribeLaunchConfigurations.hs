@@ -51,7 +51,7 @@ data LaunchConfigurationNamesType = LaunchConfigurationNamesType
     { _lcntLaunchConfigurationNames :: [Text]
     , _lcntMaxRecords               :: Maybe Int
     , _lcntNextToken                :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'LaunchConfigurationNamesType' constructor.
 --
@@ -83,6 +83,7 @@ lcntMaxRecords = lens _lcntMaxRecords (\s a -> s { _lcntMaxRecords = a })
 -- | A string that marks the start of the next batch of returned results.
 lcntNextToken :: Lens' LaunchConfigurationNamesType (Maybe Text)
 lcntNextToken = lens _lcntNextToken (\s a -> s { _lcntNextToken = a })
+
 instance ToQuery LaunchConfigurationNamesType
 
 instance ToPath LaunchConfigurationNamesType where
@@ -91,7 +92,7 @@ instance ToPath LaunchConfigurationNamesType where
 data LaunchConfigurationsType = LaunchConfigurationsType
     { _lctLaunchConfigurations :: [LaunchConfiguration]
     , _lctNextToken            :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'LaunchConfigurationsType' constructor.
 --

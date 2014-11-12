@@ -50,7 +50,7 @@ data DescribeDhcpOptions = DescribeDhcpOptions
     { _ddo1DhcpOptionsIds :: [Text]
     , _ddo1DryRun         :: Maybe Bool
     , _ddo1Filters        :: [Filter]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeDhcpOptions' constructor.
 --
@@ -92,6 +92,7 @@ ddo1DryRun = lens _ddo1DryRun (\s a -> s { _ddo1DryRun = a })
 -- tag-key filter.
 ddo1Filters :: Lens' DescribeDhcpOptions [Filter]
 ddo1Filters = lens _ddo1Filters (\s a -> s { _ddo1Filters = a })
+
 instance ToQuery DescribeDhcpOptions
 
 instance ToPath DescribeDhcpOptions where
@@ -99,7 +100,13 @@ instance ToPath DescribeDhcpOptions where
 
 newtype DescribeDhcpOptionsResult = DescribeDhcpOptionsResult
     { _ddorDhcpOptions :: [DhcpOptions]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeDhcpOptionsResult
+    type Item DescribeDhcpOptionsResult = DhcpOptions
+
+    fromList = DescribeDhcpOptionsResult . fromList
+    toList   = toList . _ddorDhcpOptions
 
 -- | 'DescribeDhcpOptionsResult' constructor.
 --

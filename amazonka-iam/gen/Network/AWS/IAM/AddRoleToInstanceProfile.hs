@@ -46,7 +46,7 @@ import Network.AWS.IAM.Types
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile
     { _artipInstanceProfileName :: Text
     , _artipRoleName            :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AddRoleToInstanceProfile' constructor.
 --
@@ -73,6 +73,7 @@ artipInstanceProfileName =
 -- | The name of the role to add.
 artipRoleName :: Lens' AddRoleToInstanceProfile Text
 artipRoleName = lens _artipRoleName (\s a -> s { _artipRoleName = a })
+
 instance ToQuery AddRoleToInstanceProfile
 
 instance ToPath AddRoleToInstanceProfile where

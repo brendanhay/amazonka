@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 data DisassociateRouteTable = DisassociateRouteTable
     { _drtAssociationId :: Text
     , _drtDryRun        :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DisassociateRouteTable' constructor.
 --
@@ -71,6 +71,7 @@ drtAssociationId = lens _drtAssociationId (\s a -> s { _drtAssociationId = a })
 
 drtDryRun :: Lens' DisassociateRouteTable (Maybe Bool)
 drtDryRun = lens _drtDryRun (\s a -> s { _drtDryRun = a })
+
 instance ToQuery DisassociateRouteTable
 
 instance ToPath DisassociateRouteTable where

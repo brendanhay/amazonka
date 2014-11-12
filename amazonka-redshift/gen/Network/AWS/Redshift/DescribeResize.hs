@@ -60,7 +60,7 @@ import Network.AWS.Redshift.Types
 
 newtype DescribeResizeMessage = DescribeResizeMessage
     { _drmClusterIdentifier :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DescribeResizeMessage' constructor.
 --
@@ -80,6 +80,7 @@ describeResizeMessage p1 = DescribeResizeMessage
 drmClusterIdentifier :: Lens' DescribeResizeMessage Text
 drmClusterIdentifier =
     lens _drmClusterIdentifier (\s a -> s { _drmClusterIdentifier = a })
+
 instance ToQuery DescribeResizeMessage
 
 instance ToPath DescribeResizeMessage where
@@ -98,7 +99,7 @@ data ResizeProgressMessage = ResizeProgressMessage
     , _rpmTargetNodeType                     :: Maybe Text
     , _rpmTargetNumberOfNodes                :: Maybe Int
     , _rpmTotalResizeDataInMegaBytes         :: Maybe Integer
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResizeProgressMessage' constructor.
 --

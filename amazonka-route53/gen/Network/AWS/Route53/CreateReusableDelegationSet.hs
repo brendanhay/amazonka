@@ -54,7 +54,7 @@ import Network.AWS.Route53.Types
 data CreateReusableDelegationSet = CreateReusableDelegationSet
     { _crdsCallerReference :: Text
     , _crdsHostedZoneId    :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateReusableDelegationSet' constructor.
 --
@@ -102,7 +102,7 @@ instance ToBody CreateReusableDelegationSet where
 data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse
     { _crdsrDelegationSet :: DelegationSet
     , _crdsrLocation      :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateReusableDelegationSetResponse' constructor.
 --

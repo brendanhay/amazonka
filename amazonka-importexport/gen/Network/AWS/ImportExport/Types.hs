@@ -68,7 +68,7 @@ xmlOptions = Tagged def
 data JobType
     = Export -- ^ Export
     | Import -- ^ Import
-      deriving (Eq, Ord, Enum, Show, Generic)
+      deriving (Eq, Ord, Show, Generic, Enum)
 
 instance Hashable JobType
 
@@ -92,7 +92,7 @@ data Job = Job
     , _jobIsCanceled   :: Bool
     , _jobJobId        :: Text
     , _jobJobType      :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Job' constructor.
 --

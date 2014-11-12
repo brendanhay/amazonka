@@ -48,7 +48,7 @@ data UpdateUser = UpdateUser
     { _uuNewPath     :: Maybe Text
     , _uuNewUserName :: Maybe Text
     , _uuUserName    :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateUser' constructor.
 --
@@ -82,6 +82,7 @@ uuNewUserName = lens _uuNewUserName (\s a -> s { _uuNewUserName = a })
 -- is the original user name.
 uuUserName :: Lens' UpdateUser Text
 uuUserName = lens _uuUserName (\s a -> s { _uuUserName = a })
+
 instance ToQuery UpdateUser
 
 instance ToPath UpdateUser where

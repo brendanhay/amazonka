@@ -67,7 +67,7 @@ data CreateSecurityGroup = CreateSecurityGroup
     , _csgDryRun      :: Maybe Bool
     , _csgGroupName   :: Text
     , _csgVpcId       :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateSecurityGroup' constructor.
 --
@@ -110,6 +110,7 @@ csgGroupName = lens _csgGroupName (\s a -> s { _csgGroupName = a })
 -- | [EC2-VPC] The ID of the VPC. Required for EC2-VPC.
 csgVpcId :: Lens' CreateSecurityGroup (Maybe Text)
 csgVpcId = lens _csgVpcId (\s a -> s { _csgVpcId = a })
+
 instance ToQuery CreateSecurityGroup
 
 instance ToPath CreateSecurityGroup where
@@ -117,7 +118,7 @@ instance ToPath CreateSecurityGroup where
 
 newtype CreateSecurityGroupResult = CreateSecurityGroupResult
     { _csgrGroupId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateSecurityGroupResult' constructor.
 --

@@ -48,7 +48,7 @@ import Network.AWS.EC2.Types
 data DeleteVpnGateway = DeleteVpnGateway
     { _dvgDryRun       :: Maybe Bool
     , _dvgVpnGatewayId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpnGateway' constructor.
 --
@@ -71,6 +71,7 @@ dvgDryRun = lens _dvgDryRun (\s a -> s { _dvgDryRun = a })
 -- | The ID of the virtual private gateway.
 dvgVpnGatewayId :: Lens' DeleteVpnGateway Text
 dvgVpnGatewayId = lens _dvgVpnGatewayId (\s a -> s { _dvgVpnGatewayId = a })
+
 instance ToQuery DeleteVpnGateway
 
 instance ToPath DeleteVpnGateway where

@@ -42,7 +42,7 @@ import Network.AWS.S3.Types
 
 newtype DeleteBucketTagging = DeleteBucketTagging
     { _dbtBucket :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteBucketTagging' constructor.
 --

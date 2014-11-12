@@ -47,7 +47,7 @@ import Network.AWS.EC2.Types
 data DeletePlacementGroup = DeletePlacementGroup
     { _dpgDryRun    :: Maybe Bool
     , _dpgGroupName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeletePlacementGroup' constructor.
 --
@@ -70,6 +70,7 @@ dpgDryRun = lens _dpgDryRun (\s a -> s { _dpgDryRun = a })
 -- | The name of the placement group.
 dpgGroupName :: Lens' DeletePlacementGroup Text
 dpgGroupName = lens _dpgGroupName (\s a -> s { _dpgGroupName = a })
+
 instance ToQuery DeletePlacementGroup
 
 instance ToPath DeletePlacementGroup where

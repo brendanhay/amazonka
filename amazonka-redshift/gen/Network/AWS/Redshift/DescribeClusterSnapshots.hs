@@ -63,7 +63,7 @@ data DescribeClusterSnapshotsMessage = DescribeClusterSnapshotsMessage
     , _dcsm1SnapshotIdentifier :: Maybe Text
     , _dcsm1SnapshotType       :: Maybe Text
     , _dcsm1StartTime          :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeClusterSnapshotsMessage' constructor.
 --
@@ -156,6 +156,7 @@ dcsm1SnapshotType =
 dcsm1StartTime :: Lens' DescribeClusterSnapshotsMessage (Maybe UTCTime)
 dcsm1StartTime = lens _dcsm1StartTime (\s a -> s { _dcsm1StartTime = a })
     . mapping _Time
+
 instance ToQuery DescribeClusterSnapshotsMessage
 
 instance ToPath DescribeClusterSnapshotsMessage where
@@ -164,7 +165,7 @@ instance ToPath DescribeClusterSnapshotsMessage where
 data SnapshotMessage = SnapshotMessage
     { _smMarker    :: Maybe Text
     , _smSnapshots :: [Snapshot]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'SnapshotMessage' constructor.
 --

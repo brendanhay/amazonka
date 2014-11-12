@@ -66,7 +66,7 @@ import Network.AWS.ELB.Types
 data RegisterEndPointsInput = RegisterEndPointsInput
     { _repiInstances        :: [Instance]
     , _repiLoadBalancerName :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RegisterEndPointsInput' constructor.
 --
@@ -92,6 +92,7 @@ repiInstances = lens _repiInstances (\s a -> s { _repiInstances = a })
 repiLoadBalancerName :: Lens' RegisterEndPointsInput Text
 repiLoadBalancerName =
     lens _repiLoadBalancerName (\s a -> s { _repiLoadBalancerName = a })
+
 instance ToQuery RegisterEndPointsInput
 
 instance ToPath RegisterEndPointsInput where
@@ -99,7 +100,13 @@ instance ToPath RegisterEndPointsInput where
 
 newtype RegisterEndPointsOutput = RegisterEndPointsOutput
     { _repoInstances :: [Instance]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList RegisterEndPointsOutput
+    type Item RegisterEndPointsOutput = Instance
+
+    fromList = RegisterEndPointsOutput . fromList
+    toList   = toList . _repoInstances
 
 -- | 'RegisterEndPointsOutput' constructor.
 --

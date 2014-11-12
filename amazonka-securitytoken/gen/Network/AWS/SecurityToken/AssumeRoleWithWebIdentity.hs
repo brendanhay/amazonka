@@ -105,7 +105,7 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity
     , _arwwiRoleArn          :: Text
     , _arwwiRoleSessionName  :: Text
     , _arwwiWebIdentityToken :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AssumeRoleWithWebIdentity' constructor.
 --
@@ -185,6 +185,7 @@ arwwiRoleSessionName =
 arwwiWebIdentityToken :: Lens' AssumeRoleWithWebIdentity Text
 arwwiWebIdentityToken =
     lens _arwwiWebIdentityToken (\s a -> s { _arwwiWebIdentityToken = a })
+
 instance ToQuery AssumeRoleWithWebIdentity
 
 instance ToPath AssumeRoleWithWebIdentity where
@@ -197,7 +198,7 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse
     , _arwwirPackedPolicySize            :: Maybe Natural
     , _arwwirProvider                    :: Maybe Text
     , _arwwirSubjectFromWebIdentityToken :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AssumeRoleWithWebIdentityResponse' constructor.
 --

@@ -50,7 +50,7 @@ data RequestEnvironmentInfoMessage = RequestEnvironmentInfoMessage
     { _reim1EnvironmentId   :: Maybe Text
     , _reim1EnvironmentName :: Maybe Text
     , _reim1InfoType        :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RequestEnvironmentInfoMessage' constructor.
 --
@@ -91,6 +91,7 @@ reim1EnvironmentName =
 -- | The type of information to request.
 reim1InfoType :: Lens' RequestEnvironmentInfoMessage Text
 reim1InfoType = lens _reim1InfoType (\s a -> s { _reim1InfoType = a })
+
 instance ToQuery RequestEnvironmentInfoMessage
 
 instance ToPath RequestEnvironmentInfoMessage where

@@ -72,7 +72,7 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress
     , _asgeSourceSecurityGroupName    :: Maybe Text
     , _asgeSourceSecurityGroupOwnerId :: Maybe Text
     , _asgeToPort                     :: Maybe Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AuthorizeSecurityGroupEgress' constructor.
 --
@@ -158,6 +158,7 @@ asgeSourceSecurityGroupOwnerId =
 -- the ICMP type.
 asgeToPort :: Lens' AuthorizeSecurityGroupEgress (Maybe Int)
 asgeToPort = lens _asgeToPort (\s a -> s { _asgeToPort = a })
+
 instance ToQuery AuthorizeSecurityGroupEgress
 
 instance ToPath AuthorizeSecurityGroupEgress where

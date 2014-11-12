@@ -47,6 +47,7 @@ data ListAvailableSolutionStacks = ListAvailableSolutionStacks
 -- | 'ListAvailableSolutionStacks' constructor.
 listAvailableSolutionStacks :: ListAvailableSolutionStacks
 listAvailableSolutionStacks = ListAvailableSolutionStacks
+
 instance ToQuery ListAvailableSolutionStacks
 
 instance ToPath ListAvailableSolutionStacks where
@@ -55,7 +56,7 @@ instance ToPath ListAvailableSolutionStacks where
 data ListAvailableSolutionStacksResultMessage = ListAvailableSolutionStacksResultMessage
     { _lassrmSolutionStackDetails :: [SolutionStackDescription]
     , _lassrmSolutionStacks       :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListAvailableSolutionStacksResultMessage' constructor.
 --

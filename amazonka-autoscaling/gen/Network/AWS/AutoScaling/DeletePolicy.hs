@@ -44,7 +44,7 @@ import Network.AWS.AutoScaling.Types
 data DeletePolicyType = DeletePolicyType
     { _dpt1AutoScalingGroupName :: Maybe Text
     , _dpt1PolicyName           :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeletePolicyType' constructor.
 --
@@ -70,6 +70,7 @@ dpt1AutoScalingGroupName =
 -- | The name or PolicyARN of the policy you want to delete.
 dpt1PolicyName :: Lens' DeletePolicyType Text
 dpt1PolicyName = lens _dpt1PolicyName (\s a -> s { _dpt1PolicyName = a })
+
 instance ToQuery DeletePolicyType
 
 instance ToPath DeletePolicyType where

@@ -47,7 +47,7 @@ data SetLoadBalancerPoliciesOfListenerInput = SetLoadBalancerPoliciesOfListenerI
     { _slbpoliLoadBalancerName :: Text
     , _slbpoliLoadBalancerPort :: Int
     , _slbpoliPolicyNames      :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetLoadBalancerPoliciesOfListenerInput' constructor.
 --
@@ -83,6 +83,7 @@ slbpoliLoadBalancerPort =
 slbpoliPolicyNames :: Lens' SetLoadBalancerPoliciesOfListenerInput [Text]
 slbpoliPolicyNames =
     lens _slbpoliPolicyNames (\s a -> s { _slbpoliPolicyNames = a })
+
 instance ToQuery SetLoadBalancerPoliciesOfListenerInput
 
 instance ToPath SetLoadBalancerPoliciesOfListenerInput where

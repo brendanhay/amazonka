@@ -70,7 +70,7 @@ import Network.AWS.SQS.Types
 data GetQueueAttributes = GetQueueAttributes
     { _gqaAttributeNames :: [Text]
     , _gqaQueueUrl       :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetQueueAttributes' constructor.
 --
@@ -95,6 +95,7 @@ gqaAttributeNames =
 -- | The URL of the Amazon SQS queue to take action on.
 gqaQueueUrl :: Lens' GetQueueAttributes Text
 gqaQueueUrl = lens _gqaQueueUrl (\s a -> s { _gqaQueueUrl = a })
+
 instance ToQuery GetQueueAttributes
 
 instance ToPath GetQueueAttributes where
@@ -102,7 +103,13 @@ instance ToPath GetQueueAttributes where
 
 newtype GetQueueAttributesResult = GetQueueAttributesResult
     { _gqarAttributes :: Map Text Text
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList GetQueueAttributesResult
+    type Item GetQueueAttributesResult = (Text, Text)
+
+    fromList = GetQueueAttributesResult . fromList
+    toList   = toList . _gqarAttributes
 
 -- | 'GetQueueAttributesResult' constructor.
 --

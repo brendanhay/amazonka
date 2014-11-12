@@ -53,7 +53,7 @@ data DescribeOptionGroupOptionsMessage = DescribeOptionGroupOptionsMessage
     , _dogomMajorEngineVersion :: Maybe Text
     , _dogomMarker             :: Maybe Text
     , _dogomMaxRecords         :: Maybe Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeOptionGroupOptionsMessage' constructor.
 --
@@ -106,6 +106,7 @@ dogomMarker = lens _dogomMarker (\s a -> s { _dogomMarker = a })
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 dogomMaxRecords :: Lens' DescribeOptionGroupOptionsMessage (Maybe Int)
 dogomMaxRecords = lens _dogomMaxRecords (\s a -> s { _dogomMaxRecords = a })
+
 instance ToQuery DescribeOptionGroupOptionsMessage
 
 instance ToPath DescribeOptionGroupOptionsMessage where
@@ -114,7 +115,7 @@ instance ToPath DescribeOptionGroupOptionsMessage where
 data OptionGroupOptionsMessage = OptionGroupOptionsMessage
     { _ogomMarker             :: Maybe Text
     , _ogomOptionGroupOptions :: [OptionGroupOption]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'OptionGroupOptionsMessage' constructor.
 --

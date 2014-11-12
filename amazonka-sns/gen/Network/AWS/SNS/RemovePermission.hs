@@ -44,7 +44,7 @@ import Network.AWS.SNS.Types
 data RemovePermissionInput = RemovePermissionInput
     { _rpiLabel    :: Text
     , _rpiTopicArn :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RemovePermissionInput' constructor.
 --
@@ -69,6 +69,7 @@ rpiLabel = lens _rpiLabel (\s a -> s { _rpiLabel = a })
 -- | The ARN of the topic whose access control policy you wish to modify.
 rpiTopicArn :: Lens' RemovePermissionInput Text
 rpiTopicArn = lens _rpiTopicArn (\s a -> s { _rpiTopicArn = a })
+
 instance ToQuery RemovePermissionInput
 
 instance ToPath RemovePermissionInput where

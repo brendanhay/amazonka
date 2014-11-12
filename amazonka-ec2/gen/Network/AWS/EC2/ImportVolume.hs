@@ -56,7 +56,7 @@ data ImportVolume = ImportVolume
     , _ivDryRun           :: Maybe Bool
     , _ivImage            :: DiskImageDetail
     , _ivVolume           :: VolumeDetail
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ImportVolume' constructor.
 --
@@ -101,6 +101,7 @@ ivImage = lens _ivImage (\s a -> s { _ivImage = a })
 
 ivVolume :: Lens' ImportVolume VolumeDetail
 ivVolume = lens _ivVolume (\s a -> s { _ivVolume = a })
+
 instance ToQuery ImportVolume
 
 instance ToPath ImportVolume where
@@ -108,7 +109,7 @@ instance ToPath ImportVolume where
 
 newtype ImportVolumeResult = ImportVolumeResult
     { _ivrConversionTask :: Maybe ConversionTask
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ImportVolumeResult' constructor.
 --

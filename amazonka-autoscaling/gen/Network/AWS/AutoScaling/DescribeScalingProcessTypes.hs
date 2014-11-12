@@ -47,6 +47,7 @@ data DescribeScalingProcessTypes = DescribeScalingProcessTypes
 -- | 'DescribeScalingProcessTypes' constructor.
 describeScalingProcessTypes :: DescribeScalingProcessTypes
 describeScalingProcessTypes = DescribeScalingProcessTypes
+
 instance ToQuery DescribeScalingProcessTypes
 
 instance ToPath DescribeScalingProcessTypes where
@@ -54,7 +55,13 @@ instance ToPath DescribeScalingProcessTypes where
 
 newtype ProcessesType = ProcessesType
     { _ptProcesses :: [ProcessType]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList ProcessesType
+    type Item ProcessesType = ProcessType
+
+    fromList = ProcessesType . fromList
+    toList   = toList . _ptProcesses
 
 -- | 'ProcessesType' constructor.
 --

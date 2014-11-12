@@ -50,7 +50,7 @@ data ResyncMFADevice = ResyncMFADevice
     , _rmfadAuthenticationCode2 :: Text
     , _rmfadSerialNumber        :: Text
     , _rmfadUserName            :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResyncMFADevice' constructor.
 --
@@ -96,6 +96,7 @@ rmfadSerialNumber =
 -- | The name of the user whose MFA device you want to resynchronize.
 rmfadUserName :: Lens' ResyncMFADevice Text
 rmfadUserName = lens _rmfadUserName (\s a -> s { _rmfadUserName = a })
+
 instance ToQuery ResyncMFADevice
 
 instance ToPath ResyncMFADevice where

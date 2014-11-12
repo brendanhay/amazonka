@@ -49,7 +49,7 @@ import Network.AWS.EC2.Types
 data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
     { _avpcDryRun                 :: Maybe Bool
     , _avpcVpcPeeringConnectionId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AcceptVpcPeeringConnection' constructor.
 --
@@ -73,6 +73,7 @@ avpcVpcPeeringConnectionId :: Lens' AcceptVpcPeeringConnection (Maybe Text)
 avpcVpcPeeringConnectionId =
     lens _avpcVpcPeeringConnectionId
         (\s a -> s { _avpcVpcPeeringConnectionId = a })
+
 instance ToQuery AcceptVpcPeeringConnection
 
 instance ToPath AcceptVpcPeeringConnection where
@@ -80,7 +81,7 @@ instance ToPath AcceptVpcPeeringConnection where
 
 newtype AcceptVpcPeeringConnectionResult = AcceptVpcPeeringConnectionResult
     { _avpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AcceptVpcPeeringConnectionResult' constructor.
 --

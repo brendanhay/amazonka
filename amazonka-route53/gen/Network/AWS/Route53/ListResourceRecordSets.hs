@@ -88,7 +88,7 @@ data ListResourceRecordSets = ListResourceRecordSets
     , _lrrsStartRecordIdentifier :: Maybe Text
     , _lrrsStartRecordName       :: Maybe Text
     , _lrrsStartRecordType       :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListResourceRecordSets' constructor.
 --
@@ -173,7 +173,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse
     , _lrrsrNextRecordName       :: Maybe Text
     , _lrrsrNextRecordType       :: Maybe Text
     , _lrrsrResourceRecordSets   :: [ResourceRecordSet]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListResourceRecordSetsResponse' constructor.
 --

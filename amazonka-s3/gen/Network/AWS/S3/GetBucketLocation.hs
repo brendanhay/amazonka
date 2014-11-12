@@ -44,7 +44,7 @@ import Network.AWS.S3.Types
 
 newtype GetBucketLocation = GetBucketLocation
     { _gblBucket :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetBucketLocation' constructor.
 --
@@ -74,7 +74,7 @@ instance ToHeaders GetBucketLocation
 
 newtype GetBucketLocationOutput = GetBucketLocationOutput
     { _gbloLocationConstraint :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetBucketLocationOutput' constructor.
 --

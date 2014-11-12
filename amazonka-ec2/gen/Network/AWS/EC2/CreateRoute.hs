@@ -65,7 +65,7 @@ data CreateRoute = CreateRoute
     , _crNetworkInterfaceId     :: Maybe Text
     , _crRouteTableId           :: Text
     , _crVpcPeeringConnectionId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateRoute' constructor.
 --
@@ -131,6 +131,7 @@ crVpcPeeringConnectionId :: Lens' CreateRoute (Maybe Text)
 crVpcPeeringConnectionId =
     lens _crVpcPeeringConnectionId
         (\s a -> s { _crVpcPeeringConnectionId = a })
+
 instance ToQuery CreateRoute
 
 instance ToPath CreateRoute where

@@ -55,7 +55,7 @@ data DescribeOptionGroupsMessage = DescribeOptionGroupsMessage
     , _dogm1Marker             :: Maybe Text
     , _dogm1MaxRecords         :: Maybe Int
     , _dogm1OptionGroupName    :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeOptionGroupsMessage' constructor.
 --
@@ -117,6 +117,7 @@ dogm1MaxRecords = lens _dogm1MaxRecords (\s a -> s { _dogm1MaxRecords = a })
 dogm1OptionGroupName :: Lens' DescribeOptionGroupsMessage (Maybe Text)
 dogm1OptionGroupName =
     lens _dogm1OptionGroupName (\s a -> s { _dogm1OptionGroupName = a })
+
 instance ToQuery DescribeOptionGroupsMessage
 
 instance ToPath DescribeOptionGroupsMessage where
@@ -125,7 +126,7 @@ instance ToPath DescribeOptionGroupsMessage where
 data OptionGroups = OptionGroups
     { _ogMarker           :: Maybe Text
     , _ogOptionGroupsList :: [OptionGroup]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'OptionGroups' constructor.
 --

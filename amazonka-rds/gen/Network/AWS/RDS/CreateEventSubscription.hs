@@ -72,7 +72,7 @@ data CreateEventSubscriptionMessage = CreateEventSubscriptionMessage
     , _cesmSourceType       :: Maybe Text
     , _cesmSubscriptionName :: Text
     , _cesmTags             :: [Tag]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateEventSubscriptionMessage' constructor.
 --
@@ -154,6 +154,7 @@ cesmSubscriptionName =
 
 cesmTags :: Lens' CreateEventSubscriptionMessage [Tag]
 cesmTags = lens _cesmTags (\s a -> s { _cesmTags = a })
+
 instance ToQuery CreateEventSubscriptionMessage
 
 instance ToPath CreateEventSubscriptionMessage where
@@ -161,7 +162,7 @@ instance ToPath CreateEventSubscriptionMessage where
 
 newtype CreateEventSubscriptionResult = CreateEventSubscriptionResult
     { _cesrEventSubscription :: Maybe EventSubscription
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateEventSubscriptionResult' constructor.
 --

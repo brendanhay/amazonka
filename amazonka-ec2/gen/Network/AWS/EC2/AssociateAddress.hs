@@ -67,7 +67,7 @@ data AssociateAddress = AssociateAddress
     , _aa1NetworkInterfaceId :: Maybe Text
     , _aa1PrivateIpAddress   :: Maybe Text
     , _aa1PublicIp           :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AssociateAddress' constructor.
 --
@@ -136,6 +136,7 @@ aa1PrivateIpAddress =
 -- | The Elastic IP address. This is required for EC2-Classic.
 aa1PublicIp :: Lens' AssociateAddress (Maybe Text)
 aa1PublicIp = lens _aa1PublicIp (\s a -> s { _aa1PublicIp = a })
+
 instance ToQuery AssociateAddress
 
 instance ToPath AssociateAddress where
@@ -143,7 +144,7 @@ instance ToPath AssociateAddress where
 
 newtype AssociateAddressResult = AssociateAddressResult
     { _aarAssociationId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'AssociateAddressResult' constructor.
 --

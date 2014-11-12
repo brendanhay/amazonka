@@ -49,7 +49,7 @@ data DescribeReservedNodesMessage = DescribeReservedNodesMessage
     { _drnmMarker         :: Maybe Text
     , _drnmMaxRecords     :: Maybe Int
     , _drnmReservedNodeId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeReservedNodesMessage' constructor.
 --
@@ -89,6 +89,7 @@ drnmMaxRecords = lens _drnmMaxRecords (\s a -> s { _drnmMaxRecords = a })
 drnmReservedNodeId :: Lens' DescribeReservedNodesMessage (Maybe Text)
 drnmReservedNodeId =
     lens _drnmReservedNodeId (\s a -> s { _drnmReservedNodeId = a })
+
 instance ToQuery DescribeReservedNodesMessage
 
 instance ToPath DescribeReservedNodesMessage where
@@ -97,7 +98,7 @@ instance ToPath DescribeReservedNodesMessage where
 data ReservedNodesMessage = ReservedNodesMessage
     { _rnmMarker        :: Maybe Text
     , _rnmReservedNodes :: [ReservedNode]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ReservedNodesMessage' constructor.
 --

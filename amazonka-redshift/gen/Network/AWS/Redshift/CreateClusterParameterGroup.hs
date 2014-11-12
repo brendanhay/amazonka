@@ -55,7 +55,7 @@ data CreateClusterParameterGroupMessage = CreateClusterParameterGroupMessage
     { _ccpgmDescription          :: Text
     , _ccpgmParameterGroupFamily :: Text
     , _ccpgmParameterGroupName   :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateClusterParameterGroupMessage' constructor.
 --
@@ -102,6 +102,7 @@ ccpgmParameterGroupFamily =
 ccpgmParameterGroupName :: Lens' CreateClusterParameterGroupMessage Text
 ccpgmParameterGroupName =
     lens _ccpgmParameterGroupName (\s a -> s { _ccpgmParameterGroupName = a })
+
 instance ToQuery CreateClusterParameterGroupMessage
 
 instance ToPath CreateClusterParameterGroupMessage where
@@ -109,7 +110,7 @@ instance ToPath CreateClusterParameterGroupMessage where
 
 newtype CreateClusterParameterGroupResult = CreateClusterParameterGroupResult
     { _ccpgrClusterParameterGroup :: Maybe ClusterParameterGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateClusterParameterGroupResult' constructor.
 --

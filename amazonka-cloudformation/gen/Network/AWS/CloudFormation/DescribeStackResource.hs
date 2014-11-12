@@ -48,7 +48,7 @@ import Network.AWS.CloudFormation.Types
 data DescribeStackResourceInput = DescribeStackResourceInput
     { _dsri1LogicalResourceId :: Text
     , _dsri1StackName         :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeStackResourceInput' constructor.
 --
@@ -78,6 +78,7 @@ dsri1LogicalResourceId =
 -- unique stack ID. Default: There is no default value.
 dsri1StackName :: Lens' DescribeStackResourceInput Text
 dsri1StackName = lens _dsri1StackName (\s a -> s { _dsri1StackName = a })
+
 instance ToQuery DescribeStackResourceInput
 
 instance ToPath DescribeStackResourceInput where
@@ -85,7 +86,7 @@ instance ToPath DescribeStackResourceInput where
 
 newtype DescribeStackResourceOutput = DescribeStackResourceOutput
     { _dsroStackResourceDetail :: Maybe StackResourceDetail
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeStackResourceOutput' constructor.
 --

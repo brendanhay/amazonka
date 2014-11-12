@@ -47,7 +47,7 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
     { _rniaDryRun             :: Maybe Bool
     , _rniaNetworkInterfaceId :: Text
     , _rniaSourceDestCheck    :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResetNetworkInterfaceAttribute' constructor.
 --
@@ -79,6 +79,7 @@ rniaNetworkInterfaceId =
 rniaSourceDestCheck :: Lens' ResetNetworkInterfaceAttribute (Maybe Text)
 rniaSourceDestCheck =
     lens _rniaSourceDestCheck (\s a -> s { _rniaSourceDestCheck = a })
+
 instance ToQuery ResetNetworkInterfaceAttribute
 
 instance ToPath ResetNetworkInterfaceAttribute where

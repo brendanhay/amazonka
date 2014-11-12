@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 data DeleteGroupPolicy = DeleteGroupPolicy
     { _dgpGroupName  :: Text
     , _dgpPolicyName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteGroupPolicy' constructor.
 --
@@ -69,6 +69,7 @@ dgpGroupName = lens _dgpGroupName (\s a -> s { _dgpGroupName = a })
 -- | The name of the policy document to delete.
 dgpPolicyName :: Lens' DeleteGroupPolicy Text
 dgpPolicyName = lens _dgpPolicyName (\s a -> s { _dgpPolicyName = a })
+
 instance ToQuery DeleteGroupPolicy
 
 instance ToPath DeleteGroupPolicy where

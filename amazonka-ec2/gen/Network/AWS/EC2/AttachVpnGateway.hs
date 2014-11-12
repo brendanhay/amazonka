@@ -50,7 +50,7 @@ data AttachVpnGateway = AttachVpnGateway
     { _avgDryRun       :: Maybe Bool
     , _avgVpcId        :: Text
     , _avgVpnGatewayId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AttachVpnGateway' constructor.
 --
@@ -81,6 +81,7 @@ avgVpcId = lens _avgVpcId (\s a -> s { _avgVpcId = a })
 -- | The ID of the virtual private gateway.
 avgVpnGatewayId :: Lens' AttachVpnGateway Text
 avgVpnGatewayId = lens _avgVpnGatewayId (\s a -> s { _avgVpnGatewayId = a })
+
 instance ToQuery AttachVpnGateway
 
 instance ToPath AttachVpnGateway where
@@ -88,7 +89,7 @@ instance ToPath AttachVpnGateway where
 
 newtype AttachVpnGatewayResult = AttachVpnGatewayResult
     { _avgrVpcAttachment :: Maybe VpcAttachment
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AttachVpnGatewayResult' constructor.
 --

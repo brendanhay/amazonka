@@ -48,7 +48,7 @@ import Network.AWS.IAM.Types
 data DeleteAccessKey = DeleteAccessKey
     { _dakAccessKeyId :: Text
     , _dakUserName    :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteAccessKey' constructor.
 --
@@ -73,6 +73,7 @@ dakAccessKeyId = lens _dakAccessKeyId (\s a -> s { _dakAccessKeyId = a })
 -- | The name of the user whose key you want to delete.
 dakUserName :: Lens' DeleteAccessKey (Maybe Text)
 dakUserName = lens _dakUserName (\s a -> s { _dakUserName = a })
+
 instance ToQuery DeleteAccessKey
 
 instance ToPath DeleteAccessKey where

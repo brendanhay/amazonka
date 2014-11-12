@@ -42,7 +42,7 @@ import Network.AWS.ElastiCache.Types
 
 newtype DeleteCacheSecurityGroupMessage = DeleteCacheSecurityGroupMessage
     { _dcsgmCacheSecurityGroupName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteCacheSecurityGroupMessage' constructor.
 --
@@ -61,6 +61,7 @@ dcsgmCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroupMessage Text
 dcsgmCacheSecurityGroupName =
     lens _dcsgmCacheSecurityGroupName
         (\s a -> s { _dcsgmCacheSecurityGroupName = a })
+
 instance ToQuery DeleteCacheSecurityGroupMessage
 
 instance ToPath DeleteCacheSecurityGroupMessage where

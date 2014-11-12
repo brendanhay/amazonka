@@ -46,7 +46,7 @@ import Network.AWS.EC2.Types
 data CancelBundleTask = CancelBundleTask
     { _cbtBundleId :: Text
     , _cbtDryRun   :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CancelBundleTask' constructor.
 --
@@ -69,6 +69,7 @@ cbtBundleId = lens _cbtBundleId (\s a -> s { _cbtBundleId = a })
 
 cbtDryRun :: Lens' CancelBundleTask (Maybe Bool)
 cbtDryRun = lens _cbtDryRun (\s a -> s { _cbtDryRun = a })
+
 instance ToQuery CancelBundleTask
 
 instance ToPath CancelBundleTask where
@@ -76,7 +77,7 @@ instance ToPath CancelBundleTask where
 
 newtype CancelBundleTaskResult = CancelBundleTaskResult
     { _cbtrBundleTask :: Maybe BundleTask
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CancelBundleTaskResult' constructor.
 --

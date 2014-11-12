@@ -59,7 +59,7 @@ data DescribeClusterParametersMessage = DescribeClusterParametersMessage
     , _dcpmMaxRecords         :: Maybe Int
     , _dcpmParameterGroupName :: Text
     , _dcpmSource             :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeClusterParametersMessage' constructor.
 --
@@ -110,6 +110,7 @@ dcpmParameterGroupName =
 -- parameter types returned. Valid Values: user | engine-default.
 dcpmSource :: Lens' DescribeClusterParametersMessage (Maybe Text)
 dcpmSource = lens _dcpmSource (\s a -> s { _dcpmSource = a })
+
 instance ToQuery DescribeClusterParametersMessage
 
 instance ToPath DescribeClusterParametersMessage where
@@ -118,7 +119,7 @@ instance ToPath DescribeClusterParametersMessage where
 data ClusterParameterGroupDetails = ClusterParameterGroupDetails
     { _cpgdMarker     :: Maybe Text
     , _cpgdParameters :: [Parameter]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ClusterParameterGroupDetails' constructor.
 --

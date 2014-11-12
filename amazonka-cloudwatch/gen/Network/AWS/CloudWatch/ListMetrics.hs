@@ -53,7 +53,7 @@ data ListMetricsInput = ListMetricsInput
     , _lmiMetricName :: Maybe Text
     , _lmiNamespace  :: Maybe Text
     , _lmiNextToken  :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListMetricsInput' constructor.
 --
@@ -91,6 +91,7 @@ lmiNamespace = lens _lmiNamespace (\s a -> s { _lmiNamespace = a })
 -- available.
 lmiNextToken :: Lens' ListMetricsInput (Maybe Text)
 lmiNextToken = lens _lmiNextToken (\s a -> s { _lmiNextToken = a })
+
 instance ToQuery ListMetricsInput
 
 instance ToPath ListMetricsInput where
@@ -99,7 +100,7 @@ instance ToPath ListMetricsInput where
 data ListMetricsOutput = ListMetricsOutput
     { _lmoMetrics   :: [Metric]
     , _lmoNextToken :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListMetricsOutput' constructor.
 --

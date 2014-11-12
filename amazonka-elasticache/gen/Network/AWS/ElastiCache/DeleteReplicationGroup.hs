@@ -54,7 +54,7 @@ data DeleteReplicationGroupMessage = DeleteReplicationGroupMessage
     { _drgm1FinalSnapshotIdentifier :: Maybe Text
     , _drgm1ReplicationGroupId      :: Text
     , _drgm1RetainPrimaryCluster    :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteReplicationGroupMessage' constructor.
 --
@@ -95,6 +95,7 @@ drgm1RetainPrimaryCluster :: Lens' DeleteReplicationGroupMessage (Maybe Bool)
 drgm1RetainPrimaryCluster =
     lens _drgm1RetainPrimaryCluster
         (\s a -> s { _drgm1RetainPrimaryCluster = a })
+
 instance ToQuery DeleteReplicationGroupMessage
 
 instance ToPath DeleteReplicationGroupMessage where
@@ -102,7 +103,7 @@ instance ToPath DeleteReplicationGroupMessage where
 
 newtype DeleteReplicationGroupResult = DeleteReplicationGroupResult
     { _drgrReplicationGroup :: Maybe ReplicationGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteReplicationGroupResult' constructor.
 --

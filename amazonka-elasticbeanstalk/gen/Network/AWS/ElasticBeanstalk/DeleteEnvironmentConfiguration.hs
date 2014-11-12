@@ -50,7 +50,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data DeleteEnvironmentConfigurationMessage = DeleteEnvironmentConfigurationMessage
     { _decmApplicationName :: Text
     , _decmEnvironmentName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteEnvironmentConfigurationMessage' constructor.
 --
@@ -77,6 +77,7 @@ decmApplicationName =
 decmEnvironmentName :: Lens' DeleteEnvironmentConfigurationMessage Text
 decmEnvironmentName =
     lens _decmEnvironmentName (\s a -> s { _decmEnvironmentName = a })
+
 instance ToQuery DeleteEnvironmentConfigurationMessage
 
 instance ToPath DeleteEnvironmentConfigurationMessage where

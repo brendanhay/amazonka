@@ -48,7 +48,7 @@ data ResetSnapshotAttribute = ResetSnapshotAttribute
     { _rsaAttribute  :: Text
     , _rsaDryRun     :: Maybe Bool
     , _rsaSnapshotId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResetSnapshotAttribute' constructor.
 --
@@ -80,6 +80,7 @@ rsaDryRun = lens _rsaDryRun (\s a -> s { _rsaDryRun = a })
 -- | The ID of the snapshot.
 rsaSnapshotId :: Lens' ResetSnapshotAttribute Text
 rsaSnapshotId = lens _rsaSnapshotId (\s a -> s { _rsaSnapshotId = a })
+
 instance ToQuery ResetSnapshotAttribute
 
 instance ToPath ResetSnapshotAttribute where

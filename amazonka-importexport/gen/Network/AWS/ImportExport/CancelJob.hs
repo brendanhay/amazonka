@@ -45,7 +45,7 @@ import Network.AWS.ImportExport.Types
 
 newtype CancelJobInput = CancelJobInput
     { _cjiJobId :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'CancelJobInput' constructor.
 --
@@ -61,6 +61,7 @@ cancelJobInput p1 = CancelJobInput
 
 cjiJobId :: Lens' CancelJobInput Text
 cjiJobId = lens _cjiJobId (\s a -> s { _cjiJobId = a })
+
 instance ToQuery CancelJobInput
 
 instance ToPath CancelJobInput where
@@ -68,7 +69,7 @@ instance ToPath CancelJobInput where
 
 newtype CancelJobOutput = CancelJobOutput
     { _cjoSuccess :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CancelJobOutput' constructor.
 --

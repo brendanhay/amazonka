@@ -42,7 +42,7 @@ import Network.AWS.RDS.Types
 
 newtype DeleteDBSecurityGroupMessage = DeleteDBSecurityGroupMessage
     { _ddbsgmDBSecurityGroupName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteDBSecurityGroupMessage' constructor.
 --
@@ -64,6 +64,7 @@ ddbsgmDBSecurityGroupName :: Lens' DeleteDBSecurityGroupMessage Text
 ddbsgmDBSecurityGroupName =
     lens _ddbsgmDBSecurityGroupName
         (\s a -> s { _ddbsgmDBSecurityGroupName = a })
+
 instance ToQuery DeleteDBSecurityGroupMessage
 
 instance ToPath DeleteDBSecurityGroupMessage where

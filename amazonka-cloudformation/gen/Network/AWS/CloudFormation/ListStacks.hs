@@ -51,7 +51,7 @@ import Network.AWS.CloudFormation.Types
 data ListStacksInput = ListStacksInput
     { _lsiNextToken         :: Maybe Text
     , _lsiStackStatusFilter :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListStacksInput' constructor.
 --
@@ -79,6 +79,7 @@ lsiNextToken = lens _lsiNextToken (\s a -> s { _lsiNextToken = a })
 lsiStackStatusFilter :: Lens' ListStacksInput [Text]
 lsiStackStatusFilter =
     lens _lsiStackStatusFilter (\s a -> s { _lsiStackStatusFilter = a })
+
 instance ToQuery ListStacksInput
 
 instance ToPath ListStacksInput where
@@ -87,7 +88,7 @@ instance ToPath ListStacksInput where
 data ListStacksOutput = ListStacksOutput
     { _lsoNextToken      :: Maybe Text
     , _lsoStackSummaries :: [StackSummary]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListStacksOutput' constructor.
 --

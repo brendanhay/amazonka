@@ -43,7 +43,7 @@ import Network.AWS.SES.Types
 
 newtype DeleteIdentity = DeleteIdentity
     { _diIdentity :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteIdentity' constructor.
 --
@@ -61,6 +61,7 @@ deleteIdentity p1 = DeleteIdentity
 -- Account.
 diIdentity :: Lens' DeleteIdentity Text
 diIdentity = lens _diIdentity (\s a -> s { _diIdentity = a })
+
 instance ToQuery DeleteIdentity
 
 instance ToPath DeleteIdentity where

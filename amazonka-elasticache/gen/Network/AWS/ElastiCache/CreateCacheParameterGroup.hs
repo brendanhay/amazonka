@@ -50,7 +50,7 @@ data CreateCacheParameterGroupMessage = CreateCacheParameterGroupMessage
     { _ccpgmCacheParameterGroupFamily :: Text
     , _ccpgmCacheParameterGroupName   :: Text
     , _ccpgmDescription               :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateCacheParameterGroupMessage' constructor.
 --
@@ -88,6 +88,7 @@ ccpgmCacheParameterGroupName =
 -- | A user-specified description for the cache parameter group.
 ccpgmDescription :: Lens' CreateCacheParameterGroupMessage Text
 ccpgmDescription = lens _ccpgmDescription (\s a -> s { _ccpgmDescription = a })
+
 instance ToQuery CreateCacheParameterGroupMessage
 
 instance ToPath CreateCacheParameterGroupMessage where
@@ -95,7 +96,7 @@ instance ToPath CreateCacheParameterGroupMessage where
 
 newtype CreateCacheParameterGroupResult = CreateCacheParameterGroupResult
     { _ccpgrCacheParameterGroup :: Maybe CacheParameterGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateCacheParameterGroupResult' constructor.
 --

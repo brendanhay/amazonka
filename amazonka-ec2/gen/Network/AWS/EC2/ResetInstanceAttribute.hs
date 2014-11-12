@@ -53,7 +53,7 @@ data ResetInstanceAttribute = ResetInstanceAttribute
     { _ria1Attribute  :: Text
     , _ria1DryRun     :: Maybe Bool
     , _ria1InstanceId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResetInstanceAttribute' constructor.
 --
@@ -84,6 +84,7 @@ ria1DryRun = lens _ria1DryRun (\s a -> s { _ria1DryRun = a })
 -- | The ID of the instance.
 ria1InstanceId :: Lens' ResetInstanceAttribute Text
 ria1InstanceId = lens _ria1InstanceId (\s a -> s { _ria1InstanceId = a })
+
 instance ToQuery ResetInstanceAttribute
 
 instance ToPath ResetInstanceAttribute where

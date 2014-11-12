@@ -49,7 +49,7 @@ data EnableSnapshotCopyMessage = EnableSnapshotCopyMessage
     { _escmClusterIdentifier :: Text
     , _escmDestinationRegion :: Text
     , _escmRetentionPeriod   :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EnableSnapshotCopyMessage' constructor.
 --
@@ -90,6 +90,7 @@ escmDestinationRegion =
 escmRetentionPeriod :: Lens' EnableSnapshotCopyMessage (Maybe Int)
 escmRetentionPeriod =
     lens _escmRetentionPeriod (\s a -> s { _escmRetentionPeriod = a })
+
 instance ToQuery EnableSnapshotCopyMessage
 
 instance ToPath EnableSnapshotCopyMessage where
@@ -97,7 +98,7 @@ instance ToPath EnableSnapshotCopyMessage where
 
 newtype EnableSnapshotCopyResult = EnableSnapshotCopyResult
     { _escrCluster :: Maybe Cluster
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'EnableSnapshotCopyResult' constructor.
 --

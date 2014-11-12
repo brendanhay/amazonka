@@ -52,7 +52,7 @@ data ModifyReservedInstances = ModifyReservedInstances
     { _mriClientToken          :: Maybe Text
     , _mriReservedInstancesIds :: [Text]
     , _mriTargetConfigurations :: [ReservedInstancesConfiguration]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyReservedInstances' constructor.
 --
@@ -85,6 +85,7 @@ mriReservedInstancesIds =
 mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
 mriTargetConfigurations =
     lens _mriTargetConfigurations (\s a -> s { _mriTargetConfigurations = a })
+
 instance ToQuery ModifyReservedInstances
 
 instance ToPath ModifyReservedInstances where
@@ -92,7 +93,7 @@ instance ToPath ModifyReservedInstances where
 
 newtype ModifyReservedInstancesResult = ModifyReservedInstancesResult
     { _mrirReservedInstancesModificationId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'ModifyReservedInstancesResult' constructor.
 --

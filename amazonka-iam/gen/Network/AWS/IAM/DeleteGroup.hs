@@ -43,7 +43,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteGroup = DeleteGroup
     { _dgGroupName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteGroup' constructor.
 --
@@ -60,6 +60,7 @@ deleteGroup p1 = DeleteGroup
 -- | The name of the group to delete.
 dgGroupName :: Lens' DeleteGroup Text
 dgGroupName = lens _dgGroupName (\s a -> s { _dgGroupName = a })
+
 instance ToQuery DeleteGroup
 
 instance ToPath DeleteGroup where

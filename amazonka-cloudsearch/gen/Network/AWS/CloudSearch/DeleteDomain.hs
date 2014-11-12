@@ -46,7 +46,7 @@ import Network.AWS.CloudSearch.Types
 
 newtype DeleteDomain = DeleteDomain
     { _ddDomainName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteDomain' constructor.
 --
@@ -63,6 +63,7 @@ deleteDomain p1 = DeleteDomain
 -- | The name of the domain you want to permanently delete.
 ddDomainName :: Lens' DeleteDomain Text
 ddDomainName = lens _ddDomainName (\s a -> s { _ddDomainName = a })
+
 instance ToQuery DeleteDomain
 
 instance ToPath DeleteDomain where
@@ -70,7 +71,7 @@ instance ToPath DeleteDomain where
 
 newtype DeleteDomainResponse = DeleteDomainResponse
     { _ddrDomainStatus :: Maybe DomainStatus
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteDomainResponse' constructor.
 --

@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 data ChangePassword = ChangePassword
     { _cpNewPassword :: Sensitive Text
     , _cpOldPassword :: Sensitive Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ChangePassword' constructor.
 --
@@ -75,6 +75,7 @@ cpNewPassword = lens _cpNewPassword (\s a -> s { _cpNewPassword = a })
 cpOldPassword :: Lens' ChangePassword Text
 cpOldPassword = lens _cpOldPassword (\s a -> s { _cpOldPassword = a })
     . _Sensitive
+
 instance ToQuery ChangePassword
 
 instance ToPath ChangePassword where

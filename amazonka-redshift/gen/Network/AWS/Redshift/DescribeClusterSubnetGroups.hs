@@ -52,7 +52,7 @@ data DescribeClusterSubnetGroupsMessage = DescribeClusterSubnetGroupsMessage
     { _dcsgm1ClusterSubnetGroupName :: Maybe Text
     , _dcsgm1Marker                 :: Maybe Text
     , _dcsgm1MaxRecords             :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeClusterSubnetGroupsMessage' constructor.
 --
@@ -93,6 +93,7 @@ dcsgm1Marker = lens _dcsgm1Marker (\s a -> s { _dcsgm1Marker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcsgm1MaxRecords :: Lens' DescribeClusterSubnetGroupsMessage (Maybe Int)
 dcsgm1MaxRecords = lens _dcsgm1MaxRecords (\s a -> s { _dcsgm1MaxRecords = a })
+
 instance ToQuery DescribeClusterSubnetGroupsMessage
 
 instance ToPath DescribeClusterSubnetGroupsMessage where
@@ -101,7 +102,7 @@ instance ToPath DescribeClusterSubnetGroupsMessage where
 data ClusterSubnetGroupMessage = ClusterSubnetGroupMessage
     { _csgmClusterSubnetGroups :: [ClusterSubnetGroup]
     , _csgmMarker              :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ClusterSubnetGroupMessage' constructor.
 --

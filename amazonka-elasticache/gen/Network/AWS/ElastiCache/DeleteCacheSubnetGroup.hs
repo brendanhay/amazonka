@@ -42,7 +42,7 @@ import Network.AWS.ElastiCache.Types
 
 newtype DeleteCacheSubnetGroupMessage = DeleteCacheSubnetGroupMessage
     { _dcsgm1CacheSubnetGroupName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteCacheSubnetGroupMessage' constructor.
 --
@@ -62,6 +62,7 @@ dcsgm1CacheSubnetGroupName :: Lens' DeleteCacheSubnetGroupMessage Text
 dcsgm1CacheSubnetGroupName =
     lens _dcsgm1CacheSubnetGroupName
         (\s a -> s { _dcsgm1CacheSubnetGroupName = a })
+
 instance ToQuery DeleteCacheSubnetGroupMessage
 
 instance ToPath DeleteCacheSubnetGroupMessage where

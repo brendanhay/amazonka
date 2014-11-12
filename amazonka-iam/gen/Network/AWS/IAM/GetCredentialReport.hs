@@ -50,6 +50,7 @@ data GetCredentialReport = GetCredentialReport
 -- | 'GetCredentialReport' constructor.
 getCredentialReport :: GetCredentialReport
 getCredentialReport = GetCredentialReport
+
 instance ToQuery GetCredentialReport
 
 instance ToPath GetCredentialReport where
@@ -59,7 +60,7 @@ data GetCredentialReportResponse = GetCredentialReportResponse
     { _gcrrContent       :: Maybe Base64
     , _gcrrGeneratedTime :: Maybe RFC822
     , _gcrrReportFormat  :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetCredentialReportResponse' constructor.
 --

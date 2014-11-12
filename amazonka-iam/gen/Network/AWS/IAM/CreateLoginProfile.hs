@@ -51,7 +51,7 @@ data CreateLoginProfile = CreateLoginProfile
     { _clpPassword              :: Sensitive Text
     , _clpPasswordResetRequired :: Maybe Bool
     , _clpUserName              :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateLoginProfile' constructor.
 --
@@ -87,6 +87,7 @@ clpPasswordResetRequired =
 -- | The name of the user to create a password for.
 clpUserName :: Lens' CreateLoginProfile Text
 clpUserName = lens _clpUserName (\s a -> s { _clpUserName = a })
+
 instance ToQuery CreateLoginProfile
 
 instance ToPath CreateLoginProfile where
@@ -94,7 +95,7 @@ instance ToPath CreateLoginProfile where
 
 newtype CreateLoginProfileResponse = CreateLoginProfileResponse
     { _clprLoginProfile :: LoginProfile
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateLoginProfileResponse' constructor.
 --

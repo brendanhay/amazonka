@@ -62,7 +62,7 @@ import Network.AWS.ImportExport.Types
 
 newtype GetStatusInput = GetStatusInput
     { _gsiJobId :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetStatusInput' constructor.
 --
@@ -78,6 +78,7 @@ getStatusInput p1 = GetStatusInput
 
 gsiJobId :: Lens' GetStatusInput Text
 gsiJobId = lens _gsiJobId (\s a -> s { _gsiJobId = a })
+
 instance ToQuery GetStatusInput
 
 instance ToPath GetStatusInput where
@@ -100,7 +101,7 @@ data GetStatusOutput = GetStatusOutput
     , _gsoSignature             :: Maybe Text
     , _gsoSignatureFileContents :: Maybe Text
     , _gsoTrackingNumber        :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetStatusOutput' constructor.
 --

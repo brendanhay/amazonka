@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteAccountAlias = DeleteAccountAlias
     { _daaAccountAlias :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteAccountAlias' constructor.
 --
@@ -61,6 +61,7 @@ deleteAccountAlias p1 = DeleteAccountAlias
 -- | The name of the account alias to delete.
 daaAccountAlias :: Lens' DeleteAccountAlias Text
 daaAccountAlias = lens _daaAccountAlias (\s a -> s { _daaAccountAlias = a })
+
 instance ToQuery DeleteAccountAlias
 
 instance ToPath DeleteAccountAlias where

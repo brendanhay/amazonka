@@ -73,7 +73,7 @@ data RegisterImage = RegisterImage
     , _riRootDeviceName      :: Maybe Text
     , _riSriovNetSupport     :: Maybe Text
     , _riVirtualizationType  :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RegisterImage' constructor.
 --
@@ -170,6 +170,7 @@ riSriovNetSupport =
 riVirtualizationType :: Lens' RegisterImage (Maybe Text)
 riVirtualizationType =
     lens _riVirtualizationType (\s a -> s { _riVirtualizationType = a })
+
 instance ToQuery RegisterImage
 
 instance ToPath RegisterImage where
@@ -177,7 +178,7 @@ instance ToPath RegisterImage where
 
 newtype RegisterImageResult = RegisterImageResult
     { _rirImageId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'RegisterImageResult' constructor.
 --

@@ -61,7 +61,7 @@ data CreateCustomerGateway = CreateCustomerGateway
     , _ccgDryRun   :: Maybe Bool
     , _ccgPublicIp :: Text
     , _ccgType     :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateCustomerGateway' constructor.
 --
@@ -102,6 +102,7 @@ ccgPublicIp = lens _ccgPublicIp (\s a -> s { _ccgPublicIp = a })
 -- | The type of VPN connection that this customer gateway supports (ipsec.1).
 ccgType :: Lens' CreateCustomerGateway Text
 ccgType = lens _ccgType (\s a -> s { _ccgType = a })
+
 instance ToQuery CreateCustomerGateway
 
 instance ToPath CreateCustomerGateway where
@@ -109,7 +110,7 @@ instance ToPath CreateCustomerGateway where
 
 newtype CreateCustomerGatewayResult = CreateCustomerGatewayResult
     { _ccgrCustomerGateway :: Maybe CustomerGateway
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateCustomerGatewayResult' constructor.
 --

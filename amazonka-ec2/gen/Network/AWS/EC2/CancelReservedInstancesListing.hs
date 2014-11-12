@@ -46,7 +46,7 @@ import Network.AWS.EC2.Types
 
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing
     { _crilReservedInstancesListingId :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'CancelReservedInstancesListing' constructor.
 --
@@ -65,6 +65,7 @@ crilReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
 crilReservedInstancesListingId =
     lens _crilReservedInstancesListingId
         (\s a -> s { _crilReservedInstancesListingId = a })
+
 instance ToQuery CancelReservedInstancesListing
 
 instance ToPath CancelReservedInstancesListing where
@@ -72,7 +73,13 @@ instance ToPath CancelReservedInstancesListing where
 
 newtype CancelReservedInstancesListingResult = CancelReservedInstancesListingResult
     { _crilrReservedInstancesListings :: [ReservedInstancesListing]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList CancelReservedInstancesListingResult
+    type Item CancelReservedInstancesListingResult = ReservedInstancesListing
+
+    fromList = CancelReservedInstancesListingResult . fromList
+    toList   = toList . _crilrReservedInstancesListings
 
 -- | 'CancelReservedInstancesListingResult' constructor.
 --

@@ -44,7 +44,7 @@ import Network.AWS.CloudFormation.Types
 
 newtype DeleteStackInput = DeleteStackInput
     { _dsi1StackName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteStackInput' constructor.
 --
@@ -61,6 +61,7 @@ deleteStackInput p1 = DeleteStackInput
 -- | The name or the unique identifier associated with the stack.
 dsi1StackName :: Lens' DeleteStackInput Text
 dsi1StackName = lens _dsi1StackName (\s a -> s { _dsi1StackName = a })
+
 instance ToQuery DeleteStackInput
 
 instance ToPath DeleteStackInput where

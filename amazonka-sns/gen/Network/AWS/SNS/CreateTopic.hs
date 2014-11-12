@@ -48,7 +48,7 @@ import Network.AWS.SNS.Types
 
 newtype CreateTopicInput = CreateTopicInput
     { _ctiName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'CreateTopicInput' constructor.
 --
@@ -67,6 +67,7 @@ createTopicInput p1 = CreateTopicInput
 -- underscores, and hyphens, and must be between 1 and 256 characters long.
 ctiName :: Lens' CreateTopicInput Text
 ctiName = lens _ctiName (\s a -> s { _ctiName = a })
+
 instance ToQuery CreateTopicInput
 
 instance ToPath CreateTopicInput where
@@ -74,7 +75,7 @@ instance ToPath CreateTopicInput where
 
 newtype CreateTopicResponse = CreateTopicResponse
     { _ctrTopicArn :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateTopicResponse' constructor.
 --

@@ -55,7 +55,7 @@ data DescribeConfigurationSettingsMessage = DescribeConfigurationSettingsMessage
     { _dcsmApplicationName :: Text
     , _dcsmEnvironmentName :: Maybe Text
     , _dcsmTemplateName    :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeConfigurationSettingsMessage' constructor.
 --
@@ -96,6 +96,7 @@ dcsmEnvironmentName =
 -- Elastic Beanstalk returns a MissingRequiredParameter error.
 dcsmTemplateName :: Lens' DescribeConfigurationSettingsMessage (Maybe Text)
 dcsmTemplateName = lens _dcsmTemplateName (\s a -> s { _dcsmTemplateName = a })
+
 instance ToQuery DescribeConfigurationSettingsMessage
 
 instance ToPath DescribeConfigurationSettingsMessage where
@@ -103,7 +104,13 @@ instance ToPath DescribeConfigurationSettingsMessage where
 
 newtype ConfigurationSettingsDescriptions = ConfigurationSettingsDescriptions
     { _csdConfigurationSettings :: [ConfigurationSettingsDescription]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList ConfigurationSettingsDescriptions
+    type Item ConfigurationSettingsDescriptions = ConfigurationSettingsDescription
+
+    fromList = ConfigurationSettingsDescriptions . fromList
+    toList   = toList . _csdConfigurationSettings
 
 -- | 'ConfigurationSettingsDescriptions' constructor.
 --

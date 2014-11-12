@@ -70,7 +70,7 @@ data CreateAccessPointInput = CreateAccessPointInput
     , _capiSecurityGroups    :: [Text]
     , _capiSubnets           :: [Text]
     , _capiTags              :: List1 Tag
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateAccessPointInput' constructor.
 --
@@ -150,6 +150,7 @@ capiSubnets = lens _capiSubnets (\s a -> s { _capiSubnets = a })
 capiTags :: Lens' CreateAccessPointInput (NonEmpty Tag)
 capiTags = lens _capiTags (\s a -> s { _capiTags = a })
     . _List1
+
 instance ToQuery CreateAccessPointInput
 
 instance ToPath CreateAccessPointInput where
@@ -157,7 +158,7 @@ instance ToPath CreateAccessPointInput where
 
 newtype CreateAccessPointOutput = CreateAccessPointOutput
     { _capoDNSName :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateAccessPointOutput' constructor.
 --

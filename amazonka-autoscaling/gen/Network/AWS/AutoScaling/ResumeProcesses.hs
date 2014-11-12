@@ -46,7 +46,7 @@ import Network.AWS.AutoScaling.Types
 data ResumeProcesses = ResumeProcesses
     { _rpAutoScalingGroupName :: Text
     , _rpScalingProcesses     :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResumeProcesses' constructor.
 --
@@ -75,6 +75,7 @@ rpAutoScalingGroupName =
 rpScalingProcesses :: Lens' ResumeProcesses [Text]
 rpScalingProcesses =
     lens _rpScalingProcesses (\s a -> s { _rpScalingProcesses = a })
+
 instance ToQuery ResumeProcesses
 
 instance ToPath ResumeProcesses where

@@ -57,7 +57,7 @@ data RecordLifecycleActionHeartbeatType = RecordLifecycleActionHeartbeatType
     { _rlahtAutoScalingGroupName :: Text
     , _rlahtLifecycleActionToken :: Text
     , _rlahtLifecycleHookName    :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RecordLifecycleActionHeartbeatType' constructor.
 --
@@ -97,6 +97,7 @@ rlahtLifecycleActionToken =
 rlahtLifecycleHookName :: Lens' RecordLifecycleActionHeartbeatType Text
 rlahtLifecycleHookName =
     lens _rlahtLifecycleHookName (\s a -> s { _rlahtLifecycleHookName = a })
+
 instance ToQuery RecordLifecycleActionHeartbeatType
 
 instance ToPath RecordLifecycleActionHeartbeatType where

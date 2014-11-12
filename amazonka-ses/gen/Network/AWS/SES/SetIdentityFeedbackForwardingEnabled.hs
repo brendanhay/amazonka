@@ -49,7 +49,7 @@ import Network.AWS.SES.Types
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
     { _siffeForwardingEnabled :: Bool
     , _siffeIdentity          :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetIdentityFeedbackForwardingEnabled' constructor.
 --
@@ -82,6 +82,7 @@ siffeForwardingEnabled =
 -- forwarding. Examples: user@example.com, example.com.
 siffeIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
 siffeIdentity = lens _siffeIdentity (\s a -> s { _siffeIdentity = a })
+
 instance ToQuery SetIdentityFeedbackForwardingEnabled
 
 instance ToPath SetIdentityFeedbackForwardingEnabled where

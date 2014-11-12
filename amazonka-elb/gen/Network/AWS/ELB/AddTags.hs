@@ -49,7 +49,7 @@ import Network.AWS.ELB.Types
 data AddTagsInput = AddTagsInput
     { _atiLoadBalancerNames :: [Text]
     , _atiTags              :: List1 Tag
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AddTagsInput' constructor.
 --
@@ -76,6 +76,7 @@ atiLoadBalancerNames =
 atiTags :: Lens' AddTagsInput (NonEmpty Tag)
 atiTags = lens _atiTags (\s a -> s { _atiTags = a })
     . _List1
+
 instance ToQuery AddTagsInput
 
 instance ToPath AddTagsInput where

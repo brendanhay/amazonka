@@ -78,7 +78,7 @@ data DescribeVolumeStatus = DescribeVolumeStatus
     , _dvsMaxResults :: Maybe Int
     , _dvsNextToken  :: Maybe Text
     , _dvsVolumeIds  :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVolumeStatus' constructor.
 --
@@ -136,6 +136,7 @@ dvsNextToken = lens _dvsNextToken (\s a -> s { _dvsNextToken = a })
 -- | One or more volume IDs. Default: Describes all your volumes.
 dvsVolumeIds :: Lens' DescribeVolumeStatus [Text]
 dvsVolumeIds = lens _dvsVolumeIds (\s a -> s { _dvsVolumeIds = a })
+
 instance ToQuery DescribeVolumeStatus
 
 instance ToPath DescribeVolumeStatus where
@@ -144,7 +145,7 @@ instance ToPath DescribeVolumeStatus where
 data DescribeVolumeStatusResult = DescribeVolumeStatusResult
     { _dvsrNextToken      :: Maybe Text
     , _dvsrVolumeStatuses :: [VolumeStatusItem]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVolumeStatusResult' constructor.
 --

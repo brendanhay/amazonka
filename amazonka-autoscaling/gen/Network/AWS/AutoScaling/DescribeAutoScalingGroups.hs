@@ -54,7 +54,7 @@ data AutoScalingGroupNamesType = AutoScalingGroupNamesType
     { _asgntAutoScalingGroupNames :: [Text]
     , _asgntMaxRecords            :: Maybe Int
     , _asgntNextToken             :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AutoScalingGroupNamesType' constructor.
 --
@@ -86,6 +86,7 @@ asgntMaxRecords = lens _asgntMaxRecords (\s a -> s { _asgntMaxRecords = a })
 -- | A string that marks the start of the next batch of returned results.
 asgntNextToken :: Lens' AutoScalingGroupNamesType (Maybe Text)
 asgntNextToken = lens _asgntNextToken (\s a -> s { _asgntNextToken = a })
+
 instance ToQuery AutoScalingGroupNamesType
 
 instance ToPath AutoScalingGroupNamesType where
@@ -94,7 +95,7 @@ instance ToPath AutoScalingGroupNamesType where
 data AutoScalingGroupsType = AutoScalingGroupsType
     { _asgtAutoScalingGroups :: [AutoScalingGroup]
     , _asgtNextToken         :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AutoScalingGroupsType' constructor.
 --

@@ -53,7 +53,7 @@ data DescribeDBParameterGroupsMessage = DescribeDBParameterGroupsMessage
     , _ddbpgmFilters              :: [Filter]
     , _ddbpgmMarker               :: Maybe Text
     , _ddbpgmMaxRecords           :: Maybe Int
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeDBParameterGroupsMessage' constructor.
 --
@@ -101,6 +101,7 @@ ddbpgmMarker = lens _ddbpgmMarker (\s a -> s { _ddbpgmMarker = a })
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
 ddbpgmMaxRecords :: Lens' DescribeDBParameterGroupsMessage (Maybe Int)
 ddbpgmMaxRecords = lens _ddbpgmMaxRecords (\s a -> s { _ddbpgmMaxRecords = a })
+
 instance ToQuery DescribeDBParameterGroupsMessage
 
 instance ToPath DescribeDBParameterGroupsMessage where
@@ -109,7 +110,7 @@ instance ToPath DescribeDBParameterGroupsMessage where
 data DBParameterGroupsMessage = DBParameterGroupsMessage
     { _dbpgmDBParameterGroups :: [DBParameterGroup]
     , _dbpgmMarker            :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DBParameterGroupsMessage' constructor.
 --

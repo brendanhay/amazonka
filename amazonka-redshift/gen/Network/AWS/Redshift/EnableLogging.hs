@@ -54,7 +54,7 @@ data EnableLoggingMessage = EnableLoggingMessage
     { _elmBucketName        :: Text
     , _elmClusterIdentifier :: Text
     , _elmS3KeyPrefix       :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'EnableLoggingMessage' constructor.
 --
@@ -93,6 +93,7 @@ elmClusterIdentifier =
 -- invalid characters are: x00 to x20 x22 x27 x5c x7f or larger.
 elmS3KeyPrefix :: Lens' EnableLoggingMessage (Maybe Text)
 elmS3KeyPrefix = lens _elmS3KeyPrefix (\s a -> s { _elmS3KeyPrefix = a })
+
 instance ToQuery EnableLoggingMessage
 
 instance ToPath EnableLoggingMessage where

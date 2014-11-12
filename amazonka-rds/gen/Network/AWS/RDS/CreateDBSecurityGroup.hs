@@ -49,7 +49,7 @@ data CreateDBSecurityGroupMessage = CreateDBSecurityGroupMessage
     { _cdbsgm1DBSecurityGroupDescription :: Text
     , _cdbsgm1DBSecurityGroupName        :: Text
     , _cdbsgm1Tags                       :: [Tag]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDBSecurityGroupMessage' constructor.
 --
@@ -88,6 +88,7 @@ cdbsgm1DBSecurityGroupName =
 
 cdbsgm1Tags :: Lens' CreateDBSecurityGroupMessage [Tag]
 cdbsgm1Tags = lens _cdbsgm1Tags (\s a -> s { _cdbsgm1Tags = a })
+
 instance ToQuery CreateDBSecurityGroupMessage
 
 instance ToPath CreateDBSecurityGroupMessage where
@@ -95,7 +96,7 @@ instance ToPath CreateDBSecurityGroupMessage where
 
 newtype CreateDBSecurityGroupResult = CreateDBSecurityGroupResult
     { _cdbsgrDBSecurityGroup :: Maybe DBSecurityGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateDBSecurityGroupResult' constructor.
 --

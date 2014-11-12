@@ -55,7 +55,7 @@ data DeleteDBInstanceMessage = DeleteDBInstanceMessage
     { _ddbim1DBInstanceIdentifier      :: Text
     , _ddbim1FinalDBSnapshotIdentifier :: Maybe Text
     , _ddbim1SkipFinalSnapshot         :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteDBInstanceMessage' constructor.
 --
@@ -101,6 +101,7 @@ ddbim1FinalDBSnapshotIdentifier =
 ddbim1SkipFinalSnapshot :: Lens' DeleteDBInstanceMessage (Maybe Bool)
 ddbim1SkipFinalSnapshot =
     lens _ddbim1SkipFinalSnapshot (\s a -> s { _ddbim1SkipFinalSnapshot = a })
+
 instance ToQuery DeleteDBInstanceMessage
 
 instance ToPath DeleteDBInstanceMessage where
@@ -108,7 +109,7 @@ instance ToPath DeleteDBInstanceMessage where
 
 newtype DeleteDBInstanceResult = DeleteDBInstanceResult
     { _ddbirDBInstance :: Maybe DBInstance
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteDBInstanceResult' constructor.
 --

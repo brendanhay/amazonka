@@ -58,7 +58,7 @@ data ListSigningCertificates = ListSigningCertificates
     { _lsc1Marker   :: Maybe Text
     , _lsc1MaxItems :: Maybe Natural
     , _lsc1UserName :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListSigningCertificates' constructor.
 --
@@ -94,6 +94,7 @@ lsc1MaxItems = lens _lsc1MaxItems (\s a -> s { _lsc1MaxItems = a })
 -- | The name of the user.
 lsc1UserName :: Lens' ListSigningCertificates (Maybe Text)
 lsc1UserName = lens _lsc1UserName (\s a -> s { _lsc1UserName = a })
+
 instance ToQuery ListSigningCertificates
 
 instance ToPath ListSigningCertificates where
@@ -103,7 +104,7 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse
     { _lscr1Certificates :: [SigningCertificate]
     , _lscr1IsTruncated  :: Maybe Bool
     , _lscr1Marker       :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListSigningCertificatesResponse' constructor.
 --

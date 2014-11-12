@@ -53,7 +53,7 @@ data DescribeClustersMessage = DescribeClustersMessage
     { _dcm1ClusterIdentifier :: Maybe Text
     , _dcm1Marker            :: Maybe Text
     , _dcm1MaxRecords        :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeClustersMessage' constructor.
 --
@@ -96,6 +96,7 @@ dcm1Marker = lens _dcm1Marker (\s a -> s { _dcm1Marker = a })
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
 dcm1MaxRecords :: Lens' DescribeClustersMessage (Maybe Int)
 dcm1MaxRecords = lens _dcm1MaxRecords (\s a -> s { _dcm1MaxRecords = a })
+
 instance ToQuery DescribeClustersMessage
 
 instance ToPath DescribeClustersMessage where
@@ -104,7 +105,7 @@ instance ToPath DescribeClustersMessage where
 data ClustersMessage = ClustersMessage
     { _cmClusters :: [Cluster]
     , _cmMarker   :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ClustersMessage' constructor.
 --

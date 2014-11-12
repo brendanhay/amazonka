@@ -46,6 +46,7 @@ data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
 -- | 'DescribeTerminationPolicyTypes' constructor.
 describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
 describeTerminationPolicyTypes = DescribeTerminationPolicyTypes
+
 instance ToQuery DescribeTerminationPolicyTypes
 
 instance ToPath DescribeTerminationPolicyTypes where
@@ -53,16 +54,13 @@ instance ToPath DescribeTerminationPolicyTypes where
 
 newtype DescribeTerminationPolicyTypesAnswer = DescribeTerminationPolicyTypesAnswer
     { _dtptaTerminationPolicyTypes :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList DescribeTerminationPolicyTypesAnswer
+    type Item DescribeTerminationPolicyTypesAnswer = Text
+
+    fromList = DescribeTerminationPolicyTypesAnswer . fromList
+    toList   = toList . _dtptaTerminationPolicyTypes
 
 -- | 'DescribeTerminationPolicyTypesAnswer' constructor.
 --

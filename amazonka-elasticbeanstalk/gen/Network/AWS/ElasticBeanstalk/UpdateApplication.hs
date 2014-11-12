@@ -46,7 +46,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data UpdateApplicationMessage = UpdateApplicationMessage
     { _uamApplicationName :: Text
     , _uamDescription     :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateApplicationMessage' constructor.
 --
@@ -73,6 +73,7 @@ uamApplicationName =
 -- Elastic Beanstalk does not update the description.
 uamDescription :: Lens' UpdateApplicationMessage (Maybe Text)
 uamDescription = lens _uamDescription (\s a -> s { _uamDescription = a })
+
 instance ToQuery UpdateApplicationMessage
 
 instance ToPath UpdateApplicationMessage where

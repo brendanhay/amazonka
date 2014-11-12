@@ -51,7 +51,7 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
     { _csdsBucket :: Text
     , _csdsDryRun :: Maybe Bool
     , _csdsPrefix :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateSpotDatafeedSubscription' constructor.
 --
@@ -82,6 +82,7 @@ csdsDryRun = lens _csdsDryRun (\s a -> s { _csdsDryRun = a })
 -- | A prefix for the datafeed file names.
 csdsPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
 csdsPrefix = lens _csdsPrefix (\s a -> s { _csdsPrefix = a })
+
 instance ToQuery CreateSpotDatafeedSubscription
 
 instance ToPath CreateSpotDatafeedSubscription where
@@ -89,7 +90,7 @@ instance ToPath CreateSpotDatafeedSubscription where
 
 newtype CreateSpotDatafeedSubscriptionResult = CreateSpotDatafeedSubscriptionResult
     { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateSpotDatafeedSubscriptionResult' constructor.
 --

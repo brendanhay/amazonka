@@ -55,7 +55,7 @@ data DescribeTagsType = DescribeTagsType
     { _dttFilters    :: [Filter]
     , _dttMaxRecords :: Maybe Int
     , _dttNextToken  :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeTagsType' constructor.
 --
@@ -88,6 +88,7 @@ dttMaxRecords = lens _dttMaxRecords (\s a -> s { _dttMaxRecords = a })
 -- | A string that marks the start of the next batch of returned results.
 dttNextToken :: Lens' DescribeTagsType (Maybe Text)
 dttNextToken = lens _dttNextToken (\s a -> s { _dttNextToken = a })
+
 instance ToQuery DescribeTagsType
 
 instance ToPath DescribeTagsType where
@@ -96,7 +97,7 @@ instance ToPath DescribeTagsType where
 data TagsType = TagsType
     { _ttNextToken :: Maybe Text
     , _ttTags      :: [TagDescription]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'TagsType' constructor.
 --

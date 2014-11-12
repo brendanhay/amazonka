@@ -53,7 +53,7 @@ data ListVirtualMFADevices = ListVirtualMFADevices
     { _lvmfadAssignmentStatus :: Maybe Text
     , _lvmfadMarker           :: Maybe Text
     , _lvmfadMaxItems         :: Maybe Natural
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListVirtualMFADevices' constructor.
 --
@@ -93,6 +93,7 @@ lvmfadMarker = lens _lvmfadMarker (\s a -> s { _lvmfadMarker = a })
 -- defaults to 100.
 lvmfadMaxItems :: Lens' ListVirtualMFADevices (Maybe Natural)
 lvmfadMaxItems = lens _lvmfadMaxItems (\s a -> s { _lvmfadMaxItems = a })
+
 instance ToQuery ListVirtualMFADevices
 
 instance ToPath ListVirtualMFADevices where
@@ -102,7 +103,7 @@ data ListVirtualMFADevicesResponse = ListVirtualMFADevicesResponse
     { _lvmfadrIsTruncated       :: Maybe Bool
     , _lvmfadrMarker            :: Maybe Text
     , _lvmfadrVirtualMFADevices :: [VirtualMFADevice]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListVirtualMFADevicesResponse' constructor.
 --

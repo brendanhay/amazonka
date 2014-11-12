@@ -50,7 +50,7 @@ data AuthorizeSnapshotAccessMessage = AuthorizeSnapshotAccessMessage
     { _asamAccountWithRestoreAccess  :: Text
     , _asamSnapshotClusterIdentifier :: Maybe Text
     , _asamSnapshotIdentifier        :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AuthorizeSnapshotAccessMessage' constructor.
 --
@@ -91,6 +91,7 @@ asamSnapshotClusterIdentifier =
 asamSnapshotIdentifier :: Lens' AuthorizeSnapshotAccessMessage Text
 asamSnapshotIdentifier =
     lens _asamSnapshotIdentifier (\s a -> s { _asamSnapshotIdentifier = a })
+
 instance ToQuery AuthorizeSnapshotAccessMessage
 
 instance ToPath AuthorizeSnapshotAccessMessage where
@@ -98,7 +99,7 @@ instance ToPath AuthorizeSnapshotAccessMessage where
 
 newtype AuthorizeSnapshotAccessResult = AuthorizeSnapshotAccessResult
     { _asarSnapshot :: Maybe Snapshot
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AuthorizeSnapshotAccessResult' constructor.
 --

@@ -47,7 +47,7 @@ import Network.AWS.IAM.Types
 
 newtype GetSAMLProvider = GetSAMLProvider
     { _gsamlpSAMLProviderArn :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetSAMLProvider' constructor.
 --
@@ -66,6 +66,7 @@ getSAMLProvider p1 = GetSAMLProvider
 gsamlpSAMLProviderArn :: Lens' GetSAMLProvider Text
 gsamlpSAMLProviderArn =
     lens _gsamlpSAMLProviderArn (\s a -> s { _gsamlpSAMLProviderArn = a })
+
 instance ToQuery GetSAMLProvider
 
 instance ToPath GetSAMLProvider where
@@ -75,7 +76,7 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse
     { _gsamlprCreateDate           :: Maybe RFC822
     , _gsamlprSAMLMetadataDocument :: Maybe Text
     , _gsamlprValidUntil           :: Maybe RFC822
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetSAMLProviderResponse' constructor.
 --

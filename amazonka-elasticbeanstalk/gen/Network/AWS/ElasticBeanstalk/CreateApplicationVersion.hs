@@ -52,7 +52,7 @@ data CreateApplicationVersionMessage = CreateApplicationVersionMessage
     , _cavmDescription           :: Maybe Text
     , _cavmSourceBundle          :: Maybe S3Location
     , _cavmVersionLabel          :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateApplicationVersionMessage' constructor.
 --
@@ -120,6 +120,7 @@ cavmSourceBundle = lens _cavmSourceBundle (\s a -> s { _cavmSourceBundle = a })
 -- InvalidParameterValue error.
 cavmVersionLabel :: Lens' CreateApplicationVersionMessage Text
 cavmVersionLabel = lens _cavmVersionLabel (\s a -> s { _cavmVersionLabel = a })
+
 instance ToQuery CreateApplicationVersionMessage
 
 instance ToPath CreateApplicationVersionMessage where

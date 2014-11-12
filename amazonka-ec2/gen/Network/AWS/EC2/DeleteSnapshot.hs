@@ -53,7 +53,7 @@ import Network.AWS.EC2.Types
 data DeleteSnapshot = DeleteSnapshot
     { _ds3DryRun     :: Maybe Bool
     , _ds3SnapshotId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSnapshot' constructor.
 --
@@ -76,6 +76,7 @@ ds3DryRun = lens _ds3DryRun (\s a -> s { _ds3DryRun = a })
 -- | The ID of the Amazon EBS snapshot.
 ds3SnapshotId :: Lens' DeleteSnapshot Text
 ds3SnapshotId = lens _ds3SnapshotId (\s a -> s { _ds3SnapshotId = a })
+
 instance ToQuery DeleteSnapshot
 
 instance ToPath DeleteSnapshot where

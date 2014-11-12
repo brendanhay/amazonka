@@ -52,7 +52,7 @@ import Network.AWS.SimpleDB.Types
 data ListDomains = ListDomains
     { _ldMaxNumberOfDomains :: Maybe Int
     , _ldNextToken          :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListDomains' constructor.
 --
@@ -78,6 +78,7 @@ ldMaxNumberOfDomains =
 -- names.
 ldNextToken :: Lens' ListDomains (Maybe Text)
 ldNextToken = lens _ldNextToken (\s a -> s { _ldNextToken = a })
+
 instance ToQuery ListDomains
 
 instance ToPath ListDomains where
@@ -86,7 +87,7 @@ instance ToPath ListDomains where
 data ListDomainsResult = ListDomainsResult
     { _ldrDomainNames :: [Text]
     , _ldrNextToken   :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListDomainsResult' constructor.
 --

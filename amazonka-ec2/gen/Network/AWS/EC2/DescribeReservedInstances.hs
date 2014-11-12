@@ -52,7 +52,7 @@ data DescribeReservedInstances = DescribeReservedInstances
     , _driFilters              :: [Filter]
     , _driOfferingType         :: Maybe Text
     , _driReservedInstancesIds :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstances' constructor.
 --
@@ -114,6 +114,7 @@ driOfferingType = lens _driOfferingType (\s a -> s { _driOfferingType = a })
 driReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
 driReservedInstancesIds =
     lens _driReservedInstancesIds (\s a -> s { _driReservedInstancesIds = a })
+
 instance ToQuery DescribeReservedInstances
 
 instance ToPath DescribeReservedInstances where
@@ -121,7 +122,13 @@ instance ToPath DescribeReservedInstances where
 
 newtype DescribeReservedInstancesResult = DescribeReservedInstancesResult
     { _drirReservedInstances :: [ReservedInstances]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeReservedInstancesResult
+    type Item DescribeReservedInstancesResult = ReservedInstances
+
+    fromList = DescribeReservedInstancesResult . fromList
+    toList   = toList . _drirReservedInstances
 
 -- | 'DescribeReservedInstancesResult' constructor.
 --

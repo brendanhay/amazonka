@@ -60,7 +60,7 @@ import Network.AWS.EC2.Types
 data TerminateInstances = TerminateInstances
     { _tiDryRun      :: Maybe Bool
     , _tiInstanceIds :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'TerminateInstances' constructor.
 --
@@ -82,6 +82,7 @@ tiDryRun = lens _tiDryRun (\s a -> s { _tiDryRun = a })
 -- | One or more instance IDs.
 tiInstanceIds :: Lens' TerminateInstances [Text]
 tiInstanceIds = lens _tiInstanceIds (\s a -> s { _tiInstanceIds = a })
+
 instance ToQuery TerminateInstances
 
 instance ToPath TerminateInstances where
@@ -89,7 +90,13 @@ instance ToPath TerminateInstances where
 
 newtype TerminateInstancesResult = TerminateInstancesResult
     { _tirTerminatingInstances :: [InstanceStateChange]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList TerminateInstancesResult
+    type Item TerminateInstancesResult = InstanceStateChange
+
+    fromList = TerminateInstancesResult . fromList
+    toList   = toList . _tirTerminatingInstances
 
 -- | 'TerminateInstancesResult' constructor.
 --

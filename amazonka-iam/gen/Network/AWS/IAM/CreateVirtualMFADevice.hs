@@ -55,7 +55,7 @@ import Network.AWS.IAM.Types
 data CreateVirtualMFADevice = CreateVirtualMFADevice
     { _cvmfadPath                 :: Maybe Text
     , _cvmfadVirtualMFADeviceName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateVirtualMFADevice' constructor.
 --
@@ -84,6 +84,7 @@ cvmfadVirtualMFADeviceName :: Lens' CreateVirtualMFADevice Text
 cvmfadVirtualMFADeviceName =
     lens _cvmfadVirtualMFADeviceName
         (\s a -> s { _cvmfadVirtualMFADeviceName = a })
+
 instance ToQuery CreateVirtualMFADevice
 
 instance ToPath CreateVirtualMFADevice where
@@ -91,7 +92,7 @@ instance ToPath CreateVirtualMFADevice where
 
 newtype CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse
     { _cvmfadrVirtualMFADevice :: VirtualMFADevice
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateVirtualMFADeviceResponse' constructor.
 --

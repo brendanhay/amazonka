@@ -55,7 +55,7 @@ import Network.AWS.CloudWatch.Types
 data PutMetricDataInput = PutMetricDataInput
     { _pmdiMetricData :: [MetricDatum]
     , _pmdiNamespace  :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PutMetricDataInput' constructor.
 --
@@ -79,6 +79,7 @@ pmdiMetricData = lens _pmdiMetricData (\s a -> s { _pmdiMetricData = a })
 -- | The namespace for the metric data.
 pmdiNamespace :: Lens' PutMetricDataInput Text
 pmdiNamespace = lens _pmdiNamespace (\s a -> s { _pmdiNamespace = a })
+
 instance ToQuery PutMetricDataInput
 
 instance ToPath PutMetricDataInput where

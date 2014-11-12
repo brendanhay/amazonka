@@ -58,7 +58,7 @@ instance ToHeaders GetHealthCheckCount
 
 newtype GetHealthCheckCountResponse = GetHealthCheckCountResponse
     { _ghccrHealthCheckCount :: Integer
-    } (Eq, Ord, Show, Generic, Enum, Num)
+    } deriving (Eq, Ord, Show, Generic, Enum, Num, Integral, Real)
 
 -- | 'GetHealthCheckCountResponse' constructor.
 --

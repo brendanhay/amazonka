@@ -45,7 +45,7 @@ import Network.AWS.AutoScaling.Types
 data DeleteAutoScalingGroupType = DeleteAutoScalingGroupType
     { _dasgtAutoScalingGroupName :: Text
     , _dasgtForceDelete          :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteAutoScalingGroupType' constructor.
 --
@@ -74,6 +74,7 @@ dasgtAutoScalingGroupName =
 -- deletes any lifecycle actions associated with the group.
 dasgtForceDelete :: Lens' DeleteAutoScalingGroupType (Maybe Bool)
 dasgtForceDelete = lens _dasgtForceDelete (\s a -> s { _dasgtForceDelete = a })
+
 instance ToQuery DeleteAutoScalingGroupType
 
 instance ToPath DeleteAutoScalingGroupType where

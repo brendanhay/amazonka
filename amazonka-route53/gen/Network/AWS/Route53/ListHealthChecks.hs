@@ -58,7 +58,7 @@ import Network.AWS.Route53.Types
 data ListHealthChecks = ListHealthChecks
     { _lhcMarker   :: Maybe Text
     , _lhcMaxItems :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListHealthChecks' constructor.
 --
@@ -102,7 +102,7 @@ data ListHealthChecksResponse = ListHealthChecksResponse
     , _lhcrMarker       :: Text
     , _lhcrMaxItems     :: Text
     , _lhcrNextMarker   :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListHealthChecksResponse' constructor.
 --

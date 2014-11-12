@@ -76,7 +76,7 @@ data CreateLaunchConfigurationType = CreateLaunchConfigurationType
     , _clctSecurityGroups           :: [Text]
     , _clctSpotPrice                :: Maybe Text
     , _clctUserData                 :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateLaunchConfigurationType' constructor.
 --
@@ -274,6 +274,7 @@ clctSpotPrice = lens _clctSpotPrice (\s a -> s { _clctSpotPrice = a })
 -- the Amazon Elastic Compute Cloud User Guide.
 clctUserData :: Lens' CreateLaunchConfigurationType (Maybe Text)
 clctUserData = lens _clctUserData (\s a -> s { _clctUserData = a })
+
 instance ToQuery CreateLaunchConfigurationType
 
 instance ToPath CreateLaunchConfigurationType where

@@ -43,7 +43,7 @@ import Network.AWS.RDS.Types
 
 newtype DeleteDBParameterGroupMessage = DeleteDBParameterGroupMessage
     { _ddbpgm1DBParameterGroupName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteDBParameterGroupMessage' constructor.
 --
@@ -64,6 +64,7 @@ ddbpgm1DBParameterGroupName :: Lens' DeleteDBParameterGroupMessage Text
 ddbpgm1DBParameterGroupName =
     lens _ddbpgm1DBParameterGroupName
         (\s a -> s { _ddbpgm1DBParameterGroupName = a })
+
 instance ToQuery DeleteDBParameterGroupMessage
 
 instance ToPath DeleteDBParameterGroupMessage where

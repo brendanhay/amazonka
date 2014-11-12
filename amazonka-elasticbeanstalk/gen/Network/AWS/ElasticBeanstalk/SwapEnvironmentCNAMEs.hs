@@ -48,7 +48,7 @@ data SwapEnvironmentCNAMEsMessage = SwapEnvironmentCNAMEsMessage
     , _secnamemDestinationEnvironmentName :: Maybe Text
     , _secnamemSourceEnvironmentId        :: Maybe Text
     , _secnamemSourceEnvironmentName      :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SwapEnvironmentCNAMEsMessage' constructor.
 --
@@ -105,6 +105,7 @@ secnamemSourceEnvironmentName :: Lens' SwapEnvironmentCNAMEsMessage (Maybe Text)
 secnamemSourceEnvironmentName =
     lens _secnamemSourceEnvironmentName
         (\s a -> s { _secnamemSourceEnvironmentName = a })
+
 instance ToQuery SwapEnvironmentCNAMEsMessage
 
 instance ToPath SwapEnvironmentCNAMEsMessage where

@@ -56,7 +56,7 @@ data DescribeReservedNodeOfferingsMessage = DescribeReservedNodeOfferingsMessage
     { _drnomMarker                 :: Maybe Text
     , _drnomMaxRecords             :: Maybe Int
     , _drnomReservedNodeOfferingId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeReservedNodeOfferingsMessage' constructor.
 --
@@ -97,6 +97,7 @@ drnomReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferingsMessage (Maybe
 drnomReservedNodeOfferingId =
     lens _drnomReservedNodeOfferingId
         (\s a -> s { _drnomReservedNodeOfferingId = a })
+
 instance ToQuery DescribeReservedNodeOfferingsMessage
 
 instance ToPath DescribeReservedNodeOfferingsMessage where
@@ -105,7 +106,7 @@ instance ToPath DescribeReservedNodeOfferingsMessage where
 data ReservedNodeOfferingsMessage = ReservedNodeOfferingsMessage
     { _rnomMarker                :: Maybe Text
     , _rnomReservedNodeOfferings :: [ReservedNodeOffering]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ReservedNodeOfferingsMessage' constructor.
 --

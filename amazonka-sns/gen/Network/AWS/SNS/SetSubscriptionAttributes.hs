@@ -47,7 +47,7 @@ data SetSubscriptionAttributesInput = SetSubscriptionAttributesInput
     { _ssaiAttributeName   :: Text
     , _ssaiAttributeValue  :: Maybe Text
     , _ssaiSubscriptionArn :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetSubscriptionAttributesInput' constructor.
 --
@@ -84,6 +84,7 @@ ssaiAttributeValue =
 ssaiSubscriptionArn :: Lens' SetSubscriptionAttributesInput Text
 ssaiSubscriptionArn =
     lens _ssaiSubscriptionArn (\s a -> s { _ssaiSubscriptionArn = a })
+
 instance ToQuery SetSubscriptionAttributesInput
 
 instance ToPath SetSubscriptionAttributesInput where

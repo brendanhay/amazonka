@@ -50,16 +50,13 @@ import Network.AWS.CloudSearch.Types
 
 newtype DescribeDomains = DescribeDomains
     { _ddDomainNames :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList DescribeDomains
+    type Item DescribeDomains = Text
+
+    fromList = DescribeDomains . fromList
+    toList   = toList . _ddDomainNames
 
 -- | 'DescribeDomains' constructor.
 --
@@ -75,6 +72,7 @@ describeDomains = DescribeDomains
 -- | The names of the domains you want to include in the response.
 ddDomainNames :: Lens' DescribeDomains [Text]
 ddDomainNames = lens _ddDomainNames (\s a -> s { _ddDomainNames = a })
+
 instance ToQuery DescribeDomains
 
 instance ToPath DescribeDomains where
@@ -82,7 +80,13 @@ instance ToPath DescribeDomains where
 
 newtype DescribeDomainsResponse = DescribeDomainsResponse
     { _ddrDomainStatusList :: [DomainStatus]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeDomainsResponse
+    type Item DescribeDomainsResponse = DomainStatus
+
+    fromList = DescribeDomainsResponse . fromList
+    toList   = toList . _ddrDomainStatusList
 
 -- | 'DescribeDomainsResponse' constructor.
 --

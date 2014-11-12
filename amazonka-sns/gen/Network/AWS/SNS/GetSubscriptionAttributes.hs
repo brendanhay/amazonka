@@ -44,7 +44,7 @@ import Network.AWS.SNS.Types
 
 newtype GetSubscriptionAttributesInput = GetSubscriptionAttributesInput
     { _gsaiSubscriptionArn :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetSubscriptionAttributesInput' constructor.
 --
@@ -62,6 +62,7 @@ getSubscriptionAttributesInput p1 = GetSubscriptionAttributesInput
 gsaiSubscriptionArn :: Lens' GetSubscriptionAttributesInput Text
 gsaiSubscriptionArn =
     lens _gsaiSubscriptionArn (\s a -> s { _gsaiSubscriptionArn = a })
+
 instance ToQuery GetSubscriptionAttributesInput
 
 instance ToPath GetSubscriptionAttributesInput where
@@ -69,7 +70,13 @@ instance ToPath GetSubscriptionAttributesInput where
 
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
     { _gsarAttributes :: Map Text Text
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList GetSubscriptionAttributesResponse
+    type Item GetSubscriptionAttributesResponse = (Text, Text)
+
+    fromList = GetSubscriptionAttributesResponse . fromList
+    toList   = toList . _gsarAttributes
 
 -- | 'GetSubscriptionAttributesResponse' constructor.
 --

@@ -49,7 +49,7 @@ data GetObjectAcl = GetObjectAcl
     { _goaBucket    :: Text
     , _goaKey       :: Text
     , _goaVersionId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetObjectAcl' constructor.
 --
@@ -99,7 +99,7 @@ instance ToHeaders GetObjectAcl
 data GetObjectAclOutput = GetObjectAclOutput
     { _goaoGrants :: [Grant]
     , _goaoOwner  :: Maybe Owner
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'GetObjectAclOutput' constructor.
 --

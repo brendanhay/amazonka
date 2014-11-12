@@ -54,7 +54,7 @@ data AssociateRouteTable = AssociateRouteTable
     { _artDryRun       :: Maybe Bool
     , _artRouteTableId :: Text
     , _artSubnetId     :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AssociateRouteTable' constructor.
 --
@@ -85,6 +85,7 @@ artRouteTableId = lens _artRouteTableId (\s a -> s { _artRouteTableId = a })
 -- | The ID of the subnet.
 artSubnetId :: Lens' AssociateRouteTable Text
 artSubnetId = lens _artSubnetId (\s a -> s { _artSubnetId = a })
+
 instance ToQuery AssociateRouteTable
 
 instance ToPath AssociateRouteTable where
@@ -92,7 +93,7 @@ instance ToPath AssociateRouteTable where
 
 newtype AssociateRouteTableResult = AssociateRouteTableResult
     { _artrAssociationId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'AssociateRouteTableResult' constructor.
 --

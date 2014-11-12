@@ -55,7 +55,7 @@ data DeleteAttributes = DeleteAttributes
     , _daDomainName :: Text
     , _daExpected   :: Maybe UpdateCondition
     , _daItemName   :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteAttributes' constructor.
 --
@@ -99,6 +99,7 @@ daExpected = lens _daExpected (\s a -> s { _daExpected = a })
 -- individual objects that contain one or more value-attribute pairs.
 daItemName :: Lens' DeleteAttributes Text
 daItemName = lens _daItemName (\s a -> s { _daItemName = a })
+
 instance ToQuery DeleteAttributes
 
 instance ToPath DeleteAttributes where

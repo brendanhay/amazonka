@@ -53,7 +53,7 @@ data DescribeVolumeAttribute = DescribeVolumeAttribute
     { _dva1Attribute :: Maybe Text
     , _dva1DryRun    :: Maybe Bool
     , _dva1VolumeId  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeVolumeAttribute' constructor.
 --
@@ -83,6 +83,7 @@ dva1DryRun = lens _dva1DryRun (\s a -> s { _dva1DryRun = a })
 -- | The ID of the volume.
 dva1VolumeId :: Lens' DescribeVolumeAttribute Text
 dva1VolumeId = lens _dva1VolumeId (\s a -> s { _dva1VolumeId = a })
+
 instance ToQuery DescribeVolumeAttribute
 
 instance ToPath DescribeVolumeAttribute where
@@ -92,7 +93,7 @@ data DescribeVolumeAttributeResult = DescribeVolumeAttributeResult
     { _dvarAutoEnableIO :: Maybe AttributeBooleanValue
     , _dvarProductCodes :: [ProductCode]
     , _dvarVolumeId     :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVolumeAttributeResult' constructor.
 --

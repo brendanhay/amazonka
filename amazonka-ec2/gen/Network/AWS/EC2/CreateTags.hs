@@ -50,7 +50,7 @@ data CreateTags = CreateTags
     { _ctDryRun    :: Maybe Bool
     , _ctResources :: [Text]
     , _ctTags      :: [Tag]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateTags' constructor.
 --
@@ -81,6 +81,7 @@ ctResources = lens _ctResources (\s a -> s { _ctResources = a })
 -- the value to an empty string.
 ctTags :: Lens' CreateTags [Tag]
 ctTags = lens _ctTags (\s a -> s { _ctTags = a })
+
 instance ToQuery CreateTags
 
 instance ToPath CreateTags where

@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 data DeleteRolePolicy = DeleteRolePolicy
     { _drpPolicyName :: Text
     , _drpRoleName   :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteRolePolicy' constructor.
 --
@@ -69,6 +69,7 @@ drpPolicyName = lens _drpPolicyName (\s a -> s { _drpPolicyName = a })
 -- | The name of the role the associated with the policy.
 drpRoleName :: Lens' DeleteRolePolicy Text
 drpRoleName = lens _drpRoleName (\s a -> s { _drpRoleName = a })
+
 instance ToQuery DeleteRolePolicy
 
 instance ToPath DeleteRolePolicy where

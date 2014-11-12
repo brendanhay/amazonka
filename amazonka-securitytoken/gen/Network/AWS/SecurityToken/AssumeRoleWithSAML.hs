@@ -93,7 +93,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML
     , _arwsamlPrincipalArn    :: Text
     , _arwsamlRoleArn         :: Text
     , _arwsamlSAMLAssertion   :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AssumeRoleWithSAML' constructor.
 --
@@ -159,6 +159,7 @@ arwsamlRoleArn = lens _arwsamlRoleArn (\s a -> s { _arwsamlRoleArn = a })
 arwsamlSAMLAssertion :: Lens' AssumeRoleWithSAML Text
 arwsamlSAMLAssertion =
     lens _arwsamlSAMLAssertion (\s a -> s { _arwsamlSAMLAssertion = a })
+
 instance ToQuery AssumeRoleWithSAML
 
 instance ToPath AssumeRoleWithSAML where
@@ -173,7 +174,7 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse
     , _arwsamlrPackedPolicySize :: Maybe Natural
     , _arwsamlrSubject          :: Maybe Text
     , _arwsamlrSubjectType      :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AssumeRoleWithSAMLResponse' constructor.
 --

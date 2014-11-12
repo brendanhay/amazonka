@@ -76,7 +76,7 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     , _drioOfferingType                 :: Maybe Text
     , _drioProductDescription           :: Maybe Text
     , _drioReservedInstancesOfferingIds :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstancesOfferings' constructor.
 --
@@ -212,6 +212,7 @@ drioReservedInstancesOfferingIds :: Lens' DescribeReservedInstancesOfferings [Te
 drioReservedInstancesOfferingIds =
     lens _drioReservedInstancesOfferingIds
         (\s a -> s { _drioReservedInstancesOfferingIds = a })
+
 instance ToQuery DescribeReservedInstancesOfferings
 
 instance ToPath DescribeReservedInstancesOfferings where
@@ -220,7 +221,7 @@ instance ToPath DescribeReservedInstancesOfferings where
 data DescribeReservedInstancesOfferingsResult = DescribeReservedInstancesOfferingsResult
     { _driorNextToken                  :: Maybe Text
     , _driorReservedInstancesOfferings :: [ReservedInstancesOffering]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeReservedInstancesOfferingsResult' constructor.
 --

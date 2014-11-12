@@ -48,7 +48,7 @@ data PutBucketLogging = PutBucketLogging
     { _pbl1Bucket              :: Text
     , _pbl1BucketLoggingStatus :: BucketLoggingStatus
     , _pbl1ContentMD5          :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketLogging' constructor.
 --

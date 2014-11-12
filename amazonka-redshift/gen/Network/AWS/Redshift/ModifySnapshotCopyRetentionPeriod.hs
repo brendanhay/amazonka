@@ -47,7 +47,7 @@ import Network.AWS.Redshift.Types
 data ModifySnapshotCopyRetentionPeriodMessage = ModifySnapshotCopyRetentionPeriodMessage
     { _mscrpmClusterIdentifier :: Text
     , _mscrpmRetentionPeriod   :: Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifySnapshotCopyRetentionPeriodMessage' constructor.
 --
@@ -82,6 +82,7 @@ mscrpmClusterIdentifier =
 mscrpmRetentionPeriod :: Lens' ModifySnapshotCopyRetentionPeriodMessage Int
 mscrpmRetentionPeriod =
     lens _mscrpmRetentionPeriod (\s a -> s { _mscrpmRetentionPeriod = a })
+
 instance ToQuery ModifySnapshotCopyRetentionPeriodMessage
 
 instance ToPath ModifySnapshotCopyRetentionPeriodMessage where
@@ -89,7 +90,7 @@ instance ToPath ModifySnapshotCopyRetentionPeriodMessage where
 
 newtype ModifySnapshotCopyRetentionPeriodResult = ModifySnapshotCopyRetentionPeriodResult
     { _mscrprCluster :: Maybe Cluster
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifySnapshotCopyRetentionPeriodResult' constructor.
 --

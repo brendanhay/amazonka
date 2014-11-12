@@ -58,7 +58,7 @@ data CopyImage = CopyImage
     , _ciName          :: Text
     , _ciSourceImageId :: Text
     , _ciSourceRegion  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CopyImage' constructor.
 --
@@ -113,6 +113,7 @@ ciSourceImageId = lens _ciSourceImageId (\s a -> s { _ciSourceImageId = a })
 -- | The name of the region that contains the AMI to copy.
 ciSourceRegion :: Lens' CopyImage Text
 ciSourceRegion = lens _ciSourceRegion (\s a -> s { _ciSourceRegion = a })
+
 instance ToQuery CopyImage
 
 instance ToPath CopyImage where
@@ -120,7 +121,7 @@ instance ToPath CopyImage where
 
 newtype CopyImageResult = CopyImageResult
     { _cir1ImageId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CopyImageResult' constructor.
 --

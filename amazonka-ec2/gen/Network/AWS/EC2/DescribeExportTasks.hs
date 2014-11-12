@@ -44,16 +44,13 @@ import Network.AWS.EC2.Types
 
 newtype DescribeExportTasks = DescribeExportTasks
     { _detExportTaskIds :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList DescribeExportTasks
+    type Item DescribeExportTasks = Text
+
+    fromList = DescribeExportTasks . fromList
+    toList   = toList . _detExportTaskIds
 
 -- | 'DescribeExportTasks' constructor.
 --
@@ -69,6 +66,7 @@ describeExportTasks = DescribeExportTasks
 -- | One or more export task IDs.
 detExportTaskIds :: Lens' DescribeExportTasks [Text]
 detExportTaskIds = lens _detExportTaskIds (\s a -> s { _detExportTaskIds = a })
+
 instance ToQuery DescribeExportTasks
 
 instance ToPath DescribeExportTasks where
@@ -76,7 +74,13 @@ instance ToPath DescribeExportTasks where
 
 newtype DescribeExportTasksResult = DescribeExportTasksResult
     { _detrExportTasks :: [ExportTask]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeExportTasksResult
+    type Item DescribeExportTasksResult = ExportTask
+
+    fromList = DescribeExportTasksResult . fromList
+    toList   = toList . _detrExportTasks
 
 -- | 'DescribeExportTasksResult' constructor.
 --

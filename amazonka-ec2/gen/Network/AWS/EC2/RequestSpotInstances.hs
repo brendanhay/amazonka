@@ -66,7 +66,7 @@ data RequestSpotInstances = RequestSpotInstances
     , _rsiType                  :: Maybe Text
     , _rsiValidFrom             :: Maybe RFC822
     , _rsiValidUntil            :: Maybe RFC822
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RequestSpotInstances' constructor.
 --
@@ -170,6 +170,7 @@ rsiValidFrom = lens _rsiValidFrom (\s a -> s { _rsiValidFrom = a })
 rsiValidUntil :: Lens' RequestSpotInstances (Maybe UTCTime)
 rsiValidUntil = lens _rsiValidUntil (\s a -> s { _rsiValidUntil = a })
     . mapping _Time
+
 instance ToQuery RequestSpotInstances
 
 instance ToPath RequestSpotInstances where
@@ -177,7 +178,13 @@ instance ToPath RequestSpotInstances where
 
 newtype RequestSpotInstancesResult = RequestSpotInstancesResult
     { _rsirSpotInstanceRequests :: [SpotInstanceRequest]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList RequestSpotInstancesResult
+    type Item RequestSpotInstancesResult = SpotInstanceRequest
+
+    fromList = RequestSpotInstancesResult . fromList
+    toList   = toList . _rsirSpotInstanceRequests
 
 -- | 'RequestSpotInstancesResult' constructor.
 --

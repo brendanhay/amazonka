@@ -59,7 +59,7 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering
     , _prioInstanceCount               :: Int
     , _prioLimitPrice                  :: Maybe ReservedInstanceLimitPrice
     , _prioReservedInstancesOfferingId :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PurchaseReservedInstancesOffering' constructor.
 --
@@ -102,6 +102,7 @@ prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
 prioReservedInstancesOfferingId =
     lens _prioReservedInstancesOfferingId
         (\s a -> s { _prioReservedInstancesOfferingId = a })
+
 instance ToQuery PurchaseReservedInstancesOffering
 
 instance ToPath PurchaseReservedInstancesOffering where
@@ -109,7 +110,7 @@ instance ToPath PurchaseReservedInstancesOffering where
 
 newtype PurchaseReservedInstancesOfferingResult = PurchaseReservedInstancesOfferingResult
     { _priorReservedInstancesId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'PurchaseReservedInstancesOfferingResult' constructor.
 --

@@ -44,16 +44,13 @@ import Network.AWS.ElasticBeanstalk.Types
 
 newtype DescribeApplicationsMessage = DescribeApplicationsMessage
     { _damApplicationNames :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList DescribeApplicationsMessage
+    type Item DescribeApplicationsMessage = Text
+
+    fromList = DescribeApplicationsMessage . fromList
+    toList   = toList . _damApplicationNames
 
 -- | 'DescribeApplicationsMessage' constructor.
 --
@@ -71,6 +68,7 @@ describeApplicationsMessage = DescribeApplicationsMessage
 damApplicationNames :: Lens' DescribeApplicationsMessage [Text]
 damApplicationNames =
     lens _damApplicationNames (\s a -> s { _damApplicationNames = a })
+
 instance ToQuery DescribeApplicationsMessage
 
 instance ToPath DescribeApplicationsMessage where
@@ -78,7 +76,13 @@ instance ToPath DescribeApplicationsMessage where
 
 newtype ApplicationDescriptionsMessage = ApplicationDescriptionsMessage
     { _admApplications :: [ApplicationDescription]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList ApplicationDescriptionsMessage
+    type Item ApplicationDescriptionsMessage = ApplicationDescription
+
+    fromList = ApplicationDescriptionsMessage . fromList
+    toList   = toList . _admApplications
 
 -- | 'ApplicationDescriptionsMessage' constructor.
 --

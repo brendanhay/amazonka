@@ -50,7 +50,7 @@ data RevokeCacheSecurityGroupIngressMessage = RevokeCacheSecurityGroupIngressMes
     { _rcsgimCacheSecurityGroupName  :: Text
     , _rcsgimEC2SecurityGroupName    :: Text
     , _rcsgimEC2SecurityGroupOwnerId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RevokeCacheSecurityGroupIngressMessage' constructor.
 --
@@ -91,6 +91,7 @@ rcsgimEC2SecurityGroupOwnerId :: Lens' RevokeCacheSecurityGroupIngressMessage Te
 rcsgimEC2SecurityGroupOwnerId =
     lens _rcsgimEC2SecurityGroupOwnerId
         (\s a -> s { _rcsgimEC2SecurityGroupOwnerId = a })
+
 instance ToQuery RevokeCacheSecurityGroupIngressMessage
 
 instance ToPath RevokeCacheSecurityGroupIngressMessage where
@@ -98,7 +99,7 @@ instance ToPath RevokeCacheSecurityGroupIngressMessage where
 
 newtype RevokeCacheSecurityGroupIngressResult = RevokeCacheSecurityGroupIngressResult
     { _rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RevokeCacheSecurityGroupIngressResult' constructor.
 --

@@ -49,7 +49,7 @@ data ModifyCacheSubnetGroupMessage = ModifyCacheSubnetGroupMessage
     { _mcsgmCacheSubnetGroupDescription :: Maybe Text
     , _mcsgmCacheSubnetGroupName        :: Text
     , _mcsgmSubnetIds                   :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifyCacheSubnetGroupMessage' constructor.
 --
@@ -86,6 +86,7 @@ mcsgmCacheSubnetGroupName =
 -- | The EC2 subnet IDs for the cache subnet group.
 mcsgmSubnetIds :: Lens' ModifyCacheSubnetGroupMessage [Text]
 mcsgmSubnetIds = lens _mcsgmSubnetIds (\s a -> s { _mcsgmSubnetIds = a })
+
 instance ToQuery ModifyCacheSubnetGroupMessage
 
 instance ToPath ModifyCacheSubnetGroupMessage where
@@ -93,7 +94,7 @@ instance ToPath ModifyCacheSubnetGroupMessage where
 
 newtype ModifyCacheSubnetGroupResult = ModifyCacheSubnetGroupResult
     { _mcsgrCacheSubnetGroup :: Maybe CacheSubnetGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyCacheSubnetGroupResult' constructor.
 --

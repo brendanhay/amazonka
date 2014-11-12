@@ -50,7 +50,7 @@ import Network.AWS.SNS.Types
 data ListSubscriptionsByTopicInput = ListSubscriptionsByTopicInput
     { _lsbtiNextToken :: Maybe Text
     , _lsbtiTopicArn  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListSubscriptionsByTopicInput' constructor.
 --
@@ -74,6 +74,7 @@ lsbtiNextToken = lens _lsbtiNextToken (\s a -> s { _lsbtiNextToken = a })
 -- | The ARN of the topic for which you wish to find subscriptions.
 lsbtiTopicArn :: Lens' ListSubscriptionsByTopicInput Text
 lsbtiTopicArn = lens _lsbtiTopicArn (\s a -> s { _lsbtiTopicArn = a })
+
 instance ToQuery ListSubscriptionsByTopicInput
 
 instance ToPath ListSubscriptionsByTopicInput where
@@ -82,7 +83,7 @@ instance ToPath ListSubscriptionsByTopicInput where
 data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse
     { _lsbtrNextToken     :: Maybe Text
     , _lsbtrSubscriptions :: [Subscription]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ListSubscriptionsByTopicResponse' constructor.
 --

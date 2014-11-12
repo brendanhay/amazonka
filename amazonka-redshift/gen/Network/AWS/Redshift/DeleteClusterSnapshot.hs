@@ -52,7 +52,7 @@ import Network.AWS.Redshift.Types
 data DeleteClusterSnapshotMessage = DeleteClusterSnapshotMessage
     { _dcsmSnapshotClusterIdentifier :: Maybe Text
     , _dcsmSnapshotIdentifier        :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteClusterSnapshotMessage' constructor.
 --
@@ -83,6 +83,7 @@ dcsmSnapshotClusterIdentifier =
 dcsmSnapshotIdentifier :: Lens' DeleteClusterSnapshotMessage Text
 dcsmSnapshotIdentifier =
     lens _dcsmSnapshotIdentifier (\s a -> s { _dcsmSnapshotIdentifier = a })
+
 instance ToQuery DeleteClusterSnapshotMessage
 
 instance ToPath DeleteClusterSnapshotMessage where
@@ -90,7 +91,7 @@ instance ToPath DeleteClusterSnapshotMessage where
 
 newtype DeleteClusterSnapshotResult = DeleteClusterSnapshotResult
     { _dcsrSnapshot :: Maybe Snapshot
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DeleteClusterSnapshotResult' constructor.
 --

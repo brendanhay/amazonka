@@ -63,7 +63,7 @@ data UpdateHealthCheck = UpdateHealthCheck
     , _uhcPort                     :: Maybe Natural
     , _uhcResourcePath             :: Maybe Text
     , _uhcSearchString             :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UpdateHealthCheck' constructor.
 --
@@ -169,7 +169,7 @@ instance ToBody UpdateHealthCheck where
 
 newtype UpdateHealthCheckResponse = UpdateHealthCheckResponse
     { _uhcrHealthCheck :: HealthCheck
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'UpdateHealthCheckResponse' constructor.
 --

@@ -50,7 +50,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteServerCertificate = DeleteServerCertificate
     { _dscServerCertificateName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteServerCertificate' constructor.
 --
@@ -69,6 +69,7 @@ dscServerCertificateName :: Lens' DeleteServerCertificate Text
 dscServerCertificateName =
     lens _dscServerCertificateName
         (\s a -> s { _dscServerCertificateName = a })
+
 instance ToQuery DeleteServerCertificate
 
 instance ToPath DeleteServerCertificate where

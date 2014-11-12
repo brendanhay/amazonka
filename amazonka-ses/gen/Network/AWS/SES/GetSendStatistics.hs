@@ -49,6 +49,7 @@ data GetSendStatistics = GetSendStatistics
 -- | 'GetSendStatistics' constructor.
 getSendStatistics :: GetSendStatistics
 getSendStatistics = GetSendStatistics
+
 instance ToQuery GetSendStatistics
 
 instance ToPath GetSendStatistics where
@@ -56,7 +57,13 @@ instance ToPath GetSendStatistics where
 
 newtype GetSendStatisticsResponse = GetSendStatisticsResponse
     { _gssrSendDataPoints :: [SendDataPoint]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList GetSendStatisticsResponse
+    type Item GetSendStatisticsResponse = SendDataPoint
+
+    fromList = GetSendStatisticsResponse . fromList
+    toList   = toList . _gssrSendDataPoints
 
 -- | 'GetSendStatisticsResponse' constructor.
 --

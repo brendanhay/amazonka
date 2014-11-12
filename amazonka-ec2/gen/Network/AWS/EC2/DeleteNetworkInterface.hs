@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data DeleteNetworkInterface = DeleteNetworkInterface
     { _dni1DryRun             :: Maybe Bool
     , _dni1NetworkInterfaceId :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteNetworkInterface' constructor.
 --
@@ -69,6 +69,7 @@ dni1DryRun = lens _dni1DryRun (\s a -> s { _dni1DryRun = a })
 dni1NetworkInterfaceId :: Lens' DeleteNetworkInterface Text
 dni1NetworkInterfaceId =
     lens _dni1NetworkInterfaceId (\s a -> s { _dni1NetworkInterfaceId = a })
+
 instance ToQuery DeleteNetworkInterface
 
 instance ToPath DeleteNetworkInterface where

@@ -61,7 +61,7 @@ data StartInstances = StartInstances
     { _siAdditionalInfo :: Maybe Text
     , _siDryRun         :: Maybe Bool
     , _siInstanceIds    :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StartInstances' constructor.
 --
@@ -90,6 +90,7 @@ siDryRun = lens _siDryRun (\s a -> s { _siDryRun = a })
 -- | One or more instance IDs.
 siInstanceIds :: Lens' StartInstances [Text]
 siInstanceIds = lens _siInstanceIds (\s a -> s { _siInstanceIds = a })
+
 instance ToQuery StartInstances
 
 instance ToPath StartInstances where
@@ -97,7 +98,13 @@ instance ToPath StartInstances where
 
 newtype StartInstancesResult = StartInstancesResult
     { _sirStartingInstances :: [InstanceStateChange]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList StartInstancesResult
+    type Item StartInstancesResult = InstanceStateChange
+
+    fromList = StartInstancesResult . fromList
+    toList   = toList . _sirStartingInstances
 
 -- | 'StartInstancesResult' constructor.
 --

@@ -50,7 +50,7 @@ data DescribeNotificationConfigurationsType = DescribeNotificationConfigurations
     { _dnctAutoScalingGroupNames :: [Text]
     , _dnctMaxRecords            :: Maybe Int
     , _dnctNextToken             :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeNotificationConfigurationsType' constructor.
 --
@@ -83,6 +83,7 @@ dnctMaxRecords = lens _dnctMaxRecords (\s a -> s { _dnctMaxRecords = a })
 -- results for pagination.
 dnctNextToken :: Lens' DescribeNotificationConfigurationsType (Maybe Text)
 dnctNextToken = lens _dnctNextToken (\s a -> s { _dnctNextToken = a })
+
 instance ToQuery DescribeNotificationConfigurationsType
 
 instance ToPath DescribeNotificationConfigurationsType where
@@ -91,7 +92,7 @@ instance ToPath DescribeNotificationConfigurationsType where
 data DescribeNotificationConfigurationsAnswer = DescribeNotificationConfigurationsAnswer
     { _dncaNextToken                  :: Maybe Text
     , _dncaNotificationConfigurations :: [NotificationConfiguration]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeNotificationConfigurationsAnswer' constructor.
 --

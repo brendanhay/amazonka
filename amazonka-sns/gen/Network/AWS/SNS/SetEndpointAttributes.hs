@@ -46,7 +46,7 @@ import Network.AWS.SNS.Types
 data SetEndpointAttributesInput = SetEndpointAttributesInput
     { _seaiAttributes  :: Map Text Text
     , _seaiEndpointArn :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'SetEndpointAttributesInput' constructor.
 --
@@ -80,6 +80,7 @@ seaiAttributes = lens _seaiAttributes (\s a -> s { _seaiAttributes = a })
 -- | EndpointArn used for SetEndpointAttributes action.
 seaiEndpointArn :: Lens' SetEndpointAttributesInput Text
 seaiEndpointArn = lens _seaiEndpointArn (\s a -> s { _seaiEndpointArn = a })
+
 instance ToQuery SetEndpointAttributesInput
 
 instance ToPath SetEndpointAttributesInput where

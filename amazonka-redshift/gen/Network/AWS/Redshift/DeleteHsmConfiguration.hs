@@ -42,7 +42,7 @@ import Network.AWS.Redshift.Types
 
 newtype DeleteHsmConfigurationMessage = DeleteHsmConfigurationMessage
     { _dhcm1HsmConfigurationIdentifier :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteHsmConfigurationMessage' constructor.
 --
@@ -61,6 +61,7 @@ dhcm1HsmConfigurationIdentifier :: Lens' DeleteHsmConfigurationMessage Text
 dhcm1HsmConfigurationIdentifier =
     lens _dhcm1HsmConfigurationIdentifier
         (\s a -> s { _dhcm1HsmConfigurationIdentifier = a })
+
 instance ToQuery DeleteHsmConfigurationMessage
 
 instance ToPath DeleteHsmConfigurationMessage where

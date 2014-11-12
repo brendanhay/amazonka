@@ -54,7 +54,7 @@ data ResetDBParameterGroupMessage = ResetDBParameterGroupMessage
     { _rdbpgmDBParameterGroupName :: Text
     , _rdbpgmParameters           :: [Parameter]
     , _rdbpgmResetAllParameters   :: Maybe Bool
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ResetDBParameterGroupMessage' constructor.
 --
@@ -99,6 +99,7 @@ rdbpgmResetAllParameters :: Lens' ResetDBParameterGroupMessage (Maybe Bool)
 rdbpgmResetAllParameters =
     lens _rdbpgmResetAllParameters
         (\s a -> s { _rdbpgmResetAllParameters = a })
+
 instance ToQuery ResetDBParameterGroupMessage
 
 instance ToPath ResetDBParameterGroupMessage where

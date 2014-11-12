@@ -53,7 +53,7 @@ data DescribeAccessPointsInput = DescribeAccessPointsInput
     { _dapiLoadBalancerNames :: [Text]
     , _dapiMarker            :: Maybe Text
     , _dapiPageSize          :: Maybe Natural
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeAccessPointsInput' constructor.
 --
@@ -86,6 +86,7 @@ dapiMarker = lens _dapiMarker (\s a -> s { _dapiMarker = a })
 -- cannot specify a page size greater than 400 or less than 1.
 dapiPageSize :: Lens' DescribeAccessPointsInput (Maybe Natural)
 dapiPageSize = lens _dapiPageSize (\s a -> s { _dapiPageSize = a })
+
 instance ToQuery DescribeAccessPointsInput
 
 instance ToPath DescribeAccessPointsInput where
@@ -94,7 +95,7 @@ instance ToPath DescribeAccessPointsInput where
 data DescribeAccessPointsOutput = DescribeAccessPointsOutput
     { _dapoLoadBalancerDescriptions :: [LoadBalancerDescription]
     , _dapoNextMarker               :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeAccessPointsOutput' constructor.
 --

@@ -44,7 +44,7 @@ import Network.AWS.IAM.Types
 
 newtype CreateAccountAlias = CreateAccountAlias
     { _caaAccountAlias :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'CreateAccountAlias' constructor.
 --
@@ -61,6 +61,7 @@ createAccountAlias p1 = CreateAccountAlias
 -- | The name of the account alias to create.
 caaAccountAlias :: Lens' CreateAccountAlias Text
 caaAccountAlias = lens _caaAccountAlias (\s a -> s { _caaAccountAlias = a })
+
 instance ToQuery CreateAccountAlias
 
 instance ToPath CreateAccountAlias where

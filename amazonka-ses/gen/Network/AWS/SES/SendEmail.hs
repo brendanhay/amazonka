@@ -66,7 +66,7 @@ data SendEmail = SendEmail
     , _seReplyToAddresses :: [Text]
     , _seReturnPath       :: Maybe Text
     , _seSource           :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'SendEmail' constructor.
 --
@@ -123,6 +123,7 @@ seReturnPath = lens _seReturnPath (\s a -> s { _seReturnPath = a })
 -- =?charset?encoding?encoded-text?=. For more information, see RFC 2047.
 seSource :: Lens' SendEmail Text
 seSource = lens _seSource (\s a -> s { _seSource = a })
+
 instance ToQuery SendEmail
 
 instance ToPath SendEmail where
@@ -130,7 +131,7 @@ instance ToPath SendEmail where
 
 newtype SendEmailResponse = SendEmailResponse
     { _serMessageId :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'SendEmailResponse' constructor.
 --

@@ -46,7 +46,7 @@ import Network.AWS.CloudFormation.Types
 
 newtype GetTemplateInput = GetTemplateInput
     { _gtiStackName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'GetTemplateInput' constructor.
 --
@@ -66,6 +66,7 @@ getTemplateInput p1 = GetTemplateInput
 -- unique stack ID. Default: There is no default value.
 gtiStackName :: Lens' GetTemplateInput Text
 gtiStackName = lens _gtiStackName (\s a -> s { _gtiStackName = a })
+
 instance ToQuery GetTemplateInput
 
 instance ToPath GetTemplateInput where
@@ -73,7 +74,7 @@ instance ToPath GetTemplateInput where
 
 newtype GetTemplateOutput = GetTemplateOutput
     { _gtoTemplateBody :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetTemplateOutput' constructor.
 --

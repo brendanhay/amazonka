@@ -60,7 +60,7 @@ data DescribeReservedCacheNodesMessage = DescribeReservedCacheNodesMessage
     , _drcnmProductDescription           :: Maybe Text
     , _drcnmReservedCacheNodeId          :: Maybe Text
     , _drcnmReservedCacheNodesOfferingId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeReservedCacheNodesMessage' constructor.
 --
@@ -146,6 +146,7 @@ drcnmReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodesMessage (Ma
 drcnmReservedCacheNodesOfferingId =
     lens _drcnmReservedCacheNodesOfferingId
         (\s a -> s { _drcnmReservedCacheNodesOfferingId = a })
+
 instance ToQuery DescribeReservedCacheNodesMessage
 
 instance ToPath DescribeReservedCacheNodesMessage where
@@ -154,7 +155,7 @@ instance ToPath DescribeReservedCacheNodesMessage where
 data ReservedCacheNodeMessage = ReservedCacheNodeMessage
     { _rcnmMarker             :: Maybe Text
     , _rcnmReservedCacheNodes :: [ReservedCacheNode]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ReservedCacheNodeMessage' constructor.
 --

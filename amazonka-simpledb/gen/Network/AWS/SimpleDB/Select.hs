@@ -57,7 +57,7 @@ data Select = Select
     { _sConsistentRead   :: Maybe Bool
     , _sNextToken        :: Maybe Text
     , _sSelectExpression :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Select' constructor.
 --
@@ -94,6 +94,7 @@ sNextToken = lens _sNextToken (\s a -> s { _sNextToken = a })
 sSelectExpression :: Lens' Select Text
 sSelectExpression =
     lens _sSelectExpression (\s a -> s { _sSelectExpression = a })
+
 instance ToQuery Select
 
 instance ToPath Select where
@@ -102,7 +103,7 @@ instance ToPath Select where
 data SelectResult = SelectResult
     { _srItems     :: [Item]
     , _srNextToken :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'SelectResult' constructor.
 --

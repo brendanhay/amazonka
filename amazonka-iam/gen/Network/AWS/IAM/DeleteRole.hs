@@ -46,7 +46,7 @@ import Network.AWS.IAM.Types
 
 newtype DeleteRole = DeleteRole
     { _drRoleName :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteRole' constructor.
 --
@@ -63,6 +63,7 @@ deleteRole p1 = DeleteRole
 -- | The name of the role to delete.
 drRoleName :: Lens' DeleteRole Text
 drRoleName = lens _drRoleName (\s a -> s { _drRoleName = a })
+
 instance ToQuery DeleteRole
 
 instance ToPath DeleteRole where

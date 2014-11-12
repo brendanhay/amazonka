@@ -76,7 +76,7 @@ data ModifyCacheClusterMessage = ModifyCacheClusterMessage
     , _mccmSecurityGroupIds           :: [Text]
     , _mccmSnapshotRetentionLimit     :: Maybe Int
     , _mccmSnapshotWindow             :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ModifyCacheClusterMessage' constructor.
 --
@@ -320,6 +320,7 @@ mccmSnapshotRetentionLimit =
 mccmSnapshotWindow :: Lens' ModifyCacheClusterMessage (Maybe Text)
 mccmSnapshotWindow =
     lens _mccmSnapshotWindow (\s a -> s { _mccmSnapshotWindow = a })
+
 instance ToQuery ModifyCacheClusterMessage
 
 instance ToPath ModifyCacheClusterMessage where
@@ -327,7 +328,7 @@ instance ToPath ModifyCacheClusterMessage where
 
 newtype ModifyCacheClusterResult = ModifyCacheClusterResult
     { _mccrCacheCluster :: Maybe CacheCluster
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyCacheClusterResult' constructor.
 --

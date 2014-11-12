@@ -55,7 +55,7 @@ data RevokeDBSecurityGroupIngressMessage = RevokeDBSecurityGroupIngressMessage
     , _rdbsgimEC2SecurityGroupId      :: Maybe Text
     , _rdbsgimEC2SecurityGroupName    :: Maybe Text
     , _rdbsgimEC2SecurityGroupOwnerId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'RevokeDBSecurityGroupIngressMessage' constructor.
 --
@@ -120,6 +120,7 @@ rdbsgimEC2SecurityGroupOwnerId :: Lens' RevokeDBSecurityGroupIngressMessage (May
 rdbsgimEC2SecurityGroupOwnerId =
     lens _rdbsgimEC2SecurityGroupOwnerId
         (\s a -> s { _rdbsgimEC2SecurityGroupOwnerId = a })
+
 instance ToQuery RevokeDBSecurityGroupIngressMessage
 
 instance ToPath RevokeDBSecurityGroupIngressMessage where
@@ -127,7 +128,7 @@ instance ToPath RevokeDBSecurityGroupIngressMessage where
 
 newtype RevokeDBSecurityGroupIngressResult = RevokeDBSecurityGroupIngressResult
     { _rdbsgirDBSecurityGroup :: Maybe DBSecurityGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'RevokeDBSecurityGroupIngressResult' constructor.
 --

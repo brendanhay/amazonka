@@ -49,7 +49,7 @@ import Network.AWS.EC2.Types
 data CreateNetworkAcl = CreateNetworkAcl
     { _cnaDryRun :: Maybe Bool
     , _cnaVpcId  :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateNetworkAcl' constructor.
 --
@@ -72,6 +72,7 @@ cnaDryRun = lens _cnaDryRun (\s a -> s { _cnaDryRun = a })
 -- | The ID of the VPC.
 cnaVpcId :: Lens' CreateNetworkAcl Text
 cnaVpcId = lens _cnaVpcId (\s a -> s { _cnaVpcId = a })
+
 instance ToQuery CreateNetworkAcl
 
 instance ToPath CreateNetworkAcl where
@@ -79,7 +80,7 @@ instance ToPath CreateNetworkAcl where
 
 newtype CreateNetworkAclResult = CreateNetworkAclResult
     { _cnarNetworkAcl :: Maybe NetworkAcl
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateNetworkAclResult' constructor.
 --

@@ -46,7 +46,7 @@ import Network.AWS.ElasticBeanstalk.Types
 data DeleteApplicationMessage = DeleteApplicationMessage
     { _damApplicationName     :: Text
     , _damTerminateEnvByForce :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteApplicationMessage' constructor.
 --
@@ -73,6 +73,7 @@ damApplicationName =
 damTerminateEnvByForce :: Lens' DeleteApplicationMessage (Maybe Bool)
 damTerminateEnvByForce =
     lens _damTerminateEnvByForce (\s a -> s { _damTerminateEnvByForce = a })
+
 instance ToQuery DeleteApplicationMessage
 
 instance ToPath DeleteApplicationMessage where

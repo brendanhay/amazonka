@@ -52,7 +52,7 @@ data DownloadDBLogFilePortionMessage = DownloadDBLogFilePortionMessage
     , _ddblfpmLogFileName          :: Text
     , _ddblfpmMarker               :: Maybe Text
     , _ddblfpmNumberOfLines        :: Maybe Int
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DownloadDBLogFilePortionMessage' constructor.
 --
@@ -112,6 +112,7 @@ ddblfpmMarker = lens _ddblfpmMarker (\s a -> s { _ddblfpmMarker = a })
 ddblfpmNumberOfLines :: Lens' DownloadDBLogFilePortionMessage (Maybe Int)
 ddblfpmNumberOfLines =
     lens _ddblfpmNumberOfLines (\s a -> s { _ddblfpmNumberOfLines = a })
+
 instance ToQuery DownloadDBLogFilePortionMessage
 
 instance ToPath DownloadDBLogFilePortionMessage where
@@ -121,7 +122,7 @@ data DownloadDBLogFilePortionDetails = DownloadDBLogFilePortionDetails
     { _ddblfpdAdditionalDataPending :: Maybe Bool
     , _ddblfpdLogFileData           :: Maybe Text
     , _ddblfpdMarker                :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DownloadDBLogFilePortionDetails' constructor.
 --

@@ -50,7 +50,7 @@ data PutUserPolicy = PutUserPolicy
     { _pupPolicyDocument :: Text
     , _pupPolicyName     :: Text
     , _pupUserName       :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'PutUserPolicy' constructor.
 --
@@ -84,6 +84,7 @@ pupPolicyName = lens _pupPolicyName (\s a -> s { _pupPolicyName = a })
 -- | The name of the user to associate the policy with.
 pupUserName :: Lens' PutUserPolicy Text
 pupUserName = lens _pupUserName (\s a -> s { _pupUserName = a })
+
 instance ToQuery PutUserPolicy
 
 instance ToPath PutUserPolicy where

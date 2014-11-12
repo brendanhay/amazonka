@@ -62,7 +62,7 @@ data PublishInput = PublishInput
     , _piSubject           :: Maybe Text
     , _piTargetArn         :: Maybe Text
     , _piTopicArn          :: Maybe Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'PublishInput' constructor.
 --
@@ -151,6 +151,7 @@ piTargetArn = lens _piTargetArn (\s a -> s { _piTargetArn = a })
 -- | The topic you want to publish to.
 piTopicArn :: Lens' PublishInput (Maybe Text)
 piTopicArn = lens _piTopicArn (\s a -> s { _piTopicArn = a })
+
 instance ToQuery PublishInput
 
 instance ToPath PublishInput where
@@ -158,7 +159,7 @@ instance ToPath PublishInput where
 
 newtype PublishResponse = PublishResponse
     { _prMessageId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'PublishResponse' constructor.
 --

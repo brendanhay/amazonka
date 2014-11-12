@@ -50,7 +50,7 @@ data ModifyOptionGroupMessage = ModifyOptionGroupMessage
     , _mogmOptionGroupName  :: Text
     , _mogmOptionsToInclude :: [OptionConfiguration]
     , _mogmOptionsToRemove  :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyOptionGroupMessage' constructor.
 --
@@ -99,6 +99,7 @@ mogmOptionsToInclude =
 mogmOptionsToRemove :: Lens' ModifyOptionGroupMessage [Text]
 mogmOptionsToRemove =
     lens _mogmOptionsToRemove (\s a -> s { _mogmOptionsToRemove = a })
+
 instance ToQuery ModifyOptionGroupMessage
 
 instance ToPath ModifyOptionGroupMessage where
@@ -106,7 +107,7 @@ instance ToPath ModifyOptionGroupMessage where
 
 newtype ModifyOptionGroupResult = ModifyOptionGroupResult
     { _mogrOptionGroup :: Maybe OptionGroup
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'ModifyOptionGroupResult' constructor.
 --

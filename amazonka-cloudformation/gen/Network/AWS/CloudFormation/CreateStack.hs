@@ -68,7 +68,7 @@ data CreateStackInput = CreateStackInput
     , _csiTemplateBody     :: Maybe Text
     , _csiTemplateURL      :: Maybe Text
     , _csiTimeoutInMinutes :: Maybe Natural
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'CreateStackInput' constructor.
 --
@@ -201,6 +201,7 @@ csiTemplateURL = lens _csiTemplateURL (\s a -> s { _csiTemplateURL = a })
 csiTimeoutInMinutes :: Lens' CreateStackInput (Maybe Natural)
 csiTimeoutInMinutes =
     lens _csiTimeoutInMinutes (\s a -> s { _csiTimeoutInMinutes = a })
+
 instance ToQuery CreateStackInput
 
 instance ToPath CreateStackInput where
@@ -208,7 +209,7 @@ instance ToPath CreateStackInput where
 
 newtype CreateStackOutput = CreateStackOutput
     { _csoStackId :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'CreateStackOutput' constructor.
 --

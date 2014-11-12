@@ -45,7 +45,7 @@ import Network.AWS.EC2.Types
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
     { _upiaNetworkInterfaceId :: Text
     , _upiaPrivateIpAddresses :: [Text]
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'UnassignPrivateIpAddresses' constructor.
 --
@@ -73,6 +73,7 @@ upiaNetworkInterfaceId =
 upiaPrivateIpAddresses :: Lens' UnassignPrivateIpAddresses [Text]
 upiaPrivateIpAddresses =
     lens _upiaPrivateIpAddresses (\s a -> s { _upiaPrivateIpAddresses = a })
+
 instance ToQuery UnassignPrivateIpAddresses
 
 instance ToPath UnassignPrivateIpAddresses where

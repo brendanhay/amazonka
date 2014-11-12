@@ -48,7 +48,7 @@ data SetInstanceHealthQuery = SetInstanceHealthQuery
     { _sihqHealthStatus             :: Text
     , _sihqInstanceId               :: Text
     , _sihqShouldRespectGracePeriod :: Maybe Bool
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'SetInstanceHealthQuery' constructor.
 --
@@ -90,6 +90,7 @@ sihqShouldRespectGracePeriod :: Lens' SetInstanceHealthQuery (Maybe Bool)
 sihqShouldRespectGracePeriod =
     lens _sihqShouldRespectGracePeriod
         (\s a -> s { _sihqShouldRespectGracePeriod = a })
+
 instance ToQuery SetInstanceHealthQuery
 
 instance ToPath SetInstanceHealthQuery where

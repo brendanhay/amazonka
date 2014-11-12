@@ -52,7 +52,7 @@ import Network.AWS.SQS.Types
 data GetQueueUrl = GetQueueUrl
     { _gquQueueName              :: Text
     , _gquQueueOwnerAWSAccountId :: Maybe Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'GetQueueUrl' constructor.
 --
@@ -79,6 +79,7 @@ gquQueueOwnerAWSAccountId :: Lens' GetQueueUrl (Maybe Text)
 gquQueueOwnerAWSAccountId =
     lens _gquQueueOwnerAWSAccountId
         (\s a -> s { _gquQueueOwnerAWSAccountId = a })
+
 instance ToQuery GetQueueUrl
 
 instance ToPath GetQueueUrl where
@@ -86,7 +87,7 @@ instance ToPath GetQueueUrl where
 
 newtype GetQueueUrlResult = GetQueueUrlResult
     { _gqurQueueUrl :: Maybe Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid)
 
 -- | 'GetQueueUrlResult' constructor.
 --

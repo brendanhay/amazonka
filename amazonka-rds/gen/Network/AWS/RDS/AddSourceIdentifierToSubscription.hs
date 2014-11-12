@@ -47,7 +47,7 @@ import Network.AWS.RDS.Types
 data AddSourceIdentifierToSubscriptionMessage = AddSourceIdentifierToSubscriptionMessage
     { _asitsmSourceIdentifier :: Text
     , _asitsmSubscriptionName :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AddSourceIdentifierToSubscriptionMessage' constructor.
 --
@@ -83,6 +83,7 @@ asitsmSourceIdentifier =
 asitsmSubscriptionName :: Lens' AddSourceIdentifierToSubscriptionMessage Text
 asitsmSubscriptionName =
     lens _asitsmSubscriptionName (\s a -> s { _asitsmSubscriptionName = a })
+
 instance ToQuery AddSourceIdentifierToSubscriptionMessage
 
 instance ToPath AddSourceIdentifierToSubscriptionMessage where
@@ -90,7 +91,7 @@ instance ToPath AddSourceIdentifierToSubscriptionMessage where
 
 newtype AddSourceIdentifierToSubscriptionResult = AddSourceIdentifierToSubscriptionResult
     { _asitsrEventSubscription :: Maybe EventSubscription
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'AddSourceIdentifierToSubscriptionResult' constructor.
 --

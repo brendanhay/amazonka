@@ -45,7 +45,7 @@ import Network.AWS.ELB.Types
 data DeleteLoadBalancerPolicyInput = DeleteLoadBalancerPolicyInput
     { _dlbpi1LoadBalancerName :: Text
     , _dlbpi1PolicyName       :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteLoadBalancerPolicyInput' constructor.
 --
@@ -71,6 +71,7 @@ dlbpi1LoadBalancerName =
 -- | The mnemonic name for the policy being deleted.
 dlbpi1PolicyName :: Lens' DeleteLoadBalancerPolicyInput Text
 dlbpi1PolicyName = lens _dlbpi1PolicyName (\s a -> s { _dlbpi1PolicyName = a })
+
 instance ToQuery DeleteLoadBalancerPolicyInput
 
 instance ToPath DeleteLoadBalancerPolicyInput where

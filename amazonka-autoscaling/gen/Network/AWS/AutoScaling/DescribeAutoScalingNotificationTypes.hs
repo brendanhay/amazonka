@@ -47,6 +47,7 @@ data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
 -- | 'DescribeAutoScalingNotificationTypes' constructor.
 describeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
 describeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
+
 instance ToQuery DescribeAutoScalingNotificationTypes
 
 instance ToPath DescribeAutoScalingNotificationTypes where
@@ -54,16 +55,13 @@ instance ToPath DescribeAutoScalingNotificationTypes where
 
 newtype DescribeAutoScalingNotificationTypesAnswer = DescribeAutoScalingNotificationTypesAnswer
     { _dasntaAutoScalingNotificationTypes :: [Text]
-    } deriving
-        ( Eq
-        , Ord
-        , Show
-        , Generic
-        , Foldable
-        , Traversable
-        , Monoid
-        , Semigroup
-        )
+    } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup, IsString)
+
+instance IsList DescribeAutoScalingNotificationTypesAnswer
+    type Item DescribeAutoScalingNotificationTypesAnswer = Text
+
+    fromList = DescribeAutoScalingNotificationTypesAnswer . fromList
+    toList   = toList . _dasntaAutoScalingNotificationTypes
 
 -- | 'DescribeAutoScalingNotificationTypesAnswer' constructor.
 --

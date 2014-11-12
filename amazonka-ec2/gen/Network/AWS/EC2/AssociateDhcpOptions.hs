@@ -54,7 +54,7 @@ data AssociateDhcpOptions = AssociateDhcpOptions
     { _adoDhcpOptionsId :: Text
     , _adoDryRun        :: Maybe Bool
     , _adoVpcId         :: Text
-    } (Eq, Ord, Show, Generic)
+    } deriving (Eq, Ord, Show, Generic)
 
 -- | 'AssociateDhcpOptions' constructor.
 --
@@ -86,6 +86,7 @@ adoDryRun = lens _adoDryRun (\s a -> s { _adoDryRun = a })
 -- | The ID of the VPC.
 adoVpcId :: Lens' AssociateDhcpOptions Text
 adoVpcId = lens _adoVpcId (\s a -> s { _adoVpcId = a })
+
 instance ToQuery AssociateDhcpOptions
 
 instance ToPath AssociateDhcpOptions where

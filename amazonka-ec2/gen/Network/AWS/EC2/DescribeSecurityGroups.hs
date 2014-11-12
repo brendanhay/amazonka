@@ -54,7 +54,7 @@ data DescribeSecurityGroups = DescribeSecurityGroups
     , _dsgFilters    :: [Filter]
     , _dsgGroupIds   :: [Text]
     , _dsgGroupNames :: [Text]
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'DescribeSecurityGroups' constructor.
 --
@@ -107,6 +107,7 @@ dsgGroupIds = lens _dsgGroupIds (\s a -> s { _dsgGroupIds = a })
 -- Describes all your security groups.
 dsgGroupNames :: Lens' DescribeSecurityGroups [Text]
 dsgGroupNames = lens _dsgGroupNames (\s a -> s { _dsgGroupNames = a })
+
 instance ToQuery DescribeSecurityGroups
 
 instance ToPath DescribeSecurityGroups where
@@ -114,7 +115,13 @@ instance ToPath DescribeSecurityGroups where
 
 newtype DescribeSecurityGroupsResult = DescribeSecurityGroupsResult
     { _dsgrSecurityGroups :: [SecurityGroup]
-    } (Eq, Show, Generic, Foldable, Traversable, Monoid, Semigroup)
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance IsList DescribeSecurityGroupsResult
+    type Item DescribeSecurityGroupsResult = SecurityGroup
+
+    fromList = DescribeSecurityGroupsResult . fromList
+    toList   = toList . _dsgrSecurityGroups
 
 -- | 'DescribeSecurityGroupsResult' constructor.
 --

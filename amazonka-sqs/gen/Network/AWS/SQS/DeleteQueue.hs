@@ -53,7 +53,7 @@ import Network.AWS.SQS.Types
 
 newtype DeleteQueue = DeleteQueue
     { _dqQueueUrl :: Text
-    } (Eq, Ord, Show, Generic, Monoid)
+    } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
 -- | 'DeleteQueue' constructor.
 --
@@ -70,6 +70,7 @@ deleteQueue p1 = DeleteQueue
 -- | The URL of the Amazon SQS queue to take action on.
 dqQueueUrl :: Lens' DeleteQueue Text
 dqQueueUrl = lens _dqQueueUrl (\s a -> s { _dqQueueUrl = a })
+
 instance ToQuery DeleteQueue
 
 instance ToPath DeleteQueue where

@@ -46,7 +46,7 @@ import Network.AWS.SNS.Types
 data SetPlatformApplicationAttributesInput = SetPlatformApplicationAttributesInput
     { _spaaiAttributes             :: Map Text Text
     , _spaaiPlatformApplicationArn :: Text
-    } (Eq, Show, Generic)
+    } deriving (Eq, Show, Generic)
 
 -- | 'SetPlatformApplicationAttributesInput' constructor.
 --
@@ -87,6 +87,7 @@ spaaiPlatformApplicationArn :: Lens' SetPlatformApplicationAttributesInput Text
 spaaiPlatformApplicationArn =
     lens _spaaiPlatformApplicationArn
         (\s a -> s { _spaaiPlatformApplicationArn = a })
+
 instance ToQuery SetPlatformApplicationAttributesInput
 
 instance ToPath SetPlatformApplicationAttributesInput where

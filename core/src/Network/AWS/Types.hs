@@ -475,7 +475,7 @@ instance ToJSON Base64 where
 -- instance ToQuery Base64
 
 newtype Sensitive a = Sensitive { unSensitive :: a }
-    deriving (Eq, Ord, Generic, FromXML, ToXML, ToQuery)
+    deriving (Eq, Ord, Generic, FromText, FromXML, ToXML, ToQuery)
 
 instance Show (Sensitive a) where
     show = const "******"

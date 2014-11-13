@@ -90,7 +90,7 @@ import Data.HashMap.Strict          (HashMap)
 import Data.Hashable                as Export
 import Data.List.NonEmpty           (NonEmpty)
 import Data.Maybe                   as Export
-import Data.Monoid                  as Export hiding (All, Sum)
+import Data.Monoid                  as Export hiding (All, Any, Sum)
 import Data.Semigroup               (Semigroup)
 import Data.String                  (IsString(..))
 import Data.Tagged                  as Export

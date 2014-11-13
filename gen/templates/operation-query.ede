@@ -18,5 +18,5 @@ instance AWSRequest {{ request.name }} where
     type Sv {{ request.name }} = {{ service }}
     type Rs {{ request.name }} = {{ response.name }}
 
-    request  = {{ method }} "{{ name }}"{% if request.shared %} . {{ name }}{% endif %}
+    request  = {{ method }} "{{ name }}"
 {% include "_include/response.ede" %}

@@ -43,6 +43,9 @@ enumName u k1 v1 = k2 <> toPascal v3
 lensName :: Text -> Text
 lensName = stripText "_"
 
+typeName :: Text -> Text
+typeName = upperHead
+
 fieldName :: Text -> Text
 fieldName = mappend "_" . lensName
 

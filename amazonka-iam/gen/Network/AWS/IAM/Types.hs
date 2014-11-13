@@ -28,8 +28,8 @@ module Network.AWS.IAM.Types
     -- ** XML
     , xmlOptions
 
-    -- * assignmentStatusType
-    , assignmentStatusType (..)
+    -- * AssignmentStatusType
+    , AssignmentStatusType (..)
 
     -- * PasswordPolicy
     , PasswordPolicy
@@ -96,8 +96,8 @@ module Network.AWS.IAM.Types
     , lpPasswordResetRequired
     , lpUserName
 
-    -- * summaryKeyType
-    , summaryKeyType (..)
+    -- * SummaryKeyType
+    , SummaryKeyType (..)
 
     -- * ReportStateType
     , ReportStateType (..)
@@ -112,8 +112,8 @@ module Network.AWS.IAM.Types
     , uUserId
     , uUserName
 
-    -- * statusType
-    , statusType (..)
+    -- * StatusType
+    , StatusType (..)
 
     -- * SAMLProviderListEntry
     , SAMLProviderListEntry
@@ -200,30 +200,30 @@ xmlOptions = Tagged def
     { xmlNamespace = Just "https://iam.amazonaws.com/doc/2010-05-08/"
     }
 
-data assignmentStatusType
+data AssignmentStatusType
     = Any        -- ^ Any
     | Assigned   -- ^ Assigned
     | Unassigned -- ^ Unassigned
       deriving (Eq, Ord, Show, Generic, Enum)
 
-instance Hashable assignmentStatusType
+instance Hashable AssignmentStatusType
 
-instance FromText assignmentStatusType where
+instance FromText AssignmentStatusType where
     parser = match "Any"        Any
          <|> match "Assigned"   Assigned
          <|> match "Unassigned" Unassigned
 
-instance ToText assignmentStatusType where
+instance ToText AssignmentStatusType where
     toText = \case
         Any        -> "Any"
         Assigned   -> "Assigned"
         Unassigned -> "Unassigned"
 
-instance FromXML assignmentStatusType where
+instance FromXML AssignmentStatusType where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "assignmentStatusType"
+    fromXMLRoot    = fromRoot "AssignmentStatusType"
 
-instance ToQuery assignmentStatusType
+instance ToQuery AssignmentStatusType
 
 data PasswordPolicy = PasswordPolicy
     { _ppAllowUsersToChangePassword :: Maybe Bool
@@ -692,7 +692,7 @@ instance FromXML LoginProfile where
 
 instance ToQuery LoginProfile
 
-data summaryKeyType
+data SummaryKeyType
     = AccessKeysPerUserQuota          -- ^ AccessKeysPerUserQuota
     | AccountMFAEnabled               -- ^ AccountMFAEnabled
     | GroupPolicySizeQuota            -- ^ GroupPolicySizeQuota
@@ -709,9 +709,9 @@ data summaryKeyType
     | UsersQuota                      -- ^ UsersQuota
       deriving (Eq, Ord, Show, Generic, Enum)
 
-instance Hashable summaryKeyType
+instance Hashable SummaryKeyType
 
-instance FromText summaryKeyType where
+instance FromText SummaryKeyType where
     parser = match "AccessKeysPerUserQuota"          AccessKeysPerUserQuota
          <|> match "AccountMFAEnabled"               AccountMFAEnabled
          <|> match "GroupPolicySizeQuota"            GroupPolicySizeQuota
@@ -727,7 +727,7 @@ instance FromText summaryKeyType where
          <|> match "Users"                           Users
          <|> match "UsersQuota"                      UsersQuota
 
-instance ToText summaryKeyType where
+instance ToText SummaryKeyType where
     toText = \case
         AccessKeysPerUserQuota          -> "AccessKeysPerUserQuota"
         AccountMFAEnabled               -> "AccountMFAEnabled"
@@ -744,11 +744,11 @@ instance ToText summaryKeyType where
         Users                           -> "Users"
         UsersQuota                      -> "UsersQuota"
 
-instance FromXML summaryKeyType where
+instance FromXML SummaryKeyType where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "summaryKeyType"
+    fromXMLRoot    = fromRoot "SummaryKeyType"
 
-instance ToQuery summaryKeyType
+instance ToQuery SummaryKeyType
 
 data ReportStateType
     = Complete   -- ^ COMPLETE
@@ -861,27 +861,27 @@ instance FromXML User where
 
 instance ToQuery User
 
-data statusType
+data StatusType
     = Active   -- ^ Active
     | Inactive -- ^ Inactive
       deriving (Eq, Ord, Show, Generic, Enum)
 
-instance Hashable statusType
+instance Hashable StatusType
 
-instance FromText statusType where
+instance FromText StatusType where
     parser = match "Active"   Active
          <|> match "Inactive" Inactive
 
-instance ToText statusType where
+instance ToText StatusType where
     toText = \case
         Active   -> "Active"
         Inactive -> "Inactive"
 
-instance FromXML statusType where
+instance FromXML StatusType where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "statusType"
+    fromXMLRoot    = fromRoot "StatusType"
 
-instance ToQuery statusType
+instance ToQuery StatusType
 
 data SAMLProviderListEntry = SAMLProviderListEntry
     { _samlpleArn        :: Maybe Text

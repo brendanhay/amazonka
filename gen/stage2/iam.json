@@ -311,7 +311,7 @@
                     "Any": "Any"
                 },
                 "valuePad": 11,
-                "name": "assignmentStatusType",
+                "name": "AssignmentStatusType",
                 "type": "nullary",
                 "branchPad": 10
             },
@@ -1452,7 +1452,7 @@
                     "MFADevices": "MFADevices"
                 },
                 "valuePad": 32,
-                "name": "summaryKeyType",
+                "name": "SummaryKeyType",
                 "type": "nullary",
                 "branchPad": 31
             },
@@ -1674,7 +1674,7 @@
                     "Active": "Active"
                 },
                 "valuePad": 9,
-                "name": "statusType",
+                "name": "StatusType",
                 "type": "nullary",
                 "branchPad": 8
             },

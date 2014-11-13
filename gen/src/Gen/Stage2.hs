@@ -196,7 +196,7 @@ instance ToJSON (Exposed Type) where
     toJSON (Exposed e) = toJSON (go e)
       where
         go = \case
-            TType      t   -> t
+            TType      t   -> upperHead t
             TPrim      p   -> primitive False p
             TList      x   -> "["          <> wrap (go x) <> "]"
             TList1     x   -> "NonEmpty "  <> wrap (go x)
@@ -212,7 +212,7 @@ instance ToJSON (Internal Type) where
     toJSON (Internal i) = toJSON (go i)
       where
         go = \case
-            TType      t   -> t
+            TType      t   -> upperHead t
             TPrim      p   -> primitive True p
             TList      x   -> "["          <> wrap (go x) <> "]"
             TList1     x   -> "List1 "     <> wrap (go x)
@@ -368,7 +368,7 @@ instance ToJSON Data where
 
             Empty   n    -> object
                 [ "type"        .= "empty"
-                , "name"        .= n
+                , "name"        .= typeName n
                 , "ctor"        .= constructor n
                 , "fieldPad"    .= (0 :: Int)
                 , "fields"      .= ([] :: [Text])
@@ -378,13 +378,13 @@ instance ToJSON Data where
 
             Product n fs -> object
                 [ "type"        .= "product"
-                , "name"        .= n
+                , "name"        .= typeName n
                 , "slots"       .= map Internal fs
                 ]
 
             Nullary n fs -> object
                 [ "type"        .= "nullary"
-                , "name"        .= n
+                , "name"        .= typeName n
                 , "branches"    .= fs
                 , "branchPad"   .= maximum (map Text.length $ Map.keys fs)
                 , "valuePad"    .= (maximum (map Text.length $ Map.elems fs) + 1)
@@ -392,7 +392,7 @@ instance ToJSON Data where
 
             Newtype n f  -> object
                 [ "type"        .= "newtype"
-                , "name"        .= n
+                , "name"        .= typeName n
                 , "ctor"        .= constructor n
                 , "field"       .= f
                 , "fields"      .= ([f] :: [Field])
@@ -408,7 +408,7 @@ instance ToJSON Data where
 
             Record  n fs -> object
                 [ "type"        .= "record"
-                , "name"        .= n
+                , "name"        .= typeName n
                 , "ctor"        .= constructor n
                 , "fields"      .= sort fs
                 , "fieldPad"    .= (maximum (map (Text.length . view nameOf) fs) + 1)

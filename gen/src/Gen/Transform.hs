@@ -408,13 +408,6 @@ shapes p m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
         go [f] = Newtype k f
         go fs  = Record  k fs
 
-        -- wrapped l n = return
-        --     . Newtype
-        --     . Named k
-        --     . (TPrim PText)
-        --     $ Field l n False False
-        -- String' x -> wrapped Nothing (x ^. strLocationName)
-
     field :: Maybe Text
           -> [Text]
           -> (Text, Ref)
@@ -426,7 +419,6 @@ shapes p m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
             n = r ^. refLocationName
             d = r ^. refDocumentation
             s = fromMaybe False (r ^. refStreaming)
---            p = pay == Just k
 
         return $ Field
             { _fName          = k

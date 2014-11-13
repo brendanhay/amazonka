@@ -1,0 +1,3523 @@
+{
+    "service": {
+        "signature": "V4",
+        "checksum": "sha256",
+        "abbrev": "Config",
+        "error": "ConfigError",
+        "namespace": "Network.AWS.Config",
+        "protocol": "json",
+        "imports": [
+            "Network.AWS.Config.DeleteDeliveryChannel",
+            "Network.AWS.Config.DeliverConfigSnapshot",
+            "Network.AWS.Config.DescribeConfigurationRecorderStatus",
+            "Network.AWS.Config.DescribeConfigurationRecorders",
+            "Network.AWS.Config.DescribeDeliveryChannelStatus",
+            "Network.AWS.Config.DescribeDeliveryChannels",
+            "Network.AWS.Config.GetResourceConfigHistory",
+            "Network.AWS.Config.PutConfigurationRecorder",
+            "Network.AWS.Config.PutDeliveryChannel",
+            "Network.AWS.Config.StartConfigurationRecorder",
+            "Network.AWS.Config.StopConfigurationRecorder",
+            "Network.AWS.Config.Types"
+        ],
+        "name": "Amazon Config",
+        "version": "2014-11-12",
+        "documentation": "Amazon Config is a fully managed service that provides you with an Amazon resource inventory, configuration history, and configuration change notifications to enable security and governance. With Amazon Config you can discover existing Amazon resources, export a complete inventory of your Amazon resources with all configuration details, and determine how a resource was configured at any point in time. These capabilities enable compliance auditing, security analysis, resource change tracking, and troubleshooting.",
+        "xmlNamespace": "https://config.amazonaws.com/doc/2014-11-12/",
+        "endpoint": "Regional",
+        "endpointPrefix": "config",
+        "targetPrefix": "StarlingDoveService"
+    },
+    "cabal": {
+        "other": [],
+        "library": "amazonka-config",
+        "exposed": [
+            "Network.AWS.Config",
+            "Network.AWS.Config.DeleteDeliveryChannel",
+            "Network.AWS.Config.DeliverConfigSnapshot",
+            "Network.AWS.Config.DescribeConfigurationRecorderStatus",
+            "Network.AWS.Config.DescribeConfigurationRecorders",
+            "Network.AWS.Config.DescribeDeliveryChannelStatus",
+            "Network.AWS.Config.DescribeDeliveryChannels",
+            "Network.AWS.Config.GetResourceConfigHistory",
+            "Network.AWS.Config.PutConfigurationRecorder",
+            "Network.AWS.Config.PutDeliveryChannel",
+            "Network.AWS.Config.StartConfigurationRecorder",
+            "Network.AWS.Config.StopConfigurationRecorder",
+            "Network.AWS.Config.Types"
+        ],
+        "dependencies": [],
+        "name": "Amazon Config",
+        "version": "0.0.0",
+        "description": "Amazon Config is a fully managed service that provides you with an Amazon resource inventory, configuration history, and configuration change notifications to enable security and governance. With Amazon Config you can discover existing Amazon resources, export a complete inventory of your Amazon resources with all configuration details, and determine how a resource was configured at any point in time. These capabilities enable compliance auditing, security analysis, resource change tracking, and troubleshooting."
+    },
+    "types": {
+        "service": {
+            "signature": "V4",
+            "checksum": "sha256",
+            "abbrev": "Config",
+            "error": "ConfigError",
+            "namespace": "Network.AWS.Config",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Config.DeleteDeliveryChannel",
+                "Network.AWS.Config.DeliverConfigSnapshot",
+                "Network.AWS.Config.DescribeConfigurationRecorderStatus",
+                "Network.AWS.Config.DescribeConfigurationRecorders",
+                "Network.AWS.Config.DescribeDeliveryChannelStatus",
+                "Network.AWS.Config.DescribeDeliveryChannels",
+                "Network.AWS.Config.GetResourceConfigHistory",
+                "Network.AWS.Config.PutConfigurationRecorder",
+                "Network.AWS.Config.PutDeliveryChannel",
+                "Network.AWS.Config.StartConfigurationRecorder",
+                "Network.AWS.Config.StopConfigurationRecorder",
+                "Network.AWS.Config.Types"
+            ],
+            "name": "Amazon Config",
+            "version": "2014-11-12",
+            "documentation": "Amazon Config is a fully managed service that provides you with an Amazon resource inventory, configuration history, and configuration change notifications to enable security and governance. With Amazon Config you can discover existing Amazon resources, export a complete inventory of your Amazon resources with all configuration details, and determine how a resource was configured at any point in time. These capabilities enable compliance auditing, security analysis, resource change tracking, and troubleshooting.",
+            "xmlNamespace": "https://config.amazonaws.com/doc/2014-11-12/",
+            "endpoint": "Regional",
+            "endpointPrefix": "config",
+            "targetPrefix": "StarlingDoveService"
+        },
+        "namespace": "Network.AWS.Config.Types",
+        "types": [
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 23,
+                "ctor": "configExportDeliveryInfo",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "cediLastStatus",
+                    "name": "_cediLastStatus",
+                    "shape": "DeliveryStatus",
+                    "locationName": "lastStatus",
+                    "documentation": "\u003cp\u003eStatus of the last attempted delivery.\u003c/p\u003e",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "name": "ConfigExportDeliveryInfo",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cediLastStatus",
+                        "name": "_cediLastStatus",
+                        "shape": "DeliveryStatus",
+                        "locationName": "lastStatus",
+                        "documentation": "\u003cp\u003eStatus of the last attempted delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cediLastErrorCode",
+                        "name": "_cediLastErrorCode",
+                        "shape": "String",
+                        "locationName": "lastErrorCode",
+                        "documentation": "\u003cp\u003eThe error code from the last attempted delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cediLastErrorMessage",
+                        "name": "_cediLastErrorMessage",
+                        "shape": "String",
+                        "locationName": "lastErrorMessage",
+                        "documentation": "\u003cp\u003eThe error message from the last attempted delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cediLastAttemptTime",
+                        "name": "_cediLastAttemptTime",
+                        "shape": "Date",
+                        "locationName": "lastAttemptTime",
+                        "documentation": "\u003cp\u003eThe time of the last attempted delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cediLastSuccessfulTime",
+                        "name": "_cediLastSuccessfulTime",
+                        "shape": "Date",
+                        "locationName": "lastSuccessfulTime",
+                        "documentation": "\u003cp\u003eThe time of the last successful delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cediLastAttemptTime",
+                        "name": "_cediLastAttemptTime",
+                        "shape": "Date",
+                        "locationName": "lastAttemptTime",
+                        "documentation": "\u003cp\u003eThe time of the last attempted delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cediLastErrorCode",
+                        "name": "_cediLastErrorCode",
+                        "shape": "String",
+                        "locationName": "lastErrorCode",
+                        "documentation": "\u003cp\u003eThe error code from the last attempted delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cediLastErrorMessage",
+                        "name": "_cediLastErrorMessage",
+                        "shape": "String",
+                        "locationName": "lastErrorMessage",
+                        "documentation": "\u003cp\u003eThe error message from the last attempted delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cediLastStatus",
+                        "name": "_cediLastStatus",
+                        "shape": "DeliveryStatus",
+                        "locationName": "lastStatus",
+                        "documentation": "\u003cp\u003eStatus of the last attempted delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "cediLastSuccessfulTime",
+                        "name": "_cediLastSuccessfulTime",
+                        "shape": "Date",
+                        "locationName": "lastSuccessfulTime",
+                        "documentation": "\u003cp\u003eThe time of the last successful delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 25,
+                "ctor": "configStreamDeliveryInfo",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "csdiLastStatus",
+                    "name": "_csdiLastStatus",
+                    "shape": "DeliveryStatus",
+                    "locationName": "lastStatus",
+                    "documentation": "\u003cp\u003eStatus of the last attempted delivery.\u003c/p\u003e",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "name": "ConfigStreamDeliveryInfo",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "csdiLastStatus",
+                        "name": "_csdiLastStatus",
+                        "shape": "DeliveryStatus",
+                        "locationName": "lastStatus",
+                        "documentation": "\u003cp\u003eStatus of the last attempted delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "csdiLastErrorCode",
+                        "name": "_csdiLastErrorCode",
+                        "shape": "String",
+                        "locationName": "lastErrorCode",
+                        "documentation": "\u003cp\u003eThe error code from the last attempted delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "csdiLastErrorMessage",
+                        "name": "_csdiLastErrorMessage",
+                        "shape": "String",
+                        "locationName": "lastErrorMessage",
+                        "documentation": "\u003cp\u003eThe error message from the last attempted delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "csdiLastStatusChangeTime",
+                        "name": "_csdiLastStatusChangeTime",
+                        "shape": "Date",
+                        "locationName": "lastStatusChangeTime",
+                        "documentation": "\u003cp\u003eThe time from the last status change.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "csdiLastErrorCode",
+                        "name": "_csdiLastErrorCode",
+                        "shape": "String",
+                        "locationName": "lastErrorCode",
+                        "documentation": "\u003cp\u003eThe error code from the last attempted delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "csdiLastErrorMessage",
+                        "name": "_csdiLastErrorMessage",
+                        "shape": "String",
+                        "locationName": "lastErrorMessage",
+                        "documentation": "\u003cp\u003eThe error message from the last attempted delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "csdiLastStatus",
+                        "name": "_csdiLastStatus",
+                        "shape": "DeliveryStatus",
+                        "locationName": "lastStatus",
+                        "documentation": "\u003cp\u003eStatus of the last attempted delivery.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "csdiLastStatusChangeTime",
+                        "name": "_csdiLastStatusChangeTime",
+                        "shape": "Date",
+                        "locationName": "lastStatusChangeTime",
+                        "documentation": "\u003cp\u003eThe time from the last status change.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 18,
+                "ctor": "relationship",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "rResourceType",
+                    "name": "_rResourceType",
+                    "shape": "ResourceType",
+                    "locationName": "resourceType",
+                    "documentation": "\u003cp\u003eThe resource type of the related resource.\u003c/p\u003e",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "name": "Relationship",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rResourceType",
+                        "name": "_rResourceType",
+                        "shape": "ResourceType",
+                        "locationName": "resourceType",
+                        "documentation": "\u003cp\u003eThe resource type of the related resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rResourceId",
+                        "name": "_rResourceId",
+                        "shape": "ResourceId",
+                        "locationName": "resourceId",
+                        "documentation": "\u003cp\u003eThe resource ID of the related resource (for example, \u003ccode\u003esg-xxxxxx\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rRelationshipName",
+                        "name": "_rRelationshipName",
+                        "shape": "RelationshipName",
+                        "locationName": "relationshipName",
+                        "documentation": "\u003cp\u003eThe name of the related resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rRelationshipName",
+                        "name": "_rRelationshipName",
+                        "shape": "RelationshipName",
+                        "locationName": "relationshipName",
+                        "documentation": "\u003cp\u003eThe name of the related resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rResourceId",
+                        "name": "_rResourceId",
+                        "shape": "ResourceId",
+                        "locationName": "resourceId",
+                        "documentation": "\u003cp\u003eThe resource ID of the related resource (for example, \u003ccode\u003esg-xxxxxx\u003c/code\u003e.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "rResourceType",
+                        "name": "_rResourceType",
+                        "shape": "ResourceType",
+                        "locationName": "resourceType",
+                        "documentation": "\u003cp\u003eThe resource type of the related resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 15,
+                "ctor": "deliveryChannel",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "dcName",
+                    "name": "_dcName",
+                    "shape": "ChannelName",
+                    "locationName": "name",
+                    "documentation": "\u003cp\u003eThe name of the delivery channel. By default, AWS Config automatically assigns the name \"default\" when creating the delivery channel. You cannot change the assigned name. \u003c/p\u003e",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "name": "DeliveryChannel",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcName",
+                        "name": "_dcName",
+                        "shape": "ChannelName",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe name of the delivery channel. By default, AWS Config automatically assigns the name \"default\" when creating the delivery channel. You cannot change the assigned name. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcS3BucketName",
+                        "name": "_dcS3BucketName",
+                        "shape": "String",
+                        "locationName": "s3BucketName",
+                        "documentation": "\u003cp\u003eThe name of the Amazon S3 bucket used to store configuration history for the delivery channel.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcS3KeyPrefix",
+                        "name": "_dcS3KeyPrefix",
+                        "shape": "String",
+                        "locationName": "s3KeyPrefix",
+                        "documentation": "\u003cp\u003eThe prefix for the specified Amazon S3 bucket.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcSnsTopicARN",
+                        "name": "_dcSnsTopicARN",
+                        "shape": "String",
+                        "locationName": "snsTopicARN",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) of the IAM role used for accessing the Amazon S3 bucket and the Amazon SNS topic.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcName",
+                        "name": "_dcName",
+                        "shape": "ChannelName",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe name of the delivery channel. By default, AWS Config automatically assigns the name \"default\" when creating the delivery channel. You cannot change the assigned name. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcS3BucketName",
+                        "name": "_dcS3BucketName",
+                        "shape": "String",
+                        "locationName": "s3BucketName",
+                        "documentation": "\u003cp\u003eThe name of the Amazon S3 bucket used to store configuration history for the delivery channel.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcS3KeyPrefix",
+                        "name": "_dcS3KeyPrefix",
+                        "shape": "String",
+                        "locationName": "s3KeyPrefix",
+                        "documentation": "\u003cp\u003eThe prefix for the specified Amazon S3 bucket.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcSnsTopicARN",
+                        "name": "_dcSnsTopicARN",
+                        "shape": "String",
+                        "locationName": "snsTopicARN",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) of the IAM role used for accessing the Amazon S3 bucket and the Amazon SNS topic.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "Forward": "Forward",
+                    "Reverse": "Reverse"
+                },
+                "valuePad": 8,
+                "name": "ChronologicalOrder",
+                "type": "nullary",
+                "branchPad": 7
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "AWSCloudTrailTrail": "AWS::CloudTrail::Trail",
+                    "AWSEC2VPNConnection": "AWS::EC2::VPNConnection",
+                    "AWSEC2SecurityGroup": "AWS::EC2::SecurityGroup",
+                    "AWSEC2Instance": "AWS::EC2::Instance",
+                    "AWSEC2NetworkAcl": "AWS::EC2::NetworkAcl",
+                    "AWSEC2VPNGateway": "AWS::EC2::VPNGateway",
+                    "AWSEC2VPC": "AWS::EC2::VPC",
+                    "AWSEC2NetworkInterface": "AWS::EC2::NetworkInterface",
+                    "AWSEC2InternetGateway": "AWS::EC2::InternetGateway",
+                    "AWSEC2Subnet": "AWS::EC2::Subnet",
+                    "AWSEC2EIP": "AWS::EC2::EIP",
+                    "AWSEC2CustomerGateway": "AWS::EC2::CustomerGateway",
+                    "AWSEC2RouteTable": "AWS::EC2::RouteTable",
+                    "AWSEC2Volume": "AWS::EC2::Volume"
+                },
+                "valuePad": 27,
+                "name": "ResourceType",
+                "type": "nullary",
+                "branchPad": 22
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 31,
+                "ctor": "configurationItem",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "ciVersion",
+                    "name": "_ciVersion",
+                    "shape": "Version",
+                    "locationName": "version",
+                    "documentation": "\u003cp\u003eThe version number of the resource configuration.\u003c/p\u003e",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "name": "ConfigurationItem",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciVersion",
+                        "name": "_ciVersion",
+                        "shape": "Version",
+                        "locationName": "version",
+                        "documentation": "\u003cp\u003eThe version number of the resource configuration.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciAccountId",
+                        "name": "_ciAccountId",
+                        "shape": "AccountId",
+                        "locationName": "accountId",
+                        "documentation": "\u003cp\u003eThe 12 digit AWS account ID associated with the resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciConfigurationItemCaptureTime",
+                        "name": "_ciConfigurationItemCaptureTime",
+                        "shape": "ConfigurationItemCaptureTime",
+                        "locationName": "configurationItemCaptureTime",
+                        "documentation": "\u003cp\u003eThe time when the configuration recording was initiated.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciConfigurationItemStatus",
+                        "name": "_ciConfigurationItemStatus",
+                        "shape": "ConfigurationItemStatus",
+                        "locationName": "configurationItemStatus",
+                        "documentation": "\u003cp\u003eThe configuration item status.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciConfigurationStateId",
+                        "name": "_ciConfigurationStateId",
+                        "shape": "ConfigurationStateId",
+                        "locationName": "configurationStateId",
+                        "documentation": "\u003cp\u003eAn identifier that indicates the ordering of the configuration items of a resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciConfigurationItemMD5Hash",
+                        "name": "_ciConfigurationItemMD5Hash",
+                        "shape": "ConfigurationItemMD5Hash",
+                        "locationName": "configurationItemMD5Hash",
+                        "documentation": "\u003cp\u003eUnique MD5 hash that represents the configuration item's state.\u003c/p\u003e \u003cp\u003eYou can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciArn",
+                        "name": "_ciArn",
+                        "shape": "ARN",
+                        "locationName": "arn",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) of the resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciResourceType",
+                        "name": "_ciResourceType",
+                        "shape": "ResourceType",
+                        "locationName": "resourceType",
+                        "documentation": "\u003cp\u003eThe type of AWS resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciResourceId",
+                        "name": "_ciResourceId",
+                        "shape": "ResourceId",
+                        "locationName": "resourceId",
+                        "documentation": "\u003cp\u003eThe ID of the resource (for example., \u003ccode\u003esg-xxxxxx\u003c/code\u003e).\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciAvailabilityZone",
+                        "name": "_ciAvailabilityZone",
+                        "shape": "AvailabilityZone",
+                        "locationName": "availabilityZone",
+                        "documentation": "\u003cp\u003eThe Availability Zone associated with the resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciResourceCreationTime",
+                        "name": "_ciResourceCreationTime",
+                        "shape": "ResourceCreationTime",
+                        "locationName": "resourceCreationTime",
+                        "documentation": "\u003cp\u003eThe time stamp when the resource was created. \u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ciTags",
+                        "name": "_ciTags",
+                        "shape": "Tags",
+                        "locationName": "tags",
+                        "documentation": "\u003cp\u003eA mapping of key value tags associated with the resource.\u003c/p\u003e",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ciRelatedEvents",
+                        "name": "_ciRelatedEvents",
+                        "shape": "RelatedEventList",
+                        "locationName": "relatedEvents",
+                        "documentation": "\u003cp\u003eA list of CloudTrail event IDs.\u003c/p\u003e \u003cp\u003eA populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see \u003ca href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html\"\u003eWhat is AWS CloudTrail?\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eAn empty field indicates that the current configuration was not initiated by any event.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ciRelationships",
+                        "name": "_ciRelationships",
+                        "shape": "RelationshipList",
+                        "locationName": "relationships",
+                        "documentation": "\u003cp\u003eA list of related AWS resources.\u003c/p\u003e",
+                        "typeExposed": "[Relationship]",
+                        "type": "[Relationship]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciConfiguration",
+                        "name": "_ciConfiguration",
+                        "shape": "Configuration",
+                        "locationName": "configuration",
+                        "documentation": "\u003cp\u003eThe description of the resource configuration.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciAccountId",
+                        "name": "_ciAccountId",
+                        "shape": "AccountId",
+                        "locationName": "accountId",
+                        "documentation": "\u003cp\u003eThe 12 digit AWS account ID associated with the resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciArn",
+                        "name": "_ciArn",
+                        "shape": "ARN",
+                        "locationName": "arn",
+                        "documentation": "\u003cp\u003eThe Amazon Resource Name (ARN) of the resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciAvailabilityZone",
+                        "name": "_ciAvailabilityZone",
+                        "shape": "AvailabilityZone",
+                        "locationName": "availabilityZone",
+                        "documentation": "\u003cp\u003eThe Availability Zone associated with the resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciConfiguration",
+                        "name": "_ciConfiguration",
+                        "shape": "Configuration",
+                        "locationName": "configuration",
+                        "documentation": "\u003cp\u003eThe description of the resource configuration.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciConfigurationItemCaptureTime",
+                        "name": "_ciConfigurationItemCaptureTime",
+                        "shape": "ConfigurationItemCaptureTime",
+                        "locationName": "configurationItemCaptureTime",
+                        "documentation": "\u003cp\u003eThe time when the configuration recording was initiated.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciConfigurationItemMD5Hash",
+                        "name": "_ciConfigurationItemMD5Hash",
+                        "shape": "ConfigurationItemMD5Hash",
+                        "locationName": "configurationItemMD5Hash",
+                        "documentation": "\u003cp\u003eUnique MD5 hash that represents the configuration item's state.\u003c/p\u003e \u003cp\u003eYou can use MD5 hash to compare the states of two or more configuration items that are associated with the same resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciConfigurationItemStatus",
+                        "name": "_ciConfigurationItemStatus",
+                        "shape": "ConfigurationItemStatus",
+                        "locationName": "configurationItemStatus",
+                        "documentation": "\u003cp\u003eThe configuration item status.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciConfigurationStateId",
+                        "name": "_ciConfigurationStateId",
+                        "shape": "ConfigurationStateId",
+                        "locationName": "configurationStateId",
+                        "documentation": "\u003cp\u003eAn identifier that indicates the ordering of the configuration items of a resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ciRelatedEvents",
+                        "name": "_ciRelatedEvents",
+                        "shape": "RelatedEventList",
+                        "locationName": "relatedEvents",
+                        "documentation": "\u003cp\u003eA list of CloudTrail event IDs.\u003c/p\u003e \u003cp\u003eA populated field indicates that the current configuration was initiated by the events recorded in the CloudTrail log. For more information about CloudTrail, see \u003ca href=\"http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html\"\u003eWhat is AWS CloudTrail?\u003c/a\u003e.\u003c/p\u003e \u003cp\u003eAn empty field indicates that the current configuration was not initiated by any event.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ciRelationships",
+                        "name": "_ciRelationships",
+                        "shape": "RelationshipList",
+                        "locationName": "relationships",
+                        "documentation": "\u003cp\u003eA list of related AWS resources.\u003c/p\u003e",
+                        "typeExposed": "[Relationship]",
+                        "type": "[Relationship]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciResourceCreationTime",
+                        "name": "_ciResourceCreationTime",
+                        "shape": "ResourceCreationTime",
+                        "locationName": "resourceCreationTime",
+                        "documentation": "\u003cp\u003eThe time stamp when the resource was created. \u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciResourceId",
+                        "name": "_ciResourceId",
+                        "shape": "ResourceId",
+                        "locationName": "resourceId",
+                        "documentation": "\u003cp\u003eThe ID of the resource (for example., \u003ccode\u003esg-xxxxxx\u003c/code\u003e).\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciResourceType",
+                        "name": "_ciResourceType",
+                        "shape": "ResourceType",
+                        "locationName": "resourceType",
+                        "documentation": "\u003cp\u003eThe type of AWS resource.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": "_Map",
+                        "lensMapping": "_Map",
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ciTags",
+                        "name": "_ciTags",
+                        "shape": "Tags",
+                        "locationName": "tags",
+                        "documentation": "\u003cp\u003eA mapping of key value tags associated with the resource.\u003c/p\u003e",
+                        "typeExposed": "HashMap Text Text",
+                        "type": "Map Text Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "ciVersion",
+                        "name": "_ciVersion",
+                        "shape": "Version",
+                        "locationName": "version",
+                        "documentation": "\u003cp\u003eThe version number of the resource configuration.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "Success": "Success",
+                    "Failure": "Failure"
+                },
+                "valuePad": 8,
+                "name": "DeliveryStatus",
+                "type": "nullary",
+                "branchPad": 7
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 30,
+                "ctor": "deliveryChannelStatus",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "dcsName",
+                    "name": "_dcsName",
+                    "shape": "String",
+                    "locationName": "name",
+                    "documentation": "\u003cp\u003eThe name of the delivery channel.\u003c/p\u003e",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "name": "DeliveryChannelStatus",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcsName",
+                        "name": "_dcsName",
+                        "shape": "String",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe name of the delivery channel.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcsConfigSnapshotDeliveryInfo",
+                        "name": "_dcsConfigSnapshotDeliveryInfo",
+                        "shape": "ConfigExportDeliveryInfo",
+                        "locationName": "configSnapshotDeliveryInfo",
+                        "documentation": "\u003cp\u003eA list containing the status of the delivery of the snapshot to the specified Amazon S3 bucket.\u003c/p\u003e",
+                        "typeExposed": "Maybe ConfigExportDeliveryInfo",
+                        "type": "Maybe ConfigExportDeliveryInfo"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcsConfigHistoryDeliveryInfo",
+                        "name": "_dcsConfigHistoryDeliveryInfo",
+                        "shape": "ConfigExportDeliveryInfo",
+                        "locationName": "configHistoryDeliveryInfo",
+                        "documentation": "\u003cp\u003eA list that contains the status of the delivery of the configuration history to the specified Amazon S3 bucket.\u003c/p\u003e",
+                        "typeExposed": "Maybe ConfigExportDeliveryInfo",
+                        "type": "Maybe ConfigExportDeliveryInfo"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcsConfigStreamDeliveryInfo",
+                        "name": "_dcsConfigStreamDeliveryInfo",
+                        "shape": "ConfigStreamDeliveryInfo",
+                        "locationName": "configStreamDeliveryInfo",
+                        "documentation": "\u003cp\u003eA list containing the status of the delivery of the configuration stream notification to the specified Amazon SNS topic.\u003c/p\u003e",
+                        "typeExposed": "Maybe ConfigStreamDeliveryInfo",
+                        "type": "Maybe ConfigStreamDeliveryInfo"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcsConfigHistoryDeliveryInfo",
+                        "name": "_dcsConfigHistoryDeliveryInfo",
+                        "shape": "ConfigExportDeliveryInfo",
+                        "locationName": "configHistoryDeliveryInfo",
+                        "documentation": "\u003cp\u003eA list that contains the status of the delivery of the configuration history to the specified Amazon S3 bucket.\u003c/p\u003e",
+                        "typeExposed": "Maybe ConfigExportDeliveryInfo",
+                        "type": "Maybe ConfigExportDeliveryInfo"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcsConfigSnapshotDeliveryInfo",
+                        "name": "_dcsConfigSnapshotDeliveryInfo",
+                        "shape": "ConfigExportDeliveryInfo",
+                        "locationName": "configSnapshotDeliveryInfo",
+                        "documentation": "\u003cp\u003eA list containing the status of the delivery of the snapshot to the specified Amazon S3 bucket.\u003c/p\u003e",
+                        "typeExposed": "Maybe ConfigExportDeliveryInfo",
+                        "type": "Maybe ConfigExportDeliveryInfo"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcsConfigStreamDeliveryInfo",
+                        "name": "_dcsConfigStreamDeliveryInfo",
+                        "shape": "ConfigStreamDeliveryInfo",
+                        "locationName": "configStreamDeliveryInfo",
+                        "documentation": "\u003cp\u003eA list containing the status of the delivery of the configuration stream notification to the specified Amazon SNS topic.\u003c/p\u003e",
+                        "typeExposed": "Maybe ConfigStreamDeliveryInfo",
+                        "type": "Maybe ConfigStreamDeliveryInfo"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcsName",
+                        "name": "_dcsName",
+                        "shape": "String",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe name of the delivery channel.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 24,
+                "ctor": "configurationRecorderStatus",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "crsName",
+                    "name": "_crsName",
+                    "shape": "String",
+                    "locationName": "name",
+                    "documentation": "\u003cp\u003eThe name of the configuration recorder.\u003c/p\u003e",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "name": "ConfigurationRecorderStatus",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsName",
+                        "name": "_crsName",
+                        "shape": "String",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe name of the configuration recorder.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsLastStartTime",
+                        "name": "_crsLastStartTime",
+                        "shape": "Date",
+                        "locationName": "lastStartTime",
+                        "documentation": "\u003cp\u003eThe time the recorder was last started.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsLastStopTime",
+                        "name": "_crsLastStopTime",
+                        "shape": "Date",
+                        "locationName": "lastStopTime",
+                        "documentation": "\u003cp\u003eThe time the recorder was last stopped.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsRecording",
+                        "name": "_crsRecording",
+                        "shape": "Boolean",
+                        "locationName": "recording",
+                        "documentation": "\u003cp\u003eSpecifies whether the recorder is currently recording or not.\u003c/p\u003e",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsLastStatus",
+                        "name": "_crsLastStatus",
+                        "shape": "RecorderStatus",
+                        "locationName": "lastStatus",
+                        "documentation": "\u003cp\u003eThe last (previous) status of the recorder.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsLastErrorCode",
+                        "name": "_crsLastErrorCode",
+                        "shape": "String",
+                        "locationName": "lastErrorCode",
+                        "documentation": "\u003cp\u003eThe error code indicating that the recording failed.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsLastErrorMessage",
+                        "name": "_crsLastErrorMessage",
+                        "shape": "String",
+                        "locationName": "lastErrorMessage",
+                        "documentation": "\u003cp\u003eThe message indicating that the recording failed due to an error.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsLastStatusChangeTime",
+                        "name": "_crsLastStatusChangeTime",
+                        "shape": "Date",
+                        "locationName": "lastStatusChangeTime",
+                        "documentation": "\u003cp\u003eThe time when the status was last changed.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsLastErrorCode",
+                        "name": "_crsLastErrorCode",
+                        "shape": "String",
+                        "locationName": "lastErrorCode",
+                        "documentation": "\u003cp\u003eThe error code indicating that the recording failed.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsLastErrorMessage",
+                        "name": "_crsLastErrorMessage",
+                        "shape": "String",
+                        "locationName": "lastErrorMessage",
+                        "documentation": "\u003cp\u003eThe message indicating that the recording failed due to an error.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsLastStartTime",
+                        "name": "_crsLastStartTime",
+                        "shape": "Date",
+                        "locationName": "lastStartTime",
+                        "documentation": "\u003cp\u003eThe time the recorder was last started.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsLastStatus",
+                        "name": "_crsLastStatus",
+                        "shape": "RecorderStatus",
+                        "locationName": "lastStatus",
+                        "documentation": "\u003cp\u003eThe last (previous) status of the recorder.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsLastStatusChangeTime",
+                        "name": "_crsLastStatusChangeTime",
+                        "shape": "Date",
+                        "locationName": "lastStatusChangeTime",
+                        "documentation": "\u003cp\u003eThe time when the status was last changed.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsLastStopTime",
+                        "name": "_crsLastStopTime",
+                        "shape": "Date",
+                        "locationName": "lastStopTime",
+                        "documentation": "\u003cp\u003eThe time the recorder was last stopped.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsName",
+                        "name": "_crsName",
+                        "shape": "String",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe name of the configuration recorder.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crsRecording",
+                        "name": "_crsRecording",
+                        "shape": "Boolean",
+                        "locationName": "recording",
+                        "documentation": "\u003cp\u003eSpecifies whether the recorder is currently recording or not.\u003c/p\u003e",
+                        "typeExposed": "Maybe Bool",
+                        "type": "Maybe Bool"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "Ok": "Ok",
+                    "Discovered": "Discovered",
+                    "Deleted": "Deleted",
+                    "Failed": "Failed"
+                },
+                "valuePad": 11,
+                "name": "ConfigurationItemStatus",
+                "type": "nullary",
+                "branchPad": 10
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "fieldPad": 10,
+                "ctor": "configurationRecorder",
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "crName",
+                    "name": "_crName",
+                    "shape": "RecorderName",
+                    "locationName": "name",
+                    "documentation": "\u003cp\u003eThe name of the recorder. By default, AWS Config automatically assigns the name \"default\" when creating the configuration recorder. You cannot change the assigned name.\u003c/p\u003e",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "name": "ConfigurationRecorder",
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crName",
+                        "name": "_crName",
+                        "shape": "RecorderName",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe name of the recorder. By default, AWS Config automatically assigns the name \"default\" when creating the configuration recorder. You cannot change the assigned name.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crRoleARN",
+                        "name": "_crRoleARN",
+                        "shape": "String",
+                        "locationName": "roleARN",
+                        "documentation": "\u003cp\u003eAmazon Resource Name (ARN) of the IAM role used to describe the AWS resources associated with the account.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crName",
+                        "name": "_crName",
+                        "shape": "RecorderName",
+                        "locationName": "name",
+                        "documentation": "\u003cp\u003eThe name of the recorder. By default, AWS Config automatically assigns the name \"default\" when creating the configuration recorder. You cannot change the assigned name.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "crRoleARN",
+                        "name": "_crRoleARN",
+                        "shape": "String",
+                        "locationName": "roleARN",
+                        "documentation": "\u003cp\u003eAmazon Resource Name (ARN) of the IAM role used to describe the AWS resources associated with the account.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Enum"
+                ],
+                "branches": {
+                    "RSPending": "Pending",
+                    "RSFailure": "Failure",
+                    "RSSuccess": "Success"
+                },
+                "valuePad": 8,
+                "name": "RecorderStatus",
+                "type": "nullary",
+                "branchPad": 9
+            }
+        ],
+        "imports": []
+    },
+    "operations": [
+        {
+            "service": "Config",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "deleteDeliveryChannelResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "DeleteDeliveryChannelResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.Config.DeleteDeliveryChannel",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Config.Types"
+            ],
+            "name": "DeleteDeliveryChannel",
+            "method": "post",
+            "documentation": "\u003cp\u003eDeletes the specified delivery channel.\u003c/p\u003e \u003cp\u003eThe delivery channel cannot be deleted if it is the only delivery channel and the configuration recorder is still running. To delete the delivery channel, stop the running configuration recorder using the \u003ca\u003eStopConfigurationRecorder\u003c/a\u003e action.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "deleteDeliveryChannel",
+                "headerPad": 0,
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "ddcDeliveryChannelName",
+                    "name": "_ddcDeliveryChannelName",
+                    "shape": "ChannelName",
+                    "locationName": "DeliveryChannelName",
+                    "documentation": "\u003cp\u003eThe name of the delivery channel to delete.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "ddcDeliveryChannelName",
+                    "name": "_ddcDeliveryChannelName",
+                    "shape": "ChannelName",
+                    "locationName": "DeliveryChannelName",
+                    "documentation": "\u003cp\u003eThe name of the delivery channel to delete.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ddcDeliveryChannelName",
+                        "name": "_ddcDeliveryChannelName",
+                        "shape": "ChannelName",
+                        "locationName": "DeliveryChannelName",
+                        "documentation": "\u003cp\u003eThe name of the delivery channel to delete.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DeleteDeliveryChannel",
+                "query": [],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "ddcDeliveryChannelName",
+                        "name": "_ddcDeliveryChannelName",
+                        "shape": "ChannelName",
+                        "locationName": "DeliveryChannelName",
+                        "documentation": "\u003cp\u003eThe name of the delivery channel to delete.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Config",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "deliverConfigSnapshotResponse",
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "dcsrConfigSnapshotId",
+                    "name": "_dcsrConfigSnapshotId",
+                    "shape": "String",
+                    "locationName": "configSnapshotId",
+                    "documentation": "\u003cp\u003eThe ID of the snapshot that is being created.\u003c/p\u003e",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "Nothing",
+                    "required": false,
+                    "lens": "dcsrConfigSnapshotId",
+                    "name": "_dcsrConfigSnapshotId",
+                    "shape": "String",
+                    "locationName": "configSnapshotId",
+                    "documentation": "\u003cp\u003eThe ID of the snapshot that is being created.\u003c/p\u003e",
+                    "typeExposed": "Maybe Text",
+                    "type": "Maybe Text"
+                },
+                "required": [],
+                "shared": false,
+                "name": "DeliverConfigSnapshotResponse",
+                "resultWrapper": null,
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcsrConfigSnapshotId",
+                        "name": "_dcsrConfigSnapshotId",
+                        "shape": "String",
+                        "locationName": "configSnapshotId",
+                        "documentation": "\u003cp\u003eThe ID of the snapshot that is being created.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "dcsrConfigSnapshotId",
+                        "name": "_dcsrConfigSnapshotId",
+                        "shape": "String",
+                        "locationName": "configSnapshotId",
+                        "documentation": "\u003cp\u003eThe ID of the snapshot that is being created.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.Config.DeliverConfigSnapshot",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Config.Types"
+            ],
+            "name": "DeliverConfigSnapshot",
+            "method": "post",
+            "documentation": "\u003cp\u003eSchedules delivery of a configuration snapshot to the Amazon S3 bucket in the specified delivery channel. After the delivery has started, AWS Config sends following notifications using an Amazon SNS topic that you have specified.\u003c/p\u003e \u003cul\u003e \u003cli\u003eNotification of starting the delivery.\u003c/li\u003e \u003cli\u003eNotification of delivery completed, if the delivery was successfully completed.\u003c/li\u003e \u003cli\u003eNotification of delivery failure, if the delivery failed to complete.\u003c/li\u003e \u003c/ul\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "deliverConfigSnapshot",
+                "headerPad": 0,
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "dcsDeliveryChannelName",
+                    "name": "_dcsDeliveryChannelName",
+                    "shape": "ChannelName",
+                    "locationName": "deliveryChannelName",
+                    "documentation": "\u003cp\u003eThe name of the delivery channel through which the snapshot is delivered.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "dcsDeliveryChannelName",
+                    "name": "_dcsDeliveryChannelName",
+                    "shape": "ChannelName",
+                    "locationName": "deliveryChannelName",
+                    "documentation": "\u003cp\u003eThe name of the delivery channel through which the snapshot is delivered.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dcsDeliveryChannelName",
+                        "name": "_dcsDeliveryChannelName",
+                        "shape": "ChannelName",
+                        "locationName": "deliveryChannelName",
+                        "documentation": "\u003cp\u003eThe name of the delivery channel through which the snapshot is delivered.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DeliverConfigSnapshot",
+                "query": [],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "dcsDeliveryChannelName",
+                        "name": "_dcsDeliveryChannelName",
+                        "shape": "ChannelName",
+                        "locationName": "deliveryChannelName",
+                        "documentation": "\u003cp\u003eThe name of the delivery channel through which the snapshot is delivered.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Config",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "ConfigurationRecorderStatus",
+                "fieldPad": 0,
+                "ctor": "describeConfigurationRecorderStatusResponse",
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "dcrsrConfigurationRecordersStatus",
+                    "name": "_dcrsrConfigurationRecordersStatus",
+                    "shape": "ConfigurationRecorderStatusList",
+                    "locationName": "ConfigurationRecordersStatus",
+                    "documentation": "\u003cp\u003e A list that contains status of the specified recorders. \u003c/p\u003e",
+                    "typeExposed": "[ConfigurationRecorderStatus]",
+                    "type": "[ConfigurationRecorderStatus]"
+                },
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "dcrsrConfigurationRecordersStatus",
+                    "name": "_dcrsrConfigurationRecordersStatus",
+                    "shape": "ConfigurationRecorderStatusList",
+                    "locationName": "ConfigurationRecordersStatus",
+                    "documentation": "\u003cp\u003e A list that contains status of the specified recorders. \u003c/p\u003e",
+                    "typeExposed": "[ConfigurationRecorderStatus]",
+                    "type": "[ConfigurationRecorderStatus]"
+                },
+                "required": [],
+                "shared": false,
+                "name": "DescribeConfigurationRecorderStatusResponse",
+                "resultWrapper": null,
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dcrsrConfigurationRecordersStatus",
+                        "name": "_dcrsrConfigurationRecordersStatus",
+                        "shape": "ConfigurationRecorderStatusList",
+                        "locationName": "ConfigurationRecordersStatus",
+                        "documentation": "\u003cp\u003e A list that contains status of the specified recorders. \u003c/p\u003e",
+                        "typeExposed": "[ConfigurationRecorderStatus]",
+                        "type": "[ConfigurationRecorderStatus]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dcrsrConfigurationRecordersStatus",
+                        "name": "_dcrsrConfigurationRecordersStatus",
+                        "shape": "ConfigurationRecorderStatusList",
+                        "locationName": "ConfigurationRecordersStatus",
+                        "documentation": "\u003cp\u003e A list that contains status of the specified recorders. \u003c/p\u003e",
+                        "typeExposed": "[ConfigurationRecorderStatus]",
+                        "type": "[ConfigurationRecorderStatus]"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.Config.DescribeConfigurationRecorderStatus",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Config.Types"
+            ],
+            "name": "DescribeConfigurationRecorderStatus",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns the current status of the specified configuration recorder. If a configuration recorder is not specified, this action returns the status of all configuration recorder associated with the account.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Text",
+                "fieldPad": 0,
+                "ctor": "describeConfigurationRecorderStatus",
+                "headerPad": 0,
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "dcrsConfigurationRecorderNames",
+                    "name": "_dcrsConfigurationRecorderNames",
+                    "shape": "ConfigurationRecorderNameList",
+                    "locationName": "ConfigurationRecorderNames",
+                    "documentation": "\u003cp\u003eThe name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account. \u003c/p\u003e",
+                    "typeExposed": "[Text]",
+                    "type": "[Text]"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "dcrsConfigurationRecorderNames",
+                    "name": "_dcrsConfigurationRecorderNames",
+                    "shape": "ConfigurationRecorderNameList",
+                    "locationName": "ConfigurationRecorderNames",
+                    "documentation": "\u003cp\u003eThe name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account. \u003c/p\u003e",
+                    "typeExposed": "[Text]",
+                    "type": "[Text]"
+                },
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DescribeConfigurationRecorderStatus",
+                "query": [],
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dcrsConfigurationRecorderNames",
+                        "name": "_dcrsConfigurationRecorderNames",
+                        "shape": "ConfigurationRecorderNameList",
+                        "locationName": "ConfigurationRecorderNames",
+                        "documentation": "\u003cp\u003eThe name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account. \u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dcrsConfigurationRecorderNames",
+                        "name": "_dcrsConfigurationRecorderNames",
+                        "shape": "ConfigurationRecorderNameList",
+                        "locationName": "ConfigurationRecorderNames",
+                        "documentation": "\u003cp\u003eThe name(s) of the configuration recorder. If the name is not specified, the action returns the current status of all the configuration recorders associated with the account. \u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Config",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "ConfigurationRecorder",
+                "fieldPad": 0,
+                "ctor": "describeConfigurationRecordersResponse",
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "dcrrConfigurationRecorders",
+                    "name": "_dcrrConfigurationRecorders",
+                    "shape": "ConfigurationRecorderList",
+                    "locationName": "ConfigurationRecorders",
+                    "documentation": "\u003cp\u003eA list that contains the descriptions of the specified configuration recorders.\u003c/p\u003e",
+                    "typeExposed": "[ConfigurationRecorder]",
+                    "type": "[ConfigurationRecorder]"
+                },
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "dcrrConfigurationRecorders",
+                    "name": "_dcrrConfigurationRecorders",
+                    "shape": "ConfigurationRecorderList",
+                    "locationName": "ConfigurationRecorders",
+                    "documentation": "\u003cp\u003eA list that contains the descriptions of the specified configuration recorders.\u003c/p\u003e",
+                    "typeExposed": "[ConfigurationRecorder]",
+                    "type": "[ConfigurationRecorder]"
+                },
+                "required": [],
+                "shared": false,
+                "name": "DescribeConfigurationRecordersResponse",
+                "resultWrapper": null,
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dcrrConfigurationRecorders",
+                        "name": "_dcrrConfigurationRecorders",
+                        "shape": "ConfigurationRecorderList",
+                        "locationName": "ConfigurationRecorders",
+                        "documentation": "\u003cp\u003eA list that contains the descriptions of the specified configuration recorders.\u003c/p\u003e",
+                        "typeExposed": "[ConfigurationRecorder]",
+                        "type": "[ConfigurationRecorder]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dcrrConfigurationRecorders",
+                        "name": "_dcrrConfigurationRecorders",
+                        "shape": "ConfigurationRecorderList",
+                        "locationName": "ConfigurationRecorders",
+                        "documentation": "\u003cp\u003eA list that contains the descriptions of the specified configuration recorders.\u003c/p\u003e",
+                        "typeExposed": "[ConfigurationRecorder]",
+                        "type": "[ConfigurationRecorder]"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.Config.DescribeConfigurationRecorders",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Config.Types"
+            ],
+            "name": "DescribeConfigurationRecorders",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns the name of one or more specified configuration recorders. If the recorder name is not specified, this action returns the names of all the configuration recorders associated with the account. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Text",
+                "fieldPad": 0,
+                "ctor": "describeConfigurationRecorders",
+                "headerPad": 0,
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "dcrConfigurationRecorderNames",
+                    "name": "_dcrConfigurationRecorderNames",
+                    "shape": "ConfigurationRecorderNameList",
+                    "locationName": "ConfigurationRecorderNames",
+                    "documentation": "\u003cp\u003eA list of configuration recorder names.\u003c/p\u003e",
+                    "typeExposed": "[Text]",
+                    "type": "[Text]"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "dcrConfigurationRecorderNames",
+                    "name": "_dcrConfigurationRecorderNames",
+                    "shape": "ConfigurationRecorderNameList",
+                    "locationName": "ConfigurationRecorderNames",
+                    "documentation": "\u003cp\u003eA list of configuration recorder names.\u003c/p\u003e",
+                    "typeExposed": "[Text]",
+                    "type": "[Text]"
+                },
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DescribeConfigurationRecorders",
+                "query": [],
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dcrConfigurationRecorderNames",
+                        "name": "_dcrConfigurationRecorderNames",
+                        "shape": "ConfigurationRecorderNameList",
+                        "locationName": "ConfigurationRecorderNames",
+                        "documentation": "\u003cp\u003eA list of configuration recorder names.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "dcrConfigurationRecorderNames",
+                        "name": "_dcrConfigurationRecorderNames",
+                        "shape": "ConfigurationRecorderNameList",
+                        "locationName": "ConfigurationRecorderNames",
+                        "documentation": "\u003cp\u003eA list of configuration recorder names.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Config",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "DeliveryChannelStatus",
+                "fieldPad": 0,
+                "ctor": "describeDeliveryChannelStatusResponse",
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "ddcsrDeliveryChannelsStatus",
+                    "name": "_ddcsrDeliveryChannelsStatus",
+                    "shape": "DeliveryChannelStatusList",
+                    "locationName": "DeliveryChannelsStatus",
+                    "documentation": "\u003cp\u003eA list that contains the status of a specified delivery channel.\u003c/p\u003e",
+                    "typeExposed": "[DeliveryChannelStatus]",
+                    "type": "[DeliveryChannelStatus]"
+                },
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "ddcsrDeliveryChannelsStatus",
+                    "name": "_ddcsrDeliveryChannelsStatus",
+                    "shape": "DeliveryChannelStatusList",
+                    "locationName": "DeliveryChannelsStatus",
+                    "documentation": "\u003cp\u003eA list that contains the status of a specified delivery channel.\u003c/p\u003e",
+                    "typeExposed": "[DeliveryChannelStatus]",
+                    "type": "[DeliveryChannelStatus]"
+                },
+                "required": [],
+                "shared": false,
+                "name": "DescribeDeliveryChannelStatusResponse",
+                "resultWrapper": null,
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ddcsrDeliveryChannelsStatus",
+                        "name": "_ddcsrDeliveryChannelsStatus",
+                        "shape": "DeliveryChannelStatusList",
+                        "locationName": "DeliveryChannelsStatus",
+                        "documentation": "\u003cp\u003eA list that contains the status of a specified delivery channel.\u003c/p\u003e",
+                        "typeExposed": "[DeliveryChannelStatus]",
+                        "type": "[DeliveryChannelStatus]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ddcsrDeliveryChannelsStatus",
+                        "name": "_ddcsrDeliveryChannelsStatus",
+                        "shape": "DeliveryChannelStatusList",
+                        "locationName": "DeliveryChannelsStatus",
+                        "documentation": "\u003cp\u003eA list that contains the status of a specified delivery channel.\u003c/p\u003e",
+                        "typeExposed": "[DeliveryChannelStatus]",
+                        "type": "[DeliveryChannelStatus]"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.Config.DescribeDeliveryChannelStatus",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Config.Types"
+            ],
+            "name": "DescribeDeliveryChannelStatus",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns the current status of the specified delivery channel. If a delivery channel is not specified, this action returns the current status of all delivery channels associated with the account. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Text",
+                "fieldPad": 0,
+                "ctor": "describeDeliveryChannelStatus",
+                "headerPad": 0,
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "ddcsDeliveryChannelNames",
+                    "name": "_ddcsDeliveryChannelNames",
+                    "shape": "DeliveryChannelNameList",
+                    "locationName": "DeliveryChannelNames",
+                    "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
+                    "typeExposed": "[Text]",
+                    "type": "[Text]"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "ddcsDeliveryChannelNames",
+                    "name": "_ddcsDeliveryChannelNames",
+                    "shape": "DeliveryChannelNameList",
+                    "locationName": "DeliveryChannelNames",
+                    "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
+                    "typeExposed": "[Text]",
+                    "type": "[Text]"
+                },
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DescribeDeliveryChannelStatus",
+                "query": [],
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ddcsDeliveryChannelNames",
+                        "name": "_ddcsDeliveryChannelNames",
+                        "shape": "DeliveryChannelNameList",
+                        "locationName": "DeliveryChannelNames",
+                        "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ddcsDeliveryChannelNames",
+                        "name": "_ddcsDeliveryChannelNames",
+                        "shape": "DeliveryChannelNameList",
+                        "locationName": "DeliveryChannelNames",
+                        "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Config",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "DeliveryChannel",
+                "fieldPad": 0,
+                "ctor": "describeDeliveryChannelsResponse",
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "ddcrDeliveryChannels",
+                    "name": "_ddcrDeliveryChannels",
+                    "shape": "DeliveryChannelList",
+                    "locationName": "DeliveryChannels",
+                    "documentation": "\u003cp\u003eA list that contains the descriptions of the specified delivery channel.\u003c/p\u003e",
+                    "typeExposed": "[DeliveryChannel]",
+                    "type": "[DeliveryChannel]"
+                },
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "ddcrDeliveryChannels",
+                    "name": "_ddcrDeliveryChannels",
+                    "shape": "DeliveryChannelList",
+                    "locationName": "DeliveryChannels",
+                    "documentation": "\u003cp\u003eA list that contains the descriptions of the specified delivery channel.\u003c/p\u003e",
+                    "typeExposed": "[DeliveryChannel]",
+                    "type": "[DeliveryChannel]"
+                },
+                "required": [],
+                "shared": false,
+                "name": "DescribeDeliveryChannelsResponse",
+                "resultWrapper": null,
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ddcrDeliveryChannels",
+                        "name": "_ddcrDeliveryChannels",
+                        "shape": "DeliveryChannelList",
+                        "locationName": "DeliveryChannels",
+                        "documentation": "\u003cp\u003eA list that contains the descriptions of the specified delivery channel.\u003c/p\u003e",
+                        "typeExposed": "[DeliveryChannel]",
+                        "type": "[DeliveryChannel]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ddcrDeliveryChannels",
+                        "name": "_ddcrDeliveryChannels",
+                        "shape": "DeliveryChannelList",
+                        "locationName": "DeliveryChannels",
+                        "documentation": "\u003cp\u003eA list that contains the descriptions of the specified delivery channel.\u003c/p\u003e",
+                        "typeExposed": "[DeliveryChannel]",
+                        "type": "[DeliveryChannel]"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.Config.DescribeDeliveryChannels",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Config.Types"
+            ],
+            "name": "DescribeDeliveryChannels",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns details about the specified delivery channel. If a delivery channel is not specified, this action returns the details of all delivery channels associated with the account. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "Semigroup"
+                ],
+                "streaming": false,
+                "listElement": "Text",
+                "fieldPad": 0,
+                "ctor": "describeDeliveryChannels",
+                "headerPad": 0,
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "ddcDeliveryChannelNames",
+                    "name": "_ddcDeliveryChannelNames",
+                    "shape": "DeliveryChannelNameList",
+                    "locationName": "DeliveryChannelNames",
+                    "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
+                    "typeExposed": "[Text]",
+                    "type": "[Text]"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "ddcDeliveryChannelNames",
+                    "name": "_ddcDeliveryChannelNames",
+                    "shape": "DeliveryChannelNameList",
+                    "locationName": "DeliveryChannelNames",
+                    "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
+                    "typeExposed": "[Text]",
+                    "type": "[Text]"
+                },
+                "required": [],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "DescribeDeliveryChannels",
+                "query": [],
+                "type": "newtype",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ddcDeliveryChannelNames",
+                        "name": "_ddcDeliveryChannelNames",
+                        "shape": "DeliveryChannelNameList",
+                        "locationName": "DeliveryChannelNames",
+                        "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "ddcDeliveryChannelNames",
+                        "name": "_ddcDeliveryChannelNames",
+                        "shape": "DeliveryChannelNameList",
+                        "locationName": "DeliveryChannelNames",
+                        "documentation": "\u003cp\u003eA list of delivery channel names.\u003c/p\u003e",
+                        "typeExposed": "[Text]",
+                        "type": "[Text]"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Config",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 24,
+                "ctor": "getResourceConfigHistoryResponse",
+                "wrapper": false,
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "mempty",
+                    "required": true,
+                    "lens": "grchrConfigurationItems",
+                    "name": "_grchrConfigurationItems",
+                    "shape": "ConfigurationItemList",
+                    "locationName": "configurationItems",
+                    "documentation": "\u003cp\u003eA list that contains the configuration history of one or more resources.\u003c/p\u003e",
+                    "typeExposed": "[ConfigurationItem]",
+                    "type": "[ConfigurationItem]"
+                },
+                "required": [],
+                "shared": false,
+                "name": "GetResourceConfigHistoryResponse",
+                "resultWrapper": null,
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "grchrConfigurationItems",
+                        "name": "_grchrConfigurationItems",
+                        "shape": "ConfigurationItemList",
+                        "locationName": "configurationItems",
+                        "documentation": "\u003cp\u003eA list that contains the configuration history of one or more resources.\u003c/p\u003e",
+                        "typeExposed": "[ConfigurationItem]",
+                        "type": "[ConfigurationItem]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grchrNextToken",
+                        "name": "_grchrNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003eA token used for pagination of results. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "mempty",
+                        "required": true,
+                        "lens": "grchrConfigurationItems",
+                        "name": "_grchrConfigurationItems",
+                        "shape": "ConfigurationItemList",
+                        "locationName": "configurationItems",
+                        "documentation": "\u003cp\u003eA list that contains the configuration history of one or more resources.\u003c/p\u003e",
+                        "typeExposed": "[ConfigurationItem]",
+                        "type": "[ConfigurationItem]"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grchrNextToken",
+                        "name": "_grchrNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003eA token used for pagination of results. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ]
+            },
+            "namespace": "Network.AWS.Config.GetResourceConfigHistory",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Config.Types"
+            ],
+            "name": "GetResourceConfigHistory",
+            "method": "post",
+            "documentation": "\u003cp\u003eReturns a list of configuration items for the specified resource. The list contains details about each state of the resource during the specified time interval. You can specify a \u003ccode\u003elimit\u003c/code\u003e on the number of results returned on the page. If a limit is specified, a \u003ccode\u003enextToken\u003c/code\u003e is returned as part of the result that you can use to continue this request. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 23,
+                "ctor": "getResourceConfigHistory",
+                "headerPad": 0,
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "grchResourceType",
+                    "name": "_grchResourceType",
+                    "shape": "ResourceType",
+                    "locationName": "resourceType",
+                    "documentation": "\u003cp\u003eThe resource type.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "grchResourceType",
+                        "name": "_grchResourceType",
+                        "shape": "ResourceType",
+                        "locationName": "resourceType",
+                        "documentation": "\u003cp\u003eThe resource type.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "grchResourceId",
+                        "name": "_grchResourceId",
+                        "shape": "ResourceId",
+                        "locationName": "resourceId",
+                        "documentation": "\u003cp\u003eThe ID of the resource (for example., \u003ccode\u003esg-xxxxxx\u003c/code\u003e).\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "GetResourceConfigHistory",
+                "query": [],
+                "type": "record",
+                "optional": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grchLaterTime",
+                        "name": "_grchLaterTime",
+                        "shape": "LaterTime",
+                        "locationName": "laterTime",
+                        "documentation": "\u003cp\u003eThe time stamp that indicates a later time. If not specified, current time is taken.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grchEarlierTime",
+                        "name": "_grchEarlierTime",
+                        "shape": "EarlierTime",
+                        "locationName": "earlierTime",
+                        "documentation": "\u003cp\u003eThe time stamp that indicates an earlier time. If not specified, the action returns paginated results that contain configuration items that start from when the first configuration item was recorded.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grchChronologicalOrder",
+                        "name": "_grchChronologicalOrder",
+                        "shape": "ChronologicalOrder",
+                        "locationName": "chronologicalOrder",
+                        "documentation": "\u003cp\u003eThe chronological order for configuration items listed. By default the results are listed in reverse chronological order.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grchLimit",
+                        "name": "_grchLimit",
+                        "shape": "Limit",
+                        "locationName": "limit",
+                        "documentation": "\u003cp\u003eThe maximum number of configuration items returned in each page. The default is 10. You cannot specify a limit greater than 100.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grchNextToken",
+                        "name": "_grchNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003eAn optional parameter used for pagination of the results. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    }
+                ],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grchChronologicalOrder",
+                        "name": "_grchChronologicalOrder",
+                        "shape": "ChronologicalOrder",
+                        "locationName": "chronologicalOrder",
+                        "documentation": "\u003cp\u003eThe chronological order for configuration items listed. By default the results are listed in reverse chronological order.\u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grchEarlierTime",
+                        "name": "_grchEarlierTime",
+                        "shape": "EarlierTime",
+                        "locationName": "earlierTime",
+                        "documentation": "\u003cp\u003eThe time stamp that indicates an earlier time. If not specified, the action returns paginated results that contain configuration items that start from when the first configuration item was recorded.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": "mapping _Time",
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grchLaterTime",
+                        "name": "_grchLaterTime",
+                        "shape": "LaterTime",
+                        "locationName": "laterTime",
+                        "documentation": "\u003cp\u003eThe time stamp that indicates a later time. If not specified, current time is taken.\u003c/p\u003e",
+                        "typeExposed": "Maybe UTCTime",
+                        "type": "Maybe RFC822"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grchLimit",
+                        "name": "_grchLimit",
+                        "shape": "Limit",
+                        "locationName": "limit",
+                        "documentation": "\u003cp\u003eThe maximum number of configuration items returned in each page. The default is 10. You cannot specify a limit greater than 100.\u003c/p\u003e",
+                        "typeExposed": "Maybe Natural",
+                        "type": "Maybe Natural"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "Nothing",
+                        "required": false,
+                        "lens": "grchNextToken",
+                        "name": "_grchNextToken",
+                        "shape": "NextToken",
+                        "locationName": "nextToken",
+                        "documentation": "\u003cp\u003eAn optional parameter used for pagination of the results. \u003c/p\u003e",
+                        "typeExposed": "Maybe Text",
+                        "type": "Maybe Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "grchResourceId",
+                        "name": "_grchResourceId",
+                        "shape": "ResourceId",
+                        "locationName": "resourceId",
+                        "documentation": "\u003cp\u003eThe ID of the resource (for example., \u003ccode\u003esg-xxxxxx\u003c/code\u003e).\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    },
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "grchResourceType",
+                        "name": "_grchResourceType",
+                        "shape": "ResourceType",
+                        "locationName": "resourceType",
+                        "documentation": "\u003cp\u003eThe resource type.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Config",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "putConfigurationRecorderResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "PutConfigurationRecorderResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.Config.PutConfigurationRecorder",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Config.Types"
+            ],
+            "name": "PutConfigurationRecorder",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates a new configuration recorder to record the resource configurations. \u003c/p\u003e \u003cp\u003eYou can use this action to change the role (\u003ccode\u003eroleARN\u003c/code\u003e) of an existing recorder. To change the role, call the action on the existing configuration recorder and specify a role.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "putConfigurationRecorder",
+                "headerPad": 0,
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "pcrConfigurationRecorder",
+                    "name": "_pcrConfigurationRecorder",
+                    "shape": "ConfigurationRecorder",
+                    "locationName": "ConfigurationRecorder",
+                    "documentation": "\u003cp\u003eThe configuration recorder object that records each configuration change made to the resources.\u003c/p\u003e",
+                    "typeExposed": "ConfigurationRecorder",
+                    "type": "ConfigurationRecorder"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "pcrConfigurationRecorder",
+                    "name": "_pcrConfigurationRecorder",
+                    "shape": "ConfigurationRecorder",
+                    "locationName": "ConfigurationRecorder",
+                    "documentation": "\u003cp\u003eThe configuration recorder object that records each configuration change made to the resources.\u003c/p\u003e",
+                    "typeExposed": "ConfigurationRecorder",
+                    "type": "ConfigurationRecorder"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pcrConfigurationRecorder",
+                        "name": "_pcrConfigurationRecorder",
+                        "shape": "ConfigurationRecorder",
+                        "locationName": "ConfigurationRecorder",
+                        "documentation": "\u003cp\u003eThe configuration recorder object that records each configuration change made to the resources.\u003c/p\u003e",
+                        "typeExposed": "ConfigurationRecorder",
+                        "type": "ConfigurationRecorder"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "PutConfigurationRecorder",
+                "query": [],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pcrConfigurationRecorder",
+                        "name": "_pcrConfigurationRecorder",
+                        "shape": "ConfigurationRecorder",
+                        "locationName": "ConfigurationRecorder",
+                        "documentation": "\u003cp\u003eThe configuration recorder object that records each configuration change made to the resources.\u003c/p\u003e",
+                        "typeExposed": "ConfigurationRecorder",
+                        "type": "ConfigurationRecorder"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Config",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "putDeliveryChannelResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "PutDeliveryChannelResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.Config.PutDeliveryChannel",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Config.Types"
+            ],
+            "name": "PutDeliveryChannel",
+            "method": "post",
+            "documentation": "\u003cp\u003eCreates a new delivery channel object to deliver the configuration information to an Amazon S3 bucket, and to an Amazon SNS topic. \u003c/p\u003e \u003cp\u003eYou can use this action to change the Amazon S3 bucket or an Amazon SNS topic of the existing delivery channel. To change the Amazon S3 bucket or an Amazon SNS topic, call this action and specify the changed values for the S3 bucket and the SNS topic. If you specify a different value for either the S3 bucket or the SNS topic, this action will keep the existing value for the parameter that is not changed. \u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "putDeliveryChannel",
+                "headerPad": 0,
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "pdcDeliveryChannel",
+                    "name": "_pdcDeliveryChannel",
+                    "shape": "DeliveryChannel",
+                    "locationName": "DeliveryChannel",
+                    "documentation": "\u003cp\u003eThe configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket, and to an Amazon SNS topic.\u003c/p\u003e",
+                    "typeExposed": "DeliveryChannel",
+                    "type": "DeliveryChannel"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "pdcDeliveryChannel",
+                    "name": "_pdcDeliveryChannel",
+                    "shape": "DeliveryChannel",
+                    "locationName": "DeliveryChannel",
+                    "documentation": "\u003cp\u003eThe configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket, and to an Amazon SNS topic.\u003c/p\u003e",
+                    "typeExposed": "DeliveryChannel",
+                    "type": "DeliveryChannel"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pdcDeliveryChannel",
+                        "name": "_pdcDeliveryChannel",
+                        "shape": "DeliveryChannel",
+                        "locationName": "DeliveryChannel",
+                        "documentation": "\u003cp\u003eThe configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket, and to an Amazon SNS topic.\u003c/p\u003e",
+                        "typeExposed": "DeliveryChannel",
+                        "type": "DeliveryChannel"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "PutDeliveryChannel",
+                "query": [],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "pdcDeliveryChannel",
+                        "name": "_pdcDeliveryChannel",
+                        "shape": "DeliveryChannel",
+                        "locationName": "DeliveryChannel",
+                        "documentation": "\u003cp\u003eThe configuration delivery channel object that delivers the configuration information to an Amazon S3 bucket, and to an Amazon SNS topic.\u003c/p\u003e",
+                        "typeExposed": "DeliveryChannel",
+                        "type": "DeliveryChannel"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Config",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "startConfigurationRecorderResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "StartConfigurationRecorderResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.Config.StartConfigurationRecorder",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Config.Types"
+            ],
+            "name": "StartConfigurationRecorder",
+            "method": "post",
+            "documentation": "\u003cp\u003eStarts recording configurations of all the resources associated with the account.\u003c/p\u003e \u003cp\u003eYou must have created at least one delivery channel to successfully start the configuration recorder.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "startConfigurationRecorder",
+                "headerPad": 0,
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "scr1ConfigurationRecorderName",
+                    "name": "_scr1ConfigurationRecorderName",
+                    "shape": "RecorderName",
+                    "locationName": "ConfigurationRecorderName",
+                    "documentation": "\u003cp\u003eThe name of the recorder object that records each configuration change made to the resources.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "scr1ConfigurationRecorderName",
+                    "name": "_scr1ConfigurationRecorderName",
+                    "shape": "RecorderName",
+                    "locationName": "ConfigurationRecorderName",
+                    "documentation": "\u003cp\u003eThe name of the recorder object that records each configuration change made to the resources.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "scr1ConfigurationRecorderName",
+                        "name": "_scr1ConfigurationRecorderName",
+                        "shape": "RecorderName",
+                        "locationName": "ConfigurationRecorderName",
+                        "documentation": "\u003cp\u003eThe name of the recorder object that records each configuration change made to the resources.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "StartConfigurationRecorder",
+                "query": [],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "scr1ConfigurationRecorderName",
+                        "name": "_scr1ConfigurationRecorderName",
+                        "shape": "RecorderName",
+                        "locationName": "ConfigurationRecorderName",
+                        "documentation": "\u003cp\u003eThe name of the recorder object that records each configuration change made to the resources.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        },
+        {
+            "service": "Config",
+            "response": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic"
+                ],
+                "streaming": false,
+                "fieldPad": 0,
+                "ctor": "stopConfigurationRecorderResponse",
+                "wrapper": false,
+                "required": [],
+                "shared": false,
+                "name": "StopConfigurationRecorderResponse",
+                "resultWrapper": null,
+                "type": "empty",
+                "optional": [],
+                "fields": []
+            },
+            "namespace": "Network.AWS.Config.StopConfigurationRecorder",
+            "protocol": "json",
+            "imports": [
+                "Network.AWS.Request",
+                "Network.AWS.Config.Types"
+            ],
+            "name": "StopConfigurationRecorder",
+            "method": "post",
+            "documentation": "\u003cp\u003eStops recording configurations of all the resources associated with the account.\u003c/p\u003e",
+            "request": {
+                "deriving": [
+                    "Eq",
+                    "Ord",
+                    "Show",
+                    "Generic",
+                    "Monoid",
+                    "IsString"
+                ],
+                "streaming": false,
+                "listElement": null,
+                "fieldPad": 0,
+                "ctor": "stopConfigurationRecorder",
+                "headerPad": 0,
+                "field": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "scrConfigurationRecorderName",
+                    "name": "_scrConfigurationRecorderName",
+                    "shape": "RecorderName",
+                    "locationName": "ConfigurationRecorderName",
+                    "documentation": "\u003cp\u003eThe name of the recorder object that records each configuration change made to the resources.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "path": [
+                    {
+                        "value": "/",
+                        "type": "const"
+                    }
+                ],
+                "payload": {
+                    "location": "body-json",
+                    "iso": null,
+                    "lensMapping": null,
+                    "default": "\u003cerror\u003e",
+                    "required": true,
+                    "lens": "scrConfigurationRecorderName",
+                    "name": "_scrConfigurationRecorderName",
+                    "shape": "RecorderName",
+                    "locationName": "ConfigurationRecorderName",
+                    "documentation": "\u003cp\u003eThe name of the recorder object that records each configuration change made to the resources.\u003c/p\u003e",
+                    "typeExposed": "Text",
+                    "type": "Text"
+                },
+                "required": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "scrConfigurationRecorderName",
+                        "name": "_scrConfigurationRecorderName",
+                        "shape": "RecorderName",
+                        "locationName": "ConfigurationRecorderName",
+                        "documentation": "\u003cp\u003eThe name of the recorder object that records each configuration change made to the resources.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ],
+                "shared": false,
+                "headers": [],
+                "queryPad": 0,
+                "name": "StopConfigurationRecorder",
+                "query": [],
+                "type": "newtype",
+                "optional": [],
+                "fields": [
+                    {
+                        "location": "body-json",
+                        "iso": null,
+                        "lensMapping": null,
+                        "default": "\u003cerror\u003e",
+                        "required": true,
+                        "lens": "scrConfigurationRecorderName",
+                        "name": "_scrConfigurationRecorderName",
+                        "shape": "RecorderName",
+                        "locationName": "ConfigurationRecorderName",
+                        "documentation": "\u003cp\u003eThe name of the recorder object that records each configuration change made to the resources.\u003c/p\u003e",
+                        "typeExposed": "Text",
+                        "type": "Text"
+                    }
+                ]
+            }
+        }
+    ]
+}

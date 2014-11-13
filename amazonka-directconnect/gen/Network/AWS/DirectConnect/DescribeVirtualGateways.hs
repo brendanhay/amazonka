@@ -40,7 +40,6 @@ module Network.AWS.DirectConnect.DescribeVirtualGateways
     , dvgrVirtualGateways
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types

@@ -63,7 +63,6 @@ module Network.AWS.SWF.RecordActivityTaskHeartbeat
     , rathrCancelRequested
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types

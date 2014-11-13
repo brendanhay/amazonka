@@ -42,7 +42,6 @@ module Network.AWS.CodeDeploy.ListDeploymentInstances
     , ldirNextToken
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types

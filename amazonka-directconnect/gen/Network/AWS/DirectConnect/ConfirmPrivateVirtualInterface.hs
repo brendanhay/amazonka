@@ -42,7 +42,6 @@ module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     , cpvir1VirtualInterfaceState
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types

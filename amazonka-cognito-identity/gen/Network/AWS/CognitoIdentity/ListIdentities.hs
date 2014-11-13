@@ -42,7 +42,6 @@ module Network.AWS.CognitoIdentity.ListIdentities
     , lirNextToken
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types

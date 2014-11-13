@@ -37,7 +37,6 @@ module Network.AWS.CodeDeploy.UpdateApplication
     , updateApplicationResponse
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types

@@ -41,7 +41,6 @@ module Network.AWS.KMS.ListAliases
     , larTruncated
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types

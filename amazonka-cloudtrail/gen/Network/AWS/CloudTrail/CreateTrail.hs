@@ -51,7 +51,6 @@ module Network.AWS.CloudTrail.CreateTrail
     , ctrSnsTopicName
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudTrail.Types

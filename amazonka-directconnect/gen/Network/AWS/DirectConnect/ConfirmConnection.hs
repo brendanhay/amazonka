@@ -41,7 +41,6 @@ module Network.AWS.DirectConnect.ConfirmConnection
     , ccr1ConnectionState
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types

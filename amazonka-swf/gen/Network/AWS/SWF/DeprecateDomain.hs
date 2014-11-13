@@ -49,7 +49,6 @@ module Network.AWS.SWF.DeprecateDomain
     , deprecateDomainResponse
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types

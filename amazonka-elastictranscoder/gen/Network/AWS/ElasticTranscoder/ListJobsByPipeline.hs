@@ -44,7 +44,6 @@ module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     , ljbprNextPageToken
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types

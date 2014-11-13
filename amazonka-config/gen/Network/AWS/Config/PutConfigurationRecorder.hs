@@ -39,7 +39,6 @@ module Network.AWS.Config.PutConfigurationRecorder
     , putConfigurationRecorderResponse
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Config.Types

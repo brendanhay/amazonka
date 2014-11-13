@@ -39,7 +39,6 @@ module Network.AWS.CloudTrail.DescribeTrails
     , dtrTrailList
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudTrail.Types

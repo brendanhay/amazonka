@@ -57,7 +57,6 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     , cprWarning
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types

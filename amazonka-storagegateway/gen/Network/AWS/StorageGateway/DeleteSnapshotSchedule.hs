@@ -42,7 +42,6 @@ module Network.AWS.StorageGateway.DeleteSnapshotSchedule
     , dssr1VolumeARN
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types

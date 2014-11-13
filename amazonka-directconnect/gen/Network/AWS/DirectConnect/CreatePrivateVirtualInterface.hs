@@ -55,7 +55,6 @@ module Network.AWS.DirectConnect.CreatePrivateVirtualInterface
     , cpvir2Vlan
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types

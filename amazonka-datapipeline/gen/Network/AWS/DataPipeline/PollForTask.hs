@@ -52,7 +52,6 @@ module Network.AWS.DataPipeline.PollForTask
     , pftrTaskObject
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types

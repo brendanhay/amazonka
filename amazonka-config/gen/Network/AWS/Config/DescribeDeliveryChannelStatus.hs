@@ -40,7 +40,6 @@ module Network.AWS.Config.DescribeDeliveryChannelStatus
     , ddcsrDeliveryChannelsStatus
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Config.Types

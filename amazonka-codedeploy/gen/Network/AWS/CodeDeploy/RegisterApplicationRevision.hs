@@ -38,7 +38,6 @@ module Network.AWS.CodeDeploy.RegisterApplicationRevision
     , registerApplicationRevisionResponse
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types

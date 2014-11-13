@@ -55,7 +55,6 @@ module Network.AWS.Kinesis.DescribeStream
     , dsrStreamDescription
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types

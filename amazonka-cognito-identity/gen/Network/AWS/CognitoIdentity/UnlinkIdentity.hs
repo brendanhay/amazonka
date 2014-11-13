@@ -40,7 +40,6 @@ module Network.AWS.CognitoIdentity.UnlinkIdentity
     , unlinkIdentityResponse
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types

@@ -41,7 +41,6 @@ module Network.AWS.Kinesis.ListTagsForStream
     , ltfsrTags
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types

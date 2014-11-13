@@ -40,7 +40,6 @@ module Network.AWS.DynamoDB.DescribeTable
     , dtrTable
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DynamoDB.Types

@@ -37,7 +37,6 @@ module Network.AWS.Route53Domains.DisableDomainAutoRenew
     , disableDomainAutoRenewResponse
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types

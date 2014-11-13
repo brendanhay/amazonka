@@ -44,7 +44,6 @@ module Network.AWS.CognitoSync.DescribeDataset
     , ddrDataset
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoSync.Types

@@ -71,7 +71,6 @@ module Network.AWS.Kinesis.SplitShard
     , splitShardResponse
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types

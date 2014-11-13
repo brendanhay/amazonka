@@ -40,7 +40,6 @@ module Network.AWS.OpsWorks.StartInstance
     , startInstanceResponse
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types

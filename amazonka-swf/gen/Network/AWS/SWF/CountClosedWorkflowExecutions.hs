@@ -58,7 +58,6 @@ module Network.AWS.SWF.CountClosedWorkflowExecutions
     , ccwerTruncated
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types

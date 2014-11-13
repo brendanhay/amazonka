@@ -43,7 +43,6 @@ module Network.AWS.Config.PutDeliveryChannel
     , putDeliveryChannelResponse
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Config.Types

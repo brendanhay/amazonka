@@ -45,7 +45,6 @@ module Network.AWS.Route53Domains.UpdateDomainNameservers
     , udnrOperationId
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types

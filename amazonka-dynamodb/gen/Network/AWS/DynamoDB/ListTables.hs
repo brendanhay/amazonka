@@ -42,7 +42,6 @@ module Network.AWS.DynamoDB.ListTables
     , ltrTableNames
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DynamoDB.Types

@@ -44,7 +44,6 @@ module Network.AWS.KMS.CreateKey
     , ckrKeyMetadata
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types

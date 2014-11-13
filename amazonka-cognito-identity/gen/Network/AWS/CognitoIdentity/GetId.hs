@@ -41,7 +41,6 @@ module Network.AWS.CognitoIdentity.GetId
     , girIdentityId
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types

@@ -43,7 +43,6 @@ module Network.AWS.ElasticTranscoder.ListJobsByStatus
     , ljbsrNextPageToken
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types

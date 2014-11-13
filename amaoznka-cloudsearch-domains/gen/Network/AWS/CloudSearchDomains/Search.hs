@@ -67,7 +67,6 @@ module Network.AWS.CloudSearchDomains.Search
     , sr1Status
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudSearchDomains.Types

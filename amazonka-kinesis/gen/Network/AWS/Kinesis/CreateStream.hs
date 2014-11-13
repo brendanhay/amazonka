@@ -63,7 +63,6 @@ module Network.AWS.Kinesis.CreateStream
     , createStreamResponse
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Kinesis.Types

@@ -42,7 +42,6 @@ module Network.AWS.OpsWorks.DescribeStacks
     , dsrStacks
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types

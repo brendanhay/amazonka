@@ -41,7 +41,6 @@ module Network.AWS.DataPipeline.ListPipelines
     , lprPipelineIdList
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DataPipeline.Types

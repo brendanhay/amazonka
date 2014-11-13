@@ -48,7 +48,6 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     , uiprSupportedLoginProviders
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CognitoIdentity.Types

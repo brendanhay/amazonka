@@ -54,7 +54,6 @@ module Network.AWS.SWF.ListDomains
     , ldrNextPageToken
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.SWF.Types

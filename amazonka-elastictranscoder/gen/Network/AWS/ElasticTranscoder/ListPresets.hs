@@ -41,7 +41,6 @@ module Network.AWS.ElasticTranscoder.ListPresets
     , lpr1Presets
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types

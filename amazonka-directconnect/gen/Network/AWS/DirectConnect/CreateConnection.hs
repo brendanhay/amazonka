@@ -56,7 +56,6 @@ module Network.AWS.DirectConnect.CreateConnection
     , ccrVlan
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.DirectConnect.Types

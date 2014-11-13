@@ -44,7 +44,6 @@ module Network.AWS.Route53Domains.GetOperationDetail
     , godrType
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53Domains.Types

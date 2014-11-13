@@ -36,7 +36,6 @@ module Network.AWS.KMS.EnableKeyRotation
     , enableKeyRotationResponse
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.KMS.Types

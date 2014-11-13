@@ -45,7 +45,6 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     , larrRevisions
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CodeDeploy.Types

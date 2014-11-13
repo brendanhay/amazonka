@@ -39,7 +39,6 @@ module Network.AWS.Prelude
     , AWSPager        (..)
     , AWSRequest      (..)
     , AWSService      (..)
-    , FromJSON        (..)
     , IsString        (..)
     , MonadCatch      (..)
     , MonadError      (..)
@@ -47,8 +46,12 @@ module Network.AWS.Prelude
     , MonadResource   (..)
     , Semigroup
     , State
-    , ToJSON          (..)
     , Whole
+
+    -- * JSON
+    , (.:)
+    , FromJSON        (..)
+    , ToJSON          (..)
 
     -- * Endpoints
     , global

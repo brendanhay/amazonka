@@ -48,7 +48,6 @@ module Network.AWS.ElasticTranscoder.CreateJob
     , cjrJob
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.ElasticTranscoder.Types

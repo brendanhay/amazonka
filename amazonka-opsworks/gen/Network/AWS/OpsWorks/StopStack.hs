@@ -39,7 +39,6 @@ module Network.AWS.OpsWorks.StopStack
     , stopStackResponse
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.OpsWorks.Types

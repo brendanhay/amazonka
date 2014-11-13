@@ -41,7 +41,6 @@ module Network.AWS.Support.DescribeTrustedAdvisorChecks
     , dtacrChecks
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Support.Types

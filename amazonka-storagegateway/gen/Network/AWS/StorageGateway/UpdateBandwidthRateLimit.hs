@@ -47,7 +47,6 @@ module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     , ubrlrGatewayARN
     ) where
 
-import Data.Aeson
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.StorageGateway.Types

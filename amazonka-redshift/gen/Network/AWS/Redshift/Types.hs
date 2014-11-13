@@ -356,6 +356,7 @@ module Network.AWS.Redshift.Types
     , pSource
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
@@ -375,7 +376,7 @@ instance AWSService Redshift where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = restError alwaysFail
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

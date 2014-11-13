@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "CodeDeploy",
-        "error": "CodeDeployError",
+        "error": "JSONError",
         "namespace": "Network.AWS.CodeDeploy",
         "protocol": "json",
         "imports": [
@@ -84,7 +84,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "CodeDeploy",
-            "error": "CodeDeployError",
+            "error": "JSONError",
             "namespace": "Network.AWS.CodeDeploy",
             "protocol": "json",
             "imports": [

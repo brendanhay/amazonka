@@ -496,10 +496,6 @@ shapes p m = evalState (Map.traverseWithKey solve $ Map.filter skip m) mempty
 errorType :: Protocol -> Abbrev -> Text
 errorType p a =
     case (p, a) of
-        (Query, Abbrev "EC2") -> gen
-        (Query, _)            -> rest
-        (Xml,   _)            -> rest
-        _                     -> gen
-  where
-    gen  = unAbbrev a <> "Error"
-    rest = "RESTError"
+        (Query, Abbrev "EC2") -> unAbbrev a <> "Error"
+        (Json,  _)            -> "JSONError"
+        _                     -> "RESTError"

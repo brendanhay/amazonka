@@ -24,7 +24,7 @@ module Network.AWS.DynamoDB.Types
     -- * Service
       DynamoDB
     -- ** Error
-    , DynamoDBError
+    , JSONError
 
     -- * WriteRequest
     , WriteRequest
@@ -235,6 +235,7 @@ module Network.AWS.DynamoDB.Types
     , gsiuUpdate
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -243,7 +244,7 @@ data DynamoDB deriving (Typeable)
 
 instance AWSService DynamoDB where
     type Sg DynamoDB = V4
-    type Er DynamoDB = DynamoDBError
+    type Er DynamoDB = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -253,7 +254,7 @@ instance AWSService DynamoDB where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data WriteRequest = WriteRequest
     { _wDeleteRequest :: Maybe DeleteRequest

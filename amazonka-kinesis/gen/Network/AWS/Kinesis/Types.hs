@@ -24,7 +24,7 @@ module Network.AWS.Kinesis.Types
     -- * Service
       Kinesis
     -- ** Error
-    , KinesisError
+    , JSONError
 
     -- * Shard
     , Shard
@@ -76,6 +76,7 @@ module Network.AWS.Kinesis.Types
     , ShardIteratorType (..)
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -84,7 +85,7 @@ data Kinesis deriving (Typeable)
 
 instance AWSService Kinesis where
     type Sg Kinesis = V4
-    type Er Kinesis = KinesisError
+    type Er Kinesis = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -94,7 +95,7 @@ instance AWSService Kinesis where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data Shard = Shard
     { _sAdjacentParentShardId :: Maybe Text

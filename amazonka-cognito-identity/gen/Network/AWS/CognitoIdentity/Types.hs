@@ -24,7 +24,7 @@ module Network.AWS.CognitoIdentity.Types
     -- * Service
       CognitoIdentity
     -- ** Error
-    , CognitoIdentityError
+    , JSONError
 
     -- * IdentityDescription
     , IdentityDescription
@@ -49,6 +49,7 @@ module Network.AWS.CognitoIdentity.Types
     , ipsdIdentityPoolName
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -57,7 +58,7 @@ data CognitoIdentity deriving (Typeable)
 
 instance AWSService CognitoIdentity where
     type Sg CognitoIdentity = V4
-    type Er CognitoIdentity = CognitoIdentityError
+    type Er CognitoIdentity = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -67,7 +68,7 @@ instance AWSService CognitoIdentity where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data IdentityDescription = IdentityDescription
     { _idIdentityId :: Maybe Text

@@ -98,6 +98,7 @@ module Network.AWS.SES.Types
     , mSubject
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
@@ -117,7 +118,7 @@ instance AWSService SES where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = restError alwaysFail
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

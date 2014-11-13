@@ -208,6 +208,7 @@ module Network.AWS.ELB.Types
     , iInstanceId
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
@@ -227,7 +228,7 @@ instance AWSService ELB where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = restError alwaysFail
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

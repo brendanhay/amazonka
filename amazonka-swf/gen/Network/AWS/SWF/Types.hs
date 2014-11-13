@@ -24,7 +24,7 @@ module Network.AWS.SWF.Types
     -- * Service
       SWF
     -- ** Error
-    , SWFError
+    , JSONError
 
     -- * WorkflowExecutionCancelRequestedEventAttributes
     , WorkflowExecutionCancelRequestedEventAttributes
@@ -775,6 +775,7 @@ module Network.AWS.SWF.Types
     , wecaneaWorkflowType
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -783,7 +784,7 @@ data SWF deriving (Typeable)
 
 instance AWSService SWF where
     type Sg SWF = V4
-    type Er SWF = SWFError
+    type Er SWF = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -793,7 +794,7 @@ instance AWSService SWF where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data WorkflowExecutionCancelRequestedEventAttributes = WorkflowExecutionCancelRequestedEventAttributes
     { _wecreaCause                     :: Maybe Text

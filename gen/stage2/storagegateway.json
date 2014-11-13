@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "StorageGateway",
-        "error": "StorageGatewayError",
+        "error": "JSONError",
         "namespace": "Network.AWS.StorageGateway",
         "protocol": "json",
         "imports": [
@@ -128,7 +128,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "StorageGateway",
-            "error": "StorageGatewayError",
+            "error": "JSONError",
             "namespace": "Network.AWS.StorageGateway",
             "protocol": "json",
             "imports": [

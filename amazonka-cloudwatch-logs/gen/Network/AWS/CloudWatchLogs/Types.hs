@@ -24,7 +24,7 @@ module Network.AWS.CloudWatchLogs.Types
     -- * Service
       CloudWatchLogs
     -- ** Error
-    , CloudWatchLogsError
+    , JSONError
 
     -- * MetricFilter
     , MetricFilter
@@ -84,6 +84,7 @@ module Network.AWS.CloudWatchLogs.Types
     , oleTimestamp
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -92,7 +93,7 @@ data CloudWatchLogs deriving (Typeable)
 
 instance AWSService CloudWatchLogs where
     type Sg CloudWatchLogs = V4
-    type Er CloudWatchLogs = CloudWatchLogsError
+    type Er CloudWatchLogs = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -102,7 +103,7 @@ instance AWSService CloudWatchLogs where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data MetricFilter = MetricFilter
     { _mfCreationTime          :: Maybe Natural

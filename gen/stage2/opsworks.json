@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "OpsWorks",
-        "error": "OpsWorksError",
+        "error": "JSONError",
         "namespace": "Network.AWS.OpsWorks",
         "protocol": "json",
         "imports": [
@@ -154,7 +154,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "OpsWorks",
-            "error": "OpsWorksError",
+            "error": "JSONError",
             "namespace": "Network.AWS.OpsWorks",
             "protocol": "json",
             "imports": [

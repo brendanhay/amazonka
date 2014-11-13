@@ -24,7 +24,7 @@ module Network.AWS.EMR.Types
     -- * Service
       EMR
     -- ** Error
-    , EMRError
+    , JSONError
 
     -- * MarketType
     , MarketType (..)
@@ -406,6 +406,7 @@ module Network.AWS.EMR.Types
     , sbacPath
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -414,7 +415,7 @@ data EMR deriving (Typeable)
 
 instance AWSService EMR where
     type Sg EMR = V4
-    type Er EMR = EMRError
+    type Er EMR = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -424,7 +425,7 @@ instance AWSService EMR where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data MarketType
     = OnDemand -- ^ ON_DEMAND

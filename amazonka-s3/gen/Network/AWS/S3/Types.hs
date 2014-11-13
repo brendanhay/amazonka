@@ -394,6 +394,7 @@ module Network.AWS.S3.Types
     ) where
 
 import Network.AWS.Prelude
+import Network.AWS.Error
 import Network.AWS.Signing.V4
 import Network.AWS.S3.Internal
 import qualified GHC.Exts
@@ -413,7 +414,7 @@ instance AWSService S3 where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = restError alwaysFail
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

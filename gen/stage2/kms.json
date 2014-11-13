@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "KMS",
-        "error": "KMSError",
+        "error": "JSONError",
         "namespace": "Network.AWS.KMS",
         "protocol": "json",
         "imports": [
@@ -84,7 +84,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "KMS",
-            "error": "KMSError",
+            "error": "JSONError",
             "namespace": "Network.AWS.KMS",
             "protocol": "json",
             "imports": [

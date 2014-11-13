@@ -1,4 +1,7 @@
-{-# LANGUAGE DeriveGeneric #-}
+{-# LANGUAGE DeriveGeneric    #-}
+{-# LANGUAGE FlexibleContexts #-}
+{-# LANGUAGE RecordWildCards  #-}
+{-# LANGUAGE TypeFamilies     #-}
 
 -- Module      : Network.AWS.Error
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -12,9 +15,25 @@
 
 module Network.AWS.Error where
 
-import Data.Text        (Text)
-import GHC.Generics
-import Network.AWS.Data
+import           Control.Applicative
+import           Control.Monad.Trans.Resource
+import           Data.Aeson
+import           Data.Bifunctor
+import qualified Data.ByteString.Lazy         as LBS
+import           Data.Conduit
+import qualified Data.Conduit.Binary          as Conduit
+import           Data.Default.Class
+import           Data.Text                    (Text)
+import           GHC.Generics
+import           Network.AWS.Data
+import           Network.AWS.Types
+import           Network.HTTP.Client          hiding (Response)
+import           Network.HTTP.Types
+import qualified Text.XML                     as XML
+import           Text.XML.Cursor
+
+alwaysFail :: Status -> Bool
+alwaysFail = const False
 
 data ErrorType
     = Receiver
@@ -38,6 +57,18 @@ data RESTError = RESTError
 
 instance FromXML RESTError
 
+restError :: FromXML (Er a)
+          => (Status -> Bool)
+          -> Service a
+          -> Status
+          -> Maybe (LBS.ByteString -> ServiceError (Er a))
+restError f Service{..} s
+    | f s       = Nothing
+    | otherwise = Just (either failure success . decodeXML)
+  where
+    success = ServiceError _svcAbbrev s
+    failure = SerializerError _svcAbbrev
+
 -- cloudfront
 -- autoscaling
 
@@ -49,3 +80,28 @@ instance FromXML RESTError
 --    </Error>
 --    <RequestId>410c2a4b-e435-49c9-8382-3770d80d7d4c</RequestId>
 -- </ErrorResponse>
+
+data JSONError = JSONError
+    { _errType    :: Text
+    , _errMessage :: Text
+    } deriving (Eq, Show, Generic)
+
+instance FromJSON JSONError where
+    parseJSON = withObject "json_error" $ \o ->
+        JSONError
+            <$> o .: "__type"
+            <*> o .: "message"
+
+jsonError :: FromJSON (Er a)
+          => (Status -> Bool)
+          -> Service a
+          -> Status
+          -> Maybe (LBS.ByteString -> ServiceError (Er a))
+jsonError f Service{..} s
+    | f s       = Nothing
+    | otherwise = Just (either failure success . decode')
+  where
+    success = ServiceError _svcAbbrev s
+    failure = SerializerError _svcAbbrev
+
+-- {"__type":"ResourceNotFoundException","message":"Unable to find instance with ID 1"}

@@ -24,7 +24,7 @@ module Network.AWS.CloudTrail.Types
     -- * Service
       CloudTrail
     -- ** Error
-    , CloudTrailError
+    , JSONError
 
     -- * Trail
     , Trail
@@ -38,6 +38,7 @@ module Network.AWS.CloudTrail.Types
     , tSnsTopicName
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -46,7 +47,7 @@ data CloudTrail deriving (Typeable)
 
 instance AWSService CloudTrail where
     type Sg CloudTrail = V4
-    type Er CloudTrail = CloudTrailError
+    type Er CloudTrail = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -56,7 +57,7 @@ instance AWSService CloudTrail where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data Trail = Trail
     { _tCloudWatchLogsLogGroupArn  :: Maybe Text

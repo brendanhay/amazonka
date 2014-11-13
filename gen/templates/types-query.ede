@@ -1,5 +1,6 @@
 {% include "_include/types-exports.ede" %}
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.{{ service.signature }}
 {% include "_include/imports.ede" %}

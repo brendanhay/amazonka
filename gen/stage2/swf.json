@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "SWF",
-        "error": "SWFError",
+        "error": "JSONError",
         "namespace": "Network.AWS.SWF",
         "protocol": "json",
         "imports": [
@@ -96,7 +96,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "SWF",
-            "error": "SWFError",
+            "error": "JSONError",
             "namespace": "Network.AWS.SWF",
             "protocol": "json",
             "imports": [

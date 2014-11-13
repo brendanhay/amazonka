@@ -24,7 +24,7 @@ module Network.AWS.ElasticTranscoder.Types
     -- * Service
       ElasticTranscoder
     -- ** Error
-    , ElasticTranscoderError
+    , JSONError
 
     -- * PipelineOutputConfig
     , PipelineOutputConfig
@@ -260,6 +260,7 @@ module Network.AWS.ElasticTranscoder.Types
     , jiResolution
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -268,7 +269,7 @@ data ElasticTranscoder deriving (Typeable)
 
 instance AWSService ElasticTranscoder where
     type Sg ElasticTranscoder = V4
-    type Er ElasticTranscoder = ElasticTranscoderError
+    type Er ElasticTranscoder = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -278,7 +279,7 @@ instance AWSService ElasticTranscoder where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data PipelineOutputConfig = PipelineOutputConfig
     { _pocBucket       :: Maybe Text

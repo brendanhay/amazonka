@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "Route53Domains",
-        "error": "Route53DomainsError",
+        "error": "JSONError",
         "namespace": "Network.AWS.Route53Domains",
         "protocol": "json",
         "imports": [
@@ -64,7 +64,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "Route53Domains",
-            "error": "Route53DomainsError",
+            "error": "JSONError",
             "namespace": "Network.AWS.Route53Domains",
             "protocol": "json",
             "imports": [

@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "DirectConnect",
-        "error": "DirectConnectError",
+        "error": "JSONError",
         "namespace": "Network.AWS.DirectConnect",
         "protocol": "json",
         "imports": [
@@ -72,7 +72,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "DirectConnect",
-            "error": "DirectConnectError",
+            "error": "JSONError",
             "namespace": "Network.AWS.DirectConnect",
             "protocol": "json",
             "imports": [

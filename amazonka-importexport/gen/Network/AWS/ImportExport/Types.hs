@@ -40,6 +40,7 @@ module Network.AWS.ImportExport.Types
     , jobJobType
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V2
 import qualified GHC.Exts
@@ -59,7 +60,7 @@ instance AWSService ImportExport where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = restError alwaysFail
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

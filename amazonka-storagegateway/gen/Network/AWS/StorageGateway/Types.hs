@@ -24,7 +24,7 @@ module Network.AWS.StorageGateway.Types
     -- * Service
       StorageGateway
     -- ** Error
-    , StorageGatewayError
+    , JSONError
 
     -- * ChapInfo
     , ChapInfo
@@ -162,6 +162,7 @@ module Network.AWS.StorageGateway.Types
     , giGatewayType
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -170,7 +171,7 @@ data StorageGateway deriving (Typeable)
 
 instance AWSService StorageGateway where
     type Sg StorageGateway = V4
-    type Er StorageGateway = StorageGatewayError
+    type Er StorageGateway = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -180,7 +181,7 @@ instance AWSService StorageGateway where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data ChapInfo = ChapInfo
     { _ciInitiatorName                 :: Maybe Text

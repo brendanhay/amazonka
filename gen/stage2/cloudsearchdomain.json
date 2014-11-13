@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "CloudSearchDomains",
-        "error": "CloudSearchDomainsError",
+        "error": "JSONError",
         "namespace": "Network.AWS.CloudSearchDomains",
         "protocol": "json",
         "imports": [
@@ -39,7 +39,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "CloudSearchDomains",
-            "error": "CloudSearchDomainsError",
+            "error": "JSONError",
             "namespace": "Network.AWS.CloudSearchDomains",
             "protocol": "json",
             "imports": [

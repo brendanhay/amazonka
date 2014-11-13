@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "DynamoDB",
-        "error": "DynamoDBError",
+        "error": "JSONError",
         "namespace": "Network.AWS.DynamoDB",
         "protocol": "json",
         "imports": [
@@ -60,7 +60,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "DynamoDB",
-            "error": "DynamoDBError",
+            "error": "JSONError",
             "namespace": "Network.AWS.DynamoDB",
             "protocol": "json",
             "imports": [

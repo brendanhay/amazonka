@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "Config",
-        "error": "ConfigError",
+        "error": "JSONError",
         "namespace": "Network.AWS.Config",
         "protocol": "json",
         "imports": [
@@ -56,7 +56,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "Config",
-            "error": "ConfigError",
+            "error": "JSONError",
             "namespace": "Network.AWS.Config",
             "protocol": "json",
             "imports": [

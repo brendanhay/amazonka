@@ -185,6 +185,7 @@ module Network.AWS.Route53.Types
     ) where
 
 import Network.AWS.Prelude
+import Network.AWS.Error
 import Network.AWS.Signing.V3
 import qualified GHC.Exts
 
@@ -203,7 +204,7 @@ instance AWSService Route53 where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = restError alwaysFail
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

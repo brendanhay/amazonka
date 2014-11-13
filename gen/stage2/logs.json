@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "CloudWatchLogs",
-        "error": "CloudWatchLogsError",
+        "error": "JSONError",
         "namespace": "Network.AWS.CloudWatchLogs",
         "protocol": "json",
         "imports": [
@@ -62,7 +62,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "CloudWatchLogs",
-            "error": "CloudWatchLogsError",
+            "error": "JSONError",
             "namespace": "Network.AWS.CloudWatchLogs",
             "protocol": "json",
             "imports": [

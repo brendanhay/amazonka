@@ -13,4 +13,9 @@ instance AWSService {{ service.abbrev }} where
         , _svcTarget   = {% if targetPrefix %}Just "{{ service.targetPrefix }}"{% else %}Nothing{% endif %}
         }
 
-    handle = xmlError alwaysFail
+{% case service.error %}
+  {% when "JSONError" %}
+    handle = jsonError alwaysFail
+  {% else %}
+    handle = restError alwaysFail
+{% endcase %}

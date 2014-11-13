@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "CognitoIdentity",
-        "error": "CognitoIdentityError",
+        "error": "JSONError",
         "namespace": "Network.AWS.CognitoIdentity",
         "protocol": "json",
         "imports": [
@@ -60,7 +60,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "CognitoIdentity",
-            "error": "CognitoIdentityError",
+            "error": "JSONError",
             "namespace": "Network.AWS.CognitoIdentity",
             "protocol": "json",
             "imports": [

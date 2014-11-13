@@ -162,6 +162,7 @@ module Network.AWS.CloudFormation.Types
     , pUsePreviousValue
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
@@ -181,7 +182,7 @@ instance AWSService CloudFormation where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = restError alwaysFail
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

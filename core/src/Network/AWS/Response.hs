@@ -15,14 +15,8 @@
 
 module Network.AWS.Response
     (
-     -- * Status predicate
-      alwaysFail
-
-    -- * Errors
-    , xmlError
-
     -- * Responses
-    , xmlResponse
+      xmlResponse
     , jsonResponse
     , nullaryResponse
     , bodyResponse
@@ -55,21 +49,6 @@ import           Text.XML.Cursor
 --   where
 --     go y []     = y
 --     go _ (y:ys) = go y ys
-
-alwaysFail :: Status -> Bool
-alwaysFail = const False
-
-xmlError :: FromXML (Er a)
-         => (Status -> Bool)
-         -> Service a
-         -> Status
-         -> Maybe (LBS.ByteString -> ServiceError (Er a))
-xmlError f Service{..} s
-    | f s       = Nothing
-    | otherwise = Just (either failure success . decodeXML)
-  where
-    success = ServiceError _svcAbbrev s
-    failure = SerializerError _svcAbbrev
 
 xmlResponse :: (MonadResource m, AWSService (Sv a))
             => (ResponseHeaders -> Cursor -> Either String (Rs a))

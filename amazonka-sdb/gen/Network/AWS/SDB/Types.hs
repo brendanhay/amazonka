@@ -70,6 +70,7 @@ module Network.AWS.SDB.Types
     , iName
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V2
 import qualified GHC.Exts
@@ -89,7 +90,7 @@ instance AWSService SDB where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = restError alwaysFail
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

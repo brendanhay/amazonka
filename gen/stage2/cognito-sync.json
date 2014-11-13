@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "CognitoSync",
-        "error": "CognitoSyncError",
+        "error": "JSONError",
         "namespace": "Network.AWS.CognitoSync",
         "protocol": "json",
         "imports": [
@@ -59,7 +59,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "CognitoSync",
-            "error": "CognitoSyncError",
+            "error": "JSONError",
             "namespace": "Network.AWS.CognitoSync",
             "protocol": "json",
             "imports": [

@@ -1393,6 +1393,7 @@ module Network.AWS.EC2.Types
     , module Network.AWS.EC2.Internal
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import Network.AWS.EC2.Internal
@@ -1413,7 +1414,7 @@ instance AWSService EC2 where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = restError alwaysFail
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

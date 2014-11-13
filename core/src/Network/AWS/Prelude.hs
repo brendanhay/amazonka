@@ -63,7 +63,6 @@ module Network.AWS.Prelude
 
     -- * Errors
     , ServiceError    (..)
-    , RESTError
 
     -- * HTTP
     , Status
@@ -98,7 +97,6 @@ import Data.Traversable             (Traversable)
 import Data.Typeable                (Typeable)
 import GHC.Generics                 (Generic)
 import Network.AWS.Data             as Export hiding (Query)
-import Network.AWS.Error            (RESTError)
 import Network.AWS.Response         as Export
 import Network.AWS.Types
 import Network.HTTP.Client          (HttpException, RequestBody)

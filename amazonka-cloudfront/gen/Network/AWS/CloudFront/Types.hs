@@ -392,6 +392,7 @@ module Network.AWS.CloudFront.Types
     ) where
 
 import Network.AWS.Prelude
+import Network.AWS.Error
 import Network.AWS.Signing.V4
 import qualified GHC.Exts
 
@@ -410,7 +411,7 @@ instance AWSService CloudFront where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = restError alwaysFail
 
 xmlOptions :: Tagged a XMLOptions
 xmlOptions = Tagged def

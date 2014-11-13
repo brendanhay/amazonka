@@ -24,7 +24,7 @@ module Network.AWS.OpsWorks.Types
     -- * Service
       OpsWorks
     -- ** Error
-    , OpsWorksError
+    , JSONError
 
     -- * SslConfiguration
     , SslConfiguration
@@ -414,6 +414,7 @@ module Network.AWS.OpsWorks.Types
     , AppType (..)
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -422,7 +423,7 @@ data OpsWorks deriving (Typeable)
 
 instance AWSService OpsWorks where
     type Sg OpsWorks = V4
-    type Er OpsWorks = OpsWorksError
+    type Er OpsWorks = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -432,7 +433,7 @@ instance AWSService OpsWorks where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data SslConfiguration = SslConfiguration
     { _scCertificate :: Text

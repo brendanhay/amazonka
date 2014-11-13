@@ -24,7 +24,7 @@ module Network.AWS.CognitoSync.Types
     -- * Service
       CognitoSync
     -- ** Error
-    , CognitoSyncError
+    , JSONError
 
     -- * IdentityPoolUsage
     , IdentityPoolUsage
@@ -86,6 +86,7 @@ module Network.AWS.CognitoSync.Types
     , psRoleArn
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -94,7 +95,7 @@ data CognitoSync deriving (Typeable)
 
 instance AWSService CognitoSync where
     type Sg CognitoSync = V4
-    type Er CognitoSync = CognitoSyncError
+    type Er CognitoSync = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -104,7 +105,7 @@ instance AWSService CognitoSync where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data IdentityPoolUsage = IdentityPoolUsage
     { _ipuDataStorage       :: Maybe Integer

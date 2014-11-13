@@ -24,7 +24,7 @@ module Network.AWS.DataPipeline.Types
     -- * Service
       DataPipeline
     -- ** Error
-    , DataPipelineError
+    , JSONError
 
     -- * PipelineObject
     , PipelineObject
@@ -104,6 +104,7 @@ module Network.AWS.DataPipeline.Types
     , vwWarnings
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -112,7 +113,7 @@ data DataPipeline deriving (Typeable)
 
 instance AWSService DataPipeline where
     type Sg DataPipeline = V4
-    type Er DataPipeline = DataPipelineError
+    type Er DataPipeline = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -122,7 +123,7 @@ instance AWSService DataPipeline where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data PipelineObject = PipelineObject
     { _poFields :: [Field]

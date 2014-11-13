@@ -24,7 +24,7 @@ module Network.AWS.Config.Types
     -- * Service
       Config
     -- ** Error
-    , ConfigError
+    , JSONError
 
     -- * ConfigExportDeliveryInfo
     , ConfigExportDeliveryInfo
@@ -119,6 +119,7 @@ module Network.AWS.Config.Types
     , RecorderStatus (..)
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -127,7 +128,7 @@ data Config deriving (Typeable)
 
 instance AWSService Config where
     type Sg Config = V4
-    type Er Config = ConfigError
+    type Er Config = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -137,7 +138,7 @@ instance AWSService Config where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo
     { _cediLastAttemptTime    :: Maybe RFC822

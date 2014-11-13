@@ -24,7 +24,7 @@ module Network.AWS.DirectConnect.Types
     -- * Service
       DirectConnect
     -- ** Error
-    , DirectConnectError
+    , JSONError
 
     -- * VirtualInterface
     , VirtualInterface
@@ -143,6 +143,7 @@ module Network.AWS.DirectConnect.Types
     , rfpCidr
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -151,7 +152,7 @@ data DirectConnect deriving (Typeable)
 
 instance AWSService DirectConnect where
     type Sg DirectConnect = V4
-    type Er DirectConnect = DirectConnectError
+    type Er DirectConnect = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -161,7 +162,7 @@ instance AWSService DirectConnect where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data VirtualInterface = VirtualInterface
     { _viAmazonAddress         :: Maybe Text

@@ -24,7 +24,7 @@ module Network.AWS.KMS.Types
     -- * Service
       KMS
     -- ** Error
-    , KMSError
+    , JSONError
 
     -- * KeyUsageType
     , KeyUsageType (..)
@@ -76,6 +76,7 @@ module Network.AWS.KMS.Types
     , kleKeyId
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -84,7 +85,7 @@ data KMS deriving (Typeable)
 
 instance AWSService KMS where
     type Sg KMS = V4
-    type Er KMS = KMSError
+    type Er KMS = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -94,7 +95,7 @@ instance AWSService KMS where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data KeyUsageType
     = EncryptDecrypt -- ^ ENCRYPT_DECRYPT

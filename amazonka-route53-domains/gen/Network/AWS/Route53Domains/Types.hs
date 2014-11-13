@@ -24,7 +24,7 @@ module Network.AWS.Route53Domains.Types
     -- * Service
       Route53Domains
     -- ** Error
-    , Route53DomainsError
+    , JSONError
 
     -- * DomainSummary
     , DomainSummary
@@ -91,6 +91,7 @@ module Network.AWS.Route53Domains.Types
     , osType
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -99,7 +100,7 @@ data Route53Domains deriving (Typeable)
 
 instance AWSService Route53Domains where
     type Sg Route53Domains = V4
-    type Er Route53Domains = Route53DomainsError
+    type Er Route53Domains = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -109,7 +110,7 @@ instance AWSService Route53Domains where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data DomainSummary = DomainSummary
     { _dsAutoRenew    :: Maybe Bool

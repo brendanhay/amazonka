@@ -3,7 +3,7 @@
         "signature": "V4",
         "checksum": "sha256",
         "abbrev": "Support",
-        "error": "SupportError",
+        "error": "JSONError",
         "namespace": "Network.AWS.Support",
         "protocol": "json",
         "imports": [
@@ -62,7 +62,7 @@
             "signature": "V4",
             "checksum": "sha256",
             "abbrev": "Support",
-            "error": "SupportError",
+            "error": "JSONError",
             "namespace": "Network.AWS.Support",
             "protocol": "json",
             "imports": [

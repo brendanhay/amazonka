@@ -24,7 +24,7 @@ module Network.AWS.Support.Types
     -- * Service
       Support
     -- ** Error
-    , SupportError
+    , JSONError
 
     -- * TrustedAdvisorResourcesSummary
     , TrustedAdvisorResourcesSummary
@@ -153,6 +153,7 @@ module Network.AWS.Support.Types
     , tacrsStatus
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -161,7 +162,7 @@ data Support deriving (Typeable)
 
 instance AWSService Support where
     type Sg Support = V4
-    type Er Support = SupportError
+    type Er Support = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -171,7 +172,7 @@ instance AWSService Support where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary
     { _tarsResourcesFlagged    :: Integer

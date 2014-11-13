@@ -24,7 +24,7 @@ module Network.AWS.CodeDeploy.Types
     -- * Service
       CodeDeploy
     -- ** Error
-    , CodeDeployError
+    , JSONError
 
     -- * GenericRevisionInfo
     , GenericRevisionInfo
@@ -212,6 +212,7 @@ module Network.AWS.CodeDeploy.Types
     , EC2TagFilterType (..)
     ) where
 
+import Network.AWS.Error
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 
@@ -220,7 +221,7 @@ data CodeDeploy deriving (Typeable)
 
 instance AWSService CodeDeploy where
     type Sg CodeDeploy = V4
-    type Er CodeDeploy = CodeDeployError
+    type Er CodeDeploy = JSONError
 
     service = Service
         { _svcEndpoint = regional
@@ -230,7 +231,7 @@ instance AWSService CodeDeploy where
         , _svcTarget   = Nothing
         }
 
-    handle = xmlError alwaysFail
+    handle = jsonError alwaysFail
 
 data GenericRevisionInfo = GenericRevisionInfo
     { _griDeploymentGroups :: [Text]

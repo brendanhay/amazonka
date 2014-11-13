@@ -91,9 +91,6 @@ gblrLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Text)
 gblrLocationConstraint =
     lens _gblrLocationConstraint (\s a -> s { _gblrLocationConstraint = a })
 
-instance FromXML GetBucketLocationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketLocationResponse"
 instance AWSRequest GetBucketLocation where
     type Sv GetBucketLocation = S3
     type Rs GetBucketLocation = GetBucketLocationResponse

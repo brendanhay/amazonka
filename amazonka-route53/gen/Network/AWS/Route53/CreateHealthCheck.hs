@@ -126,9 +126,6 @@ chcrHealthCheck = lens _chcrHealthCheck (\s a -> s { _chcrHealthCheck = a })
 chcrLocation :: Lens' CreateHealthCheckResponse Text
 chcrLocation = lens _chcrLocation (\s a -> s { _chcrLocation = a })
 
-instance FromXML CreateHealthCheckResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateHealthCheckResponse"
 instance AWSRequest CreateHealthCheck where
     type Sv CreateHealthCheck = Route53
     type Rs CreateHealthCheck = CreateHealthCheckResponse

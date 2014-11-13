@@ -117,9 +117,6 @@ ccfoairETag = lens _ccfoairETag (\s a -> s { _ccfoairETag = a })
 ccfoairLocation :: Lens' CreateCloudFrontOriginAccessIdentity2014_05_31Response (Maybe Text)
 ccfoairLocation = lens _ccfoairLocation (\s a -> s { _ccfoairLocation = a })
 
-instance FromXML CreateCloudFrontOriginAccessIdentity2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateCloudFrontOriginAccessIdentity2014_05_31Response"
 instance AWSRequest CreateCloudFrontOriginAccessIdentity2014_05_31 where
     type Sv CreateCloudFrontOriginAccessIdentity2014_05_31 = CloudFront
     type Rs CreateCloudFrontOriginAccessIdentity2014_05_31 = CreateCloudFrontOriginAccessIdentity2014_05_31Response

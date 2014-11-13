@@ -103,9 +103,6 @@ data PutBucketLoggingResponse = PutBucketLoggingResponse
 putBucketLoggingResponse :: PutBucketLoggingResponse
 putBucketLoggingResponse = PutBucketLoggingResponse
 
-instance FromXML PutBucketLoggingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutBucketLoggingResponse"
 instance AWSRequest PutBucketLogging where
     type Sv PutBucketLogging = S3
     type Rs PutBucketLogging = PutBucketLoggingResponse

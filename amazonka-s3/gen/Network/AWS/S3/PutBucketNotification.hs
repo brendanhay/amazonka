@@ -102,9 +102,6 @@ data PutBucketNotificationResponse = PutBucketNotificationResponse
 putBucketNotificationResponse :: PutBucketNotificationResponse
 putBucketNotificationResponse = PutBucketNotificationResponse
 
-instance FromXML PutBucketNotificationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutBucketNotificationResponse"
 instance AWSRequest PutBucketNotification where
     type Sv PutBucketNotification = S3
     type Rs PutBucketNotification = PutBucketNotificationResponse

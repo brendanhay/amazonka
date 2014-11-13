@@ -110,9 +110,6 @@ data RestoreObjectResponse = RestoreObjectResponse
 restoreObjectResponse :: RestoreObjectResponse
 restoreObjectResponse = RestoreObjectResponse
 
-instance FromXML RestoreObjectResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RestoreObjectResponse"
 instance AWSRequest RestoreObject where
     type Sv RestoreObject = S3
     type Rs RestoreObject = RestoreObjectResponse

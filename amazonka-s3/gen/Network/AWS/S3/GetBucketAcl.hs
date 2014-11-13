@@ -99,9 +99,6 @@ gbarGrants = lens _gbarGrants (\s a -> s { _gbarGrants = a })
 gbarOwner :: Lens' GetBucketAclResponse (Maybe Owner)
 gbarOwner = lens _gbarOwner (\s a -> s { _gbarOwner = a })
 
-instance FromXML GetBucketAclResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketAclResponse"
 instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
     type Rs GetBucketAcl = GetBucketAclResponse

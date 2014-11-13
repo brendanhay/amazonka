@@ -121,9 +121,6 @@ ghzrVPCs :: Lens' GetHostedZoneResponse (NonEmpty VPC)
 ghzrVPCs = lens _ghzrVPCs (\s a -> s { _ghzrVPCs = a })
     . _List1
 
-instance FromXML GetHostedZoneResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetHostedZoneResponse"
 instance AWSRequest GetHostedZone where
     type Sv GetHostedZone = Route53
     type Rs GetHostedZone = GetHostedZoneResponse

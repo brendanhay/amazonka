@@ -262,9 +262,6 @@ uprServerSideEncryption :: Lens' UploadPartResponse (Maybe Text)
 uprServerSideEncryption =
     lens _uprServerSideEncryption (\s a -> s { _uprServerSideEncryption = a })
 
-instance FromXML UploadPartResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UploadPartResponse"
 instance AWSRequest UploadPart where
     type Sv UploadPart = S3
     type Rs UploadPart = UploadPartResponse

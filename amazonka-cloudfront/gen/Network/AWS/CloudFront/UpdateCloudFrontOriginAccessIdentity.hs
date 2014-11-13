@@ -132,9 +132,6 @@ ucfoairCloudFrontOriginAccessIdentity =
 ucfoairETag :: Lens' UpdateCloudFrontOriginAccessIdentity2014_05_31Response (Maybe Text)
 ucfoairETag = lens _ucfoairETag (\s a -> s { _ucfoairETag = a })
 
-instance FromXML UpdateCloudFrontOriginAccessIdentity2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateCloudFrontOriginAccessIdentity2014_05_31Response"
 instance AWSRequest UpdateCloudFrontOriginAccessIdentity2014_05_31 where
     type Sv UpdateCloudFrontOriginAccessIdentity2014_05_31 = CloudFront
     type Rs UpdateCloudFrontOriginAccessIdentity2014_05_31 = UpdateCloudFrontOriginAccessIdentity2014_05_31Response

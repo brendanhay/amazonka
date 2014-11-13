@@ -129,9 +129,6 @@ crdsrDelegationSet =
 crdsrLocation :: Lens' CreateReusableDelegationSetResponse Text
 crdsrLocation = lens _crdsrLocation (\s a -> s { _crdsrLocation = a })
 
-instance FromXML CreateReusableDelegationSetResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateReusableDelegationSetResponse"
 instance AWSRequest CreateReusableDelegationSet where
     type Sv CreateReusableDelegationSet = Route53
     type Rs CreateReusableDelegationSet = CreateReusableDelegationSetResponse

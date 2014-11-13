@@ -77,9 +77,6 @@ ghccrHealthCheckCount :: Lens' GetHealthCheckCountResponse Integer
 ghccrHealthCheckCount =
     lens _ghccrHealthCheckCount (\s a -> s { _ghccrHealthCheckCount = a })
 
-instance FromXML GetHealthCheckCountResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetHealthCheckCountResponse"
 instance AWSRequest GetHealthCheckCount where
     type Sv GetHealthCheckCount = Route53
     type Rs GetHealthCheckCount = GetHealthCheckCountResponse

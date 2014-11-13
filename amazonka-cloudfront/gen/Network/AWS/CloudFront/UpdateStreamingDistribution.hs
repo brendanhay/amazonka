@@ -132,9 +132,6 @@ usdrStreamingDistribution =
     lens _usdrStreamingDistribution
         (\s a -> s { _usdrStreamingDistribution = a })
 
-instance FromXML UpdateStreamingDistribution2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateStreamingDistribution2014_05_31Response"
 instance AWSRequest UpdateStreamingDistribution2014_05_31 where
     type Sv UpdateStreamingDistribution2014_05_31 = CloudFront
     type Rs UpdateStreamingDistribution2014_05_31 = UpdateStreamingDistribution2014_05_31Response

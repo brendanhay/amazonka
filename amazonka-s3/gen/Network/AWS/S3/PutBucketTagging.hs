@@ -100,9 +100,6 @@ data PutBucketTaggingResponse = PutBucketTaggingResponse
 putBucketTaggingResponse :: PutBucketTaggingResponse
 putBucketTaggingResponse = PutBucketTaggingResponse
 
-instance FromXML PutBucketTaggingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutBucketTaggingResponse"
 instance AWSRequest PutBucketTagging where
     type Sv PutBucketTagging = S3
     type Rs PutBucketTagging = PutBucketTaggingResponse

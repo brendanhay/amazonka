@@ -267,9 +267,6 @@ lmurUploadIdMarker =
 lmurUploads :: Lens' ListMultipartUploadsResponse [MultipartUpload]
 lmurUploads = lens _lmurUploads (\s a -> s { _lmurUploads = a })
 
-instance FromXML ListMultipartUploadsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListMultipartUploadsResponse"
 instance AWSRequest ListMultipartUploads where
     type Sv ListMultipartUploads = S3
     type Rs ListMultipartUploads = ListMultipartUploadsResponse

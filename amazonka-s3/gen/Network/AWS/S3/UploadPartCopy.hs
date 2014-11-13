@@ -362,9 +362,6 @@ upcrServerSideEncryption =
     lens _upcrServerSideEncryption
         (\s a -> s { _upcrServerSideEncryption = a })
 
-instance FromXML UploadPartCopyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UploadPartCopyResponse"
 instance AWSRequest UploadPartCopy where
     type Sv UploadPartCopy = S3
     type Rs UploadPartCopy = UploadPartCopyResponse

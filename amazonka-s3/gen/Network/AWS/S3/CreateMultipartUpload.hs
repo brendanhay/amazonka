@@ -393,9 +393,6 @@ cmurServerSideEncryption =
 cmurUploadId :: Lens' CreateMultipartUploadResponse (Maybe Text)
 cmurUploadId = lens _cmurUploadId (\s a -> s { _cmurUploadId = a })
 
-instance FromXML CreateMultipartUploadResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateMultipartUploadResponse"
 instance AWSRequest CreateMultipartUpload where
     type Sv CreateMultipartUpload = S3
     type Rs CreateMultipartUpload = CreateMultipartUploadResponse

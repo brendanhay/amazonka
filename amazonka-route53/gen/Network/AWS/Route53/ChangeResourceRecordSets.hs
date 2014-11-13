@@ -129,9 +129,6 @@ changeResourceRecordSetsResponse p1 = ChangeResourceRecordSetsResponse
 crrsrChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
 crrsrChangeInfo = lens _crrsrChangeInfo (\s a -> s { _crrsrChangeInfo = a })
 
-instance FromXML ChangeResourceRecordSetsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangeResourceRecordSetsResponse"
 instance AWSRequest ChangeResourceRecordSets where
     type Sv ChangeResourceRecordSets = Route53
     type Rs ChangeResourceRecordSets = ChangeResourceRecordSetsResponse

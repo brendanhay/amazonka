@@ -107,9 +107,6 @@ ghclfrrHealthCheckObservations =
     lens _ghclfrrHealthCheckObservations
         (\s a -> s { _ghclfrrHealthCheckObservations = a })
 
-instance FromXML GetHealthCheckLastFailureReasonResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetHealthCheckLastFailureReasonResponse"
 instance AWSRequest GetHealthCheckLastFailureReason where
     type Sv GetHealthCheckLastFailureReason = Route53
     type Rs GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReasonResponse

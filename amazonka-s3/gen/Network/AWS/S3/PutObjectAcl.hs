@@ -174,9 +174,6 @@ data PutObjectAclResponse = PutObjectAclResponse
 putObjectAclResponse :: PutObjectAclResponse
 putObjectAclResponse = PutObjectAclResponse
 
-instance FromXML PutObjectAclResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutObjectAclResponse"
 instance AWSRequest PutObjectAcl where
     type Sv PutObjectAcl = S3
     type Rs PutObjectAcl = PutObjectAclResponse

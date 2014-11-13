@@ -125,9 +125,6 @@ gglrGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
 gglrGeoLocationDetails =
     lens _gglrGeoLocationDetails (\s a -> s { _gglrGeoLocationDetails = a })
 
-instance FromXML GetGeoLocationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetGeoLocationResponse"
 instance AWSRequest GetGeoLocation where
     type Sv GetGeoLocation = Route53
     type Rs GetGeoLocation = GetGeoLocationResponse

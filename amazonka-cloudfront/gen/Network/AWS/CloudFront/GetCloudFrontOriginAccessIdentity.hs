@@ -104,9 +104,6 @@ gcfoairCloudFrontOriginAccessIdentity =
 gcfoairETag :: Lens' GetCloudFrontOriginAccessIdentity2014_05_31Response (Maybe Text)
 gcfoairETag = lens _gcfoairETag (\s a -> s { _gcfoairETag = a })
 
-instance FromXML GetCloudFrontOriginAccessIdentity2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetCloudFrontOriginAccessIdentity2014_05_31Response"
 instance AWSRequest GetCloudFrontOriginAccessIdentity2014_05_31 where
     type Sv GetCloudFrontOriginAccessIdentity2014_05_31 = CloudFront
     type Rs GetCloudFrontOriginAccessIdentity2014_05_31 = GetCloudFrontOriginAccessIdentity2014_05_31Response

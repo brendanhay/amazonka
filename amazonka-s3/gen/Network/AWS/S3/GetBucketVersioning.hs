@@ -103,9 +103,6 @@ gbvrMFADelete = lens _gbvrMFADelete (\s a -> s { _gbvrMFADelete = a })
 gbvrStatus :: Lens' GetBucketVersioningResponse (Maybe Text)
 gbvrStatus = lens _gbvrStatus (\s a -> s { _gbvrStatus = a })
 
-instance FromXML GetBucketVersioningResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketVersioningResponse"
 instance AWSRequest GetBucketVersioning where
     type Sv GetBucketVersioning = S3
     type Rs GetBucketVersioning = GetBucketVersioningResponse

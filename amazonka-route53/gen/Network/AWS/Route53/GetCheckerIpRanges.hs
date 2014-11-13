@@ -86,9 +86,6 @@ gcirrCheckerIpRanges :: Lens' GetCheckerIpRangesResponse [Text]
 gcirrCheckerIpRanges =
     lens _gcirrCheckerIpRanges (\s a -> s { _gcirrCheckerIpRanges = a })
 
-instance FromXML GetCheckerIpRangesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetCheckerIpRangesResponse"
 instance AWSRequest GetCheckerIpRanges where
     type Sv GetCheckerIpRanges = Route53
     type Rs GetCheckerIpRanges = GetCheckerIpRangesResponse

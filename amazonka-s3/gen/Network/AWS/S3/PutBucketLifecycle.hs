@@ -102,9 +102,6 @@ data PutBucketLifecycleResponse = PutBucketLifecycleResponse
 putBucketLifecycleResponse :: PutBucketLifecycleResponse
 putBucketLifecycleResponse = PutBucketLifecycleResponse
 
-instance FromXML PutBucketLifecycleResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutBucketLifecycleResponse"
 instance AWSRequest PutBucketLifecycle where
     type Sv PutBucketLifecycle = S3
     type Rs PutBucketLifecycle = PutBucketLifecycleResponse

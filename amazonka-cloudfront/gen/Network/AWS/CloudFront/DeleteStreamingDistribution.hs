@@ -91,9 +91,6 @@ data DeleteStreamingDistribution2014_05_31Response = DeleteStreamingDistribution
 deleteStreamingDistribution2014_05_31Response :: DeleteStreamingDistribution2014_05_31Response
 deleteStreamingDistribution2014_05_31Response = DeleteStreamingDistribution2014_05_31Response
 
-instance FromXML DeleteStreamingDistribution2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteStreamingDistribution2014_05_31Response"
 instance AWSRequest DeleteStreamingDistribution2014_05_31 where
     type Sv DeleteStreamingDistribution2014_05_31 = CloudFront
     type Rs DeleteStreamingDistribution2014_05_31 = DeleteStreamingDistribution2014_05_31Response

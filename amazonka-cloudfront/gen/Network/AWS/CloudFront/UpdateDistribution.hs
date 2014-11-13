@@ -129,9 +129,6 @@ udrDistribution = lens _udrDistribution (\s a -> s { _udrDistribution = a })
 udrETag :: Lens' UpdateDistribution2014_05_31Response (Maybe Text)
 udrETag = lens _udrETag (\s a -> s { _udrETag = a })
 
-instance FromXML UpdateDistribution2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateDistribution2014_05_31Response"
 instance AWSRequest UpdateDistribution2014_05_31 where
     type Sv UpdateDistribution2014_05_31 = CloudFront
     type Rs UpdateDistribution2014_05_31 = UpdateDistribution2014_05_31Response

@@ -78,9 +78,6 @@ data HeadBucketResponse = HeadBucketResponse
 headBucketResponse :: HeadBucketResponse
 headBucketResponse = HeadBucketResponse
 
-instance FromXML HeadBucketResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HeadBucketResponse"
 instance AWSRequest HeadBucket where
     type Sv HeadBucket = S3
     type Rs HeadBucket = HeadBucketResponse

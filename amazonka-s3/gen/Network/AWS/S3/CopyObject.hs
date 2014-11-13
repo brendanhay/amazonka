@@ -503,9 +503,6 @@ corServerSideEncryption :: Lens' CopyObjectResponse (Maybe Text)
 corServerSideEncryption =
     lens _corServerSideEncryption (\s a -> s { _corServerSideEncryption = a })
 
-instance FromXML CopyObjectResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopyObjectResponse"
 instance AWSRequest CopyObject where
     type Sv CopyObject = S3
     type Rs CopyObject = CopyObjectResponse

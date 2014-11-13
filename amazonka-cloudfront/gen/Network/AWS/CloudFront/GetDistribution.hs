@@ -102,9 +102,6 @@ gdrDistribution = lens _gdrDistribution (\s a -> s { _gdrDistribution = a })
 gdrETag :: Lens' GetDistribution2014_05_31Response (Maybe Text)
 gdrETag = lens _gdrETag (\s a -> s { _gdrETag = a })
 
-instance FromXML GetDistribution2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetDistribution2014_05_31Response"
 instance AWSRequest GetDistribution2014_05_31 where
     type Sv GetDistribution2014_05_31 = CloudFront
     type Rs GetDistribution2014_05_31 = GetDistribution2014_05_31Response

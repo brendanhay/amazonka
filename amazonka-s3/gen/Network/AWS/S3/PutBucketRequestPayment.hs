@@ -105,9 +105,6 @@ data PutBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse
 putBucketRequestPaymentResponse = PutBucketRequestPaymentResponse
 
-instance FromXML PutBucketRequestPaymentResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutBucketRequestPaymentResponse"
 instance AWSRequest PutBucketRequestPayment where
     type Sv PutBucketRequestPayment = S3
     type Rs PutBucketRequestPayment = PutBucketRequestPaymentResponse

@@ -79,9 +79,6 @@ data DeleteBucketResponse = DeleteBucketResponse
 deleteBucketResponse :: DeleteBucketResponse
 deleteBucketResponse = DeleteBucketResponse
 
-instance FromXML DeleteBucketResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteBucketResponse"
 instance AWSRequest DeleteBucket where
     type Sv DeleteBucket = S3
     type Rs DeleteBucket = DeleteBucketResponse

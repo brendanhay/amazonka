@@ -82,9 +82,6 @@ lbrBuckets = lens _lbrBuckets (\s a -> s { _lbrBuckets = a })
 lbrOwner :: Lens' ListBucketsResponse (Maybe Owner)
 lbrOwner = lens _lbrOwner (\s a -> s { _lbrOwner = a })
 
-instance FromXML ListBucketsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListBucketsResponse"
 instance AWSRequest ListBuckets where
     type Sv ListBuckets = S3
     type Rs ListBuckets = ListBucketsResponse

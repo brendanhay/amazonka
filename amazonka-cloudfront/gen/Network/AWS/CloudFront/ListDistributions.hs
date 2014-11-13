@@ -105,9 +105,6 @@ ldrDistributionList :: Lens' ListDistributions2014_05_31Response (Maybe Distribu
 ldrDistributionList =
     lens _ldrDistributionList (\s a -> s { _ldrDistributionList = a })
 
-instance FromXML ListDistributions2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListDistributions2014_05_31Response"
 instance AWSRequest ListDistributions2014_05_31 where
     type Sv ListDistributions2014_05_31 = CloudFront
     type Rs ListDistributions2014_05_31 = ListDistributions2014_05_31Response

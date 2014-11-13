@@ -122,9 +122,6 @@ goarGrants = lens _goarGrants (\s a -> s { _goarGrants = a })
 goarOwner :: Lens' GetObjectAclResponse (Maybe Owner)
 goarOwner = lens _goarOwner (\s a -> s { _goarOwner = a })
 
-instance FromXML GetObjectAclResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetObjectAclResponse"
 instance AWSRequest GetObjectAcl where
     type Sv GetObjectAcl = S3
     type Rs GetObjectAcl = GetObjectAclResponse

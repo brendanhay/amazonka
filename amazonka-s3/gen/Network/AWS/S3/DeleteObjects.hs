@@ -124,9 +124,6 @@ dorDeleted = lens _dorDeleted (\s a -> s { _dorDeleted = a })
 dorErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
 dorErrors = lens _dorErrors (\s a -> s { _dorErrors = a })
 
-instance FromXML DeleteObjectsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteObjectsResponse"
 instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
     type Rs DeleteObjects = DeleteObjectsResponse

@@ -113,9 +113,6 @@ cdrETag = lens _cdrETag (\s a -> s { _cdrETag = a })
 cdrLocation :: Lens' CreateDistribution2014_05_31Response (Maybe Text)
 cdrLocation = lens _cdrLocation (\s a -> s { _cdrLocation = a })
 
-instance FromXML CreateDistribution2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDistribution2014_05_31Response"
 instance AWSRequest CreateDistribution2014_05_31 where
     type Sv CreateDistribution2014_05_31 = CloudFront
     type Rs CreateDistribution2014_05_31 = CreateDistribution2014_05_31Response

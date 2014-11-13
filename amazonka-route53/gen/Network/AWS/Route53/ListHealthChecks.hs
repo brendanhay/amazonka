@@ -164,9 +164,6 @@ lhcrMaxItems = lens _lhcrMaxItems (\s a -> s { _lhcrMaxItems = a })
 lhcrNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
 lhcrNextMarker = lens _lhcrNextMarker (\s a -> s { _lhcrNextMarker = a })
 
-instance FromXML ListHealthChecksResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListHealthChecksResponse"
 instance AWSRequest ListHealthChecks where
     type Sv ListHealthChecks = Route53
     type Rs ListHealthChecks = ListHealthChecksResponse

@@ -91,9 +91,6 @@ gbnrTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfig
 gbnrTopicConfiguration =
     lens _gbnrTopicConfiguration (\s a -> s { _gbnrTopicConfiguration = a })
 
-instance FromXML GetBucketNotificationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketNotificationResponse"
 instance AWSRequest GetBucketNotification where
     type Sv GetBucketNotification = S3
     type Rs GetBucketNotification = GetBucketNotificationResponse

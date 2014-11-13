@@ -102,9 +102,6 @@ data PutBucketPolicyResponse = PutBucketPolicyResponse
 putBucketPolicyResponse :: PutBucketPolicyResponse
 putBucketPolicyResponse = PutBucketPolicyResponse
 
-instance FromXML PutBucketPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutBucketPolicyResponse"
 instance AWSRequest PutBucketPolicy where
     type Sv PutBucketPolicy = S3
     type Rs PutBucketPolicy = PutBucketPolicyResponse

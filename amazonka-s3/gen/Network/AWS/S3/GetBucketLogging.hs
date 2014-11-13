@@ -92,9 +92,6 @@ gblrLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
 gblrLoggingEnabled =
     lens _gblrLoggingEnabled (\s a -> s { _gblrLoggingEnabled = a })
 
-instance FromXML GetBucketLoggingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketLoggingResponse"
 instance AWSRequest GetBucketLogging where
     type Sv GetBucketLogging = S3
     type Rs GetBucketLogging = GetBucketLoggingResponse

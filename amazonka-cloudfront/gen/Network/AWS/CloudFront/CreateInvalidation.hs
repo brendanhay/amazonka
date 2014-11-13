@@ -117,9 +117,6 @@ cirInvalidation = lens _cirInvalidation (\s a -> s { _cirInvalidation = a })
 cirLocation :: Lens' CreateInvalidation2014_05_31Response (Maybe Text)
 cirLocation = lens _cirLocation (\s a -> s { _cirLocation = a })
 
-instance FromXML CreateInvalidation2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateInvalidation2014_05_31Response"
 instance AWSRequest CreateInvalidation2014_05_31 where
     type Sv CreateInvalidation2014_05_31 = CloudFront
     type Rs CreateInvalidation2014_05_31 = CreateInvalidation2014_05_31Response

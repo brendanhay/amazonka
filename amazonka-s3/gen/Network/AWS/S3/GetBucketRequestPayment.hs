@@ -91,9 +91,6 @@ getBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
 gbrprPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Text)
 gbrprPayer = lens _gbrprPayer (\s a -> s { _gbrprPayer = a })
 
-instance FromXML GetBucketRequestPaymentResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketRequestPaymentResponse"
 instance AWSRequest GetBucketRequestPayment where
     type Sv GetBucketRequestPayment = S3
     type Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse

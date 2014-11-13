@@ -101,9 +101,6 @@ data PutBucketWebsiteResponse = PutBucketWebsiteResponse
 putBucketWebsiteResponse :: PutBucketWebsiteResponse
 putBucketWebsiteResponse = PutBucketWebsiteResponse
 
-instance FromXML PutBucketWebsiteResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutBucketWebsiteResponse"
 instance AWSRequest PutBucketWebsite where
     type Sv PutBucketWebsite = S3
     type Rs PutBucketWebsite = PutBucketWebsiteResponse

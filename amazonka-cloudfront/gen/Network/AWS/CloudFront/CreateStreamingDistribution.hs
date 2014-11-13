@@ -117,9 +117,6 @@ csdrStreamingDistribution =
     lens _csdrStreamingDistribution
         (\s a -> s { _csdrStreamingDistribution = a })
 
-instance FromXML CreateStreamingDistribution2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateStreamingDistribution2014_05_31Response"
 instance AWSRequest CreateStreamingDistribution2014_05_31 where
     type Sv CreateStreamingDistribution2014_05_31 = CloudFront
     type Rs CreateStreamingDistribution2014_05_31 = CreateStreamingDistribution2014_05_31Response

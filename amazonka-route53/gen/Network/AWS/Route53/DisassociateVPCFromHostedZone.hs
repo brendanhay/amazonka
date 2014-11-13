@@ -128,9 +128,6 @@ dvpcfhzrChangeInfo :: Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
 dvpcfhzrChangeInfo =
     lens _dvpcfhzrChangeInfo (\s a -> s { _dvpcfhzrChangeInfo = a })
 
-instance FromXML DisassociateVPCFromHostedZoneResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DisassociateVPCFromHostedZoneResponse"
 instance AWSRequest DisassociateVPCFromHostedZone where
     type Sv DisassociateVPCFromHostedZone = Route53
     type Rs DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZoneResponse

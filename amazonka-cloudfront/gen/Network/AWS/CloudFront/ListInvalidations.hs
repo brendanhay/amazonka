@@ -121,9 +121,6 @@ lirInvalidationList :: Lens' ListInvalidations2014_05_31Response (Maybe Invalida
 lirInvalidationList =
     lens _lirInvalidationList (\s a -> s { _lirInvalidationList = a })
 
-instance FromXML ListInvalidations2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListInvalidations2014_05_31Response"
 instance AWSRequest ListInvalidations2014_05_31 where
     type Sv ListInvalidations2014_05_31 = CloudFront
     type Rs ListInvalidations2014_05_31 = ListInvalidations2014_05_31Response

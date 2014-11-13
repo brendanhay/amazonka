@@ -167,9 +167,6 @@ createBucketResponse = CreateBucketResponse
 cbrLocation :: Lens' CreateBucketResponse (Maybe Text)
 cbrLocation = lens _cbrLocation (\s a -> s { _cbrLocation = a })
 
-instance FromXML CreateBucketResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateBucketResponse"
 instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3
     type Rs CreateBucket = CreateBucketResponse

@@ -228,9 +228,6 @@ lprStorageClass = lens _lprStorageClass (\s a -> s { _lprStorageClass = a })
 lprUploadId :: Lens' ListPartsResponse (Maybe Text)
 lprUploadId = lens _lprUploadId (\s a -> s { _lprUploadId = a })
 
-instance FromXML ListPartsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListPartsResponse"
 instance AWSRequest ListParts where
     type Sv ListParts = S3
     type Rs ListParts = ListPartsResponse

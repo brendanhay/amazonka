@@ -85,9 +85,6 @@ data DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse
 deleteReusableDelegationSetResponse :: DeleteReusableDelegationSetResponse
 deleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse
 
-instance FromXML DeleteReusableDelegationSetResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteReusableDelegationSetResponse"
 instance AWSRequest DeleteReusableDelegationSet where
     type Sv DeleteReusableDelegationSet = Route53
     type Rs DeleteReusableDelegationSet = DeleteReusableDelegationSetResponse

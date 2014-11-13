@@ -173,9 +173,6 @@ lhzrMaxItems = lens _lhzrMaxItems (\s a -> s { _lhzrMaxItems = a })
 lhzrNextMarker :: Lens' ListHostedZonesResponse (Maybe Text)
 lhzrNextMarker = lens _lhzrNextMarker (\s a -> s { _lhzrNextMarker = a })
 
-instance FromXML ListHostedZonesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListHostedZonesResponse"
 instance AWSRequest ListHostedZones where
     type Sv ListHostedZones = Route53
     type Rs ListHostedZones = ListHostedZonesResponse

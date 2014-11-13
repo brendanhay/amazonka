@@ -419,9 +419,6 @@ porServerSideEncryption =
 porVersionId :: Lens' PutObjectResponse (Maybe Text)
 porVersionId = lens _porVersionId (\s a -> s { _porVersionId = a })
 
-instance FromXML PutObjectResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutObjectResponse"
 instance AWSRequest PutObject where
     type Sv PutObject = S3
     type Rs PutObject = PutObjectResponse

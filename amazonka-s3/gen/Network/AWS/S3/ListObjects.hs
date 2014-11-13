@@ -227,9 +227,6 @@ lorNextMarker = lens _lorNextMarker (\s a -> s { _lorNextMarker = a })
 lorPrefix :: Lens' ListObjectsResponse (Maybe Text)
 lorPrefix = lens _lorPrefix (\s a -> s { _lorPrefix = a })
 
-instance FromXML ListObjectsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListObjectsResponse"
 instance AWSRequest ListObjects where
     type Sv ListObjects = S3
     type Rs ListObjects = ListObjectsResponse

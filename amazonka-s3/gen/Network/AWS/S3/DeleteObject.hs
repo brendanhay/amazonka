@@ -137,9 +137,6 @@ dorDeleteMarker = lens _dorDeleteMarker (\s a -> s { _dorDeleteMarker = a })
 dorVersionId :: Lens' DeleteObjectResponse (Maybe Text)
 dorVersionId = lens _dorVersionId (\s a -> s { _dorVersionId = a })
 
-instance FromXML DeleteObjectResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteObjectResponse"
 instance AWSRequest DeleteObject where
     type Sv DeleteObject = S3
     type Rs DeleteObject = DeleteObjectResponse

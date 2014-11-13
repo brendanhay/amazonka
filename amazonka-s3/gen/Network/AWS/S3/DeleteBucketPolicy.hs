@@ -77,9 +77,6 @@ data DeleteBucketPolicyResponse = DeleteBucketPolicyResponse
 deleteBucketPolicyResponse :: DeleteBucketPolicyResponse
 deleteBucketPolicyResponse = DeleteBucketPolicyResponse
 
-instance FromXML DeleteBucketPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteBucketPolicyResponse"
 instance AWSRequest DeleteBucketPolicy where
     type Sv DeleteBucketPolicy = S3
     type Rs DeleteBucketPolicy = DeleteBucketPolicyResponse

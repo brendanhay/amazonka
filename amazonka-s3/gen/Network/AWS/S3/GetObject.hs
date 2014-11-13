@@ -518,9 +518,6 @@ gorWebsiteRedirectLocation =
     lens _gorWebsiteRedirectLocation
         (\s a -> s { _gorWebsiteRedirectLocation = a })
 
-instance FromXML GetObjectResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetObjectResponse"
 instance AWSRequest GetObject where
     type Sv GetObject = S3
     type Rs GetObject = GetObjectResponse

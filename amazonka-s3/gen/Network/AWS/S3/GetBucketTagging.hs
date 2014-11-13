@@ -96,9 +96,6 @@ getBucketTaggingResponse = GetBucketTaggingResponse
 gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]
 gbtrTagSet = lens _gbtrTagSet (\s a -> s { _gbtrTagSet = a })
 
-instance FromXML GetBucketTaggingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketTaggingResponse"
 instance AWSRequest GetBucketTagging where
     type Sv GetBucketTagging = S3
     type Rs GetBucketTagging = GetBucketTaggingResponse

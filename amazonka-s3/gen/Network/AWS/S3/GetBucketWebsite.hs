@@ -118,9 +118,6 @@ gbwrRedirectAllRequestsTo =
 gbwrRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
 gbwrRoutingRules = lens _gbwrRoutingRules (\s a -> s { _gbwrRoutingRules = a })
 
-instance FromXML GetBucketWebsiteResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketWebsiteResponse"
 instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
     type Rs GetBucketWebsite = GetBucketWebsiteResponse

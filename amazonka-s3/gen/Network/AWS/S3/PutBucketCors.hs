@@ -100,9 +100,6 @@ data PutBucketCorsResponse = PutBucketCorsResponse
 putBucketCorsResponse :: PutBucketCorsResponse
 putBucketCorsResponse = PutBucketCorsResponse
 
-instance FromXML PutBucketCorsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutBucketCorsResponse"
 instance AWSRequest PutBucketCors where
     type Sv PutBucketCors = S3
     type Rs PutBucketCors = PutBucketCorsResponse

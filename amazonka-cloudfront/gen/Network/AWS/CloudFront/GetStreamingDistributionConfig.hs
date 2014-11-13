@@ -104,9 +104,6 @@ gsdcrStreamingDistributionConfig =
     lens _gsdcrStreamingDistributionConfig
         (\s a -> s { _gsdcrStreamingDistributionConfig = a })
 
-instance FromXML GetStreamingDistributionConfig2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetStreamingDistributionConfig2014_05_31Response"
 instance AWSRequest GetStreamingDistributionConfig2014_05_31 where
     type Sv GetStreamingDistributionConfig2014_05_31 = CloudFront
     type Rs GetStreamingDistributionConfig2014_05_31 = GetStreamingDistributionConfig2014_05_31Response

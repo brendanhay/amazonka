@@ -96,9 +96,6 @@ getBucketCorsResponse = GetBucketCorsResponse
 gbcrCORSRules :: Lens' GetBucketCorsResponse [CORSRule]
 gbcrCORSRules = lens _gbcrCORSRules (\s a -> s { _gbcrCORSRules = a })
 
-instance FromXML GetBucketCorsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketCorsResponse"
 instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
     type Rs GetBucketCors = GetBucketCorsResponse

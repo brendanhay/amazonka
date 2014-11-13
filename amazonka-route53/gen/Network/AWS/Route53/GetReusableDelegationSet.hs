@@ -97,9 +97,6 @@ grdsrDelegationSet :: Lens' GetReusableDelegationSetResponse DelegationSet
 grdsrDelegationSet =
     lens _grdsrDelegationSet (\s a -> s { _grdsrDelegationSet = a })
 
-instance FromXML GetReusableDelegationSetResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetReusableDelegationSetResponse"
 instance AWSRequest GetReusableDelegationSet where
     type Sv GetReusableDelegationSet = Route53
     type Rs GetReusableDelegationSet = GetReusableDelegationSetResponse

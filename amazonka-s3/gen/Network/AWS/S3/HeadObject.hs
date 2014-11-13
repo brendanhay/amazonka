@@ -438,9 +438,6 @@ horWebsiteRedirectLocation =
     lens _horWebsiteRedirectLocation
         (\s a -> s { _horWebsiteRedirectLocation = a })
 
-instance FromXML HeadObjectResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HeadObjectResponse"
 instance AWSRequest HeadObject where
     type Sv HeadObject = S3
     type Rs HeadObject = HeadObjectResponse

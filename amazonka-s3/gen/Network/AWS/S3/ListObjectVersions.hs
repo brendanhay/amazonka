@@ -265,9 +265,6 @@ lovrVersionIdMarker =
 lovrVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]
 lovrVersions = lens _lovrVersions (\s a -> s { _lovrVersions = a })
 
-instance FromXML ListObjectVersionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListObjectVersionsResponse"
 instance AWSRequest ListObjectVersions where
     type Sv ListObjectVersions = S3
     type Rs ListObjectVersions = ListObjectVersionsResponse

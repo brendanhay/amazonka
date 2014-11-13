@@ -102,9 +102,6 @@ getObjectTorrentResponse p1 = GetObjectTorrentResponse
 gotrBody :: Lens' GetObjectTorrentResponse RsBody
 gotrBody = lens _gotrBody (\s a -> s { _gotrBody = a })
 
-instance FromXML GetObjectTorrentResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetObjectTorrentResponse"
 instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3
     type Rs GetObjectTorrent = GetObjectTorrentResponse

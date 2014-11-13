@@ -77,9 +77,6 @@ data DeleteBucketTaggingResponse = DeleteBucketTaggingResponse
 deleteBucketTaggingResponse :: DeleteBucketTaggingResponse
 deleteBucketTaggingResponse = DeleteBucketTaggingResponse
 
-instance FromXML DeleteBucketTaggingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteBucketTaggingResponse"
 instance AWSRequest DeleteBucketTagging where
     type Sv DeleteBucketTagging = S3
     type Rs DeleteBucketTagging = DeleteBucketTaggingResponse

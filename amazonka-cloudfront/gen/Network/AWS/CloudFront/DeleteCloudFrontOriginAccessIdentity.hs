@@ -91,9 +91,6 @@ data DeleteCloudFrontOriginAccessIdentity2014_05_31Response = DeleteCloudFrontOr
 deleteCloudFrontOriginAccessIdentity2014_05_31Response :: DeleteCloudFrontOriginAccessIdentity2014_05_31Response
 deleteCloudFrontOriginAccessIdentity2014_05_31Response = DeleteCloudFrontOriginAccessIdentity2014_05_31Response
 
-instance FromXML DeleteCloudFrontOriginAccessIdentity2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteCloudFrontOriginAccessIdentity2014_05_31Response"
 instance AWSRequest DeleteCloudFrontOriginAccessIdentity2014_05_31 where
     type Sv DeleteCloudFrontOriginAccessIdentity2014_05_31 = CloudFront
     type Rs DeleteCloudFrontOriginAccessIdentity2014_05_31 = DeleteCloudFrontOriginAccessIdentity2014_05_31Response

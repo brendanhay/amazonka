@@ -99,9 +99,6 @@ data AbortMultipartUploadResponse = AbortMultipartUploadResponse
 abortMultipartUploadResponse :: AbortMultipartUploadResponse
 abortMultipartUploadResponse = AbortMultipartUploadResponse
 
-instance FromXML AbortMultipartUploadResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AbortMultipartUploadResponse"
 instance AWSRequest AbortMultipartUpload where
     type Sv AbortMultipartUpload = S3
     type Rs AbortMultipartUpload = AbortMultipartUploadResponse

@@ -104,9 +104,6 @@ getInvalidation2014_05_31Response = GetInvalidation2014_05_31Response
 girInvalidation :: Lens' GetInvalidation2014_05_31Response (Maybe Invalidation)
 girInvalidation = lens _girInvalidation (\s a -> s { _girInvalidation = a })
 
-instance FromXML GetInvalidation2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetInvalidation2014_05_31Response"
 instance AWSRequest GetInvalidation2014_05_31 where
     type Sv GetInvalidation2014_05_31 = CloudFront
     type Rs GetInvalidation2014_05_31 = GetInvalidation2014_05_31Response

@@ -107,9 +107,6 @@ lcfoairCloudFrontOriginAccessIdentityList =
     lens _lcfoairCloudFrontOriginAccessIdentityList
         (\s a -> s { _lcfoairCloudFrontOriginAccessIdentityList = a })
 
-instance FromXML ListCloudFrontOriginAccessIdentities2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListCloudFrontOriginAccessIdentities2014_05_31Response"
 instance AWSRequest ListCloudFrontOriginAccessIdentities2014_05_31 where
     type Sv ListCloudFrontOriginAccessIdentities2014_05_31 = CloudFront
     type Rs ListCloudFrontOriginAccessIdentities2014_05_31 = ListCloudFrontOriginAccessIdentities2014_05_31Response

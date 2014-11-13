@@ -207,9 +207,6 @@ chzrLocation = lens _chzrLocation (\s a -> s { _chzrLocation = a })
 chzrVPC :: Lens' CreateHostedZoneResponse (Maybe VPC)
 chzrVPC = lens _chzrVPC (\s a -> s { _chzrVPC = a })
 
-instance FromXML CreateHostedZoneResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateHostedZoneResponse"
 instance AWSRequest CreateHostedZone where
     type Sv CreateHostedZone = Route53
     type Rs CreateHostedZone = CreateHostedZoneResponse

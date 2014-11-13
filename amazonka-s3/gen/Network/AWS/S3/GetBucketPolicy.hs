@@ -91,9 +91,6 @@ getBucketPolicyResponse = GetBucketPolicyResponse
 gbprPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
 gbprPolicy = lens _gbprPolicy (\s a -> s { _gbprPolicy = a })
 
-instance FromXML GetBucketPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketPolicyResponse"
 instance AWSRequest GetBucketPolicy where
     type Sv GetBucketPolicy = S3
     type Rs GetBucketPolicy = GetBucketPolicyResponse

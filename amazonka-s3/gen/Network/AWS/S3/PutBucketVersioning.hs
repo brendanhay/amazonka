@@ -114,9 +114,6 @@ data PutBucketVersioningResponse = PutBucketVersioningResponse
 putBucketVersioningResponse :: PutBucketVersioningResponse
 putBucketVersioningResponse = PutBucketVersioningResponse
 
-instance FromXML PutBucketVersioningResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutBucketVersioningResponse"
 instance AWSRequest PutBucketVersioning where
     type Sv PutBucketVersioning = S3
     type Rs PutBucketVersioning = PutBucketVersioningResponse

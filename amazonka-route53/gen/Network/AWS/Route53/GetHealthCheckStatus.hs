@@ -106,9 +106,6 @@ ghcsrHealthCheckObservations =
     lens _ghcsrHealthCheckObservations
         (\s a -> s { _ghcsrHealthCheckObservations = a })
 
-instance FromXML GetHealthCheckStatusResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetHealthCheckStatusResponse"
 instance AWSRequest GetHealthCheckStatus where
     type Sv GetHealthCheckStatus = Route53
     type Rs GetHealthCheckStatus = GetHealthCheckStatusResponse

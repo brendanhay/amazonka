@@ -103,9 +103,6 @@ gdcrDistributionConfig =
 gdcrETag :: Lens' GetDistributionConfig2014_05_31Response (Maybe Text)
 gdcrETag = lens _gdcrETag (\s a -> s { _gdcrETag = a })
 
-instance FromXML GetDistributionConfig2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetDistributionConfig2014_05_31Response"
 instance AWSRequest GetDistributionConfig2014_05_31 where
     type Sv GetDistributionConfig2014_05_31 = CloudFront
     type Rs GetDistributionConfig2014_05_31 = GetDistributionConfig2014_05_31Response

@@ -107,9 +107,6 @@ lsdrStreamingDistributionList =
     lens _lsdrStreamingDistributionList
         (\s a -> s { _lsdrStreamingDistributionList = a })
 
-instance FromXML ListStreamingDistributions2014_05_31Response where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListStreamingDistributions2014_05_31Response"
 instance AWSRequest ListStreamingDistributions2014_05_31 where
     type Sv ListStreamingDistributions2014_05_31 = CloudFront
     type Rs ListStreamingDistributions2014_05_31 = ListStreamingDistributions2014_05_31Response

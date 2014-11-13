@@ -96,9 +96,6 @@ getBucketLifecycleResponse = GetBucketLifecycleResponse
 gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
 gblrRules = lens _gblrRules (\s a -> s { _gblrRules = a })
 
-instance FromXML GetBucketLifecycleResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketLifecycleResponse"
 instance AWSRequest GetBucketLifecycle where
     type Sv GetBucketLifecycle = S3
     type Rs GetBucketLifecycle = GetBucketLifecycleResponse

@@ -1,0 +1,105 @@
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
+
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
+
+-- Module      : Network.AWS.OpsWorks.AttachElasticLoadBalancer
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+
+-- | Attaches an Elastic Load Balancing load balancer to a specified layer. For
+-- more information, see Elastic Load Balancing. Required Permissions: To use
+-- this action, an IAM user must have a Manage permissions level for the
+-- stack, or an attached policy that explicitly grants permissions. For more
+-- information on user permissions, see Managing User Permissions.
+module Network.AWS.OpsWorks.AttachElasticLoadBalancer
+    (
+    -- * Request
+      AttachElasticLoadBalancer
+    -- ** Request constructor
+    , attachElasticLoadBalancer
+    -- ** Request lenses
+    , aelbElasticLoadBalancerName
+    , aelbLayerId
+
+    -- * Response
+    , AttachElasticLoadBalancerResponse
+    -- ** Response constructor
+    , attachElasticLoadBalancerResponse
+    ) where
+
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.OpsWorks.Types
+
+data AttachElasticLoadBalancer = AttachElasticLoadBalancer
+    { _aelbElasticLoadBalancerName :: Text
+    , _aelbLayerId                 :: Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'AttachElasticLoadBalancer' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'aelbElasticLoadBalancerName' @::@ 'Text'
+--
+-- * 'aelbLayerId' @::@ 'Text'
+--
+attachElasticLoadBalancer :: Text -- ^ 'aelbElasticLoadBalancerName'
+                          -> Text -- ^ 'aelbLayerId'
+                          -> AttachElasticLoadBalancer
+attachElasticLoadBalancer p1 p2 = AttachElasticLoadBalancer
+    { _aelbElasticLoadBalancerName = p1
+    , _aelbLayerId                 = p2
+    }
+
+-- | The Elastic Load Balancing instance's name.
+aelbElasticLoadBalancerName :: Lens' AttachElasticLoadBalancer Text
+aelbElasticLoadBalancerName =
+    lens _aelbElasticLoadBalancerName
+        (\s a -> s { _aelbElasticLoadBalancerName = a })
+
+-- | The ID of the layer that the Elastic Load Balancing instance is to be
+-- attached to.
+aelbLayerId :: Lens' AttachElasticLoadBalancer Text
+aelbLayerId = lens _aelbLayerId (\s a -> s { _aelbLayerId = a })
+
+instance ToPath AttachElasticLoadBalancer where
+    toPath = const "/"
+
+instance ToQuery AttachElasticLoadBalancer where
+    toQuery = const mempty
+
+instance ToHeaders AttachElasticLoadBalancer
+
+instance ToBody AttachElasticLoadBalancer where
+    toBody = toBody . encode . _aelbElasticLoadBalancerName
+
+data AttachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
+    deriving (Eq, Ord, Show, Generic)
+
+-- | 'AttachElasticLoadBalancerResponse' constructor.
+attachElasticLoadBalancerResponse :: AttachElasticLoadBalancerResponse
+attachElasticLoadBalancerResponse = AttachElasticLoadBalancerResponse
+
+-- FromJSON
+
+instance AWSRequest AttachElasticLoadBalancer where
+    type Sv AttachElasticLoadBalancer = OpsWorks
+    type Rs AttachElasticLoadBalancer = AttachElasticLoadBalancerResponse
+
+    request  = post'
+    response = nullaryResponse AttachElasticLoadBalancerResponse

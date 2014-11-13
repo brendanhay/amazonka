@@ -1,0 +1,765 @@
+{-# LANGUAGE DeriveDataTypeable          #-}
+{-# LANGUAGE DeriveGeneric               #-}
+{-# LANGUAGE FlexibleInstances           #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving  #-}
+{-# LANGUAGE LambdaCase                  #-}
+{-# LANGUAGE NoImplicitPrelude           #-}
+{-# LANGUAGE OverloadedStrings           #-}
+{-# LANGUAGE TypeFamilies                #-}
+
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
+-- Module      : Network.AWS.Config.Types
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+
+module Network.AWS.Config.Types
+    (
+    -- * Service
+      Config
+    -- ** Error
+    , ConfigError
+
+    -- * ConfigExportDeliveryInfo
+    , ConfigExportDeliveryInfo
+    , configExportDeliveryInfo
+    , cediLastAttemptTime
+    , cediLastErrorCode
+    , cediLastErrorMessage
+    , cediLastStatus
+    , cediLastSuccessfulTime
+
+    -- * ConfigStreamDeliveryInfo
+    , ConfigStreamDeliveryInfo
+    , configStreamDeliveryInfo
+    , csdiLastErrorCode
+    , csdiLastErrorMessage
+    , csdiLastStatus
+    , csdiLastStatusChangeTime
+
+    -- * Relationship
+    , Relationship
+    , relationship
+    , rRelationshipName
+    , rResourceId
+    , rResourceType
+
+    -- * DeliveryChannel
+    , DeliveryChannel
+    , deliveryChannel
+    , dcName
+    , dcS3BucketName
+    , dcS3KeyPrefix
+    , dcSnsTopicARN
+
+    -- * ChronologicalOrder
+    , ChronologicalOrder (..)
+
+    -- * ResourceType
+    , ResourceType (..)
+
+    -- * ConfigurationItem
+    , ConfigurationItem
+    , configurationItem
+    , ciAccountId
+    , ciArn
+    , ciAvailabilityZone
+    , ciConfiguration
+    , ciConfigurationItemCaptureTime
+    , ciConfigurationItemMD5Hash
+    , ciConfigurationItemStatus
+    , ciConfigurationStateId
+    , ciRelatedEvents
+    , ciRelationships
+    , ciResourceCreationTime
+    , ciResourceId
+    , ciResourceType
+    , ciTags
+    , ciVersion
+
+    -- * DeliveryStatus
+    , DeliveryStatus (..)
+
+    -- * DeliveryChannelStatus
+    , DeliveryChannelStatus
+    , deliveryChannelStatus
+    , dcsConfigHistoryDeliveryInfo
+    , dcsConfigSnapshotDeliveryInfo
+    , dcsConfigStreamDeliveryInfo
+    , dcsName
+
+    -- * ConfigurationRecorderStatus
+    , ConfigurationRecorderStatus
+    , configurationRecorderStatus
+    , crsLastErrorCode
+    , crsLastErrorMessage
+    , crsLastStartTime
+    , crsLastStatus
+    , crsLastStatusChangeTime
+    , crsLastStopTime
+    , crsName
+    , crsRecording
+
+    -- * ConfigurationItemStatus
+    , ConfigurationItemStatus (..)
+
+    -- * ConfigurationRecorder
+    , ConfigurationRecorder
+    , configurationRecorder
+    , crName
+    , crRoleARN
+
+    -- * RecorderStatus
+    , RecorderStatus (..)
+    ) where
+
+import Network.AWS.Prelude
+import Network.AWS.Signing.V4
+
+-- | Supported version (@2014-11-12@) of the Amazon Config.
+data Config deriving (Typeable)
+
+instance AWSService Config where
+    type Sg Config = V4
+    type Er Config = ConfigError
+
+    service = Service
+        { _svcEndpoint = regional
+        , _svcAbbrev   = "Config"
+        , _svcPrefix   = "config"
+        , _svcVersion  = "2014-11-12"
+        , _svcTarget   = Nothing
+        }
+
+    handle = xmlError alwaysFail
+
+data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo
+    { _cediLastAttemptTime    :: Maybe RFC822
+    , _cediLastErrorCode      :: Maybe Text
+    , _cediLastErrorMessage   :: Maybe Text
+    , _cediLastStatus         :: Maybe Text
+    , _cediLastSuccessfulTime :: Maybe RFC822
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'ConfigExportDeliveryInfo' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cediLastAttemptTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'cediLastErrorCode' @::@ 'Maybe' 'Text'
+--
+-- * 'cediLastErrorMessage' @::@ 'Maybe' 'Text'
+--
+-- * 'cediLastStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'cediLastSuccessfulTime' @::@ 'Maybe' 'UTCTime'
+--
+configExportDeliveryInfo :: ConfigExportDeliveryInfo
+configExportDeliveryInfo = ConfigExportDeliveryInfo
+    { _cediLastStatus         = Nothing
+    , _cediLastErrorCode      = Nothing
+    , _cediLastErrorMessage   = Nothing
+    , _cediLastAttemptTime    = Nothing
+    , _cediLastSuccessfulTime = Nothing
+    }
+
+-- | The time of the last attempted delivery.
+cediLastAttemptTime :: Lens' ConfigExportDeliveryInfo (Maybe UTCTime)
+cediLastAttemptTime =
+    lens _cediLastAttemptTime (\s a -> s { _cediLastAttemptTime = a })
+        . mapping _Time
+
+-- | The error code from the last attempted delivery.
+cediLastErrorCode :: Lens' ConfigExportDeliveryInfo (Maybe Text)
+cediLastErrorCode =
+    lens _cediLastErrorCode (\s a -> s { _cediLastErrorCode = a })
+
+-- | The error message from the last attempted delivery.
+cediLastErrorMessage :: Lens' ConfigExportDeliveryInfo (Maybe Text)
+cediLastErrorMessage =
+    lens _cediLastErrorMessage (\s a -> s { _cediLastErrorMessage = a })
+
+-- | Status of the last attempted delivery.
+cediLastStatus :: Lens' ConfigExportDeliveryInfo (Maybe Text)
+cediLastStatus = lens _cediLastStatus (\s a -> s { _cediLastStatus = a })
+
+-- | The time of the last successful delivery.
+cediLastSuccessfulTime :: Lens' ConfigExportDeliveryInfo (Maybe UTCTime)
+cediLastSuccessfulTime =
+    lens _cediLastSuccessfulTime (\s a -> s { _cediLastSuccessfulTime = a })
+        . mapping _Time
+
+data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo
+    { _csdiLastErrorCode        :: Maybe Text
+    , _csdiLastErrorMessage     :: Maybe Text
+    , _csdiLastStatus           :: Maybe Text
+    , _csdiLastStatusChangeTime :: Maybe RFC822
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'ConfigStreamDeliveryInfo' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'csdiLastErrorCode' @::@ 'Maybe' 'Text'
+--
+-- * 'csdiLastErrorMessage' @::@ 'Maybe' 'Text'
+--
+-- * 'csdiLastStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'csdiLastStatusChangeTime' @::@ 'Maybe' 'UTCTime'
+--
+configStreamDeliveryInfo :: ConfigStreamDeliveryInfo
+configStreamDeliveryInfo = ConfigStreamDeliveryInfo
+    { _csdiLastStatus           = Nothing
+    , _csdiLastErrorCode        = Nothing
+    , _csdiLastErrorMessage     = Nothing
+    , _csdiLastStatusChangeTime = Nothing
+    }
+
+-- | The error code from the last attempted delivery.
+csdiLastErrorCode :: Lens' ConfigStreamDeliveryInfo (Maybe Text)
+csdiLastErrorCode =
+    lens _csdiLastErrorCode (\s a -> s { _csdiLastErrorCode = a })
+
+-- | The error message from the last attempted delivery.
+csdiLastErrorMessage :: Lens' ConfigStreamDeliveryInfo (Maybe Text)
+csdiLastErrorMessage =
+    lens _csdiLastErrorMessage (\s a -> s { _csdiLastErrorMessage = a })
+
+-- | Status of the last attempted delivery.
+csdiLastStatus :: Lens' ConfigStreamDeliveryInfo (Maybe Text)
+csdiLastStatus = lens _csdiLastStatus (\s a -> s { _csdiLastStatus = a })
+
+-- | The time from the last status change.
+csdiLastStatusChangeTime :: Lens' ConfigStreamDeliveryInfo (Maybe UTCTime)
+csdiLastStatusChangeTime =
+    lens _csdiLastStatusChangeTime
+        (\s a -> s { _csdiLastStatusChangeTime = a })
+            . mapping _Time
+
+data Relationship = Relationship
+    { _rRelationshipName :: Maybe Text
+    , _rResourceId       :: Maybe Text
+    , _rResourceType     :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'Relationship' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rRelationshipName' @::@ 'Maybe' 'Text'
+--
+-- * 'rResourceId' @::@ 'Maybe' 'Text'
+--
+-- * 'rResourceType' @::@ 'Maybe' 'Text'
+--
+relationship :: Relationship
+relationship = Relationship
+    { _rResourceType     = Nothing
+    , _rResourceId       = Nothing
+    , _rRelationshipName = Nothing
+    }
+
+-- | The name of the related resource.
+rRelationshipName :: Lens' Relationship (Maybe Text)
+rRelationshipName =
+    lens _rRelationshipName (\s a -> s { _rRelationshipName = a })
+
+-- | The resource ID of the related resource (for example, sg-xxxxxx.
+rResourceId :: Lens' Relationship (Maybe Text)
+rResourceId = lens _rResourceId (\s a -> s { _rResourceId = a })
+
+-- | The resource type of the related resource.
+rResourceType :: Lens' Relationship (Maybe Text)
+rResourceType = lens _rResourceType (\s a -> s { _rResourceType = a })
+
+data DeliveryChannel = DeliveryChannel
+    { _dcName         :: Maybe Text
+    , _dcS3BucketName :: Maybe Text
+    , _dcS3KeyPrefix  :: Maybe Text
+    , _dcSnsTopicARN  :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'DeliveryChannel' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dcName' @::@ 'Maybe' 'Text'
+--
+-- * 'dcS3BucketName' @::@ 'Maybe' 'Text'
+--
+-- * 'dcS3KeyPrefix' @::@ 'Maybe' 'Text'
+--
+-- * 'dcSnsTopicARN' @::@ 'Maybe' 'Text'
+--
+deliveryChannel :: DeliveryChannel
+deliveryChannel = DeliveryChannel
+    { _dcName         = Nothing
+    , _dcS3BucketName = Nothing
+    , _dcS3KeyPrefix  = Nothing
+    , _dcSnsTopicARN  = Nothing
+    }
+
+-- | The name of the delivery channel. By default, AWS Config automatically
+-- assigns the name "default" when creating the delivery channel. You cannot
+-- change the assigned name.
+dcName :: Lens' DeliveryChannel (Maybe Text)
+dcName = lens _dcName (\s a -> s { _dcName = a })
+
+-- | The name of the Amazon S3 bucket used to store configuration history for
+-- the delivery channel.
+dcS3BucketName :: Lens' DeliveryChannel (Maybe Text)
+dcS3BucketName = lens _dcS3BucketName (\s a -> s { _dcS3BucketName = a })
+
+-- | The prefix for the specified Amazon S3 bucket.
+dcS3KeyPrefix :: Lens' DeliveryChannel (Maybe Text)
+dcS3KeyPrefix = lens _dcS3KeyPrefix (\s a -> s { _dcS3KeyPrefix = a })
+
+-- | The Amazon Resource Name (ARN) of the IAM role used for accessing the
+-- Amazon S3 bucket and the Amazon SNS topic.
+dcSnsTopicARN :: Lens' DeliveryChannel (Maybe Text)
+dcSnsTopicARN = lens _dcSnsTopicARN (\s a -> s { _dcSnsTopicARN = a })
+
+data ChronologicalOrder
+    = Forward -- ^ Forward
+    | Reverse -- ^ Reverse
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable ChronologicalOrder
+
+instance FromText ChronologicalOrder where
+    parser = match "Forward" Forward
+         <|> match "Reverse" Reverse
+
+instance ToText ChronologicalOrder where
+    toText = \case
+        Forward -> "Forward"
+        Reverse -> "Reverse"
+
+data ResourceType
+    = AWSCloudTrailTrail     -- ^ AWS::CloudTrail::Trail
+    | AWSEC2CustomerGateway  -- ^ AWS::EC2::CustomerGateway
+    | AWSEC2EIP              -- ^ AWS::EC2::EIP
+    | AWSEC2Instance         -- ^ AWS::EC2::Instance
+    | AWSEC2InternetGateway  -- ^ AWS::EC2::InternetGateway
+    | AWSEC2NetworkAcl       -- ^ AWS::EC2::NetworkAcl
+    | AWSEC2NetworkInterface -- ^ AWS::EC2::NetworkInterface
+    | AWSEC2RouteTable       -- ^ AWS::EC2::RouteTable
+    | AWSEC2SecurityGroup    -- ^ AWS::EC2::SecurityGroup
+    | AWSEC2Subnet           -- ^ AWS::EC2::Subnet
+    | AWSEC2VPC              -- ^ AWS::EC2::VPC
+    | AWSEC2VPNConnection    -- ^ AWS::EC2::VPNConnection
+    | AWSEC2VPNGateway       -- ^ AWS::EC2::VPNGateway
+    | AWSEC2Volume           -- ^ AWS::EC2::Volume
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable ResourceType
+
+instance FromText ResourceType where
+    parser = match "AWS::CloudTrail::Trail"     AWSCloudTrailTrail
+         <|> match "AWS::EC2::CustomerGateway"  AWSEC2CustomerGateway
+         <|> match "AWS::EC2::EIP"              AWSEC2EIP
+         <|> match "AWS::EC2::Instance"         AWSEC2Instance
+         <|> match "AWS::EC2::InternetGateway"  AWSEC2InternetGateway
+         <|> match "AWS::EC2::NetworkAcl"       AWSEC2NetworkAcl
+         <|> match "AWS::EC2::NetworkInterface" AWSEC2NetworkInterface
+         <|> match "AWS::EC2::RouteTable"       AWSEC2RouteTable
+         <|> match "AWS::EC2::SecurityGroup"    AWSEC2SecurityGroup
+         <|> match "AWS::EC2::Subnet"           AWSEC2Subnet
+         <|> match "AWS::EC2::VPC"              AWSEC2VPC
+         <|> match "AWS::EC2::VPNConnection"    AWSEC2VPNConnection
+         <|> match "AWS::EC2::VPNGateway"       AWSEC2VPNGateway
+         <|> match "AWS::EC2::Volume"           AWSEC2Volume
+
+instance ToText ResourceType where
+    toText = \case
+        AWSCloudTrailTrail     -> "AWS::CloudTrail::Trail"
+        AWSEC2CustomerGateway  -> "AWS::EC2::CustomerGateway"
+        AWSEC2EIP              -> "AWS::EC2::EIP"
+        AWSEC2Instance         -> "AWS::EC2::Instance"
+        AWSEC2InternetGateway  -> "AWS::EC2::InternetGateway"
+        AWSEC2NetworkAcl       -> "AWS::EC2::NetworkAcl"
+        AWSEC2NetworkInterface -> "AWS::EC2::NetworkInterface"
+        AWSEC2RouteTable       -> "AWS::EC2::RouteTable"
+        AWSEC2SecurityGroup    -> "AWS::EC2::SecurityGroup"
+        AWSEC2Subnet           -> "AWS::EC2::Subnet"
+        AWSEC2VPC              -> "AWS::EC2::VPC"
+        AWSEC2VPNConnection    -> "AWS::EC2::VPNConnection"
+        AWSEC2VPNGateway       -> "AWS::EC2::VPNGateway"
+        AWSEC2Volume           -> "AWS::EC2::Volume"
+
+data ConfigurationItem = ConfigurationItem
+    { _ciAccountId                    :: Maybe Text
+    , _ciArn                          :: Maybe Text
+    , _ciAvailabilityZone             :: Maybe Text
+    , _ciConfiguration                :: Maybe Text
+    , _ciConfigurationItemCaptureTime :: Maybe RFC822
+    , _ciConfigurationItemMD5Hash     :: Maybe Text
+    , _ciConfigurationItemStatus      :: Maybe Text
+    , _ciConfigurationStateId         :: Maybe Text
+    , _ciRelatedEvents                :: [Text]
+    , _ciRelationships                :: [Relationship]
+    , _ciResourceCreationTime         :: Maybe RFC822
+    , _ciResourceId                   :: Maybe Text
+    , _ciResourceType                 :: Maybe Text
+    , _ciTags                         :: Map Text Text
+    , _ciVersion                      :: Maybe Text
+    } deriving (Eq, Show, Generic)
+
+-- | 'ConfigurationItem' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ciAccountId' @::@ 'Maybe' 'Text'
+--
+-- * 'ciArn' @::@ 'Maybe' 'Text'
+--
+-- * 'ciAvailabilityZone' @::@ 'Maybe' 'Text'
+--
+-- * 'ciConfiguration' @::@ 'Maybe' 'Text'
+--
+-- * 'ciConfigurationItemCaptureTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'ciConfigurationItemMD5Hash' @::@ 'Maybe' 'Text'
+--
+-- * 'ciConfigurationItemStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'ciConfigurationStateId' @::@ 'Maybe' 'Text'
+--
+-- * 'ciRelatedEvents' @::@ ['Text']
+--
+-- * 'ciRelationships' @::@ ['Relationship']
+--
+-- * 'ciResourceCreationTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'ciResourceId' @::@ 'Maybe' 'Text'
+--
+-- * 'ciResourceType' @::@ 'Maybe' 'Text'
+--
+-- * 'ciTags' @::@ 'HashMap' 'Text' 'Text'
+--
+-- * 'ciVersion' @::@ 'Maybe' 'Text'
+--
+configurationItem :: ConfigurationItem
+configurationItem = ConfigurationItem
+    { _ciVersion                      = Nothing
+    , _ciAccountId                    = Nothing
+    , _ciConfigurationItemCaptureTime = Nothing
+    , _ciConfigurationItemStatus      = Nothing
+    , _ciConfigurationStateId         = Nothing
+    , _ciConfigurationItemMD5Hash     = Nothing
+    , _ciArn                          = Nothing
+    , _ciResourceType                 = Nothing
+    , _ciResourceId                   = Nothing
+    , _ciAvailabilityZone             = Nothing
+    , _ciResourceCreationTime         = Nothing
+    , _ciTags                         = mempty
+    , _ciRelatedEvents                = mempty
+    , _ciRelationships                = mempty
+    , _ciConfiguration                = Nothing
+    }
+
+-- | The 12 digit AWS account ID associated with the resource.
+ciAccountId :: Lens' ConfigurationItem (Maybe Text)
+ciAccountId = lens _ciAccountId (\s a -> s { _ciAccountId = a })
+
+-- | The Amazon Resource Name (ARN) of the resource.
+ciArn :: Lens' ConfigurationItem (Maybe Text)
+ciArn = lens _ciArn (\s a -> s { _ciArn = a })
+
+-- | The Availability Zone associated with the resource.
+ciAvailabilityZone :: Lens' ConfigurationItem (Maybe Text)
+ciAvailabilityZone =
+    lens _ciAvailabilityZone (\s a -> s { _ciAvailabilityZone = a })
+
+-- | The description of the resource configuration.
+ciConfiguration :: Lens' ConfigurationItem (Maybe Text)
+ciConfiguration = lens _ciConfiguration (\s a -> s { _ciConfiguration = a })
+
+-- | The time when the configuration recording was initiated.
+ciConfigurationItemCaptureTime :: Lens' ConfigurationItem (Maybe UTCTime)
+ciConfigurationItemCaptureTime =
+    lens _ciConfigurationItemCaptureTime
+        (\s a -> s { _ciConfigurationItemCaptureTime = a })
+            . mapping _Time
+
+-- | Unique MD5 hash that represents the configuration item's state. You can
+-- use MD5 hash to compare the states of two or more configuration items
+-- that are associated with the same resource.
+ciConfigurationItemMD5Hash :: Lens' ConfigurationItem (Maybe Text)
+ciConfigurationItemMD5Hash =
+    lens _ciConfigurationItemMD5Hash
+        (\s a -> s { _ciConfigurationItemMD5Hash = a })
+
+-- | The configuration item status.
+ciConfigurationItemStatus :: Lens' ConfigurationItem (Maybe Text)
+ciConfigurationItemStatus =
+    lens _ciConfigurationItemStatus
+        (\s a -> s { _ciConfigurationItemStatus = a })
+
+-- | An identifier that indicates the ordering of the configuration items of a
+-- resource.
+ciConfigurationStateId :: Lens' ConfigurationItem (Maybe Text)
+ciConfigurationStateId =
+    lens _ciConfigurationStateId (\s a -> s { _ciConfigurationStateId = a })
+
+-- | A list of CloudTrail event IDs. A populated field indicates that the
+-- current configuration was initiated by the events recorded in the
+-- CloudTrail log. For more information about CloudTrail, see What is AWS
+-- CloudTrail?. An empty field indicates that the current configuration was
+-- not initiated by any event.
+ciRelatedEvents :: Lens' ConfigurationItem [Text]
+ciRelatedEvents = lens _ciRelatedEvents (\s a -> s { _ciRelatedEvents = a })
+
+-- | A list of related AWS resources.
+ciRelationships :: Lens' ConfigurationItem [Relationship]
+ciRelationships = lens _ciRelationships (\s a -> s { _ciRelationships = a })
+
+-- | The time stamp when the resource was created.
+ciResourceCreationTime :: Lens' ConfigurationItem (Maybe UTCTime)
+ciResourceCreationTime =
+    lens _ciResourceCreationTime (\s a -> s { _ciResourceCreationTime = a })
+        . mapping _Time
+
+-- | The ID of the resource (for example., sg-xxxxxx).
+ciResourceId :: Lens' ConfigurationItem (Maybe Text)
+ciResourceId = lens _ciResourceId (\s a -> s { _ciResourceId = a })
+
+-- | The type of AWS resource.
+ciResourceType :: Lens' ConfigurationItem (Maybe Text)
+ciResourceType = lens _ciResourceType (\s a -> s { _ciResourceType = a })
+
+-- | A mapping of key value tags associated with the resource.
+ciTags :: Lens' ConfigurationItem (HashMap Text Text)
+ciTags = lens _ciTags (\s a -> s { _ciTags = a })
+    . _Map
+
+-- | The version number of the resource configuration.
+ciVersion :: Lens' ConfigurationItem (Maybe Text)
+ciVersion = lens _ciVersion (\s a -> s { _ciVersion = a })
+
+data DeliveryStatus
+    = Failure -- ^ Failure
+    | Success -- ^ Success
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable DeliveryStatus
+
+instance FromText DeliveryStatus where
+    parser = match "Failure" Failure
+         <|> match "Success" Success
+
+instance ToText DeliveryStatus where
+    toText = \case
+        Failure -> "Failure"
+        Success -> "Success"
+
+data DeliveryChannelStatus = DeliveryChannelStatus
+    { _dcsConfigHistoryDeliveryInfo  :: Maybe ConfigExportDeliveryInfo
+    , _dcsConfigSnapshotDeliveryInfo :: Maybe ConfigExportDeliveryInfo
+    , _dcsConfigStreamDeliveryInfo   :: Maybe ConfigStreamDeliveryInfo
+    , _dcsName                       :: Maybe Text
+    } deriving (Eq, Show, Generic)
+
+-- | 'DeliveryChannelStatus' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dcsConfigHistoryDeliveryInfo' @::@ 'Maybe' 'ConfigExportDeliveryInfo'
+--
+-- * 'dcsConfigSnapshotDeliveryInfo' @::@ 'Maybe' 'ConfigExportDeliveryInfo'
+--
+-- * 'dcsConfigStreamDeliveryInfo' @::@ 'Maybe' 'ConfigStreamDeliveryInfo'
+--
+-- * 'dcsName' @::@ 'Maybe' 'Text'
+--
+deliveryChannelStatus :: DeliveryChannelStatus
+deliveryChannelStatus = DeliveryChannelStatus
+    { _dcsName                       = Nothing
+    , _dcsConfigSnapshotDeliveryInfo = Nothing
+    , _dcsConfigHistoryDeliveryInfo  = Nothing
+    , _dcsConfigStreamDeliveryInfo   = Nothing
+    }
+
+-- | A list that contains the status of the delivery of the configuration
+-- history to the specified Amazon S3 bucket.
+dcsConfigHistoryDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigExportDeliveryInfo)
+dcsConfigHistoryDeliveryInfo =
+    lens _dcsConfigHistoryDeliveryInfo
+        (\s a -> s { _dcsConfigHistoryDeliveryInfo = a })
+
+-- | A list containing the status of the delivery of the snapshot to the
+-- specified Amazon S3 bucket.
+dcsConfigSnapshotDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigExportDeliveryInfo)
+dcsConfigSnapshotDeliveryInfo =
+    lens _dcsConfigSnapshotDeliveryInfo
+        (\s a -> s { _dcsConfigSnapshotDeliveryInfo = a })
+
+-- | A list containing the status of the delivery of the configuration stream
+-- notification to the specified Amazon SNS topic.
+dcsConfigStreamDeliveryInfo :: Lens' DeliveryChannelStatus (Maybe ConfigStreamDeliveryInfo)
+dcsConfigStreamDeliveryInfo =
+    lens _dcsConfigStreamDeliveryInfo
+        (\s a -> s { _dcsConfigStreamDeliveryInfo = a })
+
+-- | The name of the delivery channel.
+dcsName :: Lens' DeliveryChannelStatus (Maybe Text)
+dcsName = lens _dcsName (\s a -> s { _dcsName = a })
+
+data ConfigurationRecorderStatus = ConfigurationRecorderStatus
+    { _crsLastErrorCode        :: Maybe Text
+    , _crsLastErrorMessage     :: Maybe Text
+    , _crsLastStartTime        :: Maybe RFC822
+    , _crsLastStatus           :: Maybe Text
+    , _crsLastStatusChangeTime :: Maybe RFC822
+    , _crsLastStopTime         :: Maybe RFC822
+    , _crsName                 :: Maybe Text
+    , _crsRecording            :: Maybe Bool
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'ConfigurationRecorderStatus' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'crsLastErrorCode' @::@ 'Maybe' 'Text'
+--
+-- * 'crsLastErrorMessage' @::@ 'Maybe' 'Text'
+--
+-- * 'crsLastStartTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'crsLastStatus' @::@ 'Maybe' 'Text'
+--
+-- * 'crsLastStatusChangeTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'crsLastStopTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'crsName' @::@ 'Maybe' 'Text'
+--
+-- * 'crsRecording' @::@ 'Maybe' 'Bool'
+--
+configurationRecorderStatus :: ConfigurationRecorderStatus
+configurationRecorderStatus = ConfigurationRecorderStatus
+    { _crsName                 = Nothing
+    , _crsLastStartTime        = Nothing
+    , _crsLastStopTime         = Nothing
+    , _crsRecording            = Nothing
+    , _crsLastStatus           = Nothing
+    , _crsLastErrorCode        = Nothing
+    , _crsLastErrorMessage     = Nothing
+    , _crsLastStatusChangeTime = Nothing
+    }
+
+-- | The error code indicating that the recording failed.
+crsLastErrorCode :: Lens' ConfigurationRecorderStatus (Maybe Text)
+crsLastErrorCode = lens _crsLastErrorCode (\s a -> s { _crsLastErrorCode = a })
+
+-- | The message indicating that the recording failed due to an error.
+crsLastErrorMessage :: Lens' ConfigurationRecorderStatus (Maybe Text)
+crsLastErrorMessage =
+    lens _crsLastErrorMessage (\s a -> s { _crsLastErrorMessage = a })
+
+-- | The time the recorder was last started.
+crsLastStartTime :: Lens' ConfigurationRecorderStatus (Maybe UTCTime)
+crsLastStartTime = lens _crsLastStartTime (\s a -> s { _crsLastStartTime = a })
+    . mapping _Time
+
+-- | The last (previous) status of the recorder.
+crsLastStatus :: Lens' ConfigurationRecorderStatus (Maybe Text)
+crsLastStatus = lens _crsLastStatus (\s a -> s { _crsLastStatus = a })
+
+-- | The time when the status was last changed.
+crsLastStatusChangeTime :: Lens' ConfigurationRecorderStatus (Maybe UTCTime)
+crsLastStatusChangeTime =
+    lens _crsLastStatusChangeTime (\s a -> s { _crsLastStatusChangeTime = a })
+        . mapping _Time
+
+-- | The time the recorder was last stopped.
+crsLastStopTime :: Lens' ConfigurationRecorderStatus (Maybe UTCTime)
+crsLastStopTime = lens _crsLastStopTime (\s a -> s { _crsLastStopTime = a })
+    . mapping _Time
+
+-- | The name of the configuration recorder.
+crsName :: Lens' ConfigurationRecorderStatus (Maybe Text)
+crsName = lens _crsName (\s a -> s { _crsName = a })
+
+-- | Specifies whether the recorder is currently recording or not.
+crsRecording :: Lens' ConfigurationRecorderStatus (Maybe Bool)
+crsRecording = lens _crsRecording (\s a -> s { _crsRecording = a })
+
+data ConfigurationItemStatus
+    = Deleted    -- ^ Deleted
+    | Discovered -- ^ Discovered
+    | Failed     -- ^ Failed
+    | Ok         -- ^ Ok
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable ConfigurationItemStatus
+
+instance FromText ConfigurationItemStatus where
+    parser = match "Deleted"    Deleted
+         <|> match "Discovered" Discovered
+         <|> match "Failed"     Failed
+         <|> match "Ok"         Ok
+
+instance ToText ConfigurationItemStatus where
+    toText = \case
+        Deleted    -> "Deleted"
+        Discovered -> "Discovered"
+        Failed     -> "Failed"
+        Ok         -> "Ok"
+
+data ConfigurationRecorder = ConfigurationRecorder
+    { _crName    :: Maybe Text
+    , _crRoleARN :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'ConfigurationRecorder' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'crName' @::@ 'Maybe' 'Text'
+--
+-- * 'crRoleARN' @::@ 'Maybe' 'Text'
+--
+configurationRecorder :: ConfigurationRecorder
+configurationRecorder = ConfigurationRecorder
+    { _crName    = Nothing
+    , _crRoleARN = Nothing
+    }
+
+-- | The name of the recorder. By default, AWS Config automatically assigns
+-- the name "default" when creating the configuration recorder. You cannot
+-- change the assigned name.
+crName :: Lens' ConfigurationRecorder (Maybe Text)
+crName = lens _crName (\s a -> s { _crName = a })
+
+-- | Amazon Resource Name (ARN) of the IAM role used to describe the AWS
+-- resources associated with the account.
+crRoleARN :: Lens' ConfigurationRecorder (Maybe Text)
+crRoleARN = lens _crRoleARN (\s a -> s { _crRoleARN = a })
+
+data RecorderStatus
+    = RSFailure -- ^ Failure
+    | RSPending -- ^ Pending
+    | RSSuccess -- ^ Success
+      deriving (Eq, Ord, Show, Generic, Enum)
+
+instance Hashable RecorderStatus
+
+instance FromText RecorderStatus where
+    parser = match "Failure" RSFailure
+         <|> match "Pending" RSPending
+         <|> match "Success" RSSuccess
+
+instance ToText RecorderStatus where
+    toText = \case
+        RSFailure -> "Failure"
+        RSPending -> "Pending"
+        RSSuccess -> "Success"

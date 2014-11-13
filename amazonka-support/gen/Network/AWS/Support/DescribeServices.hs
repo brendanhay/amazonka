@@ -1,0 +1,129 @@
+{-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE NoImplicitPrelude          #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE RecordWildCards            #-}
+{-# LANGUAGE TypeFamilies               #-}
+
+-- {-# OPTIONS_GHC -fno-warn-unused-imports #-}
+-- {-# OPTIONS_GHC -fno-warn-unused-binds  #-} doesnt work if wall is used
+{-# OPTIONS_GHC -w #-}
+
+-- Module      : Network.AWS.Support.DescribeServices
+-- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
+-- License     : This Source Code Form is subject to the terms of
+--               the Mozilla Public License, v. 2.0.
+--               A copy of the MPL can be found in the LICENSE file or
+--               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+
+-- | Returns the current list of AWS services and a list of service categories
+-- that applies to each one. You then use service names and categories in your
+-- CreateCase requests. Each AWS service has its own set of categories. The
+-- service codes and category codes correspond to the values that are
+-- displayed in the Service and Category drop-down lists on the AWS Support
+-- Center Open a new case page. The values in those fields, however, do not
+-- necessarily match the service codes and categories returned by the
+-- DescribeServices request. Always use the service codes and categories
+-- obtained programmatically. This practice ensures that you always have the
+-- most recent set of service and category codes.
+module Network.AWS.Support.DescribeServices
+    (
+    -- * Request
+      DescribeServices
+    -- ** Request constructor
+    , describeServices
+    -- ** Request lenses
+    , dsLanguage
+    , dsServiceCodeList
+
+    -- * Response
+    , DescribeServicesResponse
+    -- ** Response constructor
+    , describeServicesResponse
+    -- ** Response lenses
+    , dsrServices
+    ) where
+
+import Network.AWS.Prelude
+import Network.AWS.Request
+import Network.AWS.Support.Types
+
+data DescribeServices = DescribeServices
+    { _dsLanguage        :: Maybe Text
+    , _dsServiceCodeList :: [Text]
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'DescribeServices' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dsLanguage' @::@ 'Maybe' 'Text'
+--
+-- * 'dsServiceCodeList' @::@ ['Text']
+--
+describeServices :: DescribeServices
+describeServices = DescribeServices
+    { _dsServiceCodeList = mempty
+    , _dsLanguage        = Nothing
+    }
+
+-- | The ISO 639-1 code for the language in which AWS provides support. AWS
+-- Support currently supports English ("en") and Japanese ("ja"). Language
+-- parameters must be passed explicitly for operations that take them.
+dsLanguage :: Lens' DescribeServices (Maybe Text)
+dsLanguage = lens _dsLanguage (\s a -> s { _dsLanguage = a })
+
+-- | A JSON-formatted list of service codes available for AWS services.
+dsServiceCodeList :: Lens' DescribeServices [Text]
+dsServiceCodeList =
+    lens _dsServiceCodeList (\s a -> s { _dsServiceCodeList = a })
+
+instance ToPath DescribeServices where
+    toPath = const "/"
+
+instance ToQuery DescribeServices where
+    toQuery = const mempty
+
+instance ToHeaders DescribeServices
+
+instance ToBody DescribeServices where
+    toBody = toBody . encode . _dsServiceCodeList
+
+newtype DescribeServicesResponse = DescribeServicesResponse
+    { _dsrServices :: [Service]
+    } deriving (Eq, Show, Generic, Monoid, Semigroup)
+
+instance GHC.Exts.IsList DescribeServicesResponse where
+    type Item DescribeServicesResponse = Service
+
+    fromList = DescribeServicesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsrServices
+
+-- | 'DescribeServicesResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dsrServices' @::@ ['Service']
+--
+describeServicesResponse :: DescribeServicesResponse
+describeServicesResponse = DescribeServicesResponse
+    { _dsrServices = mempty
+    }
+
+-- | A JSON-formatted list of AWS services.
+dsrServices :: Lens' DescribeServicesResponse [Service]
+dsrServices = lens _dsrServices (\s a -> s { _dsrServices = a })
+
+-- FromJSON
+
+instance AWSRequest DescribeServices where
+    type Sv DescribeServices = Support
+    type Rs DescribeServices = DescribeServicesResponse
+
+    request  = post'
+    response = jsonResponse $ \h o -> DescribeServicesResponse
+        <$> o .: "services"

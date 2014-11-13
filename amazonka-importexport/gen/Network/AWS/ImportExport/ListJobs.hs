@@ -47,6 +47,7 @@ module Network.AWS.ImportExport.ListJobs
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
+import qualified GHC.Exts
 
 data ListJobs = ListJobs
     { _ljMarker  :: Maybe Text
@@ -102,10 +103,6 @@ ljrIsTruncated = lens _ljrIsTruncated (\s a -> s { _ljrIsTruncated = a })
 
 ljrJobs :: Lens' ListJobsResponse [Job]
 ljrJobs = lens _ljrJobs (\s a -> s { _ljrJobs = a })
-
-instance FromXML ListJobsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListJobsResponse"
 
 instance AWSRequest ListJobs where
     type Sv ListJobs = ImportExport

@@ -50,6 +50,7 @@ module Network.AWS.EC2.CopyImage
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CopyImage = CopyImage
     { _ciClientToken   :: Maybe Text
@@ -137,10 +138,6 @@ copyImageResponse = CopyImageResponse
 -- | The ID of the new AMI.
 cir1ImageId :: Lens' CopyImageResponse (Maybe Text)
 cir1ImageId = lens _cir1ImageId (\s a -> s { _cir1ImageId = a })
-
-instance FromXML CopyImageResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopyImageResponse"
 
 instance AWSRequest CopyImage where
     type Sv CopyImage = EC2

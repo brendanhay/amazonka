@@ -57,6 +57,7 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data TerminateEnvironment = TerminateEnvironment
     { _teEnvironmentId      :: Maybe Text
@@ -267,10 +268,6 @@ terTier = lens _terTier (\s a -> s { _terTier = a })
 -- | The application version deployed in this environment.
 terVersionLabel :: Lens' TerminateEnvironmentResponse (Maybe Text)
 terVersionLabel = lens _terVersionLabel (\s a -> s { _terVersionLabel = a })
-
-instance FromXML TerminateEnvironmentResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TerminateEnvironmentResponse"
 
 instance AWSRequest TerminateEnvironment where
     type Sv TerminateEnvironment = ElasticBeanstalk

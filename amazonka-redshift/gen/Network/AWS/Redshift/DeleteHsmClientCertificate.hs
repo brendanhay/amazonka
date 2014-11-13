@@ -39,6 +39,7 @@ module Network.AWS.Redshift.DeleteHsmClientCertificate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 newtype DeleteHsmClientCertificate = DeleteHsmClientCertificate
     { _dhcc1HsmClientCertificateIdentifier :: Text
@@ -73,10 +74,6 @@ data DeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
 -- | 'DeleteHsmClientCertificateResponse' constructor.
 deleteHsmClientCertificateResponse :: DeleteHsmClientCertificateResponse
 deleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
-
-instance FromXML DeleteHsmClientCertificateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteHsmClientCertificateResponse"
 
 instance AWSRequest DeleteHsmClientCertificate where
     type Sv DeleteHsmClientCertificate = Redshift

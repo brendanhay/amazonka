@@ -414,6 +414,7 @@ module Network.AWS.RDS.Types
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2014-09-01@) of the Amazon Relational Database Service.
 data RDS deriving (Typeable)

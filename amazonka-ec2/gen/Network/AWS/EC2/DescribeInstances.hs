@@ -53,6 +53,7 @@ module Network.AWS.EC2.DescribeInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeInstances = DescribeInstances
     { _di1DryRun      :: Maybe Bool
@@ -265,10 +266,6 @@ dirNextToken = lens _dirNextToken (\s a -> s { _dirNextToken = a })
 -- | One or more reservations.
 dirReservations :: Lens' DescribeInstancesResponse [Reservation]
 dirReservations = lens _dirReservations (\s a -> s { _dirReservations = a })
-
-instance FromXML DescribeInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeInstancesResponse"
 
 instance AWSRequest DescribeInstances where
     type Sv DescribeInstances = EC2

@@ -56,6 +56,7 @@ module Network.AWS.EC2.TerminateInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data TerminateInstances = TerminateInstances
     { _tiDryRun      :: Maybe Bool
@@ -92,11 +93,11 @@ newtype TerminateInstancesResponse = TerminateInstancesResponse
     { _tirTerminatingInstances :: [InstanceStateChange]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList TerminateInstancesResponse where
+instance GHC.Exts.IsList TerminateInstancesResponse where
     type Item TerminateInstancesResponse = InstanceStateChange
 
-    fromList = TerminateInstancesResponse . fromList
-    toList   = toList . _tirTerminatingInstances
+    fromList = TerminateInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _tirTerminatingInstances
 
 -- | 'TerminateInstancesResponse' constructor.
 --
@@ -113,10 +114,6 @@ terminateInstancesResponse = TerminateInstancesResponse
 tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
 tirTerminatingInstances =
     lens _tirTerminatingInstances (\s a -> s { _tirTerminatingInstances = a })
-
-instance FromXML TerminateInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TerminateInstancesResponse"
 
 instance AWSRequest TerminateInstances where
     type Sv TerminateInstances = EC2

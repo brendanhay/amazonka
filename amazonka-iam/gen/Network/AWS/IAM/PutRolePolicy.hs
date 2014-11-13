@@ -44,6 +44,7 @@ module Network.AWS.IAM.PutRolePolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data PutRolePolicy = PutRolePolicy
     { _prpPolicyDocument :: Text
@@ -95,10 +96,6 @@ data PutRolePolicyResponse = PutRolePolicyResponse
 -- | 'PutRolePolicyResponse' constructor.
 putRolePolicyResponse :: PutRolePolicyResponse
 putRolePolicyResponse = PutRolePolicyResponse
-
-instance FromXML PutRolePolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutRolePolicyResponse"
 
 instance AWSRequest PutRolePolicy where
     type Sv PutRolePolicy = IAM

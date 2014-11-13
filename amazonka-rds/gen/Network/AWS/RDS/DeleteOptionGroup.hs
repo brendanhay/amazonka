@@ -39,6 +39,7 @@ module Network.AWS.RDS.DeleteOptionGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 newtype DeleteOptionGroup = DeleteOptionGroup
     { _dog1OptionGroupName :: Text
@@ -72,10 +73,6 @@ data DeleteOptionGroupResponse = DeleteOptionGroupResponse
 -- | 'DeleteOptionGroupResponse' constructor.
 deleteOptionGroupResponse :: DeleteOptionGroupResponse
 deleteOptionGroupResponse = DeleteOptionGroupResponse
-
-instance FromXML DeleteOptionGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteOptionGroupResponse"
 
 instance AWSRequest DeleteOptionGroup where
     type Sv DeleteOptionGroup = RDS

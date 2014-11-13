@@ -43,6 +43,7 @@ module Network.AWS.SQS.SetQueueAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
+import qualified GHC.Exts
 
 data SetQueueAttributes = SetQueueAttributes
     { _sqaAttributes :: Map Text Text
@@ -107,10 +108,6 @@ data SetQueueAttributesResponse = SetQueueAttributesResponse
 -- | 'SetQueueAttributesResponse' constructor.
 setQueueAttributesResponse :: SetQueueAttributesResponse
 setQueueAttributesResponse = SetQueueAttributesResponse
-
-instance FromXML SetQueueAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetQueueAttributesResponse"
 
 instance AWSRequest SetQueueAttributes where
     type Sv SetQueueAttributes = SQS

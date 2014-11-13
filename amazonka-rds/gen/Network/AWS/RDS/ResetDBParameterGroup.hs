@@ -49,6 +49,7 @@ module Network.AWS.RDS.ResetDBParameterGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data ResetDBParameterGroup = ResetDBParameterGroup
     { _rdbpgDBParameterGroupName :: Text
@@ -124,10 +125,6 @@ rdbpgrDBParameterGroupName :: Lens' ResetDBParameterGroupResponse (Maybe Text)
 rdbpgrDBParameterGroupName =
     lens _rdbpgrDBParameterGroupName
         (\s a -> s { _rdbpgrDBParameterGroupName = a })
-
-instance FromXML ResetDBParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResetDBParameterGroupResponse"
 
 instance AWSRequest ResetDBParameterGroup where
     type Sv ResetDBParameterGroup = RDS

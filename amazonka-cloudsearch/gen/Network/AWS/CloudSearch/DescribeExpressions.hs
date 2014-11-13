@@ -48,6 +48,7 @@ module Network.AWS.CloudSearch.DescribeExpressions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data DescribeExpressions = DescribeExpressions
     { _deDeployed        :: Maybe Bool
@@ -97,11 +98,11 @@ newtype DescribeExpressionsResponse = DescribeExpressionsResponse
     { _derExpressions :: [ExpressionStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeExpressionsResponse where
+instance GHC.Exts.IsList DescribeExpressionsResponse where
     type Item DescribeExpressionsResponse = ExpressionStatus
 
-    fromList = DescribeExpressionsResponse . fromList
-    toList   = toList . _derExpressions
+    fromList = DescribeExpressionsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _derExpressions
 
 -- | 'DescribeExpressionsResponse' constructor.
 --
@@ -117,10 +118,6 @@ describeExpressionsResponse = DescribeExpressionsResponse
 -- | The expressions configured for the domain.
 derExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
 derExpressions = lens _derExpressions (\s a -> s { _derExpressions = a })
-
-instance FromXML DescribeExpressionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeExpressionsResponse"
 
 instance AWSRequest DescribeExpressions where
     type Sv DescribeExpressions = CloudSearch

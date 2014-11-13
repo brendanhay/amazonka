@@ -41,6 +41,7 @@ module Network.AWS.EC2.DeleteRoute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteRoute = DeleteRoute
     { _drDestinationCidrBlock :: Text
@@ -91,10 +92,6 @@ data DeleteRouteResponse = DeleteRouteResponse
 -- | 'DeleteRouteResponse' constructor.
 deleteRouteResponse :: DeleteRouteResponse
 deleteRouteResponse = DeleteRouteResponse
-
-instance FromXML DeleteRouteResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteRouteResponse"
 
 instance AWSRequest DeleteRoute where
     type Sv DeleteRoute = EC2

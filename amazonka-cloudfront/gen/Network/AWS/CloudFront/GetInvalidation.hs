@@ -42,6 +42,7 @@ module Network.AWS.CloudFront.GetInvalidation
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 data GetInvalidation2014_05_31 = GetInvalidation2014_05_31
     { _giDistributionId :: Text

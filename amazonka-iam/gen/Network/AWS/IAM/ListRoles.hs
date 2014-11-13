@@ -50,6 +50,7 @@ module Network.AWS.IAM.ListRoles
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListRoles = ListRoles
     { _lrMarker     :: Maybe Text
@@ -137,10 +138,6 @@ lrrMarker = lens _lrrMarker (\s a -> s { _lrrMarker = a })
 -- | A list of roles.
 lrrRoles :: Lens' ListRolesResponse [Role]
 lrrRoles = lens _lrrRoles (\s a -> s { _lrrRoles = a })
-
-instance FromXML ListRolesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListRolesResponse"
 
 instance AWSRequest ListRoles where
     type Sv ListRoles = IAM

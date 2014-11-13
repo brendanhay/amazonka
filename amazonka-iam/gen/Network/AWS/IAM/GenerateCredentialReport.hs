@@ -42,6 +42,7 @@ module Network.AWS.IAM.GenerateCredentialReport
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data GenerateCredentialReport = GenerateCredentialReport
     deriving (Eq, Ord, Show, Generic)
@@ -81,10 +82,6 @@ gcrrDescription = lens _gcrrDescription (\s a -> s { _gcrrDescription = a })
 -- | Information about the state of a credential report.
 gcrrState :: Lens' GenerateCredentialReportResponse (Maybe Text)
 gcrrState = lens _gcrrState (\s a -> s { _gcrrState = a })
-
-instance FromXML GenerateCredentialReportResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GenerateCredentialReportResponse"
 
 instance AWSRequest GenerateCredentialReport where
     type Sv GenerateCredentialReport = IAM

@@ -54,6 +54,7 @@ module Network.AWS.ELB.CreateLBCookieStickinessPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
     { _clbcspCookieExpirationPeriod :: Maybe Integer
@@ -109,10 +110,6 @@ data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResp
 -- | 'CreateLBCookieStickinessPolicyResponse' constructor.
 createLBCookieStickinessPolicyResponse :: CreateLBCookieStickinessPolicyResponse
 createLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
-
-instance FromXML CreateLBCookieStickinessPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateLBCookieStickinessPolicyResponse"
 
 instance AWSRequest CreateLBCookieStickinessPolicy where
     type Sv CreateLBCookieStickinessPolicy = ELB

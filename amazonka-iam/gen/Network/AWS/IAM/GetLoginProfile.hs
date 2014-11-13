@@ -43,6 +43,7 @@ module Network.AWS.IAM.GetLoginProfile
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype GetLoginProfile = GetLoginProfile
     { _glpUserName :: Text
@@ -88,10 +89,6 @@ getLoginProfileResponse p1 = GetLoginProfileResponse
 -- | The user name and password create date for the user.
 glprLoginProfile :: Lens' GetLoginProfileResponse LoginProfile
 glprLoginProfile = lens _glprLoginProfile (\s a -> s { _glprLoginProfile = a })
-
-instance FromXML GetLoginProfileResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetLoginProfileResponse"
 
 instance AWSRequest GetLoginProfile where
     type Sv GetLoginProfile = IAM

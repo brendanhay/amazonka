@@ -49,6 +49,7 @@ module Network.AWS.IAM.ListMFADevices
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListMFADevices = ListMFADevices
     { _lmfadMarker   :: Maybe Text
@@ -134,10 +135,6 @@ lmfadrMFADevices = lens _lmfadrMFADevices (\s a -> s { _lmfadrMFADevices = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lmfadrMarker :: Lens' ListMFADevicesResponse (Maybe Text)
 lmfadrMarker = lens _lmfadrMarker (\s a -> s { _lmfadrMarker = a })
-
-instance FromXML ListMFADevicesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListMFADevicesResponse"
 
 instance AWSRequest ListMFADevices where
     type Sv ListMFADevices = IAM

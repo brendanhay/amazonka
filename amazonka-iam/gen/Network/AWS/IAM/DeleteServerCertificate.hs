@@ -47,6 +47,7 @@ module Network.AWS.IAM.DeleteServerCertificate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype DeleteServerCertificate = DeleteServerCertificate
     { _dscServerCertificateName :: Text
@@ -81,10 +82,6 @@ data DeleteServerCertificateResponse = DeleteServerCertificateResponse
 -- | 'DeleteServerCertificateResponse' constructor.
 deleteServerCertificateResponse :: DeleteServerCertificateResponse
 deleteServerCertificateResponse = DeleteServerCertificateResponse
-
-instance FromXML DeleteServerCertificateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteServerCertificateResponse"
 
 instance AWSRequest DeleteServerCertificate where
     type Sv DeleteServerCertificate = IAM

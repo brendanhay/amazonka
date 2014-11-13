@@ -42,6 +42,7 @@ module Network.AWS.CloudSearch.CreateDomain
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 newtype CreateDomain = CreateDomain
     { _cdDomainName :: Text
@@ -87,10 +88,6 @@ createDomainResponse = CreateDomainResponse
 
 cdrDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
 cdrDomainStatus = lens _cdrDomainStatus (\s a -> s { _cdrDomainStatus = a })
-
-instance FromXML CreateDomainResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDomainResponse"
 
 instance AWSRequest CreateDomain where
     type Sv CreateDomain = CloudSearch

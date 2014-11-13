@@ -45,6 +45,7 @@ module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data RequestEnvironmentInfo = RequestEnvironmentInfo
     { _reiEnvironmentId   :: Maybe Text
@@ -102,10 +103,6 @@ data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
 -- | 'RequestEnvironmentInfoResponse' constructor.
 requestEnvironmentInfoResponse :: RequestEnvironmentInfoResponse
 requestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
-
-instance FromXML RequestEnvironmentInfoResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RequestEnvironmentInfoResponse"
 
 instance AWSRequest RequestEnvironmentInfo where
     type Sv RequestEnvironmentInfo = ElasticBeanstalk

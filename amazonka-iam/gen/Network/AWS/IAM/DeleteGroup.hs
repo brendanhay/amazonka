@@ -40,6 +40,7 @@ module Network.AWS.IAM.DeleteGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype DeleteGroup = DeleteGroup
     { _dgGroupName :: Text
@@ -72,10 +73,6 @@ data DeleteGroupResponse = DeleteGroupResponse
 -- | 'DeleteGroupResponse' constructor.
 deleteGroupResponse :: DeleteGroupResponse
 deleteGroupResponse = DeleteGroupResponse
-
-instance FromXML DeleteGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteGroupResponse"
 
 instance AWSRequest DeleteGroup where
     type Sv DeleteGroup = IAM

@@ -72,6 +72,7 @@ module Network.AWS.SimpleDB.Types
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V2
+import qualified GHC.Exts
 
 -- | Supported version (@2009-04-15@) of the Amazon SimpleDB.
 data SimpleDB deriving (Typeable)

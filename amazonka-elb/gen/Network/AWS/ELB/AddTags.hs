@@ -45,6 +45,7 @@ module Network.AWS.ELB.AddTags
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data AddTags = AddTags
     { _atLoadBalancerNames :: [Text]
@@ -88,10 +89,6 @@ data AddTagsResponse = AddTagsResponse
 -- | 'AddTagsResponse' constructor.
 addTagsResponse :: AddTagsResponse
 addTagsResponse = AddTagsResponse
-
-instance FromXML AddTagsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AddTagsResponse"
 
 instance AWSRequest AddTags where
     type Sv AddTags = ELB

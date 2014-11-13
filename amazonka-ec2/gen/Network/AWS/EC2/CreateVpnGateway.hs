@@ -47,6 +47,7 @@ module Network.AWS.EC2.CreateVpnGateway
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateVpnGateway = CreateVpnGateway
     { _cvgAvailabilityZone :: Maybe Text
@@ -107,10 +108,6 @@ createVpnGatewayResponse = CreateVpnGatewayResponse
 -- | Information about the virtual private gateway.
 cvgrVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)
 cvgrVpnGateway = lens _cvgrVpnGateway (\s a -> s { _cvgrVpnGateway = a })
-
-instance FromXML CreateVpnGatewayResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVpnGatewayResponse"
 
 instance AWSRequest CreateVpnGateway where
     type Sv CreateVpnGateway = EC2

@@ -61,6 +61,7 @@ module Network.AWS.RDS.CreateDBParameterGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data CreateDBParameterGroup = CreateDBParameterGroup
     { _cdbpg1DBParameterGroupFamily :: Text
@@ -140,10 +141,6 @@ createDBParameterGroupResponse = CreateDBParameterGroupResponse
 cdbpgrDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
 cdbpgrDBParameterGroup =
     lens _cdbpgrDBParameterGroup (\s a -> s { _cdbpgrDBParameterGroup = a })
-
-instance FromXML CreateDBParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDBParameterGroupResponse"
 
 instance AWSRequest CreateDBParameterGroup where
     type Sv CreateDBParameterGroup = RDS

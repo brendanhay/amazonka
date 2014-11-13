@@ -49,6 +49,7 @@ module Network.AWS.CloudWatch.DescribeAlarmHistory
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
+import qualified GHC.Exts
 
 data DescribeAlarmHistory = DescribeAlarmHistory
     { _dahAlarmName       :: Maybe Text
@@ -145,10 +146,6 @@ dahrAlarmHistoryItems =
 -- | A string that marks the start of the next batch of returned results.
 dahrNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
 dahrNextToken = lens _dahrNextToken (\s a -> s { _dahrNextToken = a })
-
-instance FromXML DescribeAlarmHistoryResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAlarmHistoryResponse"
 
 instance AWSRequest DescribeAlarmHistory where
     type Sv DescribeAlarmHistory = CloudWatch

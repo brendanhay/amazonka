@@ -49,6 +49,7 @@ module Network.AWS.SimpleDB.DomainMetadata
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
+import qualified GHC.Exts
 
 newtype DomainMetadata = DomainMetadata
     { _dmDomainName :: Text
@@ -148,10 +149,6 @@ dmrItemNamesSizeBytes =
 -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
 dmrTimestamp :: Lens' DomainMetadataResponse (Maybe Int)
 dmrTimestamp = lens _dmrTimestamp (\s a -> s { _dmrTimestamp = a })
-
-instance FromXML DomainMetadataResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DomainMetadataResponse"
 
 instance AWSRequest DomainMetadata where
     type Sv DomainMetadata = SimpleDB

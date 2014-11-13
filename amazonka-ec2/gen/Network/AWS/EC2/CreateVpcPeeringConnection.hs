@@ -52,6 +52,7 @@ module Network.AWS.EC2.CreateVpcPeeringConnection
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateVpcPeeringConnection = CreateVpcPeeringConnection
     { _cvpcDryRun      :: Maybe Bool
@@ -121,10 +122,6 @@ cvpcrVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResponse (Maybe Vpc
 cvpcrVpcPeeringConnection =
     lens _cvpcrVpcPeeringConnection
         (\s a -> s { _cvpcrVpcPeeringConnection = a })
-
-instance FromXML CreateVpcPeeringConnectionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVpcPeeringConnectionResponse"
 
 instance AWSRequest CreateVpcPeeringConnection where
     type Sv CreateVpcPeeringConnection = EC2

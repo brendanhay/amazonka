@@ -49,6 +49,7 @@ module Network.AWS.AutoScaling.PutScalingPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data PutScalingPolicy = PutScalingPolicy
     { _pspAdjustmentType       :: Text
@@ -154,10 +155,6 @@ putScalingPolicyResponse = PutScalingPolicyResponse
 -- | A policy's Amazon Resource Name (ARN).
 psprPolicyARN :: Lens' PutScalingPolicyResponse (Maybe Text)
 psprPolicyARN = lens _psprPolicyARN (\s a -> s { _psprPolicyARN = a })
-
-instance FromXML PutScalingPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutScalingPolicyResponse"
 
 instance AWSRequest PutScalingPolicy where
     type Sv PutScalingPolicy = AutoScaling

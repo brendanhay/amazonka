@@ -45,6 +45,7 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute
     { _mniaAttachment         :: Maybe NetworkInterfaceAttachmentChanges
@@ -127,10 +128,6 @@ data ModifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeRe
 -- | 'ModifyNetworkInterfaceAttributeResponse' constructor.
 modifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse
 modifyNetworkInterfaceAttributeResponse = ModifyNetworkInterfaceAttributeResponse
-
-instance FromXML ModifyNetworkInterfaceAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyNetworkInterfaceAttributeResponse"
 
 instance AWSRequest ModifyNetworkInterfaceAttribute where
     type Sv ModifyNetworkInterfaceAttribute = EC2

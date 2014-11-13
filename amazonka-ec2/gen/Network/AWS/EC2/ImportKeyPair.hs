@@ -50,6 +50,7 @@ module Network.AWS.EC2.ImportKeyPair
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ImportKeyPair = ImportKeyPair
     { _ikpDryRun            :: Maybe Bool
@@ -121,10 +122,6 @@ ikprKeyFingerprint =
 -- | The key pair name you provided.
 ikprKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
 ikprKeyName = lens _ikprKeyName (\s a -> s { _ikprKeyName = a })
-
-instance FromXML ImportKeyPairResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ImportKeyPairResponse"
 
 instance AWSRequest ImportKeyPair where
     type Sv ImportKeyPair = EC2

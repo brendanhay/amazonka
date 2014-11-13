@@ -43,6 +43,7 @@ module Network.AWS.EC2.DisassociateRouteTable
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DisassociateRouteTable = DisassociateRouteTable
     { _drtAssociationId :: Text
@@ -83,10 +84,6 @@ data DisassociateRouteTableResponse = DisassociateRouteTableResponse
 -- | 'DisassociateRouteTableResponse' constructor.
 disassociateRouteTableResponse :: DisassociateRouteTableResponse
 disassociateRouteTableResponse = DisassociateRouteTableResponse
-
-instance FromXML DisassociateRouteTableResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DisassociateRouteTableResponse"
 
 instance AWSRequest DisassociateRouteTable where
     type Sv DisassociateRouteTable = EC2

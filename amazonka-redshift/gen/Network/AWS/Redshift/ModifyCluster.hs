@@ -64,6 +64,7 @@ module Network.AWS.Redshift.ModifyCluster
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data ModifyCluster = ModifyCluster
     { _mcAllowVersionUpgrade              :: Maybe Bool
@@ -305,10 +306,6 @@ modifyClusterResponse = ModifyClusterResponse
 
 mcrCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
 mcrCluster = lens _mcrCluster (\s a -> s { _mcrCluster = a })
-
-instance FromXML ModifyClusterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyClusterResponse"
 
 instance AWSRequest ModifyCluster where
     type Sv ModifyCluster = Redshift

@@ -46,6 +46,7 @@ module Network.AWS.RDS.DescribeDBInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeDBInstances = DescribeDBInstances
     { _ddbi1DBInstanceIdentifier :: Maybe Text
@@ -134,10 +135,6 @@ ddbirDBInstances = lens _ddbirDBInstances (\s a -> s { _ddbirDBInstances = a })
 -- marker, up to the value specified by MaxRecords .
 ddbirMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
 ddbirMarker = lens _ddbirMarker (\s a -> s { _ddbirMarker = a })
-
-instance FromXML DescribeDBInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBInstancesResponse"
 
 instance AWSRequest DescribeDBInstances where
     type Sv DescribeDBInstances = RDS

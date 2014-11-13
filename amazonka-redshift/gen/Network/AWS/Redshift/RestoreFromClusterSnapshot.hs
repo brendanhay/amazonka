@@ -66,6 +66,7 @@ module Network.AWS.Redshift.RestoreFromClusterSnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot
     { _rfcsAllowVersionUpgrade              :: Maybe Bool
@@ -297,10 +298,6 @@ restoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse
 
 rfcsrCluster :: Lens' RestoreFromClusterSnapshotResponse (Maybe Cluster)
 rfcsrCluster = lens _rfcsrCluster (\s a -> s { _rfcsrCluster = a })
-
-instance FromXML RestoreFromClusterSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RestoreFromClusterSnapshotResponse"
 
 instance AWSRequest RestoreFromClusterSnapshot where
     type Sv RestoreFromClusterSnapshot = Redshift

@@ -53,6 +53,7 @@ module Network.AWS.ImportExport.CreateJob
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
+import qualified GHC.Exts
 
 data CreateJob = CreateJob
     { _cjJobType          :: Text
@@ -158,10 +159,6 @@ cjrSignatureFileContents =
 cjrWarningMessage :: Lens' CreateJobResponse (Maybe Text)
 cjrWarningMessage =
     lens _cjrWarningMessage (\s a -> s { _cjrWarningMessage = a })
-
-instance FromXML CreateJobResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateJobResponse"
 
 instance AWSRequest CreateJob where
     type Sv CreateJob = ImportExport

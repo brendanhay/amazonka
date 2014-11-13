@@ -49,6 +49,7 @@ module Network.AWS.CloudSearch.DescribeSuggesters
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data DescribeSuggesters = DescribeSuggesters
     { _ds1Deployed       :: Maybe Bool
@@ -97,11 +98,11 @@ newtype DescribeSuggestersResponse = DescribeSuggestersResponse
     { _dsrSuggesters :: [SuggesterStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeSuggestersResponse where
+instance GHC.Exts.IsList DescribeSuggestersResponse where
     type Item DescribeSuggestersResponse = SuggesterStatus
 
-    fromList = DescribeSuggestersResponse . fromList
-    toList   = toList . _dsrSuggesters
+    fromList = DescribeSuggestersResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsrSuggesters
 
 -- | 'DescribeSuggestersResponse' constructor.
 --
@@ -117,10 +118,6 @@ describeSuggestersResponse = DescribeSuggestersResponse
 -- | The suggesters configured for the domain specified in the request.
 dsrSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
 dsrSuggesters = lens _dsrSuggesters (\s a -> s { _dsrSuggesters = a })
-
-instance FromXML DescribeSuggestersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSuggestersResponse"
 
 instance AWSRequest DescribeSuggesters where
     type Sv DescribeSuggesters = CloudSearch

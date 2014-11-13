@@ -45,6 +45,7 @@ module Network.AWS.CloudSearch.DefineExpression
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data DefineExpression = DefineExpression
     { _de1DomainName :: Text
@@ -96,10 +97,6 @@ defineExpressionResponse p1 = DefineExpressionResponse
 
 derExpression :: Lens' DefineExpressionResponse ExpressionStatus
 derExpression = lens _derExpression (\s a -> s { _derExpression = a })
-
-instance FromXML DefineExpressionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DefineExpressionResponse"
 
 instance AWSRequest DefineExpression where
     type Sv DefineExpression = CloudSearch

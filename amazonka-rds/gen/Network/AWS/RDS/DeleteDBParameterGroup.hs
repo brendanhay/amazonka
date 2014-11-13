@@ -40,6 +40,7 @@ module Network.AWS.RDS.DeleteDBParameterGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 newtype DeleteDBParameterGroup = DeleteDBParameterGroup
     { _ddbpg1DBParameterGroupName :: Text
@@ -76,10 +77,6 @@ data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
 -- | 'DeleteDBParameterGroupResponse' constructor.
 deleteDBParameterGroupResponse :: DeleteDBParameterGroupResponse
 deleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
-
-instance FromXML DeleteDBParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteDBParameterGroupResponse"
 
 instance AWSRequest DeleteDBParameterGroup where
     type Sv DeleteDBParameterGroup = RDS

@@ -41,6 +41,7 @@ module Network.AWS.ElastiCache.DeleteCacheParameterGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup
     { _dcpg1CacheParameterGroupName :: Text
@@ -75,10 +76,6 @@ data DeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
 -- | 'DeleteCacheParameterGroupResponse' constructor.
 deleteCacheParameterGroupResponse :: DeleteCacheParameterGroupResponse
 deleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
-
-instance FromXML DeleteCacheParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteCacheParameterGroupResponse"
 
 instance AWSRequest DeleteCacheParameterGroup where
     type Sv DeleteCacheParameterGroup = ElastiCache

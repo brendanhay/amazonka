@@ -49,6 +49,7 @@ module Network.AWS.SimpleDB.DeleteAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
+import qualified GHC.Exts
 
 data DeleteAttributes = DeleteAttributes
     { _daAttributes :: [Attribute]
@@ -111,10 +112,6 @@ data DeleteAttributesResponse = DeleteAttributesResponse
 -- | 'DeleteAttributesResponse' constructor.
 deleteAttributesResponse :: DeleteAttributesResponse
 deleteAttributesResponse = DeleteAttributesResponse
-
-instance FromXML DeleteAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteAttributesResponse"
 
 instance AWSRequest DeleteAttributes where
     type Sv DeleteAttributes = SimpleDB

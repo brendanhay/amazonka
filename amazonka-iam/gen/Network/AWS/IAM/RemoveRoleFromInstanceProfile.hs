@@ -46,6 +46,7 @@ module Network.AWS.IAM.RemoveRoleFromInstanceProfile
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile
     { _rrfipInstanceProfileName :: Text
@@ -89,10 +90,6 @@ data RemoveRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileRespon
 -- | 'RemoveRoleFromInstanceProfileResponse' constructor.
 removeRoleFromInstanceProfileResponse :: RemoveRoleFromInstanceProfileResponse
 removeRoleFromInstanceProfileResponse = RemoveRoleFromInstanceProfileResponse
-
-instance FromXML RemoveRoleFromInstanceProfileResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RemoveRoleFromInstanceProfileResponse"
 
 instance AWSRequest RemoveRoleFromInstanceProfile where
     type Sv RemoveRoleFromInstanceProfile = IAM

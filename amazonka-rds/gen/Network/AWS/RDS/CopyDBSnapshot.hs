@@ -44,6 +44,7 @@ module Network.AWS.RDS.CopyDBSnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data CopyDBSnapshot = CopyDBSnapshot
     { _cdbsSourceDBSnapshotIdentifier :: Text
@@ -117,10 +118,6 @@ copyDBSnapshotResponse = CopyDBSnapshotResponse
 
 cdbsrDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
 cdbsrDBSnapshot = lens _cdbsrDBSnapshot (\s a -> s { _cdbsrDBSnapshot = a })
-
-instance FromXML CopyDBSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopyDBSnapshotResponse"
 
 instance AWSRequest CopyDBSnapshot where
     type Sv CopyDBSnapshot = RDS

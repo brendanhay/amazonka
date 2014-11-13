@@ -46,6 +46,7 @@ module Network.AWS.EC2.RejectVpcPeeringConnection
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data RejectVpcPeeringConnection = RejectVpcPeeringConnection
     { _rvpcDryRun                 :: Maybe Bool
@@ -99,10 +100,6 @@ rejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
 -- | Returns true if the request succeeds; otherwise, it returns an error.
 rvpcrReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)
 rvpcrReturn = lens _rvpcrReturn (\s a -> s { _rvpcrReturn = a })
-
-instance FromXML RejectVpcPeeringConnectionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RejectVpcPeeringConnectionResponse"
 
 instance AWSRequest RejectVpcPeeringConnection where
     type Sv RejectVpcPeeringConnection = EC2

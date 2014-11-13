@@ -53,16 +53,17 @@ module Network.AWS.SES.GetIdentityDkimAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes
     { _gidaIdentities :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetIdentityDkimAttributes where
+instance GHC.Exts.IsList GetIdentityDkimAttributes where
     type Item GetIdentityDkimAttributes = Text
 
-    fromList = GetIdentityDkimAttributes . fromList
-    toList   = toList . _gidaIdentities
+    fromList = GetIdentityDkimAttributes . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _gidaIdentities
 
 -- | 'GetIdentityDkimAttributes' constructor.
 --
@@ -105,10 +106,6 @@ gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text Ide
 gidarDkimAttributes =
     lens _gidarDkimAttributes (\s a -> s { _gidarDkimAttributes = a })
         . _Map
-
-instance FromXML GetIdentityDkimAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetIdentityDkimAttributesResponse"
 
 instance AWSRequest GetIdentityDkimAttributes where
     type Sv GetIdentityDkimAttributes = SES

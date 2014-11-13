@@ -46,6 +46,7 @@ module Network.AWS.EC2.DescribeReservedInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeReservedInstances = DescribeReservedInstances
     { _driDryRun               :: Maybe Bool
@@ -124,11 +125,11 @@ newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
     { _drirReservedInstances :: [ReservedInstances]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeReservedInstancesResponse where
+instance GHC.Exts.IsList DescribeReservedInstancesResponse where
     type Item DescribeReservedInstancesResponse = ReservedInstances
 
-    fromList = DescribeReservedInstancesResponse . fromList
-    toList   = toList . _drirReservedInstances
+    fromList = DescribeReservedInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _drirReservedInstances
 
 -- | 'DescribeReservedInstancesResponse' constructor.
 --
@@ -145,10 +146,6 @@ describeReservedInstancesResponse = DescribeReservedInstancesResponse
 drirReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
 drirReservedInstances =
     lens _drirReservedInstances (\s a -> s { _drirReservedInstances = a })
-
-instance FromXML DescribeReservedInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReservedInstancesResponse"
 
 instance AWSRequest DescribeReservedInstances where
     type Sv DescribeReservedInstances = EC2

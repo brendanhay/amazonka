@@ -44,6 +44,7 @@ module Network.AWS.IAM.DeleteInstanceProfile
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype DeleteInstanceProfile = DeleteInstanceProfile
     { _dipInstanceProfileName :: Text
@@ -77,10 +78,6 @@ data DeleteInstanceProfileResponse = DeleteInstanceProfileResponse
 -- | 'DeleteInstanceProfileResponse' constructor.
 deleteInstanceProfileResponse :: DeleteInstanceProfileResponse
 deleteInstanceProfileResponse = DeleteInstanceProfileResponse
-
-instance FromXML DeleteInstanceProfileResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteInstanceProfileResponse"
 
 instance AWSRequest DeleteInstanceProfile where
     type Sv DeleteInstanceProfile = IAM

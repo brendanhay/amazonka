@@ -43,6 +43,7 @@ module Network.AWS.CloudFront.CreateInvalidation
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 data CreateInvalidation2014_05_31 = CreateInvalidation2014_05_31
     { _ciDistributionId    :: Text

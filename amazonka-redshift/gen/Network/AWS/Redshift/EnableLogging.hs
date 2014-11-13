@@ -49,6 +49,7 @@ module Network.AWS.Redshift.EnableLogging
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data EnableLogging = EnableLogging
     { _elBucketName        :: Text
@@ -164,10 +165,6 @@ elrLoggingEnabled =
 -- | The prefix applied to the log file names.
 elrS3KeyPrefix :: Lens' EnableLoggingResponse (Maybe Text)
 elrS3KeyPrefix = lens _elrS3KeyPrefix (\s a -> s { _elrS3KeyPrefix = a })
-
-instance FromXML EnableLoggingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnableLoggingResponse"
 
 instance AWSRequest EnableLogging where
     type Sv EnableLogging = Redshift

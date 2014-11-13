@@ -42,6 +42,7 @@ module Network.AWS.AutoScaling.DisableMetricsCollection
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DisableMetricsCollection = DisableMetricsCollection
     { _dmcAutoScalingGroupName :: Text
@@ -87,10 +88,6 @@ data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
 -- | 'DisableMetricsCollectionResponse' constructor.
 disableMetricsCollectionResponse :: DisableMetricsCollectionResponse
 disableMetricsCollectionResponse = DisableMetricsCollectionResponse
-
-instance FromXML DisableMetricsCollectionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DisableMetricsCollectionResponse"
 
 instance AWSRequest DisableMetricsCollection where
     type Sv DisableMetricsCollection = AutoScaling

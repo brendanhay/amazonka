@@ -45,6 +45,7 @@ module Network.AWS.EC2.DescribeVpnGateways
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeVpnGateways = DescribeVpnGateways
     { _dvg2DryRun        :: Maybe Bool
@@ -107,11 +108,11 @@ newtype DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
     { _dvgrVpnGateways :: [VpnGateway]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeVpnGatewaysResponse where
+instance GHC.Exts.IsList DescribeVpnGatewaysResponse where
     type Item DescribeVpnGatewaysResponse = VpnGateway
 
-    fromList = DescribeVpnGatewaysResponse . fromList
-    toList   = toList . _dvgrVpnGateways
+    fromList = DescribeVpnGatewaysResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dvgrVpnGateways
 
 -- | 'DescribeVpnGatewaysResponse' constructor.
 --
@@ -127,10 +128,6 @@ describeVpnGatewaysResponse = DescribeVpnGatewaysResponse
 -- | Information about one or more virtual private gateways.
 dvgrVpnGateways :: Lens' DescribeVpnGatewaysResponse [VpnGateway]
 dvgrVpnGateways = lens _dvgrVpnGateways (\s a -> s { _dvgrVpnGateways = a })
-
-instance FromXML DescribeVpnGatewaysResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVpnGatewaysResponse"
 
 instance AWSRequest DescribeVpnGateways where
     type Sv DescribeVpnGateways = EC2

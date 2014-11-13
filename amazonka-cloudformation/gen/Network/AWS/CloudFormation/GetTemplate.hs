@@ -44,6 +44,7 @@ module Network.AWS.CloudFormation.GetTemplate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 newtype GetTemplate = GetTemplate
     { _gtStackName :: Text
@@ -92,10 +93,6 @@ getTemplateResponse = GetTemplateResponse
 -- Template Anatomy in the AWS CloudFormation User Guide.).
 gtrTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
 gtrTemplateBody = lens _gtrTemplateBody (\s a -> s { _gtrTemplateBody = a })
-
-instance FromXML GetTemplateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetTemplateResponse"
 
 instance AWSRequest GetTemplate where
     type Sv GetTemplate = CloudFormation

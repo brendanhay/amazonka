@@ -54,6 +54,7 @@ module Network.AWS.CloudFormation.CreateStack
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 data CreateStack = CreateStack
     { _csCapabilities     :: [Text]
@@ -230,10 +231,6 @@ createStackResponse = CreateStackResponse
 -- | Unique identifier of the stack.
 csrStackId :: Lens' CreateStackResponse (Maybe Text)
 csrStackId = lens _csrStackId (\s a -> s { _csrStackId = a })
-
-instance FromXML CreateStackResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateStackResponse"
 
 instance AWSRequest CreateStack where
     type Sv CreateStack = CloudFormation

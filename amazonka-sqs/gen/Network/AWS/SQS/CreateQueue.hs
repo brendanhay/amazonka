@@ -52,6 +52,7 @@ module Network.AWS.SQS.CreateQueue
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
+import qualified GHC.Exts
 
 data CreateQueue = CreateQueue
     { _cqAttributes :: Map Text Text
@@ -125,10 +126,6 @@ createQueueResponse = CreateQueueResponse
 -- | The URL for the created Amazon SQS queue.
 cqrQueueUrl :: Lens' CreateQueueResponse (Maybe Text)
 cqrQueueUrl = lens _cqrQueueUrl (\s a -> s { _cqrQueueUrl = a })
-
-instance FromXML CreateQueueResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateQueueResponse"
 
 instance AWSRequest CreateQueue where
     type Sv CreateQueue = SQS

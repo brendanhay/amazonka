@@ -164,6 +164,7 @@ module Network.AWS.CloudFormation.Types
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2010-05-15@) of the Amazon CloudFormation.
 data CloudFormation deriving (Typeable)

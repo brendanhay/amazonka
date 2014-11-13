@@ -51,6 +51,7 @@ module Network.AWS.S3.CompleteMultipartUpload
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data CompleteMultipartUpload = CompleteMultipartUpload
     { _cmu1Bucket          :: Text

@@ -37,6 +37,7 @@ module Network.AWS.IAM.DeleteAccountPasswordPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data DeleteAccountPasswordPolicy = DeleteAccountPasswordPolicy
     deriving (Eq, Ord, Show, Generic)
@@ -56,10 +57,6 @@ data DeleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
 -- | 'DeleteAccountPasswordPolicyResponse' constructor.
 deleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse
 deleteAccountPasswordPolicyResponse = DeleteAccountPasswordPolicyResponse
-
-instance FromXML DeleteAccountPasswordPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteAccountPasswordPolicyResponse"
 
 instance AWSRequest DeleteAccountPasswordPolicy where
     type Sv DeleteAccountPasswordPolicy = IAM

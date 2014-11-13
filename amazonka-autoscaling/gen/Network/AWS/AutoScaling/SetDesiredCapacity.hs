@@ -41,6 +41,7 @@ module Network.AWS.AutoScaling.SetDesiredCapacity
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data SetDesiredCapacity = SetDesiredCapacity
     { _sdcAutoScalingGroupName :: Text
@@ -96,10 +97,6 @@ data SetDesiredCapacityResponse = SetDesiredCapacityResponse
 -- | 'SetDesiredCapacityResponse' constructor.
 setDesiredCapacityResponse :: SetDesiredCapacityResponse
 setDesiredCapacityResponse = SetDesiredCapacityResponse
-
-instance FromXML SetDesiredCapacityResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetDesiredCapacityResponse"
 
 instance AWSRequest SetDesiredCapacity where
     type Sv SetDesiredCapacity = AutoScaling

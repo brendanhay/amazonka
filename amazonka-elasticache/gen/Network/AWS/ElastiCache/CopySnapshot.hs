@@ -42,6 +42,7 @@ module Network.AWS.ElastiCache.CopySnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data CopySnapshot = CopySnapshot
     { _csSourceSnapshotName :: Text
@@ -96,10 +97,6 @@ copySnapshotResponse = CopySnapshotResponse
 
 csrSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
 csrSnapshot = lens _csrSnapshot (\s a -> s { _csrSnapshot = a })
-
-instance FromXML CopySnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopySnapshotResponse"
 
 instance AWSRequest CopySnapshot where
     type Sv CopySnapshot = ElastiCache

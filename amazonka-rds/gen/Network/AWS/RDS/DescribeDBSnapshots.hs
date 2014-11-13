@@ -47,6 +47,7 @@ module Network.AWS.RDS.DescribeDBSnapshots
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeDBSnapshots = DescribeDBSnapshots
     { _ddbsDBInstanceIdentifier :: Maybe Text
@@ -160,10 +161,6 @@ ddbsrDBSnapshots = lens _ddbsrDBSnapshots (\s a -> s { _ddbsrDBSnapshots = a })
 -- marker, up to the value specified by MaxRecords.
 ddbsrMarker :: Lens' DescribeDBSnapshotsResponse (Maybe Text)
 ddbsrMarker = lens _ddbsrMarker (\s a -> s { _ddbsrMarker = a })
-
-instance FromXML DescribeDBSnapshotsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBSnapshotsResponse"
 
 instance AWSRequest DescribeDBSnapshots where
     type Sv DescribeDBSnapshots = RDS

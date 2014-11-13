@@ -1396,6 +1396,7 @@ module Network.AWS.EC2.Types
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import Network.AWS.EC2.Internal
+import qualified GHC.Exts
 
 -- | Supported version (@2014-09-01@) of the Amazon Elastic Compute Cloud.
 data EC2 deriving (Typeable)

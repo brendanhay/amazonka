@@ -55,6 +55,7 @@ module Network.AWS.EC2.CreateVpnConnection
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateVpnConnection = CreateVpnConnection
     { _cvcCustomerGatewayId :: Text
@@ -136,10 +137,6 @@ createVpnConnectionResponse = CreateVpnConnectionResponse
 cvcrVpnConnection :: Lens' CreateVpnConnectionResponse (Maybe VpnConnection)
 cvcrVpnConnection =
     lens _cvcrVpnConnection (\s a -> s { _cvcrVpnConnection = a })
-
-instance FromXML CreateVpnConnectionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVpnConnectionResponse"
 
 instance AWSRequest CreateVpnConnection where
     type Sv CreateVpnConnection = EC2

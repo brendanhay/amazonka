@@ -45,6 +45,7 @@ module Network.AWS.EC2.AcceptVpcPeeringConnection
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data AcceptVpcPeeringConnection = AcceptVpcPeeringConnection
     { _avpcDryRun                 :: Maybe Bool
@@ -99,10 +100,6 @@ avpcrVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe Vpc
 avpcrVpcPeeringConnection =
     lens _avpcrVpcPeeringConnection
         (\s a -> s { _avpcrVpcPeeringConnection = a })
-
-instance FromXML AcceptVpcPeeringConnectionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AcceptVpcPeeringConnectionResponse"
 
 instance AWSRequest AcceptVpcPeeringConnection where
     type Sv AcceptVpcPeeringConnection = EC2

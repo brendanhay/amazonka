@@ -43,6 +43,7 @@ module Network.AWS.Route53.GetHealthCheckStatus
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 newtype GetHealthCheckStatus = GetHealthCheckStatus
     { _ghcsHealthCheckId :: Text
@@ -82,11 +83,11 @@ newtype GetHealthCheckStatusResponse = GetHealthCheckStatusResponse
     { _ghcsrHealthCheckObservations :: [HealthCheckObservation]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetHealthCheckStatusResponse where
+instance GHC.Exts.IsList GetHealthCheckStatusResponse where
     type Item GetHealthCheckStatusResponse = HealthCheckObservation
 
-    fromList = GetHealthCheckStatusResponse . fromList
-    toList   = toList . _ghcsrHealthCheckObservations
+    fromList = GetHealthCheckStatusResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _ghcsrHealthCheckObservations
 
 -- | 'GetHealthCheckStatusResponse' constructor.
 --

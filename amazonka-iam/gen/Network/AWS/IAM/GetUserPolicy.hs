@@ -46,6 +46,7 @@ module Network.AWS.IAM.GetUserPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data GetUserPolicy = GetUserPolicy
     { _gupPolicyName :: Text
@@ -119,10 +120,6 @@ guprPolicyName = lens _guprPolicyName (\s a -> s { _guprPolicyName = a })
 -- | The user the policy is associated with.
 guprUserName :: Lens' GetUserPolicyResponse Text
 guprUserName = lens _guprUserName (\s a -> s { _guprUserName = a })
-
-instance FromXML GetUserPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetUserPolicyResponse"
 
 instance AWSRequest GetUserPolicy where
     type Sv GetUserPolicy = IAM

@@ -63,6 +63,7 @@ module Network.AWS.RDS.CreateEventSubscription
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data CreateEventSubscription = CreateEventSubscription
     { _cesEnabled          :: Maybe Bool
@@ -178,10 +179,6 @@ createEventSubscriptionResponse = CreateEventSubscriptionResponse
 cesrEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)
 cesrEventSubscription =
     lens _cesrEventSubscription (\s a -> s { _cesrEventSubscription = a })
-
-instance FromXML CreateEventSubscriptionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateEventSubscriptionResponse"
 
 instance AWSRequest CreateEventSubscription where
     type Sv CreateEventSubscription = RDS

@@ -43,6 +43,7 @@ module Network.AWS.ElastiCache.DeleteSnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 newtype DeleteSnapshot = DeleteSnapshot
     { _ds1SnapshotName :: Text
@@ -86,10 +87,6 @@ deleteSnapshotResponse = DeleteSnapshotResponse
 
 dsrSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
 dsrSnapshot = lens _dsrSnapshot (\s a -> s { _dsrSnapshot = a })
-
-instance FromXML DeleteSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteSnapshotResponse"
 
 instance AWSRequest DeleteSnapshot where
     type Sv DeleteSnapshot = ElastiCache

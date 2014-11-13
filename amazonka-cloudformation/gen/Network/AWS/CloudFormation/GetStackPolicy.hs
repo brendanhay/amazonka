@@ -42,6 +42,7 @@ module Network.AWS.CloudFormation.GetStackPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 newtype GetStackPolicy = GetStackPolicy
     { _gspStackName :: Text
@@ -90,10 +91,6 @@ getStackPolicyResponse = GetStackPolicyResponse
 gsprStackPolicyBody :: Lens' GetStackPolicyResponse (Maybe Text)
 gsprStackPolicyBody =
     lens _gsprStackPolicyBody (\s a -> s { _gsprStackPolicyBody = a })
-
-instance FromXML GetStackPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetStackPolicyResponse"
 
 instance AWSRequest GetStackPolicy where
     type Sv GetStackPolicy = CloudFormation

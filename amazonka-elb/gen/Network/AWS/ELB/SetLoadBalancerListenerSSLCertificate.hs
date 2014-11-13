@@ -45,6 +45,7 @@ module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate
     { _slblsslcLoadBalancerName :: Text
@@ -103,10 +104,6 @@ data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLC
 -- | 'SetLoadBalancerListenerSSLCertificateResponse' constructor.
 setLoadBalancerListenerSSLCertificateResponse :: SetLoadBalancerListenerSSLCertificateResponse
 setLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
-
-instance FromXML SetLoadBalancerListenerSSLCertificateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetLoadBalancerListenerSSLCertificateResponse"
 
 instance AWSRequest SetLoadBalancerListenerSSLCertificate where
     type Sv SetLoadBalancerListenerSSLCertificate = ELB

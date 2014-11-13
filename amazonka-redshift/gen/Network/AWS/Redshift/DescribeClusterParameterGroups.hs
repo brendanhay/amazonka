@@ -50,6 +50,7 @@ module Network.AWS.Redshift.DescribeClusterParameterGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data DescribeClusterParameterGroups = DescribeClusterParameterGroups
     { _dcpgMarker             :: Maybe Text
@@ -136,10 +137,6 @@ dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
 dcpgrParameterGroups =
     lens _dcpgrParameterGroups (\s a -> s { _dcpgrParameterGroups = a })
-
-instance FromXML DescribeClusterParameterGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeClusterParameterGroupsResponse"
 
 instance AWSRequest DescribeClusterParameterGroups where
     type Sv DescribeClusterParameterGroups = Redshift

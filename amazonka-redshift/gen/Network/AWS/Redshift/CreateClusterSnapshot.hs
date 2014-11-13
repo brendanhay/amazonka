@@ -44,6 +44,7 @@ module Network.AWS.Redshift.CreateClusterSnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data CreateClusterSnapshot = CreateClusterSnapshot
     { _ccsClusterIdentifier  :: Text
@@ -103,10 +104,6 @@ createClusterSnapshotResponse = CreateClusterSnapshotResponse
 
 ccsr1Snapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
 ccsr1Snapshot = lens _ccsr1Snapshot (\s a -> s { _ccsr1Snapshot = a })
-
-instance FromXML CreateClusterSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateClusterSnapshotResponse"
 
 instance AWSRequest CreateClusterSnapshot where
     type Sv CreateClusterSnapshot = Redshift

@@ -55,6 +55,7 @@ module Network.AWS.AutoScaling.CreateAutoScalingGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data CreateAutoScalingGroup = CreateAutoScalingGroup
     { _casgAutoScalingGroupName    :: Text
@@ -265,10 +266,6 @@ data CreateAutoScalingGroupResponse = CreateAutoScalingGroupResponse
 -- | 'CreateAutoScalingGroupResponse' constructor.
 createAutoScalingGroupResponse :: CreateAutoScalingGroupResponse
 createAutoScalingGroupResponse = CreateAutoScalingGroupResponse
-
-instance FromXML CreateAutoScalingGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateAutoScalingGroupResponse"
 
 instance AWSRequest CreateAutoScalingGroup where
     type Sv CreateAutoScalingGroup = AutoScaling

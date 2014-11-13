@@ -41,6 +41,7 @@ module Network.AWS.RDS.DeleteEventSubscription
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 newtype DeleteEventSubscription = DeleteEventSubscription
     { _desSubscriptionName :: Text
@@ -86,10 +87,6 @@ deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
 desrEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
 desrEventSubscription =
     lens _desrEventSubscription (\s a -> s { _desrEventSubscription = a })
-
-instance FromXML DeleteEventSubscriptionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteEventSubscriptionResponse"
 
 instance AWSRequest DeleteEventSubscription where
     type Sv DeleteEventSubscription = RDS

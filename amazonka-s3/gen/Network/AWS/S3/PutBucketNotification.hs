@@ -41,6 +41,7 @@ module Network.AWS.S3.PutBucketNotification
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data PutBucketNotification = PutBucketNotification
     { _pbnBucket                    :: Text

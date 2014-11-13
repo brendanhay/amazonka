@@ -44,16 +44,17 @@ module Network.AWS.SES.GetIdentityNotificationAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes
     { _ginaIdentities :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetIdentityNotificationAttributes where
+instance GHC.Exts.IsList GetIdentityNotificationAttributes where
     type Item GetIdentityNotificationAttributes = Text
 
-    fromList = GetIdentityNotificationAttributes . fromList
-    toList   = toList . _ginaIdentities
+    fromList = GetIdentityNotificationAttributes . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _ginaIdentities
 
 -- | 'GetIdentityNotificationAttributes' constructor.
 --
@@ -96,10 +97,6 @@ ginarNotificationAttributes =
     lens _ginarNotificationAttributes
         (\s a -> s { _ginarNotificationAttributes = a })
             . _Map
-
-instance FromXML GetIdentityNotificationAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetIdentityNotificationAttributesResponse"
 
 instance AWSRequest GetIdentityNotificationAttributes where
     type Sv GetIdentityNotificationAttributes = SES

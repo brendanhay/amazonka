@@ -46,6 +46,7 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription
     { _csdsBucket :: Text
@@ -108,10 +109,6 @@ csdsrSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (M
 csdsrSpotDatafeedSubscription =
     lens _csdsrSpotDatafeedSubscription
         (\s a -> s { _csdsrSpotDatafeedSubscription = a })
-
-instance FromXML CreateSpotDatafeedSubscriptionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSpotDatafeedSubscriptionResponse"
 
 instance AWSRequest CreateSpotDatafeedSubscription where
     type Sv CreateSpotDatafeedSubscription = EC2

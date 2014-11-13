@@ -50,6 +50,7 @@ module Network.AWS.Route53.DisassociateVPCFromHostedZone
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone
     { _dvpcfhzComment      :: Maybe Text

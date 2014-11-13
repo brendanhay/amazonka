@@ -48,6 +48,7 @@ module Network.AWS.EC2.ResetInstanceAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ResetInstanceAttribute = ResetInstanceAttribute
     { _riaAttribute  :: Text
@@ -96,10 +97,6 @@ data ResetInstanceAttributeResponse = ResetInstanceAttributeResponse
 -- | 'ResetInstanceAttributeResponse' constructor.
 resetInstanceAttributeResponse :: ResetInstanceAttributeResponse
 resetInstanceAttributeResponse = ResetInstanceAttributeResponse
-
-instance FromXML ResetInstanceAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResetInstanceAttributeResponse"
 
 instance AWSRequest ResetInstanceAttribute where
     type Sv ResetInstanceAttribute = EC2

@@ -61,6 +61,7 @@ module Network.AWS.ELB.CreateLoadBalancer
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data CreateLoadBalancer = CreateLoadBalancer
     { _clbAvailabilityZones :: [Text]
@@ -174,10 +175,6 @@ createLoadBalancerResponse = CreateLoadBalancerResponse
 -- | The DNS name for the load balancer.
 clbrDNSName :: Lens' CreateLoadBalancerResponse (Maybe Text)
 clbrDNSName = lens _clbrDNSName (\s a -> s { _clbrDNSName = a })
-
-instance FromXML CreateLoadBalancerResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateLoadBalancerResponse"
 
 instance AWSRequest CreateLoadBalancer where
     type Sv CreateLoadBalancer = ELB

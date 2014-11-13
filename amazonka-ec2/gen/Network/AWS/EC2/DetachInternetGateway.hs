@@ -43,6 +43,7 @@ module Network.AWS.EC2.DetachInternetGateway
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DetachInternetGateway = DetachInternetGateway
     { _digDryRun            :: Maybe Bool
@@ -92,10 +93,6 @@ data DetachInternetGatewayResponse = DetachInternetGatewayResponse
 -- | 'DetachInternetGatewayResponse' constructor.
 detachInternetGatewayResponse :: DetachInternetGatewayResponse
 detachInternetGatewayResponse = DetachInternetGatewayResponse
-
-instance FromXML DetachInternetGatewayResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DetachInternetGatewayResponse"
 
 instance AWSRequest DetachInternetGateway where
     type Sv DetachInternetGateway = EC2

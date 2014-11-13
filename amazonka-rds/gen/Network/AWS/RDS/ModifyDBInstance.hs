@@ -63,6 +63,7 @@ module Network.AWS.RDS.ModifyDBInstance
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data ModifyDBInstance = ModifyDBInstance
     { _mdbiAllocatedStorage           :: Maybe Int
@@ -456,10 +457,6 @@ modifyDBInstanceResponse = ModifyDBInstanceResponse
 
 mdbirDBInstance :: Lens' ModifyDBInstanceResponse (Maybe DBInstance)
 mdbirDBInstance = lens _mdbirDBInstance (\s a -> s { _mdbirDBInstance = a })
-
-instance FromXML ModifyDBInstanceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyDBInstanceResponse"
 
 instance AWSRequest ModifyDBInstance where
     type Sv ModifyDBInstance = RDS

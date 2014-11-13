@@ -45,6 +45,7 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations
     { _dncAutoScalingGroupNames :: [Text]
@@ -118,10 +119,6 @@ dncrNotificationConfigurations :: Lens' DescribeNotificationConfigurationsRespon
 dncrNotificationConfigurations =
     lens _dncrNotificationConfigurations
         (\s a -> s { _dncrNotificationConfigurations = a })
-
-instance FromXML DescribeNotificationConfigurationsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeNotificationConfigurationsResponse"
 
 instance AWSRequest DescribeNotificationConfigurations where
     type Sv DescribeNotificationConfigurations = AutoScaling

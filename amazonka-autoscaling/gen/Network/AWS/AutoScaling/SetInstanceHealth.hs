@@ -43,6 +43,7 @@ module Network.AWS.AutoScaling.SetInstanceHealth
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data SetInstanceHealth = SetInstanceHealth
     { _sihHealthStatus             :: Text
@@ -102,10 +103,6 @@ data SetInstanceHealthResponse = SetInstanceHealthResponse
 -- | 'SetInstanceHealthResponse' constructor.
 setInstanceHealthResponse :: SetInstanceHealthResponse
 setInstanceHealthResponse = SetInstanceHealthResponse
-
-instance FromXML SetInstanceHealthResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetInstanceHealthResponse"
 
 instance AWSRequest SetInstanceHealth where
     type Sv SetInstanceHealth = AutoScaling

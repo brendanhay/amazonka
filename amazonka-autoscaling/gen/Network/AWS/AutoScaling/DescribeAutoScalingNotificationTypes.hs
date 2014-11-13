@@ -40,6 +40,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypes
     deriving (Eq, Ord, Show, Generic)
@@ -57,11 +58,11 @@ newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotifi
     { _dasntrAutoScalingNotificationTypes :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAutoScalingNotificationTypesResponse where
+instance GHC.Exts.IsList DescribeAutoScalingNotificationTypesResponse where
     type Item DescribeAutoScalingNotificationTypesResponse = Text
 
-    fromList = DescribeAutoScalingNotificationTypesResponse . fromList
-    toList   = toList . _dasntrAutoScalingNotificationTypes
+    fromList = DescribeAutoScalingNotificationTypesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dasntrAutoScalingNotificationTypes
 
 -- | 'DescribeAutoScalingNotificationTypesResponse' constructor.
 --
@@ -82,10 +83,6 @@ dasntrAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypes
 dasntrAutoScalingNotificationTypes =
     lens _dasntrAutoScalingNotificationTypes
         (\s a -> s { _dasntrAutoScalingNotificationTypes = a })
-
-instance FromXML DescribeAutoScalingNotificationTypesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAutoScalingNotificationTypesResponse"
 
 instance AWSRequest DescribeAutoScalingNotificationTypes where
     type Sv DescribeAutoScalingNotificationTypes = AutoScaling

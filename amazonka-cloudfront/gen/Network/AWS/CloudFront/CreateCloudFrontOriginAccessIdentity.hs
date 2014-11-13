@@ -43,6 +43,7 @@ module Network.AWS.CloudFront.CreateCloudFrontOriginAccessIdentity
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 newtype CreateCloudFrontOriginAccessIdentity2014_05_31 = CreateCloudFrontOriginAccessIdentity2014_05_31
     { _ccfoaiCloudFrontOriginAccessIdentityConfig :: CloudFrontOriginAccessIdentityConfig

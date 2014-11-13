@@ -42,6 +42,7 @@ module Network.AWS.CloudFront.ListDistributions
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 data ListDistributions2014_05_31 = ListDistributions2014_05_31
     { _ldMarker   :: Maybe Text

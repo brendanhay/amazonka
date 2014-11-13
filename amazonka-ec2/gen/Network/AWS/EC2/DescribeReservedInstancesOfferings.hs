@@ -60,6 +60,7 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings
     { _drioAvailabilityZone             :: Maybe Text
@@ -246,10 +247,6 @@ driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsRespo
 driorReservedInstancesOfferings =
     lens _driorReservedInstancesOfferings
         (\s a -> s { _driorReservedInstancesOfferings = a })
-
-instance FromXML DescribeReservedInstancesOfferingsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReservedInstancesOfferingsResponse"
 
 instance AWSRequest DescribeReservedInstancesOfferings where
     type Sv DescribeReservedInstancesOfferings = EC2

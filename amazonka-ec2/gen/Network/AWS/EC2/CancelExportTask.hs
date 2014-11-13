@@ -42,6 +42,7 @@ module Network.AWS.EC2.CancelExportTask
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 newtype CancelExportTask = CancelExportTask
     { _cetExportTaskId :: Text
@@ -75,10 +76,6 @@ data CancelExportTaskResponse = CancelExportTaskResponse
 -- | 'CancelExportTaskResponse' constructor.
 cancelExportTaskResponse :: CancelExportTaskResponse
 cancelExportTaskResponse = CancelExportTaskResponse
-
-instance FromXML CancelExportTaskResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CancelExportTaskResponse"
 
 instance AWSRequest CancelExportTask where
     type Sv CancelExportTask = EC2

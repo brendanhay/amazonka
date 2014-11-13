@@ -46,6 +46,7 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
     { _albtsLoadBalancerName :: Text
@@ -87,11 +88,11 @@ newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsRespons
     { _albtsrSubnets :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList AttachLoadBalancerToSubnetsResponse where
+instance GHC.Exts.IsList AttachLoadBalancerToSubnetsResponse where
     type Item AttachLoadBalancerToSubnetsResponse = Text
 
-    fromList = AttachLoadBalancerToSubnetsResponse . fromList
-    toList   = toList . _albtsrSubnets
+    fromList = AttachLoadBalancerToSubnetsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _albtsrSubnets
 
 -- | 'AttachLoadBalancerToSubnetsResponse' constructor.
 --
@@ -107,10 +108,6 @@ attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
 -- | A list of subnet IDs attached to the load balancer.
 albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
 albtsrSubnets = lens _albtsrSubnets (\s a -> s { _albtsrSubnets = a })
-
-instance FromXML AttachLoadBalancerToSubnetsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttachLoadBalancerToSubnetsResponse"
 
 instance AWSRequest AttachLoadBalancerToSubnets where
     type Sv AttachLoadBalancerToSubnets = ELB

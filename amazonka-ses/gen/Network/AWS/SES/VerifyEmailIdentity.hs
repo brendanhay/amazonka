@@ -41,6 +41,7 @@ module Network.AWS.SES.VerifyEmailIdentity
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 newtype VerifyEmailIdentity = VerifyEmailIdentity
     { _veiEmailAddress :: Text
@@ -73,10 +74,6 @@ data VerifyEmailIdentityResponse = VerifyEmailIdentityResponse
 -- | 'VerifyEmailIdentityResponse' constructor.
 verifyEmailIdentityResponse :: VerifyEmailIdentityResponse
 verifyEmailIdentityResponse = VerifyEmailIdentityResponse
-
-instance FromXML VerifyEmailIdentityResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VerifyEmailIdentityResponse"
 
 instance AWSRequest VerifyEmailIdentity where
     type Sv VerifyEmailIdentity = SES

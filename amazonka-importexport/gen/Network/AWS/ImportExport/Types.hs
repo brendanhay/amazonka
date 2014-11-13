@@ -42,6 +42,7 @@ module Network.AWS.ImportExport.Types
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V2
+import qualified GHC.Exts
 
 -- | Supported version (@2010-06-01@) of the Amazon Import/Export.
 data ImportExport deriving (Typeable)

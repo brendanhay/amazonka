@@ -94,6 +94,7 @@ module Network.AWS.SecurityToken.GetFederationToken
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SecurityToken.Types
+import qualified GHC.Exts
 
 data GetFederationToken = GetFederationToken
     { _gftDurationSeconds :: Maybe Natural
@@ -202,10 +203,6 @@ gftrFederatedUser =
 gftrPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Natural)
 gftrPackedPolicySize =
     lens _gftrPackedPolicySize (\s a -> s { _gftrPackedPolicySize = a })
-
-instance FromXML GetFederationTokenResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetFederationTokenResponse"
 
 instance AWSRequest GetFederationToken where
     type Sv GetFederationToken = SecurityToken

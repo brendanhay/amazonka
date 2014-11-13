@@ -40,6 +40,7 @@ module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate
     { _dctApplicationName :: Text
@@ -82,10 +83,6 @@ data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
 -- | 'DeleteConfigurationTemplateResponse' constructor.
 deleteConfigurationTemplateResponse :: DeleteConfigurationTemplateResponse
 deleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
-
-instance FromXML DeleteConfigurationTemplateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteConfigurationTemplateResponse"
 
 instance AWSRequest DeleteConfigurationTemplate where
     type Sv DeleteConfigurationTemplate = ElasticBeanstalk

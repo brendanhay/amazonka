@@ -51,6 +51,7 @@ module Network.AWS.Redshift.CopyClusterSnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data CopyClusterSnapshot = CopyClusterSnapshot
     { _ccsSourceSnapshotClusterIdentifier :: Maybe Text
@@ -125,10 +126,6 @@ copyClusterSnapshotResponse = CopyClusterSnapshotResponse
 
 ccsrSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
 ccsrSnapshot = lens _ccsrSnapshot (\s a -> s { _ccsrSnapshot = a })
-
-instance FromXML CopyClusterSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopyClusterSnapshotResponse"
 
 instance AWSRequest CopyClusterSnapshot where
     type Sv CopyClusterSnapshot = Redshift

@@ -46,6 +46,7 @@ module Network.AWS.IAM.ListGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListGroups = ListGroups
     { _lgMarker     :: Maybe Text
@@ -132,10 +133,6 @@ lgrIsTruncated = lens _lgrIsTruncated (\s a -> s { _lgrIsTruncated = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lgrMarker :: Lens' ListGroupsResponse (Maybe Text)
 lgrMarker = lens _lgrMarker (\s a -> s { _lgrMarker = a })
-
-instance FromXML ListGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListGroupsResponse"
 
 instance AWSRequest ListGroups where
     type Sv ListGroups = IAM

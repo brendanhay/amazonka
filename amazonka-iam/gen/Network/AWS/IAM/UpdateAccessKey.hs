@@ -48,6 +48,7 @@ module Network.AWS.IAM.UpdateAccessKey
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data UpdateAccessKey = UpdateAccessKey
     { _uakAccessKeyId :: Text
@@ -99,10 +100,6 @@ data UpdateAccessKeyResponse = UpdateAccessKeyResponse
 -- | 'UpdateAccessKeyResponse' constructor.
 updateAccessKeyResponse :: UpdateAccessKeyResponse
 updateAccessKeyResponse = UpdateAccessKeyResponse
-
-instance FromXML UpdateAccessKeyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateAccessKeyResponse"
 
 instance AWSRequest UpdateAccessKey where
     type Sv UpdateAccessKey = IAM

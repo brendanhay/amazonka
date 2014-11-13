@@ -47,6 +47,7 @@ module Network.AWS.EC2.DescribeTags
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeTags = DescribeTags
     { _dtDryRun     :: Maybe Bool
@@ -131,10 +132,6 @@ dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 -- | A list of tags.
 dtrTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
-
-instance FromXML DescribeTagsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeTagsResponse"
 
 instance AWSRequest DescribeTags where
     type Sv DescribeTags = EC2

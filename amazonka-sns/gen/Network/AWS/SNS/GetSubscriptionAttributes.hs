@@ -41,6 +41,7 @@ module Network.AWS.SNS.GetSubscriptionAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 newtype GetSubscriptionAttributes = GetSubscriptionAttributes
     { _gsaSubscriptionArn :: Text
@@ -95,10 +96,6 @@ getSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
 gsarAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
 gsarAttributes = lens _gsarAttributes (\s a -> s { _gsarAttributes = a })
     . _Map
-
-instance FromXML GetSubscriptionAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetSubscriptionAttributesResponse"
 
 instance AWSRequest GetSubscriptionAttributes where
     type Sv GetSubscriptionAttributes = SNS

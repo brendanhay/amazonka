@@ -48,6 +48,7 @@ module Network.AWS.S3.CreateBucket
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data CreateBucket = CreateBucket
     { _cbACL                       :: Maybe Text

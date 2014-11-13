@@ -42,6 +42,7 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 newtype GetCloudFrontOriginAccessIdentity2014_05_31 = GetCloudFrontOriginAccessIdentity2014_05_31
     { _gcfoaiId :: Text

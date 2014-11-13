@@ -40,6 +40,7 @@ module Network.AWS.IAM.RemoveUserFromGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data RemoveUserFromGroup = RemoveUserFromGroup
     { _rufgGroupName :: Text
@@ -81,10 +82,6 @@ data RemoveUserFromGroupResponse = RemoveUserFromGroupResponse
 -- | 'RemoveUserFromGroupResponse' constructor.
 removeUserFromGroupResponse :: RemoveUserFromGroupResponse
 removeUserFromGroupResponse = RemoveUserFromGroupResponse
-
-instance FromXML RemoveUserFromGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RemoveUserFromGroupResponse"
 
 instance AWSRequest RemoveUserFromGroup where
     type Sv RemoveUserFromGroup = IAM

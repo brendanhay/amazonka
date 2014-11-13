@@ -43,6 +43,7 @@ module Network.AWS.CloudSearch.DeleteExpression
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data DeleteExpression = DeleteExpression
     { _de2DomainName     :: Text
@@ -97,10 +98,6 @@ deleteExpressionResponse p1 = DeleteExpressionResponse
 -- | The status of the expression being deleted.
 der1Expression :: Lens' DeleteExpressionResponse ExpressionStatus
 der1Expression = lens _der1Expression (\s a -> s { _der1Expression = a })
-
-instance FromXML DeleteExpressionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteExpressionResponse"
 
 instance AWSRequest DeleteExpression where
     type Sv DeleteExpression = CloudSearch

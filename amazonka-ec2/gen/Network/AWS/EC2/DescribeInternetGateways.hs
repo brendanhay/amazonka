@@ -43,6 +43,7 @@ module Network.AWS.EC2.DescribeInternetGateways
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeInternetGateways = DescribeInternetGateways
     { _dig1DryRun             :: Maybe Bool
@@ -101,11 +102,11 @@ newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { _digrInternetGateways :: [InternetGateway]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeInternetGatewaysResponse where
+instance GHC.Exts.IsList DescribeInternetGatewaysResponse where
     type Item DescribeInternetGatewaysResponse = InternetGateway
 
-    fromList = DescribeInternetGatewaysResponse . fromList
-    toList   = toList . _digrInternetGateways
+    fromList = DescribeInternetGatewaysResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _digrInternetGateways
 
 -- | 'DescribeInternetGatewaysResponse' constructor.
 --
@@ -122,10 +123,6 @@ describeInternetGatewaysResponse = DescribeInternetGatewaysResponse
 digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
 digrInternetGateways =
     lens _digrInternetGateways (\s a -> s { _digrInternetGateways = a })
-
-instance FromXML DescribeInternetGatewaysResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeInternetGatewaysResponse"
 
 instance AWSRequest DescribeInternetGateways where
     type Sv DescribeInternetGateways = EC2

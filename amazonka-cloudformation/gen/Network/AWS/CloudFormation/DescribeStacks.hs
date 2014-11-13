@@ -44,6 +44,7 @@ module Network.AWS.CloudFormation.DescribeStacks
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 data DescribeStacks = DescribeStacks
     { _ds1NextToken :: Maybe Text
@@ -108,10 +109,6 @@ dsrNextToken = lens _dsrNextToken (\s a -> s { _dsrNextToken = a })
 -- | A list of stack structures.
 dsrStacks :: Lens' DescribeStacksResponse [Stack]
 dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a })
-
-instance FromXML DescribeStacksResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeStacksResponse"
 
 instance AWSRequest DescribeStacks where
     type Sv DescribeStacks = CloudFormation

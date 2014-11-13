@@ -42,6 +42,7 @@ module Network.AWS.SNS.GetTopicAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 newtype GetTopicAttributes = GetTopicAttributes
     { _gtaTopicArn :: Text
@@ -98,10 +99,6 @@ getTopicAttributesResponse = GetTopicAttributesResponse
 gtarAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
 gtarAttributes = lens _gtarAttributes (\s a -> s { _gtarAttributes = a })
     . _Map
-
-instance FromXML GetTopicAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetTopicAttributesResponse"
 
 instance AWSRequest GetTopicAttributes where
     type Sv GetTopicAttributes = SNS

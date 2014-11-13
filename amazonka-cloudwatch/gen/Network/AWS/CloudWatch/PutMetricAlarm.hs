@@ -58,6 +58,7 @@ module Network.AWS.CloudWatch.PutMetricAlarm
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
+import qualified GHC.Exts
 
 data PutMetricAlarm = PutMetricAlarm
     { _pmaActionsEnabled          :: Maybe Bool
@@ -229,10 +230,6 @@ data PutMetricAlarmResponse = PutMetricAlarmResponse
 -- | 'PutMetricAlarmResponse' constructor.
 putMetricAlarmResponse :: PutMetricAlarmResponse
 putMetricAlarmResponse = PutMetricAlarmResponse
-
-instance FromXML PutMetricAlarmResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutMetricAlarmResponse"
 
 instance AWSRequest PutMetricAlarm where
     type Sv PutMetricAlarm = CloudWatch

@@ -39,16 +39,17 @@ module Network.AWS.AutoScaling.DeleteTags
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 newtype DeleteTags = DeleteTags
     { _dtTags :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DeleteTags where
+instance GHC.Exts.IsList DeleteTags where
     type Item DeleteTags = Tag
 
-    fromList = DeleteTags . fromList
-    toList   = toList . _dtTags
+    fromList = DeleteTags . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dtTags
 
 -- | 'DeleteTags' constructor.
 --
@@ -79,10 +80,6 @@ data DeleteTagsResponse = DeleteTagsResponse
 -- | 'DeleteTagsResponse' constructor.
 deleteTagsResponse :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse
-
-instance FromXML DeleteTagsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteTagsResponse"
 
 instance AWSRequest DeleteTags where
     type Sv DeleteTags = AutoScaling

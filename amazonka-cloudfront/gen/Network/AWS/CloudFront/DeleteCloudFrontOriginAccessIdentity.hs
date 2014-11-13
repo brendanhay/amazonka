@@ -40,6 +40,7 @@ module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 data DeleteCloudFrontOriginAccessIdentity2014_05_31 = DeleteCloudFrontOriginAccessIdentity2014_05_31
     { _dcfoaiId      :: Text

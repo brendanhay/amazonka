@@ -43,6 +43,7 @@ module Network.AWS.RDS.ListTagsForResource
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data ListTagsForResource = ListTagsForResource
     { _ltfrFilters      :: [Filter]
@@ -83,11 +84,11 @@ newtype ListTagsForResourceResponse = ListTagsForResourceResponse
     { _ltfrrTagList :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ListTagsForResourceResponse where
+instance GHC.Exts.IsList ListTagsForResourceResponse where
     type Item ListTagsForResourceResponse = Tag
 
-    fromList = ListTagsForResourceResponse . fromList
-    toList   = toList . _ltfrrTagList
+    fromList = ListTagsForResourceResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _ltfrrTagList
 
 -- | 'ListTagsForResourceResponse' constructor.
 --
@@ -103,10 +104,6 @@ listTagsForResourceResponse = ListTagsForResourceResponse
 -- | List of tags returned by the ListTagsForResource operation.
 ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
 ltfrrTagList = lens _ltfrrTagList (\s a -> s { _ltfrrTagList = a })
-
-instance FromXML ListTagsForResourceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListTagsForResourceResponse"
 
 instance AWSRequest ListTagsForResource where
     type Sv ListTagsForResource = RDS

@@ -46,6 +46,7 @@ module Network.AWS.ElastiCache.DescribeReplicationGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data DescribeReplicationGroups = DescribeReplicationGroups
     { _drg1Marker             :: Maybe Text
@@ -124,10 +125,6 @@ drgrMarker = lens _drgrMarker (\s a -> s { _drgrMarker = a })
 drgrReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
 drgrReplicationGroups =
     lens _drgrReplicationGroups (\s a -> s { _drgrReplicationGroups = a })
-
-instance FromXML DescribeReplicationGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReplicationGroupsResponse"
 
 instance AWSRequest DescribeReplicationGroups where
     type Sv DescribeReplicationGroups = ElastiCache

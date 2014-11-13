@@ -50,6 +50,7 @@ module Network.AWS.SES.SetIdentityDkimEnabled
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled
     { _sideDkimEnabled :: Bool
@@ -92,10 +93,6 @@ data SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
 -- | 'SetIdentityDkimEnabledResponse' constructor.
 setIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse
 setIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse
-
-instance FromXML SetIdentityDkimEnabledResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetIdentityDkimEnabledResponse"
 
 instance AWSRequest SetIdentityDkimEnabled where
     type Sv SetIdentityDkimEnabled = SES

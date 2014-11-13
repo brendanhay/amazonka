@@ -43,6 +43,7 @@ module Network.AWS.CloudFront.CreateStreamingDistribution
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 newtype CreateStreamingDistribution2014_05_31 = CreateStreamingDistribution2014_05_31
     { _csdStreamingDistributionConfig :: StreamingDistributionConfig

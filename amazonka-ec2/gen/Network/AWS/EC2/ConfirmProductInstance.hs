@@ -46,6 +46,7 @@ module Network.AWS.EC2.ConfirmProductInstance
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ConfirmProductInstance = ConfirmProductInstance
     { _cpiDryRun      :: Maybe Bool
@@ -107,10 +108,6 @@ confirmProductInstanceResponse = ConfirmProductInstanceResponse
 -- product code is attached to the instance.
 cpirOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpirOwnerId = lens _cpirOwnerId (\s a -> s { _cpirOwnerId = a })
-
-instance FromXML ConfirmProductInstanceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConfirmProductInstanceResponse"
 
 instance AWSRequest ConfirmProductInstance where
     type Sv ConfirmProductInstance = EC2

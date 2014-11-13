@@ -43,6 +43,7 @@ module Network.AWS.CloudFront.ListInvalidations
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 data ListInvalidations2014_05_31 = ListInvalidations2014_05_31
     { _liDistributionId :: Text

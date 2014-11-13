@@ -50,6 +50,7 @@ module Network.AWS.SQS.ChangeMessageVisibilityBatch
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
+import qualified GHC.Exts
 
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch
     { _cmvbEntries  :: [ChangeMessageVisibilityBatchRequestEntry]
@@ -111,10 +112,6 @@ cmvbrFailed = lens _cmvbrFailed (\s a -> s { _cmvbrFailed = a })
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.
 cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
 cmvbrSuccessful = lens _cmvbrSuccessful (\s a -> s { _cmvbrSuccessful = a })
-
-instance FromXML ChangeMessageVisibilityBatchResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangeMessageVisibilityBatchResponse"
 
 instance AWSRequest ChangeMessageVisibilityBatch where
     type Sv ChangeMessageVisibilityBatch = SQS

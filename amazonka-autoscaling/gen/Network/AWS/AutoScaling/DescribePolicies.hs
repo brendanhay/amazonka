@@ -48,6 +48,7 @@ module Network.AWS.AutoScaling.DescribePolicies
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribePolicies = DescribePolicies
     { _dp1AutoScalingGroupName :: Maybe Text
@@ -130,10 +131,6 @@ dprNextToken = lens _dprNextToken (\s a -> s { _dprNextToken = a })
 dprScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
 dprScalingPolicies =
     lens _dprScalingPolicies (\s a -> s { _dprScalingPolicies = a })
-
-instance FromXML DescribePoliciesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribePoliciesResponse"
 
 instance AWSRequest DescribePolicies where
     type Sv DescribePolicies = AutoScaling

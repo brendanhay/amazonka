@@ -50,6 +50,7 @@ module Network.AWS.Redshift.CreateClusterParameterGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data CreateClusterParameterGroup = CreateClusterParameterGroup
     { _ccpgDescription          :: Text
@@ -127,10 +128,6 @@ ccpgrClusterParameterGroup :: Lens' CreateClusterParameterGroupResponse (Maybe C
 ccpgrClusterParameterGroup =
     lens _ccpgrClusterParameterGroup
         (\s a -> s { _ccpgrClusterParameterGroup = a })
-
-instance FromXML CreateClusterParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateClusterParameterGroupResponse"
 
 instance AWSRequest CreateClusterParameterGroup where
     type Sv CreateClusterParameterGroup = Redshift

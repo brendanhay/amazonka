@@ -47,6 +47,7 @@ module Network.AWS.IAM.ListGroupPolicies
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListGroupPolicies = ListGroupPolicies
     { _lgpGroupName :: Text
@@ -133,10 +134,6 @@ lgprMarker = lens _lgprMarker (\s a -> s { _lgprMarker = a })
 -- | A list of policy names.
 lgprPolicyNames :: Lens' ListGroupPoliciesResponse [Text]
 lgprPolicyNames = lens _lgprPolicyNames (\s a -> s { _lgprPolicyNames = a })
-
-instance FromXML ListGroupPoliciesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListGroupPoliciesResponse"
 
 instance AWSRequest ListGroupPolicies where
     type Sv ListGroupPolicies = IAM

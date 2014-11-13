@@ -41,6 +41,7 @@ module Network.AWS.SNS.DeletePlatformApplication
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 newtype DeletePlatformApplication = DeletePlatformApplication
     { _dpaPlatformApplicationArn :: Text
@@ -75,10 +76,6 @@ data DeletePlatformApplicationResponse = DeletePlatformApplicationResponse
 -- | 'DeletePlatformApplicationResponse' constructor.
 deletePlatformApplicationResponse :: DeletePlatformApplicationResponse
 deletePlatformApplicationResponse = DeletePlatformApplicationResponse
-
-instance FromXML DeletePlatformApplicationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeletePlatformApplicationResponse"
 
 instance AWSRequest DeletePlatformApplication where
     type Sv DeletePlatformApplication = SNS

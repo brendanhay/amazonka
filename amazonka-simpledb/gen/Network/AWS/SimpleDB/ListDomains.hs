@@ -48,6 +48,7 @@ module Network.AWS.SimpleDB.ListDomains
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
+import qualified GHC.Exts
 
 data ListDomains = ListDomains
     { _ldMaxNumberOfDomains :: Maybe Int
@@ -111,10 +112,6 @@ ldrDomainNames = lens _ldrDomainNames (\s a -> s { _ldrDomainNames = a })
 -- MaxNumberOfDomains still available.
 ldrNextToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
-
-instance FromXML ListDomainsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListDomainsResponse"
 
 instance AWSRequest ListDomains where
     type Sv ListDomains = SimpleDB

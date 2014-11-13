@@ -46,6 +46,7 @@ module Network.AWS.ELB.DescribeInstanceHealth
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data DescribeInstanceHealth = DescribeInstanceHealth
     { _dihInstances        :: [Instance]
@@ -85,11 +86,11 @@ newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
     { _dihrInstanceStates :: [InstanceState]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeInstanceHealthResponse where
+instance GHC.Exts.IsList DescribeInstanceHealthResponse where
     type Item DescribeInstanceHealthResponse = InstanceState
 
-    fromList = DescribeInstanceHealthResponse . fromList
-    toList   = toList . _dihrInstanceStates
+    fromList = DescribeInstanceHealthResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dihrInstanceStates
 
 -- | 'DescribeInstanceHealthResponse' constructor.
 --
@@ -106,10 +107,6 @@ describeInstanceHealthResponse = DescribeInstanceHealthResponse
 dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
 dihrInstanceStates =
     lens _dihrInstanceStates (\s a -> s { _dihrInstanceStates = a })
-
-instance FromXML DescribeInstanceHealthResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeInstanceHealthResponse"
 
 instance AWSRequest DescribeInstanceHealth where
     type Sv DescribeInstanceHealth = ELB

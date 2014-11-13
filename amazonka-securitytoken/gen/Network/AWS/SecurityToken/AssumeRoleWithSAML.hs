@@ -86,6 +86,7 @@ module Network.AWS.SecurityToken.AssumeRoleWithSAML
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SecurityToken.Types
+import qualified GHC.Exts
 
 data AssumeRoleWithSAML = AssumeRoleWithSAML
     { _arwsamlDurationSeconds :: Maybe Natural
@@ -258,10 +259,6 @@ arwsamlrSubject = lens _arwsamlrSubject (\s a -> s { _arwsamlrSubject = a })
 arwsamlrSubjectType :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
 arwsamlrSubjectType =
     lens _arwsamlrSubjectType (\s a -> s { _arwsamlrSubjectType = a })
-
-instance FromXML AssumeRoleWithSAMLResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AssumeRoleWithSAMLResponse"
 
 instance AWSRequest AssumeRoleWithSAML where
     type Sv AssumeRoleWithSAML = SecurityToken

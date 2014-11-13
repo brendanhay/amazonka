@@ -49,6 +49,7 @@ module Network.AWS.EC2.CreateNetworkInterface
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateNetworkInterface = CreateNetworkInterface
     { _cniDescription                    :: Maybe Text
@@ -156,10 +157,6 @@ createNetworkInterfaceResponse = CreateNetworkInterfaceResponse
 cnirNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
 cnirNetworkInterface =
     lens _cnirNetworkInterface (\s a -> s { _cnirNetworkInterface = a })
-
-instance FromXML CreateNetworkInterfaceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateNetworkInterfaceResponse"
 
 instance AWSRequest CreateNetworkInterface where
     type Sv CreateNetworkInterface = EC2

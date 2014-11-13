@@ -45,6 +45,7 @@ module Network.AWS.EC2.DeleteVpc
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteVpc = DeleteVpc
     { _dv3DryRun :: Maybe Bool
@@ -84,10 +85,6 @@ data DeleteVpcResponse = DeleteVpcResponse
 -- | 'DeleteVpcResponse' constructor.
 deleteVpcResponse :: DeleteVpcResponse
 deleteVpcResponse = DeleteVpcResponse
-
-instance FromXML DeleteVpcResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteVpcResponse"
 
 instance AWSRequest DeleteVpc where
     type Sv DeleteVpc = EC2

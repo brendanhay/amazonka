@@ -45,6 +45,7 @@ module Network.AWS.Redshift.AuthorizeSnapshotAccess
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess
     { _asaAccountWithRestoreAccess  :: Text
@@ -114,10 +115,6 @@ authorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
 
 asarSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
 asarSnapshot = lens _asarSnapshot (\s a -> s { _asarSnapshot = a })
-
-instance FromXML AuthorizeSnapshotAccessResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AuthorizeSnapshotAccessResponse"
 
 instance AWSRequest AuthorizeSnapshotAccess where
     type Sv AuthorizeSnapshotAccess = Redshift

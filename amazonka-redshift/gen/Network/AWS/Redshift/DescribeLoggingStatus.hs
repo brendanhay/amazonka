@@ -47,6 +47,7 @@ module Network.AWS.Redshift.DescribeLoggingStatus
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 newtype DescribeLoggingStatus = DescribeLoggingStatus
     { _dlsClusterIdentifier :: Text
@@ -140,10 +141,6 @@ dlsrLoggingEnabled =
 -- | The prefix applied to the log file names.
 dlsrS3KeyPrefix :: Lens' DescribeLoggingStatusResponse (Maybe Text)
 dlsrS3KeyPrefix = lens _dlsrS3KeyPrefix (\s a -> s { _dlsrS3KeyPrefix = a })
-
-instance FromXML DescribeLoggingStatusResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLoggingStatusResponse"
 
 instance AWSRequest DescribeLoggingStatus where
     type Sv DescribeLoggingStatus = Redshift

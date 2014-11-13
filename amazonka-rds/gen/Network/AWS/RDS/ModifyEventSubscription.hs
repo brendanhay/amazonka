@@ -50,6 +50,7 @@ module Network.AWS.RDS.ModifyEventSubscription
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data ModifyEventSubscription = ModifyEventSubscription
     { _mesEnabled          :: Maybe Bool
@@ -137,10 +138,6 @@ modifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
 mesrEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
 mesrEventSubscription =
     lens _mesrEventSubscription (\s a -> s { _mesrEventSubscription = a })
-
-instance FromXML ModifyEventSubscriptionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyEventSubscriptionResponse"
 
 instance AWSRequest ModifyEventSubscription where
     type Sv ModifyEventSubscription = RDS

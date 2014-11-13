@@ -47,6 +47,7 @@ module Network.AWS.RDS.DescribeOptionGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeOptionGroups = DescribeOptionGroups
     { _dogEngineName         :: Maybe Text
@@ -152,10 +153,6 @@ dogrMarker = lens _dogrMarker (\s a -> s { _dogrMarker = a })
 dogrOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
 dogrOptionGroupsList =
     lens _dogrOptionGroupsList (\s a -> s { _dogrOptionGroupsList = a })
-
-instance FromXML DescribeOptionGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeOptionGroupsResponse"
 
 instance AWSRequest DescribeOptionGroups where
     type Sv DescribeOptionGroups = RDS

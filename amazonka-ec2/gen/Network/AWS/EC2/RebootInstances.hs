@@ -46,6 +46,7 @@ module Network.AWS.EC2.RebootInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data RebootInstances = RebootInstances
     { _ri2DryRun      :: Maybe Bool
@@ -84,10 +85,6 @@ data RebootInstancesResponse = RebootInstancesResponse
 -- | 'RebootInstancesResponse' constructor.
 rebootInstancesResponse :: RebootInstancesResponse
 rebootInstancesResponse = RebootInstancesResponse
-
-instance FromXML RebootInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RebootInstancesResponse"
 
 instance AWSRequest RebootInstances where
     type Sv RebootInstances = EC2

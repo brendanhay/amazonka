@@ -66,6 +66,7 @@ module Network.AWS.SimpleDB.PutAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
+import qualified GHC.Exts
 
 data PutAttributes = PutAttributes
     { _paAttributes :: [ReplaceableAttribute]
@@ -126,10 +127,6 @@ data PutAttributesResponse = PutAttributesResponse
 -- | 'PutAttributesResponse' constructor.
 putAttributesResponse :: PutAttributesResponse
 putAttributesResponse = PutAttributesResponse
-
-instance FromXML PutAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutAttributesResponse"
 
 instance AWSRequest PutAttributes where
     type Sv PutAttributes = SimpleDB

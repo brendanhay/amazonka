@@ -46,6 +46,7 @@ module Network.AWS.Redshift.DescribeHsmClientCertificates
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data DescribeHsmClientCertificates = DescribeHsmClientCertificates
     { _dhccHsmClientCertificateIdentifier :: Maybe Text
@@ -135,10 +136,6 @@ dhccrHsmClientCertificates =
 -- request.
 dhccrMarker :: Lens' DescribeHsmClientCertificatesResponse (Maybe Text)
 dhccrMarker = lens _dhccrMarker (\s a -> s { _dhccrMarker = a })
-
-instance FromXML DescribeHsmClientCertificatesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeHsmClientCertificatesResponse"
 
 instance AWSRequest DescribeHsmClientCertificates where
     type Sv DescribeHsmClientCertificates = Redshift

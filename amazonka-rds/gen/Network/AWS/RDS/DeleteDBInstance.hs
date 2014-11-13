@@ -50,6 +50,7 @@ module Network.AWS.RDS.DeleteDBInstance
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DeleteDBInstance = DeleteDBInstance
     { _ddbiDBInstanceIdentifier      :: Text
@@ -124,10 +125,6 @@ deleteDBInstanceResponse = DeleteDBInstanceResponse
 
 ddbirDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
 ddbirDBInstance = lens _ddbirDBInstance (\s a -> s { _ddbirDBInstance = a })
-
-instance FromXML DeleteDBInstanceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteDBInstanceResponse"
 
 instance AWSRequest DeleteDBInstance where
     type Sv DeleteDBInstance = RDS

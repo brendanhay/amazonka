@@ -53,6 +53,7 @@ module Network.AWS.IAM.ListSigningCertificates
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListSigningCertificates = ListSigningCertificates
     { _lsc1Marker   :: Maybe Text
@@ -139,10 +140,6 @@ lscr1IsTruncated = lens _lscr1IsTruncated (\s a -> s { _lscr1IsTruncated = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lscr1Marker :: Lens' ListSigningCertificatesResponse (Maybe Text)
 lscr1Marker = lens _lscr1Marker (\s a -> s { _lscr1Marker = a })
-
-instance FromXML ListSigningCertificatesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListSigningCertificatesResponse"
 
 instance AWSRequest ListSigningCertificates where
     type Sv ListSigningCertificates = IAM

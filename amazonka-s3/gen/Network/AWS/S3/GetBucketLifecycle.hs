@@ -41,6 +41,7 @@ module Network.AWS.S3.GetBucketLifecycle
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketLifecycle = GetBucketLifecycle
     { _gbl1Bucket :: Text
@@ -76,11 +77,11 @@ newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
     { _gblrRules :: [Rule]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetBucketLifecycleResponse where
+instance GHC.Exts.IsList GetBucketLifecycleResponse where
     type Item GetBucketLifecycleResponse = Rule
 
-    fromList = GetBucketLifecycleResponse . fromList
-    toList   = toList . _gblrRules
+    fromList = GetBucketLifecycleResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _gblrRules
 
 -- | 'GetBucketLifecycleResponse' constructor.
 --

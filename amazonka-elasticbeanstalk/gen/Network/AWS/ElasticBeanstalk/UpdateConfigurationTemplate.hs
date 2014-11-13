@@ -55,6 +55,7 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data UpdateConfigurationTemplate = UpdateConfigurationTemplate
     { _uctApplicationName :: Text
@@ -227,10 +228,6 @@ uctrSolutionStackName =
 -- configuration set.
 uctrTemplateName :: Lens' UpdateConfigurationTemplateResponse (Maybe Text)
 uctrTemplateName = lens _uctrTemplateName (\s a -> s { _uctrTemplateName = a })
-
-instance FromXML UpdateConfigurationTemplateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateConfigurationTemplateResponse"
 
 instance AWSRequest UpdateConfigurationTemplate where
     type Sv UpdateConfigurationTemplate = ElasticBeanstalk

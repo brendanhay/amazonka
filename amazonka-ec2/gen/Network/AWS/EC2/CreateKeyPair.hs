@@ -52,6 +52,7 @@ module Network.AWS.EC2.CreateKeyPair
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateKeyPair = CreateKeyPair
     { _ckpDryRun  :: Maybe Bool
@@ -120,10 +121,6 @@ ckprKeyMaterial = lens _ckprKeyMaterial (\s a -> s { _ckprKeyMaterial = a })
 -- | The name of the key pair.
 ckprKeyName :: Lens' CreateKeyPairResponse (Maybe Text)
 ckprKeyName = lens _ckprKeyName (\s a -> s { _ckprKeyName = a })
-
-instance FromXML CreateKeyPairResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateKeyPairResponse"
 
 instance AWSRequest CreateKeyPair where
     type Sv CreateKeyPair = EC2

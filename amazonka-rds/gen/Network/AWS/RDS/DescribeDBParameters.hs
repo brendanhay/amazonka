@@ -46,6 +46,7 @@ module Network.AWS.RDS.DescribeDBParameters
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeDBParameters = DescribeDBParameters
     { _ddbpDBParameterGroupName :: Text
@@ -143,10 +144,6 @@ ddbprMarker = lens _ddbprMarker (\s a -> s { _ddbprMarker = a })
 -- | A list of Parameter values.
 ddbprParameters :: Lens' DescribeDBParametersResponse [Parameter]
 ddbprParameters = lens _ddbprParameters (\s a -> s { _ddbprParameters = a })
-
-instance FromXML DescribeDBParametersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBParametersResponse"
 
 instance AWSRequest DescribeDBParameters where
     type Sv DescribeDBParameters = RDS

@@ -44,6 +44,7 @@ module Network.AWS.AutoScaling.ExitStandby
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data ExitStandby = ExitStandby
     { _es1AutoScalingGroupName :: Text
@@ -85,11 +86,11 @@ newtype ExitStandbyResponse = ExitStandbyResponse
     { _esrActivities :: [Activity]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ExitStandbyResponse where
+instance GHC.Exts.IsList ExitStandbyResponse where
     type Item ExitStandbyResponse = Activity
 
-    fromList = ExitStandbyResponse . fromList
-    toList   = toList . _esrActivities
+    fromList = ExitStandbyResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _esrActivities
 
 -- | 'ExitStandbyResponse' constructor.
 --
@@ -106,10 +107,6 @@ exitStandbyResponse = ExitStandbyResponse
 -- Standby mode.
 esrActivities :: Lens' ExitStandbyResponse [Activity]
 esrActivities = lens _esrActivities (\s a -> s { _esrActivities = a })
-
-instance FromXML ExitStandbyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ExitStandbyResponse"
 
 instance AWSRequest ExitStandby where
     type Sv ExitStandby = AutoScaling

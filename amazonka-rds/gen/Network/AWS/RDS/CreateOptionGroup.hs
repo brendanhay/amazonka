@@ -45,6 +45,7 @@ module Network.AWS.RDS.CreateOptionGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data CreateOptionGroup = CreateOptionGroup
     { _cogEngineName             :: Text
@@ -131,10 +132,6 @@ createOptionGroupResponse = CreateOptionGroupResponse
 
 cogr1OptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
 cogr1OptionGroup = lens _cogr1OptionGroup (\s a -> s { _cogr1OptionGroup = a })
-
-instance FromXML CreateOptionGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateOptionGroupResponse"
 
 instance AWSRequest CreateOptionGroup where
     type Sv CreateOptionGroup = RDS

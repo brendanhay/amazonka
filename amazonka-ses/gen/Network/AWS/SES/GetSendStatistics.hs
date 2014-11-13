@@ -42,6 +42,7 @@ module Network.AWS.SES.GetSendStatistics
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 data GetSendStatistics = GetSendStatistics
     deriving (Eq, Ord, Show, Generic)
@@ -59,11 +60,11 @@ newtype GetSendStatisticsResponse = GetSendStatisticsResponse
     { _gssrSendDataPoints :: [SendDataPoint]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetSendStatisticsResponse where
+instance GHC.Exts.IsList GetSendStatisticsResponse where
     type Item GetSendStatisticsResponse = SendDataPoint
 
-    fromList = GetSendStatisticsResponse . fromList
-    toList   = toList . _gssrSendDataPoints
+    fromList = GetSendStatisticsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _gssrSendDataPoints
 
 -- | 'GetSendStatisticsResponse' constructor.
 --
@@ -80,10 +81,6 @@ getSendStatisticsResponse = GetSendStatisticsResponse
 gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
 gssrSendDataPoints =
     lens _gssrSendDataPoints (\s a -> s { _gssrSendDataPoints = a })
-
-instance FromXML GetSendStatisticsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetSendStatisticsResponse"
 
 instance AWSRequest GetSendStatistics where
     type Sv GetSendStatistics = SES

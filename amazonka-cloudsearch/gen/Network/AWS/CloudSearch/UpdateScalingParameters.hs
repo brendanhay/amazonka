@@ -48,6 +48,7 @@ module Network.AWS.CloudSearch.UpdateScalingParameters
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data UpdateScalingParameters = UpdateScalingParameters
     { _uspDomainName        :: Text
@@ -101,10 +102,6 @@ updateScalingParametersResponse p1 = UpdateScalingParametersResponse
 usprScalingParameters :: Lens' UpdateScalingParametersResponse ScalingParametersStatus
 usprScalingParameters =
     lens _usprScalingParameters (\s a -> s { _usprScalingParameters = a })
-
-instance FromXML UpdateScalingParametersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateScalingParametersResponse"
 
 instance AWSRequest UpdateScalingParameters where
     type Sv UpdateScalingParameters = CloudSearch

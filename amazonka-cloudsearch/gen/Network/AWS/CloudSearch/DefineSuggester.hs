@@ -47,6 +47,7 @@ module Network.AWS.CloudSearch.DefineSuggester
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data DefineSuggester = DefineSuggester
     { _ds2DomainName :: Text
@@ -98,10 +99,6 @@ defineSuggesterResponse p1 = DefineSuggesterResponse
 
 dsrSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
 dsrSuggester = lens _dsrSuggester (\s a -> s { _dsrSuggester = a })
-
-instance FromXML DefineSuggesterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DefineSuggesterResponse"
 
 instance AWSRequest DefineSuggester where
     type Sv DefineSuggester = CloudSearch

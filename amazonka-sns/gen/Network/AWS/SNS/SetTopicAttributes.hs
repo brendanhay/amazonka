@@ -41,6 +41,7 @@ module Network.AWS.SNS.SetTopicAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 data SetTopicAttributes = SetTopicAttributes
     { _staAttributeName  :: Text
@@ -93,10 +94,6 @@ data SetTopicAttributesResponse = SetTopicAttributesResponse
 -- | 'SetTopicAttributesResponse' constructor.
 setTopicAttributesResponse :: SetTopicAttributesResponse
 setTopicAttributesResponse = SetTopicAttributesResponse
-
-instance FromXML SetTopicAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetTopicAttributesResponse"
 
 instance AWSRequest SetTopicAttributes where
     type Sv SetTopicAttributes = SNS

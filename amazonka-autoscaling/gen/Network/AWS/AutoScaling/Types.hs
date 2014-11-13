@@ -251,6 +251,7 @@ module Network.AWS.AutoScaling.Types
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2011-01-01@) of the Amazon Auto Scaling.
 data AutoScaling deriving (Typeable)

@@ -67,6 +67,7 @@ module Network.AWS.EC2.CreateVolume
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateVolume = CreateVolume
     { _cv1AvailabilityZone :: Text
@@ -259,10 +260,6 @@ cvrVolumeId = lens _cvrVolumeId (\s a -> s { _cvrVolumeId = a })
 -- for Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes.
 cvrVolumeType :: Lens' CreateVolumeResponse (Maybe Text)
 cvrVolumeType = lens _cvrVolumeType (\s a -> s { _cvrVolumeType = a })
-
-instance FromXML CreateVolumeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVolumeResponse"
 
 instance AWSRequest CreateVolume where
     type Sv CreateVolume = EC2

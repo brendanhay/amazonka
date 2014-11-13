@@ -44,6 +44,7 @@ module Network.AWS.EC2.DeleteTags
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteTags = DeleteTags
     { _dt1DryRun    :: Maybe Bool
@@ -94,10 +95,6 @@ data DeleteTagsResponse = DeleteTagsResponse
 -- | 'DeleteTagsResponse' constructor.
 deleteTagsResponse :: DeleteTagsResponse
 deleteTagsResponse = DeleteTagsResponse
-
-instance FromXML DeleteTagsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteTagsResponse"
 
 instance AWSRequest DeleteTags where
     type Sv DeleteTags = EC2

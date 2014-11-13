@@ -44,6 +44,7 @@ module Network.AWS.IAM.GetInstanceProfile
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype GetInstanceProfile = GetInstanceProfile
     { _gipInstanceProfileName :: Text
@@ -91,10 +92,6 @@ getInstanceProfileResponse p1 = GetInstanceProfileResponse
 giprInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
 giprInstanceProfile =
     lens _giprInstanceProfile (\s a -> s { _giprInstanceProfile = a })
-
-instance FromXML GetInstanceProfileResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetInstanceProfileResponse"
 
 instance AWSRequest GetInstanceProfile where
     type Sv GetInstanceProfile = IAM

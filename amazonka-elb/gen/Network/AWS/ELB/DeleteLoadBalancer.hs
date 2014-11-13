@@ -47,6 +47,7 @@ module Network.AWS.ELB.DeleteLoadBalancer
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 newtype DeleteLoadBalancer = DeleteLoadBalancer
     { _dlbLoadBalancerName :: Text
@@ -80,10 +81,6 @@ data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
 -- | 'DeleteLoadBalancerResponse' constructor.
 deleteLoadBalancerResponse :: DeleteLoadBalancerResponse
 deleteLoadBalancerResponse = DeleteLoadBalancerResponse
-
-instance FromXML DeleteLoadBalancerResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteLoadBalancerResponse"
 
 instance AWSRequest DeleteLoadBalancer where
     type Sv DeleteLoadBalancer = ELB

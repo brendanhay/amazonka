@@ -43,6 +43,7 @@ module Network.AWS.IAM.DeactivateMFADevice
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data DeactivateMFADevice = DeactivateMFADevice
     { _dmfadSerialNumber :: Text
@@ -86,10 +87,6 @@ data DeactivateMFADeviceResponse = DeactivateMFADeviceResponse
 -- | 'DeactivateMFADeviceResponse' constructor.
 deactivateMFADeviceResponse :: DeactivateMFADeviceResponse
 deactivateMFADeviceResponse = DeactivateMFADeviceResponse
-
-instance FromXML DeactivateMFADeviceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeactivateMFADeviceResponse"
 
 instance AWSRequest DeactivateMFADevice where
     type Sv DeactivateMFADevice = IAM

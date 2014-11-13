@@ -42,6 +42,7 @@ module Network.AWS.S3.GetBucketVersioning
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketVersioning = GetBucketVersioning
     { _gbvBucket :: Text

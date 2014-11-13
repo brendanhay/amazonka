@@ -46,6 +46,7 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DownloadDBLogFilePortion = DownloadDBLogFilePortion
     { _ddblfpDBInstanceIdentifier :: Text
@@ -157,10 +158,6 @@ ddblfprLogFileData =
 -- DownloadDBLogFilePortion request.
 ddblfprMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
 ddblfprMarker = lens _ddblfprMarker (\s a -> s { _ddblfprMarker = a })
-
-instance FromXML DownloadDBLogFilePortionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DownloadDBLogFilePortionResponse"
 
 instance AWSRequest DownloadDBLogFilePortion where
     type Sv DownloadDBLogFilePortion = RDS

@@ -45,6 +45,7 @@ module Network.AWS.AutoScaling.EnableMetricsCollection
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data EnableMetricsCollection = EnableMetricsCollection
     { _emcAutoScalingGroupName :: Text
@@ -100,10 +101,6 @@ data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse
 -- | 'EnableMetricsCollectionResponse' constructor.
 enableMetricsCollectionResponse :: EnableMetricsCollectionResponse
 enableMetricsCollectionResponse = EnableMetricsCollectionResponse
-
-instance FromXML EnableMetricsCollectionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnableMetricsCollectionResponse"
 
 instance AWSRequest EnableMetricsCollection where
     type Sv EnableMetricsCollection = AutoScaling

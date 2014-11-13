@@ -41,6 +41,7 @@ module Network.AWS.IAM.GetAccountSummary
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data GetAccountSummary = GetAccountSummary
     deriving (Eq, Ord, Show, Generic)
@@ -94,10 +95,6 @@ getAccountSummaryResponse = GetAccountSummaryResponse
 gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap Text Int)
 gasrSummaryMap = lens _gasrSummaryMap (\s a -> s { _gasrSummaryMap = a })
     . _Map
-
-instance FromXML GetAccountSummaryResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetAccountSummaryResponse"
 
 instance AWSRequest GetAccountSummary where
     type Sv GetAccountSummary = IAM

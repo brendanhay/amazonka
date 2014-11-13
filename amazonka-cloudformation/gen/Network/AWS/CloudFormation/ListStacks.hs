@@ -47,6 +47,7 @@ module Network.AWS.CloudFormation.ListStacks
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 data ListStacks = ListStacks
     { _lsNextToken         :: Maybe Text
@@ -114,10 +115,6 @@ lsr1NextToken = lens _lsr1NextToken (\s a -> s { _lsr1NextToken = a })
 lsr1StackSummaries :: Lens' ListStacksResponse [StackSummary]
 lsr1StackSummaries =
     lens _lsr1StackSummaries (\s a -> s { _lsr1StackSummaries = a })
-
-instance FromXML ListStacksResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListStacksResponse"
 
 instance AWSRequest ListStacks where
     type Sv ListStacks = CloudFormation

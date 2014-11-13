@@ -39,6 +39,7 @@ module Network.AWS.Redshift.DeleteClusterParameterGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup
     { _dcpg1ParameterGroupName :: Text
@@ -74,10 +75,6 @@ data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
 -- | 'DeleteClusterParameterGroupResponse' constructor.
 deleteClusterParameterGroupResponse :: DeleteClusterParameterGroupResponse
 deleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
-
-instance FromXML DeleteClusterParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteClusterParameterGroupResponse"
 
 instance AWSRequest DeleteClusterParameterGroup where
     type Sv DeleteClusterParameterGroup = Redshift

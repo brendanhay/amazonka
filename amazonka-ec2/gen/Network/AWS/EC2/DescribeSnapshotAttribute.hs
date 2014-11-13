@@ -48,6 +48,7 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute
     { _dsaAttribute  :: Text
@@ -126,10 +127,6 @@ dsarProductCodes = lens _dsarProductCodes (\s a -> s { _dsarProductCodes = a })
 -- | The ID of the Amazon EBS snapshot.
 dsarSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsarSnapshotId = lens _dsarSnapshotId (\s a -> s { _dsarSnapshotId = a })
-
-instance FromXML DescribeSnapshotAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSnapshotAttributeResponse"
 
 instance AWSRequest DescribeSnapshotAttribute where
     type Sv DescribeSnapshotAttribute = EC2

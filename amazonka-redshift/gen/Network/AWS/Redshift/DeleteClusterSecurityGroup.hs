@@ -41,6 +41,7 @@ module Network.AWS.Redshift.DeleteClusterSecurityGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
     { _dcsg1ClusterSecurityGroupName :: Text
@@ -75,10 +76,6 @@ data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
 -- | 'DeleteClusterSecurityGroupResponse' constructor.
 deleteClusterSecurityGroupResponse :: DeleteClusterSecurityGroupResponse
 deleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
-
-instance FromXML DeleteClusterSecurityGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteClusterSecurityGroupResponse"
 
 instance AWSRequest DeleteClusterSecurityGroup where
     type Sv DeleteClusterSecurityGroup = Redshift

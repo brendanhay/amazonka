@@ -42,6 +42,7 @@ module Network.AWS.Route53.ListTagsForResources
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 data ListTagsForResources = ListTagsForResources
     { _ltfr1ResourceIds  :: List1 Text
@@ -94,11 +95,11 @@ newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse
     { _ltfrrResourceTagSets :: [ResourceTagSet]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ListTagsForResourcesResponse where
+instance GHC.Exts.IsList ListTagsForResourcesResponse where
     type Item ListTagsForResourcesResponse = ResourceTagSet
 
-    fromList = ListTagsForResourcesResponse . fromList
-    toList   = toList . _ltfrrResourceTagSets
+    fromList = ListTagsForResourcesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _ltfrrResourceTagSets
 
 -- | 'ListTagsForResourcesResponse' constructor.
 --

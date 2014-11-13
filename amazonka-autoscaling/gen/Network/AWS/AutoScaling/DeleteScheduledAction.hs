@@ -41,6 +41,7 @@ module Network.AWS.AutoScaling.DeleteScheduledAction
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DeleteScheduledAction = DeleteScheduledAction
     { _dsaAutoScalingGroupName :: Maybe Text
@@ -83,10 +84,6 @@ data DeleteScheduledActionResponse = DeleteScheduledActionResponse
 -- | 'DeleteScheduledActionResponse' constructor.
 deleteScheduledActionResponse :: DeleteScheduledActionResponse
 deleteScheduledActionResponse = DeleteScheduledActionResponse
-
-instance FromXML DeleteScheduledActionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteScheduledActionResponse"
 
 instance AWSRequest DeleteScheduledAction where
     type Sv DeleteScheduledAction = AutoScaling

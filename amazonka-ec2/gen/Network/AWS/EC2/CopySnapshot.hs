@@ -53,6 +53,7 @@ module Network.AWS.EC2.CopySnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CopySnapshot = CopySnapshot
     { _csDescription       :: Maybe Text
@@ -152,10 +153,6 @@ copySnapshotResponse = CopySnapshotResponse
 -- | The ID of the new snapshot.
 csrSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
-
-instance FromXML CopySnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopySnapshotResponse"
 
 instance AWSRequest CopySnapshot where
     type Sv CopySnapshot = EC2

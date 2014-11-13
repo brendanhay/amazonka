@@ -46,6 +46,7 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations
     { _dlcLaunchConfigurationNames :: [Text]
@@ -117,10 +118,6 @@ dlcrLaunchConfigurations =
 -- | A string that marks the start of the next batch of returned results.
 dlcrNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
 dlcrNextToken = lens _dlcrNextToken (\s a -> s { _dlcrNextToken = a })
-
-instance FromXML DescribeLaunchConfigurationsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLaunchConfigurationsResponse"
 
 instance AWSRequest DescribeLaunchConfigurations where
     type Sv DescribeLaunchConfigurations = AutoScaling

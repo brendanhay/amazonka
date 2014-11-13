@@ -46,6 +46,7 @@ module Network.AWS.SNS.Subscribe
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 data Subscribe = Subscribe
     { _sEndpoint :: Maybe Text
@@ -123,10 +124,6 @@ subscribeResponse = SubscribeResponse
 srSubscriptionArn :: Lens' SubscribeResponse (Maybe Text)
 srSubscriptionArn =
     lens _srSubscriptionArn (\s a -> s { _srSubscriptionArn = a })
-
-instance FromXML SubscribeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SubscribeResponse"
 
 instance AWSRequest Subscribe where
     type Sv Subscribe = SNS

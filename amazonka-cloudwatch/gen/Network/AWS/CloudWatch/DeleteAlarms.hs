@@ -40,16 +40,17 @@ module Network.AWS.CloudWatch.DeleteAlarms
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
+import qualified GHC.Exts
 
 newtype DeleteAlarms = DeleteAlarms
     { _da1AlarmNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DeleteAlarms where
+instance GHC.Exts.IsList DeleteAlarms where
     type Item DeleteAlarms = Text
 
-    fromList = DeleteAlarms . fromList
-    toList   = toList . _da1AlarmNames
+    fromList = DeleteAlarms . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _da1AlarmNames
 
 -- | 'DeleteAlarms' constructor.
 --
@@ -77,10 +78,6 @@ data DeleteAlarmsResponse = DeleteAlarmsResponse
 -- | 'DeleteAlarmsResponse' constructor.
 deleteAlarmsResponse :: DeleteAlarmsResponse
 deleteAlarmsResponse = DeleteAlarmsResponse
-
-instance FromXML DeleteAlarmsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteAlarmsResponse"
 
 instance AWSRequest DeleteAlarms where
     type Sv DeleteAlarms = CloudWatch

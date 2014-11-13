@@ -40,6 +40,7 @@ module Network.AWS.IAM.GetAccountPasswordPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data GetAccountPasswordPolicy = GetAccountPasswordPolicy
     deriving (Eq, Ord, Show, Generic)
@@ -72,10 +73,6 @@ getAccountPasswordPolicyResponse p1 = GetAccountPasswordPolicyResponse
 gapprPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
 gapprPasswordPolicy =
     lens _gapprPasswordPolicy (\s a -> s { _gapprPasswordPolicy = a })
-
-instance FromXML GetAccountPasswordPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetAccountPasswordPolicyResponse"
 
 instance AWSRequest GetAccountPasswordPolicy where
     type Sv GetAccountPasswordPolicy = IAM

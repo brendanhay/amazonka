@@ -46,6 +46,7 @@ module Network.AWS.Redshift.DescribeHsmConfigurations
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data DescribeHsmConfigurations = DescribeHsmConfigurations
     { _dhc1HsmConfigurationIdentifier :: Maybe Text
@@ -132,10 +133,6 @@ dhcrHsmConfigurations =
 -- request.
 dhcrMarker :: Lens' DescribeHsmConfigurationsResponse (Maybe Text)
 dhcrMarker = lens _dhcrMarker (\s a -> s { _dhcrMarker = a })
-
-instance FromXML DescribeHsmConfigurationsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeHsmConfigurationsResponse"
 
 instance AWSRequest DescribeHsmConfigurations where
     type Sv DescribeHsmConfigurations = Redshift

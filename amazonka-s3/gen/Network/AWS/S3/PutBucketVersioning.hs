@@ -43,6 +43,7 @@ module Network.AWS.S3.PutBucketVersioning
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data PutBucketVersioning = PutBucketVersioning
     { _pbvBucket                  :: Text

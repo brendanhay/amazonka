@@ -45,6 +45,7 @@ module Network.AWS.Redshift.CreateClusterSecurityGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup
     { _ccsg1ClusterSecurityGroupName :: Text
@@ -105,10 +106,6 @@ ccsgrClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe Clu
 ccsgrClusterSecurityGroup =
     lens _ccsgrClusterSecurityGroup
         (\s a -> s { _ccsgrClusterSecurityGroup = a })
-
-instance FromXML CreateClusterSecurityGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateClusterSecurityGroupResponse"
 
 instance AWSRequest CreateClusterSecurityGroup where
     type Sv CreateClusterSecurityGroup = Redshift

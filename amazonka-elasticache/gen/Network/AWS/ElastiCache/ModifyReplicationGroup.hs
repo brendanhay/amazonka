@@ -57,6 +57,7 @@ module Network.AWS.ElastiCache.ModifyReplicationGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data ModifyReplicationGroup = ModifyReplicationGroup
     { _mrgApplyImmediately            :: Maybe Bool
@@ -287,10 +288,6 @@ modifyReplicationGroupResponse = ModifyReplicationGroupResponse
 mrgrReplicationGroup :: Lens' ModifyReplicationGroupResponse (Maybe ReplicationGroup)
 mrgrReplicationGroup =
     lens _mrgrReplicationGroup (\s a -> s { _mrgrReplicationGroup = a })
-
-instance FromXML ModifyReplicationGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyReplicationGroupResponse"
 
 instance AWSRequest ModifyReplicationGroup where
     type Sv ModifyReplicationGroup = ElastiCache

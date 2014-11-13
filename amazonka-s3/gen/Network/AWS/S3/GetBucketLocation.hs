@@ -41,6 +41,7 @@ module Network.AWS.S3.GetBucketLocation
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketLocation = GetBucketLocation
     { _gblBucket :: Text

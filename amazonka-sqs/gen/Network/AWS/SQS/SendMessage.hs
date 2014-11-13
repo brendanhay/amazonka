@@ -55,6 +55,7 @@ module Network.AWS.SQS.SendMessage
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
+import qualified GHC.Exts
 
 data SendMessage = SendMessage
     { _smDelaySeconds      :: Maybe Int
@@ -158,10 +159,6 @@ smrMD5OfMessageBody =
 -- Developer Guide.
 smrMessageId :: Lens' SendMessageResponse (Maybe Text)
 smrMessageId = lens _smrMessageId (\s a -> s { _smrMessageId = a })
-
-instance FromXML SendMessageResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SendMessageResponse"
 
 instance AWSRequest SendMessage where
     type Sv SendMessage = SQS

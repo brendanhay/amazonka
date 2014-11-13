@@ -47,6 +47,7 @@ module Network.AWS.S3.DeleteObject
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data DeleteObject = DeleteObject
     { _doBucket    :: Text

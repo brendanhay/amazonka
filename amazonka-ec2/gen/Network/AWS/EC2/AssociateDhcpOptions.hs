@@ -49,6 +49,7 @@ module Network.AWS.EC2.AssociateDhcpOptions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data AssociateDhcpOptions = AssociateDhcpOptions
     { _adoDhcpOptionsId :: Text
@@ -98,10 +99,6 @@ data AssociateDhcpOptionsResponse = AssociateDhcpOptionsResponse
 -- | 'AssociateDhcpOptionsResponse' constructor.
 associateDhcpOptionsResponse :: AssociateDhcpOptionsResponse
 associateDhcpOptionsResponse = AssociateDhcpOptionsResponse
-
-instance FromXML AssociateDhcpOptionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AssociateDhcpOptionsResponse"
 
 instance AWSRequest AssociateDhcpOptions where
     type Sv AssociateDhcpOptions = EC2

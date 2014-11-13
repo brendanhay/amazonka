@@ -45,6 +45,7 @@ module Network.AWS.EC2.DescribeRouteTables
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeRouteTables = DescribeRouteTables
     { _drt2DryRun        :: Maybe Bool
@@ -118,11 +119,11 @@ newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
     { _drtrRouteTables :: [RouteTable]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeRouteTablesResponse where
+instance GHC.Exts.IsList DescribeRouteTablesResponse where
     type Item DescribeRouteTablesResponse = RouteTable
 
-    fromList = DescribeRouteTablesResponse . fromList
-    toList   = toList . _drtrRouteTables
+    fromList = DescribeRouteTablesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _drtrRouteTables
 
 -- | 'DescribeRouteTablesResponse' constructor.
 --
@@ -138,10 +139,6 @@ describeRouteTablesResponse = DescribeRouteTablesResponse
 -- | Information about one or more route tables.
 drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
 drtrRouteTables = lens _drtrRouteTables (\s a -> s { _drtrRouteTables = a })
-
-instance FromXML DescribeRouteTablesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeRouteTablesResponse"
 
 instance AWSRequest DescribeRouteTables where
     type Sv DescribeRouteTables = EC2

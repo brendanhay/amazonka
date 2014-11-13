@@ -42,6 +42,7 @@ module Network.AWS.AutoScaling.DeleteLifecycleHook
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DeleteLifecycleHook = DeleteLifecycleHook
     { _dlh1AutoScalingGroupName :: Text
@@ -86,10 +87,6 @@ data DeleteLifecycleHookResponse = DeleteLifecycleHookResponse
 -- | 'DeleteLifecycleHookResponse' constructor.
 deleteLifecycleHookResponse :: DeleteLifecycleHookResponse
 deleteLifecycleHookResponse = DeleteLifecycleHookResponse
-
-instance FromXML DeleteLifecycleHookResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteLifecycleHookResponse"
 
 instance AWSRequest DeleteLifecycleHook where
     type Sv DeleteLifecycleHook = AutoScaling

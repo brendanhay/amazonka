@@ -70,6 +70,7 @@ module Network.AWS.ElasticBeanstalk.UpdateEnvironment
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data UpdateEnvironment = UpdateEnvironment
     { _ueDescription     :: Maybe Text
@@ -327,10 +328,6 @@ uerTier = lens _uerTier (\s a -> s { _uerTier = a })
 -- | The application version deployed in this environment.
 uerVersionLabel :: Lens' UpdateEnvironmentResponse (Maybe Text)
 uerVersionLabel = lens _uerVersionLabel (\s a -> s { _uerVersionLabel = a })
-
-instance FromXML UpdateEnvironmentResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateEnvironmentResponse"
 
 instance AWSRequest UpdateEnvironment where
     type Sv UpdateEnvironment = ElasticBeanstalk

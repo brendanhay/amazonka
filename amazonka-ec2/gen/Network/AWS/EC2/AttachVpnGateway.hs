@@ -45,6 +45,7 @@ module Network.AWS.EC2.AttachVpnGateway
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data AttachVpnGateway = AttachVpnGateway
     { _avgDryRun       :: Maybe Bool
@@ -106,10 +107,6 @@ attachVpnGatewayResponse = AttachVpnGatewayResponse
 avgrVpcAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)
 avgrVpcAttachment =
     lens _avgrVpcAttachment (\s a -> s { _avgrVpcAttachment = a })
-
-instance FromXML AttachVpnGatewayResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttachVpnGatewayResponse"
 
 instance AWSRequest AttachVpnGateway where
     type Sv AttachVpnGateway = EC2

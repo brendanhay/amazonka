@@ -41,6 +41,7 @@ module Network.AWS.EC2.UnassignPrivateIpAddresses
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data UnassignPrivateIpAddresses = UnassignPrivateIpAddresses
     { _upiaNetworkInterfaceId :: Text
@@ -85,10 +86,6 @@ data UnassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
 -- | 'UnassignPrivateIpAddressesResponse' constructor.
 unassignPrivateIpAddressesResponse :: UnassignPrivateIpAddressesResponse
 unassignPrivateIpAddressesResponse = UnassignPrivateIpAddressesResponse
-
-instance FromXML UnassignPrivateIpAddressesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UnassignPrivateIpAddressesResponse"
 
 instance AWSRequest UnassignPrivateIpAddresses where
     type Sv UnassignPrivateIpAddresses = EC2

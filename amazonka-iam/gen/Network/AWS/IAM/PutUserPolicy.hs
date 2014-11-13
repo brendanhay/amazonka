@@ -45,6 +45,7 @@ module Network.AWS.IAM.PutUserPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data PutUserPolicy = PutUserPolicy
     { _pupPolicyDocument :: Text
@@ -96,10 +97,6 @@ data PutUserPolicyResponse = PutUserPolicyResponse
 -- | 'PutUserPolicyResponse' constructor.
 putUserPolicyResponse :: PutUserPolicyResponse
 putUserPolicyResponse = PutUserPolicyResponse
-
-instance FromXML PutUserPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutUserPolicyResponse"
 
 instance AWSRequest PutUserPolicy where
     type Sv PutUserPolicy = IAM

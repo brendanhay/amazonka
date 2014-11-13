@@ -48,6 +48,7 @@ module Network.AWS.ElastiCache.RebootCacheCluster
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data RebootCacheCluster = RebootCacheCluster
     { _rccCacheClusterId       :: Text
@@ -104,10 +105,6 @@ rebootCacheClusterResponse = RebootCacheClusterResponse
 
 rccrCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
 rccrCacheCluster = lens _rccrCacheCluster (\s a -> s { _rccrCacheCluster = a })
-
-instance FromXML RebootCacheClusterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RebootCacheClusterResponse"
 
 instance AWSRequest RebootCacheCluster where
     type Sv RebootCacheCluster = ElastiCache

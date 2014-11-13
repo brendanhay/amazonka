@@ -46,6 +46,7 @@ module Network.AWS.EC2.DisassociateAddress
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DisassociateAddress = DisassociateAddress
     { _da1AssociationId :: Maybe Text
@@ -92,10 +93,6 @@ data DisassociateAddressResponse = DisassociateAddressResponse
 -- | 'DisassociateAddressResponse' constructor.
 disassociateAddressResponse :: DisassociateAddressResponse
 disassociateAddressResponse = DisassociateAddressResponse
-
-instance FromXML DisassociateAddressResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DisassociateAddressResponse"
 
 instance AWSRequest DisassociateAddress where
     type Sv DisassociateAddress = EC2

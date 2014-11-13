@@ -44,6 +44,7 @@ module Network.AWS.ELB.CreateLoadBalancerListeners
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners
     { _clblListeners        :: [Listener]
@@ -86,10 +87,6 @@ data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
 -- | 'CreateLoadBalancerListenersResponse' constructor.
 createLoadBalancerListenersResponse :: CreateLoadBalancerListenersResponse
 createLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
-
-instance FromXML CreateLoadBalancerListenersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateLoadBalancerListenersResponse"
 
 instance AWSRequest CreateLoadBalancerListeners where
     type Sv CreateLoadBalancerListeners = ELB

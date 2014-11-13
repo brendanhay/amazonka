@@ -56,6 +56,7 @@ module Network.AWS.EC2.StartInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data StartInstances = StartInstances
     { _si1AdditionalInfo :: Maybe Text
@@ -101,11 +102,11 @@ newtype StartInstancesResponse = StartInstancesResponse
     { _sirStartingInstances :: [InstanceStateChange]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList StartInstancesResponse where
+instance GHC.Exts.IsList StartInstancesResponse where
     type Item StartInstancesResponse = InstanceStateChange
 
-    fromList = StartInstancesResponse . fromList
-    toList   = toList . _sirStartingInstances
+    fromList = StartInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _sirStartingInstances
 
 -- | 'StartInstancesResponse' constructor.
 --
@@ -122,10 +123,6 @@ startInstancesResponse = StartInstancesResponse
 sirStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
 sirStartingInstances =
     lens _sirStartingInstances (\s a -> s { _sirStartingInstances = a })
-
-instance FromXML StartInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StartInstancesResponse"
 
 instance AWSRequest StartInstances where
     type Sv StartInstances = EC2

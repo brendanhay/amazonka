@@ -45,6 +45,7 @@ module Network.AWS.SNS.ListSubscriptions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 newtype ListSubscriptions = ListSubscriptions
     { _lsNextToken :: Maybe Text
@@ -97,10 +98,6 @@ lsrNextToken = lens _lsrNextToken (\s a -> s { _lsrNextToken = a })
 -- | A list of subscriptions.
 lsrSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
 lsrSubscriptions = lens _lsrSubscriptions (\s a -> s { _lsrSubscriptions = a })
-
-instance FromXML ListSubscriptionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListSubscriptionsResponse"
 
 instance AWSRequest ListSubscriptions where
     type Sv ListSubscriptions = SNS

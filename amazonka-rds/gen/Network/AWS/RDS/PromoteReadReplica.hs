@@ -43,6 +43,7 @@ module Network.AWS.RDS.PromoteReadReplica
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data PromoteReadReplica = PromoteReadReplica
     { _prrBackupRetentionPeriod :: Maybe Int
@@ -120,10 +121,6 @@ promoteReadReplicaResponse = PromoteReadReplicaResponse
 
 prrrDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
 prrrDBInstance = lens _prrrDBInstance (\s a -> s { _prrrDBInstance = a })
-
-instance FromXML PromoteReadReplicaResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PromoteReadReplicaResponse"
 
 instance AWSRequest PromoteReadReplica where
     type Sv PromoteReadReplica = RDS

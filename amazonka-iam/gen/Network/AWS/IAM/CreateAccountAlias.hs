@@ -41,6 +41,7 @@ module Network.AWS.IAM.CreateAccountAlias
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype CreateAccountAlias = CreateAccountAlias
     { _caaAccountAlias :: Text
@@ -73,10 +74,6 @@ data CreateAccountAliasResponse = CreateAccountAliasResponse
 -- | 'CreateAccountAliasResponse' constructor.
 createAccountAliasResponse :: CreateAccountAliasResponse
 createAccountAliasResponse = CreateAccountAliasResponse
-
-instance FromXML CreateAccountAliasResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateAccountAliasResponse"
 
 instance AWSRequest CreateAccountAlias where
     type Sv CreateAccountAlias = IAM

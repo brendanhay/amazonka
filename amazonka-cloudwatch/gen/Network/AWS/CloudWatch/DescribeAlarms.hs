@@ -49,6 +49,7 @@ module Network.AWS.CloudWatch.DescribeAlarms
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
+import qualified GHC.Exts
 
 data DescribeAlarms = DescribeAlarms
     { _daActionPrefix    :: Maybe Text
@@ -143,10 +144,6 @@ darMetricAlarms = lens _darMetricAlarms (\s a -> s { _darMetricAlarms = a })
 -- | A string that marks the start of the next batch of returned results.
 darNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
 darNextToken = lens _darNextToken (\s a -> s { _darNextToken = a })
-
-instance FromXML DescribeAlarmsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAlarmsResponse"
 
 instance AWSRequest DescribeAlarms where
     type Sv DescribeAlarms = CloudWatch

@@ -42,6 +42,7 @@ module Network.AWS.SNS.SetPlatformApplicationAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
     { _spaaAttributes             :: Map Text Text
@@ -99,10 +100,6 @@ data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributes
 -- | 'SetPlatformApplicationAttributesResponse' constructor.
 setPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse
 setPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
-
-instance FromXML SetPlatformApplicationAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetPlatformApplicationAttributesResponse"
 
 instance AWSRequest SetPlatformApplicationAttributes where
     type Sv SetPlatformApplicationAttributes = SNS

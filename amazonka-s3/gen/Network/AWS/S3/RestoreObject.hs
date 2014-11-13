@@ -42,6 +42,7 @@ module Network.AWS.S3.RestoreObject
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data RestoreObject = RestoreObject
     { _roBucket         :: Text

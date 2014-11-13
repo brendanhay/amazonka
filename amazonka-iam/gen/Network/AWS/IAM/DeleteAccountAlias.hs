@@ -41,6 +41,7 @@ module Network.AWS.IAM.DeleteAccountAlias
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype DeleteAccountAlias = DeleteAccountAlias
     { _daaAccountAlias :: Text
@@ -73,10 +74,6 @@ data DeleteAccountAliasResponse = DeleteAccountAliasResponse
 -- | 'DeleteAccountAliasResponse' constructor.
 deleteAccountAliasResponse :: DeleteAccountAliasResponse
 deleteAccountAliasResponse = DeleteAccountAliasResponse
-
-instance FromXML DeleteAccountAliasResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteAccountAliasResponse"
 
 instance AWSRequest DeleteAccountAlias where
     type Sv DeleteAccountAlias = IAM

@@ -40,6 +40,7 @@ module Network.AWS.AutoScaling.DeletePolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DeletePolicy = DeletePolicy
     { _dpAutoScalingGroupName :: Maybe Text
@@ -81,10 +82,6 @@ data DeletePolicyResponse = DeletePolicyResponse
 -- | 'DeletePolicyResponse' constructor.
 deletePolicyResponse :: DeletePolicyResponse
 deletePolicyResponse = DeletePolicyResponse
-
-instance FromXML DeletePolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeletePolicyResponse"
 
 instance AWSRequest DeletePolicy where
     type Sv DeletePolicy = AutoScaling

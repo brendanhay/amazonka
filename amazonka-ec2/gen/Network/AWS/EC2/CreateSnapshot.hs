@@ -73,6 +73,7 @@ module Network.AWS.EC2.CreateSnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateSnapshot = CreateSnapshot
     { _cs2Description :: Maybe Text
@@ -214,10 +215,6 @@ csr1VolumeId = lens _csr1VolumeId (\s a -> s { _csr1VolumeId = a })
 -- | The size of the volume, in GiB.
 csr1VolumeSize :: Lens' CreateSnapshotResponse (Maybe Int)
 csr1VolumeSize = lens _csr1VolumeSize (\s a -> s { _csr1VolumeSize = a })
-
-instance FromXML CreateSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSnapshotResponse"
 
 instance AWSRequest CreateSnapshot where
     type Sv CreateSnapshot = EC2

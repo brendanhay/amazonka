@@ -42,6 +42,7 @@ module Network.AWS.ELB.DescribeLoadBalancerAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes
     { _dlbaLoadBalancerName :: Text
@@ -89,10 +90,6 @@ dlbarLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (May
 dlbarLoadBalancerAttributes =
     lens _dlbarLoadBalancerAttributes
         (\s a -> s { _dlbarLoadBalancerAttributes = a })
-
-instance FromXML DescribeLoadBalancerAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLoadBalancerAttributesResponse"
 
 instance AWSRequest DescribeLoadBalancerAttributes where
     type Sv DescribeLoadBalancerAttributes = ELB

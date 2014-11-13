@@ -39,6 +39,7 @@ module Network.AWS.IAM.ListOpenIDConnectProviders
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListOpenIDConnectProviders = ListOpenIDConnectProviders
     deriving (Eq, Ord, Show, Generic)
@@ -56,11 +57,11 @@ newtype ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse
     { _loidcprOpenIDConnectProviderList :: [OpenIDConnectProviderListEntry]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ListOpenIDConnectProvidersResponse where
+instance GHC.Exts.IsList ListOpenIDConnectProvidersResponse where
     type Item ListOpenIDConnectProvidersResponse = OpenIDConnectProviderListEntry
 
-    fromList = ListOpenIDConnectProvidersResponse . fromList
-    toList   = toList . _loidcprOpenIDConnectProviderList
+    fromList = ListOpenIDConnectProvidersResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _loidcprOpenIDConnectProviderList
 
 -- | 'ListOpenIDConnectProvidersResponse' constructor.
 --
@@ -78,10 +79,6 @@ loidcprOpenIDConnectProviderList :: Lens' ListOpenIDConnectProvidersResponse [Op
 loidcprOpenIDConnectProviderList =
     lens _loidcprOpenIDConnectProviderList
         (\s a -> s { _loidcprOpenIDConnectProviderList = a })
-
-instance FromXML ListOpenIDConnectProvidersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListOpenIDConnectProvidersResponse"
 
 instance AWSRequest ListOpenIDConnectProviders where
     type Sv ListOpenIDConnectProviders = IAM

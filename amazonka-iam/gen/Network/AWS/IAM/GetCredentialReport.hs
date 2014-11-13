@@ -43,6 +43,7 @@ module Network.AWS.IAM.GetCredentialReport
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data GetCredentialReport = GetCredentialReport
     deriving (Eq, Ord, Show, Generic)
@@ -93,10 +94,6 @@ gcrrGeneratedTime =
 -- | The format (MIME type) of the credential report.
 gcrrReportFormat :: Lens' GetCredentialReportResponse (Maybe Text)
 gcrrReportFormat = lens _gcrrReportFormat (\s a -> s { _gcrrReportFormat = a })
-
-instance FromXML GetCredentialReportResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetCredentialReportResponse"
 
 instance AWSRequest GetCredentialReport where
     type Sv GetCredentialReport = IAM

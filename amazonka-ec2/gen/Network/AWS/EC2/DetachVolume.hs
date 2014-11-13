@@ -59,6 +59,7 @@ module Network.AWS.EC2.DetachVolume
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DetachVolume = DetachVolume
     { _dvDevice     :: Maybe Text
@@ -183,10 +184,6 @@ dvrState = lens _dvrState (\s a -> s { _dvrState = a })
 -- | The ID of the volume.
 dvrVolumeId :: Lens' DetachVolumeResponse (Maybe Text)
 dvrVolumeId = lens _dvrVolumeId (\s a -> s { _dvrVolumeId = a })
-
-instance FromXML DetachVolumeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DetachVolumeResponse"
 
 instance AWSRequest DetachVolume where
     type Sv DetachVolume = EC2

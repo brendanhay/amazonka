@@ -44,6 +44,7 @@ module Network.AWS.RDS.CopyOptionGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data CopyOptionGroup = CopyOptionGroup
     { _cog1SourceOptionGroupIdentifier  :: Text
@@ -126,10 +127,6 @@ copyOptionGroupResponse = CopyOptionGroupResponse
 
 cogrOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
 cogrOptionGroup = lens _cogrOptionGroup (\s a -> s { _cogrOptionGroup = a })
-
-instance FromXML CopyOptionGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopyOptionGroupResponse"
 
 instance AWSRequest CopyOptionGroup where
     type Sv CopyOptionGroup = RDS

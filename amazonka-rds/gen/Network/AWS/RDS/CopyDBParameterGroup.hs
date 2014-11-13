@@ -44,6 +44,7 @@ module Network.AWS.RDS.CopyDBParameterGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data CopyDBParameterGroup = CopyDBParameterGroup
     { _cdbpgSourceDBParameterGroupIdentifier  :: Text
@@ -128,10 +129,6 @@ copyDBParameterGroupResponse = CopyDBParameterGroupResponse
 cdbpgr1DBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameterGroup)
 cdbpgr1DBParameterGroup =
     lens _cdbpgr1DBParameterGroup (\s a -> s { _cdbpgr1DBParameterGroup = a })
-
-instance FromXML CopyDBParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopyDBParameterGroupResponse"
 
 instance AWSRequest CopyDBParameterGroup where
     type Sv CopyDBParameterGroup = RDS

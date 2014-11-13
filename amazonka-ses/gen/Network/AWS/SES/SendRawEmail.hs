@@ -62,6 +62,7 @@ module Network.AWS.SES.SendRawEmail
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 data SendRawEmail = SendRawEmail
     { _sreDestinations :: [Text]
@@ -134,10 +135,6 @@ sendRawEmailResponse p1 = SendRawEmailResponse
 -- | The unique message identifier returned from the SendRawEmail action.
 srerMessageId :: Lens' SendRawEmailResponse Text
 srerMessageId = lens _srerMessageId (\s a -> s { _srerMessageId = a })
-
-instance FromXML SendRawEmailResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SendRawEmailResponse"
 
 instance AWSRequest SendRawEmail where
     type Sv SendRawEmail = SES

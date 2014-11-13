@@ -47,6 +47,7 @@ module Network.AWS.EC2.DescribeAddresses
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeAddresses = DescribeAddresses
     { _daAllocationIds :: [Text]
@@ -110,11 +111,11 @@ newtype DescribeAddressesResponse = DescribeAddressesResponse
     { _darAddresses :: [Address]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAddressesResponse where
+instance GHC.Exts.IsList DescribeAddressesResponse where
     type Item DescribeAddressesResponse = Address
 
-    fromList = DescribeAddressesResponse . fromList
-    toList   = toList . _darAddresses
+    fromList = DescribeAddressesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _darAddresses
 
 -- | 'DescribeAddressesResponse' constructor.
 --
@@ -130,10 +131,6 @@ describeAddressesResponse = DescribeAddressesResponse
 -- | Information about one or more Elastic IP addresses.
 darAddresses :: Lens' DescribeAddressesResponse [Address]
 darAddresses = lens _darAddresses (\s a -> s { _darAddresses = a })
-
-instance FromXML DescribeAddressesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAddressesResponse"
 
 instance AWSRequest DescribeAddresses where
     type Sv DescribeAddresses = EC2

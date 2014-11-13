@@ -46,6 +46,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameterGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data DescribeCacheParameterGroups = DescribeCacheParameterGroups
     { _dcpgCacheParameterGroupName :: Maybe Text
@@ -124,10 +125,6 @@ dcpgrCacheParameterGroups =
 -- | Provides an identifier to allow retrieval of paginated results.
 dcpgrMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
 dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
-
-instance FromXML DescribeCacheParameterGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeCacheParameterGroupsResponse"
 
 instance AWSRequest DescribeCacheParameterGroups where
     type Sv DescribeCacheParameterGroups = ElastiCache

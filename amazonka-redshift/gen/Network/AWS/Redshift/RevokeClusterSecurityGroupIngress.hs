@@ -48,6 +48,7 @@ module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress
     { _rcsgiCIDRIP                   :: Maybe Text
@@ -132,10 +133,6 @@ rcsgirClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (M
 rcsgirClusterSecurityGroup =
     lens _rcsgirClusterSecurityGroup
         (\s a -> s { _rcsgirClusterSecurityGroup = a })
-
-instance FromXML RevokeClusterSecurityGroupIngressResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RevokeClusterSecurityGroupIngressResponse"
 
 instance AWSRequest RevokeClusterSecurityGroupIngress where
     type Sv RevokeClusterSecurityGroupIngress = Redshift

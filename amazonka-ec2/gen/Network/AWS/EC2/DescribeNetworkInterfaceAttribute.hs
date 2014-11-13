@@ -48,6 +48,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute
     { _dniaAttribute          :: Maybe Text
@@ -142,10 +143,6 @@ dniarNetworkInterfaceId =
 dniarSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
 dniarSourceDestCheck =
     lens _dniarSourceDestCheck (\s a -> s { _dniarSourceDestCheck = a })
-
-instance FromXML DescribeNetworkInterfaceAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeNetworkInterfaceAttributeResponse"
 
 instance AWSRequest DescribeNetworkInterfaceAttribute where
     type Sv DescribeNetworkInterfaceAttribute = EC2

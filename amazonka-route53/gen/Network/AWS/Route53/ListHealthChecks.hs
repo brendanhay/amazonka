@@ -54,6 +54,7 @@ module Network.AWS.Route53.ListHealthChecks
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 data ListHealthChecks = ListHealthChecks
     { _lhcMarker   :: Maybe Text

@@ -39,6 +39,7 @@ module Network.AWS.S3.DeleteBucketPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype DeleteBucketPolicy = DeleteBucketPolicy
     { _dbpBucket :: Text

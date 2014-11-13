@@ -43,6 +43,7 @@ module Network.AWS.IAM.UpdateGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data UpdateGroup = UpdateGroup
     { _ugGroupName    :: Text
@@ -92,10 +93,6 @@ data UpdateGroupResponse = UpdateGroupResponse
 -- | 'UpdateGroupResponse' constructor.
 updateGroupResponse :: UpdateGroupResponse
 updateGroupResponse = UpdateGroupResponse
-
-instance FromXML UpdateGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateGroupResponse"
 
 instance AWSRequest UpdateGroup where
     type Sv UpdateGroup = IAM

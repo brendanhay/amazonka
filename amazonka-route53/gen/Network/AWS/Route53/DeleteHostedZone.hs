@@ -50,6 +50,7 @@ module Network.AWS.Route53.DeleteHostedZone
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 newtype DeleteHostedZone = DeleteHostedZone
     { _dhzId :: Text

@@ -45,6 +45,7 @@ module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled
     { _siffeForwardingEnabled :: Bool
@@ -94,10 +95,6 @@ data SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardin
 -- | 'SetIdentityFeedbackForwardingEnabledResponse' constructor.
 setIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse
 setIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse
-
-instance FromXML SetIdentityFeedbackForwardingEnabledResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetIdentityFeedbackForwardingEnabledResponse"
 
 instance AWSRequest SetIdentityFeedbackForwardingEnabled where
     type Sv SetIdentityFeedbackForwardingEnabled = SES

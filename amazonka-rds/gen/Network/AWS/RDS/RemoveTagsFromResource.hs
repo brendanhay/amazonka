@@ -41,6 +41,7 @@ module Network.AWS.RDS.RemoveTagsFromResource
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data RemoveTagsFromResource = RemoveTagsFromResource
     { _rtfrResourceName :: Text
@@ -83,10 +84,6 @@ data RemoveTagsFromResourceResponse = RemoveTagsFromResourceResponse
 -- | 'RemoveTagsFromResourceResponse' constructor.
 removeTagsFromResourceResponse :: RemoveTagsFromResourceResponse
 removeTagsFromResourceResponse = RemoveTagsFromResourceResponse
-
-instance FromXML RemoveTagsFromResourceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RemoveTagsFromResourceResponse"
 
 instance AWSRequest RemoveTagsFromResource where
     type Sv RemoveTagsFromResource = RDS

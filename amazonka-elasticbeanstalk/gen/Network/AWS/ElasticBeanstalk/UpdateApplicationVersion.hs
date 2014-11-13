@@ -43,6 +43,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data UpdateApplicationVersion = UpdateApplicationVersion
     { _uavApplicationName :: Text
@@ -110,10 +111,6 @@ updateApplicationVersionResponse = UpdateApplicationVersionResponse
 uavrApplicationVersion :: Lens' UpdateApplicationVersionResponse (Maybe ApplicationVersionDescription)
 uavrApplicationVersion =
     lens _uavrApplicationVersion (\s a -> s { _uavrApplicationVersion = a })
-
-instance FromXML UpdateApplicationVersionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateApplicationVersionResponse"
 
 instance AWSRequest UpdateApplicationVersion where
     type Sv UpdateApplicationVersion = ElasticBeanstalk

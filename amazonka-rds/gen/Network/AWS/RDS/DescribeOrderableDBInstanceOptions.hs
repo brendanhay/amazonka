@@ -49,6 +49,7 @@ module Network.AWS.RDS.DescribeOrderableDBInstanceOptions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions
     { _dodbioDBInstanceClass :: Maybe Text
@@ -176,10 +177,6 @@ dodbiorOrderableDBInstanceOptions :: Lens' DescribeOrderableDBInstanceOptionsRes
 dodbiorOrderableDBInstanceOptions =
     lens _dodbiorOrderableDBInstanceOptions
         (\s a -> s { _dodbiorOrderableDBInstanceOptions = a })
-
-instance FromXML DescribeOrderableDBInstanceOptionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeOrderableDBInstanceOptionsResponse"
 
 instance AWSRequest DescribeOrderableDBInstanceOptions where
     type Sv DescribeOrderableDBInstanceOptions = RDS

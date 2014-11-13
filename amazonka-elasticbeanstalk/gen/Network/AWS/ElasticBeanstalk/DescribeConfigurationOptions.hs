@@ -50,6 +50,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data DescribeConfigurationOptions = DescribeConfigurationOptions
     { _dcoApplicationName   :: Maybe Text
@@ -142,10 +143,6 @@ dcorOptions = lens _dcorOptions (\s a -> s { _dcorOptions = a })
 dcorSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
 dcorSolutionStackName =
     lens _dcorSolutionStackName (\s a -> s { _dcorSolutionStackName = a })
-
-instance FromXML DescribeConfigurationOptionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeConfigurationOptionsResponse"
 
 instance AWSRequest DescribeConfigurationOptions where
     type Sv DescribeConfigurationOptions = ElasticBeanstalk

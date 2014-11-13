@@ -41,6 +41,7 @@ module Network.AWS.SES.VerifyDomainIdentity
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 newtype VerifyDomainIdentity = VerifyDomainIdentity
     { _vdiDomain :: Text
@@ -88,10 +89,6 @@ verifyDomainIdentityResponse p1 = VerifyDomainIdentityResponse
 vdirVerificationToken :: Lens' VerifyDomainIdentityResponse Text
 vdirVerificationToken =
     lens _vdirVerificationToken (\s a -> s { _vdirVerificationToken = a })
-
-instance FromXML VerifyDomainIdentityResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VerifyDomainIdentityResponse"
 
 instance AWSRequest VerifyDomainIdentity where
     type Sv VerifyDomainIdentity = SES

@@ -48,6 +48,7 @@ module Network.AWS.EC2.DescribeImages
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeImages = DescribeImages
     { _di2DryRun          :: Maybe Bool
@@ -145,11 +146,11 @@ newtype DescribeImagesResponse = DescribeImagesResponse
     { _dirImages :: [Image]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeImagesResponse where
+instance GHC.Exts.IsList DescribeImagesResponse where
     type Item DescribeImagesResponse = Image
 
-    fromList = DescribeImagesResponse . fromList
-    toList   = toList . _dirImages
+    fromList = DescribeImagesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dirImages
 
 -- | 'DescribeImagesResponse' constructor.
 --
@@ -165,10 +166,6 @@ describeImagesResponse = DescribeImagesResponse
 -- | Information about one or more images.
 dirImages :: Lens' DescribeImagesResponse [Image]
 dirImages = lens _dirImages (\s a -> s { _dirImages = a })
-
-instance FromXML DescribeImagesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeImagesResponse"
 
 instance AWSRequest DescribeImages where
     type Sv DescribeImages = EC2

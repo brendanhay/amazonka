@@ -52,6 +52,7 @@ module Network.AWS.RDS.DescribeReservedDBInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeReservedDBInstances = DescribeReservedDBInstances
     { _drdbiDBInstanceClass               :: Maybe Text
@@ -200,10 +201,6 @@ drdbirReservedDBInstances :: Lens' DescribeReservedDBInstancesResponse [Reserved
 drdbirReservedDBInstances =
     lens _drdbirReservedDBInstances
         (\s a -> s { _drdbirReservedDBInstances = a })
-
-instance FromXML DescribeReservedDBInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReservedDBInstancesResponse"
 
 instance AWSRequest DescribeReservedDBInstances where
     type Sv DescribeReservedDBInstances = RDS

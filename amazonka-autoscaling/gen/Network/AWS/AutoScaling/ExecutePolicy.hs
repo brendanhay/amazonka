@@ -41,6 +41,7 @@ module Network.AWS.AutoScaling.ExecutePolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data ExecutePolicy = ExecutePolicy
     { _epAutoScalingGroupName :: Maybe Text
@@ -95,10 +96,6 @@ data ExecutePolicyResponse = ExecutePolicyResponse
 -- | 'ExecutePolicyResponse' constructor.
 executePolicyResponse :: ExecutePolicyResponse
 executePolicyResponse = ExecutePolicyResponse
-
-instance FromXML ExecutePolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ExecutePolicyResponse"
 
 instance AWSRequest ExecutePolicy where
     type Sv ExecutePolicy = AutoScaling

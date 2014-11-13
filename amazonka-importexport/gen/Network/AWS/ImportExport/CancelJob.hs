@@ -42,6 +42,7 @@ module Network.AWS.ImportExport.CancelJob
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
+import qualified GHC.Exts
 
 newtype CancelJob = CancelJob
     { _cjJobId :: Text
@@ -84,10 +85,6 @@ cancelJobResponse = CancelJobResponse
 
 cjrSuccess :: Lens' CancelJobResponse (Maybe Bool)
 cjrSuccess = lens _cjrSuccess (\s a -> s { _cjrSuccess = a })
-
-instance FromXML CancelJobResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CancelJobResponse"
 
 instance AWSRequest CancelJob where
     type Sv CancelJob = ImportExport

@@ -47,6 +47,7 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data ResetCacheParameterGroup = ResetCacheParameterGroup
     { _rcpgCacheParameterGroupName :: Text
@@ -117,10 +118,6 @@ rcpgrCacheParameterGroupName :: Lens' ResetCacheParameterGroupResponse (Maybe Te
 rcpgrCacheParameterGroupName =
     lens _rcpgrCacheParameterGroupName
         (\s a -> s { _rcpgrCacheParameterGroupName = a })
-
-instance FromXML ResetCacheParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResetCacheParameterGroupResponse"
 
 instance AWSRequest ResetCacheParameterGroup where
     type Sv ResetCacheParameterGroup = ElastiCache

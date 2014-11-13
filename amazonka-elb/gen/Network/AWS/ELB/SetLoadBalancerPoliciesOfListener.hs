@@ -42,6 +42,7 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
     { _slbpolLoadBalancerName :: Text
@@ -95,10 +96,6 @@ data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListen
 -- | 'SetLoadBalancerPoliciesOfListenerResponse' constructor.
 setLoadBalancerPoliciesOfListenerResponse :: SetLoadBalancerPoliciesOfListenerResponse
 setLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
-
-instance FromXML SetLoadBalancerPoliciesOfListenerResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetLoadBalancerPoliciesOfListenerResponse"
 
 instance AWSRequest SetLoadBalancerPoliciesOfListener where
     type Sv SetLoadBalancerPoliciesOfListener = ELB

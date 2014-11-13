@@ -47,6 +47,7 @@ module Network.AWS.CloudWatch.DescribeAlarmsForMetric
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
+import qualified GHC.Exts
 
 data DescribeAlarmsForMetric = DescribeAlarmsForMetric
     { _dafmDimensions :: [Dimension]
@@ -118,11 +119,11 @@ newtype DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
     { _dafmrMetricAlarms :: [MetricAlarm]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAlarmsForMetricResponse where
+instance GHC.Exts.IsList DescribeAlarmsForMetricResponse where
     type Item DescribeAlarmsForMetricResponse = MetricAlarm
 
-    fromList = DescribeAlarmsForMetricResponse . fromList
-    toList   = toList . _dafmrMetricAlarms
+    fromList = DescribeAlarmsForMetricResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dafmrMetricAlarms
 
 -- | 'DescribeAlarmsForMetricResponse' constructor.
 --
@@ -139,10 +140,6 @@ describeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse
 dafmrMetricAlarms :: Lens' DescribeAlarmsForMetricResponse [MetricAlarm]
 dafmrMetricAlarms =
     lens _dafmrMetricAlarms (\s a -> s { _dafmrMetricAlarms = a })
-
-instance FromXML DescribeAlarmsForMetricResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAlarmsForMetricResponse"
 
 instance AWSRequest DescribeAlarmsForMetric where
     type Sv DescribeAlarmsForMetric = CloudWatch

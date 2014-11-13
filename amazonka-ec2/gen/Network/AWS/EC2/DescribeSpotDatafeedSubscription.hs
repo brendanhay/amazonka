@@ -42,6 +42,7 @@ module Network.AWS.EC2.DescribeSpotDatafeedSubscription
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription
     { _dsdsDryRun :: Maybe Bool
@@ -86,10 +87,6 @@ dsdsrSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse 
 dsdsrSpotDatafeedSubscription =
     lens _dsdsrSpotDatafeedSubscription
         (\s a -> s { _dsdsrSpotDatafeedSubscription = a })
-
-instance FromXML DescribeSpotDatafeedSubscriptionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSpotDatafeedSubscriptionResponse"
 
 instance AWSRequest DescribeSpotDatafeedSubscription where
     type Sv DescribeSpotDatafeedSubscription = EC2

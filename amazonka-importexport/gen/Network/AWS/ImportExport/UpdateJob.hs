@@ -49,6 +49,7 @@ module Network.AWS.ImportExport.UpdateJob
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
+import qualified GHC.Exts
 
 data UpdateJob = UpdateJob
     { _ujJobId        :: Text
@@ -123,10 +124,6 @@ ujrSuccess = lens _ujrSuccess (\s a -> s { _ujrSuccess = a })
 ujrWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
 ujrWarningMessage =
     lens _ujrWarningMessage (\s a -> s { _ujrWarningMessage = a })
-
-instance FromXML UpdateJobResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateJobResponse"
 
 instance AWSRequest UpdateJob where
     type Sv UpdateJob = ImportExport

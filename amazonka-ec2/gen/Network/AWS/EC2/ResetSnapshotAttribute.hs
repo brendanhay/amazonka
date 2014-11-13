@@ -43,6 +43,7 @@ module Network.AWS.EC2.ResetSnapshotAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ResetSnapshotAttribute = ResetSnapshotAttribute
     { _rsaAttribute  :: Text
@@ -92,10 +93,6 @@ data ResetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
 -- | 'ResetSnapshotAttributeResponse' constructor.
 resetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse
 resetSnapshotAttributeResponse = ResetSnapshotAttributeResponse
-
-instance FromXML ResetSnapshotAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResetSnapshotAttributeResponse"
 
 instance AWSRequest ResetSnapshotAttribute where
     type Sv ResetSnapshotAttribute = EC2

@@ -47,6 +47,7 @@ module Network.AWS.RDS.DescribeDBSecurityGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeDBSecurityGroups = DescribeDBSecurityGroups
     { _ddbsg1DBSecurityGroupName :: Maybe Text
@@ -133,10 +134,6 @@ ddbsgr1DBSecurityGroups =
 -- marker, up to the value specified by MaxRecords.
 ddbsgr1Marker :: Lens' DescribeDBSecurityGroupsResponse (Maybe Text)
 ddbsgr1Marker = lens _ddbsgr1Marker (\s a -> s { _ddbsgr1Marker = a })
-
-instance FromXML DescribeDBSecurityGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBSecurityGroupsResponse"
 
 instance AWSRequest DescribeDBSecurityGroups where
     type Sv DescribeDBSecurityGroups = RDS

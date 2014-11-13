@@ -46,6 +46,7 @@ module Network.AWS.CloudSearch.DescribeAvailabilityOptions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions
     { _daoDeployed   :: Maybe Bool
@@ -101,10 +102,6 @@ describeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse
 daorAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 daorAvailabilityOptions =
     lens _daorAvailabilityOptions (\s a -> s { _daorAvailabilityOptions = a })
-
-instance FromXML DescribeAvailabilityOptionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAvailabilityOptionsResponse"
 
 instance AWSRequest DescribeAvailabilityOptions where
     type Sv DescribeAvailabilityOptions = CloudSearch

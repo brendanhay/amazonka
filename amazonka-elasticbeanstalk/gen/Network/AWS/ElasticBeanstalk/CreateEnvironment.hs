@@ -66,6 +66,7 @@ module Network.AWS.ElasticBeanstalk.CreateEnvironment
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data CreateEnvironment = CreateEnvironment
     { _ceApplicationName   :: Text
@@ -362,10 +363,6 @@ cerTier = lens _cerTier (\s a -> s { _cerTier = a })
 -- | The application version deployed in this environment.
 cerVersionLabel :: Lens' CreateEnvironmentResponse (Maybe Text)
 cerVersionLabel = lens _cerVersionLabel (\s a -> s { _cerVersionLabel = a })
-
-instance FromXML CreateEnvironmentResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateEnvironmentResponse"
 
 instance AWSRequest CreateEnvironment where
     type Sv CreateEnvironment = ElasticBeanstalk

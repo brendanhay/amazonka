@@ -64,6 +64,7 @@ module Network.AWS.Route53.CreateHostedZone
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 data CreateHostedZone = CreateHostedZone
     { _chzCallerReference  :: Text

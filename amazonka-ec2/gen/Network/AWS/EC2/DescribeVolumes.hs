@@ -53,6 +53,7 @@ module Network.AWS.EC2.DescribeVolumes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeVolumes = DescribeVolumes
     { _dv2DryRun     :: Maybe Bool
@@ -170,10 +171,6 @@ dvrNextToken = lens _dvrNextToken (\s a -> s { _dvrNextToken = a })
 
 dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a })
-
-instance FromXML DescribeVolumesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVolumesResponse"
 
 instance AWSRequest DescribeVolumes where
     type Sv DescribeVolumes = EC2

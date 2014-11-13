@@ -46,6 +46,7 @@ module Network.AWS.Route53.DeleteReusableDelegationSet
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet
     { _drdsId :: Text

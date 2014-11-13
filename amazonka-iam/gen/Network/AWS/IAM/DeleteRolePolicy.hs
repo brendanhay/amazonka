@@ -40,6 +40,7 @@ module Network.AWS.IAM.DeleteRolePolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data DeleteRolePolicy = DeleteRolePolicy
     { _drpPolicyName :: Text
@@ -81,10 +82,6 @@ data DeleteRolePolicyResponse = DeleteRolePolicyResponse
 -- | 'DeleteRolePolicyResponse' constructor.
 deleteRolePolicyResponse :: DeleteRolePolicyResponse
 deleteRolePolicyResponse = DeleteRolePolicyResponse
-
-instance FromXML DeleteRolePolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteRolePolicyResponse"
 
 instance AWSRequest DeleteRolePolicy where
     type Sv DeleteRolePolicy = IAM

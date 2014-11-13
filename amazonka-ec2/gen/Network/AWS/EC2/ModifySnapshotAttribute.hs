@@ -50,6 +50,7 @@ module Network.AWS.EC2.ModifySnapshotAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ModifySnapshotAttribute = ModifySnapshotAttribute
     { _msaAttribute              :: Maybe Text
@@ -131,10 +132,6 @@ data ModifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
 -- | 'ModifySnapshotAttributeResponse' constructor.
 modifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse
 modifySnapshotAttributeResponse = ModifySnapshotAttributeResponse
-
-instance FromXML ModifySnapshotAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifySnapshotAttributeResponse"
 
 instance AWSRequest ModifySnapshotAttribute where
     type Sv ModifySnapshotAttribute = EC2

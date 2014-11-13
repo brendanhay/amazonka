@@ -47,6 +47,7 @@ module Network.AWS.CloudWatch.ListMetrics
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
+import qualified GHC.Exts
 
 data ListMetrics = ListMetrics
     { _lmDimensions :: [DimensionFilter]
@@ -123,10 +124,6 @@ lmrMetrics = lens _lmrMetrics (\s a -> s { _lmrMetrics = a })
 -- | A string that marks the start of the next batch of returned results.
 lmrNextToken :: Lens' ListMetricsResponse (Maybe Text)
 lmrNextToken = lens _lmrNextToken (\s a -> s { _lmrNextToken = a })
-
-instance FromXML ListMetricsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListMetricsResponse"
 
 instance AWSRequest ListMetrics where
     type Sv ListMetrics = CloudWatch

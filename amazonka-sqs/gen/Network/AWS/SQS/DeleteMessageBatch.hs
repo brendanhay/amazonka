@@ -48,6 +48,7 @@ module Network.AWS.SQS.DeleteMessageBatch
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
+import qualified GHC.Exts
 
 data DeleteMessageBatch = DeleteMessageBatch
     { _dmbEntries  :: [DeleteMessageBatchRequestEntry]
@@ -108,10 +109,6 @@ dmbrFailed = lens _dmbrFailed (\s a -> s { _dmbrFailed = a })
 -- | A list of DeleteMessageBatchResultEntry items.
 dmbrSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
 dmbrSuccessful = lens _dmbrSuccessful (\s a -> s { _dmbrSuccessful = a })
-
-instance FromXML DeleteMessageBatchResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteMessageBatchResponse"
 
 instance AWSRequest DeleteMessageBatch where
     type Sv DeleteMessageBatch = SQS

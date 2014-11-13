@@ -49,6 +49,7 @@ module Network.AWS.Redshift.DescribeClusterVersions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data DescribeClusterVersions = DescribeClusterVersions
     { _dcvClusterParameterGroupFamily :: Maybe Text
@@ -145,10 +146,6 @@ dcvrClusterVersions =
 -- request.
 dcvrMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
 dcvrMarker = lens _dcvrMarker (\s a -> s { _dcvrMarker = a })
-
-instance FromXML DescribeClusterVersionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeClusterVersionsResponse"
 
 instance AWSRequest DescribeClusterVersions where
     type Sv DescribeClusterVersions = Redshift

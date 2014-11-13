@@ -40,6 +40,7 @@ module Network.AWS.SNS.RemovePermission
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 data RemovePermission = RemovePermission
     { _rpLabel    :: Text
@@ -81,10 +82,6 @@ data RemovePermissionResponse = RemovePermissionResponse
 -- | 'RemovePermissionResponse' constructor.
 removePermissionResponse :: RemovePermissionResponse
 removePermissionResponse = RemovePermissionResponse
-
-instance FromXML RemovePermissionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RemovePermissionResponse"
 
 instance AWSRequest RemovePermission where
     type Sv RemovePermission = SNS

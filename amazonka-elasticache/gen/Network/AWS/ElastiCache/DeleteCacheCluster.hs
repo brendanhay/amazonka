@@ -48,6 +48,7 @@ module Network.AWS.ElastiCache.DeleteCacheCluster
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data DeleteCacheCluster = DeleteCacheCluster
     { _dccCacheClusterId          :: Text
@@ -105,10 +106,6 @@ deleteCacheClusterResponse = DeleteCacheClusterResponse
 
 dccrCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
 dccrCacheCluster = lens _dccrCacheCluster (\s a -> s { _dccrCacheCluster = a })
-
-instance FromXML DeleteCacheClusterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteCacheClusterResponse"
 
 instance AWSRequest DeleteCacheCluster where
     type Sv DeleteCacheCluster = ElastiCache

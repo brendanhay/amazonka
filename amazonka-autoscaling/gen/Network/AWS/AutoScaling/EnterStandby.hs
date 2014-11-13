@@ -45,6 +45,7 @@ module Network.AWS.AutoScaling.EnterStandby
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data EnterStandby = EnterStandby
     { _esAutoScalingGroupName           :: Text
@@ -100,11 +101,11 @@ newtype EnterStandbyResponse = EnterStandbyResponse
     { _esr1Activities :: [Activity]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList EnterStandbyResponse where
+instance GHC.Exts.IsList EnterStandbyResponse where
     type Item EnterStandbyResponse = Activity
 
-    fromList = EnterStandbyResponse . fromList
-    toList   = toList . _esr1Activities
+    fromList = EnterStandbyResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _esr1Activities
 
 -- | 'EnterStandbyResponse' constructor.
 --
@@ -121,10 +122,6 @@ enterStandbyResponse = EnterStandbyResponse
 -- mode.
 esr1Activities :: Lens' EnterStandbyResponse [Activity]
 esr1Activities = lens _esr1Activities (\s a -> s { _esr1Activities = a })
-
-instance FromXML EnterStandbyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnterStandbyResponse"
 
 instance AWSRequest EnterStandby where
     type Sv EnterStandby = AutoScaling

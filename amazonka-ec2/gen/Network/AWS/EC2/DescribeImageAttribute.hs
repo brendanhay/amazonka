@@ -51,6 +51,7 @@ module Network.AWS.EC2.DescribeImageAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeImageAttribute = DescribeImageAttribute
     { _dia1Attribute :: Text
@@ -169,10 +170,6 @@ diarRamdiskId = lens _diarRamdiskId (\s a -> s { _diarRamdiskId = a })
 diarSriovNetSupport :: Lens' DescribeImageAttributeResponse (Maybe AttributeValue)
 diarSriovNetSupport =
     lens _diarSriovNetSupport (\s a -> s { _diarSriovNetSupport = a })
-
-instance FromXML DescribeImageAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeImageAttributeResponse"
 
 instance AWSRequest DescribeImageAttribute where
     type Sv DescribeImageAttribute = EC2

@@ -45,6 +45,7 @@ module Network.AWS.EC2.DescribeNetworkAcls
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeNetworkAcls = DescribeNetworkAcls
     { _dna1DryRun        :: Maybe Bool
@@ -113,11 +114,11 @@ newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
     { _dnarNetworkAcls :: [NetworkAcl]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeNetworkAclsResponse where
+instance GHC.Exts.IsList DescribeNetworkAclsResponse where
     type Item DescribeNetworkAclsResponse = NetworkAcl
 
-    fromList = DescribeNetworkAclsResponse . fromList
-    toList   = toList . _dnarNetworkAcls
+    fromList = DescribeNetworkAclsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dnarNetworkAcls
 
 -- | 'DescribeNetworkAclsResponse' constructor.
 --
@@ -133,10 +134,6 @@ describeNetworkAclsResponse = DescribeNetworkAclsResponse
 -- | Information about one or more network ACLs.
 dnarNetworkAcls :: Lens' DescribeNetworkAclsResponse [NetworkAcl]
 dnarNetworkAcls = lens _dnarNetworkAcls (\s a -> s { _dnarNetworkAcls = a })
-
-instance FromXML DescribeNetworkAclsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeNetworkAclsResponse"
 
 instance AWSRequest DescribeNetworkAcls where
     type Sv DescribeNetworkAcls = EC2

@@ -42,6 +42,7 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 data ListCloudFrontOriginAccessIdentities2014_05_31 = ListCloudFrontOriginAccessIdentities2014_05_31
     { _lcfoaiMarker   :: Maybe Text

@@ -43,6 +43,7 @@ module Network.AWS.EC2.DescribeBundleTasks
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeBundleTasks = DescribeBundleTasks
     { _dbtBundleIds :: [Text]
@@ -96,11 +97,11 @@ newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtrBundleTasks :: [BundleTask]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeBundleTasksResponse where
+instance GHC.Exts.IsList DescribeBundleTasksResponse where
     type Item DescribeBundleTasksResponse = BundleTask
 
-    fromList = DescribeBundleTasksResponse . fromList
-    toList   = toList . _dbtrBundleTasks
+    fromList = DescribeBundleTasksResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dbtrBundleTasks
 
 -- | 'DescribeBundleTasksResponse' constructor.
 --
@@ -116,10 +117,6 @@ describeBundleTasksResponse = DescribeBundleTasksResponse
 -- | Information about one or more bundle tasks.
 dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
 dbtrBundleTasks = lens _dbtrBundleTasks (\s a -> s { _dbtrBundleTasks = a })
-
-instance FromXML DescribeBundleTasksResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeBundleTasksResponse"
 
 instance AWSRequest DescribeBundleTasks where
     type Sv DescribeBundleTasks = EC2

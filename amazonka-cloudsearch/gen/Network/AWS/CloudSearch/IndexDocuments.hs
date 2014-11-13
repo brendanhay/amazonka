@@ -43,6 +43,7 @@ module Network.AWS.CloudSearch.IndexDocuments
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 newtype IndexDocuments = IndexDocuments
     { _idDomainName :: Text
@@ -72,11 +73,11 @@ newtype IndexDocumentsResponse = IndexDocumentsResponse
     { _idrFieldNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList IndexDocumentsResponse where
+instance GHC.Exts.IsList IndexDocumentsResponse where
     type Item IndexDocumentsResponse = Text
 
-    fromList = IndexDocumentsResponse . fromList
-    toList   = toList . _idrFieldNames
+    fromList = IndexDocumentsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _idrFieldNames
 
 -- | 'IndexDocumentsResponse' constructor.
 --
@@ -92,10 +93,6 @@ indexDocumentsResponse = IndexDocumentsResponse
 -- | The names of the fields that are currently being indexed.
 idrFieldNames :: Lens' IndexDocumentsResponse [Text]
 idrFieldNames = lens _idrFieldNames (\s a -> s { _idrFieldNames = a })
-
-instance FromXML IndexDocumentsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "IndexDocumentsResponse"
 
 instance AWSRequest IndexDocuments where
     type Sv IndexDocuments = CloudSearch

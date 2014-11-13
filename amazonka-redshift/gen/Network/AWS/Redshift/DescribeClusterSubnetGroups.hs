@@ -47,6 +47,7 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups
     { _dcsg1ClusterSubnetGroupName :: Maybe Text
@@ -132,10 +133,6 @@ dcsgrClusterSubnetGroups =
 -- request.
 dcsgrMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
 dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
-
-instance FromXML DescribeClusterSubnetGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeClusterSubnetGroupsResponse"
 
 instance AWSRequest DescribeClusterSubnetGroups where
     type Sv DescribeClusterSubnetGroups = Redshift

@@ -47,16 +47,17 @@ module Network.AWS.CloudSearch.DescribeDomains
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 newtype DescribeDomains = DescribeDomains
     { _ddDomainNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeDomains where
+instance GHC.Exts.IsList DescribeDomains where
     type Item DescribeDomains = Text
 
-    fromList = DescribeDomains . fromList
-    toList   = toList . _ddDomainNames
+    fromList = DescribeDomains . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _ddDomainNames
 
 -- | 'DescribeDomains' constructor.
 --
@@ -82,11 +83,11 @@ newtype DescribeDomainsResponse = DescribeDomainsResponse
     { _ddrDomainStatusList :: [DomainStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeDomainsResponse where
+instance GHC.Exts.IsList DescribeDomainsResponse where
     type Item DescribeDomainsResponse = DomainStatus
 
-    fromList = DescribeDomainsResponse . fromList
-    toList   = toList . _ddrDomainStatusList
+    fromList = DescribeDomainsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _ddrDomainStatusList
 
 -- | 'DescribeDomainsResponse' constructor.
 --
@@ -102,10 +103,6 @@ describeDomainsResponse = DescribeDomainsResponse
 ddrDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
 ddrDomainStatusList =
     lens _ddrDomainStatusList (\s a -> s { _ddrDomainStatusList = a })
-
-instance FromXML DescribeDomainsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDomainsResponse"
 
 instance AWSRequest DescribeDomains where
     type Sv DescribeDomains = CloudSearch

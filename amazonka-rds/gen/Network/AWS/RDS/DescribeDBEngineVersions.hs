@@ -49,6 +49,7 @@ module Network.AWS.RDS.DescribeDBEngineVersions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeDBEngineVersions = DescribeDBEngineVersions
     { _ddbevDBParameterGroupFamily     :: Maybe Text
@@ -175,10 +176,6 @@ ddbevrDBEngineVersions =
 -- marker, up to the value specified by MaxRecords.
 ddbevrMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
 ddbevrMarker = lens _ddbevrMarker (\s a -> s { _ddbevrMarker = a })
-
-instance FromXML DescribeDBEngineVersionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBEngineVersionsResponse"
 
 instance AWSRequest DescribeDBEngineVersions where
     type Sv DescribeDBEngineVersions = RDS

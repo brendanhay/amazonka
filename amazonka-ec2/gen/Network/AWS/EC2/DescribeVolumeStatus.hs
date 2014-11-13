@@ -71,6 +71,7 @@ module Network.AWS.EC2.DescribeVolumeStatus
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeVolumeStatus = DescribeVolumeStatus
     { _dvsDryRun     :: Maybe Bool
@@ -169,10 +170,6 @@ dvsrNextToken = lens _dvsrNextToken (\s a -> s { _dvsrNextToken = a })
 dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
 dvsrVolumeStatuses =
     lens _dvsrVolumeStatuses (\s a -> s { _dvsrVolumeStatuses = a })
-
-instance FromXML DescribeVolumeStatusResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVolumeStatusResponse"
 
 instance AWSRequest DescribeVolumeStatus where
     type Sv DescribeVolumeStatus = EC2

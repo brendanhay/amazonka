@@ -46,6 +46,7 @@ module Network.AWS.EC2.DescribeVpcAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeVpcAttribute = DescribeVpcAttribute
     { _dva1Attribute :: Maybe Text
@@ -127,10 +128,6 @@ dvarEnableDnsSupport =
 -- | The ID of the VPC.
 dvarVpcId :: Lens' DescribeVpcAttributeResponse (Maybe Text)
 dvarVpcId = lens _dvarVpcId (\s a -> s { _dvarVpcId = a })
-
-instance FromXML DescribeVpcAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVpcAttributeResponse"
 
 instance AWSRequest DescribeVpcAttribute where
     type Sv DescribeVpcAttribute = EC2

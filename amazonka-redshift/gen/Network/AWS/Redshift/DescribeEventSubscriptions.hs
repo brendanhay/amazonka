@@ -46,6 +46,7 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data DescribeEventSubscriptions = DescribeEventSubscriptions
     { _des1Marker           :: Maybe Text
@@ -131,10 +132,6 @@ desrEventSubscriptionsList =
 -- request.
 desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
 desrMarker = lens _desrMarker (\s a -> s { _desrMarker = a })
-
-instance FromXML DescribeEventSubscriptionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeEventSubscriptionsResponse"
 
 instance AWSRequest DescribeEventSubscriptions where
     type Sv DescribeEventSubscriptions = Redshift

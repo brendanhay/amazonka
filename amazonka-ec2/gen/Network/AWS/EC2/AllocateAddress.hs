@@ -46,6 +46,7 @@ module Network.AWS.EC2.AllocateAddress
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data AllocateAddress = AllocateAddress
     { _aaDomain :: Maybe Text
@@ -115,10 +116,6 @@ aarDomain = lens _aarDomain (\s a -> s { _aarDomain = a })
 -- | The Elastic IP address.
 aarPublicIp :: Lens' AllocateAddressResponse (Maybe Text)
 aarPublicIp = lens _aarPublicIp (\s a -> s { _aarPublicIp = a })
-
-instance FromXML AllocateAddressResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AllocateAddressResponse"
 
 instance AWSRequest AllocateAddress where
     type Sv AllocateAddress = EC2

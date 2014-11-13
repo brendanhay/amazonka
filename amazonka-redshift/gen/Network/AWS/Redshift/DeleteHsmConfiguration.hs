@@ -39,6 +39,7 @@ module Network.AWS.Redshift.DeleteHsmConfiguration
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 newtype DeleteHsmConfiguration = DeleteHsmConfiguration
     { _dhcHsmConfigurationIdentifier :: Text
@@ -73,10 +74,6 @@ data DeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
 -- | 'DeleteHsmConfigurationResponse' constructor.
 deleteHsmConfigurationResponse :: DeleteHsmConfigurationResponse
 deleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
-
-instance FromXML DeleteHsmConfigurationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteHsmConfigurationResponse"
 
 instance AWSRequest DeleteHsmConfiguration where
     type Sv DeleteHsmConfiguration = Redshift

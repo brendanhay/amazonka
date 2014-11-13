@@ -68,6 +68,7 @@ module Network.AWS.RDS.CreateDBInstance
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data CreateDBInstance = CreateDBInstance
     { _cdbiAllocatedStorage           :: Int
@@ -458,10 +459,6 @@ createDBInstanceResponse = CreateDBInstanceResponse
 
 cdbirDBInstance :: Lens' CreateDBInstanceResponse (Maybe DBInstance)
 cdbirDBInstance = lens _cdbirDBInstance (\s a -> s { _cdbirDBInstance = a })
-
-instance FromXML CreateDBInstanceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDBInstanceResponse"
 
 instance AWSRequest CreateDBInstance where
     type Sv CreateDBInstance = RDS

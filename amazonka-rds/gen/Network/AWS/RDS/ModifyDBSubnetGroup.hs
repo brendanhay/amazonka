@@ -44,6 +44,7 @@ module Network.AWS.RDS.ModifyDBSubnetGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data ModifyDBSubnetGroup = ModifyDBSubnetGroup
     { _mdbsgDBSubnetGroupDescription :: Maybe Text
@@ -109,10 +110,6 @@ modifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
 mdbsgrDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
 mdbsgrDBSubnetGroup =
     lens _mdbsgrDBSubnetGroup (\s a -> s { _mdbsgrDBSubnetGroup = a })
-
-instance FromXML ModifyDBSubnetGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyDBSubnetGroupResponse"
 
 instance AWSRequest ModifyDBSubnetGroup where
     type Sv ModifyDBSubnetGroup = RDS

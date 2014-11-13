@@ -41,6 +41,7 @@ module Network.AWS.EC2.DeleteNetworkAcl
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteNetworkAcl = DeleteNetworkAcl
     { _dnaDryRun       :: Maybe Bool
@@ -80,10 +81,6 @@ data DeleteNetworkAclResponse = DeleteNetworkAclResponse
 -- | 'DeleteNetworkAclResponse' constructor.
 deleteNetworkAclResponse :: DeleteNetworkAclResponse
 deleteNetworkAclResponse = DeleteNetworkAclResponse
-
-instance FromXML DeleteNetworkAclResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteNetworkAclResponse"
 
 instance AWSRequest DeleteNetworkAcl where
     type Sv DeleteNetworkAcl = EC2

@@ -42,6 +42,7 @@ module Network.AWS.EC2.CancelBundleTask
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CancelBundleTask = CancelBundleTask
     { _cbtBundleId :: Text
@@ -93,10 +94,6 @@ cancelBundleTaskResponse = CancelBundleTaskResponse
 -- | The bundle task.
 cbtrBundleTask :: Lens' CancelBundleTaskResponse (Maybe BundleTask)
 cbtrBundleTask = lens _cbtrBundleTask (\s a -> s { _cbtrBundleTask = a })
-
-instance FromXML CancelBundleTaskResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CancelBundleTaskResponse"
 
 instance AWSRequest CancelBundleTask where
     type Sv CancelBundleTask = EC2

@@ -49,6 +49,7 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests
     { _csirDryRun                 :: Maybe Bool
@@ -87,11 +88,11 @@ newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { _csirrCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CancelSpotInstanceRequestsResponse where
+instance GHC.Exts.IsList CancelSpotInstanceRequestsResponse where
     type Item CancelSpotInstanceRequestsResponse = CancelledSpotInstanceRequest
 
-    fromList = CancelSpotInstanceRequestsResponse . fromList
-    toList   = toList . _csirrCancelledSpotInstanceRequests
+    fromList = CancelSpotInstanceRequestsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _csirrCancelledSpotInstanceRequests
 
 -- | 'CancelSpotInstanceRequestsResponse' constructor.
 --
@@ -109,10 +110,6 @@ csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [
 csirrCancelledSpotInstanceRequests =
     lens _csirrCancelledSpotInstanceRequests
         (\s a -> s { _csirrCancelledSpotInstanceRequests = a })
-
-instance FromXML CancelSpotInstanceRequestsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CancelSpotInstanceRequestsResponse"
 
 instance AWSRequest CancelSpotInstanceRequests where
     type Sv CancelSpotInstanceRequests = EC2

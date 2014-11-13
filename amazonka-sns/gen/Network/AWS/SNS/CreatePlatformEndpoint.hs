@@ -56,6 +56,7 @@ module Network.AWS.SNS.CreatePlatformEndpoint
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 data CreatePlatformEndpoint = CreatePlatformEndpoint
     { _cpeAttributes             :: Map Text Text
@@ -136,10 +137,6 @@ createPlatformEndpointResponse = CreatePlatformEndpointResponse
 -- | EndpointArn returned from CreateEndpoint action.
 cperEndpointArn :: Lens' CreatePlatformEndpointResponse (Maybe Text)
 cperEndpointArn = lens _cperEndpointArn (\s a -> s { _cperEndpointArn = a })
-
-instance FromXML CreatePlatformEndpointResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreatePlatformEndpointResponse"
 
 instance AWSRequest CreatePlatformEndpoint where
     type Sv CreatePlatformEndpoint = SNS

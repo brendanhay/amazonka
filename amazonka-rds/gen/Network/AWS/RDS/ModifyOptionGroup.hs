@@ -44,6 +44,7 @@ module Network.AWS.RDS.ModifyOptionGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data ModifyOptionGroup = ModifyOptionGroup
     { _mogApplyImmediately :: Maybe Bool
@@ -122,10 +123,6 @@ modifyOptionGroupResponse = ModifyOptionGroupResponse
 
 mogrOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
 mogrOptionGroup = lens _mogrOptionGroup (\s a -> s { _mogrOptionGroup = a })
-
-instance FromXML ModifyOptionGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyOptionGroupResponse"
 
 instance AWSRequest ModifyOptionGroup where
     type Sv ModifyOptionGroup = RDS

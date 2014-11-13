@@ -44,6 +44,7 @@ module Network.AWS.IAM.GetSAMLProvider
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype GetSAMLProvider = GetSAMLProvider
     { _gsamlpSAMLProviderArn :: Text
@@ -113,10 +114,6 @@ gsamlprValidUntil :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
 gsamlprValidUntil =
     lens _gsamlprValidUntil (\s a -> s { _gsamlprValidUntil = a })
         . mapping _Time
-
-instance FromXML GetSAMLProviderResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetSAMLProviderResponse"
 
 instance AWSRequest GetSAMLProvider where
     type Sv GetSAMLProvider = IAM

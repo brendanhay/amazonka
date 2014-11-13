@@ -44,6 +44,7 @@ module Network.AWS.EC2.AttachNetworkInterface
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data AttachNetworkInterface = AttachNetworkInterface
     { _aniDeviceIndex        :: Int
@@ -114,10 +115,6 @@ attachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
 -- | The ID of the network interface attachment.
 anirAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
 anirAttachmentId = lens _anirAttachmentId (\s a -> s { _anirAttachmentId = a })
-
-instance FromXML AttachNetworkInterfaceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttachNetworkInterfaceResponse"
 
 instance AWSRequest AttachNetworkInterface where
     type Sv AttachNetworkInterface = EC2

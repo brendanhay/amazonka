@@ -47,6 +47,7 @@ module Network.AWS.Redshift.DisableLogging
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 newtype DisableLogging = DisableLogging
     { _dlClusterIdentifier :: Text
@@ -140,10 +141,6 @@ dlrLoggingEnabled =
 -- | The prefix applied to the log file names.
 dlrS3KeyPrefix :: Lens' DisableLoggingResponse (Maybe Text)
 dlrS3KeyPrefix = lens _dlrS3KeyPrefix (\s a -> s { _dlrS3KeyPrefix = a })
-
-instance FromXML DisableLoggingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DisableLoggingResponse"
 
 instance AWSRequest DisableLogging where
     type Sv DisableLogging = Redshift

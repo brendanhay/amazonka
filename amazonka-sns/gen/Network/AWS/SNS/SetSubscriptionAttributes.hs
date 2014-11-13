@@ -42,6 +42,7 @@ module Network.AWS.SNS.SetSubscriptionAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 data SetSubscriptionAttributes = SetSubscriptionAttributes
     { _ssaAttributeName   :: Text
@@ -95,10 +96,6 @@ data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
 -- | 'SetSubscriptionAttributesResponse' constructor.
 setSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse
 setSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
-
-instance FromXML SetSubscriptionAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetSubscriptionAttributesResponse"
 
 instance AWSRequest SetSubscriptionAttributes where
     type Sv SetSubscriptionAttributes = SNS

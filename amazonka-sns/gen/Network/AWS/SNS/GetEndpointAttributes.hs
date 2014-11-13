@@ -43,6 +43,7 @@ module Network.AWS.SNS.GetEndpointAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 newtype GetEndpointAttributes = GetEndpointAttributes
     { _geaEndpointArn :: Text
@@ -97,10 +98,6 @@ getEndpointAttributesResponse = GetEndpointAttributesResponse
 gearAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
 gearAttributes = lens _gearAttributes (\s a -> s { _gearAttributes = a })
     . _Map
-
-instance FromXML GetEndpointAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetEndpointAttributesResponse"
 
 instance AWSRequest GetEndpointAttributes where
     type Sv GetEndpointAttributes = SNS

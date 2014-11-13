@@ -43,6 +43,7 @@ module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
     { _tiiasgInstanceId                     :: Text
@@ -99,10 +100,6 @@ terminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGrou
 -- | A scaling Activity.
 tiiasgrActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
 tiiasgrActivity = lens _tiiasgrActivity (\s a -> s { _tiiasgrActivity = a })
-
-instance FromXML TerminateInstanceInAutoScalingGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TerminateInstanceInAutoScalingGroupResponse"
 
 instance AWSRequest TerminateInstanceInAutoScalingGroup where
     type Sv TerminateInstanceInAutoScalingGroup = AutoScaling

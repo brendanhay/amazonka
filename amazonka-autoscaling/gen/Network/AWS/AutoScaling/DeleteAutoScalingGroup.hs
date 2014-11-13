@@ -41,6 +41,7 @@ module Network.AWS.AutoScaling.DeleteAutoScalingGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup
     { _dasgAutoScalingGroupName :: Text
@@ -86,10 +87,6 @@ data DeleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
 -- | 'DeleteAutoScalingGroupResponse' constructor.
 deleteAutoScalingGroupResponse :: DeleteAutoScalingGroupResponse
 deleteAutoScalingGroupResponse = DeleteAutoScalingGroupResponse
-
-instance FromXML DeleteAutoScalingGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteAutoScalingGroupResponse"
 
 instance AWSRequest DeleteAutoScalingGroup where
     type Sv DeleteAutoScalingGroup = AutoScaling

@@ -45,6 +45,7 @@ module Network.AWS.EC2.CreateNetworkAcl
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateNetworkAcl = CreateNetworkAcl
     { _cnaDryRun :: Maybe Bool
@@ -96,10 +97,6 @@ createNetworkAclResponse = CreateNetworkAclResponse
 -- | Information about the network ACL.
 cnarNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)
 cnarNetworkAcl = lens _cnarNetworkAcl (\s a -> s { _cnarNetworkAcl = a })
-
-instance FromXML CreateNetworkAclResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateNetworkAclResponse"
 
 instance AWSRequest CreateNetworkAcl where
     type Sv CreateNetworkAcl = EC2

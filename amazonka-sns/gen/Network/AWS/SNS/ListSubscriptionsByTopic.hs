@@ -46,6 +46,7 @@ module Network.AWS.SNS.ListSubscriptionsByTopic
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic
     { _lsbtNextToken :: Maybe Text
@@ -108,10 +109,6 @@ lsbtrNextToken = lens _lsbtrNextToken (\s a -> s { _lsbtrNextToken = a })
 lsbtrSubscriptions :: Lens' ListSubscriptionsByTopicResponse [Subscription]
 lsbtrSubscriptions =
     lens _lsbtrSubscriptions (\s a -> s { _lsbtrSubscriptions = a })
-
-instance FromXML ListSubscriptionsByTopicResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListSubscriptionsByTopicResponse"
 
 instance AWSRequest ListSubscriptionsByTopic where
     type Sv ListSubscriptionsByTopic = SNS

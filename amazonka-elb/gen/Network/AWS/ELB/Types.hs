@@ -210,6 +210,7 @@ module Network.AWS.ELB.Types
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2012-06-01@) of the Amazon Elastic Load Balancing.
 data ELB deriving (Typeable)

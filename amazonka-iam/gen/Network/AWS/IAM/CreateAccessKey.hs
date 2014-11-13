@@ -52,6 +52,7 @@ module Network.AWS.IAM.CreateAccessKey
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype CreateAccessKey = CreateAccessKey
     { _cakUserName :: Maybe Text
@@ -96,10 +97,6 @@ createAccessKeyResponse p1 = CreateAccessKeyResponse
 -- | Information about the access key.
 cakrAccessKey :: Lens' CreateAccessKeyResponse AccessKey
 cakrAccessKey = lens _cakrAccessKey (\s a -> s { _cakrAccessKey = a })
-
-instance FromXML CreateAccessKeyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateAccessKeyResponse"
 
 instance AWSRequest CreateAccessKey where
     type Sv CreateAccessKey = IAM

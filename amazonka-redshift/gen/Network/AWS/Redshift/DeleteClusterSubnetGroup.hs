@@ -39,6 +39,7 @@ module Network.AWS.Redshift.DeleteClusterSubnetGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
     { _dcsgClusterSubnetGroupName :: Text
@@ -73,10 +74,6 @@ data DeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
 -- | 'DeleteClusterSubnetGroupResponse' constructor.
 deleteClusterSubnetGroupResponse :: DeleteClusterSubnetGroupResponse
 deleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
-
-instance FromXML DeleteClusterSubnetGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteClusterSubnetGroupResponse"
 
 instance AWSRequest DeleteClusterSubnetGroup where
     type Sv DeleteClusterSubnetGroup = Redshift

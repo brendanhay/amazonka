@@ -40,6 +40,7 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data CreateStorageLocation = CreateStorageLocation
     deriving (Eq, Ord, Show, Generic)
@@ -71,10 +72,6 @@ createStorageLocationResponse = CreateStorageLocationResponse
 -- | The name of the Amazon S3 bucket created.
 cslrS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
 cslrS3Bucket = lens _cslrS3Bucket (\s a -> s { _cslrS3Bucket = a })
-
-instance FromXML CreateStorageLocationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateStorageLocationResponse"
 
 instance AWSRequest CreateStorageLocation where
     type Sv CreateStorageLocation = ElasticBeanstalk

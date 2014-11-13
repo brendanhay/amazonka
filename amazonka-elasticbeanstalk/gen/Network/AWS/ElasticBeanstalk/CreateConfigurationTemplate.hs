@@ -59,6 +59,7 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data CreateConfigurationTemplate = CreateConfigurationTemplate
     { _cctApplicationName     :: Text
@@ -267,10 +268,6 @@ cctrSolutionStackName =
 -- configuration set.
 cctrTemplateName :: Lens' CreateConfigurationTemplateResponse (Maybe Text)
 cctrTemplateName = lens _cctrTemplateName (\s a -> s { _cctrTemplateName = a })
-
-instance FromXML CreateConfigurationTemplateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateConfigurationTemplateResponse"
 
 instance AWSRequest CreateConfigurationTemplate where
     type Sv CreateConfigurationTemplate = ElasticBeanstalk

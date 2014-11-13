@@ -44,6 +44,7 @@ module Network.AWS.IAM.DeleteSigningCertificate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data DeleteSigningCertificate = DeleteSigningCertificate
     { _dscCertificateId :: Text
@@ -84,10 +85,6 @@ data DeleteSigningCertificateResponse = DeleteSigningCertificateResponse
 -- | 'DeleteSigningCertificateResponse' constructor.
 deleteSigningCertificateResponse :: DeleteSigningCertificateResponse
 deleteSigningCertificateResponse = DeleteSigningCertificateResponse
-
-instance FromXML DeleteSigningCertificateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteSigningCertificateResponse"
 
 instance AWSRequest DeleteSigningCertificate where
     type Sv DeleteSigningCertificate = IAM

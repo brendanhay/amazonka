@@ -45,6 +45,7 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters
     { _ddcpMarker               :: Maybe Text
@@ -117,10 +118,6 @@ ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse 
 ddcprDefaultClusterParameters =
     lens _ddcprDefaultClusterParameters
         (\s a -> s { _ddcprDefaultClusterParameters = a })
-
-instance FromXML DescribeDefaultClusterParametersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDefaultClusterParametersResponse"
 
 instance AWSRequest DescribeDefaultClusterParameters where
     type Sv DescribeDefaultClusterParameters = Redshift

@@ -66,6 +66,7 @@ module Network.AWS.SQS.GetQueueAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
+import qualified GHC.Exts
 
 data GetQueueAttributes = GetQueueAttributes
     { _gqaAttributeNames :: [Text]
@@ -120,10 +121,6 @@ getQueueAttributesResponse = GetQueueAttributesResponse
 gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap Text Text)
 gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a })
     . _Map
-
-instance FromXML GetQueueAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetQueueAttributesResponse"
 
 instance AWSRequest GetQueueAttributes where
     type Sv GetQueueAttributes = SQS

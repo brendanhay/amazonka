@@ -44,6 +44,7 @@ module Network.AWS.IAM.DeleteAccessKey
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data DeleteAccessKey = DeleteAccessKey
     { _dakAccessKeyId :: Text
@@ -85,10 +86,6 @@ data DeleteAccessKeyResponse = DeleteAccessKeyResponse
 -- | 'DeleteAccessKeyResponse' constructor.
 deleteAccessKeyResponse :: DeleteAccessKeyResponse
 deleteAccessKeyResponse = DeleteAccessKeyResponse
-
-instance FromXML DeleteAccessKeyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteAccessKeyResponse"
 
 instance AWSRequest DeleteAccessKey where
     type Sv DeleteAccessKey = IAM

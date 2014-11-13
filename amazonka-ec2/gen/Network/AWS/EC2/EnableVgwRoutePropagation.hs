@@ -41,6 +41,7 @@ module Network.AWS.EC2.EnableVgwRoutePropagation
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data EnableVgwRoutePropagation = EnableVgwRoutePropagation
     { _evrpGatewayId    :: Text
@@ -82,10 +83,6 @@ data EnableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
 -- | 'EnableVgwRoutePropagationResponse' constructor.
 enableVgwRoutePropagationResponse :: EnableVgwRoutePropagationResponse
 enableVgwRoutePropagationResponse = EnableVgwRoutePropagationResponse
-
-instance FromXML EnableVgwRoutePropagationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnableVgwRoutePropagationResponse"
 
 instance AWSRequest EnableVgwRoutePropagation where
     type Sv EnableVgwRoutePropagation = EC2

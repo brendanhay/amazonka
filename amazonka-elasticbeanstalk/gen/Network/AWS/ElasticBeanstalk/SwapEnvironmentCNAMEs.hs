@@ -42,6 +42,7 @@ module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
     { _secnameDestinationEnvironmentId   :: Maybe Text
@@ -117,10 +118,6 @@ data SwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
 -- | 'SwapEnvironmentCNAMEsResponse' constructor.
 swapEnvironmentCNAMEsResponse :: SwapEnvironmentCNAMEsResponse
 swapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
-
-instance FromXML SwapEnvironmentCNAMEsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SwapEnvironmentCNAMEsResponse"
 
 instance AWSRequest SwapEnvironmentCNAMEs where
     type Sv SwapEnvironmentCNAMEs = ElasticBeanstalk

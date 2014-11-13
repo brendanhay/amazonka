@@ -47,6 +47,7 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data ValidateConfigurationSettings = ValidateConfigurationSettings
     { _vcsApplicationName :: Text
@@ -107,11 +108,11 @@ newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsRes
     { _vcsrMessages :: [ValidationMessage]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ValidateConfigurationSettingsResponse where
+instance GHC.Exts.IsList ValidateConfigurationSettingsResponse where
     type Item ValidateConfigurationSettingsResponse = ValidationMessage
 
-    fromList = ValidateConfigurationSettingsResponse . fromList
-    toList   = toList . _vcsrMessages
+    fromList = ValidateConfigurationSettingsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _vcsrMessages
 
 -- | 'ValidateConfigurationSettingsResponse' constructor.
 --
@@ -127,10 +128,6 @@ validateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
 -- | A list of ValidationMessage.
 vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
 vcsrMessages = lens _vcsrMessages (\s a -> s { _vcsrMessages = a })
-
-instance FromXML ValidateConfigurationSettingsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ValidateConfigurationSettingsResponse"
 
 instance AWSRequest ValidateConfigurationSettings where
     type Sv ValidateConfigurationSettings = ElasticBeanstalk

@@ -43,6 +43,7 @@ module Network.AWS.EC2.DescribeVpcs
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeVpcs = DescribeVpcs
     { _dv1DryRun  :: Maybe Bool
@@ -101,11 +102,11 @@ newtype DescribeVpcsResponse = DescribeVpcsResponse
     { _dvrVpcs :: [Vpc]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeVpcsResponse where
+instance GHC.Exts.IsList DescribeVpcsResponse where
     type Item DescribeVpcsResponse = Vpc
 
-    fromList = DescribeVpcsResponse . fromList
-    toList   = toList . _dvrVpcs
+    fromList = DescribeVpcsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dvrVpcs
 
 -- | 'DescribeVpcsResponse' constructor.
 --
@@ -121,10 +122,6 @@ describeVpcsResponse = DescribeVpcsResponse
 -- | Information about one or more VPCs.
 dvrVpcs :: Lens' DescribeVpcsResponse [Vpc]
 dvrVpcs = lens _dvrVpcs (\s a -> s { _dvrVpcs = a })
-
-instance FromXML DescribeVpcsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVpcsResponse"
 
 instance AWSRequest DescribeVpcs where
     type Sv DescribeVpcs = EC2

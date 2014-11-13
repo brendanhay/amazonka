@@ -43,6 +43,7 @@ module Network.AWS.SNS.AddPermission
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 data AddPermission = AddPermission
     { _apAWSAccountId :: [Text]
@@ -103,10 +104,6 @@ data AddPermissionResponse = AddPermissionResponse
 -- | 'AddPermissionResponse' constructor.
 addPermissionResponse :: AddPermissionResponse
 addPermissionResponse = AddPermissionResponse
-
-instance FromXML AddPermissionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AddPermissionResponse"
 
 instance AWSRequest AddPermission where
     type Sv AddPermission = SNS

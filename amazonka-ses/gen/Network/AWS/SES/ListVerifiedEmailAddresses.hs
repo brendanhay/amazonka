@@ -42,6 +42,7 @@ module Network.AWS.SES.ListVerifiedEmailAddresses
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 data ListVerifiedEmailAddresses = ListVerifiedEmailAddresses
     deriving (Eq, Ord, Show, Generic)
@@ -59,11 +60,11 @@ newtype ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse
     { _lvearVerifiedEmailAddresses :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList ListVerifiedEmailAddressesResponse where
+instance GHC.Exts.IsList ListVerifiedEmailAddressesResponse where
     type Item ListVerifiedEmailAddressesResponse = Text
 
-    fromList = ListVerifiedEmailAddressesResponse . fromList
-    toList   = toList . _lvearVerifiedEmailAddresses
+    fromList = ListVerifiedEmailAddressesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _lvearVerifiedEmailAddresses
 
 -- | 'ListVerifiedEmailAddressesResponse' constructor.
 --
@@ -81,10 +82,6 @@ lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
 lvearVerifiedEmailAddresses =
     lens _lvearVerifiedEmailAddresses
         (\s a -> s { _lvearVerifiedEmailAddresses = a })
-
-instance FromXML ListVerifiedEmailAddressesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListVerifiedEmailAddressesResponse"
 
 instance AWSRequest ListVerifiedEmailAddresses where
     type Sv ListVerifiedEmailAddresses = SES

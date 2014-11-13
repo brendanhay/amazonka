@@ -43,6 +43,7 @@ module Network.AWS.EC2.DeleteVolume
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteVolume = DeleteVolume
     { _dv4DryRun   :: Maybe Bool
@@ -82,10 +83,6 @@ data DeleteVolumeResponse = DeleteVolumeResponse
 -- | 'DeleteVolumeResponse' constructor.
 deleteVolumeResponse :: DeleteVolumeResponse
 deleteVolumeResponse = DeleteVolumeResponse
-
-instance FromXML DeleteVolumeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteVolumeResponse"
 
 instance AWSRequest DeleteVolume where
     type Sv DeleteVolume = EC2

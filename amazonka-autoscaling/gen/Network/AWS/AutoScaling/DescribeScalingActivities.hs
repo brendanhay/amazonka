@@ -51,6 +51,7 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribeScalingActivities = DescribeScalingActivities
     { _dsa2ActivityIds          :: [Text]
@@ -135,10 +136,6 @@ dsar1Activities = lens _dsar1Activities (\s a -> s { _dsar1Activities = a })
 -- in to subsequent calls to return additional results.
 dsar1NextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
 dsar1NextToken = lens _dsar1NextToken (\s a -> s { _dsar1NextToken = a })
-
-instance FromXML DescribeScalingActivitiesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeScalingActivitiesResponse"
 
 instance AWSRequest DescribeScalingActivities where
     type Sv DescribeScalingActivities = AutoScaling

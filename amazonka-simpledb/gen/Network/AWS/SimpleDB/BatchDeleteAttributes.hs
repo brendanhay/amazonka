@@ -44,6 +44,7 @@ module Network.AWS.SimpleDB.BatchDeleteAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
+import qualified GHC.Exts
 
 data BatchDeleteAttributes = BatchDeleteAttributes
     { _bdaDomainName :: Text
@@ -84,10 +85,6 @@ data BatchDeleteAttributesResponse = BatchDeleteAttributesResponse
 -- | 'BatchDeleteAttributesResponse' constructor.
 batchDeleteAttributesResponse :: BatchDeleteAttributesResponse
 batchDeleteAttributesResponse = BatchDeleteAttributesResponse
-
-instance FromXML BatchDeleteAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BatchDeleteAttributesResponse"
 
 instance AWSRequest BatchDeleteAttributes where
     type Sv BatchDeleteAttributes = SimpleDB

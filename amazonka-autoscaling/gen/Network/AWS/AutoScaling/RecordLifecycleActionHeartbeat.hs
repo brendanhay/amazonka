@@ -52,6 +52,7 @@ module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat
     { _rlahAutoScalingGroupName :: Text
@@ -109,10 +110,6 @@ data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResp
 -- | 'RecordLifecycleActionHeartbeatResponse' constructor.
 recordLifecycleActionHeartbeatResponse :: RecordLifecycleActionHeartbeatResponse
 recordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
-
-instance FromXML RecordLifecycleActionHeartbeatResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RecordLifecycleActionHeartbeatResponse"
 
 instance AWSRequest RecordLifecycleActionHeartbeat where
     type Sv RecordLifecycleActionHeartbeat = AutoScaling

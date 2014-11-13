@@ -60,6 +60,7 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress
     { _asgiCidrIp                     :: Maybe Text
@@ -175,10 +176,6 @@ data AuthorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressRespon
 -- | 'AuthorizeSecurityGroupIngressResponse' constructor.
 authorizeSecurityGroupIngressResponse :: AuthorizeSecurityGroupIngressResponse
 authorizeSecurityGroupIngressResponse = AuthorizeSecurityGroupIngressResponse
-
-instance FromXML AuthorizeSecurityGroupIngressResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AuthorizeSecurityGroupIngressResponse"
 
 instance AWSRequest AuthorizeSecurityGroupIngress where
     type Sv AuthorizeSecurityGroupIngress = EC2

@@ -44,6 +44,7 @@ module Network.AWS.IAM.CreateUser
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data CreateUser = CreateUser
     { _cuPath     :: Maybe Text
@@ -98,10 +99,6 @@ createUserResponse = CreateUserResponse
 -- | Information about the user.
 curUser :: Lens' CreateUserResponse (Maybe User)
 curUser = lens _curUser (\s a -> s { _curUser = a })
-
-instance FromXML CreateUserResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateUserResponse"
 
 instance AWSRequest CreateUser where
     type Sv CreateUser = IAM

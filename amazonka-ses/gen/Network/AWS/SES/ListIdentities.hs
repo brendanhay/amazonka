@@ -46,6 +46,7 @@ module Network.AWS.SES.ListIdentities
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 data ListIdentities = ListIdentities
     { _liIdentityType :: Maybe Text
@@ -116,10 +117,6 @@ lirIdentities = lens _lirIdentities (\s a -> s { _lirIdentities = a })
 -- | The token used for pagination.
 lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
 lirNextToken = lens _lirNextToken (\s a -> s { _lirNextToken = a })
-
-instance FromXML ListIdentitiesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListIdentitiesResponse"
 
 instance AWSRequest ListIdentities where
     type Sv ListIdentities = SES

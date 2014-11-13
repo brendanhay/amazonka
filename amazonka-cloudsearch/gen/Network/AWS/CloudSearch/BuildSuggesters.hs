@@ -42,6 +42,7 @@ module Network.AWS.CloudSearch.BuildSuggesters
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 newtype BuildSuggesters = BuildSuggesters
     { _bsDomainName :: Text
@@ -71,11 +72,11 @@ newtype BuildSuggestersResponse = BuildSuggestersResponse
     { _bsrFieldNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList BuildSuggestersResponse where
+instance GHC.Exts.IsList BuildSuggestersResponse where
     type Item BuildSuggestersResponse = Text
 
-    fromList = BuildSuggestersResponse . fromList
-    toList   = toList . _bsrFieldNames
+    fromList = BuildSuggestersResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _bsrFieldNames
 
 -- | 'BuildSuggestersResponse' constructor.
 --
@@ -90,10 +91,6 @@ buildSuggestersResponse = BuildSuggestersResponse
 
 bsrFieldNames :: Lens' BuildSuggestersResponse [Text]
 bsrFieldNames = lens _bsrFieldNames (\s a -> s { _bsrFieldNames = a })
-
-instance FromXML BuildSuggestersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BuildSuggestersResponse"
 
 instance AWSRequest BuildSuggesters where
     type Sv BuildSuggesters = CloudSearch

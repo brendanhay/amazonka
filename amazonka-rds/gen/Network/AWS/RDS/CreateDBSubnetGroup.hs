@@ -45,6 +45,7 @@ module Network.AWS.RDS.CreateDBSubnetGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data CreateDBSubnetGroup = CreateDBSubnetGroup
     { _cdbsg1DBSubnetGroupDescription :: Text
@@ -118,10 +119,6 @@ createDBSubnetGroupResponse = CreateDBSubnetGroupResponse
 cdbsgrDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
 cdbsgrDBSubnetGroup =
     lens _cdbsgrDBSubnetGroup (\s a -> s { _cdbsgrDBSubnetGroup = a })
-
-instance FromXML CreateDBSubnetGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDBSubnetGroupResponse"
 
 instance AWSRequest CreateDBSubnetGroup where
     type Sv CreateDBSubnetGroup = RDS

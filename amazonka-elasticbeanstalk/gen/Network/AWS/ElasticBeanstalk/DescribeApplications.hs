@@ -41,16 +41,17 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 newtype DescribeApplications = DescribeApplications
     { _daApplicationNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeApplications where
+instance GHC.Exts.IsList DescribeApplications where
     type Item DescribeApplications = Text
 
-    fromList = DescribeApplications . fromList
-    toList   = toList . _daApplicationNames
+    fromList = DescribeApplications . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _daApplicationNames
 
 -- | 'DescribeApplications' constructor.
 --
@@ -78,11 +79,11 @@ newtype DescribeApplicationsResponse = DescribeApplicationsResponse
     { _darApplications :: [ApplicationDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeApplicationsResponse where
+instance GHC.Exts.IsList DescribeApplicationsResponse where
     type Item DescribeApplicationsResponse = ApplicationDescription
 
-    fromList = DescribeApplicationsResponse . fromList
-    toList   = toList . _darApplications
+    fromList = DescribeApplicationsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _darApplications
 
 -- | 'DescribeApplicationsResponse' constructor.
 --
@@ -98,10 +99,6 @@ describeApplicationsResponse = DescribeApplicationsResponse
 -- | This parameter contains a list of ApplicationDescription.
 darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
 darApplications = lens _darApplications (\s a -> s { _darApplications = a })
-
-instance FromXML DescribeApplicationsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeApplicationsResponse"
 
 instance AWSRequest DescribeApplications where
     type Sv DescribeApplications = ElasticBeanstalk

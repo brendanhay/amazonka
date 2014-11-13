@@ -43,6 +43,7 @@ module Network.AWS.AutoScaling.AttachInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data AttachInstances = AttachInstances
     { _aiAutoScalingGroupName :: Text
@@ -86,10 +87,6 @@ data AttachInstancesResponse = AttachInstancesResponse
 -- | 'AttachInstancesResponse' constructor.
 attachInstancesResponse :: AttachInstancesResponse
 attachInstancesResponse = AttachInstancesResponse
-
-instance FromXML AttachInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttachInstancesResponse"
 
 instance AWSRequest AttachInstances where
     type Sv AttachInstances = AutoScaling

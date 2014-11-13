@@ -46,6 +46,7 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
     { _asgtlbLoadBalancerName :: Text
@@ -89,11 +90,11 @@ newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBal
     { _asgtlbrSecurityGroups :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList ApplySecurityGroupsToLoadBalancerResponse where
+instance GHC.Exts.IsList ApplySecurityGroupsToLoadBalancerResponse where
     type Item ApplySecurityGroupsToLoadBalancerResponse = Text
 
-    fromList = ApplySecurityGroupsToLoadBalancerResponse . fromList
-    toList   = toList . _asgtlbrSecurityGroups
+    fromList = ApplySecurityGroupsToLoadBalancerResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _asgtlbrSecurityGroups
 
 -- | 'ApplySecurityGroupsToLoadBalancerResponse' constructor.
 --
@@ -110,10 +111,6 @@ applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerRes
 asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
 asgtlbrSecurityGroups =
     lens _asgtlbrSecurityGroups (\s a -> s { _asgtlbrSecurityGroups = a })
-
-instance FromXML ApplySecurityGroupsToLoadBalancerResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ApplySecurityGroupsToLoadBalancerResponse"
 
 instance AWSRequest ApplySecurityGroupsToLoadBalancer where
     type Sv ApplySecurityGroupsToLoadBalancer = ELB

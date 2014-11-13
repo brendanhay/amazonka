@@ -44,6 +44,7 @@ module Network.AWS.IAM.EnableMFADevice
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data EnableMFADevice = EnableMFADevice
     { _emfadAuthenticationCode1 :: Text
@@ -109,10 +110,6 @@ data EnableMFADeviceResponse = EnableMFADeviceResponse
 -- | 'EnableMFADeviceResponse' constructor.
 enableMFADeviceResponse :: EnableMFADeviceResponse
 enableMFADeviceResponse = EnableMFADeviceResponse
-
-instance FromXML EnableMFADeviceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnableMFADeviceResponse"
 
 instance AWSRequest EnableMFADevice where
     type Sv EnableMFADevice = IAM

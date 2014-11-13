@@ -45,6 +45,7 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data CreateCacheParameterGroup = CreateCacheParameterGroup
     { _ccpgCacheParameterGroupFamily :: Text
@@ -113,10 +114,6 @@ ccpgrCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe Cache
 ccpgrCacheParameterGroup =
     lens _ccpgrCacheParameterGroup
         (\s a -> s { _ccpgrCacheParameterGroup = a })
-
-instance FromXML CreateCacheParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateCacheParameterGroupResponse"
 
 instance AWSRequest CreateCacheParameterGroup where
     type Sv CreateCacheParameterGroup = ElastiCache

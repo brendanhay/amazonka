@@ -43,6 +43,7 @@ module Network.AWS.Route53.GetCheckerIpRanges
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 data GetCheckerIpRanges = GetCheckerIpRanges
     deriving (Eq, Ord, Show, Generic)
@@ -63,11 +64,11 @@ newtype GetCheckerIpRangesResponse = GetCheckerIpRangesResponse
     { _gcirrCheckerIpRanges :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetCheckerIpRangesResponse where
+instance GHC.Exts.IsList GetCheckerIpRangesResponse where
     type Item GetCheckerIpRangesResponse = Text
 
-    fromList = GetCheckerIpRangesResponse . fromList
-    toList   = toList . _gcirrCheckerIpRanges
+    fromList = GetCheckerIpRangesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _gcirrCheckerIpRanges
 
 -- | 'GetCheckerIpRangesResponse' constructor.
 --

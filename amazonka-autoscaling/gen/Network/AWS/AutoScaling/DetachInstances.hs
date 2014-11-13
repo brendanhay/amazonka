@@ -46,6 +46,7 @@ module Network.AWS.AutoScaling.DetachInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DetachInstances = DetachInstances
     { _diAutoScalingGroupName           :: Text
@@ -100,11 +101,11 @@ newtype DetachInstancesResponse = DetachInstancesResponse
     { _dirActivities :: [Activity]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DetachInstancesResponse where
+instance GHC.Exts.IsList DetachInstancesResponse where
     type Item DetachInstancesResponse = Activity
 
-    fromList = DetachInstancesResponse . fromList
-    toList   = toList . _dirActivities
+    fromList = DetachInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dirActivities
 
 -- | 'DetachInstancesResponse' constructor.
 --
@@ -121,10 +122,6 @@ detachInstancesResponse = DetachInstancesResponse
 -- the Auto Scaling group.
 dirActivities :: Lens' DetachInstancesResponse [Activity]
 dirActivities = lens _dirActivities (\s a -> s { _dirActivities = a })
-
-instance FromXML DetachInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DetachInstancesResponse"
 
 instance AWSRequest DetachInstances where
     type Sv DetachInstances = AutoScaling

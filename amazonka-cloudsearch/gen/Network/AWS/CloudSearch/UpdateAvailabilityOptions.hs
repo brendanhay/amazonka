@@ -47,6 +47,7 @@ module Network.AWS.CloudSearch.UpdateAvailabilityOptions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions
     { _uaoDomainName :: Text
@@ -104,10 +105,6 @@ updateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse
 uaorAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
 uaorAvailabilityOptions =
     lens _uaorAvailabilityOptions (\s a -> s { _uaorAvailabilityOptions = a })
-
-instance FromXML UpdateAvailabilityOptionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateAvailabilityOptionsResponse"
 
 instance AWSRequest UpdateAvailabilityOptions where
     type Sv UpdateAvailabilityOptions = CloudSearch

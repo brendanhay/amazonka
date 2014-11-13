@@ -69,6 +69,7 @@ module Network.AWS.ElastiCache.CreateReplicationGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data CreateReplicationGroup = CreateReplicationGroup
     { _crgAutoMinorVersionUpgrade     :: Maybe Bool
@@ -362,10 +363,6 @@ createReplicationGroupResponse = CreateReplicationGroupResponse
 crgrReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)
 crgrReplicationGroup =
     lens _crgrReplicationGroup (\s a -> s { _crgrReplicationGroup = a })
-
-instance FromXML CreateReplicationGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateReplicationGroupResponse"
 
 instance AWSRequest CreateReplicationGroup where
     type Sv CreateReplicationGroup = ElastiCache

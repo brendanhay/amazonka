@@ -47,6 +47,7 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data RevokeSnapshotAccess = RevokeSnapshotAccess
     { _rsaAccountWithRestoreAccess  :: Text
@@ -116,10 +117,6 @@ revokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
 
 rsarSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
 rsarSnapshot = lens _rsarSnapshot (\s a -> s { _rsarSnapshot = a })
-
-instance FromXML RevokeSnapshotAccessResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RevokeSnapshotAccessResponse"
 
 instance AWSRequest RevokeSnapshotAccess where
     type Sv RevokeSnapshotAccess = Redshift

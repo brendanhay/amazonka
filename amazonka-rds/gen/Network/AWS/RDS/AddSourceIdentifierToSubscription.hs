@@ -43,6 +43,7 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription
     { _asitsSourceIdentifier :: Text
@@ -107,10 +108,6 @@ addSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionRes
 asitsrEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
 asitsrEventSubscription =
     lens _asitsrEventSubscription (\s a -> s { _asitsrEventSubscription = a })
-
-instance FromXML AddSourceIdentifierToSubscriptionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AddSourceIdentifierToSubscriptionResponse"
 
 instance AWSRequest AddSourceIdentifierToSubscription where
     type Sv AddSourceIdentifierToSubscription = RDS

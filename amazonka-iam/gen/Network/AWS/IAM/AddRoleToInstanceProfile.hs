@@ -42,6 +42,7 @@ module Network.AWS.IAM.AddRoleToInstanceProfile
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile
     { _artipInstanceProfileName :: Text
@@ -85,10 +86,6 @@ data AddRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
 -- | 'AddRoleToInstanceProfileResponse' constructor.
 addRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse
 addRoleToInstanceProfileResponse = AddRoleToInstanceProfileResponse
-
-instance FromXML AddRoleToInstanceProfileResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AddRoleToInstanceProfileResponse"
 
 instance AWSRequest AddRoleToInstanceProfile where
     type Sv AddRoleToInstanceProfile = IAM

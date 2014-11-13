@@ -48,6 +48,7 @@ module Network.AWS.EC2.DeleteVpnConnection
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteVpnConnection = DeleteVpnConnection
     { _dvcDryRun          :: Maybe Bool
@@ -88,10 +89,6 @@ data DeleteVpnConnectionResponse = DeleteVpnConnectionResponse
 -- | 'DeleteVpnConnectionResponse' constructor.
 deleteVpnConnectionResponse :: DeleteVpnConnectionResponse
 deleteVpnConnectionResponse = DeleteVpnConnectionResponse
-
-instance FromXML DeleteVpnConnectionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteVpnConnectionResponse"
 
 instance AWSRequest DeleteVpnConnection where
     type Sv DeleteVpnConnection = EC2

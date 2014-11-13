@@ -49,6 +49,7 @@ module Network.AWS.EC2.ImportInstance
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ImportInstance = ImportInstance
     { _iiDescription         :: Maybe Text
@@ -124,10 +125,6 @@ importInstanceResponse = ImportInstanceResponse
 iirConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
 iirConversionTask =
     lens _iirConversionTask (\s a -> s { _iirConversionTask = a })
-
-instance FromXML ImportInstanceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ImportInstanceResponse"
 
 instance AWSRequest ImportInstance where
     type Sv ImportInstance = EC2

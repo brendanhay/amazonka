@@ -42,6 +42,7 @@ module Network.AWS.EC2.DescribeAccountAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeAccountAttributes = DescribeAccountAttributes
     { _daaAttributeNames :: [Text]
@@ -79,11 +80,11 @@ newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
     { _daarAccountAttributes :: [AccountAttribute]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAccountAttributesResponse where
+instance GHC.Exts.IsList DescribeAccountAttributesResponse where
     type Item DescribeAccountAttributesResponse = AccountAttribute
 
-    fromList = DescribeAccountAttributesResponse . fromList
-    toList   = toList . _daarAccountAttributes
+    fromList = DescribeAccountAttributesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _daarAccountAttributes
 
 -- | 'DescribeAccountAttributesResponse' constructor.
 --
@@ -100,10 +101,6 @@ describeAccountAttributesResponse = DescribeAccountAttributesResponse
 daarAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
 daarAccountAttributes =
     lens _daarAccountAttributes (\s a -> s { _daarAccountAttributes = a })
-
-instance FromXML DescribeAccountAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAccountAttributesResponse"
 
 instance AWSRequest DescribeAccountAttributes where
     type Sv DescribeAccountAttributes = EC2

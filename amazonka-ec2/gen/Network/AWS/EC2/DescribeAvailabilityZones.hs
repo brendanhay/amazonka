@@ -48,6 +48,7 @@ module Network.AWS.EC2.DescribeAvailabilityZones
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeAvailabilityZones = DescribeAvailabilityZones
     { _dazDryRun    :: Maybe Bool
@@ -96,11 +97,11 @@ newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { _dazrAvailabilityZones :: [AvailabilityZone]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAvailabilityZonesResponse where
+instance GHC.Exts.IsList DescribeAvailabilityZonesResponse where
     type Item DescribeAvailabilityZonesResponse = AvailabilityZone
 
-    fromList = DescribeAvailabilityZonesResponse . fromList
-    toList   = toList . _dazrAvailabilityZones
+    fromList = DescribeAvailabilityZonesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dazrAvailabilityZones
 
 -- | 'DescribeAvailabilityZonesResponse' constructor.
 --
@@ -117,10 +118,6 @@ describeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
 dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
 dazrAvailabilityZones =
     lens _dazrAvailabilityZones (\s a -> s { _dazrAvailabilityZones = a })
-
-instance FromXML DescribeAvailabilityZonesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAvailabilityZonesResponse"
 
 instance AWSRequest DescribeAvailabilityZones where
     type Sv DescribeAvailabilityZones = EC2

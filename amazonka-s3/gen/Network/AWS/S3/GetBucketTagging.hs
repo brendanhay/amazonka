@@ -41,6 +41,7 @@ module Network.AWS.S3.GetBucketTagging
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketTagging = GetBucketTagging
     { _gbtBucket :: Text
@@ -76,11 +77,11 @@ newtype GetBucketTaggingResponse = GetBucketTaggingResponse
     { _gbtrTagSet :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetBucketTaggingResponse where
+instance GHC.Exts.IsList GetBucketTaggingResponse where
     type Item GetBucketTaggingResponse = Tag
 
-    fromList = GetBucketTaggingResponse . fromList
-    toList   = toList . _gbtrTagSet
+    fromList = GetBucketTaggingResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _gbtrTagSet
 
 -- | 'GetBucketTaggingResponse' constructor.
 --

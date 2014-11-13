@@ -45,6 +45,7 @@ module Network.AWS.EC2.DescribePlacementGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribePlacementGroups = DescribePlacementGroups
     { _dpg1DryRun     :: Maybe Bool
@@ -92,11 +93,11 @@ newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
     { _dpgrPlacementGroups :: [PlacementGroup]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribePlacementGroupsResponse where
+instance GHC.Exts.IsList DescribePlacementGroupsResponse where
     type Item DescribePlacementGroupsResponse = PlacementGroup
 
-    fromList = DescribePlacementGroupsResponse . fromList
-    toList   = toList . _dpgrPlacementGroups
+    fromList = DescribePlacementGroupsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dpgrPlacementGroups
 
 -- | 'DescribePlacementGroupsResponse' constructor.
 --
@@ -113,10 +114,6 @@ describePlacementGroupsResponse = DescribePlacementGroupsResponse
 dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrPlacementGroups =
     lens _dpgrPlacementGroups (\s a -> s { _dpgrPlacementGroups = a })
-
-instance FromXML DescribePlacementGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribePlacementGroupsResponse"
 
 instance AWSRequest DescribePlacementGroups where
     type Sv DescribePlacementGroups = EC2

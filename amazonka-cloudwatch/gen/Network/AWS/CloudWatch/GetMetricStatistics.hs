@@ -69,6 +69,7 @@ module Network.AWS.CloudWatch.GetMetricStatistics
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
+import qualified GHC.Exts
 
 data GetMetricStatistics = GetMetricStatistics
     { _gmsDimensions :: [Dimension]
@@ -194,10 +195,6 @@ gmsrDatapoints = lens _gmsrDatapoints (\s a -> s { _gmsrDatapoints = a })
 -- | A label describing the specified metric.
 gmsrLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
 gmsrLabel = lens _gmsrLabel (\s a -> s { _gmsrLabel = a })
-
-instance FromXML GetMetricStatisticsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetMetricStatisticsResponse"
 
 instance AWSRequest GetMetricStatistics where
     type Sv GetMetricStatistics = CloudWatch

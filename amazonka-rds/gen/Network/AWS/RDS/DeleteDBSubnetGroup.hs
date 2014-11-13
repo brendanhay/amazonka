@@ -39,6 +39,7 @@ module Network.AWS.RDS.DeleteDBSubnetGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup
     { _ddbsg1DBSubnetGroupName :: Text
@@ -74,10 +75,6 @@ data DeleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
 -- | 'DeleteDBSubnetGroupResponse' constructor.
 deleteDBSubnetGroupResponse :: DeleteDBSubnetGroupResponse
 deleteDBSubnetGroupResponse = DeleteDBSubnetGroupResponse
-
-instance FromXML DeleteDBSubnetGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteDBSubnetGroupResponse"
 
 instance AWSRequest DeleteDBSubnetGroup where
     type Sv DeleteDBSubnetGroup = RDS

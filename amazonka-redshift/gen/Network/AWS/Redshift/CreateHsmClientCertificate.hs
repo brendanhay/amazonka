@@ -48,6 +48,7 @@ module Network.AWS.Redshift.CreateHsmClientCertificate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 newtype CreateHsmClientCertificate = CreateHsmClientCertificate
     { _chccHsmClientCertificateIdentifier :: Text
@@ -97,10 +98,6 @@ chccrHsmClientCertificate :: Lens' CreateHsmClientCertificateResponse (Maybe Hsm
 chccrHsmClientCertificate =
     lens _chccrHsmClientCertificate
         (\s a -> s { _chccrHsmClientCertificate = a })
-
-instance FromXML CreateHsmClientCertificateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateHsmClientCertificateResponse"
 
 instance AWSRequest CreateHsmClientCertificate where
     type Sv CreateHsmClientCertificate = Redshift

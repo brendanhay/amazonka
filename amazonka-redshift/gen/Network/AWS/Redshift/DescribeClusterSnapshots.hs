@@ -53,6 +53,7 @@ module Network.AWS.Redshift.DescribeClusterSnapshots
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data DescribeClusterSnapshots = DescribeClusterSnapshots
     { _dcs1ClusterIdentifier  :: Maybe Text
@@ -191,10 +192,6 @@ dcsrMarker = lens _dcsrMarker (\s a -> s { _dcsrMarker = a })
 -- | A list of Snapshot instances.
 dcsrSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
 dcsrSnapshots = lens _dcsrSnapshots (\s a -> s { _dcsrSnapshots = a })
-
-instance FromXML DescribeClusterSnapshotsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeClusterSnapshotsResponse"
 
 instance AWSRequest DescribeClusterSnapshots where
     type Sv DescribeClusterSnapshots = Redshift

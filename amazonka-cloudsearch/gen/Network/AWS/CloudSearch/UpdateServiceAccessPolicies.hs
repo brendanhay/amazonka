@@ -44,6 +44,7 @@ module Network.AWS.CloudSearch.UpdateServiceAccessPolicies
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies
     { _usapAccessPolicies :: Text
@@ -100,10 +101,6 @@ updateServiceAccessPoliciesResponse p1 = UpdateServiceAccessPoliciesResponse
 usaprAccessPolicies :: Lens' UpdateServiceAccessPoliciesResponse AccessPoliciesStatus
 usaprAccessPolicies =
     lens _usaprAccessPolicies (\s a -> s { _usaprAccessPolicies = a })
-
-instance FromXML UpdateServiceAccessPoliciesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateServiceAccessPoliciesResponse"
 
 instance AWSRequest UpdateServiceAccessPolicies where
     type Sv UpdateServiceAccessPolicies = CloudSearch

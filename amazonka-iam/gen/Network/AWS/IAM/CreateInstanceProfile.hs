@@ -45,6 +45,7 @@ module Network.AWS.IAM.CreateInstanceProfile
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data CreateInstanceProfile = CreateInstanceProfile
     { _cipInstanceProfileName :: Text
@@ -102,10 +103,6 @@ createInstanceProfileResponse p1 = CreateInstanceProfileResponse
 ciprInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
 ciprInstanceProfile =
     lens _ciprInstanceProfile (\s a -> s { _ciprInstanceProfile = a })
-
-instance FromXML CreateInstanceProfileResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateInstanceProfileResponse"
 
 instance AWSRequest CreateInstanceProfile where
     type Sv CreateInstanceProfile = IAM

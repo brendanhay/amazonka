@@ -56,6 +56,7 @@ module Network.AWS.EC2.CreateRoute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateRoute = CreateRoute
     { _crDestinationCidrBlock   :: Text
@@ -143,10 +144,6 @@ data CreateRouteResponse = CreateRouteResponse
 -- | 'CreateRouteResponse' constructor.
 createRouteResponse :: CreateRouteResponse
 createRouteResponse = CreateRouteResponse
-
-instance FromXML CreateRouteResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateRouteResponse"
 
 instance AWSRequest CreateRoute where
     type Sv CreateRoute = EC2

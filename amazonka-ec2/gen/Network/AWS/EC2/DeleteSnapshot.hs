@@ -49,6 +49,7 @@ module Network.AWS.EC2.DeleteSnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteSnapshot = DeleteSnapshot
     { _ds3DryRun     :: Maybe Bool
@@ -88,10 +89,6 @@ data DeleteSnapshotResponse = DeleteSnapshotResponse
 -- | 'DeleteSnapshotResponse' constructor.
 deleteSnapshotResponse :: DeleteSnapshotResponse
 deleteSnapshotResponse = DeleteSnapshotResponse
-
-instance FromXML DeleteSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteSnapshotResponse"
 
 instance AWSRequest DeleteSnapshot where
     type Sv DeleteSnapshot = EC2

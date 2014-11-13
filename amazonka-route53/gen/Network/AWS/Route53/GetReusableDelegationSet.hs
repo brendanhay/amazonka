@@ -42,6 +42,7 @@ module Network.AWS.Route53.GetReusableDelegationSet
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 newtype GetReusableDelegationSet = GetReusableDelegationSet
     { _grdsId :: Text

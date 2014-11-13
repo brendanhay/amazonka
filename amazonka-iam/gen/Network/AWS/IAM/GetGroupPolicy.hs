@@ -46,6 +46,7 @@ module Network.AWS.IAM.GetGroupPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data GetGroupPolicy = GetGroupPolicy
     { _ggpGroupName  :: Text
@@ -119,10 +120,6 @@ ggprPolicyDocument =
 -- | The name of the policy.
 ggprPolicyName :: Lens' GetGroupPolicyResponse Text
 ggprPolicyName = lens _ggprPolicyName (\s a -> s { _ggprPolicyName = a })
-
-instance FromXML GetGroupPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetGroupPolicyResponse"
 
 instance AWSRequest GetGroupPolicy where
     type Sv GetGroupPolicy = IAM

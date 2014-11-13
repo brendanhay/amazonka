@@ -45,6 +45,7 @@ module Network.AWS.AutoScaling.DescribeAccountLimits
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribeAccountLimits = DescribeAccountLimits
     deriving (Eq, Ord, Show, Generic)
@@ -88,10 +89,6 @@ dalrMaxNumberOfLaunchConfigurations :: Lens' DescribeAccountLimitsResponse (Mayb
 dalrMaxNumberOfLaunchConfigurations =
     lens _dalrMaxNumberOfLaunchConfigurations
         (\s a -> s { _dalrMaxNumberOfLaunchConfigurations = a })
-
-instance FromXML DescribeAccountLimitsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAccountLimitsResponse"
 
 instance AWSRequest DescribeAccountLimits where
     type Sv DescribeAccountLimits = AutoScaling

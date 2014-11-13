@@ -41,6 +41,7 @@ module Network.AWS.S3.GetBucketNotification
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketNotification = GetBucketNotification
     { _gbnBucket :: Text

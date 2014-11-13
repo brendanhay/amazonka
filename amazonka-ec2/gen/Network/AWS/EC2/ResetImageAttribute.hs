@@ -41,6 +41,7 @@ module Network.AWS.EC2.ResetImageAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ResetImageAttribute = ResetImageAttribute
     { _ria1Attribute :: Text
@@ -90,10 +91,6 @@ data ResetImageAttributeResponse = ResetImageAttributeResponse
 -- | 'ResetImageAttributeResponse' constructor.
 resetImageAttributeResponse :: ResetImageAttributeResponse
 resetImageAttributeResponse = ResetImageAttributeResponse
-
-instance FromXML ResetImageAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResetImageAttributeResponse"
 
 instance AWSRequest ResetImageAttribute where
     type Sv ResetImageAttribute = EC2

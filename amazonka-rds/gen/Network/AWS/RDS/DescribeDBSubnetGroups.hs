@@ -48,6 +48,7 @@ module Network.AWS.RDS.DescribeDBSubnetGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeDBSubnetGroups = DescribeDBSubnetGroups
     { _ddbsgDBSubnetGroupName :: Maybe Text
@@ -133,10 +134,6 @@ ddbsgrDBSubnetGroups =
 -- marker, up to the value specified by MaxRecords.
 ddbsgrMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
 ddbsgrMarker = lens _ddbsgrMarker (\s a -> s { _ddbsgrMarker = a })
-
-instance FromXML DescribeDBSubnetGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBSubnetGroupsResponse"
 
 instance AWSRequest DescribeDBSubnetGroups where
     type Sv DescribeDBSubnetGroups = RDS

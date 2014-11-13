@@ -57,6 +57,7 @@ module Network.AWS.Redshift.DescribeResize
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 newtype DescribeResize = DescribeResize
     { _drClusterIdentifier :: Text
@@ -229,10 +230,6 @@ drrTotalResizeDataInMegaBytes :: Lens' DescribeResizeResponse (Maybe Integer)
 drrTotalResizeDataInMegaBytes =
     lens _drrTotalResizeDataInMegaBytes
         (\s a -> s { _drrTotalResizeDataInMegaBytes = a })
-
-instance FromXML DescribeResizeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeResizeResponse"
 
 instance AWSRequest DescribeResize where
     type Sv DescribeResize = Redshift

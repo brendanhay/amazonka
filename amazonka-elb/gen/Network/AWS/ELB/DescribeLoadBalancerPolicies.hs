@@ -48,6 +48,7 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
     { _dlbpLoadBalancerName :: Maybe Text
@@ -90,11 +91,11 @@ newtype DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesRespo
     { _dlbprPolicyDescriptions :: [PolicyDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeLoadBalancerPoliciesResponse where
+instance GHC.Exts.IsList DescribeLoadBalancerPoliciesResponse where
     type Item DescribeLoadBalancerPoliciesResponse = PolicyDescription
 
-    fromList = DescribeLoadBalancerPoliciesResponse . fromList
-    toList   = toList . _dlbprPolicyDescriptions
+    fromList = DescribeLoadBalancerPoliciesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dlbprPolicyDescriptions
 
 -- | 'DescribeLoadBalancerPoliciesResponse' constructor.
 --
@@ -111,10 +112,6 @@ describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
 dlbprPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
 dlbprPolicyDescriptions =
     lens _dlbprPolicyDescriptions (\s a -> s { _dlbprPolicyDescriptions = a })
-
-instance FromXML DescribeLoadBalancerPoliciesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLoadBalancerPoliciesResponse"
 
 instance AWSRequest DescribeLoadBalancerPolicies where
     type Sv DescribeLoadBalancerPolicies = ELB

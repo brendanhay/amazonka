@@ -43,6 +43,7 @@ module Network.AWS.IAM.DeleteRole
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype DeleteRole = DeleteRole
     { _drRoleName :: Text
@@ -75,10 +76,6 @@ data DeleteRoleResponse = DeleteRoleResponse
 -- | 'DeleteRoleResponse' constructor.
 deleteRoleResponse :: DeleteRoleResponse
 deleteRoleResponse = DeleteRoleResponse
-
-instance FromXML DeleteRoleResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteRoleResponse"
 
 instance AWSRequest DeleteRole where
     type Sv DeleteRole = IAM

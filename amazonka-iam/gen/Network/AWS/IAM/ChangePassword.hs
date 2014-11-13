@@ -43,6 +43,7 @@ module Network.AWS.IAM.ChangePassword
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ChangePassword = ChangePassword
     { _cpNewPassword :: Sensitive Text
@@ -87,10 +88,6 @@ data ChangePasswordResponse = ChangePasswordResponse
 -- | 'ChangePasswordResponse' constructor.
 changePasswordResponse :: ChangePasswordResponse
 changePasswordResponse = ChangePasswordResponse
-
-instance FromXML ChangePasswordResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangePasswordResponse"
 
 instance AWSRequest ChangePassword where
     type Sv ChangePassword = IAM

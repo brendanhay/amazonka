@@ -45,6 +45,7 @@ module Network.AWS.IAM.PutGroupPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data PutGroupPolicy = PutGroupPolicy
     { _pgpGroupName      :: Text
@@ -96,10 +97,6 @@ data PutGroupPolicyResponse = PutGroupPolicyResponse
 -- | 'PutGroupPolicyResponse' constructor.
 putGroupPolicyResponse :: PutGroupPolicyResponse
 putGroupPolicyResponse = PutGroupPolicyResponse
-
-instance FromXML PutGroupPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutGroupPolicyResponse"
 
 instance AWSRequest PutGroupPolicy where
     type Sv PutGroupPolicy = IAM

@@ -39,6 +39,7 @@ module Network.AWS.RDS.DeleteDBSecurityGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup
     { _ddbsgDBSecurityGroupName :: Text
@@ -76,10 +77,6 @@ data DeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
 -- | 'DeleteDBSecurityGroupResponse' constructor.
 deleteDBSecurityGroupResponse :: DeleteDBSecurityGroupResponse
 deleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
-
-instance FromXML DeleteDBSecurityGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteDBSecurityGroupResponse"
 
 instance AWSRequest DeleteDBSecurityGroup where
     type Sv DeleteDBSecurityGroup = RDS

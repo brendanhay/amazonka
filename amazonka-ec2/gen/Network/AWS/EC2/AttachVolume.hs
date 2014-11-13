@@ -68,6 +68,7 @@ module Network.AWS.EC2.AttachVolume
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data AttachVolume = AttachVolume
     { _avDevice     :: Text
@@ -182,10 +183,6 @@ avrState = lens _avrState (\s a -> s { _avrState = a })
 -- | The ID of the volume.
 avrVolumeId :: Lens' AttachVolumeResponse (Maybe Text)
 avrVolumeId = lens _avrVolumeId (\s a -> s { _avrVolumeId = a })
-
-instance FromXML AttachVolumeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttachVolumeResponse"
 
 instance AWSRequest AttachVolume where
     type Sv AttachVolume = EC2

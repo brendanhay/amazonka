@@ -41,6 +41,7 @@ module Network.AWS.AutoScaling.DeleteLaunchConfiguration
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration
     { _dlcLaunchConfigurationName :: Text
@@ -75,10 +76,6 @@ data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
 -- | 'DeleteLaunchConfigurationResponse' constructor.
 deleteLaunchConfigurationResponse :: DeleteLaunchConfigurationResponse
 deleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
-
-instance FromXML DeleteLaunchConfigurationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteLaunchConfigurationResponse"
 
 instance AWSRequest DeleteLaunchConfiguration where
     type Sv DeleteLaunchConfiguration = AutoScaling

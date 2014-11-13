@@ -52,6 +52,7 @@ module Network.AWS.EC2.CreateImage
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateImage = CreateImage
     { _ci1BlockDeviceMappings :: [BlockDeviceMapping]
@@ -144,10 +145,6 @@ createImageResponse = CreateImageResponse
 -- | The ID of the new AMI.
 cirImageId :: Lens' CreateImageResponse (Maybe Text)
 cirImageId = lens _cirImageId (\s a -> s { _cirImageId = a })
-
-instance FromXML CreateImageResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateImageResponse"
 
 instance AWSRequest CreateImage where
     type Sv CreateImage = EC2

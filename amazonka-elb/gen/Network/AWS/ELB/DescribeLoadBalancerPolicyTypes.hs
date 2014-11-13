@@ -44,16 +44,17 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
     { _dlbptPolicyTypeNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeLoadBalancerPolicyTypes where
+instance GHC.Exts.IsList DescribeLoadBalancerPolicyTypes where
     type Item DescribeLoadBalancerPolicyTypes = Text
 
-    fromList = DescribeLoadBalancerPolicyTypes . fromList
-    toList   = toList . _dlbptPolicyTypeNames
+    fromList = DescribeLoadBalancerPolicyTypes . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dlbptPolicyTypeNames
 
 -- | 'DescribeLoadBalancerPolicyTypes' constructor.
 --
@@ -82,11 +83,11 @@ newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyType
     { _dlbptrPolicyTypeDescriptions :: [PolicyTypeDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeLoadBalancerPolicyTypesResponse where
+instance GHC.Exts.IsList DescribeLoadBalancerPolicyTypesResponse where
     type Item DescribeLoadBalancerPolicyTypesResponse = PolicyTypeDescription
 
-    fromList = DescribeLoadBalancerPolicyTypesResponse . fromList
-    toList   = toList . _dlbptrPolicyTypeDescriptions
+    fromList = DescribeLoadBalancerPolicyTypesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dlbptrPolicyTypeDescriptions
 
 -- | 'DescribeLoadBalancerPolicyTypesResponse' constructor.
 --
@@ -106,10 +107,6 @@ dlbptrPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [P
 dlbptrPolicyTypeDescriptions =
     lens _dlbptrPolicyTypeDescriptions
         (\s a -> s { _dlbptrPolicyTypeDescriptions = a })
-
-instance FromXML DescribeLoadBalancerPolicyTypesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLoadBalancerPolicyTypesResponse"
 
 instance AWSRequest DescribeLoadBalancerPolicyTypes where
     type Sv DescribeLoadBalancerPolicyTypes = ELB

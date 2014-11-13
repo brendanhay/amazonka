@@ -59,6 +59,7 @@ module Network.AWS.EC2.CreateReservedInstancesListing
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateReservedInstancesListing = CreateReservedInstancesListing
     { _crilClientToken         :: Text
@@ -124,11 +125,11 @@ newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingR
     { _crilr1ReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CreateReservedInstancesListingResponse where
+instance GHC.Exts.IsList CreateReservedInstancesListingResponse where
     type Item CreateReservedInstancesListingResponse = ReservedInstancesListing
 
-    fromList = CreateReservedInstancesListingResponse . fromList
-    toList   = toList . _crilr1ReservedInstancesListings
+    fromList = CreateReservedInstancesListingResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _crilr1ReservedInstancesListings
 
 -- | 'CreateReservedInstancesListingResponse' constructor.
 --
@@ -146,10 +147,6 @@ crilr1ReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse 
 crilr1ReservedInstancesListings =
     lens _crilr1ReservedInstancesListings
         (\s a -> s { _crilr1ReservedInstancesListings = a })
-
-instance FromXML CreateReservedInstancesListingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateReservedInstancesListingResponse"
 
 instance AWSRequest CreateReservedInstancesListing where
     type Sv CreateReservedInstancesListing = EC2

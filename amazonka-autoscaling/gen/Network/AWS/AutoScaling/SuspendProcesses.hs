@@ -47,6 +47,7 @@ module Network.AWS.AutoScaling.SuspendProcesses
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data SuspendProcesses = SuspendProcesses
     { _spAutoScalingGroupName :: Text
@@ -92,10 +93,6 @@ data SuspendProcessesResponse = SuspendProcessesResponse
 -- | 'SuspendProcessesResponse' constructor.
 suspendProcessesResponse :: SuspendProcessesResponse
 suspendProcessesResponse = SuspendProcessesResponse
-
-instance FromXML SuspendProcessesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SuspendProcessesResponse"
 
 instance AWSRequest SuspendProcesses where
     type Sv SuspendProcesses = AutoScaling

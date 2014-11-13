@@ -53,6 +53,7 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests
     { _dsirDryRun                 :: Maybe Bool
@@ -154,11 +155,11 @@ newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsRespo
     { _dsirrSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeSpotInstanceRequestsResponse where
+instance GHC.Exts.IsList DescribeSpotInstanceRequestsResponse where
     type Item DescribeSpotInstanceRequestsResponse = SpotInstanceRequest
 
-    fromList = DescribeSpotInstanceRequestsResponse . fromList
-    toList   = toList . _dsirrSpotInstanceRequests
+    fromList = DescribeSpotInstanceRequestsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsirrSpotInstanceRequests
 
 -- | 'DescribeSpotInstanceRequestsResponse' constructor.
 --
@@ -176,10 +177,6 @@ dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotIns
 dsirrSpotInstanceRequests =
     lens _dsirrSpotInstanceRequests
         (\s a -> s { _dsirrSpotInstanceRequests = a })
-
-instance FromXML DescribeSpotInstanceRequestsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSpotInstanceRequestsResponse"
 
 instance AWSRequest DescribeSpotInstanceRequests where
     type Sv DescribeSpotInstanceRequests = EC2

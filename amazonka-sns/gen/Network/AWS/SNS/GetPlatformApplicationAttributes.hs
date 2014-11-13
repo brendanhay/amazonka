@@ -43,6 +43,7 @@ module Network.AWS.SNS.GetPlatformApplicationAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes
     { _gpaaPlatformApplicationArn :: Text
@@ -97,10 +98,6 @@ getPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesRespo
 gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
 gpaarAttributes = lens _gpaarAttributes (\s a -> s { _gpaarAttributes = a })
     . _Map
-
-instance FromXML GetPlatformApplicationAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetPlatformApplicationAttributesResponse"
 
 instance AWSRequest GetPlatformApplicationAttributes where
     type Sv GetPlatformApplicationAttributes = SNS

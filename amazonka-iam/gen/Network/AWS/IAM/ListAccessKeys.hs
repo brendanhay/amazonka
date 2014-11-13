@@ -52,6 +52,7 @@ module Network.AWS.IAM.ListAccessKeys
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListAccessKeys = ListAccessKeys
     { _lakMarker   :: Maybe Text
@@ -137,10 +138,6 @@ lakrIsTruncated = lens _lakrIsTruncated (\s a -> s { _lakrIsTruncated = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lakrMarker :: Lens' ListAccessKeysResponse (Maybe Text)
 lakrMarker = lens _lakrMarker (\s a -> s { _lakrMarker = a })
-
-instance FromXML ListAccessKeysResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListAccessKeysResponse"
 
 instance AWSRequest ListAccessKeys where
     type Sv ListAccessKeys = IAM

@@ -40,6 +40,7 @@ module Network.AWS.IAM.AddUserToGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data AddUserToGroup = AddUserToGroup
     { _autgGroupName :: Text
@@ -81,10 +82,6 @@ data AddUserToGroupResponse = AddUserToGroupResponse
 -- | 'AddUserToGroupResponse' constructor.
 addUserToGroupResponse :: AddUserToGroupResponse
 addUserToGroupResponse = AddUserToGroupResponse
-
-instance FromXML AddUserToGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AddUserToGroupResponse"
 
 instance AWSRequest AddUserToGroup where
     type Sv AddUserToGroup = IAM

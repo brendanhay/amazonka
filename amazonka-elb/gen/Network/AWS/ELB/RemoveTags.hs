@@ -40,6 +40,7 @@ module Network.AWS.ELB.RemoveTags
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data RemoveTags = RemoveTags
     { _rtLoadBalancerNames :: [Text]
@@ -83,10 +84,6 @@ data RemoveTagsResponse = RemoveTagsResponse
 -- | 'RemoveTagsResponse' constructor.
 removeTagsResponse :: RemoveTagsResponse
 removeTagsResponse = RemoveTagsResponse
-
-instance FromXML RemoveTagsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RemoveTagsResponse"
 
 instance AWSRequest RemoveTags where
     type Sv RemoveTags = ELB

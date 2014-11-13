@@ -51,6 +51,7 @@ module Network.AWS.IAM.CreateVirtualMFADevice
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data CreateVirtualMFADevice = CreateVirtualMFADevice
     { _cvmfadPath                 :: Maybe Text
@@ -110,10 +111,6 @@ createVirtualMFADeviceResponse p1 = CreateVirtualMFADeviceResponse
 cvmfadrVirtualMFADevice :: Lens' CreateVirtualMFADeviceResponse VirtualMFADevice
 cvmfadrVirtualMFADevice =
     lens _cvmfadrVirtualMFADevice (\s a -> s { _cvmfadrVirtualMFADevice = a })
-
-instance FromXML CreateVirtualMFADeviceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVirtualMFADeviceResponse"
 
 instance AWSRequest CreateVirtualMFADevice where
     type Sv CreateVirtualMFADevice = IAM

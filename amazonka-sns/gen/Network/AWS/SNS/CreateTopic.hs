@@ -45,6 +45,7 @@ module Network.AWS.SNS.CreateTopic
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 newtype CreateTopic = CreateTopic
     { _ctName :: Text
@@ -91,10 +92,6 @@ createTopicResponse = CreateTopicResponse
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
 ctrTopicArn :: Lens' CreateTopicResponse (Maybe Text)
 ctrTopicArn = lens _ctrTopicArn (\s a -> s { _ctrTopicArn = a })
-
-instance FromXML CreateTopicResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateTopicResponse"
 
 instance AWSRequest CreateTopic where
     type Sv CreateTopic = SNS

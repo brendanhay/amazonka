@@ -51,6 +51,7 @@ module Network.AWS.SecurityToken.Types
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2011-06-15@) of the Amazon Security Token Service.
 data SecurityToken deriving (Typeable)

@@ -44,6 +44,7 @@ module Network.AWS.EC2.DeleteSecurityGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteSecurityGroup = DeleteSecurityGroup
     { _dsgDryRun    :: Maybe Bool
@@ -91,10 +92,6 @@ data DeleteSecurityGroupResponse = DeleteSecurityGroupResponse
 -- | 'DeleteSecurityGroupResponse' constructor.
 deleteSecurityGroupResponse :: DeleteSecurityGroupResponse
 deleteSecurityGroupResponse = DeleteSecurityGroupResponse
-
-instance FromXML DeleteSecurityGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteSecurityGroupResponse"
 
 instance AWSRequest DeleteSecurityGroup where
     type Sv DeleteSecurityGroup = EC2

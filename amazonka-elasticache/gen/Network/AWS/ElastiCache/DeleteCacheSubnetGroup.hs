@@ -39,6 +39,7 @@ module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup
     { _dcsg1CacheSubnetGroupName :: Text
@@ -74,10 +75,6 @@ data DeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
 -- | 'DeleteCacheSubnetGroupResponse' constructor.
 deleteCacheSubnetGroupResponse :: DeleteCacheSubnetGroupResponse
 deleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
-
-instance FromXML DeleteCacheSubnetGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteCacheSubnetGroupResponse"
 
 instance AWSRequest DeleteCacheSubnetGroup where
     type Sv DeleteCacheSubnetGroup = ElastiCache

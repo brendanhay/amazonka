@@ -41,16 +41,17 @@ module Network.AWS.EC2.DescribeExportTasks
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 newtype DescribeExportTasks = DescribeExportTasks
     { _detExportTaskIds :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeExportTasks where
+instance GHC.Exts.IsList DescribeExportTasks where
     type Item DescribeExportTasks = Text
 
-    fromList = DescribeExportTasks . fromList
-    toList   = toList . _detExportTaskIds
+    fromList = DescribeExportTasks . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _detExportTaskIds
 
 -- | 'DescribeExportTasks' constructor.
 --
@@ -76,11 +77,11 @@ newtype DescribeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks :: [ExportTask]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeExportTasksResponse where
+instance GHC.Exts.IsList DescribeExportTasksResponse where
     type Item DescribeExportTasksResponse = ExportTask
 
-    fromList = DescribeExportTasksResponse . fromList
-    toList   = toList . _detrExportTasks
+    fromList = DescribeExportTasksResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _detrExportTasks
 
 -- | 'DescribeExportTasksResponse' constructor.
 --
@@ -95,10 +96,6 @@ describeExportTasksResponse = DescribeExportTasksResponse
 
 detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrExportTasks = lens _detrExportTasks (\s a -> s { _detrExportTasks = a })
-
-instance FromXML DescribeExportTasksResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeExportTasksResponse"
 
 instance AWSRequest DescribeExportTasks where
     type Sv DescribeExportTasks = EC2

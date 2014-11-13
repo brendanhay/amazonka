@@ -53,6 +53,7 @@ module Network.AWS.EC2.GetPasswordData
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data GetPasswordData = GetPasswordData
     { _gpdDryRun     :: Maybe Bool
@@ -121,10 +122,6 @@ gpdrPasswordData = lens _gpdrPasswordData (\s a -> s { _gpdrPasswordData = a })
 gpdrTimestamp :: Lens' GetPasswordDataResponse (Maybe UTCTime)
 gpdrTimestamp = lens _gpdrTimestamp (\s a -> s { _gpdrTimestamp = a })
     . mapping _Time
-
-instance FromXML GetPasswordDataResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetPasswordDataResponse"
 
 instance AWSRequest GetPasswordData where
     type Sv GetPasswordData = EC2

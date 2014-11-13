@@ -48,6 +48,7 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
     { _diflbInstances        :: [Instance]
@@ -88,11 +89,11 @@ newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoa
     { _diflbrInstances :: [Instance]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DeregisterInstancesFromLoadBalancerResponse where
+instance GHC.Exts.IsList DeregisterInstancesFromLoadBalancerResponse where
     type Item DeregisterInstancesFromLoadBalancerResponse = Instance
 
-    fromList = DeregisterInstancesFromLoadBalancerResponse . fromList
-    toList   = toList . _diflbrInstances
+    fromList = DeregisterInstancesFromLoadBalancerResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _diflbrInstances
 
 -- | 'DeregisterInstancesFromLoadBalancerResponse' constructor.
 --
@@ -108,10 +109,6 @@ deregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalance
 -- | An updated list of remaining instances registered with the load balancer.
 diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
 diflbrInstances = lens _diflbrInstances (\s a -> s { _diflbrInstances = a })
-
-instance FromXML DeregisterInstancesFromLoadBalancerResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeregisterInstancesFromLoadBalancerResponse"
 
 instance AWSRequest DeregisterInstancesFromLoadBalancer where
     type Sv DeregisterInstancesFromLoadBalancer = ELB

@@ -41,6 +41,7 @@ module Network.AWS.EC2.DetachNetworkInterface
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DetachNetworkInterface = DetachNetworkInterface
     { _dniAttachmentId :: Text
@@ -88,10 +89,6 @@ data DetachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
 -- | 'DetachNetworkInterfaceResponse' constructor.
 detachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse
 detachNetworkInterfaceResponse = DetachNetworkInterfaceResponse
-
-instance FromXML DetachNetworkInterfaceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DetachNetworkInterfaceResponse"
 
 instance AWSRequest DetachNetworkInterface where
     type Sv DetachNetworkInterface = EC2

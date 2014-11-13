@@ -49,6 +49,7 @@ module Network.AWS.SimpleDB.GetAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
+import qualified GHC.Exts
 
 data GetAttributes = GetAttributes
     { _gaAttributeNames :: [Text]
@@ -108,11 +109,11 @@ newtype GetAttributesResponse = GetAttributesResponse
     { _garAttributes :: [Attribute]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetAttributesResponse where
+instance GHC.Exts.IsList GetAttributesResponse where
     type Item GetAttributesResponse = Attribute
 
-    fromList = GetAttributesResponse . fromList
-    toList   = toList . _garAttributes
+    fromList = GetAttributesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _garAttributes
 
 -- | 'GetAttributesResponse' constructor.
 --
@@ -128,10 +129,6 @@ getAttributesResponse = GetAttributesResponse
 -- | The list of attributes returned by the operation.
 garAttributes :: Lens' GetAttributesResponse [Attribute]
 garAttributes = lens _garAttributes (\s a -> s { _garAttributes = a })
-
-instance FromXML GetAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetAttributesResponse"
 
 instance AWSRequest GetAttributes where
     type Sv GetAttributes = SimpleDB

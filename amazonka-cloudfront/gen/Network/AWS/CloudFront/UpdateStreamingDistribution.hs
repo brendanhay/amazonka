@@ -44,6 +44,7 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 data UpdateStreamingDistribution2014_05_31 = UpdateStreamingDistribution2014_05_31
     { _usdId                          :: Text

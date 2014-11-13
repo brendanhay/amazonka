@@ -54,6 +54,7 @@ module Network.AWS.CloudFormation.GetTemplateSummary
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 data GetTemplateSummary = GetTemplateSummary
     { _gtsStackName    :: Maybe Text
@@ -165,10 +166,6 @@ gtsrParameters = lens _gtsrParameters (\s a -> s { _gtsrParameters = a })
 -- template.
 gtsrVersion :: Lens' GetTemplateSummaryResponse (Maybe Text)
 gtsrVersion = lens _gtsrVersion (\s a -> s { _gtsrVersion = a })
-
-instance FromXML GetTemplateSummaryResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetTemplateSummaryResponse"
 
 instance AWSRequest GetTemplateSummary where
     type Sv GetTemplateSummary = CloudFormation

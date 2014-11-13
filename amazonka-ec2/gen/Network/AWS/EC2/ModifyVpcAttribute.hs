@@ -41,6 +41,7 @@ module Network.AWS.EC2.ModifyVpcAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ModifyVpcAttribute = ModifyVpcAttribute
     { _mvaEnableDnsHostnames :: Maybe AttributeBooleanValue
@@ -98,10 +99,6 @@ data ModifyVpcAttributeResponse = ModifyVpcAttributeResponse
 -- | 'ModifyVpcAttributeResponse' constructor.
 modifyVpcAttributeResponse :: ModifyVpcAttributeResponse
 modifyVpcAttributeResponse = ModifyVpcAttributeResponse
-
-instance FromXML ModifyVpcAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyVpcAttributeResponse"
 
 instance AWSRequest ModifyVpcAttribute where
     type Sv ModifyVpcAttribute = EC2

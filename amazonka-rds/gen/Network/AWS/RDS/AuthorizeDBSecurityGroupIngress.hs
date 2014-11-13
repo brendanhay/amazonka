@@ -53,6 +53,7 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress
     { _adbsgiCIDRIP                  :: Maybe Text
@@ -145,10 +146,6 @@ authorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressRespons
 adbsgirDBSecurityGroup :: Lens' AuthorizeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
 adbsgirDBSecurityGroup =
     lens _adbsgirDBSecurityGroup (\s a -> s { _adbsgirDBSecurityGroup = a })
-
-instance FromXML AuthorizeDBSecurityGroupIngressResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AuthorizeDBSecurityGroupIngressResponse"
 
 instance AWSRequest AuthorizeDBSecurityGroupIngress where
     type Sv AuthorizeDBSecurityGroupIngress = RDS

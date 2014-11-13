@@ -55,6 +55,7 @@ module Network.AWS.EC2.CreateCustomerGateway
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateCustomerGateway = CreateCustomerGateway
     { _ccgBgpAsn   :: Int
@@ -127,10 +128,6 @@ createCustomerGatewayResponse = CreateCustomerGatewayResponse
 ccgrCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
 ccgrCustomerGateway =
     lens _ccgrCustomerGateway (\s a -> s { _ccgrCustomerGateway = a })
-
-instance FromXML CreateCustomerGatewayResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateCustomerGatewayResponse"
 
 instance AWSRequest CreateCustomerGateway where
     type Sv CreateCustomerGateway = EC2

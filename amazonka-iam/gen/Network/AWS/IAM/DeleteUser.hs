@@ -40,6 +40,7 @@ module Network.AWS.IAM.DeleteUser
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype DeleteUser = DeleteUser
     { _duUserName :: Text
@@ -72,10 +73,6 @@ data DeleteUserResponse = DeleteUserResponse
 -- | 'DeleteUserResponse' constructor.
 deleteUserResponse :: DeleteUserResponse
 deleteUserResponse = DeleteUserResponse
-
-instance FromXML DeleteUserResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteUserResponse"
 
 instance AWSRequest DeleteUser where
     type Sv DeleteUser = IAM

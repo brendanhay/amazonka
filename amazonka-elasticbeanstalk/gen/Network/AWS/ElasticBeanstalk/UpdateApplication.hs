@@ -42,6 +42,7 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data UpdateApplication = UpdateApplication
     { _uaApplicationName :: Text
@@ -97,10 +98,6 @@ updateApplicationResponse = UpdateApplicationResponse
 -- | The ApplicationDescription of the application.
 uarApplication :: Lens' UpdateApplicationResponse (Maybe ApplicationDescription)
 uarApplication = lens _uarApplication (\s a -> s { _uarApplication = a })
-
-instance FromXML UpdateApplicationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateApplicationResponse"
 
 instance AWSRequest UpdateApplication where
     type Sv UpdateApplication = ElasticBeanstalk

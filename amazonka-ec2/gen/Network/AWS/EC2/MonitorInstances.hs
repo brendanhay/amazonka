@@ -44,6 +44,7 @@ module Network.AWS.EC2.MonitorInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data MonitorInstances = MonitorInstances
     { _miDryRun      :: Maybe Bool
@@ -80,11 +81,11 @@ newtype MonitorInstancesResponse = MonitorInstancesResponse
     { _mirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList MonitorInstancesResponse where
+instance GHC.Exts.IsList MonitorInstancesResponse where
     type Item MonitorInstancesResponse = InstanceMonitoring
 
-    fromList = MonitorInstancesResponse . fromList
-    toList   = toList . _mirInstanceMonitorings
+    fromList = MonitorInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _mirInstanceMonitorings
 
 -- | 'MonitorInstancesResponse' constructor.
 --
@@ -101,10 +102,6 @@ monitorInstancesResponse = MonitorInstancesResponse
 mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirInstanceMonitorings =
     lens _mirInstanceMonitorings (\s a -> s { _mirInstanceMonitorings = a })
-
-instance FromXML MonitorInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "MonitorInstancesResponse"
 
 instance AWSRequest MonitorInstances where
     type Sv MonitorInstances = EC2

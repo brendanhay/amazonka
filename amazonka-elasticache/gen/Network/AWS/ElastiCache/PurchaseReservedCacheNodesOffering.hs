@@ -44,6 +44,7 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering
     { _prcnoCacheNodeCount               :: Maybe Int
@@ -111,10 +112,6 @@ purchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingR
 prcnorReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)
 prcnorReservedCacheNode =
     lens _prcnorReservedCacheNode (\s a -> s { _prcnorReservedCacheNode = a })
-
-instance FromXML PurchaseReservedCacheNodesOfferingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PurchaseReservedCacheNodesOfferingResponse"
 
 instance AWSRequest PurchaseReservedCacheNodesOffering where
     type Sv PurchaseReservedCacheNodesOffering = ElastiCache

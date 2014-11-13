@@ -53,6 +53,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEvents
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data DescribeEvents = DescribeEvents
     { _deApplicationName :: Maybe Text
@@ -201,10 +202,6 @@ derEvents = lens _derEvents (\s a -> s { _derEvents = a })
 -- events.
 derNextToken :: Lens' DescribeEventsResponse (Maybe Text)
 derNextToken = lens _derNextToken (\s a -> s { _derNextToken = a })
-
-instance FromXML DescribeEventsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeEventsResponse"
 
 instance AWSRequest DescribeEvents where
     type Sv DescribeEvents = ElasticBeanstalk

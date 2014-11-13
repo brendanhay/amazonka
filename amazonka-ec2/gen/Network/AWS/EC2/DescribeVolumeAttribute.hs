@@ -48,6 +48,7 @@ module Network.AWS.EC2.DescribeVolumeAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeVolumeAttribute = DescribeVolumeAttribute
     { _dvaAttribute :: Maybe Text
@@ -123,10 +124,6 @@ dvarProductCodes = lens _dvarProductCodes (\s a -> s { _dvarProductCodes = a })
 -- | The ID of the volume.
 dvarVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
 dvarVolumeId = lens _dvarVolumeId (\s a -> s { _dvarVolumeId = a })
-
-instance FromXML DescribeVolumeAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVolumeAttributeResponse"
 
 instance AWSRequest DescribeVolumeAttribute where
     type Sv DescribeVolumeAttribute = EC2

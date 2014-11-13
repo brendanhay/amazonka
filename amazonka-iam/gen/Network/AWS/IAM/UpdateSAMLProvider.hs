@@ -42,6 +42,7 @@ module Network.AWS.IAM.UpdateSAMLProvider
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data UpdateSAMLProvider = UpdateSAMLProvider
     { _usamlpSAMLMetadataDocument :: Text
@@ -104,10 +105,6 @@ updateSAMLProviderResponse = UpdateSAMLProviderResponse
 usamlprSAMLProviderArn :: Lens' UpdateSAMLProviderResponse (Maybe Text)
 usamlprSAMLProviderArn =
     lens _usamlprSAMLProviderArn (\s a -> s { _usamlprSAMLProviderArn = a })
-
-instance FromXML UpdateSAMLProviderResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateSAMLProviderResponse"
 
 instance AWSRequest UpdateSAMLProvider where
     type Sv UpdateSAMLProvider = IAM

@@ -44,6 +44,7 @@ module Network.AWS.EC2.UnmonitorInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data UnmonitorInstances = UnmonitorInstances
     { _uiDryRun      :: Maybe Bool
@@ -80,11 +81,11 @@ newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
     { _uirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList UnmonitorInstancesResponse where
+instance GHC.Exts.IsList UnmonitorInstancesResponse where
     type Item UnmonitorInstancesResponse = InstanceMonitoring
 
-    fromList = UnmonitorInstancesResponse . fromList
-    toList   = toList . _uirInstanceMonitorings
+    fromList = UnmonitorInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _uirInstanceMonitorings
 
 -- | 'UnmonitorInstancesResponse' constructor.
 --
@@ -101,10 +102,6 @@ unmonitorInstancesResponse = UnmonitorInstancesResponse
 uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirInstanceMonitorings =
     lens _uirInstanceMonitorings (\s a -> s { _uirInstanceMonitorings = a })
-
-instance FromXML UnmonitorInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UnmonitorInstancesResponse"
 
 instance AWSRequest UnmonitorInstances where
     type Sv UnmonitorInstances = EC2

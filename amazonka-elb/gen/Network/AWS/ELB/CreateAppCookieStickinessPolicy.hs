@@ -54,6 +54,7 @@ module Network.AWS.ELB.CreateAppCookieStickinessPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy
     { _cacspCookieName       :: Text
@@ -106,10 +107,6 @@ data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyRe
 -- | 'CreateAppCookieStickinessPolicyResponse' constructor.
 createAppCookieStickinessPolicyResponse :: CreateAppCookieStickinessPolicyResponse
 createAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
-
-instance FromXML CreateAppCookieStickinessPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateAppCookieStickinessPolicyResponse"
 
 instance AWSRequest CreateAppCookieStickinessPolicy where
     type Sv CreateAppCookieStickinessPolicy = ELB

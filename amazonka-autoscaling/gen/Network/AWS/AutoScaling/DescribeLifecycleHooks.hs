@@ -43,6 +43,7 @@ module Network.AWS.AutoScaling.DescribeLifecycleHooks
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribeLifecycleHooks = DescribeLifecycleHooks
     { _dlhAutoScalingGroupName :: Text
@@ -83,11 +84,11 @@ newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
     { _dlhrLifecycleHooks :: [LifecycleHook]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeLifecycleHooksResponse where
+instance GHC.Exts.IsList DescribeLifecycleHooksResponse where
     type Item DescribeLifecycleHooksResponse = LifecycleHook
 
-    fromList = DescribeLifecycleHooksResponse . fromList
-    toList   = toList . _dlhrLifecycleHooks
+    fromList = DescribeLifecycleHooksResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dlhrLifecycleHooks
 
 -- | 'DescribeLifecycleHooksResponse' constructor.
 --
@@ -105,10 +106,6 @@ describeLifecycleHooksResponse = DescribeLifecycleHooksResponse
 dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
 dlhrLifecycleHooks =
     lens _dlhrLifecycleHooks (\s a -> s { _dlhrLifecycleHooks = a })
-
-instance FromXML DescribeLifecycleHooksResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLifecycleHooksResponse"
 
 instance AWSRequest DescribeLifecycleHooks where
     type Sv DescribeLifecycleHooks = AutoScaling

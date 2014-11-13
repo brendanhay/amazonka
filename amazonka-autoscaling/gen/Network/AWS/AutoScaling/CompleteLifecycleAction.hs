@@ -52,6 +52,7 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data CompleteLifecycleAction = CompleteLifecycleAction
     { _claAutoScalingGroupName  :: Text
@@ -120,10 +121,6 @@ data CompleteLifecycleActionResponse = CompleteLifecycleActionResponse
 -- | 'CompleteLifecycleActionResponse' constructor.
 completeLifecycleActionResponse :: CompleteLifecycleActionResponse
 completeLifecycleActionResponse = CompleteLifecycleActionResponse
-
-instance FromXML CompleteLifecycleActionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CompleteLifecycleActionResponse"
 
 instance AWSRequest CompleteLifecycleAction where
     type Sv CompleteLifecycleAction = AutoScaling

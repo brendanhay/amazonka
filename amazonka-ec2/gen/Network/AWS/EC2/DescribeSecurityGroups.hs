@@ -48,6 +48,7 @@ module Network.AWS.EC2.DescribeSecurityGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeSecurityGroups = DescribeSecurityGroups
     { _dsg1DryRun     :: Maybe Bool
@@ -117,11 +118,11 @@ newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { _dsgrSecurityGroups :: [SecurityGroup]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeSecurityGroupsResponse where
+instance GHC.Exts.IsList DescribeSecurityGroupsResponse where
     type Item DescribeSecurityGroupsResponse = SecurityGroup
 
-    fromList = DescribeSecurityGroupsResponse . fromList
-    toList   = toList . _dsgrSecurityGroups
+    fromList = DescribeSecurityGroupsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsgrSecurityGroups
 
 -- | 'DescribeSecurityGroupsResponse' constructor.
 --
@@ -138,10 +139,6 @@ describeSecurityGroupsResponse = DescribeSecurityGroupsResponse
 dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrSecurityGroups =
     lens _dsgrSecurityGroups (\s a -> s { _dsgrSecurityGroups = a })
-
-instance FromXML DescribeSecurityGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSecurityGroupsResponse"
 
 instance AWSRequest DescribeSecurityGroups where
     type Sv DescribeSecurityGroups = EC2

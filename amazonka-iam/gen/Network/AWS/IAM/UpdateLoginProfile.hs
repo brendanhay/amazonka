@@ -43,6 +43,7 @@ module Network.AWS.IAM.UpdateLoginProfile
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data UpdateLoginProfile = UpdateLoginProfile
     { _ulpPassword              :: Maybe (Sensitive Text)
@@ -94,10 +95,6 @@ data UpdateLoginProfileResponse = UpdateLoginProfileResponse
 -- | 'UpdateLoginProfileResponse' constructor.
 updateLoginProfileResponse :: UpdateLoginProfileResponse
 updateLoginProfileResponse = UpdateLoginProfileResponse
-
-instance FromXML UpdateLoginProfileResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateLoginProfileResponse"
 
 instance AWSRequest UpdateLoginProfile where
     type Sv UpdateLoginProfile = IAM

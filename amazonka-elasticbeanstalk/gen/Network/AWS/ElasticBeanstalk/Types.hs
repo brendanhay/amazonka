@@ -267,6 +267,7 @@ module Network.AWS.ElasticBeanstalk.Types
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2010-12-01@) of the Amazon Elastic Beanstalk.
 data ElasticBeanstalk deriving (Typeable)

@@ -43,6 +43,7 @@ module Network.AWS.EC2.DeleteVpnConnectionRoute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteVpnConnectionRoute = DeleteVpnConnectionRoute
     { _dvcrDestinationCidrBlock :: Text
@@ -87,10 +88,6 @@ data DeleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
 -- | 'DeleteVpnConnectionRouteResponse' constructor.
 deleteVpnConnectionRouteResponse :: DeleteVpnConnectionRouteResponse
 deleteVpnConnectionRouteResponse = DeleteVpnConnectionRouteResponse
-
-instance FromXML DeleteVpnConnectionRouteResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteVpnConnectionRouteResponse"
 
 instance AWSRequest DeleteVpnConnectionRoute where
     type Sv DeleteVpnConnectionRoute = EC2

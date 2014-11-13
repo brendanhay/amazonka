@@ -40,6 +40,7 @@ module Network.AWS.IAM.DeleteUserPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data DeleteUserPolicy = DeleteUserPolicy
     { _dupPolicyName :: Text
@@ -81,10 +82,6 @@ data DeleteUserPolicyResponse = DeleteUserPolicyResponse
 -- | 'DeleteUserPolicyResponse' constructor.
 deleteUserPolicyResponse :: DeleteUserPolicyResponse
 deleteUserPolicyResponse = DeleteUserPolicyResponse
-
-instance FromXML DeleteUserPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteUserPolicyResponse"
 
 instance AWSRequest DeleteUserPolicy where
     type Sv DeleteUserPolicy = IAM

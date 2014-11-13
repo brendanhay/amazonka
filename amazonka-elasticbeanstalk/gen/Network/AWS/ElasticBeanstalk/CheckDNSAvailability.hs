@@ -42,6 +42,7 @@ module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 newtype CheckDNSAvailability = CheckDNSAvailability
     { _cdnsaCNAMEPrefix :: Text
@@ -99,10 +100,6 @@ cdnsarFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
 cdnsarFullyQualifiedCNAME =
     lens _cdnsarFullyQualifiedCNAME
         (\s a -> s { _cdnsarFullyQualifiedCNAME = a })
-
-instance FromXML CheckDNSAvailabilityResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CheckDNSAvailabilityResponse"
 
 instance AWSRequest CheckDNSAvailability where
     type Sv CheckDNSAvailability = ElasticBeanstalk

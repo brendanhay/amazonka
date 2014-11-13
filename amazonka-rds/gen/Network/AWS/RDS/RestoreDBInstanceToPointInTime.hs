@@ -64,6 +64,7 @@ module Network.AWS.RDS.RestoreDBInstanceToPointInTime
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime
     { _rdbitpitAutoMinorVersionUpgrade    :: Maybe Bool
@@ -335,10 +336,6 @@ restoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse
 rdbitpitrDBInstance :: Lens' RestoreDBInstanceToPointInTimeResponse (Maybe DBInstance)
 rdbitpitrDBInstance =
     lens _rdbitpitrDBInstance (\s a -> s { _rdbitpitrDBInstance = a })
-
-instance FromXML RestoreDBInstanceToPointInTimeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RestoreDBInstanceToPointInTimeResponse"
 
 instance AWSRequest RestoreDBInstanceToPointInTime where
     type Sv RestoreDBInstanceToPointInTime = RDS

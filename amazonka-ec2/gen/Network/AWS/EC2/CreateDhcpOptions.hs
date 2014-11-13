@@ -65,6 +65,7 @@ module Network.AWS.EC2.CreateDhcpOptions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateDhcpOptions = CreateDhcpOptions
     { _cdoDhcpConfigurations :: [NewDhcpConfiguration]
@@ -116,10 +117,6 @@ createDhcpOptionsResponse = CreateDhcpOptionsResponse
 -- | A set of DHCP options.
 cdorDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)
 cdorDhcpOptions = lens _cdorDhcpOptions (\s a -> s { _cdorDhcpOptions = a })
-
-instance FromXML CreateDhcpOptionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDhcpOptionsResponse"
 
 instance AWSRequest CreateDhcpOptions where
     type Sv CreateDhcpOptions = EC2

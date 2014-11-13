@@ -49,6 +49,7 @@ module Network.AWS.IAM.UpdateSigningCertificate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data UpdateSigningCertificate = UpdateSigningCertificate
     { _uscCertificateId :: Text
@@ -100,10 +101,6 @@ data UpdateSigningCertificateResponse = UpdateSigningCertificateResponse
 -- | 'UpdateSigningCertificateResponse' constructor.
 updateSigningCertificateResponse :: UpdateSigningCertificateResponse
 updateSigningCertificateResponse = UpdateSigningCertificateResponse
-
-instance FromXML UpdateSigningCertificateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateSigningCertificateResponse"
 
 instance AWSRequest UpdateSigningCertificate where
     type Sv UpdateSigningCertificate = IAM

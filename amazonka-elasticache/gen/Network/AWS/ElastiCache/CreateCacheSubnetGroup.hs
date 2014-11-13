@@ -45,6 +45,7 @@ module Network.AWS.ElastiCache.CreateCacheSubnetGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data CreateCacheSubnetGroup = CreateCacheSubnetGroup
     { _ccsgCacheSubnetGroupDescription :: Text
@@ -112,10 +113,6 @@ createCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse
 ccsgrCacheSubnetGroup :: Lens' CreateCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
 ccsgrCacheSubnetGroup =
     lens _ccsgrCacheSubnetGroup (\s a -> s { _ccsgrCacheSubnetGroup = a })
-
-instance FromXML CreateCacheSubnetGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateCacheSubnetGroupResponse"
 
 instance AWSRequest CreateCacheSubnetGroup where
     type Sv CreateCacheSubnetGroup = ElastiCache

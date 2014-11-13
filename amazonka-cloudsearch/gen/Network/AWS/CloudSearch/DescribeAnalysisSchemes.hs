@@ -49,6 +49,7 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes
     { _das1AnalysisSchemeNames :: [Text]
@@ -97,11 +98,11 @@ newtype DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
     { _dasrAnalysisSchemes :: [AnalysisSchemeStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAnalysisSchemesResponse where
+instance GHC.Exts.IsList DescribeAnalysisSchemesResponse where
     type Item DescribeAnalysisSchemesResponse = AnalysisSchemeStatus
 
-    fromList = DescribeAnalysisSchemesResponse . fromList
-    toList   = toList . _dasrAnalysisSchemes
+    fromList = DescribeAnalysisSchemesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dasrAnalysisSchemes
 
 -- | 'DescribeAnalysisSchemesResponse' constructor.
 --
@@ -118,10 +119,6 @@ describeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse
 dasrAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
 dasrAnalysisSchemes =
     lens _dasrAnalysisSchemes (\s a -> s { _dasrAnalysisSchemes = a })
-
-instance FromXML DescribeAnalysisSchemesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAnalysisSchemesResponse"
 
 instance AWSRequest DescribeAnalysisSchemes where
     type Sv DescribeAnalysisSchemes = CloudSearch

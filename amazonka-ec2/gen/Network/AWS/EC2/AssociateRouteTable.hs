@@ -49,6 +49,7 @@ module Network.AWS.EC2.AssociateRouteTable
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data AssociateRouteTable = AssociateRouteTable
     { _artDryRun       :: Maybe Bool
@@ -110,10 +111,6 @@ associateRouteTableResponse = AssociateRouteTableResponse
 artrAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
 artrAssociationId =
     lens _artrAssociationId (\s a -> s { _artrAssociationId = a })
-
-instance FromXML AssociateRouteTableResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AssociateRouteTableResponse"
 
 instance AWSRequest AssociateRouteTable where
     type Sv AssociateRouteTable = EC2

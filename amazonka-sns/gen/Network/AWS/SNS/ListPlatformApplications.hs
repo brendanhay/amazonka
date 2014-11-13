@@ -49,6 +49,7 @@ module Network.AWS.SNS.ListPlatformApplications
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 newtype ListPlatformApplications = ListPlatformApplications
     { _lpaNextToken :: Maybe Text
@@ -106,10 +107,6 @@ lparPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformAppl
 lparPlatformApplications =
     lens _lparPlatformApplications
         (\s a -> s { _lparPlatformApplications = a })
-
-instance FromXML ListPlatformApplicationsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListPlatformApplicationsResponse"
 
 instance AWSRequest ListPlatformApplications where
     type Sv ListPlatformApplications = SNS

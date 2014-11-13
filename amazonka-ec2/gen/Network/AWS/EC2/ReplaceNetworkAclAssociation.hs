@@ -46,6 +46,7 @@ module Network.AWS.EC2.ReplaceNetworkAclAssociation
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociation
     { _rnaaAssociationId :: Text
@@ -109,10 +110,6 @@ replaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
 rnaarNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)
 rnaarNewAssociationId =
     lens _rnaarNewAssociationId (\s a -> s { _rnaarNewAssociationId = a })
-
-instance FromXML ReplaceNetworkAclAssociationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReplaceNetworkAclAssociationResponse"
 
 instance AWSRequest ReplaceNetworkAclAssociation where
     type Sv ReplaceNetworkAclAssociation = EC2

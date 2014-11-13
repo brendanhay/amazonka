@@ -43,6 +43,7 @@ module Network.AWS.EC2.DescribeVpcPeeringConnections
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
     { _dvpc1DryRun                  :: Maybe Bool
@@ -110,11 +111,11 @@ newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsRes
     { _dvpcrVpcPeeringConnections :: [VpcPeeringConnection]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeVpcPeeringConnectionsResponse where
+instance GHC.Exts.IsList DescribeVpcPeeringConnectionsResponse where
     type Item DescribeVpcPeeringConnectionsResponse = VpcPeeringConnection
 
-    fromList = DescribeVpcPeeringConnectionsResponse . fromList
-    toList   = toList . _dvpcrVpcPeeringConnections
+    fromList = DescribeVpcPeeringConnectionsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dvpcrVpcPeeringConnections
 
 -- | 'DescribeVpcPeeringConnectionsResponse' constructor.
 --
@@ -132,10 +133,6 @@ dvpcrVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse [VpcPe
 dvpcrVpcPeeringConnections =
     lens _dvpcrVpcPeeringConnections
         (\s a -> s { _dvpcrVpcPeeringConnections = a })
-
-instance FromXML DescribeVpcPeeringConnectionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVpcPeeringConnectionsResponse"
 
 instance AWSRequest DescribeVpcPeeringConnections where
     type Sv DescribeVpcPeeringConnections = EC2

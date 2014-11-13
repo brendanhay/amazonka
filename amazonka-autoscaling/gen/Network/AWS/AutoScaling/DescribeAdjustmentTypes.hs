@@ -39,6 +39,7 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribeAdjustmentTypes = DescribeAdjustmentTypes
     deriving (Eq, Ord, Show, Generic)
@@ -56,11 +57,11 @@ newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
     { _datrAdjustmentTypes :: [AdjustmentType]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAdjustmentTypesResponse where
+instance GHC.Exts.IsList DescribeAdjustmentTypesResponse where
     type Item DescribeAdjustmentTypesResponse = AdjustmentType
 
-    fromList = DescribeAdjustmentTypesResponse . fromList
-    toList   = toList . _datrAdjustmentTypes
+    fromList = DescribeAdjustmentTypesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _datrAdjustmentTypes
 
 -- | 'DescribeAdjustmentTypesResponse' constructor.
 --
@@ -77,10 +78,6 @@ describeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
 datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
 datrAdjustmentTypes =
     lens _datrAdjustmentTypes (\s a -> s { _datrAdjustmentTypes = a })
-
-instance FromXML DescribeAdjustmentTypesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAdjustmentTypesResponse"
 
 instance AWSRequest DescribeAdjustmentTypes where
     type Sv DescribeAdjustmentTypes = AutoScaling

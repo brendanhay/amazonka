@@ -45,6 +45,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data CreateApplicationVersion = CreateApplicationVersion
     { _cavApplicationName       :: Text
@@ -145,10 +146,6 @@ createApplicationVersionResponse = CreateApplicationVersionResponse
 cavrApplicationVersion :: Lens' CreateApplicationVersionResponse (Maybe ApplicationVersionDescription)
 cavrApplicationVersion =
     lens _cavrApplicationVersion (\s a -> s { _cavrApplicationVersion = a })
-
-instance FromXML CreateApplicationVersionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateApplicationVersionResponse"
 
 instance AWSRequest CreateApplicationVersion where
     type Sv CreateApplicationVersion = ElasticBeanstalk

@@ -97,6 +97,7 @@ module Network.AWS.SecurityToken.AssumeRoleWithWebIdentity
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SecurityToken.Types
+import qualified GHC.Exts
 
 data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity
     { _arwwiDurationSeconds  :: Maybe Natural
@@ -273,10 +274,6 @@ arwwirSubjectFromWebIdentityToken :: Lens' AssumeRoleWithWebIdentityResponse (Ma
 arwwirSubjectFromWebIdentityToken =
     lens _arwwirSubjectFromWebIdentityToken
         (\s a -> s { _arwwirSubjectFromWebIdentityToken = a })
-
-instance FromXML AssumeRoleWithWebIdentityResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AssumeRoleWithWebIdentityResponse"
 
 instance AWSRequest AssumeRoleWithWebIdentity where
     type Sv AssumeRoleWithWebIdentity = SecurityToken

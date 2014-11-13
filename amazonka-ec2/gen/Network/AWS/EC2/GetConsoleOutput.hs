@@ -56,6 +56,7 @@ module Network.AWS.EC2.GetConsoleOutput
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data GetConsoleOutput = GetConsoleOutput
     { _gcoDryRun     :: Maybe Bool
@@ -124,10 +125,6 @@ gcorOutput = lens _gcorOutput (\s a -> s { _gcorOutput = a })
 gcorTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
 gcorTimestamp = lens _gcorTimestamp (\s a -> s { _gcorTimestamp = a })
     . mapping _Time
-
-instance FromXML GetConsoleOutputResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetConsoleOutputResponse"
 
 instance AWSRequest GetConsoleOutput where
     type Sv GetConsoleOutput = EC2

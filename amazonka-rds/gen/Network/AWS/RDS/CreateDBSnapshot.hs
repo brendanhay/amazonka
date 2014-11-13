@@ -43,6 +43,7 @@ module Network.AWS.RDS.CreateDBSnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data CreateDBSnapshot = CreateDBSnapshot
     { _cdbs1DBInstanceIdentifier :: Text
@@ -112,10 +113,6 @@ createDBSnapshotResponse = CreateDBSnapshotResponse
 
 cdbsr1DBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
 cdbsr1DBSnapshot = lens _cdbsr1DBSnapshot (\s a -> s { _cdbsr1DBSnapshot = a })
-
-instance FromXML CreateDBSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDBSnapshotResponse"
 
 instance AWSRequest CreateDBSnapshot where
     type Sv CreateDBSnapshot = RDS

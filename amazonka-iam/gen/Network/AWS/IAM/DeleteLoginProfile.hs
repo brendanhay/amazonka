@@ -45,6 +45,7 @@ module Network.AWS.IAM.DeleteLoginProfile
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype DeleteLoginProfile = DeleteLoginProfile
     { _dlpUserName :: Text
@@ -77,10 +78,6 @@ data DeleteLoginProfileResponse = DeleteLoginProfileResponse
 -- | 'DeleteLoginProfileResponse' constructor.
 deleteLoginProfileResponse :: DeleteLoginProfileResponse
 deleteLoginProfileResponse = DeleteLoginProfileResponse
-
-instance FromXML DeleteLoginProfileResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteLoginProfileResponse"
 
 instance AWSRequest DeleteLoginProfile where
     type Sv DeleteLoginProfile = IAM

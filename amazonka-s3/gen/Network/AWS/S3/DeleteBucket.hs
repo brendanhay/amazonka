@@ -41,6 +41,7 @@ module Network.AWS.S3.DeleteBucket
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype DeleteBucket = DeleteBucket
     { _dbBucket :: Text

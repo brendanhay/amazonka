@@ -44,6 +44,7 @@ module Network.AWS.CloudSearch.DescribeScalingParameters
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 newtype DescribeScalingParameters = DescribeScalingParameters
     { _dspDomainName :: Text
@@ -88,10 +89,6 @@ describeScalingParametersResponse p1 = DescribeScalingParametersResponse
 dsprScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParametersStatus
 dsprScalingParameters =
     lens _dsprScalingParameters (\s a -> s { _dsprScalingParameters = a })
-
-instance FromXML DescribeScalingParametersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeScalingParametersResponse"
 
 instance AWSRequest DescribeScalingParameters where
     type Sv DescribeScalingParameters = CloudSearch

@@ -68,6 +68,7 @@ module Network.AWS.Redshift.CreateCluster
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data CreateCluster = CreateCluster
     { _ccAllowVersionUpgrade              :: Maybe Bool
@@ -378,10 +379,6 @@ createClusterResponse = CreateClusterResponse
 
 ccrCluster :: Lens' CreateClusterResponse (Maybe Cluster)
 ccrCluster = lens _ccrCluster (\s a -> s { _ccrCluster = a })
-
-instance FromXML CreateClusterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateClusterResponse"
 
 instance AWSRequest CreateCluster where
     type Sv CreateCluster = Redshift

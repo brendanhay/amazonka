@@ -42,6 +42,7 @@ module Network.AWS.SES.GetSendQuota
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 data GetSendQuota = GetSendQuota
     deriving (Eq, Ord, Show, Generic)
@@ -92,10 +93,6 @@ gsqrMaxSendRate = lens _gsqrMaxSendRate (\s a -> s { _gsqrMaxSendRate = a })
 gsqrSentLast24Hours :: Lens' GetSendQuotaResponse (Maybe Double)
 gsqrSentLast24Hours =
     lens _gsqrSentLast24Hours (\s a -> s { _gsqrSentLast24Hours = a })
-
-instance FromXML GetSendQuotaResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetSendQuotaResponse"
 
 instance AWSRequest GetSendQuota where
     type Sv GetSendQuota = SES

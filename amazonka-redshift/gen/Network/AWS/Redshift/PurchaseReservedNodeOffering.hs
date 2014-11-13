@@ -48,6 +48,7 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
     { _prnoNodeCount              :: Maybe Int
@@ -102,10 +103,6 @@ purchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
 prnorReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
 prnorReservedNode =
     lens _prnorReservedNode (\s a -> s { _prnorReservedNode = a })
-
-instance FromXML PurchaseReservedNodeOfferingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PurchaseReservedNodeOfferingResponse"
 
 instance AWSRequest PurchaseReservedNodeOffering where
     type Sv PurchaseReservedNodeOffering = Redshift

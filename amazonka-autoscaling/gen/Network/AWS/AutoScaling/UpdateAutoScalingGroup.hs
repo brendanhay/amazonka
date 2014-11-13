@@ -53,6 +53,7 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup
     { _uasgAutoScalingGroupName    :: Text
@@ -206,10 +207,6 @@ data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
 -- | 'UpdateAutoScalingGroupResponse' constructor.
 updateAutoScalingGroupResponse :: UpdateAutoScalingGroupResponse
 updateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
-
-instance FromXML UpdateAutoScalingGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateAutoScalingGroupResponse"
 
 instance AWSRequest UpdateAutoScalingGroup where
     type Sv UpdateAutoScalingGroup = AutoScaling

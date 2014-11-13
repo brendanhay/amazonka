@@ -41,6 +41,7 @@ module Network.AWS.EC2.EnableVolumeIO
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data EnableVolumeIO = EnableVolumeIO
     { _evioDryRun   :: Maybe Bool
@@ -80,10 +81,6 @@ data EnableVolumeIOResponse = EnableVolumeIOResponse
 -- | 'EnableVolumeIOResponse' constructor.
 enableVolumeIOResponse :: EnableVolumeIOResponse
 enableVolumeIOResponse = EnableVolumeIOResponse
-
-instance FromXML EnableVolumeIOResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnableVolumeIOResponse"
 
 instance AWSRequest EnableVolumeIO where
     type Sv EnableVolumeIO = EC2

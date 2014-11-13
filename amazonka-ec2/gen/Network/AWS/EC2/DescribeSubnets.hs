@@ -44,6 +44,7 @@ module Network.AWS.EC2.DescribeSubnets
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeSubnets = DescribeSubnets
     { _dsDryRun    :: Maybe Bool
@@ -107,11 +108,11 @@ newtype DescribeSubnetsResponse = DescribeSubnetsResponse
     { _dsrSubnets :: [Subnet]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeSubnetsResponse where
+instance GHC.Exts.IsList DescribeSubnetsResponse where
     type Item DescribeSubnetsResponse = Subnet
 
-    fromList = DescribeSubnetsResponse . fromList
-    toList   = toList . _dsrSubnets
+    fromList = DescribeSubnetsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsrSubnets
 
 -- | 'DescribeSubnetsResponse' constructor.
 --
@@ -127,10 +128,6 @@ describeSubnetsResponse = DescribeSubnetsResponse
 -- | Information about one or more subnets.
 dsrSubnets :: Lens' DescribeSubnetsResponse [Subnet]
 dsrSubnets = lens _dsrSubnets (\s a -> s { _dsrSubnets = a })
-
-instance FromXML DescribeSubnetsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSubnetsResponse"
 
 instance AWSRequest DescribeSubnets where
     type Sv DescribeSubnets = EC2

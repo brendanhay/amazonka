@@ -40,6 +40,7 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribeScalingProcessTypes = DescribeScalingProcessTypes
     deriving (Eq, Ord, Show, Generic)
@@ -57,11 +58,11 @@ newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesRespons
     { _dsptrProcesses :: [ProcessType]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeScalingProcessTypesResponse where
+instance GHC.Exts.IsList DescribeScalingProcessTypesResponse where
     type Item DescribeScalingProcessTypesResponse = ProcessType
 
-    fromList = DescribeScalingProcessTypesResponse . fromList
-    toList   = toList . _dsptrProcesses
+    fromList = DescribeScalingProcessTypesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsptrProcesses
 
 -- | 'DescribeScalingProcessTypesResponse' constructor.
 --
@@ -77,10 +78,6 @@ describeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
 -- | A list of ProcessType names.
 dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
 dsptrProcesses = lens _dsptrProcesses (\s a -> s { _dsptrProcesses = a })
-
-instance FromXML DescribeScalingProcessTypesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeScalingProcessTypesResponse"
 
 instance AWSRequest DescribeScalingProcessTypes where
     type Sv DescribeScalingProcessTypes = AutoScaling

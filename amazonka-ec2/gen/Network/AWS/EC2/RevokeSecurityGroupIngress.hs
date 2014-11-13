@@ -55,6 +55,7 @@ module Network.AWS.EC2.RevokeSecurityGroupIngress
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress
     { _rsgiCidrIp                     :: Maybe Text
@@ -170,10 +171,6 @@ data RevokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
 -- | 'RevokeSecurityGroupIngressResponse' constructor.
 revokeSecurityGroupIngressResponse :: RevokeSecurityGroupIngressResponse
 revokeSecurityGroupIngressResponse = RevokeSecurityGroupIngressResponse
-
-instance FromXML RevokeSecurityGroupIngressResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RevokeSecurityGroupIngressResponse"
 
 instance AWSRequest RevokeSecurityGroupIngress where
     type Sv RevokeSecurityGroupIngress = EC2

@@ -50,6 +50,7 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data DescribeReservedCacheNodes = DescribeReservedCacheNodes
     { _drcnCacheNodeType                :: Maybe Text
@@ -178,10 +179,6 @@ drcnrMarker = lens _drcnrMarker (\s a -> s { _drcnrMarker = a })
 drcnrReservedCacheNodes :: Lens' DescribeReservedCacheNodesResponse [ReservedCacheNode]
 drcnrReservedCacheNodes =
     lens _drcnrReservedCacheNodes (\s a -> s { _drcnrReservedCacheNodes = a })
-
-instance FromXML DescribeReservedCacheNodesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReservedCacheNodesResponse"
 
 instance AWSRequest DescribeReservedCacheNodes where
     type Sv DescribeReservedCacheNodes = ElastiCache

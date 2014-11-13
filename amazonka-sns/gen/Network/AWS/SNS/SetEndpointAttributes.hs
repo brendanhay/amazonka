@@ -42,6 +42,7 @@ module Network.AWS.SNS.SetEndpointAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 data SetEndpointAttributes = SetEndpointAttributes
     { _seaAttributes  :: Map Text Text
@@ -92,10 +93,6 @@ data SetEndpointAttributesResponse = SetEndpointAttributesResponse
 -- | 'SetEndpointAttributesResponse' constructor.
 setEndpointAttributesResponse :: SetEndpointAttributesResponse
 setEndpointAttributesResponse = SetEndpointAttributesResponse
-
-instance FromXML SetEndpointAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetEndpointAttributesResponse"
 
 instance AWSRequest SetEndpointAttributes where
     type Sv SetEndpointAttributes = SNS

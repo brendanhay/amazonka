@@ -48,6 +48,7 @@ module Network.AWS.CloudSearch.DescribeIndexFields
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data DescribeIndexFields = DescribeIndexFields
     { _difDeployed   :: Maybe Bool
@@ -96,11 +97,11 @@ newtype DescribeIndexFieldsResponse = DescribeIndexFieldsResponse
     { _difrIndexFields :: [IndexFieldStatus]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeIndexFieldsResponse where
+instance GHC.Exts.IsList DescribeIndexFieldsResponse where
     type Item DescribeIndexFieldsResponse = IndexFieldStatus
 
-    fromList = DescribeIndexFieldsResponse . fromList
-    toList   = toList . _difrIndexFields
+    fromList = DescribeIndexFieldsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _difrIndexFields
 
 -- | 'DescribeIndexFieldsResponse' constructor.
 --
@@ -116,10 +117,6 @@ describeIndexFieldsResponse = DescribeIndexFieldsResponse
 -- | The index fields configured for the domain.
 difrIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
 difrIndexFields = lens _difrIndexFields (\s a -> s { _difrIndexFields = a })
-
-instance FromXML DescribeIndexFieldsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeIndexFieldsResponse"
 
 instance AWSRequest DescribeIndexFields where
     type Sv DescribeIndexFields = CloudSearch

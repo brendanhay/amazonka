@@ -54,6 +54,7 @@ module Network.AWS.RDS.DescribeEvents
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeEvents = DescribeEvents
     { _deDuration         :: Maybe Int
@@ -194,10 +195,6 @@ derEvents = lens _derEvents (\s a -> s { _derEvents = a })
 -- the marker, up to the value specified by MaxRecords .
 derMarker :: Lens' DescribeEventsResponse (Maybe Text)
 derMarker = lens _derMarker (\s a -> s { _derMarker = a })
-
-instance FromXML DescribeEventsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeEventsResponse"
 
 instance AWSRequest DescribeEvents where
     type Sv DescribeEvents = RDS

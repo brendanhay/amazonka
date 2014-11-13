@@ -41,6 +41,7 @@ module Network.AWS.IAM.UpdateAssumeRolePolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy
     { _uarpPolicyDocument :: Text
@@ -83,10 +84,6 @@ data UpdateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
 -- | 'UpdateAssumeRolePolicyResponse' constructor.
 updateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse
 updateAssumeRolePolicyResponse = UpdateAssumeRolePolicyResponse
-
-instance FromXML UpdateAssumeRolePolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateAssumeRolePolicyResponse"
 
 instance AWSRequest UpdateAssumeRolePolicy where
     type Sv UpdateAssumeRolePolicy = IAM

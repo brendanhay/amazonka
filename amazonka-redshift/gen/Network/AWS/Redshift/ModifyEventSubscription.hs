@@ -47,6 +47,7 @@ module Network.AWS.Redshift.ModifyEventSubscription
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data ModifyEventSubscription = ModifyEventSubscription
     { _mesEnabled          :: Maybe Bool
@@ -157,10 +158,6 @@ modifyEventSubscriptionResponse = ModifyEventSubscriptionResponse
 mesrEventSubscription :: Lens' ModifyEventSubscriptionResponse (Maybe EventSubscription)
 mesrEventSubscription =
     lens _mesrEventSubscription (\s a -> s { _mesrEventSubscription = a })
-
-instance FromXML ModifyEventSubscriptionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyEventSubscriptionResponse"
 
 instance AWSRequest ModifyEventSubscription where
     type Sv ModifyEventSubscription = Redshift

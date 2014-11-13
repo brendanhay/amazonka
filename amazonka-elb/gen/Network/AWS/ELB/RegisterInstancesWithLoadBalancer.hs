@@ -62,6 +62,7 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
     { _riwlbInstances        :: [Instance]
@@ -102,11 +103,11 @@ newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBal
     { _riwlbrInstances :: [Instance]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList RegisterInstancesWithLoadBalancerResponse where
+instance GHC.Exts.IsList RegisterInstancesWithLoadBalancerResponse where
     type Item RegisterInstancesWithLoadBalancerResponse = Instance
 
-    fromList = RegisterInstancesWithLoadBalancerResponse . fromList
-    toList   = toList . _riwlbrInstances
+    fromList = RegisterInstancesWithLoadBalancerResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _riwlbrInstances
 
 -- | 'RegisterInstancesWithLoadBalancerResponse' constructor.
 --
@@ -122,10 +123,6 @@ registerInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerRes
 -- | An updated list of instances for the load balancer.
 riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
 riwlbrInstances = lens _riwlbrInstances (\s a -> s { _riwlbrInstances = a })
-
-instance FromXML RegisterInstancesWithLoadBalancerResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RegisterInstancesWithLoadBalancerResponse"
 
 instance AWSRequest RegisterInstancesWithLoadBalancer where
     type Sv RegisterInstancesWithLoadBalancer = ELB

@@ -49,6 +49,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribeAutoScalingInstances = DescribeAutoScalingInstances
     { _dasiInstanceIds :: [Text]
@@ -123,10 +124,6 @@ dasirAutoScalingInstances =
 -- | A string that marks the start of the next batch of returned results.
 dasirNextToken :: Lens' DescribeAutoScalingInstancesResponse (Maybe Text)
 dasirNextToken = lens _dasirNextToken (\s a -> s { _dasirNextToken = a })
-
-instance FromXML DescribeAutoScalingInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAutoScalingInstancesResponse"
 
 instance AWSRequest DescribeAutoScalingInstances where
     type Sv DescribeAutoScalingInstances = AutoScaling

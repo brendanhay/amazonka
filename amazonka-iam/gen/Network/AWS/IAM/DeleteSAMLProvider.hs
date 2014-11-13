@@ -42,6 +42,7 @@ module Network.AWS.IAM.DeleteSAMLProvider
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype DeleteSAMLProvider = DeleteSAMLProvider
     { _dsamlpSAMLProviderArn :: Text
@@ -75,10 +76,6 @@ data DeleteSAMLProviderResponse = DeleteSAMLProviderResponse
 -- | 'DeleteSAMLProviderResponse' constructor.
 deleteSAMLProviderResponse :: DeleteSAMLProviderResponse
 deleteSAMLProviderResponse = DeleteSAMLProviderResponse
-
-instance FromXML DeleteSAMLProviderResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteSAMLProviderResponse"
 
 instance AWSRequest DeleteSAMLProvider where
     type Sv DeleteSAMLProvider = IAM

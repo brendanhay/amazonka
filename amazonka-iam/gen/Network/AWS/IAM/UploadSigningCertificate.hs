@@ -49,6 +49,7 @@ module Network.AWS.IAM.UploadSigningCertificate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data UploadSigningCertificate = UploadSigningCertificate
     { _usc1CertificateBody :: Text
@@ -103,10 +104,6 @@ uploadSigningCertificateResponse p1 = UploadSigningCertificateResponse
 -- | Information about the certificate.
 uscrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
 uscrCertificate = lens _uscrCertificate (\s a -> s { _uscrCertificate = a })
-
-instance FromXML UploadSigningCertificateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UploadSigningCertificateResponse"
 
 instance AWSRequest UploadSigningCertificate where
     type Sv UploadSigningCertificate = IAM

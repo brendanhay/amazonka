@@ -54,6 +54,7 @@ module Network.AWS.RDS.ModifyDBParameterGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data ModifyDBParameterGroup = ModifyDBParameterGroup
     { _mdbpgDBParameterGroupName :: Text
@@ -117,10 +118,6 @@ mdbpgrDBParameterGroupName :: Lens' ModifyDBParameterGroupResponse (Maybe Text)
 mdbpgrDBParameterGroupName =
     lens _mdbpgrDBParameterGroupName
         (\s a -> s { _mdbpgrDBParameterGroupName = a })
-
-instance FromXML ModifyDBParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyDBParameterGroupResponse"
 
 instance AWSRequest ModifyDBParameterGroup where
     type Sv ModifyDBParameterGroup = RDS

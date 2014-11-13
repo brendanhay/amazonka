@@ -47,6 +47,7 @@ module Network.AWS.ElastiCache.CreateCacheSecurityGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup
     { _ccsgCacheSecurityGroupName :: Text
@@ -104,10 +105,6 @@ createCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse
 ccsgrCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSecurityGroup)
 ccsgrCacheSecurityGroup =
     lens _ccsgrCacheSecurityGroup (\s a -> s { _ccsgrCacheSecurityGroup = a })
-
-instance FromXML CreateCacheSecurityGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateCacheSecurityGroupResponse"
 
 instance AWSRequest CreateCacheSecurityGroup where
     type Sv CreateCacheSecurityGroup = ElastiCache

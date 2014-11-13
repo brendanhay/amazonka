@@ -46,6 +46,7 @@ module Network.AWS.SES.SetIdentityNotificationTopic
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic
     { _sintIdentity         :: Text
@@ -100,10 +101,6 @@ data SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
 -- | 'SetIdentityNotificationTopicResponse' constructor.
 setIdentityNotificationTopicResponse :: SetIdentityNotificationTopicResponse
 setIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse
-
-instance FromXML SetIdentityNotificationTopicResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetIdentityNotificationTopicResponse"
 
 instance AWSRequest SetIdentityNotificationTopic where
     type Sv SetIdentityNotificationTopic = SES

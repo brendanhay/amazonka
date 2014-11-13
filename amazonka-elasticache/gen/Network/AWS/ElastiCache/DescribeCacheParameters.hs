@@ -47,6 +47,7 @@ module Network.AWS.ElastiCache.DescribeCacheParameters
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data DescribeCacheParameters = DescribeCacheParameters
     { _dcpCacheParameterGroupName :: Text
@@ -143,10 +144,6 @@ dcprMarker = lens _dcprMarker (\s a -> s { _dcprMarker = a })
 -- | A list of Parameter instances.
 dcprParameters :: Lens' DescribeCacheParametersResponse [Parameter]
 dcprParameters = lens _dcprParameters (\s a -> s { _dcprParameters = a })
-
-instance FromXML DescribeCacheParametersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeCacheParametersResponse"
 
 instance AWSRequest DescribeCacheParameters where
     type Sv DescribeCacheParameters = ElastiCache

@@ -44,6 +44,7 @@ module Network.AWS.EC2.CreatePlacementGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreatePlacementGroup = CreatePlacementGroup
     { _cpgDryRun    :: Maybe Bool
@@ -92,10 +93,6 @@ data CreatePlacementGroupResponse = CreatePlacementGroupResponse
 -- | 'CreatePlacementGroupResponse' constructor.
 createPlacementGroupResponse :: CreatePlacementGroupResponse
 createPlacementGroupResponse = CreatePlacementGroupResponse
-
-instance FromXML CreatePlacementGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreatePlacementGroupResponse"
 
 instance AWSRequest CreatePlacementGroup where
     type Sv CreatePlacementGroup = EC2

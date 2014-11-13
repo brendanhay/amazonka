@@ -41,16 +41,17 @@ module Network.AWS.AutoScaling.CreateOrUpdateTags
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 newtype CreateOrUpdateTags = CreateOrUpdateTags
     { _coutTags :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CreateOrUpdateTags where
+instance GHC.Exts.IsList CreateOrUpdateTags where
     type Item CreateOrUpdateTags = Tag
 
-    fromList = CreateOrUpdateTags . fromList
-    toList   = toList . _coutTags
+    fromList = CreateOrUpdateTags . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _coutTags
 
 -- | 'CreateOrUpdateTags' constructor.
 --
@@ -91,10 +92,6 @@ data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
 -- | 'CreateOrUpdateTagsResponse' constructor.
 createOrUpdateTagsResponse :: CreateOrUpdateTagsResponse
 createOrUpdateTagsResponse = CreateOrUpdateTagsResponse
-
-instance FromXML CreateOrUpdateTagsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateOrUpdateTagsResponse"
 
 instance AWSRequest CreateOrUpdateTags where
     type Sv CreateOrUpdateTags = AutoScaling

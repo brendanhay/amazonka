@@ -49,6 +49,7 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes
     { _mlbaLoadBalancerAttributes :: LoadBalancerAttributes
@@ -115,10 +116,6 @@ mlbarLoadBalancerAttributes =
 mlbarLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
 mlbarLoadBalancerName =
     lens _mlbarLoadBalancerName (\s a -> s { _mlbarLoadBalancerName = a })
-
-instance FromXML ModifyLoadBalancerAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyLoadBalancerAttributesResponse"
 
 instance AWSRequest ModifyLoadBalancerAttributes where
     type Sv ModifyLoadBalancerAttributes = ELB

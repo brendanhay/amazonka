@@ -48,6 +48,7 @@ module Network.AWS.RDS.DescribeDBLogFiles
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeDBLogFiles = DescribeDBLogFiles
     { _ddblfDBInstanceIdentifier :: Text
@@ -165,10 +166,6 @@ ddblfrDescribeDBLogFiles =
 -- request.
 ddblfrMarker :: Lens' DescribeDBLogFilesResponse (Maybe Text)
 ddblfrMarker = lens _ddblfrMarker (\s a -> s { _ddblfrMarker = a })
-
-instance FromXML DescribeDBLogFilesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBLogFilesResponse"
 
 instance AWSRequest DescribeDBLogFiles where
     type Sv DescribeDBLogFiles = RDS

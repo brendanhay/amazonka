@@ -55,6 +55,7 @@ module Network.AWS.Redshift.DeleteCluster
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data DeleteCluster = DeleteCluster
     { _dc1ClusterIdentifier              :: Text
@@ -129,10 +130,6 @@ deleteClusterResponse = DeleteClusterResponse
 
 dcrCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
 dcrCluster = lens _dcrCluster (\s a -> s { _dcrCluster = a })
-
-instance FromXML DeleteClusterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteClusterResponse"
 
 instance AWSRequest DeleteCluster where
     type Sv DeleteCluster = Redshift

@@ -41,6 +41,7 @@ module Network.AWS.SimpleDB.DeleteDomain
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
+import qualified GHC.Exts
 
 newtype DeleteDomain = DeleteDomain
     { _ddDomainName :: Text
@@ -73,10 +74,6 @@ data DeleteDomainResponse = DeleteDomainResponse
 -- | 'DeleteDomainResponse' constructor.
 deleteDomainResponse :: DeleteDomainResponse
 deleteDomainResponse = DeleteDomainResponse
-
-instance FromXML DeleteDomainResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteDomainResponse"
 
 instance AWSRequest DeleteDomain where
     type Sv DeleteDomain = SimpleDB

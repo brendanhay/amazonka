@@ -39,6 +39,7 @@ module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypes
     deriving (Eq, Ord, Show, Generic)
@@ -56,11 +57,11 @@ newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesR
     { _dtptrTerminationPolicyTypes :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeTerminationPolicyTypesResponse where
+instance GHC.Exts.IsList DescribeTerminationPolicyTypesResponse where
     type Item DescribeTerminationPolicyTypesResponse = Text
 
-    fromList = DescribeTerminationPolicyTypesResponse . fromList
-    toList   = toList . _dtptrTerminationPolicyTypes
+    fromList = DescribeTerminationPolicyTypesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dtptrTerminationPolicyTypes
 
 -- | 'DescribeTerminationPolicyTypesResponse' constructor.
 --
@@ -80,10 +81,6 @@ dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Tex
 dtptrTerminationPolicyTypes =
     lens _dtptrTerminationPolicyTypes
         (\s a -> s { _dtptrTerminationPolicyTypes = a })
-
-instance FromXML DescribeTerminationPolicyTypesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeTerminationPolicyTypesResponse"
 
 instance AWSRequest DescribeTerminationPolicyTypes where
     type Sv DescribeTerminationPolicyTypes = AutoScaling

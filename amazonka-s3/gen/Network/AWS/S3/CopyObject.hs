@@ -76,6 +76,7 @@ module Network.AWS.S3.CopyObject
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data CopyObject = CopyObject
     { _coACL                            :: Maybe Text

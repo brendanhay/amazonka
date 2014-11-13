@@ -44,6 +44,7 @@ module Network.AWS.ElastiCache.ModifyCacheParameterGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data ModifyCacheParameterGroup = ModifyCacheParameterGroup
     { _mcpgCacheParameterGroupName :: Text
@@ -103,10 +104,6 @@ mcpgrCacheParameterGroupName :: Lens' ModifyCacheParameterGroupResponse (Maybe T
 mcpgrCacheParameterGroupName =
     lens _mcpgrCacheParameterGroupName
         (\s a -> s { _mcpgrCacheParameterGroupName = a })
-
-instance FromXML ModifyCacheParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyCacheParameterGroupResponse"
 
 instance AWSRequest ModifyCacheParameterGroup where
     type Sv ModifyCacheParameterGroup = ElastiCache

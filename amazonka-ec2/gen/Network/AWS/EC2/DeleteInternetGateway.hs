@@ -41,6 +41,7 @@ module Network.AWS.EC2.DeleteInternetGateway
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteInternetGateway = DeleteInternetGateway
     { _dig2DryRun            :: Maybe Bool
@@ -81,10 +82,6 @@ data DeleteInternetGatewayResponse = DeleteInternetGatewayResponse
 -- | 'DeleteInternetGatewayResponse' constructor.
 deleteInternetGatewayResponse :: DeleteInternetGatewayResponse
 deleteInternetGatewayResponse = DeleteInternetGatewayResponse
-
-instance FromXML DeleteInternetGatewayResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteInternetGatewayResponse"
 
 instance AWSRequest DeleteInternetGateway where
     type Sv DeleteInternetGateway = EC2

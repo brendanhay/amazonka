@@ -44,6 +44,7 @@ module Network.AWS.IAM.ResyncMFADevice
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ResyncMFADevice = ResyncMFADevice
     { _rmfadAuthenticationCode1 :: Text
@@ -108,10 +109,6 @@ data ResyncMFADeviceResponse = ResyncMFADeviceResponse
 -- | 'ResyncMFADeviceResponse' constructor.
 resyncMFADeviceResponse :: ResyncMFADeviceResponse
 resyncMFADeviceResponse = ResyncMFADeviceResponse
-
-instance FromXML ResyncMFADeviceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResyncMFADeviceResponse"
 
 instance AWSRequest ResyncMFADevice where
     type Sv ResyncMFADevice = IAM

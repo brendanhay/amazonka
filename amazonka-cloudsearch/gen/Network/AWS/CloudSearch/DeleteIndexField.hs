@@ -43,6 +43,7 @@ module Network.AWS.CloudSearch.DeleteIndexField
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data DeleteIndexField = DeleteIndexField
     { _dif1DomainName     :: Text
@@ -98,10 +99,6 @@ deleteIndexFieldResponse p1 = DeleteIndexFieldResponse
 -- | The status of the index field being deleted.
 difrIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
 difrIndexField = lens _difrIndexField (\s a -> s { _difrIndexField = a })
-
-instance FromXML DeleteIndexFieldResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteIndexFieldResponse"
 
 instance AWSRequest DeleteIndexField where
     type Sv DeleteIndexField = CloudSearch

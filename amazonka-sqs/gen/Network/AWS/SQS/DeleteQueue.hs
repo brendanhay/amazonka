@@ -50,6 +50,7 @@ module Network.AWS.SQS.DeleteQueue
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
+import qualified GHC.Exts
 
 newtype DeleteQueue = DeleteQueue
     { _dqQueueUrl :: Text
@@ -82,10 +83,6 @@ data DeleteQueueResponse = DeleteQueueResponse
 -- | 'DeleteQueueResponse' constructor.
 deleteQueueResponse :: DeleteQueueResponse
 deleteQueueResponse = DeleteQueueResponse
-
-instance FromXML DeleteQueueResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteQueueResponse"
 
 instance AWSRequest DeleteQueue where
     type Sv DeleteQueue = SQS

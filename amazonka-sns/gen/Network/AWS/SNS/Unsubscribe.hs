@@ -45,6 +45,7 @@ module Network.AWS.SNS.Unsubscribe
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 newtype Unsubscribe = Unsubscribe
     { _uSubscriptionArn :: Text
@@ -77,10 +78,6 @@ data UnsubscribeResponse = UnsubscribeResponse
 -- | 'UnsubscribeResponse' constructor.
 unsubscribeResponse :: UnsubscribeResponse
 unsubscribeResponse = UnsubscribeResponse
-
-instance FromXML UnsubscribeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UnsubscribeResponse"
 
 instance AWSRequest Unsubscribe where
     type Sv Unsubscribe = SNS

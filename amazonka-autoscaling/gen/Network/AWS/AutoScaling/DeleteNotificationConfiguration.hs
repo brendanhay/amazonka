@@ -40,6 +40,7 @@ module Network.AWS.AutoScaling.DeleteNotificationConfiguration
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration
     { _dncAutoScalingGroupName :: Text
@@ -83,10 +84,6 @@ data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationRe
 -- | 'DeleteNotificationConfigurationResponse' constructor.
 deleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse
 deleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
-
-instance FromXML DeleteNotificationConfigurationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteNotificationConfigurationResponse"
 
 instance AWSRequest DeleteNotificationConfiguration where
     type Sv DeleteNotificationConfiguration = AutoScaling

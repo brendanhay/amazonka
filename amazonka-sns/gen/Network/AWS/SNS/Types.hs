@@ -64,6 +64,7 @@ module Network.AWS.SNS.Types
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2010-03-31@) of the Amazon Simple Notification Service.
 data SNS deriving (Typeable)

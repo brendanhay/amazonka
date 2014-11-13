@@ -93,6 +93,7 @@ module Network.AWS.EC2.DescribeInstanceStatus
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeInstanceStatus = DescribeInstanceStatus
     { _disDryRun              :: Maybe Bool
@@ -212,10 +213,6 @@ disrInstanceStatuses =
 -- | The next paginated set of results to return.
 disrNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
 disrNextToken = lens _disrNextToken (\s a -> s { _disrNextToken = a })
-
-instance FromXML DescribeInstanceStatusResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeInstanceStatusResponse"
 
 instance AWSRequest DescribeInstanceStatus where
     type Sv DescribeInstanceStatus = EC2

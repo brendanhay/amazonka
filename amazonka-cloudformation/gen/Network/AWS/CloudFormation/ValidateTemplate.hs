@@ -45,6 +45,7 @@ module Network.AWS.CloudFormation.ValidateTemplate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 data ValidateTemplate = ValidateTemplate
     { _vtTemplateBody :: Maybe Text
@@ -134,10 +135,6 @@ vtrDescription = lens _vtrDescription (\s a -> s { _vtrDescription = a })
 -- | A list of TemplateParameter structures.
 vtrParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
 vtrParameters = lens _vtrParameters (\s a -> s { _vtrParameters = a })
-
-instance FromXML ValidateTemplateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ValidateTemplateResponse"
 
 instance AWSRequest ValidateTemplate where
     type Sv ValidateTemplate = CloudFormation

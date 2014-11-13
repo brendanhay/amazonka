@@ -56,6 +56,7 @@ module Network.AWS.EC2.ModifyInstanceAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ModifyInstanceAttribute = ModifyInstanceAttribute
     { _mia1Attribute                         :: Maybe Text
@@ -237,10 +238,6 @@ data ModifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
 -- | 'ModifyInstanceAttributeResponse' constructor.
 modifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse
 modifyInstanceAttributeResponse = ModifyInstanceAttributeResponse
-
-instance FromXML ModifyInstanceAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyInstanceAttributeResponse"
 
 instance AWSRequest ModifyInstanceAttribute where
     type Sv ModifyInstanceAttribute = EC2

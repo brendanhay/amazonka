@@ -41,6 +41,7 @@ module Network.AWS.ELB.DescribeTags
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 newtype DescribeTags = DescribeTags
     { _dtLoadBalancerNames :: List1 Text
@@ -73,11 +74,11 @@ newtype DescribeTagsResponse = DescribeTagsResponse
     { _dtrTagDescriptions :: [TagDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeTagsResponse where
+instance GHC.Exts.IsList DescribeTagsResponse where
     type Item DescribeTagsResponse = TagDescription
 
-    fromList = DescribeTagsResponse . fromList
-    toList   = toList . _dtrTagDescriptions
+    fromList = DescribeTagsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dtrTagDescriptions
 
 -- | 'DescribeTagsResponse' constructor.
 --
@@ -94,10 +95,6 @@ describeTagsResponse = DescribeTagsResponse
 dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
 dtrTagDescriptions =
     lens _dtrTagDescriptions (\s a -> s { _dtrTagDescriptions = a })
-
-instance FromXML DescribeTagsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeTagsResponse"
 
 instance AWSRequest DescribeTags where
     type Sv DescribeTags = ELB

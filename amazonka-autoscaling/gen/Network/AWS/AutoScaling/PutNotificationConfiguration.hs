@@ -46,6 +46,7 @@ module Network.AWS.AutoScaling.PutNotificationConfiguration
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data PutNotificationConfiguration = PutNotificationConfiguration
     { _pncAutoScalingGroupName :: Text
@@ -100,10 +101,6 @@ data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse
 -- | 'PutNotificationConfigurationResponse' constructor.
 putNotificationConfigurationResponse :: PutNotificationConfigurationResponse
 putNotificationConfigurationResponse = PutNotificationConfigurationResponse
-
-instance FromXML PutNotificationConfigurationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutNotificationConfigurationResponse"
 
 instance AWSRequest PutNotificationConfiguration where
     type Sv PutNotificationConfiguration = AutoScaling

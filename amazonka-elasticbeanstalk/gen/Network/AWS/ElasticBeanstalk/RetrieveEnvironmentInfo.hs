@@ -44,6 +44,7 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
     { _rei1EnvironmentId   :: Maybe Text
@@ -98,11 +99,11 @@ newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
     { _reirEnvironmentInfo :: [EnvironmentInfoDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList RetrieveEnvironmentInfoResponse where
+instance GHC.Exts.IsList RetrieveEnvironmentInfoResponse where
     type Item RetrieveEnvironmentInfoResponse = EnvironmentInfoDescription
 
-    fromList = RetrieveEnvironmentInfoResponse . fromList
-    toList   = toList . _reirEnvironmentInfo
+    fromList = RetrieveEnvironmentInfoResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _reirEnvironmentInfo
 
 -- | 'RetrieveEnvironmentInfoResponse' constructor.
 --
@@ -119,10 +120,6 @@ retrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
 reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
 reirEnvironmentInfo =
     lens _reirEnvironmentInfo (\s a -> s { _reirEnvironmentInfo = a })
-
-instance FromXML RetrieveEnvironmentInfoResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RetrieveEnvironmentInfoResponse"
 
 instance AWSRequest RetrieveEnvironmentInfo where
     type Sv RetrieveEnvironmentInfo = ElasticBeanstalk

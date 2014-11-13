@@ -47,6 +47,7 @@ module Network.AWS.ELB.DetachLoadBalancerFromSubnets
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets
     { _dlbfsLoadBalancerName :: Text
@@ -87,11 +88,11 @@ newtype DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsRes
     { _dlbfsrSubnets :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DetachLoadBalancerFromSubnetsResponse where
+instance GHC.Exts.IsList DetachLoadBalancerFromSubnetsResponse where
     type Item DetachLoadBalancerFromSubnetsResponse = Text
 
-    fromList = DetachLoadBalancerFromSubnetsResponse . fromList
-    toList   = toList . _dlbfsrSubnets
+    fromList = DetachLoadBalancerFromSubnetsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dlbfsrSubnets
 
 -- | 'DetachLoadBalancerFromSubnetsResponse' constructor.
 --
@@ -107,10 +108,6 @@ detachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
 -- | A list of subnet IDs the load balancer is now attached to.
 dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
 dlbfsrSubnets = lens _dlbfsrSubnets (\s a -> s { _dlbfsrSubnets = a })
-
-instance FromXML DetachLoadBalancerFromSubnetsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DetachLoadBalancerFromSubnetsResponse"
 
 instance AWSRequest DetachLoadBalancerFromSubnets where
     type Sv DetachLoadBalancerFromSubnets = ELB

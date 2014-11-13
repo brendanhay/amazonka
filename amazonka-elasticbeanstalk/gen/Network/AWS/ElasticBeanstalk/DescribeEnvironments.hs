@@ -46,6 +46,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironments
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data DescribeEnvironments = DescribeEnvironments
     { _de1ApplicationName       :: Maybe Text
@@ -129,11 +130,11 @@ newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
     { _derEnvironments :: [EnvironmentDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeEnvironmentsResponse where
+instance GHC.Exts.IsList DescribeEnvironmentsResponse where
     type Item DescribeEnvironmentsResponse = EnvironmentDescription
 
-    fromList = DescribeEnvironmentsResponse . fromList
-    toList   = toList . _derEnvironments
+    fromList = DescribeEnvironmentsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _derEnvironments
 
 -- | 'DescribeEnvironmentsResponse' constructor.
 --
@@ -149,10 +150,6 @@ describeEnvironmentsResponse = DescribeEnvironmentsResponse
 -- | Returns an EnvironmentDescription list.
 derEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
 derEnvironments = lens _derEnvironments (\s a -> s { _derEnvironments = a })
-
-instance FromXML DescribeEnvironmentsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeEnvironmentsResponse"
 
 instance AWSRequest DescribeEnvironments where
     type Sv DescribeEnvironments = ElasticBeanstalk

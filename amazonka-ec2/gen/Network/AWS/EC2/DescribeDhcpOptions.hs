@@ -45,6 +45,7 @@ module Network.AWS.EC2.DescribeDhcpOptions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeDhcpOptions = DescribeDhcpOptions
     { _ddoDhcpOptionsIds :: [Text]
@@ -102,11 +103,11 @@ newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { _ddorDhcpOptions :: [DhcpOptions]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeDhcpOptionsResponse where
+instance GHC.Exts.IsList DescribeDhcpOptionsResponse where
     type Item DescribeDhcpOptionsResponse = DhcpOptions
 
-    fromList = DescribeDhcpOptionsResponse . fromList
-    toList   = toList . _ddorDhcpOptions
+    fromList = DescribeDhcpOptionsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _ddorDhcpOptions
 
 -- | 'DescribeDhcpOptionsResponse' constructor.
 --
@@ -122,10 +123,6 @@ describeDhcpOptionsResponse = DescribeDhcpOptionsResponse
 -- | Information about one or more DHCP options sets.
 ddorDhcpOptions :: Lens' DescribeDhcpOptionsResponse [DhcpOptions]
 ddorDhcpOptions = lens _ddorDhcpOptions (\s a -> s { _ddorDhcpOptions = a })
-
-instance FromXML DescribeDhcpOptionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDhcpOptionsResponse"
 
 instance AWSRequest DescribeDhcpOptions where
     type Sv DescribeDhcpOptions = EC2

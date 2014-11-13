@@ -41,6 +41,7 @@ module Network.AWS.ElasticBeanstalk.RestartAppServer
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data RestartAppServer = RestartAppServer
     { _rasEnvironmentId   :: Maybe Text
@@ -86,10 +87,6 @@ data RestartAppServerResponse = RestartAppServerResponse
 -- | 'RestartAppServerResponse' constructor.
 restartAppServerResponse :: RestartAppServerResponse
 restartAppServerResponse = RestartAppServerResponse
-
-instance FromXML RestartAppServerResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RestartAppServerResponse"
 
 instance AWSRequest RestartAppServer where
     type Sv RestartAppServer = ElasticBeanstalk

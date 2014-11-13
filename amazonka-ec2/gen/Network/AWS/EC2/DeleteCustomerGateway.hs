@@ -41,6 +41,7 @@ module Network.AWS.EC2.DeleteCustomerGateway
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteCustomerGateway = DeleteCustomerGateway
     { _dcg1CustomerGatewayId :: Text
@@ -81,10 +82,6 @@ data DeleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
 -- | 'DeleteCustomerGatewayResponse' constructor.
 deleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse
 deleteCustomerGatewayResponse = DeleteCustomerGatewayResponse
-
-instance FromXML DeleteCustomerGatewayResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteCustomerGatewayResponse"
 
 instance AWSRequest DeleteCustomerGateway where
     type Sv DeleteCustomerGateway = EC2

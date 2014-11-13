@@ -42,6 +42,7 @@ module Network.AWS.ElasticBeanstalk.RebuildEnvironment
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data RebuildEnvironment = RebuildEnvironment
     { _reEnvironmentId   :: Maybe Text
@@ -86,10 +87,6 @@ data RebuildEnvironmentResponse = RebuildEnvironmentResponse
 -- | 'RebuildEnvironmentResponse' constructor.
 rebuildEnvironmentResponse :: RebuildEnvironmentResponse
 rebuildEnvironmentResponse = RebuildEnvironmentResponse
-
-instance FromXML RebuildEnvironmentResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RebuildEnvironmentResponse"
 
 instance AWSRequest RebuildEnvironment where
     type Sv RebuildEnvironment = ElasticBeanstalk

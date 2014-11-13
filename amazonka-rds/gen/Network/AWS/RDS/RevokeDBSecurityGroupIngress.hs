@@ -48,6 +48,7 @@ module Network.AWS.RDS.RevokeDBSecurityGroupIngress
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress
     { _rdbsgiCIDRIP                  :: Maybe Text
@@ -144,10 +145,6 @@ revokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse
 rdbsgirDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
 rdbsgirDBSecurityGroup =
     lens _rdbsgirDBSecurityGroup (\s a -> s { _rdbsgirDBSecurityGroup = a })
-
-instance FromXML RevokeDBSecurityGroupIngressResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RevokeDBSecurityGroupIngressResponse"
 
 instance AWSRequest RevokeDBSecurityGroupIngress where
     type Sv RevokeDBSecurityGroupIngress = RDS

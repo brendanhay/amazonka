@@ -72,6 +72,7 @@ module Network.AWS.S3.CreateMultipartUpload
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data CreateMultipartUpload = CreateMultipartUpload
     { _cmuACL                     :: Maybe Text

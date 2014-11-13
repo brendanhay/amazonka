@@ -42,6 +42,7 @@ module Network.AWS.CloudFront.GetStreamingDistributionConfig
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 newtype GetStreamingDistributionConfig2014_05_31 = GetStreamingDistributionConfig2014_05_31
     { _gsdcId :: Text

@@ -47,6 +47,7 @@ module Network.AWS.IAM.ListAccountAliases
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListAccountAliases = ListAccountAliases
     { _laaMarker   :: Maybe Text
@@ -126,10 +127,6 @@ laarIsTruncated = lens _laarIsTruncated (\s a -> s { _laarIsTruncated = a })
 -- to the value of the Marker element in the response you just received.
 laarMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
 laarMarker = lens _laarMarker (\s a -> s { _laarMarker = a })
-
-instance FromXML ListAccountAliasesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListAccountAliasesResponse"
 
 instance AWSRequest ListAccountAliases where
     type Sv ListAccountAliases = IAM

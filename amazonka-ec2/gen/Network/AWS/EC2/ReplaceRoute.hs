@@ -49,6 +49,7 @@ module Network.AWS.EC2.ReplaceRoute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ReplaceRoute = ReplaceRoute
     { _rrDestinationCidrBlock   :: Text
@@ -134,10 +135,6 @@ data ReplaceRouteResponse = ReplaceRouteResponse
 -- | 'ReplaceRouteResponse' constructor.
 replaceRouteResponse :: ReplaceRouteResponse
 replaceRouteResponse = ReplaceRouteResponse
-
-instance FromXML ReplaceRouteResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReplaceRouteResponse"
 
 instance AWSRequest ReplaceRoute where
     type Sv ReplaceRoute = EC2

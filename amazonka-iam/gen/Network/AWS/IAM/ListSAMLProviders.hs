@@ -39,6 +39,7 @@ module Network.AWS.IAM.ListSAMLProviders
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListSAMLProviders = ListSAMLProviders
     deriving (Eq, Ord, Show, Generic)
@@ -56,11 +57,11 @@ newtype ListSAMLProvidersResponse = ListSAMLProvidersResponse
     { _lsamlprSAMLProviderList :: [SAMLProviderListEntry]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ListSAMLProvidersResponse where
+instance GHC.Exts.IsList ListSAMLProvidersResponse where
     type Item ListSAMLProvidersResponse = SAMLProviderListEntry
 
-    fromList = ListSAMLProvidersResponse . fromList
-    toList   = toList . _lsamlprSAMLProviderList
+    fromList = ListSAMLProvidersResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _lsamlprSAMLProviderList
 
 -- | 'ListSAMLProvidersResponse' constructor.
 --
@@ -77,10 +78,6 @@ listSAMLProvidersResponse = ListSAMLProvidersResponse
 lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
 lsamlprSAMLProviderList =
     lens _lsamlprSAMLProviderList (\s a -> s { _lsamlprSAMLProviderList = a })
-
-instance FromXML ListSAMLProvidersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListSAMLProvidersResponse"
 
 instance AWSRequest ListSAMLProviders where
     type Sv ListSAMLProviders = IAM

@@ -48,6 +48,7 @@ module Network.AWS.IAM.ListVirtualMFADevices
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListVirtualMFADevices = ListVirtualMFADevices
     { _lvmfadAssignmentStatus :: Maybe Text
@@ -140,10 +141,6 @@ lvmfadrVirtualMFADevices :: Lens' ListVirtualMFADevicesResponse [VirtualMFADevic
 lvmfadrVirtualMFADevices =
     lens _lvmfadrVirtualMFADevices
         (\s a -> s { _lvmfadrVirtualMFADevices = a })
-
-instance FromXML ListVirtualMFADevicesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListVirtualMFADevicesResponse"
 
 instance AWSRequest ListVirtualMFADevices where
     type Sv ListVirtualMFADevices = IAM

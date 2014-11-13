@@ -53,6 +53,7 @@ module Network.AWS.ElastiCache.DescribeEvents
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data DescribeEvents = DescribeEvents
     { _deDuration         :: Maybe Int
@@ -167,10 +168,6 @@ derEvents = lens _derEvents (\s a -> s { _derEvents = a })
 -- | Provides an identifier to allow retrieval of paginated results.
 derMarker :: Lens' DescribeEventsResponse (Maybe Text)
 derMarker = lens _derMarker (\s a -> s { _derMarker = a })
-
-instance FromXML DescribeEventsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeEventsResponse"
 
 instance AWSRequest DescribeEvents where
     type Sv DescribeEvents = ElastiCache

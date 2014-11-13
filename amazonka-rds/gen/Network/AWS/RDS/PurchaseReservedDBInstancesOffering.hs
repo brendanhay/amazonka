@@ -44,6 +44,7 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
     { _prdbioDBInstanceCount               :: Maybe Int
@@ -119,10 +120,6 @@ prdbiorReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (
 prdbiorReservedDBInstance =
     lens _prdbiorReservedDBInstance
         (\s a -> s { _prdbiorReservedDBInstance = a })
-
-instance FromXML PurchaseReservedDBInstancesOfferingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PurchaseReservedDBInstancesOfferingResponse"
 
 instance AWSRequest PurchaseReservedDBInstancesOffering where
     type Sv PurchaseReservedDBInstancesOffering = RDS

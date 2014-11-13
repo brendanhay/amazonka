@@ -46,6 +46,7 @@ module Network.AWS.IAM.CreateLoginProfile
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data CreateLoginProfile = CreateLoginProfile
     { _clpPassword              :: Sensitive Text
@@ -112,10 +113,6 @@ createLoginProfileResponse p1 = CreateLoginProfileResponse
 -- | The user name and password create date.
 clprLoginProfile :: Lens' CreateLoginProfileResponse LoginProfile
 clprLoginProfile = lens _clprLoginProfile (\s a -> s { _clprLoginProfile = a })
-
-instance FromXML CreateLoginProfileResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateLoginProfileResponse"
 
 instance AWSRequest CreateLoginProfile where
     type Sv CreateLoginProfile = IAM

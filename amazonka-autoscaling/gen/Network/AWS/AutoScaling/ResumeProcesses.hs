@@ -42,6 +42,7 @@ module Network.AWS.AutoScaling.ResumeProcesses
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data ResumeProcesses = ResumeProcesses
     { _rpAutoScalingGroupName :: Text
@@ -87,10 +88,6 @@ data ResumeProcessesResponse = ResumeProcessesResponse
 -- | 'ResumeProcessesResponse' constructor.
 resumeProcessesResponse :: ResumeProcessesResponse
 resumeProcessesResponse = ResumeProcessesResponse
-
-instance FromXML ResumeProcessesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResumeProcessesResponse"
 
 instance AWSRequest ResumeProcesses where
     type Sv ResumeProcesses = AutoScaling

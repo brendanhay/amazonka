@@ -43,6 +43,7 @@ module Network.AWS.CloudFront.CreateDistribution
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 newtype CreateDistribution2014_05_31 = CreateDistribution2014_05_31
     { _cdDistributionConfig :: DistributionConfig

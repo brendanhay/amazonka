@@ -65,6 +65,7 @@ module Network.AWS.SecurityToken.GetSessionToken
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SecurityToken.Types
+import qualified GHC.Exts
 
 data GetSessionToken = GetSessionToken
     { _gstDurationSeconds :: Maybe Natural
@@ -142,10 +143,6 @@ getSessionTokenResponse = GetSessionTokenResponse
 -- | The session credentials for API authentication.
 gstrCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
 gstrCredentials = lens _gstrCredentials (\s a -> s { _gstrCredentials = a })
-
-instance FromXML GetSessionTokenResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetSessionTokenResponse"
 
 instance AWSRequest GetSessionToken where
     type Sv GetSessionToken = SecurityToken

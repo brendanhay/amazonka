@@ -41,6 +41,7 @@ module Network.AWS.EC2.DeregisterImage
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeregisterImage = DeregisterImage
     { _diDryRun  :: Maybe Bool
@@ -80,10 +81,6 @@ data DeregisterImageResponse = DeregisterImageResponse
 -- | 'DeregisterImageResponse' constructor.
 deregisterImageResponse :: DeregisterImageResponse
 deregisterImageResponse = DeregisterImageResponse
-
-instance FromXML DeregisterImageResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeregisterImageResponse"
 
 instance AWSRequest DeregisterImage where
     type Sv DeregisterImage = EC2

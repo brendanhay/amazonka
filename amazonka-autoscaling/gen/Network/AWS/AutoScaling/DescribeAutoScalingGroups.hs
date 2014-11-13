@@ -49,6 +49,7 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups
     { _dasgAutoScalingGroupNames :: [Text]
@@ -119,10 +120,6 @@ dasgrAutoScalingGroups =
 -- | A string that marks the start of the next batch of returned results.
 dasgrNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
 dasgrNextToken = lens _dasgrNextToken (\s a -> s { _dasgrNextToken = a })
-
-instance FromXML DescribeAutoScalingGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAutoScalingGroupsResponse"
 
 instance AWSRequest DescribeAutoScalingGroups where
     type Sv DescribeAutoScalingGroups = AutoScaling

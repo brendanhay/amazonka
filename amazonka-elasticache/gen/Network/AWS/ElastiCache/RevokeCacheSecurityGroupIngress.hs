@@ -45,6 +45,7 @@ module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress
     { _rcsgiCacheSecurityGroupName  :: Text
@@ -116,10 +117,6 @@ rcsgirCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Maybe
 rcsgirCacheSecurityGroup =
     lens _rcsgirCacheSecurityGroup
         (\s a -> s { _rcsgirCacheSecurityGroup = a })
-
-instance FromXML RevokeCacheSecurityGroupIngressResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RevokeCacheSecurityGroupIngressResponse"
 
 instance AWSRequest RevokeCacheSecurityGroupIngress where
     type Sv RevokeCacheSecurityGroupIngress = ElastiCache

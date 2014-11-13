@@ -43,6 +43,7 @@ module Network.AWS.EC2.CancelReservedInstancesListing
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing
     { _crilReservedInstancesListingId :: Text
@@ -75,11 +76,11 @@ newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingR
     { _crilrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CancelReservedInstancesListingResponse where
+instance GHC.Exts.IsList CancelReservedInstancesListingResponse where
     type Item CancelReservedInstancesListingResponse = ReservedInstancesListing
 
-    fromList = CancelReservedInstancesListingResponse . fromList
-    toList   = toList . _crilrReservedInstancesListings
+    fromList = CancelReservedInstancesListingResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _crilrReservedInstancesListings
 
 -- | 'CancelReservedInstancesListingResponse' constructor.
 --
@@ -97,10 +98,6 @@ crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [
 crilrReservedInstancesListings =
     lens _crilrReservedInstancesListings
         (\s a -> s { _crilrReservedInstancesListings = a })
-
-instance FromXML CancelReservedInstancesListingResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CancelReservedInstancesListingResponse"
 
 instance AWSRequest CancelReservedInstancesListing where
     type Sv CancelReservedInstancesListing = EC2

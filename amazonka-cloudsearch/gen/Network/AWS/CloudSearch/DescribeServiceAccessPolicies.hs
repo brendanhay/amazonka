@@ -47,6 +47,7 @@ module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies
     { _dsapDeployed   :: Maybe Bool
@@ -102,10 +103,6 @@ describeServiceAccessPoliciesResponse p1 = DescribeServiceAccessPoliciesResponse
 dsaprAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
 dsaprAccessPolicies =
     lens _dsaprAccessPolicies (\s a -> s { _dsaprAccessPolicies = a })
-
-instance FromXML DescribeServiceAccessPoliciesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeServiceAccessPoliciesResponse"
 
 instance AWSRequest DescribeServiceAccessPolicies where
     type Sv DescribeServiceAccessPolicies = CloudSearch

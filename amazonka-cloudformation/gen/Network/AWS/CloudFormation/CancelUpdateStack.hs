@@ -42,6 +42,7 @@ module Network.AWS.CloudFormation.CancelUpdateStack
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 newtype CancelUpdateStack = CancelUpdateStack
     { _cusStackName :: Text
@@ -74,10 +75,6 @@ data CancelUpdateStackResponse = CancelUpdateStackResponse
 -- | 'CancelUpdateStackResponse' constructor.
 cancelUpdateStackResponse :: CancelUpdateStackResponse
 cancelUpdateStackResponse = CancelUpdateStackResponse
-
-instance FromXML CancelUpdateStackResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CancelUpdateStackResponse"
 
 instance AWSRequest CancelUpdateStack where
     type Sv CancelUpdateStack = CloudFormation

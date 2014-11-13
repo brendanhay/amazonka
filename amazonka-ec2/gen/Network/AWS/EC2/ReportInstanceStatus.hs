@@ -51,6 +51,7 @@ module Network.AWS.EC2.ReportInstanceStatus
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ReportInstanceStatus = ReportInstanceStatus
     { _risDescription :: Maybe Text
@@ -143,10 +144,6 @@ data ReportInstanceStatusResponse = ReportInstanceStatusResponse
 -- | 'ReportInstanceStatusResponse' constructor.
 reportInstanceStatusResponse :: ReportInstanceStatusResponse
 reportInstanceStatusResponse = ReportInstanceStatusResponse
-
-instance FromXML ReportInstanceStatusResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReportInstanceStatusResponse"
 
 instance AWSRequest ReportInstanceStatus where
     type Sv ReportInstanceStatus = EC2

@@ -47,6 +47,7 @@ module Network.AWS.RDS.DescribeDBParameterGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeDBParameterGroups = DescribeDBParameterGroups
     { _ddbpgDBParameterGroupName :: Maybe Text
@@ -136,10 +137,6 @@ ddbpgrDBParameterGroups =
 -- marker, up to the value specified by MaxRecords.
 ddbpgrMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
 ddbpgrMarker = lens _ddbpgrMarker (\s a -> s { _ddbpgrMarker = a })
-
-instance FromXML DescribeDBParameterGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDBParameterGroupsResponse"
 
 instance AWSRequest DescribeDBParameterGroups where
     type Sv DescribeDBParameterGroups = RDS

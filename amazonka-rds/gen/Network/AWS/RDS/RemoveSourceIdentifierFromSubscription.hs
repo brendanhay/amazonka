@@ -43,6 +43,7 @@ module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription
     { _rsifsSourceIdentifier :: Text
@@ -100,10 +101,6 @@ removeSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubsc
 rsifsrEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse (Maybe EventSubscription)
 rsifsrEventSubscription =
     lens _rsifsrEventSubscription (\s a -> s { _rsifsrEventSubscription = a })
-
-instance FromXML RemoveSourceIdentifierFromSubscriptionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RemoveSourceIdentifierFromSubscriptionResponse"
 
 instance AWSRequest RemoveSourceIdentifierFromSubscription where
     type Sv RemoveSourceIdentifierFromSubscription = RDS

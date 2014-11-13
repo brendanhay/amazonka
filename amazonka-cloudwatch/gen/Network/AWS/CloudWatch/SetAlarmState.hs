@@ -45,6 +45,7 @@ module Network.AWS.CloudWatch.SetAlarmState
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
+import qualified GHC.Exts
 
 data SetAlarmState = SetAlarmState
     { _sasAlarmName       :: Text
@@ -107,10 +108,6 @@ data SetAlarmStateResponse = SetAlarmStateResponse
 -- | 'SetAlarmStateResponse' constructor.
 setAlarmStateResponse :: SetAlarmStateResponse
 setAlarmStateResponse = SetAlarmStateResponse
-
-instance FromXML SetAlarmStateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetAlarmStateResponse"
 
 instance AWSRequest SetAlarmState where
     type Sv SetAlarmState = CloudWatch

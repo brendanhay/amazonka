@@ -45,6 +45,7 @@ module Network.AWS.EC2.CreateRouteTable
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateRouteTable = CreateRouteTable
     { _crtDryRun :: Maybe Bool
@@ -96,10 +97,6 @@ createRouteTableResponse = CreateRouteTableResponse
 -- | Information about the route table.
 crtrRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
 crtrRouteTable = lens _crtrRouteTable (\s a -> s { _crtrRouteTable = a })
-
-instance FromXML CreateRouteTableResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateRouteTableResponse"
 
 instance AWSRequest CreateRouteTable where
     type Sv CreateRouteTable = EC2

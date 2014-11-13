@@ -41,6 +41,7 @@ module Network.AWS.IAM.GetServerCertificate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype GetServerCertificate = GetServerCertificate
     { _gscServerCertificateName :: Text
@@ -90,10 +91,6 @@ getServerCertificateResponse p1 = GetServerCertificateResponse
 gscrServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
 gscrServerCertificate =
     lens _gscrServerCertificate (\s a -> s { _gscrServerCertificate = a })
-
-instance FromXML GetServerCertificateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetServerCertificateResponse"
 
 instance AWSRequest GetServerCertificate where
     type Sv GetServerCertificate = IAM

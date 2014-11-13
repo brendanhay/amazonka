@@ -55,6 +55,7 @@ module Network.AWS.IAM.CreateSAMLProvider
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data CreateSAMLProvider = CreateSAMLProvider
     { _csamlpName                 :: Text
@@ -118,10 +119,6 @@ createSAMLProviderResponse = CreateSAMLProviderResponse
 csamlprSAMLProviderArn :: Lens' CreateSAMLProviderResponse (Maybe Text)
 csamlprSAMLProviderArn =
     lens _csamlprSAMLProviderArn (\s a -> s { _csamlprSAMLProviderArn = a })
-
-instance FromXML CreateSAMLProviderResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSAMLProviderResponse"
 
 instance AWSRequest CreateSAMLProvider where
     type Sv CreateSAMLProvider = IAM

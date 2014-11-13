@@ -45,6 +45,7 @@ module Network.AWS.Redshift.ModifyClusterParameterGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data ModifyClusterParameterGroup = ModifyClusterParameterGroup
     { _mcpgParameterGroupName :: Text
@@ -116,10 +117,6 @@ mcpgrParameterGroupStatus :: Lens' ModifyClusterParameterGroupResponse (Maybe Te
 mcpgrParameterGroupStatus =
     lens _mcpgrParameterGroupStatus
         (\s a -> s { _mcpgrParameterGroupStatus = a })
-
-instance FromXML ModifyClusterParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyClusterParameterGroupResponse"
 
 instance AWSRequest ModifyClusterParameterGroup where
     type Sv ModifyClusterParameterGroup = Redshift

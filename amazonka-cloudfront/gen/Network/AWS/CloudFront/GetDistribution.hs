@@ -42,6 +42,7 @@ module Network.AWS.CloudFront.GetDistribution
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 newtype GetDistribution2014_05_31 = GetDistribution2014_05_31
     { _gdId :: Text

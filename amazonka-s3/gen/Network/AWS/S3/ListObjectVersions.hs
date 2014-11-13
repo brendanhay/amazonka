@@ -59,6 +59,7 @@ module Network.AWS.S3.ListObjectVersions
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data ListObjectVersions = ListObjectVersions
     { _lovBucket          :: Text

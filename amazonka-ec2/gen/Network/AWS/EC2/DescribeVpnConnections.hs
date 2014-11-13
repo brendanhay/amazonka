@@ -45,6 +45,7 @@ module Network.AWS.EC2.DescribeVpnConnections
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeVpnConnections = DescribeVpnConnections
     { _dvc1DryRun           :: Maybe Bool
@@ -110,11 +111,11 @@ newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     { _dvcrVpnConnections :: [VpnConnection]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeVpnConnectionsResponse where
+instance GHC.Exts.IsList DescribeVpnConnectionsResponse where
     type Item DescribeVpnConnectionsResponse = VpnConnection
 
-    fromList = DescribeVpnConnectionsResponse . fromList
-    toList   = toList . _dvcrVpnConnections
+    fromList = DescribeVpnConnectionsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dvcrVpnConnections
 
 -- | 'DescribeVpnConnectionsResponse' constructor.
 --
@@ -131,10 +132,6 @@ describeVpnConnectionsResponse = DescribeVpnConnectionsResponse
 dvcrVpnConnections :: Lens' DescribeVpnConnectionsResponse [VpnConnection]
 dvcrVpnConnections =
     lens _dvcrVpnConnections (\s a -> s { _dvcrVpnConnections = a })
-
-instance FromXML DescribeVpnConnectionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVpnConnectionsResponse"
 
 instance AWSRequest DescribeVpnConnections where
     type Sv DescribeVpnConnections = EC2

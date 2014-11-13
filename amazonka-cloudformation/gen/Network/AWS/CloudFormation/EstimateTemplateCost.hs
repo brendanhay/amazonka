@@ -45,6 +45,7 @@ module Network.AWS.CloudFormation.EstimateTemplateCost
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 data EstimateTemplateCost = EstimateTemplateCost
     { _etcParameters   :: [Parameter]
@@ -113,10 +114,6 @@ estimateTemplateCostResponse = EstimateTemplateCostResponse
 -- the resources required to run the template.
 etcrUrl :: Lens' EstimateTemplateCostResponse (Maybe Text)
 etcrUrl = lens _etcrUrl (\s a -> s { _etcrUrl = a })
-
-instance FromXML EstimateTemplateCostResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EstimateTemplateCostResponse"
 
 instance AWSRequest EstimateTemplateCost where
     type Sv EstimateTemplateCost = CloudFormation

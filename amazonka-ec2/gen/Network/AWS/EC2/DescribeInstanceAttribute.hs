@@ -60,6 +60,7 @@ module Network.AWS.EC2.DescribeInstanceAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeInstanceAttribute = DescribeInstanceAttribute
     { _diaAttribute  :: Text
@@ -240,10 +241,6 @@ diar1SriovNetSupport =
 -- | The Base64-encoded MIME user data.
 diar1UserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
 diar1UserData = lens _diar1UserData (\s a -> s { _diar1UserData = a })
-
-instance FromXML DescribeInstanceAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeInstanceAttributeResponse"
 
 instance AWSRequest DescribeInstanceAttribute where
     type Sv DescribeInstanceAttribute = EC2

@@ -45,6 +45,7 @@ module Network.AWS.EC2.DescribeConversionTasks
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeConversionTasks = DescribeConversionTasks
     { _dctConversionTaskIds :: [Text]
@@ -89,11 +90,11 @@ newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
     { _dctrConversionTasks :: [ConversionTask]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeConversionTasksResponse where
+instance GHC.Exts.IsList DescribeConversionTasksResponse where
     type Item DescribeConversionTasksResponse = ConversionTask
 
-    fromList = DescribeConversionTasksResponse . fromList
-    toList   = toList . _dctrConversionTasks
+    fromList = DescribeConversionTasksResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dctrConversionTasks
 
 -- | 'DescribeConversionTasksResponse' constructor.
 --
@@ -109,10 +110,6 @@ describeConversionTasksResponse = DescribeConversionTasksResponse
 dctrConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
 dctrConversionTasks =
     lens _dctrConversionTasks (\s a -> s { _dctrConversionTasks = a })
-
-instance FromXML DescribeConversionTasksResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeConversionTasksResponse"
 
 instance AWSRequest DescribeConversionTasks where
     type Sv DescribeConversionTasks = EC2

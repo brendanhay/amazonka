@@ -49,6 +49,7 @@ module Network.AWS.IAM.UpdateAccountPasswordPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy
     { _uappAllowUsersToChangePassword :: Maybe Bool
@@ -171,10 +172,6 @@ data UpdateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
 -- | 'UpdateAccountPasswordPolicyResponse' constructor.
 updateAccountPasswordPolicyResponse :: UpdateAccountPasswordPolicyResponse
 updateAccountPasswordPolicyResponse = UpdateAccountPasswordPolicyResponse
-
-instance FromXML UpdateAccountPasswordPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateAccountPasswordPolicyResponse"
 
 instance AWSRequest UpdateAccountPasswordPolicy where
     type Sv UpdateAccountPasswordPolicy = IAM

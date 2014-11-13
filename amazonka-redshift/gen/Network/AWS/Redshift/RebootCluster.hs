@@ -46,6 +46,7 @@ module Network.AWS.Redshift.RebootCluster
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 newtype RebootCluster = RebootCluster
     { _rcClusterIdentifier :: Text
@@ -90,10 +91,6 @@ rebootClusterResponse = RebootClusterResponse
 
 rcrCluster :: Lens' RebootClusterResponse (Maybe Cluster)
 rcrCluster = lens _rcrCluster (\s a -> s { _rcrCluster = a })
-
-instance FromXML RebootClusterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RebootClusterResponse"
 
 instance AWSRequest RebootCluster where
     type Sv RebootCluster = Redshift

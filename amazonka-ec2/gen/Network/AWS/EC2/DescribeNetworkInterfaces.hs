@@ -43,6 +43,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces
     { _dni1DryRun              :: Maybe Bool
@@ -142,11 +143,11 @@ newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     { _dnirNetworkInterfaces :: [NetworkInterface]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeNetworkInterfacesResponse where
+instance GHC.Exts.IsList DescribeNetworkInterfacesResponse where
     type Item DescribeNetworkInterfacesResponse = NetworkInterface
 
-    fromList = DescribeNetworkInterfacesResponse . fromList
-    toList   = toList . _dnirNetworkInterfaces
+    fromList = DescribeNetworkInterfacesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dnirNetworkInterfaces
 
 -- | 'DescribeNetworkInterfacesResponse' constructor.
 --
@@ -163,10 +164,6 @@ describeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
 dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
 dnirNetworkInterfaces =
     lens _dnirNetworkInterfaces (\s a -> s { _dnirNetworkInterfaces = a })
-
-instance FromXML DescribeNetworkInterfacesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeNetworkInterfacesResponse"
 
 instance AWSRequest DescribeNetworkInterfaces where
     type Sv DescribeNetworkInterfaces = EC2

@@ -50,6 +50,7 @@ module Network.AWS.SES.VerifyDomainDkim
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 newtype VerifyDomainDkim = VerifyDomainDkim
     { _vddDomain :: Text
@@ -80,11 +81,11 @@ newtype VerifyDomainDkimResponse = VerifyDomainDkimResponse
     { _vddrDkimTokens :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList VerifyDomainDkimResponse where
+instance GHC.Exts.IsList VerifyDomainDkimResponse where
     type Item VerifyDomainDkimResponse = Text
 
-    fromList = VerifyDomainDkimResponse . fromList
-    toList   = toList . _vddrDkimTokens
+    fromList = VerifyDomainDkimResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _vddrDkimTokens
 
 -- | 'VerifyDomainDkimResponse' constructor.
 --
@@ -108,10 +109,6 @@ verifyDomainDkimResponse = VerifyDomainDkimResponse
 -- the Amazon SES Developer Guide.
 vddrDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
 vddrDkimTokens = lens _vddrDkimTokens (\s a -> s { _vddrDkimTokens = a })
-
-instance FromXML VerifyDomainDkimResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "VerifyDomainDkimResponse"
 
 instance AWSRequest VerifyDomainDkim where
     type Sv VerifyDomainDkim = SES

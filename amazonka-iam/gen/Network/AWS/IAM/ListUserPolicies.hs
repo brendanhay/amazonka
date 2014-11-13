@@ -47,6 +47,7 @@ module Network.AWS.IAM.ListUserPolicies
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListUserPolicies = ListUserPolicies
     { _lupMarker   :: Maybe Text
@@ -133,10 +134,6 @@ luprMarker = lens _luprMarker (\s a -> s { _luprMarker = a })
 -- | A list of policy names.
 luprPolicyNames :: Lens' ListUserPoliciesResponse [Text]
 luprPolicyNames = lens _luprPolicyNames (\s a -> s { _luprPolicyNames = a })
-
-instance FromXML ListUserPoliciesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListUserPoliciesResponse"
 
 instance AWSRequest ListUserPolicies where
     type Sv ListUserPolicies = IAM

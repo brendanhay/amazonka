@@ -39,6 +39,7 @@ module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
     { _dcsgCacheSecurityGroupName :: Text
@@ -73,10 +74,6 @@ data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
 -- | 'DeleteCacheSecurityGroupResponse' constructor.
 deleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse
 deleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
-
-instance FromXML DeleteCacheSecurityGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteCacheSecurityGroupResponse"
 
 instance AWSRequest DeleteCacheSecurityGroup where
     type Sv DeleteCacheSecurityGroup = ElastiCache

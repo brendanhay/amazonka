@@ -49,6 +49,7 @@ module Network.AWS.CloudSearch.DefineIndexField
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data DefineIndexField = DefineIndexField
     { _dif2DomainName :: Text
@@ -101,10 +102,6 @@ defineIndexFieldResponse p1 = DefineIndexFieldResponse
 
 difr1IndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
 difr1IndexField = lens _difr1IndexField (\s a -> s { _difr1IndexField = a })
-
-instance FromXML DefineIndexFieldResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DefineIndexFieldResponse"
 
 instance AWSRequest DefineIndexField where
     type Sv DefineIndexField = CloudSearch

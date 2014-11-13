@@ -48,6 +48,7 @@ module Network.AWS.IAM.ListUsers
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListUsers = ListUsers
     { _luMarker     :: Maybe Text
@@ -137,10 +138,6 @@ lurMarker = lens _lurMarker (\s a -> s { _lurMarker = a })
 -- | A list of users.
 lurUsers :: Lens' ListUsersResponse [User]
 lurUsers = lens _lurUsers (\s a -> s { _lurUsers = a })
-
-instance FromXML ListUsersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListUsersResponse"
 
 instance AWSRequest ListUsers where
     type Sv ListUsers = IAM

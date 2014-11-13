@@ -47,6 +47,7 @@ module Network.AWS.EC2.CreateInstanceExportTask
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateInstanceExportTask = CreateInstanceExportTask
     { _cietDescription       :: Maybe Text
@@ -116,10 +117,6 @@ createInstanceExportTaskResponse = CreateInstanceExportTaskResponse
 
 cietrExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
 cietrExportTask = lens _cietrExportTask (\s a -> s { _cietrExportTask = a })
-
-instance FromXML CreateInstanceExportTaskResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateInstanceExportTaskResponse"
 
 instance AWSRequest CreateInstanceExportTask where
     type Sv CreateInstanceExportTask = EC2

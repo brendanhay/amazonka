@@ -40,6 +40,7 @@ module Network.AWS.EC2.DeleteKeyPair
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteKeyPair = DeleteKeyPair
     { _dkpDryRun  :: Maybe Bool
@@ -79,10 +80,6 @@ data DeleteKeyPairResponse = DeleteKeyPairResponse
 -- | 'DeleteKeyPairResponse' constructor.
 deleteKeyPairResponse :: DeleteKeyPairResponse
 deleteKeyPairResponse = DeleteKeyPairResponse
-
-instance FromXML DeleteKeyPairResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteKeyPairResponse"
 
 instance AWSRequest DeleteKeyPair where
     type Sv DeleteKeyPair = EC2

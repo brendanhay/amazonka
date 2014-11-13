@@ -39,6 +39,7 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribeLifecycleHookTypes = DescribeLifecycleHookTypes
     deriving (Eq, Ord, Show, Generic)
@@ -56,11 +57,11 @@ newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
     { _dlhtrLifecycleHookTypes :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeLifecycleHookTypesResponse where
+instance GHC.Exts.IsList DescribeLifecycleHookTypesResponse where
     type Item DescribeLifecycleHookTypesResponse = Text
 
-    fromList = DescribeLifecycleHookTypesResponse . fromList
-    toList   = toList . _dlhtrLifecycleHookTypes
+    fromList = DescribeLifecycleHookTypesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dlhtrLifecycleHookTypes
 
 -- | 'DescribeLifecycleHookTypesResponse' constructor.
 --
@@ -79,10 +80,6 @@ describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
 dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
 dlhtrLifecycleHookTypes =
     lens _dlhtrLifecycleHookTypes (\s a -> s { _dlhtrLifecycleHookTypes = a })
-
-instance FromXML DescribeLifecycleHookTypesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLifecycleHookTypesResponse"
 
 instance AWSRequest DescribeLifecycleHookTypes where
     type Sv DescribeLifecycleHookTypes = AutoScaling

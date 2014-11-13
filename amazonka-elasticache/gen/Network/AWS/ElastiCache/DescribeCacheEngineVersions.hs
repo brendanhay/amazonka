@@ -48,6 +48,7 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data DescribeCacheEngineVersions = DescribeCacheEngineVersions
     { _dcevCacheParameterGroupFamily :: Maybe Text
@@ -155,10 +156,6 @@ dcevrCacheEngineVersions =
 -- | Provides an identifier to allow retrieval of paginated results.
 dcevrMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
 dcevrMarker = lens _dcevrMarker (\s a -> s { _dcevrMarker = a })
-
-instance FromXML DescribeCacheEngineVersionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeCacheEngineVersionsResponse"
 
 instance AWSRequest DescribeCacheEngineVersions where
     type Sv DescribeCacheEngineVersions = ElastiCache

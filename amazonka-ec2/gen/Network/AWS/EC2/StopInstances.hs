@@ -64,6 +64,7 @@ module Network.AWS.EC2.StopInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data StopInstances = StopInstances
     { _siDryRun      :: Maybe Bool
@@ -111,11 +112,11 @@ newtype StopInstancesResponse = StopInstancesResponse
     { _sirStoppingInstances :: [InstanceStateChange]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList StopInstancesResponse where
+instance GHC.Exts.IsList StopInstancesResponse where
     type Item StopInstancesResponse = InstanceStateChange
 
-    fromList = StopInstancesResponse . fromList
-    toList   = toList . _sirStoppingInstances
+    fromList = StopInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _sirStoppingInstances
 
 -- | 'StopInstancesResponse' constructor.
 --
@@ -132,10 +133,6 @@ stopInstancesResponse = StopInstancesResponse
 sirStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
 sirStoppingInstances =
     lens _sirStoppingInstances (\s a -> s { _sirStoppingInstances = a })
-
-instance FromXML StopInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StopInstancesResponse"
 
 instance AWSRequest StopInstances where
     type Sv StopInstances = EC2

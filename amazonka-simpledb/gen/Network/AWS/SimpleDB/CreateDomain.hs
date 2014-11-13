@@ -44,6 +44,7 @@ module Network.AWS.SimpleDB.CreateDomain
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
+import qualified GHC.Exts
 
 newtype CreateDomain = CreateDomain
     { _cdDomainName :: Text
@@ -78,10 +79,6 @@ data CreateDomainResponse = CreateDomainResponse
 -- | 'CreateDomainResponse' constructor.
 createDomainResponse :: CreateDomainResponse
 createDomainResponse = CreateDomainResponse
-
-instance FromXML CreateDomainResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDomainResponse"
 
 instance AWSRequest CreateDomain where
     type Sv CreateDomain = SimpleDB

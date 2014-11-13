@@ -43,6 +43,7 @@ module Network.AWS.EC2.AttachInternetGateway
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data AttachInternetGateway = AttachInternetGateway
     { _aigDryRun            :: Maybe Bool
@@ -92,10 +93,6 @@ data AttachInternetGatewayResponse = AttachInternetGatewayResponse
 -- | 'AttachInternetGatewayResponse' constructor.
 attachInternetGatewayResponse :: AttachInternetGatewayResponse
 attachInternetGatewayResponse = AttachInternetGatewayResponse
-
-instance FromXML AttachInternetGatewayResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttachInternetGatewayResponse"
 
 instance AWSRequest AttachInternetGateway where
     type Sv AttachInternetGateway = EC2

@@ -44,6 +44,7 @@ module Network.AWS.ELB.ConfigureHealthCheck
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data ConfigureHealthCheck = ConfigureHealthCheck
     { _chcHealthCheck      :: HealthCheck
@@ -100,10 +101,6 @@ configureHealthCheckResponse = ConfigureHealthCheckResponse
 -- | The updated healthcheck for the instances.
 chcrHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
 chcrHealthCheck = lens _chcrHealthCheck (\s a -> s { _chcrHealthCheck = a })
-
-instance FromXML ConfigureHealthCheckResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConfigureHealthCheckResponse"
 
 instance AWSRequest ConfigureHealthCheck where
     type Sv ConfigureHealthCheck = ELB

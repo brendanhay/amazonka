@@ -52,6 +52,7 @@ module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer
     { _dazflbAvailabilityZones :: [Text]
@@ -94,11 +95,11 @@ newtype DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZon
     { _dazflbrAvailabilityZones :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DisableAvailabilityZonesForLoadBalancerResponse where
+instance GHC.Exts.IsList DisableAvailabilityZonesForLoadBalancerResponse where
     type Item DisableAvailabilityZonesForLoadBalancerResponse = Text
 
-    fromList = DisableAvailabilityZonesForLoadBalancerResponse . fromList
-    toList   = toList . _dazflbrAvailabilityZones
+    fromList = DisableAvailabilityZonesForLoadBalancerResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dazflbrAvailabilityZones
 
 -- | 'DisableAvailabilityZonesForLoadBalancerResponse' constructor.
 --
@@ -116,10 +117,6 @@ dazflbrAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerRespons
 dazflbrAvailabilityZones =
     lens _dazflbrAvailabilityZones
         (\s a -> s { _dazflbrAvailabilityZones = a })
-
-instance FromXML DisableAvailabilityZonesForLoadBalancerResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DisableAvailabilityZonesForLoadBalancerResponse"
 
 instance AWSRequest DisableAvailabilityZonesForLoadBalancer where
     type Sv DisableAvailabilityZonesForLoadBalancer = ELB

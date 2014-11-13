@@ -49,6 +49,7 @@ module Network.AWS.IAM.CreateRole
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data CreateRole = CreateRole
     { _crAssumeRolePolicyDocument :: Text
@@ -115,10 +116,6 @@ createRoleResponse p1 = CreateRoleResponse
 -- | Information about the role.
 crrRole :: Lens' CreateRoleResponse Role
 crrRole = lens _crrRole (\s a -> s { _crrRole = a })
-
-instance FromXML CreateRoleResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateRoleResponse"
 
 instance AWSRequest CreateRole where
     type Sv CreateRole = IAM

@@ -47,6 +47,7 @@ module Network.AWS.Route53.DeleteHealthCheck
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 newtype DeleteHealthCheck = DeleteHealthCheck
     { _dhcHealthCheckId :: Text

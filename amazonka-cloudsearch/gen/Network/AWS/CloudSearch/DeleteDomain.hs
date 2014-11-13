@@ -43,6 +43,7 @@ module Network.AWS.CloudSearch.DeleteDomain
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 newtype DeleteDomain = DeleteDomain
     { _ddDomainName :: Text
@@ -86,10 +87,6 @@ deleteDomainResponse = DeleteDomainResponse
 
 ddrDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
 ddrDomainStatus = lens _ddrDomainStatus (\s a -> s { _ddrDomainStatus = a })
-
-instance FromXML DeleteDomainResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteDomainResponse"
 
 instance AWSRequest DeleteDomain where
     type Sv DeleteDomain = CloudSearch

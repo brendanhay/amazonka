@@ -44,6 +44,7 @@ module Network.AWS.CloudFormation.DescribeStackResource
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 data DescribeStackResource = DescribeStackResource
     { _dsr1LogicalResourceId :: Text
@@ -104,10 +105,6 @@ describeStackResourceResponse = DescribeStackResourceResponse
 dsrrStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
 dsrrStackResourceDetail =
     lens _dsrrStackResourceDetail (\s a -> s { _dsrrStackResourceDetail = a })
-
-instance FromXML DescribeStackResourceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeStackResourceResponse"
 
 instance AWSRequest DescribeStackResource where
     type Sv DescribeStackResource = CloudFormation

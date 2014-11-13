@@ -43,6 +43,7 @@ module Network.AWS.CloudSearch.DeleteAnalysisScheme
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data DeleteAnalysisScheme = DeleteAnalysisScheme
     { _dasAnalysisSchemeName :: Text
@@ -98,10 +99,6 @@ deleteAnalysisSchemeResponse p1 = DeleteAnalysisSchemeResponse
 dasrAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
 dasrAnalysisScheme =
     lens _dasrAnalysisScheme (\s a -> s { _dasrAnalysisScheme = a })
-
-instance FromXML DeleteAnalysisSchemeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteAnalysisSchemeResponse"
 
 instance AWSRequest DeleteAnalysisScheme where
     type Sv DeleteAnalysisScheme = CloudSearch

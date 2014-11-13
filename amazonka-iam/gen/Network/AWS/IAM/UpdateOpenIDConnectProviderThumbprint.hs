@@ -46,6 +46,7 @@ module Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbprint
     { _uoidcptOpenIDConnectProviderArn :: Text
@@ -93,10 +94,6 @@ data UpdateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProvider
 -- | 'UpdateOpenIDConnectProviderThumbprintResponse' constructor.
 updateOpenIDConnectProviderThumbprintResponse :: UpdateOpenIDConnectProviderThumbprintResponse
 updateOpenIDConnectProviderThumbprintResponse = UpdateOpenIDConnectProviderThumbprintResponse
-
-instance FromXML UpdateOpenIDConnectProviderThumbprintResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateOpenIDConnectProviderThumbprintResponse"
 
 instance AWSRequest UpdateOpenIDConnectProviderThumbprint where
     type Sv UpdateOpenIDConnectProviderThumbprint = IAM

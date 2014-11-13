@@ -39,6 +39,7 @@ module Network.AWS.Redshift.DeleteEventSubscription
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 newtype DeleteEventSubscription = DeleteEventSubscription
     { _desSubscriptionName :: Text
@@ -73,10 +74,6 @@ data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
 -- | 'DeleteEventSubscriptionResponse' constructor.
 deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
-
-instance FromXML DeleteEventSubscriptionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteEventSubscriptionResponse"
 
 instance AWSRequest DeleteEventSubscription where
     type Sv DeleteEventSubscription = Redshift

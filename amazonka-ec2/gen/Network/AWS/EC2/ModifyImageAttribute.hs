@@ -49,6 +49,7 @@ module Network.AWS.EC2.ModifyImageAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ModifyImageAttribute = ModifyImageAttribute
     { _miaAttribute        :: Maybe Text
@@ -158,10 +159,6 @@ data ModifyImageAttributeResponse = ModifyImageAttributeResponse
 -- | 'ModifyImageAttributeResponse' constructor.
 modifyImageAttributeResponse :: ModifyImageAttributeResponse
 modifyImageAttributeResponse = ModifyImageAttributeResponse
-
-instance FromXML ModifyImageAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyImageAttributeResponse"
 
 instance AWSRequest ModifyImageAttribute where
     type Sv ModifyImageAttribute = EC2

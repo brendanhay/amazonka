@@ -46,6 +46,7 @@ module Network.AWS.EC2.BundleInstance
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data BundleInstance = BundleInstance
     { _biDryRun     :: Maybe Bool
@@ -109,10 +110,6 @@ bundleInstanceResponse = BundleInstanceResponse
 -- | Information about the bundle task.
 birBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
 birBundleTask = lens _birBundleTask (\s a -> s { _birBundleTask = a })
-
-instance FromXML BundleInstanceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BundleInstanceResponse"
 
 instance AWSRequest BundleInstance where
     type Sv BundleInstance = EC2

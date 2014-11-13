@@ -40,6 +40,7 @@ module Network.AWS.SNS.DeleteEndpoint
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 newtype DeleteEndpoint = DeleteEndpoint
     { _deEndpointArn :: Text
@@ -72,10 +73,6 @@ data DeleteEndpointResponse = DeleteEndpointResponse
 -- | 'DeleteEndpointResponse' constructor.
 deleteEndpointResponse :: DeleteEndpointResponse
 deleteEndpointResponse = DeleteEndpointResponse
-
-instance FromXML DeleteEndpointResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteEndpointResponse"
 
 instance AWSRequest DeleteEndpoint where
     type Sv DeleteEndpoint = SNS

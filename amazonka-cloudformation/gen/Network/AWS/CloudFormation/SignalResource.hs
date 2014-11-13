@@ -47,6 +47,7 @@ module Network.AWS.CloudFormation.SignalResource
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 data SignalResource = SignalResource
     { _srLogicalResourceId :: Text
@@ -113,10 +114,6 @@ data SignalResourceResponse = SignalResourceResponse
 -- | 'SignalResourceResponse' constructor.
 signalResourceResponse :: SignalResourceResponse
 signalResourceResponse = SignalResourceResponse
-
-instance FromXML SignalResourceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SignalResourceResponse"
 
 instance AWSRequest SignalResource where
     type Sv SignalResource = CloudFormation

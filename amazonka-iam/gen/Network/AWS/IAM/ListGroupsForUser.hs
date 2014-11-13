@@ -46,6 +46,7 @@ module Network.AWS.IAM.ListGroupsForUser
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListGroupsForUser = ListGroupsForUser
     { _lgfuMarker   :: Maybe Text
@@ -130,10 +131,6 @@ lgfurIsTruncated = lens _lgfurIsTruncated (\s a -> s { _lgfurIsTruncated = a })
 -- use for the Marker parameter in a subsequent pagination request.
 lgfurMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
 lgfurMarker = lens _lgfurMarker (\s a -> s { _lgfurMarker = a })
-
-instance FromXML ListGroupsForUserResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListGroupsForUserResponse"
 
 instance AWSRequest ListGroupsForUser where
     type Sv ListGroupsForUser = IAM

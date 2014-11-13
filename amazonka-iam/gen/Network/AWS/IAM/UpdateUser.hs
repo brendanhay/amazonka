@@ -43,6 +43,7 @@ module Network.AWS.IAM.UpdateUser
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data UpdateUser = UpdateUser
     { _uuNewPath     :: Maybe Text
@@ -94,10 +95,6 @@ data UpdateUserResponse = UpdateUserResponse
 -- | 'UpdateUserResponse' constructor.
 updateUserResponse :: UpdateUserResponse
 updateUserResponse = UpdateUserResponse
-
-instance FromXML UpdateUserResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateUserResponse"
 
 instance AWSRequest UpdateUser where
     type Sv UpdateUser = IAM

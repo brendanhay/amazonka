@@ -44,6 +44,7 @@ module Network.AWS.SQS.ListQueues
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
+import qualified GHC.Exts
 
 newtype ListQueues = ListQueues
     { _lqQueueNamePrefix :: Maybe Text
@@ -75,11 +76,11 @@ newtype ListQueuesResponse = ListQueuesResponse
     { _lqrQueueUrls :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList ListQueuesResponse where
+instance GHC.Exts.IsList ListQueuesResponse where
     type Item ListQueuesResponse = Text
 
-    fromList = ListQueuesResponse . fromList
-    toList   = toList . _lqrQueueUrls
+    fromList = ListQueuesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _lqrQueueUrls
 
 -- | 'ListQueuesResponse' constructor.
 --
@@ -95,10 +96,6 @@ listQueuesResponse = ListQueuesResponse
 -- | A list of queue URLs, up to 1000 entries.
 lqrQueueUrls :: Lens' ListQueuesResponse [Text]
 lqrQueueUrls = lens _lqrQueueUrls (\s a -> s { _lqrQueueUrls = a })
-
-instance FromXML ListQueuesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListQueuesResponse"
 
 instance AWSRequest ListQueues where
     type Sv ListQueues = SQS

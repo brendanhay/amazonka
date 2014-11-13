@@ -393,6 +393,7 @@ module Network.AWS.CloudFront.Types
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2014-05-31@) of the Amazon CloudFront.
 data CloudFront deriving (Typeable)

@@ -40,6 +40,7 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 data DeleteStreamingDistribution2014_05_31 = DeleteStreamingDistribution2014_05_31
     { _dsdId      :: Text

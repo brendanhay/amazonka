@@ -63,6 +63,7 @@ module Network.AWS.ElastiCache.CreateCacheCluster
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data CreateCacheCluster = CreateCacheCluster
     { _cccAZMode                     :: Maybe Text
@@ -367,10 +368,6 @@ createCacheClusterResponse = CreateCacheClusterResponse
 
 cccrCacheCluster :: Lens' CreateCacheClusterResponse (Maybe CacheCluster)
 cccrCacheCluster = lens _cccrCacheCluster (\s a -> s { _cccrCacheCluster = a })
-
-instance FromXML CreateCacheClusterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateCacheClusterResponse"
 
 instance AWSRequest CreateCacheCluster where
     type Sv CreateCacheCluster = ElastiCache

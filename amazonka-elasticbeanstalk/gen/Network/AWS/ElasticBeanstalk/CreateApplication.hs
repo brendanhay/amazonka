@@ -43,6 +43,7 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data CreateApplication = CreateApplication
     { _caApplicationName :: Text
@@ -98,10 +99,6 @@ createApplicationResponse = CreateApplicationResponse
 -- | The ApplicationDescription of the application.
 carApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)
 carApplication = lens _carApplication (\s a -> s { _carApplication = a })
-
-instance FromXML CreateApplicationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateApplicationResponse"
 
 instance AWSRequest CreateApplication where
     type Sv CreateApplication = ElasticBeanstalk

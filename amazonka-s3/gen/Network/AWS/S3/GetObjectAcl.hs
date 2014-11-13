@@ -44,6 +44,7 @@ module Network.AWS.S3.GetObjectAcl
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data GetObjectAcl = GetObjectAcl
     { _goaBucket    :: Text

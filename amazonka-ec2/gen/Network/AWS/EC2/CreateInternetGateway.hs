@@ -44,6 +44,7 @@ module Network.AWS.EC2.CreateInternetGateway
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 newtype CreateInternetGateway = CreateInternetGateway
     { _cigDryRun :: Maybe Bool
@@ -87,10 +88,6 @@ createInternetGatewayResponse = CreateInternetGatewayResponse
 cigrInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
 cigrInternetGateway =
     lens _cigrInternetGateway (\s a -> s { _cigrInternetGateway = a })
-
-instance FromXML CreateInternetGatewayResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateInternetGatewayResponse"
 
 instance AWSRequest CreateInternetGateway where
     type Sv CreateInternetGateway = EC2

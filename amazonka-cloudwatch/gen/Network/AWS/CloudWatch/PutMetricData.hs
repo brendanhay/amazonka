@@ -51,6 +51,7 @@ module Network.AWS.CloudWatch.PutMetricData
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
+import qualified GHC.Exts
 
 data PutMetricData = PutMetricData
     { _pmdMetricData :: [MetricDatum]
@@ -91,10 +92,6 @@ data PutMetricDataResponse = PutMetricDataResponse
 -- | 'PutMetricDataResponse' constructor.
 putMetricDataResponse :: PutMetricDataResponse
 putMetricDataResponse = PutMetricDataResponse
-
-instance FromXML PutMetricDataResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutMetricDataResponse"
 
 instance AWSRequest PutMetricData where
     type Sv PutMetricData = CloudWatch

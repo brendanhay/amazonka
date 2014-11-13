@@ -55,6 +55,7 @@ module Network.AWS.EC2.RequestSpotInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data RequestSpotInstances = RequestSpotInstances
     { _rsiAvailabilityZoneGroup :: Maybe Text
@@ -180,11 +181,11 @@ newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsirSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList RequestSpotInstancesResponse where
+instance GHC.Exts.IsList RequestSpotInstancesResponse where
     type Item RequestSpotInstancesResponse = SpotInstanceRequest
 
-    fromList = RequestSpotInstancesResponse . fromList
-    toList   = toList . _rsirSpotInstanceRequests
+    fromList = RequestSpotInstancesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _rsirSpotInstanceRequests
 
 -- | 'RequestSpotInstancesResponse' constructor.
 --
@@ -202,10 +203,6 @@ rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequ
 rsirSpotInstanceRequests =
     lens _rsirSpotInstanceRequests
         (\s a -> s { _rsirSpotInstanceRequests = a })
-
-instance FromXML RequestSpotInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RequestSpotInstancesResponse"
 
 instance AWSRequest RequestSpotInstances where
     type Sv RequestSpotInstances = EC2

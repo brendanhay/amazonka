@@ -47,6 +47,7 @@ module Network.AWS.SNS.ConfirmSubscription
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 data ConfirmSubscription = ConfirmSubscription
     { _csAuthenticateOnUnsubscribe :: Maybe Text
@@ -114,10 +115,6 @@ confirmSubscriptionResponse = ConfirmSubscriptionResponse
 csrSubscriptionArn :: Lens' ConfirmSubscriptionResponse (Maybe Text)
 csrSubscriptionArn =
     lens _csrSubscriptionArn (\s a -> s { _csrSubscriptionArn = a })
-
-instance FromXML ConfirmSubscriptionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConfirmSubscriptionResponse"
 
 instance AWSRequest ConfirmSubscription where
     type Sv ConfirmSubscription = SNS

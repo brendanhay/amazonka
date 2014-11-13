@@ -48,6 +48,7 @@ module Network.AWS.Redshift.ResetClusterParameterGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data ResetClusterParameterGroup = ResetClusterParameterGroup
     { _rcpgParameterGroupName :: Text
@@ -126,10 +127,6 @@ rcpgrParameterGroupStatus :: Lens' ResetClusterParameterGroupResponse (Maybe Tex
 rcpgrParameterGroupStatus =
     lens _rcpgrParameterGroupStatus
         (\s a -> s { _rcpgrParameterGroupStatus = a })
-
-instance FromXML ResetClusterParameterGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResetClusterParameterGroupResponse"
 
 instance AWSRequest ResetClusterParameterGroup where
     type Sv ResetClusterParameterGroup = Redshift

@@ -41,6 +41,7 @@ module Network.AWS.EC2.DeleteNetworkInterface
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteNetworkInterface = DeleteNetworkInterface
     { _dni2DryRun             :: Maybe Bool
@@ -81,10 +82,6 @@ data DeleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
 -- | 'DeleteNetworkInterfaceResponse' constructor.
 deleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse
 deleteNetworkInterfaceResponse = DeleteNetworkInterfaceResponse
-
-instance FromXML DeleteNetworkInterfaceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteNetworkInterfaceResponse"
 
 instance AWSRequest DeleteNetworkInterface where
     type Sv DeleteNetworkInterface = EC2

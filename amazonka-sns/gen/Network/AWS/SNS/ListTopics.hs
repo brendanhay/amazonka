@@ -45,6 +45,7 @@ module Network.AWS.SNS.ListTopics
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 newtype ListTopics = ListTopics
     { _ltNextToken :: Maybe Text
@@ -97,10 +98,6 @@ ltrNextToken = lens _ltrNextToken (\s a -> s { _ltrNextToken = a })
 -- | A list of topic ARNs.
 ltrTopics :: Lens' ListTopicsResponse [Topic]
 ltrTopics = lens _ltrTopics (\s a -> s { _ltrTopics = a })
-
-instance FromXML ListTopicsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListTopicsResponse"
 
 instance AWSRequest ListTopics where
     type Sv ListTopics = SNS

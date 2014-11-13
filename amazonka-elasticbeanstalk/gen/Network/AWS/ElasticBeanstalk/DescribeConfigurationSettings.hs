@@ -50,6 +50,7 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data DescribeConfigurationSettings = DescribeConfigurationSettings
     { _dcsApplicationName :: Text
@@ -106,11 +107,11 @@ newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsRes
     { _dcsrConfigurationSettings :: [ConfigurationSettingsDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeConfigurationSettingsResponse where
+instance GHC.Exts.IsList DescribeConfigurationSettingsResponse where
     type Item DescribeConfigurationSettingsResponse = ConfigurationSettingsDescription
 
-    fromList = DescribeConfigurationSettingsResponse . fromList
-    toList   = toList . _dcsrConfigurationSettings
+    fromList = DescribeConfigurationSettingsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dcsrConfigurationSettings
 
 -- | 'DescribeConfigurationSettingsResponse' constructor.
 --
@@ -128,10 +129,6 @@ dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [Config
 dcsrConfigurationSettings =
     lens _dcsrConfigurationSettings
         (\s a -> s { _dcsrConfigurationSettings = a })
-
-instance FromXML DescribeConfigurationSettingsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeConfigurationSettingsResponse"
 
 instance AWSRequest DescribeConfigurationSettings where
     type Sv DescribeConfigurationSettings = ElasticBeanstalk

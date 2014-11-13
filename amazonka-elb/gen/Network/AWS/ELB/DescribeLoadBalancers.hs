@@ -48,6 +48,7 @@ module Network.AWS.ELB.DescribeLoadBalancers
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data DescribeLoadBalancers = DescribeLoadBalancers
     { _dlbLoadBalancerNames :: [Text]
@@ -121,10 +122,6 @@ dlbrLoadBalancerDescriptions =
 -- page of results.
 dlbrNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
 dlbrNextMarker = lens _dlbrNextMarker (\s a -> s { _dlbrNextMarker = a })
-
-instance FromXML DescribeLoadBalancersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLoadBalancersResponse"
 
 instance AWSRequest DescribeLoadBalancers where
     type Sv DescribeLoadBalancers = ELB

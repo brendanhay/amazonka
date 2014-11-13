@@ -46,6 +46,7 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups
     { _dcsg1CacheSecurityGroupName :: Maybe Text
@@ -124,10 +125,6 @@ dcsgr1CacheSecurityGroups =
 -- | Provides an identifier to allow retrieval of paginated results.
 dcsgr1Marker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
 dcsgr1Marker = lens _dcsgr1Marker (\s a -> s { _dcsgr1Marker = a })
-
-instance FromXML DescribeCacheSecurityGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeCacheSecurityGroupsResponse"
 
 instance AWSRequest DescribeCacheSecurityGroups where
     type Sv DescribeCacheSecurityGroups = ElastiCache

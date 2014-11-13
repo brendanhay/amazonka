@@ -43,6 +43,7 @@ module Network.AWS.CloudSearch.DeleteSuggester
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data DeleteSuggester = DeleteSuggester
     { _ds3DomainName    :: Text
@@ -96,10 +97,6 @@ deleteSuggesterResponse p1 = DeleteSuggesterResponse
 -- | The status of the suggester being deleted.
 dsr1Suggester :: Lens' DeleteSuggesterResponse SuggesterStatus
 dsr1Suggester = lens _dsr1Suggester (\s a -> s { _dsr1Suggester = a })
-
-instance FromXML DeleteSuggesterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteSuggesterResponse"
 
 instance AWSRequest DeleteSuggester where
     type Sv DeleteSuggester = CloudSearch

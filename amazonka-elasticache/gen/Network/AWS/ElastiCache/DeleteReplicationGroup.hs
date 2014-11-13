@@ -49,6 +49,7 @@ module Network.AWS.ElastiCache.DeleteReplicationGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data DeleteReplicationGroup = DeleteReplicationGroup
     { _drgFinalSnapshotIdentifier :: Maybe Text
@@ -118,10 +119,6 @@ deleteReplicationGroupResponse = DeleteReplicationGroupResponse
 drgrReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
 drgrReplicationGroup =
     lens _drgrReplicationGroup (\s a -> s { _drgrReplicationGroup = a })
-
-instance FromXML DeleteReplicationGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteReplicationGroupResponse"
 
 instance AWSRequest DeleteReplicationGroup where
     type Sv DeleteReplicationGroup = ElastiCache

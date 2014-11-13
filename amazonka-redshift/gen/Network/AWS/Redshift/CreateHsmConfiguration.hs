@@ -53,6 +53,7 @@ module Network.AWS.Redshift.CreateHsmConfiguration
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data CreateHsmConfiguration = CreateHsmConfiguration
     { _chcDescription                :: Text
@@ -152,10 +153,6 @@ createHsmConfigurationResponse = CreateHsmConfigurationResponse
 chcrHsmConfiguration :: Lens' CreateHsmConfigurationResponse (Maybe HsmConfiguration)
 chcrHsmConfiguration =
     lens _chcrHsmConfiguration (\s a -> s { _chcrHsmConfiguration = a })
-
-instance FromXML CreateHsmConfigurationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateHsmConfigurationResponse"
 
 instance AWSRequest CreateHsmConfiguration where
     type Sv CreateHsmConfiguration = Redshift

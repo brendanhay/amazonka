@@ -48,6 +48,7 @@ module Network.AWS.IAM.ListInstanceProfilesForRole
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListInstanceProfilesForRole = ListInstanceProfilesForRole
     { _lipfrMarker   :: Maybe Text
@@ -137,10 +138,6 @@ lipfrrIsTruncated =
 -- use for the Marker parameter in a subsequent pagination request.
 lipfrrMarker :: Lens' ListInstanceProfilesForRoleResponse (Maybe Text)
 lipfrrMarker = lens _lipfrrMarker (\s a -> s { _lipfrrMarker = a })
-
-instance FromXML ListInstanceProfilesForRoleResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListInstanceProfilesForRoleResponse"
 
 instance AWSRequest ListInstanceProfilesForRole where
     type Sv ListInstanceProfilesForRole = IAM

@@ -48,6 +48,7 @@ module Network.AWS.Redshift.DescribeClusters
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data DescribeClusters = DescribeClusters
     { _dcClusterIdentifier :: Maybe Text
@@ -133,10 +134,6 @@ dcrClusters = lens _dcrClusters (\s a -> s { _dcrClusters = a })
 -- request.
 dcrMarker :: Lens' DescribeClustersResponse (Maybe Text)
 dcrMarker = lens _dcrMarker (\s a -> s { _dcrMarker = a })
-
-instance FromXML DescribeClustersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeClustersResponse"
 
 instance AWSRequest DescribeClusters where
     type Sv DescribeClusters = Redshift

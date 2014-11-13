@@ -41,6 +41,7 @@ module Network.AWS.EC2.DeleteSubnet
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteSubnet = DeleteSubnet
     { _ds2DryRun   :: Maybe Bool
@@ -80,10 +81,6 @@ data DeleteSubnetResponse = DeleteSubnetResponse
 -- | 'DeleteSubnetResponse' constructor.
 deleteSubnetResponse :: DeleteSubnetResponse
 deleteSubnetResponse = DeleteSubnetResponse
-
-instance FromXML DeleteSubnetResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteSubnetResponse"
 
 instance AWSRequest DeleteSubnet where
     type Sv DeleteSubnet = EC2

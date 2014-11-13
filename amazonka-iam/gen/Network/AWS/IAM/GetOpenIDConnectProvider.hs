@@ -44,6 +44,7 @@ module Network.AWS.IAM.GetOpenIDConnectProvider
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype GetOpenIDConnectProvider = GetOpenIDConnectProvider
     { _goidcpOpenIDConnectProviderArn :: Text
@@ -126,10 +127,6 @@ goidcprThumbprintList =
 -- information, see CreateOpenIDConnectProvider.
 goidcprUrl :: Lens' GetOpenIDConnectProviderResponse (Maybe Text)
 goidcprUrl = lens _goidcprUrl (\s a -> s { _goidcprUrl = a })
-
-instance FromXML GetOpenIDConnectProviderResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetOpenIDConnectProviderResponse"
 
 instance AWSRequest GetOpenIDConnectProvider where
     type Sv GetOpenIDConnectProvider = IAM

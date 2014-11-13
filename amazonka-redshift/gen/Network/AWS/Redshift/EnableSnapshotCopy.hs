@@ -44,6 +44,7 @@ module Network.AWS.Redshift.EnableSnapshotCopy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data EnableSnapshotCopy = EnableSnapshotCopy
     { _escClusterIdentifier :: Text
@@ -113,10 +114,6 @@ enableSnapshotCopyResponse = EnableSnapshotCopyResponse
 
 escrCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
 escrCluster = lens _escrCluster (\s a -> s { _escrCluster = a })
-
-instance FromXML EnableSnapshotCopyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnableSnapshotCopyResponse"
 
 instance AWSRequest EnableSnapshotCopy where
     type Sv EnableSnapshotCopy = Redshift

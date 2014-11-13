@@ -42,6 +42,7 @@ module Network.AWS.RDS.DeleteDBSnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 newtype DeleteDBSnapshot = DeleteDBSnapshot
     { _ddbs1DBSnapshotIdentifier :: Text
@@ -88,10 +89,6 @@ deleteDBSnapshotResponse = DeleteDBSnapshotResponse
 
 ddbsrDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
 ddbsrDBSnapshot = lens _ddbsrDBSnapshot (\s a -> s { _ddbsrDBSnapshot = a })
-
-instance FromXML DeleteDBSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteDBSnapshotResponse"
 
 instance AWSRequest DeleteDBSnapshot where
     type Sv DeleteDBSnapshot = RDS

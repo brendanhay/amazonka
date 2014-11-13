@@ -44,6 +44,7 @@ module Network.AWS.S3.PutBucketRequestPayment
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data PutBucketRequestPayment = PutBucketRequestPayment
     { _pbrpBucket                      :: Text

@@ -60,6 +60,7 @@ module Network.AWS.EC2.RegisterImage
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data RegisterImage = RegisterImage
     { _ri1Architecture        :: Maybe Text
@@ -195,10 +196,6 @@ registerImageResponse = RegisterImageResponse
 -- | The ID of the newly registered AMI.
 rirImageId :: Lens' RegisterImageResponse (Maybe Text)
 rirImageId = lens _rirImageId (\s a -> s { _rirImageId = a })
-
-instance FromXML RegisterImageResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RegisterImageResponse"
 
 instance AWSRequest RegisterImage where
     type Sv RegisterImage = EC2

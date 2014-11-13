@@ -40,6 +40,7 @@ module Network.AWS.Route53.GetHealthCheckCount
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 data GetHealthCheckCount = GetHealthCheckCount
     deriving (Eq, Ord, Show, Generic)

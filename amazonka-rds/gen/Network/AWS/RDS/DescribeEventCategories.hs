@@ -44,6 +44,7 @@ module Network.AWS.RDS.DescribeEventCategories
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeEventCategories = DescribeEventCategories
     { _decFilters    :: [Filter]
@@ -82,11 +83,11 @@ newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
     { _decrEventCategoriesMapList :: [EventCategoriesMap]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeEventCategoriesResponse where
+instance GHC.Exts.IsList DescribeEventCategoriesResponse where
     type Item DescribeEventCategoriesResponse = EventCategoriesMap
 
-    fromList = DescribeEventCategoriesResponse . fromList
-    toList   = toList . _decrEventCategoriesMapList
+    fromList = DescribeEventCategoriesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _decrEventCategoriesMapList
 
 -- | 'DescribeEventCategoriesResponse' constructor.
 --
@@ -104,10 +105,6 @@ decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCatego
 decrEventCategoriesMapList =
     lens _decrEventCategoriesMapList
         (\s a -> s { _decrEventCategoriesMapList = a })
-
-instance FromXML DescribeEventCategoriesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeEventCategoriesResponse"
 
 instance AWSRequest DescribeEventCategories where
     type Sv DescribeEventCategories = RDS

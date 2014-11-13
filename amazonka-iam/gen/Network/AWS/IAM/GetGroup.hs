@@ -47,6 +47,7 @@ module Network.AWS.IAM.GetGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data GetGroup = GetGroup
     { _ggGroupName :: Text
@@ -141,10 +142,6 @@ ggrMarker = lens _ggrMarker (\s a -> s { _ggrMarker = a })
 -- | A list of users in the group.
 ggrUsers :: Lens' GetGroupResponse [User]
 ggrUsers = lens _ggrUsers (\s a -> s { _ggrUsers = a })
-
-instance FromXML GetGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetGroupResponse"
 
 instance AWSRequest GetGroup where
     type Sv GetGroup = IAM

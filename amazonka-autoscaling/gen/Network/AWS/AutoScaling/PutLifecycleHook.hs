@@ -58,6 +58,7 @@ module Network.AWS.AutoScaling.PutLifecycleHook
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data PutLifecycleHook = PutLifecycleHook
     { _plhAutoScalingGroupName  :: Text
@@ -180,10 +181,6 @@ data PutLifecycleHookResponse = PutLifecycleHookResponse
 -- | 'PutLifecycleHookResponse' constructor.
 putLifecycleHookResponse :: PutLifecycleHookResponse
 putLifecycleHookResponse = PutLifecycleHookResponse
-
-instance FromXML PutLifecycleHookResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutLifecycleHookResponse"
 
 instance AWSRequest PutLifecycleHook where
     type Sv PutLifecycleHook = AutoScaling

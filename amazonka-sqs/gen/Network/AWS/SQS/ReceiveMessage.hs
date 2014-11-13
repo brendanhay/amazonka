@@ -67,6 +67,7 @@ module Network.AWS.SQS.ReceiveMessage
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
+import qualified GHC.Exts
 
 data ReceiveMessage = ReceiveMessage
     { _rmAttributeNames        :: [Text]
@@ -162,11 +163,11 @@ newtype ReceiveMessageResponse = ReceiveMessageResponse
     { _rmrMessages :: [Message]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ReceiveMessageResponse where
+instance GHC.Exts.IsList ReceiveMessageResponse where
     type Item ReceiveMessageResponse = Message
 
-    fromList = ReceiveMessageResponse . fromList
-    toList   = toList . _rmrMessages
+    fromList = ReceiveMessageResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _rmrMessages
 
 -- | 'ReceiveMessageResponse' constructor.
 --
@@ -182,10 +183,6 @@ receiveMessageResponse = ReceiveMessageResponse
 -- | A list of messages.
 rmrMessages :: Lens' ReceiveMessageResponse [Message]
 rmrMessages = lens _rmrMessages (\s a -> s { _rmrMessages = a })
-
-instance FromXML ReceiveMessageResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReceiveMessageResponse"
 
 instance AWSRequest ReceiveMessage where
     type Sv ReceiveMessage = SQS

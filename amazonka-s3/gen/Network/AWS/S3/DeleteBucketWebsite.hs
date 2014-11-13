@@ -39,6 +39,7 @@ module Network.AWS.S3.DeleteBucketWebsite
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype DeleteBucketWebsite = DeleteBucketWebsite
     { _dbwBucket :: Text

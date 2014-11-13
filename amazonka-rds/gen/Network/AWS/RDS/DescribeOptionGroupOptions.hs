@@ -46,6 +46,7 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeOptionGroupOptions = DescribeOptionGroupOptions
     { _dogoEngineName         :: Text
@@ -140,10 +141,6 @@ dogorMarker = lens _dogorMarker (\s a -> s { _dogorMarker = a })
 dogorOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
 dogorOptionGroupOptions =
     lens _dogorOptionGroupOptions (\s a -> s { _dogorOptionGroupOptions = a })
-
-instance FromXML DescribeOptionGroupOptionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeOptionGroupOptionsResponse"
 
 instance AWSRequest DescribeOptionGroupOptions where
     type Sv DescribeOptionGroupOptions = RDS

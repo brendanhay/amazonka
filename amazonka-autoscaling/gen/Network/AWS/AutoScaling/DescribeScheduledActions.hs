@@ -49,6 +49,7 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribeScheduledActions = DescribeScheduledActions
     { _dsa1AutoScalingGroupName :: Maybe Text
@@ -154,10 +155,6 @@ dsarScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [Sched
 dsarScheduledUpdateGroupActions =
     lens _dsarScheduledUpdateGroupActions
         (\s a -> s { _dsarScheduledUpdateGroupActions = a })
-
-instance FromXML DescribeScheduledActionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeScheduledActionsResponse"
 
 instance AWSRequest DescribeScheduledActions where
     type Sv DescribeScheduledActions = AutoScaling

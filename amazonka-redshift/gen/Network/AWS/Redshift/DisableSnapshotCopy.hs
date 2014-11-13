@@ -42,6 +42,7 @@ module Network.AWS.Redshift.DisableSnapshotCopy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 newtype DisableSnapshotCopy = DisableSnapshotCopy
     { _dscClusterIdentifier :: Text
@@ -89,10 +90,6 @@ disableSnapshotCopyResponse = DisableSnapshotCopyResponse
 
 dscrCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
 dscrCluster = lens _dscrCluster (\s a -> s { _dscrCluster = a })
-
-instance FromXML DisableSnapshotCopyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DisableSnapshotCopyResponse"
 
 instance AWSRequest DisableSnapshotCopy where
     type Sv DisableSnapshotCopy = Redshift

@@ -57,6 +57,7 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
     { _cdbirrAutoMinorVersionUpgrade    :: Maybe Bool
@@ -248,10 +249,6 @@ createDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
 cdbirrrDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
 cdbirrrDBInstance =
     lens _cdbirrrDBInstance (\s a -> s { _cdbirrrDBInstance = a })
-
-instance FromXML CreateDBInstanceReadReplicaResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDBInstanceReadReplicaResponse"
 
 instance AWSRequest CreateDBInstanceReadReplica where
     type Sv CreateDBInstanceReadReplica = RDS

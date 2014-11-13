@@ -59,6 +59,7 @@ module Network.AWS.ImportExport.GetStatus
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
+import qualified GHC.Exts
 
 newtype GetStatus = GetStatus
     { _gsJobId :: Text
@@ -214,10 +215,6 @@ gsrSignatureFileContents =
 gsrTrackingNumber :: Lens' GetStatusResponse (Maybe Text)
 gsrTrackingNumber =
     lens _gsrTrackingNumber (\s a -> s { _gsrTrackingNumber = a })
-
-instance FromXML GetStatusResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetStatusResponse"
 
 instance AWSRequest GetStatus where
     type Sv GetStatus = ImportExport

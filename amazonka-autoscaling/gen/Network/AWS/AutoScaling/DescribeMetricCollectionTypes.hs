@@ -41,6 +41,7 @@ module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data DescribeMetricCollectionTypes = DescribeMetricCollectionTypes
     deriving (Eq, Ord, Show, Generic)
@@ -84,10 +85,6 @@ dmctrGranularities =
 -- GroupTotalInstances.
 dmctrMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
 dmctrMetrics = lens _dmctrMetrics (\s a -> s { _dmctrMetrics = a })
-
-instance FromXML DescribeMetricCollectionTypesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeMetricCollectionTypesResponse"
 
 instance AWSRequest DescribeMetricCollectionTypes where
     type Sv DescribeMetricCollectionTypes = AutoScaling

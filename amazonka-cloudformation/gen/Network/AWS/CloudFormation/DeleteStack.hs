@@ -41,6 +41,7 @@ module Network.AWS.CloudFormation.DeleteStack
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 newtype DeleteStack = DeleteStack
     { _dsStackName :: Text
@@ -73,10 +74,6 @@ data DeleteStackResponse = DeleteStackResponse
 -- | 'DeleteStackResponse' constructor.
 deleteStackResponse :: DeleteStackResponse
 deleteStackResponse = DeleteStackResponse
-
-instance FromXML DeleteStackResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteStackResponse"
 
 instance AWSRequest DeleteStack where
     type Sv DeleteStack = CloudFormation

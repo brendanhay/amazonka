@@ -47,6 +47,7 @@ module Network.AWS.EC2.DetachVpnGateway
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DetachVpnGateway = DetachVpnGateway
     { _dvg1DryRun       :: Maybe Bool
@@ -95,10 +96,6 @@ data DetachVpnGatewayResponse = DetachVpnGatewayResponse
 -- | 'DetachVpnGatewayResponse' constructor.
 detachVpnGatewayResponse :: DetachVpnGatewayResponse
 detachVpnGatewayResponse = DetachVpnGatewayResponse
-
-instance FromXML DetachVpnGatewayResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DetachVpnGatewayResponse"
 
 instance AWSRequest DetachVpnGateway where
     type Sv DetachVpnGateway = EC2

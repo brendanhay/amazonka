@@ -42,6 +42,7 @@ module Network.AWS.Route53.GetHealthCheck
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 newtype GetHealthCheck = GetHealthCheck
     { _ghcHealthCheckId :: Text

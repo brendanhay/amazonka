@@ -44,6 +44,7 @@ module Network.AWS.IAM.GetUser
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype GetUser = GetUser
     { _guUserName :: Maybe Text
@@ -90,10 +91,6 @@ getUserResponse p1 = GetUserResponse
 -- | Information about the user.
 gurUser :: Lens' GetUserResponse User
 gurUser = lens _gurUser (\s a -> s { _gurUser = a })
-
-instance FromXML GetUserResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetUserResponse"
 
 instance AWSRequest GetUser where
     type Sv GetUser = IAM

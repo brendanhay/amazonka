@@ -43,6 +43,7 @@ module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
     { _mscrpClusterIdentifier :: Text
@@ -105,10 +106,6 @@ modifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodRes
 
 mscrprCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
 mscrprCluster = lens _mscrprCluster (\s a -> s { _mscrprCluster = a })
-
-instance FromXML ModifySnapshotCopyRetentionPeriodResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifySnapshotCopyRetentionPeriodResponse"
 
 instance AWSRequest ModifySnapshotCopyRetentionPeriod where
     type Sv ModifySnapshotCopyRetentionPeriod = Redshift

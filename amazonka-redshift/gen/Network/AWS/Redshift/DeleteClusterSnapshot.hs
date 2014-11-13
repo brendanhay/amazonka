@@ -48,6 +48,7 @@ module Network.AWS.Redshift.DeleteClusterSnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data DeleteClusterSnapshot = DeleteClusterSnapshot
     { _dcsSnapshotClusterIdentifier :: Maybe Text
@@ -106,10 +107,6 @@ deleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
 
 dcsrSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
 dcsrSnapshot = lens _dcsrSnapshot (\s a -> s { _dcsrSnapshot = a })
-
-instance FromXML DeleteClusterSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteClusterSnapshotResponse"
 
 instance AWSRequest DeleteClusterSnapshot where
     type Sv DeleteClusterSnapshot = Redshift

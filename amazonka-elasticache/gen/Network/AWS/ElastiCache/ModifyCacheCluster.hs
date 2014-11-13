@@ -58,6 +58,7 @@ module Network.AWS.ElastiCache.ModifyCacheCluster
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data ModifyCacheCluster = ModifyCacheCluster
     { _mccAZMode                     :: Maybe Text
@@ -338,10 +339,6 @@ modifyCacheClusterResponse = ModifyCacheClusterResponse
 
 mccrCacheCluster :: Lens' ModifyCacheClusterResponse (Maybe CacheCluster)
 mccrCacheCluster = lens _mccrCacheCluster (\s a -> s { _mccrCacheCluster = a })
-
-instance FromXML ModifyCacheClusterResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyCacheClusterResponse"
 
 instance AWSRequest ModifyCacheCluster where
     type Sv ModifyCacheCluster = ElastiCache

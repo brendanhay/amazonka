@@ -39,6 +39,7 @@ module Network.AWS.CloudSearch.ListDomainNames
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data ListDomainNames = ListDomainNames
     deriving (Eq, Ord, Show, Generic)
@@ -71,10 +72,6 @@ listDomainNamesResponse = ListDomainNamesResponse
 ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
 ldnrDomainNames = lens _ldnrDomainNames (\s a -> s { _ldnrDomainNames = a })
     . _Map
-
-instance FromXML ListDomainNamesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListDomainNamesResponse"
 
 instance AWSRequest ListDomainNames where
     type Sv ListDomainNames = CloudSearch

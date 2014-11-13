@@ -41,6 +41,7 @@ module Network.AWS.EC2.DisableVgwRoutePropagation
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DisableVgwRoutePropagation = DisableVgwRoutePropagation
     { _dvrpGatewayId    :: Text
@@ -82,10 +83,6 @@ data DisableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
 -- | 'DisableVgwRoutePropagationResponse' constructor.
 disableVgwRoutePropagationResponse :: DisableVgwRoutePropagationResponse
 disableVgwRoutePropagationResponse = DisableVgwRoutePropagationResponse
-
-instance FromXML DisableVgwRoutePropagationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DisableVgwRoutePropagationResponse"
 
 instance AWSRequest DisableVgwRoutePropagation where
     type Sv DisableVgwRoutePropagation = EC2

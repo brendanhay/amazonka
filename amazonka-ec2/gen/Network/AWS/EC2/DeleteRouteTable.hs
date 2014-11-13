@@ -42,6 +42,7 @@ module Network.AWS.EC2.DeleteRouteTable
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DeleteRouteTable = DeleteRouteTable
     { _drt1DryRun       :: Maybe Bool
@@ -81,10 +82,6 @@ data DeleteRouteTableResponse = DeleteRouteTableResponse
 -- | 'DeleteRouteTableResponse' constructor.
 deleteRouteTableResponse :: DeleteRouteTableResponse
 deleteRouteTableResponse = DeleteRouteTableResponse
-
-instance FromXML DeleteRouteTableResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteRouteTableResponse"
 
 instance AWSRequest DeleteRouteTable where
     type Sv DeleteRouteTable = EC2

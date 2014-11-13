@@ -51,6 +51,7 @@ module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction
     { _psugaAutoScalingGroupName :: Text
@@ -167,10 +168,6 @@ data PutScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionRespon
 -- | 'PutScheduledUpdateGroupActionResponse' constructor.
 putScheduledUpdateGroupActionResponse :: PutScheduledUpdateGroupActionResponse
 putScheduledUpdateGroupActionResponse = PutScheduledUpdateGroupActionResponse
-
-instance FromXML PutScheduledUpdateGroupActionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutScheduledUpdateGroupActionResponse"
 
 instance AWSRequest PutScheduledUpdateGroupAction where
     type Sv PutScheduledUpdateGroupAction = AutoScaling

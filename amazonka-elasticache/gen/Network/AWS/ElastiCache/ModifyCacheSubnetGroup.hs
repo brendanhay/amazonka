@@ -44,6 +44,7 @@ module Network.AWS.ElastiCache.ModifyCacheSubnetGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup
     { _mcsgCacheSubnetGroupDescription :: Maybe Text
@@ -110,10 +111,6 @@ modifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse
 mcsgrCacheSubnetGroup :: Lens' ModifyCacheSubnetGroupResponse (Maybe CacheSubnetGroup)
 mcsgrCacheSubnetGroup =
     lens _mcsgrCacheSubnetGroup (\s a -> s { _mcsgrCacheSubnetGroup = a })
-
-instance FromXML ModifyCacheSubnetGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyCacheSubnetGroupResponse"
 
 instance AWSRequest ModifyCacheSubnetGroup where
     type Sv ModifyCacheSubnetGroup = ElastiCache

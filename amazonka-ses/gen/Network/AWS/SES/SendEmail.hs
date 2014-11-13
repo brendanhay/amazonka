@@ -59,6 +59,7 @@ module Network.AWS.SES.SendEmail
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 data SendEmail = SendEmail
     { _seDestination      :: Destination
@@ -148,10 +149,6 @@ sendEmailResponse p1 = SendEmailResponse
 -- | The unique message identifier returned from the SendEmail action.
 serMessageId :: Lens' SendEmailResponse Text
 serMessageId = lens _serMessageId (\s a -> s { _serMessageId = a })
-
-instance FromXML SendEmailResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SendEmailResponse"
 
 instance AWSRequest SendEmail where
     type Sv SendEmail = SES

@@ -44,6 +44,7 @@ module Network.AWS.Route53.GetHealthCheckLastFailureReason
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 newtype GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReason
     { _ghclfrHealthCheckId :: Text
@@ -83,11 +84,11 @@ newtype GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReaso
     { _ghclfrrHealthCheckObservations :: [HealthCheckObservation]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetHealthCheckLastFailureReasonResponse where
+instance GHC.Exts.IsList GetHealthCheckLastFailureReasonResponse where
     type Item GetHealthCheckLastFailureReasonResponse = HealthCheckObservation
 
-    fromList = GetHealthCheckLastFailureReasonResponse . fromList
-    toList   = toList . _ghclfrrHealthCheckObservations
+    fromList = GetHealthCheckLastFailureReasonResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _ghclfrrHealthCheckObservations
 
 -- | 'GetHealthCheckLastFailureReasonResponse' constructor.
 --

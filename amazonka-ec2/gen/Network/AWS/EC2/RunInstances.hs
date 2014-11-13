@@ -85,6 +85,7 @@ module Network.AWS.EC2.RunInstances
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data RunInstances = RunInstances
     { _riAdditionalInfo                    :: Maybe Text
@@ -389,10 +390,6 @@ rirRequesterId = lens _rirRequesterId (\s a -> s { _rirRequesterId = a })
 -- | The ID of the reservation.
 rirReservationId :: Lens' RunInstancesResponse (Maybe Text)
 rirReservationId = lens _rirReservationId (\s a -> s { _rirReservationId = a })
-
-instance FromXML RunInstancesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RunInstancesResponse"
 
 instance AWSRequest RunInstances where
     type Sv RunInstances = EC2

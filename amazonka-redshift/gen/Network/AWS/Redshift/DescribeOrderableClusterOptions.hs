@@ -53,6 +53,7 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
     { _docoClusterVersion :: Maybe Text
@@ -150,10 +151,6 @@ docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [O
 docorOrderableClusterOptions =
     lens _docorOrderableClusterOptions
         (\s a -> s { _docorOrderableClusterOptions = a })
-
-instance FromXML DescribeOrderableClusterOptionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeOrderableClusterOptionsResponse"
 
 instance AWSRequest DescribeOrderableClusterOptions where
     type Sv DescribeOrderableClusterOptions = Redshift

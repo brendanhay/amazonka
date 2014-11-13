@@ -45,6 +45,7 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
+import qualified GHC.Exts
 
 data DefineAnalysisScheme = DefineAnalysisScheme
     { _das2AnalysisScheme :: AnalysisScheme
@@ -98,10 +99,6 @@ defineAnalysisSchemeResponse p1 = DefineAnalysisSchemeResponse
 dasr1AnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
 dasr1AnalysisScheme =
     lens _dasr1AnalysisScheme (\s a -> s { _dasr1AnalysisScheme = a })
-
-instance FromXML DefineAnalysisSchemeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DefineAnalysisSchemeResponse"
 
 instance AWSRequest DefineAnalysisScheme where
     type Sv DefineAnalysisScheme = CloudSearch

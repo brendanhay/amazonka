@@ -61,6 +61,7 @@ module Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot
     { _rdbifdbsAutoMinorVersionUpgrade :: Maybe Bool
@@ -310,10 +311,6 @@ restoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotRespons
 rdbifdbsrDBInstance :: Lens' RestoreDBInstanceFromDBSnapshotResponse (Maybe DBInstance)
 rdbifdbsrDBInstance =
     lens _rdbifdbsrDBInstance (\s a -> s { _rdbifdbsrDBInstance = a })
-
-instance FromXML RestoreDBInstanceFromDBSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RestoreDBInstanceFromDBSnapshotResponse"
 
 instance AWSRequest RestoreDBInstanceFromDBSnapshot where
     type Sv RestoreDBInstanceFromDBSnapshot = RDS

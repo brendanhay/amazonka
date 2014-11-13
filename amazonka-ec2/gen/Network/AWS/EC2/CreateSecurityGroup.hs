@@ -61,6 +61,7 @@ module Network.AWS.EC2.CreateSecurityGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateSecurityGroup = CreateSecurityGroup
     { _csgDescription :: Text
@@ -134,10 +135,6 @@ createSecurityGroupResponse = CreateSecurityGroupResponse
 -- | The ID of the security group.
 csgrGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)
 csgrGroupId = lens _csgrGroupId (\s a -> s { _csgrGroupId = a })
-
-instance FromXML CreateSecurityGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSecurityGroupResponse"
 
 instance AWSRequest CreateSecurityGroup where
     type Sv CreateSecurityGroup = EC2

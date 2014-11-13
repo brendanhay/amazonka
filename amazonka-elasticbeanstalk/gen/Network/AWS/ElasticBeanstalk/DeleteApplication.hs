@@ -42,6 +42,7 @@ module Network.AWS.ElasticBeanstalk.DeleteApplication
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data DeleteApplication = DeleteApplication
     { _daApplicationName     :: Text
@@ -85,10 +86,6 @@ data DeleteApplicationResponse = DeleteApplicationResponse
 -- | 'DeleteApplicationResponse' constructor.
 deleteApplicationResponse :: DeleteApplicationResponse
 deleteApplicationResponse = DeleteApplicationResponse
-
-instance FromXML DeleteApplicationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteApplicationResponse"
 
 instance AWSRequest DeleteApplication where
     type Sv DeleteApplication = ElasticBeanstalk

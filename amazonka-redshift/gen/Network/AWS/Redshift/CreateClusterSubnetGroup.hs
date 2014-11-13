@@ -47,6 +47,7 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup
     { _ccsgClusterSubnetGroupName :: Text
@@ -115,10 +116,6 @@ createClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse
 ccsgrClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
 ccsgrClusterSubnetGroup =
     lens _ccsgrClusterSubnetGroup (\s a -> s { _ccsgrClusterSubnetGroup = a })
-
-instance FromXML CreateClusterSubnetGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateClusterSubnetGroupResponse"
 
 instance AWSRequest CreateClusterSubnetGroup where
     type Sv CreateClusterSubnetGroup = Redshift

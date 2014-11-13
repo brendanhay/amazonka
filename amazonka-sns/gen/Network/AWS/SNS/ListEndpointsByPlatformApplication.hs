@@ -51,6 +51,7 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication
     { _lebpaNextToken              :: Maybe Text
@@ -118,10 +119,6 @@ lebparEndpoints = lens _lebparEndpoints (\s a -> s { _lebparEndpoints = a })
 -- available after the first page results.
 lebparNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
 lebparNextToken = lens _lebparNextToken (\s a -> s { _lebparNextToken = a })
-
-instance FromXML ListEndpointsByPlatformApplicationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListEndpointsByPlatformApplicationResponse"
 
 instance AWSRequest ListEndpointsByPlatformApplication where
     type Sv ListEndpointsByPlatformApplication = SNS

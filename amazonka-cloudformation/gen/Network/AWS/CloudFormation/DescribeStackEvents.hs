@@ -47,6 +47,7 @@ module Network.AWS.CloudFormation.DescribeStackEvents
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 data DescribeStackEvents = DescribeStackEvents
     { _dseNextToken :: Maybe Text
@@ -111,10 +112,6 @@ dserNextToken = lens _dserNextToken (\s a -> s { _dserNextToken = a })
 -- | A list of StackEvents structures.
 dserStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
 dserStackEvents = lens _dserStackEvents (\s a -> s { _dserStackEvents = a })
-
-instance FromXML DescribeStackEventsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeStackEventsResponse"
 
 instance AWSRequest DescribeStackEvents where
     type Sv DescribeStackEvents = CloudFormation

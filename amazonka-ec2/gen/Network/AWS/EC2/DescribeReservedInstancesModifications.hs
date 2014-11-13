@@ -49,6 +49,7 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications
     { _drimFilters                          :: [Filter]
@@ -139,10 +140,6 @@ drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificati
 drimrReservedInstancesModifications =
     lens _drimrReservedInstancesModifications
         (\s a -> s { _drimrReservedInstancesModifications = a })
-
-instance FromXML DescribeReservedInstancesModificationsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReservedInstancesModificationsResponse"
 
 instance AWSRequest DescribeReservedInstancesModifications where
     type Sv DescribeReservedInstancesModifications = EC2

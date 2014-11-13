@@ -54,6 +54,7 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
     { _acsgiCIDRIP                   :: Maybe Text
@@ -131,10 +132,6 @@ acsgirClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse
 acsgirClusterSecurityGroup =
     lens _acsgirClusterSecurityGroup
         (\s a -> s { _acsgirClusterSecurityGroup = a })
-
-instance FromXML AuthorizeClusterSecurityGroupIngressResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AuthorizeClusterSecurityGroupIngressResponse"
 
 instance AWSRequest AuthorizeClusterSecurityGroupIngress where
     type Sv AuthorizeClusterSecurityGroupIngress = Redshift

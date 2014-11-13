@@ -44,6 +44,7 @@ module Network.AWS.RDS.AddTagsToResource
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data AddTagsToResource = AddTagsToResource
     { _attrResourceName :: Text
@@ -86,10 +87,6 @@ data AddTagsToResourceResponse = AddTagsToResourceResponse
 -- | 'AddTagsToResourceResponse' constructor.
 addTagsToResourceResponse :: AddTagsToResourceResponse
 addTagsToResourceResponse = AddTagsToResourceResponse
-
-instance FromXML AddTagsToResourceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AddTagsToResourceResponse"
 
 instance AWSRequest AddTagsToResource where
     type Sv AddTagsToResource = RDS

@@ -60,6 +60,7 @@ module Network.AWS.SQS.ChangeMessageVisibility
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
+import qualified GHC.Exts
 
 data ChangeMessageVisibility = ChangeMessageVisibility
     { _cmvQueueUrl          :: Text
@@ -114,10 +115,6 @@ data ChangeMessageVisibilityResponse = ChangeMessageVisibilityResponse
 -- | 'ChangeMessageVisibilityResponse' constructor.
 changeMessageVisibilityResponse :: ChangeMessageVisibilityResponse
 changeMessageVisibilityResponse = ChangeMessageVisibilityResponse
-
-instance FromXML ChangeMessageVisibilityResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangeMessageVisibilityResponse"
 
 instance AWSRequest ChangeMessageVisibility where
     type Sv ChangeMessageVisibility = SQS

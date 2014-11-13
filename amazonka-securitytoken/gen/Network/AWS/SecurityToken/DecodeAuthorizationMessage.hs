@@ -57,6 +57,7 @@ module Network.AWS.SecurityToken.DecodeAuthorizationMessage
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SecurityToken.Types
+import qualified GHC.Exts
 
 newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage
     { _damEncodedMessage :: Text
@@ -104,10 +105,6 @@ decodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse
 damrDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
 damrDecodedMessage =
     lens _damrDecodedMessage (\s a -> s { _damrDecodedMessage = a })
-
-instance FromXML DecodeAuthorizationMessageResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DecodeAuthorizationMessageResponse"
 
 instance AWSRequest DecodeAuthorizationMessage where
     type Sv DecodeAuthorizationMessage = SecurityToken

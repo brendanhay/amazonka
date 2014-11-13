@@ -42,6 +42,7 @@ module Network.AWS.EC2.ResetNetworkInterfaceAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute
     { _rniaDryRun             :: Maybe Bool
@@ -91,10 +92,6 @@ data ResetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResp
 -- | 'ResetNetworkInterfaceAttributeResponse' constructor.
 resetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse
 resetNetworkInterfaceAttributeResponse = ResetNetworkInterfaceAttributeResponse
-
-instance FromXML ResetNetworkInterfaceAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResetNetworkInterfaceAttributeResponse"
 
 instance AWSRequest ResetNetworkInterfaceAttribute where
     type Sv ResetNetworkInterfaceAttribute = EC2

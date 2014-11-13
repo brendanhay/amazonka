@@ -45,6 +45,7 @@ module Network.AWS.EC2.DescribeCustomerGateways
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeCustomerGateways = DescribeCustomerGateways
     { _dcgCustomerGatewayIds :: [Text]
@@ -105,11 +106,11 @@ newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     { _dcgrCustomerGateways :: [CustomerGateway]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeCustomerGatewaysResponse where
+instance GHC.Exts.IsList DescribeCustomerGatewaysResponse where
     type Item DescribeCustomerGatewaysResponse = CustomerGateway
 
-    fromList = DescribeCustomerGatewaysResponse . fromList
-    toList   = toList . _dcgrCustomerGateways
+    fromList = DescribeCustomerGatewaysResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dcgrCustomerGateways
 
 -- | 'DescribeCustomerGatewaysResponse' constructor.
 --
@@ -126,10 +127,6 @@ describeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
 dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
 dcgrCustomerGateways =
     lens _dcgrCustomerGateways (\s a -> s { _dcgrCustomerGateways = a })
-
-instance FromXML DescribeCustomerGatewaysResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeCustomerGatewaysResponse"
 
 instance AWSRequest DescribeCustomerGateways where
     type Sv DescribeCustomerGateways = EC2

@@ -396,6 +396,7 @@ module Network.AWS.S3.Types
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
 import Network.AWS.S3.Internal
+import qualified GHC.Exts
 
 -- | Supported version (@2006-03-01@) of the Amazon Simple Storage Service.
 data S3 deriving (Typeable)
@@ -2024,11 +2025,11 @@ newtype Tagging = Tagging
     { _tTagSet :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList Tagging where
+instance GHC.Exts.IsList Tagging where
     type Item Tagging = Tag
 
-    fromList = Tagging . fromList
-    toList   = toList . _tTagSet
+    fromList = Tagging . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _tTagSet
 
 -- | 'Tagging' constructor.
 --
@@ -2094,11 +2095,11 @@ newtype CORSConfiguration = CORSConfiguration
     { _corscCORSRules :: [CORSRule]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CORSConfiguration where
+instance GHC.Exts.IsList CORSConfiguration where
     type Item CORSConfiguration = CORSRule
 
-    fromList = CORSConfiguration . fromList
-    toList   = toList . _corscCORSRules
+    fromList = CORSConfiguration . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _corscCORSRules
 
 -- | 'CORSConfiguration' constructor.
 --
@@ -2335,11 +2336,11 @@ newtype CompletedMultipartUpload = CompletedMultipartUpload
     { _cmuParts :: [CompletedPart]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CompletedMultipartUpload where
+instance GHC.Exts.IsList CompletedMultipartUpload where
     type Item CompletedMultipartUpload = CompletedPart
 
-    fromList = CompletedMultipartUpload . fromList
-    toList   = toList . _cmuParts
+    fromList = CompletedMultipartUpload . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _cmuParts
 
 -- | 'CompletedMultipartUpload' constructor.
 --
@@ -2595,11 +2596,11 @@ newtype LifecycleConfiguration = LifecycleConfiguration
     { _lcRules :: [Rule]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList LifecycleConfiguration where
+instance GHC.Exts.IsList LifecycleConfiguration where
     type Item LifecycleConfiguration = Rule
 
-    fromList = LifecycleConfiguration . fromList
-    toList   = toList . _lcRules
+    fromList = LifecycleConfiguration . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _lcRules
 
 -- | 'LifecycleConfiguration' constructor.
 --

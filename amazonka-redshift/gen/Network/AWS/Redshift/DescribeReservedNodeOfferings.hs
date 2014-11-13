@@ -51,6 +51,7 @@ module Network.AWS.Redshift.DescribeReservedNodeOfferings
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings
     { _drnoMarker                 :: Maybe Text
@@ -136,10 +137,6 @@ drnorReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [Reser
 drnorReservedNodeOfferings =
     lens _drnorReservedNodeOfferings
         (\s a -> s { _drnorReservedNodeOfferings = a })
-
-instance FromXML DescribeReservedNodeOfferingsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReservedNodeOfferingsResponse"
 
 instance AWSRequest DescribeReservedNodeOfferings where
     type Sv DescribeReservedNodeOfferings = Redshift

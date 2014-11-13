@@ -52,6 +52,7 @@ module Network.AWS.IAM.CreateOpenIDConnectProvider
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider
     { _coidcpClientIDList   :: [Text]
@@ -144,10 +145,6 @@ coidcprOpenIDConnectProviderArn :: Lens' CreateOpenIDConnectProviderResponse (Ma
 coidcprOpenIDConnectProviderArn =
     lens _coidcprOpenIDConnectProviderArn
         (\s a -> s { _coidcprOpenIDConnectProviderArn = a })
-
-instance FromXML CreateOpenIDConnectProviderResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateOpenIDConnectProviderResponse"
 
 instance AWSRequest CreateOpenIDConnectProvider where
     type Sv CreateOpenIDConnectProvider = IAM

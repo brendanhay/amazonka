@@ -49,6 +49,7 @@ module Network.AWS.ElastiCache.DescribeSnapshots
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data DescribeSnapshots = DescribeSnapshots
     { _dsCacheClusterId :: Maybe Text
@@ -147,10 +148,6 @@ dsrMarker = lens _dsrMarker (\s a -> s { _dsrMarker = a })
 -- about one snapshot.
 dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a })
-
-instance FromXML DescribeSnapshotsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSnapshotsResponse"
 
 instance AWSRequest DescribeSnapshots where
     type Sv DescribeSnapshots = ElastiCache

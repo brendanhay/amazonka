@@ -45,6 +45,7 @@ module Network.AWS.EC2.CreateTags
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateTags = CreateTags
     { _ct1DryRun    :: Maybe Bool
@@ -93,10 +94,6 @@ data CreateTagsResponse = CreateTagsResponse
 -- | 'CreateTagsResponse' constructor.
 createTagsResponse :: CreateTagsResponse
 createTagsResponse = CreateTagsResponse
-
-instance FromXML CreateTagsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateTagsResponse"
 
 instance AWSRequest CreateTags where
     type Sv CreateTags = EC2

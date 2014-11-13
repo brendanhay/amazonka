@@ -47,6 +47,7 @@ module Network.AWS.EC2.ModifyVolumeAttribute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ModifyVolumeAttribute = ModifyVolumeAttribute
     { _mvaAutoEnableIO :: Maybe AttributeBooleanValue
@@ -94,10 +95,6 @@ data ModifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
 -- | 'ModifyVolumeAttributeResponse' constructor.
 modifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse
 modifyVolumeAttributeResponse = ModifyVolumeAttributeResponse
-
-instance FromXML ModifyVolumeAttributeResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyVolumeAttributeResponse"
 
 instance AWSRequest ModifyVolumeAttribute where
     type Sv ModifyVolumeAttribute = EC2

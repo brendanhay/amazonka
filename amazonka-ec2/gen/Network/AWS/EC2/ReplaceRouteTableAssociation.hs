@@ -49,6 +49,7 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation
     { _rrtaAssociationId :: Text
@@ -111,10 +112,6 @@ replaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
 rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
 rrtarNewAssociationId =
     lens _rrtarNewAssociationId (\s a -> s { _rrtarNewAssociationId = a })
-
-instance FromXML ReplaceRouteTableAssociationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReplaceRouteTableAssociationResponse"
 
 instance AWSRequest ReplaceRouteTableAssociation where
     type Sv ReplaceRouteTableAssociation = EC2

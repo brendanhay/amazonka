@@ -55,6 +55,7 @@ module Network.AWS.Route53.ListHostedZones
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 data ListHostedZones = ListHostedZones
     { _lhzDelegationSetId :: Maybe Text

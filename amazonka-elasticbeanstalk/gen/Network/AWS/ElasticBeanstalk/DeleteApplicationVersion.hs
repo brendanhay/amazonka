@@ -41,6 +41,7 @@ module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data DeleteApplicationVersion = DeleteApplicationVersion
     { _davApplicationName    :: Text
@@ -95,10 +96,6 @@ data DeleteApplicationVersionResponse = DeleteApplicationVersionResponse
 -- | 'DeleteApplicationVersionResponse' constructor.
 deleteApplicationVersionResponse :: DeleteApplicationVersionResponse
 deleteApplicationVersionResponse = DeleteApplicationVersionResponse
-
-instance FromXML DeleteApplicationVersionResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteApplicationVersionResponse"
 
 instance AWSRequest DeleteApplicationVersion where
     type Sv DeleteApplicationVersion = ElasticBeanstalk

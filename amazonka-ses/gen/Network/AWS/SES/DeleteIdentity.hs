@@ -40,6 +40,7 @@ module Network.AWS.SES.DeleteIdentity
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 newtype DeleteIdentity = DeleteIdentity
     { _diIdentity :: Text
@@ -73,10 +74,6 @@ data DeleteIdentityResponse = DeleteIdentityResponse
 -- | 'DeleteIdentityResponse' constructor.
 deleteIdentityResponse :: DeleteIdentityResponse
 deleteIdentityResponse = DeleteIdentityResponse
-
-instance FromXML DeleteIdentityResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteIdentityResponse"
 
 instance AWSRequest DeleteIdentity where
     type Sv DeleteIdentity = SES

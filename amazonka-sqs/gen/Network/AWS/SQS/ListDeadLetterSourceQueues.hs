@@ -43,6 +43,7 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
+import qualified GHC.Exts
 
 newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues
     { _ldlsqQueueUrl :: Text
@@ -73,11 +74,11 @@ newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
     { _ldlsqrQueueUrls :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList ListDeadLetterSourceQueuesResponse where
+instance GHC.Exts.IsList ListDeadLetterSourceQueuesResponse where
     type Item ListDeadLetterSourceQueuesResponse = Text
 
-    fromList = ListDeadLetterSourceQueuesResponse . fromList
-    toList   = toList . _ldlsqrQueueUrls
+    fromList = ListDeadLetterSourceQueuesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _ldlsqrQueueUrls
 
 -- | 'ListDeadLetterSourceQueuesResponse' constructor.
 --
@@ -94,10 +95,6 @@ listDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
 -- configured with a dead letter queue.
 ldlsqrQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrQueueUrls = lens _ldlsqrQueueUrls (\s a -> s { _ldlsqrQueueUrls = a })
-
-instance FromXML ListDeadLetterSourceQueuesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListDeadLetterSourceQueuesResponse"
 
 instance AWSRequest ListDeadLetterSourceQueues where
     type Sv ListDeadLetterSourceQueues = SQS

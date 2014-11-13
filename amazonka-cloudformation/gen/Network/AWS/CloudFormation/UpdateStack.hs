@@ -58,6 +58,7 @@ module Network.AWS.CloudFormation.UpdateStack
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 data UpdateStack = UpdateStack
     { _usCapabilities                :: [Text]
@@ -236,10 +237,6 @@ updateStackResponse = UpdateStackResponse
 -- | Unique identifier of the stack.
 usrStackId :: Lens' UpdateStackResponse (Maybe Text)
 usrStackId = lens _usrStackId (\s a -> s { _usrStackId = a })
-
-instance FromXML UpdateStackResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateStackResponse"
 
 instance AWSRequest UpdateStack where
     type Sv UpdateStack = CloudFormation

@@ -44,6 +44,7 @@ module Network.AWS.EC2.DescribeKeyPairs
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeKeyPairs = DescribeKeyPairs
     { _dkp1DryRun   :: Maybe Bool
@@ -89,11 +90,11 @@ newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
     { _dkprKeyPairs :: [KeyPairInfo]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeKeyPairsResponse where
+instance GHC.Exts.IsList DescribeKeyPairsResponse where
     type Item DescribeKeyPairsResponse = KeyPairInfo
 
-    fromList = DescribeKeyPairsResponse . fromList
-    toList   = toList . _dkprKeyPairs
+    fromList = DescribeKeyPairsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dkprKeyPairs
 
 -- | 'DescribeKeyPairsResponse' constructor.
 --
@@ -109,10 +110,6 @@ describeKeyPairsResponse = DescribeKeyPairsResponse
 -- | Information about one or more key pairs.
 dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
 dkprKeyPairs = lens _dkprKeyPairs (\s a -> s { _dkprKeyPairs = a })
-
-instance FromXML DescribeKeyPairsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeKeyPairsResponse"
 
 instance AWSRequest DescribeKeyPairs where
     type Sv DescribeKeyPairs = EC2

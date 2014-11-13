@@ -55,6 +55,7 @@ module Network.AWS.CloudFormation.DescribeStackResources
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 data DescribeStackResources = DescribeStackResources
     { _dsrLogicalResourceId  :: Maybe Text
@@ -115,11 +116,11 @@ newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse
     { _dsrrStackResources :: [StackResource]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeStackResourcesResponse where
+instance GHC.Exts.IsList DescribeStackResourcesResponse where
     type Item DescribeStackResourcesResponse = StackResource
 
-    fromList = DescribeStackResourcesResponse . fromList
-    toList   = toList . _dsrrStackResources
+    fromList = DescribeStackResourcesResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsrrStackResources
 
 -- | 'DescribeStackResourcesResponse' constructor.
 --
@@ -136,10 +137,6 @@ describeStackResourcesResponse = DescribeStackResourcesResponse
 dsrrStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
 dsrrStackResources =
     lens _dsrrStackResources (\s a -> s { _dsrrStackResources = a })
-
-instance FromXML DescribeStackResourcesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeStackResourcesResponse"
 
 instance AWSRequest DescribeStackResources where
     type Sv DescribeStackResources = CloudFormation

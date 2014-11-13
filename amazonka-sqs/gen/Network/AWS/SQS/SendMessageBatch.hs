@@ -57,6 +57,7 @@ module Network.AWS.SQS.SendMessageBatch
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
+import qualified GHC.Exts
 
 data SendMessageBatch = SendMessageBatch
     { _smbEntries  :: [SendMessageBatchRequestEntry]
@@ -118,10 +119,6 @@ smbrFailed = lens _smbrFailed (\s a -> s { _smbrFailed = a })
 -- | A list of SendMessageBatchResultEntry items.
 smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
 smbrSuccessful = lens _smbrSuccessful (\s a -> s { _smbrSuccessful = a })
-
-instance FromXML SendMessageBatchResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SendMessageBatchResponse"
 
 instance AWSRequest SendMessageBatch where
     type Sv SendMessageBatch = SQS

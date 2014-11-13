@@ -43,6 +43,7 @@ module Network.AWS.ElastiCache.CreateSnapshot
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data CreateSnapshot = CreateSnapshot
     { _csCacheClusterId :: Text
@@ -96,10 +97,6 @@ createSnapshotResponse = CreateSnapshotResponse
 
 csr1Snapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
 csr1Snapshot = lens _csr1Snapshot (\s a -> s { _csr1Snapshot = a })
-
-instance FromXML CreateSnapshotResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSnapshotResponse"
 
 instance AWSRequest CreateSnapshot where
     type Sv CreateSnapshot = ElastiCache

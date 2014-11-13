@@ -40,6 +40,7 @@ module Network.AWS.CloudFront.DeleteDistribution
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 data DeleteDistribution2014_05_31 = DeleteDistribution2014_05_31
     { _ddId      :: Text

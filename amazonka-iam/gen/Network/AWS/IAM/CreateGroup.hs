@@ -43,6 +43,7 @@ module Network.AWS.IAM.CreateGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data CreateGroup = CreateGroup
     { _cgGroupName :: Text
@@ -98,10 +99,6 @@ createGroupResponse p1 = CreateGroupResponse
 -- | Information about the group.
 cgrGroup :: Lens' CreateGroupResponse Group
 cgrGroup = lens _cgrGroup (\s a -> s { _cgrGroup = a })
-
-instance FromXML CreateGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateGroupResponse"
 
 instance AWSRequest CreateGroup where
     type Sv CreateGroup = IAM

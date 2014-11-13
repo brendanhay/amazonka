@@ -42,6 +42,7 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data DescribeEnvironmentResources = DescribeEnvironmentResources
     { _derEnvironmentId   :: Maybe Text
@@ -102,10 +103,6 @@ derrEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe En
 derrEnvironmentResources =
     lens _derrEnvironmentResources
         (\s a -> s { _derrEnvironmentResources = a })
-
-instance FromXML DescribeEnvironmentResourcesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeEnvironmentResourcesResponse"
 
 instance AWSRequest DescribeEnvironmentResources where
     type Sv DescribeEnvironmentResources = ElasticBeanstalk

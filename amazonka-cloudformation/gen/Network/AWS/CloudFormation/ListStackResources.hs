@@ -45,6 +45,7 @@ module Network.AWS.CloudFormation.ListStackResources
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 data ListStackResources = ListStackResources
     { _lsrNextToken :: Maybe Text
@@ -112,10 +113,6 @@ lsrrStackResourceSummaries :: Lens' ListStackResourcesResponse [StackResourceSum
 lsrrStackResourceSummaries =
     lens _lsrrStackResourceSummaries
         (\s a -> s { _lsrrStackResourceSummaries = a })
-
-instance FromXML ListStackResourcesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListStackResourcesResponse"
 
 instance AWSRequest ListStackResources where
     type Sv ListStackResources = CloudFormation

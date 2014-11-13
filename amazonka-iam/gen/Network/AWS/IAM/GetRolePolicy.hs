@@ -47,6 +47,7 @@ module Network.AWS.IAM.GetRolePolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data GetRolePolicy = GetRolePolicy
     { _grpPolicyName :: Text
@@ -120,10 +121,6 @@ grprPolicyName = lens _grprPolicyName (\s a -> s { _grprPolicyName = a })
 -- | The role the policy is associated with.
 grprRoleName :: Lens' GetRolePolicyResponse Text
 grprRoleName = lens _grprRoleName (\s a -> s { _grprRoleName = a })
-
-instance FromXML GetRolePolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetRolePolicyResponse"
 
 instance AWSRequest GetRolePolicy where
     type Sv GetRolePolicy = IAM

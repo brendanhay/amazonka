@@ -48,6 +48,7 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
     { _dcsgClusterSecurityGroupName :: Maybe Text
@@ -138,10 +139,6 @@ dcsgr1ClusterSecurityGroups =
 -- request.
 dcsgr1Marker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
 dcsgr1Marker = lens _dcsgr1Marker (\s a -> s { _dcsgr1Marker = a })
-
-instance FromXML DescribeClusterSecurityGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeClusterSecurityGroupsResponse"
 
 instance AWSRequest DescribeClusterSecurityGroups where
     type Sv DescribeClusterSecurityGroups = Redshift

@@ -58,6 +58,7 @@ module Network.AWS.AutoScaling.CreateLaunchConfiguration
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
+import qualified GHC.Exts
 
 data CreateLaunchConfiguration = CreateLaunchConfiguration
     { _clcAssociatePublicIpAddress :: Maybe Bool
@@ -286,10 +287,6 @@ data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
 -- | 'CreateLaunchConfigurationResponse' constructor.
 createLaunchConfigurationResponse :: CreateLaunchConfigurationResponse
 createLaunchConfigurationResponse = CreateLaunchConfigurationResponse
-
-instance FromXML CreateLaunchConfigurationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateLaunchConfigurationResponse"
 
 instance AWSRequest CreateLaunchConfiguration where
     type Sv CreateLaunchConfiguration = AutoScaling

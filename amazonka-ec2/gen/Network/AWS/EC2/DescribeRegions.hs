@@ -44,6 +44,7 @@ module Network.AWS.EC2.DescribeRegions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeRegions = DescribeRegions
     { _dr1DryRun      :: Maybe Bool
@@ -90,11 +91,11 @@ newtype DescribeRegionsResponse = DescribeRegionsResponse
     { _drrRegions :: [Region]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeRegionsResponse where
+instance GHC.Exts.IsList DescribeRegionsResponse where
     type Item DescribeRegionsResponse = Region
 
-    fromList = DescribeRegionsResponse . fromList
-    toList   = toList . _drrRegions
+    fromList = DescribeRegionsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _drrRegions
 
 -- | 'DescribeRegionsResponse' constructor.
 --
@@ -110,10 +111,6 @@ describeRegionsResponse = DescribeRegionsResponse
 -- | Information about one or more regions.
 drrRegions :: Lens' DescribeRegionsResponse [Region]
 drrRegions = lens _drrRegions (\s a -> s { _drrRegions = a })
-
-instance FromXML DescribeRegionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeRegionsResponse"
 
 instance AWSRequest DescribeRegions where
     type Sv DescribeRegions = EC2

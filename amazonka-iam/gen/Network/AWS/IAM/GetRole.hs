@@ -46,6 +46,7 @@ module Network.AWS.IAM.GetRole
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 newtype GetRole = GetRole
     { _grRoleName :: Text
@@ -91,10 +92,6 @@ getRoleResponse p1 = GetRoleResponse
 -- | Information about the role.
 grrRole :: Lens' GetRoleResponse Role
 grrRole = lens _grrRole (\s a -> s { _grrRole = a })
-
-instance FromXML GetRoleResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetRoleResponse"
 
 instance AWSRequest GetRole where
     type Sv GetRole = IAM

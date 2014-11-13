@@ -42,6 +42,7 @@ module Network.AWS.S3.GetBucketAcl
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketAcl = GetBucketAcl
     { _gbaBucket :: Text

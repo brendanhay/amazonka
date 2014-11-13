@@ -40,6 +40,7 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data ListAvailableSolutionStacks = ListAvailableSolutionStacks
     deriving (Eq, Ord, Show, Generic)
@@ -82,10 +83,6 @@ lassrSolutionStackDetails =
 lassrSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
 lassrSolutionStacks =
     lens _lassrSolutionStacks (\s a -> s { _lassrSolutionStacks = a })
-
-instance FromXML ListAvailableSolutionStacksResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListAvailableSolutionStacksResponse"
 
 instance AWSRequest ListAvailableSolutionStacks where
     type Sv ListAvailableSolutionStacks = ElasticBeanstalk

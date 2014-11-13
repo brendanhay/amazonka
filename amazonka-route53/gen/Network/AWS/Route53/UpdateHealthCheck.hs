@@ -53,6 +53,7 @@ module Network.AWS.Route53.UpdateHealthCheck
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.Route53.Types
+import qualified GHC.Exts
 
 data UpdateHealthCheck = UpdateHealthCheck
     { _uhcFailureThreshold         :: Maybe Natural

@@ -44,6 +44,7 @@ module Network.AWS.IAM.UpdateServerCertificate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data UpdateServerCertificate = UpdateServerCertificate
     { _usc1NewPath                  :: Maybe Text
@@ -98,10 +99,6 @@ data UpdateServerCertificateResponse = UpdateServerCertificateResponse
 -- | 'UpdateServerCertificateResponse' constructor.
 updateServerCertificateResponse :: UpdateServerCertificateResponse
 updateServerCertificateResponse = UpdateServerCertificateResponse
-
-instance FromXML UpdateServerCertificateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateServerCertificateResponse"
 
 instance AWSRequest UpdateServerCertificate where
     type Sv UpdateServerCertificate = IAM

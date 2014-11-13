@@ -51,6 +51,7 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer
     { _slbpfbsInstancePort     :: Int
@@ -105,10 +106,6 @@ data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesFo
 -- | 'SetLoadBalancerPoliciesForBackendServerResponse' constructor.
 setLoadBalancerPoliciesForBackendServerResponse :: SetLoadBalancerPoliciesForBackendServerResponse
 setLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
-
-instance FromXML SetLoadBalancerPoliciesForBackendServerResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetLoadBalancerPoliciesForBackendServerResponse"
 
 instance AWSRequest SetLoadBalancerPoliciesForBackendServer where
     type Sv SetLoadBalancerPoliciesForBackendServer = ELB

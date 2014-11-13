@@ -43,16 +43,17 @@ module Network.AWS.SES.GetIdentityVerificationAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SES.Types
+import qualified GHC.Exts
 
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes
     { _givaIdentities :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetIdentityVerificationAttributes where
+instance GHC.Exts.IsList GetIdentityVerificationAttributes where
     type Item GetIdentityVerificationAttributes = Text
 
-    fromList = GetIdentityVerificationAttributes . fromList
-    toList   = toList . _givaIdentities
+    fromList = GetIdentityVerificationAttributes . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _givaIdentities
 
 -- | 'GetIdentityVerificationAttributes' constructor.
 --
@@ -95,10 +96,6 @@ givarVerificationAttributes =
     lens _givarVerificationAttributes
         (\s a -> s { _givarVerificationAttributes = a })
             . _Map
-
-instance FromXML GetIdentityVerificationAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetIdentityVerificationAttributesResponse"
 
 instance AWSRequest GetIdentityVerificationAttributes where
     type Sv GetIdentityVerificationAttributes = SES

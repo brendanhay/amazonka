@@ -60,6 +60,7 @@ module Network.AWS.ElastiCache.DescribeCacheClusters
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data DescribeCacheClusters = DescribeCacheClusters
     { _dcc1CacheClusterId    :: Maybe Text
@@ -148,10 +149,6 @@ dccrCacheClusters =
 -- | Provides an identifier to allow retrieval of paginated results.
 dccrMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
 dccrMarker = lens _dccrMarker (\s a -> s { _dccrMarker = a })
-
-instance FromXML DescribeCacheClustersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeCacheClustersResponse"
 
 instance AWSRequest DescribeCacheClusters where
     type Sv DescribeCacheClusters = ElastiCache

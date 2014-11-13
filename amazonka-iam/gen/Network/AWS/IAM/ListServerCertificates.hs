@@ -47,6 +47,7 @@ module Network.AWS.IAM.ListServerCertificates
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data ListServerCertificates = ListServerCertificates
     { _lscMarker     :: Maybe Text
@@ -138,10 +139,6 @@ lscrServerCertificateMetadataList :: Lens' ListServerCertificatesResponse [Serve
 lscrServerCertificateMetadataList =
     lens _lscrServerCertificateMetadataList
         (\s a -> s { _lscrServerCertificateMetadataList = a })
-
-instance FromXML ListServerCertificatesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListServerCertificatesResponse"
 
 instance AWSRequest ListServerCertificates where
     type Sv ListServerCertificates = IAM

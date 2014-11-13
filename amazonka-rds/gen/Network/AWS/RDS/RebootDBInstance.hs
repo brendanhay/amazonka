@@ -56,6 +56,7 @@ module Network.AWS.RDS.RebootDBInstance
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data RebootDBInstance = RebootDBInstance
     { _rdbiDBInstanceIdentifier :: Text
@@ -115,10 +116,6 @@ rebootDBInstanceResponse = RebootDBInstanceResponse
 
 rdbirDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
 rdbirDBInstance = lens _rdbirDBInstance (\s a -> s { _rdbirDBInstance = a })
-
-instance FromXML RebootDBInstanceResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RebootDBInstanceResponse"
 
 instance AWSRequest RebootDBInstance where
     type Sv RebootDBInstance = RDS

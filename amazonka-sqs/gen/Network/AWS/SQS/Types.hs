@@ -101,6 +101,7 @@ module Network.AWS.SQS.Types
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V4
+import qualified GHC.Exts
 
 -- | Supported version (@2012-11-05@) of the Amazon Simple Queue Service.
 data SQS deriving (Typeable)

@@ -39,16 +39,17 @@ module Network.AWS.CloudWatch.EnableAlarmActions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
+import qualified GHC.Exts
 
 newtype EnableAlarmActions = EnableAlarmActions
     { _eaaAlarmNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList EnableAlarmActions where
+instance GHC.Exts.IsList EnableAlarmActions where
     type Item EnableAlarmActions = Text
 
-    fromList = EnableAlarmActions . fromList
-    toList   = toList . _eaaAlarmNames
+    fromList = EnableAlarmActions . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _eaaAlarmNames
 
 -- | 'EnableAlarmActions' constructor.
 --
@@ -76,10 +77,6 @@ data EnableAlarmActionsResponse = EnableAlarmActionsResponse
 -- | 'EnableAlarmActionsResponse' constructor.
 enableAlarmActionsResponse :: EnableAlarmActionsResponse
 enableAlarmActionsResponse = EnableAlarmActionsResponse
-
-instance FromXML EnableAlarmActionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnableAlarmActionsResponse"
 
 instance AWSRequest EnableAlarmActions where
     type Sv EnableAlarmActions = CloudWatch

@@ -40,6 +40,7 @@ module Network.AWS.IAM.DeleteGroupPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data DeleteGroupPolicy = DeleteGroupPolicy
     { _dgpGroupName  :: Text
@@ -81,10 +82,6 @@ data DeleteGroupPolicyResponse = DeleteGroupPolicyResponse
 -- | 'DeleteGroupPolicyResponse' constructor.
 deleteGroupPolicyResponse :: DeleteGroupPolicyResponse
 deleteGroupPolicyResponse = DeleteGroupPolicyResponse
-
-instance FromXML DeleteGroupPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteGroupPolicyResponse"
 
 instance AWSRequest DeleteGroupPolicy where
     type Sv DeleteGroupPolicy = IAM

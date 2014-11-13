@@ -41,6 +41,7 @@ module Network.AWS.S3.GetBucketCors
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 newtype GetBucketCors = GetBucketCors
     { _gbcBucket :: Text
@@ -76,11 +77,11 @@ newtype GetBucketCorsResponse = GetBucketCorsResponse
     { _gbcrCORSRules :: [CORSRule]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetBucketCorsResponse where
+instance GHC.Exts.IsList GetBucketCorsResponse where
     type Item GetBucketCorsResponse = CORSRule
 
-    fromList = GetBucketCorsResponse . fromList
-    toList   = toList . _gbcrCORSRules
+    fromList = GetBucketCorsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _gbcrCORSRules
 
 -- | 'GetBucketCorsResponse' constructor.
 --

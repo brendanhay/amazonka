@@ -45,6 +45,7 @@ module Network.AWS.EC2.CreateVpnConnectionRoute
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateVpnConnectionRoute = CreateVpnConnectionRoute
     { _cvcrDestinationCidrBlock :: Text
@@ -89,10 +90,6 @@ data CreateVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
 -- | 'CreateVpnConnectionRouteResponse' constructor.
 createVpnConnectionRouteResponse :: CreateVpnConnectionRouteResponse
 createVpnConnectionRouteResponse = CreateVpnConnectionRouteResponse
-
-instance FromXML CreateVpnConnectionRouteResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVpnConnectionRouteResponse"
 
 instance AWSRequest CreateVpnConnectionRoute where
     type Sv CreateVpnConnectionRoute = EC2

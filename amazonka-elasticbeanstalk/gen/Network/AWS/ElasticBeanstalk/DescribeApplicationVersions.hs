@@ -42,6 +42,7 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data DescribeApplicationVersions = DescribeApplicationVersions
     { _dav1ApplicationName :: Maybe Text
@@ -83,11 +84,11 @@ newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsRespons
     { _davrApplicationVersions :: [ApplicationVersionDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeApplicationVersionsResponse where
+instance GHC.Exts.IsList DescribeApplicationVersionsResponse where
     type Item DescribeApplicationVersionsResponse = ApplicationVersionDescription
 
-    fromList = DescribeApplicationVersionsResponse . fromList
-    toList   = toList . _davrApplicationVersions
+    fromList = DescribeApplicationVersionsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _davrApplicationVersions
 
 -- | 'DescribeApplicationVersionsResponse' constructor.
 --
@@ -104,10 +105,6 @@ describeApplicationVersionsResponse = DescribeApplicationVersionsResponse
 davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
 davrApplicationVersions =
     lens _davrApplicationVersions (\s a -> s { _davrApplicationVersions = a })
-
-instance FromXML DescribeApplicationVersionsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeApplicationVersionsResponse"
 
 instance AWSRequest DescribeApplicationVersions where
     type Sv DescribeApplicationVersions = ElasticBeanstalk

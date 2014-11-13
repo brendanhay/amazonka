@@ -71,6 +71,7 @@ module Network.AWS.EC2.DescribeSnapshots
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data DescribeSnapshots = DescribeSnapshots
     { _ds1DryRun              :: Maybe Bool
@@ -150,11 +151,11 @@ newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrSnapshots :: [Snapshot]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeSnapshotsResponse where
+instance GHC.Exts.IsList DescribeSnapshotsResponse where
     type Item DescribeSnapshotsResponse = Snapshot
 
-    fromList = DescribeSnapshotsResponse . fromList
-    toList   = toList . _dsrSnapshots
+    fromList = DescribeSnapshotsResponse . GHC.Exts.fromList
+    toList   = GHC.Exts.toList . _dsrSnapshots
 
 -- | 'DescribeSnapshotsResponse' constructor.
 --
@@ -169,10 +170,6 @@ describeSnapshotsResponse = DescribeSnapshotsResponse
 
 dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a })
-
-instance FromXML DescribeSnapshotsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSnapshotsResponse"
 
 instance AWSRequest DescribeSnapshots where
     type Sv DescribeSnapshots = EC2

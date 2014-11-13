@@ -54,6 +54,7 @@ module Network.AWS.SNS.Publish
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 data Publish = Publish
     { _pMessage           :: Text
@@ -176,10 +177,6 @@ publishResponse = PublishResponse
 -- Maximum 100 characters.
 prMessageId :: Lens' PublishResponse (Maybe Text)
 prMessageId = lens _prMessageId (\s a -> s { _prMessageId = a })
-
-instance FromXML PublishResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PublishResponse"
 
 instance AWSRequest Publish where
     type Sv Publish = SNS

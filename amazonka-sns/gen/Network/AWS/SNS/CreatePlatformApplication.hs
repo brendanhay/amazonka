@@ -56,6 +56,7 @@ module Network.AWS.SNS.CreatePlatformApplication
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 data CreatePlatformApplication = CreatePlatformApplication
     { _cpaAttributes :: Map Text Text
@@ -124,10 +125,6 @@ cparPlatformApplicationArn :: Lens' CreatePlatformApplicationResponse (Maybe Tex
 cparPlatformApplicationArn =
     lens _cparPlatformApplicationArn
         (\s a -> s { _cparPlatformApplicationArn = a })
-
-instance FromXML CreatePlatformApplicationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreatePlatformApplicationResponse"
 
 instance AWSRequest CreatePlatformApplication where
     type Sv CreatePlatformApplication = SNS

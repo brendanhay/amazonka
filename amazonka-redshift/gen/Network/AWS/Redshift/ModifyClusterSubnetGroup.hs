@@ -45,6 +45,7 @@ module Network.AWS.Redshift.ModifyClusterSubnetGroup
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup
     { _mcsgClusterSubnetGroupName :: Text
@@ -108,10 +109,6 @@ modifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse
 mcsgrClusterSubnetGroup :: Lens' ModifyClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
 mcsgrClusterSubnetGroup =
     lens _mcsgrClusterSubnetGroup (\s a -> s { _mcsgrClusterSubnetGroup = a })
-
-instance FromXML ModifyClusterSubnetGroupResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyClusterSubnetGroupResponse"
 
 instance AWSRequest ModifyClusterSubnetGroup where
     type Sv ModifyClusterSubnetGroup = Redshift

@@ -45,6 +45,7 @@ module Network.AWS.ELB.CreateLoadBalancerPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
     { _clbpLoadBalancerName :: Text
@@ -109,10 +110,6 @@ data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
 -- | 'CreateLoadBalancerPolicyResponse' constructor.
 createLoadBalancerPolicyResponse :: CreateLoadBalancerPolicyResponse
 createLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
-
-instance FromXML CreateLoadBalancerPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateLoadBalancerPolicyResponse"
 
 instance AWSRequest CreateLoadBalancerPolicy where
     type Sv CreateLoadBalancerPolicy = ELB

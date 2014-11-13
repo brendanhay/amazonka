@@ -42,6 +42,7 @@ module Network.AWS.SNS.DeleteTopic
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
+import qualified GHC.Exts
 
 newtype DeleteTopic = DeleteTopic
     { _dtTopicArn :: Text
@@ -74,10 +75,6 @@ data DeleteTopicResponse = DeleteTopicResponse
 -- | 'DeleteTopicResponse' constructor.
 deleteTopicResponse :: DeleteTopicResponse
 deleteTopicResponse = DeleteTopicResponse
-
-instance FromXML DeleteTopicResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteTopicResponse"
 
 instance AWSRequest DeleteTopic where
     type Sv DeleteTopic = SNS

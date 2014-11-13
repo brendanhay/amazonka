@@ -46,6 +46,7 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
     { _acsgiCacheSecurityGroupName  :: Text
@@ -118,10 +119,6 @@ acsgirCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (Ma
 acsgirCacheSecurityGroup =
     lens _acsgirCacheSecurityGroup
         (\s a -> s { _acsgirCacheSecurityGroup = a })
-
-instance FromXML AuthorizeCacheSecurityGroupIngressResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AuthorizeCacheSecurityGroupIngressResponse"
 
 instance AWSRequest AuthorizeCacheSecurityGroupIngress where
     type Sv AuthorizeCacheSecurityGroupIngress = ElastiCache

@@ -103,6 +103,7 @@ module Network.AWS.SecurityToken.AssumeRole
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SecurityToken.Types
+import qualified GHC.Exts
 
 data AssumeRole = AssumeRole
     { _arDurationSeconds :: Maybe Natural
@@ -251,10 +252,6 @@ arrCredentials = lens _arrCredentials (\s a -> s { _arrCredentials = a })
 arrPackedPolicySize :: Lens' AssumeRoleResponse (Maybe Natural)
 arrPackedPolicySize =
     lens _arrPackedPolicySize (\s a -> s { _arrPackedPolicySize = a })
-
-instance FromXML AssumeRoleResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AssumeRoleResponse"
 
 instance AWSRequest AssumeRole where
     type Sv AssumeRole = SecurityToken

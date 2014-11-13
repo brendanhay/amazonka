@@ -41,6 +41,7 @@ module Network.AWS.CloudFormation.SetStackPolicy
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
+import qualified GHC.Exts
 
 data SetStackPolicy = SetStackPolicy
     { _sspStackName       :: Text
@@ -97,10 +98,6 @@ data SetStackPolicyResponse = SetStackPolicyResponse
 -- | 'SetStackPolicyResponse' constructor.
 setStackPolicyResponse :: SetStackPolicyResponse
 setStackPolicyResponse = SetStackPolicyResponse
-
-instance FromXML SetStackPolicyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SetStackPolicyResponse"
 
 instance AWSRequest SetStackPolicy where
     type Sv SetStackPolicy = CloudFormation

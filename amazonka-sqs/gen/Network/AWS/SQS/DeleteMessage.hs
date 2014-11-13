@@ -51,6 +51,7 @@ module Network.AWS.SQS.DeleteMessage
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
+import qualified GHC.Exts
 
 data DeleteMessage = DeleteMessage
     { _dmQueueUrl      :: Text
@@ -92,10 +93,6 @@ data DeleteMessageResponse = DeleteMessageResponse
 -- | 'DeleteMessageResponse' constructor.
 deleteMessageResponse :: DeleteMessageResponse
 deleteMessageResponse = DeleteMessageResponse
-
-instance FromXML DeleteMessageResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteMessageResponse"
 
 instance AWSRequest DeleteMessage where
     type Sv DeleteMessage = SQS

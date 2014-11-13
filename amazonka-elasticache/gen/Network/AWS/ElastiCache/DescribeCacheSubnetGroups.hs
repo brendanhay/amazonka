@@ -46,6 +46,7 @@ module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
+import qualified GHC.Exts
 
 data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups
     { _dcsgCacheSubnetGroupName :: Maybe Text
@@ -123,10 +124,6 @@ dcsgrCacheSubnetGroups =
 -- | Provides an identifier to allow retrieval of paginated results.
 dcsgrMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)
 dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
-
-instance FromXML DescribeCacheSubnetGroupsResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeCacheSubnetGroupsResponse"
 
 instance AWSRequest DescribeCacheSubnetGroups where
     type Sv DescribeCacheSubnetGroups = ElastiCache

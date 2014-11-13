@@ -186,6 +186,7 @@ module Network.AWS.Route53.Types
 
 import Network.AWS.Prelude
 import Network.AWS.Signing.V3
+import qualified GHC.Exts
 
 -- | Supported version (@2013-04-01@) of the Amazon Route 53.
 data Route53 deriving (Typeable)

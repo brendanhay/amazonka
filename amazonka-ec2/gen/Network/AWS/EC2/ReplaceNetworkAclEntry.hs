@@ -49,6 +49,7 @@ module Network.AWS.EC2.ReplaceNetworkAclEntry
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data ReplaceNetworkAclEntry = ReplaceNetworkAclEntry
     { _rnaeCidrBlock    :: Text
@@ -152,10 +153,6 @@ data ReplaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
 -- | 'ReplaceNetworkAclEntryResponse' constructor.
 replaceNetworkAclEntryResponse :: ReplaceNetworkAclEntryResponse
 replaceNetworkAclEntryResponse = ReplaceNetworkAclEntryResponse
-
-instance FromXML ReplaceNetworkAclEntryResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReplaceNetworkAclEntryResponse"
 
 instance AWSRequest ReplaceNetworkAclEntry where
     type Sv ReplaceNetworkAclEntry = EC2

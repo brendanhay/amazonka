@@ -43,6 +43,7 @@ module Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProvider
     { _acidtoidcpClientID                 :: Text
@@ -90,10 +91,6 @@ data AddClientIDToOpenIDConnectProviderResponse = AddClientIDToOpenIDConnectProv
 -- | 'AddClientIDToOpenIDConnectProviderResponse' constructor.
 addClientIDToOpenIDConnectProviderResponse :: AddClientIDToOpenIDConnectProviderResponse
 addClientIDToOpenIDConnectProviderResponse = AddClientIDToOpenIDConnectProviderResponse
-
-instance FromXML AddClientIDToOpenIDConnectProviderResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AddClientIDToOpenIDConnectProviderResponse"
 
 instance AWSRequest AddClientIDToOpenIDConnectProvider where
     type Sv AddClientIDToOpenIDConnectProvider = IAM

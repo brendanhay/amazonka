@@ -45,6 +45,7 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
+import qualified GHC.Exts
 
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
     { _dedpDBParameterGroupFamily :: Text
@@ -121,10 +122,6 @@ describeEngineDefaultParametersResponse = DescribeEngineDefaultParametersRespons
 dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (Maybe EngineDefaults)
 dedprEngineDefaults =
     lens _dedprEngineDefaults (\s a -> s { _dedprEngineDefaults = a })
-
-instance FromXML DescribeEngineDefaultParametersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeEngineDefaultParametersResponse"
 
 instance AWSRequest DescribeEngineDefaultParameters where
     type Sv DescribeEngineDefaultParameters = RDS

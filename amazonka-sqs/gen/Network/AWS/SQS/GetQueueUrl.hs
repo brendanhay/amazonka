@@ -48,6 +48,7 @@ module Network.AWS.SQS.GetQueueUrl
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SQS.Types
+import qualified GHC.Exts
 
 data GetQueueUrl = GetQueueUrl
     { _gquQueueName              :: Text
@@ -103,10 +104,6 @@ getQueueUrlResponse = GetQueueUrlResponse
 -- | The URL for the queue.
 gqurQueueUrl :: Lens' GetQueueUrlResponse (Maybe Text)
 gqurQueueUrl = lens _gqurQueueUrl (\s a -> s { _gqurQueueUrl = a })
-
-instance FromXML GetQueueUrlResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetQueueUrlResponse"
 
 instance AWSRequest GetQueueUrl where
     type Sv GetQueueUrl = SQS

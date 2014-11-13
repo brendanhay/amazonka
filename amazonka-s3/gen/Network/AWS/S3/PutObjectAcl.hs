@@ -49,6 +49,7 @@ module Network.AWS.S3.PutObjectAcl
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.S3.Types
+import qualified GHC.Exts
 
 data PutObjectAcl = PutObjectAcl
     { _poaACL                 :: Maybe Text

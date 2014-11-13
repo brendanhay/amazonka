@@ -41,6 +41,7 @@ module Network.AWS.Redshift.RotateEncryptionKey
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
+import qualified GHC.Exts
 
 newtype RotateEncryptionKey = RotateEncryptionKey
     { _rekClusterIdentifier :: Text
@@ -87,10 +88,6 @@ rotateEncryptionKeyResponse = RotateEncryptionKeyResponse
 
 rekrCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
 rekrCluster = lens _rekrCluster (\s a -> s { _rekrCluster = a })
-
-instance FromXML RotateEncryptionKeyResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RotateEncryptionKeyResponse"
 
 instance AWSRequest RotateEncryptionKey where
     type Sv RotateEncryptionKey = Redshift

@@ -40,6 +40,7 @@ module Network.AWS.ELB.DeleteLoadBalancerListeners
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
+import qualified GHC.Exts
 
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
     { _dlblLoadBalancerName  :: Text
@@ -82,10 +83,6 @@ data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
 -- | 'DeleteLoadBalancerListenersResponse' constructor.
 deleteLoadBalancerListenersResponse :: DeleteLoadBalancerListenersResponse
 deleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
-
-instance FromXML DeleteLoadBalancerListenersResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteLoadBalancerListenersResponse"
 
 instance AWSRequest DeleteLoadBalancerListeners where
     type Sv DeleteLoadBalancerListeners = ELB

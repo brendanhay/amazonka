@@ -52,6 +52,7 @@ module Network.AWS.SimpleDB.Select
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
+import qualified GHC.Exts
 
 data Select = Select
     { _sConsistentRead   :: Maybe Bool
@@ -128,10 +129,6 @@ srItems = lens _srItems (\s a -> s { _srItems = a })
 -- exceeded 5 seconds.
 srNextToken :: Lens' SelectResponse (Maybe Text)
 srNextToken = lens _srNextToken (\s a -> s { _srNextToken = a })
-
-instance FromXML SelectResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SelectResponse"
 
 instance AWSRequest Select where
     type Sv Select = SimpleDB

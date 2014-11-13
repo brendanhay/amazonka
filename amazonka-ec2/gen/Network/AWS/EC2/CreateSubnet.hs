@@ -61,6 +61,7 @@ module Network.AWS.EC2.CreateSubnet
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateSubnet = CreateSubnet
     { _cs1AvailabilityZone :: Maybe Text
@@ -132,10 +133,6 @@ createSubnetResponse = CreateSubnetResponse
 -- | Information about the subnet.
 csrSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
 csrSubnet = lens _csrSubnet (\s a -> s { _csrSubnet = a })
-
-instance FromXML CreateSubnetResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSubnetResponse"
 
 instance AWSRequest CreateSubnet where
     type Sv CreateSubnet = EC2

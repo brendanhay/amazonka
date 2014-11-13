@@ -72,6 +72,7 @@ module Network.AWS.SimpleDB.BatchPutAttributes
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SimpleDB.Types
+import qualified GHC.Exts
 
 data BatchPutAttributes = BatchPutAttributes
     { _bpaDomainName :: Text
@@ -112,10 +113,6 @@ data BatchPutAttributesResponse = BatchPutAttributesResponse
 -- | 'BatchPutAttributesResponse' constructor.
 batchPutAttributesResponse :: BatchPutAttributesResponse
 batchPutAttributesResponse = BatchPutAttributesResponse
-
-instance FromXML BatchPutAttributesResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BatchPutAttributesResponse"
 
 instance AWSRequest BatchPutAttributes where
     type Sv BatchPutAttributes = SimpleDB

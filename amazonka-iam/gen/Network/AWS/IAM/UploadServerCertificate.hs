@@ -49,6 +49,7 @@ module Network.AWS.IAM.UploadServerCertificate
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.IAM.Types
+import qualified GHC.Exts
 
 data UploadServerCertificate = UploadServerCertificate
     { _uscCertificateBody       :: Text
@@ -139,10 +140,6 @@ uscrServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe Se
 uscrServerCertificateMetadata =
     lens _uscrServerCertificateMetadata
         (\s a -> s { _uscrServerCertificateMetadata = a })
-
-instance FromXML UploadServerCertificateResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UploadServerCertificateResponse"
 
 instance AWSRequest UploadServerCertificate where
     type Sv UploadServerCertificate = IAM

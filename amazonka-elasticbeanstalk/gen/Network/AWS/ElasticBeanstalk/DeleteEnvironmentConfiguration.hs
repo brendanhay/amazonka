@@ -46,6 +46,7 @@ module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
+import qualified GHC.Exts
 
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
     { _decApplicationName :: Text
@@ -89,10 +90,6 @@ data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResp
 -- | 'DeleteEnvironmentConfigurationResponse' constructor.
 deleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse
 deleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
-
-instance FromXML DeleteEnvironmentConfigurationResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteEnvironmentConfigurationResponse"
 
 instance AWSRequest DeleteEnvironmentConfiguration where
     type Sv DeleteEnvironmentConfiguration = ElasticBeanstalk

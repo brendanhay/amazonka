@@ -44,6 +44,7 @@ module Network.AWS.CloudFront.UpdateDistribution
 import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
+import qualified GHC.Exts
 
 data UpdateDistribution2014_05_31 = UpdateDistribution2014_05_31
     { _udDistributionConfig :: DistributionConfig

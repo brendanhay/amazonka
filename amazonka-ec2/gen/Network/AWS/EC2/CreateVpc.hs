@@ -50,6 +50,7 @@ module Network.AWS.EC2.CreateVpc
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
+import qualified GHC.Exts
 
 data CreateVpc = CreateVpc
     { _cvCidrBlock       :: Text
@@ -116,10 +117,6 @@ createVpcResponse = CreateVpcResponse
 -- | Information about the VPC.
 cvrVpc :: Lens' CreateVpcResponse (Maybe Vpc)
 cvrVpc = lens _cvrVpc (\s a -> s { _cvrVpc = a })
-
-instance FromXML CreateVpcResponse where
-    fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVpcResponse"
 
 instance AWSRequest CreateVpc where
     type Sv CreateVpc = EC2

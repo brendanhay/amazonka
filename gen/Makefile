@@ -50,7 +50,8 @@ JSON := \
  support \
  swf \
  logs \
- cognito-identity
+ cognito-identity \
+ codedeploy
 
 MODELS ?= $(RESTS3) $(RESTXML) $(QUERY) # $(RESTJSON) $(JSON)
 

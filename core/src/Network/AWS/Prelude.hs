@@ -83,7 +83,6 @@ import Data.Aeson                   (FromJSON(..), ToJSON(..))
 import Data.Bifunctor               as Export
 import Data.ByteString              (ByteString)
 import Data.Default.Class           as Export
-import Data.Foldable                (Foldable)
 import Data.HashMap.Strict          (HashMap)
 import Data.Hashable                as Export
 import Data.List.NonEmpty           (NonEmpty)
@@ -93,7 +92,6 @@ import Data.Semigroup               (Semigroup)
 import Data.String                  (IsString(..))
 import Data.Tagged                  as Export
 import Data.Text                    (Text)
-import Data.Traversable             (Traversable)
 import Data.Typeable                (Typeable)
 import GHC.Generics                 (Generic)
 import Network.AWS.Data             as Export hiding (Query)

@@ -30,7 +30,6 @@ import qualified Data.ByteString.Lazy         as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Default.Class
-import           Network.AWS.Data
 import           Network.AWS.Types
 import           Network.HTTP.Client          hiding (Response)
 import           Network.HTTP.Types

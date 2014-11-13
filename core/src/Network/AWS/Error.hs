@@ -1,7 +1,8 @@
-{-# LANGUAGE DeriveGeneric    #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE RecordWildCards  #-}
-{-# LANGUAGE TypeFamilies     #-}
+{-# LANGUAGE DeriveGeneric     #-}
+{-# LANGUAGE FlexibleContexts  #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RecordWildCards   #-}
+{-# LANGUAGE TypeFamilies      #-}
 
 -- Module      : Network.AWS.Error
 -- Copyright   : (c) 2013-2014 Brendan Hay <brendan.g.hay@gmail.com>
@@ -16,21 +17,13 @@
 module Network.AWS.Error where
 
 import           Control.Applicative
-import           Control.Monad.Trans.Resource
 import           Data.Aeson
-import           Data.Bifunctor
-import qualified Data.ByteString.Lazy         as LBS
-import           Data.Conduit
-import qualified Data.Conduit.Binary          as Conduit
-import           Data.Default.Class
-import           Data.Text                    (Text)
+import qualified Data.ByteString.Lazy as LBS
+import           Data.Text            (Text)
 import           GHC.Generics
 import           Network.AWS.Data
 import           Network.AWS.Types
-import           Network.HTTP.Client          hiding (Response)
 import           Network.HTTP.Types
-import qualified Text.XML                     as XML
-import           Text.XML.Cursor
 
 alwaysFail :: Status -> Bool
 alwaysFail = const False
@@ -99,7 +92,7 @@ jsonError :: FromJSON (Er a)
           -> Maybe (LBS.ByteString -> ServiceError (Er a))
 jsonError f Service{..} s
     | f s       = Nothing
-    | otherwise = Just (either failure success . decode')
+    | otherwise = Just (either failure success . eitherDecode')
   where
     success = ServiceError _svcAbbrev s
     failure = SerializerError _svcAbbrev

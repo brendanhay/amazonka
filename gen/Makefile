@@ -2,17 +2,10 @@ SHELL    := /usr/bin/env bash
 FLAGS    := -j --disable-documentation --disable-library-coverage
 DEPS     := vendor/botocore vendor/jason
 
-RESTS3 := \
- s3
-
-RESTXML := \
+XML := \
+ s3 \
  cloudfront \
- route53 \
- cloudsearchdomain
-
-RESTJSON := \
- elastictranscoder \
- cognito-sync
+ route53
 
 QUERY := \
  autoscaling \
@@ -49,9 +42,12 @@ JSON := \
  cognito-identity \
  codedeploy \
  kms \
- config
+ config \
+ elastictranscoder \
+ cognito-sync \
+ cloudsearchdomain
 
-MODELS ?= $(RESTJSON) $(JSON) cloudsearchdomain # $(RESTS3) $(RESTXML) $(QUERY)
+MODELS ?= $(JSON) # $(XML) $(QUERY)
 
 .PHONY: gen
 

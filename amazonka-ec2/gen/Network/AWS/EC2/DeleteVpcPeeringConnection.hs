@@ -31,11 +31,11 @@ module Network.AWS.EC2.DeleteVpcPeeringConnection
     -- ** Request constructor
     , deleteVpcPeeringConnection
     -- ** Request lenses
-    , dvpc1DryRun
-    , dvpc1VpcPeeringConnectionId
+    , dvpcDryRun
+    , dvpcVpcPeeringConnectionId
 
     -- * Response
-    , DeleteVpcPeeringConnectionResult
+    , DeleteVpcPeeringConnectionResponse
     -- ** Response constructor
     , deleteVpcPeeringConnectionResponse
     -- ** Response lenses
@@ -47,66 +47,66 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DeleteVpcPeeringConnection = DeleteVpcPeeringConnection
-    { _dvpc1DryRun                 :: Maybe Bool
-    , _dvpc1VpcPeeringConnectionId :: Text
+    { _dvpcDryRun                 :: Maybe Bool
+    , _dvpcVpcPeeringConnectionId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpcPeeringConnection' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvpc1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dvpcDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dvpc1VpcPeeringConnectionId' @::@ 'Text'
+-- * 'dvpcVpcPeeringConnectionId' @::@ 'Text'
 --
-deleteVpcPeeringConnection :: Text -- ^ 'dvpc1VpcPeeringConnectionId'
+deleteVpcPeeringConnection :: Text -- ^ 'dvpcVpcPeeringConnectionId'
                            -> DeleteVpcPeeringConnection
 deleteVpcPeeringConnection p1 = DeleteVpcPeeringConnection
-    { _dvpc1VpcPeeringConnectionId = p1
-    , _dvpc1DryRun                 = Nothing
+    { _dvpcVpcPeeringConnectionId = p1
+    , _dvpcDryRun                 = Nothing
     }
 
-dvpc1DryRun :: Lens' DeleteVpcPeeringConnection (Maybe Bool)
-dvpc1DryRun = lens _dvpc1DryRun (\s a -> s { _dvpc1DryRun = a })
+dvpcDryRun :: Lens' DeleteVpcPeeringConnection (Maybe Bool)
+dvpcDryRun = lens _dvpcDryRun (\s a -> s { _dvpcDryRun = a })
 
 -- | The ID of the VPC peering connection.
-dvpc1VpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection Text
-dvpc1VpcPeeringConnectionId =
-    lens _dvpc1VpcPeeringConnectionId
-        (\s a -> s { _dvpc1VpcPeeringConnectionId = a })
+dvpcVpcPeeringConnectionId :: Lens' DeleteVpcPeeringConnection Text
+dvpcVpcPeeringConnectionId =
+    lens _dvpcVpcPeeringConnectionId
+        (\s a -> s { _dvpcVpcPeeringConnectionId = a })
 
 instance ToQuery DeleteVpcPeeringConnection
 
 instance ToPath DeleteVpcPeeringConnection where
     toPath = const "/"
 
-newtype DeleteVpcPeeringConnectionResult = DeleteVpcPeeringConnectionResult
+newtype DeleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     { _dvpcrReturn :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteVpcPeeringConnectionResult' constructor.
+-- | 'DeleteVpcPeeringConnectionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvpcrReturn' @::@ 'Maybe' 'Bool'
 --
-deleteVpcPeeringConnectionResponse :: DeleteVpcPeeringConnectionResult
-deleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResult
+deleteVpcPeeringConnectionResponse :: DeleteVpcPeeringConnectionResponse
+deleteVpcPeeringConnectionResponse = DeleteVpcPeeringConnectionResponse
     { _dvpcrReturn = Nothing
     }
 
 -- | Returns true if the request succeeds; otherwise, it returns an error.
-dvpcrReturn :: Lens' DeleteVpcPeeringConnectionResult (Maybe Bool)
+dvpcrReturn :: Lens' DeleteVpcPeeringConnectionResponse (Maybe Bool)
 dvpcrReturn = lens _dvpcrReturn (\s a -> s { _dvpcrReturn = a })
 
-instance FromXML DeleteVpcPeeringConnectionResult where
+instance FromXML DeleteVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteVpcPeeringConnectionResult"
+    fromXMLRoot    = fromRoot "DeleteVpcPeeringConnectionResponse"
 
 instance AWSRequest DeleteVpcPeeringConnection where
     type Sv DeleteVpcPeeringConnection = EC2
-    type Rs DeleteVpcPeeringConnection = DeleteVpcPeeringConnectionResult
+    type Rs DeleteVpcPeeringConnection = DeleteVpcPeeringConnectionResponse
 
     request  = post "DeleteVpcPeeringConnection"
-    response = xmlResponse $ \h x -> DeleteVpcPeeringConnectionResult
+    response = xmlResponse $ \h x -> DeleteVpcPeeringConnectionResponse
         <$> x %| "return"

@@ -25,14 +25,14 @@
 module Network.AWS.Redshift.DisableSnapshotCopy
     (
     -- * Request
-      DisableSnapshotCopyMessage
+      DisableSnapshotCopy
     -- ** Request constructor
     , disableSnapshotCopy
     -- ** Request lenses
-    , dscmClusterIdentifier
+    , dscClusterIdentifier
 
     -- * Response
-    , DisableSnapshotCopyResult
+    , DisableSnapshotCopyResponse
     -- ** Response constructor
     , disableSnapshotCopyResponse
     -- ** Response lenses
@@ -43,61 +43,61 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-newtype DisableSnapshotCopyMessage = DisableSnapshotCopyMessage
-    { _dscmClusterIdentifier :: Text
+newtype DisableSnapshotCopy = DisableSnapshotCopy
+    { _dscClusterIdentifier :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DisableSnapshotCopyMessage' constructor.
+-- | 'DisableSnapshotCopy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dscmClusterIdentifier' @::@ 'Text'
+-- * 'dscClusterIdentifier' @::@ 'Text'
 --
-disableSnapshotCopy :: Text -- ^ 'dscmClusterIdentifier'
-                    -> DisableSnapshotCopyMessage
-disableSnapshotCopy p1 = DisableSnapshotCopyMessage
-    { _dscmClusterIdentifier = p1
+disableSnapshotCopy :: Text -- ^ 'dscClusterIdentifier'
+                    -> DisableSnapshotCopy
+disableSnapshotCopy p1 = DisableSnapshotCopy
+    { _dscClusterIdentifier = p1
     }
 
 -- | The unique identifier of the source cluster that you want to disable
 -- copying of snapshots to a destination region. Constraints: Must be the
 -- valid name of an existing cluster that has cross-region snapshot copy
 -- enabled.
-dscmClusterIdentifier :: Lens' DisableSnapshotCopyMessage Text
-dscmClusterIdentifier =
-    lens _dscmClusterIdentifier (\s a -> s { _dscmClusterIdentifier = a })
+dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
+dscClusterIdentifier =
+    lens _dscClusterIdentifier (\s a -> s { _dscClusterIdentifier = a })
 
-instance ToQuery DisableSnapshotCopyMessage
+instance ToQuery DisableSnapshotCopy
 
-instance ToPath DisableSnapshotCopyMessage where
+instance ToPath DisableSnapshotCopy where
     toPath = const "/"
 
-newtype DisableSnapshotCopyResult = DisableSnapshotCopyResult
+newtype DisableSnapshotCopyResponse = DisableSnapshotCopyResponse
     { _dscrCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
 
--- | 'DisableSnapshotCopyResult' constructor.
+-- | 'DisableSnapshotCopyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dscrCluster' @::@ 'Maybe' 'Cluster'
 --
-disableSnapshotCopyResponse :: DisableSnapshotCopyResult
-disableSnapshotCopyResponse = DisableSnapshotCopyResult
+disableSnapshotCopyResponse :: DisableSnapshotCopyResponse
+disableSnapshotCopyResponse = DisableSnapshotCopyResponse
     { _dscrCluster = Nothing
     }
 
-dscrCluster :: Lens' DisableSnapshotCopyResult (Maybe Cluster)
+dscrCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
 dscrCluster = lens _dscrCluster (\s a -> s { _dscrCluster = a })
 
-instance FromXML DisableSnapshotCopyResult where
+instance FromXML DisableSnapshotCopyResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DisableSnapshotCopyResult"
+    fromXMLRoot    = fromRoot "DisableSnapshotCopyResponse"
 
-instance AWSRequest DisableSnapshotCopyMessage where
-    type Sv DisableSnapshotCopyMessage = Redshift
-    type Rs DisableSnapshotCopyMessage = DisableSnapshotCopyResult
+instance AWSRequest DisableSnapshotCopy where
+    type Sv DisableSnapshotCopy = Redshift
+    type Rs DisableSnapshotCopy = DisableSnapshotCopyResponse
 
     request  = post "DisableSnapshotCopy"
-    response = xmlResponse $ \h x -> DisableSnapshotCopyResult
+    response = xmlResponse $ \h x -> DisableSnapshotCopyResponse
         <$> x %| "Cluster"

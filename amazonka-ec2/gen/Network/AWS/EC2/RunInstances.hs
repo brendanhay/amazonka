@@ -46,40 +46,40 @@ module Network.AWS.EC2.RunInstances
     -- ** Request constructor
     , runInstances
     -- ** Request lenses
-    , ri1AdditionalInfo
-    , ri1BlockDeviceMappings
-    , ri1ClientToken
-    , ri1DisableApiTermination
-    , ri1DryRun
-    , ri1EbsOptimized
-    , ri1IamInstanceProfile
-    , ri1ImageId
-    , ri1InstanceInitiatedShutdownBehavior
-    , ri1InstanceType
-    , ri1KernelId
-    , ri1KeyName
-    , ri1MaxCount
-    , ri1MinCount
-    , ri1Monitoring
-    , ri1NetworkInterfaces
-    , ri1Placement
-    , ri1PrivateIpAddress
-    , ri1RamdiskId
-    , ri1SecurityGroupIds
-    , ri1SecurityGroups
-    , ri1SubnetId
-    , ri1UserData
+    , riAdditionalInfo
+    , riBlockDeviceMappings
+    , riClientToken
+    , riDisableApiTermination
+    , riDryRun
+    , riEbsOptimized
+    , riIamInstanceProfile
+    , riImageId
+    , riInstanceInitiatedShutdownBehavior
+    , riInstanceType
+    , riKernelId
+    , riKeyName
+    , riMaxCount
+    , riMinCount
+    , riMonitoring
+    , riNetworkInterfaces
+    , riPlacement
+    , riPrivateIpAddress
+    , riRamdiskId
+    , riSecurityGroupIds
+    , riSecurityGroups
+    , riSubnetId
+    , riUserData
 
     -- * Response
-    , Reservation
+    , RunInstancesResponse
     -- ** Response constructor
-    , reservation
+    , runInstancesResponse
     -- ** Response lenses
-    , rGroups
-    , rInstances
-    , rOwnerId
-    , rRequesterId
-    , rReservationId
+    , rirGroups
+    , rirInstances
+    , rirOwnerId
+    , rirRequesterId
+    , rirReservationId
     ) where
 
 import Network.AWS.Prelude
@@ -87,127 +87,126 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data RunInstances = RunInstances
-    { _ri1AdditionalInfo                    :: Maybe Text
-    , _ri1BlockDeviceMappings               :: [BlockDeviceMapping]
-    , _ri1ClientToken                       :: Maybe Text
-    , _ri1DisableApiTermination             :: Maybe Bool
-    , _ri1DryRun                            :: Maybe Bool
-    , _ri1EbsOptimized                      :: Maybe Bool
-    , _ri1IamInstanceProfile                :: Maybe IamInstanceProfileSpecification
-    , _ri1ImageId                           :: Text
-    , _ri1InstanceInitiatedShutdownBehavior :: Maybe Text
-    , _ri1InstanceType                      :: Maybe Text
-    , _ri1KernelId                          :: Maybe Text
-    , _ri1KeyName                           :: Maybe Text
-    , _ri1MaxCount                          :: Int
-    , _ri1MinCount                          :: Int
-    , _ri1Monitoring                        :: Maybe RunInstancesMonitoringEnabled
-    , _ri1NetworkInterfaces                 :: [InstanceNetworkInterfaceSpecification]
-    , _ri1Placement                         :: Maybe Placement
-    , _ri1PrivateIpAddress                  :: Maybe Text
-    , _ri1RamdiskId                         :: Maybe Text
-    , _ri1SecurityGroupIds                  :: [Text]
-    , _ri1SecurityGroups                    :: [Text]
-    , _ri1SubnetId                          :: Maybe Text
-    , _ri1UserData                          :: Maybe Text
+    { _riAdditionalInfo                    :: Maybe Text
+    , _riBlockDeviceMappings               :: [BlockDeviceMapping]
+    , _riClientToken                       :: Maybe Text
+    , _riDisableApiTermination             :: Maybe Bool
+    , _riDryRun                            :: Maybe Bool
+    , _riEbsOptimized                      :: Maybe Bool
+    , _riIamInstanceProfile                :: Maybe IamInstanceProfileSpecification
+    , _riImageId                           :: Text
+    , _riInstanceInitiatedShutdownBehavior :: Maybe Text
+    , _riInstanceType                      :: Maybe Text
+    , _riKernelId                          :: Maybe Text
+    , _riKeyName                           :: Maybe Text
+    , _riMaxCount                          :: Int
+    , _riMinCount                          :: Int
+    , _riMonitoring                        :: Maybe RunInstancesMonitoringEnabled
+    , _riNetworkInterfaces                 :: [InstanceNetworkInterfaceSpecification]
+    , _riPlacement                         :: Maybe Placement
+    , _riPrivateIpAddress                  :: Maybe Text
+    , _riRamdiskId                         :: Maybe Text
+    , _riSecurityGroupIds                  :: [Text]
+    , _riSecurityGroups                    :: [Text]
+    , _riSubnetId                          :: Maybe Text
+    , _riUserData                          :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 -- | 'RunInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ri1AdditionalInfo' @::@ 'Maybe' 'Text'
+-- * 'riAdditionalInfo' @::@ 'Maybe' 'Text'
 --
--- * 'ri1BlockDeviceMappings' @::@ ['BlockDeviceMapping']
+-- * 'riBlockDeviceMappings' @::@ ['BlockDeviceMapping']
 --
--- * 'ri1ClientToken' @::@ 'Maybe' 'Text'
+-- * 'riClientToken' @::@ 'Maybe' 'Text'
 --
--- * 'ri1DisableApiTermination' @::@ 'Maybe' 'Bool'
+-- * 'riDisableApiTermination' @::@ 'Maybe' 'Bool'
 --
--- * 'ri1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'riDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'ri1EbsOptimized' @::@ 'Maybe' 'Bool'
+-- * 'riEbsOptimized' @::@ 'Maybe' 'Bool'
 --
--- * 'ri1IamInstanceProfile' @::@ 'Maybe' 'IamInstanceProfileSpecification'
+-- * 'riIamInstanceProfile' @::@ 'Maybe' 'IamInstanceProfileSpecification'
 --
--- * 'ri1ImageId' @::@ 'Text'
+-- * 'riImageId' @::@ 'Text'
 --
--- * 'ri1InstanceInitiatedShutdownBehavior' @::@ 'Maybe' 'Text'
+-- * 'riInstanceInitiatedShutdownBehavior' @::@ 'Maybe' 'Text'
 --
--- * 'ri1InstanceType' @::@ 'Maybe' 'Text'
+-- * 'riInstanceType' @::@ 'Maybe' 'Text'
 --
--- * 'ri1KernelId' @::@ 'Maybe' 'Text'
+-- * 'riKernelId' @::@ 'Maybe' 'Text'
 --
--- * 'ri1KeyName' @::@ 'Maybe' 'Text'
+-- * 'riKeyName' @::@ 'Maybe' 'Text'
 --
--- * 'ri1MaxCount' @::@ 'Int'
+-- * 'riMaxCount' @::@ 'Int'
 --
--- * 'ri1MinCount' @::@ 'Int'
+-- * 'riMinCount' @::@ 'Int'
 --
--- * 'ri1Monitoring' @::@ 'Maybe' 'RunInstancesMonitoringEnabled'
+-- * 'riMonitoring' @::@ 'Maybe' 'RunInstancesMonitoringEnabled'
 --
--- * 'ri1NetworkInterfaces' @::@ ['InstanceNetworkInterfaceSpecification']
+-- * 'riNetworkInterfaces' @::@ ['InstanceNetworkInterfaceSpecification']
 --
--- * 'ri1Placement' @::@ 'Maybe' 'Placement'
+-- * 'riPlacement' @::@ 'Maybe' 'Placement'
 --
--- * 'ri1PrivateIpAddress' @::@ 'Maybe' 'Text'
+-- * 'riPrivateIpAddress' @::@ 'Maybe' 'Text'
 --
--- * 'ri1RamdiskId' @::@ 'Maybe' 'Text'
+-- * 'riRamdiskId' @::@ 'Maybe' 'Text'
 --
--- * 'ri1SecurityGroupIds' @::@ ['Text']
+-- * 'riSecurityGroupIds' @::@ ['Text']
 --
--- * 'ri1SecurityGroups' @::@ ['Text']
+-- * 'riSecurityGroups' @::@ ['Text']
 --
--- * 'ri1SubnetId' @::@ 'Maybe' 'Text'
+-- * 'riSubnetId' @::@ 'Maybe' 'Text'
 --
--- * 'ri1UserData' @::@ 'Maybe' 'Text'
+-- * 'riUserData' @::@ 'Maybe' 'Text'
 --
-runInstances :: Text -- ^ 'ri1ImageId'
-             -> Int -- ^ 'ri1MinCount'
-             -> Int -- ^ 'ri1MaxCount'
+runInstances :: Text -- ^ 'riImageId'
+             -> Int -- ^ 'riMinCount'
+             -> Int -- ^ 'riMaxCount'
              -> RunInstances
 runInstances p1 p2 p3 = RunInstances
-    { _ri1ImageId                           = p1
-    , _ri1MinCount                          = p2
-    , _ri1MaxCount                          = p3
-    , _ri1DryRun                            = Nothing
-    , _ri1KeyName                           = Nothing
-    , _ri1SecurityGroups                    = mempty
-    , _ri1SecurityGroupIds                  = mempty
-    , _ri1UserData                          = Nothing
-    , _ri1InstanceType                      = Nothing
-    , _ri1Placement                         = Nothing
-    , _ri1KernelId                          = Nothing
-    , _ri1RamdiskId                         = Nothing
-    , _ri1BlockDeviceMappings               = mempty
-    , _ri1Monitoring                        = Nothing
-    , _ri1SubnetId                          = Nothing
-    , _ri1DisableApiTermination             = Nothing
-    , _ri1InstanceInitiatedShutdownBehavior = Nothing
-    , _ri1PrivateIpAddress                  = Nothing
-    , _ri1ClientToken                       = Nothing
-    , _ri1AdditionalInfo                    = Nothing
-    , _ri1NetworkInterfaces                 = mempty
-    , _ri1IamInstanceProfile                = Nothing
-    , _ri1EbsOptimized                      = Nothing
+    { _riImageId                           = p1
+    , _riMinCount                          = p2
+    , _riMaxCount                          = p3
+    , _riDryRun                            = Nothing
+    , _riKeyName                           = Nothing
+    , _riSecurityGroups                    = mempty
+    , _riSecurityGroupIds                  = mempty
+    , _riUserData                          = Nothing
+    , _riInstanceType                      = Nothing
+    , _riPlacement                         = Nothing
+    , _riKernelId                          = Nothing
+    , _riRamdiskId                         = Nothing
+    , _riBlockDeviceMappings               = mempty
+    , _riMonitoring                        = Nothing
+    , _riSubnetId                          = Nothing
+    , _riDisableApiTermination             = Nothing
+    , _riInstanceInitiatedShutdownBehavior = Nothing
+    , _riPrivateIpAddress                  = Nothing
+    , _riClientToken                       = Nothing
+    , _riAdditionalInfo                    = Nothing
+    , _riNetworkInterfaces                 = mempty
+    , _riIamInstanceProfile                = Nothing
+    , _riEbsOptimized                      = Nothing
     }
 
 -- | Reserved.
-ri1AdditionalInfo :: Lens' RunInstances (Maybe Text)
-ri1AdditionalInfo =
-    lens _ri1AdditionalInfo (\s a -> s { _ri1AdditionalInfo = a })
+riAdditionalInfo :: Lens' RunInstances (Maybe Text)
+riAdditionalInfo = lens _riAdditionalInfo (\s a -> s { _riAdditionalInfo = a })
 
 -- | The block device mapping.
-ri1BlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
-ri1BlockDeviceMappings =
-    lens _ri1BlockDeviceMappings (\s a -> s { _ri1BlockDeviceMappings = a })
+riBlockDeviceMappings :: Lens' RunInstances [BlockDeviceMapping]
+riBlockDeviceMappings =
+    lens _riBlockDeviceMappings (\s a -> s { _riBlockDeviceMappings = a })
 
 -- | Unique, case-sensitive identifier you provide to ensure the idempotency
 -- of the request. For more information, see How to Ensure Idempotency in
 -- the Amazon Elastic Compute Cloud User Guide. Constraints: Maximum 64
 -- ASCII characters.
-ri1ClientToken :: Lens' RunInstances (Maybe Text)
-ri1ClientToken = lens _ri1ClientToken (\s a -> s { _ri1ClientToken = a })
+riClientToken :: Lens' RunInstances (Maybe Text)
+riClientToken = lens _riClientToken (\s a -> s { _riClientToken = a })
 
 -- | If you set this parameter to true, you can't terminate the instance using
 -- the Amazon EC2 console, CLI, or API; otherwise, you can. If you set this
@@ -217,55 +216,54 @@ ri1ClientToken = lens _ri1ClientToken (\s a -> s { _ri1ClientToken = a })
 -- set InstanceInitiatedShutdownBehavior to terminate, you can terminate the
 -- instance by running the shutdown command from the instance. Default:
 -- false.
-ri1DisableApiTermination :: Lens' RunInstances (Maybe Bool)
-ri1DisableApiTermination =
-    lens _ri1DisableApiTermination
-        (\s a -> s { _ri1DisableApiTermination = a })
+riDisableApiTermination :: Lens' RunInstances (Maybe Bool)
+riDisableApiTermination =
+    lens _riDisableApiTermination (\s a -> s { _riDisableApiTermination = a })
 
-ri1DryRun :: Lens' RunInstances (Maybe Bool)
-ri1DryRun = lens _ri1DryRun (\s a -> s { _ri1DryRun = a })
+riDryRun :: Lens' RunInstances (Maybe Bool)
+riDryRun = lens _riDryRun (\s a -> s { _riDryRun = a })
 
 -- | Indicates whether the instance is optimized for EBS I/O. This
 -- optimization provides dedicated throughput to Amazon EBS and an optimized
 -- configuration stack to provide optimal Amazon EBS I/O performance. This
 -- optimization isn't available with all instance types. Additional usage
 -- charges apply when using an EBS-optimized instance. Default: false.
-ri1EbsOptimized :: Lens' RunInstances (Maybe Bool)
-ri1EbsOptimized = lens _ri1EbsOptimized (\s a -> s { _ri1EbsOptimized = a })
+riEbsOptimized :: Lens' RunInstances (Maybe Bool)
+riEbsOptimized = lens _riEbsOptimized (\s a -> s { _riEbsOptimized = a })
 
 -- | The IAM instance profile.
-ri1IamInstanceProfile :: Lens' RunInstances (Maybe IamInstanceProfileSpecification)
-ri1IamInstanceProfile =
-    lens _ri1IamInstanceProfile (\s a -> s { _ri1IamInstanceProfile = a })
+riIamInstanceProfile :: Lens' RunInstances (Maybe IamInstanceProfileSpecification)
+riIamInstanceProfile =
+    lens _riIamInstanceProfile (\s a -> s { _riIamInstanceProfile = a })
 
 -- | The ID of the AMI, which you can get by calling DescribeImages.
-ri1ImageId :: Lens' RunInstances Text
-ri1ImageId = lens _ri1ImageId (\s a -> s { _ri1ImageId = a })
+riImageId :: Lens' RunInstances Text
+riImageId = lens _riImageId (\s a -> s { _riImageId = a })
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for system
 -- shutdown). Default: stop.
-ri1InstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe Text)
-ri1InstanceInitiatedShutdownBehavior =
-    lens _ri1InstanceInitiatedShutdownBehavior
-        (\s a -> s { _ri1InstanceInitiatedShutdownBehavior = a })
+riInstanceInitiatedShutdownBehavior :: Lens' RunInstances (Maybe Text)
+riInstanceInitiatedShutdownBehavior =
+    lens _riInstanceInitiatedShutdownBehavior
+        (\s a -> s { _riInstanceInitiatedShutdownBehavior = a })
 
 -- | The instance type. For more information, see Instance Types in the Amazon
 -- Elastic Compute Cloud User Guide. Default: m1.small.
-ri1InstanceType :: Lens' RunInstances (Maybe Text)
-ri1InstanceType = lens _ri1InstanceType (\s a -> s { _ri1InstanceType = a })
+riInstanceType :: Lens' RunInstances (Maybe Text)
+riInstanceType = lens _riInstanceType (\s a -> s { _riInstanceType = a })
 
 -- | The ID of the kernel. We recommend that you use PV-GRUB instead of
 -- kernels and RAM disks. For more information, see PV-GRUB in the Amazon
 -- Elastic Compute Cloud User Guide.
-ri1KernelId :: Lens' RunInstances (Maybe Text)
-ri1KernelId = lens _ri1KernelId (\s a -> s { _ri1KernelId = a })
+riKernelId :: Lens' RunInstances (Maybe Text)
+riKernelId = lens _riKernelId (\s a -> s { _riKernelId = a })
 
 -- | The name of the key pair. You can create a key pair using CreateKeyPair
 -- or ImportKeyPair. If you launch an instance without specifying a key
 -- pair, you can't connect to the instance.
-ri1KeyName :: Lens' RunInstances (Maybe Text)
-ri1KeyName = lens _ri1KeyName (\s a -> s { _ri1KeyName = a })
+riKeyName :: Lens' RunInstances (Maybe Text)
+riKeyName = lens _riKeyName (\s a -> s { _riKeyName = a })
 
 -- | The maximum number of instances to launch. If you specify more instances
 -- than Amazon EC2 can launch in the target Availability Zone, Amazon EC2
@@ -274,8 +272,8 @@ ri1KeyName = lens _ri1KeyName (\s a -> s { _ri1KeyName = a })
 -- specified instance type. For more information about the default limits,
 -- and how to request an increase, see How many instances can I run in
 -- Amazon EC2 in the Amazon EC2 General FAQ.
-ri1MaxCount :: Lens' RunInstances Int
-ri1MaxCount = lens _ri1MaxCount (\s a -> s { _ri1MaxCount = a })
+riMaxCount :: Lens' RunInstances Int
+riMaxCount = lens _riMaxCount (\s a -> s { _riMaxCount = a })
 
 -- | The minimum number of instances to launch. If you specify a minimum that
 -- is more instances than Amazon EC2 can launch in the target Availability
@@ -283,21 +281,21 @@ ri1MaxCount = lens _ri1MaxCount (\s a -> s { _ri1MaxCount = a })
 -- maximum number you're allowed for the specified instance type. For more
 -- information about the default limits, and how to request an increase, see
 -- How many instances can I run in Amazon EC2 in the Amazon EC2 General FAQ.
-ri1MinCount :: Lens' RunInstances Int
-ri1MinCount = lens _ri1MinCount (\s a -> s { _ri1MinCount = a })
+riMinCount :: Lens' RunInstances Int
+riMinCount = lens _riMinCount (\s a -> s { _riMinCount = a })
 
 -- | The monitoring for the instance.
-ri1Monitoring :: Lens' RunInstances (Maybe RunInstancesMonitoringEnabled)
-ri1Monitoring = lens _ri1Monitoring (\s a -> s { _ri1Monitoring = a })
+riMonitoring :: Lens' RunInstances (Maybe RunInstancesMonitoringEnabled)
+riMonitoring = lens _riMonitoring (\s a -> s { _riMonitoring = a })
 
 -- | One or more network interfaces.
-ri1NetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
-ri1NetworkInterfaces =
-    lens _ri1NetworkInterfaces (\s a -> s { _ri1NetworkInterfaces = a })
+riNetworkInterfaces :: Lens' RunInstances [InstanceNetworkInterfaceSpecification]
+riNetworkInterfaces =
+    lens _riNetworkInterfaces (\s a -> s { _riNetworkInterfaces = a })
 
 -- | The placement for the instance.
-ri1Placement :: Lens' RunInstances (Maybe Placement)
-ri1Placement = lens _ri1Placement (\s a -> s { _ri1Placement = a })
+riPlacement :: Lens' RunInstances (Maybe Placement)
+riPlacement = lens _riPlacement (\s a -> s { _riPlacement = a })
 
 -- | [EC2-VPC] The primary IP address. You must specify a value from the IP
 -- address range of the subnet. Only one private IP address can be
@@ -305,45 +303,105 @@ ri1Placement = lens _ri1Placement (\s a -> s { _ri1Placement = a })
 -- PrivateIpAddresses.n.Primary is set to true and
 -- PrivateIpAddresses.n.PrivateIpAddress is set to an IP address. Default:
 -- We select an IP address from the IP address range of the subnet.
-ri1PrivateIpAddress :: Lens' RunInstances (Maybe Text)
-ri1PrivateIpAddress =
-    lens _ri1PrivateIpAddress (\s a -> s { _ri1PrivateIpAddress = a })
+riPrivateIpAddress :: Lens' RunInstances (Maybe Text)
+riPrivateIpAddress =
+    lens _riPrivateIpAddress (\s a -> s { _riPrivateIpAddress = a })
 
 -- | The ID of the RAM disk. We recommend that you use PV-GRUB instead of
 -- kernels and RAM disks. For more information, see PV-GRUB in the Amazon
 -- Elastic Compute Cloud User Guide.
-ri1RamdiskId :: Lens' RunInstances (Maybe Text)
-ri1RamdiskId = lens _ri1RamdiskId (\s a -> s { _ri1RamdiskId = a })
+riRamdiskId :: Lens' RunInstances (Maybe Text)
+riRamdiskId = lens _riRamdiskId (\s a -> s { _riRamdiskId = a })
 
 -- | One or more security group IDs. You can create a security group using
 -- CreateSecurityGroup. Default: Amazon EC2 uses the default security group.
-ri1SecurityGroupIds :: Lens' RunInstances [Text]
-ri1SecurityGroupIds =
-    lens _ri1SecurityGroupIds (\s a -> s { _ri1SecurityGroupIds = a })
+riSecurityGroupIds :: Lens' RunInstances [Text]
+riSecurityGroupIds =
+    lens _riSecurityGroupIds (\s a -> s { _riSecurityGroupIds = a })
 
 -- | [EC2-Classic, default VPC] One or more security group names. For a
 -- nondefault VPC, you must use security group IDs instead. Default: Amazon
 -- EC2 uses the default security group.
-ri1SecurityGroups :: Lens' RunInstances [Text]
-ri1SecurityGroups =
-    lens _ri1SecurityGroups (\s a -> s { _ri1SecurityGroups = a })
+riSecurityGroups :: Lens' RunInstances [Text]
+riSecurityGroups = lens _riSecurityGroups (\s a -> s { _riSecurityGroups = a })
 
 -- | [EC2-VPC] The ID of the subnet to launch the instance into.
-ri1SubnetId :: Lens' RunInstances (Maybe Text)
-ri1SubnetId = lens _ri1SubnetId (\s a -> s { _ri1SubnetId = a })
+riSubnetId :: Lens' RunInstances (Maybe Text)
+riSubnetId = lens _riSubnetId (\s a -> s { _riSubnetId = a })
 
 -- | The Base64-encoded MIME user data for the instances.
-ri1UserData :: Lens' RunInstances (Maybe Text)
-ri1UserData = lens _ri1UserData (\s a -> s { _ri1UserData = a })
+riUserData :: Lens' RunInstances (Maybe Text)
+riUserData = lens _riUserData (\s a -> s { _riUserData = a })
 
 instance ToQuery RunInstances
 
 instance ToPath RunInstances where
     toPath = const "/"
 
+data RunInstancesResponse = RunInstancesResponse
+    { _rirGroups        :: [GroupIdentifier]
+    , _rirInstances     :: [Instance]
+    , _rirOwnerId       :: Maybe Text
+    , _rirRequesterId   :: Maybe Text
+    , _rirReservationId :: Maybe Text
+    } deriving (Eq, Show, Generic)
+
+-- | 'RunInstancesResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rirGroups' @::@ ['GroupIdentifier']
+--
+-- * 'rirInstances' @::@ ['Instance']
+--
+-- * 'rirOwnerId' @::@ 'Maybe' 'Text'
+--
+-- * 'rirRequesterId' @::@ 'Maybe' 'Text'
+--
+-- * 'rirReservationId' @::@ 'Maybe' 'Text'
+--
+runInstancesResponse :: RunInstancesResponse
+runInstancesResponse = RunInstancesResponse
+    { _rirReservationId = Nothing
+    , _rirOwnerId       = Nothing
+    , _rirRequesterId   = Nothing
+    , _rirGroups        = mempty
+    , _rirInstances     = mempty
+    }
+
+-- | One or more security groups.
+rirGroups :: Lens' RunInstancesResponse [GroupIdentifier]
+rirGroups = lens _rirGroups (\s a -> s { _rirGroups = a })
+
+-- | One or more instances.
+rirInstances :: Lens' RunInstancesResponse [Instance]
+rirInstances = lens _rirInstances (\s a -> s { _rirInstances = a })
+
+-- | The ID of the AWS account that owns the reservation.
+rirOwnerId :: Lens' RunInstancesResponse (Maybe Text)
+rirOwnerId = lens _rirOwnerId (\s a -> s { _rirOwnerId = a })
+
+-- | The ID of the requester that launched the instances on your behalf (for
+-- example, AWS Management Console or Auto Scaling).
+rirRequesterId :: Lens' RunInstancesResponse (Maybe Text)
+rirRequesterId = lens _rirRequesterId (\s a -> s { _rirRequesterId = a })
+
+-- | The ID of the reservation.
+rirReservationId :: Lens' RunInstancesResponse (Maybe Text)
+rirReservationId = lens _rirReservationId (\s a -> s { _rirReservationId = a })
+
+instance FromXML RunInstancesResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "RunInstancesResponse"
+
 instance AWSRequest RunInstances where
     type Sv RunInstances = EC2
-    type Rs RunInstances = Reservation
+    type Rs RunInstances = RunInstancesResponse
 
     request  = post "RunInstances"
-    response = xmlResponse $ const decodeCursor
+    response = xmlResponse $ \h x -> RunInstancesResponse
+        <$> x %| "groupSet"
+        <*> x %| "instancesSet"
+        <*> x %| "ownerId"
+        <*> x %| "requesterId"
+        <*> x %| "reservationId"

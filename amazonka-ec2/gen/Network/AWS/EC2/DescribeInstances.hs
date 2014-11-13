@@ -35,14 +35,14 @@ module Network.AWS.EC2.DescribeInstances
     -- ** Request constructor
     , describeInstances
     -- ** Request lenses
-    , diDryRun
-    , diFilters
-    , diInstanceIds
-    , diMaxResults
-    , diNextToken
+    , di1DryRun
+    , di1Filters
+    , di1InstanceIds
+    , di1MaxResults
+    , di1NextToken
 
     -- * Response
-    , DescribeInstancesResult
+    , DescribeInstancesResponse
     -- ** Response constructor
     , describeInstancesResponse
     -- ** Response lenses
@@ -55,38 +55,38 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DescribeInstances = DescribeInstances
-    { _diDryRun      :: Maybe Bool
-    , _diFilters     :: [Filter]
-    , _diInstanceIds :: [Text]
-    , _diMaxResults  :: Maybe Int
-    , _diNextToken   :: Maybe Text
+    { _di1DryRun      :: Maybe Bool
+    , _di1Filters     :: [Filter]
+    , _di1InstanceIds :: [Text]
+    , _di1MaxResults  :: Maybe Int
+    , _di1NextToken   :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diDryRun' @::@ 'Maybe' 'Bool'
+-- * 'di1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'diFilters' @::@ ['Filter']
+-- * 'di1Filters' @::@ ['Filter']
 --
--- * 'diInstanceIds' @::@ ['Text']
+-- * 'di1InstanceIds' @::@ ['Text']
 --
--- * 'diMaxResults' @::@ 'Maybe' 'Int'
+-- * 'di1MaxResults' @::@ 'Maybe' 'Int'
 --
--- * 'diNextToken' @::@ 'Maybe' 'Text'
+-- * 'di1NextToken' @::@ 'Maybe' 'Text'
 --
 describeInstances :: DescribeInstances
 describeInstances = DescribeInstances
-    { _diDryRun      = Nothing
-    , _diInstanceIds = mempty
-    , _diFilters     = mempty
-    , _diNextToken   = Nothing
-    , _diMaxResults  = Nothing
+    { _di1DryRun      = Nothing
+    , _di1InstanceIds = mempty
+    , _di1Filters     = mempty
+    , _di1NextToken   = Nothing
+    , _di1MaxResults  = Nothing
     }
 
-diDryRun :: Lens' DescribeInstances (Maybe Bool)
-diDryRun = lens _diDryRun (\s a -> s { _diDryRun = a })
+di1DryRun :: Lens' DescribeInstances (Maybe Bool)
+di1DryRun = lens _di1DryRun (\s a -> s { _di1DryRun = a })
 
 -- | One or more filters. architecture - The instance architecture (i386 |
 -- x86_64). availability-zone - The Availability Zone of the instance.
@@ -214,36 +214,36 @@ diDryRun = lens _diDryRun (\s a -> s { _diDryRun = a })
 -- the Elastic IP address for your network interface.
 -- association.association-id - The association ID returned when the network
 -- interface was associated with an IP address.
-diFilters :: Lens' DescribeInstances [Filter]
-diFilters = lens _diFilters (\s a -> s { _diFilters = a })
+di1Filters :: Lens' DescribeInstances [Filter]
+di1Filters = lens _di1Filters (\s a -> s { _di1Filters = a })
 
 -- | One or more instance IDs. Default: Describes all your instances.
-diInstanceIds :: Lens' DescribeInstances [Text]
-diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a })
+di1InstanceIds :: Lens' DescribeInstances [Text]
+di1InstanceIds = lens _di1InstanceIds (\s a -> s { _di1InstanceIds = a })
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the next
 -- set of results. If the value is greater than 1000, we return only 1000
 -- items.
-diMaxResults :: Lens' DescribeInstances (Maybe Int)
-diMaxResults = lens _diMaxResults (\s a -> s { _diMaxResults = a })
+di1MaxResults :: Lens' DescribeInstances (Maybe Int)
+di1MaxResults = lens _di1MaxResults (\s a -> s { _di1MaxResults = a })
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.).
-diNextToken :: Lens' DescribeInstances (Maybe Text)
-diNextToken = lens _diNextToken (\s a -> s { _diNextToken = a })
+di1NextToken :: Lens' DescribeInstances (Maybe Text)
+di1NextToken = lens _di1NextToken (\s a -> s { _di1NextToken = a })
 
 instance ToQuery DescribeInstances
 
 instance ToPath DescribeInstances where
     toPath = const "/"
 
-data DescribeInstancesResult = DescribeInstancesResult
+data DescribeInstancesResponse = DescribeInstancesResponse
     { _dirNextToken    :: Maybe Text
     , _dirReservations :: [Reservation]
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeInstancesResult' constructor.
+-- | 'DescribeInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -251,30 +251,30 @@ data DescribeInstancesResult = DescribeInstancesResult
 --
 -- * 'dirReservations' @::@ ['Reservation']
 --
-describeInstancesResponse :: DescribeInstancesResult
-describeInstancesResponse = DescribeInstancesResult
+describeInstancesResponse :: DescribeInstancesResponse
+describeInstancesResponse = DescribeInstancesResponse
     { _dirReservations = mempty
     , _dirNextToken    = Nothing
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dirNextToken :: Lens' DescribeInstancesResult (Maybe Text)
+dirNextToken :: Lens' DescribeInstancesResponse (Maybe Text)
 dirNextToken = lens _dirNextToken (\s a -> s { _dirNextToken = a })
 
 -- | One or more reservations.
-dirReservations :: Lens' DescribeInstancesResult [Reservation]
+dirReservations :: Lens' DescribeInstancesResponse [Reservation]
 dirReservations = lens _dirReservations (\s a -> s { _dirReservations = a })
 
-instance FromXML DescribeInstancesResult where
+instance FromXML DescribeInstancesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeInstancesResult"
+    fromXMLRoot    = fromRoot "DescribeInstancesResponse"
 
 instance AWSRequest DescribeInstances where
     type Sv DescribeInstances = EC2
-    type Rs DescribeInstances = DescribeInstancesResult
+    type Rs DescribeInstances = DescribeInstancesResponse
 
     request  = post "DescribeInstances"
-    response = xmlResponse $ \h x -> DescribeInstancesResult
+    response = xmlResponse $ \h x -> DescribeInstancesResponse
         <$> x %| "nextToken"
         <*> x %| "reservationSet"

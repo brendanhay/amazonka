@@ -30,12 +30,12 @@ module Network.AWS.S3.ListBuckets
     , listBuckets
 
     -- * Response
-    , ListBucketsOutput
+    , ListBucketsResponse
     -- ** Response constructor
     , listBucketsResponse
     -- ** Response lenses
-    , lboBuckets
-    , lboOwner
+    , lbrBuckets
+    , lbrOwner
     ) where
 
 import Network.AWS.Prelude
@@ -57,39 +57,39 @@ instance ToQuery ListBuckets where
 
 instance ToHeaders ListBuckets
 
-data ListBucketsOutput = ListBucketsOutput
-    { _lboBuckets :: [Bucket]
-    , _lboOwner   :: Maybe Owner
+data ListBucketsResponse = ListBucketsResponse
+    { _lbrBuckets :: [Bucket]
+    , _lbrOwner   :: Maybe Owner
     } deriving (Eq, Show, Generic)
 
--- | 'ListBucketsOutput' constructor.
+-- | 'ListBucketsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lboBuckets' @::@ ['Bucket']
+-- * 'lbrBuckets' @::@ ['Bucket']
 --
--- * 'lboOwner' @::@ 'Maybe' 'Owner'
+-- * 'lbrOwner' @::@ 'Maybe' 'Owner'
 --
-listBucketsResponse :: ListBucketsOutput
-listBucketsResponse = ListBucketsOutput
-    { _lboBuckets = mempty
-    , _lboOwner   = Nothing
+listBucketsResponse :: ListBucketsResponse
+listBucketsResponse = ListBucketsResponse
+    { _lbrBuckets = mempty
+    , _lbrOwner   = Nothing
     }
 
-lboBuckets :: Lens' ListBucketsOutput [Bucket]
-lboBuckets = lens _lboBuckets (\s a -> s { _lboBuckets = a })
+lbrBuckets :: Lens' ListBucketsResponse [Bucket]
+lbrBuckets = lens _lbrBuckets (\s a -> s { _lbrBuckets = a })
 
-lboOwner :: Lens' ListBucketsOutput (Maybe Owner)
-lboOwner = lens _lboOwner (\s a -> s { _lboOwner = a })
+lbrOwner :: Lens' ListBucketsResponse (Maybe Owner)
+lbrOwner = lens _lbrOwner (\s a -> s { _lbrOwner = a })
 
-instance FromXML ListBucketsOutput where
+instance FromXML ListBucketsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListBucketsOutput"
+    fromXMLRoot    = fromRoot "ListBucketsResponse"
 instance AWSRequest ListBuckets where
     type Sv ListBuckets = S3
-    type Rs ListBuckets = ListBucketsOutput
+    type Rs ListBuckets = ListBucketsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListBucketsOutput
+    response = xmlResponse $ \h x -> ListBucketsResponse
         <$> x %| "Buckets"
         <*> x %| "Owner"

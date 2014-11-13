@@ -28,16 +28,16 @@
 module Network.AWS.Redshift.RevokeSnapshotAccess
     (
     -- * Request
-      RevokeSnapshotAccessMessage
+      RevokeSnapshotAccess
     -- ** Request constructor
     , revokeSnapshotAccess
     -- ** Request lenses
-    , rsamAccountWithRestoreAccess
-    , rsamSnapshotClusterIdentifier
-    , rsamSnapshotIdentifier
+    , rsaAccountWithRestoreAccess
+    , rsaSnapshotClusterIdentifier
+    , rsaSnapshotIdentifier
 
     -- * Response
-    , RevokeSnapshotAccessResult
+    , RevokeSnapshotAccessResponse
     -- ** Response constructor
     , revokeSnapshotAccessResponse
     -- ** Response lenses
@@ -48,83 +48,83 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data RevokeSnapshotAccessMessage = RevokeSnapshotAccessMessage
-    { _rsamAccountWithRestoreAccess  :: Text
-    , _rsamSnapshotClusterIdentifier :: Maybe Text
-    , _rsamSnapshotIdentifier        :: Text
+data RevokeSnapshotAccess = RevokeSnapshotAccess
+    { _rsaAccountWithRestoreAccess  :: Text
+    , _rsaSnapshotClusterIdentifier :: Maybe Text
+    , _rsaSnapshotIdentifier        :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'RevokeSnapshotAccessMessage' constructor.
+-- | 'RevokeSnapshotAccess' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rsamAccountWithRestoreAccess' @::@ 'Text'
+-- * 'rsaAccountWithRestoreAccess' @::@ 'Text'
 --
--- * 'rsamSnapshotClusterIdentifier' @::@ 'Maybe' 'Text'
+-- * 'rsaSnapshotClusterIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'rsamSnapshotIdentifier' @::@ 'Text'
+-- * 'rsaSnapshotIdentifier' @::@ 'Text'
 --
-revokeSnapshotAccess :: Text -- ^ 'rsamSnapshotIdentifier'
-                     -> Text -- ^ 'rsamAccountWithRestoreAccess'
-                     -> RevokeSnapshotAccessMessage
-revokeSnapshotAccess p1 p2 = RevokeSnapshotAccessMessage
-    { _rsamSnapshotIdentifier        = p1
-    , _rsamAccountWithRestoreAccess  = p2
-    , _rsamSnapshotClusterIdentifier = Nothing
+revokeSnapshotAccess :: Text -- ^ 'rsaSnapshotIdentifier'
+                     -> Text -- ^ 'rsaAccountWithRestoreAccess'
+                     -> RevokeSnapshotAccess
+revokeSnapshotAccess p1 p2 = RevokeSnapshotAccess
+    { _rsaSnapshotIdentifier        = p1
+    , _rsaAccountWithRestoreAccess  = p2
+    , _rsaSnapshotClusterIdentifier = Nothing
     }
 
 -- | The identifier of the AWS customer account that can no longer restore the
 -- specified snapshot.
-rsamAccountWithRestoreAccess :: Lens' RevokeSnapshotAccessMessage Text
-rsamAccountWithRestoreAccess =
-    lens _rsamAccountWithRestoreAccess
-        (\s a -> s { _rsamAccountWithRestoreAccess = a })
+rsaAccountWithRestoreAccess :: Lens' RevokeSnapshotAccess Text
+rsaAccountWithRestoreAccess =
+    lens _rsaAccountWithRestoreAccess
+        (\s a -> s { _rsaAccountWithRestoreAccess = a })
 
 -- | The identifier of the cluster the snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a snapshot
 -- resource element that specifies anything other than * for the cluster
 -- name.
-rsamSnapshotClusterIdentifier :: Lens' RevokeSnapshotAccessMessage (Maybe Text)
-rsamSnapshotClusterIdentifier =
-    lens _rsamSnapshotClusterIdentifier
-        (\s a -> s { _rsamSnapshotClusterIdentifier = a })
+rsaSnapshotClusterIdentifier :: Lens' RevokeSnapshotAccess (Maybe Text)
+rsaSnapshotClusterIdentifier =
+    lens _rsaSnapshotClusterIdentifier
+        (\s a -> s { _rsaSnapshotClusterIdentifier = a })
 
 -- | The identifier of the snapshot that the account can no longer access.
-rsamSnapshotIdentifier :: Lens' RevokeSnapshotAccessMessage Text
-rsamSnapshotIdentifier =
-    lens _rsamSnapshotIdentifier (\s a -> s { _rsamSnapshotIdentifier = a })
+rsaSnapshotIdentifier :: Lens' RevokeSnapshotAccess Text
+rsaSnapshotIdentifier =
+    lens _rsaSnapshotIdentifier (\s a -> s { _rsaSnapshotIdentifier = a })
 
-instance ToQuery RevokeSnapshotAccessMessage
+instance ToQuery RevokeSnapshotAccess
 
-instance ToPath RevokeSnapshotAccessMessage where
+instance ToPath RevokeSnapshotAccess where
     toPath = const "/"
 
-newtype RevokeSnapshotAccessResult = RevokeSnapshotAccessResult
+newtype RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
     { _rsarSnapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
 
--- | 'RevokeSnapshotAccessResult' constructor.
+-- | 'RevokeSnapshotAccessResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rsarSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-revokeSnapshotAccessResponse :: RevokeSnapshotAccessResult
-revokeSnapshotAccessResponse = RevokeSnapshotAccessResult
+revokeSnapshotAccessResponse :: RevokeSnapshotAccessResponse
+revokeSnapshotAccessResponse = RevokeSnapshotAccessResponse
     { _rsarSnapshot = Nothing
     }
 
-rsarSnapshot :: Lens' RevokeSnapshotAccessResult (Maybe Snapshot)
+rsarSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
 rsarSnapshot = lens _rsarSnapshot (\s a -> s { _rsarSnapshot = a })
 
-instance FromXML RevokeSnapshotAccessResult where
+instance FromXML RevokeSnapshotAccessResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RevokeSnapshotAccessResult"
+    fromXMLRoot    = fromRoot "RevokeSnapshotAccessResponse"
 
-instance AWSRequest RevokeSnapshotAccessMessage where
-    type Sv RevokeSnapshotAccessMessage = Redshift
-    type Rs RevokeSnapshotAccessMessage = RevokeSnapshotAccessResult
+instance AWSRequest RevokeSnapshotAccess where
+    type Sv RevokeSnapshotAccess = Redshift
+    type Rs RevokeSnapshotAccess = RevokeSnapshotAccessResponse
 
     request  = post "RevokeSnapshotAccess"
-    response = xmlResponse $ \h x -> RevokeSnapshotAccessResult
+    response = xmlResponse $ \h x -> RevokeSnapshotAccessResponse
         <$> x %| "Snapshot"

@@ -24,64 +24,88 @@
 module Network.AWS.ElasticBeanstalk.UpdateApplication
     (
     -- * Request
-      UpdateApplicationMessage
+      UpdateApplication
     -- ** Request constructor
     , updateApplication
     -- ** Request lenses
-    , uamApplicationName
-    , uamDescription
+    , uaApplicationName
+    , uaDescription
 
     -- * Response
-    , ApplicationDescriptionMessage
+    , UpdateApplicationResponse
     -- ** Response constructor
-    , applicationDescriptionMessage
+    , updateApplicationResponse
     -- ** Response lenses
-    , admApplication
+    , uarApplication
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data UpdateApplicationMessage = UpdateApplicationMessage
-    { _uamApplicationName :: Text
-    , _uamDescription     :: Maybe Text
+data UpdateApplication = UpdateApplication
+    { _uaApplicationName :: Text
+    , _uaDescription     :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'UpdateApplicationMessage' constructor.
+-- | 'UpdateApplication' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uamApplicationName' @::@ 'Text'
+-- * 'uaApplicationName' @::@ 'Text'
 --
--- * 'uamDescription' @::@ 'Maybe' 'Text'
+-- * 'uaDescription' @::@ 'Maybe' 'Text'
 --
-updateApplication :: Text -- ^ 'uamApplicationName'
-                  -> UpdateApplicationMessage
-updateApplication p1 = UpdateApplicationMessage
-    { _uamApplicationName = p1
-    , _uamDescription     = Nothing
+updateApplication :: Text -- ^ 'uaApplicationName'
+                  -> UpdateApplication
+updateApplication p1 = UpdateApplication
+    { _uaApplicationName = p1
+    , _uaDescription     = Nothing
     }
 
 -- | The name of the application to update. If no such application is found,
 -- UpdateApplication returns an InvalidParameterValue error.
-uamApplicationName :: Lens' UpdateApplicationMessage Text
-uamApplicationName =
-    lens _uamApplicationName (\s a -> s { _uamApplicationName = a })
+uaApplicationName :: Lens' UpdateApplication Text
+uaApplicationName =
+    lens _uaApplicationName (\s a -> s { _uaApplicationName = a })
 
 -- | A new description for the application. Default: If not specified, AWS
 -- Elastic Beanstalk does not update the description.
-uamDescription :: Lens' UpdateApplicationMessage (Maybe Text)
-uamDescription = lens _uamDescription (\s a -> s { _uamDescription = a })
+uaDescription :: Lens' UpdateApplication (Maybe Text)
+uaDescription = lens _uaDescription (\s a -> s { _uaDescription = a })
 
-instance ToQuery UpdateApplicationMessage
+instance ToQuery UpdateApplication
 
-instance ToPath UpdateApplicationMessage where
+instance ToPath UpdateApplication where
     toPath = const "/"
 
-instance AWSRequest UpdateApplicationMessage where
-    type Sv UpdateApplicationMessage = ElasticBeanstalk
-    type Rs UpdateApplicationMessage = ApplicationDescriptionMessage
+newtype UpdateApplicationResponse = UpdateApplicationResponse
+    { _uarApplication :: Maybe ApplicationDescription
+    } deriving (Eq, Show, Generic)
+
+-- | 'UpdateApplicationResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'uarApplication' @::@ 'Maybe' 'ApplicationDescription'
+--
+updateApplicationResponse :: UpdateApplicationResponse
+updateApplicationResponse = UpdateApplicationResponse
+    { _uarApplication = Nothing
+    }
+
+-- | The ApplicationDescription of the application.
+uarApplication :: Lens' UpdateApplicationResponse (Maybe ApplicationDescription)
+uarApplication = lens _uarApplication (\s a -> s { _uarApplication = a })
+
+instance FromXML UpdateApplicationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateApplicationResponse"
+
+instance AWSRequest UpdateApplication where
+    type Sv UpdateApplication = ElasticBeanstalk
+    type Rs UpdateApplication = UpdateApplicationResponse
 
     request  = post "UpdateApplication"
-    response = xmlResponse $ const decodeCursor
+    response = xmlResponse $ \h x -> UpdateApplicationResponse
+        <$> x %| "Application"

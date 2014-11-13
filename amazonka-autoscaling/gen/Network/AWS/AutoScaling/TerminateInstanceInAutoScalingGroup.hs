@@ -25,90 +25,89 @@
 module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     (
     -- * Request
-      TerminateInstanceInAutoScalingGroupType
+      TerminateInstanceInAutoScalingGroup
     -- ** Request constructor
     , terminateInstanceInAutoScalingGroup
     -- ** Request lenses
-    , tiiasgtInstanceId
-    , tiiasgtShouldDecrementDesiredCapacity
+    , tiiasgInstanceId
+    , tiiasgShouldDecrementDesiredCapacity
 
     -- * Response
-    , ActivityType
+    , TerminateInstanceInAutoScalingGroupResponse
     -- ** Response constructor
     , terminateInstanceInAutoScalingGroupResponse
     -- ** Response lenses
-    , atActivity
+    , tiiasgrActivity
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data TerminateInstanceInAutoScalingGroupType = TerminateInstanceInAutoScalingGroupType
-    { _tiiasgtInstanceId                     :: Text
-    , _tiiasgtShouldDecrementDesiredCapacity :: Bool
+data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup
+    { _tiiasgInstanceId                     :: Text
+    , _tiiasgShouldDecrementDesiredCapacity :: Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'TerminateInstanceInAutoScalingGroupType' constructor.
+-- | 'TerminateInstanceInAutoScalingGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tiiasgtInstanceId' @::@ 'Text'
+-- * 'tiiasgInstanceId' @::@ 'Text'
 --
--- * 'tiiasgtShouldDecrementDesiredCapacity' @::@ 'Bool'
+-- * 'tiiasgShouldDecrementDesiredCapacity' @::@ 'Bool'
 --
-terminateInstanceInAutoScalingGroup :: Text -- ^ 'tiiasgtInstanceId'
-                                    -> Bool -- ^ 'tiiasgtShouldDecrementDesiredCapacity'
-                                    -> TerminateInstanceInAutoScalingGroupType
-terminateInstanceInAutoScalingGroup p1 p2 = TerminateInstanceInAutoScalingGroupType
-    { _tiiasgtInstanceId                     = p1
-    , _tiiasgtShouldDecrementDesiredCapacity = p2
+terminateInstanceInAutoScalingGroup :: Text -- ^ 'tiiasgInstanceId'
+                                    -> Bool -- ^ 'tiiasgShouldDecrementDesiredCapacity'
+                                    -> TerminateInstanceInAutoScalingGroup
+terminateInstanceInAutoScalingGroup p1 p2 = TerminateInstanceInAutoScalingGroup
+    { _tiiasgInstanceId                     = p1
+    , _tiiasgShouldDecrementDesiredCapacity = p2
     }
 
 -- | The ID of the Amazon EC2 instance to be terminated.
-tiiasgtInstanceId :: Lens' TerminateInstanceInAutoScalingGroupType Text
-tiiasgtInstanceId =
-    lens _tiiasgtInstanceId (\s a -> s { _tiiasgtInstanceId = a })
+tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
+tiiasgInstanceId = lens _tiiasgInstanceId (\s a -> s { _tiiasgInstanceId = a })
 
 -- | Specifies whether (true) or not (false) terminating this instance should
 -- also decrement the size of the AutoScalingGroup.
-tiiasgtShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroupType Bool
-tiiasgtShouldDecrementDesiredCapacity =
-    lens _tiiasgtShouldDecrementDesiredCapacity
-        (\s a -> s { _tiiasgtShouldDecrementDesiredCapacity = a })
+tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
+tiiasgShouldDecrementDesiredCapacity =
+    lens _tiiasgShouldDecrementDesiredCapacity
+        (\s a -> s { _tiiasgShouldDecrementDesiredCapacity = a })
 
-instance ToQuery TerminateInstanceInAutoScalingGroupType
+instance ToQuery TerminateInstanceInAutoScalingGroup
 
-instance ToPath TerminateInstanceInAutoScalingGroupType where
+instance ToPath TerminateInstanceInAutoScalingGroup where
     toPath = const "/"
 
-newtype ActivityType = ActivityType
-    { _atActivity :: Maybe Activity
+newtype TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
+    { _tiiasgrActivity :: Maybe Activity
     } deriving (Eq, Show, Generic)
 
--- | 'ActivityType' constructor.
+-- | 'TerminateInstanceInAutoScalingGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atActivity' @::@ 'Maybe' 'Activity'
+-- * 'tiiasgrActivity' @::@ 'Maybe' 'Activity'
 --
-terminateInstanceInAutoScalingGroupResponse :: ActivityType
-terminateInstanceInAutoScalingGroupResponse = ActivityType
-    { _atActivity = Nothing
+terminateInstanceInAutoScalingGroupResponse :: TerminateInstanceInAutoScalingGroupResponse
+terminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse
+    { _tiiasgrActivity = Nothing
     }
 
 -- | A scaling Activity.
-atActivity :: Lens' ActivityType (Maybe Activity)
-atActivity = lens _atActivity (\s a -> s { _atActivity = a })
+tiiasgrActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
+tiiasgrActivity = lens _tiiasgrActivity (\s a -> s { _tiiasgrActivity = a })
 
-instance FromXML ActivityType where
+instance FromXML TerminateInstanceInAutoScalingGroupResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ActivityType"
+    fromXMLRoot    = fromRoot "TerminateInstanceInAutoScalingGroupResponse"
 
-instance AWSRequest TerminateInstanceInAutoScalingGroupType where
-    type Sv TerminateInstanceInAutoScalingGroupType = AutoScaling
-    type Rs TerminateInstanceInAutoScalingGroupType = ActivityType
+instance AWSRequest TerminateInstanceInAutoScalingGroup where
+    type Sv TerminateInstanceInAutoScalingGroup = AutoScaling
+    type Rs TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroupResponse
 
     request  = post "TerminateInstanceInAutoScalingGroup"
-    response = xmlResponse $ \h x -> ActivityType
+    response = xmlResponse $ \h x -> TerminateInstanceInAutoScalingGroupResponse
         <$> x %| "Activity"

@@ -28,111 +28,111 @@
 module Network.AWS.ImportExport.UpdateJob
     (
     -- * Request
-      UpdateJobInput
+      UpdateJob
     -- ** Request constructor
     , updateJob
     -- ** Request lenses
-    , ujiJobId
-    , ujiJobType
-    , ujiManifest
-    , ujiValidateOnly
+    , ujJobId
+    , ujJobType
+    , ujManifest
+    , ujValidateOnly
 
     -- * Response
-    , UpdateJobOutput
+    , UpdateJobResponse
     -- ** Response constructor
     , updateJobResponse
     -- ** Response lenses
-    , ujoSuccess
-    , ujoWarningMessage
+    , ujrSuccess
+    , ujrWarningMessage
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
 
-data UpdateJobInput = UpdateJobInput
-    { _ujiJobId        :: Text
-    , _ujiJobType      :: Text
-    , _ujiManifest     :: Text
-    , _ujiValidateOnly :: Bool
+data UpdateJob = UpdateJob
+    { _ujJobId        :: Text
+    , _ujJobType      :: Text
+    , _ujManifest     :: Text
+    , _ujValidateOnly :: Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'UpdateJobInput' constructor.
+-- | 'UpdateJob' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ujiJobId' @::@ 'Text'
+-- * 'ujJobId' @::@ 'Text'
 --
--- * 'ujiJobType' @::@ 'Text'
+-- * 'ujJobType' @::@ 'Text'
 --
--- * 'ujiManifest' @::@ 'Text'
+-- * 'ujManifest' @::@ 'Text'
 --
--- * 'ujiValidateOnly' @::@ 'Bool'
+-- * 'ujValidateOnly' @::@ 'Bool'
 --
-updateJob :: Text -- ^ 'ujiJobId'
-          -> Text -- ^ 'ujiManifest'
-          -> Text -- ^ 'ujiJobType'
-          -> Bool -- ^ 'ujiValidateOnly'
-          -> UpdateJobInput
-updateJob p1 p2 p3 p4 = UpdateJobInput
-    { _ujiJobId        = p1
-    , _ujiManifest     = p2
-    , _ujiJobType      = p3
-    , _ujiValidateOnly = p4
+updateJob :: Text -- ^ 'ujJobId'
+          -> Text -- ^ 'ujManifest'
+          -> Text -- ^ 'ujJobType'
+          -> Bool -- ^ 'ujValidateOnly'
+          -> UpdateJob
+updateJob p1 p2 p3 p4 = UpdateJob
+    { _ujJobId        = p1
+    , _ujManifest     = p2
+    , _ujJobType      = p3
+    , _ujValidateOnly = p4
     }
 
-ujiJobId :: Lens' UpdateJobInput Text
-ujiJobId = lens _ujiJobId (\s a -> s { _ujiJobId = a })
+ujJobId :: Lens' UpdateJob Text
+ujJobId = lens _ujJobId (\s a -> s { _ujJobId = a })
 
-ujiJobType :: Lens' UpdateJobInput Text
-ujiJobType = lens _ujiJobType (\s a -> s { _ujiJobType = a })
+ujJobType :: Lens' UpdateJob Text
+ujJobType = lens _ujJobType (\s a -> s { _ujJobType = a })
 
-ujiManifest :: Lens' UpdateJobInput Text
-ujiManifest = lens _ujiManifest (\s a -> s { _ujiManifest = a })
+ujManifest :: Lens' UpdateJob Text
+ujManifest = lens _ujManifest (\s a -> s { _ujManifest = a })
 
-ujiValidateOnly :: Lens' UpdateJobInput Bool
-ujiValidateOnly = lens _ujiValidateOnly (\s a -> s { _ujiValidateOnly = a })
+ujValidateOnly :: Lens' UpdateJob Bool
+ujValidateOnly = lens _ujValidateOnly (\s a -> s { _ujValidateOnly = a })
 
-instance ToQuery UpdateJobInput
+instance ToQuery UpdateJob
 
-instance ToPath UpdateJobInput where
+instance ToPath UpdateJob where
     toPath = const "/"
 
-data UpdateJobOutput = UpdateJobOutput
-    { _ujoSuccess        :: Maybe Bool
-    , _ujoWarningMessage :: Maybe Text
+data UpdateJobResponse = UpdateJobResponse
+    { _ujrSuccess        :: Maybe Bool
+    , _ujrWarningMessage :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'UpdateJobOutput' constructor.
+-- | 'UpdateJobResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ujoSuccess' @::@ 'Maybe' 'Bool'
+-- * 'ujrSuccess' @::@ 'Maybe' 'Bool'
 --
--- * 'ujoWarningMessage' @::@ 'Maybe' 'Text'
+-- * 'ujrWarningMessage' @::@ 'Maybe' 'Text'
 --
-updateJobResponse :: UpdateJobOutput
-updateJobResponse = UpdateJobOutput
-    { _ujoSuccess        = Nothing
-    , _ujoWarningMessage = Nothing
+updateJobResponse :: UpdateJobResponse
+updateJobResponse = UpdateJobResponse
+    { _ujrSuccess        = Nothing
+    , _ujrWarningMessage = Nothing
     }
 
-ujoSuccess :: Lens' UpdateJobOutput (Maybe Bool)
-ujoSuccess = lens _ujoSuccess (\s a -> s { _ujoSuccess = a })
+ujrSuccess :: Lens' UpdateJobResponse (Maybe Bool)
+ujrSuccess = lens _ujrSuccess (\s a -> s { _ujrSuccess = a })
 
-ujoWarningMessage :: Lens' UpdateJobOutput (Maybe Text)
-ujoWarningMessage =
-    lens _ujoWarningMessage (\s a -> s { _ujoWarningMessage = a })
+ujrWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
+ujrWarningMessage =
+    lens _ujrWarningMessage (\s a -> s { _ujrWarningMessage = a })
 
-instance FromXML UpdateJobOutput where
+instance FromXML UpdateJobResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateJobOutput"
+    fromXMLRoot    = fromRoot "UpdateJobResponse"
 
-instance AWSRequest UpdateJobInput where
-    type Sv UpdateJobInput = ImportExport
-    type Rs UpdateJobInput = UpdateJobOutput
+instance AWSRequest UpdateJob where
+    type Sv UpdateJob = ImportExport
+    type Rs UpdateJob = UpdateJobResponse
 
     request  = post "UpdateJob"
-    response = xmlResponse $ \h x -> UpdateJobOutput
+    response = xmlResponse $ \h x -> UpdateJobResponse
         <$> x %| "Success"
         <*> x %| "WarningMessage"

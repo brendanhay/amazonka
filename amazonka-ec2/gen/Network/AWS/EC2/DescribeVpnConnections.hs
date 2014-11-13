@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeVpnConnections
     , dvc1VpnConnectionIds
 
     -- * Response
-    , DescribeVpnConnectionsResult
+    , DescribeVpnConnectionsResponse
     -- ** Response constructor
     , describeVpnConnectionsResponse
     -- ** Response lenses
@@ -106,40 +106,40 @@ instance ToQuery DescribeVpnConnections
 instance ToPath DescribeVpnConnections where
     toPath = const "/"
 
-newtype DescribeVpnConnectionsResult = DescribeVpnConnectionsResult
+newtype DescribeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     { _dvcrVpnConnections :: [VpnConnection]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeVpnConnectionsResult where
-    type Item DescribeVpnConnectionsResult = VpnConnection
+instance IsList DescribeVpnConnectionsResponse where
+    type Item DescribeVpnConnectionsResponse = VpnConnection
 
-    fromList = DescribeVpnConnectionsResult . fromList
+    fromList = DescribeVpnConnectionsResponse . fromList
     toList   = toList . _dvcrVpnConnections
 
--- | 'DescribeVpnConnectionsResult' constructor.
+-- | 'DescribeVpnConnectionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvcrVpnConnections' @::@ ['VpnConnection']
 --
-describeVpnConnectionsResponse :: DescribeVpnConnectionsResult
-describeVpnConnectionsResponse = DescribeVpnConnectionsResult
+describeVpnConnectionsResponse :: DescribeVpnConnectionsResponse
+describeVpnConnectionsResponse = DescribeVpnConnectionsResponse
     { _dvcrVpnConnections = mempty
     }
 
 -- | Information about one or more VPN connections.
-dvcrVpnConnections :: Lens' DescribeVpnConnectionsResult [VpnConnection]
+dvcrVpnConnections :: Lens' DescribeVpnConnectionsResponse [VpnConnection]
 dvcrVpnConnections =
     lens _dvcrVpnConnections (\s a -> s { _dvcrVpnConnections = a })
 
-instance FromXML DescribeVpnConnectionsResult where
+instance FromXML DescribeVpnConnectionsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVpnConnectionsResult"
+    fromXMLRoot    = fromRoot "DescribeVpnConnectionsResponse"
 
 instance AWSRequest DescribeVpnConnections where
     type Sv DescribeVpnConnections = EC2
-    type Rs DescribeVpnConnections = DescribeVpnConnectionsResult
+    type Rs DescribeVpnConnections = DescribeVpnConnectionsResponse
 
     request  = post "DescribeVpnConnections"
-    response = xmlResponse $ \h x -> DescribeVpnConnectionsResult
+    response = xmlResponse $ \h x -> DescribeVpnConnectionsResponse
         <$> x %| "vpnConnectionSet"

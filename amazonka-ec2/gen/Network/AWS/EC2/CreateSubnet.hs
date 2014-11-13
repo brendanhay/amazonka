@@ -51,7 +51,7 @@ module Network.AWS.EC2.CreateSubnet
     , cs1VpcId
 
     -- * Response
-    , CreateSubnetResult
+    , CreateSubnetResponse
     -- ** Response constructor
     , createSubnetResponse
     -- ** Response lenses
@@ -114,33 +114,33 @@ instance ToQuery CreateSubnet
 instance ToPath CreateSubnet where
     toPath = const "/"
 
-newtype CreateSubnetResult = CreateSubnetResult
+newtype CreateSubnetResponse = CreateSubnetResponse
     { _csrSubnet :: Maybe Subnet
     } deriving (Eq, Show, Generic)
 
--- | 'CreateSubnetResult' constructor.
+-- | 'CreateSubnetResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csrSubnet' @::@ 'Maybe' 'Subnet'
 --
-createSubnetResponse :: CreateSubnetResult
-createSubnetResponse = CreateSubnetResult
+createSubnetResponse :: CreateSubnetResponse
+createSubnetResponse = CreateSubnetResponse
     { _csrSubnet = Nothing
     }
 
 -- | Information about the subnet.
-csrSubnet :: Lens' CreateSubnetResult (Maybe Subnet)
+csrSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
 csrSubnet = lens _csrSubnet (\s a -> s { _csrSubnet = a })
 
-instance FromXML CreateSubnetResult where
+instance FromXML CreateSubnetResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSubnetResult"
+    fromXMLRoot    = fromRoot "CreateSubnetResponse"
 
 instance AWSRequest CreateSubnet where
     type Sv CreateSubnet = EC2
-    type Rs CreateSubnet = CreateSubnetResult
+    type Rs CreateSubnet = CreateSubnetResponse
 
     request  = post "CreateSubnet"
-    response = xmlResponse $ \h x -> CreateSubnetResult
+    response = xmlResponse $ \h x -> CreateSubnetResponse
         <$> x %| "subnet"

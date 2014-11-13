@@ -28,12 +28,12 @@ module Network.AWS.EC2.DescribeNetworkInterfaces
     -- ** Request constructor
     , describeNetworkInterfaces
     -- ** Request lenses
-    , dniDryRun
-    , dniFilters
-    , dniNetworkInterfaceIds
+    , dni1DryRun
+    , dni1Filters
+    , dni1NetworkInterfaceIds
 
     -- * Response
-    , DescribeNetworkInterfacesResult
+    , DescribeNetworkInterfacesResponse
     -- ** Response constructor
     , describeNetworkInterfacesResponse
     -- ** Response lenses
@@ -45,30 +45,30 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DescribeNetworkInterfaces = DescribeNetworkInterfaces
-    { _dniDryRun              :: Maybe Bool
-    , _dniFilters             :: [Filter]
-    , _dniNetworkInterfaceIds :: [Text]
+    { _dni1DryRun              :: Maybe Bool
+    , _dni1Filters             :: [Filter]
+    , _dni1NetworkInterfaceIds :: [Text]
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeNetworkInterfaces' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dniDryRun' @::@ 'Maybe' 'Bool'
+-- * 'dni1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dniFilters' @::@ ['Filter']
+-- * 'dni1Filters' @::@ ['Filter']
 --
--- * 'dniNetworkInterfaceIds' @::@ ['Text']
+-- * 'dni1NetworkInterfaceIds' @::@ ['Text']
 --
 describeNetworkInterfaces :: DescribeNetworkInterfaces
 describeNetworkInterfaces = DescribeNetworkInterfaces
-    { _dniDryRun              = Nothing
-    , _dniNetworkInterfaceIds = mempty
-    , _dniFilters             = mempty
+    { _dni1DryRun              = Nothing
+    , _dni1NetworkInterfaceIds = mempty
+    , _dni1Filters             = mempty
     }
 
-dniDryRun :: Lens' DescribeNetworkInterfaces (Maybe Bool)
-dniDryRun = lens _dniDryRun (\s a -> s { _dniDryRun = a })
+dni1DryRun :: Lens' DescribeNetworkInterfaces (Maybe Bool)
+dni1DryRun = lens _dni1DryRun (\s a -> s { _dni1DryRun = a })
 
 -- | One or more filters. addresses.private-ip-address - The private IP
 -- addresses associated with the network interface. addresses.primary -
@@ -124,54 +124,54 @@ dniDryRun = lens _dniDryRun (\s a -> s { _dniDryRun = a })
 -- tag:key=value filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter. vpc-id - The
 -- ID of the VPC for the network interface.
-dniFilters :: Lens' DescribeNetworkInterfaces [Filter]
-dniFilters = lens _dniFilters (\s a -> s { _dniFilters = a })
+dni1Filters :: Lens' DescribeNetworkInterfaces [Filter]
+dni1Filters = lens _dni1Filters (\s a -> s { _dni1Filters = a })
 
 -- | One or more network interface IDs. Default: Describes all your network
 -- interfaces.
-dniNetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
-dniNetworkInterfaceIds =
-    lens _dniNetworkInterfaceIds (\s a -> s { _dniNetworkInterfaceIds = a })
+dni1NetworkInterfaceIds :: Lens' DescribeNetworkInterfaces [Text]
+dni1NetworkInterfaceIds =
+    lens _dni1NetworkInterfaceIds (\s a -> s { _dni1NetworkInterfaceIds = a })
 
 instance ToQuery DescribeNetworkInterfaces
 
 instance ToPath DescribeNetworkInterfaces where
     toPath = const "/"
 
-newtype DescribeNetworkInterfacesResult = DescribeNetworkInterfacesResult
+newtype DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     { _dnirNetworkInterfaces :: [NetworkInterface]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeNetworkInterfacesResult where
-    type Item DescribeNetworkInterfacesResult = NetworkInterface
+instance IsList DescribeNetworkInterfacesResponse where
+    type Item DescribeNetworkInterfacesResponse = NetworkInterface
 
-    fromList = DescribeNetworkInterfacesResult . fromList
+    fromList = DescribeNetworkInterfacesResponse . fromList
     toList   = toList . _dnirNetworkInterfaces
 
--- | 'DescribeNetworkInterfacesResult' constructor.
+-- | 'DescribeNetworkInterfacesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dnirNetworkInterfaces' @::@ ['NetworkInterface']
 --
-describeNetworkInterfacesResponse :: DescribeNetworkInterfacesResult
-describeNetworkInterfacesResponse = DescribeNetworkInterfacesResult
+describeNetworkInterfacesResponse :: DescribeNetworkInterfacesResponse
+describeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse
     { _dnirNetworkInterfaces = mempty
     }
 
 -- | Information about one or more network interfaces.
-dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResult [NetworkInterface]
+dnirNetworkInterfaces :: Lens' DescribeNetworkInterfacesResponse [NetworkInterface]
 dnirNetworkInterfaces =
     lens _dnirNetworkInterfaces (\s a -> s { _dnirNetworkInterfaces = a })
 
-instance FromXML DescribeNetworkInterfacesResult where
+instance FromXML DescribeNetworkInterfacesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeNetworkInterfacesResult"
+    fromXMLRoot    = fromRoot "DescribeNetworkInterfacesResponse"
 
 instance AWSRequest DescribeNetworkInterfaces where
     type Sv DescribeNetworkInterfaces = EC2
-    type Rs DescribeNetworkInterfaces = DescribeNetworkInterfacesResult
+    type Rs DescribeNetworkInterfaces = DescribeNetworkInterfacesResponse
 
     request  = post "DescribeNetworkInterfaces"
-    response = xmlResponse $ \h x -> DescribeNetworkInterfacesResult
+    response = xmlResponse $ \h x -> DescribeNetworkInterfacesResponse
         <$> x %| "networkInterfaceSet"

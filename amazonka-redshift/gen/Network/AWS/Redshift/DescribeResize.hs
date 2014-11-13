@@ -29,166 +29,166 @@
 module Network.AWS.Redshift.DescribeResize
     (
     -- * Request
-      DescribeResizeMessage
+      DescribeResize
     -- ** Request constructor
     , describeResize
     -- ** Request lenses
-    , drmClusterIdentifier
+    , drClusterIdentifier
 
     -- * Response
-    , ResizeProgressMessage
+    , DescribeResizeResponse
     -- ** Response constructor
     , describeResizeResponse
     -- ** Response lenses
-    , rpmAvgResizeRateInMegaBytesPerSecond
-    , rpmElapsedTimeInSeconds
-    , rpmEstimatedTimeToCompletionInSeconds
-    , rpmImportTablesCompleted
-    , rpmImportTablesInProgress
-    , rpmImportTablesNotStarted
-    , rpmProgressInMegaBytes
-    , rpmStatus
-    , rpmTargetClusterType
-    , rpmTargetNodeType
-    , rpmTargetNumberOfNodes
-    , rpmTotalResizeDataInMegaBytes
+    , drrAvgResizeRateInMegaBytesPerSecond
+    , drrElapsedTimeInSeconds
+    , drrEstimatedTimeToCompletionInSeconds
+    , drrImportTablesCompleted
+    , drrImportTablesInProgress
+    , drrImportTablesNotStarted
+    , drrProgressInMegaBytes
+    , drrStatus
+    , drrTargetClusterType
+    , drrTargetNodeType
+    , drrTargetNumberOfNodes
+    , drrTotalResizeDataInMegaBytes
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-newtype DescribeResizeMessage = DescribeResizeMessage
-    { _drmClusterIdentifier :: Text
+newtype DescribeResize = DescribeResize
+    { _drClusterIdentifier :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DescribeResizeMessage' constructor.
+-- | 'DescribeResize' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drmClusterIdentifier' @::@ 'Text'
+-- * 'drClusterIdentifier' @::@ 'Text'
 --
-describeResize :: Text -- ^ 'drmClusterIdentifier'
-               -> DescribeResizeMessage
-describeResize p1 = DescribeResizeMessage
-    { _drmClusterIdentifier = p1
+describeResize :: Text -- ^ 'drClusterIdentifier'
+               -> DescribeResize
+describeResize p1 = DescribeResize
+    { _drClusterIdentifier = p1
     }
 
 -- | The unique identifier of a cluster whose resize progress you are
 -- requesting. This parameter is case-sensitive. By default, resize
 -- operations for all clusters defined for an AWS account are returned.
-drmClusterIdentifier :: Lens' DescribeResizeMessage Text
-drmClusterIdentifier =
-    lens _drmClusterIdentifier (\s a -> s { _drmClusterIdentifier = a })
+drClusterIdentifier :: Lens' DescribeResize Text
+drClusterIdentifier =
+    lens _drClusterIdentifier (\s a -> s { _drClusterIdentifier = a })
 
-instance ToQuery DescribeResizeMessage
+instance ToQuery DescribeResize
 
-instance ToPath DescribeResizeMessage where
+instance ToPath DescribeResize where
     toPath = const "/"
 
-data ResizeProgressMessage = ResizeProgressMessage
-    { _rpmAvgResizeRateInMegaBytesPerSecond  :: Maybe Double
-    , _rpmElapsedTimeInSeconds               :: Maybe Integer
-    , _rpmEstimatedTimeToCompletionInSeconds :: Maybe Integer
-    , _rpmImportTablesCompleted              :: [Text]
-    , _rpmImportTablesInProgress             :: [Text]
-    , _rpmImportTablesNotStarted             :: [Text]
-    , _rpmProgressInMegaBytes                :: Maybe Integer
-    , _rpmStatus                             :: Maybe Text
-    , _rpmTargetClusterType                  :: Maybe Text
-    , _rpmTargetNodeType                     :: Maybe Text
-    , _rpmTargetNumberOfNodes                :: Maybe Int
-    , _rpmTotalResizeDataInMegaBytes         :: Maybe Integer
+data DescribeResizeResponse = DescribeResizeResponse
+    { _drrAvgResizeRateInMegaBytesPerSecond  :: Maybe Double
+    , _drrElapsedTimeInSeconds               :: Maybe Integer
+    , _drrEstimatedTimeToCompletionInSeconds :: Maybe Integer
+    , _drrImportTablesCompleted              :: [Text]
+    , _drrImportTablesInProgress             :: [Text]
+    , _drrImportTablesNotStarted             :: [Text]
+    , _drrProgressInMegaBytes                :: Maybe Integer
+    , _drrStatus                             :: Maybe Text
+    , _drrTargetClusterType                  :: Maybe Text
+    , _drrTargetNodeType                     :: Maybe Text
+    , _drrTargetNumberOfNodes                :: Maybe Int
+    , _drrTotalResizeDataInMegaBytes         :: Maybe Integer
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ResizeProgressMessage' constructor.
+-- | 'DescribeResizeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rpmAvgResizeRateInMegaBytesPerSecond' @::@ 'Maybe' 'Double'
+-- * 'drrAvgResizeRateInMegaBytesPerSecond' @::@ 'Maybe' 'Double'
 --
--- * 'rpmElapsedTimeInSeconds' @::@ 'Maybe' 'Integer'
+-- * 'drrElapsedTimeInSeconds' @::@ 'Maybe' 'Integer'
 --
--- * 'rpmEstimatedTimeToCompletionInSeconds' @::@ 'Maybe' 'Integer'
+-- * 'drrEstimatedTimeToCompletionInSeconds' @::@ 'Maybe' 'Integer'
 --
--- * 'rpmImportTablesCompleted' @::@ ['Text']
+-- * 'drrImportTablesCompleted' @::@ ['Text']
 --
--- * 'rpmImportTablesInProgress' @::@ ['Text']
+-- * 'drrImportTablesInProgress' @::@ ['Text']
 --
--- * 'rpmImportTablesNotStarted' @::@ ['Text']
+-- * 'drrImportTablesNotStarted' @::@ ['Text']
 --
--- * 'rpmProgressInMegaBytes' @::@ 'Maybe' 'Integer'
+-- * 'drrProgressInMegaBytes' @::@ 'Maybe' 'Integer'
 --
--- * 'rpmStatus' @::@ 'Maybe' 'Text'
+-- * 'drrStatus' @::@ 'Maybe' 'Text'
 --
--- * 'rpmTargetClusterType' @::@ 'Maybe' 'Text'
+-- * 'drrTargetClusterType' @::@ 'Maybe' 'Text'
 --
--- * 'rpmTargetNodeType' @::@ 'Maybe' 'Text'
+-- * 'drrTargetNodeType' @::@ 'Maybe' 'Text'
 --
--- * 'rpmTargetNumberOfNodes' @::@ 'Maybe' 'Int'
+-- * 'drrTargetNumberOfNodes' @::@ 'Maybe' 'Int'
 --
--- * 'rpmTotalResizeDataInMegaBytes' @::@ 'Maybe' 'Integer'
+-- * 'drrTotalResizeDataInMegaBytes' @::@ 'Maybe' 'Integer'
 --
-describeResizeResponse :: ResizeProgressMessage
-describeResizeResponse = ResizeProgressMessage
-    { _rpmTargetNodeType                     = Nothing
-    , _rpmTargetNumberOfNodes                = Nothing
-    , _rpmTargetClusterType                  = Nothing
-    , _rpmStatus                             = Nothing
-    , _rpmImportTablesCompleted              = mempty
-    , _rpmImportTablesInProgress             = mempty
-    , _rpmImportTablesNotStarted             = mempty
-    , _rpmAvgResizeRateInMegaBytesPerSecond  = Nothing
-    , _rpmTotalResizeDataInMegaBytes         = Nothing
-    , _rpmProgressInMegaBytes                = Nothing
-    , _rpmElapsedTimeInSeconds               = Nothing
-    , _rpmEstimatedTimeToCompletionInSeconds = Nothing
+describeResizeResponse :: DescribeResizeResponse
+describeResizeResponse = DescribeResizeResponse
+    { _drrTargetNodeType                     = Nothing
+    , _drrTargetNumberOfNodes                = Nothing
+    , _drrTargetClusterType                  = Nothing
+    , _drrStatus                             = Nothing
+    , _drrImportTablesCompleted              = mempty
+    , _drrImportTablesInProgress             = mempty
+    , _drrImportTablesNotStarted             = mempty
+    , _drrAvgResizeRateInMegaBytesPerSecond  = Nothing
+    , _drrTotalResizeDataInMegaBytes         = Nothing
+    , _drrProgressInMegaBytes                = Nothing
+    , _drrElapsedTimeInSeconds               = Nothing
+    , _drrEstimatedTimeToCompletionInSeconds = Nothing
     }
 
 -- | The average rate of the resize operation over the last few minutes,
 -- measured in megabytes per second. After the resize operation completes,
 -- this value shows the average rate of the entire resize operation.
-rpmAvgResizeRateInMegaBytesPerSecond :: Lens' ResizeProgressMessage (Maybe Double)
-rpmAvgResizeRateInMegaBytesPerSecond =
-    lens _rpmAvgResizeRateInMegaBytesPerSecond
-        (\s a -> s { _rpmAvgResizeRateInMegaBytesPerSecond = a })
+drrAvgResizeRateInMegaBytesPerSecond :: Lens' DescribeResizeResponse (Maybe Double)
+drrAvgResizeRateInMegaBytesPerSecond =
+    lens _drrAvgResizeRateInMegaBytesPerSecond
+        (\s a -> s { _drrAvgResizeRateInMegaBytesPerSecond = a })
 
 -- | The amount of seconds that have elapsed since the resize operation began.
 -- After the resize operation completes, this value shows the total actual
 -- time, in seconds, for the resize operation.
-rpmElapsedTimeInSeconds :: Lens' ResizeProgressMessage (Maybe Integer)
-rpmElapsedTimeInSeconds =
-    lens _rpmElapsedTimeInSeconds (\s a -> s { _rpmElapsedTimeInSeconds = a })
+drrElapsedTimeInSeconds :: Lens' DescribeResizeResponse (Maybe Integer)
+drrElapsedTimeInSeconds =
+    lens _drrElapsedTimeInSeconds (\s a -> s { _drrElapsedTimeInSeconds = a })
 
 -- | The estimated time remaining, in seconds, until the resize operation is
 -- complete. This value is calculated based on the average resize rate and
 -- the estimated amount of data remaining to be processed. Once the resize
 -- operation is complete, this value will be 0.
-rpmEstimatedTimeToCompletionInSeconds :: Lens' ResizeProgressMessage (Maybe Integer)
-rpmEstimatedTimeToCompletionInSeconds =
-    lens _rpmEstimatedTimeToCompletionInSeconds
-        (\s a -> s { _rpmEstimatedTimeToCompletionInSeconds = a })
+drrEstimatedTimeToCompletionInSeconds :: Lens' DescribeResizeResponse (Maybe Integer)
+drrEstimatedTimeToCompletionInSeconds =
+    lens _drrEstimatedTimeToCompletionInSeconds
+        (\s a -> s { _drrEstimatedTimeToCompletionInSeconds = a })
 
 -- | The names of tables that have been completely imported . Valid Values:
 -- List of table names.
-rpmImportTablesCompleted :: Lens' ResizeProgressMessage [Text]
-rpmImportTablesCompleted =
-    lens _rpmImportTablesCompleted
-        (\s a -> s { _rpmImportTablesCompleted = a })
+drrImportTablesCompleted :: Lens' DescribeResizeResponse [Text]
+drrImportTablesCompleted =
+    lens _drrImportTablesCompleted
+        (\s a -> s { _drrImportTablesCompleted = a })
 
 -- | The names of tables that are being currently imported. Valid Values: List
 -- of table names.
-rpmImportTablesInProgress :: Lens' ResizeProgressMessage [Text]
-rpmImportTablesInProgress =
-    lens _rpmImportTablesInProgress
-        (\s a -> s { _rpmImportTablesInProgress = a })
+drrImportTablesInProgress :: Lens' DescribeResizeResponse [Text]
+drrImportTablesInProgress =
+    lens _drrImportTablesInProgress
+        (\s a -> s { _drrImportTablesInProgress = a })
 
 -- | The names of tables that have not been yet imported. Valid Values: List
 -- of table names.
-rpmImportTablesNotStarted :: Lens' ResizeProgressMessage [Text]
-rpmImportTablesNotStarted =
-    lens _rpmImportTablesNotStarted
-        (\s a -> s { _rpmImportTablesNotStarted = a })
+drrImportTablesNotStarted :: Lens' DescribeResizeResponse [Text]
+drrImportTablesNotStarted =
+    lens _drrImportTablesNotStarted
+        (\s a -> s { _drrImportTablesNotStarted = a })
 
 -- | While the resize operation is in progress, this value shows the current
 -- amount of data, in megabytes, that has been processed so far. When the
@@ -196,50 +196,50 @@ rpmImportTablesNotStarted =
 -- in megabytes, on the cluster, which may be more or less than
 -- TotalResizeDataInMegaBytes (the estimated total amount of data before
 -- resize).
-rpmProgressInMegaBytes :: Lens' ResizeProgressMessage (Maybe Integer)
-rpmProgressInMegaBytes =
-    lens _rpmProgressInMegaBytes (\s a -> s { _rpmProgressInMegaBytes = a })
+drrProgressInMegaBytes :: Lens' DescribeResizeResponse (Maybe Integer)
+drrProgressInMegaBytes =
+    lens _drrProgressInMegaBytes (\s a -> s { _drrProgressInMegaBytes = a })
 
 -- | The status of the resize operation. Valid Values: NONE | IN_PROGRESS |
 -- FAILED | SUCCEEDED.
-rpmStatus :: Lens' ResizeProgressMessage (Maybe Text)
-rpmStatus = lens _rpmStatus (\s a -> s { _rpmStatus = a })
+drrStatus :: Lens' DescribeResizeResponse (Maybe Text)
+drrStatus = lens _drrStatus (\s a -> s { _drrStatus = a })
 
 -- | The cluster type after the resize operation is complete. Valid Values:
 -- multi-node | single-node.
-rpmTargetClusterType :: Lens' ResizeProgressMessage (Maybe Text)
-rpmTargetClusterType =
-    lens _rpmTargetClusterType (\s a -> s { _rpmTargetClusterType = a })
+drrTargetClusterType :: Lens' DescribeResizeResponse (Maybe Text)
+drrTargetClusterType =
+    lens _drrTargetClusterType (\s a -> s { _drrTargetClusterType = a })
 
 -- | The node type that the cluster will have after the resize operation is
 -- complete.
-rpmTargetNodeType :: Lens' ResizeProgressMessage (Maybe Text)
-rpmTargetNodeType =
-    lens _rpmTargetNodeType (\s a -> s { _rpmTargetNodeType = a })
+drrTargetNodeType :: Lens' DescribeResizeResponse (Maybe Text)
+drrTargetNodeType =
+    lens _drrTargetNodeType (\s a -> s { _drrTargetNodeType = a })
 
 -- | The number of nodes that the cluster will have after the resize operation
 -- is complete.
-rpmTargetNumberOfNodes :: Lens' ResizeProgressMessage (Maybe Int)
-rpmTargetNumberOfNodes =
-    lens _rpmTargetNumberOfNodes (\s a -> s { _rpmTargetNumberOfNodes = a })
+drrTargetNumberOfNodes :: Lens' DescribeResizeResponse (Maybe Int)
+drrTargetNumberOfNodes =
+    lens _drrTargetNumberOfNodes (\s a -> s { _drrTargetNumberOfNodes = a })
 
 -- | The estimated total amount of data, in megabytes, on the cluster before
 -- the resize operation began.
-rpmTotalResizeDataInMegaBytes :: Lens' ResizeProgressMessage (Maybe Integer)
-rpmTotalResizeDataInMegaBytes =
-    lens _rpmTotalResizeDataInMegaBytes
-        (\s a -> s { _rpmTotalResizeDataInMegaBytes = a })
+drrTotalResizeDataInMegaBytes :: Lens' DescribeResizeResponse (Maybe Integer)
+drrTotalResizeDataInMegaBytes =
+    lens _drrTotalResizeDataInMegaBytes
+        (\s a -> s { _drrTotalResizeDataInMegaBytes = a })
 
-instance FromXML ResizeProgressMessage where
+instance FromXML DescribeResizeResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ResizeProgressMessage"
+    fromXMLRoot    = fromRoot "DescribeResizeResponse"
 
-instance AWSRequest DescribeResizeMessage where
-    type Sv DescribeResizeMessage = Redshift
-    type Rs DescribeResizeMessage = ResizeProgressMessage
+instance AWSRequest DescribeResize where
+    type Sv DescribeResize = Redshift
+    type Rs DescribeResize = DescribeResizeResponse
 
     request  = post "DescribeResize"
-    response = xmlResponse $ \h x -> ResizeProgressMessage
+    response = xmlResponse $ \h x -> DescribeResizeResponse
         <$> x %| "AvgResizeRateInMegaBytesPerSecond"
         <*> x %| "ElapsedTimeInSeconds"
         <*> x %| "EstimatedTimeToCompletionInSeconds"

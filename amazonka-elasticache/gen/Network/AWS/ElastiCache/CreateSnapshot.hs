@@ -25,15 +25,15 @@
 module Network.AWS.ElastiCache.CreateSnapshot
     (
     -- * Request
-      CreateSnapshotMessage
+      CreateSnapshot
     -- ** Request constructor
     , createSnapshot
     -- ** Request lenses
-    , csmCacheClusterId
-    , csmSnapshotName
+    , csCacheClusterId
+    , csSnapshotName
 
     -- * Response
-    , CreateSnapshotResult
+    , CreateSnapshotResponse
     -- ** Response constructor
     , createSnapshotResponse
     -- ** Response lenses
@@ -44,68 +44,67 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data CreateSnapshotMessage = CreateSnapshotMessage
-    { _csmCacheClusterId :: Text
-    , _csmSnapshotName   :: Text
+data CreateSnapshot = CreateSnapshot
+    { _csCacheClusterId :: Text
+    , _csSnapshotName   :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CreateSnapshotMessage' constructor.
+-- | 'CreateSnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csmCacheClusterId' @::@ 'Text'
+-- * 'csCacheClusterId' @::@ 'Text'
 --
--- * 'csmSnapshotName' @::@ 'Text'
+-- * 'csSnapshotName' @::@ 'Text'
 --
-createSnapshot :: Text -- ^ 'csmCacheClusterId'
-               -> Text -- ^ 'csmSnapshotName'
-               -> CreateSnapshotMessage
-createSnapshot p1 p2 = CreateSnapshotMessage
-    { _csmCacheClusterId = p1
-    , _csmSnapshotName   = p2
+createSnapshot :: Text -- ^ 'csCacheClusterId'
+               -> Text -- ^ 'csSnapshotName'
+               -> CreateSnapshot
+createSnapshot p1 p2 = CreateSnapshot
+    { _csCacheClusterId = p1
+    , _csSnapshotName   = p2
     }
 
 -- | The identifier of an existing cache cluster. The snapshot will be created
 -- from this cache cluster.
-csmCacheClusterId :: Lens' CreateSnapshotMessage Text
-csmCacheClusterId =
-    lens _csmCacheClusterId (\s a -> s { _csmCacheClusterId = a })
+csCacheClusterId :: Lens' CreateSnapshot Text
+csCacheClusterId = lens _csCacheClusterId (\s a -> s { _csCacheClusterId = a })
 
 -- | A name for the snapshot being created.
-csmSnapshotName :: Lens' CreateSnapshotMessage Text
-csmSnapshotName = lens _csmSnapshotName (\s a -> s { _csmSnapshotName = a })
+csSnapshotName :: Lens' CreateSnapshot Text
+csSnapshotName = lens _csSnapshotName (\s a -> s { _csSnapshotName = a })
 
-instance ToQuery CreateSnapshotMessage
+instance ToQuery CreateSnapshot
 
-instance ToPath CreateSnapshotMessage where
+instance ToPath CreateSnapshot where
     toPath = const "/"
 
-newtype CreateSnapshotResult = CreateSnapshotResult
+newtype CreateSnapshotResponse = CreateSnapshotResponse
     { _csr1Snapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
 
--- | 'CreateSnapshotResult' constructor.
+-- | 'CreateSnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csr1Snapshot' @::@ 'Maybe' 'Snapshot'
 --
-createSnapshotResponse :: CreateSnapshotResult
-createSnapshotResponse = CreateSnapshotResult
+createSnapshotResponse :: CreateSnapshotResponse
+createSnapshotResponse = CreateSnapshotResponse
     { _csr1Snapshot = Nothing
     }
 
-csr1Snapshot :: Lens' CreateSnapshotResult (Maybe Snapshot)
+csr1Snapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
 csr1Snapshot = lens _csr1Snapshot (\s a -> s { _csr1Snapshot = a })
 
-instance FromXML CreateSnapshotResult where
+instance FromXML CreateSnapshotResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSnapshotResult"
+    fromXMLRoot    = fromRoot "CreateSnapshotResponse"
 
-instance AWSRequest CreateSnapshotMessage where
-    type Sv CreateSnapshotMessage = ElastiCache
-    type Rs CreateSnapshotMessage = CreateSnapshotResult
+instance AWSRequest CreateSnapshot where
+    type Sv CreateSnapshot = ElastiCache
+    type Rs CreateSnapshot = CreateSnapshotResponse
 
     request  = post "CreateSnapshot"
-    response = xmlResponse $ \h x -> CreateSnapshotResult
+    response = xmlResponse $ \h x -> CreateSnapshotResponse
         <$> x %| "Snapshot"

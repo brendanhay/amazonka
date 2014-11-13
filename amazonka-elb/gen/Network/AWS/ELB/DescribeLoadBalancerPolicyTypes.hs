@@ -27,94 +27,94 @@
 module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     (
     -- * Request
-      DescribeLoadBalancerPolicyTypesInput
+      DescribeLoadBalancerPolicyTypes
     -- ** Request constructor
     , describeLoadBalancerPolicyTypes
     -- ** Request lenses
-    , dlbptiPolicyTypeNames
+    , dlbptPolicyTypeNames
 
     -- * Response
-    , DescribeLoadBalancerPolicyTypesOutput
+    , DescribeLoadBalancerPolicyTypesResponse
     -- ** Response constructor
     , describeLoadBalancerPolicyTypesResponse
     -- ** Response lenses
-    , dlbptoPolicyTypeDescriptions
+    , dlbptrPolicyTypeDescriptions
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-newtype DescribeLoadBalancerPolicyTypesInput = DescribeLoadBalancerPolicyTypesInput
-    { _dlbptiPolicyTypeNames :: [Text]
+newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
+    { _dlbptPolicyTypeNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeLoadBalancerPolicyTypesInput where
-    type Item DescribeLoadBalancerPolicyTypesInput = Text
+instance IsList DescribeLoadBalancerPolicyTypes where
+    type Item DescribeLoadBalancerPolicyTypes = Text
 
-    fromList = DescribeLoadBalancerPolicyTypesInput . fromList
-    toList   = toList . _dlbptiPolicyTypeNames
+    fromList = DescribeLoadBalancerPolicyTypes . fromList
+    toList   = toList . _dlbptPolicyTypeNames
 
--- | 'DescribeLoadBalancerPolicyTypesInput' constructor.
+-- | 'DescribeLoadBalancerPolicyTypes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbptiPolicyTypeNames' @::@ ['Text']
+-- * 'dlbptPolicyTypeNames' @::@ ['Text']
 --
-describeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypesInput
-describeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypesInput
-    { _dlbptiPolicyTypeNames = mempty
+describeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
+describeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes
+    { _dlbptPolicyTypeNames = mempty
     }
 
 -- | Specifies the name of the policy types. If no names are specified,
 -- returns the description of all the policy types defined by Elastic Load
 -- Balancing service.
-dlbptiPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypesInput [Text]
-dlbptiPolicyTypeNames =
-    lens _dlbptiPolicyTypeNames (\s a -> s { _dlbptiPolicyTypeNames = a })
+dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
+dlbptPolicyTypeNames =
+    lens _dlbptPolicyTypeNames (\s a -> s { _dlbptPolicyTypeNames = a })
 
-instance ToQuery DescribeLoadBalancerPolicyTypesInput
+instance ToQuery DescribeLoadBalancerPolicyTypes
 
-instance ToPath DescribeLoadBalancerPolicyTypesInput where
+instance ToPath DescribeLoadBalancerPolicyTypes where
     toPath = const "/"
 
-newtype DescribeLoadBalancerPolicyTypesOutput = DescribeLoadBalancerPolicyTypesOutput
-    { _dlbptoPolicyTypeDescriptions :: [PolicyTypeDescription]
+newtype DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
+    { _dlbptrPolicyTypeDescriptions :: [PolicyTypeDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeLoadBalancerPolicyTypesOutput where
-    type Item DescribeLoadBalancerPolicyTypesOutput = PolicyTypeDescription
+instance IsList DescribeLoadBalancerPolicyTypesResponse where
+    type Item DescribeLoadBalancerPolicyTypesResponse = PolicyTypeDescription
 
-    fromList = DescribeLoadBalancerPolicyTypesOutput . fromList
-    toList   = toList . _dlbptoPolicyTypeDescriptions
+    fromList = DescribeLoadBalancerPolicyTypesResponse . fromList
+    toList   = toList . _dlbptrPolicyTypeDescriptions
 
--- | 'DescribeLoadBalancerPolicyTypesOutput' constructor.
+-- | 'DescribeLoadBalancerPolicyTypesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbptoPolicyTypeDescriptions' @::@ ['PolicyTypeDescription']
+-- * 'dlbptrPolicyTypeDescriptions' @::@ ['PolicyTypeDescription']
 --
-describeLoadBalancerPolicyTypesResponse :: DescribeLoadBalancerPolicyTypesOutput
-describeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesOutput
-    { _dlbptoPolicyTypeDescriptions = mempty
+describeLoadBalancerPolicyTypesResponse :: DescribeLoadBalancerPolicyTypesResponse
+describeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse
+    { _dlbptrPolicyTypeDescriptions = mempty
     }
 
 -- | List of policy type description structures of the specified policy type.
 -- If no policy type names are specified, returns the description of all the
 -- policy types defined by Elastic Load Balancing service.
-dlbptoPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesOutput [PolicyTypeDescription]
-dlbptoPolicyTypeDescriptions =
-    lens _dlbptoPolicyTypeDescriptions
-        (\s a -> s { _dlbptoPolicyTypeDescriptions = a })
+dlbptrPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
+dlbptrPolicyTypeDescriptions =
+    lens _dlbptrPolicyTypeDescriptions
+        (\s a -> s { _dlbptrPolicyTypeDescriptions = a })
 
-instance FromXML DescribeLoadBalancerPolicyTypesOutput where
+instance FromXML DescribeLoadBalancerPolicyTypesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLoadBalancerPolicyTypesOutput"
+    fromXMLRoot    = fromRoot "DescribeLoadBalancerPolicyTypesResponse"
 
-instance AWSRequest DescribeLoadBalancerPolicyTypesInput where
-    type Sv DescribeLoadBalancerPolicyTypesInput = ELB
-    type Rs DescribeLoadBalancerPolicyTypesInput = DescribeLoadBalancerPolicyTypesOutput
+instance AWSRequest DescribeLoadBalancerPolicyTypes where
+    type Sv DescribeLoadBalancerPolicyTypes = ELB
+    type Rs DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypesResponse
 
     request  = post "DescribeLoadBalancerPolicyTypes"
-    response = xmlResponse $ \h x -> DescribeLoadBalancerPolicyTypesOutput
+    response = xmlResponse $ \h x -> DescribeLoadBalancerPolicyTypesResponse
         <$> x %| "PolicyTypeDescriptions"

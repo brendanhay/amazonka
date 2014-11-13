@@ -34,96 +34,97 @@
 module Network.AWS.ELB.DisableAvailabilityZonesForLoadBalancer
     (
     -- * Request
-      RemoveAvailabilityZonesInput
+      DisableAvailabilityZonesForLoadBalancer
     -- ** Request constructor
     , disableAvailabilityZonesForLoadBalancer
     -- ** Request lenses
-    , raziAvailabilityZones
-    , raziLoadBalancerName
+    , dazflbAvailabilityZones
+    , dazflbLoadBalancerName
 
     -- * Response
-    , RemoveAvailabilityZonesOutput
+    , DisableAvailabilityZonesForLoadBalancerResponse
     -- ** Response constructor
     , disableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
-    , razoAvailabilityZones
+    , dazflbrAvailabilityZones
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data RemoveAvailabilityZonesInput = RemoveAvailabilityZonesInput
-    { _raziAvailabilityZones :: [Text]
-    , _raziLoadBalancerName  :: Text
+data DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancer
+    { _dazflbAvailabilityZones :: [Text]
+    , _dazflbLoadBalancerName  :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'RemoveAvailabilityZonesInput' constructor.
+-- | 'DisableAvailabilityZonesForLoadBalancer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'raziAvailabilityZones' @::@ ['Text']
+-- * 'dazflbAvailabilityZones' @::@ ['Text']
 --
--- * 'raziLoadBalancerName' @::@ 'Text'
+-- * 'dazflbLoadBalancerName' @::@ 'Text'
 --
-disableAvailabilityZonesForLoadBalancer :: Text -- ^ 'raziLoadBalancerName'
-                                        -> RemoveAvailabilityZonesInput
-disableAvailabilityZonesForLoadBalancer p1 = RemoveAvailabilityZonesInput
-    { _raziLoadBalancerName  = p1
-    , _raziAvailabilityZones = mempty
+disableAvailabilityZonesForLoadBalancer :: Text -- ^ 'dazflbLoadBalancerName'
+                                        -> DisableAvailabilityZonesForLoadBalancer
+disableAvailabilityZonesForLoadBalancer p1 = DisableAvailabilityZonesForLoadBalancer
+    { _dazflbLoadBalancerName  = p1
+    , _dazflbAvailabilityZones = mempty
     }
 
 -- | A list of Availability Zones to be removed from the load balancer. There
 -- must be at least one Availability Zone registered with a load balancer at
 -- all times. Specified Availability Zones must be in the same region.
-raziAvailabilityZones :: Lens' RemoveAvailabilityZonesInput [Text]
-raziAvailabilityZones =
-    lens _raziAvailabilityZones (\s a -> s { _raziAvailabilityZones = a })
+dazflbAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancer [Text]
+dazflbAvailabilityZones =
+    lens _dazflbAvailabilityZones (\s a -> s { _dazflbAvailabilityZones = a })
 
 -- | The name associated with the load balancer.
-raziLoadBalancerName :: Lens' RemoveAvailabilityZonesInput Text
-raziLoadBalancerName =
-    lens _raziLoadBalancerName (\s a -> s { _raziLoadBalancerName = a })
+dazflbLoadBalancerName :: Lens' DisableAvailabilityZonesForLoadBalancer Text
+dazflbLoadBalancerName =
+    lens _dazflbLoadBalancerName (\s a -> s { _dazflbLoadBalancerName = a })
 
-instance ToQuery RemoveAvailabilityZonesInput
+instance ToQuery DisableAvailabilityZonesForLoadBalancer
 
-instance ToPath RemoveAvailabilityZonesInput where
+instance ToPath DisableAvailabilityZonesForLoadBalancer where
     toPath = const "/"
 
-newtype RemoveAvailabilityZonesOutput = RemoveAvailabilityZonesOutput
-    { _razoAvailabilityZones :: [Text]
+newtype DisableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
+    { _dazflbrAvailabilityZones :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList RemoveAvailabilityZonesOutput where
-    type Item RemoveAvailabilityZonesOutput = Text
+instance IsList DisableAvailabilityZonesForLoadBalancerResponse where
+    type Item DisableAvailabilityZonesForLoadBalancerResponse = Text
 
-    fromList = RemoveAvailabilityZonesOutput . fromList
-    toList   = toList . _razoAvailabilityZones
+    fromList = DisableAvailabilityZonesForLoadBalancerResponse . fromList
+    toList   = toList . _dazflbrAvailabilityZones
 
--- | 'RemoveAvailabilityZonesOutput' constructor.
+-- | 'DisableAvailabilityZonesForLoadBalancerResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'razoAvailabilityZones' @::@ ['Text']
+-- * 'dazflbrAvailabilityZones' @::@ ['Text']
 --
-disableAvailabilityZonesForLoadBalancerResponse :: RemoveAvailabilityZonesOutput
-disableAvailabilityZonesForLoadBalancerResponse = RemoveAvailabilityZonesOutput
-    { _razoAvailabilityZones = mempty
+disableAvailabilityZonesForLoadBalancerResponse :: DisableAvailabilityZonesForLoadBalancerResponse
+disableAvailabilityZonesForLoadBalancerResponse = DisableAvailabilityZonesForLoadBalancerResponse
+    { _dazflbrAvailabilityZones = mempty
     }
 
 -- | A list of updated Availability Zones for the load balancer.
-razoAvailabilityZones :: Lens' RemoveAvailabilityZonesOutput [Text]
-razoAvailabilityZones =
-    lens _razoAvailabilityZones (\s a -> s { _razoAvailabilityZones = a })
+dazflbrAvailabilityZones :: Lens' DisableAvailabilityZonesForLoadBalancerResponse [Text]
+dazflbrAvailabilityZones =
+    lens _dazflbrAvailabilityZones
+        (\s a -> s { _dazflbrAvailabilityZones = a })
 
-instance FromXML RemoveAvailabilityZonesOutput where
+instance FromXML DisableAvailabilityZonesForLoadBalancerResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RemoveAvailabilityZonesOutput"
+    fromXMLRoot    = fromRoot "DisableAvailabilityZonesForLoadBalancerResponse"
 
-instance AWSRequest RemoveAvailabilityZonesInput where
-    type Sv RemoveAvailabilityZonesInput = ELB
-    type Rs RemoveAvailabilityZonesInput = RemoveAvailabilityZonesOutput
+instance AWSRequest DisableAvailabilityZonesForLoadBalancer where
+    type Sv DisableAvailabilityZonesForLoadBalancer = ELB
+    type Rs DisableAvailabilityZonesForLoadBalancer = DisableAvailabilityZonesForLoadBalancerResponse
 
     request  = post "DisableAvailabilityZonesForLoadBalancer"
-    response = xmlResponse $ \h x -> RemoveAvailabilityZonesOutput
+    response = xmlResponse $ \h x -> DisableAvailabilityZonesForLoadBalancerResponse
         <$> x %| "AvailabilityZones"

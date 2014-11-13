@@ -32,11 +32,11 @@ module Network.AWS.S3.GetBucketLogging
     , gbl2Bucket
 
     -- * Response
-    , GetBucketLoggingOutput
+    , GetBucketLoggingResponse
     -- ** Response constructor
     , getBucketLoggingResponse
     -- ** Response lenses
-    , gbloLoggingEnabled
+    , gblrLoggingEnabled
     ) where
 
 import Network.AWS.Prelude
@@ -73,32 +73,32 @@ instance ToQuery GetBucketLogging where
 
 instance ToHeaders GetBucketLogging
 
-newtype GetBucketLoggingOutput = GetBucketLoggingOutput
-    { _gbloLoggingEnabled :: Maybe LoggingEnabled
+newtype GetBucketLoggingResponse = GetBucketLoggingResponse
+    { _gblrLoggingEnabled :: Maybe LoggingEnabled
     } deriving (Eq, Show, Generic)
 
--- | 'GetBucketLoggingOutput' constructor.
+-- | 'GetBucketLoggingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbloLoggingEnabled' @::@ 'Maybe' 'LoggingEnabled'
+-- * 'gblrLoggingEnabled' @::@ 'Maybe' 'LoggingEnabled'
 --
-getBucketLoggingResponse :: GetBucketLoggingOutput
-getBucketLoggingResponse = GetBucketLoggingOutput
-    { _gbloLoggingEnabled = Nothing
+getBucketLoggingResponse :: GetBucketLoggingResponse
+getBucketLoggingResponse = GetBucketLoggingResponse
+    { _gblrLoggingEnabled = Nothing
     }
 
-gbloLoggingEnabled :: Lens' GetBucketLoggingOutput (Maybe LoggingEnabled)
-gbloLoggingEnabled =
-    lens _gbloLoggingEnabled (\s a -> s { _gbloLoggingEnabled = a })
+gblrLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
+gblrLoggingEnabled =
+    lens _gblrLoggingEnabled (\s a -> s { _gblrLoggingEnabled = a })
 
-instance FromXML GetBucketLoggingOutput where
+instance FromXML GetBucketLoggingResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketLoggingOutput"
+    fromXMLRoot    = fromRoot "GetBucketLoggingResponse"
 instance AWSRequest GetBucketLogging where
     type Sv GetBucketLogging = S3
-    type Rs GetBucketLogging = GetBucketLoggingOutput
+    type Rs GetBucketLogging = GetBucketLoggingResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketLoggingOutput
+    response = xmlResponse $ \h x -> GetBucketLoggingResponse
         <$> x %| "LoggingEnabled"

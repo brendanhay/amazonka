@@ -36,7 +36,7 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     , csdsPrefix
 
     -- * Response
-    , CreateSpotDatafeedSubscriptionResult
+    , CreateSpotDatafeedSubscriptionResponse
     -- ** Response constructor
     , createSpotDatafeedSubscriptionResponse
     -- ** Response lenses
@@ -88,35 +88,35 @@ instance ToQuery CreateSpotDatafeedSubscription
 instance ToPath CreateSpotDatafeedSubscription where
     toPath = const "/"
 
-newtype CreateSpotDatafeedSubscriptionResult = CreateSpotDatafeedSubscriptionResult
+newtype CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
     { _csdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
     } deriving (Eq, Show, Generic)
 
--- | 'CreateSpotDatafeedSubscriptionResult' constructor.
+-- | 'CreateSpotDatafeedSubscriptionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csdsrSpotDatafeedSubscription' @::@ 'Maybe' 'SpotDatafeedSubscription'
 --
-createSpotDatafeedSubscriptionResponse :: CreateSpotDatafeedSubscriptionResult
-createSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResult
+createSpotDatafeedSubscriptionResponse :: CreateSpotDatafeedSubscriptionResponse
+createSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse
     { _csdsrSpotDatafeedSubscription = Nothing
     }
 
 -- | The Spot Instance datafeed subscription.
-csdsrSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResult (Maybe SpotDatafeedSubscription)
+csdsrSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 csdsrSpotDatafeedSubscription =
     lens _csdsrSpotDatafeedSubscription
         (\s a -> s { _csdsrSpotDatafeedSubscription = a })
 
-instance FromXML CreateSpotDatafeedSubscriptionResult where
+instance FromXML CreateSpotDatafeedSubscriptionResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSpotDatafeedSubscriptionResult"
+    fromXMLRoot    = fromRoot "CreateSpotDatafeedSubscriptionResponse"
 
 instance AWSRequest CreateSpotDatafeedSubscription where
     type Sv CreateSpotDatafeedSubscription = EC2
-    type Rs CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscriptionResult
+    type Rs CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscriptionResponse
 
     request  = post "CreateSpotDatafeedSubscription"
-    response = xmlResponse $ \h x -> CreateSpotDatafeedSubscriptionResult
+    response = xmlResponse $ \h x -> CreateSpotDatafeedSubscriptionResponse
         <$> x %| "spotDatafeedSubscription"

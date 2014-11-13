@@ -31,11 +31,11 @@ module Network.AWS.S3.GetBucketNotification
     , gbnBucket
 
     -- * Response
-    , GetBucketNotificationOutput
+    , GetBucketNotificationResponse
     -- ** Response constructor
     , getBucketNotificationResponse
     -- ** Response lenses
-    , gbnoTopicConfiguration
+    , gbnrTopicConfiguration
     ) where
 
 import Network.AWS.Prelude
@@ -72,32 +72,32 @@ instance ToQuery GetBucketNotification where
 
 instance ToHeaders GetBucketNotification
 
-newtype GetBucketNotificationOutput = GetBucketNotificationOutput
-    { _gbnoTopicConfiguration :: Maybe TopicConfiguration
+newtype GetBucketNotificationResponse = GetBucketNotificationResponse
+    { _gbnrTopicConfiguration :: Maybe TopicConfiguration
     } deriving (Eq, Show, Generic)
 
--- | 'GetBucketNotificationOutput' constructor.
+-- | 'GetBucketNotificationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbnoTopicConfiguration' @::@ 'Maybe' 'TopicConfiguration'
+-- * 'gbnrTopicConfiguration' @::@ 'Maybe' 'TopicConfiguration'
 --
-getBucketNotificationResponse :: GetBucketNotificationOutput
-getBucketNotificationResponse = GetBucketNotificationOutput
-    { _gbnoTopicConfiguration = Nothing
+getBucketNotificationResponse :: GetBucketNotificationResponse
+getBucketNotificationResponse = GetBucketNotificationResponse
+    { _gbnrTopicConfiguration = Nothing
     }
 
-gbnoTopicConfiguration :: Lens' GetBucketNotificationOutput (Maybe TopicConfiguration)
-gbnoTopicConfiguration =
-    lens _gbnoTopicConfiguration (\s a -> s { _gbnoTopicConfiguration = a })
+gbnrTopicConfiguration :: Lens' GetBucketNotificationResponse (Maybe TopicConfiguration)
+gbnrTopicConfiguration =
+    lens _gbnrTopicConfiguration (\s a -> s { _gbnrTopicConfiguration = a })
 
-instance FromXML GetBucketNotificationOutput where
+instance FromXML GetBucketNotificationResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketNotificationOutput"
+    fromXMLRoot    = fromRoot "GetBucketNotificationResponse"
 instance AWSRequest GetBucketNotification where
     type Sv GetBucketNotification = S3
-    type Rs GetBucketNotification = GetBucketNotificationOutput
+    type Rs GetBucketNotification = GetBucketNotificationResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketNotificationOutput
+    response = xmlResponse $ \h x -> GetBucketNotificationResponse
         <$> x %| "TopicConfiguration"

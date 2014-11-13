@@ -39,7 +39,7 @@ module Network.AWS.EC2.ImportInstance
     , iiPlatform
 
     -- * Response
-    , ImportInstanceResult
+    , ImportInstanceResponse
     -- ** Response constructor
     , importInstanceResponse
     -- ** Response lenses
@@ -106,33 +106,33 @@ instance ToQuery ImportInstance
 instance ToPath ImportInstance where
     toPath = const "/"
 
-newtype ImportInstanceResult = ImportInstanceResult
+newtype ImportInstanceResponse = ImportInstanceResponse
     { _iirConversionTask :: Maybe ConversionTask
     } deriving (Eq, Show, Generic)
 
--- | 'ImportInstanceResult' constructor.
+-- | 'ImportInstanceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'iirConversionTask' @::@ 'Maybe' 'ConversionTask'
 --
-importInstanceResponse :: ImportInstanceResult
-importInstanceResponse = ImportInstanceResult
+importInstanceResponse :: ImportInstanceResponse
+importInstanceResponse = ImportInstanceResponse
     { _iirConversionTask = Nothing
     }
 
-iirConversionTask :: Lens' ImportInstanceResult (Maybe ConversionTask)
+iirConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
 iirConversionTask =
     lens _iirConversionTask (\s a -> s { _iirConversionTask = a })
 
-instance FromXML ImportInstanceResult where
+instance FromXML ImportInstanceResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ImportInstanceResult"
+    fromXMLRoot    = fromRoot "ImportInstanceResponse"
 
 instance AWSRequest ImportInstance where
     type Sv ImportInstance = EC2
-    type Rs ImportInstance = ImportInstanceResult
+    type Rs ImportInstance = ImportInstanceResponse
 
     request  = post "ImportInstance"
-    response = xmlResponse $ \h x -> ImportInstanceResult
+    response = xmlResponse $ \h x -> ImportInstanceResponse
         <$> x %| "conversionTask"

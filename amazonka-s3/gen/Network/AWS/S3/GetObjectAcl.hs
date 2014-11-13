@@ -33,12 +33,12 @@ module Network.AWS.S3.GetObjectAcl
     , goaVersionId
 
     -- * Response
-    , GetObjectAclOutput
+    , GetObjectAclResponse
     -- ** Response constructor
     , getObjectAclResponse
     -- ** Response lenses
-    , goaoGrants
-    , goaoOwner
+    , goarGrants
+    , goarOwner
     ) where
 
 import Network.AWS.Prelude
@@ -96,40 +96,40 @@ instance ToQuery GetObjectAcl where
 
 instance ToHeaders GetObjectAcl
 
-data GetObjectAclOutput = GetObjectAclOutput
-    { _goaoGrants :: [Grant]
-    , _goaoOwner  :: Maybe Owner
+data GetObjectAclResponse = GetObjectAclResponse
+    { _goarGrants :: [Grant]
+    , _goarOwner  :: Maybe Owner
     } deriving (Eq, Show, Generic)
 
--- | 'GetObjectAclOutput' constructor.
+-- | 'GetObjectAclResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'goaoGrants' @::@ ['Grant']
+-- * 'goarGrants' @::@ ['Grant']
 --
--- * 'goaoOwner' @::@ 'Maybe' 'Owner'
+-- * 'goarOwner' @::@ 'Maybe' 'Owner'
 --
-getObjectAclResponse :: GetObjectAclOutput
-getObjectAclResponse = GetObjectAclOutput
-    { _goaoOwner  = Nothing
-    , _goaoGrants = mempty
+getObjectAclResponse :: GetObjectAclResponse
+getObjectAclResponse = GetObjectAclResponse
+    { _goarOwner  = Nothing
+    , _goarGrants = mempty
     }
 
 -- | A list of grants.
-goaoGrants :: Lens' GetObjectAclOutput [Grant]
-goaoGrants = lens _goaoGrants (\s a -> s { _goaoGrants = a })
+goarGrants :: Lens' GetObjectAclResponse [Grant]
+goarGrants = lens _goarGrants (\s a -> s { _goarGrants = a })
 
-goaoOwner :: Lens' GetObjectAclOutput (Maybe Owner)
-goaoOwner = lens _goaoOwner (\s a -> s { _goaoOwner = a })
+goarOwner :: Lens' GetObjectAclResponse (Maybe Owner)
+goarOwner = lens _goarOwner (\s a -> s { _goarOwner = a })
 
-instance FromXML GetObjectAclOutput where
+instance FromXML GetObjectAclResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetObjectAclOutput"
+    fromXMLRoot    = fromRoot "GetObjectAclResponse"
 instance AWSRequest GetObjectAcl where
     type Sv GetObjectAcl = S3
-    type Rs GetObjectAcl = GetObjectAclOutput
+    type Rs GetObjectAcl = GetObjectAclResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetObjectAclOutput
+    response = xmlResponse $ \h x -> GetObjectAclResponse
         <$> x %| "AccessControlList"
         <*> x %| "Owner"

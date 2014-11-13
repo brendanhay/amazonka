@@ -33,54 +33,54 @@
 module Network.AWS.CloudFormation.DescribeStackResources
     (
     -- * Request
-      DescribeStackResourcesInput
+      DescribeStackResources
     -- ** Request constructor
     , describeStackResources
     -- ** Request lenses
-    , dsriLogicalResourceId
-    , dsriPhysicalResourceId
-    , dsriStackName
+    , dsrLogicalResourceId
+    , dsrPhysicalResourceId
+    , dsrStackName
 
     -- * Response
-    , DescribeStackResourcesOutput
+    , DescribeStackResourcesResponse
     -- ** Response constructor
     , describeStackResourcesResponse
     -- ** Response lenses
-    , dsroStackResources
+    , dsrrStackResources
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
 
-data DescribeStackResourcesInput = DescribeStackResourcesInput
-    { _dsriLogicalResourceId  :: Maybe Text
-    , _dsriPhysicalResourceId :: Maybe Text
-    , _dsriStackName          :: Maybe Text
+data DescribeStackResources = DescribeStackResources
+    { _dsrLogicalResourceId  :: Maybe Text
+    , _dsrPhysicalResourceId :: Maybe Text
+    , _dsrStackName          :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeStackResourcesInput' constructor.
+-- | 'DescribeStackResources' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsriLogicalResourceId' @::@ 'Maybe' 'Text'
+-- * 'dsrLogicalResourceId' @::@ 'Maybe' 'Text'
 --
--- * 'dsriPhysicalResourceId' @::@ 'Maybe' 'Text'
+-- * 'dsrPhysicalResourceId' @::@ 'Maybe' 'Text'
 --
--- * 'dsriStackName' @::@ 'Maybe' 'Text'
+-- * 'dsrStackName' @::@ 'Maybe' 'Text'
 --
-describeStackResources :: DescribeStackResourcesInput
-describeStackResources = DescribeStackResourcesInput
-    { _dsriStackName          = Nothing
-    , _dsriLogicalResourceId  = Nothing
-    , _dsriPhysicalResourceId = Nothing
+describeStackResources :: DescribeStackResources
+describeStackResources = DescribeStackResources
+    { _dsrStackName          = Nothing
+    , _dsrLogicalResourceId  = Nothing
+    , _dsrPhysicalResourceId = Nothing
     }
 
 -- | The logical name of the resource as specified in the template. Default:
 -- There is no default value.
-dsriLogicalResourceId :: Lens' DescribeStackResourcesInput (Maybe Text)
-dsriLogicalResourceId =
-    lens _dsriLogicalResourceId (\s a -> s { _dsriLogicalResourceId = a })
+dsrLogicalResourceId :: Lens' DescribeStackResources (Maybe Text)
+dsrLogicalResourceId =
+    lens _dsrLogicalResourceId (\s a -> s { _dsrLogicalResourceId = a })
 
 -- | The name or unique identifier that corresponds to a physical instance ID
 -- of a resource supported by AWS CloudFormation. For example, for an Amazon
@@ -90,9 +90,9 @@ dsriLogicalResourceId =
 -- part of the stack. Required: Conditional. If you do not specify
 -- PhysicalResourceId, you must specify StackName. Default: There is no
 -- default value.
-dsriPhysicalResourceId :: Lens' DescribeStackResourcesInput (Maybe Text)
-dsriPhysicalResourceId =
-    lens _dsriPhysicalResourceId (\s a -> s { _dsriPhysicalResourceId = a })
+dsrPhysicalResourceId :: Lens' DescribeStackResources (Maybe Text)
+dsrPhysicalResourceId =
+    lens _dsrPhysicalResourceId (\s a -> s { _dsrPhysicalResourceId = a })
 
 -- | The name or the unique identifier associated with the stack, which are
 -- not always interchangeable: Running stacks: You can specify either the
@@ -100,48 +100,48 @@ dsriPhysicalResourceId =
 -- unique stack ID. Default: There is no default value. Required:
 -- Conditional. If you do not specify StackName, you must specify
 -- PhysicalResourceId.
-dsriStackName :: Lens' DescribeStackResourcesInput (Maybe Text)
-dsriStackName = lens _dsriStackName (\s a -> s { _dsriStackName = a })
+dsrStackName :: Lens' DescribeStackResources (Maybe Text)
+dsrStackName = lens _dsrStackName (\s a -> s { _dsrStackName = a })
 
-instance ToQuery DescribeStackResourcesInput
+instance ToQuery DescribeStackResources
 
-instance ToPath DescribeStackResourcesInput where
+instance ToPath DescribeStackResources where
     toPath = const "/"
 
-newtype DescribeStackResourcesOutput = DescribeStackResourcesOutput
-    { _dsroStackResources :: [StackResource]
+newtype DescribeStackResourcesResponse = DescribeStackResourcesResponse
+    { _dsrrStackResources :: [StackResource]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeStackResourcesOutput where
-    type Item DescribeStackResourcesOutput = StackResource
+instance IsList DescribeStackResourcesResponse where
+    type Item DescribeStackResourcesResponse = StackResource
 
-    fromList = DescribeStackResourcesOutput . fromList
-    toList   = toList . _dsroStackResources
+    fromList = DescribeStackResourcesResponse . fromList
+    toList   = toList . _dsrrStackResources
 
--- | 'DescribeStackResourcesOutput' constructor.
+-- | 'DescribeStackResourcesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsroStackResources' @::@ ['StackResource']
+-- * 'dsrrStackResources' @::@ ['StackResource']
 --
-describeStackResourcesResponse :: DescribeStackResourcesOutput
-describeStackResourcesResponse = DescribeStackResourcesOutput
-    { _dsroStackResources = mempty
+describeStackResourcesResponse :: DescribeStackResourcesResponse
+describeStackResourcesResponse = DescribeStackResourcesResponse
+    { _dsrrStackResources = mempty
     }
 
 -- | A list of StackResource structures.
-dsroStackResources :: Lens' DescribeStackResourcesOutput [StackResource]
-dsroStackResources =
-    lens _dsroStackResources (\s a -> s { _dsroStackResources = a })
+dsrrStackResources :: Lens' DescribeStackResourcesResponse [StackResource]
+dsrrStackResources =
+    lens _dsrrStackResources (\s a -> s { _dsrrStackResources = a })
 
-instance FromXML DescribeStackResourcesOutput where
+instance FromXML DescribeStackResourcesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeStackResourcesOutput"
+    fromXMLRoot    = fromRoot "DescribeStackResourcesResponse"
 
-instance AWSRequest DescribeStackResourcesInput where
-    type Sv DescribeStackResourcesInput = CloudFormation
-    type Rs DescribeStackResourcesInput = DescribeStackResourcesOutput
+instance AWSRequest DescribeStackResources where
+    type Sv DescribeStackResources = CloudFormation
+    type Rs DescribeStackResources = DescribeStackResourcesResponse
 
     request  = post "DescribeStackResources"
-    response = xmlResponse $ \h x -> DescribeStackResourcesOutput
+    response = xmlResponse $ \h x -> DescribeStackResourcesResponse
         <$> x %| "StackResources"

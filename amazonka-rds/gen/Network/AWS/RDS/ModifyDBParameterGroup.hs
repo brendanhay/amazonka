@@ -36,70 +36,96 @@
 module Network.AWS.RDS.ModifyDBParameterGroup
     (
     -- * Request
-      ModifyDBParameterGroupMessage
+      ModifyDBParameterGroup
     -- ** Request constructor
     , modifyDBParameterGroup
     -- ** Request lenses
-    , mdbpgmDBParameterGroupName
-    , mdbpgmParameters
+    , mdbpgDBParameterGroupName
+    , mdbpgParameters
 
     -- * Response
-    , DBParameterGroupNameMessage
+    , ModifyDBParameterGroupResponse
     -- ** Response constructor
-    , dbparameterGroupNameMessage
+    , modifyDBParameterGroupResponse
     -- ** Response lenses
-    , dbpgnmDBParameterGroupName
+    , mdbpgrDBParameterGroupName
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data ModifyDBParameterGroupMessage = ModifyDBParameterGroupMessage
-    { _mdbpgmDBParameterGroupName :: Text
-    , _mdbpgmParameters           :: [Parameter]
+data ModifyDBParameterGroup = ModifyDBParameterGroup
+    { _mdbpgDBParameterGroupName :: Text
+    , _mdbpgParameters           :: [Parameter]
     } deriving (Eq, Show, Generic)
 
--- | 'ModifyDBParameterGroupMessage' constructor.
+-- | 'ModifyDBParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mdbpgmDBParameterGroupName' @::@ 'Text'
+-- * 'mdbpgDBParameterGroupName' @::@ 'Text'
 --
--- * 'mdbpgmParameters' @::@ ['Parameter']
+-- * 'mdbpgParameters' @::@ ['Parameter']
 --
-modifyDBParameterGroup :: Text -- ^ 'mdbpgmDBParameterGroupName'
-                       -> ModifyDBParameterGroupMessage
-modifyDBParameterGroup p1 = ModifyDBParameterGroupMessage
-    { _mdbpgmDBParameterGroupName = p1
-    , _mdbpgmParameters           = mempty
+modifyDBParameterGroup :: Text -- ^ 'mdbpgDBParameterGroupName'
+                       -> ModifyDBParameterGroup
+modifyDBParameterGroup p1 = ModifyDBParameterGroup
+    { _mdbpgDBParameterGroupName = p1
+    , _mdbpgParameters           = mempty
     }
 
 -- | The name of the DB parameter group. Constraints: Must be the name of an
 -- existing DB parameter group Must be 1 to 255 alphanumeric characters
 -- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens.
-mdbpgmDBParameterGroupName :: Lens' ModifyDBParameterGroupMessage Text
-mdbpgmDBParameterGroupName =
-    lens _mdbpgmDBParameterGroupName
-        (\s a -> s { _mdbpgmDBParameterGroupName = a })
+mdbpgDBParameterGroupName :: Lens' ModifyDBParameterGroup Text
+mdbpgDBParameterGroupName =
+    lens _mdbpgDBParameterGroupName
+        (\s a -> s { _mdbpgDBParameterGroupName = a })
 
 -- | An array of parameter names, values, and the apply method for the
 -- parameter update. At least one parameter name, value, and apply method
 -- must be supplied; subsequent arguments are optional. A maximum of 20
 -- parameters may be modified in a single request. Valid Values (for the
 -- application method): immediate | pending-reboot.
-mdbpgmParameters :: Lens' ModifyDBParameterGroupMessage [Parameter]
-mdbpgmParameters = lens _mdbpgmParameters (\s a -> s { _mdbpgmParameters = a })
+mdbpgParameters :: Lens' ModifyDBParameterGroup [Parameter]
+mdbpgParameters = lens _mdbpgParameters (\s a -> s { _mdbpgParameters = a })
 
-instance ToQuery ModifyDBParameterGroupMessage
+instance ToQuery ModifyDBParameterGroup
 
-instance ToPath ModifyDBParameterGroupMessage where
+instance ToPath ModifyDBParameterGroup where
     toPath = const "/"
 
-instance AWSRequest ModifyDBParameterGroupMessage where
-    type Sv ModifyDBParameterGroupMessage = RDS
-    type Rs ModifyDBParameterGroupMessage = DBParameterGroupNameMessage
+newtype ModifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
+    { _mdbpgrDBParameterGroupName :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
+
+-- | 'ModifyDBParameterGroupResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'mdbpgrDBParameterGroupName' @::@ 'Maybe' 'Text'
+--
+modifyDBParameterGroupResponse :: ModifyDBParameterGroupResponse
+modifyDBParameterGroupResponse = ModifyDBParameterGroupResponse
+    { _mdbpgrDBParameterGroupName = Nothing
+    }
+
+-- | The name of the DB parameter group.
+mdbpgrDBParameterGroupName :: Lens' ModifyDBParameterGroupResponse (Maybe Text)
+mdbpgrDBParameterGroupName =
+    lens _mdbpgrDBParameterGroupName
+        (\s a -> s { _mdbpgrDBParameterGroupName = a })
+
+instance FromXML ModifyDBParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyDBParameterGroupResponse"
+
+instance AWSRequest ModifyDBParameterGroup where
+    type Sv ModifyDBParameterGroup = RDS
+    type Rs ModifyDBParameterGroup = ModifyDBParameterGroupResponse
 
     request  = post "ModifyDBParameterGroup"
-    response = xmlResponse $ const decodeCursor
+    response = xmlResponse $ \h x -> ModifyDBParameterGroupResponse
+        <$> x %| "DBParameterGroupName"

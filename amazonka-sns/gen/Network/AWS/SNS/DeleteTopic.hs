@@ -27,11 +27,11 @@
 module Network.AWS.SNS.DeleteTopic
     (
     -- * Request
-      DeleteTopicInput
+      DeleteTopic
     -- ** Request constructor
     , deleteTopic
     -- ** Request lenses
-    , dtiTopicArn
+    , dtTopicArn
 
     -- * Response
     , DeleteTopicResponse
@@ -43,29 +43,29 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-newtype DeleteTopicInput = DeleteTopicInput
-    { _dtiTopicArn :: Text
+newtype DeleteTopic = DeleteTopic
+    { _dtTopicArn :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteTopicInput' constructor.
+-- | 'DeleteTopic' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtiTopicArn' @::@ 'Text'
+-- * 'dtTopicArn' @::@ 'Text'
 --
-deleteTopic :: Text -- ^ 'dtiTopicArn'
-            -> DeleteTopicInput
-deleteTopic p1 = DeleteTopicInput
-    { _dtiTopicArn = p1
+deleteTopic :: Text -- ^ 'dtTopicArn'
+            -> DeleteTopic
+deleteTopic p1 = DeleteTopic
+    { _dtTopicArn = p1
     }
 
 -- | The ARN of the topic you want to delete.
-dtiTopicArn :: Lens' DeleteTopicInput Text
-dtiTopicArn = lens _dtiTopicArn (\s a -> s { _dtiTopicArn = a })
+dtTopicArn :: Lens' DeleteTopic Text
+dtTopicArn = lens _dtTopicArn (\s a -> s { _dtTopicArn = a })
 
-instance ToQuery DeleteTopicInput
+instance ToQuery DeleteTopic
 
-instance ToPath DeleteTopicInput where
+instance ToPath DeleteTopic where
     toPath = const "/"
 
 data DeleteTopicResponse = DeleteTopicResponse
@@ -79,9 +79,9 @@ instance FromXML DeleteTopicResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteTopicResponse"
 
-instance AWSRequest DeleteTopicInput where
-    type Sv DeleteTopicInput = SNS
-    type Rs DeleteTopicInput = DeleteTopicResponse
+instance AWSRequest DeleteTopic where
+    type Sv DeleteTopic = SNS
+    type Rs DeleteTopic = DeleteTopicResponse
 
     request  = post "DeleteTopic"
     response = nullaryResponse DeleteTopicResponse

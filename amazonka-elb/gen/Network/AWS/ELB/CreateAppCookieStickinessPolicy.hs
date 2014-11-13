@@ -37,13 +37,13 @@
 module Network.AWS.ELB.CreateAppCookieStickinessPolicy
     (
     -- * Request
-      CreateAppCookieStickinessPolicyInput
+      CreateAppCookieStickinessPolicy
     -- ** Request constructor
     , createAppCookieStickinessPolicy
     -- ** Request lenses
-    , cacspiCookieName
-    , cacspiLoadBalancerName
-    , cacspiPolicyName
+    , cacspCookieName
+    , cacspLoadBalancerName
+    , cacspPolicyName
 
     -- * Response
     , CreateAppCookieStickinessPolicyResponse
@@ -55,49 +55,49 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data CreateAppCookieStickinessPolicyInput = CreateAppCookieStickinessPolicyInput
-    { _cacspiCookieName       :: Text
-    , _cacspiLoadBalancerName :: Text
-    , _cacspiPolicyName       :: Text
+data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy
+    { _cacspCookieName       :: Text
+    , _cacspLoadBalancerName :: Text
+    , _cacspPolicyName       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CreateAppCookieStickinessPolicyInput' constructor.
+-- | 'CreateAppCookieStickinessPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cacspiCookieName' @::@ 'Text'
+-- * 'cacspCookieName' @::@ 'Text'
 --
--- * 'cacspiLoadBalancerName' @::@ 'Text'
+-- * 'cacspLoadBalancerName' @::@ 'Text'
 --
--- * 'cacspiPolicyName' @::@ 'Text'
+-- * 'cacspPolicyName' @::@ 'Text'
 --
-createAppCookieStickinessPolicy :: Text -- ^ 'cacspiLoadBalancerName'
-                                -> Text -- ^ 'cacspiPolicyName'
-                                -> Text -- ^ 'cacspiCookieName'
-                                -> CreateAppCookieStickinessPolicyInput
-createAppCookieStickinessPolicy p1 p2 p3 = CreateAppCookieStickinessPolicyInput
-    { _cacspiLoadBalancerName = p1
-    , _cacspiPolicyName       = p2
-    , _cacspiCookieName       = p3
+createAppCookieStickinessPolicy :: Text -- ^ 'cacspLoadBalancerName'
+                                -> Text -- ^ 'cacspPolicyName'
+                                -> Text -- ^ 'cacspCookieName'
+                                -> CreateAppCookieStickinessPolicy
+createAppCookieStickinessPolicy p1 p2 p3 = CreateAppCookieStickinessPolicy
+    { _cacspLoadBalancerName = p1
+    , _cacspPolicyName       = p2
+    , _cacspCookieName       = p3
     }
 
 -- | Name of the application cookie used for stickiness.
-cacspiCookieName :: Lens' CreateAppCookieStickinessPolicyInput Text
-cacspiCookieName = lens _cacspiCookieName (\s a -> s { _cacspiCookieName = a })
+cacspCookieName :: Lens' CreateAppCookieStickinessPolicy Text
+cacspCookieName = lens _cacspCookieName (\s a -> s { _cacspCookieName = a })
 
 -- | The name of the load balancer.
-cacspiLoadBalancerName :: Lens' CreateAppCookieStickinessPolicyInput Text
-cacspiLoadBalancerName =
-    lens _cacspiLoadBalancerName (\s a -> s { _cacspiLoadBalancerName = a })
+cacspLoadBalancerName :: Lens' CreateAppCookieStickinessPolicy Text
+cacspLoadBalancerName =
+    lens _cacspLoadBalancerName (\s a -> s { _cacspLoadBalancerName = a })
 
 -- | The name of the policy being created. The name must be unique within the
 -- set of policies for this load balancer.
-cacspiPolicyName :: Lens' CreateAppCookieStickinessPolicyInput Text
-cacspiPolicyName = lens _cacspiPolicyName (\s a -> s { _cacspiPolicyName = a })
+cacspPolicyName :: Lens' CreateAppCookieStickinessPolicy Text
+cacspPolicyName = lens _cacspPolicyName (\s a -> s { _cacspPolicyName = a })
 
-instance ToQuery CreateAppCookieStickinessPolicyInput
+instance ToQuery CreateAppCookieStickinessPolicy
 
-instance ToPath CreateAppCookieStickinessPolicyInput where
+instance ToPath CreateAppCookieStickinessPolicy where
     toPath = const "/"
 
 data CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse
@@ -111,9 +111,9 @@ instance FromXML CreateAppCookieStickinessPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateAppCookieStickinessPolicyResponse"
 
-instance AWSRequest CreateAppCookieStickinessPolicyInput where
-    type Sv CreateAppCookieStickinessPolicyInput = ELB
-    type Rs CreateAppCookieStickinessPolicyInput = CreateAppCookieStickinessPolicyResponse
+instance AWSRequest CreateAppCookieStickinessPolicy where
+    type Sv CreateAppCookieStickinessPolicy = ELB
+    type Rs CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicyResponse
 
     request  = post "CreateAppCookieStickinessPolicy"
     response = nullaryResponse CreateAppCookieStickinessPolicyResponse

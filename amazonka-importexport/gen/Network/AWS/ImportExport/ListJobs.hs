@@ -28,90 +28,90 @@
 module Network.AWS.ImportExport.ListJobs
     (
     -- * Request
-      ListJobsInput
+      ListJobs
     -- ** Request constructor
     , listJobs
     -- ** Request lenses
-    , ljiMarker
-    , ljiMaxJobs
+    , ljMarker
+    , ljMaxJobs
 
     -- * Response
-    , ListJobsOutput
+    , ListJobsResponse
     -- ** Response constructor
     , listJobsResponse
     -- ** Response lenses
-    , ljoIsTruncated
-    , ljoJobs
+    , ljrIsTruncated
+    , ljrJobs
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
 
-data ListJobsInput = ListJobsInput
-    { _ljiMarker  :: Maybe Text
-    , _ljiMaxJobs :: Maybe Int
+data ListJobs = ListJobs
+    { _ljMarker  :: Maybe Text
+    , _ljMaxJobs :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ListJobsInput' constructor.
+-- | 'ListJobs' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljiMarker' @::@ 'Maybe' 'Text'
+-- * 'ljMarker' @::@ 'Maybe' 'Text'
 --
--- * 'ljiMaxJobs' @::@ 'Maybe' 'Int'
+-- * 'ljMaxJobs' @::@ 'Maybe' 'Int'
 --
-listJobs :: ListJobsInput
-listJobs = ListJobsInput
-    { _ljiMaxJobs = Nothing
-    , _ljiMarker  = Nothing
+listJobs :: ListJobs
+listJobs = ListJobs
+    { _ljMaxJobs = Nothing
+    , _ljMarker  = Nothing
     }
 
-ljiMarker :: Lens' ListJobsInput (Maybe Text)
-ljiMarker = lens _ljiMarker (\s a -> s { _ljiMarker = a })
+ljMarker :: Lens' ListJobs (Maybe Text)
+ljMarker = lens _ljMarker (\s a -> s { _ljMarker = a })
 
-ljiMaxJobs :: Lens' ListJobsInput (Maybe Int)
-ljiMaxJobs = lens _ljiMaxJobs (\s a -> s { _ljiMaxJobs = a })
+ljMaxJobs :: Lens' ListJobs (Maybe Int)
+ljMaxJobs = lens _ljMaxJobs (\s a -> s { _ljMaxJobs = a })
 
-instance ToQuery ListJobsInput
+instance ToQuery ListJobs
 
-instance ToPath ListJobsInput where
+instance ToPath ListJobs where
     toPath = const "/"
 
-data ListJobsOutput = ListJobsOutput
-    { _ljoIsTruncated :: Maybe Bool
-    , _ljoJobs        :: [Job]
+data ListJobsResponse = ListJobsResponse
+    { _ljrIsTruncated :: Maybe Bool
+    , _ljrJobs        :: [Job]
     } deriving (Eq, Show, Generic)
 
--- | 'ListJobsOutput' constructor.
+-- | 'ListJobsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljoIsTruncated' @::@ 'Maybe' 'Bool'
+-- * 'ljrIsTruncated' @::@ 'Maybe' 'Bool'
 --
--- * 'ljoJobs' @::@ ['Job']
+-- * 'ljrJobs' @::@ ['Job']
 --
-listJobsResponse :: ListJobsOutput
-listJobsResponse = ListJobsOutput
-    { _ljoJobs        = mempty
-    , _ljoIsTruncated = Nothing
+listJobsResponse :: ListJobsResponse
+listJobsResponse = ListJobsResponse
+    { _ljrJobs        = mempty
+    , _ljrIsTruncated = Nothing
     }
 
-ljoIsTruncated :: Lens' ListJobsOutput (Maybe Bool)
-ljoIsTruncated = lens _ljoIsTruncated (\s a -> s { _ljoIsTruncated = a })
+ljrIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
+ljrIsTruncated = lens _ljrIsTruncated (\s a -> s { _ljrIsTruncated = a })
 
-ljoJobs :: Lens' ListJobsOutput [Job]
-ljoJobs = lens _ljoJobs (\s a -> s { _ljoJobs = a })
+ljrJobs :: Lens' ListJobsResponse [Job]
+ljrJobs = lens _ljrJobs (\s a -> s { _ljrJobs = a })
 
-instance FromXML ListJobsOutput where
+instance FromXML ListJobsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListJobsOutput"
+    fromXMLRoot    = fromRoot "ListJobsResponse"
 
-instance AWSRequest ListJobsInput where
-    type Sv ListJobsInput = ImportExport
-    type Rs ListJobsInput = ListJobsOutput
+instance AWSRequest ListJobs where
+    type Sv ListJobs = ImportExport
+    type Rs ListJobs = ListJobsResponse
 
     request  = post "ListJobs"
-    response = xmlResponse $ \h x -> ListJobsOutput
+    response = xmlResponse $ \h x -> ListJobsResponse
         <$> x %| "IsTruncated"
         <*> x %| "Jobs"

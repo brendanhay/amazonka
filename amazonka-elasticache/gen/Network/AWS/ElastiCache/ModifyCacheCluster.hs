@@ -26,29 +26,29 @@
 module Network.AWS.ElastiCache.ModifyCacheCluster
     (
     -- * Request
-      ModifyCacheClusterMessage
+      ModifyCacheCluster
     -- ** Request constructor
     , modifyCacheCluster
     -- ** Request lenses
-    , mccmAZMode
-    , mccmApplyImmediately
-    , mccmAutoMinorVersionUpgrade
-    , mccmCacheClusterId
-    , mccmCacheNodeIdsToRemove
-    , mccmCacheParameterGroupName
-    , mccmCacheSecurityGroupNames
-    , mccmEngineVersion
-    , mccmNewAvailabilityZones
-    , mccmNotificationTopicArn
-    , mccmNotificationTopicStatus
-    , mccmNumCacheNodes
-    , mccmPreferredMaintenanceWindow
-    , mccmSecurityGroupIds
-    , mccmSnapshotRetentionLimit
-    , mccmSnapshotWindow
+    , mccAZMode
+    , mccApplyImmediately
+    , mccAutoMinorVersionUpgrade
+    , mccCacheClusterId
+    , mccCacheNodeIdsToRemove
+    , mccCacheParameterGroupName
+    , mccCacheSecurityGroupNames
+    , mccEngineVersion
+    , mccNewAvailabilityZones
+    , mccNotificationTopicArn
+    , mccNotificationTopicStatus
+    , mccNumCacheNodes
+    , mccPreferredMaintenanceWindow
+    , mccSecurityGroupIds
+    , mccSnapshotRetentionLimit
+    , mccSnapshotWindow
 
     -- * Response
-    , ModifyCacheClusterResult
+    , ModifyCacheClusterResponse
     -- ** Response constructor
     , modifyCacheClusterResponse
     -- ** Response lenses
@@ -59,88 +59,88 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data ModifyCacheClusterMessage = ModifyCacheClusterMessage
-    { _mccmAZMode                     :: Maybe Text
-    , _mccmApplyImmediately           :: Maybe Bool
-    , _mccmAutoMinorVersionUpgrade    :: Maybe Bool
-    , _mccmCacheClusterId             :: Text
-    , _mccmCacheNodeIdsToRemove       :: [Text]
-    , _mccmCacheParameterGroupName    :: Maybe Text
-    , _mccmCacheSecurityGroupNames    :: [Text]
-    , _mccmEngineVersion              :: Maybe Text
-    , _mccmNewAvailabilityZones       :: [Text]
-    , _mccmNotificationTopicArn       :: Maybe Text
-    , _mccmNotificationTopicStatus    :: Maybe Text
-    , _mccmNumCacheNodes              :: Maybe Int
-    , _mccmPreferredMaintenanceWindow :: Maybe Text
-    , _mccmSecurityGroupIds           :: [Text]
-    , _mccmSnapshotRetentionLimit     :: Maybe Int
-    , _mccmSnapshotWindow             :: Maybe Text
+data ModifyCacheCluster = ModifyCacheCluster
+    { _mccAZMode                     :: Maybe Text
+    , _mccApplyImmediately           :: Maybe Bool
+    , _mccAutoMinorVersionUpgrade    :: Maybe Bool
+    , _mccCacheClusterId             :: Text
+    , _mccCacheNodeIdsToRemove       :: [Text]
+    , _mccCacheParameterGroupName    :: Maybe Text
+    , _mccCacheSecurityGroupNames    :: [Text]
+    , _mccEngineVersion              :: Maybe Text
+    , _mccNewAvailabilityZones       :: [Text]
+    , _mccNotificationTopicArn       :: Maybe Text
+    , _mccNotificationTopicStatus    :: Maybe Text
+    , _mccNumCacheNodes              :: Maybe Int
+    , _mccPreferredMaintenanceWindow :: Maybe Text
+    , _mccSecurityGroupIds           :: [Text]
+    , _mccSnapshotRetentionLimit     :: Maybe Int
+    , _mccSnapshotWindow             :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ModifyCacheClusterMessage' constructor.
+-- | 'ModifyCacheCluster' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mccmAZMode' @::@ 'Maybe' 'Text'
+-- * 'mccAZMode' @::@ 'Maybe' 'Text'
 --
--- * 'mccmApplyImmediately' @::@ 'Maybe' 'Bool'
+-- * 'mccApplyImmediately' @::@ 'Maybe' 'Bool'
 --
--- * 'mccmAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
+-- * 'mccAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
 --
--- * 'mccmCacheClusterId' @::@ 'Text'
+-- * 'mccCacheClusterId' @::@ 'Text'
 --
--- * 'mccmCacheNodeIdsToRemove' @::@ ['Text']
+-- * 'mccCacheNodeIdsToRemove' @::@ ['Text']
 --
--- * 'mccmCacheParameterGroupName' @::@ 'Maybe' 'Text'
+-- * 'mccCacheParameterGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'mccmCacheSecurityGroupNames' @::@ ['Text']
+-- * 'mccCacheSecurityGroupNames' @::@ ['Text']
 --
--- * 'mccmEngineVersion' @::@ 'Maybe' 'Text'
+-- * 'mccEngineVersion' @::@ 'Maybe' 'Text'
 --
--- * 'mccmNewAvailabilityZones' @::@ ['Text']
+-- * 'mccNewAvailabilityZones' @::@ ['Text']
 --
--- * 'mccmNotificationTopicArn' @::@ 'Maybe' 'Text'
+-- * 'mccNotificationTopicArn' @::@ 'Maybe' 'Text'
 --
--- * 'mccmNotificationTopicStatus' @::@ 'Maybe' 'Text'
+-- * 'mccNotificationTopicStatus' @::@ 'Maybe' 'Text'
 --
--- * 'mccmNumCacheNodes' @::@ 'Maybe' 'Int'
+-- * 'mccNumCacheNodes' @::@ 'Maybe' 'Int'
 --
--- * 'mccmPreferredMaintenanceWindow' @::@ 'Maybe' 'Text'
+-- * 'mccPreferredMaintenanceWindow' @::@ 'Maybe' 'Text'
 --
--- * 'mccmSecurityGroupIds' @::@ ['Text']
+-- * 'mccSecurityGroupIds' @::@ ['Text']
 --
--- * 'mccmSnapshotRetentionLimit' @::@ 'Maybe' 'Int'
+-- * 'mccSnapshotRetentionLimit' @::@ 'Maybe' 'Int'
 --
--- * 'mccmSnapshotWindow' @::@ 'Maybe' 'Text'
+-- * 'mccSnapshotWindow' @::@ 'Maybe' 'Text'
 --
-modifyCacheCluster :: Text -- ^ 'mccmCacheClusterId'
-                   -> ModifyCacheClusterMessage
-modifyCacheCluster p1 = ModifyCacheClusterMessage
-    { _mccmCacheClusterId             = p1
-    , _mccmNumCacheNodes              = Nothing
-    , _mccmCacheNodeIdsToRemove       = mempty
-    , _mccmAZMode                     = Nothing
-    , _mccmNewAvailabilityZones       = mempty
-    , _mccmCacheSecurityGroupNames    = mempty
-    , _mccmSecurityGroupIds           = mempty
-    , _mccmPreferredMaintenanceWindow = Nothing
-    , _mccmNotificationTopicArn       = Nothing
-    , _mccmCacheParameterGroupName    = Nothing
-    , _mccmNotificationTopicStatus    = Nothing
-    , _mccmApplyImmediately           = Nothing
-    , _mccmEngineVersion              = Nothing
-    , _mccmAutoMinorVersionUpgrade    = Nothing
-    , _mccmSnapshotRetentionLimit     = Nothing
-    , _mccmSnapshotWindow             = Nothing
+modifyCacheCluster :: Text -- ^ 'mccCacheClusterId'
+                   -> ModifyCacheCluster
+modifyCacheCluster p1 = ModifyCacheCluster
+    { _mccCacheClusterId             = p1
+    , _mccNumCacheNodes              = Nothing
+    , _mccCacheNodeIdsToRemove       = mempty
+    , _mccAZMode                     = Nothing
+    , _mccNewAvailabilityZones       = mempty
+    , _mccCacheSecurityGroupNames    = mempty
+    , _mccSecurityGroupIds           = mempty
+    , _mccPreferredMaintenanceWindow = Nothing
+    , _mccNotificationTopicArn       = Nothing
+    , _mccCacheParameterGroupName    = Nothing
+    , _mccNotificationTopicStatus    = Nothing
+    , _mccApplyImmediately           = Nothing
+    , _mccEngineVersion              = Nothing
+    , _mccAutoMinorVersionUpgrade    = Nothing
+    , _mccSnapshotRetentionLimit     = Nothing
+    , _mccSnapshotWindow             = Nothing
     }
 
 -- | Specifies whether the new nodes in this Memcached cache cluster are all
 -- created in a single Availability Zone or created across multiple
 -- Availability Zones. Valid values: single-az | cross-az. This option is
 -- only supported for Memcached cache clusters.
-mccmAZMode :: Lens' ModifyCacheClusterMessage (Maybe Text)
-mccmAZMode = lens _mccmAZMode (\s a -> s { _mccmAZMode = a })
+mccAZMode :: Lens' ModifyCacheCluster (Maybe Text)
+mccAZMode = lens _mccAZMode (\s a -> s { _mccAZMode = a })
 
 -- | If true, this parameter causes the modifications in this request and any
 -- pending modifications to be applied, asynchronously and as soon as
@@ -150,22 +150,22 @@ mccmAZMode = lens _mccmAZMode (\s a -> s { _mccmAZMode = a })
 -- first. If you perform a ModifyCacheCluster before a pending modification
 -- is applied, the pending modification is replaced by the newer
 -- modification. Valid values: true | false Default: false.
-mccmApplyImmediately :: Lens' ModifyCacheClusterMessage (Maybe Bool)
-mccmApplyImmediately =
-    lens _mccmApplyImmediately (\s a -> s { _mccmApplyImmediately = a })
+mccApplyImmediately :: Lens' ModifyCacheCluster (Maybe Bool)
+mccApplyImmediately =
+    lens _mccApplyImmediately (\s a -> s { _mccApplyImmediately = a })
 
 -- | If true, then minor engine upgrades will be applied automatically to the
 -- cache cluster during the maintenance window. Valid values: true | false
 -- Default: true.
-mccmAutoMinorVersionUpgrade :: Lens' ModifyCacheClusterMessage (Maybe Bool)
-mccmAutoMinorVersionUpgrade =
-    lens _mccmAutoMinorVersionUpgrade
-        (\s a -> s { _mccmAutoMinorVersionUpgrade = a })
+mccAutoMinorVersionUpgrade :: Lens' ModifyCacheCluster (Maybe Bool)
+mccAutoMinorVersionUpgrade =
+    lens _mccAutoMinorVersionUpgrade
+        (\s a -> s { _mccAutoMinorVersionUpgrade = a })
 
 -- | The cache cluster identifier. This value is stored as a lowercase string.
-mccmCacheClusterId :: Lens' ModifyCacheClusterMessage Text
-mccmCacheClusterId =
-    lens _mccmCacheClusterId (\s a -> s { _mccmCacheClusterId = a })
+mccCacheClusterId :: Lens' ModifyCacheCluster Text
+mccCacheClusterId =
+    lens _mccCacheClusterId (\s a -> s { _mccCacheClusterId = a })
 
 -- | A list of cache node IDs to be removed. A node ID is a numeric identifier
 -- (0001, 0002, etc.). This parameter is only valid when NumCacheNodes is
@@ -176,34 +176,32 @@ mccmCacheClusterId =
 -- example: If you have 3 active cache nodes, 7 pending cache nodes, and the
 -- number of cache nodes in this ModifyCacheCluser call is 5, you must list
 -- 2 (7 - 5) cache node IDs to remove.
-mccmCacheNodeIdsToRemove :: Lens' ModifyCacheClusterMessage [Text]
-mccmCacheNodeIdsToRemove =
-    lens _mccmCacheNodeIdsToRemove
-        (\s a -> s { _mccmCacheNodeIdsToRemove = a })
+mccCacheNodeIdsToRemove :: Lens' ModifyCacheCluster [Text]
+mccCacheNodeIdsToRemove =
+    lens _mccCacheNodeIdsToRemove (\s a -> s { _mccCacheNodeIdsToRemove = a })
 
 -- | The name of the cache parameter group to apply to this cache cluster.
 -- This change is asynchronously applied as soon as possible for parameters
 -- when the ApplyImmediately parameter is specified as true for this
 -- request.
-mccmCacheParameterGroupName :: Lens' ModifyCacheClusterMessage (Maybe Text)
-mccmCacheParameterGroupName =
-    lens _mccmCacheParameterGroupName
-        (\s a -> s { _mccmCacheParameterGroupName = a })
+mccCacheParameterGroupName :: Lens' ModifyCacheCluster (Maybe Text)
+mccCacheParameterGroupName =
+    lens _mccCacheParameterGroupName
+        (\s a -> s { _mccCacheParameterGroupName = a })
 
 -- | A list of cache security group names to authorize on this cache cluster.
 -- This change is asynchronously applied as soon as possible. This parameter
 -- can be used only with clusters that are created outside of an Amazon
 -- Virtual Private Cloud (VPC). Constraints: Must contain no more than 255
 -- alphanumeric characters. Must not be "Default".
-mccmCacheSecurityGroupNames :: Lens' ModifyCacheClusterMessage [Text]
-mccmCacheSecurityGroupNames =
-    lens _mccmCacheSecurityGroupNames
-        (\s a -> s { _mccmCacheSecurityGroupNames = a })
+mccCacheSecurityGroupNames :: Lens' ModifyCacheCluster [Text]
+mccCacheSecurityGroupNames =
+    lens _mccCacheSecurityGroupNames
+        (\s a -> s { _mccCacheSecurityGroupNames = a })
 
 -- | The upgraded version of the cache engine to be run on the cache nodes.
-mccmEngineVersion :: Lens' ModifyCacheClusterMessage (Maybe Text)
-mccmEngineVersion =
-    lens _mccmEngineVersion (\s a -> s { _mccmEngineVersion = a })
+mccEngineVersion :: Lens' ModifyCacheCluster (Maybe Text)
+mccEngineVersion = lens _mccEngineVersion (\s a -> s { _mccEngineVersion = a })
 
 -- | The list of Availability Zones where the new Memcached cache nodes will
 -- be created. This parameter is only valid when NumCacheNodes in the
@@ -238,24 +236,22 @@ mccmEngineVersion =
 -- Example:
 -- NewAvailabilityZones.member.1=us-east-1a&amp;NewAvailabilityZones.member.2=us-east-1b&amp;NewAvailabilityZones.member.3=us-east-1d.
 -- 
-mccmNewAvailabilityZones :: Lens' ModifyCacheClusterMessage [Text]
-mccmNewAvailabilityZones =
-    lens _mccmNewAvailabilityZones
-        (\s a -> s { _mccmNewAvailabilityZones = a })
+mccNewAvailabilityZones :: Lens' ModifyCacheCluster [Text]
+mccNewAvailabilityZones =
+    lens _mccNewAvailabilityZones (\s a -> s { _mccNewAvailabilityZones = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic to which
 -- notifications will be sent.
-mccmNotificationTopicArn :: Lens' ModifyCacheClusterMessage (Maybe Text)
-mccmNotificationTopicArn =
-    lens _mccmNotificationTopicArn
-        (\s a -> s { _mccmNotificationTopicArn = a })
+mccNotificationTopicArn :: Lens' ModifyCacheCluster (Maybe Text)
+mccNotificationTopicArn =
+    lens _mccNotificationTopicArn (\s a -> s { _mccNotificationTopicArn = a })
 
 -- | The status of the Amazon SNS notification topic. Notifications are sent
 -- only if the status is active. Valid values: active | inactive.
-mccmNotificationTopicStatus :: Lens' ModifyCacheClusterMessage (Maybe Text)
-mccmNotificationTopicStatus =
-    lens _mccmNotificationTopicStatus
-        (\s a -> s { _mccmNotificationTopicStatus = a })
+mccNotificationTopicStatus :: Lens' ModifyCacheCluster (Maybe Text)
+mccNotificationTopicStatus =
+    lens _mccNotificationTopicStatus
+        (\s a -> s { _mccNotificationTopicStatus = a })
 
 -- | The number of cache nodes that the cache cluster should have. If the
 -- value for NumCacheNodes is greater than the sum of the number of current
@@ -284,74 +280,73 @@ mccmNotificationTopicStatus =
 -- cancel pending actions to modify the number of cache nodes in a cluster,
 -- use the ModifyCacheCluster request and set NumCacheNodes equal to the
 -- number of cache nodes currently in the cache cluster.
-mccmNumCacheNodes :: Lens' ModifyCacheClusterMessage (Maybe Int)
-mccmNumCacheNodes =
-    lens _mccmNumCacheNodes (\s a -> s { _mccmNumCacheNodes = a })
+mccNumCacheNodes :: Lens' ModifyCacheCluster (Maybe Int)
+mccNumCacheNodes = lens _mccNumCacheNodes (\s a -> s { _mccNumCacheNodes = a })
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 -- Note that system maintenance may result in an outage. This change is made
 -- immediately. If you are moving this window to the current time, there
 -- must be at least 120 minutes between the current time and end of the
 -- window to ensure that pending changes are applied.
-mccmPreferredMaintenanceWindow :: Lens' ModifyCacheClusterMessage (Maybe Text)
-mccmPreferredMaintenanceWindow =
-    lens _mccmPreferredMaintenanceWindow
-        (\s a -> s { _mccmPreferredMaintenanceWindow = a })
+mccPreferredMaintenanceWindow :: Lens' ModifyCacheCluster (Maybe Text)
+mccPreferredMaintenanceWindow =
+    lens _mccPreferredMaintenanceWindow
+        (\s a -> s { _mccPreferredMaintenanceWindow = a })
 
 -- | Specifies the VPC Security Groups associated with the cache cluster. This
 -- parameter can be used only with clusters that are created in an Amazon
 -- Virtual Private Cloud (VPC).
-mccmSecurityGroupIds :: Lens' ModifyCacheClusterMessage [Text]
-mccmSecurityGroupIds =
-    lens _mccmSecurityGroupIds (\s a -> s { _mccmSecurityGroupIds = a })
+mccSecurityGroupIds :: Lens' ModifyCacheCluster [Text]
+mccSecurityGroupIds =
+    lens _mccSecurityGroupIds (\s a -> s { _mccSecurityGroupIds = a })
 
 -- | The number of days for which ElastiCache will retain automatic cache
 -- cluster snapshots before deleting them. For example, if you set
 -- SnapshotRetentionLimit to 5, then a snapshot that was taken today will be
 -- retained for 5 days before being deleted. ImportantIf the value of
 -- SnapshotRetentionLimit is set to zero (0), backups are turned off.
-mccmSnapshotRetentionLimit :: Lens' ModifyCacheClusterMessage (Maybe Int)
-mccmSnapshotRetentionLimit =
-    lens _mccmSnapshotRetentionLimit
-        (\s a -> s { _mccmSnapshotRetentionLimit = a })
+mccSnapshotRetentionLimit :: Lens' ModifyCacheCluster (Maybe Int)
+mccSnapshotRetentionLimit =
+    lens _mccSnapshotRetentionLimit
+        (\s a -> s { _mccSnapshotRetentionLimit = a })
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
 -- a daily snapshot of your cache cluster.
-mccmSnapshotWindow :: Lens' ModifyCacheClusterMessage (Maybe Text)
-mccmSnapshotWindow =
-    lens _mccmSnapshotWindow (\s a -> s { _mccmSnapshotWindow = a })
+mccSnapshotWindow :: Lens' ModifyCacheCluster (Maybe Text)
+mccSnapshotWindow =
+    lens _mccSnapshotWindow (\s a -> s { _mccSnapshotWindow = a })
 
-instance ToQuery ModifyCacheClusterMessage
+instance ToQuery ModifyCacheCluster
 
-instance ToPath ModifyCacheClusterMessage where
+instance ToPath ModifyCacheCluster where
     toPath = const "/"
 
-newtype ModifyCacheClusterResult = ModifyCacheClusterResult
+newtype ModifyCacheClusterResponse = ModifyCacheClusterResponse
     { _mccrCacheCluster :: Maybe CacheCluster
     } deriving (Eq, Show, Generic)
 
--- | 'ModifyCacheClusterResult' constructor.
+-- | 'ModifyCacheClusterResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mccrCacheCluster' @::@ 'Maybe' 'CacheCluster'
 --
-modifyCacheClusterResponse :: ModifyCacheClusterResult
-modifyCacheClusterResponse = ModifyCacheClusterResult
+modifyCacheClusterResponse :: ModifyCacheClusterResponse
+modifyCacheClusterResponse = ModifyCacheClusterResponse
     { _mccrCacheCluster = Nothing
     }
 
-mccrCacheCluster :: Lens' ModifyCacheClusterResult (Maybe CacheCluster)
+mccrCacheCluster :: Lens' ModifyCacheClusterResponse (Maybe CacheCluster)
 mccrCacheCluster = lens _mccrCacheCluster (\s a -> s { _mccrCacheCluster = a })
 
-instance FromXML ModifyCacheClusterResult where
+instance FromXML ModifyCacheClusterResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyCacheClusterResult"
+    fromXMLRoot    = fromRoot "ModifyCacheClusterResponse"
 
-instance AWSRequest ModifyCacheClusterMessage where
-    type Sv ModifyCacheClusterMessage = ElastiCache
-    type Rs ModifyCacheClusterMessage = ModifyCacheClusterResult
+instance AWSRequest ModifyCacheCluster where
+    type Sv ModifyCacheCluster = ElastiCache
+    type Rs ModifyCacheCluster = ModifyCacheClusterResponse
 
     request  = post "ModifyCacheCluster"
-    response = xmlResponse $ \h x -> ModifyCacheClusterResult
+    response = xmlResponse $ \h x -> ModifyCacheClusterResponse
         <$> x %| "CacheCluster"

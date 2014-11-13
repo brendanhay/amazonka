@@ -26,16 +26,16 @@
 module Network.AWS.Redshift.AuthorizeSnapshotAccess
     (
     -- * Request
-      AuthorizeSnapshotAccessMessage
+      AuthorizeSnapshotAccess
     -- ** Request constructor
     , authorizeSnapshotAccess
     -- ** Request lenses
-    , asamAccountWithRestoreAccess
-    , asamSnapshotClusterIdentifier
-    , asamSnapshotIdentifier
+    , asaAccountWithRestoreAccess
+    , asaSnapshotClusterIdentifier
+    , asaSnapshotIdentifier
 
     -- * Response
-    , AuthorizeSnapshotAccessResult
+    , AuthorizeSnapshotAccessResponse
     -- ** Response constructor
     , authorizeSnapshotAccessResponse
     -- ** Response lenses
@@ -46,83 +46,83 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data AuthorizeSnapshotAccessMessage = AuthorizeSnapshotAccessMessage
-    { _asamAccountWithRestoreAccess  :: Text
-    , _asamSnapshotClusterIdentifier :: Maybe Text
-    , _asamSnapshotIdentifier        :: Text
+data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess
+    { _asaAccountWithRestoreAccess  :: Text
+    , _asaSnapshotClusterIdentifier :: Maybe Text
+    , _asaSnapshotIdentifier        :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'AuthorizeSnapshotAccessMessage' constructor.
+-- | 'AuthorizeSnapshotAccess' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asamAccountWithRestoreAccess' @::@ 'Text'
+-- * 'asaAccountWithRestoreAccess' @::@ 'Text'
 --
--- * 'asamSnapshotClusterIdentifier' @::@ 'Maybe' 'Text'
+-- * 'asaSnapshotClusterIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'asamSnapshotIdentifier' @::@ 'Text'
+-- * 'asaSnapshotIdentifier' @::@ 'Text'
 --
-authorizeSnapshotAccess :: Text -- ^ 'asamSnapshotIdentifier'
-                        -> Text -- ^ 'asamAccountWithRestoreAccess'
-                        -> AuthorizeSnapshotAccessMessage
-authorizeSnapshotAccess p1 p2 = AuthorizeSnapshotAccessMessage
-    { _asamSnapshotIdentifier        = p1
-    , _asamAccountWithRestoreAccess  = p2
-    , _asamSnapshotClusterIdentifier = Nothing
+authorizeSnapshotAccess :: Text -- ^ 'asaSnapshotIdentifier'
+                        -> Text -- ^ 'asaAccountWithRestoreAccess'
+                        -> AuthorizeSnapshotAccess
+authorizeSnapshotAccess p1 p2 = AuthorizeSnapshotAccess
+    { _asaSnapshotIdentifier        = p1
+    , _asaAccountWithRestoreAccess  = p2
+    , _asaSnapshotClusterIdentifier = Nothing
     }
 
 -- | The identifier of the AWS customer account authorized to restore the
 -- specified snapshot.
-asamAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccessMessage Text
-asamAccountWithRestoreAccess =
-    lens _asamAccountWithRestoreAccess
-        (\s a -> s { _asamAccountWithRestoreAccess = a })
+asaAccountWithRestoreAccess :: Lens' AuthorizeSnapshotAccess Text
+asaAccountWithRestoreAccess =
+    lens _asaAccountWithRestoreAccess
+        (\s a -> s { _asaAccountWithRestoreAccess = a })
 
 -- | The identifier of the cluster the snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a snapshot
 -- resource element that specifies anything other than * for the cluster
 -- name.
-asamSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccessMessage (Maybe Text)
-asamSnapshotClusterIdentifier =
-    lens _asamSnapshotClusterIdentifier
-        (\s a -> s { _asamSnapshotClusterIdentifier = a })
+asaSnapshotClusterIdentifier :: Lens' AuthorizeSnapshotAccess (Maybe Text)
+asaSnapshotClusterIdentifier =
+    lens _asaSnapshotClusterIdentifier
+        (\s a -> s { _asaSnapshotClusterIdentifier = a })
 
 -- | The identifier of the snapshot the account is authorized to restore.
-asamSnapshotIdentifier :: Lens' AuthorizeSnapshotAccessMessage Text
-asamSnapshotIdentifier =
-    lens _asamSnapshotIdentifier (\s a -> s { _asamSnapshotIdentifier = a })
+asaSnapshotIdentifier :: Lens' AuthorizeSnapshotAccess Text
+asaSnapshotIdentifier =
+    lens _asaSnapshotIdentifier (\s a -> s { _asaSnapshotIdentifier = a })
 
-instance ToQuery AuthorizeSnapshotAccessMessage
+instance ToQuery AuthorizeSnapshotAccess
 
-instance ToPath AuthorizeSnapshotAccessMessage where
+instance ToPath AuthorizeSnapshotAccess where
     toPath = const "/"
 
-newtype AuthorizeSnapshotAccessResult = AuthorizeSnapshotAccessResult
+newtype AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
     { _asarSnapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
 
--- | 'AuthorizeSnapshotAccessResult' constructor.
+-- | 'AuthorizeSnapshotAccessResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'asarSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-authorizeSnapshotAccessResponse :: AuthorizeSnapshotAccessResult
-authorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResult
+authorizeSnapshotAccessResponse :: AuthorizeSnapshotAccessResponse
+authorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse
     { _asarSnapshot = Nothing
     }
 
-asarSnapshot :: Lens' AuthorizeSnapshotAccessResult (Maybe Snapshot)
+asarSnapshot :: Lens' AuthorizeSnapshotAccessResponse (Maybe Snapshot)
 asarSnapshot = lens _asarSnapshot (\s a -> s { _asarSnapshot = a })
 
-instance FromXML AuthorizeSnapshotAccessResult where
+instance FromXML AuthorizeSnapshotAccessResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AuthorizeSnapshotAccessResult"
+    fromXMLRoot    = fromRoot "AuthorizeSnapshotAccessResponse"
 
-instance AWSRequest AuthorizeSnapshotAccessMessage where
-    type Sv AuthorizeSnapshotAccessMessage = Redshift
-    type Rs AuthorizeSnapshotAccessMessage = AuthorizeSnapshotAccessResult
+instance AWSRequest AuthorizeSnapshotAccess where
+    type Sv AuthorizeSnapshotAccess = Redshift
+    type Rs AuthorizeSnapshotAccess = AuthorizeSnapshotAccessResponse
 
     request  = post "AuthorizeSnapshotAccess"
-    response = xmlResponse $ \h x -> AuthorizeSnapshotAccessResult
+    response = xmlResponse $ \h x -> AuthorizeSnapshotAccessResponse
         <$> x %| "Snapshot"

@@ -24,11 +24,11 @@
 module Network.AWS.Redshift.DeleteClusterSubnetGroup
     (
     -- * Request
-      DeleteClusterSubnetGroupMessage
+      DeleteClusterSubnetGroup
     -- ** Request constructor
     , deleteClusterSubnetGroup
     -- ** Request lenses
-    , dcsgmClusterSubnetGroupName
+    , dcsgClusterSubnetGroupName
 
     -- * Response
     , DeleteClusterSubnetGroupResponse
@@ -40,31 +40,31 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-newtype DeleteClusterSubnetGroupMessage = DeleteClusterSubnetGroupMessage
-    { _dcsgmClusterSubnetGroupName :: Text
+newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup
+    { _dcsgClusterSubnetGroupName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteClusterSubnetGroupMessage' constructor.
+-- | 'DeleteClusterSubnetGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgmClusterSubnetGroupName' @::@ 'Text'
+-- * 'dcsgClusterSubnetGroupName' @::@ 'Text'
 --
-deleteClusterSubnetGroup :: Text -- ^ 'dcsgmClusterSubnetGroupName'
-                         -> DeleteClusterSubnetGroupMessage
-deleteClusterSubnetGroup p1 = DeleteClusterSubnetGroupMessage
-    { _dcsgmClusterSubnetGroupName = p1
+deleteClusterSubnetGroup :: Text -- ^ 'dcsgClusterSubnetGroupName'
+                         -> DeleteClusterSubnetGroup
+deleteClusterSubnetGroup p1 = DeleteClusterSubnetGroup
+    { _dcsgClusterSubnetGroupName = p1
     }
 
 -- | The name of the cluster subnet group name to be deleted.
-dcsgmClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroupMessage Text
-dcsgmClusterSubnetGroupName =
-    lens _dcsgmClusterSubnetGroupName
-        (\s a -> s { _dcsgmClusterSubnetGroupName = a })
+dcsgClusterSubnetGroupName :: Lens' DeleteClusterSubnetGroup Text
+dcsgClusterSubnetGroupName =
+    lens _dcsgClusterSubnetGroupName
+        (\s a -> s { _dcsgClusterSubnetGroupName = a })
 
-instance ToQuery DeleteClusterSubnetGroupMessage
+instance ToQuery DeleteClusterSubnetGroup
 
-instance ToPath DeleteClusterSubnetGroupMessage where
+instance ToPath DeleteClusterSubnetGroup where
     toPath = const "/"
 
 data DeleteClusterSubnetGroupResponse = DeleteClusterSubnetGroupResponse
@@ -78,9 +78,9 @@ instance FromXML DeleteClusterSubnetGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteClusterSubnetGroupResponse"
 
-instance AWSRequest DeleteClusterSubnetGroupMessage where
-    type Sv DeleteClusterSubnetGroupMessage = Redshift
-    type Rs DeleteClusterSubnetGroupMessage = DeleteClusterSubnetGroupResponse
+instance AWSRequest DeleteClusterSubnetGroup where
+    type Sv DeleteClusterSubnetGroup = Redshift
+    type Rs DeleteClusterSubnetGroup = DeleteClusterSubnetGroupResponse
 
     request  = post "DeleteClusterSubnetGroup"
     response = nullaryResponse DeleteClusterSubnetGroupResponse

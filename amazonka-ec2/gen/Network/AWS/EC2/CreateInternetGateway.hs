@@ -34,7 +34,7 @@ module Network.AWS.EC2.CreateInternetGateway
     , cigDryRun
 
     -- * Response
-    , CreateInternetGatewayResult
+    , CreateInternetGatewayResponse
     -- ** Response constructor
     , createInternetGatewayResponse
     -- ** Response lenses
@@ -68,34 +68,34 @@ instance ToQuery CreateInternetGateway
 instance ToPath CreateInternetGateway where
     toPath = const "/"
 
-newtype CreateInternetGatewayResult = CreateInternetGatewayResult
+newtype CreateInternetGatewayResponse = CreateInternetGatewayResponse
     { _cigrInternetGateway :: Maybe InternetGateway
     } deriving (Eq, Show, Generic)
 
--- | 'CreateInternetGatewayResult' constructor.
+-- | 'CreateInternetGatewayResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cigrInternetGateway' @::@ 'Maybe' 'InternetGateway'
 --
-createInternetGatewayResponse :: CreateInternetGatewayResult
-createInternetGatewayResponse = CreateInternetGatewayResult
+createInternetGatewayResponse :: CreateInternetGatewayResponse
+createInternetGatewayResponse = CreateInternetGatewayResponse
     { _cigrInternetGateway = Nothing
     }
 
 -- | Information about the Internet gateway.
-cigrInternetGateway :: Lens' CreateInternetGatewayResult (Maybe InternetGateway)
+cigrInternetGateway :: Lens' CreateInternetGatewayResponse (Maybe InternetGateway)
 cigrInternetGateway =
     lens _cigrInternetGateway (\s a -> s { _cigrInternetGateway = a })
 
-instance FromXML CreateInternetGatewayResult where
+instance FromXML CreateInternetGatewayResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateInternetGatewayResult"
+    fromXMLRoot    = fromRoot "CreateInternetGatewayResponse"
 
 instance AWSRequest CreateInternetGateway where
     type Sv CreateInternetGateway = EC2
-    type Rs CreateInternetGateway = CreateInternetGatewayResult
+    type Rs CreateInternetGateway = CreateInternetGatewayResponse
 
     request  = post "CreateInternetGateway"
-    response = xmlResponse $ \h x -> CreateInternetGatewayResult
+    response = xmlResponse $ \h x -> CreateInternetGatewayResponse
         <$> x %| "internetGateway"

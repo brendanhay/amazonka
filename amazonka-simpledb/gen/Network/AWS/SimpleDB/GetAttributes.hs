@@ -39,7 +39,7 @@ module Network.AWS.SimpleDB.GetAttributes
     , gaItemName
 
     -- * Response
-    , GetAttributesResult
+    , GetAttributesResponse
     -- ** Response constructor
     , getAttributesResponse
     -- ** Response lenses
@@ -104,39 +104,39 @@ instance ToQuery GetAttributes
 instance ToPath GetAttributes where
     toPath = const "/"
 
-newtype GetAttributesResult = GetAttributesResult
+newtype GetAttributesResponse = GetAttributesResponse
     { _garAttributes :: [Attribute]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetAttributesResult where
-    type Item GetAttributesResult = Attribute
+instance IsList GetAttributesResponse where
+    type Item GetAttributesResponse = Attribute
 
-    fromList = GetAttributesResult . fromList
+    fromList = GetAttributesResponse . fromList
     toList   = toList . _garAttributes
 
--- | 'GetAttributesResult' constructor.
+-- | 'GetAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'garAttributes' @::@ ['Attribute']
 --
-getAttributesResponse :: GetAttributesResult
-getAttributesResponse = GetAttributesResult
+getAttributesResponse :: GetAttributesResponse
+getAttributesResponse = GetAttributesResponse
     { _garAttributes = mempty
     }
 
 -- | The list of attributes returned by the operation.
-garAttributes :: Lens' GetAttributesResult [Attribute]
+garAttributes :: Lens' GetAttributesResponse [Attribute]
 garAttributes = lens _garAttributes (\s a -> s { _garAttributes = a })
 
-instance FromXML GetAttributesResult where
+instance FromXML GetAttributesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetAttributesResult"
+    fromXMLRoot    = fromRoot "GetAttributesResponse"
 
 instance AWSRequest GetAttributes where
     type Sv GetAttributes = SimpleDB
-    type Rs GetAttributes = GetAttributesResult
+    type Rs GetAttributes = GetAttributesResponse
 
     request  = post "GetAttributes"
-    response = xmlResponse $ \h x -> GetAttributesResult
+    response = xmlResponse $ \h x -> GetAttributesResponse
         <$> x %| "Attributes"

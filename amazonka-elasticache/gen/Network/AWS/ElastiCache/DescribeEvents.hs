@@ -29,154 +29,154 @@
 module Network.AWS.ElastiCache.DescribeEvents
     (
     -- * Request
-      DescribeEventsMessage
+      DescribeEvents
     -- ** Request constructor
     , describeEvents
     -- ** Request lenses
-    , demDuration
-    , demEndTime
-    , demMarker
-    , demMaxRecords
-    , demSourceIdentifier
-    , demSourceType
-    , demStartTime
+    , deDuration
+    , deEndTime
+    , deMarker
+    , deMaxRecords
+    , deSourceIdentifier
+    , deSourceType
+    , deStartTime
 
     -- * Response
-    , EventsMessage
+    , DescribeEventsResponse
     -- ** Response constructor
     , describeEventsResponse
     -- ** Response lenses
-    , emEvents
-    , emMarker
+    , derEvents
+    , derMarker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data DescribeEventsMessage = DescribeEventsMessage
-    { _demDuration         :: Maybe Int
-    , _demEndTime          :: Maybe RFC822
-    , _demMarker           :: Maybe Text
-    , _demMaxRecords       :: Maybe Int
-    , _demSourceIdentifier :: Maybe Text
-    , _demSourceType       :: Maybe Text
-    , _demStartTime        :: Maybe RFC822
+data DescribeEvents = DescribeEvents
+    { _deDuration         :: Maybe Int
+    , _deEndTime          :: Maybe RFC822
+    , _deMarker           :: Maybe Text
+    , _deMaxRecords       :: Maybe Int
+    , _deSourceIdentifier :: Maybe Text
+    , _deSourceType       :: Maybe Text
+    , _deStartTime        :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeEventsMessage' constructor.
+-- | 'DescribeEvents' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'demDuration' @::@ 'Maybe' 'Int'
+-- * 'deDuration' @::@ 'Maybe' 'Int'
 --
--- * 'demEndTime' @::@ 'Maybe' 'UTCTime'
+-- * 'deEndTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'demMarker' @::@ 'Maybe' 'Text'
+-- * 'deMarker' @::@ 'Maybe' 'Text'
 --
--- * 'demMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'deMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'demSourceIdentifier' @::@ 'Maybe' 'Text'
+-- * 'deSourceIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'demSourceType' @::@ 'Maybe' 'Text'
+-- * 'deSourceType' @::@ 'Maybe' 'Text'
 --
--- * 'demStartTime' @::@ 'Maybe' 'UTCTime'
+-- * 'deStartTime' @::@ 'Maybe' 'UTCTime'
 --
-describeEvents :: DescribeEventsMessage
-describeEvents = DescribeEventsMessage
-    { _demSourceIdentifier = Nothing
-    , _demSourceType       = Nothing
-    , _demStartTime        = Nothing
-    , _demEndTime          = Nothing
-    , _demDuration         = Nothing
-    , _demMaxRecords       = Nothing
-    , _demMarker           = Nothing
+describeEvents :: DescribeEvents
+describeEvents = DescribeEvents
+    { _deSourceIdentifier = Nothing
+    , _deSourceType       = Nothing
+    , _deStartTime        = Nothing
+    , _deEndTime          = Nothing
+    , _deDuration         = Nothing
+    , _deMaxRecords       = Nothing
+    , _deMarker           = Nothing
     }
 
 -- | The number of minutes' worth of events to retrieve.
-demDuration :: Lens' DescribeEventsMessage (Maybe Int)
-demDuration = lens _demDuration (\s a -> s { _demDuration = a })
+deDuration :: Lens' DescribeEvents (Maybe Int)
+deDuration = lens _deDuration (\s a -> s { _deDuration = a })
 
 -- | The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format.
-demEndTime :: Lens' DescribeEventsMessage (Maybe UTCTime)
-demEndTime = lens _demEndTime (\s a -> s { _demEndTime = a })
+deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
+deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a })
     . mapping _Time
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by MaxRecords.
-demMarker :: Lens' DescribeEventsMessage (Maybe Text)
-demMarker = lens _demMarker (\s a -> s { _demMarker = a })
+deMarker :: Lens' DescribeEvents (Maybe Text)
+deMarker = lens _deMarker (\s a -> s { _deMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-demMaxRecords :: Lens' DescribeEventsMessage (Maybe Int)
-demMaxRecords = lens _demMaxRecords (\s a -> s { _demMaxRecords = a })
+deMaxRecords :: Lens' DescribeEvents (Maybe Int)
+deMaxRecords = lens _deMaxRecords (\s a -> s { _deMaxRecords = a })
 
 -- | The identifier of the event source for which events will be returned. If
 -- not specified, then all sources are included in the response.
-demSourceIdentifier :: Lens' DescribeEventsMessage (Maybe Text)
-demSourceIdentifier =
-    lens _demSourceIdentifier (\s a -> s { _demSourceIdentifier = a })
+deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
+deSourceIdentifier =
+    lens _deSourceIdentifier (\s a -> s { _deSourceIdentifier = a })
 
 -- | The event source to retrieve events for. If no value is specified, all
 -- events are returned. Valid values are: cache-cluster |
 -- cache-parameter-group | cache-security-group | cache-subnet-group.
-demSourceType :: Lens' DescribeEventsMessage (Maybe Text)
-demSourceType = lens _demSourceType (\s a -> s { _demSourceType = a })
+deSourceType :: Lens' DescribeEvents (Maybe Text)
+deSourceType = lens _deSourceType (\s a -> s { _deSourceType = a })
 
 -- | The beginning of the time interval to retrieve events for, specified in
 -- ISO 8601 format.
-demStartTime :: Lens' DescribeEventsMessage (Maybe UTCTime)
-demStartTime = lens _demStartTime (\s a -> s { _demStartTime = a })
+deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
+deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a })
     . mapping _Time
 
-instance ToQuery DescribeEventsMessage
+instance ToQuery DescribeEvents
 
-instance ToPath DescribeEventsMessage where
+instance ToPath DescribeEvents where
     toPath = const "/"
 
-data EventsMessage = EventsMessage
-    { _emEvents :: [Event]
-    , _emMarker :: Maybe Text
+data DescribeEventsResponse = DescribeEventsResponse
+    { _derEvents :: [Event]
+    , _derMarker :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'EventsMessage' constructor.
+-- | 'DescribeEventsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'emEvents' @::@ ['Event']
+-- * 'derEvents' @::@ ['Event']
 --
--- * 'emMarker' @::@ 'Maybe' 'Text'
+-- * 'derMarker' @::@ 'Maybe' 'Text'
 --
-describeEventsResponse :: EventsMessage
-describeEventsResponse = EventsMessage
-    { _emMarker = Nothing
-    , _emEvents = mempty
+describeEventsResponse :: DescribeEventsResponse
+describeEventsResponse = DescribeEventsResponse
+    { _derMarker = Nothing
+    , _derEvents = mempty
     }
 
 -- | A list of events. Each element in the list contains detailed information
 -- about one event.
-emEvents :: Lens' EventsMessage [Event]
-emEvents = lens _emEvents (\s a -> s { _emEvents = a })
+derEvents :: Lens' DescribeEventsResponse [Event]
+derEvents = lens _derEvents (\s a -> s { _derEvents = a })
 
 -- | Provides an identifier to allow retrieval of paginated results.
-emMarker :: Lens' EventsMessage (Maybe Text)
-emMarker = lens _emMarker (\s a -> s { _emMarker = a })
+derMarker :: Lens' DescribeEventsResponse (Maybe Text)
+derMarker = lens _derMarker (\s a -> s { _derMarker = a })
 
-instance FromXML EventsMessage where
+instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EventsMessage"
+    fromXMLRoot    = fromRoot "DescribeEventsResponse"
 
-instance AWSRequest DescribeEventsMessage where
-    type Sv DescribeEventsMessage = ElastiCache
-    type Rs DescribeEventsMessage = EventsMessage
+instance AWSRequest DescribeEvents where
+    type Sv DescribeEvents = ElastiCache
+    type Rs DescribeEvents = DescribeEventsResponse
 
     request  = post "DescribeEvents"
-    response = xmlResponse $ \h x -> EventsMessage
+    response = xmlResponse $ \h x -> DescribeEventsResponse
         <$> x %| "Events"
         <*> x %| "Marker"

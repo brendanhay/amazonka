@@ -36,7 +36,7 @@ module Network.AWS.EC2.RejectVpcPeeringConnection
     , rvpcVpcPeeringConnectionId
 
     -- * Response
-    , RejectVpcPeeringConnectionResult
+    , RejectVpcPeeringConnectionResponse
     -- ** Response constructor
     , rejectVpcPeeringConnectionResponse
     -- ** Response lenses
@@ -81,33 +81,33 @@ instance ToQuery RejectVpcPeeringConnection
 instance ToPath RejectVpcPeeringConnection where
     toPath = const "/"
 
-newtype RejectVpcPeeringConnectionResult = RejectVpcPeeringConnectionResult
+newtype RejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
     { _rvpcrReturn :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'RejectVpcPeeringConnectionResult' constructor.
+-- | 'RejectVpcPeeringConnectionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rvpcrReturn' @::@ 'Maybe' 'Bool'
 --
-rejectVpcPeeringConnectionResponse :: RejectVpcPeeringConnectionResult
-rejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResult
+rejectVpcPeeringConnectionResponse :: RejectVpcPeeringConnectionResponse
+rejectVpcPeeringConnectionResponse = RejectVpcPeeringConnectionResponse
     { _rvpcrReturn = Nothing
     }
 
 -- | Returns true if the request succeeds; otherwise, it returns an error.
-rvpcrReturn :: Lens' RejectVpcPeeringConnectionResult (Maybe Bool)
+rvpcrReturn :: Lens' RejectVpcPeeringConnectionResponse (Maybe Bool)
 rvpcrReturn = lens _rvpcrReturn (\s a -> s { _rvpcrReturn = a })
 
-instance FromXML RejectVpcPeeringConnectionResult where
+instance FromXML RejectVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RejectVpcPeeringConnectionResult"
+    fromXMLRoot    = fromRoot "RejectVpcPeeringConnectionResponse"
 
 instance AWSRequest RejectVpcPeeringConnection where
     type Sv RejectVpcPeeringConnection = EC2
-    type Rs RejectVpcPeeringConnection = RejectVpcPeeringConnectionResult
+    type Rs RejectVpcPeeringConnection = RejectVpcPeeringConnectionResponse
 
     request  = post "RejectVpcPeeringConnection"
-    response = xmlResponse $ \h x -> RejectVpcPeeringConnectionResult
+    response = xmlResponse $ \h x -> RejectVpcPeeringConnectionResponse
         <$> x %| "return"

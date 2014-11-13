@@ -30,15 +30,15 @@
 module Network.AWS.Redshift.PurchaseReservedNodeOffering
     (
     -- * Request
-      PurchaseReservedNodeOfferingMessage
+      PurchaseReservedNodeOffering
     -- ** Request constructor
     , purchaseReservedNodeOffering
     -- ** Request lenses
-    , prnomNodeCount
-    , prnomReservedNodeOfferingId
+    , prnoNodeCount
+    , prnoReservedNodeOfferingId
 
     -- * Response
-    , PurchaseReservedNodeOfferingResult
+    , PurchaseReservedNodeOfferingResponse
     -- ** Response constructor
     , purchaseReservedNodeOfferingResponse
     -- ** Response lenses
@@ -49,68 +49,68 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data PurchaseReservedNodeOfferingMessage = PurchaseReservedNodeOfferingMessage
-    { _prnomNodeCount              :: Maybe Int
-    , _prnomReservedNodeOfferingId :: Text
+data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering
+    { _prnoNodeCount              :: Maybe Int
+    , _prnoReservedNodeOfferingId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'PurchaseReservedNodeOfferingMessage' constructor.
+-- | 'PurchaseReservedNodeOffering' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prnomNodeCount' @::@ 'Maybe' 'Int'
+-- * 'prnoNodeCount' @::@ 'Maybe' 'Int'
 --
--- * 'prnomReservedNodeOfferingId' @::@ 'Text'
+-- * 'prnoReservedNodeOfferingId' @::@ 'Text'
 --
-purchaseReservedNodeOffering :: Text -- ^ 'prnomReservedNodeOfferingId'
-                             -> PurchaseReservedNodeOfferingMessage
-purchaseReservedNodeOffering p1 = PurchaseReservedNodeOfferingMessage
-    { _prnomReservedNodeOfferingId = p1
-    , _prnomNodeCount              = Nothing
+purchaseReservedNodeOffering :: Text -- ^ 'prnoReservedNodeOfferingId'
+                             -> PurchaseReservedNodeOffering
+purchaseReservedNodeOffering p1 = PurchaseReservedNodeOffering
+    { _prnoReservedNodeOfferingId = p1
+    , _prnoNodeCount              = Nothing
     }
 
 -- | The number of reserved nodes you want to purchase. Default: 1.
-prnomNodeCount :: Lens' PurchaseReservedNodeOfferingMessage (Maybe Int)
-prnomNodeCount = lens _prnomNodeCount (\s a -> s { _prnomNodeCount = a })
+prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Int)
+prnoNodeCount = lens _prnoNodeCount (\s a -> s { _prnoNodeCount = a })
 
 -- | The unique identifier of the reserved node offering you want to purchase.
-prnomReservedNodeOfferingId :: Lens' PurchaseReservedNodeOfferingMessage Text
-prnomReservedNodeOfferingId =
-    lens _prnomReservedNodeOfferingId
-        (\s a -> s { _prnomReservedNodeOfferingId = a })
+prnoReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering Text
+prnoReservedNodeOfferingId =
+    lens _prnoReservedNodeOfferingId
+        (\s a -> s { _prnoReservedNodeOfferingId = a })
 
-instance ToQuery PurchaseReservedNodeOfferingMessage
+instance ToQuery PurchaseReservedNodeOffering
 
-instance ToPath PurchaseReservedNodeOfferingMessage where
+instance ToPath PurchaseReservedNodeOffering where
     toPath = const "/"
 
-newtype PurchaseReservedNodeOfferingResult = PurchaseReservedNodeOfferingResult
+newtype PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
     { _prnorReservedNode :: Maybe ReservedNode
     } deriving (Eq, Show, Generic)
 
--- | 'PurchaseReservedNodeOfferingResult' constructor.
+-- | 'PurchaseReservedNodeOfferingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'prnorReservedNode' @::@ 'Maybe' 'ReservedNode'
 --
-purchaseReservedNodeOfferingResponse :: PurchaseReservedNodeOfferingResult
-purchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResult
+purchaseReservedNodeOfferingResponse :: PurchaseReservedNodeOfferingResponse
+purchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse
     { _prnorReservedNode = Nothing
     }
 
-prnorReservedNode :: Lens' PurchaseReservedNodeOfferingResult (Maybe ReservedNode)
+prnorReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
 prnorReservedNode =
     lens _prnorReservedNode (\s a -> s { _prnorReservedNode = a })
 
-instance FromXML PurchaseReservedNodeOfferingResult where
+instance FromXML PurchaseReservedNodeOfferingResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PurchaseReservedNodeOfferingResult"
+    fromXMLRoot    = fromRoot "PurchaseReservedNodeOfferingResponse"
 
-instance AWSRequest PurchaseReservedNodeOfferingMessage where
-    type Sv PurchaseReservedNodeOfferingMessage = Redshift
-    type Rs PurchaseReservedNodeOfferingMessage = PurchaseReservedNodeOfferingResult
+instance AWSRequest PurchaseReservedNodeOffering where
+    type Sv PurchaseReservedNodeOffering = Redshift
+    type Rs PurchaseReservedNodeOffering = PurchaseReservedNodeOfferingResponse
 
     request  = post "PurchaseReservedNodeOffering"
-    response = xmlResponse $ \h x -> PurchaseReservedNodeOfferingResult
+    response = xmlResponse $ \h x -> PurchaseReservedNodeOfferingResponse
         <$> x %| "ReservedNode"

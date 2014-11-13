@@ -32,11 +32,11 @@
 module Network.AWS.ELB.DeleteLoadBalancer
     (
     -- * Request
-      DeleteAccessPointInput
+      DeleteLoadBalancer
     -- ** Request constructor
     , deleteLoadBalancer
     -- ** Request lenses
-    , dapiLoadBalancerName
+    , dlbLoadBalancerName
 
     -- * Response
     , DeleteLoadBalancerResponse
@@ -48,30 +48,30 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-newtype DeleteAccessPointInput = DeleteAccessPointInput
-    { _dapiLoadBalancerName :: Text
+newtype DeleteLoadBalancer = DeleteLoadBalancer
+    { _dlbLoadBalancerName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteAccessPointInput' constructor.
+-- | 'DeleteLoadBalancer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dapiLoadBalancerName' @::@ 'Text'
+-- * 'dlbLoadBalancerName' @::@ 'Text'
 --
-deleteLoadBalancer :: Text -- ^ 'dapiLoadBalancerName'
-                   -> DeleteAccessPointInput
-deleteLoadBalancer p1 = DeleteAccessPointInput
-    { _dapiLoadBalancerName = p1
+deleteLoadBalancer :: Text -- ^ 'dlbLoadBalancerName'
+                   -> DeleteLoadBalancer
+deleteLoadBalancer p1 = DeleteLoadBalancer
+    { _dlbLoadBalancerName = p1
     }
 
 -- | The name associated with the load balancer.
-dapiLoadBalancerName :: Lens' DeleteAccessPointInput Text
-dapiLoadBalancerName =
-    lens _dapiLoadBalancerName (\s a -> s { _dapiLoadBalancerName = a })
+dlbLoadBalancerName :: Lens' DeleteLoadBalancer Text
+dlbLoadBalancerName =
+    lens _dlbLoadBalancerName (\s a -> s { _dlbLoadBalancerName = a })
 
-instance ToQuery DeleteAccessPointInput
+instance ToQuery DeleteLoadBalancer
 
-instance ToPath DeleteAccessPointInput where
+instance ToPath DeleteLoadBalancer where
     toPath = const "/"
 
 data DeleteLoadBalancerResponse = DeleteLoadBalancerResponse
@@ -85,9 +85,9 @@ instance FromXML DeleteLoadBalancerResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteLoadBalancerResponse"
 
-instance AWSRequest DeleteAccessPointInput where
-    type Sv DeleteAccessPointInput = ELB
-    type Rs DeleteAccessPointInput = DeleteLoadBalancerResponse
+instance AWSRequest DeleteLoadBalancer where
+    type Sv DeleteLoadBalancer = ELB
+    type Rs DeleteLoadBalancer = DeleteLoadBalancerResponse
 
     request  = post "DeleteLoadBalancer"
     response = nullaryResponse DeleteLoadBalancerResponse

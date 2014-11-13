@@ -39,124 +39,125 @@
 module Network.AWS.ElastiCache.DescribeCacheClusters
     (
     -- * Request
-      DescribeCacheClustersMessage
+      DescribeCacheClusters
     -- ** Request constructor
     , describeCacheClusters
     -- ** Request lenses
-    , dccm1CacheClusterId
-    , dccm1Marker
-    , dccm1MaxRecords
-    , dccm1ShowCacheNodeInfo
+    , dcc1CacheClusterId
+    , dcc1Marker
+    , dcc1MaxRecords
+    , dcc1ShowCacheNodeInfo
 
     -- * Response
-    , CacheClusterMessage
+    , DescribeCacheClustersResponse
     -- ** Response constructor
     , describeCacheClustersResponse
     -- ** Response lenses
-    , ccmCacheClusters
-    , ccmMarker
+    , dccrCacheClusters
+    , dccrMarker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data DescribeCacheClustersMessage = DescribeCacheClustersMessage
-    { _dccm1CacheClusterId    :: Maybe Text
-    , _dccm1Marker            :: Maybe Text
-    , _dccm1MaxRecords        :: Maybe Int
-    , _dccm1ShowCacheNodeInfo :: Maybe Bool
+data DescribeCacheClusters = DescribeCacheClusters
+    { _dcc1CacheClusterId    :: Maybe Text
+    , _dcc1Marker            :: Maybe Text
+    , _dcc1MaxRecords        :: Maybe Int
+    , _dcc1ShowCacheNodeInfo :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeCacheClustersMessage' constructor.
+-- | 'DescribeCacheClusters' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dccm1CacheClusterId' @::@ 'Maybe' 'Text'
+-- * 'dcc1CacheClusterId' @::@ 'Maybe' 'Text'
 --
--- * 'dccm1Marker' @::@ 'Maybe' 'Text'
+-- * 'dcc1Marker' @::@ 'Maybe' 'Text'
 --
--- * 'dccm1MaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dcc1MaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'dccm1ShowCacheNodeInfo' @::@ 'Maybe' 'Bool'
+-- * 'dcc1ShowCacheNodeInfo' @::@ 'Maybe' 'Bool'
 --
-describeCacheClusters :: DescribeCacheClustersMessage
-describeCacheClusters = DescribeCacheClustersMessage
-    { _dccm1CacheClusterId    = Nothing
-    , _dccm1MaxRecords        = Nothing
-    , _dccm1Marker            = Nothing
-    , _dccm1ShowCacheNodeInfo = Nothing
+describeCacheClusters :: DescribeCacheClusters
+describeCacheClusters = DescribeCacheClusters
+    { _dcc1CacheClusterId    = Nothing
+    , _dcc1MaxRecords        = Nothing
+    , _dcc1Marker            = Nothing
+    , _dcc1ShowCacheNodeInfo = Nothing
     }
 
 -- | The user-supplied cluster identifier. If this parameter is specified,
 -- only information about that specific cache cluster is returned. This
 -- parameter isn't case sensitive.
-dccm1CacheClusterId :: Lens' DescribeCacheClustersMessage (Maybe Text)
-dccm1CacheClusterId =
-    lens _dccm1CacheClusterId (\s a -> s { _dccm1CacheClusterId = a })
+dcc1CacheClusterId :: Lens' DescribeCacheClusters (Maybe Text)
+dcc1CacheClusterId =
+    lens _dcc1CacheClusterId (\s a -> s { _dcc1CacheClusterId = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by MaxRecords.
-dccm1Marker :: Lens' DescribeCacheClustersMessage (Maybe Text)
-dccm1Marker = lens _dccm1Marker (\s a -> s { _dccm1Marker = a })
+dcc1Marker :: Lens' DescribeCacheClusters (Maybe Text)
+dcc1Marker = lens _dcc1Marker (\s a -> s { _dcc1Marker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-dccm1MaxRecords :: Lens' DescribeCacheClustersMessage (Maybe Int)
-dccm1MaxRecords = lens _dccm1MaxRecords (\s a -> s { _dccm1MaxRecords = a })
+dcc1MaxRecords :: Lens' DescribeCacheClusters (Maybe Int)
+dcc1MaxRecords = lens _dcc1MaxRecords (\s a -> s { _dcc1MaxRecords = a })
 
 -- | An optional flag that can be included in the DescribeCacheCluster request
 -- to retrieve information about the individual cache nodes.
-dccm1ShowCacheNodeInfo :: Lens' DescribeCacheClustersMessage (Maybe Bool)
-dccm1ShowCacheNodeInfo =
-    lens _dccm1ShowCacheNodeInfo (\s a -> s { _dccm1ShowCacheNodeInfo = a })
+dcc1ShowCacheNodeInfo :: Lens' DescribeCacheClusters (Maybe Bool)
+dcc1ShowCacheNodeInfo =
+    lens _dcc1ShowCacheNodeInfo (\s a -> s { _dcc1ShowCacheNodeInfo = a })
 
-instance ToQuery DescribeCacheClustersMessage
+instance ToQuery DescribeCacheClusters
 
-instance ToPath DescribeCacheClustersMessage where
+instance ToPath DescribeCacheClusters where
     toPath = const "/"
 
-data CacheClusterMessage = CacheClusterMessage
-    { _ccmCacheClusters :: [CacheCluster]
-    , _ccmMarker        :: Maybe Text
+data DescribeCacheClustersResponse = DescribeCacheClustersResponse
+    { _dccrCacheClusters :: [CacheCluster]
+    , _dccrMarker        :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'CacheClusterMessage' constructor.
+-- | 'DescribeCacheClustersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccmCacheClusters' @::@ ['CacheCluster']
+-- * 'dccrCacheClusters' @::@ ['CacheCluster']
 --
--- * 'ccmMarker' @::@ 'Maybe' 'Text'
+-- * 'dccrMarker' @::@ 'Maybe' 'Text'
 --
-describeCacheClustersResponse :: CacheClusterMessage
-describeCacheClustersResponse = CacheClusterMessage
-    { _ccmMarker        = Nothing
-    , _ccmCacheClusters = mempty
+describeCacheClustersResponse :: DescribeCacheClustersResponse
+describeCacheClustersResponse = DescribeCacheClustersResponse
+    { _dccrMarker        = Nothing
+    , _dccrCacheClusters = mempty
     }
 
 -- | A list of cache clusters. Each item in the list contains detailed
 -- information about one cache cluster.
-ccmCacheClusters :: Lens' CacheClusterMessage [CacheCluster]
-ccmCacheClusters = lens _ccmCacheClusters (\s a -> s { _ccmCacheClusters = a })
+dccrCacheClusters :: Lens' DescribeCacheClustersResponse [CacheCluster]
+dccrCacheClusters =
+    lens _dccrCacheClusters (\s a -> s { _dccrCacheClusters = a })
 
 -- | Provides an identifier to allow retrieval of paginated results.
-ccmMarker :: Lens' CacheClusterMessage (Maybe Text)
-ccmMarker = lens _ccmMarker (\s a -> s { _ccmMarker = a })
+dccrMarker :: Lens' DescribeCacheClustersResponse (Maybe Text)
+dccrMarker = lens _dccrMarker (\s a -> s { _dccrMarker = a })
 
-instance FromXML CacheClusterMessage where
+instance FromXML DescribeCacheClustersResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CacheClusterMessage"
+    fromXMLRoot    = fromRoot "DescribeCacheClustersResponse"
 
-instance AWSRequest DescribeCacheClustersMessage where
-    type Sv DescribeCacheClustersMessage = ElastiCache
-    type Rs DescribeCacheClustersMessage = CacheClusterMessage
+instance AWSRequest DescribeCacheClusters where
+    type Sv DescribeCacheClusters = ElastiCache
+    type Rs DescribeCacheClusters = DescribeCacheClustersResponse
 
     request  = post "DescribeCacheClusters"
-    response = xmlResponse $ \h x -> CacheClusterMessage
+    response = xmlResponse $ \h x -> DescribeCacheClustersResponse
         <$> x %| "CacheClusters"
         <*> x %| "Marker"

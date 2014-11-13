@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     , dazZoneNames
 
     -- * Response
-    , DescribeAvailabilityZonesResult
+    , DescribeAvailabilityZonesResponse
     -- ** Response constructor
     , describeAvailabilityZonesResponse
     -- ** Response lenses
@@ -92,40 +92,40 @@ instance ToQuery DescribeAvailabilityZones
 instance ToPath DescribeAvailabilityZones where
     toPath = const "/"
 
-newtype DescribeAvailabilityZonesResult = DescribeAvailabilityZonesResult
+newtype DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { _dazrAvailabilityZones :: [AvailabilityZone]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAvailabilityZonesResult where
-    type Item DescribeAvailabilityZonesResult = AvailabilityZone
+instance IsList DescribeAvailabilityZonesResponse where
+    type Item DescribeAvailabilityZonesResponse = AvailabilityZone
 
-    fromList = DescribeAvailabilityZonesResult . fromList
+    fromList = DescribeAvailabilityZonesResponse . fromList
     toList   = toList . _dazrAvailabilityZones
 
--- | 'DescribeAvailabilityZonesResult' constructor.
+-- | 'DescribeAvailabilityZonesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dazrAvailabilityZones' @::@ ['AvailabilityZone']
 --
-describeAvailabilityZonesResponse :: DescribeAvailabilityZonesResult
-describeAvailabilityZonesResponse = DescribeAvailabilityZonesResult
+describeAvailabilityZonesResponse :: DescribeAvailabilityZonesResponse
+describeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse
     { _dazrAvailabilityZones = mempty
     }
 
 -- | Information about one or more Availability Zones.
-dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResult [AvailabilityZone]
+dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
 dazrAvailabilityZones =
     lens _dazrAvailabilityZones (\s a -> s { _dazrAvailabilityZones = a })
 
-instance FromXML DescribeAvailabilityZonesResult where
+instance FromXML DescribeAvailabilityZonesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAvailabilityZonesResult"
+    fromXMLRoot    = fromRoot "DescribeAvailabilityZonesResponse"
 
 instance AWSRequest DescribeAvailabilityZones where
     type Sv DescribeAvailabilityZones = EC2
-    type Rs DescribeAvailabilityZones = DescribeAvailabilityZonesResult
+    type Rs DescribeAvailabilityZones = DescribeAvailabilityZonesResponse
 
     request  = post "DescribeAvailabilityZones"
-    response = xmlResponse $ \h x -> DescribeAvailabilityZonesResult
+    response = xmlResponse $ \h x -> DescribeAvailabilityZonesResponse
         <$> x %| "availabilityZoneInfo"

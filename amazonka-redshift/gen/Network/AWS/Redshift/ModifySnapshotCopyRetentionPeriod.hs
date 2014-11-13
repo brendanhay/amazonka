@@ -25,15 +25,15 @@
 module Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
     (
     -- * Request
-      ModifySnapshotCopyRetentionPeriodMessage
+      ModifySnapshotCopyRetentionPeriod
     -- ** Request constructor
     , modifySnapshotCopyRetentionPeriod
     -- ** Request lenses
-    , mscrpmClusterIdentifier
-    , mscrpmRetentionPeriod
+    , mscrpClusterIdentifier
+    , mscrpRetentionPeriod
 
     -- * Response
-    , ModifySnapshotCopyRetentionPeriodResult
+    , ModifySnapshotCopyRetentionPeriodResponse
     -- ** Response constructor
     , modifySnapshotCopyRetentionPeriodResponse
     -- ** Response lenses
@@ -44,34 +44,34 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data ModifySnapshotCopyRetentionPeriodMessage = ModifySnapshotCopyRetentionPeriodMessage
-    { _mscrpmClusterIdentifier :: Text
-    , _mscrpmRetentionPeriod   :: Int
+data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod
+    { _mscrpClusterIdentifier :: Text
+    , _mscrpRetentionPeriod   :: Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ModifySnapshotCopyRetentionPeriodMessage' constructor.
+-- | 'ModifySnapshotCopyRetentionPeriod' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mscrpmClusterIdentifier' @::@ 'Text'
+-- * 'mscrpClusterIdentifier' @::@ 'Text'
 --
--- * 'mscrpmRetentionPeriod' @::@ 'Int'
+-- * 'mscrpRetentionPeriod' @::@ 'Int'
 --
-modifySnapshotCopyRetentionPeriod :: Text -- ^ 'mscrpmClusterIdentifier'
-                                  -> Int -- ^ 'mscrpmRetentionPeriod'
-                                  -> ModifySnapshotCopyRetentionPeriodMessage
-modifySnapshotCopyRetentionPeriod p1 p2 = ModifySnapshotCopyRetentionPeriodMessage
-    { _mscrpmClusterIdentifier = p1
-    , _mscrpmRetentionPeriod   = p2
+modifySnapshotCopyRetentionPeriod :: Text -- ^ 'mscrpClusterIdentifier'
+                                  -> Int -- ^ 'mscrpRetentionPeriod'
+                                  -> ModifySnapshotCopyRetentionPeriod
+modifySnapshotCopyRetentionPeriod p1 p2 = ModifySnapshotCopyRetentionPeriod
+    { _mscrpClusterIdentifier = p1
+    , _mscrpRetentionPeriod   = p2
     }
 
 -- | The unique identifier of the cluster for which you want to change the
 -- retention period for automated snapshots that are copied to a destination
 -- region. Constraints: Must be the valid name of an existing cluster that
 -- has cross-region snapshot copy enabled.
-mscrpmClusterIdentifier :: Lens' ModifySnapshotCopyRetentionPeriodMessage Text
-mscrpmClusterIdentifier =
-    lens _mscrpmClusterIdentifier (\s a -> s { _mscrpmClusterIdentifier = a })
+mscrpClusterIdentifier :: Lens' ModifySnapshotCopyRetentionPeriod Text
+mscrpClusterIdentifier =
+    lens _mscrpClusterIdentifier (\s a -> s { _mscrpClusterIdentifier = a })
 
 -- | The number of days to retain automated snapshots in the destination
 -- region after they are copied from the source region. If you decrease the
@@ -79,41 +79,41 @@ mscrpmClusterIdentifier =
 -- region, Amazon Redshift will delete any existing automated snapshots that
 -- were copied to the destination region and that fall outside of the new
 -- retention period. Constraints: Must be at least 1 and no more than 35.
-mscrpmRetentionPeriod :: Lens' ModifySnapshotCopyRetentionPeriodMessage Int
-mscrpmRetentionPeriod =
-    lens _mscrpmRetentionPeriod (\s a -> s { _mscrpmRetentionPeriod = a })
+mscrpRetentionPeriod :: Lens' ModifySnapshotCopyRetentionPeriod Int
+mscrpRetentionPeriod =
+    lens _mscrpRetentionPeriod (\s a -> s { _mscrpRetentionPeriod = a })
 
-instance ToQuery ModifySnapshotCopyRetentionPeriodMessage
+instance ToQuery ModifySnapshotCopyRetentionPeriod
 
-instance ToPath ModifySnapshotCopyRetentionPeriodMessage where
+instance ToPath ModifySnapshotCopyRetentionPeriod where
     toPath = const "/"
 
-newtype ModifySnapshotCopyRetentionPeriodResult = ModifySnapshotCopyRetentionPeriodResult
+newtype ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse
     { _mscrprCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
 
--- | 'ModifySnapshotCopyRetentionPeriodResult' constructor.
+-- | 'ModifySnapshotCopyRetentionPeriodResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mscrprCluster' @::@ 'Maybe' 'Cluster'
 --
-modifySnapshotCopyRetentionPeriodResponse :: ModifySnapshotCopyRetentionPeriodResult
-modifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResult
+modifySnapshotCopyRetentionPeriodResponse :: ModifySnapshotCopyRetentionPeriodResponse
+modifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse
     { _mscrprCluster = Nothing
     }
 
-mscrprCluster :: Lens' ModifySnapshotCopyRetentionPeriodResult (Maybe Cluster)
+mscrprCluster :: Lens' ModifySnapshotCopyRetentionPeriodResponse (Maybe Cluster)
 mscrprCluster = lens _mscrprCluster (\s a -> s { _mscrprCluster = a })
 
-instance FromXML ModifySnapshotCopyRetentionPeriodResult where
+instance FromXML ModifySnapshotCopyRetentionPeriodResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifySnapshotCopyRetentionPeriodResult"
+    fromXMLRoot    = fromRoot "ModifySnapshotCopyRetentionPeriodResponse"
 
-instance AWSRequest ModifySnapshotCopyRetentionPeriodMessage where
-    type Sv ModifySnapshotCopyRetentionPeriodMessage = Redshift
-    type Rs ModifySnapshotCopyRetentionPeriodMessage = ModifySnapshotCopyRetentionPeriodResult
+instance AWSRequest ModifySnapshotCopyRetentionPeriod where
+    type Sv ModifySnapshotCopyRetentionPeriod = Redshift
+    type Rs ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriodResponse
 
     request  = post "ModifySnapshotCopyRetentionPeriod"
-    response = xmlResponse $ \h x -> ModifySnapshotCopyRetentionPeriodResult
+    response = xmlResponse $ \h x -> ModifySnapshotCopyRetentionPeriodResponse
         <$> x %| "Cluster"

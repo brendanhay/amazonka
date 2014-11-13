@@ -32,11 +32,11 @@ module Network.AWS.S3.GetObjectTorrent
     , gotKey
 
     -- * Response
-    , GetObjectTorrentOutput
+    , GetObjectTorrentResponse
     -- ** Response constructor
     , getObjectTorrentResponse
     -- ** Response lenses
-    , gotoBody
+    , gotrBody
     ) where
 
 import Network.AWS.Prelude
@@ -83,32 +83,32 @@ instance ToQuery GetObjectTorrent where
 
 instance ToHeaders GetObjectTorrent
 
-newtype GetObjectTorrentOutput = GetObjectTorrentOutput
-    { _gotoBody :: RsBody
+newtype GetObjectTorrentResponse = GetObjectTorrentResponse
+    { _gotrBody :: RsBody
     } deriving (Show, Generic)
 
--- | 'GetObjectTorrentOutput' constructor.
+-- | 'GetObjectTorrentResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gotoBody' @::@ 'RsBody'
+-- * 'gotrBody' @::@ 'RsBody'
 --
-getObjectTorrentResponse :: RsBody -- ^ 'gotoBody'
-                         -> GetObjectTorrentOutput
-getObjectTorrentResponse p1 = GetObjectTorrentOutput
-    { _gotoBody = p1
+getObjectTorrentResponse :: RsBody -- ^ 'gotrBody'
+                         -> GetObjectTorrentResponse
+getObjectTorrentResponse p1 = GetObjectTorrentResponse
+    { _gotrBody = p1
     }
 
-gotoBody :: Lens' GetObjectTorrentOutput RsBody
-gotoBody = lens _gotoBody (\s a -> s { _gotoBody = a })
+gotrBody :: Lens' GetObjectTorrentResponse RsBody
+gotrBody = lens _gotrBody (\s a -> s { _gotrBody = a })
 
-instance FromXML GetObjectTorrentOutput where
+instance FromXML GetObjectTorrentResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetObjectTorrentOutput"
+    fromXMLRoot    = fromRoot "GetObjectTorrentResponse"
 instance AWSRequest GetObjectTorrent where
     type Sv GetObjectTorrent = S3
-    type Rs GetObjectTorrent = GetObjectTorrentOutput
+    type Rs GetObjectTorrent = GetObjectTorrentResponse
 
     request  = get
-    response = bodyResponse $ \h b -> GetObjectTorrentOutput
+    response = bodyResponse $ \h b -> GetObjectTorrentResponse
         <$> pure (RsBody b)

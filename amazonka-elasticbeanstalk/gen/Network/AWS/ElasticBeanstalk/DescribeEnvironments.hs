@@ -24,140 +24,140 @@
 module Network.AWS.ElasticBeanstalk.DescribeEnvironments
     (
     -- * Request
-      DescribeEnvironmentsMessage
+      DescribeEnvironments
     -- ** Request constructor
     , describeEnvironments
     -- ** Request lenses
-    , demApplicationName
-    , demEnvironmentIds
-    , demEnvironmentNames
-    , demIncludeDeleted
-    , demIncludedDeletedBackTo
-    , demVersionLabel
+    , de1ApplicationName
+    , de1EnvironmentIds
+    , de1EnvironmentNames
+    , de1IncludeDeleted
+    , de1IncludedDeletedBackTo
+    , de1VersionLabel
 
     -- * Response
-    , EnvironmentDescriptionsMessage
+    , DescribeEnvironmentsResponse
     -- ** Response constructor
     , describeEnvironmentsResponse
     -- ** Response lenses
-    , edmEnvironments
+    , derEnvironments
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data DescribeEnvironmentsMessage = DescribeEnvironmentsMessage
-    { _demApplicationName       :: Maybe Text
-    , _demEnvironmentIds        :: [Text]
-    , _demEnvironmentNames      :: [Text]
-    , _demIncludeDeleted        :: Maybe Bool
-    , _demIncludedDeletedBackTo :: Maybe RFC822
-    , _demVersionLabel          :: Maybe Text
+data DescribeEnvironments = DescribeEnvironments
+    { _de1ApplicationName       :: Maybe Text
+    , _de1EnvironmentIds        :: [Text]
+    , _de1EnvironmentNames      :: [Text]
+    , _de1IncludeDeleted        :: Maybe Bool
+    , _de1IncludedDeletedBackTo :: Maybe RFC822
+    , _de1VersionLabel          :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeEnvironmentsMessage' constructor.
+-- | 'DescribeEnvironments' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'demApplicationName' @::@ 'Maybe' 'Text'
+-- * 'de1ApplicationName' @::@ 'Maybe' 'Text'
 --
--- * 'demEnvironmentIds' @::@ ['Text']
+-- * 'de1EnvironmentIds' @::@ ['Text']
 --
--- * 'demEnvironmentNames' @::@ ['Text']
+-- * 'de1EnvironmentNames' @::@ ['Text']
 --
--- * 'demIncludeDeleted' @::@ 'Maybe' 'Bool'
+-- * 'de1IncludeDeleted' @::@ 'Maybe' 'Bool'
 --
--- * 'demIncludedDeletedBackTo' @::@ 'Maybe' 'UTCTime'
+-- * 'de1IncludedDeletedBackTo' @::@ 'Maybe' 'UTCTime'
 --
--- * 'demVersionLabel' @::@ 'Maybe' 'Text'
+-- * 'de1VersionLabel' @::@ 'Maybe' 'Text'
 --
-describeEnvironments :: DescribeEnvironmentsMessage
-describeEnvironments = DescribeEnvironmentsMessage
-    { _demApplicationName       = Nothing
-    , _demVersionLabel          = Nothing
-    , _demEnvironmentIds        = mempty
-    , _demEnvironmentNames      = mempty
-    , _demIncludeDeleted        = Nothing
-    , _demIncludedDeletedBackTo = Nothing
+describeEnvironments :: DescribeEnvironments
+describeEnvironments = DescribeEnvironments
+    { _de1ApplicationName       = Nothing
+    , _de1VersionLabel          = Nothing
+    , _de1EnvironmentIds        = mempty
+    , _de1EnvironmentNames      = mempty
+    , _de1IncludeDeleted        = Nothing
+    , _de1IncludedDeletedBackTo = Nothing
     }
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that are associated with this application.
-demApplicationName :: Lens' DescribeEnvironmentsMessage (Maybe Text)
-demApplicationName =
-    lens _demApplicationName (\s a -> s { _demApplicationName = a })
+de1ApplicationName :: Lens' DescribeEnvironments (Maybe Text)
+de1ApplicationName =
+    lens _de1ApplicationName (\s a -> s { _de1ApplicationName = a })
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified IDs.
-demEnvironmentIds :: Lens' DescribeEnvironmentsMessage [Text]
-demEnvironmentIds =
-    lens _demEnvironmentIds (\s a -> s { _demEnvironmentIds = a })
+de1EnvironmentIds :: Lens' DescribeEnvironments [Text]
+de1EnvironmentIds =
+    lens _de1EnvironmentIds (\s a -> s { _de1EnvironmentIds = a })
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that have the specified names.
-demEnvironmentNames :: Lens' DescribeEnvironmentsMessage [Text]
-demEnvironmentNames =
-    lens _demEnvironmentNames (\s a -> s { _demEnvironmentNames = a })
+de1EnvironmentNames :: Lens' DescribeEnvironments [Text]
+de1EnvironmentNames =
+    lens _de1EnvironmentNames (\s a -> s { _de1EnvironmentNames = a })
 
 -- | Indicates whether to include deleted environments: true: Environments
 -- that have been deleted after IncludedDeletedBackTo are displayed. false:
 -- Do not include deleted environments.
-demIncludeDeleted :: Lens' DescribeEnvironmentsMessage (Maybe Bool)
-demIncludeDeleted =
-    lens _demIncludeDeleted (\s a -> s { _demIncludeDeleted = a })
+de1IncludeDeleted :: Lens' DescribeEnvironments (Maybe Bool)
+de1IncludeDeleted =
+    lens _de1IncludeDeleted (\s a -> s { _de1IncludeDeleted = a })
 
 -- | If specified when IncludeDeleted is set to true, then environments
 -- deleted after this date are displayed.
-demIncludedDeletedBackTo :: Lens' DescribeEnvironmentsMessage (Maybe UTCTime)
-demIncludedDeletedBackTo =
-    lens _demIncludedDeletedBackTo
-        (\s a -> s { _demIncludedDeletedBackTo = a })
+de1IncludedDeletedBackTo :: Lens' DescribeEnvironments (Maybe UTCTime)
+de1IncludedDeletedBackTo =
+    lens _de1IncludedDeletedBackTo
+        (\s a -> s { _de1IncludedDeletedBackTo = a })
             . mapping _Time
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to include only those that are associated with this application version.
-demVersionLabel :: Lens' DescribeEnvironmentsMessage (Maybe Text)
-demVersionLabel = lens _demVersionLabel (\s a -> s { _demVersionLabel = a })
+de1VersionLabel :: Lens' DescribeEnvironments (Maybe Text)
+de1VersionLabel = lens _de1VersionLabel (\s a -> s { _de1VersionLabel = a })
 
-instance ToQuery DescribeEnvironmentsMessage
+instance ToQuery DescribeEnvironments
 
-instance ToPath DescribeEnvironmentsMessage where
+instance ToPath DescribeEnvironments where
     toPath = const "/"
 
-newtype EnvironmentDescriptionsMessage = EnvironmentDescriptionsMessage
-    { _edmEnvironments :: [EnvironmentDescription]
+newtype DescribeEnvironmentsResponse = DescribeEnvironmentsResponse
+    { _derEnvironments :: [EnvironmentDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList EnvironmentDescriptionsMessage where
-    type Item EnvironmentDescriptionsMessage = EnvironmentDescription
+instance IsList DescribeEnvironmentsResponse where
+    type Item DescribeEnvironmentsResponse = EnvironmentDescription
 
-    fromList = EnvironmentDescriptionsMessage . fromList
-    toList   = toList . _edmEnvironments
+    fromList = DescribeEnvironmentsResponse . fromList
+    toList   = toList . _derEnvironments
 
--- | 'EnvironmentDescriptionsMessage' constructor.
+-- | 'DescribeEnvironmentsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'edmEnvironments' @::@ ['EnvironmentDescription']
+-- * 'derEnvironments' @::@ ['EnvironmentDescription']
 --
-describeEnvironmentsResponse :: EnvironmentDescriptionsMessage
-describeEnvironmentsResponse = EnvironmentDescriptionsMessage
-    { _edmEnvironments = mempty
+describeEnvironmentsResponse :: DescribeEnvironmentsResponse
+describeEnvironmentsResponse = DescribeEnvironmentsResponse
+    { _derEnvironments = mempty
     }
 
 -- | Returns an EnvironmentDescription list.
-edmEnvironments :: Lens' EnvironmentDescriptionsMessage [EnvironmentDescription]
-edmEnvironments = lens _edmEnvironments (\s a -> s { _edmEnvironments = a })
+derEnvironments :: Lens' DescribeEnvironmentsResponse [EnvironmentDescription]
+derEnvironments = lens _derEnvironments (\s a -> s { _derEnvironments = a })
 
-instance FromXML EnvironmentDescriptionsMessage where
+instance FromXML DescribeEnvironmentsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnvironmentDescriptionsMessage"
+    fromXMLRoot    = fromRoot "DescribeEnvironmentsResponse"
 
-instance AWSRequest DescribeEnvironmentsMessage where
-    type Sv DescribeEnvironmentsMessage = ElasticBeanstalk
-    type Rs DescribeEnvironmentsMessage = EnvironmentDescriptionsMessage
+instance AWSRequest DescribeEnvironments where
+    type Sv DescribeEnvironments = ElasticBeanstalk
+    type Rs DescribeEnvironments = DescribeEnvironmentsResponse
 
     request  = post "DescribeEnvironments"
-    response = xmlResponse $ \h x -> EnvironmentDescriptionsMessage
+    response = xmlResponse $ \h x -> DescribeEnvironmentsResponse
         <$> x %| "Environments"

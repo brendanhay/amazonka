@@ -37,20 +37,20 @@ module Network.AWS.EC2.RegisterImage
     -- ** Request constructor
     , registerImage
     -- ** Request lenses
-    , riArchitecture
-    , riBlockDeviceMappings
-    , riDescription
-    , riDryRun
-    , riImageLocation
-    , riKernelId
-    , riName
-    , riRamdiskId
-    , riRootDeviceName
-    , riSriovNetSupport
-    , riVirtualizationType
+    , ri1Architecture
+    , ri1BlockDeviceMappings
+    , ri1Description
+    , ri1DryRun
+    , ri1ImageLocation
+    , ri1KernelId
+    , ri1Name
+    , ri1RamdiskId
+    , ri1RootDeviceName
+    , ri1SriovNetSupport
+    , ri1VirtualizationType
 
     -- * Response
-    , RegisterImageResult
+    , RegisterImageResponse
     -- ** Response constructor
     , registerImageResponse
     -- ** Response lenses
@@ -62,147 +62,148 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data RegisterImage = RegisterImage
-    { _riArchitecture        :: Maybe Text
-    , _riBlockDeviceMappings :: [BlockDeviceMapping]
-    , _riDescription         :: Maybe Text
-    , _riDryRun              :: Maybe Bool
-    , _riImageLocation       :: Maybe Text
-    , _riKernelId            :: Maybe Text
-    , _riName                :: Text
-    , _riRamdiskId           :: Maybe Text
-    , _riRootDeviceName      :: Maybe Text
-    , _riSriovNetSupport     :: Maybe Text
-    , _riVirtualizationType  :: Maybe Text
+    { _ri1Architecture        :: Maybe Text
+    , _ri1BlockDeviceMappings :: [BlockDeviceMapping]
+    , _ri1Description         :: Maybe Text
+    , _ri1DryRun              :: Maybe Bool
+    , _ri1ImageLocation       :: Maybe Text
+    , _ri1KernelId            :: Maybe Text
+    , _ri1Name                :: Text
+    , _ri1RamdiskId           :: Maybe Text
+    , _ri1RootDeviceName      :: Maybe Text
+    , _ri1SriovNetSupport     :: Maybe Text
+    , _ri1VirtualizationType  :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 -- | 'RegisterImage' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'riArchitecture' @::@ 'Maybe' 'Text'
+-- * 'ri1Architecture' @::@ 'Maybe' 'Text'
 --
--- * 'riBlockDeviceMappings' @::@ ['BlockDeviceMapping']
+-- * 'ri1BlockDeviceMappings' @::@ ['BlockDeviceMapping']
 --
--- * 'riDescription' @::@ 'Maybe' 'Text'
+-- * 'ri1Description' @::@ 'Maybe' 'Text'
 --
--- * 'riDryRun' @::@ 'Maybe' 'Bool'
+-- * 'ri1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'riImageLocation' @::@ 'Maybe' 'Text'
+-- * 'ri1ImageLocation' @::@ 'Maybe' 'Text'
 --
--- * 'riKernelId' @::@ 'Maybe' 'Text'
+-- * 'ri1KernelId' @::@ 'Maybe' 'Text'
 --
--- * 'riName' @::@ 'Text'
+-- * 'ri1Name' @::@ 'Text'
 --
--- * 'riRamdiskId' @::@ 'Maybe' 'Text'
+-- * 'ri1RamdiskId' @::@ 'Maybe' 'Text'
 --
--- * 'riRootDeviceName' @::@ 'Maybe' 'Text'
+-- * 'ri1RootDeviceName' @::@ 'Maybe' 'Text'
 --
--- * 'riSriovNetSupport' @::@ 'Maybe' 'Text'
+-- * 'ri1SriovNetSupport' @::@ 'Maybe' 'Text'
 --
--- * 'riVirtualizationType' @::@ 'Maybe' 'Text'
+-- * 'ri1VirtualizationType' @::@ 'Maybe' 'Text'
 --
-registerImage :: Text -- ^ 'riName'
+registerImage :: Text -- ^ 'ri1Name'
               -> RegisterImage
 registerImage p1 = RegisterImage
-    { _riName                = p1
-    , _riDryRun              = Nothing
-    , _riImageLocation       = Nothing
-    , _riDescription         = Nothing
-    , _riArchitecture        = Nothing
-    , _riKernelId            = Nothing
-    , _riRamdiskId           = Nothing
-    , _riRootDeviceName      = Nothing
-    , _riBlockDeviceMappings = mempty
-    , _riVirtualizationType  = Nothing
-    , _riSriovNetSupport     = Nothing
+    { _ri1Name                = p1
+    , _ri1DryRun              = Nothing
+    , _ri1ImageLocation       = Nothing
+    , _ri1Description         = Nothing
+    , _ri1Architecture        = Nothing
+    , _ri1KernelId            = Nothing
+    , _ri1RamdiskId           = Nothing
+    , _ri1RootDeviceName      = Nothing
+    , _ri1BlockDeviceMappings = mempty
+    , _ri1VirtualizationType  = Nothing
+    , _ri1SriovNetSupport     = Nothing
     }
 
 -- | The architecture of the AMI. Default: For Amazon EBS-backed AMIs, i386.
 -- For instance store-backed AMIs, the architecture specified in the
 -- manifest file.
-riArchitecture :: Lens' RegisterImage (Maybe Text)
-riArchitecture = lens _riArchitecture (\s a -> s { _riArchitecture = a })
+ri1Architecture :: Lens' RegisterImage (Maybe Text)
+ri1Architecture = lens _ri1Architecture (\s a -> s { _ri1Architecture = a })
 
 -- | One or more block device mapping entries.
-riBlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
-riBlockDeviceMappings =
-    lens _riBlockDeviceMappings (\s a -> s { _riBlockDeviceMappings = a })
+ri1BlockDeviceMappings :: Lens' RegisterImage [BlockDeviceMapping]
+ri1BlockDeviceMappings =
+    lens _ri1BlockDeviceMappings (\s a -> s { _ri1BlockDeviceMappings = a })
 
 -- | A description for your AMI.
-riDescription :: Lens' RegisterImage (Maybe Text)
-riDescription = lens _riDescription (\s a -> s { _riDescription = a })
+ri1Description :: Lens' RegisterImage (Maybe Text)
+ri1Description = lens _ri1Description (\s a -> s { _ri1Description = a })
 
-riDryRun :: Lens' RegisterImage (Maybe Bool)
-riDryRun = lens _riDryRun (\s a -> s { _riDryRun = a })
+ri1DryRun :: Lens' RegisterImage (Maybe Bool)
+ri1DryRun = lens _ri1DryRun (\s a -> s { _ri1DryRun = a })
 
 -- | The full path to your AMI manifest in Amazon S3 storage.
-riImageLocation :: Lens' RegisterImage (Maybe Text)
-riImageLocation = lens _riImageLocation (\s a -> s { _riImageLocation = a })
+ri1ImageLocation :: Lens' RegisterImage (Maybe Text)
+ri1ImageLocation = lens _ri1ImageLocation (\s a -> s { _ri1ImageLocation = a })
 
 -- | The ID of the kernel.
-riKernelId :: Lens' RegisterImage (Maybe Text)
-riKernelId = lens _riKernelId (\s a -> s { _riKernelId = a })
+ri1KernelId :: Lens' RegisterImage (Maybe Text)
+ri1KernelId = lens _ri1KernelId (\s a -> s { _ri1KernelId = a })
 
 -- | A name for your AMI. Constraints: 3-128 alphanumeric characters,
 -- parentheses (()), square brackets ([]), spaces ( ), periods (.), slashes
 -- (/), dashes (-), single quotes ('), at-signs (@), or underscores(_).
-riName :: Lens' RegisterImage Text
-riName = lens _riName (\s a -> s { _riName = a })
+ri1Name :: Lens' RegisterImage Text
+ri1Name = lens _ri1Name (\s a -> s { _ri1Name = a })
 
 -- | The ID of the RAM disk.
-riRamdiskId :: Lens' RegisterImage (Maybe Text)
-riRamdiskId = lens _riRamdiskId (\s a -> s { _riRamdiskId = a })
+ri1RamdiskId :: Lens' RegisterImage (Maybe Text)
+ri1RamdiskId = lens _ri1RamdiskId (\s a -> s { _ri1RamdiskId = a })
 
 -- | The name of the root device (for example, /dev/sda1, or xvda).
-riRootDeviceName :: Lens' RegisterImage (Maybe Text)
-riRootDeviceName = lens _riRootDeviceName (\s a -> s { _riRootDeviceName = a })
+ri1RootDeviceName :: Lens' RegisterImage (Maybe Text)
+ri1RootDeviceName =
+    lens _ri1RootDeviceName (\s a -> s { _ri1RootDeviceName = a })
 
 -- | Set to simple to enable enhanced networking for the AMI and any instances
 -- that you launch from the AMI. There is no way to disable enhanced
 -- networking at this time. This option is supported only for HVM AMIs.
 -- Specifying this option with a PV AMI can make instances launched from the
 -- AMI unreachable.
-riSriovNetSupport :: Lens' RegisterImage (Maybe Text)
-riSriovNetSupport =
-    lens _riSriovNetSupport (\s a -> s { _riSriovNetSupport = a })
+ri1SriovNetSupport :: Lens' RegisterImage (Maybe Text)
+ri1SriovNetSupport =
+    lens _ri1SriovNetSupport (\s a -> s { _ri1SriovNetSupport = a })
 
 -- | The type of virtualization. Default: paravirtual.
-riVirtualizationType :: Lens' RegisterImage (Maybe Text)
-riVirtualizationType =
-    lens _riVirtualizationType (\s a -> s { _riVirtualizationType = a })
+ri1VirtualizationType :: Lens' RegisterImage (Maybe Text)
+ri1VirtualizationType =
+    lens _ri1VirtualizationType (\s a -> s { _ri1VirtualizationType = a })
 
 instance ToQuery RegisterImage
 
 instance ToPath RegisterImage where
     toPath = const "/"
 
-newtype RegisterImageResult = RegisterImageResult
+newtype RegisterImageResponse = RegisterImageResponse
     { _rirImageId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'RegisterImageResult' constructor.
+-- | 'RegisterImageResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rirImageId' @::@ 'Maybe' 'Text'
 --
-registerImageResponse :: RegisterImageResult
-registerImageResponse = RegisterImageResult
+registerImageResponse :: RegisterImageResponse
+registerImageResponse = RegisterImageResponse
     { _rirImageId = Nothing
     }
 
 -- | The ID of the newly registered AMI.
-rirImageId :: Lens' RegisterImageResult (Maybe Text)
+rirImageId :: Lens' RegisterImageResponse (Maybe Text)
 rirImageId = lens _rirImageId (\s a -> s { _rirImageId = a })
 
-instance FromXML RegisterImageResult where
+instance FromXML RegisterImageResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RegisterImageResult"
+    fromXMLRoot    = fromRoot "RegisterImageResponse"
 
 instance AWSRequest RegisterImage where
     type Sv RegisterImage = EC2
-    type Rs RegisterImage = RegisterImageResult
+    type Rs RegisterImage = RegisterImageResponse
 
     request  = post "RegisterImage"
-    response = xmlResponse $ \h x -> RegisterImageResult
+    response = xmlResponse $ \h x -> RegisterImageResponse
         <$> x %| "imageId"

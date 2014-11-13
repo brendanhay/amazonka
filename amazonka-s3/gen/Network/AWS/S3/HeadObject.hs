@@ -43,30 +43,30 @@ module Network.AWS.S3.HeadObject
     , hoVersionId
 
     -- * Response
-    , HeadObjectOutput
+    , HeadObjectResponse
     -- ** Response constructor
     , headObjectResponse
     -- ** Response lenses
-    , hooAcceptRanges
-    , hooCacheControl
-    , hooContentDisposition
-    , hooContentEncoding
-    , hooContentLanguage
-    , hooContentLength
-    , hooContentType
-    , hooDeleteMarker
-    , hooETag
-    , hooExpiration
-    , hooExpires
-    , hooLastModified
-    , hooMetadata
-    , hooMissingMeta
-    , hooRestore
-    , hooSSECustomerAlgorithm
-    , hooSSECustomerKeyMD5
-    , hooServerSideEncryption
-    , hooVersionId
-    , hooWebsiteRedirectLocation
+    , horAcceptRanges
+    , horCacheControl
+    , horContentDisposition
+    , horContentEncoding
+    , horContentLanguage
+    , horContentLength
+    , horContentType
+    , horDeleteMarker
+    , horETag
+    , horExpiration
+    , horExpires
+    , horLastModified
+    , horMetadata
+    , horMissingMeta
+    , horRestore
+    , horSSECustomerAlgorithm
+    , horSSECustomerKeyMD5
+    , horServerSideEncryption
+    , horVersionId
+    , horWebsiteRedirectLocation
     ) where
 
 import Network.AWS.Prelude
@@ -215,161 +215,161 @@ instance ToHeaders HeadObject where
         , "x-amz-server-side-encryption-customer-key-MD5"   =: _hoSSECustomerKeyMD5
         ]
 
-data HeadObjectOutput = HeadObjectOutput
-    { _hooAcceptRanges            :: Maybe Text
-    , _hooCacheControl            :: Maybe Text
-    , _hooContentDisposition      :: Maybe Text
-    , _hooContentEncoding         :: Maybe Text
-    , _hooContentLanguage         :: Maybe Text
-    , _hooContentLength           :: Maybe Int
-    , _hooContentType             :: Maybe Text
-    , _hooDeleteMarker            :: Maybe Bool
-    , _hooETag                    :: Maybe Text
-    , _hooExpiration              :: Maybe RFC822
-    , _hooExpires                 :: Maybe RFC822
-    , _hooLastModified            :: Maybe RFC822
-    , _hooMetadata                :: Map Text Text
-    , _hooMissingMeta             :: Maybe Int
-    , _hooRestore                 :: Maybe Text
-    , _hooSSECustomerAlgorithm    :: Maybe Text
-    , _hooSSECustomerKeyMD5       :: Maybe Text
-    , _hooServerSideEncryption    :: Maybe Text
-    , _hooVersionId               :: Maybe Text
-    , _hooWebsiteRedirectLocation :: Maybe Text
+data HeadObjectResponse = HeadObjectResponse
+    { _horAcceptRanges            :: Maybe Text
+    , _horCacheControl            :: Maybe Text
+    , _horContentDisposition      :: Maybe Text
+    , _horContentEncoding         :: Maybe Text
+    , _horContentLanguage         :: Maybe Text
+    , _horContentLength           :: Maybe Int
+    , _horContentType             :: Maybe Text
+    , _horDeleteMarker            :: Maybe Bool
+    , _horETag                    :: Maybe Text
+    , _horExpiration              :: Maybe RFC822
+    , _horExpires                 :: Maybe RFC822
+    , _horLastModified            :: Maybe RFC822
+    , _horMetadata                :: Map Text Text
+    , _horMissingMeta             :: Maybe Int
+    , _horRestore                 :: Maybe Text
+    , _horSSECustomerAlgorithm    :: Maybe Text
+    , _horSSECustomerKeyMD5       :: Maybe Text
+    , _horServerSideEncryption    :: Maybe Text
+    , _horVersionId               :: Maybe Text
+    , _horWebsiteRedirectLocation :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'HeadObjectOutput' constructor.
+-- | 'HeadObjectResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'hooAcceptRanges' @::@ 'Maybe' 'Text'
+-- * 'horAcceptRanges' @::@ 'Maybe' 'Text'
 --
--- * 'hooCacheControl' @::@ 'Maybe' 'Text'
+-- * 'horCacheControl' @::@ 'Maybe' 'Text'
 --
--- * 'hooContentDisposition' @::@ 'Maybe' 'Text'
+-- * 'horContentDisposition' @::@ 'Maybe' 'Text'
 --
--- * 'hooContentEncoding' @::@ 'Maybe' 'Text'
+-- * 'horContentEncoding' @::@ 'Maybe' 'Text'
 --
--- * 'hooContentLanguage' @::@ 'Maybe' 'Text'
+-- * 'horContentLanguage' @::@ 'Maybe' 'Text'
 --
--- * 'hooContentLength' @::@ 'Maybe' 'Int'
+-- * 'horContentLength' @::@ 'Maybe' 'Int'
 --
--- * 'hooContentType' @::@ 'Maybe' 'Text'
+-- * 'horContentType' @::@ 'Maybe' 'Text'
 --
--- * 'hooDeleteMarker' @::@ 'Maybe' 'Bool'
+-- * 'horDeleteMarker' @::@ 'Maybe' 'Bool'
 --
--- * 'hooETag' @::@ 'Maybe' 'Text'
+-- * 'horETag' @::@ 'Maybe' 'Text'
 --
--- * 'hooExpiration' @::@ 'Maybe' 'UTCTime'
+-- * 'horExpiration' @::@ 'Maybe' 'UTCTime'
 --
--- * 'hooExpires' @::@ 'Maybe' 'UTCTime'
+-- * 'horExpires' @::@ 'Maybe' 'UTCTime'
 --
--- * 'hooLastModified' @::@ 'Maybe' 'UTCTime'
+-- * 'horLastModified' @::@ 'Maybe' 'UTCTime'
 --
--- * 'hooMetadata' @::@ 'HashMap' 'Text' 'Text'
+-- * 'horMetadata' @::@ 'HashMap' 'Text' 'Text'
 --
--- * 'hooMissingMeta' @::@ 'Maybe' 'Int'
+-- * 'horMissingMeta' @::@ 'Maybe' 'Int'
 --
--- * 'hooRestore' @::@ 'Maybe' 'Text'
+-- * 'horRestore' @::@ 'Maybe' 'Text'
 --
--- * 'hooSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+-- * 'horSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
--- * 'hooSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+-- * 'horSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'hooServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'horServerSideEncryption' @::@ 'Maybe' 'Text'
 --
--- * 'hooVersionId' @::@ 'Maybe' 'Text'
+-- * 'horVersionId' @::@ 'Maybe' 'Text'
 --
--- * 'hooWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
+-- * 'horWebsiteRedirectLocation' @::@ 'Maybe' 'Text'
 --
-headObjectResponse :: HeadObjectOutput
-headObjectResponse = HeadObjectOutput
-    { _hooDeleteMarker            = Nothing
-    , _hooAcceptRanges            = Nothing
-    , _hooExpiration              = Nothing
-    , _hooRestore                 = Nothing
-    , _hooLastModified            = Nothing
-    , _hooContentLength           = Nothing
-    , _hooETag                    = Nothing
-    , _hooMissingMeta             = Nothing
-    , _hooVersionId               = Nothing
-    , _hooCacheControl            = Nothing
-    , _hooContentDisposition      = Nothing
-    , _hooContentEncoding         = Nothing
-    , _hooContentLanguage         = Nothing
-    , _hooContentType             = Nothing
-    , _hooExpires                 = Nothing
-    , _hooWebsiteRedirectLocation = Nothing
-    , _hooServerSideEncryption    = Nothing
-    , _hooMetadata                = mempty
-    , _hooSSECustomerAlgorithm    = Nothing
-    , _hooSSECustomerKeyMD5       = Nothing
+headObjectResponse :: HeadObjectResponse
+headObjectResponse = HeadObjectResponse
+    { _horDeleteMarker            = Nothing
+    , _horAcceptRanges            = Nothing
+    , _horExpiration              = Nothing
+    , _horRestore                 = Nothing
+    , _horLastModified            = Nothing
+    , _horContentLength           = Nothing
+    , _horETag                    = Nothing
+    , _horMissingMeta             = Nothing
+    , _horVersionId               = Nothing
+    , _horCacheControl            = Nothing
+    , _horContentDisposition      = Nothing
+    , _horContentEncoding         = Nothing
+    , _horContentLanguage         = Nothing
+    , _horContentType             = Nothing
+    , _horExpires                 = Nothing
+    , _horWebsiteRedirectLocation = Nothing
+    , _horServerSideEncryption    = Nothing
+    , _horMetadata                = mempty
+    , _horSSECustomerAlgorithm    = Nothing
+    , _horSSECustomerKeyMD5       = Nothing
     }
 
-hooAcceptRanges :: Lens' HeadObjectOutput (Maybe Text)
-hooAcceptRanges = lens _hooAcceptRanges (\s a -> s { _hooAcceptRanges = a })
+horAcceptRanges :: Lens' HeadObjectResponse (Maybe Text)
+horAcceptRanges = lens _horAcceptRanges (\s a -> s { _horAcceptRanges = a })
 
 -- | Specifies caching behavior along the request/reply chain.
-hooCacheControl :: Lens' HeadObjectOutput (Maybe Text)
-hooCacheControl = lens _hooCacheControl (\s a -> s { _hooCacheControl = a })
+horCacheControl :: Lens' HeadObjectResponse (Maybe Text)
+horCacheControl = lens _horCacheControl (\s a -> s { _horCacheControl = a })
 
 -- | Specifies presentational information for the object.
-hooContentDisposition :: Lens' HeadObjectOutput (Maybe Text)
-hooContentDisposition =
-    lens _hooContentDisposition (\s a -> s { _hooContentDisposition = a })
+horContentDisposition :: Lens' HeadObjectResponse (Maybe Text)
+horContentDisposition =
+    lens _horContentDisposition (\s a -> s { _horContentDisposition = a })
 
 -- | Specifies what content encodings have been applied to the object and thus
 -- what decoding mechanisms must be applied to obtain the media-type
 -- referenced by the Content-Type header field.
-hooContentEncoding :: Lens' HeadObjectOutput (Maybe Text)
-hooContentEncoding =
-    lens _hooContentEncoding (\s a -> s { _hooContentEncoding = a })
+horContentEncoding :: Lens' HeadObjectResponse (Maybe Text)
+horContentEncoding =
+    lens _horContentEncoding (\s a -> s { _horContentEncoding = a })
 
 -- | The language the content is in.
-hooContentLanguage :: Lens' HeadObjectOutput (Maybe Text)
-hooContentLanguage =
-    lens _hooContentLanguage (\s a -> s { _hooContentLanguage = a })
+horContentLanguage :: Lens' HeadObjectResponse (Maybe Text)
+horContentLanguage =
+    lens _horContentLanguage (\s a -> s { _horContentLanguage = a })
 
 -- | Size of the body in bytes.
-hooContentLength :: Lens' HeadObjectOutput (Maybe Int)
-hooContentLength = lens _hooContentLength (\s a -> s { _hooContentLength = a })
+horContentLength :: Lens' HeadObjectResponse (Maybe Int)
+horContentLength = lens _horContentLength (\s a -> s { _horContentLength = a })
 
 -- | A standard MIME type describing the format of the object data.
-hooContentType :: Lens' HeadObjectOutput (Maybe Text)
-hooContentType = lens _hooContentType (\s a -> s { _hooContentType = a })
+horContentType :: Lens' HeadObjectResponse (Maybe Text)
+horContentType = lens _horContentType (\s a -> s { _horContentType = a })
 
 -- | Specifies whether the object retrieved was (true) or was not (false) a
 -- Delete Marker. If false, this response header does not appear in the
 -- response.
-hooDeleteMarker :: Lens' HeadObjectOutput (Maybe Bool)
-hooDeleteMarker = lens _hooDeleteMarker (\s a -> s { _hooDeleteMarker = a })
+horDeleteMarker :: Lens' HeadObjectResponse (Maybe Bool)
+horDeleteMarker = lens _horDeleteMarker (\s a -> s { _horDeleteMarker = a })
 
 -- | An ETag is an opaque identifier assigned by a web server to a specific
 -- version of a resource found at a URL.
-hooETag :: Lens' HeadObjectOutput (Maybe Text)
-hooETag = lens _hooETag (\s a -> s { _hooETag = a })
+horETag :: Lens' HeadObjectResponse (Maybe Text)
+horETag = lens _horETag (\s a -> s { _horETag = a })
 
 -- | If the object expiration is configured (see PUT Bucket lifecycle), the
 -- response includes this header. It includes the expiry-date and rule-id
 -- key value pairs providing object expiration information. The value of the
 -- rule-id is URL encoded.
-hooExpiration :: Lens' HeadObjectOutput (Maybe UTCTime)
-hooExpiration = lens _hooExpiration (\s a -> s { _hooExpiration = a })
+horExpiration :: Lens' HeadObjectResponse (Maybe UTCTime)
+horExpiration = lens _horExpiration (\s a -> s { _horExpiration = a })
     . mapping _Time
 
 -- | The date and time at which the object is no longer cacheable.
-hooExpires :: Lens' HeadObjectOutput (Maybe UTCTime)
-hooExpires = lens _hooExpires (\s a -> s { _hooExpires = a })
+horExpires :: Lens' HeadObjectResponse (Maybe UTCTime)
+horExpires = lens _horExpires (\s a -> s { _horExpires = a })
     . mapping _Time
 
 -- | Last modified date of the object.
-hooLastModified :: Lens' HeadObjectOutput (Maybe UTCTime)
-hooLastModified = lens _hooLastModified (\s a -> s { _hooLastModified = a })
+horLastModified :: Lens' HeadObjectResponse (Maybe UTCTime)
+horLastModified = lens _horLastModified (\s a -> s { _horLastModified = a })
     . mapping _Time
 
 -- | A map of metadata to store with the object in S3.
-hooMetadata :: Lens' HeadObjectOutput (HashMap Text Text)
-hooMetadata = lens _hooMetadata (\s a -> s { _hooMetadata = a })
+horMetadata :: Lens' HeadObjectResponse (HashMap Text Text)
+horMetadata = lens _horMetadata (\s a -> s { _horMetadata = a })
     . _Map
 
 -- | This is set to the number of metadata entries not returned in x-amz-meta
@@ -377,54 +377,54 @@ hooMetadata = lens _hooMetadata (\s a -> s { _hooMetadata = a })
 -- that supports more flexible metadata than the REST API. For example,
 -- using SOAP, you can create metadata whose values are not legal HTTP
 -- headers.
-hooMissingMeta :: Lens' HeadObjectOutput (Maybe Int)
-hooMissingMeta = lens _hooMissingMeta (\s a -> s { _hooMissingMeta = a })
+horMissingMeta :: Lens' HeadObjectResponse (Maybe Int)
+horMissingMeta = lens _horMissingMeta (\s a -> s { _horMissingMeta = a })
 
 -- | Provides information about object restoration operation and expiration
 -- time of the restored object copy.
-hooRestore :: Lens' HeadObjectOutput (Maybe Text)
-hooRestore = lens _hooRestore (\s a -> s { _hooRestore = a })
+horRestore :: Lens' HeadObjectResponse (Maybe Text)
+horRestore = lens _horRestore (\s a -> s { _horRestore = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the
 -- encryption algorithm used.
-hooSSECustomerAlgorithm :: Lens' HeadObjectOutput (Maybe Text)
-hooSSECustomerAlgorithm =
-    lens _hooSSECustomerAlgorithm (\s a -> s { _hooSSECustomerAlgorithm = a })
+horSSECustomerAlgorithm :: Lens' HeadObjectResponse (Maybe Text)
+horSSECustomerAlgorithm =
+    lens _horSSECustomerAlgorithm (\s a -> s { _horSSECustomerAlgorithm = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-hooSSECustomerKeyMD5 :: Lens' HeadObjectOutput (Maybe Text)
-hooSSECustomerKeyMD5 =
-    lens _hooSSECustomerKeyMD5 (\s a -> s { _hooSSECustomerKeyMD5 = a })
+horSSECustomerKeyMD5 :: Lens' HeadObjectResponse (Maybe Text)
+horSSECustomerKeyMD5 =
+    lens _horSSECustomerKeyMD5 (\s a -> s { _horSSECustomerKeyMD5 = a })
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-hooServerSideEncryption :: Lens' HeadObjectOutput (Maybe Text)
-hooServerSideEncryption =
-    lens _hooServerSideEncryption (\s a -> s { _hooServerSideEncryption = a })
+horServerSideEncryption :: Lens' HeadObjectResponse (Maybe Text)
+horServerSideEncryption =
+    lens _horServerSideEncryption (\s a -> s { _horServerSideEncryption = a })
 
 -- | Version of the object.
-hooVersionId :: Lens' HeadObjectOutput (Maybe Text)
-hooVersionId = lens _hooVersionId (\s a -> s { _hooVersionId = a })
+horVersionId :: Lens' HeadObjectResponse (Maybe Text)
+horVersionId = lens _horVersionId (\s a -> s { _horVersionId = a })
 
 -- | If the bucket is configured as a website, redirects requests for this
 -- object to another object in the same bucket or to an external URL. Amazon
 -- S3 stores the value of this header in the object metadata.
-hooWebsiteRedirectLocation :: Lens' HeadObjectOutput (Maybe Text)
-hooWebsiteRedirectLocation =
-    lens _hooWebsiteRedirectLocation
-        (\s a -> s { _hooWebsiteRedirectLocation = a })
+horWebsiteRedirectLocation :: Lens' HeadObjectResponse (Maybe Text)
+horWebsiteRedirectLocation =
+    lens _horWebsiteRedirectLocation
+        (\s a -> s { _horWebsiteRedirectLocation = a })
 
-instance FromXML HeadObjectOutput where
+instance FromXML HeadObjectResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "HeadObjectOutput"
+    fromXMLRoot    = fromRoot "HeadObjectResponse"
 instance AWSRequest HeadObject where
     type Sv HeadObject = S3
-    type Rs HeadObject = HeadObjectOutput
+    type Rs HeadObject = HeadObjectResponse
 
     request  = head
-    response = xmlResponse $ \h x -> HeadObjectOutput
+    response = xmlResponse $ \h x -> HeadObjectResponse
         <$> h ~:? "accept-ranges"
         <*> h ~:? "Cache-Control"
         <*> h ~:? "Content-Disposition"

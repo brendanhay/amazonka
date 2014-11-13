@@ -26,12 +26,12 @@
 module Network.AWS.AutoScaling.DeleteLifecycleHook
     (
     -- * Request
-      DeleteLifecycleHookType
+      DeleteLifecycleHook
     -- ** Request constructor
     , deleteLifecycleHook
     -- ** Request lenses
-    , dlhtAutoScalingGroupName
-    , dlhtLifecycleHookName
+    , dlh1AutoScalingGroupName
+    , dlh1LifecycleHookName
 
     -- * Response
     , DeleteLifecycleHookResponse
@@ -43,41 +43,41 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data DeleteLifecycleHookType = DeleteLifecycleHookType
-    { _dlhtAutoScalingGroupName :: Text
-    , _dlhtLifecycleHookName    :: Text
+data DeleteLifecycleHook = DeleteLifecycleHook
+    { _dlh1AutoScalingGroupName :: Text
+    , _dlh1LifecycleHookName    :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteLifecycleHookType' constructor.
+-- | 'DeleteLifecycleHook' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlhtAutoScalingGroupName' @::@ 'Text'
+-- * 'dlh1AutoScalingGroupName' @::@ 'Text'
 --
--- * 'dlhtLifecycleHookName' @::@ 'Text'
+-- * 'dlh1LifecycleHookName' @::@ 'Text'
 --
-deleteLifecycleHook :: Text -- ^ 'dlhtLifecycleHookName'
-                    -> Text -- ^ 'dlhtAutoScalingGroupName'
-                    -> DeleteLifecycleHookType
-deleteLifecycleHook p1 p2 = DeleteLifecycleHookType
-    { _dlhtLifecycleHookName    = p1
-    , _dlhtAutoScalingGroupName = p2
+deleteLifecycleHook :: Text -- ^ 'dlh1LifecycleHookName'
+                    -> Text -- ^ 'dlh1AutoScalingGroupName'
+                    -> DeleteLifecycleHook
+deleteLifecycleHook p1 p2 = DeleteLifecycleHook
+    { _dlh1LifecycleHookName    = p1
+    , _dlh1AutoScalingGroupName = p2
     }
 
 -- | The name of the Auto Scaling group to which the lifecycle hook belongs.
-dlhtAutoScalingGroupName :: Lens' DeleteLifecycleHookType Text
-dlhtAutoScalingGroupName =
-    lens _dlhtAutoScalingGroupName
-        (\s a -> s { _dlhtAutoScalingGroupName = a })
+dlh1AutoScalingGroupName :: Lens' DeleteLifecycleHook Text
+dlh1AutoScalingGroupName =
+    lens _dlh1AutoScalingGroupName
+        (\s a -> s { _dlh1AutoScalingGroupName = a })
 
 -- | The name of the lifecycle hook.
-dlhtLifecycleHookName :: Lens' DeleteLifecycleHookType Text
-dlhtLifecycleHookName =
-    lens _dlhtLifecycleHookName (\s a -> s { _dlhtLifecycleHookName = a })
+dlh1LifecycleHookName :: Lens' DeleteLifecycleHook Text
+dlh1LifecycleHookName =
+    lens _dlh1LifecycleHookName (\s a -> s { _dlh1LifecycleHookName = a })
 
-instance ToQuery DeleteLifecycleHookType
+instance ToQuery DeleteLifecycleHook
 
-instance ToPath DeleteLifecycleHookType where
+instance ToPath DeleteLifecycleHook where
     toPath = const "/"
 
 data DeleteLifecycleHookResponse = DeleteLifecycleHookResponse
@@ -91,9 +91,9 @@ instance FromXML DeleteLifecycleHookResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteLifecycleHookResponse"
 
-instance AWSRequest DeleteLifecycleHookType where
-    type Sv DeleteLifecycleHookType = AutoScaling
-    type Rs DeleteLifecycleHookType = DeleteLifecycleHookResponse
+instance AWSRequest DeleteLifecycleHook where
+    type Sv DeleteLifecycleHook = AutoScaling
+    type Rs DeleteLifecycleHook = DeleteLifecycleHookResponse
 
     request  = post "DeleteLifecycleHook"
     response = nullaryResponse DeleteLifecycleHookResponse

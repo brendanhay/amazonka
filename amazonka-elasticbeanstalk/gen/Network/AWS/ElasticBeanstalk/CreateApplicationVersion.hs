@@ -24,67 +24,67 @@
 module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     (
     -- * Request
-      CreateApplicationVersionMessage
+      CreateApplicationVersion
     -- ** Request constructor
     , createApplicationVersion
     -- ** Request lenses
-    , cavmApplicationName
-    , cavmAutoCreateApplication
-    , cavmDescription
-    , cavmSourceBundle
-    , cavmVersionLabel
+    , cavApplicationName
+    , cavAutoCreateApplication
+    , cavDescription
+    , cavSourceBundle
+    , cavVersionLabel
 
     -- * Response
-    , ApplicationVersionDescriptionMessage
+    , CreateApplicationVersionResponse
     -- ** Response constructor
-    , applicationVersionDescriptionMessage
+    , createApplicationVersionResponse
     -- ** Response lenses
-    , avdmApplicationVersion
+    , cavrApplicationVersion
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data CreateApplicationVersionMessage = CreateApplicationVersionMessage
-    { _cavmApplicationName       :: Text
-    , _cavmAutoCreateApplication :: Maybe Bool
-    , _cavmDescription           :: Maybe Text
-    , _cavmSourceBundle          :: Maybe S3Location
-    , _cavmVersionLabel          :: Text
+data CreateApplicationVersion = CreateApplicationVersion
+    { _cavApplicationName       :: Text
+    , _cavAutoCreateApplication :: Maybe Bool
+    , _cavDescription           :: Maybe Text
+    , _cavSourceBundle          :: Maybe S3Location
+    , _cavVersionLabel          :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'CreateApplicationVersionMessage' constructor.
+-- | 'CreateApplicationVersion' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cavmApplicationName' @::@ 'Text'
+-- * 'cavApplicationName' @::@ 'Text'
 --
--- * 'cavmAutoCreateApplication' @::@ 'Maybe' 'Bool'
+-- * 'cavAutoCreateApplication' @::@ 'Maybe' 'Bool'
 --
--- * 'cavmDescription' @::@ 'Maybe' 'Text'
+-- * 'cavDescription' @::@ 'Maybe' 'Text'
 --
--- * 'cavmSourceBundle' @::@ 'Maybe' 'S3Location'
+-- * 'cavSourceBundle' @::@ 'Maybe' 'S3Location'
 --
--- * 'cavmVersionLabel' @::@ 'Text'
+-- * 'cavVersionLabel' @::@ 'Text'
 --
-createApplicationVersion :: Text -- ^ 'cavmApplicationName'
-                         -> Text -- ^ 'cavmVersionLabel'
-                         -> CreateApplicationVersionMessage
-createApplicationVersion p1 p2 = CreateApplicationVersionMessage
-    { _cavmApplicationName       = p1
-    , _cavmVersionLabel          = p2
-    , _cavmDescription           = Nothing
-    , _cavmSourceBundle          = Nothing
-    , _cavmAutoCreateApplication = Nothing
+createApplicationVersion :: Text -- ^ 'cavApplicationName'
+                         -> Text -- ^ 'cavVersionLabel'
+                         -> CreateApplicationVersion
+createApplicationVersion p1 p2 = CreateApplicationVersion
+    { _cavApplicationName       = p1
+    , _cavVersionLabel          = p2
+    , _cavDescription           = Nothing
+    , _cavSourceBundle          = Nothing
+    , _cavAutoCreateApplication = Nothing
     }
 
 -- | The name of the application. If no application is found with this name,
 -- and AutoCreateApplication is false, returns an InvalidParameterValue
 -- error.
-cavmApplicationName :: Lens' CreateApplicationVersionMessage Text
-cavmApplicationName =
-    lens _cavmApplicationName (\s a -> s { _cavmApplicationName = a })
+cavApplicationName :: Lens' CreateApplicationVersion Text
+cavApplicationName =
+    lens _cavApplicationName (\s a -> s { _cavApplicationName = a })
 
 -- | Determines how the system behaves if the specified application for this
 -- version does not already exist: true: Automatically creates the specified
@@ -94,14 +94,14 @@ cavmApplicationName =
 -- application for this release if it does not already exist. false : Throws
 -- an InvalidParameterValue if the specified application for this release
 -- does not already exist. Default: false Valid Values: true | false.
-cavmAutoCreateApplication :: Lens' CreateApplicationVersionMessage (Maybe Bool)
-cavmAutoCreateApplication =
-    lens _cavmAutoCreateApplication
-        (\s a -> s { _cavmAutoCreateApplication = a })
+cavAutoCreateApplication :: Lens' CreateApplicationVersion (Maybe Bool)
+cavAutoCreateApplication =
+    lens _cavAutoCreateApplication
+        (\s a -> s { _cavAutoCreateApplication = a })
 
 -- | Describes this version.
-cavmDescription :: Lens' CreateApplicationVersionMessage (Maybe Text)
-cavmDescription = lens _cavmDescription (\s a -> s { _cavmDescription = a })
+cavDescription :: Lens' CreateApplicationVersion (Maybe Text)
+cavDescription = lens _cavDescription (\s a -> s { _cavDescription = a })
 
 -- | The Amazon S3 bucket and key that identify the location of the source
 -- bundle for this version. If data found at the Amazon S3 location exceeds
@@ -111,24 +111,49 @@ cavmDescription = lens _cavmDescription (\s a -> s { _cavmDescription = a })
 -- only partially specified (for example, a bucket is provided but not the
 -- key) or if no data is found at the Amazon S3 location, AWS Elastic
 -- Beanstalk returns an InvalidParameterCombination error.
-cavmSourceBundle :: Lens' CreateApplicationVersionMessage (Maybe S3Location)
-cavmSourceBundle = lens _cavmSourceBundle (\s a -> s { _cavmSourceBundle = a })
+cavSourceBundle :: Lens' CreateApplicationVersion (Maybe S3Location)
+cavSourceBundle = lens _cavSourceBundle (\s a -> s { _cavSourceBundle = a })
 
 -- | A label identifying this version. Constraint: Must be unique per
 -- application. If an application version already exists with this label for
 -- the specified application, AWS Elastic Beanstalk returns an
 -- InvalidParameterValue error.
-cavmVersionLabel :: Lens' CreateApplicationVersionMessage Text
-cavmVersionLabel = lens _cavmVersionLabel (\s a -> s { _cavmVersionLabel = a })
+cavVersionLabel :: Lens' CreateApplicationVersion Text
+cavVersionLabel = lens _cavVersionLabel (\s a -> s { _cavVersionLabel = a })
 
-instance ToQuery CreateApplicationVersionMessage
+instance ToQuery CreateApplicationVersion
 
-instance ToPath CreateApplicationVersionMessage where
+instance ToPath CreateApplicationVersion where
     toPath = const "/"
 
-instance AWSRequest CreateApplicationVersionMessage where
-    type Sv CreateApplicationVersionMessage = ElasticBeanstalk
-    type Rs CreateApplicationVersionMessage = ApplicationVersionDescriptionMessage
+newtype CreateApplicationVersionResponse = CreateApplicationVersionResponse
+    { _cavrApplicationVersion :: Maybe ApplicationVersionDescription
+    } deriving (Eq, Show, Generic)
+
+-- | 'CreateApplicationVersionResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'cavrApplicationVersion' @::@ 'Maybe' 'ApplicationVersionDescription'
+--
+createApplicationVersionResponse :: CreateApplicationVersionResponse
+createApplicationVersionResponse = CreateApplicationVersionResponse
+    { _cavrApplicationVersion = Nothing
+    }
+
+-- | The ApplicationVersionDescription of the application version.
+cavrApplicationVersion :: Lens' CreateApplicationVersionResponse (Maybe ApplicationVersionDescription)
+cavrApplicationVersion =
+    lens _cavrApplicationVersion (\s a -> s { _cavrApplicationVersion = a })
+
+instance FromXML CreateApplicationVersionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateApplicationVersionResponse"
+
+instance AWSRequest CreateApplicationVersion where
+    type Sv CreateApplicationVersion = ElasticBeanstalk
+    type Rs CreateApplicationVersion = CreateApplicationVersionResponse
 
     request  = post "CreateApplicationVersion"
-    response = xmlResponse $ const decodeCursor
+    response = xmlResponse $ \h x -> CreateApplicationVersionResponse
+        <$> x %| "ApplicationVersion"

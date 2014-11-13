@@ -53,16 +53,16 @@ module Network.AWS.S3.PutObject
     , poWebsiteRedirectLocation
 
     -- * Response
-    , PutObjectOutput
+    , PutObjectResponse
     -- ** Response constructor
     , putObjectResponse
     -- ** Response lenses
-    , pooETag
-    , pooExpiration
-    , pooSSECustomerAlgorithm
-    , pooSSECustomerKeyMD5
-    , pooServerSideEncryption
-    , pooVersionId
+    , porETag
+    , porExpiration
+    , porSSECustomerAlgorithm
+    , porSSECustomerKeyMD5
+    , porServerSideEncryption
+    , porVersionId
     ) where
 
 import Network.AWS.Prelude
@@ -326,84 +326,84 @@ instance ToHeaders PutObject where
 instance ToBody PutObject where
     toBody = toBody . _poBody
 
-data PutObjectOutput = PutObjectOutput
-    { _pooETag                 :: Maybe Text
-    , _pooExpiration           :: Maybe RFC822
-    , _pooSSECustomerAlgorithm :: Maybe Text
-    , _pooSSECustomerKeyMD5    :: Maybe Text
-    , _pooServerSideEncryption :: Maybe Text
-    , _pooVersionId            :: Maybe Text
+data PutObjectResponse = PutObjectResponse
+    { _porETag                 :: Maybe Text
+    , _porExpiration           :: Maybe RFC822
+    , _porSSECustomerAlgorithm :: Maybe Text
+    , _porSSECustomerKeyMD5    :: Maybe Text
+    , _porServerSideEncryption :: Maybe Text
+    , _porVersionId            :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'PutObjectOutput' constructor.
+-- | 'PutObjectResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pooETag' @::@ 'Maybe' 'Text'
+-- * 'porETag' @::@ 'Maybe' 'Text'
 --
--- * 'pooExpiration' @::@ 'Maybe' 'UTCTime'
+-- * 'porExpiration' @::@ 'Maybe' 'UTCTime'
 --
--- * 'pooSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+-- * 'porSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
--- * 'pooSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+-- * 'porSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'pooServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'porServerSideEncryption' @::@ 'Maybe' 'Text'
 --
--- * 'pooVersionId' @::@ 'Maybe' 'Text'
+-- * 'porVersionId' @::@ 'Maybe' 'Text'
 --
-putObjectResponse :: PutObjectOutput
-putObjectResponse = PutObjectOutput
-    { _pooExpiration           = Nothing
-    , _pooETag                 = Nothing
-    , _pooServerSideEncryption = Nothing
-    , _pooVersionId            = Nothing
-    , _pooSSECustomerAlgorithm = Nothing
-    , _pooSSECustomerKeyMD5    = Nothing
+putObjectResponse :: PutObjectResponse
+putObjectResponse = PutObjectResponse
+    { _porExpiration           = Nothing
+    , _porETag                 = Nothing
+    , _porServerSideEncryption = Nothing
+    , _porVersionId            = Nothing
+    , _porSSECustomerAlgorithm = Nothing
+    , _porSSECustomerKeyMD5    = Nothing
     }
 
 -- | Entity tag for the uploaded object.
-pooETag :: Lens' PutObjectOutput (Maybe Text)
-pooETag = lens _pooETag (\s a -> s { _pooETag = a })
+porETag :: Lens' PutObjectResponse (Maybe Text)
+porETag = lens _porETag (\s a -> s { _porETag = a })
 
 -- | If the object expiration is configured, this will contain the expiration
 -- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
 -- encoded.
-pooExpiration :: Lens' PutObjectOutput (Maybe UTCTime)
-pooExpiration = lens _pooExpiration (\s a -> s { _pooExpiration = a })
+porExpiration :: Lens' PutObjectResponse (Maybe UTCTime)
+porExpiration = lens _porExpiration (\s a -> s { _porExpiration = a })
     . mapping _Time
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the
 -- encryption algorithm used.
-pooSSECustomerAlgorithm :: Lens' PutObjectOutput (Maybe Text)
-pooSSECustomerAlgorithm =
-    lens _pooSSECustomerAlgorithm (\s a -> s { _pooSSECustomerAlgorithm = a })
+porSSECustomerAlgorithm :: Lens' PutObjectResponse (Maybe Text)
+porSSECustomerAlgorithm =
+    lens _porSSECustomerAlgorithm (\s a -> s { _porSSECustomerAlgorithm = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-pooSSECustomerKeyMD5 :: Lens' PutObjectOutput (Maybe Text)
-pooSSECustomerKeyMD5 =
-    lens _pooSSECustomerKeyMD5 (\s a -> s { _pooSSECustomerKeyMD5 = a })
+porSSECustomerKeyMD5 :: Lens' PutObjectResponse (Maybe Text)
+porSSECustomerKeyMD5 =
+    lens _porSSECustomerKeyMD5 (\s a -> s { _porSSECustomerKeyMD5 = a })
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-pooServerSideEncryption :: Lens' PutObjectOutput (Maybe Text)
-pooServerSideEncryption =
-    lens _pooServerSideEncryption (\s a -> s { _pooServerSideEncryption = a })
+porServerSideEncryption :: Lens' PutObjectResponse (Maybe Text)
+porServerSideEncryption =
+    lens _porServerSideEncryption (\s a -> s { _porServerSideEncryption = a })
 
 -- | Version of the object.
-pooVersionId :: Lens' PutObjectOutput (Maybe Text)
-pooVersionId = lens _pooVersionId (\s a -> s { _pooVersionId = a })
+porVersionId :: Lens' PutObjectResponse (Maybe Text)
+porVersionId = lens _porVersionId (\s a -> s { _porVersionId = a })
 
-instance FromXML PutObjectOutput where
+instance FromXML PutObjectResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PutObjectOutput"
+    fromXMLRoot    = fromRoot "PutObjectResponse"
 instance AWSRequest PutObject where
     type Sv PutObject = S3
-    type Rs PutObject = PutObjectOutput
+    type Rs PutObject = PutObjectResponse
 
     request  = put
-    response = xmlResponse $ \h x -> PutObjectOutput
+    response = xmlResponse $ \h x -> PutObjectResponse
         <$> h ~:? "ETag"
         <*> h ~:? "x-amz-expiration"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"

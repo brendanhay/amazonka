@@ -25,53 +25,53 @@
 module Network.AWS.RDS.DescribeDBInstances
     (
     -- * Request
-      DescribeDBInstancesMessage
+      DescribeDBInstances
     -- ** Request constructor
     , describeDBInstances
     -- ** Request lenses
-    , ddbimDBInstanceIdentifier
-    , ddbimFilters
-    , ddbimMarker
-    , ddbimMaxRecords
+    , ddbi1DBInstanceIdentifier
+    , ddbi1Filters
+    , ddbi1Marker
+    , ddbi1MaxRecords
 
     -- * Response
-    , DBInstanceMessage
+    , DescribeDBInstancesResponse
     -- ** Response constructor
     , describeDBInstancesResponse
     -- ** Response lenses
-    , dbimDBInstances
-    , dbimMarker
+    , ddbirDBInstances
+    , ddbirMarker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data DescribeDBInstancesMessage = DescribeDBInstancesMessage
-    { _ddbimDBInstanceIdentifier :: Maybe Text
-    , _ddbimFilters              :: [Filter]
-    , _ddbimMarker               :: Maybe Text
-    , _ddbimMaxRecords           :: Maybe Int
+data DescribeDBInstances = DescribeDBInstances
+    { _ddbi1DBInstanceIdentifier :: Maybe Text
+    , _ddbi1Filters              :: [Filter]
+    , _ddbi1Marker               :: Maybe Text
+    , _ddbi1MaxRecords           :: Maybe Int
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeDBInstancesMessage' constructor.
+-- | 'DescribeDBInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbimDBInstanceIdentifier' @::@ 'Maybe' 'Text'
+-- * 'ddbi1DBInstanceIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'ddbimFilters' @::@ ['Filter']
+-- * 'ddbi1Filters' @::@ ['Filter']
 --
--- * 'ddbimMarker' @::@ 'Maybe' 'Text'
+-- * 'ddbi1Marker' @::@ 'Maybe' 'Text'
 --
--- * 'ddbimMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'ddbi1MaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBInstances :: DescribeDBInstancesMessage
-describeDBInstances = DescribeDBInstancesMessage
-    { _ddbimDBInstanceIdentifier = Nothing
-    , _ddbimFilters              = mempty
-    , _ddbimMaxRecords           = Nothing
-    , _ddbimMarker               = Nothing
+describeDBInstances :: DescribeDBInstances
+describeDBInstances = DescribeDBInstances
+    { _ddbi1DBInstanceIdentifier = Nothing
+    , _ddbi1Filters              = mempty
+    , _ddbi1MaxRecords           = Nothing
+    , _ddbi1Marker               = Nothing
     }
 
 -- | The user-supplied instance identifier. If this parameter is specified,
@@ -79,71 +79,71 @@ describeDBInstances = DescribeDBInstancesMessage
 -- parameter isn't case sensitive. Constraints: Must contain from 1 to 63
 -- alphanumeric characters or hyphens First character must be a letter
 -- Cannot end with a hyphen or contain two consecutive hyphens.
-ddbimDBInstanceIdentifier :: Lens' DescribeDBInstancesMessage (Maybe Text)
-ddbimDBInstanceIdentifier =
-    lens _ddbimDBInstanceIdentifier
-        (\s a -> s { _ddbimDBInstanceIdentifier = a })
+ddbi1DBInstanceIdentifier :: Lens' DescribeDBInstances (Maybe Text)
+ddbi1DBInstanceIdentifier =
+    lens _ddbi1DBInstanceIdentifier
+        (\s a -> s { _ddbi1DBInstanceIdentifier = a })
 
 -- | This parameter is not currently supported.
-ddbimFilters :: Lens' DescribeDBInstancesMessage [Filter]
-ddbimFilters = lens _ddbimFilters (\s a -> s { _ddbimFilters = a })
+ddbi1Filters :: Lens' DescribeDBInstances [Filter]
+ddbi1Filters = lens _ddbi1Filters (\s a -> s { _ddbi1Filters = a })
 
 -- | An optional pagination token provided by a previous DescribeDBInstances
 -- request. If this parameter is specified, the response includes only
 -- records beyond the marker, up to the value specified by MaxRecords .
-ddbimMarker :: Lens' DescribeDBInstancesMessage (Maybe Text)
-ddbimMarker = lens _ddbimMarker (\s a -> s { _ddbimMarker = a })
+ddbi1Marker :: Lens' DescribeDBInstances (Maybe Text)
+ddbi1Marker = lens _ddbi1Marker (\s a -> s { _ddbi1Marker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-ddbimMaxRecords :: Lens' DescribeDBInstancesMessage (Maybe Int)
-ddbimMaxRecords = lens _ddbimMaxRecords (\s a -> s { _ddbimMaxRecords = a })
+ddbi1MaxRecords :: Lens' DescribeDBInstances (Maybe Int)
+ddbi1MaxRecords = lens _ddbi1MaxRecords (\s a -> s { _ddbi1MaxRecords = a })
 
-instance ToQuery DescribeDBInstancesMessage
+instance ToQuery DescribeDBInstances
 
-instance ToPath DescribeDBInstancesMessage where
+instance ToPath DescribeDBInstances where
     toPath = const "/"
 
-data DBInstanceMessage = DBInstanceMessage
-    { _dbimDBInstances :: [DBInstance]
-    , _dbimMarker      :: Maybe Text
+data DescribeDBInstancesResponse = DescribeDBInstancesResponse
+    { _ddbirDBInstances :: [DBInstance]
+    , _ddbirMarker      :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DBInstanceMessage' constructor.
+-- | 'DescribeDBInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbimDBInstances' @::@ ['DBInstance']
+-- * 'ddbirDBInstances' @::@ ['DBInstance']
 --
--- * 'dbimMarker' @::@ 'Maybe' 'Text'
+-- * 'ddbirMarker' @::@ 'Maybe' 'Text'
 --
-describeDBInstancesResponse :: DBInstanceMessage
-describeDBInstancesResponse = DBInstanceMessage
-    { _dbimMarker      = Nothing
-    , _dbimDBInstances = mempty
+describeDBInstancesResponse :: DescribeDBInstancesResponse
+describeDBInstancesResponse = DescribeDBInstancesResponse
+    { _ddbirMarker      = Nothing
+    , _ddbirDBInstances = mempty
     }
 
 -- | A list of DBInstance instances.
-dbimDBInstances :: Lens' DBInstanceMessage [DBInstance]
-dbimDBInstances = lens _dbimDBInstances (\s a -> s { _dbimDBInstances = a })
+ddbirDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
+ddbirDBInstances = lens _ddbirDBInstances (\s a -> s { _ddbirDBInstances = a })
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords .
-dbimMarker :: Lens' DBInstanceMessage (Maybe Text)
-dbimMarker = lens _dbimMarker (\s a -> s { _dbimMarker = a })
+ddbirMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
+ddbirMarker = lens _ddbirMarker (\s a -> s { _ddbirMarker = a })
 
-instance FromXML DBInstanceMessage where
+instance FromXML DescribeDBInstancesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBInstanceMessage"
+    fromXMLRoot    = fromRoot "DescribeDBInstancesResponse"
 
-instance AWSRequest DescribeDBInstancesMessage where
-    type Sv DescribeDBInstancesMessage = RDS
-    type Rs DescribeDBInstancesMessage = DBInstanceMessage
+instance AWSRequest DescribeDBInstances where
+    type Sv DescribeDBInstances = RDS
+    type Rs DescribeDBInstances = DescribeDBInstancesResponse
 
     request  = post "DescribeDBInstances"
-    response = xmlResponse $ \h x -> DBInstanceMessage
+    response = xmlResponse $ \h x -> DescribeDBInstancesResponse
         <$> x %| "DBInstances"
         <*> x %| "Marker"

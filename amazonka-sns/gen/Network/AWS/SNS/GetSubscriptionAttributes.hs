@@ -24,11 +24,11 @@
 module Network.AWS.SNS.GetSubscriptionAttributes
     (
     -- * Request
-      GetSubscriptionAttributesInput
+      GetSubscriptionAttributes
     -- ** Request constructor
     , getSubscriptionAttributes
     -- ** Request lenses
-    , gsaiSubscriptionArn
+    , gsaSubscriptionArn
 
     -- * Response
     , GetSubscriptionAttributesResponse
@@ -42,30 +42,30 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-newtype GetSubscriptionAttributesInput = GetSubscriptionAttributesInput
-    { _gsaiSubscriptionArn :: Text
+newtype GetSubscriptionAttributes = GetSubscriptionAttributes
+    { _gsaSubscriptionArn :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'GetSubscriptionAttributesInput' constructor.
+-- | 'GetSubscriptionAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsaiSubscriptionArn' @::@ 'Text'
+-- * 'gsaSubscriptionArn' @::@ 'Text'
 --
-getSubscriptionAttributes :: Text -- ^ 'gsaiSubscriptionArn'
-                          -> GetSubscriptionAttributesInput
-getSubscriptionAttributes p1 = GetSubscriptionAttributesInput
-    { _gsaiSubscriptionArn = p1
+getSubscriptionAttributes :: Text -- ^ 'gsaSubscriptionArn'
+                          -> GetSubscriptionAttributes
+getSubscriptionAttributes p1 = GetSubscriptionAttributes
+    { _gsaSubscriptionArn = p1
     }
 
 -- | The ARN of the subscription whose properties you want to get.
-gsaiSubscriptionArn :: Lens' GetSubscriptionAttributesInput Text
-gsaiSubscriptionArn =
-    lens _gsaiSubscriptionArn (\s a -> s { _gsaiSubscriptionArn = a })
+gsaSubscriptionArn :: Lens' GetSubscriptionAttributes Text
+gsaSubscriptionArn =
+    lens _gsaSubscriptionArn (\s a -> s { _gsaSubscriptionArn = a })
 
-instance ToQuery GetSubscriptionAttributesInput
+instance ToQuery GetSubscriptionAttributes
 
-instance ToPath GetSubscriptionAttributesInput where
+instance ToPath GetSubscriptionAttributes where
     toPath = const "/"
 
 newtype GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse
@@ -100,9 +100,9 @@ instance FromXML GetSubscriptionAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetSubscriptionAttributesResponse"
 
-instance AWSRequest GetSubscriptionAttributesInput where
-    type Sv GetSubscriptionAttributesInput = SNS
-    type Rs GetSubscriptionAttributesInput = GetSubscriptionAttributesResponse
+instance AWSRequest GetSubscriptionAttributes where
+    type Sv GetSubscriptionAttributes = SNS
+    type Rs GetSubscriptionAttributes = GetSubscriptionAttributesResponse
 
     request  = post "GetSubscriptionAttributes"
     response = xmlResponse $ \h x -> GetSubscriptionAttributesResponse

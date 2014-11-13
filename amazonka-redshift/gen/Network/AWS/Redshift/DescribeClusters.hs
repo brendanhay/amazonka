@@ -28,56 +28,56 @@
 module Network.AWS.Redshift.DescribeClusters
     (
     -- * Request
-      DescribeClustersMessage
+      DescribeClusters
     -- ** Request constructor
     , describeClusters
     -- ** Request lenses
-    , dcm1ClusterIdentifier
-    , dcm1Marker
-    , dcm1MaxRecords
+    , dcClusterIdentifier
+    , dcMarker
+    , dcMaxRecords
 
     -- * Response
-    , ClustersMessage
+    , DescribeClustersResponse
     -- ** Response constructor
     , describeClustersResponse
     -- ** Response lenses
-    , cmClusters
-    , cmMarker
+    , dcrClusters
+    , dcrMarker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data DescribeClustersMessage = DescribeClustersMessage
-    { _dcm1ClusterIdentifier :: Maybe Text
-    , _dcm1Marker            :: Maybe Text
-    , _dcm1MaxRecords        :: Maybe Int
+data DescribeClusters = DescribeClusters
+    { _dcClusterIdentifier :: Maybe Text
+    , _dcMarker            :: Maybe Text
+    , _dcMaxRecords        :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeClustersMessage' constructor.
+-- | 'DescribeClusters' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcm1ClusterIdentifier' @::@ 'Maybe' 'Text'
+-- * 'dcClusterIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'dcm1Marker' @::@ 'Maybe' 'Text'
+-- * 'dcMarker' @::@ 'Maybe' 'Text'
 --
--- * 'dcm1MaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dcMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeClusters :: DescribeClustersMessage
-describeClusters = DescribeClustersMessage
-    { _dcm1ClusterIdentifier = Nothing
-    , _dcm1MaxRecords        = Nothing
-    , _dcm1Marker            = Nothing
+describeClusters :: DescribeClusters
+describeClusters = DescribeClusters
+    { _dcClusterIdentifier = Nothing
+    , _dcMaxRecords        = Nothing
+    , _dcMarker            = Nothing
     }
 
 -- | The unique identifier of a cluster whose properties you are requesting.
 -- This parameter is case sensitive. The default is that all clusters
 -- defined for an account are returned.
-dcm1ClusterIdentifier :: Lens' DescribeClustersMessage (Maybe Text)
-dcm1ClusterIdentifier =
-    lens _dcm1ClusterIdentifier (\s a -> s { _dcm1ClusterIdentifier = a })
+dcClusterIdentifier :: Lens' DescribeClusters (Maybe Text)
+dcClusterIdentifier =
+    lens _dcClusterIdentifier (\s a -> s { _dcClusterIdentifier = a })
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusters request
@@ -86,44 +86,44 @@ dcm1ClusterIdentifier =
 -- records by providing the returned marker value in the Marker parameter
 -- and retrying the request. Constraints: You can specify either the
 -- ClusterIdentifier parameter or the Marker parameter, but not both.
-dcm1Marker :: Lens' DescribeClustersMessage (Maybe Text)
-dcm1Marker = lens _dcm1Marker (\s a -> s { _dcm1Marker = a })
+dcMarker :: Lens' DescribeClusters (Maybe Text)
+dcMarker = lens _dcMarker (\s a -> s { _dcMarker = a })
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcm1MaxRecords :: Lens' DescribeClustersMessage (Maybe Int)
-dcm1MaxRecords = lens _dcm1MaxRecords (\s a -> s { _dcm1MaxRecords = a })
+dcMaxRecords :: Lens' DescribeClusters (Maybe Int)
+dcMaxRecords = lens _dcMaxRecords (\s a -> s { _dcMaxRecords = a })
 
-instance ToQuery DescribeClustersMessage
+instance ToQuery DescribeClusters
 
-instance ToPath DescribeClustersMessage where
+instance ToPath DescribeClusters where
     toPath = const "/"
 
-data ClustersMessage = ClustersMessage
-    { _cmClusters :: [Cluster]
-    , _cmMarker   :: Maybe Text
+data DescribeClustersResponse = DescribeClustersResponse
+    { _dcrClusters :: [Cluster]
+    , _dcrMarker   :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'ClustersMessage' constructor.
+-- | 'DescribeClustersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmClusters' @::@ ['Cluster']
+-- * 'dcrClusters' @::@ ['Cluster']
 --
--- * 'cmMarker' @::@ 'Maybe' 'Text'
+-- * 'dcrMarker' @::@ 'Maybe' 'Text'
 --
-describeClustersResponse :: ClustersMessage
-describeClustersResponse = ClustersMessage
-    { _cmMarker   = Nothing
-    , _cmClusters = mempty
+describeClustersResponse :: DescribeClustersResponse
+describeClustersResponse = DescribeClustersResponse
+    { _dcrMarker   = Nothing
+    , _dcrClusters = mempty
     }
 
 -- | A list of Cluster objects, where each object describes one cluster.
-cmClusters :: Lens' ClustersMessage [Cluster]
-cmClusters = lens _cmClusters (\s a -> s { _cmClusters = a })
+dcrClusters :: Lens' DescribeClustersResponse [Cluster]
+dcrClusters = lens _dcrClusters (\s a -> s { _dcrClusters = a })
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -131,18 +131,18 @@ cmClusters = lens _cmClusters (\s a -> s { _cmClusters = a })
 -- marker value in the Marker parameter and retrying the command. If the
 -- Marker field is empty, all response records have been retrieved for the
 -- request.
-cmMarker :: Lens' ClustersMessage (Maybe Text)
-cmMarker = lens _cmMarker (\s a -> s { _cmMarker = a })
+dcrMarker :: Lens' DescribeClustersResponse (Maybe Text)
+dcrMarker = lens _dcrMarker (\s a -> s { _dcrMarker = a })
 
-instance FromXML ClustersMessage where
+instance FromXML DescribeClustersResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ClustersMessage"
+    fromXMLRoot    = fromRoot "DescribeClustersResponse"
 
-instance AWSRequest DescribeClustersMessage where
-    type Sv DescribeClustersMessage = Redshift
-    type Rs DescribeClustersMessage = ClustersMessage
+instance AWSRequest DescribeClusters where
+    type Sv DescribeClusters = Redshift
+    type Rs DescribeClusters = DescribeClustersResponse
 
     request  = post "DescribeClusters"
-    response = xmlResponse $ \h x -> ClustersMessage
+    response = xmlResponse $ \h x -> DescribeClustersResponse
         <$> x %| "Clusters"
         <*> x %| "Marker"

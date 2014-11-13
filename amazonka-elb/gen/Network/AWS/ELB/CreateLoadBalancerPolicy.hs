@@ -27,14 +27,14 @@
 module Network.AWS.ELB.CreateLoadBalancerPolicy
     (
     -- * Request
-      CreateLoadBalancerPolicyInput
+      CreateLoadBalancerPolicy
     -- ** Request constructor
     , createLoadBalancerPolicy
     -- ** Request lenses
-    , clbpiLoadBalancerName
-    , clbpiPolicyAttributes
-    , clbpiPolicyName
-    , clbpiPolicyTypeName
+    , clbpLoadBalancerName
+    , clbpPolicyAttributes
+    , clbpPolicyName
+    , clbpPolicyTypeName
 
     -- * Response
     , CreateLoadBalancerPolicyResponse
@@ -46,61 +46,61 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data CreateLoadBalancerPolicyInput = CreateLoadBalancerPolicyInput
-    { _clbpiLoadBalancerName :: Text
-    , _clbpiPolicyAttributes :: [PolicyAttribute]
-    , _clbpiPolicyName       :: Text
-    , _clbpiPolicyTypeName   :: Text
+data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy
+    { _clbpLoadBalancerName :: Text
+    , _clbpPolicyAttributes :: [PolicyAttribute]
+    , _clbpPolicyName       :: Text
+    , _clbpPolicyTypeName   :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'CreateLoadBalancerPolicyInput' constructor.
+-- | 'CreateLoadBalancerPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clbpiLoadBalancerName' @::@ 'Text'
+-- * 'clbpLoadBalancerName' @::@ 'Text'
 --
--- * 'clbpiPolicyAttributes' @::@ ['PolicyAttribute']
+-- * 'clbpPolicyAttributes' @::@ ['PolicyAttribute']
 --
--- * 'clbpiPolicyName' @::@ 'Text'
+-- * 'clbpPolicyName' @::@ 'Text'
 --
--- * 'clbpiPolicyTypeName' @::@ 'Text'
+-- * 'clbpPolicyTypeName' @::@ 'Text'
 --
-createLoadBalancerPolicy :: Text -- ^ 'clbpiLoadBalancerName'
-                         -> Text -- ^ 'clbpiPolicyName'
-                         -> Text -- ^ 'clbpiPolicyTypeName'
-                         -> CreateLoadBalancerPolicyInput
-createLoadBalancerPolicy p1 p2 p3 = CreateLoadBalancerPolicyInput
-    { _clbpiLoadBalancerName = p1
-    , _clbpiPolicyName       = p2
-    , _clbpiPolicyTypeName   = p3
-    , _clbpiPolicyAttributes = mempty
+createLoadBalancerPolicy :: Text -- ^ 'clbpLoadBalancerName'
+                         -> Text -- ^ 'clbpPolicyName'
+                         -> Text -- ^ 'clbpPolicyTypeName'
+                         -> CreateLoadBalancerPolicy
+createLoadBalancerPolicy p1 p2 p3 = CreateLoadBalancerPolicy
+    { _clbpLoadBalancerName = p1
+    , _clbpPolicyName       = p2
+    , _clbpPolicyTypeName   = p3
+    , _clbpPolicyAttributes = mempty
     }
 
 -- | The name associated with the LoadBalancer for which the policy is being
 -- created.
-clbpiLoadBalancerName :: Lens' CreateLoadBalancerPolicyInput Text
-clbpiLoadBalancerName =
-    lens _clbpiLoadBalancerName (\s a -> s { _clbpiLoadBalancerName = a })
+clbpLoadBalancerName :: Lens' CreateLoadBalancerPolicy Text
+clbpLoadBalancerName =
+    lens _clbpLoadBalancerName (\s a -> s { _clbpLoadBalancerName = a })
 
 -- | A list of attributes associated with the policy being created.
-clbpiPolicyAttributes :: Lens' CreateLoadBalancerPolicyInput [PolicyAttribute]
-clbpiPolicyAttributes =
-    lens _clbpiPolicyAttributes (\s a -> s { _clbpiPolicyAttributes = a })
+clbpPolicyAttributes :: Lens' CreateLoadBalancerPolicy [PolicyAttribute]
+clbpPolicyAttributes =
+    lens _clbpPolicyAttributes (\s a -> s { _clbpPolicyAttributes = a })
 
 -- | The name of the load balancer policy being created. The name must be
 -- unique within the set of policies for this load balancer.
-clbpiPolicyName :: Lens' CreateLoadBalancerPolicyInput Text
-clbpiPolicyName = lens _clbpiPolicyName (\s a -> s { _clbpiPolicyName = a })
+clbpPolicyName :: Lens' CreateLoadBalancerPolicy Text
+clbpPolicyName = lens _clbpPolicyName (\s a -> s { _clbpPolicyName = a })
 
 -- | The name of the base policy type being used to create this policy. To get
 -- the list of policy types, use the DescribeLoadBalancerPolicyTypes action.
-clbpiPolicyTypeName :: Lens' CreateLoadBalancerPolicyInput Text
-clbpiPolicyTypeName =
-    lens _clbpiPolicyTypeName (\s a -> s { _clbpiPolicyTypeName = a })
+clbpPolicyTypeName :: Lens' CreateLoadBalancerPolicy Text
+clbpPolicyTypeName =
+    lens _clbpPolicyTypeName (\s a -> s { _clbpPolicyTypeName = a })
 
-instance ToQuery CreateLoadBalancerPolicyInput
+instance ToQuery CreateLoadBalancerPolicy
 
-instance ToPath CreateLoadBalancerPolicyInput where
+instance ToPath CreateLoadBalancerPolicy where
     toPath = const "/"
 
 data CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse
@@ -114,9 +114,9 @@ instance FromXML CreateLoadBalancerPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateLoadBalancerPolicyResponse"
 
-instance AWSRequest CreateLoadBalancerPolicyInput where
-    type Sv CreateLoadBalancerPolicyInput = ELB
-    type Rs CreateLoadBalancerPolicyInput = CreateLoadBalancerPolicyResponse
+instance AWSRequest CreateLoadBalancerPolicy where
+    type Sv CreateLoadBalancerPolicy = ELB
+    type Rs CreateLoadBalancerPolicy = CreateLoadBalancerPolicyResponse
 
     request  = post "CreateLoadBalancerPolicy"
     response = nullaryResponse CreateLoadBalancerPolicyResponse

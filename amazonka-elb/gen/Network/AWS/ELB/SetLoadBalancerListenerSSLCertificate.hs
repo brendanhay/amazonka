@@ -28,13 +28,13 @@
 module Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate
     (
     -- * Request
-      SetLoadBalancerListenerSSLCertificateInput
+      SetLoadBalancerListenerSSLCertificate
     -- ** Request constructor
     , setLoadBalancerListenerSSLCertificate
     -- ** Request lenses
-    , slblsslciLoadBalancerName
-    , slblsslciLoadBalancerPort
-    , slblsslciSSLCertificateId
+    , slblsslcLoadBalancerName
+    , slblsslcLoadBalancerPort
+    , slblsslcSSLCertificateId
 
     -- * Response
     , SetLoadBalancerListenerSSLCertificateResponse
@@ -46,55 +46,55 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data SetLoadBalancerListenerSSLCertificateInput = SetLoadBalancerListenerSSLCertificateInput
-    { _slblsslciLoadBalancerName :: Text
-    , _slblsslciLoadBalancerPort :: Int
-    , _slblsslciSSLCertificateId :: Text
+data SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificate
+    { _slblsslcLoadBalancerName :: Text
+    , _slblsslcLoadBalancerPort :: Int
+    , _slblsslcSSLCertificateId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'SetLoadBalancerListenerSSLCertificateInput' constructor.
+-- | 'SetLoadBalancerListenerSSLCertificate' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'slblsslciLoadBalancerName' @::@ 'Text'
+-- * 'slblsslcLoadBalancerName' @::@ 'Text'
 --
--- * 'slblsslciLoadBalancerPort' @::@ 'Int'
+-- * 'slblsslcLoadBalancerPort' @::@ 'Int'
 --
--- * 'slblsslciSSLCertificateId' @::@ 'Text'
+-- * 'slblsslcSSLCertificateId' @::@ 'Text'
 --
-setLoadBalancerListenerSSLCertificate :: Text -- ^ 'slblsslciLoadBalancerName'
-                                      -> Int -- ^ 'slblsslciLoadBalancerPort'
-                                      -> Text -- ^ 'slblsslciSSLCertificateId'
-                                      -> SetLoadBalancerListenerSSLCertificateInput
-setLoadBalancerListenerSSLCertificate p1 p2 p3 = SetLoadBalancerListenerSSLCertificateInput
-    { _slblsslciLoadBalancerName = p1
-    , _slblsslciLoadBalancerPort = p2
-    , _slblsslciSSLCertificateId = p3
+setLoadBalancerListenerSSLCertificate :: Text -- ^ 'slblsslcLoadBalancerName'
+                                      -> Int -- ^ 'slblsslcLoadBalancerPort'
+                                      -> Text -- ^ 'slblsslcSSLCertificateId'
+                                      -> SetLoadBalancerListenerSSLCertificate
+setLoadBalancerListenerSSLCertificate p1 p2 p3 = SetLoadBalancerListenerSSLCertificate
+    { _slblsslcLoadBalancerName = p1
+    , _slblsslcLoadBalancerPort = p2
+    , _slblsslcSSLCertificateId = p3
     }
 
 -- | The name of the load balancer.
-slblsslciLoadBalancerName :: Lens' SetLoadBalancerListenerSSLCertificateInput Text
-slblsslciLoadBalancerName =
-    lens _slblsslciLoadBalancerName
-        (\s a -> s { _slblsslciLoadBalancerName = a })
+slblsslcLoadBalancerName :: Lens' SetLoadBalancerListenerSSLCertificate Text
+slblsslcLoadBalancerName =
+    lens _slblsslcLoadBalancerName
+        (\s a -> s { _slblsslcLoadBalancerName = a })
 
 -- | The port that uses the specified SSL certificate.
-slblsslciLoadBalancerPort :: Lens' SetLoadBalancerListenerSSLCertificateInput Int
-slblsslciLoadBalancerPort =
-    lens _slblsslciLoadBalancerPort
-        (\s a -> s { _slblsslciLoadBalancerPort = a })
+slblsslcLoadBalancerPort :: Lens' SetLoadBalancerListenerSSLCertificate Int
+slblsslcLoadBalancerPort =
+    lens _slblsslcLoadBalancerPort
+        (\s a -> s { _slblsslcLoadBalancerPort = a })
 
 -- | The Amazon Resource Number (ARN) of the SSL certificate chain to use. For
 -- more information on SSL certificates, see Managing Server Certificates in
 -- the AWS Identity and Access Management User Guide.
-slblsslciSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificateInput Text
-slblsslciSSLCertificateId =
-    lens _slblsslciSSLCertificateId
-        (\s a -> s { _slblsslciSSLCertificateId = a })
+slblsslcSSLCertificateId :: Lens' SetLoadBalancerListenerSSLCertificate Text
+slblsslcSSLCertificateId =
+    lens _slblsslcSSLCertificateId
+        (\s a -> s { _slblsslcSSLCertificateId = a })
 
-instance ToQuery SetLoadBalancerListenerSSLCertificateInput
+instance ToQuery SetLoadBalancerListenerSSLCertificate
 
-instance ToPath SetLoadBalancerListenerSSLCertificateInput where
+instance ToPath SetLoadBalancerListenerSSLCertificate where
     toPath = const "/"
 
 data SetLoadBalancerListenerSSLCertificateResponse = SetLoadBalancerListenerSSLCertificateResponse
@@ -108,9 +108,9 @@ instance FromXML SetLoadBalancerListenerSSLCertificateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetLoadBalancerListenerSSLCertificateResponse"
 
-instance AWSRequest SetLoadBalancerListenerSSLCertificateInput where
-    type Sv SetLoadBalancerListenerSSLCertificateInput = ELB
-    type Rs SetLoadBalancerListenerSSLCertificateInput = SetLoadBalancerListenerSSLCertificateResponse
+instance AWSRequest SetLoadBalancerListenerSSLCertificate where
+    type Sv SetLoadBalancerListenerSSLCertificate = ELB
+    type Rs SetLoadBalancerListenerSSLCertificate = SetLoadBalancerListenerSSLCertificateResponse
 
     request  = post "SetLoadBalancerListenerSSLCertificate"
     response = nullaryResponse SetLoadBalancerListenerSSLCertificateResponse

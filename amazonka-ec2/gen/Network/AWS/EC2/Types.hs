@@ -300,13 +300,13 @@ module Network.AWS.EC2.Types
     -- * ConversionTask
     , ConversionTask
     , conversionTask
-    , ct1ConversionTaskId
-    , ct1ExpirationTime
-    , ct1ImportInstance
-    , ct1ImportVolume
-    , ct1State
-    , ct1StatusMessage
-    , ct1Tags
+    , ctConversionTaskId
+    , ctExpirationTime
+    , ctImportInstance
+    , ctImportVolume
+    , ctState
+    , ctStatusMessage
+    , ctTags
 
     -- * AttachmentStatus
     , AttachmentStatus (..)
@@ -1181,22 +1181,22 @@ module Network.AWS.EC2.Types
     -- * ReservedInstances
     , ReservedInstances
     , reservedInstances
-    , riAvailabilityZone
-    , riCurrencyCode
-    , riDuration
-    , riEnd
-    , riFixedPrice
-    , riInstanceCount
-    , riInstanceTenancy
-    , riInstanceType
-    , riOfferingType
-    , riProductDescription
-    , riRecurringCharges
-    , riReservedInstancesId
-    , riStart
-    , riState
-    , riTags
-    , riUsagePrice
+    , ri1AvailabilityZone
+    , ri1CurrencyCode
+    , ri1Duration
+    , ri1End
+    , ri1FixedPrice
+    , ri1InstanceCount
+    , ri1InstanceTenancy
+    , ri1InstanceType
+    , ri1OfferingType
+    , ri1ProductDescription
+    , ri1RecurringCharges
+    , ri1ReservedInstancesId
+    , ri1Start
+    , ri1State
+    , ri1Tags
+    , ri1UsagePrice
 
     -- * DatafeedSubscriptionState
     , DatafeedSubscriptionState (..)
@@ -3299,78 +3299,76 @@ instance FromXML BlockDeviceMapping where
 instance ToQuery BlockDeviceMapping
 
 data ConversionTask = ConversionTask
-    { _ct1ConversionTaskId :: Text
-    , _ct1ExpirationTime   :: Maybe Text
-    , _ct1ImportInstance   :: Maybe ImportInstanceTaskDetails
-    , _ct1ImportVolume     :: Maybe ImportVolumeTaskDetails
-    , _ct1State            :: Text
-    , _ct1StatusMessage    :: Maybe Text
-    , _ct1Tags             :: [Tag]
+    { _ctConversionTaskId :: Text
+    , _ctExpirationTime   :: Maybe Text
+    , _ctImportInstance   :: Maybe ImportInstanceTaskDetails
+    , _ctImportVolume     :: Maybe ImportVolumeTaskDetails
+    , _ctState            :: Text
+    , _ctStatusMessage    :: Maybe Text
+    , _ctTags             :: [Tag]
     } deriving (Eq, Show, Generic)
 
 -- | 'ConversionTask' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ct1ConversionTaskId' @::@ 'Text'
+-- * 'ctConversionTaskId' @::@ 'Text'
 --
--- * 'ct1ExpirationTime' @::@ 'Maybe' 'Text'
+-- * 'ctExpirationTime' @::@ 'Maybe' 'Text'
 --
--- * 'ct1ImportInstance' @::@ 'Maybe' 'ImportInstanceTaskDetails'
+-- * 'ctImportInstance' @::@ 'Maybe' 'ImportInstanceTaskDetails'
 --
--- * 'ct1ImportVolume' @::@ 'Maybe' 'ImportVolumeTaskDetails'
+-- * 'ctImportVolume' @::@ 'Maybe' 'ImportVolumeTaskDetails'
 --
--- * 'ct1State' @::@ 'Text'
+-- * 'ctState' @::@ 'Text'
 --
--- * 'ct1StatusMessage' @::@ 'Maybe' 'Text'
+-- * 'ctStatusMessage' @::@ 'Maybe' 'Text'
 --
--- * 'ct1Tags' @::@ ['Tag']
+-- * 'ctTags' @::@ ['Tag']
 --
-conversionTask :: Text -- ^ 'ct1ConversionTaskId'
-               -> Text -- ^ 'ct1State'
+conversionTask :: Text -- ^ 'ctConversionTaskId'
+               -> Text -- ^ 'ctState'
                -> ConversionTask
 conversionTask p1 p2 = ConversionTask
-    { _ct1ConversionTaskId = p1
-    , _ct1State            = p2
-    , _ct1ExpirationTime   = Nothing
-    , _ct1ImportInstance   = Nothing
-    , _ct1ImportVolume     = Nothing
-    , _ct1StatusMessage    = Nothing
-    , _ct1Tags             = mempty
+    { _ctConversionTaskId = p1
+    , _ctState            = p2
+    , _ctExpirationTime   = Nothing
+    , _ctImportInstance   = Nothing
+    , _ctImportVolume     = Nothing
+    , _ctStatusMessage    = Nothing
+    , _ctTags             = mempty
     }
 
 -- | The ID of the conversion task.
-ct1ConversionTaskId :: Lens' ConversionTask Text
-ct1ConversionTaskId =
-    lens _ct1ConversionTaskId (\s a -> s { _ct1ConversionTaskId = a })
+ctConversionTaskId :: Lens' ConversionTask Text
+ctConversionTaskId =
+    lens _ctConversionTaskId (\s a -> s { _ctConversionTaskId = a })
 
 -- | The time when the task expires. If the upload isn't complete before the
 -- expiration time, we automatically cancel the task.
-ct1ExpirationTime :: Lens' ConversionTask (Maybe Text)
-ct1ExpirationTime =
-    lens _ct1ExpirationTime (\s a -> s { _ct1ExpirationTime = a })
+ctExpirationTime :: Lens' ConversionTask (Maybe Text)
+ctExpirationTime = lens _ctExpirationTime (\s a -> s { _ctExpirationTime = a })
 
 -- | If the task is for importing an instance, this contains information about
 -- the import instance task.
-ct1ImportInstance :: Lens' ConversionTask (Maybe ImportInstanceTaskDetails)
-ct1ImportInstance =
-    lens _ct1ImportInstance (\s a -> s { _ct1ImportInstance = a })
+ctImportInstance :: Lens' ConversionTask (Maybe ImportInstanceTaskDetails)
+ctImportInstance = lens _ctImportInstance (\s a -> s { _ctImportInstance = a })
 
 -- | If the task is for importing a volume, this contains information about
 -- the import volume task.
-ct1ImportVolume :: Lens' ConversionTask (Maybe ImportVolumeTaskDetails)
-ct1ImportVolume = lens _ct1ImportVolume (\s a -> s { _ct1ImportVolume = a })
+ctImportVolume :: Lens' ConversionTask (Maybe ImportVolumeTaskDetails)
+ctImportVolume = lens _ctImportVolume (\s a -> s { _ctImportVolume = a })
 
 -- | The state of the conversion task.
-ct1State :: Lens' ConversionTask Text
-ct1State = lens _ct1State (\s a -> s { _ct1State = a })
+ctState :: Lens' ConversionTask Text
+ctState = lens _ctState (\s a -> s { _ctState = a })
 
 -- | The status message related to the conversion task.
-ct1StatusMessage :: Lens' ConversionTask (Maybe Text)
-ct1StatusMessage = lens _ct1StatusMessage (\s a -> s { _ct1StatusMessage = a })
+ctStatusMessage :: Lens' ConversionTask (Maybe Text)
+ctStatusMessage = lens _ctStatusMessage (\s a -> s { _ctStatusMessage = a })
 
-ct1Tags :: Lens' ConversionTask [Tag]
-ct1Tags = lens _ct1Tags (\s a -> s { _ct1Tags = a })
+ctTags :: Lens' ConversionTask [Tag]
+ctTags = lens _ctTags (\s a -> s { _ctTags = a })
 
 instance FromXML ConversionTask where
     fromXMLOptions = xmlOptions
@@ -9441,152 +9439,152 @@ instance FromXML ReservedInstancesOffering where
 instance ToQuery ReservedInstancesOffering
 
 data ReservedInstances = ReservedInstances
-    { _riAvailabilityZone    :: Maybe Text
-    , _riCurrencyCode        :: Maybe Text
-    , _riDuration            :: Maybe Integer
-    , _riEnd                 :: Maybe RFC822
-    , _riFixedPrice          :: Maybe Double
-    , _riInstanceCount       :: Maybe Int
-    , _riInstanceTenancy     :: Maybe Text
-    , _riInstanceType        :: Maybe Text
-    , _riOfferingType        :: Maybe Text
-    , _riProductDescription  :: Maybe Text
-    , _riRecurringCharges    :: [RecurringCharge]
-    , _riReservedInstancesId :: Maybe Text
-    , _riStart               :: Maybe RFC822
-    , _riState               :: Maybe Text
-    , _riTags                :: [Tag]
-    , _riUsagePrice          :: Maybe Double
+    { _ri1AvailabilityZone    :: Maybe Text
+    , _ri1CurrencyCode        :: Maybe Text
+    , _ri1Duration            :: Maybe Integer
+    , _ri1End                 :: Maybe RFC822
+    , _ri1FixedPrice          :: Maybe Double
+    , _ri1InstanceCount       :: Maybe Int
+    , _ri1InstanceTenancy     :: Maybe Text
+    , _ri1InstanceType        :: Maybe Text
+    , _ri1OfferingType        :: Maybe Text
+    , _ri1ProductDescription  :: Maybe Text
+    , _ri1RecurringCharges    :: [RecurringCharge]
+    , _ri1ReservedInstancesId :: Maybe Text
+    , _ri1Start               :: Maybe RFC822
+    , _ri1State               :: Maybe Text
+    , _ri1Tags                :: [Tag]
+    , _ri1UsagePrice          :: Maybe Double
     } deriving (Eq, Show, Generic)
 
 -- | 'ReservedInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'riAvailabilityZone' @::@ 'Maybe' 'Text'
+-- * 'ri1AvailabilityZone' @::@ 'Maybe' 'Text'
 --
--- * 'riCurrencyCode' @::@ 'Maybe' 'Text'
+-- * 'ri1CurrencyCode' @::@ 'Maybe' 'Text'
 --
--- * 'riDuration' @::@ 'Maybe' 'Integer'
+-- * 'ri1Duration' @::@ 'Maybe' 'Integer'
 --
--- * 'riEnd' @::@ 'Maybe' 'UTCTime'
+-- * 'ri1End' @::@ 'Maybe' 'UTCTime'
 --
--- * 'riFixedPrice' @::@ 'Maybe' 'Double'
+-- * 'ri1FixedPrice' @::@ 'Maybe' 'Double'
 --
--- * 'riInstanceCount' @::@ 'Maybe' 'Int'
+-- * 'ri1InstanceCount' @::@ 'Maybe' 'Int'
 --
--- * 'riInstanceTenancy' @::@ 'Maybe' 'Text'
+-- * 'ri1InstanceTenancy' @::@ 'Maybe' 'Text'
 --
--- * 'riInstanceType' @::@ 'Maybe' 'Text'
+-- * 'ri1InstanceType' @::@ 'Maybe' 'Text'
 --
--- * 'riOfferingType' @::@ 'Maybe' 'Text'
+-- * 'ri1OfferingType' @::@ 'Maybe' 'Text'
 --
--- * 'riProductDescription' @::@ 'Maybe' 'Text'
+-- * 'ri1ProductDescription' @::@ 'Maybe' 'Text'
 --
--- * 'riRecurringCharges' @::@ ['RecurringCharge']
+-- * 'ri1RecurringCharges' @::@ ['RecurringCharge']
 --
--- * 'riReservedInstancesId' @::@ 'Maybe' 'Text'
+-- * 'ri1ReservedInstancesId' @::@ 'Maybe' 'Text'
 --
--- * 'riStart' @::@ 'Maybe' 'UTCTime'
+-- * 'ri1Start' @::@ 'Maybe' 'UTCTime'
 --
--- * 'riState' @::@ 'Maybe' 'Text'
+-- * 'ri1State' @::@ 'Maybe' 'Text'
 --
--- * 'riTags' @::@ ['Tag']
+-- * 'ri1Tags' @::@ ['Tag']
 --
--- * 'riUsagePrice' @::@ 'Maybe' 'Double'
+-- * 'ri1UsagePrice' @::@ 'Maybe' 'Double'
 --
 reservedInstances :: ReservedInstances
 reservedInstances = ReservedInstances
-    { _riReservedInstancesId = Nothing
-    , _riInstanceType        = Nothing
-    , _riAvailabilityZone    = Nothing
-    , _riStart               = Nothing
-    , _riEnd                 = Nothing
-    , _riDuration            = Nothing
-    , _riUsagePrice          = Nothing
-    , _riFixedPrice          = Nothing
-    , _riInstanceCount       = Nothing
-    , _riProductDescription  = Nothing
-    , _riState               = Nothing
-    , _riTags                = mempty
-    , _riInstanceTenancy     = Nothing
-    , _riCurrencyCode        = Nothing
-    , _riOfferingType        = Nothing
-    , _riRecurringCharges    = mempty
+    { _ri1ReservedInstancesId = Nothing
+    , _ri1InstanceType        = Nothing
+    , _ri1AvailabilityZone    = Nothing
+    , _ri1Start               = Nothing
+    , _ri1End                 = Nothing
+    , _ri1Duration            = Nothing
+    , _ri1UsagePrice          = Nothing
+    , _ri1FixedPrice          = Nothing
+    , _ri1InstanceCount       = Nothing
+    , _ri1ProductDescription  = Nothing
+    , _ri1State               = Nothing
+    , _ri1Tags                = mempty
+    , _ri1InstanceTenancy     = Nothing
+    , _ri1CurrencyCode        = Nothing
+    , _ri1OfferingType        = Nothing
+    , _ri1RecurringCharges    = mempty
     }
 
 -- | The Availability Zone in which the Reserved Instance can be used.
-riAvailabilityZone :: Lens' ReservedInstances (Maybe Text)
-riAvailabilityZone =
-    lens _riAvailabilityZone (\s a -> s { _riAvailabilityZone = a })
+ri1AvailabilityZone :: Lens' ReservedInstances (Maybe Text)
+ri1AvailabilityZone =
+    lens _ri1AvailabilityZone (\s a -> s { _ri1AvailabilityZone = a })
 
 -- | The currency of the Reserved Instance. It's specified using ISO 4217
 -- standard currency codes. At this time, the only supported currency is
 -- USD.
-riCurrencyCode :: Lens' ReservedInstances (Maybe Text)
-riCurrencyCode = lens _riCurrencyCode (\s a -> s { _riCurrencyCode = a })
+ri1CurrencyCode :: Lens' ReservedInstances (Maybe Text)
+ri1CurrencyCode = lens _ri1CurrencyCode (\s a -> s { _ri1CurrencyCode = a })
 
 -- | The duration of the Reserved Instance, in seconds.
-riDuration :: Lens' ReservedInstances (Maybe Integer)
-riDuration = lens _riDuration (\s a -> s { _riDuration = a })
+ri1Duration :: Lens' ReservedInstances (Maybe Integer)
+ri1Duration = lens _ri1Duration (\s a -> s { _ri1Duration = a })
 
 -- | The time when the Reserved Instance expires.
-riEnd :: Lens' ReservedInstances (Maybe UTCTime)
-riEnd = lens _riEnd (\s a -> s { _riEnd = a })
+ri1End :: Lens' ReservedInstances (Maybe UTCTime)
+ri1End = lens _ri1End (\s a -> s { _ri1End = a })
     . mapping _Time
 
 -- | The purchase price of the Reserved Instance.
-riFixedPrice :: Lens' ReservedInstances (Maybe Double)
-riFixedPrice = lens _riFixedPrice (\s a -> s { _riFixedPrice = a })
+ri1FixedPrice :: Lens' ReservedInstances (Maybe Double)
+ri1FixedPrice = lens _ri1FixedPrice (\s a -> s { _ri1FixedPrice = a })
 
 -- | The number of Reserved Instances purchased.
-riInstanceCount :: Lens' ReservedInstances (Maybe Int)
-riInstanceCount = lens _riInstanceCount (\s a -> s { _riInstanceCount = a })
+ri1InstanceCount :: Lens' ReservedInstances (Maybe Int)
+ri1InstanceCount = lens _ri1InstanceCount (\s a -> s { _ri1InstanceCount = a })
 
 -- | The tenancy of the reserved instance.
-riInstanceTenancy :: Lens' ReservedInstances (Maybe Text)
-riInstanceTenancy =
-    lens _riInstanceTenancy (\s a -> s { _riInstanceTenancy = a })
+ri1InstanceTenancy :: Lens' ReservedInstances (Maybe Text)
+ri1InstanceTenancy =
+    lens _ri1InstanceTenancy (\s a -> s { _ri1InstanceTenancy = a })
 
 -- | The instance type on which the Reserved Instance can be used.
-riInstanceType :: Lens' ReservedInstances (Maybe Text)
-riInstanceType = lens _riInstanceType (\s a -> s { _riInstanceType = a })
+ri1InstanceType :: Lens' ReservedInstances (Maybe Text)
+ri1InstanceType = lens _ri1InstanceType (\s a -> s { _ri1InstanceType = a })
 
 -- | The Reserved Instance offering type.
-riOfferingType :: Lens' ReservedInstances (Maybe Text)
-riOfferingType = lens _riOfferingType (\s a -> s { _riOfferingType = a })
+ri1OfferingType :: Lens' ReservedInstances (Maybe Text)
+ri1OfferingType = lens _ri1OfferingType (\s a -> s { _ri1OfferingType = a })
 
 -- | The Reserved Instance description.
-riProductDescription :: Lens' ReservedInstances (Maybe Text)
-riProductDescription =
-    lens _riProductDescription (\s a -> s { _riProductDescription = a })
+ri1ProductDescription :: Lens' ReservedInstances (Maybe Text)
+ri1ProductDescription =
+    lens _ri1ProductDescription (\s a -> s { _ri1ProductDescription = a })
 
 -- | The recurring charge tag assigned to the resource.
-riRecurringCharges :: Lens' ReservedInstances [RecurringCharge]
-riRecurringCharges =
-    lens _riRecurringCharges (\s a -> s { _riRecurringCharges = a })
+ri1RecurringCharges :: Lens' ReservedInstances [RecurringCharge]
+ri1RecurringCharges =
+    lens _ri1RecurringCharges (\s a -> s { _ri1RecurringCharges = a })
 
 -- | The ID of the Reserved Instance.
-riReservedInstancesId :: Lens' ReservedInstances (Maybe Text)
-riReservedInstancesId =
-    lens _riReservedInstancesId (\s a -> s { _riReservedInstancesId = a })
+ri1ReservedInstancesId :: Lens' ReservedInstances (Maybe Text)
+ri1ReservedInstancesId =
+    lens _ri1ReservedInstancesId (\s a -> s { _ri1ReservedInstancesId = a })
 
 -- | The date and time the Reserved Instance started.
-riStart :: Lens' ReservedInstances (Maybe UTCTime)
-riStart = lens _riStart (\s a -> s { _riStart = a })
+ri1Start :: Lens' ReservedInstances (Maybe UTCTime)
+ri1Start = lens _ri1Start (\s a -> s { _ri1Start = a })
     . mapping _Time
 
 -- | The state of the Reserved Instance purchase.
-riState :: Lens' ReservedInstances (Maybe Text)
-riState = lens _riState (\s a -> s { _riState = a })
+ri1State :: Lens' ReservedInstances (Maybe Text)
+ri1State = lens _ri1State (\s a -> s { _ri1State = a })
 
 -- | Any tags assigned to the resource.
-riTags :: Lens' ReservedInstances [Tag]
-riTags = lens _riTags (\s a -> s { _riTags = a })
+ri1Tags :: Lens' ReservedInstances [Tag]
+ri1Tags = lens _ri1Tags (\s a -> s { _ri1Tags = a })
 
 -- | The usage price of the Reserved Instance, per hour.
-riUsagePrice :: Lens' ReservedInstances (Maybe Double)
-riUsagePrice = lens _riUsagePrice (\s a -> s { _riUsagePrice = a })
+ri1UsagePrice :: Lens' ReservedInstances (Maybe Double)
+ri1UsagePrice = lens _ri1UsagePrice (\s a -> s { _ri1UsagePrice = a })
 
 instance FromXML ReservedInstances where
     fromXMLOptions = xmlOptions

@@ -24,11 +24,11 @@
 module Network.AWS.Redshift.DeleteHsmConfiguration
     (
     -- * Request
-      DeleteHsmConfigurationMessage
+      DeleteHsmConfiguration
     -- ** Request constructor
     , deleteHsmConfiguration
     -- ** Request lenses
-    , dhcm1HsmConfigurationIdentifier
+    , dhcHsmConfigurationIdentifier
 
     -- * Response
     , DeleteHsmConfigurationResponse
@@ -40,31 +40,31 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-newtype DeleteHsmConfigurationMessage = DeleteHsmConfigurationMessage
-    { _dhcm1HsmConfigurationIdentifier :: Text
+newtype DeleteHsmConfiguration = DeleteHsmConfiguration
+    { _dhcHsmConfigurationIdentifier :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteHsmConfigurationMessage' constructor.
+-- | 'DeleteHsmConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhcm1HsmConfigurationIdentifier' @::@ 'Text'
+-- * 'dhcHsmConfigurationIdentifier' @::@ 'Text'
 --
-deleteHsmConfiguration :: Text -- ^ 'dhcm1HsmConfigurationIdentifier'
-                       -> DeleteHsmConfigurationMessage
-deleteHsmConfiguration p1 = DeleteHsmConfigurationMessage
-    { _dhcm1HsmConfigurationIdentifier = p1
+deleteHsmConfiguration :: Text -- ^ 'dhcHsmConfigurationIdentifier'
+                       -> DeleteHsmConfiguration
+deleteHsmConfiguration p1 = DeleteHsmConfiguration
+    { _dhcHsmConfigurationIdentifier = p1
     }
 
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
-dhcm1HsmConfigurationIdentifier :: Lens' DeleteHsmConfigurationMessage Text
-dhcm1HsmConfigurationIdentifier =
-    lens _dhcm1HsmConfigurationIdentifier
-        (\s a -> s { _dhcm1HsmConfigurationIdentifier = a })
+dhcHsmConfigurationIdentifier :: Lens' DeleteHsmConfiguration Text
+dhcHsmConfigurationIdentifier =
+    lens _dhcHsmConfigurationIdentifier
+        (\s a -> s { _dhcHsmConfigurationIdentifier = a })
 
-instance ToQuery DeleteHsmConfigurationMessage
+instance ToQuery DeleteHsmConfiguration
 
-instance ToPath DeleteHsmConfigurationMessage where
+instance ToPath DeleteHsmConfiguration where
     toPath = const "/"
 
 data DeleteHsmConfigurationResponse = DeleteHsmConfigurationResponse
@@ -78,9 +78,9 @@ instance FromXML DeleteHsmConfigurationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteHsmConfigurationResponse"
 
-instance AWSRequest DeleteHsmConfigurationMessage where
-    type Sv DeleteHsmConfigurationMessage = Redshift
-    type Rs DeleteHsmConfigurationMessage = DeleteHsmConfigurationResponse
+instance AWSRequest DeleteHsmConfiguration where
+    type Sv DeleteHsmConfiguration = Redshift
+    type Rs DeleteHsmConfiguration = DeleteHsmConfigurationResponse
 
     request  = post "DeleteHsmConfiguration"
     response = nullaryResponse DeleteHsmConfigurationResponse

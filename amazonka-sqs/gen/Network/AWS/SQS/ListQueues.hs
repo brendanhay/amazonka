@@ -34,7 +34,7 @@ module Network.AWS.SQS.ListQueues
     , lqQueueNamePrefix
 
     -- * Response
-    , ListQueuesResult
+    , ListQueuesResponse
     -- ** Response constructor
     , listQueuesResponse
     -- ** Response lenses
@@ -71,39 +71,39 @@ instance ToQuery ListQueues
 instance ToPath ListQueues where
     toPath = const "/"
 
-newtype ListQueuesResult = ListQueuesResult
+newtype ListQueuesResponse = ListQueuesResponse
     { _lqrQueueUrls :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList ListQueuesResult where
-    type Item ListQueuesResult = Text
+instance IsList ListQueuesResponse where
+    type Item ListQueuesResponse = Text
 
-    fromList = ListQueuesResult . fromList
+    fromList = ListQueuesResponse . fromList
     toList   = toList . _lqrQueueUrls
 
--- | 'ListQueuesResult' constructor.
+-- | 'ListQueuesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lqrQueueUrls' @::@ ['Text']
 --
-listQueuesResponse :: ListQueuesResult
-listQueuesResponse = ListQueuesResult
+listQueuesResponse :: ListQueuesResponse
+listQueuesResponse = ListQueuesResponse
     { _lqrQueueUrls = mempty
     }
 
 -- | A list of queue URLs, up to 1000 entries.
-lqrQueueUrls :: Lens' ListQueuesResult [Text]
+lqrQueueUrls :: Lens' ListQueuesResponse [Text]
 lqrQueueUrls = lens _lqrQueueUrls (\s a -> s { _lqrQueueUrls = a })
 
-instance FromXML ListQueuesResult where
+instance FromXML ListQueuesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListQueuesResult"
+    fromXMLRoot    = fromRoot "ListQueuesResponse"
 
 instance AWSRequest ListQueues where
     type Sv ListQueues = SQS
-    type Rs ListQueues = ListQueuesResult
+    type Rs ListQueues = ListQueuesResponse
 
     request  = post "ListQueues"
-    response = xmlResponse $ \h x -> ListQueuesResult
+    response = xmlResponse $ \h x -> ListQueuesResponse
         <$> x %| "QueueUrls"

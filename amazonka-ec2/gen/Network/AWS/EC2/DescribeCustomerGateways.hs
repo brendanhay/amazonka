@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeCustomerGateways
     , dcgFilters
 
     -- * Response
-    , DescribeCustomerGatewaysResult
+    , DescribeCustomerGatewaysResponse
     -- ** Response constructor
     , describeCustomerGatewaysResponse
     -- ** Response lenses
@@ -101,40 +101,40 @@ instance ToQuery DescribeCustomerGateways
 instance ToPath DescribeCustomerGateways where
     toPath = const "/"
 
-newtype DescribeCustomerGatewaysResult = DescribeCustomerGatewaysResult
+newtype DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     { _dcgrCustomerGateways :: [CustomerGateway]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeCustomerGatewaysResult where
-    type Item DescribeCustomerGatewaysResult = CustomerGateway
+instance IsList DescribeCustomerGatewaysResponse where
+    type Item DescribeCustomerGatewaysResponse = CustomerGateway
 
-    fromList = DescribeCustomerGatewaysResult . fromList
+    fromList = DescribeCustomerGatewaysResponse . fromList
     toList   = toList . _dcgrCustomerGateways
 
--- | 'DescribeCustomerGatewaysResult' constructor.
+-- | 'DescribeCustomerGatewaysResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcgrCustomerGateways' @::@ ['CustomerGateway']
 --
-describeCustomerGatewaysResponse :: DescribeCustomerGatewaysResult
-describeCustomerGatewaysResponse = DescribeCustomerGatewaysResult
+describeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse
+describeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse
     { _dcgrCustomerGateways = mempty
     }
 
 -- | Information about one or more customer gateways.
-dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResult [CustomerGateway]
+dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
 dcgrCustomerGateways =
     lens _dcgrCustomerGateways (\s a -> s { _dcgrCustomerGateways = a })
 
-instance FromXML DescribeCustomerGatewaysResult where
+instance FromXML DescribeCustomerGatewaysResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeCustomerGatewaysResult"
+    fromXMLRoot    = fromRoot "DescribeCustomerGatewaysResponse"
 
 instance AWSRequest DescribeCustomerGateways where
     type Sv DescribeCustomerGateways = EC2
-    type Rs DescribeCustomerGateways = DescribeCustomerGatewaysResult
+    type Rs DescribeCustomerGateways = DescribeCustomerGatewaysResponse
 
     request  = post "DescribeCustomerGateways"
-    response = xmlResponse $ \h x -> DescribeCustomerGatewaysResult
+    response = xmlResponse $ \h x -> DescribeCustomerGatewaysResponse
         <$> x %| "customerGatewaySet"

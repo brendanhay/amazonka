@@ -28,147 +28,147 @@
 module Network.AWS.ImportExport.CreateJob
     (
     -- * Request
-      CreateJobInput
+      CreateJob
     -- ** Request constructor
     , createJob
     -- ** Request lenses
-    , cjiJobType
-    , cjiManifest
-    , cjiManifestAddendum
-    , cjiValidateOnly
+    , cjJobType
+    , cjManifest
+    , cjManifestAddendum
+    , cjValidateOnly
 
     -- * Response
-    , CreateJobOutput
+    , CreateJobResponse
     -- ** Response constructor
     , createJobResponse
     -- ** Response lenses
-    , cjoAwsShippingAddress
-    , cjoJobId
-    , cjoJobType
-    , cjoSignature
-    , cjoSignatureFileContents
-    , cjoWarningMessage
+    , cjrAwsShippingAddress
+    , cjrJobId
+    , cjrJobType
+    , cjrSignature
+    , cjrSignatureFileContents
+    , cjrWarningMessage
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
 
-data CreateJobInput = CreateJobInput
-    { _cjiJobType          :: Text
-    , _cjiManifest         :: Text
-    , _cjiManifestAddendum :: Maybe Text
-    , _cjiValidateOnly     :: Bool
+data CreateJob = CreateJob
+    { _cjJobType          :: Text
+    , _cjManifest         :: Text
+    , _cjManifestAddendum :: Maybe Text
+    , _cjValidateOnly     :: Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CreateJobInput' constructor.
+-- | 'CreateJob' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cjiJobType' @::@ 'Text'
+-- * 'cjJobType' @::@ 'Text'
 --
--- * 'cjiManifest' @::@ 'Text'
+-- * 'cjManifest' @::@ 'Text'
 --
--- * 'cjiManifestAddendum' @::@ 'Maybe' 'Text'
+-- * 'cjManifestAddendum' @::@ 'Maybe' 'Text'
 --
--- * 'cjiValidateOnly' @::@ 'Bool'
+-- * 'cjValidateOnly' @::@ 'Bool'
 --
-createJob :: Text -- ^ 'cjiJobType'
-          -> Text -- ^ 'cjiManifest'
-          -> Bool -- ^ 'cjiValidateOnly'
-          -> CreateJobInput
-createJob p1 p2 p3 = CreateJobInput
-    { _cjiJobType          = p1
-    , _cjiManifest         = p2
-    , _cjiValidateOnly     = p3
-    , _cjiManifestAddendum = Nothing
+createJob :: Text -- ^ 'cjJobType'
+          -> Text -- ^ 'cjManifest'
+          -> Bool -- ^ 'cjValidateOnly'
+          -> CreateJob
+createJob p1 p2 p3 = CreateJob
+    { _cjJobType          = p1
+    , _cjManifest         = p2
+    , _cjValidateOnly     = p3
+    , _cjManifestAddendum = Nothing
     }
 
-cjiJobType :: Lens' CreateJobInput Text
-cjiJobType = lens _cjiJobType (\s a -> s { _cjiJobType = a })
+cjJobType :: Lens' CreateJob Text
+cjJobType = lens _cjJobType (\s a -> s { _cjJobType = a })
 
-cjiManifest :: Lens' CreateJobInput Text
-cjiManifest = lens _cjiManifest (\s a -> s { _cjiManifest = a })
+cjManifest :: Lens' CreateJob Text
+cjManifest = lens _cjManifest (\s a -> s { _cjManifest = a })
 
-cjiManifestAddendum :: Lens' CreateJobInput (Maybe Text)
-cjiManifestAddendum =
-    lens _cjiManifestAddendum (\s a -> s { _cjiManifestAddendum = a })
+cjManifestAddendum :: Lens' CreateJob (Maybe Text)
+cjManifestAddendum =
+    lens _cjManifestAddendum (\s a -> s { _cjManifestAddendum = a })
 
-cjiValidateOnly :: Lens' CreateJobInput Bool
-cjiValidateOnly = lens _cjiValidateOnly (\s a -> s { _cjiValidateOnly = a })
+cjValidateOnly :: Lens' CreateJob Bool
+cjValidateOnly = lens _cjValidateOnly (\s a -> s { _cjValidateOnly = a })
 
-instance ToQuery CreateJobInput
+instance ToQuery CreateJob
 
-instance ToPath CreateJobInput where
+instance ToPath CreateJob where
     toPath = const "/"
 
-data CreateJobOutput = CreateJobOutput
-    { _cjoAwsShippingAddress    :: Maybe Text
-    , _cjoJobId                 :: Maybe Text
-    , _cjoJobType               :: Maybe Text
-    , _cjoSignature             :: Maybe Text
-    , _cjoSignatureFileContents :: Maybe Text
-    , _cjoWarningMessage        :: Maybe Text
+data CreateJobResponse = CreateJobResponse
+    { _cjrAwsShippingAddress    :: Maybe Text
+    , _cjrJobId                 :: Maybe Text
+    , _cjrJobType               :: Maybe Text
+    , _cjrSignature             :: Maybe Text
+    , _cjrSignatureFileContents :: Maybe Text
+    , _cjrWarningMessage        :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CreateJobOutput' constructor.
+-- | 'CreateJobResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cjoAwsShippingAddress' @::@ 'Maybe' 'Text'
+-- * 'cjrAwsShippingAddress' @::@ 'Maybe' 'Text'
 --
--- * 'cjoJobId' @::@ 'Maybe' 'Text'
+-- * 'cjrJobId' @::@ 'Maybe' 'Text'
 --
--- * 'cjoJobType' @::@ 'Maybe' 'Text'
+-- * 'cjrJobType' @::@ 'Maybe' 'Text'
 --
--- * 'cjoSignature' @::@ 'Maybe' 'Text'
+-- * 'cjrSignature' @::@ 'Maybe' 'Text'
 --
--- * 'cjoSignatureFileContents' @::@ 'Maybe' 'Text'
+-- * 'cjrSignatureFileContents' @::@ 'Maybe' 'Text'
 --
--- * 'cjoWarningMessage' @::@ 'Maybe' 'Text'
+-- * 'cjrWarningMessage' @::@ 'Maybe' 'Text'
 --
-createJobResponse :: CreateJobOutput
-createJobResponse = CreateJobOutput
-    { _cjoJobId                 = Nothing
-    , _cjoJobType               = Nothing
-    , _cjoAwsShippingAddress    = Nothing
-    , _cjoSignature             = Nothing
-    , _cjoSignatureFileContents = Nothing
-    , _cjoWarningMessage        = Nothing
+createJobResponse :: CreateJobResponse
+createJobResponse = CreateJobResponse
+    { _cjrJobId                 = Nothing
+    , _cjrJobType               = Nothing
+    , _cjrAwsShippingAddress    = Nothing
+    , _cjrSignature             = Nothing
+    , _cjrSignatureFileContents = Nothing
+    , _cjrWarningMessage        = Nothing
     }
 
-cjoAwsShippingAddress :: Lens' CreateJobOutput (Maybe Text)
-cjoAwsShippingAddress =
-    lens _cjoAwsShippingAddress (\s a -> s { _cjoAwsShippingAddress = a })
+cjrAwsShippingAddress :: Lens' CreateJobResponse (Maybe Text)
+cjrAwsShippingAddress =
+    lens _cjrAwsShippingAddress (\s a -> s { _cjrAwsShippingAddress = a })
 
-cjoJobId :: Lens' CreateJobOutput (Maybe Text)
-cjoJobId = lens _cjoJobId (\s a -> s { _cjoJobId = a })
+cjrJobId :: Lens' CreateJobResponse (Maybe Text)
+cjrJobId = lens _cjrJobId (\s a -> s { _cjrJobId = a })
 
-cjoJobType :: Lens' CreateJobOutput (Maybe Text)
-cjoJobType = lens _cjoJobType (\s a -> s { _cjoJobType = a })
+cjrJobType :: Lens' CreateJobResponse (Maybe Text)
+cjrJobType = lens _cjrJobType (\s a -> s { _cjrJobType = a })
 
-cjoSignature :: Lens' CreateJobOutput (Maybe Text)
-cjoSignature = lens _cjoSignature (\s a -> s { _cjoSignature = a })
+cjrSignature :: Lens' CreateJobResponse (Maybe Text)
+cjrSignature = lens _cjrSignature (\s a -> s { _cjrSignature = a })
 
-cjoSignatureFileContents :: Lens' CreateJobOutput (Maybe Text)
-cjoSignatureFileContents =
-    lens _cjoSignatureFileContents
-        (\s a -> s { _cjoSignatureFileContents = a })
+cjrSignatureFileContents :: Lens' CreateJobResponse (Maybe Text)
+cjrSignatureFileContents =
+    lens _cjrSignatureFileContents
+        (\s a -> s { _cjrSignatureFileContents = a })
 
-cjoWarningMessage :: Lens' CreateJobOutput (Maybe Text)
-cjoWarningMessage =
-    lens _cjoWarningMessage (\s a -> s { _cjoWarningMessage = a })
+cjrWarningMessage :: Lens' CreateJobResponse (Maybe Text)
+cjrWarningMessage =
+    lens _cjrWarningMessage (\s a -> s { _cjrWarningMessage = a })
 
-instance FromXML CreateJobOutput where
+instance FromXML CreateJobResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateJobOutput"
+    fromXMLRoot    = fromRoot "CreateJobResponse"
 
-instance AWSRequest CreateJobInput where
-    type Sv CreateJobInput = ImportExport
-    type Rs CreateJobInput = CreateJobOutput
+instance AWSRequest CreateJob where
+    type Sv CreateJob = ImportExport
+    type Rs CreateJob = CreateJobResponse
 
     request  = post "CreateJob"
-    response = xmlResponse $ \h x -> CreateJobOutput
+    response = xmlResponse $ \h x -> CreateJobResponse
         <$> x %| "AwsShippingAddress"
         <*> x %| "JobId"
         <*> x %| "JobType"

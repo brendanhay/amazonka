@@ -27,12 +27,12 @@
 module Network.AWS.AutoScaling.AttachInstances
     (
     -- * Request
-      AttachInstancesQuery
+      AttachInstances
     -- ** Request constructor
     , attachInstances
     -- ** Request lenses
-    , aiqAutoScalingGroupName
-    , aiqInstanceIds
+    , aiAutoScalingGroupName
+    , aiInstanceIds
 
     -- * Response
     , AttachInstancesResponse
@@ -44,40 +44,40 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data AttachInstancesQuery = AttachInstancesQuery
-    { _aiqAutoScalingGroupName :: Text
-    , _aiqInstanceIds          :: [Text]
+data AttachInstances = AttachInstances
+    { _aiAutoScalingGroupName :: Text
+    , _aiInstanceIds          :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'AttachInstancesQuery' constructor.
+-- | 'AttachInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aiqAutoScalingGroupName' @::@ 'Text'
+-- * 'aiAutoScalingGroupName' @::@ 'Text'
 --
--- * 'aiqInstanceIds' @::@ ['Text']
+-- * 'aiInstanceIds' @::@ ['Text']
 --
-attachInstances :: Text -- ^ 'aiqAutoScalingGroupName'
-                -> AttachInstancesQuery
-attachInstances p1 = AttachInstancesQuery
-    { _aiqAutoScalingGroupName = p1
-    , _aiqInstanceIds          = mempty
+attachInstances :: Text -- ^ 'aiAutoScalingGroupName'
+                -> AttachInstances
+attachInstances p1 = AttachInstances
+    { _aiAutoScalingGroupName = p1
+    , _aiInstanceIds          = mempty
     }
 
 -- | The name of the Auto Scaling group to which to attach the specified
 -- instance(s).
-aiqAutoScalingGroupName :: Lens' AttachInstancesQuery Text
-aiqAutoScalingGroupName =
-    lens _aiqAutoScalingGroupName (\s a -> s { _aiqAutoScalingGroupName = a })
+aiAutoScalingGroupName :: Lens' AttachInstances Text
+aiAutoScalingGroupName =
+    lens _aiAutoScalingGroupName (\s a -> s { _aiAutoScalingGroupName = a })
 
 -- | One or more IDs of the Amazon EC2 instances to attach to the specified
 -- Auto Scaling group. You must specify at least one instance ID.
-aiqInstanceIds :: Lens' AttachInstancesQuery [Text]
-aiqInstanceIds = lens _aiqInstanceIds (\s a -> s { _aiqInstanceIds = a })
+aiInstanceIds :: Lens' AttachInstances [Text]
+aiInstanceIds = lens _aiInstanceIds (\s a -> s { _aiInstanceIds = a })
 
-instance ToQuery AttachInstancesQuery
+instance ToQuery AttachInstances
 
-instance ToPath AttachInstancesQuery where
+instance ToPath AttachInstances where
     toPath = const "/"
 
 data AttachInstancesResponse = AttachInstancesResponse
@@ -91,9 +91,9 @@ instance FromXML AttachInstancesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AttachInstancesResponse"
 
-instance AWSRequest AttachInstancesQuery where
-    type Sv AttachInstancesQuery = AutoScaling
-    type Rs AttachInstancesQuery = AttachInstancesResponse
+instance AWSRequest AttachInstances where
+    type Sv AttachInstances = AutoScaling
+    type Rs AttachInstances = AttachInstancesResponse
 
     request  = post "AttachInstances"
     response = nullaryResponse AttachInstancesResponse

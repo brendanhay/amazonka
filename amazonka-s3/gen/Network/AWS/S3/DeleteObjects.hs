@@ -29,17 +29,17 @@ module Network.AWS.S3.DeleteObjects
     -- ** Request constructor
     , deleteObjects
     -- ** Request lenses
-    , doBucket
-    , doDelete
-    , doMFA
+    , do1Bucket
+    , do1Delete
+    , do1MFA
 
     -- * Response
-    , DeleteObjectsOutput
+    , DeleteObjectsResponse
     -- ** Response constructor
     , deleteObjectsResponse
     -- ** Response lenses
-    , dooDeleted
-    , dooErrors
+    , dorDeleted
+    , dorErrors
     ) where
 
 import Network.AWS.Prelude
@@ -47,45 +47,45 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data DeleteObjects = DeleteObjects
-    { _doBucket :: Text
-    , _doDelete :: Delete
-    , _doMFA    :: Maybe Text
+    { _do1Bucket :: Text
+    , _do1Delete :: Delete
+    , _do1MFA    :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 -- | 'DeleteObjects' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'doBucket' @::@ 'Text'
+-- * 'do1Bucket' @::@ 'Text'
 --
--- * 'doDelete' @::@ 'Delete'
+-- * 'do1Delete' @::@ 'Delete'
 --
--- * 'doMFA' @::@ 'Maybe' 'Text'
+-- * 'do1MFA' @::@ 'Maybe' 'Text'
 --
-deleteObjects :: Text -- ^ 'doBucket'
-              -> Delete -- ^ 'doDelete'
+deleteObjects :: Text -- ^ 'do1Bucket'
+              -> Delete -- ^ 'do1Delete'
               -> DeleteObjects
 deleteObjects p1 p2 = DeleteObjects
-    { _doBucket = p1
-    , _doDelete = p2
-    , _doMFA    = Nothing
+    { _do1Bucket = p1
+    , _do1Delete = p2
+    , _do1MFA    = Nothing
     }
 
-doBucket :: Lens' DeleteObjects Text
-doBucket = lens _doBucket (\s a -> s { _doBucket = a })
+do1Bucket :: Lens' DeleteObjects Text
+do1Bucket = lens _do1Bucket (\s a -> s { _do1Bucket = a })
 
-doDelete :: Lens' DeleteObjects Delete
-doDelete = lens _doDelete (\s a -> s { _doDelete = a })
+do1Delete :: Lens' DeleteObjects Delete
+do1Delete = lens _do1Delete (\s a -> s { _do1Delete = a })
 
 -- | The concatenation of the authentication device's serial number, a space,
 -- and the value that is displayed on your authentication device.
-doMFA :: Lens' DeleteObjects (Maybe Text)
-doMFA = lens _doMFA (\s a -> s { _doMFA = a })
+do1MFA :: Lens' DeleteObjects (Maybe Text)
+do1MFA = lens _do1MFA (\s a -> s { _do1MFA = a })
 
 instance ToPath DeleteObjects where
     toPath DeleteObjects{..} = mconcat
         [ "/"
-        , toText _doBucket
+        , toText _do1Bucket
         ]
 
 instance ToQuery DeleteObjects where
@@ -93,45 +93,45 @@ instance ToQuery DeleteObjects where
 
 instance ToHeaders DeleteObjects where
     toHeaders DeleteObjects{..} = mconcat
-        [ "x-amz-mfa" =: _doMFA
+        [ "x-amz-mfa" =: _do1MFA
         ]
 
 instance ToBody DeleteObjects where
-    toBody = toBody . encodeXML . _doDelete
+    toBody = toBody . encodeXML . _do1Delete
 
-data DeleteObjectsOutput = DeleteObjectsOutput
-    { _dooDeleted :: [S3ServiceError]
-    , _dooErrors  :: [S3ServiceError]
+data DeleteObjectsResponse = DeleteObjectsResponse
+    { _dorDeleted :: [S3ServiceError]
+    , _dorErrors  :: [S3ServiceError]
     } deriving (Eq, Show, Generic)
 
--- | 'DeleteObjectsOutput' constructor.
+-- | 'DeleteObjectsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dooDeleted' @::@ ['S3ServiceError']
+-- * 'dorDeleted' @::@ ['S3ServiceError']
 --
--- * 'dooErrors' @::@ ['S3ServiceError']
+-- * 'dorErrors' @::@ ['S3ServiceError']
 --
-deleteObjectsResponse :: DeleteObjectsOutput
-deleteObjectsResponse = DeleteObjectsOutput
-    { _dooDeleted = mempty
-    , _dooErrors  = mempty
+deleteObjectsResponse :: DeleteObjectsResponse
+deleteObjectsResponse = DeleteObjectsResponse
+    { _dorDeleted = mempty
+    , _dorErrors  = mempty
     }
 
-dooDeleted :: Lens' DeleteObjectsOutput [S3ServiceError]
-dooDeleted = lens _dooDeleted (\s a -> s { _dooDeleted = a })
+dorDeleted :: Lens' DeleteObjectsResponse [S3ServiceError]
+dorDeleted = lens _dorDeleted (\s a -> s { _dorDeleted = a })
 
-dooErrors :: Lens' DeleteObjectsOutput [S3ServiceError]
-dooErrors = lens _dooErrors (\s a -> s { _dooErrors = a })
+dorErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
+dorErrors = lens _dorErrors (\s a -> s { _dorErrors = a })
 
-instance FromXML DeleteObjectsOutput where
+instance FromXML DeleteObjectsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteObjectsOutput"
+    fromXMLRoot    = fromRoot "DeleteObjectsResponse"
 instance AWSRequest DeleteObjects where
     type Sv DeleteObjects = S3
-    type Rs DeleteObjects = DeleteObjectsOutput
+    type Rs DeleteObjects = DeleteObjectsResponse
 
     request  = post
-    response = xmlResponse $ \h x -> DeleteObjectsOutput
+    response = xmlResponse $ \h x -> DeleteObjectsResponse
         <$> x %| "Deleted"
         <*> x %| "Error"

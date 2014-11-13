@@ -28,93 +28,93 @@
 module Network.AWS.ELB.DescribeInstanceHealth
     (
     -- * Request
-      DescribeEndPointStateInput
+      DescribeInstanceHealth
     -- ** Request constructor
     , describeInstanceHealth
     -- ** Request lenses
-    , depsiInstances
-    , depsiLoadBalancerName
+    , dihInstances
+    , dihLoadBalancerName
 
     -- * Response
-    , DescribeEndPointStateOutput
+    , DescribeInstanceHealthResponse
     -- ** Response constructor
     , describeInstanceHealthResponse
     -- ** Response lenses
-    , depsoInstanceStates
+    , dihrInstanceStates
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data DescribeEndPointStateInput = DescribeEndPointStateInput
-    { _depsiInstances        :: [Instance]
-    , _depsiLoadBalancerName :: Text
+data DescribeInstanceHealth = DescribeInstanceHealth
+    { _dihInstances        :: [Instance]
+    , _dihLoadBalancerName :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeEndPointStateInput' constructor.
+-- | 'DescribeInstanceHealth' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'depsiInstances' @::@ ['Instance']
+-- * 'dihInstances' @::@ ['Instance']
 --
--- * 'depsiLoadBalancerName' @::@ 'Text'
+-- * 'dihLoadBalancerName' @::@ 'Text'
 --
-describeInstanceHealth :: Text -- ^ 'depsiLoadBalancerName'
-                       -> DescribeEndPointStateInput
-describeInstanceHealth p1 = DescribeEndPointStateInput
-    { _depsiLoadBalancerName = p1
-    , _depsiInstances        = mempty
+describeInstanceHealth :: Text -- ^ 'dihLoadBalancerName'
+                       -> DescribeInstanceHealth
+describeInstanceHealth p1 = DescribeInstanceHealth
+    { _dihLoadBalancerName = p1
+    , _dihInstances        = mempty
     }
 
 -- | A list of instance IDs whose states are being queried.
-depsiInstances :: Lens' DescribeEndPointStateInput [Instance]
-depsiInstances = lens _depsiInstances (\s a -> s { _depsiInstances = a })
+dihInstances :: Lens' DescribeInstanceHealth [Instance]
+dihInstances = lens _dihInstances (\s a -> s { _dihInstances = a })
 
 -- | The name of the load balancer.
-depsiLoadBalancerName :: Lens' DescribeEndPointStateInput Text
-depsiLoadBalancerName =
-    lens _depsiLoadBalancerName (\s a -> s { _depsiLoadBalancerName = a })
+dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
+dihLoadBalancerName =
+    lens _dihLoadBalancerName (\s a -> s { _dihLoadBalancerName = a })
 
-instance ToQuery DescribeEndPointStateInput
+instance ToQuery DescribeInstanceHealth
 
-instance ToPath DescribeEndPointStateInput where
+instance ToPath DescribeInstanceHealth where
     toPath = const "/"
 
-newtype DescribeEndPointStateOutput = DescribeEndPointStateOutput
-    { _depsoInstanceStates :: [InstanceState]
+newtype DescribeInstanceHealthResponse = DescribeInstanceHealthResponse
+    { _dihrInstanceStates :: [InstanceState]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeEndPointStateOutput where
-    type Item DescribeEndPointStateOutput = InstanceState
+instance IsList DescribeInstanceHealthResponse where
+    type Item DescribeInstanceHealthResponse = InstanceState
 
-    fromList = DescribeEndPointStateOutput . fromList
-    toList   = toList . _depsoInstanceStates
+    fromList = DescribeInstanceHealthResponse . fromList
+    toList   = toList . _dihrInstanceStates
 
--- | 'DescribeEndPointStateOutput' constructor.
+-- | 'DescribeInstanceHealthResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'depsoInstanceStates' @::@ ['InstanceState']
+-- * 'dihrInstanceStates' @::@ ['InstanceState']
 --
-describeInstanceHealthResponse :: DescribeEndPointStateOutput
-describeInstanceHealthResponse = DescribeEndPointStateOutput
-    { _depsoInstanceStates = mempty
+describeInstanceHealthResponse :: DescribeInstanceHealthResponse
+describeInstanceHealthResponse = DescribeInstanceHealthResponse
+    { _dihrInstanceStates = mempty
     }
 
 -- | A list containing health information for the specified instances.
-depsoInstanceStates :: Lens' DescribeEndPointStateOutput [InstanceState]
-depsoInstanceStates =
-    lens _depsoInstanceStates (\s a -> s { _depsoInstanceStates = a })
+dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
+dihrInstanceStates =
+    lens _dihrInstanceStates (\s a -> s { _dihrInstanceStates = a })
 
-instance FromXML DescribeEndPointStateOutput where
+instance FromXML DescribeInstanceHealthResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeEndPointStateOutput"
+    fromXMLRoot    = fromRoot "DescribeInstanceHealthResponse"
 
-instance AWSRequest DescribeEndPointStateInput where
-    type Sv DescribeEndPointStateInput = ELB
-    type Rs DescribeEndPointStateInput = DescribeEndPointStateOutput
+instance AWSRequest DescribeInstanceHealth where
+    type Sv DescribeInstanceHealth = ELB
+    type Rs DescribeInstanceHealth = DescribeInstanceHealthResponse
 
     request  = post "DescribeInstanceHealth"
-    response = xmlResponse $ \h x -> DescribeEndPointStateOutput
+    response = xmlResponse $ \h x -> DescribeInstanceHealthResponse
         <$> x %| "InstanceStates"

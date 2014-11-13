@@ -42,7 +42,7 @@ module Network.AWS.EC2.CreateImage
     , ci1NoReboot
 
     -- * Response
-    , CreateImageResult
+    , CreateImageResponse
     -- ** Response constructor
     , createImageResponse
     -- ** Response lenses
@@ -126,33 +126,33 @@ instance ToQuery CreateImage
 instance ToPath CreateImage where
     toPath = const "/"
 
-newtype CreateImageResult = CreateImageResult
+newtype CreateImageResponse = CreateImageResponse
     { _cirImageId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'CreateImageResult' constructor.
+-- | 'CreateImageResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cirImageId' @::@ 'Maybe' 'Text'
 --
-createImageResponse :: CreateImageResult
-createImageResponse = CreateImageResult
+createImageResponse :: CreateImageResponse
+createImageResponse = CreateImageResponse
     { _cirImageId = Nothing
     }
 
 -- | The ID of the new AMI.
-cirImageId :: Lens' CreateImageResult (Maybe Text)
+cirImageId :: Lens' CreateImageResponse (Maybe Text)
 cirImageId = lens _cirImageId (\s a -> s { _cirImageId = a })
 
-instance FromXML CreateImageResult where
+instance FromXML CreateImageResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateImageResult"
+    fromXMLRoot    = fromRoot "CreateImageResponse"
 
 instance AWSRequest CreateImage where
     type Sv CreateImage = EC2
-    type Rs CreateImage = CreateImageResult
+    type Rs CreateImage = CreateImageResponse
 
     request  = post "CreateImage"
-    response = xmlResponse $ \h x -> CreateImageResult
+    response = xmlResponse $ \h x -> CreateImageResponse
         <$> x %| "imageId"

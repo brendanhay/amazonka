@@ -28,76 +28,114 @@
 module Network.AWS.Redshift.ResetClusterParameterGroup
     (
     -- * Request
-      ResetClusterParameterGroupMessage
+      ResetClusterParameterGroup
     -- ** Request constructor
     , resetClusterParameterGroup
     -- ** Request lenses
-    , rcpgmParameterGroupName
-    , rcpgmParameters
-    , rcpgmResetAllParameters
+    , rcpgParameterGroupName
+    , rcpgParameters
+    , rcpgResetAllParameters
 
     -- * Response
-    , ClusterParameterGroupNameMessage
+    , ResetClusterParameterGroupResponse
     -- ** Response constructor
-    , clusterParameterGroupNameMessage
+    , resetClusterParameterGroupResponse
     -- ** Response lenses
-    , cpgnmParameterGroupName
-    , cpgnmParameterGroupStatus
+    , rcpgrParameterGroupName
+    , rcpgrParameterGroupStatus
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data ResetClusterParameterGroupMessage = ResetClusterParameterGroupMessage
-    { _rcpgmParameterGroupName :: Text
-    , _rcpgmParameters         :: [Parameter]
-    , _rcpgmResetAllParameters :: Maybe Bool
+data ResetClusterParameterGroup = ResetClusterParameterGroup
+    { _rcpgParameterGroupName :: Text
+    , _rcpgParameters         :: [Parameter]
+    , _rcpgResetAllParameters :: Maybe Bool
     } deriving (Eq, Show, Generic)
 
--- | 'ResetClusterParameterGroupMessage' constructor.
+-- | 'ResetClusterParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcpgmParameterGroupName' @::@ 'Text'
+-- * 'rcpgParameterGroupName' @::@ 'Text'
 --
--- * 'rcpgmParameters' @::@ ['Parameter']
+-- * 'rcpgParameters' @::@ ['Parameter']
 --
--- * 'rcpgmResetAllParameters' @::@ 'Maybe' 'Bool'
+-- * 'rcpgResetAllParameters' @::@ 'Maybe' 'Bool'
 --
-resetClusterParameterGroup :: Text -- ^ 'rcpgmParameterGroupName'
-                           -> ResetClusterParameterGroupMessage
-resetClusterParameterGroup p1 = ResetClusterParameterGroupMessage
-    { _rcpgmParameterGroupName = p1
-    , _rcpgmResetAllParameters = Nothing
-    , _rcpgmParameters         = mempty
+resetClusterParameterGroup :: Text -- ^ 'rcpgParameterGroupName'
+                           -> ResetClusterParameterGroup
+resetClusterParameterGroup p1 = ResetClusterParameterGroup
+    { _rcpgParameterGroupName = p1
+    , _rcpgResetAllParameters = Nothing
+    , _rcpgParameters         = mempty
     }
 
 -- | The name of the cluster parameter group to be reset.
-rcpgmParameterGroupName :: Lens' ResetClusterParameterGroupMessage Text
-rcpgmParameterGroupName =
-    lens _rcpgmParameterGroupName (\s a -> s { _rcpgmParameterGroupName = a })
+rcpgParameterGroupName :: Lens' ResetClusterParameterGroup Text
+rcpgParameterGroupName =
+    lens _rcpgParameterGroupName (\s a -> s { _rcpgParameterGroupName = a })
 
 -- | An array of names of parameters to be reset. If ResetAllParameters option
 -- is not used, then at least one parameter name must be supplied.
 -- Constraints: A maximum of 20 parameters can be reset in a single request.
-rcpgmParameters :: Lens' ResetClusterParameterGroupMessage [Parameter]
-rcpgmParameters = lens _rcpgmParameters (\s a -> s { _rcpgmParameters = a })
+rcpgParameters :: Lens' ResetClusterParameterGroup [Parameter]
+rcpgParameters = lens _rcpgParameters (\s a -> s { _rcpgParameters = a })
 
 -- | If true, all parameters in the specified parameter group will be reset to
 -- their default values. Default: true.
-rcpgmResetAllParameters :: Lens' ResetClusterParameterGroupMessage (Maybe Bool)
-rcpgmResetAllParameters =
-    lens _rcpgmResetAllParameters (\s a -> s { _rcpgmResetAllParameters = a })
+rcpgResetAllParameters :: Lens' ResetClusterParameterGroup (Maybe Bool)
+rcpgResetAllParameters =
+    lens _rcpgResetAllParameters (\s a -> s { _rcpgResetAllParameters = a })
 
-instance ToQuery ResetClusterParameterGroupMessage
+instance ToQuery ResetClusterParameterGroup
 
-instance ToPath ResetClusterParameterGroupMessage where
+instance ToPath ResetClusterParameterGroup where
     toPath = const "/"
 
-instance AWSRequest ResetClusterParameterGroupMessage where
-    type Sv ResetClusterParameterGroupMessage = Redshift
-    type Rs ResetClusterParameterGroupMessage = ClusterParameterGroupNameMessage
+data ResetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
+    { _rcpgrParameterGroupName   :: Maybe Text
+    , _rcpgrParameterGroupStatus :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'ResetClusterParameterGroupResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rcpgrParameterGroupName' @::@ 'Maybe' 'Text'
+--
+-- * 'rcpgrParameterGroupStatus' @::@ 'Maybe' 'Text'
+--
+resetClusterParameterGroupResponse :: ResetClusterParameterGroupResponse
+resetClusterParameterGroupResponse = ResetClusterParameterGroupResponse
+    { _rcpgrParameterGroupName   = Nothing
+    , _rcpgrParameterGroupStatus = Nothing
+    }
+
+-- | The name of the cluster parameter group.
+rcpgrParameterGroupName :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
+rcpgrParameterGroupName =
+    lens _rcpgrParameterGroupName (\s a -> s { _rcpgrParameterGroupName = a })
+
+-- | The status of the parameter group. For example, if you made a change to a
+-- parameter group name-value pair, then the change could be pending a
+-- reboot of an associated cluster.
+rcpgrParameterGroupStatus :: Lens' ResetClusterParameterGroupResponse (Maybe Text)
+rcpgrParameterGroupStatus =
+    lens _rcpgrParameterGroupStatus
+        (\s a -> s { _rcpgrParameterGroupStatus = a })
+
+instance FromXML ResetClusterParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResetClusterParameterGroupResponse"
+
+instance AWSRequest ResetClusterParameterGroup where
+    type Sv ResetClusterParameterGroup = Redshift
+    type Rs ResetClusterParameterGroup = ResetClusterParameterGroupResponse
 
     request  = post "ResetClusterParameterGroup"
-    response = xmlResponse $ const decodeCursor
+    response = xmlResponse $ \h x -> ResetClusterParameterGroupResponse
+        <$> x %| "ParameterGroupName"
+        <*> x %| "ParameterGroupStatus"

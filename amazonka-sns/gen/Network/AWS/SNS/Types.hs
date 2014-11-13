@@ -49,11 +49,11 @@ module Network.AWS.SNS.Types
     -- * Subscription
     , Subscription
     , subscription
-    , sEndpoint
-    , sOwner
-    , sProtocol
-    , sSubscriptionArn
-    , sTopicArn
+    , s1Endpoint
+    , s1Owner
+    , s1Protocol
+    , s1SubscriptionArn
+    , s1TopicArn
 
     -- * Endpoint
     , Endpoint
@@ -194,55 +194,56 @@ instance FromXML PlatformApplication where
 instance ToQuery PlatformApplication
 
 data Subscription = Subscription
-    { _sEndpoint        :: Maybe Text
-    , _sOwner           :: Maybe Text
-    , _sProtocol        :: Maybe Text
-    , _sSubscriptionArn :: Maybe Text
-    , _sTopicArn        :: Maybe Text
+    { _s1Endpoint        :: Maybe Text
+    , _s1Owner           :: Maybe Text
+    , _s1Protocol        :: Maybe Text
+    , _s1SubscriptionArn :: Maybe Text
+    , _s1TopicArn        :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'Subscription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sEndpoint' @::@ 'Maybe' 'Text'
+-- * 's1Endpoint' @::@ 'Maybe' 'Text'
 --
--- * 'sOwner' @::@ 'Maybe' 'Text'
+-- * 's1Owner' @::@ 'Maybe' 'Text'
 --
--- * 'sProtocol' @::@ 'Maybe' 'Text'
+-- * 's1Protocol' @::@ 'Maybe' 'Text'
 --
--- * 'sSubscriptionArn' @::@ 'Maybe' 'Text'
+-- * 's1SubscriptionArn' @::@ 'Maybe' 'Text'
 --
--- * 'sTopicArn' @::@ 'Maybe' 'Text'
+-- * 's1TopicArn' @::@ 'Maybe' 'Text'
 --
 subscription :: Subscription
 subscription = Subscription
-    { _sSubscriptionArn = Nothing
-    , _sOwner           = Nothing
-    , _sProtocol        = Nothing
-    , _sEndpoint        = Nothing
-    , _sTopicArn        = Nothing
+    { _s1SubscriptionArn = Nothing
+    , _s1Owner           = Nothing
+    , _s1Protocol        = Nothing
+    , _s1Endpoint        = Nothing
+    , _s1TopicArn        = Nothing
     }
 
 -- | The subscription's endpoint (format depends on the protocol).
-sEndpoint :: Lens' Subscription (Maybe Text)
-sEndpoint = lens _sEndpoint (\s a -> s { _sEndpoint = a })
+s1Endpoint :: Lens' Subscription (Maybe Text)
+s1Endpoint = lens _s1Endpoint (\s a -> s { _s1Endpoint = a })
 
 -- | The subscription's owner.
-sOwner :: Lens' Subscription (Maybe Text)
-sOwner = lens _sOwner (\s a -> s { _sOwner = a })
+s1Owner :: Lens' Subscription (Maybe Text)
+s1Owner = lens _s1Owner (\s a -> s { _s1Owner = a })
 
 -- | The subscription's protocol.
-sProtocol :: Lens' Subscription (Maybe Text)
-sProtocol = lens _sProtocol (\s a -> s { _sProtocol = a })
+s1Protocol :: Lens' Subscription (Maybe Text)
+s1Protocol = lens _s1Protocol (\s a -> s { _s1Protocol = a })
 
 -- | The subscription's ARN.
-sSubscriptionArn :: Lens' Subscription (Maybe Text)
-sSubscriptionArn = lens _sSubscriptionArn (\s a -> s { _sSubscriptionArn = a })
+s1SubscriptionArn :: Lens' Subscription (Maybe Text)
+s1SubscriptionArn =
+    lens _s1SubscriptionArn (\s a -> s { _s1SubscriptionArn = a })
 
 -- | The ARN of the subscription's topic.
-sTopicArn :: Lens' Subscription (Maybe Text)
-sTopicArn = lens _sTopicArn (\s a -> s { _sTopicArn = a })
+s1TopicArn :: Lens' Subscription (Maybe Text)
+s1TopicArn = lens _s1TopicArn (\s a -> s { _s1TopicArn = a })
 
 instance FromXML Subscription where
     fromXMLOptions = xmlOptions

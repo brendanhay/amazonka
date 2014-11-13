@@ -27,122 +27,122 @@
 module Network.AWS.RDS.DescribeDBSubnetGroups
     (
     -- * Request
-      DescribeDBSubnetGroupsMessage
+      DescribeDBSubnetGroups
     -- ** Request constructor
     , describeDBSubnetGroups
     -- ** Request lenses
-    , ddbsgmDBSubnetGroupName
-    , ddbsgmFilters
-    , ddbsgmMarker
-    , ddbsgmMaxRecords
+    , ddbsgDBSubnetGroupName
+    , ddbsgFilters
+    , ddbsgMarker
+    , ddbsgMaxRecords
 
     -- * Response
-    , DBSubnetGroupMessage
+    , DescribeDBSubnetGroupsResponse
     -- ** Response constructor
     , describeDBSubnetGroupsResponse
     -- ** Response lenses
-    , dbsgm1DBSubnetGroups
-    , dbsgm1Marker
+    , ddbsgrDBSubnetGroups
+    , ddbsgrMarker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data DescribeDBSubnetGroupsMessage = DescribeDBSubnetGroupsMessage
-    { _ddbsgmDBSubnetGroupName :: Maybe Text
-    , _ddbsgmFilters           :: [Filter]
-    , _ddbsgmMarker            :: Maybe Text
-    , _ddbsgmMaxRecords        :: Maybe Int
+data DescribeDBSubnetGroups = DescribeDBSubnetGroups
+    { _ddbsgDBSubnetGroupName :: Maybe Text
+    , _ddbsgFilters           :: [Filter]
+    , _ddbsgMarker            :: Maybe Text
+    , _ddbsgMaxRecords        :: Maybe Int
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeDBSubnetGroupsMessage' constructor.
+-- | 'DescribeDBSubnetGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbsgmDBSubnetGroupName' @::@ 'Maybe' 'Text'
+-- * 'ddbsgDBSubnetGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'ddbsgmFilters' @::@ ['Filter']
+-- * 'ddbsgFilters' @::@ ['Filter']
 --
--- * 'ddbsgmMarker' @::@ 'Maybe' 'Text'
+-- * 'ddbsgMarker' @::@ 'Maybe' 'Text'
 --
--- * 'ddbsgmMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'ddbsgMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBSubnetGroups :: DescribeDBSubnetGroupsMessage
-describeDBSubnetGroups = DescribeDBSubnetGroupsMessage
-    { _ddbsgmDBSubnetGroupName = Nothing
-    , _ddbsgmFilters           = mempty
-    , _ddbsgmMaxRecords        = Nothing
-    , _ddbsgmMarker            = Nothing
+describeDBSubnetGroups :: DescribeDBSubnetGroups
+describeDBSubnetGroups = DescribeDBSubnetGroups
+    { _ddbsgDBSubnetGroupName = Nothing
+    , _ddbsgFilters           = mempty
+    , _ddbsgMaxRecords        = Nothing
+    , _ddbsgMarker            = Nothing
     }
 
 -- | The name of the DB subnet group to return details for.
-ddbsgmDBSubnetGroupName :: Lens' DescribeDBSubnetGroupsMessage (Maybe Text)
-ddbsgmDBSubnetGroupName =
-    lens _ddbsgmDBSubnetGroupName (\s a -> s { _ddbsgmDBSubnetGroupName = a })
+ddbsgDBSubnetGroupName :: Lens' DescribeDBSubnetGroups (Maybe Text)
+ddbsgDBSubnetGroupName =
+    lens _ddbsgDBSubnetGroupName (\s a -> s { _ddbsgDBSubnetGroupName = a })
 
 -- | This parameter is not currently supported.
-ddbsgmFilters :: Lens' DescribeDBSubnetGroupsMessage [Filter]
-ddbsgmFilters = lens _ddbsgmFilters (\s a -> s { _ddbsgmFilters = a })
+ddbsgFilters :: Lens' DescribeDBSubnetGroups [Filter]
+ddbsgFilters = lens _ddbsgFilters (\s a -> s { _ddbsgFilters = a })
 
 -- | An optional pagination token provided by a previous
 -- DescribeDBSubnetGroups request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-ddbsgmMarker :: Lens' DescribeDBSubnetGroupsMessage (Maybe Text)
-ddbsgmMarker = lens _ddbsgmMarker (\s a -> s { _ddbsgmMarker = a })
+ddbsgMarker :: Lens' DescribeDBSubnetGroups (Maybe Text)
+ddbsgMarker = lens _ddbsgMarker (\s a -> s { _ddbsgMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-ddbsgmMaxRecords :: Lens' DescribeDBSubnetGroupsMessage (Maybe Int)
-ddbsgmMaxRecords = lens _ddbsgmMaxRecords (\s a -> s { _ddbsgmMaxRecords = a })
+ddbsgMaxRecords :: Lens' DescribeDBSubnetGroups (Maybe Int)
+ddbsgMaxRecords = lens _ddbsgMaxRecords (\s a -> s { _ddbsgMaxRecords = a })
 
-instance ToQuery DescribeDBSubnetGroupsMessage
+instance ToQuery DescribeDBSubnetGroups
 
-instance ToPath DescribeDBSubnetGroupsMessage where
+instance ToPath DescribeDBSubnetGroups where
     toPath = const "/"
 
-data DBSubnetGroupMessage = DBSubnetGroupMessage
-    { _dbsgm1DBSubnetGroups :: [DBSubnetGroup]
-    , _dbsgm1Marker         :: Maybe Text
+data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
+    { _ddbsgrDBSubnetGroups :: [DBSubnetGroup]
+    , _ddbsgrMarker         :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DBSubnetGroupMessage' constructor.
+-- | 'DescribeDBSubnetGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbsgm1DBSubnetGroups' @::@ ['DBSubnetGroup']
+-- * 'ddbsgrDBSubnetGroups' @::@ ['DBSubnetGroup']
 --
--- * 'dbsgm1Marker' @::@ 'Maybe' 'Text'
+-- * 'ddbsgrMarker' @::@ 'Maybe' 'Text'
 --
-describeDBSubnetGroupsResponse :: DBSubnetGroupMessage
-describeDBSubnetGroupsResponse = DBSubnetGroupMessage
-    { _dbsgm1Marker         = Nothing
-    , _dbsgm1DBSubnetGroups = mempty
+describeDBSubnetGroupsResponse :: DescribeDBSubnetGroupsResponse
+describeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse
+    { _ddbsgrMarker         = Nothing
+    , _ddbsgrDBSubnetGroups = mempty
     }
 
 -- | A list of DBSubnetGroup instances.
-dbsgm1DBSubnetGroups :: Lens' DBSubnetGroupMessage [DBSubnetGroup]
-dbsgm1DBSubnetGroups =
-    lens _dbsgm1DBSubnetGroups (\s a -> s { _dbsgm1DBSubnetGroups = a })
+ddbsgrDBSubnetGroups :: Lens' DescribeDBSubnetGroupsResponse [DBSubnetGroup]
+ddbsgrDBSubnetGroups =
+    lens _ddbsgrDBSubnetGroups (\s a -> s { _ddbsgrDBSubnetGroups = a })
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-dbsgm1Marker :: Lens' DBSubnetGroupMessage (Maybe Text)
-dbsgm1Marker = lens _dbsgm1Marker (\s a -> s { _dbsgm1Marker = a })
+ddbsgrMarker :: Lens' DescribeDBSubnetGroupsResponse (Maybe Text)
+ddbsgrMarker = lens _ddbsgrMarker (\s a -> s { _ddbsgrMarker = a })
 
-instance FromXML DBSubnetGroupMessage where
+instance FromXML DescribeDBSubnetGroupsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBSubnetGroupMessage"
+    fromXMLRoot    = fromRoot "DescribeDBSubnetGroupsResponse"
 
-instance AWSRequest DescribeDBSubnetGroupsMessage where
-    type Sv DescribeDBSubnetGroupsMessage = RDS
-    type Rs DescribeDBSubnetGroupsMessage = DBSubnetGroupMessage
+instance AWSRequest DescribeDBSubnetGroups where
+    type Sv DescribeDBSubnetGroups = RDS
+    type Rs DescribeDBSubnetGroups = DescribeDBSubnetGroupsResponse
 
     request  = post "DescribeDBSubnetGroups"
-    response = xmlResponse $ \h x -> DBSubnetGroupMessage
+    response = xmlResponse $ \h x -> DescribeDBSubnetGroupsResponse
         <$> x %| "DBSubnetGroups"
         <*> x %| "Marker"

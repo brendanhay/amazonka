@@ -28,13 +28,13 @@
 module Network.AWS.AutoScaling.EnableMetricsCollection
     (
     -- * Request
-      EnableMetricsCollectionQuery
+      EnableMetricsCollection
     -- ** Request constructor
     , enableMetricsCollection
     -- ** Request lenses
-    , emcqAutoScalingGroupName
-    , emcqGranularity
-    , emcqMetrics
+    , emcAutoScalingGroupName
+    , emcGranularity
+    , emcMetrics
 
     -- * Response
     , EnableMetricsCollectionResponse
@@ -46,53 +46,52 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data EnableMetricsCollectionQuery = EnableMetricsCollectionQuery
-    { _emcqAutoScalingGroupName :: Text
-    , _emcqGranularity          :: Text
-    , _emcqMetrics              :: [Text]
+data EnableMetricsCollection = EnableMetricsCollection
+    { _emcAutoScalingGroupName :: Text
+    , _emcGranularity          :: Text
+    , _emcMetrics              :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'EnableMetricsCollectionQuery' constructor.
+-- | 'EnableMetricsCollection' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'emcqAutoScalingGroupName' @::@ 'Text'
+-- * 'emcAutoScalingGroupName' @::@ 'Text'
 --
--- * 'emcqGranularity' @::@ 'Text'
+-- * 'emcGranularity' @::@ 'Text'
 --
--- * 'emcqMetrics' @::@ ['Text']
+-- * 'emcMetrics' @::@ ['Text']
 --
-enableMetricsCollection :: Text -- ^ 'emcqAutoScalingGroupName'
-                        -> Text -- ^ 'emcqGranularity'
-                        -> EnableMetricsCollectionQuery
-enableMetricsCollection p1 p2 = EnableMetricsCollectionQuery
-    { _emcqAutoScalingGroupName = p1
-    , _emcqGranularity          = p2
-    , _emcqMetrics              = mempty
+enableMetricsCollection :: Text -- ^ 'emcAutoScalingGroupName'
+                        -> Text -- ^ 'emcGranularity'
+                        -> EnableMetricsCollection
+enableMetricsCollection p1 p2 = EnableMetricsCollection
+    { _emcAutoScalingGroupName = p1
+    , _emcGranularity          = p2
+    , _emcMetrics              = mempty
     }
 
 -- | The name or ARN of the Auto Scaling group.
-emcqAutoScalingGroupName :: Lens' EnableMetricsCollectionQuery Text
-emcqAutoScalingGroupName =
-    lens _emcqAutoScalingGroupName
-        (\s a -> s { _emcqAutoScalingGroupName = a })
+emcAutoScalingGroupName :: Lens' EnableMetricsCollection Text
+emcAutoScalingGroupName =
+    lens _emcAutoScalingGroupName (\s a -> s { _emcAutoScalingGroupName = a })
 
 -- | The granularity to associate with the metrics to collect. Currently, the
 -- only legal granularity is "1Minute".
-emcqGranularity :: Lens' EnableMetricsCollectionQuery Text
-emcqGranularity = lens _emcqGranularity (\s a -> s { _emcqGranularity = a })
+emcGranularity :: Lens' EnableMetricsCollection Text
+emcGranularity = lens _emcGranularity (\s a -> s { _emcGranularity = a })
 
 -- | The list of metrics to collect. If no metrics are specified, all metrics
 -- are enabled. The following metrics are supported: GroupMinSize
 -- GroupMaxSize GroupDesiredCapacity GroupInServiceInstances
 -- GroupPendingInstances GroupStandbyInstances GroupTerminatingInstances
 -- GroupTotalInstances.
-emcqMetrics :: Lens' EnableMetricsCollectionQuery [Text]
-emcqMetrics = lens _emcqMetrics (\s a -> s { _emcqMetrics = a })
+emcMetrics :: Lens' EnableMetricsCollection [Text]
+emcMetrics = lens _emcMetrics (\s a -> s { _emcMetrics = a })
 
-instance ToQuery EnableMetricsCollectionQuery
+instance ToQuery EnableMetricsCollection
 
-instance ToPath EnableMetricsCollectionQuery where
+instance ToPath EnableMetricsCollection where
     toPath = const "/"
 
 data EnableMetricsCollectionResponse = EnableMetricsCollectionResponse
@@ -106,9 +105,9 @@ instance FromXML EnableMetricsCollectionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "EnableMetricsCollectionResponse"
 
-instance AWSRequest EnableMetricsCollectionQuery where
-    type Sv EnableMetricsCollectionQuery = AutoScaling
-    type Rs EnableMetricsCollectionQuery = EnableMetricsCollectionResponse
+instance AWSRequest EnableMetricsCollection where
+    type Sv EnableMetricsCollection = AutoScaling
+    type Rs EnableMetricsCollection = EnableMetricsCollectionResponse
 
     request  = post "EnableMetricsCollection"
     response = nullaryResponse EnableMetricsCollectionResponse

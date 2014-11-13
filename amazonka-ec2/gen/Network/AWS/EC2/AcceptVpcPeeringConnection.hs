@@ -35,7 +35,7 @@ module Network.AWS.EC2.AcceptVpcPeeringConnection
     , avpcVpcPeeringConnectionId
 
     -- * Response
-    , AcceptVpcPeeringConnectionResult
+    , AcceptVpcPeeringConnectionResponse
     -- ** Response constructor
     , acceptVpcPeeringConnectionResponse
     -- ** Response lenses
@@ -79,35 +79,35 @@ instance ToQuery AcceptVpcPeeringConnection
 instance ToPath AcceptVpcPeeringConnection where
     toPath = const "/"
 
-newtype AcceptVpcPeeringConnectionResult = AcceptVpcPeeringConnectionResult
+newtype AcceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     { _avpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
     } deriving (Eq, Show, Generic)
 
--- | 'AcceptVpcPeeringConnectionResult' constructor.
+-- | 'AcceptVpcPeeringConnectionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'avpcrVpcPeeringConnection' @::@ 'Maybe' 'VpcPeeringConnection'
 --
-acceptVpcPeeringConnectionResponse :: AcceptVpcPeeringConnectionResult
-acceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResult
+acceptVpcPeeringConnectionResponse :: AcceptVpcPeeringConnectionResponse
+acceptVpcPeeringConnectionResponse = AcceptVpcPeeringConnectionResponse
     { _avpcrVpcPeeringConnection = Nothing
     }
 
 -- | Information about the VPC peering connection.
-avpcrVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResult (Maybe VpcPeeringConnection)
+avpcrVpcPeeringConnection :: Lens' AcceptVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
 avpcrVpcPeeringConnection =
     lens _avpcrVpcPeeringConnection
         (\s a -> s { _avpcrVpcPeeringConnection = a })
 
-instance FromXML AcceptVpcPeeringConnectionResult where
+instance FromXML AcceptVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AcceptVpcPeeringConnectionResult"
+    fromXMLRoot    = fromRoot "AcceptVpcPeeringConnectionResponse"
 
 instance AWSRequest AcceptVpcPeeringConnection where
     type Sv AcceptVpcPeeringConnection = EC2
-    type Rs AcceptVpcPeeringConnection = AcceptVpcPeeringConnectionResult
+    type Rs AcceptVpcPeeringConnection = AcceptVpcPeeringConnectionResponse
 
     request  = post "AcceptVpcPeeringConnection"
-    response = xmlResponse $ \h x -> AcceptVpcPeeringConnectionResult
+    response = xmlResponse $ \h x -> AcceptVpcPeeringConnectionResponse
         <$> x %| "vpcPeeringConnection"

@@ -30,48 +30,48 @@
 module Network.AWS.Redshift.DescribeClusterParameterGroups
     (
     -- * Request
-      DescribeClusterParameterGroupsMessage
+      DescribeClusterParameterGroups
     -- ** Request constructor
     , describeClusterParameterGroups
     -- ** Request lenses
-    , dcpgm1Marker
-    , dcpgm1MaxRecords
-    , dcpgm1ParameterGroupName
+    , dcpgMarker
+    , dcpgMaxRecords
+    , dcpgParameterGroupName
 
     -- * Response
-    , ClusterParameterGroupsMessage
+    , DescribeClusterParameterGroupsResponse
     -- ** Response constructor
     , describeClusterParameterGroupsResponse
     -- ** Response lenses
-    , cpgmMarker
-    , cpgmParameterGroups
+    , dcpgrMarker
+    , dcpgrParameterGroups
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data DescribeClusterParameterGroupsMessage = DescribeClusterParameterGroupsMessage
-    { _dcpgm1Marker             :: Maybe Text
-    , _dcpgm1MaxRecords         :: Maybe Int
-    , _dcpgm1ParameterGroupName :: Maybe Text
+data DescribeClusterParameterGroups = DescribeClusterParameterGroups
+    { _dcpgMarker             :: Maybe Text
+    , _dcpgMaxRecords         :: Maybe Int
+    , _dcpgParameterGroupName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeClusterParameterGroupsMessage' constructor.
+-- | 'DescribeClusterParameterGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcpgm1Marker' @::@ 'Maybe' 'Text'
+-- * 'dcpgMarker' @::@ 'Maybe' 'Text'
 --
--- * 'dcpgm1MaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dcpgMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'dcpgm1ParameterGroupName' @::@ 'Maybe' 'Text'
+-- * 'dcpgParameterGroupName' @::@ 'Maybe' 'Text'
 --
-describeClusterParameterGroups :: DescribeClusterParameterGroupsMessage
-describeClusterParameterGroups = DescribeClusterParameterGroupsMessage
-    { _dcpgm1ParameterGroupName = Nothing
-    , _dcpgm1MaxRecords         = Nothing
-    , _dcpgm1Marker             = Nothing
+describeClusterParameterGroups :: DescribeClusterParameterGroups
+describeClusterParameterGroups = DescribeClusterParameterGroups
+    { _dcpgParameterGroupName = Nothing
+    , _dcpgMaxRecords         = Nothing
+    , _dcpgMarker             = Nothing
     }
 
 -- | An optional parameter that specifies the starting point to return a set
@@ -80,47 +80,46 @@ describeClusterParameterGroups = DescribeClusterParameterGroupsMessage
 -- the Marker field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the Marker
 -- parameter and retrying the request.
-dcpgm1Marker :: Lens' DescribeClusterParameterGroupsMessage (Maybe Text)
-dcpgm1Marker = lens _dcpgm1Marker (\s a -> s { _dcpgm1Marker = a })
+dcpgMarker :: Lens' DescribeClusterParameterGroups (Maybe Text)
+dcpgMarker = lens _dcpgMarker (\s a -> s { _dcpgMarker = a })
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcpgm1MaxRecords :: Lens' DescribeClusterParameterGroupsMessage (Maybe Int)
-dcpgm1MaxRecords = lens _dcpgm1MaxRecords (\s a -> s { _dcpgm1MaxRecords = a })
+dcpgMaxRecords :: Lens' DescribeClusterParameterGroups (Maybe Int)
+dcpgMaxRecords = lens _dcpgMaxRecords (\s a -> s { _dcpgMaxRecords = a })
 
 -- | The name of a specific parameter group for which to return details. By
 -- default, details about all parameter groups and the default parameter
 -- group are returned.
-dcpgm1ParameterGroupName :: Lens' DescribeClusterParameterGroupsMessage (Maybe Text)
-dcpgm1ParameterGroupName =
-    lens _dcpgm1ParameterGroupName
-        (\s a -> s { _dcpgm1ParameterGroupName = a })
+dcpgParameterGroupName :: Lens' DescribeClusterParameterGroups (Maybe Text)
+dcpgParameterGroupName =
+    lens _dcpgParameterGroupName (\s a -> s { _dcpgParameterGroupName = a })
 
-instance ToQuery DescribeClusterParameterGroupsMessage
+instance ToQuery DescribeClusterParameterGroups
 
-instance ToPath DescribeClusterParameterGroupsMessage where
+instance ToPath DescribeClusterParameterGroups where
     toPath = const "/"
 
-data ClusterParameterGroupsMessage = ClusterParameterGroupsMessage
-    { _cpgmMarker          :: Maybe Text
-    , _cpgmParameterGroups :: [ClusterParameterGroup]
+data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
+    { _dcpgrMarker          :: Maybe Text
+    , _dcpgrParameterGroups :: [ClusterParameterGroup]
     } deriving (Eq, Show, Generic)
 
--- | 'ClusterParameterGroupsMessage' constructor.
+-- | 'DescribeClusterParameterGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpgmMarker' @::@ 'Maybe' 'Text'
+-- * 'dcpgrMarker' @::@ 'Maybe' 'Text'
 --
--- * 'cpgmParameterGroups' @::@ ['ClusterParameterGroup']
+-- * 'dcpgrParameterGroups' @::@ ['ClusterParameterGroup']
 --
-describeClusterParameterGroupsResponse :: ClusterParameterGroupsMessage
-describeClusterParameterGroupsResponse = ClusterParameterGroupsMessage
-    { _cpgmMarker          = Nothing
-    , _cpgmParameterGroups = mempty
+describeClusterParameterGroupsResponse :: DescribeClusterParameterGroupsResponse
+describeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResponse
+    { _dcpgrMarker          = Nothing
+    , _dcpgrParameterGroups = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -129,24 +128,24 @@ describeClusterParameterGroupsResponse = ClusterParameterGroupsMessage
 -- marker value in the Marker parameter and retrying the command. If the
 -- Marker field is empty, all response records have been retrieved for the
 -- request.
-cpgmMarker :: Lens' ClusterParameterGroupsMessage (Maybe Text)
-cpgmMarker = lens _cpgmMarker (\s a -> s { _cpgmMarker = a })
+dcpgrMarker :: Lens' DescribeClusterParameterGroupsResponse (Maybe Text)
+dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 
 -- | A list of ClusterParameterGroup instances. Each instance describes one
 -- cluster parameter group.
-cpgmParameterGroups :: Lens' ClusterParameterGroupsMessage [ClusterParameterGroup]
-cpgmParameterGroups =
-    lens _cpgmParameterGroups (\s a -> s { _cpgmParameterGroups = a })
+dcpgrParameterGroups :: Lens' DescribeClusterParameterGroupsResponse [ClusterParameterGroup]
+dcpgrParameterGroups =
+    lens _dcpgrParameterGroups (\s a -> s { _dcpgrParameterGroups = a })
 
-instance FromXML ClusterParameterGroupsMessage where
+instance FromXML DescribeClusterParameterGroupsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ClusterParameterGroupsMessage"
+    fromXMLRoot    = fromRoot "DescribeClusterParameterGroupsResponse"
 
-instance AWSRequest DescribeClusterParameterGroupsMessage where
-    type Sv DescribeClusterParameterGroupsMessage = Redshift
-    type Rs DescribeClusterParameterGroupsMessage = ClusterParameterGroupsMessage
+instance AWSRequest DescribeClusterParameterGroups where
+    type Sv DescribeClusterParameterGroups = Redshift
+    type Rs DescribeClusterParameterGroups = DescribeClusterParameterGroupsResponse
 
     request  = post "DescribeClusterParameterGroups"
-    response = xmlResponse $ \h x -> ClusterParameterGroupsMessage
+    response = xmlResponse $ \h x -> DescribeClusterParameterGroupsResponse
         <$> x %| "Marker"
         <*> x %| "ParameterGroups"

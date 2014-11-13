@@ -42,7 +42,7 @@ module Network.AWS.EC2.CreateVpcPeeringConnection
     , cvpcVpcId
 
     -- * Response
-    , CreateVpcPeeringConnectionResult
+    , CreateVpcPeeringConnectionResponse
     -- ** Response constructor
     , createVpcPeeringConnectionResponse
     -- ** Response lenses
@@ -101,35 +101,35 @@ instance ToQuery CreateVpcPeeringConnection
 instance ToPath CreateVpcPeeringConnection where
     toPath = const "/"
 
-newtype CreateVpcPeeringConnectionResult = CreateVpcPeeringConnectionResult
+newtype CreateVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     { _cvpcrVpcPeeringConnection :: Maybe VpcPeeringConnection
     } deriving (Eq, Show, Generic)
 
--- | 'CreateVpcPeeringConnectionResult' constructor.
+-- | 'CreateVpcPeeringConnectionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cvpcrVpcPeeringConnection' @::@ 'Maybe' 'VpcPeeringConnection'
 --
-createVpcPeeringConnectionResponse :: CreateVpcPeeringConnectionResult
-createVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResult
+createVpcPeeringConnectionResponse :: CreateVpcPeeringConnectionResponse
+createVpcPeeringConnectionResponse = CreateVpcPeeringConnectionResponse
     { _cvpcrVpcPeeringConnection = Nothing
     }
 
 -- | Information about the VPC peering connection.
-cvpcrVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResult (Maybe VpcPeeringConnection)
+cvpcrVpcPeeringConnection :: Lens' CreateVpcPeeringConnectionResponse (Maybe VpcPeeringConnection)
 cvpcrVpcPeeringConnection =
     lens _cvpcrVpcPeeringConnection
         (\s a -> s { _cvpcrVpcPeeringConnection = a })
 
-instance FromXML CreateVpcPeeringConnectionResult where
+instance FromXML CreateVpcPeeringConnectionResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVpcPeeringConnectionResult"
+    fromXMLRoot    = fromRoot "CreateVpcPeeringConnectionResponse"
 
 instance AWSRequest CreateVpcPeeringConnection where
     type Sv CreateVpcPeeringConnection = EC2
-    type Rs CreateVpcPeeringConnection = CreateVpcPeeringConnectionResult
+    type Rs CreateVpcPeeringConnection = CreateVpcPeeringConnectionResponse
 
     request  = post "CreateVpcPeeringConnection"
-    response = xmlResponse $ \h x -> CreateVpcPeeringConnectionResult
+    response = xmlResponse $ \h x -> CreateVpcPeeringConnectionResponse
         <$> x %| "vpcPeeringConnection"

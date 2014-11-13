@@ -26,11 +26,11 @@
 module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     (
     -- * Request
-      DeleteCacheParameterGroupMessage
+      DeleteCacheParameterGroup
     -- ** Request constructor
     , deleteCacheParameterGroup
     -- ** Request lenses
-    , dcpgm1CacheParameterGroupName
+    , dcpg1CacheParameterGroupName
 
     -- * Response
     , DeleteCacheParameterGroupResponse
@@ -42,31 +42,31 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-newtype DeleteCacheParameterGroupMessage = DeleteCacheParameterGroupMessage
-    { _dcpgm1CacheParameterGroupName :: Text
+newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup
+    { _dcpg1CacheParameterGroupName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteCacheParameterGroupMessage' constructor.
+-- | 'DeleteCacheParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcpgm1CacheParameterGroupName' @::@ 'Text'
+-- * 'dcpg1CacheParameterGroupName' @::@ 'Text'
 --
-deleteCacheParameterGroup :: Text -- ^ 'dcpgm1CacheParameterGroupName'
-                          -> DeleteCacheParameterGroupMessage
-deleteCacheParameterGroup p1 = DeleteCacheParameterGroupMessage
-    { _dcpgm1CacheParameterGroupName = p1
+deleteCacheParameterGroup :: Text -- ^ 'dcpg1CacheParameterGroupName'
+                          -> DeleteCacheParameterGroup
+deleteCacheParameterGroup p1 = DeleteCacheParameterGroup
+    { _dcpg1CacheParameterGroupName = p1
     }
 
 -- | The name of the cache parameter group to delete.
-dcpgm1CacheParameterGroupName :: Lens' DeleteCacheParameterGroupMessage Text
-dcpgm1CacheParameterGroupName =
-    lens _dcpgm1CacheParameterGroupName
-        (\s a -> s { _dcpgm1CacheParameterGroupName = a })
+dcpg1CacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
+dcpg1CacheParameterGroupName =
+    lens _dcpg1CacheParameterGroupName
+        (\s a -> s { _dcpg1CacheParameterGroupName = a })
 
-instance ToQuery DeleteCacheParameterGroupMessage
+instance ToQuery DeleteCacheParameterGroup
 
-instance ToPath DeleteCacheParameterGroupMessage where
+instance ToPath DeleteCacheParameterGroup where
     toPath = const "/"
 
 data DeleteCacheParameterGroupResponse = DeleteCacheParameterGroupResponse
@@ -80,9 +80,9 @@ instance FromXML DeleteCacheParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteCacheParameterGroupResponse"
 
-instance AWSRequest DeleteCacheParameterGroupMessage where
-    type Sv DeleteCacheParameterGroupMessage = ElastiCache
-    type Rs DeleteCacheParameterGroupMessage = DeleteCacheParameterGroupResponse
+instance AWSRequest DeleteCacheParameterGroup where
+    type Sv DeleteCacheParameterGroup = ElastiCache
+    type Rs DeleteCacheParameterGroup = DeleteCacheParameterGroupResponse
 
     request  = post "DeleteCacheParameterGroup"
     response = nullaryResponse DeleteCacheParameterGroupResponse

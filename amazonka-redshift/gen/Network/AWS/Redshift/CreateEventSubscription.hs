@@ -43,20 +43,20 @@
 module Network.AWS.Redshift.CreateEventSubscription
     (
     -- * Request
-      CreateEventSubscriptionMessage
+      CreateEventSubscription
     -- ** Request constructor
     , createEventSubscription
     -- ** Request lenses
-    , cesmEnabled
-    , cesmEventCategories
-    , cesmSeverity
-    , cesmSnsTopicArn
-    , cesmSourceIds
-    , cesmSourceType
-    , cesmSubscriptionName
+    , cesEnabled
+    , cesEventCategories
+    , cesSeverity
+    , cesSnsTopicArn
+    , cesSourceIds
+    , cesSourceType
+    , cesSubscriptionName
 
     -- * Response
-    , CreateEventSubscriptionResult
+    , CreateEventSubscriptionResponse
     -- ** Response constructor
     , createEventSubscriptionResponse
     -- ** Response lenses
@@ -67,69 +67,69 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data CreateEventSubscriptionMessage = CreateEventSubscriptionMessage
-    { _cesmEnabled          :: Maybe Bool
-    , _cesmEventCategories  :: [Text]
-    , _cesmSeverity         :: Maybe Text
-    , _cesmSnsTopicArn      :: Text
-    , _cesmSourceIds        :: [Text]
-    , _cesmSourceType       :: Maybe Text
-    , _cesmSubscriptionName :: Text
+data CreateEventSubscription = CreateEventSubscription
+    { _cesEnabled          :: Maybe Bool
+    , _cesEventCategories  :: [Text]
+    , _cesSeverity         :: Maybe Text
+    , _cesSnsTopicArn      :: Text
+    , _cesSourceIds        :: [Text]
+    , _cesSourceType       :: Maybe Text
+    , _cesSubscriptionName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CreateEventSubscriptionMessage' constructor.
+-- | 'CreateEventSubscription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cesmEnabled' @::@ 'Maybe' 'Bool'
+-- * 'cesEnabled' @::@ 'Maybe' 'Bool'
 --
--- * 'cesmEventCategories' @::@ ['Text']
+-- * 'cesEventCategories' @::@ ['Text']
 --
--- * 'cesmSeverity' @::@ 'Maybe' 'Text'
+-- * 'cesSeverity' @::@ 'Maybe' 'Text'
 --
--- * 'cesmSnsTopicArn' @::@ 'Text'
+-- * 'cesSnsTopicArn' @::@ 'Text'
 --
--- * 'cesmSourceIds' @::@ ['Text']
+-- * 'cesSourceIds' @::@ ['Text']
 --
--- * 'cesmSourceType' @::@ 'Maybe' 'Text'
+-- * 'cesSourceType' @::@ 'Maybe' 'Text'
 --
--- * 'cesmSubscriptionName' @::@ 'Text'
+-- * 'cesSubscriptionName' @::@ 'Text'
 --
-createEventSubscription :: Text -- ^ 'cesmSubscriptionName'
-                        -> Text -- ^ 'cesmSnsTopicArn'
-                        -> CreateEventSubscriptionMessage
-createEventSubscription p1 p2 = CreateEventSubscriptionMessage
-    { _cesmSubscriptionName = p1
-    , _cesmSnsTopicArn      = p2
-    , _cesmSourceType       = Nothing
-    , _cesmSourceIds        = mempty
-    , _cesmEventCategories  = mempty
-    , _cesmSeverity         = Nothing
-    , _cesmEnabled          = Nothing
+createEventSubscription :: Text -- ^ 'cesSubscriptionName'
+                        -> Text -- ^ 'cesSnsTopicArn'
+                        -> CreateEventSubscription
+createEventSubscription p1 p2 = CreateEventSubscription
+    { _cesSubscriptionName = p1
+    , _cesSnsTopicArn      = p2
+    , _cesSourceType       = Nothing
+    , _cesSourceIds        = mempty
+    , _cesEventCategories  = mempty
+    , _cesSeverity         = Nothing
+    , _cesEnabled          = Nothing
     }
 
 -- | A Boolean value; set to true to activate the subscription, set to false
 -- to create the subscription but not active it.
-cesmEnabled :: Lens' CreateEventSubscriptionMessage (Maybe Bool)
-cesmEnabled = lens _cesmEnabled (\s a -> s { _cesmEnabled = a })
+cesEnabled :: Lens' CreateEventSubscription (Maybe Bool)
+cesEnabled = lens _cesEnabled (\s a -> s { _cesEnabled = a })
 
 -- | Specifies the Amazon Redshift event categories to be published by the
 -- event notification subscription. Values: Configuration, Management,
 -- Monitoring, Security.
-cesmEventCategories :: Lens' CreateEventSubscriptionMessage [Text]
-cesmEventCategories =
-    lens _cesmEventCategories (\s a -> s { _cesmEventCategories = a })
+cesEventCategories :: Lens' CreateEventSubscription [Text]
+cesEventCategories =
+    lens _cesEventCategories (\s a -> s { _cesEventCategories = a })
 
 -- | Specifies the Amazon Redshift event severity to be published by the event
 -- notification subscription. Values: ERROR, INFO.
-cesmSeverity :: Lens' CreateEventSubscriptionMessage (Maybe Text)
-cesmSeverity = lens _cesmSeverity (\s a -> s { _cesmSeverity = a })
+cesSeverity :: Lens' CreateEventSubscription (Maybe Text)
+cesSeverity = lens _cesSeverity (\s a -> s { _cesSeverity = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic used to transmit
 -- the event notifications. The ARN is created by Amazon SNS when you create
 -- a topic and subscribe to it.
-cesmSnsTopicArn :: Lens' CreateEventSubscriptionMessage Text
-cesmSnsTopicArn = lens _cesmSnsTopicArn (\s a -> s { _cesmSnsTopicArn = a })
+cesSnsTopicArn :: Lens' CreateEventSubscription Text
+cesSnsTopicArn = lens _cesSnsTopicArn (\s a -> s { _cesSnsTopicArn = a })
 
 -- | A list of one or more identifiers of Amazon Redshift source objects. All
 -- of the objects must be of the same type as was specified in the source
@@ -137,8 +137,8 @@ cesmSnsTopicArn = lens _cesmSnsTopicArn (\s a -> s { _cesmSnsTopicArn = a })
 -- by the specified objects. If not specified, then events are returned for
 -- all objects within the source type specified. Example: my-cluster-1,
 -- my-cluster-2 Example: my-snapshot-20131010.
-cesmSourceIds :: Lens' CreateEventSubscriptionMessage [Text]
-cesmSourceIds = lens _cesmSourceIds (\s a -> s { _cesmSourceIds = a })
+cesSourceIds :: Lens' CreateEventSubscription [Text]
+cesSourceIds = lens _cesSourceIds (\s a -> s { _cesSourceIds = a })
 
 -- | The type of source that will be generating the events. For example, if
 -- you want to be notified of events generated by a cluster, you would set
@@ -147,49 +147,49 @@ cesmSourceIds = lens _cesmSourceIds (\s a -> s { _cesmSourceIds = a })
 -- specify a source type in order to specify source IDs. Valid values:
 -- cluster, cluster-parameter-group, cluster-security-group, and
 -- cluster-snapshot.
-cesmSourceType :: Lens' CreateEventSubscriptionMessage (Maybe Text)
-cesmSourceType = lens _cesmSourceType (\s a -> s { _cesmSourceType = a })
+cesSourceType :: Lens' CreateEventSubscription (Maybe Text)
+cesSourceType = lens _cesSourceType (\s a -> s { _cesSourceType = a })
 
 -- | The name of the event subscription to be created. Constraints: Cannot be
 -- null, empty, or blank. Must contain from 1 to 255 alphanumeric characters
 -- or hyphens. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens.
-cesmSubscriptionName :: Lens' CreateEventSubscriptionMessage Text
-cesmSubscriptionName =
-    lens _cesmSubscriptionName (\s a -> s { _cesmSubscriptionName = a })
+cesSubscriptionName :: Lens' CreateEventSubscription Text
+cesSubscriptionName =
+    lens _cesSubscriptionName (\s a -> s { _cesSubscriptionName = a })
 
-instance ToQuery CreateEventSubscriptionMessage
+instance ToQuery CreateEventSubscription
 
-instance ToPath CreateEventSubscriptionMessage where
+instance ToPath CreateEventSubscription where
     toPath = const "/"
 
-newtype CreateEventSubscriptionResult = CreateEventSubscriptionResult
+newtype CreateEventSubscriptionResponse = CreateEventSubscriptionResponse
     { _cesrEventSubscription :: Maybe EventSubscription
     } deriving (Eq, Show, Generic)
 
--- | 'CreateEventSubscriptionResult' constructor.
+-- | 'CreateEventSubscriptionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cesrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-createEventSubscriptionResponse :: CreateEventSubscriptionResult
-createEventSubscriptionResponse = CreateEventSubscriptionResult
+createEventSubscriptionResponse :: CreateEventSubscriptionResponse
+createEventSubscriptionResponse = CreateEventSubscriptionResponse
     { _cesrEventSubscription = Nothing
     }
 
-cesrEventSubscription :: Lens' CreateEventSubscriptionResult (Maybe EventSubscription)
+cesrEventSubscription :: Lens' CreateEventSubscriptionResponse (Maybe EventSubscription)
 cesrEventSubscription =
     lens _cesrEventSubscription (\s a -> s { _cesrEventSubscription = a })
 
-instance FromXML CreateEventSubscriptionResult where
+instance FromXML CreateEventSubscriptionResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateEventSubscriptionResult"
+    fromXMLRoot    = fromRoot "CreateEventSubscriptionResponse"
 
-instance AWSRequest CreateEventSubscriptionMessage where
-    type Sv CreateEventSubscriptionMessage = Redshift
-    type Rs CreateEventSubscriptionMessage = CreateEventSubscriptionResult
+instance AWSRequest CreateEventSubscription where
+    type Sv CreateEventSubscription = Redshift
+    type Rs CreateEventSubscription = CreateEventSubscriptionResponse
 
     request  = post "CreateEventSubscription"
-    response = xmlResponse $ \h x -> CreateEventSubscriptionResult
+    response = xmlResponse $ \h x -> CreateEventSubscriptionResponse
         <$> x %| "EventSubscription"

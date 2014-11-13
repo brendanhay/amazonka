@@ -29,8 +29,8 @@ module Network.AWS.EC2.DeleteInternetGateway
     -- ** Request constructor
     , deleteInternetGateway
     -- ** Request lenses
-    , dig1DryRun
-    , dig1InternetGatewayId
+    , dig2DryRun
+    , dig2InternetGatewayId
 
     -- * Response
     , DeleteInternetGatewayResponse
@@ -43,32 +43,32 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DeleteInternetGateway = DeleteInternetGateway
-    { _dig1DryRun            :: Maybe Bool
-    , _dig1InternetGatewayId :: Text
+    { _dig2DryRun            :: Maybe Bool
+    , _dig2InternetGatewayId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteInternetGateway' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dig1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dig2DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dig1InternetGatewayId' @::@ 'Text'
+-- * 'dig2InternetGatewayId' @::@ 'Text'
 --
-deleteInternetGateway :: Text -- ^ 'dig1InternetGatewayId'
+deleteInternetGateway :: Text -- ^ 'dig2InternetGatewayId'
                       -> DeleteInternetGateway
 deleteInternetGateway p1 = DeleteInternetGateway
-    { _dig1InternetGatewayId = p1
-    , _dig1DryRun            = Nothing
+    { _dig2InternetGatewayId = p1
+    , _dig2DryRun            = Nothing
     }
 
-dig1DryRun :: Lens' DeleteInternetGateway (Maybe Bool)
-dig1DryRun = lens _dig1DryRun (\s a -> s { _dig1DryRun = a })
+dig2DryRun :: Lens' DeleteInternetGateway (Maybe Bool)
+dig2DryRun = lens _dig2DryRun (\s a -> s { _dig2DryRun = a })
 
 -- | The ID of the Internet gateway.
-dig1InternetGatewayId :: Lens' DeleteInternetGateway Text
-dig1InternetGatewayId =
-    lens _dig1InternetGatewayId (\s a -> s { _dig1InternetGatewayId = a })
+dig2InternetGatewayId :: Lens' DeleteInternetGateway Text
+dig2InternetGatewayId =
+    lens _dig2InternetGatewayId (\s a -> s { _dig2InternetGatewayId = a })
 
 instance ToQuery DeleteInternetGateway
 

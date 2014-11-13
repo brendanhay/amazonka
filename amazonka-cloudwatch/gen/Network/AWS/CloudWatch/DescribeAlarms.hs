@@ -26,133 +26,133 @@
 module Network.AWS.CloudWatch.DescribeAlarms
     (
     -- * Request
-      DescribeAlarmsInput
+      DescribeAlarms
     -- ** Request constructor
     , describeAlarms
     -- ** Request lenses
-    , dai1ActionPrefix
-    , dai1AlarmNamePrefix
-    , dai1AlarmNames
-    , dai1MaxRecords
-    , dai1NextToken
-    , dai1StateValue
+    , daActionPrefix
+    , daAlarmNamePrefix
+    , daAlarmNames
+    , daMaxRecords
+    , daNextToken
+    , daStateValue
 
     -- * Response
-    , DescribeAlarmsOutput
+    , DescribeAlarmsResponse
     -- ** Response constructor
     , describeAlarmsResponse
     -- ** Response lenses
-    , daoMetricAlarms
-    , daoNextToken
+    , darMetricAlarms
+    , darNextToken
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
 
-data DescribeAlarmsInput = DescribeAlarmsInput
-    { _dai1ActionPrefix    :: Maybe Text
-    , _dai1AlarmNamePrefix :: Maybe Text
-    , _dai1AlarmNames      :: [Text]
-    , _dai1MaxRecords      :: Maybe Natural
-    , _dai1NextToken       :: Maybe Text
-    , _dai1StateValue      :: Maybe Text
+data DescribeAlarms = DescribeAlarms
+    { _daActionPrefix    :: Maybe Text
+    , _daAlarmNamePrefix :: Maybe Text
+    , _daAlarmNames      :: [Text]
+    , _daMaxRecords      :: Maybe Natural
+    , _daNextToken       :: Maybe Text
+    , _daStateValue      :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeAlarmsInput' constructor.
+-- | 'DescribeAlarms' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dai1ActionPrefix' @::@ 'Maybe' 'Text'
+-- * 'daActionPrefix' @::@ 'Maybe' 'Text'
 --
--- * 'dai1AlarmNamePrefix' @::@ 'Maybe' 'Text'
+-- * 'daAlarmNamePrefix' @::@ 'Maybe' 'Text'
 --
--- * 'dai1AlarmNames' @::@ ['Text']
+-- * 'daAlarmNames' @::@ ['Text']
 --
--- * 'dai1MaxRecords' @::@ 'Maybe' 'Natural'
+-- * 'daMaxRecords' @::@ 'Maybe' 'Natural'
 --
--- * 'dai1NextToken' @::@ 'Maybe' 'Text'
+-- * 'daNextToken' @::@ 'Maybe' 'Text'
 --
--- * 'dai1StateValue' @::@ 'Maybe' 'Text'
+-- * 'daStateValue' @::@ 'Maybe' 'Text'
 --
-describeAlarms :: DescribeAlarmsInput
-describeAlarms = DescribeAlarmsInput
-    { _dai1AlarmNames      = mempty
-    , _dai1AlarmNamePrefix = Nothing
-    , _dai1StateValue      = Nothing
-    , _dai1ActionPrefix    = Nothing
-    , _dai1MaxRecords      = Nothing
-    , _dai1NextToken       = Nothing
+describeAlarms :: DescribeAlarms
+describeAlarms = DescribeAlarms
+    { _daAlarmNames      = mempty
+    , _daAlarmNamePrefix = Nothing
+    , _daStateValue      = Nothing
+    , _daActionPrefix    = Nothing
+    , _daMaxRecords      = Nothing
+    , _daNextToken       = Nothing
     }
 
 -- | The action name prefix.
-dai1ActionPrefix :: Lens' DescribeAlarmsInput (Maybe Text)
-dai1ActionPrefix = lens _dai1ActionPrefix (\s a -> s { _dai1ActionPrefix = a })
+daActionPrefix :: Lens' DescribeAlarms (Maybe Text)
+daActionPrefix = lens _daActionPrefix (\s a -> s { _daActionPrefix = a })
 
 -- | The alarm name prefix. AlarmNames cannot be specified if this parameter
 -- is specified.
-dai1AlarmNamePrefix :: Lens' DescribeAlarmsInput (Maybe Text)
-dai1AlarmNamePrefix =
-    lens _dai1AlarmNamePrefix (\s a -> s { _dai1AlarmNamePrefix = a })
+daAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
+daAlarmNamePrefix =
+    lens _daAlarmNamePrefix (\s a -> s { _daAlarmNamePrefix = a })
 
 -- | A list of alarm names to retrieve information for.
-dai1AlarmNames :: Lens' DescribeAlarmsInput [Text]
-dai1AlarmNames = lens _dai1AlarmNames (\s a -> s { _dai1AlarmNames = a })
+daAlarmNames :: Lens' DescribeAlarms [Text]
+daAlarmNames = lens _daAlarmNames (\s a -> s { _daAlarmNames = a })
 
 -- | The maximum number of alarm descriptions to retrieve.
-dai1MaxRecords :: Lens' DescribeAlarmsInput (Maybe Natural)
-dai1MaxRecords = lens _dai1MaxRecords (\s a -> s { _dai1MaxRecords = a })
+daMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
+daMaxRecords = lens _daMaxRecords (\s a -> s { _daMaxRecords = a })
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
-dai1NextToken :: Lens' DescribeAlarmsInput (Maybe Text)
-dai1NextToken = lens _dai1NextToken (\s a -> s { _dai1NextToken = a })
+daNextToken :: Lens' DescribeAlarms (Maybe Text)
+daNextToken = lens _daNextToken (\s a -> s { _daNextToken = a })
 
 -- | The state value to be used in matching alarms.
-dai1StateValue :: Lens' DescribeAlarmsInput (Maybe Text)
-dai1StateValue = lens _dai1StateValue (\s a -> s { _dai1StateValue = a })
+daStateValue :: Lens' DescribeAlarms (Maybe Text)
+daStateValue = lens _daStateValue (\s a -> s { _daStateValue = a })
 
-instance ToQuery DescribeAlarmsInput
+instance ToQuery DescribeAlarms
 
-instance ToPath DescribeAlarmsInput where
+instance ToPath DescribeAlarms where
     toPath = const "/"
 
-data DescribeAlarmsOutput = DescribeAlarmsOutput
-    { _daoMetricAlarms :: [MetricAlarm]
-    , _daoNextToken    :: Maybe Text
+data DescribeAlarmsResponse = DescribeAlarmsResponse
+    { _darMetricAlarms :: [MetricAlarm]
+    , _darNextToken    :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeAlarmsOutput' constructor.
+-- | 'DescribeAlarmsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daoMetricAlarms' @::@ ['MetricAlarm']
+-- * 'darMetricAlarms' @::@ ['MetricAlarm']
 --
--- * 'daoNextToken' @::@ 'Maybe' 'Text'
+-- * 'darNextToken' @::@ 'Maybe' 'Text'
 --
-describeAlarmsResponse :: DescribeAlarmsOutput
-describeAlarmsResponse = DescribeAlarmsOutput
-    { _daoMetricAlarms = mempty
-    , _daoNextToken    = Nothing
+describeAlarmsResponse :: DescribeAlarmsResponse
+describeAlarmsResponse = DescribeAlarmsResponse
+    { _darMetricAlarms = mempty
+    , _darNextToken    = Nothing
     }
 
 -- | A list of information for the specified alarms.
-daoMetricAlarms :: Lens' DescribeAlarmsOutput [MetricAlarm]
-daoMetricAlarms = lens _daoMetricAlarms (\s a -> s { _daoMetricAlarms = a })
+darMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
+darMetricAlarms = lens _darMetricAlarms (\s a -> s { _darMetricAlarms = a })
 
 -- | A string that marks the start of the next batch of returned results.
-daoNextToken :: Lens' DescribeAlarmsOutput (Maybe Text)
-daoNextToken = lens _daoNextToken (\s a -> s { _daoNextToken = a })
+darNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
+darNextToken = lens _darNextToken (\s a -> s { _darNextToken = a })
 
-instance FromXML DescribeAlarmsOutput where
+instance FromXML DescribeAlarmsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAlarmsOutput"
+    fromXMLRoot    = fromRoot "DescribeAlarmsResponse"
 
-instance AWSRequest DescribeAlarmsInput where
-    type Sv DescribeAlarmsInput = CloudWatch
-    type Rs DescribeAlarmsInput = DescribeAlarmsOutput
+instance AWSRequest DescribeAlarms where
+    type Sv DescribeAlarms = CloudWatch
+    type Rs DescribeAlarms = DescribeAlarmsResponse
 
     request  = post "DescribeAlarms"
-    response = xmlResponse $ \h x -> DescribeAlarmsOutput
+    response = xmlResponse $ \h x -> DescribeAlarmsResponse
         <$> x %| "MetricAlarms"
         <*> x %| "NextToken"

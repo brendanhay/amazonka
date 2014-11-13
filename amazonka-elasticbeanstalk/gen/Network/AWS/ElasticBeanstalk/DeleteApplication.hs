@@ -26,12 +26,12 @@
 module Network.AWS.ElasticBeanstalk.DeleteApplication
     (
     -- * Request
-      DeleteApplicationMessage
+      DeleteApplication
     -- ** Request constructor
     , deleteApplication
     -- ** Request lenses
-    , damApplicationName
-    , damTerminateEnvByForce
+    , daApplicationName
+    , daTerminateEnvByForce
 
     -- * Response
     , DeleteApplicationResponse
@@ -43,40 +43,40 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data DeleteApplicationMessage = DeleteApplicationMessage
-    { _damApplicationName     :: Text
-    , _damTerminateEnvByForce :: Maybe Bool
+data DeleteApplication = DeleteApplication
+    { _daApplicationName     :: Text
+    , _daTerminateEnvByForce :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteApplicationMessage' constructor.
+-- | 'DeleteApplication' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'damApplicationName' @::@ 'Text'
+-- * 'daApplicationName' @::@ 'Text'
 --
--- * 'damTerminateEnvByForce' @::@ 'Maybe' 'Bool'
+-- * 'daTerminateEnvByForce' @::@ 'Maybe' 'Bool'
 --
-deleteApplication :: Text -- ^ 'damApplicationName'
-                  -> DeleteApplicationMessage
-deleteApplication p1 = DeleteApplicationMessage
-    { _damApplicationName     = p1
-    , _damTerminateEnvByForce = Nothing
+deleteApplication :: Text -- ^ 'daApplicationName'
+                  -> DeleteApplication
+deleteApplication p1 = DeleteApplication
+    { _daApplicationName     = p1
+    , _daTerminateEnvByForce = Nothing
     }
 
 -- | The name of the application to delete.
-damApplicationName :: Lens' DeleteApplicationMessage Text
-damApplicationName =
-    lens _damApplicationName (\s a -> s { _damApplicationName = a })
+daApplicationName :: Lens' DeleteApplication Text
+daApplicationName =
+    lens _daApplicationName (\s a -> s { _daApplicationName = a })
 
 -- | When set to true, running environments will be terminated before deleting
 -- the application.
-damTerminateEnvByForce :: Lens' DeleteApplicationMessage (Maybe Bool)
-damTerminateEnvByForce =
-    lens _damTerminateEnvByForce (\s a -> s { _damTerminateEnvByForce = a })
+daTerminateEnvByForce :: Lens' DeleteApplication (Maybe Bool)
+daTerminateEnvByForce =
+    lens _daTerminateEnvByForce (\s a -> s { _daTerminateEnvByForce = a })
 
-instance ToQuery DeleteApplicationMessage
+instance ToQuery DeleteApplication
 
-instance ToPath DeleteApplicationMessage where
+instance ToPath DeleteApplication where
     toPath = const "/"
 
 data DeleteApplicationResponse = DeleteApplicationResponse
@@ -90,9 +90,9 @@ instance FromXML DeleteApplicationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteApplicationResponse"
 
-instance AWSRequest DeleteApplicationMessage where
-    type Sv DeleteApplicationMessage = ElasticBeanstalk
-    type Rs DeleteApplicationMessage = DeleteApplicationResponse
+instance AWSRequest DeleteApplication where
+    type Sv DeleteApplication = ElasticBeanstalk
+    type Rs DeleteApplication = DeleteApplicationResponse
 
     request  = post "DeleteApplication"
     response = nullaryResponse DeleteApplicationResponse

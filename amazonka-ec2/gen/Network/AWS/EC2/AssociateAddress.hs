@@ -48,7 +48,7 @@ module Network.AWS.EC2.AssociateAddress
     , aa1PublicIp
 
     -- * Response
-    , AssociateAddressResult
+    , AssociateAddressResponse
     -- ** Response constructor
     , associateAddressResponse
     -- ** Response lenses
@@ -142,34 +142,34 @@ instance ToQuery AssociateAddress
 instance ToPath AssociateAddress where
     toPath = const "/"
 
-newtype AssociateAddressResult = AssociateAddressResult
+newtype AssociateAddressResponse = AssociateAddressResponse
     { _aarAssociationId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'AssociateAddressResult' constructor.
+-- | 'AssociateAddressResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'aarAssociationId' @::@ 'Maybe' 'Text'
 --
-associateAddressResponse :: AssociateAddressResult
-associateAddressResponse = AssociateAddressResult
+associateAddressResponse :: AssociateAddressResponse
+associateAddressResponse = AssociateAddressResponse
     { _aarAssociationId = Nothing
     }
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP
 -- address with an instance.
-aarAssociationId :: Lens' AssociateAddressResult (Maybe Text)
+aarAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
 aarAssociationId = lens _aarAssociationId (\s a -> s { _aarAssociationId = a })
 
-instance FromXML AssociateAddressResult where
+instance FromXML AssociateAddressResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AssociateAddressResult"
+    fromXMLRoot    = fromRoot "AssociateAddressResponse"
 
 instance AWSRequest AssociateAddress where
     type Sv AssociateAddress = EC2
-    type Rs AssociateAddress = AssociateAddressResult
+    type Rs AssociateAddress = AssociateAddressResponse
 
     request  = post "AssociateAddress"
-    response = xmlResponse $ \h x -> AssociateAddressResult
+    response = xmlResponse $ \h x -> AssociateAddressResponse
         <$> x %| "associationId"

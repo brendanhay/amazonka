@@ -43,7 +43,7 @@ module Network.AWS.EC2.CopySnapshot
     , csSourceSnapshotId
 
     -- * Response
-    , CopySnapshotResult
+    , CopySnapshotResponse
     -- ** Response constructor
     , copySnapshotResponse
     -- ** Response lenses
@@ -134,33 +134,33 @@ instance ToQuery CopySnapshot
 instance ToPath CopySnapshot where
     toPath = const "/"
 
-newtype CopySnapshotResult = CopySnapshotResult
+newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshotId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'CopySnapshotResult' constructor.
+-- | 'CopySnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csrSnapshotId' @::@ 'Maybe' 'Text'
 --
-copySnapshotResponse :: CopySnapshotResult
-copySnapshotResponse = CopySnapshotResult
+copySnapshotResponse :: CopySnapshotResponse
+copySnapshotResponse = CopySnapshotResponse
     { _csrSnapshotId = Nothing
     }
 
 -- | The ID of the new snapshot.
-csrSnapshotId :: Lens' CopySnapshotResult (Maybe Text)
+csrSnapshotId :: Lens' CopySnapshotResponse (Maybe Text)
 csrSnapshotId = lens _csrSnapshotId (\s a -> s { _csrSnapshotId = a })
 
-instance FromXML CopySnapshotResult where
+instance FromXML CopySnapshotResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopySnapshotResult"
+    fromXMLRoot    = fromRoot "CopySnapshotResponse"
 
 instance AWSRequest CopySnapshot where
     type Sv CopySnapshot = EC2
-    type Rs CopySnapshot = CopySnapshotResult
+    type Rs CopySnapshot = CopySnapshotResponse
 
     request  = post "CopySnapshot"
-    response = xmlResponse $ \h x -> CopySnapshotResult
+    response = xmlResponse $ \h x -> CopySnapshotResponse
         <$> x %| "snapshotId"

@@ -45,7 +45,7 @@ module Network.AWS.EC2.RequestSpotInstances
     , rsiValidUntil
 
     -- * Response
-    , RequestSpotInstancesResult
+    , RequestSpotInstancesResponse
     -- ** Response constructor
     , requestSpotInstancesResponse
     -- ** Response lenses
@@ -176,41 +176,41 @@ instance ToQuery RequestSpotInstances
 instance ToPath RequestSpotInstances where
     toPath = const "/"
 
-newtype RequestSpotInstancesResult = RequestSpotInstancesResult
+newtype RequestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsirSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList RequestSpotInstancesResult where
-    type Item RequestSpotInstancesResult = SpotInstanceRequest
+instance IsList RequestSpotInstancesResponse where
+    type Item RequestSpotInstancesResponse = SpotInstanceRequest
 
-    fromList = RequestSpotInstancesResult . fromList
+    fromList = RequestSpotInstancesResponse . fromList
     toList   = toList . _rsirSpotInstanceRequests
 
--- | 'RequestSpotInstancesResult' constructor.
+-- | 'RequestSpotInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rsirSpotInstanceRequests' @::@ ['SpotInstanceRequest']
 --
-requestSpotInstancesResponse :: RequestSpotInstancesResult
-requestSpotInstancesResponse = RequestSpotInstancesResult
+requestSpotInstancesResponse :: RequestSpotInstancesResponse
+requestSpotInstancesResponse = RequestSpotInstancesResponse
     { _rsirSpotInstanceRequests = mempty
     }
 
 -- | Information about the Spot Instance request.
-rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResult [SpotInstanceRequest]
+rsirSpotInstanceRequests :: Lens' RequestSpotInstancesResponse [SpotInstanceRequest]
 rsirSpotInstanceRequests =
     lens _rsirSpotInstanceRequests
         (\s a -> s { _rsirSpotInstanceRequests = a })
 
-instance FromXML RequestSpotInstancesResult where
+instance FromXML RequestSpotInstancesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RequestSpotInstancesResult"
+    fromXMLRoot    = fromRoot "RequestSpotInstancesResponse"
 
 instance AWSRequest RequestSpotInstances where
     type Sv RequestSpotInstances = EC2
-    type Rs RequestSpotInstances = RequestSpotInstancesResult
+    type Rs RequestSpotInstances = RequestSpotInstancesResponse
 
     request  = post "RequestSpotInstances"
-    response = xmlResponse $ \h x -> RequestSpotInstancesResult
+    response = xmlResponse $ \h x -> RequestSpotInstancesResponse
         <$> x %| "spotInstanceRequestSet"

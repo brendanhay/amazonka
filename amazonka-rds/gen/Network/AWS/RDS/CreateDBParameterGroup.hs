@@ -41,114 +41,114 @@
 module Network.AWS.RDS.CreateDBParameterGroup
     (
     -- * Request
-      CreateDBParameterGroupMessage
+      CreateDBParameterGroup
     -- ** Request constructor
     , createDBParameterGroup
     -- ** Request lenses
-    , cdbpgmDBParameterGroupFamily
-    , cdbpgmDBParameterGroupName
-    , cdbpgmDescription
-    , cdbpgmTags
+    , cdbpg1DBParameterGroupFamily
+    , cdbpg1DBParameterGroupName
+    , cdbpg1Description
+    , cdbpg1Tags
 
     -- * Response
-    , CreateDBParameterGroupResult
+    , CreateDBParameterGroupResponse
     -- ** Response constructor
     , createDBParameterGroupResponse
     -- ** Response lenses
-    , cdbpgr1DBParameterGroup
+    , cdbpgrDBParameterGroup
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data CreateDBParameterGroupMessage = CreateDBParameterGroupMessage
-    { _cdbpgmDBParameterGroupFamily :: Text
-    , _cdbpgmDBParameterGroupName   :: Text
-    , _cdbpgmDescription            :: Text
-    , _cdbpgmTags                   :: [Tag]
+data CreateDBParameterGroup = CreateDBParameterGroup
+    { _cdbpg1DBParameterGroupFamily :: Text
+    , _cdbpg1DBParameterGroupName   :: Text
+    , _cdbpg1Description            :: Text
+    , _cdbpg1Tags                   :: [Tag]
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDBParameterGroupMessage' constructor.
+-- | 'CreateDBParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbpgmDBParameterGroupFamily' @::@ 'Text'
+-- * 'cdbpg1DBParameterGroupFamily' @::@ 'Text'
 --
--- * 'cdbpgmDBParameterGroupName' @::@ 'Text'
+-- * 'cdbpg1DBParameterGroupName' @::@ 'Text'
 --
--- * 'cdbpgmDescription' @::@ 'Text'
+-- * 'cdbpg1Description' @::@ 'Text'
 --
--- * 'cdbpgmTags' @::@ ['Tag']
+-- * 'cdbpg1Tags' @::@ ['Tag']
 --
-createDBParameterGroup :: Text -- ^ 'cdbpgmDBParameterGroupName'
-                       -> Text -- ^ 'cdbpgmDBParameterGroupFamily'
-                       -> Text -- ^ 'cdbpgmDescription'
-                       -> CreateDBParameterGroupMessage
-createDBParameterGroup p1 p2 p3 = CreateDBParameterGroupMessage
-    { _cdbpgmDBParameterGroupName   = p1
-    , _cdbpgmDBParameterGroupFamily = p2
-    , _cdbpgmDescription            = p3
-    , _cdbpgmTags                   = mempty
+createDBParameterGroup :: Text -- ^ 'cdbpg1DBParameterGroupName'
+                       -> Text -- ^ 'cdbpg1DBParameterGroupFamily'
+                       -> Text -- ^ 'cdbpg1Description'
+                       -> CreateDBParameterGroup
+createDBParameterGroup p1 p2 p3 = CreateDBParameterGroup
+    { _cdbpg1DBParameterGroupName   = p1
+    , _cdbpg1DBParameterGroupFamily = p2
+    , _cdbpg1Description            = p3
+    , _cdbpg1Tags                   = mempty
     }
 
 -- | The DB parameter group family name. A DB parameter group can be
 -- associated with one and only one DB parameter group family, and can be
 -- applied only to a DB instance running a database engine and engine
 -- version compatible with that DB parameter group family.
-cdbpgmDBParameterGroupFamily :: Lens' CreateDBParameterGroupMessage Text
-cdbpgmDBParameterGroupFamily =
-    lens _cdbpgmDBParameterGroupFamily
-        (\s a -> s { _cdbpgmDBParameterGroupFamily = a })
+cdbpg1DBParameterGroupFamily :: Lens' CreateDBParameterGroup Text
+cdbpg1DBParameterGroupFamily =
+    lens _cdbpg1DBParameterGroupFamily
+        (\s a -> s { _cdbpg1DBParameterGroupFamily = a })
 
 -- | The name of the DB parameter group. Constraints: Must be 1 to 255
 -- alphanumeric characters First character must be a letter Cannot end with
 -- a hyphen or contain two consecutive hyphens.
-cdbpgmDBParameterGroupName :: Lens' CreateDBParameterGroupMessage Text
-cdbpgmDBParameterGroupName =
-    lens _cdbpgmDBParameterGroupName
-        (\s a -> s { _cdbpgmDBParameterGroupName = a })
+cdbpg1DBParameterGroupName :: Lens' CreateDBParameterGroup Text
+cdbpg1DBParameterGroupName =
+    lens _cdbpg1DBParameterGroupName
+        (\s a -> s { _cdbpg1DBParameterGroupName = a })
 
 -- | The description for the DB parameter group.
-cdbpgmDescription :: Lens' CreateDBParameterGroupMessage Text
-cdbpgmDescription =
-    lens _cdbpgmDescription (\s a -> s { _cdbpgmDescription = a })
+cdbpg1Description :: Lens' CreateDBParameterGroup Text
+cdbpg1Description =
+    lens _cdbpg1Description (\s a -> s { _cdbpg1Description = a })
 
-cdbpgmTags :: Lens' CreateDBParameterGroupMessage [Tag]
-cdbpgmTags = lens _cdbpgmTags (\s a -> s { _cdbpgmTags = a })
+cdbpg1Tags :: Lens' CreateDBParameterGroup [Tag]
+cdbpg1Tags = lens _cdbpg1Tags (\s a -> s { _cdbpg1Tags = a })
 
-instance ToQuery CreateDBParameterGroupMessage
+instance ToQuery CreateDBParameterGroup
 
-instance ToPath CreateDBParameterGroupMessage where
+instance ToPath CreateDBParameterGroup where
     toPath = const "/"
 
-newtype CreateDBParameterGroupResult = CreateDBParameterGroupResult
-    { _cdbpgr1DBParameterGroup :: Maybe DBParameterGroup
+newtype CreateDBParameterGroupResponse = CreateDBParameterGroupResponse
+    { _cdbpgrDBParameterGroup :: Maybe DBParameterGroup
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDBParameterGroupResult' constructor.
+-- | 'CreateDBParameterGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbpgr1DBParameterGroup' @::@ 'Maybe' 'DBParameterGroup'
+-- * 'cdbpgrDBParameterGroup' @::@ 'Maybe' 'DBParameterGroup'
 --
-createDBParameterGroupResponse :: CreateDBParameterGroupResult
-createDBParameterGroupResponse = CreateDBParameterGroupResult
-    { _cdbpgr1DBParameterGroup = Nothing
+createDBParameterGroupResponse :: CreateDBParameterGroupResponse
+createDBParameterGroupResponse = CreateDBParameterGroupResponse
+    { _cdbpgrDBParameterGroup = Nothing
     }
 
-cdbpgr1DBParameterGroup :: Lens' CreateDBParameterGroupResult (Maybe DBParameterGroup)
-cdbpgr1DBParameterGroup =
-    lens _cdbpgr1DBParameterGroup (\s a -> s { _cdbpgr1DBParameterGroup = a })
+cdbpgrDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
+cdbpgrDBParameterGroup =
+    lens _cdbpgrDBParameterGroup (\s a -> s { _cdbpgrDBParameterGroup = a })
 
-instance FromXML CreateDBParameterGroupResult where
+instance FromXML CreateDBParameterGroupResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDBParameterGroupResult"
+    fromXMLRoot    = fromRoot "CreateDBParameterGroupResponse"
 
-instance AWSRequest CreateDBParameterGroupMessage where
-    type Sv CreateDBParameterGroupMessage = RDS
-    type Rs CreateDBParameterGroupMessage = CreateDBParameterGroupResult
+instance AWSRequest CreateDBParameterGroup where
+    type Sv CreateDBParameterGroup = RDS
+    type Rs CreateDBParameterGroup = CreateDBParameterGroupResponse
 
     request  = post "CreateDBParameterGroup"
-    response = xmlResponse $ \h x -> CreateDBParameterGroupResult
+    response = xmlResponse $ \h x -> CreateDBParameterGroupResponse
         <$> x %| "DBParameterGroup"

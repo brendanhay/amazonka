@@ -59,16 +59,16 @@ module Network.AWS.S3.CopyObject
     , coWebsiteRedirectLocation
 
     -- * Response
-    , CopyObjectOutput
+    , CopyObjectResponse
     -- ** Response constructor
     , copyObjectResponse
     -- ** Response lenses
-    , cooCopyObjectResult
-    , cooCopySourceVersionId
-    , cooExpiration
-    , cooSSECustomerAlgorithm
-    , cooSSECustomerKeyMD5
-    , cooServerSideEncryption
+    , corCopyObjectResult
+    , corCopySourceVersionId
+    , corExpiration
+    , corSSECustomerAlgorithm
+    , corSSECustomerKeyMD5
+    , corServerSideEncryption
     ) where
 
 import Network.AWS.Prelude
@@ -411,83 +411,83 @@ instance ToHeaders CopyObject where
 
 instance ToBody CopyObject
 
-data CopyObjectOutput = CopyObjectOutput
-    { _cooCopyObjectResult     :: Maybe CopyObjectResult
-    , _cooCopySourceVersionId  :: Maybe Text
-    , _cooExpiration           :: Maybe RFC822
-    , _cooSSECustomerAlgorithm :: Maybe Text
-    , _cooSSECustomerKeyMD5    :: Maybe Text
-    , _cooServerSideEncryption :: Maybe Text
+data CopyObjectResponse = CopyObjectResponse
+    { _corCopyObjectResult     :: Maybe CopyObjectResult
+    , _corCopySourceVersionId  :: Maybe Text
+    , _corExpiration           :: Maybe RFC822
+    , _corSSECustomerAlgorithm :: Maybe Text
+    , _corSSECustomerKeyMD5    :: Maybe Text
+    , _corServerSideEncryption :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'CopyObjectOutput' constructor.
+-- | 'CopyObjectResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cooCopyObjectResult' @::@ 'Maybe' 'CopyObjectResult'
+-- * 'corCopyObjectResult' @::@ 'Maybe' 'CopyObjectResult'
 --
--- * 'cooCopySourceVersionId' @::@ 'Maybe' 'Text'
+-- * 'corCopySourceVersionId' @::@ 'Maybe' 'Text'
 --
--- * 'cooExpiration' @::@ 'Maybe' 'UTCTime'
+-- * 'corExpiration' @::@ 'Maybe' 'UTCTime'
 --
--- * 'cooSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+-- * 'corSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
--- * 'cooSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+-- * 'corSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'cooServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'corServerSideEncryption' @::@ 'Maybe' 'Text'
 --
-copyObjectResponse :: CopyObjectOutput
-copyObjectResponse = CopyObjectOutput
-    { _cooCopyObjectResult     = Nothing
-    , _cooExpiration           = Nothing
-    , _cooCopySourceVersionId  = Nothing
-    , _cooServerSideEncryption = Nothing
-    , _cooSSECustomerAlgorithm = Nothing
-    , _cooSSECustomerKeyMD5    = Nothing
+copyObjectResponse :: CopyObjectResponse
+copyObjectResponse = CopyObjectResponse
+    { _corCopyObjectResult     = Nothing
+    , _corExpiration           = Nothing
+    , _corCopySourceVersionId  = Nothing
+    , _corServerSideEncryption = Nothing
+    , _corSSECustomerAlgorithm = Nothing
+    , _corSSECustomerKeyMD5    = Nothing
     }
 
-cooCopyObjectResult :: Lens' CopyObjectOutput (Maybe CopyObjectResult)
-cooCopyObjectResult =
-    lens _cooCopyObjectResult (\s a -> s { _cooCopyObjectResult = a })
+corCopyObjectResult :: Lens' CopyObjectResponse (Maybe CopyObjectResult)
+corCopyObjectResult =
+    lens _corCopyObjectResult (\s a -> s { _corCopyObjectResult = a })
 
-cooCopySourceVersionId :: Lens' CopyObjectOutput (Maybe Text)
-cooCopySourceVersionId =
-    lens _cooCopySourceVersionId (\s a -> s { _cooCopySourceVersionId = a })
+corCopySourceVersionId :: Lens' CopyObjectResponse (Maybe Text)
+corCopySourceVersionId =
+    lens _corCopySourceVersionId (\s a -> s { _corCopySourceVersionId = a })
 
 -- | If the object expiration is configured, the response includes this
 -- header.
-cooExpiration :: Lens' CopyObjectOutput (Maybe UTCTime)
-cooExpiration = lens _cooExpiration (\s a -> s { _cooExpiration = a })
+corExpiration :: Lens' CopyObjectResponse (Maybe UTCTime)
+corExpiration = lens _corExpiration (\s a -> s { _corExpiration = a })
     . mapping _Time
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the
 -- encryption algorithm used.
-cooSSECustomerAlgorithm :: Lens' CopyObjectOutput (Maybe Text)
-cooSSECustomerAlgorithm =
-    lens _cooSSECustomerAlgorithm (\s a -> s { _cooSSECustomerAlgorithm = a })
+corSSECustomerAlgorithm :: Lens' CopyObjectResponse (Maybe Text)
+corSSECustomerAlgorithm =
+    lens _corSSECustomerAlgorithm (\s a -> s { _corSSECustomerAlgorithm = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-cooSSECustomerKeyMD5 :: Lens' CopyObjectOutput (Maybe Text)
-cooSSECustomerKeyMD5 =
-    lens _cooSSECustomerKeyMD5 (\s a -> s { _cooSSECustomerKeyMD5 = a })
+corSSECustomerKeyMD5 :: Lens' CopyObjectResponse (Maybe Text)
+corSSECustomerKeyMD5 =
+    lens _corSSECustomerKeyMD5 (\s a -> s { _corSSECustomerKeyMD5 = a })
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-cooServerSideEncryption :: Lens' CopyObjectOutput (Maybe Text)
-cooServerSideEncryption =
-    lens _cooServerSideEncryption (\s a -> s { _cooServerSideEncryption = a })
+corServerSideEncryption :: Lens' CopyObjectResponse (Maybe Text)
+corServerSideEncryption =
+    lens _corServerSideEncryption (\s a -> s { _corServerSideEncryption = a })
 
-instance FromXML CopyObjectOutput where
+instance FromXML CopyObjectResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopyObjectOutput"
+    fromXMLRoot    = fromRoot "CopyObjectResponse"
 instance AWSRequest CopyObject where
     type Sv CopyObject = S3
-    type Rs CopyObject = CopyObjectOutput
+    type Rs CopyObject = CopyObjectResponse
 
     request  = put
-    response = xmlResponse $ \h x -> CopyObjectOutput
+    response = xmlResponse $ \h x -> CopyObjectResponse
         <$> x %| "CopyObjectResult"
         <*> h ~:? "x-amz-copy-source-version-id"
         <*> h ~:? "x-amz-expiration"

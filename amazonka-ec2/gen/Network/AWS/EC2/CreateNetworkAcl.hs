@@ -35,7 +35,7 @@ module Network.AWS.EC2.CreateNetworkAcl
     , cnaVpcId
 
     -- * Response
-    , CreateNetworkAclResult
+    , CreateNetworkAclResponse
     -- ** Response constructor
     , createNetworkAclResponse
     -- ** Response lenses
@@ -78,33 +78,33 @@ instance ToQuery CreateNetworkAcl
 instance ToPath CreateNetworkAcl where
     toPath = const "/"
 
-newtype CreateNetworkAclResult = CreateNetworkAclResult
+newtype CreateNetworkAclResponse = CreateNetworkAclResponse
     { _cnarNetworkAcl :: Maybe NetworkAcl
     } deriving (Eq, Show, Generic)
 
--- | 'CreateNetworkAclResult' constructor.
+-- | 'CreateNetworkAclResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cnarNetworkAcl' @::@ 'Maybe' 'NetworkAcl'
 --
-createNetworkAclResponse :: CreateNetworkAclResult
-createNetworkAclResponse = CreateNetworkAclResult
+createNetworkAclResponse :: CreateNetworkAclResponse
+createNetworkAclResponse = CreateNetworkAclResponse
     { _cnarNetworkAcl = Nothing
     }
 
 -- | Information about the network ACL.
-cnarNetworkAcl :: Lens' CreateNetworkAclResult (Maybe NetworkAcl)
+cnarNetworkAcl :: Lens' CreateNetworkAclResponse (Maybe NetworkAcl)
 cnarNetworkAcl = lens _cnarNetworkAcl (\s a -> s { _cnarNetworkAcl = a })
 
-instance FromXML CreateNetworkAclResult where
+instance FromXML CreateNetworkAclResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateNetworkAclResult"
+    fromXMLRoot    = fromRoot "CreateNetworkAclResponse"
 
 instance AWSRequest CreateNetworkAcl where
     type Sv CreateNetworkAcl = EC2
-    type Rs CreateNetworkAcl = CreateNetworkAclResult
+    type Rs CreateNetworkAcl = CreateNetworkAclResponse
 
     request  = post "CreateNetworkAcl"
-    response = xmlResponse $ \h x -> CreateNetworkAclResult
+    response = xmlResponse $ \h x -> CreateNetworkAclResponse
         <$> x %| "networkAcl"

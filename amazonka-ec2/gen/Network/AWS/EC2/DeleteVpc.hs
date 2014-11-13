@@ -33,8 +33,8 @@ module Network.AWS.EC2.DeleteVpc
     -- ** Request constructor
     , deleteVpc
     -- ** Request lenses
-    , dv2DryRun
-    , dv2VpcId
+    , dv3DryRun
+    , dv3VpcId
 
     -- * Response
     , DeleteVpcResponse
@@ -47,31 +47,31 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DeleteVpc = DeleteVpc
-    { _dv2DryRun :: Maybe Bool
-    , _dv2VpcId  :: Text
+    { _dv3DryRun :: Maybe Bool
+    , _dv3VpcId  :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVpc' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dv2DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dv3DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dv2VpcId' @::@ 'Text'
+-- * 'dv3VpcId' @::@ 'Text'
 --
-deleteVpc :: Text -- ^ 'dv2VpcId'
+deleteVpc :: Text -- ^ 'dv3VpcId'
           -> DeleteVpc
 deleteVpc p1 = DeleteVpc
-    { _dv2VpcId  = p1
-    , _dv2DryRun = Nothing
+    { _dv3VpcId  = p1
+    , _dv3DryRun = Nothing
     }
 
-dv2DryRun :: Lens' DeleteVpc (Maybe Bool)
-dv2DryRun = lens _dv2DryRun (\s a -> s { _dv2DryRun = a })
+dv3DryRun :: Lens' DeleteVpc (Maybe Bool)
+dv3DryRun = lens _dv3DryRun (\s a -> s { _dv3DryRun = a })
 
 -- | The ID of the VPC.
-dv2VpcId :: Lens' DeleteVpc Text
-dv2VpcId = lens _dv2VpcId (\s a -> s { _dv2VpcId = a })
+dv3VpcId :: Lens' DeleteVpc Text
+dv3VpcId = lens _dv3VpcId (\s a -> s { _dv3VpcId = a })
 
 instance ToQuery DeleteVpc
 

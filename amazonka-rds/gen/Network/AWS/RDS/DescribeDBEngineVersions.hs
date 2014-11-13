@@ -24,168 +24,167 @@
 module Network.AWS.RDS.DescribeDBEngineVersions
     (
     -- * Request
-      DescribeDBEngineVersionsMessage
+      DescribeDBEngineVersions
     -- ** Request constructor
     , describeDBEngineVersions
     -- ** Request lenses
-    , ddbevmDBParameterGroupFamily
-    , ddbevmDefaultOnly
-    , ddbevmEngine
-    , ddbevmEngineVersion
-    , ddbevmFilters
-    , ddbevmListSupportedCharacterSets
-    , ddbevmMarker
-    , ddbevmMaxRecords
+    , ddbevDBParameterGroupFamily
+    , ddbevDefaultOnly
+    , ddbevEngine
+    , ddbevEngineVersion
+    , ddbevFilters
+    , ddbevListSupportedCharacterSets
+    , ddbevMarker
+    , ddbevMaxRecords
 
     -- * Response
-    , DBEngineVersionMessage
+    , DescribeDBEngineVersionsResponse
     -- ** Response constructor
     , describeDBEngineVersionsResponse
     -- ** Response lenses
-    , dbevmDBEngineVersions
-    , dbevmMarker
+    , ddbevrDBEngineVersions
+    , ddbevrMarker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data DescribeDBEngineVersionsMessage = DescribeDBEngineVersionsMessage
-    { _ddbevmDBParameterGroupFamily     :: Maybe Text
-    , _ddbevmDefaultOnly                :: Maybe Bool
-    , _ddbevmEngine                     :: Maybe Text
-    , _ddbevmEngineVersion              :: Maybe Text
-    , _ddbevmFilters                    :: [Filter]
-    , _ddbevmListSupportedCharacterSets :: Maybe Bool
-    , _ddbevmMarker                     :: Maybe Text
-    , _ddbevmMaxRecords                 :: Maybe Int
+data DescribeDBEngineVersions = DescribeDBEngineVersions
+    { _ddbevDBParameterGroupFamily     :: Maybe Text
+    , _ddbevDefaultOnly                :: Maybe Bool
+    , _ddbevEngine                     :: Maybe Text
+    , _ddbevEngineVersion              :: Maybe Text
+    , _ddbevFilters                    :: [Filter]
+    , _ddbevListSupportedCharacterSets :: Maybe Bool
+    , _ddbevMarker                     :: Maybe Text
+    , _ddbevMaxRecords                 :: Maybe Int
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeDBEngineVersionsMessage' constructor.
+-- | 'DescribeDBEngineVersions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbevmDBParameterGroupFamily' @::@ 'Maybe' 'Text'
+-- * 'ddbevDBParameterGroupFamily' @::@ 'Maybe' 'Text'
 --
--- * 'ddbevmDefaultOnly' @::@ 'Maybe' 'Bool'
+-- * 'ddbevDefaultOnly' @::@ 'Maybe' 'Bool'
 --
--- * 'ddbevmEngine' @::@ 'Maybe' 'Text'
+-- * 'ddbevEngine' @::@ 'Maybe' 'Text'
 --
--- * 'ddbevmEngineVersion' @::@ 'Maybe' 'Text'
+-- * 'ddbevEngineVersion' @::@ 'Maybe' 'Text'
 --
--- * 'ddbevmFilters' @::@ ['Filter']
+-- * 'ddbevFilters' @::@ ['Filter']
 --
--- * 'ddbevmListSupportedCharacterSets' @::@ 'Maybe' 'Bool'
+-- * 'ddbevListSupportedCharacterSets' @::@ 'Maybe' 'Bool'
 --
--- * 'ddbevmMarker' @::@ 'Maybe' 'Text'
+-- * 'ddbevMarker' @::@ 'Maybe' 'Text'
 --
--- * 'ddbevmMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'ddbevMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBEngineVersions :: DescribeDBEngineVersionsMessage
-describeDBEngineVersions = DescribeDBEngineVersionsMessage
-    { _ddbevmEngine                     = Nothing
-    , _ddbevmEngineVersion              = Nothing
-    , _ddbevmDBParameterGroupFamily     = Nothing
-    , _ddbevmFilters                    = mempty
-    , _ddbevmMaxRecords                 = Nothing
-    , _ddbevmMarker                     = Nothing
-    , _ddbevmDefaultOnly                = Nothing
-    , _ddbevmListSupportedCharacterSets = Nothing
+describeDBEngineVersions :: DescribeDBEngineVersions
+describeDBEngineVersions = DescribeDBEngineVersions
+    { _ddbevEngine                     = Nothing
+    , _ddbevEngineVersion              = Nothing
+    , _ddbevDBParameterGroupFamily     = Nothing
+    , _ddbevFilters                    = mempty
+    , _ddbevMaxRecords                 = Nothing
+    , _ddbevMarker                     = Nothing
+    , _ddbevDefaultOnly                = Nothing
+    , _ddbevListSupportedCharacterSets = Nothing
     }
 
 -- | The name of a specific DB parameter group family to return details for.
 -- Constraints: Must be 1 to 255 alphanumeric characters First character
 -- must be a letter Cannot end with a hyphen or contain two consecutive
 -- hyphens.
-ddbevmDBParameterGroupFamily :: Lens' DescribeDBEngineVersionsMessage (Maybe Text)
-ddbevmDBParameterGroupFamily =
-    lens _ddbevmDBParameterGroupFamily
-        (\s a -> s { _ddbevmDBParameterGroupFamily = a })
+ddbevDBParameterGroupFamily :: Lens' DescribeDBEngineVersions (Maybe Text)
+ddbevDBParameterGroupFamily =
+    lens _ddbevDBParameterGroupFamily
+        (\s a -> s { _ddbevDBParameterGroupFamily = a })
 
 -- | Indicates that only the default version of the specified engine or engine
 -- and major version combination is returned.
-ddbevmDefaultOnly :: Lens' DescribeDBEngineVersionsMessage (Maybe Bool)
-ddbevmDefaultOnly =
-    lens _ddbevmDefaultOnly (\s a -> s { _ddbevmDefaultOnly = a })
+ddbevDefaultOnly :: Lens' DescribeDBEngineVersions (Maybe Bool)
+ddbevDefaultOnly = lens _ddbevDefaultOnly (\s a -> s { _ddbevDefaultOnly = a })
 
 -- | The database engine to return.
-ddbevmEngine :: Lens' DescribeDBEngineVersionsMessage (Maybe Text)
-ddbevmEngine = lens _ddbevmEngine (\s a -> s { _ddbevmEngine = a })
+ddbevEngine :: Lens' DescribeDBEngineVersions (Maybe Text)
+ddbevEngine = lens _ddbevEngine (\s a -> s { _ddbevEngine = a })
 
 -- | The database engine version to return. Example: 5.1.49.
-ddbevmEngineVersion :: Lens' DescribeDBEngineVersionsMessage (Maybe Text)
-ddbevmEngineVersion =
-    lens _ddbevmEngineVersion (\s a -> s { _ddbevmEngineVersion = a })
+ddbevEngineVersion :: Lens' DescribeDBEngineVersions (Maybe Text)
+ddbevEngineVersion =
+    lens _ddbevEngineVersion (\s a -> s { _ddbevEngineVersion = a })
 
 -- | Not currently supported.
-ddbevmFilters :: Lens' DescribeDBEngineVersionsMessage [Filter]
-ddbevmFilters = lens _ddbevmFilters (\s a -> s { _ddbevmFilters = a })
+ddbevFilters :: Lens' DescribeDBEngineVersions [Filter]
+ddbevFilters = lens _ddbevFilters (\s a -> s { _ddbevFilters = a })
 
 -- | If this parameter is specified, and if the requested engine supports the
 -- CharacterSetName parameter for CreateDBInstance, the response includes a
 -- list of supported character sets for each engine version.
-ddbevmListSupportedCharacterSets :: Lens' DescribeDBEngineVersionsMessage (Maybe Bool)
-ddbevmListSupportedCharacterSets =
-    lens _ddbevmListSupportedCharacterSets
-        (\s a -> s { _ddbevmListSupportedCharacterSets = a })
+ddbevListSupportedCharacterSets :: Lens' DescribeDBEngineVersions (Maybe Bool)
+ddbevListSupportedCharacterSets =
+    lens _ddbevListSupportedCharacterSets
+        (\s a -> s { _ddbevListSupportedCharacterSets = a })
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-ddbevmMarker :: Lens' DescribeDBEngineVersionsMessage (Maybe Text)
-ddbevmMarker = lens _ddbevmMarker (\s a -> s { _ddbevmMarker = a })
+ddbevMarker :: Lens' DescribeDBEngineVersions (Maybe Text)
+ddbevMarker = lens _ddbevMarker (\s a -> s { _ddbevMarker = a })
 
 -- | The maximum number of records to include in the response. If more than
 -- the MaxRecords value is available, a pagination token called a marker is
 -- included in the response so that the following results can be retrieved.
 -- Default: 100 Constraints: minimum 20, maximum 100.
-ddbevmMaxRecords :: Lens' DescribeDBEngineVersionsMessage (Maybe Int)
-ddbevmMaxRecords = lens _ddbevmMaxRecords (\s a -> s { _ddbevmMaxRecords = a })
+ddbevMaxRecords :: Lens' DescribeDBEngineVersions (Maybe Int)
+ddbevMaxRecords = lens _ddbevMaxRecords (\s a -> s { _ddbevMaxRecords = a })
 
-instance ToQuery DescribeDBEngineVersionsMessage
+instance ToQuery DescribeDBEngineVersions
 
-instance ToPath DescribeDBEngineVersionsMessage where
+instance ToPath DescribeDBEngineVersions where
     toPath = const "/"
 
-data DBEngineVersionMessage = DBEngineVersionMessage
-    { _dbevmDBEngineVersions :: [DBEngineVersion]
-    , _dbevmMarker           :: Maybe Text
+data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
+    { _ddbevrDBEngineVersions :: [DBEngineVersion]
+    , _ddbevrMarker           :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DBEngineVersionMessage' constructor.
+-- | 'DescribeDBEngineVersionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbevmDBEngineVersions' @::@ ['DBEngineVersion']
+-- * 'ddbevrDBEngineVersions' @::@ ['DBEngineVersion']
 --
--- * 'dbevmMarker' @::@ 'Maybe' 'Text'
+-- * 'ddbevrMarker' @::@ 'Maybe' 'Text'
 --
-describeDBEngineVersionsResponse :: DBEngineVersionMessage
-describeDBEngineVersionsResponse = DBEngineVersionMessage
-    { _dbevmMarker           = Nothing
-    , _dbevmDBEngineVersions = mempty
+describeDBEngineVersionsResponse :: DescribeDBEngineVersionsResponse
+describeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse
+    { _ddbevrMarker           = Nothing
+    , _ddbevrDBEngineVersions = mempty
     }
 
 -- | A list of DBEngineVersion elements.
-dbevmDBEngineVersions :: Lens' DBEngineVersionMessage [DBEngineVersion]
-dbevmDBEngineVersions =
-    lens _dbevmDBEngineVersions (\s a -> s { _dbevmDBEngineVersions = a })
+ddbevrDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
+ddbevrDBEngineVersions =
+    lens _ddbevrDBEngineVersions (\s a -> s { _ddbevrDBEngineVersions = a })
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-dbevmMarker :: Lens' DBEngineVersionMessage (Maybe Text)
-dbevmMarker = lens _dbevmMarker (\s a -> s { _dbevmMarker = a })
+ddbevrMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
+ddbevrMarker = lens _ddbevrMarker (\s a -> s { _ddbevrMarker = a })
 
-instance FromXML DBEngineVersionMessage where
+instance FromXML DescribeDBEngineVersionsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBEngineVersionMessage"
+    fromXMLRoot    = fromRoot "DescribeDBEngineVersionsResponse"
 
-instance AWSRequest DescribeDBEngineVersionsMessage where
-    type Sv DescribeDBEngineVersionsMessage = RDS
-    type Rs DescribeDBEngineVersionsMessage = DBEngineVersionMessage
+instance AWSRequest DescribeDBEngineVersions where
+    type Sv DescribeDBEngineVersions = RDS
+    type Rs DescribeDBEngineVersions = DescribeDBEngineVersionsResponse
 
     request  = post "DescribeDBEngineVersions"
-    response = xmlResponse $ \h x -> DBEngineVersionMessage
+    response = xmlResponse $ \h x -> DescribeDBEngineVersionsResponse
         <$> x %| "DBEngineVersions"
         <*> x %| "Marker"

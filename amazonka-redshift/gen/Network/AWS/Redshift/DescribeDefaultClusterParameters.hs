@@ -26,16 +26,16 @@
 module Network.AWS.Redshift.DescribeDefaultClusterParameters
     (
     -- * Request
-      DescribeDefaultClusterParametersMessage
+      DescribeDefaultClusterParameters
     -- ** Request constructor
     , describeDefaultClusterParameters
     -- ** Request lenses
-    , ddcpmMarker
-    , ddcpmMaxRecords
-    , ddcpmParameterGroupFamily
+    , ddcpMarker
+    , ddcpMaxRecords
+    , ddcpParameterGroupFamily
 
     -- * Response
-    , DescribeDefaultClusterParametersResult
+    , DescribeDefaultClusterParametersResponse
     -- ** Response constructor
     , describeDefaultClusterParametersResponse
     -- ** Response lenses
@@ -46,28 +46,28 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data DescribeDefaultClusterParametersMessage = DescribeDefaultClusterParametersMessage
-    { _ddcpmMarker               :: Maybe Text
-    , _ddcpmMaxRecords           :: Maybe Int
-    , _ddcpmParameterGroupFamily :: Text
+data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters
+    { _ddcpMarker               :: Maybe Text
+    , _ddcpMaxRecords           :: Maybe Int
+    , _ddcpParameterGroupFamily :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeDefaultClusterParametersMessage' constructor.
+-- | 'DescribeDefaultClusterParameters' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddcpmMarker' @::@ 'Maybe' 'Text'
+-- * 'ddcpMarker' @::@ 'Maybe' 'Text'
 --
--- * 'ddcpmMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'ddcpMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'ddcpmParameterGroupFamily' @::@ 'Text'
+-- * 'ddcpParameterGroupFamily' @::@ 'Text'
 --
-describeDefaultClusterParameters :: Text -- ^ 'ddcpmParameterGroupFamily'
-                                 -> DescribeDefaultClusterParametersMessage
-describeDefaultClusterParameters p1 = DescribeDefaultClusterParametersMessage
-    { _ddcpmParameterGroupFamily = p1
-    , _ddcpmMaxRecords           = Nothing
-    , _ddcpmMarker               = Nothing
+describeDefaultClusterParameters :: Text -- ^ 'ddcpParameterGroupFamily'
+                                 -> DescribeDefaultClusterParameters
+describeDefaultClusterParameters p1 = DescribeDefaultClusterParameters
+    { _ddcpParameterGroupFamily = p1
+    , _ddcpMaxRecords           = Nothing
+    , _ddcpMarker               = Nothing
     }
 
 -- | An optional parameter that specifies the starting point to return a set
@@ -76,56 +76,56 @@ describeDefaultClusterParameters p1 = DescribeDefaultClusterParametersMessage
 -- MaxRecords, AWS returns a value in the Marker field of the response. You
 -- can retrieve the next set of response records by providing the returned
 -- marker value in the Marker parameter and retrying the request.
-ddcpmMarker :: Lens' DescribeDefaultClusterParametersMessage (Maybe Text)
-ddcpmMarker = lens _ddcpmMarker (\s a -> s { _ddcpmMarker = a })
+ddcpMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
+ddcpMarker = lens _ddcpMarker (\s a -> s { _ddcpMarker = a })
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
-ddcpmMaxRecords :: Lens' DescribeDefaultClusterParametersMessage (Maybe Int)
-ddcpmMaxRecords = lens _ddcpmMaxRecords (\s a -> s { _ddcpmMaxRecords = a })
+ddcpMaxRecords :: Lens' DescribeDefaultClusterParameters (Maybe Int)
+ddcpMaxRecords = lens _ddcpMaxRecords (\s a -> s { _ddcpMaxRecords = a })
 
 -- | The name of the cluster parameter group family.
-ddcpmParameterGroupFamily :: Lens' DescribeDefaultClusterParametersMessage Text
-ddcpmParameterGroupFamily =
-    lens _ddcpmParameterGroupFamily
-        (\s a -> s { _ddcpmParameterGroupFamily = a })
+ddcpParameterGroupFamily :: Lens' DescribeDefaultClusterParameters Text
+ddcpParameterGroupFamily =
+    lens _ddcpParameterGroupFamily
+        (\s a -> s { _ddcpParameterGroupFamily = a })
 
-instance ToQuery DescribeDefaultClusterParametersMessage
+instance ToQuery DescribeDefaultClusterParameters
 
-instance ToPath DescribeDefaultClusterParametersMessage where
+instance ToPath DescribeDefaultClusterParameters where
     toPath = const "/"
 
-newtype DescribeDefaultClusterParametersResult = DescribeDefaultClusterParametersResult
+newtype DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse
     { _ddcprDefaultClusterParameters :: Maybe DefaultClusterParameters
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeDefaultClusterParametersResult' constructor.
+-- | 'DescribeDefaultClusterParametersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddcprDefaultClusterParameters' @::@ 'Maybe' 'DefaultClusterParameters'
 --
-describeDefaultClusterParametersResponse :: DescribeDefaultClusterParametersResult
-describeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResult
+describeDefaultClusterParametersResponse :: DescribeDefaultClusterParametersResponse
+describeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse
     { _ddcprDefaultClusterParameters = Nothing
     }
 
-ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResult (Maybe DefaultClusterParameters)
+ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse (Maybe DefaultClusterParameters)
 ddcprDefaultClusterParameters =
     lens _ddcprDefaultClusterParameters
         (\s a -> s { _ddcprDefaultClusterParameters = a })
 
-instance FromXML DescribeDefaultClusterParametersResult where
+instance FromXML DescribeDefaultClusterParametersResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDefaultClusterParametersResult"
+    fromXMLRoot    = fromRoot "DescribeDefaultClusterParametersResponse"
 
-instance AWSRequest DescribeDefaultClusterParametersMessage where
-    type Sv DescribeDefaultClusterParametersMessage = Redshift
-    type Rs DescribeDefaultClusterParametersMessage = DescribeDefaultClusterParametersResult
+instance AWSRequest DescribeDefaultClusterParameters where
+    type Sv DescribeDefaultClusterParameters = Redshift
+    type Rs DescribeDefaultClusterParameters = DescribeDefaultClusterParametersResponse
 
     request  = post "DescribeDefaultClusterParameters"
-    response = xmlResponse $ \h x -> DescribeDefaultClusterParametersResult
+    response = xmlResponse $ \h x -> DescribeDefaultClusterParametersResponse
         <$> x %| "DefaultClusterParameters"

@@ -29,93 +29,93 @@
 module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     (
     -- * Request
-      DetachLoadBalancerFromSubnetsInput
+      DetachLoadBalancerFromSubnets
     -- ** Request constructor
     , detachLoadBalancerFromSubnets
     -- ** Request lenses
-    , dlbfsiLoadBalancerName
-    , dlbfsiSubnets
+    , dlbfsLoadBalancerName
+    , dlbfsSubnets
 
     -- * Response
-    , DetachLoadBalancerFromSubnetsOutput
+    , DetachLoadBalancerFromSubnetsResponse
     -- ** Response constructor
     , detachLoadBalancerFromSubnetsResponse
     -- ** Response lenses
-    , dlbfsoSubnets
+    , dlbfsrSubnets
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data DetachLoadBalancerFromSubnetsInput = DetachLoadBalancerFromSubnetsInput
-    { _dlbfsiLoadBalancerName :: Text
-    , _dlbfsiSubnets          :: [Text]
+data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets
+    { _dlbfsLoadBalancerName :: Text
+    , _dlbfsSubnets          :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DetachLoadBalancerFromSubnetsInput' constructor.
+-- | 'DetachLoadBalancerFromSubnets' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbfsiLoadBalancerName' @::@ 'Text'
+-- * 'dlbfsLoadBalancerName' @::@ 'Text'
 --
--- * 'dlbfsiSubnets' @::@ ['Text']
+-- * 'dlbfsSubnets' @::@ ['Text']
 --
-detachLoadBalancerFromSubnets :: Text -- ^ 'dlbfsiLoadBalancerName'
-                              -> DetachLoadBalancerFromSubnetsInput
-detachLoadBalancerFromSubnets p1 = DetachLoadBalancerFromSubnetsInput
-    { _dlbfsiLoadBalancerName = p1
-    , _dlbfsiSubnets          = mempty
+detachLoadBalancerFromSubnets :: Text -- ^ 'dlbfsLoadBalancerName'
+                              -> DetachLoadBalancerFromSubnets
+detachLoadBalancerFromSubnets p1 = DetachLoadBalancerFromSubnets
+    { _dlbfsLoadBalancerName = p1
+    , _dlbfsSubnets          = mempty
     }
 
 -- | The name associated with the load balancer to be detached.
-dlbfsiLoadBalancerName :: Lens' DetachLoadBalancerFromSubnetsInput Text
-dlbfsiLoadBalancerName =
-    lens _dlbfsiLoadBalancerName (\s a -> s { _dlbfsiLoadBalancerName = a })
+dlbfsLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets Text
+dlbfsLoadBalancerName =
+    lens _dlbfsLoadBalancerName (\s a -> s { _dlbfsLoadBalancerName = a })
 
 -- | A list of subnet IDs to remove from the set of configured subnets for the
 -- load balancer.
-dlbfsiSubnets :: Lens' DetachLoadBalancerFromSubnetsInput [Text]
-dlbfsiSubnets = lens _dlbfsiSubnets (\s a -> s { _dlbfsiSubnets = a })
+dlbfsSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
+dlbfsSubnets = lens _dlbfsSubnets (\s a -> s { _dlbfsSubnets = a })
 
-instance ToQuery DetachLoadBalancerFromSubnetsInput
+instance ToQuery DetachLoadBalancerFromSubnets
 
-instance ToPath DetachLoadBalancerFromSubnetsInput where
+instance ToPath DetachLoadBalancerFromSubnets where
     toPath = const "/"
 
-newtype DetachLoadBalancerFromSubnetsOutput = DetachLoadBalancerFromSubnetsOutput
-    { _dlbfsoSubnets :: [Text]
+newtype DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
+    { _dlbfsrSubnets :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DetachLoadBalancerFromSubnetsOutput where
-    type Item DetachLoadBalancerFromSubnetsOutput = Text
+instance IsList DetachLoadBalancerFromSubnetsResponse where
+    type Item DetachLoadBalancerFromSubnetsResponse = Text
 
-    fromList = DetachLoadBalancerFromSubnetsOutput . fromList
-    toList   = toList . _dlbfsoSubnets
+    fromList = DetachLoadBalancerFromSubnetsResponse . fromList
+    toList   = toList . _dlbfsrSubnets
 
--- | 'DetachLoadBalancerFromSubnetsOutput' constructor.
+-- | 'DetachLoadBalancerFromSubnetsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbfsoSubnets' @::@ ['Text']
+-- * 'dlbfsrSubnets' @::@ ['Text']
 --
-detachLoadBalancerFromSubnetsResponse :: DetachLoadBalancerFromSubnetsOutput
-detachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsOutput
-    { _dlbfsoSubnets = mempty
+detachLoadBalancerFromSubnetsResponse :: DetachLoadBalancerFromSubnetsResponse
+detachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse
+    { _dlbfsrSubnets = mempty
     }
 
 -- | A list of subnet IDs the load balancer is now attached to.
-dlbfsoSubnets :: Lens' DetachLoadBalancerFromSubnetsOutput [Text]
-dlbfsoSubnets = lens _dlbfsoSubnets (\s a -> s { _dlbfsoSubnets = a })
+dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
+dlbfsrSubnets = lens _dlbfsrSubnets (\s a -> s { _dlbfsrSubnets = a })
 
-instance FromXML DetachLoadBalancerFromSubnetsOutput where
+instance FromXML DetachLoadBalancerFromSubnetsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DetachLoadBalancerFromSubnetsOutput"
+    fromXMLRoot    = fromRoot "DetachLoadBalancerFromSubnetsResponse"
 
-instance AWSRequest DetachLoadBalancerFromSubnetsInput where
-    type Sv DetachLoadBalancerFromSubnetsInput = ELB
-    type Rs DetachLoadBalancerFromSubnetsInput = DetachLoadBalancerFromSubnetsOutput
+instance AWSRequest DetachLoadBalancerFromSubnets where
+    type Sv DetachLoadBalancerFromSubnets = ELB
+    type Rs DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnetsResponse
 
     request  = post "DetachLoadBalancerFromSubnets"
-    response = xmlResponse $ \h x -> DetachLoadBalancerFromSubnetsOutput
+    response = xmlResponse $ \h x -> DetachLoadBalancerFromSubnetsResponse
         <$> x %| "Subnets"

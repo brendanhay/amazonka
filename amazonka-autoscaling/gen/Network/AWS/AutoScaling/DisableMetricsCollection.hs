@@ -26,12 +26,12 @@
 module Network.AWS.AutoScaling.DisableMetricsCollection
     (
     -- * Request
-      DisableMetricsCollectionQuery
+      DisableMetricsCollection
     -- ** Request constructor
     , disableMetricsCollection
     -- ** Request lenses
-    , dmcqAutoScalingGroupName
-    , dmcqMetrics
+    , dmcAutoScalingGroupName
+    , dmcMetrics
 
     -- * Response
     , DisableMetricsCollectionResponse
@@ -43,43 +43,42 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data DisableMetricsCollectionQuery = DisableMetricsCollectionQuery
-    { _dmcqAutoScalingGroupName :: Text
-    , _dmcqMetrics              :: [Text]
+data DisableMetricsCollection = DisableMetricsCollection
+    { _dmcAutoScalingGroupName :: Text
+    , _dmcMetrics              :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DisableMetricsCollectionQuery' constructor.
+-- | 'DisableMetricsCollection' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmcqAutoScalingGroupName' @::@ 'Text'
+-- * 'dmcAutoScalingGroupName' @::@ 'Text'
 --
--- * 'dmcqMetrics' @::@ ['Text']
+-- * 'dmcMetrics' @::@ ['Text']
 --
-disableMetricsCollection :: Text -- ^ 'dmcqAutoScalingGroupName'
-                         -> DisableMetricsCollectionQuery
-disableMetricsCollection p1 = DisableMetricsCollectionQuery
-    { _dmcqAutoScalingGroupName = p1
-    , _dmcqMetrics              = mempty
+disableMetricsCollection :: Text -- ^ 'dmcAutoScalingGroupName'
+                         -> DisableMetricsCollection
+disableMetricsCollection p1 = DisableMetricsCollection
+    { _dmcAutoScalingGroupName = p1
+    , _dmcMetrics              = mempty
     }
 
 -- | The name or ARN of the Auto Scaling Group.
-dmcqAutoScalingGroupName :: Lens' DisableMetricsCollectionQuery Text
-dmcqAutoScalingGroupName =
-    lens _dmcqAutoScalingGroupName
-        (\s a -> s { _dmcqAutoScalingGroupName = a })
+dmcAutoScalingGroupName :: Lens' DisableMetricsCollection Text
+dmcAutoScalingGroupName =
+    lens _dmcAutoScalingGroupName (\s a -> s { _dmcAutoScalingGroupName = a })
 
 -- | The list of metrics to disable. If no metrics are specified, all metrics
 -- are disabled. The following metrics are supported: GroupMinSize
 -- GroupMaxSize GroupDesiredCapacity GroupInServiceInstances
 -- GroupPendingInstances GroupStandbyInstances GroupTerminatingInstances
 -- GroupTotalInstances.
-dmcqMetrics :: Lens' DisableMetricsCollectionQuery [Text]
-dmcqMetrics = lens _dmcqMetrics (\s a -> s { _dmcqMetrics = a })
+dmcMetrics :: Lens' DisableMetricsCollection [Text]
+dmcMetrics = lens _dmcMetrics (\s a -> s { _dmcMetrics = a })
 
-instance ToQuery DisableMetricsCollectionQuery
+instance ToQuery DisableMetricsCollection
 
-instance ToPath DisableMetricsCollectionQuery where
+instance ToPath DisableMetricsCollection where
     toPath = const "/"
 
 data DisableMetricsCollectionResponse = DisableMetricsCollectionResponse
@@ -93,9 +92,9 @@ instance FromXML DisableMetricsCollectionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DisableMetricsCollectionResponse"
 
-instance AWSRequest DisableMetricsCollectionQuery where
-    type Sv DisableMetricsCollectionQuery = AutoScaling
-    type Rs DisableMetricsCollectionQuery = DisableMetricsCollectionResponse
+instance AWSRequest DisableMetricsCollection where
+    type Sv DisableMetricsCollection = AutoScaling
+    type Rs DisableMetricsCollection = DisableMetricsCollectionResponse
 
     request  = post "DisableMetricsCollection"
     response = nullaryResponse DisableMetricsCollectionResponse

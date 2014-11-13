@@ -33,9 +33,9 @@ module Network.AWS.CloudSearch.DescribeExpressions
     -- ** Request constructor
     , describeExpressions
     -- ** Request lenses
-    , de1Deployed
-    , de1DomainName
-    , de1ExpressionNames
+    , deDeployed
+    , deDomainName
+    , deExpressionNames
 
     -- * Response
     , DescribeExpressionsResponse
@@ -50,43 +50,43 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
 
 data DescribeExpressions = DescribeExpressions
-    { _de1Deployed        :: Maybe Bool
-    , _de1DomainName      :: Text
-    , _de1ExpressionNames :: [Text]
+    { _deDeployed        :: Maybe Bool
+    , _deDomainName      :: Text
+    , _deExpressionNames :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeExpressions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'de1Deployed' @::@ 'Maybe' 'Bool'
+-- * 'deDeployed' @::@ 'Maybe' 'Bool'
 --
--- * 'de1DomainName' @::@ 'Text'
+-- * 'deDomainName' @::@ 'Text'
 --
--- * 'de1ExpressionNames' @::@ ['Text']
+-- * 'deExpressionNames' @::@ ['Text']
 --
-describeExpressions :: Text -- ^ 'de1DomainName'
+describeExpressions :: Text -- ^ 'deDomainName'
                     -> DescribeExpressions
 describeExpressions p1 = DescribeExpressions
-    { _de1DomainName      = p1
-    , _de1ExpressionNames = mempty
-    , _de1Deployed        = Nothing
+    { _deDomainName      = p1
+    , _deExpressionNames = mempty
+    , _deDeployed        = Nothing
     }
 
 -- | Whether to display the deployed configuration (true) or include any
 -- pending changes (false). Defaults to false.
-de1Deployed :: Lens' DescribeExpressions (Maybe Bool)
-de1Deployed = lens _de1Deployed (\s a -> s { _de1Deployed = a })
+deDeployed :: Lens' DescribeExpressions (Maybe Bool)
+deDeployed = lens _deDeployed (\s a -> s { _deDeployed = a })
 
 -- | The name of the domain you want to describe.
-de1DomainName :: Lens' DescribeExpressions Text
-de1DomainName = lens _de1DomainName (\s a -> s { _de1DomainName = a })
+deDomainName :: Lens' DescribeExpressions Text
+deDomainName = lens _deDomainName (\s a -> s { _deDomainName = a })
 
 -- | Limits the DescribeExpressions response to the specified expressions. If
 -- not specified, all expressions are shown.
-de1ExpressionNames :: Lens' DescribeExpressions [Text]
-de1ExpressionNames =
-    lens _de1ExpressionNames (\s a -> s { _de1ExpressionNames = a })
+deExpressionNames :: Lens' DescribeExpressions [Text]
+deExpressionNames =
+    lens _deExpressionNames (\s a -> s { _deExpressionNames = a })
 
 instance ToQuery DescribeExpressions
 

@@ -26,99 +26,99 @@
 module Network.AWS.CloudFormation.DescribeStackEvents
     (
     -- * Request
-      DescribeStackEventsInput
+      DescribeStackEvents
     -- ** Request constructor
     , describeStackEvents
     -- ** Request lenses
-    , dseiNextToken
-    , dseiStackName
+    , dseNextToken
+    , dseStackName
 
     -- * Response
-    , DescribeStackEventsOutput
+    , DescribeStackEventsResponse
     -- ** Response constructor
     , describeStackEventsResponse
     -- ** Response lenses
-    , dseoNextToken
-    , dseoStackEvents
+    , dserNextToken
+    , dserStackEvents
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
 
-data DescribeStackEventsInput = DescribeStackEventsInput
-    { _dseiNextToken :: Maybe Text
-    , _dseiStackName :: Maybe Text
+data DescribeStackEvents = DescribeStackEvents
+    { _dseNextToken :: Maybe Text
+    , _dseStackName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeStackEventsInput' constructor.
+-- | 'DescribeStackEvents' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dseiNextToken' @::@ 'Maybe' 'Text'
+-- * 'dseNextToken' @::@ 'Maybe' 'Text'
 --
--- * 'dseiStackName' @::@ 'Maybe' 'Text'
+-- * 'dseStackName' @::@ 'Maybe' 'Text'
 --
-describeStackEvents :: DescribeStackEventsInput
-describeStackEvents = DescribeStackEventsInput
-    { _dseiStackName = Nothing
-    , _dseiNextToken = Nothing
+describeStackEvents :: DescribeStackEvents
+describeStackEvents = DescribeStackEvents
+    { _dseStackName = Nothing
+    , _dseNextToken = Nothing
     }
 
 -- | String that identifies the start of the next list of events, if there is
 -- one. Default: There is no default value.
-dseiNextToken :: Lens' DescribeStackEventsInput (Maybe Text)
-dseiNextToken = lens _dseiNextToken (\s a -> s { _dseiNextToken = a })
+dseNextToken :: Lens' DescribeStackEvents (Maybe Text)
+dseNextToken = lens _dseNextToken (\s a -> s { _dseNextToken = a })
 
 -- | The name or the unique identifier associated with the stack, which are
 -- not always interchangeable: Running stacks: You can specify either the
 -- stack's name or its unique stack ID. Deleted stacks: You must specify the
 -- unique stack ID. Default: There is no default value.
-dseiStackName :: Lens' DescribeStackEventsInput (Maybe Text)
-dseiStackName = lens _dseiStackName (\s a -> s { _dseiStackName = a })
+dseStackName :: Lens' DescribeStackEvents (Maybe Text)
+dseStackName = lens _dseStackName (\s a -> s { _dseStackName = a })
 
-instance ToQuery DescribeStackEventsInput
+instance ToQuery DescribeStackEvents
 
-instance ToPath DescribeStackEventsInput where
+instance ToPath DescribeStackEvents where
     toPath = const "/"
 
-data DescribeStackEventsOutput = DescribeStackEventsOutput
-    { _dseoNextToken   :: Maybe Text
-    , _dseoStackEvents :: [StackEvent]
+data DescribeStackEventsResponse = DescribeStackEventsResponse
+    { _dserNextToken   :: Maybe Text
+    , _dserStackEvents :: [StackEvent]
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeStackEventsOutput' constructor.
+-- | 'DescribeStackEventsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dseoNextToken' @::@ 'Maybe' 'Text'
+-- * 'dserNextToken' @::@ 'Maybe' 'Text'
 --
--- * 'dseoStackEvents' @::@ ['StackEvent']
+-- * 'dserStackEvents' @::@ ['StackEvent']
 --
-describeStackEventsResponse :: DescribeStackEventsOutput
-describeStackEventsResponse = DescribeStackEventsOutput
-    { _dseoStackEvents = mempty
-    , _dseoNextToken   = Nothing
+describeStackEventsResponse :: DescribeStackEventsResponse
+describeStackEventsResponse = DescribeStackEventsResponse
+    { _dserStackEvents = mempty
+    , _dserNextToken   = Nothing
     }
 
 -- | String that identifies the start of the next list of events, if there is
 -- one.
-dseoNextToken :: Lens' DescribeStackEventsOutput (Maybe Text)
-dseoNextToken = lens _dseoNextToken (\s a -> s { _dseoNextToken = a })
+dserNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
+dserNextToken = lens _dserNextToken (\s a -> s { _dserNextToken = a })
 
 -- | A list of StackEvents structures.
-dseoStackEvents :: Lens' DescribeStackEventsOutput [StackEvent]
-dseoStackEvents = lens _dseoStackEvents (\s a -> s { _dseoStackEvents = a })
+dserStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
+dserStackEvents = lens _dserStackEvents (\s a -> s { _dserStackEvents = a })
 
-instance FromXML DescribeStackEventsOutput where
+instance FromXML DescribeStackEventsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeStackEventsOutput"
+    fromXMLRoot    = fromRoot "DescribeStackEventsResponse"
 
-instance AWSRequest DescribeStackEventsInput where
-    type Sv DescribeStackEventsInput = CloudFormation
-    type Rs DescribeStackEventsInput = DescribeStackEventsOutput
+instance AWSRequest DescribeStackEvents where
+    type Sv DescribeStackEvents = CloudFormation
+    type Rs DescribeStackEvents = DescribeStackEventsResponse
 
     request  = post "DescribeStackEvents"
-    response = xmlResponse $ \h x -> DescribeStackEventsOutput
+    response = xmlResponse $ \h x -> DescribeStackEventsResponse
         <$> x %| "NextToken"
         <*> x %| "StackEvents"

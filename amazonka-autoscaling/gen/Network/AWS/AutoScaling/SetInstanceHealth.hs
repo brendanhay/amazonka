@@ -26,13 +26,13 @@
 module Network.AWS.AutoScaling.SetInstanceHealth
     (
     -- * Request
-      SetInstanceHealthQuery
+      SetInstanceHealth
     -- ** Request constructor
     , setInstanceHealth
     -- ** Request lenses
-    , sihqHealthStatus
-    , sihqInstanceId
-    , sihqShouldRespectGracePeriod
+    , sihHealthStatus
+    , sihInstanceId
+    , sihShouldRespectGracePeriod
 
     -- * Response
     , SetInstanceHealthResponse
@@ -44,41 +44,41 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data SetInstanceHealthQuery = SetInstanceHealthQuery
-    { _sihqHealthStatus             :: Text
-    , _sihqInstanceId               :: Text
-    , _sihqShouldRespectGracePeriod :: Maybe Bool
+data SetInstanceHealth = SetInstanceHealth
+    { _sihHealthStatus             :: Text
+    , _sihInstanceId               :: Text
+    , _sihShouldRespectGracePeriod :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'SetInstanceHealthQuery' constructor.
+-- | 'SetInstanceHealth' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sihqHealthStatus' @::@ 'Text'
+-- * 'sihHealthStatus' @::@ 'Text'
 --
--- * 'sihqInstanceId' @::@ 'Text'
+-- * 'sihInstanceId' @::@ 'Text'
 --
--- * 'sihqShouldRespectGracePeriod' @::@ 'Maybe' 'Bool'
+-- * 'sihShouldRespectGracePeriod' @::@ 'Maybe' 'Bool'
 --
-setInstanceHealth :: Text -- ^ 'sihqInstanceId'
-                  -> Text -- ^ 'sihqHealthStatus'
-                  -> SetInstanceHealthQuery
-setInstanceHealth p1 p2 = SetInstanceHealthQuery
-    { _sihqInstanceId               = p1
-    , _sihqHealthStatus             = p2
-    , _sihqShouldRespectGracePeriod = Nothing
+setInstanceHealth :: Text -- ^ 'sihInstanceId'
+                  -> Text -- ^ 'sihHealthStatus'
+                  -> SetInstanceHealth
+setInstanceHealth p1 p2 = SetInstanceHealth
+    { _sihInstanceId               = p1
+    , _sihHealthStatus             = p2
+    , _sihShouldRespectGracePeriod = Nothing
     }
 
 -- | The health status of the instance. Set to Healthy if you want the
 -- instance to remain in service. Set to Unhealthy if you want the instance
 -- to be out of service. Auto Scaling will terminate and replace the
 -- unhealthy instance.
-sihqHealthStatus :: Lens' SetInstanceHealthQuery Text
-sihqHealthStatus = lens _sihqHealthStatus (\s a -> s { _sihqHealthStatus = a })
+sihHealthStatus :: Lens' SetInstanceHealth Text
+sihHealthStatus = lens _sihHealthStatus (\s a -> s { _sihHealthStatus = a })
 
 -- | The identifier of the Amazon EC2 instance.
-sihqInstanceId :: Lens' SetInstanceHealthQuery Text
-sihqInstanceId = lens _sihqInstanceId (\s a -> s { _sihqInstanceId = a })
+sihInstanceId :: Lens' SetInstanceHealth Text
+sihInstanceId = lens _sihInstanceId (\s a -> s { _sihInstanceId = a })
 
 -- | If the Auto Scaling group of the specified instance has a
 -- HealthCheckGracePeriod specified for the group, by default, this call
@@ -86,14 +86,14 @@ sihqInstanceId = lens _sihqInstanceId (\s a -> s { _sihqInstanceId = a })
 -- call to respect the grace period associated with the group. For more
 -- information, see the HealthCheckGracePeriod parameter description in the
 -- CreateAutoScalingGroup action.
-sihqShouldRespectGracePeriod :: Lens' SetInstanceHealthQuery (Maybe Bool)
-sihqShouldRespectGracePeriod =
-    lens _sihqShouldRespectGracePeriod
-        (\s a -> s { _sihqShouldRespectGracePeriod = a })
+sihShouldRespectGracePeriod :: Lens' SetInstanceHealth (Maybe Bool)
+sihShouldRespectGracePeriod =
+    lens _sihShouldRespectGracePeriod
+        (\s a -> s { _sihShouldRespectGracePeriod = a })
 
-instance ToQuery SetInstanceHealthQuery
+instance ToQuery SetInstanceHealth
 
-instance ToPath SetInstanceHealthQuery where
+instance ToPath SetInstanceHealth where
     toPath = const "/"
 
 data SetInstanceHealthResponse = SetInstanceHealthResponse
@@ -107,9 +107,9 @@ instance FromXML SetInstanceHealthResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetInstanceHealthResponse"
 
-instance AWSRequest SetInstanceHealthQuery where
-    type Sv SetInstanceHealthQuery = AutoScaling
-    type Rs SetInstanceHealthQuery = SetInstanceHealthResponse
+instance AWSRequest SetInstanceHealth where
+    type Sv SetInstanceHealth = AutoScaling
+    type Rs SetInstanceHealth = SetInstanceHealthResponse
 
     request  = post "SetInstanceHealth"
     response = nullaryResponse SetInstanceHealthResponse

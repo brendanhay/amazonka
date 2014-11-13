@@ -26,11 +26,11 @@
 module Network.AWS.Redshift.DeleteClusterSecurityGroup
     (
     -- * Request
-      DeleteClusterSecurityGroupMessage
+      DeleteClusterSecurityGroup
     -- ** Request constructor
     , deleteClusterSecurityGroup
     -- ** Request lenses
-    , dcsgmClusterSecurityGroupName
+    , dcsg1ClusterSecurityGroupName
 
     -- * Response
     , DeleteClusterSecurityGroupResponse
@@ -42,31 +42,31 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-newtype DeleteClusterSecurityGroupMessage = DeleteClusterSecurityGroupMessage
-    { _dcsgmClusterSecurityGroupName :: Text
+newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup
+    { _dcsg1ClusterSecurityGroupName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteClusterSecurityGroupMessage' constructor.
+-- | 'DeleteClusterSecurityGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgmClusterSecurityGroupName' @::@ 'Text'
+-- * 'dcsg1ClusterSecurityGroupName' @::@ 'Text'
 --
-deleteClusterSecurityGroup :: Text -- ^ 'dcsgmClusterSecurityGroupName'
-                           -> DeleteClusterSecurityGroupMessage
-deleteClusterSecurityGroup p1 = DeleteClusterSecurityGroupMessage
-    { _dcsgmClusterSecurityGroupName = p1
+deleteClusterSecurityGroup :: Text -- ^ 'dcsg1ClusterSecurityGroupName'
+                           -> DeleteClusterSecurityGroup
+deleteClusterSecurityGroup p1 = DeleteClusterSecurityGroup
+    { _dcsg1ClusterSecurityGroupName = p1
     }
 
 -- | The name of the cluster security group to be deleted.
-dcsgmClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroupMessage Text
-dcsgmClusterSecurityGroupName =
-    lens _dcsgmClusterSecurityGroupName
-        (\s a -> s { _dcsgmClusterSecurityGroupName = a })
+dcsg1ClusterSecurityGroupName :: Lens' DeleteClusterSecurityGroup Text
+dcsg1ClusterSecurityGroupName =
+    lens _dcsg1ClusterSecurityGroupName
+        (\s a -> s { _dcsg1ClusterSecurityGroupName = a })
 
-instance ToQuery DeleteClusterSecurityGroupMessage
+instance ToQuery DeleteClusterSecurityGroup
 
-instance ToPath DeleteClusterSecurityGroupMessage where
+instance ToPath DeleteClusterSecurityGroup where
     toPath = const "/"
 
 data DeleteClusterSecurityGroupResponse = DeleteClusterSecurityGroupResponse
@@ -80,9 +80,9 @@ instance FromXML DeleteClusterSecurityGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteClusterSecurityGroupResponse"
 
-instance AWSRequest DeleteClusterSecurityGroupMessage where
-    type Sv DeleteClusterSecurityGroupMessage = Redshift
-    type Rs DeleteClusterSecurityGroupMessage = DeleteClusterSecurityGroupResponse
+instance AWSRequest DeleteClusterSecurityGroup where
+    type Sv DeleteClusterSecurityGroup = Redshift
+    type Rs DeleteClusterSecurityGroup = DeleteClusterSecurityGroupResponse
 
     request  = post "DeleteClusterSecurityGroup"
     response = nullaryResponse DeleteClusterSecurityGroupResponse

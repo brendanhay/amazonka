@@ -37,7 +37,7 @@ module Network.AWS.SimpleDB.ListDomains
     , ldNextToken
 
     -- * Response
-    , ListDomainsResult
+    , ListDomainsResponse
     -- ** Response constructor
     , listDomainsResponse
     -- ** Response lenses
@@ -84,12 +84,12 @@ instance ToQuery ListDomains
 instance ToPath ListDomains where
     toPath = const "/"
 
-data ListDomainsResult = ListDomainsResult
+data ListDomainsResponse = ListDomainsResponse
     { _ldrDomainNames :: [Text]
     , _ldrNextToken   :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ListDomainsResult' constructor.
+-- | 'ListDomainsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -97,30 +97,30 @@ data ListDomainsResult = ListDomainsResult
 --
 -- * 'ldrNextToken' @::@ 'Maybe' 'Text'
 --
-listDomainsResponse :: ListDomainsResult
-listDomainsResponse = ListDomainsResult
+listDomainsResponse :: ListDomainsResponse
+listDomainsResponse = ListDomainsResponse
     { _ldrDomainNames = mempty
     , _ldrNextToken   = Nothing
     }
 
 -- | A list of domain names that match the expression.
-ldrDomainNames :: Lens' ListDomainsResult [Text]
+ldrDomainNames :: Lens' ListDomainsResponse [Text]
 ldrDomainNames = lens _ldrDomainNames (\s a -> s { _ldrDomainNames = a })
 
 -- | An opaque token indicating that there are more domains than the specified
 -- MaxNumberOfDomains still available.
-ldrNextToken :: Lens' ListDomainsResult (Maybe Text)
+ldrNextToken :: Lens' ListDomainsResponse (Maybe Text)
 ldrNextToken = lens _ldrNextToken (\s a -> s { _ldrNextToken = a })
 
-instance FromXML ListDomainsResult where
+instance FromXML ListDomainsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListDomainsResult"
+    fromXMLRoot    = fromRoot "ListDomainsResponse"
 
 instance AWSRequest ListDomains where
     type Sv ListDomains = SimpleDB
-    type Rs ListDomains = ListDomainsResult
+    type Rs ListDomains = ListDomainsResponse
 
     request  = post "ListDomains"
-    response = xmlResponse $ \h x -> ListDomainsResult
+    response = xmlResponse $ \h x -> ListDomainsResponse
         <$> x %| "DomainNames"
         <*> x %| "NextToken"

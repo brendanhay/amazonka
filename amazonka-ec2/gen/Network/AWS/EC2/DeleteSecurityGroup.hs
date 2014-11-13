@@ -31,9 +31,9 @@ module Network.AWS.EC2.DeleteSecurityGroup
     -- ** Request constructor
     , deleteSecurityGroup
     -- ** Request lenses
-    , dsg1DryRun
-    , dsg1GroupId
-    , dsg1GroupName
+    , dsgDryRun
+    , dsgGroupId
+    , dsgGroupName
 
     -- * Response
     , DeleteSecurityGroupResponse
@@ -46,39 +46,39 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DeleteSecurityGroup = DeleteSecurityGroup
-    { _dsg1DryRun    :: Maybe Bool
-    , _dsg1GroupId   :: Maybe Text
-    , _dsg1GroupName :: Maybe Text
+    { _dsgDryRun    :: Maybe Bool
+    , _dsgGroupId   :: Maybe Text
+    , _dsgGroupName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteSecurityGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsg1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dsgDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dsg1GroupId' @::@ 'Maybe' 'Text'
+-- * 'dsgGroupId' @::@ 'Maybe' 'Text'
 --
--- * 'dsg1GroupName' @::@ 'Maybe' 'Text'
+-- * 'dsgGroupName' @::@ 'Maybe' 'Text'
 --
 deleteSecurityGroup :: DeleteSecurityGroup
 deleteSecurityGroup = DeleteSecurityGroup
-    { _dsg1DryRun    = Nothing
-    , _dsg1GroupName = Nothing
-    , _dsg1GroupId   = Nothing
+    { _dsgDryRun    = Nothing
+    , _dsgGroupName = Nothing
+    , _dsgGroupId   = Nothing
     }
 
-dsg1DryRun :: Lens' DeleteSecurityGroup (Maybe Bool)
-dsg1DryRun = lens _dsg1DryRun (\s a -> s { _dsg1DryRun = a })
+dsgDryRun :: Lens' DeleteSecurityGroup (Maybe Bool)
+dsgDryRun = lens _dsgDryRun (\s a -> s { _dsgDryRun = a })
 
 -- | The ID of the security group. Required for a nondefault VPC.
-dsg1GroupId :: Lens' DeleteSecurityGroup (Maybe Text)
-dsg1GroupId = lens _dsg1GroupId (\s a -> s { _dsg1GroupId = a })
+dsgGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
+dsgGroupId = lens _dsgGroupId (\s a -> s { _dsgGroupId = a })
 
 -- | [EC2-Classic, default VPC] The name of the security group. You can
 -- specify either the security group name or the security group ID.
-dsg1GroupName :: Lens' DeleteSecurityGroup (Maybe Text)
-dsg1GroupName = lens _dsg1GroupName (\s a -> s { _dsg1GroupName = a })
+dsgGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
+dsgGroupName = lens _dsgGroupName (\s a -> s { _dsgGroupName = a })
 
 instance ToQuery DeleteSecurityGroup
 

@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeReservedInstances
     , driReservedInstancesIds
 
     -- * Response
-    , DescribeReservedInstancesResult
+    , DescribeReservedInstancesResponse
     -- ** Response constructor
     , describeReservedInstancesResponse
     -- ** Response lenses
@@ -120,40 +120,40 @@ instance ToQuery DescribeReservedInstances
 instance ToPath DescribeReservedInstances where
     toPath = const "/"
 
-newtype DescribeReservedInstancesResult = DescribeReservedInstancesResult
+newtype DescribeReservedInstancesResponse = DescribeReservedInstancesResponse
     { _drirReservedInstances :: [ReservedInstances]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeReservedInstancesResult where
-    type Item DescribeReservedInstancesResult = ReservedInstances
+instance IsList DescribeReservedInstancesResponse where
+    type Item DescribeReservedInstancesResponse = ReservedInstances
 
-    fromList = DescribeReservedInstancesResult . fromList
+    fromList = DescribeReservedInstancesResponse . fromList
     toList   = toList . _drirReservedInstances
 
--- | 'DescribeReservedInstancesResult' constructor.
+-- | 'DescribeReservedInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drirReservedInstances' @::@ ['ReservedInstances']
 --
-describeReservedInstancesResponse :: DescribeReservedInstancesResult
-describeReservedInstancesResponse = DescribeReservedInstancesResult
+describeReservedInstancesResponse :: DescribeReservedInstancesResponse
+describeReservedInstancesResponse = DescribeReservedInstancesResponse
     { _drirReservedInstances = mempty
     }
 
 -- | A list of Reserved Instances.
-drirReservedInstances :: Lens' DescribeReservedInstancesResult [ReservedInstances]
+drirReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
 drirReservedInstances =
     lens _drirReservedInstances (\s a -> s { _drirReservedInstances = a })
 
-instance FromXML DescribeReservedInstancesResult where
+instance FromXML DescribeReservedInstancesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReservedInstancesResult"
+    fromXMLRoot    = fromRoot "DescribeReservedInstancesResponse"
 
 instance AWSRequest DescribeReservedInstances where
     type Sv DescribeReservedInstances = EC2
-    type Rs DescribeReservedInstances = DescribeReservedInstancesResult
+    type Rs DescribeReservedInstances = DescribeReservedInstancesResponse
 
     request  = post "DescribeReservedInstances"
-    response = xmlResponse $ \h x -> DescribeReservedInstancesResult
+    response = xmlResponse $ \h x -> DescribeReservedInstancesResponse
         <$> x %| "reservedInstancesSet"

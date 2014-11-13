@@ -24,11 +24,11 @@
 module Network.AWS.AutoScaling.DeleteTags
     (
     -- * Request
-      DeleteTagsType
+      DeleteTags
     -- ** Request constructor
     , deleteTags
     -- ** Request lenses
-    , dttTags
+    , dtTags
 
     -- * Response
     , DeleteTagsResponse
@@ -40,37 +40,37 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-newtype DeleteTagsType = DeleteTagsType
-    { _dttTags :: [Tag]
+newtype DeleteTags = DeleteTags
+    { _dtTags :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DeleteTagsType where
-    type Item DeleteTagsType = Tag
+instance IsList DeleteTags where
+    type Item DeleteTags = Tag
 
-    fromList = DeleteTagsType . fromList
-    toList   = toList . _dttTags
+    fromList = DeleteTags . fromList
+    toList   = toList . _dtTags
 
--- | 'DeleteTagsType' constructor.
+-- | 'DeleteTags' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dttTags' @::@ ['Tag']
+-- * 'dtTags' @::@ ['Tag']
 --
-deleteTags :: DeleteTagsType
-deleteTags = DeleteTagsType
-    { _dttTags = mempty
+deleteTags :: DeleteTags
+deleteTags = DeleteTags
+    { _dtTags = mempty
     }
 
 -- | Each tag should be defined by its resource type, resource ID, key, value,
 -- and a propagate flag. Valid values are: Resource type =
 -- auto-scaling-group, Resource ID = AutoScalingGroupName, key=value,
 -- value=value, propagate=true or false.
-dttTags :: Lens' DeleteTagsType [Tag]
-dttTags = lens _dttTags (\s a -> s { _dttTags = a })
+dtTags :: Lens' DeleteTags [Tag]
+dtTags = lens _dtTags (\s a -> s { _dtTags = a })
 
-instance ToQuery DeleteTagsType
+instance ToQuery DeleteTags
 
-instance ToPath DeleteTagsType where
+instance ToPath DeleteTags where
     toPath = const "/"
 
 data DeleteTagsResponse = DeleteTagsResponse
@@ -84,9 +84,9 @@ instance FromXML DeleteTagsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteTagsResponse"
 
-instance AWSRequest DeleteTagsType where
-    type Sv DeleteTagsType = AutoScaling
-    type Rs DeleteTagsType = DeleteTagsResponse
+instance AWSRequest DeleteTags where
+    type Sv DeleteTags = AutoScaling
+    type Rs DeleteTags = DeleteTagsResponse
 
     request  = post "DeleteTags"
     response = nullaryResponse DeleteTagsResponse

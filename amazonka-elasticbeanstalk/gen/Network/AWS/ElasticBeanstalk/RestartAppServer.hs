@@ -25,12 +25,12 @@
 module Network.AWS.ElasticBeanstalk.RestartAppServer
     (
     -- * Request
-      RestartAppServerMessage
+      RestartAppServer
     -- ** Request constructor
     , restartAppServer
     -- ** Request lenses
-    , rasmEnvironmentId
-    , rasmEnvironmentName
+    , rasEnvironmentId
+    , rasEnvironmentName
 
     -- * Response
     , RestartAppServerResponse
@@ -42,43 +42,42 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data RestartAppServerMessage = RestartAppServerMessage
-    { _rasmEnvironmentId   :: Maybe Text
-    , _rasmEnvironmentName :: Maybe Text
+data RestartAppServer = RestartAppServer
+    { _rasEnvironmentId   :: Maybe Text
+    , _rasEnvironmentName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'RestartAppServerMessage' constructor.
+-- | 'RestartAppServer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rasmEnvironmentId' @::@ 'Maybe' 'Text'
+-- * 'rasEnvironmentId' @::@ 'Maybe' 'Text'
 --
--- * 'rasmEnvironmentName' @::@ 'Maybe' 'Text'
+-- * 'rasEnvironmentName' @::@ 'Maybe' 'Text'
 --
-restartAppServer :: RestartAppServerMessage
-restartAppServer = RestartAppServerMessage
-    { _rasmEnvironmentId   = Nothing
-    , _rasmEnvironmentName = Nothing
+restartAppServer :: RestartAppServer
+restartAppServer = RestartAppServer
+    { _rasEnvironmentId   = Nothing
+    , _rasEnvironmentName = Nothing
     }
 
 -- | The ID of the environment to restart the server for. Condition: You must
 -- specify either this or an EnvironmentName, or both. If you do not specify
 -- either, AWS Elastic Beanstalk returns MissingRequiredParameter error.
-rasmEnvironmentId :: Lens' RestartAppServerMessage (Maybe Text)
-rasmEnvironmentId =
-    lens _rasmEnvironmentId (\s a -> s { _rasmEnvironmentId = a })
+rasEnvironmentId :: Lens' RestartAppServer (Maybe Text)
+rasEnvironmentId = lens _rasEnvironmentId (\s a -> s { _rasEnvironmentId = a })
 
 -- | The name of the environment to restart the server for. Condition: You
 -- must specify either this or an EnvironmentId, or both. If you do not
 -- specify either, AWS Elastic Beanstalk returns MissingRequiredParameter
 -- error.
-rasmEnvironmentName :: Lens' RestartAppServerMessage (Maybe Text)
-rasmEnvironmentName =
-    lens _rasmEnvironmentName (\s a -> s { _rasmEnvironmentName = a })
+rasEnvironmentName :: Lens' RestartAppServer (Maybe Text)
+rasEnvironmentName =
+    lens _rasEnvironmentName (\s a -> s { _rasEnvironmentName = a })
 
-instance ToQuery RestartAppServerMessage
+instance ToQuery RestartAppServer
 
-instance ToPath RestartAppServerMessage where
+instance ToPath RestartAppServer where
     toPath = const "/"
 
 data RestartAppServerResponse = RestartAppServerResponse
@@ -92,9 +91,9 @@ instance FromXML RestartAppServerResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RestartAppServerResponse"
 
-instance AWSRequest RestartAppServerMessage where
-    type Sv RestartAppServerMessage = ElasticBeanstalk
-    type Rs RestartAppServerMessage = RestartAppServerResponse
+instance AWSRequest RestartAppServer where
+    type Sv RestartAppServer = ElasticBeanstalk
+    type Rs RestartAppServer = RestartAppServerResponse
 
     request  = post "RestartAppServer"
     response = nullaryResponse RestartAppServerResponse

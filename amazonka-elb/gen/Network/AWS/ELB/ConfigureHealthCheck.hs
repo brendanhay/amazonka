@@ -26,89 +26,89 @@
 module Network.AWS.ELB.ConfigureHealthCheck
     (
     -- * Request
-      ConfigureHealthCheckInput
+      ConfigureHealthCheck
     -- ** Request constructor
     , configureHealthCheck
     -- ** Request lenses
-    , chciHealthCheck
-    , chciLoadBalancerName
+    , chcHealthCheck
+    , chcLoadBalancerName
 
     -- * Response
-    , ConfigureHealthCheckOutput
+    , ConfigureHealthCheckResponse
     -- ** Response constructor
     , configureHealthCheckResponse
     -- ** Response lenses
-    , chcoHealthCheck
+    , chcrHealthCheck
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data ConfigureHealthCheckInput = ConfigureHealthCheckInput
-    { _chciHealthCheck      :: HealthCheck
-    , _chciLoadBalancerName :: Text
+data ConfigureHealthCheck = ConfigureHealthCheck
+    { _chcHealthCheck      :: HealthCheck
+    , _chcLoadBalancerName :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'ConfigureHealthCheckInput' constructor.
+-- | 'ConfigureHealthCheck' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chciHealthCheck' @::@ 'HealthCheck'
+-- * 'chcHealthCheck' @::@ 'HealthCheck'
 --
--- * 'chciLoadBalancerName' @::@ 'Text'
+-- * 'chcLoadBalancerName' @::@ 'Text'
 --
-configureHealthCheck :: Text -- ^ 'chciLoadBalancerName'
-                     -> HealthCheck -- ^ 'chciHealthCheck'
-                     -> ConfigureHealthCheckInput
-configureHealthCheck p1 p2 = ConfigureHealthCheckInput
-    { _chciLoadBalancerName = p1
-    , _chciHealthCheck      = p2
+configureHealthCheck :: Text -- ^ 'chcLoadBalancerName'
+                     -> HealthCheck -- ^ 'chcHealthCheck'
+                     -> ConfigureHealthCheck
+configureHealthCheck p1 p2 = ConfigureHealthCheck
+    { _chcLoadBalancerName = p1
+    , _chcHealthCheck      = p2
     }
 
 -- | A structure containing the configuration information for the new
 -- healthcheck.
-chciHealthCheck :: Lens' ConfigureHealthCheckInput HealthCheck
-chciHealthCheck = lens _chciHealthCheck (\s a -> s { _chciHealthCheck = a })
+chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
+chcHealthCheck = lens _chcHealthCheck (\s a -> s { _chcHealthCheck = a })
 
 -- | The mnemonic name associated with the load balancer. The name must be
 -- unique within the set of load balancers associated with your AWS account.
-chciLoadBalancerName :: Lens' ConfigureHealthCheckInput Text
-chciLoadBalancerName =
-    lens _chciLoadBalancerName (\s a -> s { _chciLoadBalancerName = a })
+chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
+chcLoadBalancerName =
+    lens _chcLoadBalancerName (\s a -> s { _chcLoadBalancerName = a })
 
-instance ToQuery ConfigureHealthCheckInput
+instance ToQuery ConfigureHealthCheck
 
-instance ToPath ConfigureHealthCheckInput where
+instance ToPath ConfigureHealthCheck where
     toPath = const "/"
 
-newtype ConfigureHealthCheckOutput = ConfigureHealthCheckOutput
-    { _chcoHealthCheck :: Maybe HealthCheck
+newtype ConfigureHealthCheckResponse = ConfigureHealthCheckResponse
+    { _chcrHealthCheck :: Maybe HealthCheck
     } deriving (Eq, Show, Generic)
 
--- | 'ConfigureHealthCheckOutput' constructor.
+-- | 'ConfigureHealthCheckResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chcoHealthCheck' @::@ 'Maybe' 'HealthCheck'
+-- * 'chcrHealthCheck' @::@ 'Maybe' 'HealthCheck'
 --
-configureHealthCheckResponse :: ConfigureHealthCheckOutput
-configureHealthCheckResponse = ConfigureHealthCheckOutput
-    { _chcoHealthCheck = Nothing
+configureHealthCheckResponse :: ConfigureHealthCheckResponse
+configureHealthCheckResponse = ConfigureHealthCheckResponse
+    { _chcrHealthCheck = Nothing
     }
 
 -- | The updated healthcheck for the instances.
-chcoHealthCheck :: Lens' ConfigureHealthCheckOutput (Maybe HealthCheck)
-chcoHealthCheck = lens _chcoHealthCheck (\s a -> s { _chcoHealthCheck = a })
+chcrHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
+chcrHealthCheck = lens _chcrHealthCheck (\s a -> s { _chcrHealthCheck = a })
 
-instance FromXML ConfigureHealthCheckOutput where
+instance FromXML ConfigureHealthCheckResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConfigureHealthCheckOutput"
+    fromXMLRoot    = fromRoot "ConfigureHealthCheckResponse"
 
-instance AWSRequest ConfigureHealthCheckInput where
-    type Sv ConfigureHealthCheckInput = ELB
-    type Rs ConfigureHealthCheckInput = ConfigureHealthCheckOutput
+instance AWSRequest ConfigureHealthCheck where
+    type Sv ConfigureHealthCheck = ELB
+    type Rs ConfigureHealthCheck = ConfigureHealthCheckResponse
 
     request  = post "ConfigureHealthCheck"
-    response = xmlResponse $ \h x -> ConfigureHealthCheckOutput
+    response = xmlResponse $ \h x -> ConfigureHealthCheckResponse
         <$> x %| "HealthCheck"

@@ -32,9 +32,9 @@ module Network.AWS.EC2.CreateTags
     -- ** Request constructor
     , createTags
     -- ** Request lenses
-    , ctDryRun
-    , ctResources
-    , ctTags
+    , ct1DryRun
+    , ct1Resources
+    , ct1Tags
 
     -- * Response
     , CreateTagsResponse
@@ -47,40 +47,40 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data CreateTags = CreateTags
-    { _ctDryRun    :: Maybe Bool
-    , _ctResources :: [Text]
-    , _ctTags      :: [Tag]
+    { _ct1DryRun    :: Maybe Bool
+    , _ct1Resources :: [Text]
+    , _ct1Tags      :: [Tag]
     } deriving (Eq, Show, Generic)
 
 -- | 'CreateTags' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctDryRun' @::@ 'Maybe' 'Bool'
+-- * 'ct1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'ctResources' @::@ ['Text']
+-- * 'ct1Resources' @::@ ['Text']
 --
--- * 'ctTags' @::@ ['Tag']
+-- * 'ct1Tags' @::@ ['Tag']
 --
 createTags :: CreateTags
 createTags = CreateTags
-    { _ctDryRun    = Nothing
-    , _ctResources = mempty
-    , _ctTags      = mempty
+    { _ct1DryRun    = Nothing
+    , _ct1Resources = mempty
+    , _ct1Tags      = mempty
     }
 
-ctDryRun :: Lens' CreateTags (Maybe Bool)
-ctDryRun = lens _ctDryRun (\s a -> s { _ctDryRun = a })
+ct1DryRun :: Lens' CreateTags (Maybe Bool)
+ct1DryRun = lens _ct1DryRun (\s a -> s { _ct1DryRun = a })
 
 -- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
-ctResources :: Lens' CreateTags [Text]
-ctResources = lens _ctResources (\s a -> s { _ctResources = a })
+ct1Resources :: Lens' CreateTags [Text]
+ct1Resources = lens _ct1Resources (\s a -> s { _ct1Resources = a })
 
 -- | One or more tags. The value parameter is required, but if you don't want
 -- the tag to have a value, specify the parameter with no value, and we set
 -- the value to an empty string.
-ctTags :: Lens' CreateTags [Tag]
-ctTags = lens _ctTags (\s a -> s { _ctTags = a })
+ct1Tags :: Lens' CreateTags [Tag]
+ct1Tags = lens _ct1Tags (\s a -> s { _ct1Tags = a })
 
 instance ToQuery CreateTags
 

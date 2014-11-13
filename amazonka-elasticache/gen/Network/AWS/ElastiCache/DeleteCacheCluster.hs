@@ -30,15 +30,15 @@
 module Network.AWS.ElastiCache.DeleteCacheCluster
     (
     -- * Request
-      DeleteCacheClusterMessage
+      DeleteCacheCluster
     -- ** Request constructor
     , deleteCacheCluster
     -- ** Request lenses
-    , dccmCacheClusterId
-    , dccmFinalSnapshotIdentifier
+    , dccCacheClusterId
+    , dccFinalSnapshotIdentifier
 
     -- * Response
-    , DeleteCacheClusterResult
+    , DeleteCacheClusterResponse
     -- ** Response constructor
     , deleteCacheClusterResponse
     -- ** Response lenses
@@ -49,71 +49,71 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data DeleteCacheClusterMessage = DeleteCacheClusterMessage
-    { _dccmCacheClusterId          :: Text
-    , _dccmFinalSnapshotIdentifier :: Maybe Text
+data DeleteCacheCluster = DeleteCacheCluster
+    { _dccCacheClusterId          :: Text
+    , _dccFinalSnapshotIdentifier :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteCacheClusterMessage' constructor.
+-- | 'DeleteCacheCluster' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dccmCacheClusterId' @::@ 'Text'
+-- * 'dccCacheClusterId' @::@ 'Text'
 --
--- * 'dccmFinalSnapshotIdentifier' @::@ 'Maybe' 'Text'
+-- * 'dccFinalSnapshotIdentifier' @::@ 'Maybe' 'Text'
 --
-deleteCacheCluster :: Text -- ^ 'dccmCacheClusterId'
-                   -> DeleteCacheClusterMessage
-deleteCacheCluster p1 = DeleteCacheClusterMessage
-    { _dccmCacheClusterId          = p1
-    , _dccmFinalSnapshotIdentifier = Nothing
+deleteCacheCluster :: Text -- ^ 'dccCacheClusterId'
+                   -> DeleteCacheCluster
+deleteCacheCluster p1 = DeleteCacheCluster
+    { _dccCacheClusterId          = p1
+    , _dccFinalSnapshotIdentifier = Nothing
     }
 
 -- | The cache cluster identifier for the cluster to be deleted. This
 -- parameter is not case sensitive.
-dccmCacheClusterId :: Lens' DeleteCacheClusterMessage Text
-dccmCacheClusterId =
-    lens _dccmCacheClusterId (\s a -> s { _dccmCacheClusterId = a })
+dccCacheClusterId :: Lens' DeleteCacheCluster Text
+dccCacheClusterId =
+    lens _dccCacheClusterId (\s a -> s { _dccCacheClusterId = a })
 
 -- | The user-supplied name of a final cache cluster snapshot. This is the
 -- unique name that identifies the snapshot. ElastiCache creates the
 -- snapshot, and then deletes the cache cluster immediately afterward.
-dccmFinalSnapshotIdentifier :: Lens' DeleteCacheClusterMessage (Maybe Text)
-dccmFinalSnapshotIdentifier =
-    lens _dccmFinalSnapshotIdentifier
-        (\s a -> s { _dccmFinalSnapshotIdentifier = a })
+dccFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
+dccFinalSnapshotIdentifier =
+    lens _dccFinalSnapshotIdentifier
+        (\s a -> s { _dccFinalSnapshotIdentifier = a })
 
-instance ToQuery DeleteCacheClusterMessage
+instance ToQuery DeleteCacheCluster
 
-instance ToPath DeleteCacheClusterMessage where
+instance ToPath DeleteCacheCluster where
     toPath = const "/"
 
-newtype DeleteCacheClusterResult = DeleteCacheClusterResult
+newtype DeleteCacheClusterResponse = DeleteCacheClusterResponse
     { _dccrCacheCluster :: Maybe CacheCluster
     } deriving (Eq, Show, Generic)
 
--- | 'DeleteCacheClusterResult' constructor.
+-- | 'DeleteCacheClusterResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dccrCacheCluster' @::@ 'Maybe' 'CacheCluster'
 --
-deleteCacheClusterResponse :: DeleteCacheClusterResult
-deleteCacheClusterResponse = DeleteCacheClusterResult
+deleteCacheClusterResponse :: DeleteCacheClusterResponse
+deleteCacheClusterResponse = DeleteCacheClusterResponse
     { _dccrCacheCluster = Nothing
     }
 
-dccrCacheCluster :: Lens' DeleteCacheClusterResult (Maybe CacheCluster)
+dccrCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
 dccrCacheCluster = lens _dccrCacheCluster (\s a -> s { _dccrCacheCluster = a })
 
-instance FromXML DeleteCacheClusterResult where
+instance FromXML DeleteCacheClusterResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteCacheClusterResult"
+    fromXMLRoot    = fromRoot "DeleteCacheClusterResponse"
 
-instance AWSRequest DeleteCacheClusterMessage where
-    type Sv DeleteCacheClusterMessage = ElastiCache
-    type Rs DeleteCacheClusterMessage = DeleteCacheClusterResult
+instance AWSRequest DeleteCacheCluster where
+    type Sv DeleteCacheCluster = ElastiCache
+    type Rs DeleteCacheCluster = DeleteCacheClusterResponse
 
     request  = post "DeleteCacheCluster"
-    response = xmlResponse $ \h x -> DeleteCacheClusterResult
+    response = xmlResponse $ \h x -> DeleteCacheClusterResponse
         <$> x %| "CacheCluster"

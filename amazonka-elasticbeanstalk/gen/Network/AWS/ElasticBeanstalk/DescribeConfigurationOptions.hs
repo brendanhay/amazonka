@@ -28,130 +28,130 @@
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
     (
     -- * Request
-      DescribeConfigurationOptionsMessage
+      DescribeConfigurationOptions
     -- ** Request constructor
     , describeConfigurationOptions
     -- ** Request lenses
-    , dcomApplicationName
-    , dcomEnvironmentName
-    , dcomOptions
-    , dcomSolutionStackName
-    , dcomTemplateName
+    , dcoApplicationName
+    , dcoEnvironmentName
+    , dcoOptions
+    , dcoSolutionStackName
+    , dcoTemplateName
 
     -- * Response
-    , ConfigurationOptionsDescription
+    , DescribeConfigurationOptionsResponse
     -- ** Response constructor
     , describeConfigurationOptionsResponse
     -- ** Response lenses
-    , codOptions
-    , codSolutionStackName
+    , dcorOptions
+    , dcorSolutionStackName
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data DescribeConfigurationOptionsMessage = DescribeConfigurationOptionsMessage
-    { _dcomApplicationName   :: Maybe Text
-    , _dcomEnvironmentName   :: Maybe Text
-    , _dcomOptions           :: [OptionSpecification]
-    , _dcomSolutionStackName :: Maybe Text
-    , _dcomTemplateName      :: Maybe Text
+data DescribeConfigurationOptions = DescribeConfigurationOptions
+    { _dcoApplicationName   :: Maybe Text
+    , _dcoEnvironmentName   :: Maybe Text
+    , _dcoOptions           :: [OptionSpecification]
+    , _dcoSolutionStackName :: Maybe Text
+    , _dcoTemplateName      :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeConfigurationOptionsMessage' constructor.
+-- | 'DescribeConfigurationOptions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcomApplicationName' @::@ 'Maybe' 'Text'
+-- * 'dcoApplicationName' @::@ 'Maybe' 'Text'
 --
--- * 'dcomEnvironmentName' @::@ 'Maybe' 'Text'
+-- * 'dcoEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * 'dcomOptions' @::@ ['OptionSpecification']
+-- * 'dcoOptions' @::@ ['OptionSpecification']
 --
--- * 'dcomSolutionStackName' @::@ 'Maybe' 'Text'
+-- * 'dcoSolutionStackName' @::@ 'Maybe' 'Text'
 --
--- * 'dcomTemplateName' @::@ 'Maybe' 'Text'
+-- * 'dcoTemplateName' @::@ 'Maybe' 'Text'
 --
-describeConfigurationOptions :: DescribeConfigurationOptionsMessage
-describeConfigurationOptions = DescribeConfigurationOptionsMessage
-    { _dcomApplicationName   = Nothing
-    , _dcomTemplateName      = Nothing
-    , _dcomEnvironmentName   = Nothing
-    , _dcomSolutionStackName = Nothing
-    , _dcomOptions           = mempty
+describeConfigurationOptions :: DescribeConfigurationOptions
+describeConfigurationOptions = DescribeConfigurationOptions
+    { _dcoApplicationName   = Nothing
+    , _dcoTemplateName      = Nothing
+    , _dcoEnvironmentName   = Nothing
+    , _dcoSolutionStackName = Nothing
+    , _dcoOptions           = mempty
     }
 
 -- | The name of the application associated with the configuration template or
 -- environment. Only needed if you want to describe the configuration
 -- options associated with either the configuration template or environment.
-dcomApplicationName :: Lens' DescribeConfigurationOptionsMessage (Maybe Text)
-dcomApplicationName =
-    lens _dcomApplicationName (\s a -> s { _dcomApplicationName = a })
+dcoApplicationName :: Lens' DescribeConfigurationOptions (Maybe Text)
+dcoApplicationName =
+    lens _dcoApplicationName (\s a -> s { _dcoApplicationName = a })
 
 -- | The name of the environment whose configuration options you want to
 -- describe.
-dcomEnvironmentName :: Lens' DescribeConfigurationOptionsMessage (Maybe Text)
-dcomEnvironmentName =
-    lens _dcomEnvironmentName (\s a -> s { _dcomEnvironmentName = a })
+dcoEnvironmentName :: Lens' DescribeConfigurationOptions (Maybe Text)
+dcoEnvironmentName =
+    lens _dcoEnvironmentName (\s a -> s { _dcoEnvironmentName = a })
 
 -- | If specified, restricts the descriptions to only the specified options.
-dcomOptions :: Lens' DescribeConfigurationOptionsMessage [OptionSpecification]
-dcomOptions = lens _dcomOptions (\s a -> s { _dcomOptions = a })
+dcoOptions :: Lens' DescribeConfigurationOptions [OptionSpecification]
+dcoOptions = lens _dcoOptions (\s a -> s { _dcoOptions = a })
 
 -- | The name of the solution stack whose configuration options you want to
 -- describe.
-dcomSolutionStackName :: Lens' DescribeConfigurationOptionsMessage (Maybe Text)
-dcomSolutionStackName =
-    lens _dcomSolutionStackName (\s a -> s { _dcomSolutionStackName = a })
+dcoSolutionStackName :: Lens' DescribeConfigurationOptions (Maybe Text)
+dcoSolutionStackName =
+    lens _dcoSolutionStackName (\s a -> s { _dcoSolutionStackName = a })
 
 -- | The name of the configuration template whose configuration options you
 -- want to describe.
-dcomTemplateName :: Lens' DescribeConfigurationOptionsMessage (Maybe Text)
-dcomTemplateName = lens _dcomTemplateName (\s a -> s { _dcomTemplateName = a })
+dcoTemplateName :: Lens' DescribeConfigurationOptions (Maybe Text)
+dcoTemplateName = lens _dcoTemplateName (\s a -> s { _dcoTemplateName = a })
 
-instance ToQuery DescribeConfigurationOptionsMessage
+instance ToQuery DescribeConfigurationOptions
 
-instance ToPath DescribeConfigurationOptionsMessage where
+instance ToPath DescribeConfigurationOptions where
     toPath = const "/"
 
-data ConfigurationOptionsDescription = ConfigurationOptionsDescription
-    { _codOptions           :: [ConfigurationOptionDescription]
-    , _codSolutionStackName :: Maybe Text
+data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
+    { _dcorOptions           :: [ConfigurationOptionDescription]
+    , _dcorSolutionStackName :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'ConfigurationOptionsDescription' constructor.
+-- | 'DescribeConfigurationOptionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'codOptions' @::@ ['ConfigurationOptionDescription']
+-- * 'dcorOptions' @::@ ['ConfigurationOptionDescription']
 --
--- * 'codSolutionStackName' @::@ 'Maybe' 'Text'
+-- * 'dcorSolutionStackName' @::@ 'Maybe' 'Text'
 --
-describeConfigurationOptionsResponse :: ConfigurationOptionsDescription
-describeConfigurationOptionsResponse = ConfigurationOptionsDescription
-    { _codSolutionStackName = Nothing
-    , _codOptions           = mempty
+describeConfigurationOptionsResponse :: DescribeConfigurationOptionsResponse
+describeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
+    { _dcorSolutionStackName = Nothing
+    , _dcorOptions           = mempty
     }
 
 -- | A list of ConfigurationOptionDescription.
-codOptions :: Lens' ConfigurationOptionsDescription [ConfigurationOptionDescription]
-codOptions = lens _codOptions (\s a -> s { _codOptions = a })
+dcorOptions :: Lens' DescribeConfigurationOptionsResponse [ConfigurationOptionDescription]
+dcorOptions = lens _dcorOptions (\s a -> s { _dcorOptions = a })
 
 -- | The name of the solution stack these configuration options belong to.
-codSolutionStackName :: Lens' ConfigurationOptionsDescription (Maybe Text)
-codSolutionStackName =
-    lens _codSolutionStackName (\s a -> s { _codSolutionStackName = a })
+dcorSolutionStackName :: Lens' DescribeConfigurationOptionsResponse (Maybe Text)
+dcorSolutionStackName =
+    lens _dcorSolutionStackName (\s a -> s { _dcorSolutionStackName = a })
 
-instance FromXML ConfigurationOptionsDescription where
+instance FromXML DescribeConfigurationOptionsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConfigurationOptionsDescription"
+    fromXMLRoot    = fromRoot "DescribeConfigurationOptionsResponse"
 
-instance AWSRequest DescribeConfigurationOptionsMessage where
-    type Sv DescribeConfigurationOptionsMessage = ElasticBeanstalk
-    type Rs DescribeConfigurationOptionsMessage = ConfigurationOptionsDescription
+instance AWSRequest DescribeConfigurationOptions where
+    type Sv DescribeConfigurationOptions = ElasticBeanstalk
+    type Rs DescribeConfigurationOptions = DescribeConfigurationOptionsResponse
 
     request  = post "DescribeConfigurationOptions"
-    response = xmlResponse $ \h x -> ConfigurationOptionsDescription
+    response = xmlResponse $ \h x -> DescribeConfigurationOptionsResponse
         <$> x %| "Options"
         <*> x %| "SolutionStackName"

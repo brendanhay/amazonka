@@ -24,7 +24,7 @@
 module Network.AWS.CloudFront.GetInvalidation
     (
     -- * Request
-      GetInvalidation
+      GetInvalidation2014_05_31
     -- ** Request constructor
     , getInvalidation2014_05_31
     -- ** Request lenses
@@ -32,7 +32,7 @@ module Network.AWS.CloudFront.GetInvalidation
     , giId
 
     -- * Response
-    , GetInvalidationResult
+    , GetInvalidation2014_05_31Response
     -- ** Response constructor
     , getInvalidation2014_05_31Response
     -- ** Response lenses
@@ -43,12 +43,12 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 
-data GetInvalidation = GetInvalidation
+data GetInvalidation2014_05_31 = GetInvalidation2014_05_31
     { _giDistributionId :: Text
     , _giId             :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'GetInvalidation' constructor.
+-- | 'GetInvalidation2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -58,59 +58,59 @@ data GetInvalidation = GetInvalidation
 --
 getInvalidation2014_05_31 :: Text -- ^ 'giDistributionId'
                           -> Text -- ^ 'giId'
-                          -> GetInvalidation
-getInvalidation2014_05_31 p1 p2 = GetInvalidation
+                          -> GetInvalidation2014_05_31
+getInvalidation2014_05_31 p1 p2 = GetInvalidation2014_05_31
     { _giDistributionId = p1
     , _giId             = p2
     }
 
 -- | The distribution's id.
-giDistributionId :: Lens' GetInvalidation Text
+giDistributionId :: Lens' GetInvalidation2014_05_31 Text
 giDistributionId = lens _giDistributionId (\s a -> s { _giDistributionId = a })
 
 -- | The invalidation's id.
-giId :: Lens' GetInvalidation Text
+giId :: Lens' GetInvalidation2014_05_31 Text
 giId = lens _giId (\s a -> s { _giId = a })
 
-instance ToPath GetInvalidation where
-    toPath GetInvalidation{..} = mconcat
+instance ToPath GetInvalidation2014_05_31 where
+    toPath GetInvalidation2014_05_31{..} = mconcat
         [ "/2014-05-31/distribution/"
         , toText _giDistributionId
         , "/invalidation/"
         , toText _giId
         ]
 
-instance ToQuery GetInvalidation where
+instance ToQuery GetInvalidation2014_05_31 where
     toQuery = const mempty
 
-instance ToHeaders GetInvalidation
+instance ToHeaders GetInvalidation2014_05_31
 
-newtype GetInvalidationResult = GetInvalidationResult
+newtype GetInvalidation2014_05_31Response = GetInvalidation2014_05_31Response
     { _girInvalidation :: Maybe Invalidation
     } deriving (Eq, Show, Generic)
 
--- | 'GetInvalidationResult' constructor.
+-- | 'GetInvalidation2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'girInvalidation' @::@ 'Maybe' 'Invalidation'
 --
-getInvalidation2014_05_31Response :: GetInvalidationResult
-getInvalidation2014_05_31Response = GetInvalidationResult
+getInvalidation2014_05_31Response :: GetInvalidation2014_05_31Response
+getInvalidation2014_05_31Response = GetInvalidation2014_05_31Response
     { _girInvalidation = Nothing
     }
 
 -- | The invalidation's information.
-girInvalidation :: Lens' GetInvalidationResult (Maybe Invalidation)
+girInvalidation :: Lens' GetInvalidation2014_05_31Response (Maybe Invalidation)
 girInvalidation = lens _girInvalidation (\s a -> s { _girInvalidation = a })
 
-instance FromXML GetInvalidationResult where
+instance FromXML GetInvalidation2014_05_31Response where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetInvalidationResult"
-instance AWSRequest GetInvalidation where
-    type Sv GetInvalidation = CloudFront
-    type Rs GetInvalidation = GetInvalidationResult
+    fromXMLRoot    = fromRoot "GetInvalidation2014_05_31Response"
+instance AWSRequest GetInvalidation2014_05_31 where
+    type Sv GetInvalidation2014_05_31 = CloudFront
+    type Rs GetInvalidation2014_05_31 = GetInvalidation2014_05_31Response
 
     request  = get
-    response = xmlResponse $ \h x -> GetInvalidationResult
+    response = xmlResponse $ \h x -> GetInvalidation2014_05_31Response
         <$> x %| "Invalidation"

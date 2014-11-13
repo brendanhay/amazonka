@@ -34,7 +34,7 @@ module Network.AWS.EC2.DescribeSubnets
     , dsSubnetIds
 
     -- * Response
-    , DescribeSubnetsResult
+    , DescribeSubnetsResponse
     -- ** Response constructor
     , describeSubnetsResponse
     -- ** Response lenses
@@ -103,39 +103,39 @@ instance ToQuery DescribeSubnets
 instance ToPath DescribeSubnets where
     toPath = const "/"
 
-newtype DescribeSubnetsResult = DescribeSubnetsResult
+newtype DescribeSubnetsResponse = DescribeSubnetsResponse
     { _dsrSubnets :: [Subnet]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeSubnetsResult where
-    type Item DescribeSubnetsResult = Subnet
+instance IsList DescribeSubnetsResponse where
+    type Item DescribeSubnetsResponse = Subnet
 
-    fromList = DescribeSubnetsResult . fromList
+    fromList = DescribeSubnetsResponse . fromList
     toList   = toList . _dsrSubnets
 
--- | 'DescribeSubnetsResult' constructor.
+-- | 'DescribeSubnetsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrSubnets' @::@ ['Subnet']
 --
-describeSubnetsResponse :: DescribeSubnetsResult
-describeSubnetsResponse = DescribeSubnetsResult
+describeSubnetsResponse :: DescribeSubnetsResponse
+describeSubnetsResponse = DescribeSubnetsResponse
     { _dsrSubnets = mempty
     }
 
 -- | Information about one or more subnets.
-dsrSubnets :: Lens' DescribeSubnetsResult [Subnet]
+dsrSubnets :: Lens' DescribeSubnetsResponse [Subnet]
 dsrSubnets = lens _dsrSubnets (\s a -> s { _dsrSubnets = a })
 
-instance FromXML DescribeSubnetsResult where
+instance FromXML DescribeSubnetsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSubnetsResult"
+    fromXMLRoot    = fromRoot "DescribeSubnetsResponse"
 
 instance AWSRequest DescribeSubnets where
     type Sv DescribeSubnets = EC2
-    type Rs DescribeSubnets = DescribeSubnetsResult
+    type Rs DescribeSubnets = DescribeSubnetsResponse
 
     request  = post "DescribeSubnets"
-    response = xmlResponse $ \h x -> DescribeSubnetsResult
+    response = xmlResponse $ \h x -> DescribeSubnetsResponse
         <$> x %| "subnetSet"

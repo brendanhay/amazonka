@@ -25,11 +25,11 @@
 module Network.AWS.CloudWatch.DeleteAlarms
     (
     -- * Request
-      DeleteAlarmsInput
+      DeleteAlarms
     -- ** Request constructor
     , deleteAlarms
     -- ** Request lenses
-    , daiAlarmNames
+    , da1AlarmNames
 
     -- * Response
     , DeleteAlarmsResponse
@@ -41,34 +41,34 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
 
-newtype DeleteAlarmsInput = DeleteAlarmsInput
-    { _daiAlarmNames :: [Text]
+newtype DeleteAlarms = DeleteAlarms
+    { _da1AlarmNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DeleteAlarmsInput where
-    type Item DeleteAlarmsInput = Text
+instance IsList DeleteAlarms where
+    type Item DeleteAlarms = Text
 
-    fromList = DeleteAlarmsInput . fromList
-    toList   = toList . _daiAlarmNames
+    fromList = DeleteAlarms . fromList
+    toList   = toList . _da1AlarmNames
 
--- | 'DeleteAlarmsInput' constructor.
+-- | 'DeleteAlarms' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daiAlarmNames' @::@ ['Text']
+-- * 'da1AlarmNames' @::@ ['Text']
 --
-deleteAlarms :: DeleteAlarmsInput
-deleteAlarms = DeleteAlarmsInput
-    { _daiAlarmNames = mempty
+deleteAlarms :: DeleteAlarms
+deleteAlarms = DeleteAlarms
+    { _da1AlarmNames = mempty
     }
 
 -- | A list of alarms to be deleted.
-daiAlarmNames :: Lens' DeleteAlarmsInput [Text]
-daiAlarmNames = lens _daiAlarmNames (\s a -> s { _daiAlarmNames = a })
+da1AlarmNames :: Lens' DeleteAlarms [Text]
+da1AlarmNames = lens _da1AlarmNames (\s a -> s { _da1AlarmNames = a })
 
-instance ToQuery DeleteAlarmsInput
+instance ToQuery DeleteAlarms
 
-instance ToPath DeleteAlarmsInput where
+instance ToPath DeleteAlarms where
     toPath = const "/"
 
 data DeleteAlarmsResponse = DeleteAlarmsResponse
@@ -82,9 +82,9 @@ instance FromXML DeleteAlarmsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteAlarmsResponse"
 
-instance AWSRequest DeleteAlarmsInput where
-    type Sv DeleteAlarmsInput = CloudWatch
-    type Rs DeleteAlarmsInput = DeleteAlarmsResponse
+instance AWSRequest DeleteAlarms where
+    type Sv DeleteAlarms = CloudWatch
+    type Rs DeleteAlarms = DeleteAlarmsResponse
 
     request  = post "DeleteAlarms"
     response = nullaryResponse DeleteAlarmsResponse

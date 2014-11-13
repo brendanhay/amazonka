@@ -39,7 +39,7 @@ module Network.AWS.EC2.ImportVolume
     , ivVolume
 
     -- * Response
-    , ImportVolumeResult
+    , ImportVolumeResponse
     -- ** Response constructor
     , importVolumeResponse
     -- ** Response lenses
@@ -107,33 +107,33 @@ instance ToQuery ImportVolume
 instance ToPath ImportVolume where
     toPath = const "/"
 
-newtype ImportVolumeResult = ImportVolumeResult
+newtype ImportVolumeResponse = ImportVolumeResponse
     { _ivrConversionTask :: Maybe ConversionTask
     } deriving (Eq, Show, Generic)
 
--- | 'ImportVolumeResult' constructor.
+-- | 'ImportVolumeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ivrConversionTask' @::@ 'Maybe' 'ConversionTask'
 --
-importVolumeResponse :: ImportVolumeResult
-importVolumeResponse = ImportVolumeResult
+importVolumeResponse :: ImportVolumeResponse
+importVolumeResponse = ImportVolumeResponse
     { _ivrConversionTask = Nothing
     }
 
-ivrConversionTask :: Lens' ImportVolumeResult (Maybe ConversionTask)
+ivrConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
 ivrConversionTask =
     lens _ivrConversionTask (\s a -> s { _ivrConversionTask = a })
 
-instance FromXML ImportVolumeResult where
+instance FromXML ImportVolumeResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ImportVolumeResult"
+    fromXMLRoot    = fromRoot "ImportVolumeResponse"
 
 instance AWSRequest ImportVolume where
     type Sv ImportVolume = EC2
-    type Rs ImportVolume = ImportVolumeResult
+    type Rs ImportVolume = ImportVolumeResponse
 
     request  = post "ImportVolume"
-    response = xmlResponse $ \h x -> ImportVolumeResult
+    response = xmlResponse $ \h x -> ImportVolumeResponse
         <$> x %| "conversionTask"

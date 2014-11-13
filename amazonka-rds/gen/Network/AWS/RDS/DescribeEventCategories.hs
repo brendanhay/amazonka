@@ -26,93 +26,93 @@
 module Network.AWS.RDS.DescribeEventCategories
     (
     -- * Request
-      DescribeEventCategoriesMessage
+      DescribeEventCategories
     -- ** Request constructor
     , describeEventCategories
     -- ** Request lenses
-    , decmFilters
-    , decmSourceType
+    , decFilters
+    , decSourceType
 
     -- * Response
-    , EventCategoriesMessage
+    , DescribeEventCategoriesResponse
     -- ** Response constructor
     , describeEventCategoriesResponse
     -- ** Response lenses
-    , ecmEventCategoriesMapList
+    , decrEventCategoriesMapList
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data DescribeEventCategoriesMessage = DescribeEventCategoriesMessage
-    { _decmFilters    :: [Filter]
-    , _decmSourceType :: Maybe Text
+data DescribeEventCategories = DescribeEventCategories
+    { _decFilters    :: [Filter]
+    , _decSourceType :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeEventCategoriesMessage' constructor.
+-- | 'DescribeEventCategories' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'decmFilters' @::@ ['Filter']
+-- * 'decFilters' @::@ ['Filter']
 --
--- * 'decmSourceType' @::@ 'Maybe' 'Text'
+-- * 'decSourceType' @::@ 'Maybe' 'Text'
 --
-describeEventCategories :: DescribeEventCategoriesMessage
-describeEventCategories = DescribeEventCategoriesMessage
-    { _decmSourceType = Nothing
-    , _decmFilters    = mempty
+describeEventCategories :: DescribeEventCategories
+describeEventCategories = DescribeEventCategories
+    { _decSourceType = Nothing
+    , _decFilters    = mempty
     }
 
 -- | This parameter is not currently supported.
-decmFilters :: Lens' DescribeEventCategoriesMessage [Filter]
-decmFilters = lens _decmFilters (\s a -> s { _decmFilters = a })
+decFilters :: Lens' DescribeEventCategories [Filter]
+decFilters = lens _decFilters (\s a -> s { _decFilters = a })
 
 -- | The type of source that will be generating the events. Valid values:
 -- db-instance | db-parameter-group | db-security-group | db-snapshot.
-decmSourceType :: Lens' DescribeEventCategoriesMessage (Maybe Text)
-decmSourceType = lens _decmSourceType (\s a -> s { _decmSourceType = a })
+decSourceType :: Lens' DescribeEventCategories (Maybe Text)
+decSourceType = lens _decSourceType (\s a -> s { _decSourceType = a })
 
-instance ToQuery DescribeEventCategoriesMessage
+instance ToQuery DescribeEventCategories
 
-instance ToPath DescribeEventCategoriesMessage where
+instance ToPath DescribeEventCategories where
     toPath = const "/"
 
-newtype EventCategoriesMessage = EventCategoriesMessage
-    { _ecmEventCategoriesMapList :: [EventCategoriesMap]
+newtype DescribeEventCategoriesResponse = DescribeEventCategoriesResponse
+    { _decrEventCategoriesMapList :: [EventCategoriesMap]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList EventCategoriesMessage where
-    type Item EventCategoriesMessage = EventCategoriesMap
+instance IsList DescribeEventCategoriesResponse where
+    type Item DescribeEventCategoriesResponse = EventCategoriesMap
 
-    fromList = EventCategoriesMessage . fromList
-    toList   = toList . _ecmEventCategoriesMapList
+    fromList = DescribeEventCategoriesResponse . fromList
+    toList   = toList . _decrEventCategoriesMapList
 
--- | 'EventCategoriesMessage' constructor.
+-- | 'DescribeEventCategoriesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ecmEventCategoriesMapList' @::@ ['EventCategoriesMap']
+-- * 'decrEventCategoriesMapList' @::@ ['EventCategoriesMap']
 --
-describeEventCategoriesResponse :: EventCategoriesMessage
-describeEventCategoriesResponse = EventCategoriesMessage
-    { _ecmEventCategoriesMapList = mempty
+describeEventCategoriesResponse :: DescribeEventCategoriesResponse
+describeEventCategoriesResponse = DescribeEventCategoriesResponse
+    { _decrEventCategoriesMapList = mempty
     }
 
 -- | A list of EventCategoriesMap data types.
-ecmEventCategoriesMapList :: Lens' EventCategoriesMessage [EventCategoriesMap]
-ecmEventCategoriesMapList =
-    lens _ecmEventCategoriesMapList
-        (\s a -> s { _ecmEventCategoriesMapList = a })
+decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
+decrEventCategoriesMapList =
+    lens _decrEventCategoriesMapList
+        (\s a -> s { _decrEventCategoriesMapList = a })
 
-instance FromXML EventCategoriesMessage where
+instance FromXML DescribeEventCategoriesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EventCategoriesMessage"
+    fromXMLRoot    = fromRoot "DescribeEventCategoriesResponse"
 
-instance AWSRequest DescribeEventCategoriesMessage where
-    type Sv DescribeEventCategoriesMessage = RDS
-    type Rs DescribeEventCategoriesMessage = EventCategoriesMessage
+instance AWSRequest DescribeEventCategories where
+    type Sv DescribeEventCategories = RDS
+    type Rs DescribeEventCategories = DescribeEventCategoriesResponse
 
     request  = post "DescribeEventCategories"
-    response = xmlResponse $ \h x -> EventCategoriesMessage
+    response = xmlResponse $ \h x -> DescribeEventCategoriesResponse
         <$> x %| "EventCategoriesMapList"

@@ -27,11 +27,11 @@
 module Network.AWS.SNS.ListTopics
     (
     -- * Request
-      ListTopicsInput
+      ListTopics
     -- ** Request constructor
     , listTopics
     -- ** Request lenses
-    , ltiNextToken
+    , ltNextToken
 
     -- * Response
     , ListTopicsResponse
@@ -46,28 +46,28 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-newtype ListTopicsInput = ListTopicsInput
-    { _ltiNextToken :: Maybe Text
+newtype ListTopics = ListTopics
+    { _ltNextToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'ListTopicsInput' constructor.
+-- | 'ListTopics' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltiNextToken' @::@ 'Maybe' 'Text'
+-- * 'ltNextToken' @::@ 'Maybe' 'Text'
 --
-listTopics :: ListTopicsInput
-listTopics = ListTopicsInput
-    { _ltiNextToken = Nothing
+listTopics :: ListTopics
+listTopics = ListTopics
+    { _ltNextToken = Nothing
     }
 
 -- | Token returned by the previous ListTopics request.
-ltiNextToken :: Lens' ListTopicsInput (Maybe Text)
-ltiNextToken = lens _ltiNextToken (\s a -> s { _ltiNextToken = a })
+ltNextToken :: Lens' ListTopics (Maybe Text)
+ltNextToken = lens _ltNextToken (\s a -> s { _ltNextToken = a })
 
-instance ToQuery ListTopicsInput
+instance ToQuery ListTopics
 
-instance ToPath ListTopicsInput where
+instance ToPath ListTopics where
     toPath = const "/"
 
 data ListTopicsResponse = ListTopicsResponse
@@ -102,9 +102,9 @@ instance FromXML ListTopicsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListTopicsResponse"
 
-instance AWSRequest ListTopicsInput where
-    type Sv ListTopicsInput = SNS
-    type Rs ListTopicsInput = ListTopicsResponse
+instance AWSRequest ListTopics where
+    type Sv ListTopics = SNS
+    type Rs ListTopics = ListTopicsResponse
 
     request  = post "ListTopics"
     response = xmlResponse $ \h x -> ListTopicsResponse

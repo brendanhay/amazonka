@@ -26,12 +26,12 @@
 module Network.AWS.SNS.SetEndpointAttributes
     (
     -- * Request
-      SetEndpointAttributesInput
+      SetEndpointAttributes
     -- ** Request constructor
     , setEndpointAttributes
     -- ** Request lenses
-    , seaiAttributes
-    , seaiEndpointArn
+    , seaAttributes
+    , seaEndpointArn
 
     -- * Response
     , SetEndpointAttributesResponse
@@ -43,24 +43,24 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-data SetEndpointAttributesInput = SetEndpointAttributesInput
-    { _seaiAttributes  :: Map Text Text
-    , _seaiEndpointArn :: Text
+data SetEndpointAttributes = SetEndpointAttributes
+    { _seaAttributes  :: Map Text Text
+    , _seaEndpointArn :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'SetEndpointAttributesInput' constructor.
+-- | 'SetEndpointAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'seaiAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'seaAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
--- * 'seaiEndpointArn' @::@ 'Text'
+-- * 'seaEndpointArn' @::@ 'Text'
 --
-setEndpointAttributes :: Text -- ^ 'seaiEndpointArn'
-                      -> SetEndpointAttributesInput
-setEndpointAttributes p1 = SetEndpointAttributesInput
-    { _seaiEndpointArn = p1
-    , _seaiAttributes  = mempty
+setEndpointAttributes :: Text -- ^ 'seaEndpointArn'
+                      -> SetEndpointAttributes
+setEndpointAttributes p1 = SetEndpointAttributes
+    { _seaEndpointArn = p1
+    , _seaAttributes  = mempty
     }
 
 -- | A map of the endpoint attributes. Attributes in this map include the
@@ -73,17 +73,17 @@ setEndpointAttributes p1 = SetEndpointAttributesInput
 -- token, also referred to as a registration id, for an app and mobile
 -- device. This is returned from the notification service when an app and
 -- mobile device are registered with the notification service.
-seaiAttributes :: Lens' SetEndpointAttributesInput (HashMap Text Text)
-seaiAttributes = lens _seaiAttributes (\s a -> s { _seaiAttributes = a })
+seaAttributes :: Lens' SetEndpointAttributes (HashMap Text Text)
+seaAttributes = lens _seaAttributes (\s a -> s { _seaAttributes = a })
     . _Map
 
 -- | EndpointArn used for SetEndpointAttributes action.
-seaiEndpointArn :: Lens' SetEndpointAttributesInput Text
-seaiEndpointArn = lens _seaiEndpointArn (\s a -> s { _seaiEndpointArn = a })
+seaEndpointArn :: Lens' SetEndpointAttributes Text
+seaEndpointArn = lens _seaEndpointArn (\s a -> s { _seaEndpointArn = a })
 
-instance ToQuery SetEndpointAttributesInput
+instance ToQuery SetEndpointAttributes
 
-instance ToPath SetEndpointAttributesInput where
+instance ToPath SetEndpointAttributes where
     toPath = const "/"
 
 data SetEndpointAttributesResponse = SetEndpointAttributesResponse
@@ -97,9 +97,9 @@ instance FromXML SetEndpointAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetEndpointAttributesResponse"
 
-instance AWSRequest SetEndpointAttributesInput where
-    type Sv SetEndpointAttributesInput = SNS
-    type Rs SetEndpointAttributesInput = SetEndpointAttributesResponse
+instance AWSRequest SetEndpointAttributes where
+    type Sv SetEndpointAttributes = SNS
+    type Rs SetEndpointAttributes = SetEndpointAttributesResponse
 
     request  = post "SetEndpointAttributes"
     response = nullaryResponse SetEndpointAttributesResponse

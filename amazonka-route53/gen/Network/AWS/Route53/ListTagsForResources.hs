@@ -28,8 +28,8 @@ module Network.AWS.Route53.ListTagsForResources
     -- ** Request constructor
     , listTagsForResources
     -- ** Request lenses
-    , ltfrResourceIds
-    , ltfrResourceType
+    , ltfr1ResourceIds
+    , ltfr1ResourceType
 
     -- * Response
     , ListTagsForResourcesResponse
@@ -44,41 +44,42 @@ import Network.AWS.Request
 import Network.AWS.Route53.Types
 
 data ListTagsForResources = ListTagsForResources
-    { _ltfrResourceIds  :: List1 Text
-    , _ltfrResourceType :: Text
+    { _ltfr1ResourceIds  :: List1 Text
+    , _ltfr1ResourceType :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListTagsForResources' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfrResourceIds' @::@ 'NonEmpty' 'Text'
+-- * 'ltfr1ResourceIds' @::@ 'NonEmpty' 'Text'
 --
--- * 'ltfrResourceType' @::@ 'Text'
+-- * 'ltfr1ResourceType' @::@ 'Text'
 --
-listTagsForResources :: Text -- ^ 'ltfrResourceType'
-                     -> NonEmpty Text -- ^ 'ltfrResourceIds'
+listTagsForResources :: Text -- ^ 'ltfr1ResourceType'
+                     -> NonEmpty Text -- ^ 'ltfr1ResourceIds'
                      -> ListTagsForResources
 listTagsForResources p1 p2 = ListTagsForResources
-    { _ltfrResourceType = p1
-    , _ltfrResourceIds  = withIso _List1 (const id) p2
+    { _ltfr1ResourceType = p1
+    , _ltfr1ResourceIds  = withIso _List1 (const id) p2
     }
 
 -- | A complex type that contains the ResourceId element for each resource for
 -- which you want to get a list of tags.
-ltfrResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
-ltfrResourceIds = lens _ltfrResourceIds (\s a -> s { _ltfrResourceIds = a })
+ltfr1ResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
+ltfr1ResourceIds = lens _ltfr1ResourceIds (\s a -> s { _ltfr1ResourceIds = a })
     . _List1
 
 -- | The type of the resources. The resource type for health checks is
 -- healthcheck.
-ltfrResourceType :: Lens' ListTagsForResources Text
-ltfrResourceType = lens _ltfrResourceType (\s a -> s { _ltfrResourceType = a })
+ltfr1ResourceType :: Lens' ListTagsForResources Text
+ltfr1ResourceType =
+    lens _ltfr1ResourceType (\s a -> s { _ltfr1ResourceType = a })
 
 instance ToPath ListTagsForResources where
     toPath ListTagsForResources{..} = mconcat
         [ "/2013-04-01/tags/"
-        , toText _ltfrResourceType
+        , toText _ltfr1ResourceType
         ]
 
 instance ToQuery ListTagsForResources where
@@ -87,7 +88,7 @@ instance ToQuery ListTagsForResources where
 instance ToHeaders ListTagsForResources
 
 instance ToBody ListTagsForResources where
-    toBody = toBody . encodeXML . _ltfrResourceIds
+    toBody = toBody . encodeXML . _ltfr1ResourceIds
 
 newtype ListTagsForResourcesResponse = ListTagsForResourcesResponse
     { _ltfrrResourceTagSets :: [ResourceTagSet]

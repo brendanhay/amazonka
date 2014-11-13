@@ -45,7 +45,7 @@ module Network.AWS.EC2.CreateCustomerGateway
     , ccgType
 
     -- * Response
-    , CreateCustomerGatewayResult
+    , CreateCustomerGatewayResponse
     -- ** Response constructor
     , createCustomerGatewayResponse
     -- ** Response lenses
@@ -108,34 +108,34 @@ instance ToQuery CreateCustomerGateway
 instance ToPath CreateCustomerGateway where
     toPath = const "/"
 
-newtype CreateCustomerGatewayResult = CreateCustomerGatewayResult
+newtype CreateCustomerGatewayResponse = CreateCustomerGatewayResponse
     { _ccgrCustomerGateway :: Maybe CustomerGateway
     } deriving (Eq, Show, Generic)
 
--- | 'CreateCustomerGatewayResult' constructor.
+-- | 'CreateCustomerGatewayResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccgrCustomerGateway' @::@ 'Maybe' 'CustomerGateway'
 --
-createCustomerGatewayResponse :: CreateCustomerGatewayResult
-createCustomerGatewayResponse = CreateCustomerGatewayResult
+createCustomerGatewayResponse :: CreateCustomerGatewayResponse
+createCustomerGatewayResponse = CreateCustomerGatewayResponse
     { _ccgrCustomerGateway = Nothing
     }
 
 -- | Information about the customer gateway.
-ccgrCustomerGateway :: Lens' CreateCustomerGatewayResult (Maybe CustomerGateway)
+ccgrCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
 ccgrCustomerGateway =
     lens _ccgrCustomerGateway (\s a -> s { _ccgrCustomerGateway = a })
 
-instance FromXML CreateCustomerGatewayResult where
+instance FromXML CreateCustomerGatewayResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateCustomerGatewayResult"
+    fromXMLRoot    = fromRoot "CreateCustomerGatewayResponse"
 
 instance AWSRequest CreateCustomerGateway where
     type Sv CreateCustomerGateway = EC2
-    type Rs CreateCustomerGateway = CreateCustomerGatewayResult
+    type Rs CreateCustomerGateway = CreateCustomerGatewayResponse
 
     request  = post "CreateCustomerGateway"
-    response = xmlResponse $ \h x -> CreateCustomerGatewayResult
+    response = xmlResponse $ \h x -> CreateCustomerGatewayResponse
         <$> x %| "customerGateway"

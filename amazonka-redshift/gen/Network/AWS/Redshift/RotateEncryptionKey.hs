@@ -24,14 +24,14 @@
 module Network.AWS.Redshift.RotateEncryptionKey
     (
     -- * Request
-      RotateEncryptionKeyMessage
+      RotateEncryptionKey
     -- ** Request constructor
     , rotateEncryptionKey
     -- ** Request lenses
-    , rekmClusterIdentifier
+    , rekClusterIdentifier
 
     -- * Response
-    , RotateEncryptionKeyResult
+    , RotateEncryptionKeyResponse
     -- ** Response constructor
     , rotateEncryptionKeyResponse
     -- ** Response lenses
@@ -42,60 +42,60 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-newtype RotateEncryptionKeyMessage = RotateEncryptionKeyMessage
-    { _rekmClusterIdentifier :: Text
+newtype RotateEncryptionKey = RotateEncryptionKey
+    { _rekClusterIdentifier :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'RotateEncryptionKeyMessage' constructor.
+-- | 'RotateEncryptionKey' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rekmClusterIdentifier' @::@ 'Text'
+-- * 'rekClusterIdentifier' @::@ 'Text'
 --
-rotateEncryptionKey :: Text -- ^ 'rekmClusterIdentifier'
-                    -> RotateEncryptionKeyMessage
-rotateEncryptionKey p1 = RotateEncryptionKeyMessage
-    { _rekmClusterIdentifier = p1
+rotateEncryptionKey :: Text -- ^ 'rekClusterIdentifier'
+                    -> RotateEncryptionKey
+rotateEncryptionKey p1 = RotateEncryptionKey
+    { _rekClusterIdentifier = p1
     }
 
 -- | The unique identifier of the cluster that you want to rotate the
 -- encryption keys for. Constraints: Must be the name of valid cluster that
 -- has encryption enabled.
-rekmClusterIdentifier :: Lens' RotateEncryptionKeyMessage Text
-rekmClusterIdentifier =
-    lens _rekmClusterIdentifier (\s a -> s { _rekmClusterIdentifier = a })
+rekClusterIdentifier :: Lens' RotateEncryptionKey Text
+rekClusterIdentifier =
+    lens _rekClusterIdentifier (\s a -> s { _rekClusterIdentifier = a })
 
-instance ToQuery RotateEncryptionKeyMessage
+instance ToQuery RotateEncryptionKey
 
-instance ToPath RotateEncryptionKeyMessage where
+instance ToPath RotateEncryptionKey where
     toPath = const "/"
 
-newtype RotateEncryptionKeyResult = RotateEncryptionKeyResult
+newtype RotateEncryptionKeyResponse = RotateEncryptionKeyResponse
     { _rekrCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
 
--- | 'RotateEncryptionKeyResult' constructor.
+-- | 'RotateEncryptionKeyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rekrCluster' @::@ 'Maybe' 'Cluster'
 --
-rotateEncryptionKeyResponse :: RotateEncryptionKeyResult
-rotateEncryptionKeyResponse = RotateEncryptionKeyResult
+rotateEncryptionKeyResponse :: RotateEncryptionKeyResponse
+rotateEncryptionKeyResponse = RotateEncryptionKeyResponse
     { _rekrCluster = Nothing
     }
 
-rekrCluster :: Lens' RotateEncryptionKeyResult (Maybe Cluster)
+rekrCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
 rekrCluster = lens _rekrCluster (\s a -> s { _rekrCluster = a })
 
-instance FromXML RotateEncryptionKeyResult where
+instance FromXML RotateEncryptionKeyResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RotateEncryptionKeyResult"
+    fromXMLRoot    = fromRoot "RotateEncryptionKeyResponse"
 
-instance AWSRequest RotateEncryptionKeyMessage where
-    type Sv RotateEncryptionKeyMessage = Redshift
-    type Rs RotateEncryptionKeyMessage = RotateEncryptionKeyResult
+instance AWSRequest RotateEncryptionKey where
+    type Sv RotateEncryptionKey = Redshift
+    type Rs RotateEncryptionKey = RotateEncryptionKeyResponse
 
     request  = post "RotateEncryptionKey"
-    response = xmlResponse $ \h x -> RotateEncryptionKeyResult
+    response = xmlResponse $ \h x -> RotateEncryptionKeyResponse
         <$> x %| "Cluster"

@@ -46,7 +46,7 @@ module Network.AWS.SQS.SendMessageBatch
     , smbQueueUrl
 
     -- * Response
-    , SendMessageBatchResult
+    , SendMessageBatchResponse
     -- ** Response constructor
     , sendMessageBatchResponse
     -- ** Response lenses
@@ -91,12 +91,12 @@ instance ToQuery SendMessageBatch
 instance ToPath SendMessageBatch where
     toPath = const "/"
 
-data SendMessageBatchResult = SendMessageBatchResult
+data SendMessageBatchResponse = SendMessageBatchResponse
     { _smbrFailed     :: [BatchResultErrorEntry]
     , _smbrSuccessful :: [SendMessageBatchResultEntry]
     } deriving (Eq, Show, Generic)
 
--- | 'SendMessageBatchResult' constructor.
+-- | 'SendMessageBatchResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -104,30 +104,30 @@ data SendMessageBatchResult = SendMessageBatchResult
 --
 -- * 'smbrSuccessful' @::@ ['SendMessageBatchResultEntry']
 --
-sendMessageBatchResponse :: SendMessageBatchResult
-sendMessageBatchResponse = SendMessageBatchResult
+sendMessageBatchResponse :: SendMessageBatchResponse
+sendMessageBatchResponse = SendMessageBatchResponse
     { _smbrSuccessful = mempty
     , _smbrFailed     = mempty
     }
 
 -- | A list of BatchResultErrorEntry items with the error detail about each
 -- message that could not be enqueued.
-smbrFailed :: Lens' SendMessageBatchResult [BatchResultErrorEntry]
+smbrFailed :: Lens' SendMessageBatchResponse [BatchResultErrorEntry]
 smbrFailed = lens _smbrFailed (\s a -> s { _smbrFailed = a })
 
 -- | A list of SendMessageBatchResultEntry items.
-smbrSuccessful :: Lens' SendMessageBatchResult [SendMessageBatchResultEntry]
+smbrSuccessful :: Lens' SendMessageBatchResponse [SendMessageBatchResultEntry]
 smbrSuccessful = lens _smbrSuccessful (\s a -> s { _smbrSuccessful = a })
 
-instance FromXML SendMessageBatchResult where
+instance FromXML SendMessageBatchResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SendMessageBatchResult"
+    fromXMLRoot    = fromRoot "SendMessageBatchResponse"
 
 instance AWSRequest SendMessageBatch where
     type Sv SendMessageBatch = SQS
-    type Rs SendMessageBatch = SendMessageBatchResult
+    type Rs SendMessageBatch = SendMessageBatchResponse
 
     request  = post "SendMessageBatch"
-    response = xmlResponse $ \h x -> SendMessageBatchResult
+    response = xmlResponse $ \h x -> SendMessageBatchResponse
         <$> x %| "Failed"
         <*> x %| "Successful"

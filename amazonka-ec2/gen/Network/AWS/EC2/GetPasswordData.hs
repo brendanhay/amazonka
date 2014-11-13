@@ -41,7 +41,7 @@ module Network.AWS.EC2.GetPasswordData
     , gpdInstanceId
 
     -- * Response
-    , GetPasswordDataResult
+    , GetPasswordDataResponse
     -- ** Response constructor
     , getPasswordDataResponse
     -- ** Response lenses
@@ -86,13 +86,13 @@ instance ToQuery GetPasswordData
 instance ToPath GetPasswordData where
     toPath = const "/"
 
-data GetPasswordDataResult = GetPasswordDataResult
+data GetPasswordDataResponse = GetPasswordDataResponse
     { _gpdrInstanceId   :: Maybe Text
     , _gpdrPasswordData :: Maybe Text
     , _gpdrTimestamp    :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'GetPasswordDataResult' constructor.
+-- | 'GetPasswordDataResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -102,36 +102,36 @@ data GetPasswordDataResult = GetPasswordDataResult
 --
 -- * 'gpdrTimestamp' @::@ 'Maybe' 'UTCTime'
 --
-getPasswordDataResponse :: GetPasswordDataResult
-getPasswordDataResponse = GetPasswordDataResult
+getPasswordDataResponse :: GetPasswordDataResponse
+getPasswordDataResponse = GetPasswordDataResponse
     { _gpdrInstanceId   = Nothing
     , _gpdrTimestamp    = Nothing
     , _gpdrPasswordData = Nothing
     }
 
 -- | The ID of the Windows instance.
-gpdrInstanceId :: Lens' GetPasswordDataResult (Maybe Text)
+gpdrInstanceId :: Lens' GetPasswordDataResponse (Maybe Text)
 gpdrInstanceId = lens _gpdrInstanceId (\s a -> s { _gpdrInstanceId = a })
 
 -- | The password of the instance.
-gpdrPasswordData :: Lens' GetPasswordDataResult (Maybe Text)
+gpdrPasswordData :: Lens' GetPasswordDataResponse (Maybe Text)
 gpdrPasswordData = lens _gpdrPasswordData (\s a -> s { _gpdrPasswordData = a })
 
 -- | The time the data was last updated.
-gpdrTimestamp :: Lens' GetPasswordDataResult (Maybe UTCTime)
+gpdrTimestamp :: Lens' GetPasswordDataResponse (Maybe UTCTime)
 gpdrTimestamp = lens _gpdrTimestamp (\s a -> s { _gpdrTimestamp = a })
     . mapping _Time
 
-instance FromXML GetPasswordDataResult where
+instance FromXML GetPasswordDataResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetPasswordDataResult"
+    fromXMLRoot    = fromRoot "GetPasswordDataResponse"
 
 instance AWSRequest GetPasswordData where
     type Sv GetPasswordData = EC2
-    type Rs GetPasswordData = GetPasswordDataResult
+    type Rs GetPasswordData = GetPasswordDataResponse
 
     request  = post "GetPasswordData"
-    response = xmlResponse $ \h x -> GetPasswordDataResult
+    response = xmlResponse $ \h x -> GetPasswordDataResponse
         <$> x %| "instanceId"
         <*> x %| "passwordData"
         <*> x %| "timestamp"

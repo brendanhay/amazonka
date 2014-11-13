@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeVpnGateways
     , dvg2VpnGatewayIds
 
     -- * Response
-    , DescribeVpnGatewaysResult
+    , DescribeVpnGatewaysResponse
     -- ** Response constructor
     , describeVpnGatewaysResponse
     -- ** Response lenses
@@ -103,39 +103,39 @@ instance ToQuery DescribeVpnGateways
 instance ToPath DescribeVpnGateways where
     toPath = const "/"
 
-newtype DescribeVpnGatewaysResult = DescribeVpnGatewaysResult
+newtype DescribeVpnGatewaysResponse = DescribeVpnGatewaysResponse
     { _dvgrVpnGateways :: [VpnGateway]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeVpnGatewaysResult where
-    type Item DescribeVpnGatewaysResult = VpnGateway
+instance IsList DescribeVpnGatewaysResponse where
+    type Item DescribeVpnGatewaysResponse = VpnGateway
 
-    fromList = DescribeVpnGatewaysResult . fromList
+    fromList = DescribeVpnGatewaysResponse . fromList
     toList   = toList . _dvgrVpnGateways
 
--- | 'DescribeVpnGatewaysResult' constructor.
+-- | 'DescribeVpnGatewaysResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvgrVpnGateways' @::@ ['VpnGateway']
 --
-describeVpnGatewaysResponse :: DescribeVpnGatewaysResult
-describeVpnGatewaysResponse = DescribeVpnGatewaysResult
+describeVpnGatewaysResponse :: DescribeVpnGatewaysResponse
+describeVpnGatewaysResponse = DescribeVpnGatewaysResponse
     { _dvgrVpnGateways = mempty
     }
 
 -- | Information about one or more virtual private gateways.
-dvgrVpnGateways :: Lens' DescribeVpnGatewaysResult [VpnGateway]
+dvgrVpnGateways :: Lens' DescribeVpnGatewaysResponse [VpnGateway]
 dvgrVpnGateways = lens _dvgrVpnGateways (\s a -> s { _dvgrVpnGateways = a })
 
-instance FromXML DescribeVpnGatewaysResult where
+instance FromXML DescribeVpnGatewaysResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVpnGatewaysResult"
+    fromXMLRoot    = fromRoot "DescribeVpnGatewaysResponse"
 
 instance AWSRequest DescribeVpnGateways where
     type Sv DescribeVpnGateways = EC2
-    type Rs DescribeVpnGateways = DescribeVpnGatewaysResult
+    type Rs DescribeVpnGateways = DescribeVpnGatewaysResponse
 
     request  = post "DescribeVpnGateways"
-    response = xmlResponse $ \h x -> DescribeVpnGatewaysResult
+    response = xmlResponse $ \h x -> DescribeVpnGatewaysResponse
         <$> x %| "vpnGatewaySet"

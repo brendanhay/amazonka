@@ -31,48 +31,48 @@
 module Network.AWS.Redshift.DescribeReservedNodeOfferings
     (
     -- * Request
-      DescribeReservedNodeOfferingsMessage
+      DescribeReservedNodeOfferings
     -- ** Request constructor
     , describeReservedNodeOfferings
     -- ** Request lenses
-    , drnomMarker
-    , drnomMaxRecords
-    , drnomReservedNodeOfferingId
+    , drnoMarker
+    , drnoMaxRecords
+    , drnoReservedNodeOfferingId
 
     -- * Response
-    , ReservedNodeOfferingsMessage
+    , DescribeReservedNodeOfferingsResponse
     -- ** Response constructor
     , describeReservedNodeOfferingsResponse
     -- ** Response lenses
-    , rnomMarker
-    , rnomReservedNodeOfferings
+    , drnorMarker
+    , drnorReservedNodeOfferings
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data DescribeReservedNodeOfferingsMessage = DescribeReservedNodeOfferingsMessage
-    { _drnomMarker                 :: Maybe Text
-    , _drnomMaxRecords             :: Maybe Int
-    , _drnomReservedNodeOfferingId :: Maybe Text
+data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings
+    { _drnoMarker                 :: Maybe Text
+    , _drnoMaxRecords             :: Maybe Int
+    , _drnoReservedNodeOfferingId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeReservedNodeOfferingsMessage' constructor.
+-- | 'DescribeReservedNodeOfferings' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drnomMarker' @::@ 'Maybe' 'Text'
+-- * 'drnoMarker' @::@ 'Maybe' 'Text'
 --
--- * 'drnomMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'drnoMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'drnomReservedNodeOfferingId' @::@ 'Maybe' 'Text'
+-- * 'drnoReservedNodeOfferingId' @::@ 'Maybe' 'Text'
 --
-describeReservedNodeOfferings :: DescribeReservedNodeOfferingsMessage
-describeReservedNodeOfferings = DescribeReservedNodeOfferingsMessage
-    { _drnomReservedNodeOfferingId = Nothing
-    , _drnomMaxRecords             = Nothing
-    , _drnomMarker                 = Nothing
+describeReservedNodeOfferings :: DescribeReservedNodeOfferings
+describeReservedNodeOfferings = DescribeReservedNodeOfferings
+    { _drnoReservedNodeOfferingId = Nothing
+    , _drnoMaxRecords             = Nothing
+    , _drnoMarker                 = Nothing
     }
 
 -- | An optional parameter that specifies the starting point to return a set
@@ -81,45 +81,45 @@ describeReservedNodeOfferings = DescribeReservedNodeOfferingsMessage
 -- the Marker field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the Marker
 -- parameter and retrying the request.
-drnomMarker :: Lens' DescribeReservedNodeOfferingsMessage (Maybe Text)
-drnomMarker = lens _drnomMarker (\s a -> s { _drnomMarker = a })
+drnoMarker :: Lens' DescribeReservedNodeOfferings (Maybe Text)
+drnoMarker = lens _drnoMarker (\s a -> s { _drnoMarker = a })
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
-drnomMaxRecords :: Lens' DescribeReservedNodeOfferingsMessage (Maybe Int)
-drnomMaxRecords = lens _drnomMaxRecords (\s a -> s { _drnomMaxRecords = a })
+drnoMaxRecords :: Lens' DescribeReservedNodeOfferings (Maybe Int)
+drnoMaxRecords = lens _drnoMaxRecords (\s a -> s { _drnoMaxRecords = a })
 
 -- | The unique identifier for the offering.
-drnomReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferingsMessage (Maybe Text)
-drnomReservedNodeOfferingId =
-    lens _drnomReservedNodeOfferingId
-        (\s a -> s { _drnomReservedNodeOfferingId = a })
+drnoReservedNodeOfferingId :: Lens' DescribeReservedNodeOfferings (Maybe Text)
+drnoReservedNodeOfferingId =
+    lens _drnoReservedNodeOfferingId
+        (\s a -> s { _drnoReservedNodeOfferingId = a })
 
-instance ToQuery DescribeReservedNodeOfferingsMessage
+instance ToQuery DescribeReservedNodeOfferings
 
-instance ToPath DescribeReservedNodeOfferingsMessage where
+instance ToPath DescribeReservedNodeOfferings where
     toPath = const "/"
 
-data ReservedNodeOfferingsMessage = ReservedNodeOfferingsMessage
-    { _rnomMarker                :: Maybe Text
-    , _rnomReservedNodeOfferings :: [ReservedNodeOffering]
+data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
+    { _drnorMarker                :: Maybe Text
+    , _drnorReservedNodeOfferings :: [ReservedNodeOffering]
     } deriving (Eq, Show, Generic)
 
--- | 'ReservedNodeOfferingsMessage' constructor.
+-- | 'DescribeReservedNodeOfferingsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rnomMarker' @::@ 'Maybe' 'Text'
+-- * 'drnorMarker' @::@ 'Maybe' 'Text'
 --
--- * 'rnomReservedNodeOfferings' @::@ ['ReservedNodeOffering']
+-- * 'drnorReservedNodeOfferings' @::@ ['ReservedNodeOffering']
 --
-describeReservedNodeOfferingsResponse :: ReservedNodeOfferingsMessage
-describeReservedNodeOfferingsResponse = ReservedNodeOfferingsMessage
-    { _rnomMarker                = Nothing
-    , _rnomReservedNodeOfferings = mempty
+describeReservedNodeOfferingsResponse :: DescribeReservedNodeOfferingsResponse
+describeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsResponse
+    { _drnorMarker                = Nothing
+    , _drnorReservedNodeOfferings = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -128,24 +128,24 @@ describeReservedNodeOfferingsResponse = ReservedNodeOfferingsMessage
 -- marker value in the Marker parameter and retrying the command. If the
 -- Marker field is empty, all response records have been retrieved for the
 -- request.
-rnomMarker :: Lens' ReservedNodeOfferingsMessage (Maybe Text)
-rnomMarker = lens _rnomMarker (\s a -> s { _rnomMarker = a })
+drnorMarker :: Lens' DescribeReservedNodeOfferingsResponse (Maybe Text)
+drnorMarker = lens _drnorMarker (\s a -> s { _drnorMarker = a })
 
 -- | A list of reserved node offerings.
-rnomReservedNodeOfferings :: Lens' ReservedNodeOfferingsMessage [ReservedNodeOffering]
-rnomReservedNodeOfferings =
-    lens _rnomReservedNodeOfferings
-        (\s a -> s { _rnomReservedNodeOfferings = a })
+drnorReservedNodeOfferings :: Lens' DescribeReservedNodeOfferingsResponse [ReservedNodeOffering]
+drnorReservedNodeOfferings =
+    lens _drnorReservedNodeOfferings
+        (\s a -> s { _drnorReservedNodeOfferings = a })
 
-instance FromXML ReservedNodeOfferingsMessage where
+instance FromXML DescribeReservedNodeOfferingsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedNodeOfferingsMessage"
+    fromXMLRoot    = fromRoot "DescribeReservedNodeOfferingsResponse"
 
-instance AWSRequest DescribeReservedNodeOfferingsMessage where
-    type Sv DescribeReservedNodeOfferingsMessage = Redshift
-    type Rs DescribeReservedNodeOfferingsMessage = ReservedNodeOfferingsMessage
+instance AWSRequest DescribeReservedNodeOfferings where
+    type Sv DescribeReservedNodeOfferings = Redshift
+    type Rs DescribeReservedNodeOfferings = DescribeReservedNodeOfferingsResponse
 
     request  = post "DescribeReservedNodeOfferings"
-    response = xmlResponse $ \h x -> ReservedNodeOfferingsMessage
+    response = xmlResponse $ \h x -> DescribeReservedNodeOfferingsResponse
         <$> x %| "Marker"
         <*> x %| "ReservedNodeOfferings"

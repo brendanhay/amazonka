@@ -26,11 +26,11 @@
 module Network.AWS.SNS.GetPlatformApplicationAttributes
     (
     -- * Request
-      GetPlatformApplicationAttributesInput
+      GetPlatformApplicationAttributes
     -- ** Request constructor
     , getPlatformApplicationAttributes
     -- ** Request lenses
-    , gpaaiPlatformApplicationArn
+    , gpaaPlatformApplicationArn
 
     -- * Response
     , GetPlatformApplicationAttributesResponse
@@ -44,31 +44,31 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-newtype GetPlatformApplicationAttributesInput = GetPlatformApplicationAttributesInput
-    { _gpaaiPlatformApplicationArn :: Text
+newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes
+    { _gpaaPlatformApplicationArn :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'GetPlatformApplicationAttributesInput' constructor.
+-- | 'GetPlatformApplicationAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpaaiPlatformApplicationArn' @::@ 'Text'
+-- * 'gpaaPlatformApplicationArn' @::@ 'Text'
 --
-getPlatformApplicationAttributes :: Text -- ^ 'gpaaiPlatformApplicationArn'
-                                 -> GetPlatformApplicationAttributesInput
-getPlatformApplicationAttributes p1 = GetPlatformApplicationAttributesInput
-    { _gpaaiPlatformApplicationArn = p1
+getPlatformApplicationAttributes :: Text -- ^ 'gpaaPlatformApplicationArn'
+                                 -> GetPlatformApplicationAttributes
+getPlatformApplicationAttributes p1 = GetPlatformApplicationAttributes
+    { _gpaaPlatformApplicationArn = p1
     }
 
 -- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.
-gpaaiPlatformApplicationArn :: Lens' GetPlatformApplicationAttributesInput Text
-gpaaiPlatformApplicationArn =
-    lens _gpaaiPlatformApplicationArn
-        (\s a -> s { _gpaaiPlatformApplicationArn = a })
+gpaaPlatformApplicationArn :: Lens' GetPlatformApplicationAttributes Text
+gpaaPlatformApplicationArn =
+    lens _gpaaPlatformApplicationArn
+        (\s a -> s { _gpaaPlatformApplicationArn = a })
 
-instance ToQuery GetPlatformApplicationAttributesInput
+instance ToQuery GetPlatformApplicationAttributes
 
-instance ToPath GetPlatformApplicationAttributesInput where
+instance ToPath GetPlatformApplicationAttributes where
     toPath = const "/"
 
 newtype GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse
@@ -102,9 +102,9 @@ instance FromXML GetPlatformApplicationAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetPlatformApplicationAttributesResponse"
 
-instance AWSRequest GetPlatformApplicationAttributesInput where
-    type Sv GetPlatformApplicationAttributesInput = SNS
-    type Rs GetPlatformApplicationAttributesInput = GetPlatformApplicationAttributesResponse
+instance AWSRequest GetPlatformApplicationAttributes where
+    type Sv GetPlatformApplicationAttributes = SNS
+    type Rs GetPlatformApplicationAttributes = GetPlatformApplicationAttributesResponse
 
     request  = post "GetPlatformApplicationAttributes"
     response = xmlResponse $ \h x -> GetPlatformApplicationAttributesResponse

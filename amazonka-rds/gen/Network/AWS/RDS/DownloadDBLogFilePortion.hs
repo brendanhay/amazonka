@@ -24,77 +24,77 @@
 module Network.AWS.RDS.DownloadDBLogFilePortion
     (
     -- * Request
-      DownloadDBLogFilePortionMessage
+      DownloadDBLogFilePortion
     -- ** Request constructor
     , downloadDBLogFilePortion
     -- ** Request lenses
-    , ddblfpmDBInstanceIdentifier
-    , ddblfpmLogFileName
-    , ddblfpmMarker
-    , ddblfpmNumberOfLines
+    , ddblfpDBInstanceIdentifier
+    , ddblfpLogFileName
+    , ddblfpMarker
+    , ddblfpNumberOfLines
 
     -- * Response
-    , DownloadDBLogFilePortionDetails
+    , DownloadDBLogFilePortionResponse
     -- ** Response constructor
     , downloadDBLogFilePortionResponse
     -- ** Response lenses
-    , ddblfpdAdditionalDataPending
-    , ddblfpdLogFileData
-    , ddblfpdMarker
+    , ddblfprAdditionalDataPending
+    , ddblfprLogFileData
+    , ddblfprMarker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data DownloadDBLogFilePortionMessage = DownloadDBLogFilePortionMessage
-    { _ddblfpmDBInstanceIdentifier :: Text
-    , _ddblfpmLogFileName          :: Text
-    , _ddblfpmMarker               :: Maybe Text
-    , _ddblfpmNumberOfLines        :: Maybe Int
+data DownloadDBLogFilePortion = DownloadDBLogFilePortion
+    { _ddblfpDBInstanceIdentifier :: Text
+    , _ddblfpLogFileName          :: Text
+    , _ddblfpMarker               :: Maybe Text
+    , _ddblfpNumberOfLines        :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DownloadDBLogFilePortionMessage' constructor.
+-- | 'DownloadDBLogFilePortion' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddblfpmDBInstanceIdentifier' @::@ 'Text'
+-- * 'ddblfpDBInstanceIdentifier' @::@ 'Text'
 --
--- * 'ddblfpmLogFileName' @::@ 'Text'
+-- * 'ddblfpLogFileName' @::@ 'Text'
 --
--- * 'ddblfpmMarker' @::@ 'Maybe' 'Text'
+-- * 'ddblfpMarker' @::@ 'Maybe' 'Text'
 --
--- * 'ddblfpmNumberOfLines' @::@ 'Maybe' 'Int'
+-- * 'ddblfpNumberOfLines' @::@ 'Maybe' 'Int'
 --
-downloadDBLogFilePortion :: Text -- ^ 'ddblfpmDBInstanceIdentifier'
-                         -> Text -- ^ 'ddblfpmLogFileName'
-                         -> DownloadDBLogFilePortionMessage
-downloadDBLogFilePortion p1 p2 = DownloadDBLogFilePortionMessage
-    { _ddblfpmDBInstanceIdentifier = p1
-    , _ddblfpmLogFileName          = p2
-    , _ddblfpmMarker               = Nothing
-    , _ddblfpmNumberOfLines        = Nothing
+downloadDBLogFilePortion :: Text -- ^ 'ddblfpDBInstanceIdentifier'
+                         -> Text -- ^ 'ddblfpLogFileName'
+                         -> DownloadDBLogFilePortion
+downloadDBLogFilePortion p1 p2 = DownloadDBLogFilePortion
+    { _ddblfpDBInstanceIdentifier = p1
+    , _ddblfpLogFileName          = p2
+    , _ddblfpMarker               = Nothing
+    , _ddblfpNumberOfLines        = Nothing
     }
 
 -- | The customer-assigned name of the DB instance that contains the log files
 -- you want to list. Constraints: Must contain from 1 to 63 alphanumeric
 -- characters or hyphens First character must be a letter Cannot end with a
 -- hyphen or contain two consecutive hyphens.
-ddblfpmDBInstanceIdentifier :: Lens' DownloadDBLogFilePortionMessage Text
-ddblfpmDBInstanceIdentifier =
-    lens _ddblfpmDBInstanceIdentifier
-        (\s a -> s { _ddblfpmDBInstanceIdentifier = a })
+ddblfpDBInstanceIdentifier :: Lens' DownloadDBLogFilePortion Text
+ddblfpDBInstanceIdentifier =
+    lens _ddblfpDBInstanceIdentifier
+        (\s a -> s { _ddblfpDBInstanceIdentifier = a })
 
 -- | The name of the log file to be downloaded.
-ddblfpmLogFileName :: Lens' DownloadDBLogFilePortionMessage Text
-ddblfpmLogFileName =
-    lens _ddblfpmLogFileName (\s a -> s { _ddblfpmLogFileName = a })
+ddblfpLogFileName :: Lens' DownloadDBLogFilePortion Text
+ddblfpLogFileName =
+    lens _ddblfpLogFileName (\s a -> s { _ddblfpLogFileName = a })
 
 -- | The pagination token provided in the previous request or "0". If the
 -- Marker parameter is specified the response includes only records beyond
 -- the marker until the end of the file or up to NumberOfLines.
-ddblfpmMarker :: Lens' DownloadDBLogFilePortionMessage (Maybe Text)
-ddblfpmMarker = lens _ddblfpmMarker (\s a -> s { _ddblfpmMarker = a })
+ddblfpMarker :: Lens' DownloadDBLogFilePortion (Maybe Text)
+ddblfpMarker = lens _ddblfpMarker (\s a -> s { _ddblfpMarker = a })
 
 -- | The number of lines to download. If the NumberOfLines parameter is
 -- specified, then the block of lines returned can be from the beginning or
@@ -109,65 +109,65 @@ ddblfpmMarker = lens _ddblfpmMarker (\s a -> s { _ddblfpmMarker = a })
 -- parameter in your first request. Include the Marker value returned in the
 -- response as the Marker value for the next request, continuing until the
 -- AdditionalDataPending response element returns false.
-ddblfpmNumberOfLines :: Lens' DownloadDBLogFilePortionMessage (Maybe Int)
-ddblfpmNumberOfLines =
-    lens _ddblfpmNumberOfLines (\s a -> s { _ddblfpmNumberOfLines = a })
+ddblfpNumberOfLines :: Lens' DownloadDBLogFilePortion (Maybe Int)
+ddblfpNumberOfLines =
+    lens _ddblfpNumberOfLines (\s a -> s { _ddblfpNumberOfLines = a })
 
-instance ToQuery DownloadDBLogFilePortionMessage
+instance ToQuery DownloadDBLogFilePortion
 
-instance ToPath DownloadDBLogFilePortionMessage where
+instance ToPath DownloadDBLogFilePortion where
     toPath = const "/"
 
-data DownloadDBLogFilePortionDetails = DownloadDBLogFilePortionDetails
-    { _ddblfpdAdditionalDataPending :: Maybe Bool
-    , _ddblfpdLogFileData           :: Maybe Text
-    , _ddblfpdMarker                :: Maybe Text
+data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
+    { _ddblfprAdditionalDataPending :: Maybe Bool
+    , _ddblfprLogFileData           :: Maybe Text
+    , _ddblfprMarker                :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DownloadDBLogFilePortionDetails' constructor.
+-- | 'DownloadDBLogFilePortionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddblfpdAdditionalDataPending' @::@ 'Maybe' 'Bool'
+-- * 'ddblfprAdditionalDataPending' @::@ 'Maybe' 'Bool'
 --
--- * 'ddblfpdLogFileData' @::@ 'Maybe' 'Text'
+-- * 'ddblfprLogFileData' @::@ 'Maybe' 'Text'
 --
--- * 'ddblfpdMarker' @::@ 'Maybe' 'Text'
+-- * 'ddblfprMarker' @::@ 'Maybe' 'Text'
 --
-downloadDBLogFilePortionResponse :: DownloadDBLogFilePortionDetails
-downloadDBLogFilePortionResponse = DownloadDBLogFilePortionDetails
-    { _ddblfpdLogFileData           = Nothing
-    , _ddblfpdMarker                = Nothing
-    , _ddblfpdAdditionalDataPending = Nothing
+downloadDBLogFilePortionResponse :: DownloadDBLogFilePortionResponse
+downloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse
+    { _ddblfprLogFileData           = Nothing
+    , _ddblfprMarker                = Nothing
+    , _ddblfprAdditionalDataPending = Nothing
     }
 
 -- | Boolean value that if true, indicates there is more data to be
 -- downloaded.
-ddblfpdAdditionalDataPending :: Lens' DownloadDBLogFilePortionDetails (Maybe Bool)
-ddblfpdAdditionalDataPending =
-    lens _ddblfpdAdditionalDataPending
-        (\s a -> s { _ddblfpdAdditionalDataPending = a })
+ddblfprAdditionalDataPending :: Lens' DownloadDBLogFilePortionResponse (Maybe Bool)
+ddblfprAdditionalDataPending =
+    lens _ddblfprAdditionalDataPending
+        (\s a -> s { _ddblfprAdditionalDataPending = a })
 
 -- | Entries from the specified log file.
-ddblfpdLogFileData :: Lens' DownloadDBLogFilePortionDetails (Maybe Text)
-ddblfpdLogFileData =
-    lens _ddblfpdLogFileData (\s a -> s { _ddblfpdLogFileData = a })
+ddblfprLogFileData :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
+ddblfprLogFileData =
+    lens _ddblfprLogFileData (\s a -> s { _ddblfprLogFileData = a })
 
 -- | A pagination token that can be used in a subsequent
 -- DownloadDBLogFilePortion request.
-ddblfpdMarker :: Lens' DownloadDBLogFilePortionDetails (Maybe Text)
-ddblfpdMarker = lens _ddblfpdMarker (\s a -> s { _ddblfpdMarker = a })
+ddblfprMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
+ddblfprMarker = lens _ddblfprMarker (\s a -> s { _ddblfprMarker = a })
 
-instance FromXML DownloadDBLogFilePortionDetails where
+instance FromXML DownloadDBLogFilePortionResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DownloadDBLogFilePortionDetails"
+    fromXMLRoot    = fromRoot "DownloadDBLogFilePortionResponse"
 
-instance AWSRequest DownloadDBLogFilePortionMessage where
-    type Sv DownloadDBLogFilePortionMessage = RDS
-    type Rs DownloadDBLogFilePortionMessage = DownloadDBLogFilePortionDetails
+instance AWSRequest DownloadDBLogFilePortion where
+    type Sv DownloadDBLogFilePortion = RDS
+    type Rs DownloadDBLogFilePortion = DownloadDBLogFilePortionResponse
 
     request  = post "DownloadDBLogFilePortion"
-    response = xmlResponse $ \h x -> DownloadDBLogFilePortionDetails
+    response = xmlResponse $ \h x -> DownloadDBLogFilePortionResponse
         <$> x %| "AdditionalDataPending"
         <*> x %| "LogFileData"
         <*> x %| "Marker"

@@ -24,94 +24,93 @@
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     (
     -- * Request
-      DescribeEnvironmentResourcesMessage
+      DescribeEnvironmentResources
     -- ** Request constructor
     , describeEnvironmentResources
     -- ** Request lenses
-    , dermEnvironmentId
-    , dermEnvironmentName
+    , derEnvironmentId
+    , derEnvironmentName
 
     -- * Response
-    , EnvironmentResourceDescriptionsMessage
+    , DescribeEnvironmentResourcesResponse
     -- ** Response constructor
     , describeEnvironmentResourcesResponse
     -- ** Response lenses
-    , erdmEnvironmentResources
+    , derrEnvironmentResources
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data DescribeEnvironmentResourcesMessage = DescribeEnvironmentResourcesMessage
-    { _dermEnvironmentId   :: Maybe Text
-    , _dermEnvironmentName :: Maybe Text
+data DescribeEnvironmentResources = DescribeEnvironmentResources
+    { _derEnvironmentId   :: Maybe Text
+    , _derEnvironmentName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeEnvironmentResourcesMessage' constructor.
+-- | 'DescribeEnvironmentResources' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dermEnvironmentId' @::@ 'Maybe' 'Text'
+-- * 'derEnvironmentId' @::@ 'Maybe' 'Text'
 --
--- * 'dermEnvironmentName' @::@ 'Maybe' 'Text'
+-- * 'derEnvironmentName' @::@ 'Maybe' 'Text'
 --
-describeEnvironmentResources :: DescribeEnvironmentResourcesMessage
-describeEnvironmentResources = DescribeEnvironmentResourcesMessage
-    { _dermEnvironmentId   = Nothing
-    , _dermEnvironmentName = Nothing
+describeEnvironmentResources :: DescribeEnvironmentResources
+describeEnvironmentResources = DescribeEnvironmentResources
+    { _derEnvironmentId   = Nothing
+    , _derEnvironmentName = Nothing
     }
 
 -- | The ID of the environment to retrieve AWS resource usage data. Condition:
 -- You must specify either this or an EnvironmentName, or both. If you do
 -- not specify either, AWS Elastic Beanstalk returns
 -- MissingRequiredParameter error.
-dermEnvironmentId :: Lens' DescribeEnvironmentResourcesMessage (Maybe Text)
-dermEnvironmentId =
-    lens _dermEnvironmentId (\s a -> s { _dermEnvironmentId = a })
+derEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
+derEnvironmentId = lens _derEnvironmentId (\s a -> s { _derEnvironmentId = a })
 
 -- | The name of the environment to retrieve AWS resource usage data.
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- MissingRequiredParameter error.
-dermEnvironmentName :: Lens' DescribeEnvironmentResourcesMessage (Maybe Text)
-dermEnvironmentName =
-    lens _dermEnvironmentName (\s a -> s { _dermEnvironmentName = a })
+derEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
+derEnvironmentName =
+    lens _derEnvironmentName (\s a -> s { _derEnvironmentName = a })
 
-instance ToQuery DescribeEnvironmentResourcesMessage
+instance ToQuery DescribeEnvironmentResources
 
-instance ToPath DescribeEnvironmentResourcesMessage where
+instance ToPath DescribeEnvironmentResources where
     toPath = const "/"
 
-newtype EnvironmentResourceDescriptionsMessage = EnvironmentResourceDescriptionsMessage
-    { _erdmEnvironmentResources :: Maybe EnvironmentResourceDescription
+newtype DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
+    { _derrEnvironmentResources :: Maybe EnvironmentResourceDescription
     } deriving (Eq, Show, Generic)
 
--- | 'EnvironmentResourceDescriptionsMessage' constructor.
+-- | 'DescribeEnvironmentResourcesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'erdmEnvironmentResources' @::@ 'Maybe' 'EnvironmentResourceDescription'
+-- * 'derrEnvironmentResources' @::@ 'Maybe' 'EnvironmentResourceDescription'
 --
-describeEnvironmentResourcesResponse :: EnvironmentResourceDescriptionsMessage
-describeEnvironmentResourcesResponse = EnvironmentResourceDescriptionsMessage
-    { _erdmEnvironmentResources = Nothing
+describeEnvironmentResourcesResponse :: DescribeEnvironmentResourcesResponse
+describeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse
+    { _derrEnvironmentResources = Nothing
     }
 
 -- | A list of EnvironmentResourceDescription.
-erdmEnvironmentResources :: Lens' EnvironmentResourceDescriptionsMessage (Maybe EnvironmentResourceDescription)
-erdmEnvironmentResources =
-    lens _erdmEnvironmentResources
-        (\s a -> s { _erdmEnvironmentResources = a })
+derrEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
+derrEnvironmentResources =
+    lens _derrEnvironmentResources
+        (\s a -> s { _derrEnvironmentResources = a })
 
-instance FromXML EnvironmentResourceDescriptionsMessage where
+instance FromXML DescribeEnvironmentResourcesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnvironmentResourceDescriptionsMessage"
+    fromXMLRoot    = fromRoot "DescribeEnvironmentResourcesResponse"
 
-instance AWSRequest DescribeEnvironmentResourcesMessage where
-    type Sv DescribeEnvironmentResourcesMessage = ElasticBeanstalk
-    type Rs DescribeEnvironmentResourcesMessage = EnvironmentResourceDescriptionsMessage
+instance AWSRequest DescribeEnvironmentResources where
+    type Sv DescribeEnvironmentResources = ElasticBeanstalk
+    type Rs DescribeEnvironmentResources = DescribeEnvironmentResourcesResponse
 
     request  = post "DescribeEnvironmentResources"
-    response = xmlResponse $ \h x -> EnvironmentResourceDescriptionsMessage
+    response = xmlResponse $ \h x -> DescribeEnvironmentResourcesResponse
         <$> x %| "EnvironmentResources"

@@ -32,7 +32,7 @@ module Network.AWS.EC2.DescribeAccountAttributes
     , daaDryRun
 
     -- * Response
-    , DescribeAccountAttributesResult
+    , DescribeAccountAttributesResponse
     -- ** Response constructor
     , describeAccountAttributesResponse
     -- ** Response lenses
@@ -75,40 +75,40 @@ instance ToQuery DescribeAccountAttributes
 instance ToPath DescribeAccountAttributes where
     toPath = const "/"
 
-newtype DescribeAccountAttributesResult = DescribeAccountAttributesResult
+newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse
     { _daarAccountAttributes :: [AccountAttribute]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAccountAttributesResult where
-    type Item DescribeAccountAttributesResult = AccountAttribute
+instance IsList DescribeAccountAttributesResponse where
+    type Item DescribeAccountAttributesResponse = AccountAttribute
 
-    fromList = DescribeAccountAttributesResult . fromList
+    fromList = DescribeAccountAttributesResponse . fromList
     toList   = toList . _daarAccountAttributes
 
--- | 'DescribeAccountAttributesResult' constructor.
+-- | 'DescribeAccountAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'daarAccountAttributes' @::@ ['AccountAttribute']
 --
-describeAccountAttributesResponse :: DescribeAccountAttributesResult
-describeAccountAttributesResponse = DescribeAccountAttributesResult
+describeAccountAttributesResponse :: DescribeAccountAttributesResponse
+describeAccountAttributesResponse = DescribeAccountAttributesResponse
     { _daarAccountAttributes = mempty
     }
 
 -- | Information about one or more account attributes.
-daarAccountAttributes :: Lens' DescribeAccountAttributesResult [AccountAttribute]
+daarAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
 daarAccountAttributes =
     lens _daarAccountAttributes (\s a -> s { _daarAccountAttributes = a })
 
-instance FromXML DescribeAccountAttributesResult where
+instance FromXML DescribeAccountAttributesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAccountAttributesResult"
+    fromXMLRoot    = fromRoot "DescribeAccountAttributesResponse"
 
 instance AWSRequest DescribeAccountAttributes where
     type Sv DescribeAccountAttributes = EC2
-    type Rs DescribeAccountAttributes = DescribeAccountAttributesResult
+    type Rs DescribeAccountAttributes = DescribeAccountAttributesResponse
 
     request  = post "DescribeAccountAttributes"
-    response = xmlResponse $ \h x -> DescribeAccountAttributesResult
+    response = xmlResponse $ \h x -> DescribeAccountAttributesResponse
         <$> x %| "accountAttributeSet"

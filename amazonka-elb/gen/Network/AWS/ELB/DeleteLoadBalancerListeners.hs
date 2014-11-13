@@ -24,12 +24,12 @@
 module Network.AWS.ELB.DeleteLoadBalancerListeners
     (
     -- * Request
-      DeleteLoadBalancerListenerInput
+      DeleteLoadBalancerListeners
     -- ** Request constructor
     , deleteLoadBalancerListeners
     -- ** Request lenses
-    , dlbliLoadBalancerName
-    , dlbliLoadBalancerPorts
+    , dlblLoadBalancerName
+    , dlblLoadBalancerPorts
 
     -- * Response
     , DeleteLoadBalancerListenersResponse
@@ -41,39 +41,39 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data DeleteLoadBalancerListenerInput = DeleteLoadBalancerListenerInput
-    { _dlbliLoadBalancerName  :: Text
-    , _dlbliLoadBalancerPorts :: [Int]
+data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners
+    { _dlblLoadBalancerName  :: Text
+    , _dlblLoadBalancerPorts :: [Int]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteLoadBalancerListenerInput' constructor.
+-- | 'DeleteLoadBalancerListeners' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbliLoadBalancerName' @::@ 'Text'
+-- * 'dlblLoadBalancerName' @::@ 'Text'
 --
--- * 'dlbliLoadBalancerPorts' @::@ ['Int']
+-- * 'dlblLoadBalancerPorts' @::@ ['Int']
 --
-deleteLoadBalancerListeners :: Text -- ^ 'dlbliLoadBalancerName'
-                            -> DeleteLoadBalancerListenerInput
-deleteLoadBalancerListeners p1 = DeleteLoadBalancerListenerInput
-    { _dlbliLoadBalancerName  = p1
-    , _dlbliLoadBalancerPorts = mempty
+deleteLoadBalancerListeners :: Text -- ^ 'dlblLoadBalancerName'
+                            -> DeleteLoadBalancerListeners
+deleteLoadBalancerListeners p1 = DeleteLoadBalancerListeners
+    { _dlblLoadBalancerName  = p1
+    , _dlblLoadBalancerPorts = mempty
     }
 
 -- | The mnemonic name associated with the load balancer.
-dlbliLoadBalancerName :: Lens' DeleteLoadBalancerListenerInput Text
-dlbliLoadBalancerName =
-    lens _dlbliLoadBalancerName (\s a -> s { _dlbliLoadBalancerName = a })
+dlblLoadBalancerName :: Lens' DeleteLoadBalancerListeners Text
+dlblLoadBalancerName =
+    lens _dlblLoadBalancerName (\s a -> s { _dlblLoadBalancerName = a })
 
 -- | The client port number(s) of the load balancer listener(s) to be removed.
-dlbliLoadBalancerPorts :: Lens' DeleteLoadBalancerListenerInput [Int]
-dlbliLoadBalancerPorts =
-    lens _dlbliLoadBalancerPorts (\s a -> s { _dlbliLoadBalancerPorts = a })
+dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
+dlblLoadBalancerPorts =
+    lens _dlblLoadBalancerPorts (\s a -> s { _dlblLoadBalancerPorts = a })
 
-instance ToQuery DeleteLoadBalancerListenerInput
+instance ToQuery DeleteLoadBalancerListeners
 
-instance ToPath DeleteLoadBalancerListenerInput where
+instance ToPath DeleteLoadBalancerListeners where
     toPath = const "/"
 
 data DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse
@@ -87,9 +87,9 @@ instance FromXML DeleteLoadBalancerListenersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteLoadBalancerListenersResponse"
 
-instance AWSRequest DeleteLoadBalancerListenerInput where
-    type Sv DeleteLoadBalancerListenerInput = ELB
-    type Rs DeleteLoadBalancerListenerInput = DeleteLoadBalancerListenersResponse
+instance AWSRequest DeleteLoadBalancerListeners where
+    type Sv DeleteLoadBalancerListeners = ELB
+    type Rs DeleteLoadBalancerListeners = DeleteLoadBalancerListenersResponse
 
     request  = post "DeleteLoadBalancerListeners"
     response = nullaryResponse DeleteLoadBalancerListenersResponse

@@ -27,13 +27,13 @@
 module Network.AWS.SNS.Subscribe
     (
     -- * Request
-      SubscribeInput
+      Subscribe
     -- ** Request constructor
     , subscribe
     -- ** Request lenses
-    , siEndpoint
-    , siProtocol
-    , siTopicArn
+    , sEndpoint
+    , sProtocol
+    , sTopicArn
 
     -- * Response
     , SubscribeResponse
@@ -47,29 +47,29 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-data SubscribeInput = SubscribeInput
-    { _siEndpoint :: Maybe Text
-    , _siProtocol :: Text
-    , _siTopicArn :: Text
+data Subscribe = Subscribe
+    { _sEndpoint :: Maybe Text
+    , _sProtocol :: Text
+    , _sTopicArn :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'SubscribeInput' constructor.
+-- | 'Subscribe' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'siEndpoint' @::@ 'Maybe' 'Text'
+-- * 'sEndpoint' @::@ 'Maybe' 'Text'
 --
--- * 'siProtocol' @::@ 'Text'
+-- * 'sProtocol' @::@ 'Text'
 --
--- * 'siTopicArn' @::@ 'Text'
+-- * 'sTopicArn' @::@ 'Text'
 --
-subscribe :: Text -- ^ 'siTopicArn'
-          -> Text -- ^ 'siProtocol'
-          -> SubscribeInput
-subscribe p1 p2 = SubscribeInput
-    { _siTopicArn = p1
-    , _siProtocol = p2
-    , _siEndpoint = Nothing
+subscribe :: Text -- ^ 'sTopicArn'
+          -> Text -- ^ 'sProtocol'
+          -> Subscribe
+subscribe p1 p2 = Subscribe
+    { _sTopicArn = p1
+    , _sProtocol = p2
+    , _sEndpoint = Nothing
     }
 
 -- | The endpoint that you want to receive notifications. Endpoints vary by
@@ -81,8 +81,8 @@ subscribe p1 p2 = SubscribeInput
 -- sqs protocol, the endpoint is the ARN of an Amazon SQS queue For the
 -- application protocol, the endpoint is the EndpointArn of a mobile app and
 -- device.
-siEndpoint :: Lens' SubscribeInput (Maybe Text)
-siEndpoint = lens _siEndpoint (\s a -> s { _siEndpoint = a })
+sEndpoint :: Lens' Subscribe (Maybe Text)
+sEndpoint = lens _sEndpoint (\s a -> s { _sEndpoint = a })
 
 -- | The protocol you want to use. Supported protocols include: http --
 -- delivery of JSON-encoded message via HTTP POST https -- delivery of
@@ -91,16 +91,16 @@ siEndpoint = lens _siEndpoint (\s a -> s { _siEndpoint = a })
 -- of message via SMS sqs -- delivery of JSON-encoded message to an Amazon
 -- SQS queue application -- delivery of JSON-encoded message to an
 -- EndpointArn for a mobile app and device.
-siProtocol :: Lens' SubscribeInput Text
-siProtocol = lens _siProtocol (\s a -> s { _siProtocol = a })
+sProtocol :: Lens' Subscribe Text
+sProtocol = lens _sProtocol (\s a -> s { _sProtocol = a })
 
 -- | The ARN of the topic you want to subscribe to.
-siTopicArn :: Lens' SubscribeInput Text
-siTopicArn = lens _siTopicArn (\s a -> s { _siTopicArn = a })
+sTopicArn :: Lens' Subscribe Text
+sTopicArn = lens _sTopicArn (\s a -> s { _sTopicArn = a })
 
-instance ToQuery SubscribeInput
+instance ToQuery Subscribe
 
-instance ToPath SubscribeInput where
+instance ToPath Subscribe where
     toPath = const "/"
 
 newtype SubscribeResponse = SubscribeResponse
@@ -128,9 +128,9 @@ instance FromXML SubscribeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SubscribeResponse"
 
-instance AWSRequest SubscribeInput where
-    type Sv SubscribeInput = SNS
-    type Rs SubscribeInput = SubscribeResponse
+instance AWSRequest Subscribe where
+    type Sv Subscribe = SNS
+    type Rs Subscribe = SubscribeResponse
 
     request  = post "Subscribe"
     response = xmlResponse $ \h x -> SubscribeResponse

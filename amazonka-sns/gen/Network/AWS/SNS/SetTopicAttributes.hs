@@ -24,13 +24,13 @@
 module Network.AWS.SNS.SetTopicAttributes
     (
     -- * Request
-      SetTopicAttributesInput
+      SetTopicAttributes
     -- ** Request constructor
     , setTopicAttributes
     -- ** Request lenses
-    , staiAttributeName
-    , staiAttributeValue
-    , staiTopicArn
+    , staAttributeName
+    , staAttributeValue
+    , staTopicArn
 
     -- * Response
     , SetTopicAttributesResponse
@@ -42,50 +42,49 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-data SetTopicAttributesInput = SetTopicAttributesInput
-    { _staiAttributeName  :: Text
-    , _staiAttributeValue :: Maybe Text
-    , _staiTopicArn       :: Text
+data SetTopicAttributes = SetTopicAttributes
+    { _staAttributeName  :: Text
+    , _staAttributeValue :: Maybe Text
+    , _staTopicArn       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'SetTopicAttributesInput' constructor.
+-- | 'SetTopicAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'staiAttributeName' @::@ 'Text'
+-- * 'staAttributeName' @::@ 'Text'
 --
--- * 'staiAttributeValue' @::@ 'Maybe' 'Text'
+-- * 'staAttributeValue' @::@ 'Maybe' 'Text'
 --
--- * 'staiTopicArn' @::@ 'Text'
+-- * 'staTopicArn' @::@ 'Text'
 --
-setTopicAttributes :: Text -- ^ 'staiTopicArn'
-                   -> Text -- ^ 'staiAttributeName'
-                   -> SetTopicAttributesInput
-setTopicAttributes p1 p2 = SetTopicAttributesInput
-    { _staiTopicArn       = p1
-    , _staiAttributeName  = p2
-    , _staiAttributeValue = Nothing
+setTopicAttributes :: Text -- ^ 'staTopicArn'
+                   -> Text -- ^ 'staAttributeName'
+                   -> SetTopicAttributes
+setTopicAttributes p1 p2 = SetTopicAttributes
+    { _staTopicArn       = p1
+    , _staAttributeName  = p2
+    , _staAttributeValue = Nothing
     }
 
 -- | The name of the attribute you want to set. Only a subset of the topic's
 -- attributes are mutable. Valid values: Policy | DisplayName |
 -- DeliveryPolicy.
-staiAttributeName :: Lens' SetTopicAttributesInput Text
-staiAttributeName =
-    lens _staiAttributeName (\s a -> s { _staiAttributeName = a })
+staAttributeName :: Lens' SetTopicAttributes Text
+staAttributeName = lens _staAttributeName (\s a -> s { _staAttributeName = a })
 
 -- | The new value for the attribute.
-staiAttributeValue :: Lens' SetTopicAttributesInput (Maybe Text)
-staiAttributeValue =
-    lens _staiAttributeValue (\s a -> s { _staiAttributeValue = a })
+staAttributeValue :: Lens' SetTopicAttributes (Maybe Text)
+staAttributeValue =
+    lens _staAttributeValue (\s a -> s { _staAttributeValue = a })
 
 -- | The ARN of the topic to modify.
-staiTopicArn :: Lens' SetTopicAttributesInput Text
-staiTopicArn = lens _staiTopicArn (\s a -> s { _staiTopicArn = a })
+staTopicArn :: Lens' SetTopicAttributes Text
+staTopicArn = lens _staTopicArn (\s a -> s { _staTopicArn = a })
 
-instance ToQuery SetTopicAttributesInput
+instance ToQuery SetTopicAttributes
 
-instance ToPath SetTopicAttributesInput where
+instance ToPath SetTopicAttributes where
     toPath = const "/"
 
 data SetTopicAttributesResponse = SetTopicAttributesResponse
@@ -99,9 +98,9 @@ instance FromXML SetTopicAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetTopicAttributesResponse"
 
-instance AWSRequest SetTopicAttributesInput where
-    type Sv SetTopicAttributesInput = SNS
-    type Rs SetTopicAttributesInput = SetTopicAttributesResponse
+instance AWSRequest SetTopicAttributes where
+    type Sv SetTopicAttributes = SNS
+    type Rs SetTopicAttributes = SetTopicAttributesResponse
 
     request  = post "SetTopicAttributes"
     response = nullaryResponse SetTopicAttributesResponse

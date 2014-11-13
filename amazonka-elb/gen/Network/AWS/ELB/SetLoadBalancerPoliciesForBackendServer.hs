@@ -34,13 +34,13 @@
 module Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
     (
     -- * Request
-      SetLoadBalancerPoliciesForBackendServerInput
+      SetLoadBalancerPoliciesForBackendServer
     -- ** Request constructor
     , setLoadBalancerPoliciesForBackendServer
     -- ** Request lenses
-    , slbpfbsiInstancePort
-    , slbpfbsiLoadBalancerName
-    , slbpfbsiPolicyNames
+    , slbpfbsInstancePort
+    , slbpfbsLoadBalancerName
+    , slbpfbsPolicyNames
 
     -- * Response
     , SetLoadBalancerPoliciesForBackendServerResponse
@@ -52,52 +52,51 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data SetLoadBalancerPoliciesForBackendServerInput = SetLoadBalancerPoliciesForBackendServerInput
-    { _slbpfbsiInstancePort     :: Int
-    , _slbpfbsiLoadBalancerName :: Text
-    , _slbpfbsiPolicyNames      :: [Text]
+data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServer
+    { _slbpfbsInstancePort     :: Int
+    , _slbpfbsLoadBalancerName :: Text
+    , _slbpfbsPolicyNames      :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'SetLoadBalancerPoliciesForBackendServerInput' constructor.
+-- | 'SetLoadBalancerPoliciesForBackendServer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'slbpfbsiInstancePort' @::@ 'Int'
+-- * 'slbpfbsInstancePort' @::@ 'Int'
 --
--- * 'slbpfbsiLoadBalancerName' @::@ 'Text'
+-- * 'slbpfbsLoadBalancerName' @::@ 'Text'
 --
--- * 'slbpfbsiPolicyNames' @::@ ['Text']
+-- * 'slbpfbsPolicyNames' @::@ ['Text']
 --
-setLoadBalancerPoliciesForBackendServer :: Text -- ^ 'slbpfbsiLoadBalancerName'
-                                        -> Int -- ^ 'slbpfbsiInstancePort'
-                                        -> SetLoadBalancerPoliciesForBackendServerInput
-setLoadBalancerPoliciesForBackendServer p1 p2 = SetLoadBalancerPoliciesForBackendServerInput
-    { _slbpfbsiLoadBalancerName = p1
-    , _slbpfbsiInstancePort     = p2
-    , _slbpfbsiPolicyNames      = mempty
+setLoadBalancerPoliciesForBackendServer :: Text -- ^ 'slbpfbsLoadBalancerName'
+                                        -> Int -- ^ 'slbpfbsInstancePort'
+                                        -> SetLoadBalancerPoliciesForBackendServer
+setLoadBalancerPoliciesForBackendServer p1 p2 = SetLoadBalancerPoliciesForBackendServer
+    { _slbpfbsLoadBalancerName = p1
+    , _slbpfbsInstancePort     = p2
+    , _slbpfbsPolicyNames      = mempty
     }
 
 -- | The port number associated with the back-end server.
-slbpfbsiInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServerInput Int
-slbpfbsiInstancePort =
-    lens _slbpfbsiInstancePort (\s a -> s { _slbpfbsiInstancePort = a })
+slbpfbsInstancePort :: Lens' SetLoadBalancerPoliciesForBackendServer Int
+slbpfbsInstancePort =
+    lens _slbpfbsInstancePort (\s a -> s { _slbpfbsInstancePort = a })
 
 -- | The mnemonic name associated with the load balancer. This name must be
 -- unique within the set of your load balancers.
-slbpfbsiLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServerInput Text
-slbpfbsiLoadBalancerName =
-    lens _slbpfbsiLoadBalancerName
-        (\s a -> s { _slbpfbsiLoadBalancerName = a })
+slbpfbsLoadBalancerName :: Lens' SetLoadBalancerPoliciesForBackendServer Text
+slbpfbsLoadBalancerName =
+    lens _slbpfbsLoadBalancerName (\s a -> s { _slbpfbsLoadBalancerName = a })
 
 -- | List of policy names to be set. If the list is empty, then all current
 -- polices are removed from the back-end server.
-slbpfbsiPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServerInput [Text]
-slbpfbsiPolicyNames =
-    lens _slbpfbsiPolicyNames (\s a -> s { _slbpfbsiPolicyNames = a })
+slbpfbsPolicyNames :: Lens' SetLoadBalancerPoliciesForBackendServer [Text]
+slbpfbsPolicyNames =
+    lens _slbpfbsPolicyNames (\s a -> s { _slbpfbsPolicyNames = a })
 
-instance ToQuery SetLoadBalancerPoliciesForBackendServerInput
+instance ToQuery SetLoadBalancerPoliciesForBackendServer
 
-instance ToPath SetLoadBalancerPoliciesForBackendServerInput where
+instance ToPath SetLoadBalancerPoliciesForBackendServer where
     toPath = const "/"
 
 data SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse
@@ -111,9 +110,9 @@ instance FromXML SetLoadBalancerPoliciesForBackendServerResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetLoadBalancerPoliciesForBackendServerResponse"
 
-instance AWSRequest SetLoadBalancerPoliciesForBackendServerInput where
-    type Sv SetLoadBalancerPoliciesForBackendServerInput = ELB
-    type Rs SetLoadBalancerPoliciesForBackendServerInput = SetLoadBalancerPoliciesForBackendServerResponse
+instance AWSRequest SetLoadBalancerPoliciesForBackendServer where
+    type Sv SetLoadBalancerPoliciesForBackendServer = ELB
+    type Rs SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackendServerResponse
 
     request  = post "SetLoadBalancerPoliciesForBackendServer"
     response = nullaryResponse SetLoadBalancerPoliciesForBackendServerResponse

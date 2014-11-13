@@ -31,14 +31,14 @@ module Network.AWS.EC2.DescribeImages
     -- ** Request constructor
     , describeImages
     -- ** Request lenses
-    , di1DryRun
-    , di1ExecutableUsers
-    , di1Filters
-    , di1ImageIds
-    , di1Owners
+    , di2DryRun
+    , di2ExecutableUsers
+    , di2Filters
+    , di2ImageIds
+    , di2Owners
 
     -- * Response
-    , DescribeImagesResult
+    , DescribeImagesResponse
     -- ** Response constructor
     , describeImagesResponse
     -- ** Response lenses
@@ -50,44 +50,44 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DescribeImages = DescribeImages
-    { _di1DryRun          :: Maybe Bool
-    , _di1ExecutableUsers :: [Text]
-    , _di1Filters         :: [Filter]
-    , _di1ImageIds        :: [Text]
-    , _di1Owners          :: [Text]
+    { _di2DryRun          :: Maybe Bool
+    , _di2ExecutableUsers :: [Text]
+    , _di2Filters         :: [Filter]
+    , _di2ImageIds        :: [Text]
+    , _di2Owners          :: [Text]
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeImages' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'di1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'di2DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'di1ExecutableUsers' @::@ ['Text']
+-- * 'di2ExecutableUsers' @::@ ['Text']
 --
--- * 'di1Filters' @::@ ['Filter']
+-- * 'di2Filters' @::@ ['Filter']
 --
--- * 'di1ImageIds' @::@ ['Text']
+-- * 'di2ImageIds' @::@ ['Text']
 --
--- * 'di1Owners' @::@ ['Text']
+-- * 'di2Owners' @::@ ['Text']
 --
 describeImages :: DescribeImages
 describeImages = DescribeImages
-    { _di1DryRun          = Nothing
-    , _di1ImageIds        = mempty
-    , _di1Owners          = mempty
-    , _di1ExecutableUsers = mempty
-    , _di1Filters         = mempty
+    { _di2DryRun          = Nothing
+    , _di2ImageIds        = mempty
+    , _di2Owners          = mempty
+    , _di2ExecutableUsers = mempty
+    , _di2Filters         = mempty
     }
 
-di1DryRun :: Lens' DescribeImages (Maybe Bool)
-di1DryRun = lens _di1DryRun (\s a -> s { _di1DryRun = a })
+di2DryRun :: Lens' DescribeImages (Maybe Bool)
+di2DryRun = lens _di2DryRun (\s a -> s { _di2DryRun = a })
 
 -- | Scopes the images by users with explicit launch permissions. Specify an
 -- AWS account ID, self (the sender of the request), or all (public AMIs).
-di1ExecutableUsers :: Lens' DescribeImages [Text]
-di1ExecutableUsers =
-    lens _di1ExecutableUsers (\s a -> s { _di1ExecutableUsers = a })
+di2ExecutableUsers :: Lens' DescribeImages [Text]
+di2ExecutableUsers =
+    lens _di2ExecutableUsers (\s a -> s { _di2ExecutableUsers = a })
 
 -- | One or more filters. architecture - The image architecture (i386 |
 -- x86_64). block-device-mapping.delete-on-termination - A Boolean value
@@ -123,57 +123,57 @@ di1ExecutableUsers =
 -- tag:key=value filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter.
 -- virtualization-type - The virtualization type (paravirtual | hvm).
-di1Filters :: Lens' DescribeImages [Filter]
-di1Filters = lens _di1Filters (\s a -> s { _di1Filters = a })
+di2Filters :: Lens' DescribeImages [Filter]
+di2Filters = lens _di2Filters (\s a -> s { _di2Filters = a })
 
 -- | One or more image IDs. Default: Describes all images available to you.
-di1ImageIds :: Lens' DescribeImages [Text]
-di1ImageIds = lens _di1ImageIds (\s a -> s { _di1ImageIds = a })
+di2ImageIds :: Lens' DescribeImages [Text]
+di2ImageIds = lens _di2ImageIds (\s a -> s { _di2ImageIds = a })
 
 -- | Filters the images by the owner. Specify an AWS account ID, amazon (owner
 -- is Amazon), aws-marketplace (owner is AWS Marketplace), self (owner is
 -- the sender of the request), or all (all owners).
-di1Owners :: Lens' DescribeImages [Text]
-di1Owners = lens _di1Owners (\s a -> s { _di1Owners = a })
+di2Owners :: Lens' DescribeImages [Text]
+di2Owners = lens _di2Owners (\s a -> s { _di2Owners = a })
 
 instance ToQuery DescribeImages
 
 instance ToPath DescribeImages where
     toPath = const "/"
 
-newtype DescribeImagesResult = DescribeImagesResult
+newtype DescribeImagesResponse = DescribeImagesResponse
     { _dirImages :: [Image]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeImagesResult where
-    type Item DescribeImagesResult = Image
+instance IsList DescribeImagesResponse where
+    type Item DescribeImagesResponse = Image
 
-    fromList = DescribeImagesResult . fromList
+    fromList = DescribeImagesResponse . fromList
     toList   = toList . _dirImages
 
--- | 'DescribeImagesResult' constructor.
+-- | 'DescribeImagesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dirImages' @::@ ['Image']
 --
-describeImagesResponse :: DescribeImagesResult
-describeImagesResponse = DescribeImagesResult
+describeImagesResponse :: DescribeImagesResponse
+describeImagesResponse = DescribeImagesResponse
     { _dirImages = mempty
     }
 
 -- | Information about one or more images.
-dirImages :: Lens' DescribeImagesResult [Image]
+dirImages :: Lens' DescribeImagesResponse [Image]
 dirImages = lens _dirImages (\s a -> s { _dirImages = a })
 
-instance FromXML DescribeImagesResult where
+instance FromXML DescribeImagesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeImagesResult"
+    fromXMLRoot    = fromRoot "DescribeImagesResponse"
 
 instance AWSRequest DescribeImages where
     type Sv DescribeImages = EC2
-    type Rs DescribeImages = DescribeImagesResult
+    type Rs DescribeImages = DescribeImagesResponse
 
     request  = post "DescribeImages"
-    response = xmlResponse $ \h x -> DescribeImagesResult
+    response = xmlResponse $ \h x -> DescribeImagesResponse
         <$> x %| "imagesSet"

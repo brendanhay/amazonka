@@ -29,11 +29,11 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     , describeAdjustmentTypes
 
     -- * Response
-    , DescribeAdjustmentTypesAnswer
+    , DescribeAdjustmentTypesResponse
     -- ** Response constructor
     , describeAdjustmentTypesResponse
     -- ** Response lenses
-    , dataAdjustmentTypes
+    , datrAdjustmentTypes
     ) where
 
 import Network.AWS.Prelude
@@ -52,40 +52,40 @@ instance ToQuery DescribeAdjustmentTypes
 instance ToPath DescribeAdjustmentTypes where
     toPath = const "/"
 
-newtype DescribeAdjustmentTypesAnswer = DescribeAdjustmentTypesAnswer
-    { _dataAdjustmentTypes :: [AdjustmentType]
+newtype DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
+    { _datrAdjustmentTypes :: [AdjustmentType]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAdjustmentTypesAnswer where
-    type Item DescribeAdjustmentTypesAnswer = AdjustmentType
+instance IsList DescribeAdjustmentTypesResponse where
+    type Item DescribeAdjustmentTypesResponse = AdjustmentType
 
-    fromList = DescribeAdjustmentTypesAnswer . fromList
-    toList   = toList . _dataAdjustmentTypes
+    fromList = DescribeAdjustmentTypesResponse . fromList
+    toList   = toList . _datrAdjustmentTypes
 
--- | 'DescribeAdjustmentTypesAnswer' constructor.
+-- | 'DescribeAdjustmentTypesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dataAdjustmentTypes' @::@ ['AdjustmentType']
+-- * 'datrAdjustmentTypes' @::@ ['AdjustmentType']
 --
-describeAdjustmentTypesResponse :: DescribeAdjustmentTypesAnswer
-describeAdjustmentTypesResponse = DescribeAdjustmentTypesAnswer
-    { _dataAdjustmentTypes = mempty
+describeAdjustmentTypesResponse :: DescribeAdjustmentTypesResponse
+describeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse
+    { _datrAdjustmentTypes = mempty
     }
 
 -- | A list of specific policy adjustment types.
-dataAdjustmentTypes :: Lens' DescribeAdjustmentTypesAnswer [AdjustmentType]
-dataAdjustmentTypes =
-    lens _dataAdjustmentTypes (\s a -> s { _dataAdjustmentTypes = a })
+datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
+datrAdjustmentTypes =
+    lens _datrAdjustmentTypes (\s a -> s { _datrAdjustmentTypes = a })
 
-instance FromXML DescribeAdjustmentTypesAnswer where
+instance FromXML DescribeAdjustmentTypesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAdjustmentTypesAnswer"
+    fromXMLRoot    = fromRoot "DescribeAdjustmentTypesResponse"
 
 instance AWSRequest DescribeAdjustmentTypes where
     type Sv DescribeAdjustmentTypes = AutoScaling
-    type Rs DescribeAdjustmentTypes = DescribeAdjustmentTypesAnswer
+    type Rs DescribeAdjustmentTypes = DescribeAdjustmentTypesResponse
 
     request  = post "DescribeAdjustmentTypes"
-    response = xmlResponse $ \h x -> DescribeAdjustmentTypesAnswer
+    response = xmlResponse $ \h x -> DescribeAdjustmentTypesResponse
         <$> x %| "AdjustmentTypes"

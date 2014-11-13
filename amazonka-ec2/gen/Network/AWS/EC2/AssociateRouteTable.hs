@@ -39,7 +39,7 @@ module Network.AWS.EC2.AssociateRouteTable
     , artSubnetId
 
     -- * Response
-    , AssociateRouteTableResult
+    , AssociateRouteTableResponse
     -- ** Response constructor
     , associateRouteTableResponse
     -- ** Response lenses
@@ -91,34 +91,34 @@ instance ToQuery AssociateRouteTable
 instance ToPath AssociateRouteTable where
     toPath = const "/"
 
-newtype AssociateRouteTableResult = AssociateRouteTableResult
+newtype AssociateRouteTableResponse = AssociateRouteTableResponse
     { _artrAssociationId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'AssociateRouteTableResult' constructor.
+-- | 'AssociateRouteTableResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'artrAssociationId' @::@ 'Maybe' 'Text'
 --
-associateRouteTableResponse :: AssociateRouteTableResult
-associateRouteTableResponse = AssociateRouteTableResult
+associateRouteTableResponse :: AssociateRouteTableResponse
+associateRouteTableResponse = AssociateRouteTableResponse
     { _artrAssociationId = Nothing
     }
 
 -- | The route table association ID (needed to disassociate the route table).
-artrAssociationId :: Lens' AssociateRouteTableResult (Maybe Text)
+artrAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
 artrAssociationId =
     lens _artrAssociationId (\s a -> s { _artrAssociationId = a })
 
-instance FromXML AssociateRouteTableResult where
+instance FromXML AssociateRouteTableResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AssociateRouteTableResult"
+    fromXMLRoot    = fromRoot "AssociateRouteTableResponse"
 
 instance AWSRequest AssociateRouteTable where
     type Sv AssociateRouteTable = EC2
-    type Rs AssociateRouteTable = AssociateRouteTableResult
+    type Rs AssociateRouteTable = AssociateRouteTableResponse
 
     request  = post "AssociateRouteTable"
-    response = xmlResponse $ \h x -> AssociateRouteTableResult
+    response = xmlResponse $ \h x -> AssociateRouteTableResponse
         <$> x %| "associationId"

@@ -24,11 +24,11 @@
 module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     (
     -- * Request
-      DeleteCacheSecurityGroupMessage
+      DeleteCacheSecurityGroup
     -- ** Request constructor
     , deleteCacheSecurityGroup
     -- ** Request lenses
-    , dcsgmCacheSecurityGroupName
+    , dcsgCacheSecurityGroupName
 
     -- * Response
     , DeleteCacheSecurityGroupResponse
@@ -40,31 +40,31 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-newtype DeleteCacheSecurityGroupMessage = DeleteCacheSecurityGroupMessage
-    { _dcsgmCacheSecurityGroupName :: Text
+newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup
+    { _dcsgCacheSecurityGroupName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteCacheSecurityGroupMessage' constructor.
+-- | 'DeleteCacheSecurityGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgmCacheSecurityGroupName' @::@ 'Text'
+-- * 'dcsgCacheSecurityGroupName' @::@ 'Text'
 --
-deleteCacheSecurityGroup :: Text -- ^ 'dcsgmCacheSecurityGroupName'
-                         -> DeleteCacheSecurityGroupMessage
-deleteCacheSecurityGroup p1 = DeleteCacheSecurityGroupMessage
-    { _dcsgmCacheSecurityGroupName = p1
+deleteCacheSecurityGroup :: Text -- ^ 'dcsgCacheSecurityGroupName'
+                         -> DeleteCacheSecurityGroup
+deleteCacheSecurityGroup p1 = DeleteCacheSecurityGroup
+    { _dcsgCacheSecurityGroupName = p1
     }
 
 -- | The name of the cache security group to delete.
-dcsgmCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroupMessage Text
-dcsgmCacheSecurityGroupName =
-    lens _dcsgmCacheSecurityGroupName
-        (\s a -> s { _dcsgmCacheSecurityGroupName = a })
+dcsgCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
+dcsgCacheSecurityGroupName =
+    lens _dcsgCacheSecurityGroupName
+        (\s a -> s { _dcsgCacheSecurityGroupName = a })
 
-instance ToQuery DeleteCacheSecurityGroupMessage
+instance ToQuery DeleteCacheSecurityGroup
 
-instance ToPath DeleteCacheSecurityGroupMessage where
+instance ToPath DeleteCacheSecurityGroup where
     toPath = const "/"
 
 data DeleteCacheSecurityGroupResponse = DeleteCacheSecurityGroupResponse
@@ -78,9 +78,9 @@ instance FromXML DeleteCacheSecurityGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteCacheSecurityGroupResponse"
 
-instance AWSRequest DeleteCacheSecurityGroupMessage where
-    type Sv DeleteCacheSecurityGroupMessage = ElastiCache
-    type Rs DeleteCacheSecurityGroupMessage = DeleteCacheSecurityGroupResponse
+instance AWSRequest DeleteCacheSecurityGroup where
+    type Sv DeleteCacheSecurityGroup = ElastiCache
+    type Rs DeleteCacheSecurityGroup = DeleteCacheSecurityGroupResponse
 
     request  = post "DeleteCacheSecurityGroup"
     response = nullaryResponse DeleteCacheSecurityGroupResponse

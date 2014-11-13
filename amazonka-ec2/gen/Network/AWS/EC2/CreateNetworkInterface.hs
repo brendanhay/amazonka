@@ -39,7 +39,7 @@ module Network.AWS.EC2.CreateNetworkInterface
     , cniSubnetId
 
     -- * Response
-    , CreateNetworkInterfaceResult
+    , CreateNetworkInterfaceResponse
     -- ** Response constructor
     , createNetworkInterfaceResponse
     -- ** Response lenses
@@ -137,34 +137,34 @@ instance ToQuery CreateNetworkInterface
 instance ToPath CreateNetworkInterface where
     toPath = const "/"
 
-newtype CreateNetworkInterfaceResult = CreateNetworkInterfaceResult
+newtype CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse
     { _cnirNetworkInterface :: Maybe NetworkInterface
     } deriving (Eq, Show, Generic)
 
--- | 'CreateNetworkInterfaceResult' constructor.
+-- | 'CreateNetworkInterfaceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cnirNetworkInterface' @::@ 'Maybe' 'NetworkInterface'
 --
-createNetworkInterfaceResponse :: CreateNetworkInterfaceResult
-createNetworkInterfaceResponse = CreateNetworkInterfaceResult
+createNetworkInterfaceResponse :: CreateNetworkInterfaceResponse
+createNetworkInterfaceResponse = CreateNetworkInterfaceResponse
     { _cnirNetworkInterface = Nothing
     }
 
 -- | Information about the network interface.
-cnirNetworkInterface :: Lens' CreateNetworkInterfaceResult (Maybe NetworkInterface)
+cnirNetworkInterface :: Lens' CreateNetworkInterfaceResponse (Maybe NetworkInterface)
 cnirNetworkInterface =
     lens _cnirNetworkInterface (\s a -> s { _cnirNetworkInterface = a })
 
-instance FromXML CreateNetworkInterfaceResult where
+instance FromXML CreateNetworkInterfaceResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateNetworkInterfaceResult"
+    fromXMLRoot    = fromRoot "CreateNetworkInterfaceResponse"
 
 instance AWSRequest CreateNetworkInterface where
     type Sv CreateNetworkInterface = EC2
-    type Rs CreateNetworkInterface = CreateNetworkInterfaceResult
+    type Rs CreateNetworkInterface = CreateNetworkInterfaceResponse
 
     request  = post "CreateNetworkInterface"
-    response = xmlResponse $ \h x -> CreateNetworkInterfaceResult
+    response = xmlResponse $ \h x -> CreateNetworkInterfaceResponse
         <$> x %| "networkInterface"

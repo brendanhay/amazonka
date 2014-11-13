@@ -31,11 +31,11 @@ module Network.AWS.S3.GetBucketCors
     , gbcBucket
 
     -- * Response
-    , GetBucketCorsOutput
+    , GetBucketCorsResponse
     -- ** Response constructor
     , getBucketCorsResponse
     -- ** Response lenses
-    , gbcoCORSRules
+    , gbcrCORSRules
     ) where
 
 import Network.AWS.Prelude
@@ -72,37 +72,37 @@ instance ToQuery GetBucketCors where
 
 instance ToHeaders GetBucketCors
 
-newtype GetBucketCorsOutput = GetBucketCorsOutput
-    { _gbcoCORSRules :: [CORSRule]
+newtype GetBucketCorsResponse = GetBucketCorsResponse
+    { _gbcrCORSRules :: [CORSRule]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetBucketCorsOutput where
-    type Item GetBucketCorsOutput = CORSRule
+instance IsList GetBucketCorsResponse where
+    type Item GetBucketCorsResponse = CORSRule
 
-    fromList = GetBucketCorsOutput . fromList
-    toList   = toList . _gbcoCORSRules
+    fromList = GetBucketCorsResponse . fromList
+    toList   = toList . _gbcrCORSRules
 
--- | 'GetBucketCorsOutput' constructor.
+-- | 'GetBucketCorsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbcoCORSRules' @::@ ['CORSRule']
+-- * 'gbcrCORSRules' @::@ ['CORSRule']
 --
-getBucketCorsResponse :: GetBucketCorsOutput
-getBucketCorsResponse = GetBucketCorsOutput
-    { _gbcoCORSRules = mempty
+getBucketCorsResponse :: GetBucketCorsResponse
+getBucketCorsResponse = GetBucketCorsResponse
+    { _gbcrCORSRules = mempty
     }
 
-gbcoCORSRules :: Lens' GetBucketCorsOutput [CORSRule]
-gbcoCORSRules = lens _gbcoCORSRules (\s a -> s { _gbcoCORSRules = a })
+gbcrCORSRules :: Lens' GetBucketCorsResponse [CORSRule]
+gbcrCORSRules = lens _gbcrCORSRules (\s a -> s { _gbcrCORSRules = a })
 
-instance FromXML GetBucketCorsOutput where
+instance FromXML GetBucketCorsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketCorsOutput"
+    fromXMLRoot    = fromRoot "GetBucketCorsResponse"
 instance AWSRequest GetBucketCors where
     type Sv GetBucketCors = S3
-    type Rs GetBucketCors = GetBucketCorsOutput
+    type Rs GetBucketCors = GetBucketCorsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketCorsOutput
+    response = xmlResponse $ \h x -> GetBucketCorsResponse
         <$> x %| "CORSRule"

@@ -24,11 +24,11 @@
 module Network.AWS.ElastiCache.DeleteCacheSubnetGroup
     (
     -- * Request
-      DeleteCacheSubnetGroupMessage
+      DeleteCacheSubnetGroup
     -- ** Request constructor
     , deleteCacheSubnetGroup
     -- ** Request lenses
-    , dcsgm1CacheSubnetGroupName
+    , dcsg1CacheSubnetGroupName
 
     -- * Response
     , DeleteCacheSubnetGroupResponse
@@ -40,32 +40,32 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-newtype DeleteCacheSubnetGroupMessage = DeleteCacheSubnetGroupMessage
-    { _dcsgm1CacheSubnetGroupName :: Text
+newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup
+    { _dcsg1CacheSubnetGroupName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteCacheSubnetGroupMessage' constructor.
+-- | 'DeleteCacheSubnetGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgm1CacheSubnetGroupName' @::@ 'Text'
+-- * 'dcsg1CacheSubnetGroupName' @::@ 'Text'
 --
-deleteCacheSubnetGroup :: Text -- ^ 'dcsgm1CacheSubnetGroupName'
-                       -> DeleteCacheSubnetGroupMessage
-deleteCacheSubnetGroup p1 = DeleteCacheSubnetGroupMessage
-    { _dcsgm1CacheSubnetGroupName = p1
+deleteCacheSubnetGroup :: Text -- ^ 'dcsg1CacheSubnetGroupName'
+                       -> DeleteCacheSubnetGroup
+deleteCacheSubnetGroup p1 = DeleteCacheSubnetGroup
+    { _dcsg1CacheSubnetGroupName = p1
     }
 
 -- | The name of the cache subnet group to delete. Constraints: Must contain
 -- no more than 255 alphanumeric characters or hyphens.
-dcsgm1CacheSubnetGroupName :: Lens' DeleteCacheSubnetGroupMessage Text
-dcsgm1CacheSubnetGroupName =
-    lens _dcsgm1CacheSubnetGroupName
-        (\s a -> s { _dcsgm1CacheSubnetGroupName = a })
+dcsg1CacheSubnetGroupName :: Lens' DeleteCacheSubnetGroup Text
+dcsg1CacheSubnetGroupName =
+    lens _dcsg1CacheSubnetGroupName
+        (\s a -> s { _dcsg1CacheSubnetGroupName = a })
 
-instance ToQuery DeleteCacheSubnetGroupMessage
+instance ToQuery DeleteCacheSubnetGroup
 
-instance ToPath DeleteCacheSubnetGroupMessage where
+instance ToPath DeleteCacheSubnetGroup where
     toPath = const "/"
 
 data DeleteCacheSubnetGroupResponse = DeleteCacheSubnetGroupResponse
@@ -79,9 +79,9 @@ instance FromXML DeleteCacheSubnetGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteCacheSubnetGroupResponse"
 
-instance AWSRequest DeleteCacheSubnetGroupMessage where
-    type Sv DeleteCacheSubnetGroupMessage = ElastiCache
-    type Rs DeleteCacheSubnetGroupMessage = DeleteCacheSubnetGroupResponse
+instance AWSRequest DeleteCacheSubnetGroup where
+    type Sv DeleteCacheSubnetGroup = ElastiCache
+    type Rs DeleteCacheSubnetGroup = DeleteCacheSubnetGroupResponse
 
     request  = post "DeleteCacheSubnetGroup"
     response = nullaryResponse DeleteCacheSubnetGroupResponse

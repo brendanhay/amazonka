@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribePlacementGroups
     , dpg1GroupNames
 
     -- * Response
-    , DescribePlacementGroupsResult
+    , DescribePlacementGroupsResponse
     -- ** Response constructor
     , describePlacementGroupsResponse
     -- ** Response lenses
@@ -88,40 +88,40 @@ instance ToQuery DescribePlacementGroups
 instance ToPath DescribePlacementGroups where
     toPath = const "/"
 
-newtype DescribePlacementGroupsResult = DescribePlacementGroupsResult
+newtype DescribePlacementGroupsResponse = DescribePlacementGroupsResponse
     { _dpgrPlacementGroups :: [PlacementGroup]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribePlacementGroupsResult where
-    type Item DescribePlacementGroupsResult = PlacementGroup
+instance IsList DescribePlacementGroupsResponse where
+    type Item DescribePlacementGroupsResponse = PlacementGroup
 
-    fromList = DescribePlacementGroupsResult . fromList
+    fromList = DescribePlacementGroupsResponse . fromList
     toList   = toList . _dpgrPlacementGroups
 
--- | 'DescribePlacementGroupsResult' constructor.
+-- | 'DescribePlacementGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dpgrPlacementGroups' @::@ ['PlacementGroup']
 --
-describePlacementGroupsResponse :: DescribePlacementGroupsResult
-describePlacementGroupsResponse = DescribePlacementGroupsResult
+describePlacementGroupsResponse :: DescribePlacementGroupsResponse
+describePlacementGroupsResponse = DescribePlacementGroupsResponse
     { _dpgrPlacementGroups = mempty
     }
 
 -- | One or more placement groups.
-dpgrPlacementGroups :: Lens' DescribePlacementGroupsResult [PlacementGroup]
+dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
 dpgrPlacementGroups =
     lens _dpgrPlacementGroups (\s a -> s { _dpgrPlacementGroups = a })
 
-instance FromXML DescribePlacementGroupsResult where
+instance FromXML DescribePlacementGroupsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribePlacementGroupsResult"
+    fromXMLRoot    = fromRoot "DescribePlacementGroupsResponse"
 
 instance AWSRequest DescribePlacementGroups where
     type Sv DescribePlacementGroups = EC2
-    type Rs DescribePlacementGroups = DescribePlacementGroupsResult
+    type Rs DescribePlacementGroups = DescribePlacementGroupsResponse
 
     request  = post "DescribePlacementGroups"
-    response = xmlResponse $ \h x -> DescribePlacementGroupsResult
+    response = xmlResponse $ \h x -> DescribePlacementGroupsResponse
         <$> x %| "placementGroupSet"

@@ -43,7 +43,7 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     , dsirSpotInstanceRequestIds
 
     -- * Response
-    , DescribeSpotInstanceRequestsResult
+    , DescribeSpotInstanceRequestsResponse
     -- ** Response constructor
     , describeSpotInstanceRequestsResponse
     -- ** Response lenses
@@ -150,41 +150,41 @@ instance ToQuery DescribeSpotInstanceRequests
 instance ToPath DescribeSpotInstanceRequests where
     toPath = const "/"
 
-newtype DescribeSpotInstanceRequestsResult = DescribeSpotInstanceRequestsResult
+newtype DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     { _dsirrSpotInstanceRequests :: [SpotInstanceRequest]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeSpotInstanceRequestsResult where
-    type Item DescribeSpotInstanceRequestsResult = SpotInstanceRequest
+instance IsList DescribeSpotInstanceRequestsResponse where
+    type Item DescribeSpotInstanceRequestsResponse = SpotInstanceRequest
 
-    fromList = DescribeSpotInstanceRequestsResult . fromList
+    fromList = DescribeSpotInstanceRequestsResponse . fromList
     toList   = toList . _dsirrSpotInstanceRequests
 
--- | 'DescribeSpotInstanceRequestsResult' constructor.
+-- | 'DescribeSpotInstanceRequestsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsirrSpotInstanceRequests' @::@ ['SpotInstanceRequest']
 --
-describeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResult
-describeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResult
+describeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResponse
+describeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse
     { _dsirrSpotInstanceRequests = mempty
     }
 
 -- | One or more Spot Instance requests.
-dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResult [SpotInstanceRequest]
+dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
 dsirrSpotInstanceRequests =
     lens _dsirrSpotInstanceRequests
         (\s a -> s { _dsirrSpotInstanceRequests = a })
 
-instance FromXML DescribeSpotInstanceRequestsResult where
+instance FromXML DescribeSpotInstanceRequestsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSpotInstanceRequestsResult"
+    fromXMLRoot    = fromRoot "DescribeSpotInstanceRequestsResponse"
 
 instance AWSRequest DescribeSpotInstanceRequests where
     type Sv DescribeSpotInstanceRequests = EC2
-    type Rs DescribeSpotInstanceRequests = DescribeSpotInstanceRequestsResult
+    type Rs DescribeSpotInstanceRequests = DescribeSpotInstanceRequestsResponse
 
     request  = post "DescribeSpotInstanceRequests"
-    response = xmlResponse $ \h x -> DescribeSpotInstanceRequestsResult
+    response = xmlResponse $ \h x -> DescribeSpotInstanceRequestsResponse
         <$> x %| "spotInstanceRequestSet"

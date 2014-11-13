@@ -26,110 +26,110 @@
 module Network.AWS.AutoScaling.EnterStandby
     (
     -- * Request
-      EnterStandbyQuery
+      EnterStandby
     -- ** Request constructor
     , enterStandby
     -- ** Request lenses
-    , esqAutoScalingGroupName
-    , esqInstanceIds
-    , esqShouldDecrementDesiredCapacity
+    , esAutoScalingGroupName
+    , esInstanceIds
+    , esShouldDecrementDesiredCapacity
 
     -- * Response
-    , EnterStandbyAnswer
+    , EnterStandbyResponse
     -- ** Response constructor
     , enterStandbyResponse
     -- ** Response lenses
-    , esaActivities
+    , esr1Activities
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data EnterStandbyQuery = EnterStandbyQuery
-    { _esqAutoScalingGroupName           :: Text
-    , _esqInstanceIds                    :: [Text]
-    , _esqShouldDecrementDesiredCapacity :: Bool
+data EnterStandby = EnterStandby
+    { _esAutoScalingGroupName           :: Text
+    , _esInstanceIds                    :: [Text]
+    , _esShouldDecrementDesiredCapacity :: Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'EnterStandbyQuery' constructor.
+-- | 'EnterStandby' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'esqAutoScalingGroupName' @::@ 'Text'
+-- * 'esAutoScalingGroupName' @::@ 'Text'
 --
--- * 'esqInstanceIds' @::@ ['Text']
+-- * 'esInstanceIds' @::@ ['Text']
 --
--- * 'esqShouldDecrementDesiredCapacity' @::@ 'Bool'
+-- * 'esShouldDecrementDesiredCapacity' @::@ 'Bool'
 --
-enterStandby :: Text -- ^ 'esqAutoScalingGroupName'
-             -> Bool -- ^ 'esqShouldDecrementDesiredCapacity'
-             -> EnterStandbyQuery
-enterStandby p1 p2 = EnterStandbyQuery
-    { _esqAutoScalingGroupName           = p1
-    , _esqShouldDecrementDesiredCapacity = p2
-    , _esqInstanceIds                    = mempty
+enterStandby :: Text -- ^ 'esAutoScalingGroupName'
+             -> Bool -- ^ 'esShouldDecrementDesiredCapacity'
+             -> EnterStandby
+enterStandby p1 p2 = EnterStandby
+    { _esAutoScalingGroupName           = p1
+    , _esShouldDecrementDesiredCapacity = p2
+    , _esInstanceIds                    = mempty
     }
 
 -- | The name of the Auto Scaling group from which to move instances into
 -- Standby mode.
-esqAutoScalingGroupName :: Lens' EnterStandbyQuery Text
-esqAutoScalingGroupName =
-    lens _esqAutoScalingGroupName (\s a -> s { _esqAutoScalingGroupName = a })
+esAutoScalingGroupName :: Lens' EnterStandby Text
+esAutoScalingGroupName =
+    lens _esAutoScalingGroupName (\s a -> s { _esAutoScalingGroupName = a })
 
 -- | The instances to move into Standby mode. You must specify at least one
 -- instance ID.
-esqInstanceIds :: Lens' EnterStandbyQuery [Text]
-esqInstanceIds = lens _esqInstanceIds (\s a -> s { _esqInstanceIds = a })
+esInstanceIds :: Lens' EnterStandby [Text]
+esInstanceIds = lens _esInstanceIds (\s a -> s { _esInstanceIds = a })
 
 -- | Specifies whether the instances moved to Standby mode count as part of
 -- the Auto Scaling group's desired capacity. If set, the desired capacity
 -- for the Auto Scaling group decrements by the number of instances moved to
 -- Standby mode.
-esqShouldDecrementDesiredCapacity :: Lens' EnterStandbyQuery Bool
-esqShouldDecrementDesiredCapacity =
-    lens _esqShouldDecrementDesiredCapacity
-        (\s a -> s { _esqShouldDecrementDesiredCapacity = a })
+esShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
+esShouldDecrementDesiredCapacity =
+    lens _esShouldDecrementDesiredCapacity
+        (\s a -> s { _esShouldDecrementDesiredCapacity = a })
 
-instance ToQuery EnterStandbyQuery
+instance ToQuery EnterStandby
 
-instance ToPath EnterStandbyQuery where
+instance ToPath EnterStandby where
     toPath = const "/"
 
-newtype EnterStandbyAnswer = EnterStandbyAnswer
-    { _esaActivities :: [Activity]
+newtype EnterStandbyResponse = EnterStandbyResponse
+    { _esr1Activities :: [Activity]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList EnterStandbyAnswer where
-    type Item EnterStandbyAnswer = Activity
+instance IsList EnterStandbyResponse where
+    type Item EnterStandbyResponse = Activity
 
-    fromList = EnterStandbyAnswer . fromList
-    toList   = toList . _esaActivities
+    fromList = EnterStandbyResponse . fromList
+    toList   = toList . _esr1Activities
 
--- | 'EnterStandbyAnswer' constructor.
+-- | 'EnterStandbyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'esaActivities' @::@ ['Activity']
+-- * 'esr1Activities' @::@ ['Activity']
 --
-enterStandbyResponse :: EnterStandbyAnswer
-enterStandbyResponse = EnterStandbyAnswer
-    { _esaActivities = mempty
+enterStandbyResponse :: EnterStandbyResponse
+enterStandbyResponse = EnterStandbyResponse
+    { _esr1Activities = mempty
     }
 
 -- | A list describing the activities related to moving instances into Standby
 -- mode.
-esaActivities :: Lens' EnterStandbyAnswer [Activity]
-esaActivities = lens _esaActivities (\s a -> s { _esaActivities = a })
+esr1Activities :: Lens' EnterStandbyResponse [Activity]
+esr1Activities = lens _esr1Activities (\s a -> s { _esr1Activities = a })
 
-instance FromXML EnterStandbyAnswer where
+instance FromXML EnterStandbyResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnterStandbyAnswer"
+    fromXMLRoot    = fromRoot "EnterStandbyResponse"
 
-instance AWSRequest EnterStandbyQuery where
-    type Sv EnterStandbyQuery = AutoScaling
-    type Rs EnterStandbyQuery = EnterStandbyAnswer
+instance AWSRequest EnterStandby where
+    type Sv EnterStandby = AutoScaling
+    type Rs EnterStandby = EnterStandbyResponse
 
     request  = post "EnterStandby"
-    response = xmlResponse $ \h x -> EnterStandbyAnswer
+    response = xmlResponse $ \h x -> EnterStandbyResponse
         <$> x %| "Activities"

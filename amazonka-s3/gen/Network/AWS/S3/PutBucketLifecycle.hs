@@ -29,9 +29,9 @@ module Network.AWS.S3.PutBucketLifecycle
     -- ** Request constructor
     , putBucketLifecycle
     -- ** Request lenses
-    , pblBucket
-    , pblContentMD5
-    , pblLifecycleConfiguration
+    , pbl1Bucket
+    , pbl1ContentMD5
+    , pbl1LifecycleConfiguration
 
     -- * Response
     , PutBucketLifecycleResponse
@@ -44,44 +44,44 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketLifecycle = PutBucketLifecycle
-    { _pblBucket                 :: Text
-    , _pblContentMD5             :: Maybe Text
-    , _pblLifecycleConfiguration :: Maybe LifecycleConfiguration
+    { _pbl1Bucket                 :: Text
+    , _pbl1ContentMD5             :: Maybe Text
+    , _pbl1LifecycleConfiguration :: Maybe LifecycleConfiguration
     } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketLifecycle' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pblBucket' @::@ 'Text'
+-- * 'pbl1Bucket' @::@ 'Text'
 --
--- * 'pblContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pbl1ContentMD5' @::@ 'Maybe' 'Text'
 --
--- * 'pblLifecycleConfiguration' @::@ 'Maybe' 'LifecycleConfiguration'
+-- * 'pbl1LifecycleConfiguration' @::@ 'Maybe' 'LifecycleConfiguration'
 --
-putBucketLifecycle :: Text -- ^ 'pblBucket'
+putBucketLifecycle :: Text -- ^ 'pbl1Bucket'
                    -> PutBucketLifecycle
 putBucketLifecycle p1 = PutBucketLifecycle
-    { _pblBucket                 = p1
-    , _pblContentMD5             = Nothing
-    , _pblLifecycleConfiguration = Nothing
+    { _pbl1Bucket                 = p1
+    , _pbl1ContentMD5             = Nothing
+    , _pbl1LifecycleConfiguration = Nothing
     }
 
-pblBucket :: Lens' PutBucketLifecycle Text
-pblBucket = lens _pblBucket (\s a -> s { _pblBucket = a })
+pbl1Bucket :: Lens' PutBucketLifecycle Text
+pbl1Bucket = lens _pbl1Bucket (\s a -> s { _pbl1Bucket = a })
 
-pblContentMD5 :: Lens' PutBucketLifecycle (Maybe Text)
-pblContentMD5 = lens _pblContentMD5 (\s a -> s { _pblContentMD5 = a })
+pbl1ContentMD5 :: Lens' PutBucketLifecycle (Maybe Text)
+pbl1ContentMD5 = lens _pbl1ContentMD5 (\s a -> s { _pbl1ContentMD5 = a })
 
-pblLifecycleConfiguration :: Lens' PutBucketLifecycle (Maybe LifecycleConfiguration)
-pblLifecycleConfiguration =
-    lens _pblLifecycleConfiguration
-        (\s a -> s { _pblLifecycleConfiguration = a })
+pbl1LifecycleConfiguration :: Lens' PutBucketLifecycle (Maybe LifecycleConfiguration)
+pbl1LifecycleConfiguration =
+    lens _pbl1LifecycleConfiguration
+        (\s a -> s { _pbl1LifecycleConfiguration = a })
 
 instance ToPath PutBucketLifecycle where
     toPath PutBucketLifecycle{..} = mconcat
         [ "/"
-        , toText _pblBucket
+        , toText _pbl1Bucket
         ]
 
 instance ToQuery PutBucketLifecycle where
@@ -89,11 +89,11 @@ instance ToQuery PutBucketLifecycle where
 
 instance ToHeaders PutBucketLifecycle where
     toHeaders PutBucketLifecycle{..} = mconcat
-        [ "Content-MD5" =: _pblContentMD5
+        [ "Content-MD5" =: _pbl1ContentMD5
         ]
 
 instance ToBody PutBucketLifecycle where
-    toBody = toBody . encodeXML . _pblLifecycleConfiguration
+    toBody = toBody . encodeXML . _pbl1LifecycleConfiguration
 
 data PutBucketLifecycleResponse = PutBucketLifecycleResponse
     deriving (Eq, Ord, Show, Generic)

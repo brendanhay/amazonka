@@ -25,13 +25,13 @@
 module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     (
     -- * Request
-      SetLoadBalancerPoliciesOfListenerInput
+      SetLoadBalancerPoliciesOfListener
     -- ** Request constructor
     , setLoadBalancerPoliciesOfListener
     -- ** Request lenses
-    , slbpoliLoadBalancerName
-    , slbpoliLoadBalancerPort
-    , slbpoliPolicyNames
+    , slbpolLoadBalancerName
+    , slbpolLoadBalancerPort
+    , slbpolPolicyNames
 
     -- * Response
     , SetLoadBalancerPoliciesOfListenerResponse
@@ -43,50 +43,50 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data SetLoadBalancerPoliciesOfListenerInput = SetLoadBalancerPoliciesOfListenerInput
-    { _slbpoliLoadBalancerName :: Text
-    , _slbpoliLoadBalancerPort :: Int
-    , _slbpoliPolicyNames      :: [Text]
+data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener
+    { _slbpolLoadBalancerName :: Text
+    , _slbpolLoadBalancerPort :: Int
+    , _slbpolPolicyNames      :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'SetLoadBalancerPoliciesOfListenerInput' constructor.
+-- | 'SetLoadBalancerPoliciesOfListener' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'slbpoliLoadBalancerName' @::@ 'Text'
+-- * 'slbpolLoadBalancerName' @::@ 'Text'
 --
--- * 'slbpoliLoadBalancerPort' @::@ 'Int'
+-- * 'slbpolLoadBalancerPort' @::@ 'Int'
 --
--- * 'slbpoliPolicyNames' @::@ ['Text']
+-- * 'slbpolPolicyNames' @::@ ['Text']
 --
-setLoadBalancerPoliciesOfListener :: Text -- ^ 'slbpoliLoadBalancerName'
-                                  -> Int -- ^ 'slbpoliLoadBalancerPort'
-                                  -> SetLoadBalancerPoliciesOfListenerInput
-setLoadBalancerPoliciesOfListener p1 p2 = SetLoadBalancerPoliciesOfListenerInput
-    { _slbpoliLoadBalancerName = p1
-    , _slbpoliLoadBalancerPort = p2
-    , _slbpoliPolicyNames      = mempty
+setLoadBalancerPoliciesOfListener :: Text -- ^ 'slbpolLoadBalancerName'
+                                  -> Int -- ^ 'slbpolLoadBalancerPort'
+                                  -> SetLoadBalancerPoliciesOfListener
+setLoadBalancerPoliciesOfListener p1 p2 = SetLoadBalancerPoliciesOfListener
+    { _slbpolLoadBalancerName = p1
+    , _slbpolLoadBalancerPort = p2
+    , _slbpolPolicyNames      = mempty
     }
 
 -- | The name of the load balancer.
-slbpoliLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListenerInput Text
-slbpoliLoadBalancerName =
-    lens _slbpoliLoadBalancerName (\s a -> s { _slbpoliLoadBalancerName = a })
+slbpolLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text
+slbpolLoadBalancerName =
+    lens _slbpolLoadBalancerName (\s a -> s { _slbpolLoadBalancerName = a })
 
 -- | The external port of the load balancer to associate the policy.
-slbpoliLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListenerInput Int
-slbpoliLoadBalancerPort =
-    lens _slbpoliLoadBalancerPort (\s a -> s { _slbpoliLoadBalancerPort = a })
+slbpolLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener Int
+slbpolLoadBalancerPort =
+    lens _slbpolLoadBalancerPort (\s a -> s { _slbpolLoadBalancerPort = a })
 
 -- | List of policies to be associated with the listener. If the list is
 -- empty, the current policy is removed from the listener.
-slbpoliPolicyNames :: Lens' SetLoadBalancerPoliciesOfListenerInput [Text]
-slbpoliPolicyNames =
-    lens _slbpoliPolicyNames (\s a -> s { _slbpoliPolicyNames = a })
+slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
+slbpolPolicyNames =
+    lens _slbpolPolicyNames (\s a -> s { _slbpolPolicyNames = a })
 
-instance ToQuery SetLoadBalancerPoliciesOfListenerInput
+instance ToQuery SetLoadBalancerPoliciesOfListener
 
-instance ToPath SetLoadBalancerPoliciesOfListenerInput where
+instance ToPath SetLoadBalancerPoliciesOfListener where
     toPath = const "/"
 
 data SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse
@@ -100,9 +100,9 @@ instance FromXML SetLoadBalancerPoliciesOfListenerResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetLoadBalancerPoliciesOfListenerResponse"
 
-instance AWSRequest SetLoadBalancerPoliciesOfListenerInput where
-    type Sv SetLoadBalancerPoliciesOfListenerInput = ELB
-    type Rs SetLoadBalancerPoliciesOfListenerInput = SetLoadBalancerPoliciesOfListenerResponse
+instance AWSRequest SetLoadBalancerPoliciesOfListener where
+    type Sv SetLoadBalancerPoliciesOfListener = ELB
+    type Rs SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListenerResponse
 
     request  = post "SetLoadBalancerPoliciesOfListener"
     response = nullaryResponse SetLoadBalancerPoliciesOfListenerResponse

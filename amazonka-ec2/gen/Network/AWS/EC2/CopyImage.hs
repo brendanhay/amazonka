@@ -40,7 +40,7 @@ module Network.AWS.EC2.CopyImage
     , ciSourceRegion
 
     -- * Response
-    , CopyImageResult
+    , CopyImageResponse
     -- ** Response constructor
     , copyImageResponse
     -- ** Response lenses
@@ -119,33 +119,33 @@ instance ToQuery CopyImage
 instance ToPath CopyImage where
     toPath = const "/"
 
-newtype CopyImageResult = CopyImageResult
+newtype CopyImageResponse = CopyImageResponse
     { _cir1ImageId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'CopyImageResult' constructor.
+-- | 'CopyImageResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cir1ImageId' @::@ 'Maybe' 'Text'
 --
-copyImageResponse :: CopyImageResult
-copyImageResponse = CopyImageResult
+copyImageResponse :: CopyImageResponse
+copyImageResponse = CopyImageResponse
     { _cir1ImageId = Nothing
     }
 
 -- | The ID of the new AMI.
-cir1ImageId :: Lens' CopyImageResult (Maybe Text)
+cir1ImageId :: Lens' CopyImageResponse (Maybe Text)
 cir1ImageId = lens _cir1ImageId (\s a -> s { _cir1ImageId = a })
 
-instance FromXML CopyImageResult where
+instance FromXML CopyImageResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopyImageResult"
+    fromXMLRoot    = fromRoot "CopyImageResponse"
 
 instance AWSRequest CopyImage where
     type Sv CopyImage = EC2
-    type Rs CopyImage = CopyImageResult
+    type Rs CopyImage = CopyImageResponse
 
     request  = post "CopyImage"
-    response = xmlResponse $ \h x -> CopyImageResult
+    response = xmlResponse $ \h x -> CopyImageResponse
         <$> x %| "imageId"

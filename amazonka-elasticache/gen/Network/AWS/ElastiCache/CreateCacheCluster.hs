@@ -26,34 +26,34 @@
 module Network.AWS.ElastiCache.CreateCacheCluster
     (
     -- * Request
-      CreateCacheClusterMessage
+      CreateCacheCluster
     -- ** Request constructor
     , createCacheCluster
     -- ** Request lenses
-    , cccmAZMode
-    , cccmAutoMinorVersionUpgrade
-    , cccmCacheClusterId
-    , cccmCacheNodeType
-    , cccmCacheParameterGroupName
-    , cccmCacheSecurityGroupNames
-    , cccmCacheSubnetGroupName
-    , cccmEngine
-    , cccmEngineVersion
-    , cccmNotificationTopicArn
-    , cccmNumCacheNodes
-    , cccmPort
-    , cccmPreferredAvailabilityZone
-    , cccmPreferredAvailabilityZones
-    , cccmPreferredMaintenanceWindow
-    , cccmReplicationGroupId
-    , cccmSecurityGroupIds
-    , cccmSnapshotArns
-    , cccmSnapshotName
-    , cccmSnapshotRetentionLimit
-    , cccmSnapshotWindow
+    , cccAZMode
+    , cccAutoMinorVersionUpgrade
+    , cccCacheClusterId
+    , cccCacheNodeType
+    , cccCacheParameterGroupName
+    , cccCacheSecurityGroupNames
+    , cccCacheSubnetGroupName
+    , cccEngine
+    , cccEngineVersion
+    , cccNotificationTopicArn
+    , cccNumCacheNodes
+    , cccPort
+    , cccPreferredAvailabilityZone
+    , cccPreferredAvailabilityZones
+    , cccPreferredMaintenanceWindow
+    , cccReplicationGroupId
+    , cccSecurityGroupIds
+    , cccSnapshotArns
+    , cccSnapshotName
+    , cccSnapshotRetentionLimit
+    , cccSnapshotWindow
 
     -- * Response
-    , CreateCacheClusterResult
+    , CreateCacheClusterResponse
     -- ** Response constructor
     , createCacheClusterResponse
     -- ** Response lenses
@@ -64,100 +64,100 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data CreateCacheClusterMessage = CreateCacheClusterMessage
-    { _cccmAZMode                     :: Maybe Text
-    , _cccmAutoMinorVersionUpgrade    :: Maybe Bool
-    , _cccmCacheClusterId             :: Text
-    , _cccmCacheNodeType              :: Maybe Text
-    , _cccmCacheParameterGroupName    :: Maybe Text
-    , _cccmCacheSecurityGroupNames    :: [Text]
-    , _cccmCacheSubnetGroupName       :: Maybe Text
-    , _cccmEngine                     :: Maybe Text
-    , _cccmEngineVersion              :: Maybe Text
-    , _cccmNotificationTopicArn       :: Maybe Text
-    , _cccmNumCacheNodes              :: Maybe Int
-    , _cccmPort                       :: Maybe Int
-    , _cccmPreferredAvailabilityZone  :: Maybe Text
-    , _cccmPreferredAvailabilityZones :: [Text]
-    , _cccmPreferredMaintenanceWindow :: Maybe Text
-    , _cccmReplicationGroupId         :: Maybe Text
-    , _cccmSecurityGroupIds           :: [Text]
-    , _cccmSnapshotArns               :: [Text]
-    , _cccmSnapshotName               :: Maybe Text
-    , _cccmSnapshotRetentionLimit     :: Maybe Int
-    , _cccmSnapshotWindow             :: Maybe Text
+data CreateCacheCluster = CreateCacheCluster
+    { _cccAZMode                     :: Maybe Text
+    , _cccAutoMinorVersionUpgrade    :: Maybe Bool
+    , _cccCacheClusterId             :: Text
+    , _cccCacheNodeType              :: Maybe Text
+    , _cccCacheParameterGroupName    :: Maybe Text
+    , _cccCacheSecurityGroupNames    :: [Text]
+    , _cccCacheSubnetGroupName       :: Maybe Text
+    , _cccEngine                     :: Maybe Text
+    , _cccEngineVersion              :: Maybe Text
+    , _cccNotificationTopicArn       :: Maybe Text
+    , _cccNumCacheNodes              :: Maybe Int
+    , _cccPort                       :: Maybe Int
+    , _cccPreferredAvailabilityZone  :: Maybe Text
+    , _cccPreferredAvailabilityZones :: [Text]
+    , _cccPreferredMaintenanceWindow :: Maybe Text
+    , _cccReplicationGroupId         :: Maybe Text
+    , _cccSecurityGroupIds           :: [Text]
+    , _cccSnapshotArns               :: [Text]
+    , _cccSnapshotName               :: Maybe Text
+    , _cccSnapshotRetentionLimit     :: Maybe Int
+    , _cccSnapshotWindow             :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CreateCacheClusterMessage' constructor.
+-- | 'CreateCacheCluster' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cccmAZMode' @::@ 'Maybe' 'Text'
+-- * 'cccAZMode' @::@ 'Maybe' 'Text'
 --
--- * 'cccmAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
+-- * 'cccAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
 --
--- * 'cccmCacheClusterId' @::@ 'Text'
+-- * 'cccCacheClusterId' @::@ 'Text'
 --
--- * 'cccmCacheNodeType' @::@ 'Maybe' 'Text'
+-- * 'cccCacheNodeType' @::@ 'Maybe' 'Text'
 --
--- * 'cccmCacheParameterGroupName' @::@ 'Maybe' 'Text'
+-- * 'cccCacheParameterGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'cccmCacheSecurityGroupNames' @::@ ['Text']
+-- * 'cccCacheSecurityGroupNames' @::@ ['Text']
 --
--- * 'cccmCacheSubnetGroupName' @::@ 'Maybe' 'Text'
+-- * 'cccCacheSubnetGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'cccmEngine' @::@ 'Maybe' 'Text'
+-- * 'cccEngine' @::@ 'Maybe' 'Text'
 --
--- * 'cccmEngineVersion' @::@ 'Maybe' 'Text'
+-- * 'cccEngineVersion' @::@ 'Maybe' 'Text'
 --
--- * 'cccmNotificationTopicArn' @::@ 'Maybe' 'Text'
+-- * 'cccNotificationTopicArn' @::@ 'Maybe' 'Text'
 --
--- * 'cccmNumCacheNodes' @::@ 'Maybe' 'Int'
+-- * 'cccNumCacheNodes' @::@ 'Maybe' 'Int'
 --
--- * 'cccmPort' @::@ 'Maybe' 'Int'
+-- * 'cccPort' @::@ 'Maybe' 'Int'
 --
--- * 'cccmPreferredAvailabilityZone' @::@ 'Maybe' 'Text'
+-- * 'cccPreferredAvailabilityZone' @::@ 'Maybe' 'Text'
 --
--- * 'cccmPreferredAvailabilityZones' @::@ ['Text']
+-- * 'cccPreferredAvailabilityZones' @::@ ['Text']
 --
--- * 'cccmPreferredMaintenanceWindow' @::@ 'Maybe' 'Text'
+-- * 'cccPreferredMaintenanceWindow' @::@ 'Maybe' 'Text'
 --
--- * 'cccmReplicationGroupId' @::@ 'Maybe' 'Text'
+-- * 'cccReplicationGroupId' @::@ 'Maybe' 'Text'
 --
--- * 'cccmSecurityGroupIds' @::@ ['Text']
+-- * 'cccSecurityGroupIds' @::@ ['Text']
 --
--- * 'cccmSnapshotArns' @::@ ['Text']
+-- * 'cccSnapshotArns' @::@ ['Text']
 --
--- * 'cccmSnapshotName' @::@ 'Maybe' 'Text'
+-- * 'cccSnapshotName' @::@ 'Maybe' 'Text'
 --
--- * 'cccmSnapshotRetentionLimit' @::@ 'Maybe' 'Int'
+-- * 'cccSnapshotRetentionLimit' @::@ 'Maybe' 'Int'
 --
--- * 'cccmSnapshotWindow' @::@ 'Maybe' 'Text'
+-- * 'cccSnapshotWindow' @::@ 'Maybe' 'Text'
 --
-createCacheCluster :: Text -- ^ 'cccmCacheClusterId'
-                   -> CreateCacheClusterMessage
-createCacheCluster p1 = CreateCacheClusterMessage
-    { _cccmCacheClusterId             = p1
-    , _cccmReplicationGroupId         = Nothing
-    , _cccmAZMode                     = Nothing
-    , _cccmPreferredAvailabilityZone  = Nothing
-    , _cccmPreferredAvailabilityZones = mempty
-    , _cccmNumCacheNodes              = Nothing
-    , _cccmCacheNodeType              = Nothing
-    , _cccmEngine                     = Nothing
-    , _cccmEngineVersion              = Nothing
-    , _cccmCacheParameterGroupName    = Nothing
-    , _cccmCacheSubnetGroupName       = Nothing
-    , _cccmCacheSecurityGroupNames    = mempty
-    , _cccmSecurityGroupIds           = mempty
-    , _cccmSnapshotArns               = mempty
-    , _cccmSnapshotName               = Nothing
-    , _cccmPreferredMaintenanceWindow = Nothing
-    , _cccmPort                       = Nothing
-    , _cccmNotificationTopicArn       = Nothing
-    , _cccmAutoMinorVersionUpgrade    = Nothing
-    , _cccmSnapshotRetentionLimit     = Nothing
-    , _cccmSnapshotWindow             = Nothing
+createCacheCluster :: Text -- ^ 'cccCacheClusterId'
+                   -> CreateCacheCluster
+createCacheCluster p1 = CreateCacheCluster
+    { _cccCacheClusterId             = p1
+    , _cccReplicationGroupId         = Nothing
+    , _cccAZMode                     = Nothing
+    , _cccPreferredAvailabilityZone  = Nothing
+    , _cccPreferredAvailabilityZones = mempty
+    , _cccNumCacheNodes              = Nothing
+    , _cccCacheNodeType              = Nothing
+    , _cccEngine                     = Nothing
+    , _cccEngineVersion              = Nothing
+    , _cccCacheParameterGroupName    = Nothing
+    , _cccCacheSubnetGroupName       = Nothing
+    , _cccCacheSecurityGroupNames    = mempty
+    , _cccSecurityGroupIds           = mempty
+    , _cccSnapshotArns               = mempty
+    , _cccSnapshotName               = Nothing
+    , _cccPreferredMaintenanceWindow = Nothing
+    , _cccPort                       = Nothing
+    , _cccNotificationTopicArn       = Nothing
+    , _cccAutoMinorVersionUpgrade    = Nothing
+    , _cccSnapshotRetentionLimit     = Nothing
+    , _cccSnapshotWindow             = Nothing
     }
 
 -- | Specifies whether the nodes in this Memcached node group are created in a
@@ -165,25 +165,25 @@ createCacheCluster p1 = CreateCacheClusterMessage
 -- the cluster's region. This parameter is only supported for Memcached
 -- cache clusters. If the AZMode and PreferredAvailabilityZones are not
 -- specified, ElastiCache assumes single-az mode.
-cccmAZMode :: Lens' CreateCacheClusterMessage (Maybe Text)
-cccmAZMode = lens _cccmAZMode (\s a -> s { _cccmAZMode = a })
+cccAZMode :: Lens' CreateCacheCluster (Maybe Text)
+cccAZMode = lens _cccAZMode (\s a -> s { _cccAZMode = a })
 
 -- | Determines whether minor engine upgrades will be applied automatically to
 -- the node group during the maintenance window. A value of true allows
 -- these upgrades to occur; false disables automatic upgrades. Default:
 -- true.
-cccmAutoMinorVersionUpgrade :: Lens' CreateCacheClusterMessage (Maybe Bool)
-cccmAutoMinorVersionUpgrade =
-    lens _cccmAutoMinorVersionUpgrade
-        (\s a -> s { _cccmAutoMinorVersionUpgrade = a })
+cccAutoMinorVersionUpgrade :: Lens' CreateCacheCluster (Maybe Bool)
+cccAutoMinorVersionUpgrade =
+    lens _cccAutoMinorVersionUpgrade
+        (\s a -> s { _cccAutoMinorVersionUpgrade = a })
 
 -- | The node group identifier. This parameter is stored as a lowercase
 -- string. Constraints: A name must contain from 1 to 20 alphanumeric
 -- characters or hyphens. The first character must be a letter. A name
 -- cannot end with a hyphen or contain two consecutive hyphens.
-cccmCacheClusterId :: Lens' CreateCacheClusterMessage Text
-cccmCacheClusterId =
-    lens _cccmCacheClusterId (\s a -> s { _cccmCacheClusterId = a })
+cccCacheClusterId :: Lens' CreateCacheCluster Text
+cccCacheClusterId =
+    lens _cccCacheClusterId (\s a -> s { _cccCacheClusterId = a })
 
 -- | The compute and memory capacity of the nodes in the node group. Valid
 -- node types are as follows: General purpose: Current generation:
@@ -200,52 +200,48 @@ cccmCacheClusterId =
 -- node types and specifications, see Amazon ElastiCache Product Features
 -- and Details and Cache Node Type-Specific Parameters for Memcached or
 -- Cache Node Type-Specific Parameters for Redis.
-cccmCacheNodeType :: Lens' CreateCacheClusterMessage (Maybe Text)
-cccmCacheNodeType =
-    lens _cccmCacheNodeType (\s a -> s { _cccmCacheNodeType = a })
+cccCacheNodeType :: Lens' CreateCacheCluster (Maybe Text)
+cccCacheNodeType = lens _cccCacheNodeType (\s a -> s { _cccCacheNodeType = a })
 
 -- | The name of the parameter group to associate with this cache cluster. If
 -- this argument is omitted, the default parameter group for the specified
 -- engine is used.
-cccmCacheParameterGroupName :: Lens' CreateCacheClusterMessage (Maybe Text)
-cccmCacheParameterGroupName =
-    lens _cccmCacheParameterGroupName
-        (\s a -> s { _cccmCacheParameterGroupName = a })
+cccCacheParameterGroupName :: Lens' CreateCacheCluster (Maybe Text)
+cccCacheParameterGroupName =
+    lens _cccCacheParameterGroupName
+        (\s a -> s { _cccCacheParameterGroupName = a })
 
 -- | A list of security group names to associate with this cache cluster. Use
 -- this parameter only when you are creating a cache cluster outside of an
 -- Amazon Virtual Private Cloud (VPC).
-cccmCacheSecurityGroupNames :: Lens' CreateCacheClusterMessage [Text]
-cccmCacheSecurityGroupNames =
-    lens _cccmCacheSecurityGroupNames
-        (\s a -> s { _cccmCacheSecurityGroupNames = a })
+cccCacheSecurityGroupNames :: Lens' CreateCacheCluster [Text]
+cccCacheSecurityGroupNames =
+    lens _cccCacheSecurityGroupNames
+        (\s a -> s { _cccCacheSecurityGroupNames = a })
 
 -- | The name of the subnet group to be used for the cache cluster. Use this
 -- parameter only when you are creating a cache cluster in an Amazon Virtual
 -- Private Cloud (VPC).
-cccmCacheSubnetGroupName :: Lens' CreateCacheClusterMessage (Maybe Text)
-cccmCacheSubnetGroupName =
-    lens _cccmCacheSubnetGroupName
-        (\s a -> s { _cccmCacheSubnetGroupName = a })
+cccCacheSubnetGroupName :: Lens' CreateCacheCluster (Maybe Text)
+cccCacheSubnetGroupName =
+    lens _cccCacheSubnetGroupName (\s a -> s { _cccCacheSubnetGroupName = a })
 
 -- | The name of the cache engine to be used for this cache cluster. Valid
 -- values for this parameter are: memcached | redis.
-cccmEngine :: Lens' CreateCacheClusterMessage (Maybe Text)
-cccmEngine = lens _cccmEngine (\s a -> s { _cccmEngine = a })
+cccEngine :: Lens' CreateCacheCluster (Maybe Text)
+cccEngine = lens _cccEngine (\s a -> s { _cccEngine = a })
 
 -- | The version number of the cache engine to be used for this cache cluster.
 -- To view the supported cache engine versions, use the
 -- DescribeCacheEngineVersions operation.
-cccmEngineVersion :: Lens' CreateCacheClusterMessage (Maybe Text)
-cccmEngineVersion =
-    lens _cccmEngineVersion (\s a -> s { _cccmEngineVersion = a })
+cccEngineVersion :: Lens' CreateCacheCluster (Maybe Text)
+cccEngineVersion = lens _cccEngineVersion (\s a -> s { _cccEngineVersion = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic to which notifications will be sent.
-cccmNotificationTopicArn :: Lens' CreateCacheClusterMessage (Maybe Text)
-cccmNotificationTopicArn =
-    lens _cccmNotificationTopicArn
-        (\s a -> s { _cccmNotificationTopicArn = a })
+cccNotificationTopicArn :: Lens' CreateCacheCluster (Maybe Text)
+cccNotificationTopicArn =
+    lens _cccNotificationTopicArn (\s a -> s { _cccNotificationTopicArn = a })
 
 -- | The initial number of cache nodes that the cache cluster will have. For
 -- Memcached, valid values are between 1 and 20. If you need to exceed this
@@ -253,23 +249,22 @@ cccmNotificationTopicArn =
 -- http://aws.amazon.com/contact-us/elasticache-node-limit-request/. For
 -- Redis, only single-node cache cluster are supported at this time, so the
 -- value for this parameter must be 1.
-cccmNumCacheNodes :: Lens' CreateCacheClusterMessage (Maybe Int)
-cccmNumCacheNodes =
-    lens _cccmNumCacheNodes (\s a -> s { _cccmNumCacheNodes = a })
+cccNumCacheNodes :: Lens' CreateCacheCluster (Maybe Int)
+cccNumCacheNodes = lens _cccNumCacheNodes (\s a -> s { _cccNumCacheNodes = a })
 
 -- | The port number on which each of the cache nodes will accept connections.
-cccmPort :: Lens' CreateCacheClusterMessage (Maybe Int)
-cccmPort = lens _cccmPort (\s a -> s { _cccmPort = a })
+cccPort :: Lens' CreateCacheCluster (Maybe Int)
+cccPort = lens _cccPort (\s a -> s { _cccPort = a })
 
 -- | The EC2 Availability Zone in which the cache cluster will be created. All
 -- nodes belonging to this Memcached cache cluster are placed in the
 -- preferred Availability Zone. If you want to create your nodes across
 -- multiple Availability Zones, use PreferredAvailabilityZones. Default:
 -- System chosen Availability Zone.
-cccmPreferredAvailabilityZone :: Lens' CreateCacheClusterMessage (Maybe Text)
-cccmPreferredAvailabilityZone =
-    lens _cccmPreferredAvailabilityZone
-        (\s a -> s { _cccmPreferredAvailabilityZone = a })
+cccPreferredAvailabilityZone :: Lens' CreateCacheCluster (Maybe Text)
+cccPreferredAvailabilityZone =
+    lens _cccPreferredAvailabilityZone
+        (\s a -> s { _cccPreferredAvailabilityZone = a })
 
 -- | A list of the Availability Zones in which cache nodes will be created.
 -- The order of the zones in the list is not important. This option is only
@@ -282,17 +277,17 @@ cccmPreferredAvailabilityZone =
 -- Example: All three Memcached nodes in one Availability Zone:
 -- PreferredAvailabilityZones.member.1=us-east-1a&amp;PreferredAvailabilityZones.member.2=us-east-1a&amp;PreferredAvailabilityZones.member.3=us-east-1a.
 -- 
-cccmPreferredAvailabilityZones :: Lens' CreateCacheClusterMessage [Text]
-cccmPreferredAvailabilityZones =
-    lens _cccmPreferredAvailabilityZones
-        (\s a -> s { _cccmPreferredAvailabilityZones = a })
+cccPreferredAvailabilityZones :: Lens' CreateCacheCluster [Text]
+cccPreferredAvailabilityZones =
+    lens _cccPreferredAvailabilityZones
+        (\s a -> s { _cccPreferredAvailabilityZones = a })
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 -- Example: sun:05:00-sun:09:00.
-cccmPreferredMaintenanceWindow :: Lens' CreateCacheClusterMessage (Maybe Text)
-cccmPreferredMaintenanceWindow =
-    lens _cccmPreferredMaintenanceWindow
-        (\s a -> s { _cccmPreferredMaintenanceWindow = a })
+cccPreferredMaintenanceWindow :: Lens' CreateCacheCluster (Maybe Text)
+cccPreferredMaintenanceWindow =
+    lens _cccPreferredMaintenanceWindow
+        (\s a -> s { _cccPreferredMaintenanceWindow = a })
 
 -- | The ID of the replication group to which this cache cluster should
 -- belong. If this parameter is specified, the cache cluster will be added
@@ -303,16 +298,16 @@ cccmPreferredMaintenanceWindow =
 -- cluster will be created in availability zones that provide the best
 -- spread of read replicas across availability zones. Note: This parameter
 -- is only valid if the Engine parameter is redis.
-cccmReplicationGroupId :: Lens' CreateCacheClusterMessage (Maybe Text)
-cccmReplicationGroupId =
-    lens _cccmReplicationGroupId (\s a -> s { _cccmReplicationGroupId = a })
+cccReplicationGroupId :: Lens' CreateCacheCluster (Maybe Text)
+cccReplicationGroupId =
+    lens _cccReplicationGroupId (\s a -> s { _cccReplicationGroupId = a })
 
 -- | One or more VPC security groups associated with the cache cluster. Use
 -- this parameter only when you are creating a cache cluster in an Amazon
 -- Virtual Private Cloud (VPC).
-cccmSecurityGroupIds :: Lens' CreateCacheClusterMessage [Text]
-cccmSecurityGroupIds =
-    lens _cccmSecurityGroupIds (\s a -> s { _cccmSecurityGroupIds = a })
+cccSecurityGroupIds :: Lens' CreateCacheCluster [Text]
+cccSecurityGroupIds =
+    lens _cccSecurityGroupIds (\s a -> s { _cccSecurityGroupIds = a })
 
 -- | A single-element string list containing an Amazon Resource Name (ARN)
 -- that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.
@@ -320,15 +315,15 @@ cccmSecurityGroupIds =
 -- object name in the ARN cannot contain any commas. Note: This parameter is
 -- only valid if the Engine parameter is redis. Example of an Amazon S3 ARN:
 -- arn:aws:s3:::my_bucket/snapshot1.rdb.
-cccmSnapshotArns :: Lens' CreateCacheClusterMessage [Text]
-cccmSnapshotArns = lens _cccmSnapshotArns (\s a -> s { _cccmSnapshotArns = a })
+cccSnapshotArns :: Lens' CreateCacheCluster [Text]
+cccSnapshotArns = lens _cccSnapshotArns (\s a -> s { _cccSnapshotArns = a })
 
 -- | The name of a snapshot from which to restore data into the new node
 -- group. The snapshot status changes to restoring while the new node group
 -- is being created. Note: This parameter is only valid if the Engine
 -- parameter is redis.
-cccmSnapshotName :: Lens' CreateCacheClusterMessage (Maybe Text)
-cccmSnapshotName = lens _cccmSnapshotName (\s a -> s { _cccmSnapshotName = a })
+cccSnapshotName :: Lens' CreateCacheCluster (Maybe Text)
+cccSnapshotName = lens _cccSnapshotName (\s a -> s { _cccSnapshotName = a })
 
 -- | The number of days for which ElastiCache will retain automatic snapshots
 -- before deleting them. For example, if you set SnapshotRetentionLimit to
@@ -336,51 +331,51 @@ cccmSnapshotName = lens _cccmSnapshotName (\s a -> s { _cccmSnapshotName = a })
 -- before being deleted. Note: This parameter is only valid if the Engine
 -- parameter is redis. Default: 0 (i.e., automatic backups are disabled for
 -- this cache cluster).
-cccmSnapshotRetentionLimit :: Lens' CreateCacheClusterMessage (Maybe Int)
-cccmSnapshotRetentionLimit =
-    lens _cccmSnapshotRetentionLimit
-        (\s a -> s { _cccmSnapshotRetentionLimit = a })
+cccSnapshotRetentionLimit :: Lens' CreateCacheCluster (Maybe Int)
+cccSnapshotRetentionLimit =
+    lens _cccSnapshotRetentionLimit
+        (\s a -> s { _cccSnapshotRetentionLimit = a })
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
 -- a daily snapshot of your node group. Example: 05:00-09:00 If you do not
 -- specify this parameter, then ElastiCache will automatically choose an
 -- appropriate time range. Note: This parameter is only valid if the Engine
 -- parameter is redis.
-cccmSnapshotWindow :: Lens' CreateCacheClusterMessage (Maybe Text)
-cccmSnapshotWindow =
-    lens _cccmSnapshotWindow (\s a -> s { _cccmSnapshotWindow = a })
+cccSnapshotWindow :: Lens' CreateCacheCluster (Maybe Text)
+cccSnapshotWindow =
+    lens _cccSnapshotWindow (\s a -> s { _cccSnapshotWindow = a })
 
-instance ToQuery CreateCacheClusterMessage
+instance ToQuery CreateCacheCluster
 
-instance ToPath CreateCacheClusterMessage where
+instance ToPath CreateCacheCluster where
     toPath = const "/"
 
-newtype CreateCacheClusterResult = CreateCacheClusterResult
+newtype CreateCacheClusterResponse = CreateCacheClusterResponse
     { _cccrCacheCluster :: Maybe CacheCluster
     } deriving (Eq, Show, Generic)
 
--- | 'CreateCacheClusterResult' constructor.
+-- | 'CreateCacheClusterResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cccrCacheCluster' @::@ 'Maybe' 'CacheCluster'
 --
-createCacheClusterResponse :: CreateCacheClusterResult
-createCacheClusterResponse = CreateCacheClusterResult
+createCacheClusterResponse :: CreateCacheClusterResponse
+createCacheClusterResponse = CreateCacheClusterResponse
     { _cccrCacheCluster = Nothing
     }
 
-cccrCacheCluster :: Lens' CreateCacheClusterResult (Maybe CacheCluster)
+cccrCacheCluster :: Lens' CreateCacheClusterResponse (Maybe CacheCluster)
 cccrCacheCluster = lens _cccrCacheCluster (\s a -> s { _cccrCacheCluster = a })
 
-instance FromXML CreateCacheClusterResult where
+instance FromXML CreateCacheClusterResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateCacheClusterResult"
+    fromXMLRoot    = fromRoot "CreateCacheClusterResponse"
 
-instance AWSRequest CreateCacheClusterMessage where
-    type Sv CreateCacheClusterMessage = ElastiCache
-    type Rs CreateCacheClusterMessage = CreateCacheClusterResult
+instance AWSRequest CreateCacheCluster where
+    type Sv CreateCacheCluster = ElastiCache
+    type Rs CreateCacheCluster = CreateCacheClusterResponse
 
     request  = post "CreateCacheCluster"
-    response = xmlResponse $ \h x -> CreateCacheClusterResult
+    response = xmlResponse $ \h x -> CreateCacheClusterResponse
         <$> x %| "CacheCluster"

@@ -33,7 +33,7 @@ module Network.AWS.SimpleDB.DomainMetadata
     , dmDomainName
 
     -- * Response
-    , DomainMetadataResult
+    , DomainMetadataResponse
     -- ** Response constructor
     , domainMetadataResponse
     -- ** Response lenses
@@ -75,7 +75,7 @@ instance ToQuery DomainMetadata
 instance ToPath DomainMetadata where
     toPath = const "/"
 
-data DomainMetadataResult = DomainMetadataResult
+data DomainMetadataResponse = DomainMetadataResponse
     { _dmrAttributeNameCount       :: Maybe Int
     , _dmrAttributeNamesSizeBytes  :: Maybe Integer
     , _dmrAttributeValueCount      :: Maybe Int
@@ -85,7 +85,7 @@ data DomainMetadataResult = DomainMetadataResult
     , _dmrTimestamp                :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DomainMetadataResult' constructor.
+-- | 'DomainMetadataResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -103,8 +103,8 @@ data DomainMetadataResult = DomainMetadataResult
 --
 -- * 'dmrTimestamp' @::@ 'Maybe' 'Int'
 --
-domainMetadataResponse :: DomainMetadataResult
-domainMetadataResponse = DomainMetadataResult
+domainMetadataResponse :: DomainMetadataResponse
+domainMetadataResponse = DomainMetadataResponse
     { _dmrItemCount                = Nothing
     , _dmrItemNamesSizeBytes       = Nothing
     , _dmrAttributeNameCount       = Nothing
@@ -115,50 +115,50 @@ domainMetadataResponse = DomainMetadataResult
     }
 
 -- | The number of unique attribute names in the domain.
-dmrAttributeNameCount :: Lens' DomainMetadataResult (Maybe Int)
+dmrAttributeNameCount :: Lens' DomainMetadataResponse (Maybe Int)
 dmrAttributeNameCount =
     lens _dmrAttributeNameCount (\s a -> s { _dmrAttributeNameCount = a })
 
 -- | The total size of all unique attribute names in the domain, in bytes.
-dmrAttributeNamesSizeBytes :: Lens' DomainMetadataResult (Maybe Integer)
+dmrAttributeNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
 dmrAttributeNamesSizeBytes =
     lens _dmrAttributeNamesSizeBytes
         (\s a -> s { _dmrAttributeNamesSizeBytes = a })
 
 -- | The number of all attribute name/value pairs in the domain.
-dmrAttributeValueCount :: Lens' DomainMetadataResult (Maybe Int)
+dmrAttributeValueCount :: Lens' DomainMetadataResponse (Maybe Int)
 dmrAttributeValueCount =
     lens _dmrAttributeValueCount (\s a -> s { _dmrAttributeValueCount = a })
 
 -- | The total size of all attribute values in the domain, in bytes.
-dmrAttributeValuesSizeBytes :: Lens' DomainMetadataResult (Maybe Integer)
+dmrAttributeValuesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
 dmrAttributeValuesSizeBytes =
     lens _dmrAttributeValuesSizeBytes
         (\s a -> s { _dmrAttributeValuesSizeBytes = a })
 
 -- | The number of all items in the domain.
-dmrItemCount :: Lens' DomainMetadataResult (Maybe Int)
+dmrItemCount :: Lens' DomainMetadataResponse (Maybe Int)
 dmrItemCount = lens _dmrItemCount (\s a -> s { _dmrItemCount = a })
 
 -- | The total size of all item names in the domain, in bytes.
-dmrItemNamesSizeBytes :: Lens' DomainMetadataResult (Maybe Integer)
+dmrItemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
 dmrItemNamesSizeBytes =
     lens _dmrItemNamesSizeBytes (\s a -> s { _dmrItemNamesSizeBytes = a })
 
 -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
-dmrTimestamp :: Lens' DomainMetadataResult (Maybe Int)
+dmrTimestamp :: Lens' DomainMetadataResponse (Maybe Int)
 dmrTimestamp = lens _dmrTimestamp (\s a -> s { _dmrTimestamp = a })
 
-instance FromXML DomainMetadataResult where
+instance FromXML DomainMetadataResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DomainMetadataResult"
+    fromXMLRoot    = fromRoot "DomainMetadataResponse"
 
 instance AWSRequest DomainMetadata where
     type Sv DomainMetadata = SimpleDB
-    type Rs DomainMetadata = DomainMetadataResult
+    type Rs DomainMetadata = DomainMetadataResponse
 
     request  = post "DomainMetadata"
-    response = xmlResponse $ \h x -> DomainMetadataResult
+    response = xmlResponse $ \h x -> DomainMetadataResponse
         <$> x %| "AttributeNameCount"
         <*> x %| "AttributeNamesSizeBytes"
         <*> x %| "AttributeValueCount"

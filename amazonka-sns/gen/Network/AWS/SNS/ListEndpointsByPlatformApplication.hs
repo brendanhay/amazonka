@@ -32,12 +32,12 @@
 module Network.AWS.SNS.ListEndpointsByPlatformApplication
     (
     -- * Request
-      ListEndpointsByPlatformApplicationInput
+      ListEndpointsByPlatformApplication
     -- ** Request constructor
     , listEndpointsByPlatformApplication
     -- ** Request lenses
-    , lebpaiNextToken
-    , lebpaiPlatformApplicationArn
+    , lebpaNextToken
+    , lebpaPlatformApplicationArn
 
     -- * Response
     , ListEndpointsByPlatformApplicationResponse
@@ -52,42 +52,42 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-data ListEndpointsByPlatformApplicationInput = ListEndpointsByPlatformApplicationInput
-    { _lebpaiNextToken              :: Maybe Text
-    , _lebpaiPlatformApplicationArn :: Text
+data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication
+    { _lebpaNextToken              :: Maybe Text
+    , _lebpaPlatformApplicationArn :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ListEndpointsByPlatformApplicationInput' constructor.
+-- | 'ListEndpointsByPlatformApplication' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lebpaiNextToken' @::@ 'Maybe' 'Text'
+-- * 'lebpaNextToken' @::@ 'Maybe' 'Text'
 --
--- * 'lebpaiPlatformApplicationArn' @::@ 'Text'
+-- * 'lebpaPlatformApplicationArn' @::@ 'Text'
 --
-listEndpointsByPlatformApplication :: Text -- ^ 'lebpaiPlatformApplicationArn'
-                                   -> ListEndpointsByPlatformApplicationInput
-listEndpointsByPlatformApplication p1 = ListEndpointsByPlatformApplicationInput
-    { _lebpaiPlatformApplicationArn = p1
-    , _lebpaiNextToken              = Nothing
+listEndpointsByPlatformApplication :: Text -- ^ 'lebpaPlatformApplicationArn'
+                                   -> ListEndpointsByPlatformApplication
+listEndpointsByPlatformApplication p1 = ListEndpointsByPlatformApplication
+    { _lebpaPlatformApplicationArn = p1
+    , _lebpaNextToken              = Nothing
     }
 
 -- | NextToken string is used when calling ListEndpointsByPlatformApplication
 -- action to retrieve additional records that are available after the first
 -- page results.
-lebpaiNextToken :: Lens' ListEndpointsByPlatformApplicationInput (Maybe Text)
-lebpaiNextToken = lens _lebpaiNextToken (\s a -> s { _lebpaiNextToken = a })
+lebpaNextToken :: Lens' ListEndpointsByPlatformApplication (Maybe Text)
+lebpaNextToken = lens _lebpaNextToken (\s a -> s { _lebpaNextToken = a })
 
 -- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput
 -- action.
-lebpaiPlatformApplicationArn :: Lens' ListEndpointsByPlatformApplicationInput Text
-lebpaiPlatformApplicationArn =
-    lens _lebpaiPlatformApplicationArn
-        (\s a -> s { _lebpaiPlatformApplicationArn = a })
+lebpaPlatformApplicationArn :: Lens' ListEndpointsByPlatformApplication Text
+lebpaPlatformApplicationArn =
+    lens _lebpaPlatformApplicationArn
+        (\s a -> s { _lebpaPlatformApplicationArn = a })
 
-instance ToQuery ListEndpointsByPlatformApplicationInput
+instance ToQuery ListEndpointsByPlatformApplication
 
-instance ToPath ListEndpointsByPlatformApplicationInput where
+instance ToPath ListEndpointsByPlatformApplication where
     toPath = const "/"
 
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse
@@ -123,9 +123,9 @@ instance FromXML ListEndpointsByPlatformApplicationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListEndpointsByPlatformApplicationResponse"
 
-instance AWSRequest ListEndpointsByPlatformApplicationInput where
-    type Sv ListEndpointsByPlatformApplicationInput = SNS
-    type Rs ListEndpointsByPlatformApplicationInput = ListEndpointsByPlatformApplicationResponse
+instance AWSRequest ListEndpointsByPlatformApplication where
+    type Sv ListEndpointsByPlatformApplication = SNS
+    type Rs ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplicationResponse
 
     request  = post "ListEndpointsByPlatformApplication"
     response = xmlResponse $ \h x -> ListEndpointsByPlatformApplicationResponse

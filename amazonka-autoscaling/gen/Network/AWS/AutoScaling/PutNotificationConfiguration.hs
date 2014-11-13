@@ -29,13 +29,13 @@
 module Network.AWS.AutoScaling.PutNotificationConfiguration
     (
     -- * Request
-      PutNotificationConfigurationType
+      PutNotificationConfiguration
     -- ** Request constructor
     , putNotificationConfiguration
     -- ** Request lenses
-    , pnctAutoScalingGroupName
-    , pnctNotificationTypes
-    , pnctTopicARN
+    , pncAutoScalingGroupName
+    , pncNotificationTypes
+    , pncTopicARN
 
     -- * Response
     , PutNotificationConfigurationResponse
@@ -47,52 +47,51 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data PutNotificationConfigurationType = PutNotificationConfigurationType
-    { _pnctAutoScalingGroupName :: Text
-    , _pnctNotificationTypes    :: [Text]
-    , _pnctTopicARN             :: Text
+data PutNotificationConfiguration = PutNotificationConfiguration
+    { _pncAutoScalingGroupName :: Text
+    , _pncNotificationTypes    :: [Text]
+    , _pncTopicARN             :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'PutNotificationConfigurationType' constructor.
+-- | 'PutNotificationConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pnctAutoScalingGroupName' @::@ 'Text'
+-- * 'pncAutoScalingGroupName' @::@ 'Text'
 --
--- * 'pnctNotificationTypes' @::@ ['Text']
+-- * 'pncNotificationTypes' @::@ ['Text']
 --
--- * 'pnctTopicARN' @::@ 'Text'
+-- * 'pncTopicARN' @::@ 'Text'
 --
-putNotificationConfiguration :: Text -- ^ 'pnctAutoScalingGroupName'
-                             -> Text -- ^ 'pnctTopicARN'
-                             -> PutNotificationConfigurationType
-putNotificationConfiguration p1 p2 = PutNotificationConfigurationType
-    { _pnctAutoScalingGroupName = p1
-    , _pnctTopicARN             = p2
-    , _pnctNotificationTypes    = mempty
+putNotificationConfiguration :: Text -- ^ 'pncAutoScalingGroupName'
+                             -> Text -- ^ 'pncTopicARN'
+                             -> PutNotificationConfiguration
+putNotificationConfiguration p1 p2 = PutNotificationConfiguration
+    { _pncAutoScalingGroupName = p1
+    , _pncTopicARN             = p2
+    , _pncNotificationTypes    = mempty
     }
 
 -- | The name of the Auto Scaling group.
-pnctAutoScalingGroupName :: Lens' PutNotificationConfigurationType Text
-pnctAutoScalingGroupName =
-    lens _pnctAutoScalingGroupName
-        (\s a -> s { _pnctAutoScalingGroupName = a })
+pncAutoScalingGroupName :: Lens' PutNotificationConfiguration Text
+pncAutoScalingGroupName =
+    lens _pncAutoScalingGroupName (\s a -> s { _pncAutoScalingGroupName = a })
 
 -- | The type of event that will cause the notification to be sent. For
 -- details about notification types supported by Auto Scaling, see
 -- DescribeAutoScalingNotificationTypes.
-pnctNotificationTypes :: Lens' PutNotificationConfigurationType [Text]
-pnctNotificationTypes =
-    lens _pnctNotificationTypes (\s a -> s { _pnctNotificationTypes = a })
+pncNotificationTypes :: Lens' PutNotificationConfiguration [Text]
+pncNotificationTypes =
+    lens _pncNotificationTypes (\s a -> s { _pncNotificationTypes = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
-pnctTopicARN :: Lens' PutNotificationConfigurationType Text
-pnctTopicARN = lens _pnctTopicARN (\s a -> s { _pnctTopicARN = a })
+pncTopicARN :: Lens' PutNotificationConfiguration Text
+pncTopicARN = lens _pncTopicARN (\s a -> s { _pncTopicARN = a })
 
-instance ToQuery PutNotificationConfigurationType
+instance ToQuery PutNotificationConfiguration
 
-instance ToPath PutNotificationConfigurationType where
+instance ToPath PutNotificationConfiguration where
     toPath = const "/"
 
 data PutNotificationConfigurationResponse = PutNotificationConfigurationResponse
@@ -106,9 +105,9 @@ instance FromXML PutNotificationConfigurationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PutNotificationConfigurationResponse"
 
-instance AWSRequest PutNotificationConfigurationType where
-    type Sv PutNotificationConfigurationType = AutoScaling
-    type Rs PutNotificationConfigurationType = PutNotificationConfigurationResponse
+instance AWSRequest PutNotificationConfiguration where
+    type Sv PutNotificationConfiguration = AutoScaling
+    type Rs PutNotificationConfiguration = PutNotificationConfigurationResponse
 
     request  = post "PutNotificationConfiguration"
     response = nullaryResponse PutNotificationConfigurationResponse

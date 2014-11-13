@@ -35,12 +35,12 @@
 module Network.AWS.CloudWatch.PutMetricData
     (
     -- * Request
-      PutMetricDataInput
+      PutMetricData
     -- ** Request constructor
     , putMetricData
     -- ** Request lenses
-    , pmdiMetricData
-    , pmdiNamespace
+    , pmdMetricData
+    , pmdNamespace
 
     -- * Response
     , PutMetricDataResponse
@@ -52,37 +52,37 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
 
-data PutMetricDataInput = PutMetricDataInput
-    { _pmdiMetricData :: [MetricDatum]
-    , _pmdiNamespace  :: Text
+data PutMetricData = PutMetricData
+    { _pmdMetricData :: [MetricDatum]
+    , _pmdNamespace  :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'PutMetricDataInput' constructor.
+-- | 'PutMetricData' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pmdiMetricData' @::@ ['MetricDatum']
+-- * 'pmdMetricData' @::@ ['MetricDatum']
 --
--- * 'pmdiNamespace' @::@ 'Text'
+-- * 'pmdNamespace' @::@ 'Text'
 --
-putMetricData :: Text -- ^ 'pmdiNamespace'
-              -> PutMetricDataInput
-putMetricData p1 = PutMetricDataInput
-    { _pmdiNamespace  = p1
-    , _pmdiMetricData = mempty
+putMetricData :: Text -- ^ 'pmdNamespace'
+              -> PutMetricData
+putMetricData p1 = PutMetricData
+    { _pmdNamespace  = p1
+    , _pmdMetricData = mempty
     }
 
 -- | A list of data describing the metric.
-pmdiMetricData :: Lens' PutMetricDataInput [MetricDatum]
-pmdiMetricData = lens _pmdiMetricData (\s a -> s { _pmdiMetricData = a })
+pmdMetricData :: Lens' PutMetricData [MetricDatum]
+pmdMetricData = lens _pmdMetricData (\s a -> s { _pmdMetricData = a })
 
 -- | The namespace for the metric data.
-pmdiNamespace :: Lens' PutMetricDataInput Text
-pmdiNamespace = lens _pmdiNamespace (\s a -> s { _pmdiNamespace = a })
+pmdNamespace :: Lens' PutMetricData Text
+pmdNamespace = lens _pmdNamespace (\s a -> s { _pmdNamespace = a })
 
-instance ToQuery PutMetricDataInput
+instance ToQuery PutMetricData
 
-instance ToPath PutMetricDataInput where
+instance ToPath PutMetricData where
     toPath = const "/"
 
 data PutMetricDataResponse = PutMetricDataResponse
@@ -96,9 +96,9 @@ instance FromXML PutMetricDataResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PutMetricDataResponse"
 
-instance AWSRequest PutMetricDataInput where
-    type Sv PutMetricDataInput = CloudWatch
-    type Rs PutMetricDataInput = PutMetricDataResponse
+instance AWSRequest PutMetricData where
+    type Sv PutMetricData = CloudWatch
+    type Rs PutMetricData = PutMetricDataResponse
 
     request  = post "PutMetricData"
     response = nullaryResponse PutMetricDataResponse

@@ -61,7 +61,7 @@ module Network.AWS.EC2.DescribeSnapshots
     , ds1SnapshotIds
 
     -- * Response
-    , DescribeSnapshotsResult
+    , DescribeSnapshotsResponse
     -- ** Response constructor
     , describeSnapshotsResponse
     -- ** Response lenses
@@ -146,38 +146,38 @@ instance ToQuery DescribeSnapshots
 instance ToPath DescribeSnapshots where
     toPath = const "/"
 
-newtype DescribeSnapshotsResult = DescribeSnapshotsResult
+newtype DescribeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrSnapshots :: [Snapshot]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeSnapshotsResult where
-    type Item DescribeSnapshotsResult = Snapshot
+instance IsList DescribeSnapshotsResponse where
+    type Item DescribeSnapshotsResponse = Snapshot
 
-    fromList = DescribeSnapshotsResult . fromList
+    fromList = DescribeSnapshotsResponse . fromList
     toList   = toList . _dsrSnapshots
 
--- | 'DescribeSnapshotsResult' constructor.
+-- | 'DescribeSnapshotsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrSnapshots' @::@ ['Snapshot']
 --
-describeSnapshotsResponse :: DescribeSnapshotsResult
-describeSnapshotsResponse = DescribeSnapshotsResult
+describeSnapshotsResponse :: DescribeSnapshotsResponse
+describeSnapshotsResponse = DescribeSnapshotsResponse
     { _dsrSnapshots = mempty
     }
 
-dsrSnapshots :: Lens' DescribeSnapshotsResult [Snapshot]
+dsrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
 dsrSnapshots = lens _dsrSnapshots (\s a -> s { _dsrSnapshots = a })
 
-instance FromXML DescribeSnapshotsResult where
+instance FromXML DescribeSnapshotsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSnapshotsResult"
+    fromXMLRoot    = fromRoot "DescribeSnapshotsResponse"
 
 instance AWSRequest DescribeSnapshots where
     type Sv DescribeSnapshots = EC2
-    type Rs DescribeSnapshots = DescribeSnapshotsResult
+    type Rs DescribeSnapshots = DescribeSnapshotsResponse
 
     request  = post "DescribeSnapshots"
-    response = xmlResponse $ \h x -> DescribeSnapshotsResult
+    response = xmlResponse $ \h x -> DescribeSnapshotsResponse
         <$> x %| "snapshotSet"

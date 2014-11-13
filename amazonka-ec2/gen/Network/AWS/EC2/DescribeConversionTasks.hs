@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeConversionTasks
     , dctFilters
 
     -- * Response
-    , DescribeConversionTasksResult
+    , DescribeConversionTasksResponse
     -- ** Response constructor
     , describeConversionTasksResponse
     -- ** Response lenses
@@ -85,39 +85,39 @@ instance ToQuery DescribeConversionTasks
 instance ToPath DescribeConversionTasks where
     toPath = const "/"
 
-newtype DescribeConversionTasksResult = DescribeConversionTasksResult
+newtype DescribeConversionTasksResponse = DescribeConversionTasksResponse
     { _dctrConversionTasks :: [ConversionTask]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeConversionTasksResult where
-    type Item DescribeConversionTasksResult = ConversionTask
+instance IsList DescribeConversionTasksResponse where
+    type Item DescribeConversionTasksResponse = ConversionTask
 
-    fromList = DescribeConversionTasksResult . fromList
+    fromList = DescribeConversionTasksResponse . fromList
     toList   = toList . _dctrConversionTasks
 
--- | 'DescribeConversionTasksResult' constructor.
+-- | 'DescribeConversionTasksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dctrConversionTasks' @::@ ['ConversionTask']
 --
-describeConversionTasksResponse :: DescribeConversionTasksResult
-describeConversionTasksResponse = DescribeConversionTasksResult
+describeConversionTasksResponse :: DescribeConversionTasksResponse
+describeConversionTasksResponse = DescribeConversionTasksResponse
     { _dctrConversionTasks = mempty
     }
 
-dctrConversionTasks :: Lens' DescribeConversionTasksResult [ConversionTask]
+dctrConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
 dctrConversionTasks =
     lens _dctrConversionTasks (\s a -> s { _dctrConversionTasks = a })
 
-instance FromXML DescribeConversionTasksResult where
+instance FromXML DescribeConversionTasksResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeConversionTasksResult"
+    fromXMLRoot    = fromRoot "DescribeConversionTasksResponse"
 
 instance AWSRequest DescribeConversionTasks where
     type Sv DescribeConversionTasks = EC2
-    type Rs DescribeConversionTasks = DescribeConversionTasksResult
+    type Rs DescribeConversionTasks = DescribeConversionTasksResponse
 
     request  = post "DescribeConversionTasks"
-    response = xmlResponse $ \h x -> DescribeConversionTasksResult
+    response = xmlResponse $ \h x -> DescribeConversionTasksResponse
         <$> x %| "conversionTasks"

@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeTags
     , dtNextToken
 
     -- * Response
-    , DescribeTagsResult
+    , DescribeTagsResponse
     -- ** Response constructor
     , describeTagsResponse
     -- ** Response lenses
@@ -104,12 +104,12 @@ instance ToQuery DescribeTags
 instance ToPath DescribeTags where
     toPath = const "/"
 
-data DescribeTagsResult = DescribeTagsResult
+data DescribeTagsResponse = DescribeTagsResponse
     { _dtrNextToken :: Maybe Text
     , _dtrTags      :: [TagDescription]
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeTagsResult' constructor.
+-- | 'DescribeTagsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -117,30 +117,30 @@ data DescribeTagsResult = DescribeTagsResult
 --
 -- * 'dtrTags' @::@ ['TagDescription']
 --
-describeTagsResponse :: DescribeTagsResult
-describeTagsResponse = DescribeTagsResult
+describeTagsResponse :: DescribeTagsResponse
+describeTagsResponse = DescribeTagsResponse
     { _dtrTags      = mempty
     , _dtrNextToken = Nothing
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dtrNextToken :: Lens' DescribeTagsResult (Maybe Text)
+dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
 dtrNextToken = lens _dtrNextToken (\s a -> s { _dtrNextToken = a })
 
 -- | A list of tags.
-dtrTags :: Lens' DescribeTagsResult [TagDescription]
+dtrTags :: Lens' DescribeTagsResponse [TagDescription]
 dtrTags = lens _dtrTags (\s a -> s { _dtrTags = a })
 
-instance FromXML DescribeTagsResult where
+instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeTagsResult"
+    fromXMLRoot    = fromRoot "DescribeTagsResponse"
 
 instance AWSRequest DescribeTags where
     type Sv DescribeTags = EC2
-    type Rs DescribeTags = DescribeTagsResult
+    type Rs DescribeTags = DescribeTagsResponse
 
     request  = post "DescribeTags"
-    response = xmlResponse $ \h x -> DescribeTagsResult
+    response = xmlResponse $ \h x -> DescribeTagsResponse
         <$> x %| "nextToken"
         <*> x %| "tagSet"

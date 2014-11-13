@@ -31,8 +31,8 @@ module Network.AWS.EC2.DeleteDhcpOptions
     -- ** Request constructor
     , deleteDhcpOptions
     -- ** Request lenses
-    , ddoDhcpOptionsId
-    , ddoDryRun
+    , ddo1DhcpOptionsId
+    , ddo1DryRun
 
     -- * Response
     , DeleteDhcpOptionsResponse
@@ -45,31 +45,32 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DeleteDhcpOptions = DeleteDhcpOptions
-    { _ddoDhcpOptionsId :: Text
-    , _ddoDryRun        :: Maybe Bool
+    { _ddo1DhcpOptionsId :: Text
+    , _ddo1DryRun        :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteDhcpOptions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddoDhcpOptionsId' @::@ 'Text'
+-- * 'ddo1DhcpOptionsId' @::@ 'Text'
 --
--- * 'ddoDryRun' @::@ 'Maybe' 'Bool'
+-- * 'ddo1DryRun' @::@ 'Maybe' 'Bool'
 --
-deleteDhcpOptions :: Text -- ^ 'ddoDhcpOptionsId'
+deleteDhcpOptions :: Text -- ^ 'ddo1DhcpOptionsId'
                   -> DeleteDhcpOptions
 deleteDhcpOptions p1 = DeleteDhcpOptions
-    { _ddoDhcpOptionsId = p1
-    , _ddoDryRun        = Nothing
+    { _ddo1DhcpOptionsId = p1
+    , _ddo1DryRun        = Nothing
     }
 
 -- | The ID of the DHCP options set.
-ddoDhcpOptionsId :: Lens' DeleteDhcpOptions Text
-ddoDhcpOptionsId = lens _ddoDhcpOptionsId (\s a -> s { _ddoDhcpOptionsId = a })
+ddo1DhcpOptionsId :: Lens' DeleteDhcpOptions Text
+ddo1DhcpOptionsId =
+    lens _ddo1DhcpOptionsId (\s a -> s { _ddo1DhcpOptionsId = a })
 
-ddoDryRun :: Lens' DeleteDhcpOptions (Maybe Bool)
-ddoDryRun = lens _ddoDryRun (\s a -> s { _ddoDryRun = a })
+ddo1DryRun :: Lens' DeleteDhcpOptions (Maybe Bool)
+ddo1DryRun = lens _ddo1DryRun (\s a -> s { _ddo1DryRun = a })
 
 instance ToQuery DeleteDhcpOptions
 

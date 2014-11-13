@@ -49,7 +49,7 @@ module Network.AWS.EC2.DescribeReservedInstancesOfferings
     , drioReservedInstancesOfferingIds
 
     -- * Response
-    , DescribeReservedInstancesOfferingsResult
+    , DescribeReservedInstancesOfferingsResponse
     -- ** Response constructor
     , describeReservedInstancesOfferingsResponse
     -- ** Response lenses
@@ -218,12 +218,12 @@ instance ToQuery DescribeReservedInstancesOfferings
 instance ToPath DescribeReservedInstancesOfferings where
     toPath = const "/"
 
-data DescribeReservedInstancesOfferingsResult = DescribeReservedInstancesOfferingsResult
+data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
     { _driorNextToken                  :: Maybe Text
     , _driorReservedInstancesOfferings :: [ReservedInstancesOffering]
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeReservedInstancesOfferingsResult' constructor.
+-- | 'DescribeReservedInstancesOfferingsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -231,31 +231,31 @@ data DescribeReservedInstancesOfferingsResult = DescribeReservedInstancesOfferin
 --
 -- * 'driorReservedInstancesOfferings' @::@ ['ReservedInstancesOffering']
 --
-describeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResult
-describeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResult
+describeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResponse
+describeReservedInstancesOfferingsResponse = DescribeReservedInstancesOfferingsResponse
     { _driorReservedInstancesOfferings = mempty
     , _driorNextToken                  = Nothing
     }
 
 -- | The next paginated set of results to return.
-driorNextToken :: Lens' DescribeReservedInstancesOfferingsResult (Maybe Text)
+driorNextToken :: Lens' DescribeReservedInstancesOfferingsResponse (Maybe Text)
 driorNextToken = lens _driorNextToken (\s a -> s { _driorNextToken = a })
 
 -- | A list of Reserved Instances offerings.
-driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResult [ReservedInstancesOffering]
+driorReservedInstancesOfferings :: Lens' DescribeReservedInstancesOfferingsResponse [ReservedInstancesOffering]
 driorReservedInstancesOfferings =
     lens _driorReservedInstancesOfferings
         (\s a -> s { _driorReservedInstancesOfferings = a })
 
-instance FromXML DescribeReservedInstancesOfferingsResult where
+instance FromXML DescribeReservedInstancesOfferingsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReservedInstancesOfferingsResult"
+    fromXMLRoot    = fromRoot "DescribeReservedInstancesOfferingsResponse"
 
 instance AWSRequest DescribeReservedInstancesOfferings where
     type Sv DescribeReservedInstancesOfferings = EC2
-    type Rs DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferingsResult
+    type Rs DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferingsResponse
 
     request  = post "DescribeReservedInstancesOfferings"
-    response = xmlResponse $ \h x -> DescribeReservedInstancesOfferingsResult
+    response = xmlResponse $ \h x -> DescribeReservedInstancesOfferingsResponse
         <$> x %| "nextToken"
         <*> x %| "reservedInstancesOfferingsSet"

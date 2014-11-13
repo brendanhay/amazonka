@@ -45,14 +45,14 @@ module Network.AWS.S3.UploadPart
     , upUploadId
 
     -- * Response
-    , UploadPartOutput
+    , UploadPartResponse
     -- ** Response constructor
     , uploadPartResponse
     -- ** Response lenses
-    , upoETag
-    , upoSSECustomerAlgorithm
-    , upoSSECustomerKeyMD5
-    , upoServerSideEncryption
+    , uprETag
+    , uprSSECustomerAlgorithm
+    , uprSSECustomerKeyMD5
+    , uprServerSideEncryption
     ) where
 
 import Network.AWS.Prelude
@@ -190,65 +190,65 @@ instance ToHeaders UploadPart where
 instance ToBody UploadPart where
     toBody = toBody . _upBody
 
-data UploadPartOutput = UploadPartOutput
-    { _upoETag                 :: Maybe Text
-    , _upoSSECustomerAlgorithm :: Maybe Text
-    , _upoSSECustomerKeyMD5    :: Maybe Text
-    , _upoServerSideEncryption :: Maybe Text
+data UploadPartResponse = UploadPartResponse
+    { _uprETag                 :: Maybe Text
+    , _uprSSECustomerAlgorithm :: Maybe Text
+    , _uprSSECustomerKeyMD5    :: Maybe Text
+    , _uprServerSideEncryption :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'UploadPartOutput' constructor.
+-- | 'UploadPartResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upoETag' @::@ 'Maybe' 'Text'
+-- * 'uprETag' @::@ 'Maybe' 'Text'
 --
--- * 'upoSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+-- * 'uprSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
--- * 'upoSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+-- * 'uprSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'upoServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'uprServerSideEncryption' @::@ 'Maybe' 'Text'
 --
-uploadPartResponse :: UploadPartOutput
-uploadPartResponse = UploadPartOutput
-    { _upoServerSideEncryption = Nothing
-    , _upoETag                 = Nothing
-    , _upoSSECustomerAlgorithm = Nothing
-    , _upoSSECustomerKeyMD5    = Nothing
+uploadPartResponse :: UploadPartResponse
+uploadPartResponse = UploadPartResponse
+    { _uprServerSideEncryption = Nothing
+    , _uprETag                 = Nothing
+    , _uprSSECustomerAlgorithm = Nothing
+    , _uprSSECustomerKeyMD5    = Nothing
     }
 
 -- | Entity tag for the uploaded object.
-upoETag :: Lens' UploadPartOutput (Maybe Text)
-upoETag = lens _upoETag (\s a -> s { _upoETag = a })
+uprETag :: Lens' UploadPartResponse (Maybe Text)
+uprETag = lens _uprETag (\s a -> s { _uprETag = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the
 -- encryption algorithm used.
-upoSSECustomerAlgorithm :: Lens' UploadPartOutput (Maybe Text)
-upoSSECustomerAlgorithm =
-    lens _upoSSECustomerAlgorithm (\s a -> s { _upoSSECustomerAlgorithm = a })
+uprSSECustomerAlgorithm :: Lens' UploadPartResponse (Maybe Text)
+uprSSECustomerAlgorithm =
+    lens _uprSSECustomerAlgorithm (\s a -> s { _uprSSECustomerAlgorithm = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-upoSSECustomerKeyMD5 :: Lens' UploadPartOutput (Maybe Text)
-upoSSECustomerKeyMD5 =
-    lens _upoSSECustomerKeyMD5 (\s a -> s { _upoSSECustomerKeyMD5 = a })
+uprSSECustomerKeyMD5 :: Lens' UploadPartResponse (Maybe Text)
+uprSSECustomerKeyMD5 =
+    lens _uprSSECustomerKeyMD5 (\s a -> s { _uprSSECustomerKeyMD5 = a })
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-upoServerSideEncryption :: Lens' UploadPartOutput (Maybe Text)
-upoServerSideEncryption =
-    lens _upoServerSideEncryption (\s a -> s { _upoServerSideEncryption = a })
+uprServerSideEncryption :: Lens' UploadPartResponse (Maybe Text)
+uprServerSideEncryption =
+    lens _uprServerSideEncryption (\s a -> s { _uprServerSideEncryption = a })
 
-instance FromXML UploadPartOutput where
+instance FromXML UploadPartResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UploadPartOutput"
+    fromXMLRoot    = fromRoot "UploadPartResponse"
 instance AWSRequest UploadPart where
     type Sv UploadPart = S3
-    type Rs UploadPart = UploadPartOutput
+    type Rs UploadPart = UploadPartResponse
 
     request  = put
-    response = xmlResponse $ \h x -> UploadPartOutput
+    response = xmlResponse $ \h x -> UploadPartResponse
         <$> h ~:? "ETag"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"
         <*> h ~:? "x-amz-server-side-encryption-customer-key-MD5"

@@ -25,16 +25,16 @@
 module Network.AWS.RDS.CreateDBSecurityGroup
     (
     -- * Request
-      CreateDBSecurityGroupMessage
+      CreateDBSecurityGroup
     -- ** Request constructor
     , createDBSecurityGroup
     -- ** Request lenses
-    , cdbsgm1DBSecurityGroupDescription
-    , cdbsgm1DBSecurityGroupName
-    , cdbsgm1Tags
+    , cdbsgDBSecurityGroupDescription
+    , cdbsgDBSecurityGroupName
+    , cdbsgTags
 
     -- * Response
-    , CreateDBSecurityGroupResult
+    , CreateDBSecurityGroupResponse
     -- ** Response constructor
     , createDBSecurityGroupResponse
     -- ** Response lenses
@@ -45,82 +45,82 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data CreateDBSecurityGroupMessage = CreateDBSecurityGroupMessage
-    { _cdbsgm1DBSecurityGroupDescription :: Text
-    , _cdbsgm1DBSecurityGroupName        :: Text
-    , _cdbsgm1Tags                       :: [Tag]
+data CreateDBSecurityGroup = CreateDBSecurityGroup
+    { _cdbsgDBSecurityGroupDescription :: Text
+    , _cdbsgDBSecurityGroupName        :: Text
+    , _cdbsgTags                       :: [Tag]
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDBSecurityGroupMessage' constructor.
+-- | 'CreateDBSecurityGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbsgm1DBSecurityGroupDescription' @::@ 'Text'
+-- * 'cdbsgDBSecurityGroupDescription' @::@ 'Text'
 --
--- * 'cdbsgm1DBSecurityGroupName' @::@ 'Text'
+-- * 'cdbsgDBSecurityGroupName' @::@ 'Text'
 --
--- * 'cdbsgm1Tags' @::@ ['Tag']
+-- * 'cdbsgTags' @::@ ['Tag']
 --
-createDBSecurityGroup :: Text -- ^ 'cdbsgm1DBSecurityGroupName'
-                      -> Text -- ^ 'cdbsgm1DBSecurityGroupDescription'
-                      -> CreateDBSecurityGroupMessage
-createDBSecurityGroup p1 p2 = CreateDBSecurityGroupMessage
-    { _cdbsgm1DBSecurityGroupName        = p1
-    , _cdbsgm1DBSecurityGroupDescription = p2
-    , _cdbsgm1Tags                       = mempty
+createDBSecurityGroup :: Text -- ^ 'cdbsgDBSecurityGroupName'
+                      -> Text -- ^ 'cdbsgDBSecurityGroupDescription'
+                      -> CreateDBSecurityGroup
+createDBSecurityGroup p1 p2 = CreateDBSecurityGroup
+    { _cdbsgDBSecurityGroupName        = p1
+    , _cdbsgDBSecurityGroupDescription = p2
+    , _cdbsgTags                       = mempty
     }
 
 -- | The description for the DB security group.
-cdbsgm1DBSecurityGroupDescription :: Lens' CreateDBSecurityGroupMessage Text
-cdbsgm1DBSecurityGroupDescription =
-    lens _cdbsgm1DBSecurityGroupDescription
-        (\s a -> s { _cdbsgm1DBSecurityGroupDescription = a })
+cdbsgDBSecurityGroupDescription :: Lens' CreateDBSecurityGroup Text
+cdbsgDBSecurityGroupDescription =
+    lens _cdbsgDBSecurityGroupDescription
+        (\s a -> s { _cdbsgDBSecurityGroupDescription = a })
 
 -- | The name for the DB security group. This value is stored as a lowercase
 -- string. Constraints: Must be 1 to 255 alphanumeric characters First
 -- character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Must not be "Default" May not contain spaces Example:
 -- mysecuritygroup.
-cdbsgm1DBSecurityGroupName :: Lens' CreateDBSecurityGroupMessage Text
-cdbsgm1DBSecurityGroupName =
-    lens _cdbsgm1DBSecurityGroupName
-        (\s a -> s { _cdbsgm1DBSecurityGroupName = a })
+cdbsgDBSecurityGroupName :: Lens' CreateDBSecurityGroup Text
+cdbsgDBSecurityGroupName =
+    lens _cdbsgDBSecurityGroupName
+        (\s a -> s { _cdbsgDBSecurityGroupName = a })
 
-cdbsgm1Tags :: Lens' CreateDBSecurityGroupMessage [Tag]
-cdbsgm1Tags = lens _cdbsgm1Tags (\s a -> s { _cdbsgm1Tags = a })
+cdbsgTags :: Lens' CreateDBSecurityGroup [Tag]
+cdbsgTags = lens _cdbsgTags (\s a -> s { _cdbsgTags = a })
 
-instance ToQuery CreateDBSecurityGroupMessage
+instance ToQuery CreateDBSecurityGroup
 
-instance ToPath CreateDBSecurityGroupMessage where
+instance ToPath CreateDBSecurityGroup where
     toPath = const "/"
 
-newtype CreateDBSecurityGroupResult = CreateDBSecurityGroupResult
+newtype CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse
     { _cdbsgrDBSecurityGroup :: Maybe DBSecurityGroup
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDBSecurityGroupResult' constructor.
+-- | 'CreateDBSecurityGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdbsgrDBSecurityGroup' @::@ 'Maybe' 'DBSecurityGroup'
 --
-createDBSecurityGroupResponse :: CreateDBSecurityGroupResult
-createDBSecurityGroupResponse = CreateDBSecurityGroupResult
+createDBSecurityGroupResponse :: CreateDBSecurityGroupResponse
+createDBSecurityGroupResponse = CreateDBSecurityGroupResponse
     { _cdbsgrDBSecurityGroup = Nothing
     }
 
-cdbsgrDBSecurityGroup :: Lens' CreateDBSecurityGroupResult (Maybe DBSecurityGroup)
+cdbsgrDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
 cdbsgrDBSecurityGroup =
     lens _cdbsgrDBSecurityGroup (\s a -> s { _cdbsgrDBSecurityGroup = a })
 
-instance FromXML CreateDBSecurityGroupResult where
+instance FromXML CreateDBSecurityGroupResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDBSecurityGroupResult"
+    fromXMLRoot    = fromRoot "CreateDBSecurityGroupResponse"
 
-instance AWSRequest CreateDBSecurityGroupMessage where
-    type Sv CreateDBSecurityGroupMessage = RDS
-    type Rs CreateDBSecurityGroupMessage = CreateDBSecurityGroupResult
+instance AWSRequest CreateDBSecurityGroup where
+    type Sv CreateDBSecurityGroup = RDS
+    type Rs CreateDBSecurityGroup = CreateDBSecurityGroupResponse
 
     request  = post "CreateDBSecurityGroup"
-    response = xmlResponse $ \h x -> CreateDBSecurityGroupResult
+    response = xmlResponse $ \h x -> CreateDBSecurityGroupResponse
         <$> x %| "DBSecurityGroup"

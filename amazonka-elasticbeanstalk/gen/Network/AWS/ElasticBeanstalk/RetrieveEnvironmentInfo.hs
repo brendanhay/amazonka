@@ -25,109 +25,109 @@
 module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     (
     -- * Request
-      RetrieveEnvironmentInfoMessage
+      RetrieveEnvironmentInfo
     -- ** Request constructor
     , retrieveEnvironmentInfo
     -- ** Request lenses
-    , reimEnvironmentId
-    , reimEnvironmentName
-    , reimInfoType
+    , rei1EnvironmentId
+    , rei1EnvironmentName
+    , rei1InfoType
 
     -- * Response
-    , RetrieveEnvironmentInfoResultMessage
+    , RetrieveEnvironmentInfoResponse
     -- ** Response constructor
     , retrieveEnvironmentInfoResponse
     -- ** Response lenses
-    , reirmEnvironmentInfo
+    , reirEnvironmentInfo
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data RetrieveEnvironmentInfoMessage = RetrieveEnvironmentInfoMessage
-    { _reimEnvironmentId   :: Maybe Text
-    , _reimEnvironmentName :: Maybe Text
-    , _reimInfoType        :: Text
+data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo
+    { _rei1EnvironmentId   :: Maybe Text
+    , _rei1EnvironmentName :: Maybe Text
+    , _rei1InfoType        :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'RetrieveEnvironmentInfoMessage' constructor.
+-- | 'RetrieveEnvironmentInfo' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'reimEnvironmentId' @::@ 'Maybe' 'Text'
+-- * 'rei1EnvironmentId' @::@ 'Maybe' 'Text'
 --
--- * 'reimEnvironmentName' @::@ 'Maybe' 'Text'
+-- * 'rei1EnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * 'reimInfoType' @::@ 'Text'
+-- * 'rei1InfoType' @::@ 'Text'
 --
-retrieveEnvironmentInfo :: Text -- ^ 'reimInfoType'
-                        -> RetrieveEnvironmentInfoMessage
-retrieveEnvironmentInfo p1 = RetrieveEnvironmentInfoMessage
-    { _reimInfoType        = p1
-    , _reimEnvironmentId   = Nothing
-    , _reimEnvironmentName = Nothing
+retrieveEnvironmentInfo :: Text -- ^ 'rei1InfoType'
+                        -> RetrieveEnvironmentInfo
+retrieveEnvironmentInfo p1 = RetrieveEnvironmentInfo
+    { _rei1InfoType        = p1
+    , _rei1EnvironmentId   = Nothing
+    , _rei1EnvironmentName = Nothing
     }
 
 -- | The ID of the data's environment. If no such environment is found,
 -- returns an InvalidParameterValue error. Condition: You must specify
 -- either this or an EnvironmentName, or both. If you do not specify either,
 -- AWS Elastic Beanstalk returns MissingRequiredParameter error.
-reimEnvironmentId :: Lens' RetrieveEnvironmentInfoMessage (Maybe Text)
-reimEnvironmentId =
-    lens _reimEnvironmentId (\s a -> s { _reimEnvironmentId = a })
+rei1EnvironmentId :: Lens' RetrieveEnvironmentInfo (Maybe Text)
+rei1EnvironmentId =
+    lens _rei1EnvironmentId (\s a -> s { _rei1EnvironmentId = a })
 
 -- | The name of the data's environment. If no such environment is found,
 -- returns an InvalidParameterValue error. Condition: You must specify
 -- either this or an EnvironmentId, or both. If you do not specify either,
 -- AWS Elastic Beanstalk returns MissingRequiredParameter error.
-reimEnvironmentName :: Lens' RetrieveEnvironmentInfoMessage (Maybe Text)
-reimEnvironmentName =
-    lens _reimEnvironmentName (\s a -> s { _reimEnvironmentName = a })
+rei1EnvironmentName :: Lens' RetrieveEnvironmentInfo (Maybe Text)
+rei1EnvironmentName =
+    lens _rei1EnvironmentName (\s a -> s { _rei1EnvironmentName = a })
 
 -- | The type of information to retrieve.
-reimInfoType :: Lens' RetrieveEnvironmentInfoMessage Text
-reimInfoType = lens _reimInfoType (\s a -> s { _reimInfoType = a })
+rei1InfoType :: Lens' RetrieveEnvironmentInfo Text
+rei1InfoType = lens _rei1InfoType (\s a -> s { _rei1InfoType = a })
 
-instance ToQuery RetrieveEnvironmentInfoMessage
+instance ToQuery RetrieveEnvironmentInfo
 
-instance ToPath RetrieveEnvironmentInfoMessage where
+instance ToPath RetrieveEnvironmentInfo where
     toPath = const "/"
 
-newtype RetrieveEnvironmentInfoResultMessage = RetrieveEnvironmentInfoResultMessage
-    { _reirmEnvironmentInfo :: [EnvironmentInfoDescription]
+newtype RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
+    { _reirEnvironmentInfo :: [EnvironmentInfoDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList RetrieveEnvironmentInfoResultMessage where
-    type Item RetrieveEnvironmentInfoResultMessage = EnvironmentInfoDescription
+instance IsList RetrieveEnvironmentInfoResponse where
+    type Item RetrieveEnvironmentInfoResponse = EnvironmentInfoDescription
 
-    fromList = RetrieveEnvironmentInfoResultMessage . fromList
-    toList   = toList . _reirmEnvironmentInfo
+    fromList = RetrieveEnvironmentInfoResponse . fromList
+    toList   = toList . _reirEnvironmentInfo
 
--- | 'RetrieveEnvironmentInfoResultMessage' constructor.
+-- | 'RetrieveEnvironmentInfoResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'reirmEnvironmentInfo' @::@ ['EnvironmentInfoDescription']
+-- * 'reirEnvironmentInfo' @::@ ['EnvironmentInfoDescription']
 --
-retrieveEnvironmentInfoResponse :: RetrieveEnvironmentInfoResultMessage
-retrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResultMessage
-    { _reirmEnvironmentInfo = mempty
+retrieveEnvironmentInfoResponse :: RetrieveEnvironmentInfoResponse
+retrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse
+    { _reirEnvironmentInfo = mempty
     }
 
 -- | The EnvironmentInfoDescription of the environment.
-reirmEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResultMessage [EnvironmentInfoDescription]
-reirmEnvironmentInfo =
-    lens _reirmEnvironmentInfo (\s a -> s { _reirmEnvironmentInfo = a })
+reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
+reirEnvironmentInfo =
+    lens _reirEnvironmentInfo (\s a -> s { _reirEnvironmentInfo = a })
 
-instance FromXML RetrieveEnvironmentInfoResultMessage where
+instance FromXML RetrieveEnvironmentInfoResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RetrieveEnvironmentInfoResultMessage"
+    fromXMLRoot    = fromRoot "RetrieveEnvironmentInfoResponse"
 
-instance AWSRequest RetrieveEnvironmentInfoMessage where
-    type Sv RetrieveEnvironmentInfoMessage = ElasticBeanstalk
-    type Rs RetrieveEnvironmentInfoMessage = RetrieveEnvironmentInfoResultMessage
+instance AWSRequest RetrieveEnvironmentInfo where
+    type Sv RetrieveEnvironmentInfo = ElasticBeanstalk
+    type Rs RetrieveEnvironmentInfo = RetrieveEnvironmentInfoResponse
 
     request  = post "RetrieveEnvironmentInfo"
-    response = xmlResponse $ \h x -> RetrieveEnvironmentInfoResultMessage
+    response = xmlResponse $ \h x -> RetrieveEnvironmentInfoResponse
         <$> x %| "EnvironmentInfo"

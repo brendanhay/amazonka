@@ -25,109 +25,109 @@
 module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     (
     -- * Request
-      DescribeNotificationConfigurationsType
+      DescribeNotificationConfigurations
     -- ** Request constructor
     , describeNotificationConfigurations
     -- ** Request lenses
-    , dnctAutoScalingGroupNames
-    , dnctMaxRecords
-    , dnctNextToken
+    , dncAutoScalingGroupNames
+    , dncMaxRecords
+    , dncNextToken
 
     -- * Response
-    , DescribeNotificationConfigurationsAnswer
+    , DescribeNotificationConfigurationsResponse
     -- ** Response constructor
     , describeNotificationConfigurationsResponse
     -- ** Response lenses
-    , dncaNextToken
-    , dncaNotificationConfigurations
+    , dncrNextToken
+    , dncrNotificationConfigurations
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data DescribeNotificationConfigurationsType = DescribeNotificationConfigurationsType
-    { _dnctAutoScalingGroupNames :: [Text]
-    , _dnctMaxRecords            :: Maybe Int
-    , _dnctNextToken             :: Maybe Text
+data DescribeNotificationConfigurations = DescribeNotificationConfigurations
+    { _dncAutoScalingGroupNames :: [Text]
+    , _dncMaxRecords            :: Maybe Int
+    , _dncNextToken             :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeNotificationConfigurationsType' constructor.
+-- | 'DescribeNotificationConfigurations' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dnctAutoScalingGroupNames' @::@ ['Text']
+-- * 'dncAutoScalingGroupNames' @::@ ['Text']
 --
--- * 'dnctMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dncMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'dnctNextToken' @::@ 'Maybe' 'Text'
+-- * 'dncNextToken' @::@ 'Maybe' 'Text'
 --
-describeNotificationConfigurations :: DescribeNotificationConfigurationsType
-describeNotificationConfigurations = DescribeNotificationConfigurationsType
-    { _dnctAutoScalingGroupNames = mempty
-    , _dnctNextToken             = Nothing
-    , _dnctMaxRecords            = Nothing
+describeNotificationConfigurations :: DescribeNotificationConfigurations
+describeNotificationConfigurations = DescribeNotificationConfigurations
+    { _dncAutoScalingGroupNames = mempty
+    , _dncNextToken             = Nothing
+    , _dncMaxRecords            = Nothing
     }
 
 -- | The name of the Auto Scaling group.
-dnctAutoScalingGroupNames :: Lens' DescribeNotificationConfigurationsType [Text]
-dnctAutoScalingGroupNames =
-    lens _dnctAutoScalingGroupNames
-        (\s a -> s { _dnctAutoScalingGroupNames = a })
+dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
+dncAutoScalingGroupNames =
+    lens _dncAutoScalingGroupNames
+        (\s a -> s { _dncAutoScalingGroupNames = a })
 
 -- | Maximum number of records to be returned.
-dnctMaxRecords :: Lens' DescribeNotificationConfigurationsType (Maybe Int)
-dnctMaxRecords = lens _dnctMaxRecords (\s a -> s { _dnctMaxRecords = a })
+dncMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Int)
+dncMaxRecords = lens _dncMaxRecords (\s a -> s { _dncMaxRecords = a })
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
-dnctNextToken :: Lens' DescribeNotificationConfigurationsType (Maybe Text)
-dnctNextToken = lens _dnctNextToken (\s a -> s { _dnctNextToken = a })
+dncNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
+dncNextToken = lens _dncNextToken (\s a -> s { _dncNextToken = a })
 
-instance ToQuery DescribeNotificationConfigurationsType
+instance ToQuery DescribeNotificationConfigurations
 
-instance ToPath DescribeNotificationConfigurationsType where
+instance ToPath DescribeNotificationConfigurations where
     toPath = const "/"
 
-data DescribeNotificationConfigurationsAnswer = DescribeNotificationConfigurationsAnswer
-    { _dncaNextToken                  :: Maybe Text
-    , _dncaNotificationConfigurations :: [NotificationConfiguration]
+data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
+    { _dncrNextToken                  :: Maybe Text
+    , _dncrNotificationConfigurations :: [NotificationConfiguration]
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeNotificationConfigurationsAnswer' constructor.
+-- | 'DescribeNotificationConfigurationsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dncaNextToken' @::@ 'Maybe' 'Text'
+-- * 'dncrNextToken' @::@ 'Maybe' 'Text'
 --
--- * 'dncaNotificationConfigurations' @::@ ['NotificationConfiguration']
+-- * 'dncrNotificationConfigurations' @::@ ['NotificationConfiguration']
 --
-describeNotificationConfigurationsResponse :: DescribeNotificationConfigurationsAnswer
-describeNotificationConfigurationsResponse = DescribeNotificationConfigurationsAnswer
-    { _dncaNotificationConfigurations = mempty
-    , _dncaNextToken                  = Nothing
+describeNotificationConfigurationsResponse :: DescribeNotificationConfigurationsResponse
+describeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse
+    { _dncrNotificationConfigurations = mempty
+    , _dncrNextToken                  = Nothing
     }
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
-dncaNextToken :: Lens' DescribeNotificationConfigurationsAnswer (Maybe Text)
-dncaNextToken = lens _dncaNextToken (\s a -> s { _dncaNextToken = a })
+dncrNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
+dncrNextToken = lens _dncrNextToken (\s a -> s { _dncrNextToken = a })
 
 -- | The list of notification configurations.
-dncaNotificationConfigurations :: Lens' DescribeNotificationConfigurationsAnswer [NotificationConfiguration]
-dncaNotificationConfigurations =
-    lens _dncaNotificationConfigurations
-        (\s a -> s { _dncaNotificationConfigurations = a })
+dncrNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
+dncrNotificationConfigurations =
+    lens _dncrNotificationConfigurations
+        (\s a -> s { _dncrNotificationConfigurations = a })
 
-instance FromXML DescribeNotificationConfigurationsAnswer where
+instance FromXML DescribeNotificationConfigurationsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeNotificationConfigurationsAnswer"
+    fromXMLRoot    = fromRoot "DescribeNotificationConfigurationsResponse"
 
-instance AWSRequest DescribeNotificationConfigurationsType where
-    type Sv DescribeNotificationConfigurationsType = AutoScaling
-    type Rs DescribeNotificationConfigurationsType = DescribeNotificationConfigurationsAnswer
+instance AWSRequest DescribeNotificationConfigurations where
+    type Sv DescribeNotificationConfigurations = AutoScaling
+    type Rs DescribeNotificationConfigurations = DescribeNotificationConfigurationsResponse
 
     request  = post "DescribeNotificationConfigurations"
-    response = xmlResponse $ \h x -> DescribeNotificationConfigurationsAnswer
+    response = xmlResponse $ \h x -> DescribeNotificationConfigurationsResponse
         <$> x %| "NextToken"
         <*> x %| "NotificationConfigurations"

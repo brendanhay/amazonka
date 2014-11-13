@@ -30,95 +30,96 @@
 module Network.AWS.ELB.EnableAvailabilityZonesForLoadBalancer
     (
     -- * Request
-      AddAvailabilityZonesInput
+      EnableAvailabilityZonesForLoadBalancer
     -- ** Request constructor
     , enableAvailabilityZonesForLoadBalancer
     -- ** Request lenses
-    , aaziAvailabilityZones
-    , aaziLoadBalancerName
+    , eazflbAvailabilityZones
+    , eazflbLoadBalancerName
 
     -- * Response
-    , AddAvailabilityZonesOutput
+    , EnableAvailabilityZonesForLoadBalancerResponse
     -- ** Response constructor
     , enableAvailabilityZonesForLoadBalancerResponse
     -- ** Response lenses
-    , aazoAvailabilityZones
+    , eazflbrAvailabilityZones
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data AddAvailabilityZonesInput = AddAvailabilityZonesInput
-    { _aaziAvailabilityZones :: [Text]
-    , _aaziLoadBalancerName  :: Text
+data EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancer
+    { _eazflbAvailabilityZones :: [Text]
+    , _eazflbLoadBalancerName  :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'AddAvailabilityZonesInput' constructor.
+-- | 'EnableAvailabilityZonesForLoadBalancer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aaziAvailabilityZones' @::@ ['Text']
+-- * 'eazflbAvailabilityZones' @::@ ['Text']
 --
--- * 'aaziLoadBalancerName' @::@ 'Text'
+-- * 'eazflbLoadBalancerName' @::@ 'Text'
 --
-enableAvailabilityZonesForLoadBalancer :: Text -- ^ 'aaziLoadBalancerName'
-                                       -> AddAvailabilityZonesInput
-enableAvailabilityZonesForLoadBalancer p1 = AddAvailabilityZonesInput
-    { _aaziLoadBalancerName  = p1
-    , _aaziAvailabilityZones = mempty
+enableAvailabilityZonesForLoadBalancer :: Text -- ^ 'eazflbLoadBalancerName'
+                                       -> EnableAvailabilityZonesForLoadBalancer
+enableAvailabilityZonesForLoadBalancer p1 = EnableAvailabilityZonesForLoadBalancer
+    { _eazflbLoadBalancerName  = p1
+    , _eazflbAvailabilityZones = mempty
     }
 
 -- | A list of new Availability Zones for the load balancer. Each Availability
 -- Zone must be in the same region as the load balancer.
-aaziAvailabilityZones :: Lens' AddAvailabilityZonesInput [Text]
-aaziAvailabilityZones =
-    lens _aaziAvailabilityZones (\s a -> s { _aaziAvailabilityZones = a })
+eazflbAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancer [Text]
+eazflbAvailabilityZones =
+    lens _eazflbAvailabilityZones (\s a -> s { _eazflbAvailabilityZones = a })
 
 -- | The name associated with the load balancer.
-aaziLoadBalancerName :: Lens' AddAvailabilityZonesInput Text
-aaziLoadBalancerName =
-    lens _aaziLoadBalancerName (\s a -> s { _aaziLoadBalancerName = a })
+eazflbLoadBalancerName :: Lens' EnableAvailabilityZonesForLoadBalancer Text
+eazflbLoadBalancerName =
+    lens _eazflbLoadBalancerName (\s a -> s { _eazflbLoadBalancerName = a })
 
-instance ToQuery AddAvailabilityZonesInput
+instance ToQuery EnableAvailabilityZonesForLoadBalancer
 
-instance ToPath AddAvailabilityZonesInput where
+instance ToPath EnableAvailabilityZonesForLoadBalancer where
     toPath = const "/"
 
-newtype AddAvailabilityZonesOutput = AddAvailabilityZonesOutput
-    { _aazoAvailabilityZones :: [Text]
+newtype EnableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
+    { _eazflbrAvailabilityZones :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList AddAvailabilityZonesOutput where
-    type Item AddAvailabilityZonesOutput = Text
+instance IsList EnableAvailabilityZonesForLoadBalancerResponse where
+    type Item EnableAvailabilityZonesForLoadBalancerResponse = Text
 
-    fromList = AddAvailabilityZonesOutput . fromList
-    toList   = toList . _aazoAvailabilityZones
+    fromList = EnableAvailabilityZonesForLoadBalancerResponse . fromList
+    toList   = toList . _eazflbrAvailabilityZones
 
--- | 'AddAvailabilityZonesOutput' constructor.
+-- | 'EnableAvailabilityZonesForLoadBalancerResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aazoAvailabilityZones' @::@ ['Text']
+-- * 'eazflbrAvailabilityZones' @::@ ['Text']
 --
-enableAvailabilityZonesForLoadBalancerResponse :: AddAvailabilityZonesOutput
-enableAvailabilityZonesForLoadBalancerResponse = AddAvailabilityZonesOutput
-    { _aazoAvailabilityZones = mempty
+enableAvailabilityZonesForLoadBalancerResponse :: EnableAvailabilityZonesForLoadBalancerResponse
+enableAvailabilityZonesForLoadBalancerResponse = EnableAvailabilityZonesForLoadBalancerResponse
+    { _eazflbrAvailabilityZones = mempty
     }
 
 -- | An updated list of Availability Zones for the load balancer.
-aazoAvailabilityZones :: Lens' AddAvailabilityZonesOutput [Text]
-aazoAvailabilityZones =
-    lens _aazoAvailabilityZones (\s a -> s { _aazoAvailabilityZones = a })
+eazflbrAvailabilityZones :: Lens' EnableAvailabilityZonesForLoadBalancerResponse [Text]
+eazflbrAvailabilityZones =
+    lens _eazflbrAvailabilityZones
+        (\s a -> s { _eazflbrAvailabilityZones = a })
 
-instance FromXML AddAvailabilityZonesOutput where
+instance FromXML EnableAvailabilityZonesForLoadBalancerResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AddAvailabilityZonesOutput"
+    fromXMLRoot    = fromRoot "EnableAvailabilityZonesForLoadBalancerResponse"
 
-instance AWSRequest AddAvailabilityZonesInput where
-    type Sv AddAvailabilityZonesInput = ELB
-    type Rs AddAvailabilityZonesInput = AddAvailabilityZonesOutput
+instance AWSRequest EnableAvailabilityZonesForLoadBalancer where
+    type Sv EnableAvailabilityZonesForLoadBalancer = ELB
+    type Rs EnableAvailabilityZonesForLoadBalancer = EnableAvailabilityZonesForLoadBalancerResponse
 
     request  = post "EnableAvailabilityZonesForLoadBalancer"
-    response = xmlResponse $ \h x -> AddAvailabilityZonesOutput
+    response = xmlResponse $ \h x -> EnableAvailabilityZonesForLoadBalancerResponse
         <$> x %| "AvailabilityZones"

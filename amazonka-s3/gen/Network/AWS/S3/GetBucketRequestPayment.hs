@@ -31,11 +31,11 @@ module Network.AWS.S3.GetBucketRequestPayment
     , gbrpBucket
 
     -- * Response
-    , GetBucketRequestPaymentOutput
+    , GetBucketRequestPaymentResponse
     -- ** Response constructor
     , getBucketRequestPaymentResponse
     -- ** Response lenses
-    , gbrpoPayer
+    , gbrprPayer
     ) where
 
 import Network.AWS.Prelude
@@ -72,32 +72,32 @@ instance ToQuery GetBucketRequestPayment where
 
 instance ToHeaders GetBucketRequestPayment
 
-newtype GetBucketRequestPaymentOutput = GetBucketRequestPaymentOutput
-    { _gbrpoPayer :: Maybe Text
+newtype GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
+    { _gbrprPayer :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'GetBucketRequestPaymentOutput' constructor.
+-- | 'GetBucketRequestPaymentResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbrpoPayer' @::@ 'Maybe' 'Text'
+-- * 'gbrprPayer' @::@ 'Maybe' 'Text'
 --
-getBucketRequestPaymentResponse :: GetBucketRequestPaymentOutput
-getBucketRequestPaymentResponse = GetBucketRequestPaymentOutput
-    { _gbrpoPayer = Nothing
+getBucketRequestPaymentResponse :: GetBucketRequestPaymentResponse
+getBucketRequestPaymentResponse = GetBucketRequestPaymentResponse
+    { _gbrprPayer = Nothing
     }
 
 -- | Specifies who pays for the download and request fees.
-gbrpoPayer :: Lens' GetBucketRequestPaymentOutput (Maybe Text)
-gbrpoPayer = lens _gbrpoPayer (\s a -> s { _gbrpoPayer = a })
+gbrprPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Text)
+gbrprPayer = lens _gbrprPayer (\s a -> s { _gbrprPayer = a })
 
-instance FromXML GetBucketRequestPaymentOutput where
+instance FromXML GetBucketRequestPaymentResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketRequestPaymentOutput"
+    fromXMLRoot    = fromRoot "GetBucketRequestPaymentResponse"
 instance AWSRequest GetBucketRequestPayment where
     type Sv GetBucketRequestPayment = S3
-    type Rs GetBucketRequestPayment = GetBucketRequestPaymentOutput
+    type Rs GetBucketRequestPayment = GetBucketRequestPaymentResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketRequestPaymentOutput
+    response = xmlResponse $ \h x -> GetBucketRequestPaymentResponse
         <$> x %| "Payer"

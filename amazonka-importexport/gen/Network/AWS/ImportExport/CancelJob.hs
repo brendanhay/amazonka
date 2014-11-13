@@ -25,74 +25,74 @@
 module Network.AWS.ImportExport.CancelJob
     (
     -- * Request
-      CancelJobInput
+      CancelJob
     -- ** Request constructor
     , cancelJob
     -- ** Request lenses
-    , cjiJobId
+    , cjJobId
 
     -- * Response
-    , CancelJobOutput
+    , CancelJobResponse
     -- ** Response constructor
     , cancelJobResponse
     -- ** Response lenses
-    , cjoSuccess
+    , cjrSuccess
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
 
-newtype CancelJobInput = CancelJobInput
-    { _cjiJobId :: Text
+newtype CancelJob = CancelJob
+    { _cjJobId :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'CancelJobInput' constructor.
+-- | 'CancelJob' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cjiJobId' @::@ 'Text'
+-- * 'cjJobId' @::@ 'Text'
 --
-cancelJob :: Text -- ^ 'cjiJobId'
-          -> CancelJobInput
-cancelJob p1 = CancelJobInput
-    { _cjiJobId = p1
+cancelJob :: Text -- ^ 'cjJobId'
+          -> CancelJob
+cancelJob p1 = CancelJob
+    { _cjJobId = p1
     }
 
-cjiJobId :: Lens' CancelJobInput Text
-cjiJobId = lens _cjiJobId (\s a -> s { _cjiJobId = a })
+cjJobId :: Lens' CancelJob Text
+cjJobId = lens _cjJobId (\s a -> s { _cjJobId = a })
 
-instance ToQuery CancelJobInput
+instance ToQuery CancelJob
 
-instance ToPath CancelJobInput where
+instance ToPath CancelJob where
     toPath = const "/"
 
-newtype CancelJobOutput = CancelJobOutput
-    { _cjoSuccess :: Maybe Bool
+newtype CancelJobResponse = CancelJobResponse
+    { _cjrSuccess :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CancelJobOutput' constructor.
+-- | 'CancelJobResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cjoSuccess' @::@ 'Maybe' 'Bool'
+-- * 'cjrSuccess' @::@ 'Maybe' 'Bool'
 --
-cancelJobResponse :: CancelJobOutput
-cancelJobResponse = CancelJobOutput
-    { _cjoSuccess = Nothing
+cancelJobResponse :: CancelJobResponse
+cancelJobResponse = CancelJobResponse
+    { _cjrSuccess = Nothing
     }
 
-cjoSuccess :: Lens' CancelJobOutput (Maybe Bool)
-cjoSuccess = lens _cjoSuccess (\s a -> s { _cjoSuccess = a })
+cjrSuccess :: Lens' CancelJobResponse (Maybe Bool)
+cjrSuccess = lens _cjrSuccess (\s a -> s { _cjrSuccess = a })
 
-instance FromXML CancelJobOutput where
+instance FromXML CancelJobResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CancelJobOutput"
+    fromXMLRoot    = fromRoot "CancelJobResponse"
 
-instance AWSRequest CancelJobInput where
-    type Sv CancelJobInput = ImportExport
-    type Rs CancelJobInput = CancelJobOutput
+instance AWSRequest CancelJob where
+    type Sv CancelJob = ImportExport
+    type Rs CancelJob = CancelJobResponse
 
     request  = post "CancelJob"
-    response = xmlResponse $ \h x -> CancelJobOutput
+    response = xmlResponse $ \h x -> CancelJobResponse
         <$> x %| "Success"

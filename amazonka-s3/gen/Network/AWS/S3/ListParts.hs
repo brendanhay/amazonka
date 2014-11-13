@@ -35,21 +35,21 @@ module Network.AWS.S3.ListParts
     , lpUploadId
 
     -- * Response
-    , ListPartsOutput
+    , ListPartsResponse
     -- ** Response constructor
     , listPartsResponse
     -- ** Response lenses
-    , lpoBucket
-    , lpoInitiator
-    , lpoIsTruncated
-    , lpoKey
-    , lpoMaxParts
-    , lpoNextPartNumberMarker
-    , lpoOwner
-    , lpoPartNumberMarker
-    , lpoParts
-    , lpoStorageClass
-    , lpoUploadId
+    , lprBucket
+    , lprInitiator
+    , lprIsTruncated
+    , lprKey
+    , lprMaxParts
+    , lprNextPartNumberMarker
+    , lprOwner
+    , lprPartNumberMarker
+    , lprParts
+    , lprStorageClass
+    , lprUploadId
     ) where
 
 import Network.AWS.Prelude
@@ -127,116 +127,116 @@ instance ToQuery ListParts where
 
 instance ToHeaders ListParts
 
-data ListPartsOutput = ListPartsOutput
-    { _lpoBucket               :: Maybe Text
-    , _lpoInitiator            :: Maybe Initiator
-    , _lpoIsTruncated          :: Maybe Bool
-    , _lpoKey                  :: Maybe Text
-    , _lpoMaxParts             :: Maybe Int
-    , _lpoNextPartNumberMarker :: Maybe Int
-    , _lpoOwner                :: Maybe Owner
-    , _lpoPartNumberMarker     :: Maybe Int
-    , _lpoParts                :: [Part]
-    , _lpoStorageClass         :: Maybe Text
-    , _lpoUploadId             :: Maybe Text
+data ListPartsResponse = ListPartsResponse
+    { _lprBucket               :: Maybe Text
+    , _lprInitiator            :: Maybe Initiator
+    , _lprIsTruncated          :: Maybe Bool
+    , _lprKey                  :: Maybe Text
+    , _lprMaxParts             :: Maybe Int
+    , _lprNextPartNumberMarker :: Maybe Int
+    , _lprOwner                :: Maybe Owner
+    , _lprPartNumberMarker     :: Maybe Int
+    , _lprParts                :: [Part]
+    , _lprStorageClass         :: Maybe Text
+    , _lprUploadId             :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'ListPartsOutput' constructor.
+-- | 'ListPartsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lpoBucket' @::@ 'Maybe' 'Text'
+-- * 'lprBucket' @::@ 'Maybe' 'Text'
 --
--- * 'lpoInitiator' @::@ 'Maybe' 'Initiator'
+-- * 'lprInitiator' @::@ 'Maybe' 'Initiator'
 --
--- * 'lpoIsTruncated' @::@ 'Maybe' 'Bool'
+-- * 'lprIsTruncated' @::@ 'Maybe' 'Bool'
 --
--- * 'lpoKey' @::@ 'Maybe' 'Text'
+-- * 'lprKey' @::@ 'Maybe' 'Text'
 --
--- * 'lpoMaxParts' @::@ 'Maybe' 'Int'
+-- * 'lprMaxParts' @::@ 'Maybe' 'Int'
 --
--- * 'lpoNextPartNumberMarker' @::@ 'Maybe' 'Int'
+-- * 'lprNextPartNumberMarker' @::@ 'Maybe' 'Int'
 --
--- * 'lpoOwner' @::@ 'Maybe' 'Owner'
+-- * 'lprOwner' @::@ 'Maybe' 'Owner'
 --
--- * 'lpoPartNumberMarker' @::@ 'Maybe' 'Int'
+-- * 'lprPartNumberMarker' @::@ 'Maybe' 'Int'
 --
--- * 'lpoParts' @::@ ['Part']
+-- * 'lprParts' @::@ ['Part']
 --
--- * 'lpoStorageClass' @::@ 'Maybe' 'Text'
+-- * 'lprStorageClass' @::@ 'Maybe' 'Text'
 --
--- * 'lpoUploadId' @::@ 'Maybe' 'Text'
+-- * 'lprUploadId' @::@ 'Maybe' 'Text'
 --
-listPartsResponse :: ListPartsOutput
-listPartsResponse = ListPartsOutput
-    { _lpoBucket               = Nothing
-    , _lpoKey                  = Nothing
-    , _lpoUploadId             = Nothing
-    , _lpoPartNumberMarker     = Nothing
-    , _lpoNextPartNumberMarker = Nothing
-    , _lpoMaxParts             = Nothing
-    , _lpoIsTruncated          = Nothing
-    , _lpoParts                = mempty
-    , _lpoInitiator            = Nothing
-    , _lpoOwner                = Nothing
-    , _lpoStorageClass         = Nothing
+listPartsResponse :: ListPartsResponse
+listPartsResponse = ListPartsResponse
+    { _lprBucket               = Nothing
+    , _lprKey                  = Nothing
+    , _lprUploadId             = Nothing
+    , _lprPartNumberMarker     = Nothing
+    , _lprNextPartNumberMarker = Nothing
+    , _lprMaxParts             = Nothing
+    , _lprIsTruncated          = Nothing
+    , _lprParts                = mempty
+    , _lprInitiator            = Nothing
+    , _lprOwner                = Nothing
+    , _lprStorageClass         = Nothing
     }
 
 -- | Name of the bucket to which the multipart upload was initiated.
-lpoBucket :: Lens' ListPartsOutput (Maybe Text)
-lpoBucket = lens _lpoBucket (\s a -> s { _lpoBucket = a })
+lprBucket :: Lens' ListPartsResponse (Maybe Text)
+lprBucket = lens _lprBucket (\s a -> s { _lprBucket = a })
 
 -- | Identifies who initiated the multipart upload.
-lpoInitiator :: Lens' ListPartsOutput (Maybe Initiator)
-lpoInitiator = lens _lpoInitiator (\s a -> s { _lpoInitiator = a })
+lprInitiator :: Lens' ListPartsResponse (Maybe Initiator)
+lprInitiator = lens _lprInitiator (\s a -> s { _lprInitiator = a })
 
 -- | Indicates whether the returned list of parts is truncated.
-lpoIsTruncated :: Lens' ListPartsOutput (Maybe Bool)
-lpoIsTruncated = lens _lpoIsTruncated (\s a -> s { _lpoIsTruncated = a })
+lprIsTruncated :: Lens' ListPartsResponse (Maybe Bool)
+lprIsTruncated = lens _lprIsTruncated (\s a -> s { _lprIsTruncated = a })
 
 -- | Object key for which the multipart upload was initiated.
-lpoKey :: Lens' ListPartsOutput (Maybe Text)
-lpoKey = lens _lpoKey (\s a -> s { _lpoKey = a })
+lprKey :: Lens' ListPartsResponse (Maybe Text)
+lprKey = lens _lprKey (\s a -> s { _lprKey = a })
 
 -- | Maximum number of parts that were allowed in the response.
-lpoMaxParts :: Lens' ListPartsOutput (Maybe Int)
-lpoMaxParts = lens _lpoMaxParts (\s a -> s { _lpoMaxParts = a })
+lprMaxParts :: Lens' ListPartsResponse (Maybe Int)
+lprMaxParts = lens _lprMaxParts (\s a -> s { _lprMaxParts = a })
 
 -- | When a list is truncated, this element specifies the last part in the
 -- list, as well as the value to use for the part-number-marker request
 -- parameter in a subsequent request.
-lpoNextPartNumberMarker :: Lens' ListPartsOutput (Maybe Int)
-lpoNextPartNumberMarker =
-    lens _lpoNextPartNumberMarker (\s a -> s { _lpoNextPartNumberMarker = a })
+lprNextPartNumberMarker :: Lens' ListPartsResponse (Maybe Int)
+lprNextPartNumberMarker =
+    lens _lprNextPartNumberMarker (\s a -> s { _lprNextPartNumberMarker = a })
 
-lpoOwner :: Lens' ListPartsOutput (Maybe Owner)
-lpoOwner = lens _lpoOwner (\s a -> s { _lpoOwner = a })
+lprOwner :: Lens' ListPartsResponse (Maybe Owner)
+lprOwner = lens _lprOwner (\s a -> s { _lprOwner = a })
 
 -- | Part number after which listing begins.
-lpoPartNumberMarker :: Lens' ListPartsOutput (Maybe Int)
-lpoPartNumberMarker =
-    lens _lpoPartNumberMarker (\s a -> s { _lpoPartNumberMarker = a })
+lprPartNumberMarker :: Lens' ListPartsResponse (Maybe Int)
+lprPartNumberMarker =
+    lens _lprPartNumberMarker (\s a -> s { _lprPartNumberMarker = a })
 
-lpoParts :: Lens' ListPartsOutput [Part]
-lpoParts = lens _lpoParts (\s a -> s { _lpoParts = a })
+lprParts :: Lens' ListPartsResponse [Part]
+lprParts = lens _lprParts (\s a -> s { _lprParts = a })
 
 -- | The class of storage used to store the object.
-lpoStorageClass :: Lens' ListPartsOutput (Maybe Text)
-lpoStorageClass = lens _lpoStorageClass (\s a -> s { _lpoStorageClass = a })
+lprStorageClass :: Lens' ListPartsResponse (Maybe Text)
+lprStorageClass = lens _lprStorageClass (\s a -> s { _lprStorageClass = a })
 
 -- | Upload ID identifying the multipart upload whose parts are being listed.
-lpoUploadId :: Lens' ListPartsOutput (Maybe Text)
-lpoUploadId = lens _lpoUploadId (\s a -> s { _lpoUploadId = a })
+lprUploadId :: Lens' ListPartsResponse (Maybe Text)
+lprUploadId = lens _lprUploadId (\s a -> s { _lprUploadId = a })
 
-instance FromXML ListPartsOutput where
+instance FromXML ListPartsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListPartsOutput"
+    fromXMLRoot    = fromRoot "ListPartsResponse"
 instance AWSRequest ListParts where
     type Sv ListParts = S3
-    type Rs ListParts = ListPartsOutput
+    type Rs ListParts = ListPartsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListPartsOutput
+    response = xmlResponse $ \h x -> ListPartsResponse
         <$> x %| "Bucket"
         <*> x %| "Initiator"
         <*> x %| "IsTruncated"

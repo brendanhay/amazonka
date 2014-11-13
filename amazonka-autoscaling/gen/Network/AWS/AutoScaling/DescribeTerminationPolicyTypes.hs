@@ -29,11 +29,11 @@ module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     , describeTerminationPolicyTypes
 
     -- * Response
-    , DescribeTerminationPolicyTypesAnswer
+    , DescribeTerminationPolicyTypesResponse
     -- ** Response constructor
     , describeTerminationPolicyTypesResponse
     -- ** Response lenses
-    , dtptaTerminationPolicyTypes
+    , dtptrTerminationPolicyTypes
     ) where
 
 import Network.AWS.Prelude
@@ -52,43 +52,43 @@ instance ToQuery DescribeTerminationPolicyTypes
 instance ToPath DescribeTerminationPolicyTypes where
     toPath = const "/"
 
-newtype DescribeTerminationPolicyTypesAnswer = DescribeTerminationPolicyTypesAnswer
-    { _dtptaTerminationPolicyTypes :: [Text]
+newtype DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
+    { _dtptrTerminationPolicyTypes :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeTerminationPolicyTypesAnswer where
-    type Item DescribeTerminationPolicyTypesAnswer = Text
+instance IsList DescribeTerminationPolicyTypesResponse where
+    type Item DescribeTerminationPolicyTypesResponse = Text
 
-    fromList = DescribeTerminationPolicyTypesAnswer . fromList
-    toList   = toList . _dtptaTerminationPolicyTypes
+    fromList = DescribeTerminationPolicyTypesResponse . fromList
+    toList   = toList . _dtptrTerminationPolicyTypes
 
--- | 'DescribeTerminationPolicyTypesAnswer' constructor.
+-- | 'DescribeTerminationPolicyTypesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtptaTerminationPolicyTypes' @::@ ['Text']
+-- * 'dtptrTerminationPolicyTypes' @::@ ['Text']
 --
-describeTerminationPolicyTypesResponse :: DescribeTerminationPolicyTypesAnswer
-describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesAnswer
-    { _dtptaTerminationPolicyTypes = mempty
+describeTerminationPolicyTypesResponse :: DescribeTerminationPolicyTypesResponse
+describeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse
+    { _dtptrTerminationPolicyTypes = mempty
     }
 
 -- | Termination policies supported by Auto Scaling. They are: OldestInstance,
 -- OldestLaunchConfiguration, NewestInstance, ClosestToNextInstanceHour,
 -- Default.
-dtptaTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesAnswer [Text]
-dtptaTerminationPolicyTypes =
-    lens _dtptaTerminationPolicyTypes
-        (\s a -> s { _dtptaTerminationPolicyTypes = a })
+dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
+dtptrTerminationPolicyTypes =
+    lens _dtptrTerminationPolicyTypes
+        (\s a -> s { _dtptrTerminationPolicyTypes = a })
 
-instance FromXML DescribeTerminationPolicyTypesAnswer where
+instance FromXML DescribeTerminationPolicyTypesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeTerminationPolicyTypesAnswer"
+    fromXMLRoot    = fromRoot "DescribeTerminationPolicyTypesResponse"
 
 instance AWSRequest DescribeTerminationPolicyTypes where
     type Sv DescribeTerminationPolicyTypes = AutoScaling
-    type Rs DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypesAnswer
+    type Rs DescribeTerminationPolicyTypes = DescribeTerminationPolicyTypesResponse
 
     request  = post "DescribeTerminationPolicyTypes"
-    response = xmlResponse $ \h x -> DescribeTerminationPolicyTypesAnswer
+    response = xmlResponse $ \h x -> DescribeTerminationPolicyTypesResponse
         <$> x %| "TerminationPolicyTypes"

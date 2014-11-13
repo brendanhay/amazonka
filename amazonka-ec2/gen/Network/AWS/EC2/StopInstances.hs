@@ -49,12 +49,12 @@ module Network.AWS.EC2.StopInstances
     -- ** Request constructor
     , stopInstances
     -- ** Request lenses
-    , si1DryRun
-    , si1Force
-    , si1InstanceIds
+    , siDryRun
+    , siForce
+    , siInstanceIds
 
     -- * Response
-    , StopInstancesResult
+    , StopInstancesResponse
     -- ** Response constructor
     , stopInstancesResponse
     -- ** Response lenses
@@ -66,81 +66,81 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data StopInstances = StopInstances
-    { _si1DryRun      :: Maybe Bool
-    , _si1Force       :: Maybe Bool
-    , _si1InstanceIds :: [Text]
+    { _siDryRun      :: Maybe Bool
+    , _siForce       :: Maybe Bool
+    , _siInstanceIds :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StopInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'si1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'siDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'si1Force' @::@ 'Maybe' 'Bool'
+-- * 'siForce' @::@ 'Maybe' 'Bool'
 --
--- * 'si1InstanceIds' @::@ ['Text']
+-- * 'siInstanceIds' @::@ ['Text']
 --
 stopInstances :: StopInstances
 stopInstances = StopInstances
-    { _si1DryRun      = Nothing
-    , _si1InstanceIds = mempty
-    , _si1Force       = Nothing
+    { _siDryRun      = Nothing
+    , _siInstanceIds = mempty
+    , _siForce       = Nothing
     }
 
-si1DryRun :: Lens' StopInstances (Maybe Bool)
-si1DryRun = lens _si1DryRun (\s a -> s { _si1DryRun = a })
+siDryRun :: Lens' StopInstances (Maybe Bool)
+siDryRun = lens _siDryRun (\s a -> s { _siDryRun = a })
 
 -- | Forces the instances to stop. The instances do not have an opportunity to
 -- flush file system caches or file system metadata. If you use this option,
 -- you must perform file system check and repair procedures. This option is
 -- not recommended for Windows instances. Default: false.
-si1Force :: Lens' StopInstances (Maybe Bool)
-si1Force = lens _si1Force (\s a -> s { _si1Force = a })
+siForce :: Lens' StopInstances (Maybe Bool)
+siForce = lens _siForce (\s a -> s { _siForce = a })
 
 -- | One or more instance IDs.
-si1InstanceIds :: Lens' StopInstances [Text]
-si1InstanceIds = lens _si1InstanceIds (\s a -> s { _si1InstanceIds = a })
+siInstanceIds :: Lens' StopInstances [Text]
+siInstanceIds = lens _siInstanceIds (\s a -> s { _siInstanceIds = a })
 
 instance ToQuery StopInstances
 
 instance ToPath StopInstances where
     toPath = const "/"
 
-newtype StopInstancesResult = StopInstancesResult
+newtype StopInstancesResponse = StopInstancesResponse
     { _sirStoppingInstances :: [InstanceStateChange]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList StopInstancesResult where
-    type Item StopInstancesResult = InstanceStateChange
+instance IsList StopInstancesResponse where
+    type Item StopInstancesResponse = InstanceStateChange
 
-    fromList = StopInstancesResult . fromList
+    fromList = StopInstancesResponse . fromList
     toList   = toList . _sirStoppingInstances
 
--- | 'StopInstancesResult' constructor.
+-- | 'StopInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'sirStoppingInstances' @::@ ['InstanceStateChange']
 --
-stopInstancesResponse :: StopInstancesResult
-stopInstancesResponse = StopInstancesResult
+stopInstancesResponse :: StopInstancesResponse
+stopInstancesResponse = StopInstancesResponse
     { _sirStoppingInstances = mempty
     }
 
 -- | Information about one or more stopped instances.
-sirStoppingInstances :: Lens' StopInstancesResult [InstanceStateChange]
+sirStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
 sirStoppingInstances =
     lens _sirStoppingInstances (\s a -> s { _sirStoppingInstances = a })
 
-instance FromXML StopInstancesResult where
+instance FromXML StopInstancesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StopInstancesResult"
+    fromXMLRoot    = fromRoot "StopInstancesResponse"
 
 instance AWSRequest StopInstances where
     type Sv StopInstances = EC2
-    type Rs StopInstances = StopInstancesResult
+    type Rs StopInstances = StopInstancesResponse
 
     request  = post "StopInstances"
-    response = xmlResponse $ \h x -> StopInstancesResult
+    response = xmlResponse $ \h x -> StopInstancesResponse
         <$> x %| "instancesSet"

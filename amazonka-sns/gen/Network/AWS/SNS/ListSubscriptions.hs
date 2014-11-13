@@ -27,11 +27,11 @@
 module Network.AWS.SNS.ListSubscriptions
     (
     -- * Request
-      ListSubscriptionsInput
+      ListSubscriptions
     -- ** Request constructor
     , listSubscriptions
     -- ** Request lenses
-    , lsiNextToken
+    , lsNextToken
 
     -- * Response
     , ListSubscriptionsResponse
@@ -46,28 +46,28 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-newtype ListSubscriptionsInput = ListSubscriptionsInput
-    { _lsiNextToken :: Maybe Text
+newtype ListSubscriptions = ListSubscriptions
+    { _lsNextToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'ListSubscriptionsInput' constructor.
+-- | 'ListSubscriptions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsiNextToken' @::@ 'Maybe' 'Text'
+-- * 'lsNextToken' @::@ 'Maybe' 'Text'
 --
-listSubscriptions :: ListSubscriptionsInput
-listSubscriptions = ListSubscriptionsInput
-    { _lsiNextToken = Nothing
+listSubscriptions :: ListSubscriptions
+listSubscriptions = ListSubscriptions
+    { _lsNextToken = Nothing
     }
 
 -- | Token returned by the previous ListSubscriptions request.
-lsiNextToken :: Lens' ListSubscriptionsInput (Maybe Text)
-lsiNextToken = lens _lsiNextToken (\s a -> s { _lsiNextToken = a })
+lsNextToken :: Lens' ListSubscriptions (Maybe Text)
+lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
 
-instance ToQuery ListSubscriptionsInput
+instance ToQuery ListSubscriptions
 
-instance ToPath ListSubscriptionsInput where
+instance ToPath ListSubscriptions where
     toPath = const "/"
 
 data ListSubscriptionsResponse = ListSubscriptionsResponse
@@ -102,9 +102,9 @@ instance FromXML ListSubscriptionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListSubscriptionsResponse"
 
-instance AWSRequest ListSubscriptionsInput where
-    type Sv ListSubscriptionsInput = SNS
-    type Rs ListSubscriptionsInput = ListSubscriptionsResponse
+instance AWSRequest ListSubscriptions where
+    type Sv ListSubscriptions = SNS
+    type Rs ListSubscriptions = ListSubscriptionsResponse
 
     request  = post "ListSubscriptions"
     response = xmlResponse $ \h x -> ListSubscriptionsResponse

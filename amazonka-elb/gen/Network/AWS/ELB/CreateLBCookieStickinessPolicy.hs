@@ -37,13 +37,13 @@
 module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     (
     -- * Request
-      CreateLBCookieStickinessPolicyInput
+      CreateLBCookieStickinessPolicy
     -- ** Request constructor
     , createLBCookieStickinessPolicy
     -- ** Request lenses
-    , clbcspiCookieExpirationPeriod
-    , clbcspiLoadBalancerName
-    , clbcspiPolicyName
+    , clbcspCookieExpirationPeriod
+    , clbcspLoadBalancerName
+    , clbcspPolicyName
 
     -- * Response
     , CreateLBCookieStickinessPolicyResponse
@@ -55,53 +55,52 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data CreateLBCookieStickinessPolicyInput = CreateLBCookieStickinessPolicyInput
-    { _clbcspiCookieExpirationPeriod :: Maybe Integer
-    , _clbcspiLoadBalancerName       :: Text
-    , _clbcspiPolicyName             :: Text
+data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy
+    { _clbcspCookieExpirationPeriod :: Maybe Integer
+    , _clbcspLoadBalancerName       :: Text
+    , _clbcspPolicyName             :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CreateLBCookieStickinessPolicyInput' constructor.
+-- | 'CreateLBCookieStickinessPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clbcspiCookieExpirationPeriod' @::@ 'Maybe' 'Integer'
+-- * 'clbcspCookieExpirationPeriod' @::@ 'Maybe' 'Integer'
 --
--- * 'clbcspiLoadBalancerName' @::@ 'Text'
+-- * 'clbcspLoadBalancerName' @::@ 'Text'
 --
--- * 'clbcspiPolicyName' @::@ 'Text'
+-- * 'clbcspPolicyName' @::@ 'Text'
 --
-createLBCookieStickinessPolicy :: Text -- ^ 'clbcspiLoadBalancerName'
-                               -> Text -- ^ 'clbcspiPolicyName'
-                               -> CreateLBCookieStickinessPolicyInput
-createLBCookieStickinessPolicy p1 p2 = CreateLBCookieStickinessPolicyInput
-    { _clbcspiLoadBalancerName       = p1
-    , _clbcspiPolicyName             = p2
-    , _clbcspiCookieExpirationPeriod = Nothing
+createLBCookieStickinessPolicy :: Text -- ^ 'clbcspLoadBalancerName'
+                               -> Text -- ^ 'clbcspPolicyName'
+                               -> CreateLBCookieStickinessPolicy
+createLBCookieStickinessPolicy p1 p2 = CreateLBCookieStickinessPolicy
+    { _clbcspLoadBalancerName       = p1
+    , _clbcspPolicyName             = p2
+    , _clbcspCookieExpirationPeriod = Nothing
     }
 
 -- | The time period in seconds after which the cookie should be considered
 -- stale. Not specifying this parameter indicates that the sticky session
 -- will last for the duration of the browser session.
-clbcspiCookieExpirationPeriod :: Lens' CreateLBCookieStickinessPolicyInput (Maybe Integer)
-clbcspiCookieExpirationPeriod =
-    lens _clbcspiCookieExpirationPeriod
-        (\s a -> s { _clbcspiCookieExpirationPeriod = a })
+clbcspCookieExpirationPeriod :: Lens' CreateLBCookieStickinessPolicy (Maybe Integer)
+clbcspCookieExpirationPeriod =
+    lens _clbcspCookieExpirationPeriod
+        (\s a -> s { _clbcspCookieExpirationPeriod = a })
 
 -- | The name associated with the load balancer.
-clbcspiLoadBalancerName :: Lens' CreateLBCookieStickinessPolicyInput Text
-clbcspiLoadBalancerName =
-    lens _clbcspiLoadBalancerName (\s a -> s { _clbcspiLoadBalancerName = a })
+clbcspLoadBalancerName :: Lens' CreateLBCookieStickinessPolicy Text
+clbcspLoadBalancerName =
+    lens _clbcspLoadBalancerName (\s a -> s { _clbcspLoadBalancerName = a })
 
 -- | The name of the policy being created. The name must be unique within the
 -- set of policies for this load balancer.
-clbcspiPolicyName :: Lens' CreateLBCookieStickinessPolicyInput Text
-clbcspiPolicyName =
-    lens _clbcspiPolicyName (\s a -> s { _clbcspiPolicyName = a })
+clbcspPolicyName :: Lens' CreateLBCookieStickinessPolicy Text
+clbcspPolicyName = lens _clbcspPolicyName (\s a -> s { _clbcspPolicyName = a })
 
-instance ToQuery CreateLBCookieStickinessPolicyInput
+instance ToQuery CreateLBCookieStickinessPolicy
 
-instance ToPath CreateLBCookieStickinessPolicyInput where
+instance ToPath CreateLBCookieStickinessPolicy where
     toPath = const "/"
 
 data CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse
@@ -115,9 +114,9 @@ instance FromXML CreateLBCookieStickinessPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateLBCookieStickinessPolicyResponse"
 
-instance AWSRequest CreateLBCookieStickinessPolicyInput where
-    type Sv CreateLBCookieStickinessPolicyInput = ELB
-    type Rs CreateLBCookieStickinessPolicyInput = CreateLBCookieStickinessPolicyResponse
+instance AWSRequest CreateLBCookieStickinessPolicy where
+    type Sv CreateLBCookieStickinessPolicy = ELB
+    type Rs CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicyResponse
 
     request  = post "CreateLBCookieStickinessPolicy"
     response = nullaryResponse CreateLBCookieStickinessPolicyResponse

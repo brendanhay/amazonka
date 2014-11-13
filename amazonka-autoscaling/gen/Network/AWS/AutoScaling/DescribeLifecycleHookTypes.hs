@@ -29,11 +29,11 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     , describeLifecycleHookTypes
 
     -- * Response
-    , DescribeLifecycleHookTypesAnswer
+    , DescribeLifecycleHookTypesResponse
     -- ** Response constructor
     , describeLifecycleHookTypesResponse
     -- ** Response lenses
-    , dlhtaLifecycleHookTypes
+    , dlhtrLifecycleHookTypes
     ) where
 
 import Network.AWS.Prelude
@@ -52,42 +52,42 @@ instance ToQuery DescribeLifecycleHookTypes
 instance ToPath DescribeLifecycleHookTypes where
     toPath = const "/"
 
-newtype DescribeLifecycleHookTypesAnswer = DescribeLifecycleHookTypesAnswer
-    { _dlhtaLifecycleHookTypes :: [Text]
+newtype DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
+    { _dlhtrLifecycleHookTypes :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeLifecycleHookTypesAnswer where
-    type Item DescribeLifecycleHookTypesAnswer = Text
+instance IsList DescribeLifecycleHookTypesResponse where
+    type Item DescribeLifecycleHookTypesResponse = Text
 
-    fromList = DescribeLifecycleHookTypesAnswer . fromList
-    toList   = toList . _dlhtaLifecycleHookTypes
+    fromList = DescribeLifecycleHookTypesResponse . fromList
+    toList   = toList . _dlhtrLifecycleHookTypes
 
--- | 'DescribeLifecycleHookTypesAnswer' constructor.
+-- | 'DescribeLifecycleHookTypesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlhtaLifecycleHookTypes' @::@ ['Text']
+-- * 'dlhtrLifecycleHookTypes' @::@ ['Text']
 --
-describeLifecycleHookTypesResponse :: DescribeLifecycleHookTypesAnswer
-describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesAnswer
-    { _dlhtaLifecycleHookTypes = mempty
+describeLifecycleHookTypesResponse :: DescribeLifecycleHookTypesResponse
+describeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse
+    { _dlhtrLifecycleHookTypes = mempty
     }
 
 -- | Returns a list of all notification types supported by Auto Scaling. They
 -- are: autoscaling:EC2_INSTANCE_LAUNCHING
 -- autoscaling:EC2_INSTANCE_TERMINATING.
-dlhtaLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesAnswer [Text]
-dlhtaLifecycleHookTypes =
-    lens _dlhtaLifecycleHookTypes (\s a -> s { _dlhtaLifecycleHookTypes = a })
+dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
+dlhtrLifecycleHookTypes =
+    lens _dlhtrLifecycleHookTypes (\s a -> s { _dlhtrLifecycleHookTypes = a })
 
-instance FromXML DescribeLifecycleHookTypesAnswer where
+instance FromXML DescribeLifecycleHookTypesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLifecycleHookTypesAnswer"
+    fromXMLRoot    = fromRoot "DescribeLifecycleHookTypesResponse"
 
 instance AWSRequest DescribeLifecycleHookTypes where
     type Sv DescribeLifecycleHookTypes = AutoScaling
-    type Rs DescribeLifecycleHookTypes = DescribeLifecycleHookTypesAnswer
+    type Rs DescribeLifecycleHookTypes = DescribeLifecycleHookTypesResponse
 
     request  = post "DescribeLifecycleHookTypes"
-    response = xmlResponse $ \h x -> DescribeLifecycleHookTypesAnswer
+    response = xmlResponse $ \h x -> DescribeLifecycleHookTypesResponse
         <$> x %| "LifecycleHookTypes"

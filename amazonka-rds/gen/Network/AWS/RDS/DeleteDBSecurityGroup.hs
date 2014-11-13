@@ -24,11 +24,11 @@
 module Network.AWS.RDS.DeleteDBSecurityGroup
     (
     -- * Request
-      DeleteDBSecurityGroupMessage
+      DeleteDBSecurityGroup
     -- ** Request constructor
     , deleteDBSecurityGroup
     -- ** Request lenses
-    , ddbsgmDBSecurityGroupName
+    , ddbsgDBSecurityGroupName
 
     -- * Response
     , DeleteDBSecurityGroupResponse
@@ -40,34 +40,34 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-newtype DeleteDBSecurityGroupMessage = DeleteDBSecurityGroupMessage
-    { _ddbsgmDBSecurityGroupName :: Text
+newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup
+    { _ddbsgDBSecurityGroupName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteDBSecurityGroupMessage' constructor.
+-- | 'DeleteDBSecurityGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbsgmDBSecurityGroupName' @::@ 'Text'
+-- * 'ddbsgDBSecurityGroupName' @::@ 'Text'
 --
-deleteDBSecurityGroup :: Text -- ^ 'ddbsgmDBSecurityGroupName'
-                      -> DeleteDBSecurityGroupMessage
-deleteDBSecurityGroup p1 = DeleteDBSecurityGroupMessage
-    { _ddbsgmDBSecurityGroupName = p1
+deleteDBSecurityGroup :: Text -- ^ 'ddbsgDBSecurityGroupName'
+                      -> DeleteDBSecurityGroup
+deleteDBSecurityGroup p1 = DeleteDBSecurityGroup
+    { _ddbsgDBSecurityGroupName = p1
     }
 
 -- | The name of the DB security group to delete. Constraints: Must be 1 to
 -- 255 alphanumeric characters First character must be a letter Cannot end
 -- with a hyphen or contain two consecutive hyphens Must not be "Default"
 -- May not contain spaces.
-ddbsgmDBSecurityGroupName :: Lens' DeleteDBSecurityGroupMessage Text
-ddbsgmDBSecurityGroupName =
-    lens _ddbsgmDBSecurityGroupName
-        (\s a -> s { _ddbsgmDBSecurityGroupName = a })
+ddbsgDBSecurityGroupName :: Lens' DeleteDBSecurityGroup Text
+ddbsgDBSecurityGroupName =
+    lens _ddbsgDBSecurityGroupName
+        (\s a -> s { _ddbsgDBSecurityGroupName = a })
 
-instance ToQuery DeleteDBSecurityGroupMessage
+instance ToQuery DeleteDBSecurityGroup
 
-instance ToPath DeleteDBSecurityGroupMessage where
+instance ToPath DeleteDBSecurityGroup where
     toPath = const "/"
 
 data DeleteDBSecurityGroupResponse = DeleteDBSecurityGroupResponse
@@ -81,9 +81,9 @@ instance FromXML DeleteDBSecurityGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteDBSecurityGroupResponse"
 
-instance AWSRequest DeleteDBSecurityGroupMessage where
-    type Sv DeleteDBSecurityGroupMessage = RDS
-    type Rs DeleteDBSecurityGroupMessage = DeleteDBSecurityGroupResponse
+instance AWSRequest DeleteDBSecurityGroup where
+    type Sv DeleteDBSecurityGroup = RDS
+    type Rs DeleteDBSecurityGroup = DeleteDBSecurityGroupResponse
 
     request  = post "DeleteDBSecurityGroup"
     response = nullaryResponse DeleteDBSecurityGroupResponse

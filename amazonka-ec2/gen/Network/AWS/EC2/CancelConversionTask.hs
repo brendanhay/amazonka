@@ -30,13 +30,13 @@
 module Network.AWS.EC2.CancelConversionTask
     (
     -- * Request
-      CancelConversion
+      CancelConversionTask
     -- ** Request constructor
     , cancelConversionTask
     -- ** Request lenses
-    , ccConversionTaskId
-    , ccDryRun
-    , ccReasonMessage
+    , cctConversionTaskId
+    , cctDryRun
+    , cctReasonMessage
 
     -- * Response
     , CancelConversionTaskResponse
@@ -48,44 +48,44 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
-data CancelConversion = CancelConversion
-    { _ccConversionTaskId :: Text
-    , _ccDryRun           :: Maybe Bool
-    , _ccReasonMessage    :: Maybe Text
+data CancelConversionTask = CancelConversionTask
+    { _cctConversionTaskId :: Text
+    , _cctDryRun           :: Maybe Bool
+    , _cctReasonMessage    :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CancelConversion' constructor.
+-- | 'CancelConversionTask' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccConversionTaskId' @::@ 'Text'
+-- * 'cctConversionTaskId' @::@ 'Text'
 --
--- * 'ccDryRun' @::@ 'Maybe' 'Bool'
+-- * 'cctDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'ccReasonMessage' @::@ 'Maybe' 'Text'
+-- * 'cctReasonMessage' @::@ 'Maybe' 'Text'
 --
-cancelConversionTask :: Text -- ^ 'ccConversionTaskId'
-                     -> CancelConversion
-cancelConversionTask p1 = CancelConversion
-    { _ccConversionTaskId = p1
-    , _ccDryRun           = Nothing
-    , _ccReasonMessage    = Nothing
+cancelConversionTask :: Text -- ^ 'cctConversionTaskId'
+                     -> CancelConversionTask
+cancelConversionTask p1 = CancelConversionTask
+    { _cctConversionTaskId = p1
+    , _cctDryRun           = Nothing
+    , _cctReasonMessage    = Nothing
     }
 
 -- | The ID of the conversion task.
-ccConversionTaskId :: Lens' CancelConversion Text
-ccConversionTaskId =
-    lens _ccConversionTaskId (\s a -> s { _ccConversionTaskId = a })
+cctConversionTaskId :: Lens' CancelConversionTask Text
+cctConversionTaskId =
+    lens _cctConversionTaskId (\s a -> s { _cctConversionTaskId = a })
 
-ccDryRun :: Lens' CancelConversion (Maybe Bool)
-ccDryRun = lens _ccDryRun (\s a -> s { _ccDryRun = a })
+cctDryRun :: Lens' CancelConversionTask (Maybe Bool)
+cctDryRun = lens _cctDryRun (\s a -> s { _cctDryRun = a })
 
-ccReasonMessage :: Lens' CancelConversion (Maybe Text)
-ccReasonMessage = lens _ccReasonMessage (\s a -> s { _ccReasonMessage = a })
+cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
+cctReasonMessage = lens _cctReasonMessage (\s a -> s { _cctReasonMessage = a })
 
-instance ToQuery CancelConversion
+instance ToQuery CancelConversionTask
 
-instance ToPath CancelConversion where
+instance ToPath CancelConversionTask where
     toPath = const "/"
 
 data CancelConversionTaskResponse = CancelConversionTaskResponse
@@ -99,9 +99,9 @@ instance FromXML CancelConversionTaskResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CancelConversionTaskResponse"
 
-instance AWSRequest CancelConversion where
-    type Sv CancelConversion = EC2
-    type Rs CancelConversion = CancelConversionTaskResponse
+instance AWSRequest CancelConversionTask where
+    type Sv CancelConversionTask = EC2
+    type Rs CancelConversionTask = CancelConversionTaskResponse
 
     request  = post "CancelConversionTask"
     response = nullaryResponse CancelConversionTaskResponse

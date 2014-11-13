@@ -36,7 +36,7 @@ module Network.AWS.EC2.ReplaceNetworkAclAssociation
     , rnaaNetworkAclId
 
     -- * Response
-    , ReplaceNetworkAclAssociationResult
+    , ReplaceNetworkAclAssociationResponse
     -- ** Response constructor
     , replaceNetworkAclAssociationResponse
     -- ** Response lenses
@@ -90,34 +90,34 @@ instance ToQuery ReplaceNetworkAclAssociation
 instance ToPath ReplaceNetworkAclAssociation where
     toPath = const "/"
 
-newtype ReplaceNetworkAclAssociationResult = ReplaceNetworkAclAssociationResult
+newtype ReplaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     { _rnaarNewAssociationId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'ReplaceNetworkAclAssociationResult' constructor.
+-- | 'ReplaceNetworkAclAssociationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rnaarNewAssociationId' @::@ 'Maybe' 'Text'
 --
-replaceNetworkAclAssociationResponse :: ReplaceNetworkAclAssociationResult
-replaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResult
+replaceNetworkAclAssociationResponse :: ReplaceNetworkAclAssociationResponse
+replaceNetworkAclAssociationResponse = ReplaceNetworkAclAssociationResponse
     { _rnaarNewAssociationId = Nothing
     }
 
 -- | The ID of the new association.
-rnaarNewAssociationId :: Lens' ReplaceNetworkAclAssociationResult (Maybe Text)
+rnaarNewAssociationId :: Lens' ReplaceNetworkAclAssociationResponse (Maybe Text)
 rnaarNewAssociationId =
     lens _rnaarNewAssociationId (\s a -> s { _rnaarNewAssociationId = a })
 
-instance FromXML ReplaceNetworkAclAssociationResult where
+instance FromXML ReplaceNetworkAclAssociationResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReplaceNetworkAclAssociationResult"
+    fromXMLRoot    = fromRoot "ReplaceNetworkAclAssociationResponse"
 
 instance AWSRequest ReplaceNetworkAclAssociation where
     type Sv ReplaceNetworkAclAssociation = EC2
-    type Rs ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociationResult
+    type Rs ReplaceNetworkAclAssociation = ReplaceNetworkAclAssociationResponse
 
     request  = post "ReplaceNetworkAclAssociation"
-    response = xmlResponse $ \h x -> ReplaceNetworkAclAssociationResult
+    response = xmlResponse $ \h x -> ReplaceNetworkAclAssociationResponse
         <$> x %| "newAssociationId"

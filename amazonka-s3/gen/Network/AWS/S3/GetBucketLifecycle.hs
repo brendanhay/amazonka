@@ -31,11 +31,11 @@ module Network.AWS.S3.GetBucketLifecycle
     , gbl1Bucket
 
     -- * Response
-    , GetBucketLifecycleOutput
+    , GetBucketLifecycleResponse
     -- ** Response constructor
     , getBucketLifecycleResponse
     -- ** Response lenses
-    , gbloRules
+    , gblrRules
     ) where
 
 import Network.AWS.Prelude
@@ -72,37 +72,37 @@ instance ToQuery GetBucketLifecycle where
 
 instance ToHeaders GetBucketLifecycle
 
-newtype GetBucketLifecycleOutput = GetBucketLifecycleOutput
-    { _gbloRules :: [Rule]
+newtype GetBucketLifecycleResponse = GetBucketLifecycleResponse
+    { _gblrRules :: [Rule]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetBucketLifecycleOutput where
-    type Item GetBucketLifecycleOutput = Rule
+instance IsList GetBucketLifecycleResponse where
+    type Item GetBucketLifecycleResponse = Rule
 
-    fromList = GetBucketLifecycleOutput . fromList
-    toList   = toList . _gbloRules
+    fromList = GetBucketLifecycleResponse . fromList
+    toList   = toList . _gblrRules
 
--- | 'GetBucketLifecycleOutput' constructor.
+-- | 'GetBucketLifecycleResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbloRules' @::@ ['Rule']
+-- * 'gblrRules' @::@ ['Rule']
 --
-getBucketLifecycleResponse :: GetBucketLifecycleOutput
-getBucketLifecycleResponse = GetBucketLifecycleOutput
-    { _gbloRules = mempty
+getBucketLifecycleResponse :: GetBucketLifecycleResponse
+getBucketLifecycleResponse = GetBucketLifecycleResponse
+    { _gblrRules = mempty
     }
 
-gbloRules :: Lens' GetBucketLifecycleOutput [Rule]
-gbloRules = lens _gbloRules (\s a -> s { _gbloRules = a })
+gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
+gblrRules = lens _gblrRules (\s a -> s { _gblrRules = a })
 
-instance FromXML GetBucketLifecycleOutput where
+instance FromXML GetBucketLifecycleResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketLifecycleOutput"
+    fromXMLRoot    = fromRoot "GetBucketLifecycleResponse"
 instance AWSRequest GetBucketLifecycle where
     type Sv GetBucketLifecycle = S3
-    type Rs GetBucketLifecycle = GetBucketLifecycleOutput
+    type Rs GetBucketLifecycle = GetBucketLifecycleResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketLifecycleOutput
+    response = xmlResponse $ \h x -> GetBucketLifecycleResponse
         <$> x %| "Rule"

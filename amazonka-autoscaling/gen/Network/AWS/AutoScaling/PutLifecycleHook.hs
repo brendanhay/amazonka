@@ -36,18 +36,18 @@
 module Network.AWS.AutoScaling.PutLifecycleHook
     (
     -- * Request
-      PutLifecycleHookType
+      PutLifecycleHook
     -- ** Request constructor
     , putLifecycleHook
     -- ** Request lenses
-    , plhtAutoScalingGroupName
-    , plhtDefaultResult
-    , plhtHeartbeatTimeout
-    , plhtLifecycleHookName
-    , plhtLifecycleTransition
-    , plhtNotificationMetadata
-    , plhtNotificationTargetARN
-    , plhtRoleARN
+    , plhAutoScalingGroupName
+    , plhDefaultResult
+    , plhHeartbeatTimeout
+    , plhLifecycleHookName
+    , plhLifecycleTransition
+    , plhNotificationMetadata
+    , plhNotificationTargetARN
+    , plhRoleARN
 
     -- * Response
     , PutLifecycleHookResponse
@@ -59,65 +59,63 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data PutLifecycleHookType = PutLifecycleHookType
-    { _plhtAutoScalingGroupName  :: Text
-    , _plhtDefaultResult         :: Maybe Text
-    , _plhtHeartbeatTimeout      :: Maybe Int
-    , _plhtLifecycleHookName     :: Text
-    , _plhtLifecycleTransition   :: Maybe Text
-    , _plhtNotificationMetadata  :: Maybe Text
-    , _plhtNotificationTargetARN :: Maybe Text
-    , _plhtRoleARN               :: Maybe Text
+data PutLifecycleHook = PutLifecycleHook
+    { _plhAutoScalingGroupName  :: Text
+    , _plhDefaultResult         :: Maybe Text
+    , _plhHeartbeatTimeout      :: Maybe Int
+    , _plhLifecycleHookName     :: Text
+    , _plhLifecycleTransition   :: Maybe Text
+    , _plhNotificationMetadata  :: Maybe Text
+    , _plhNotificationTargetARN :: Maybe Text
+    , _plhRoleARN               :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'PutLifecycleHookType' constructor.
+-- | 'PutLifecycleHook' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'plhtAutoScalingGroupName' @::@ 'Text'
+-- * 'plhAutoScalingGroupName' @::@ 'Text'
 --
--- * 'plhtDefaultResult' @::@ 'Maybe' 'Text'
+-- * 'plhDefaultResult' @::@ 'Maybe' 'Text'
 --
--- * 'plhtHeartbeatTimeout' @::@ 'Maybe' 'Int'
+-- * 'plhHeartbeatTimeout' @::@ 'Maybe' 'Int'
 --
--- * 'plhtLifecycleHookName' @::@ 'Text'
+-- * 'plhLifecycleHookName' @::@ 'Text'
 --
--- * 'plhtLifecycleTransition' @::@ 'Maybe' 'Text'
+-- * 'plhLifecycleTransition' @::@ 'Maybe' 'Text'
 --
--- * 'plhtNotificationMetadata' @::@ 'Maybe' 'Text'
+-- * 'plhNotificationMetadata' @::@ 'Maybe' 'Text'
 --
--- * 'plhtNotificationTargetARN' @::@ 'Maybe' 'Text'
+-- * 'plhNotificationTargetARN' @::@ 'Maybe' 'Text'
 --
--- * 'plhtRoleARN' @::@ 'Maybe' 'Text'
+-- * 'plhRoleARN' @::@ 'Maybe' 'Text'
 --
-putLifecycleHook :: Text -- ^ 'plhtLifecycleHookName'
-                 -> Text -- ^ 'plhtAutoScalingGroupName'
-                 -> PutLifecycleHookType
-putLifecycleHook p1 p2 = PutLifecycleHookType
-    { _plhtLifecycleHookName     = p1
-    , _plhtAutoScalingGroupName  = p2
-    , _plhtLifecycleTransition   = Nothing
-    , _plhtRoleARN               = Nothing
-    , _plhtNotificationTargetARN = Nothing
-    , _plhtNotificationMetadata  = Nothing
-    , _plhtHeartbeatTimeout      = Nothing
-    , _plhtDefaultResult         = Nothing
+putLifecycleHook :: Text -- ^ 'plhLifecycleHookName'
+                 -> Text -- ^ 'plhAutoScalingGroupName'
+                 -> PutLifecycleHook
+putLifecycleHook p1 p2 = PutLifecycleHook
+    { _plhLifecycleHookName     = p1
+    , _plhAutoScalingGroupName  = p2
+    , _plhLifecycleTransition   = Nothing
+    , _plhRoleARN               = Nothing
+    , _plhNotificationTargetARN = Nothing
+    , _plhNotificationMetadata  = Nothing
+    , _plhHeartbeatTimeout      = Nothing
+    , _plhDefaultResult         = Nothing
     }
 
 -- | The name of the Auto Scaling group to which you want to assign the
 -- lifecycle hook.
-plhtAutoScalingGroupName :: Lens' PutLifecycleHookType Text
-plhtAutoScalingGroupName =
-    lens _plhtAutoScalingGroupName
-        (\s a -> s { _plhtAutoScalingGroupName = a })
+plhAutoScalingGroupName :: Lens' PutLifecycleHook Text
+plhAutoScalingGroupName =
+    lens _plhAutoScalingGroupName (\s a -> s { _plhAutoScalingGroupName = a })
 
 -- | Defines the action the Auto Scaling group should take when the lifecycle
 -- hook timeout elapses or if an unexpected failure occurs. The value for
 -- this parameter can be either CONTINUE or ABANDON. The default value for
 -- this parameter is ABANDON.
-plhtDefaultResult :: Lens' PutLifecycleHookType (Maybe Text)
-plhtDefaultResult =
-    lens _plhtDefaultResult (\s a -> s { _plhtDefaultResult = a })
+plhDefaultResult :: Lens' PutLifecycleHook (Maybe Text)
+plhDefaultResult = lens _plhDefaultResult (\s a -> s { _plhDefaultResult = a })
 
 -- | Defines the amount of time, in seconds, that can elapse before the
 -- lifecycle hook times out. When the lifecycle hook times out, Auto Scaling
@@ -125,28 +123,27 @@ plhtDefaultResult =
 -- prevent the lifecycle hook from timing out by calling
 -- RecordLifecycleActionHeartbeat. The default value for this parameter is
 -- 3600 seconds (1 hour).
-plhtHeartbeatTimeout :: Lens' PutLifecycleHookType (Maybe Int)
-plhtHeartbeatTimeout =
-    lens _plhtHeartbeatTimeout (\s a -> s { _plhtHeartbeatTimeout = a })
+plhHeartbeatTimeout :: Lens' PutLifecycleHook (Maybe Int)
+plhHeartbeatTimeout =
+    lens _plhHeartbeatTimeout (\s a -> s { _plhHeartbeatTimeout = a })
 
 -- | The name of the lifecycle hook.
-plhtLifecycleHookName :: Lens' PutLifecycleHookType Text
-plhtLifecycleHookName =
-    lens _plhtLifecycleHookName (\s a -> s { _plhtLifecycleHookName = a })
+plhLifecycleHookName :: Lens' PutLifecycleHook Text
+plhLifecycleHookName =
+    lens _plhLifecycleHookName (\s a -> s { _plhLifecycleHookName = a })
 
 -- | The Amazon EC2 instance state to which you want to attach the lifecycle
 -- hook. See DescribeLifecycleHookTypes for a list of available lifecycle
 -- hook types.
-plhtLifecycleTransition :: Lens' PutLifecycleHookType (Maybe Text)
-plhtLifecycleTransition =
-    lens _plhtLifecycleTransition (\s a -> s { _plhtLifecycleTransition = a })
+plhLifecycleTransition :: Lens' PutLifecycleHook (Maybe Text)
+plhLifecycleTransition =
+    lens _plhLifecycleTransition (\s a -> s { _plhLifecycleTransition = a })
 
 -- | Contains additional information that you want to include any time Auto
 -- Scaling sends a message to the notification target.
-plhtNotificationMetadata :: Lens' PutLifecycleHookType (Maybe Text)
-plhtNotificationMetadata =
-    lens _plhtNotificationMetadata
-        (\s a -> s { _plhtNotificationMetadata = a })
+plhNotificationMetadata :: Lens' PutLifecycleHook (Maybe Text)
+plhNotificationMetadata =
+    lens _plhNotificationMetadata (\s a -> s { _plhNotificationMetadata = a })
 
 -- | The ARN of the notification target that Auto Scaling will use to notify
 -- you when an instance is in the transition state for the lifecycle hook.
@@ -162,19 +159,19 @@ plhtNotificationMetadata =
 -- topic. When you call this operation, a test message is sent to the
 -- notification target. This test message contains an additional key/value
 -- pair: Event:autoscaling:TEST_NOTIFICATION.
-plhtNotificationTargetARN :: Lens' PutLifecycleHookType (Maybe Text)
-plhtNotificationTargetARN =
-    lens _plhtNotificationTargetARN
-        (\s a -> s { _plhtNotificationTargetARN = a })
+plhNotificationTargetARN :: Lens' PutLifecycleHook (Maybe Text)
+plhNotificationTargetARN =
+    lens _plhNotificationTargetARN
+        (\s a -> s { _plhNotificationTargetARN = a })
 
 -- | The ARN of the Amazon IAM role that allows the Auto Scaling group to
 -- publish to the specified notification target.
-plhtRoleARN :: Lens' PutLifecycleHookType (Maybe Text)
-plhtRoleARN = lens _plhtRoleARN (\s a -> s { _plhtRoleARN = a })
+plhRoleARN :: Lens' PutLifecycleHook (Maybe Text)
+plhRoleARN = lens _plhRoleARN (\s a -> s { _plhRoleARN = a })
 
-instance ToQuery PutLifecycleHookType
+instance ToQuery PutLifecycleHook
 
-instance ToPath PutLifecycleHookType where
+instance ToPath PutLifecycleHook where
     toPath = const "/"
 
 data PutLifecycleHookResponse = PutLifecycleHookResponse
@@ -188,9 +185,9 @@ instance FromXML PutLifecycleHookResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PutLifecycleHookResponse"
 
-instance AWSRequest PutLifecycleHookType where
-    type Sv PutLifecycleHookType = AutoScaling
-    type Rs PutLifecycleHookType = PutLifecycleHookResponse
+instance AWSRequest PutLifecycleHook where
+    type Sv PutLifecycleHook = AutoScaling
+    type Rs PutLifecycleHook = PutLifecycleHookResponse
 
     request  = post "PutLifecycleHook"
     response = nullaryResponse PutLifecycleHookResponse

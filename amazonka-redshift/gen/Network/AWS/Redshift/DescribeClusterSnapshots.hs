@@ -28,87 +28,87 @@
 module Network.AWS.Redshift.DescribeClusterSnapshots
     (
     -- * Request
-      DescribeClusterSnapshotsMessage
+      DescribeClusterSnapshots
     -- ** Request constructor
     , describeClusterSnapshots
     -- ** Request lenses
-    , dcsm1ClusterIdentifier
-    , dcsm1EndTime
-    , dcsm1Marker
-    , dcsm1MaxRecords
-    , dcsm1OwnerAccount
-    , dcsm1SnapshotIdentifier
-    , dcsm1SnapshotType
-    , dcsm1StartTime
+    , dcs1ClusterIdentifier
+    , dcs1EndTime
+    , dcs1Marker
+    , dcs1MaxRecords
+    , dcs1OwnerAccount
+    , dcs1SnapshotIdentifier
+    , dcs1SnapshotType
+    , dcs1StartTime
 
     -- * Response
-    , SnapshotMessage
+    , DescribeClusterSnapshotsResponse
     -- ** Response constructor
     , describeClusterSnapshotsResponse
     -- ** Response lenses
-    , smMarker
-    , smSnapshots
+    , dcsrMarker
+    , dcsrSnapshots
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data DescribeClusterSnapshotsMessage = DescribeClusterSnapshotsMessage
-    { _dcsm1ClusterIdentifier  :: Maybe Text
-    , _dcsm1EndTime            :: Maybe RFC822
-    , _dcsm1Marker             :: Maybe Text
-    , _dcsm1MaxRecords         :: Maybe Int
-    , _dcsm1OwnerAccount       :: Maybe Text
-    , _dcsm1SnapshotIdentifier :: Maybe Text
-    , _dcsm1SnapshotType       :: Maybe Text
-    , _dcsm1StartTime          :: Maybe RFC822
+data DescribeClusterSnapshots = DescribeClusterSnapshots
+    { _dcs1ClusterIdentifier  :: Maybe Text
+    , _dcs1EndTime            :: Maybe RFC822
+    , _dcs1Marker             :: Maybe Text
+    , _dcs1MaxRecords         :: Maybe Int
+    , _dcs1OwnerAccount       :: Maybe Text
+    , _dcs1SnapshotIdentifier :: Maybe Text
+    , _dcs1SnapshotType       :: Maybe Text
+    , _dcs1StartTime          :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeClusterSnapshotsMessage' constructor.
+-- | 'DescribeClusterSnapshots' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsm1ClusterIdentifier' @::@ 'Maybe' 'Text'
+-- * 'dcs1ClusterIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'dcsm1EndTime' @::@ 'Maybe' 'UTCTime'
+-- * 'dcs1EndTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'dcsm1Marker' @::@ 'Maybe' 'Text'
+-- * 'dcs1Marker' @::@ 'Maybe' 'Text'
 --
--- * 'dcsm1MaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dcs1MaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'dcsm1OwnerAccount' @::@ 'Maybe' 'Text'
+-- * 'dcs1OwnerAccount' @::@ 'Maybe' 'Text'
 --
--- * 'dcsm1SnapshotIdentifier' @::@ 'Maybe' 'Text'
+-- * 'dcs1SnapshotIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'dcsm1SnapshotType' @::@ 'Maybe' 'Text'
+-- * 'dcs1SnapshotType' @::@ 'Maybe' 'Text'
 --
--- * 'dcsm1StartTime' @::@ 'Maybe' 'UTCTime'
+-- * 'dcs1StartTime' @::@ 'Maybe' 'UTCTime'
 --
-describeClusterSnapshots :: DescribeClusterSnapshotsMessage
-describeClusterSnapshots = DescribeClusterSnapshotsMessage
-    { _dcsm1ClusterIdentifier  = Nothing
-    , _dcsm1SnapshotIdentifier = Nothing
-    , _dcsm1SnapshotType       = Nothing
-    , _dcsm1StartTime          = Nothing
-    , _dcsm1EndTime            = Nothing
-    , _dcsm1MaxRecords         = Nothing
-    , _dcsm1Marker             = Nothing
-    , _dcsm1OwnerAccount       = Nothing
+describeClusterSnapshots :: DescribeClusterSnapshots
+describeClusterSnapshots = DescribeClusterSnapshots
+    { _dcs1ClusterIdentifier  = Nothing
+    , _dcs1SnapshotIdentifier = Nothing
+    , _dcs1SnapshotType       = Nothing
+    , _dcs1StartTime          = Nothing
+    , _dcs1EndTime            = Nothing
+    , _dcs1MaxRecords         = Nothing
+    , _dcs1Marker             = Nothing
+    , _dcs1OwnerAccount       = Nothing
     }
 
 -- | The identifier of the cluster for which information about snapshots is
 -- requested.
-dcsm1ClusterIdentifier :: Lens' DescribeClusterSnapshotsMessage (Maybe Text)
-dcsm1ClusterIdentifier =
-    lens _dcsm1ClusterIdentifier (\s a -> s { _dcsm1ClusterIdentifier = a })
+dcs1ClusterIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcs1ClusterIdentifier =
+    lens _dcs1ClusterIdentifier (\s a -> s { _dcs1ClusterIdentifier = a })
 
 -- | A time value that requests only snapshots created at or before the
 -- specified time. The time value is specified in ISO 8601 format. For more
 -- information about ISO 8601, go to the ISO8601 Wikipedia page. Example:
 -- 2012-07-16T18:00:00Z.
-dcsm1EndTime :: Lens' DescribeClusterSnapshotsMessage (Maybe UTCTime)
-dcsm1EndTime = lens _dcsm1EndTime (\s a -> s { _dcsm1EndTime = a })
+dcs1EndTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
+dcs1EndTime = lens _dcs1EndTime (\s a -> s { _dcs1EndTime = a })
     . mapping _Time
 
 -- | An optional parameter that specifies the starting point to return a set
@@ -117,68 +117,66 @@ dcsm1EndTime = lens _dcsm1EndTime (\s a -> s { _dcsm1EndTime = a })
 -- the Marker field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the Marker
 -- parameter and retrying the request.
-dcsm1Marker :: Lens' DescribeClusterSnapshotsMessage (Maybe Text)
-dcsm1Marker = lens _dcsm1Marker (\s a -> s { _dcsm1Marker = a })
+dcs1Marker :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcs1Marker = lens _dcs1Marker (\s a -> s { _dcs1Marker = a })
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcsm1MaxRecords :: Lens' DescribeClusterSnapshotsMessage (Maybe Int)
-dcsm1MaxRecords = lens _dcsm1MaxRecords (\s a -> s { _dcsm1MaxRecords = a })
+dcs1MaxRecords :: Lens' DescribeClusterSnapshots (Maybe Int)
+dcs1MaxRecords = lens _dcs1MaxRecords (\s a -> s { _dcs1MaxRecords = a })
 
 -- | The AWS customer account used to create or copy the snapshot. Use this
 -- field to filter the results to snapshots owned by a particular account.
 -- To describe snapshots you own, either specify your AWS customer account,
 -- or do not specify the parameter.
-dcsm1OwnerAccount :: Lens' DescribeClusterSnapshotsMessage (Maybe Text)
-dcsm1OwnerAccount =
-    lens _dcsm1OwnerAccount (\s a -> s { _dcsm1OwnerAccount = a })
+dcs1OwnerAccount :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcs1OwnerAccount = lens _dcs1OwnerAccount (\s a -> s { _dcs1OwnerAccount = a })
 
 -- | The snapshot identifier of the snapshot about which to return
 -- information.
-dcsm1SnapshotIdentifier :: Lens' DescribeClusterSnapshotsMessage (Maybe Text)
-dcsm1SnapshotIdentifier =
-    lens _dcsm1SnapshotIdentifier (\s a -> s { _dcsm1SnapshotIdentifier = a })
+dcs1SnapshotIdentifier :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcs1SnapshotIdentifier =
+    lens _dcs1SnapshotIdentifier (\s a -> s { _dcs1SnapshotIdentifier = a })
 
 -- | The type of snapshots for which you are requesting information. By
 -- default, snapshots of all types are returned. Valid Values: automated |
 -- manual.
-dcsm1SnapshotType :: Lens' DescribeClusterSnapshotsMessage (Maybe Text)
-dcsm1SnapshotType =
-    lens _dcsm1SnapshotType (\s a -> s { _dcsm1SnapshotType = a })
+dcs1SnapshotType :: Lens' DescribeClusterSnapshots (Maybe Text)
+dcs1SnapshotType = lens _dcs1SnapshotType (\s a -> s { _dcs1SnapshotType = a })
 
 -- | A value that requests only snapshots created at or after the specified
 -- time. The time value is specified in ISO 8601 format. For more
 -- information about ISO 8601, go to the ISO8601 Wikipedia page. Example:
 -- 2012-07-16T18:00:00Z.
-dcsm1StartTime :: Lens' DescribeClusterSnapshotsMessage (Maybe UTCTime)
-dcsm1StartTime = lens _dcsm1StartTime (\s a -> s { _dcsm1StartTime = a })
+dcs1StartTime :: Lens' DescribeClusterSnapshots (Maybe UTCTime)
+dcs1StartTime = lens _dcs1StartTime (\s a -> s { _dcs1StartTime = a })
     . mapping _Time
 
-instance ToQuery DescribeClusterSnapshotsMessage
+instance ToQuery DescribeClusterSnapshots
 
-instance ToPath DescribeClusterSnapshotsMessage where
+instance ToPath DescribeClusterSnapshots where
     toPath = const "/"
 
-data SnapshotMessage = SnapshotMessage
-    { _smMarker    :: Maybe Text
-    , _smSnapshots :: [Snapshot]
+data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
+    { _dcsrMarker    :: Maybe Text
+    , _dcsrSnapshots :: [Snapshot]
     } deriving (Eq, Show, Generic)
 
--- | 'SnapshotMessage' constructor.
+-- | 'DescribeClusterSnapshotsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'smMarker' @::@ 'Maybe' 'Text'
+-- * 'dcsrMarker' @::@ 'Maybe' 'Text'
 --
--- * 'smSnapshots' @::@ ['Snapshot']
+-- * 'dcsrSnapshots' @::@ ['Snapshot']
 --
-describeClusterSnapshotsResponse :: SnapshotMessage
-describeClusterSnapshotsResponse = SnapshotMessage
-    { _smMarker    = Nothing
-    , _smSnapshots = mempty
+describeClusterSnapshotsResponse :: DescribeClusterSnapshotsResponse
+describeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse
+    { _dcsrMarker    = Nothing
+    , _dcsrSnapshots = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -187,22 +185,22 @@ describeClusterSnapshotsResponse = SnapshotMessage
 -- marker value in the Marker parameter and retrying the command. If the
 -- Marker field is empty, all response records have been retrieved for the
 -- request.
-smMarker :: Lens' SnapshotMessage (Maybe Text)
-smMarker = lens _smMarker (\s a -> s { _smMarker = a })
+dcsrMarker :: Lens' DescribeClusterSnapshotsResponse (Maybe Text)
+dcsrMarker = lens _dcsrMarker (\s a -> s { _dcsrMarker = a })
 
 -- | A list of Snapshot instances.
-smSnapshots :: Lens' SnapshotMessage [Snapshot]
-smSnapshots = lens _smSnapshots (\s a -> s { _smSnapshots = a })
+dcsrSnapshots :: Lens' DescribeClusterSnapshotsResponse [Snapshot]
+dcsrSnapshots = lens _dcsrSnapshots (\s a -> s { _dcsrSnapshots = a })
 
-instance FromXML SnapshotMessage where
+instance FromXML DescribeClusterSnapshotsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SnapshotMessage"
+    fromXMLRoot    = fromRoot "DescribeClusterSnapshotsResponse"
 
-instance AWSRequest DescribeClusterSnapshotsMessage where
-    type Sv DescribeClusterSnapshotsMessage = Redshift
-    type Rs DescribeClusterSnapshotsMessage = SnapshotMessage
+instance AWSRequest DescribeClusterSnapshots where
+    type Sv DescribeClusterSnapshots = Redshift
+    type Rs DescribeClusterSnapshots = DescribeClusterSnapshotsResponse
 
     request  = post "DescribeClusterSnapshots"
-    response = xmlResponse $ \h x -> SnapshotMessage
+    response = xmlResponse $ \h x -> DescribeClusterSnapshotsResponse
         <$> x %| "Marker"
         <*> x %| "Snapshots"

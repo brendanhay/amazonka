@@ -27,16 +27,16 @@
 module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     (
     -- * Request
-      AuthorizeCacheSecurityGroupIngressMessage
+      AuthorizeCacheSecurityGroupIngress
     -- ** Request constructor
     , authorizeCacheSecurityGroupIngress
     -- ** Request lenses
-    , acsgimCacheSecurityGroupName
-    , acsgimEC2SecurityGroupName
-    , acsgimEC2SecurityGroupOwnerId
+    , acsgiCacheSecurityGroupName
+    , acsgiEC2SecurityGroupName
+    , acsgiEC2SecurityGroupOwnerId
 
     -- * Response
-    , AuthorizeCacheSecurityGroupIngressResult
+    , AuthorizeCacheSecurityGroupIngressResponse
     -- ** Response constructor
     , authorizeCacheSecurityGroupIngressResponse
     -- ** Response lenses
@@ -47,86 +47,86 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data AuthorizeCacheSecurityGroupIngressMessage = AuthorizeCacheSecurityGroupIngressMessage
-    { _acsgimCacheSecurityGroupName  :: Text
-    , _acsgimEC2SecurityGroupName    :: Text
-    , _acsgimEC2SecurityGroupOwnerId :: Text
+data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress
+    { _acsgiCacheSecurityGroupName  :: Text
+    , _acsgiEC2SecurityGroupName    :: Text
+    , _acsgiEC2SecurityGroupOwnerId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'AuthorizeCacheSecurityGroupIngressMessage' constructor.
+-- | 'AuthorizeCacheSecurityGroupIngress' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'acsgimCacheSecurityGroupName' @::@ 'Text'
+-- * 'acsgiCacheSecurityGroupName' @::@ 'Text'
 --
--- * 'acsgimEC2SecurityGroupName' @::@ 'Text'
+-- * 'acsgiEC2SecurityGroupName' @::@ 'Text'
 --
--- * 'acsgimEC2SecurityGroupOwnerId' @::@ 'Text'
+-- * 'acsgiEC2SecurityGroupOwnerId' @::@ 'Text'
 --
-authorizeCacheSecurityGroupIngress :: Text -- ^ 'acsgimCacheSecurityGroupName'
-                                   -> Text -- ^ 'acsgimEC2SecurityGroupName'
-                                   -> Text -- ^ 'acsgimEC2SecurityGroupOwnerId'
-                                   -> AuthorizeCacheSecurityGroupIngressMessage
-authorizeCacheSecurityGroupIngress p1 p2 p3 = AuthorizeCacheSecurityGroupIngressMessage
-    { _acsgimCacheSecurityGroupName  = p1
-    , _acsgimEC2SecurityGroupName    = p2
-    , _acsgimEC2SecurityGroupOwnerId = p3
+authorizeCacheSecurityGroupIngress :: Text -- ^ 'acsgiCacheSecurityGroupName'
+                                   -> Text -- ^ 'acsgiEC2SecurityGroupName'
+                                   -> Text -- ^ 'acsgiEC2SecurityGroupOwnerId'
+                                   -> AuthorizeCacheSecurityGroupIngress
+authorizeCacheSecurityGroupIngress p1 p2 p3 = AuthorizeCacheSecurityGroupIngress
+    { _acsgiCacheSecurityGroupName  = p1
+    , _acsgiEC2SecurityGroupName    = p2
+    , _acsgiEC2SecurityGroupOwnerId = p3
     }
 
 -- | The cache security group which will allow network ingress.
-acsgimCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngressMessage Text
-acsgimCacheSecurityGroupName =
-    lens _acsgimCacheSecurityGroupName
-        (\s a -> s { _acsgimCacheSecurityGroupName = a })
+acsgiCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
+acsgiCacheSecurityGroupName =
+    lens _acsgiCacheSecurityGroupName
+        (\s a -> s { _acsgiCacheSecurityGroupName = a })
 
 -- | The Amazon EC2 security group to be authorized for ingress to the cache
 -- security group.
-acsgimEC2SecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngressMessage Text
-acsgimEC2SecurityGroupName =
-    lens _acsgimEC2SecurityGroupName
-        (\s a -> s { _acsgimEC2SecurityGroupName = a })
+acsgiEC2SecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
+acsgiEC2SecurityGroupName =
+    lens _acsgiEC2SecurityGroupName
+        (\s a -> s { _acsgiEC2SecurityGroupName = a })
 
 -- | The AWS account number of the Amazon EC2 security group owner. Note that
 -- this is not the same thing as an AWS access key ID - you must provide a
 -- valid AWS account number for this parameter.
-acsgimEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngressMessage Text
-acsgimEC2SecurityGroupOwnerId =
-    lens _acsgimEC2SecurityGroupOwnerId
-        (\s a -> s { _acsgimEC2SecurityGroupOwnerId = a })
+acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngress Text
+acsgiEC2SecurityGroupOwnerId =
+    lens _acsgiEC2SecurityGroupOwnerId
+        (\s a -> s { _acsgiEC2SecurityGroupOwnerId = a })
 
-instance ToQuery AuthorizeCacheSecurityGroupIngressMessage
+instance ToQuery AuthorizeCacheSecurityGroupIngress
 
-instance ToPath AuthorizeCacheSecurityGroupIngressMessage where
+instance ToPath AuthorizeCacheSecurityGroupIngress where
     toPath = const "/"
 
-newtype AuthorizeCacheSecurityGroupIngressResult = AuthorizeCacheSecurityGroupIngressResult
+newtype AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
     { _acsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
     } deriving (Eq, Show, Generic)
 
--- | 'AuthorizeCacheSecurityGroupIngressResult' constructor.
+-- | 'AuthorizeCacheSecurityGroupIngressResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'acsgirCacheSecurityGroup' @::@ 'Maybe' 'CacheSecurityGroup'
 --
-authorizeCacheSecurityGroupIngressResponse :: AuthorizeCacheSecurityGroupIngressResult
-authorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResult
+authorizeCacheSecurityGroupIngressResponse :: AuthorizeCacheSecurityGroupIngressResponse
+authorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse
     { _acsgirCacheSecurityGroup = Nothing
     }
 
-acsgirCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResult (Maybe CacheSecurityGroup)
+acsgirCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
 acsgirCacheSecurityGroup =
     lens _acsgirCacheSecurityGroup
         (\s a -> s { _acsgirCacheSecurityGroup = a })
 
-instance FromXML AuthorizeCacheSecurityGroupIngressResult where
+instance FromXML AuthorizeCacheSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AuthorizeCacheSecurityGroupIngressResult"
+    fromXMLRoot    = fromRoot "AuthorizeCacheSecurityGroupIngressResponse"
 
-instance AWSRequest AuthorizeCacheSecurityGroupIngressMessage where
-    type Sv AuthorizeCacheSecurityGroupIngressMessage = ElastiCache
-    type Rs AuthorizeCacheSecurityGroupIngressMessage = AuthorizeCacheSecurityGroupIngressResult
+instance AWSRequest AuthorizeCacheSecurityGroupIngress where
+    type Sv AuthorizeCacheSecurityGroupIngress = ElastiCache
+    type Rs AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngressResponse
 
     request  = post "AuthorizeCacheSecurityGroupIngress"
-    response = xmlResponse $ \h x -> AuthorizeCacheSecurityGroupIngressResult
+    response = xmlResponse $ \h x -> AuthorizeCacheSecurityGroupIngressResponse
         <$> x %| "CacheSecurityGroup"

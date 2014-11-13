@@ -24,45 +24,45 @@
 module Network.AWS.CloudFormation.ValidateTemplate
     (
     -- * Request
-      ValidateTemplateInput
+      ValidateTemplate
     -- ** Request constructor
     , validateTemplate
     -- ** Request lenses
-    , vtiTemplateBody
-    , vtiTemplateURL
+    , vtTemplateBody
+    , vtTemplateURL
 
     -- * Response
-    , ValidateTemplateOutput
+    , ValidateTemplateResponse
     -- ** Response constructor
     , validateTemplateResponse
     -- ** Response lenses
-    , vtoCapabilities
-    , vtoCapabilitiesReason
-    , vtoDescription
-    , vtoParameters
+    , vtrCapabilities
+    , vtrCapabilitiesReason
+    , vtrDescription
+    , vtrParameters
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
 
-data ValidateTemplateInput = ValidateTemplateInput
-    { _vtiTemplateBody :: Maybe Text
-    , _vtiTemplateURL  :: Maybe Text
+data ValidateTemplate = ValidateTemplate
+    { _vtTemplateBody :: Maybe Text
+    , _vtTemplateURL  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ValidateTemplateInput' constructor.
+-- | 'ValidateTemplate' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vtiTemplateBody' @::@ 'Maybe' 'Text'
+-- * 'vtTemplateBody' @::@ 'Maybe' 'Text'
 --
--- * 'vtiTemplateURL' @::@ 'Maybe' 'Text'
+-- * 'vtTemplateURL' @::@ 'Maybe' 'Text'
 --
-validateTemplate :: ValidateTemplateInput
-validateTemplate = ValidateTemplateInput
-    { _vtiTemplateBody = Nothing
-    , _vtiTemplateURL  = Nothing
+validateTemplate :: ValidateTemplate
+validateTemplate = ValidateTemplate
+    { _vtTemplateBody = Nothing
+    , _vtTemplateURL  = Nothing
     }
 
 -- | Structure containing the template body with a minimum length of 1 byte
@@ -70,47 +70,47 @@ validateTemplate = ValidateTemplateInput
 -- Template Anatomy in the AWS CloudFormation User Guide. Conditional: You
 -- must pass TemplateURL or TemplateBody. If both are passed, only
 -- TemplateBody is used.
-vtiTemplateBody :: Lens' ValidateTemplateInput (Maybe Text)
-vtiTemplateBody = lens _vtiTemplateBody (\s a -> s { _vtiTemplateBody = a })
+vtTemplateBody :: Lens' ValidateTemplate (Maybe Text)
+vtTemplateBody = lens _vtTemplateBody (\s a -> s { _vtTemplateBody = a })
 
 -- | Location of file containing the template body. The URL must point to a
 -- template (max size: 307,200 bytes) located in an S3 bucket in the same
 -- region as the stack. For more information, go to Template Anatomy in the
 -- AWS CloudFormation User Guide. Conditional: You must pass TemplateURL or
 -- TemplateBody. If both are passed, only TemplateBody is used.
-vtiTemplateURL :: Lens' ValidateTemplateInput (Maybe Text)
-vtiTemplateURL = lens _vtiTemplateURL (\s a -> s { _vtiTemplateURL = a })
+vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
+vtTemplateURL = lens _vtTemplateURL (\s a -> s { _vtTemplateURL = a })
 
-instance ToQuery ValidateTemplateInput
+instance ToQuery ValidateTemplate
 
-instance ToPath ValidateTemplateInput where
+instance ToPath ValidateTemplate where
     toPath = const "/"
 
-data ValidateTemplateOutput = ValidateTemplateOutput
-    { _vtoCapabilities       :: [Text]
-    , _vtoCapabilitiesReason :: Maybe Text
-    , _vtoDescription        :: Maybe Text
-    , _vtoParameters         :: [TemplateParameter]
+data ValidateTemplateResponse = ValidateTemplateResponse
+    { _vtrCapabilities       :: [Text]
+    , _vtrCapabilitiesReason :: Maybe Text
+    , _vtrDescription        :: Maybe Text
+    , _vtrParameters         :: [TemplateParameter]
     } deriving (Eq, Show, Generic)
 
--- | 'ValidateTemplateOutput' constructor.
+-- | 'ValidateTemplateResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vtoCapabilities' @::@ ['Text']
+-- * 'vtrCapabilities' @::@ ['Text']
 --
--- * 'vtoCapabilitiesReason' @::@ 'Maybe' 'Text'
+-- * 'vtrCapabilitiesReason' @::@ 'Maybe' 'Text'
 --
--- * 'vtoDescription' @::@ 'Maybe' 'Text'
+-- * 'vtrDescription' @::@ 'Maybe' 'Text'
 --
--- * 'vtoParameters' @::@ ['TemplateParameter']
+-- * 'vtrParameters' @::@ ['TemplateParameter']
 --
-validateTemplateResponse :: ValidateTemplateOutput
-validateTemplateResponse = ValidateTemplateOutput
-    { _vtoParameters         = mempty
-    , _vtoDescription        = Nothing
-    , _vtoCapabilities       = mempty
-    , _vtoCapabilitiesReason = Nothing
+validateTemplateResponse :: ValidateTemplateResponse
+validateTemplateResponse = ValidateTemplateResponse
+    { _vtrParameters         = mempty
+    , _vtrDescription        = Nothing
+    , _vtrCapabilities       = mempty
+    , _vtrCapabilitiesReason = Nothing
     }
 
 -- | The capabilities found within the template. Currently, CAPABILITY_IAM is
@@ -118,32 +118,32 @@ validateTemplateResponse = ValidateTemplateOutput
 -- you must specify the CAPABILITY_IAM value for this parameter when you use
 -- the CreateStack or UpdateStack actions with your template; otherwise,
 -- those actions return an InsufficientCapabilities error.
-vtoCapabilities :: Lens' ValidateTemplateOutput [Text]
-vtoCapabilities = lens _vtoCapabilities (\s a -> s { _vtoCapabilities = a })
+vtrCapabilities :: Lens' ValidateTemplateResponse [Text]
+vtrCapabilities = lens _vtrCapabilities (\s a -> s { _vtrCapabilities = a })
 
 -- | The capabilities reason found within the template.
-vtoCapabilitiesReason :: Lens' ValidateTemplateOutput (Maybe Text)
-vtoCapabilitiesReason =
-    lens _vtoCapabilitiesReason (\s a -> s { _vtoCapabilitiesReason = a })
+vtrCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
+vtrCapabilitiesReason =
+    lens _vtrCapabilitiesReason (\s a -> s { _vtrCapabilitiesReason = a })
 
 -- | The description found within the template.
-vtoDescription :: Lens' ValidateTemplateOutput (Maybe Text)
-vtoDescription = lens _vtoDescription (\s a -> s { _vtoDescription = a })
+vtrDescription :: Lens' ValidateTemplateResponse (Maybe Text)
+vtrDescription = lens _vtrDescription (\s a -> s { _vtrDescription = a })
 
 -- | A list of TemplateParameter structures.
-vtoParameters :: Lens' ValidateTemplateOutput [TemplateParameter]
-vtoParameters = lens _vtoParameters (\s a -> s { _vtoParameters = a })
+vtrParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
+vtrParameters = lens _vtrParameters (\s a -> s { _vtrParameters = a })
 
-instance FromXML ValidateTemplateOutput where
+instance FromXML ValidateTemplateResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ValidateTemplateOutput"
+    fromXMLRoot    = fromRoot "ValidateTemplateResponse"
 
-instance AWSRequest ValidateTemplateInput where
-    type Sv ValidateTemplateInput = CloudFormation
-    type Rs ValidateTemplateInput = ValidateTemplateOutput
+instance AWSRequest ValidateTemplate where
+    type Sv ValidateTemplate = CloudFormation
+    type Rs ValidateTemplate = ValidateTemplateResponse
 
     request  = post "ValidateTemplate"
-    response = xmlResponse $ \h x -> ValidateTemplateOutput
+    response = xmlResponse $ \h x -> ValidateTemplateResponse
         <$> x %| "Capabilities"
         <*> x %| "CapabilitiesReason"
         <*> x %| "Description"

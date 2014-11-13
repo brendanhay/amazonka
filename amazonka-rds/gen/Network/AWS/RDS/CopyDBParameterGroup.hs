@@ -24,55 +24,55 @@
 module Network.AWS.RDS.CopyDBParameterGroup
     (
     -- * Request
-      CopyDBParameterGroupMessage
+      CopyDBParameterGroup
     -- ** Request constructor
     , copyDBParameterGroup
     -- ** Request lenses
-    , cdbpgm1SourceDBParameterGroupIdentifier
-    , cdbpgm1Tags
-    , cdbpgm1TargetDBParameterGroupDescription
-    , cdbpgm1TargetDBParameterGroupIdentifier
+    , cdbpgSourceDBParameterGroupIdentifier
+    , cdbpgTags
+    , cdbpgTargetDBParameterGroupDescription
+    , cdbpgTargetDBParameterGroupIdentifier
 
     -- * Response
-    , CopyDBParameterGroupResult
+    , CopyDBParameterGroupResponse
     -- ** Response constructor
     , copyDBParameterGroupResponse
     -- ** Response lenses
-    , cdbpgrDBParameterGroup
+    , cdbpgr1DBParameterGroup
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data CopyDBParameterGroupMessage = CopyDBParameterGroupMessage
-    { _cdbpgm1SourceDBParameterGroupIdentifier  :: Text
-    , _cdbpgm1Tags                              :: [Tag]
-    , _cdbpgm1TargetDBParameterGroupDescription :: Text
-    , _cdbpgm1TargetDBParameterGroupIdentifier  :: Text
+data CopyDBParameterGroup = CopyDBParameterGroup
+    { _cdbpgSourceDBParameterGroupIdentifier  :: Text
+    , _cdbpgTags                              :: [Tag]
+    , _cdbpgTargetDBParameterGroupDescription :: Text
+    , _cdbpgTargetDBParameterGroupIdentifier  :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'CopyDBParameterGroupMessage' constructor.
+-- | 'CopyDBParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbpgm1SourceDBParameterGroupIdentifier' @::@ 'Text'
+-- * 'cdbpgSourceDBParameterGroupIdentifier' @::@ 'Text'
 --
--- * 'cdbpgm1Tags' @::@ ['Tag']
+-- * 'cdbpgTags' @::@ ['Tag']
 --
--- * 'cdbpgm1TargetDBParameterGroupDescription' @::@ 'Text'
+-- * 'cdbpgTargetDBParameterGroupDescription' @::@ 'Text'
 --
--- * 'cdbpgm1TargetDBParameterGroupIdentifier' @::@ 'Text'
+-- * 'cdbpgTargetDBParameterGroupIdentifier' @::@ 'Text'
 --
-copyDBParameterGroup :: Text -- ^ 'cdbpgm1SourceDBParameterGroupIdentifier'
-                     -> Text -- ^ 'cdbpgm1TargetDBParameterGroupIdentifier'
-                     -> Text -- ^ 'cdbpgm1TargetDBParameterGroupDescription'
-                     -> CopyDBParameterGroupMessage
-copyDBParameterGroup p1 p2 p3 = CopyDBParameterGroupMessage
-    { _cdbpgm1SourceDBParameterGroupIdentifier  = p1
-    , _cdbpgm1TargetDBParameterGroupIdentifier  = p2
-    , _cdbpgm1TargetDBParameterGroupDescription = p3
-    , _cdbpgm1Tags                              = mempty
+copyDBParameterGroup :: Text -- ^ 'cdbpgSourceDBParameterGroupIdentifier'
+                     -> Text -- ^ 'cdbpgTargetDBParameterGroupIdentifier'
+                     -> Text -- ^ 'cdbpgTargetDBParameterGroupDescription'
+                     -> CopyDBParameterGroup
+copyDBParameterGroup p1 p2 p3 = CopyDBParameterGroup
+    { _cdbpgSourceDBParameterGroupIdentifier  = p1
+    , _cdbpgTargetDBParameterGroupIdentifier  = p2
+    , _cdbpgTargetDBParameterGroupDescription = p3
+    , _cdbpgTags                              = mempty
     }
 
 -- | The identifier or ARN for the source DB Parameter Group. Constraints:
@@ -82,61 +82,61 @@ copyDBParameterGroup p1 p2 p3 = CopyDBParameterGroupMessage
 -- different region than the copy, specify a valid DB parameter group ARN.
 -- Example: my-db-param-group Example:
 -- arn:aws:rds:us-west-2:123456789012:pg:special-parameters.
-cdbpgm1SourceDBParameterGroupIdentifier :: Lens' CopyDBParameterGroupMessage Text
-cdbpgm1SourceDBParameterGroupIdentifier =
-    lens _cdbpgm1SourceDBParameterGroupIdentifier
-        (\s a -> s { _cdbpgm1SourceDBParameterGroupIdentifier = a })
+cdbpgSourceDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
+cdbpgSourceDBParameterGroupIdentifier =
+    lens _cdbpgSourceDBParameterGroupIdentifier
+        (\s a -> s { _cdbpgSourceDBParameterGroupIdentifier = a })
 
-cdbpgm1Tags :: Lens' CopyDBParameterGroupMessage [Tag]
-cdbpgm1Tags = lens _cdbpgm1Tags (\s a -> s { _cdbpgm1Tags = a })
+cdbpgTags :: Lens' CopyDBParameterGroup [Tag]
+cdbpgTags = lens _cdbpgTags (\s a -> s { _cdbpgTags = a })
 
 -- | The description for the copied DB Parameter Group.
-cdbpgm1TargetDBParameterGroupDescription :: Lens' CopyDBParameterGroupMessage Text
-cdbpgm1TargetDBParameterGroupDescription =
-    lens _cdbpgm1TargetDBParameterGroupDescription
-        (\s a -> s { _cdbpgm1TargetDBParameterGroupDescription = a })
+cdbpgTargetDBParameterGroupDescription :: Lens' CopyDBParameterGroup Text
+cdbpgTargetDBParameterGroupDescription =
+    lens _cdbpgTargetDBParameterGroupDescription
+        (\s a -> s { _cdbpgTargetDBParameterGroupDescription = a })
 
 -- | The identifier for the copied DB Parameter Group. Constraints: Cannot be
 -- null, empty, or blank Must contain from 1 to 255 alphanumeric characters
 -- or hyphens First character must be a letter Cannot end with a hyphen or
 -- contain two consecutive hyphens Example: my-db-parameter-group.
-cdbpgm1TargetDBParameterGroupIdentifier :: Lens' CopyDBParameterGroupMessage Text
-cdbpgm1TargetDBParameterGroupIdentifier =
-    lens _cdbpgm1TargetDBParameterGroupIdentifier
-        (\s a -> s { _cdbpgm1TargetDBParameterGroupIdentifier = a })
+cdbpgTargetDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
+cdbpgTargetDBParameterGroupIdentifier =
+    lens _cdbpgTargetDBParameterGroupIdentifier
+        (\s a -> s { _cdbpgTargetDBParameterGroupIdentifier = a })
 
-instance ToQuery CopyDBParameterGroupMessage
+instance ToQuery CopyDBParameterGroup
 
-instance ToPath CopyDBParameterGroupMessage where
+instance ToPath CopyDBParameterGroup where
     toPath = const "/"
 
-newtype CopyDBParameterGroupResult = CopyDBParameterGroupResult
-    { _cdbpgrDBParameterGroup :: Maybe DBParameterGroup
+newtype CopyDBParameterGroupResponse = CopyDBParameterGroupResponse
+    { _cdbpgr1DBParameterGroup :: Maybe DBParameterGroup
     } deriving (Eq, Show, Generic)
 
--- | 'CopyDBParameterGroupResult' constructor.
+-- | 'CopyDBParameterGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbpgrDBParameterGroup' @::@ 'Maybe' 'DBParameterGroup'
+-- * 'cdbpgr1DBParameterGroup' @::@ 'Maybe' 'DBParameterGroup'
 --
-copyDBParameterGroupResponse :: CopyDBParameterGroupResult
-copyDBParameterGroupResponse = CopyDBParameterGroupResult
-    { _cdbpgrDBParameterGroup = Nothing
+copyDBParameterGroupResponse :: CopyDBParameterGroupResponse
+copyDBParameterGroupResponse = CopyDBParameterGroupResponse
+    { _cdbpgr1DBParameterGroup = Nothing
     }
 
-cdbpgrDBParameterGroup :: Lens' CopyDBParameterGroupResult (Maybe DBParameterGroup)
-cdbpgrDBParameterGroup =
-    lens _cdbpgrDBParameterGroup (\s a -> s { _cdbpgrDBParameterGroup = a })
+cdbpgr1DBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameterGroup)
+cdbpgr1DBParameterGroup =
+    lens _cdbpgr1DBParameterGroup (\s a -> s { _cdbpgr1DBParameterGroup = a })
 
-instance FromXML CopyDBParameterGroupResult where
+instance FromXML CopyDBParameterGroupResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopyDBParameterGroupResult"
+    fromXMLRoot    = fromRoot "CopyDBParameterGroupResponse"
 
-instance AWSRequest CopyDBParameterGroupMessage where
-    type Sv CopyDBParameterGroupMessage = RDS
-    type Rs CopyDBParameterGroupMessage = CopyDBParameterGroupResult
+instance AWSRequest CopyDBParameterGroup where
+    type Sv CopyDBParameterGroup = RDS
+    type Rs CopyDBParameterGroup = CopyDBParameterGroupResponse
 
     request  = post "CopyDBParameterGroup"
-    response = xmlResponse $ \h x -> CopyDBParameterGroupResult
+    response = xmlResponse $ \h x -> CopyDBParameterGroupResponse
         <$> x %| "DBParameterGroup"

@@ -24,11 +24,11 @@
 module Network.AWS.Redshift.DeleteClusterParameterGroup
     (
     -- * Request
-      DeleteClusterParameterGroupMessage
+      DeleteClusterParameterGroup
     -- ** Request constructor
     , deleteClusterParameterGroup
     -- ** Request lenses
-    , dcpgmParameterGroupName
+    , dcpg1ParameterGroupName
 
     -- * Response
     , DeleteClusterParameterGroupResponse
@@ -40,32 +40,32 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-newtype DeleteClusterParameterGroupMessage = DeleteClusterParameterGroupMessage
-    { _dcpgmParameterGroupName :: Text
+newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup
+    { _dcpg1ParameterGroupName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteClusterParameterGroupMessage' constructor.
+-- | 'DeleteClusterParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcpgmParameterGroupName' @::@ 'Text'
+-- * 'dcpg1ParameterGroupName' @::@ 'Text'
 --
-deleteClusterParameterGroup :: Text -- ^ 'dcpgmParameterGroupName'
-                            -> DeleteClusterParameterGroupMessage
-deleteClusterParameterGroup p1 = DeleteClusterParameterGroupMessage
-    { _dcpgmParameterGroupName = p1
+deleteClusterParameterGroup :: Text -- ^ 'dcpg1ParameterGroupName'
+                            -> DeleteClusterParameterGroup
+deleteClusterParameterGroup p1 = DeleteClusterParameterGroup
+    { _dcpg1ParameterGroupName = p1
     }
 
 -- | The name of the parameter group to be deleted. Constraints: Must be the
 -- name of an existing cluster parameter group. Cannot delete a default
 -- cluster parameter group.
-dcpgmParameterGroupName :: Lens' DeleteClusterParameterGroupMessage Text
-dcpgmParameterGroupName =
-    lens _dcpgmParameterGroupName (\s a -> s { _dcpgmParameterGroupName = a })
+dcpg1ParameterGroupName :: Lens' DeleteClusterParameterGroup Text
+dcpg1ParameterGroupName =
+    lens _dcpg1ParameterGroupName (\s a -> s { _dcpg1ParameterGroupName = a })
 
-instance ToQuery DeleteClusterParameterGroupMessage
+instance ToQuery DeleteClusterParameterGroup
 
-instance ToPath DeleteClusterParameterGroupMessage where
+instance ToPath DeleteClusterParameterGroup where
     toPath = const "/"
 
 data DeleteClusterParameterGroupResponse = DeleteClusterParameterGroupResponse
@@ -79,9 +79,9 @@ instance FromXML DeleteClusterParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteClusterParameterGroupResponse"
 
-instance AWSRequest DeleteClusterParameterGroupMessage where
-    type Sv DeleteClusterParameterGroupMessage = Redshift
-    type Rs DeleteClusterParameterGroupMessage = DeleteClusterParameterGroupResponse
+instance AWSRequest DeleteClusterParameterGroup where
+    type Sv DeleteClusterParameterGroup = Redshift
+    type Rs DeleteClusterParameterGroup = DeleteClusterParameterGroupResponse
 
     request  = post "DeleteClusterParameterGroup"
     response = nullaryResponse DeleteClusterParameterGroupResponse

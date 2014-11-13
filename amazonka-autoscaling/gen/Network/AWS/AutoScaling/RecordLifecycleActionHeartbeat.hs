@@ -35,13 +35,13 @@
 module Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
     (
     -- * Request
-      RecordLifecycleActionHeartbeatType
+      RecordLifecycleActionHeartbeat
     -- ** Request constructor
     , recordLifecycleActionHeartbeat
     -- ** Request lenses
-    , rlahtAutoScalingGroupName
-    , rlahtLifecycleActionToken
-    , rlahtLifecycleHookName
+    , rlahAutoScalingGroupName
+    , rlahLifecycleActionToken
+    , rlahLifecycleHookName
 
     -- * Response
     , RecordLifecycleActionHeartbeatResponse
@@ -53,54 +53,54 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data RecordLifecycleActionHeartbeatType = RecordLifecycleActionHeartbeatType
-    { _rlahtAutoScalingGroupName :: Text
-    , _rlahtLifecycleActionToken :: Text
-    , _rlahtLifecycleHookName    :: Text
+data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat
+    { _rlahAutoScalingGroupName :: Text
+    , _rlahLifecycleActionToken :: Text
+    , _rlahLifecycleHookName    :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'RecordLifecycleActionHeartbeatType' constructor.
+-- | 'RecordLifecycleActionHeartbeat' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rlahtAutoScalingGroupName' @::@ 'Text'
+-- * 'rlahAutoScalingGroupName' @::@ 'Text'
 --
--- * 'rlahtLifecycleActionToken' @::@ 'Text'
+-- * 'rlahLifecycleActionToken' @::@ 'Text'
 --
--- * 'rlahtLifecycleHookName' @::@ 'Text'
+-- * 'rlahLifecycleHookName' @::@ 'Text'
 --
-recordLifecycleActionHeartbeat :: Text -- ^ 'rlahtLifecycleHookName'
-                               -> Text -- ^ 'rlahtAutoScalingGroupName'
-                               -> Text -- ^ 'rlahtLifecycleActionToken'
-                               -> RecordLifecycleActionHeartbeatType
-recordLifecycleActionHeartbeat p1 p2 p3 = RecordLifecycleActionHeartbeatType
-    { _rlahtLifecycleHookName    = p1
-    , _rlahtAutoScalingGroupName = p2
-    , _rlahtLifecycleActionToken = p3
+recordLifecycleActionHeartbeat :: Text -- ^ 'rlahLifecycleHookName'
+                               -> Text -- ^ 'rlahAutoScalingGroupName'
+                               -> Text -- ^ 'rlahLifecycleActionToken'
+                               -> RecordLifecycleActionHeartbeat
+recordLifecycleActionHeartbeat p1 p2 p3 = RecordLifecycleActionHeartbeat
+    { _rlahLifecycleHookName    = p1
+    , _rlahAutoScalingGroupName = p2
+    , _rlahLifecycleActionToken = p3
     }
 
 -- | The name of the Auto Scaling group to which the hook belongs.
-rlahtAutoScalingGroupName :: Lens' RecordLifecycleActionHeartbeatType Text
-rlahtAutoScalingGroupName =
-    lens _rlahtAutoScalingGroupName
-        (\s a -> s { _rlahtAutoScalingGroupName = a })
+rlahAutoScalingGroupName :: Lens' RecordLifecycleActionHeartbeat Text
+rlahAutoScalingGroupName =
+    lens _rlahAutoScalingGroupName
+        (\s a -> s { _rlahAutoScalingGroupName = a })
 
 -- | A token that uniquely identifies a specific lifecycle action associated
 -- with an instance. Auto Scaling sends this token to the notification
 -- target you specified when you created the lifecycle hook.
-rlahtLifecycleActionToken :: Lens' RecordLifecycleActionHeartbeatType Text
-rlahtLifecycleActionToken =
-    lens _rlahtLifecycleActionToken
-        (\s a -> s { _rlahtLifecycleActionToken = a })
+rlahLifecycleActionToken :: Lens' RecordLifecycleActionHeartbeat Text
+rlahLifecycleActionToken =
+    lens _rlahLifecycleActionToken
+        (\s a -> s { _rlahLifecycleActionToken = a })
 
 -- | The name of the lifecycle hook.
-rlahtLifecycleHookName :: Lens' RecordLifecycleActionHeartbeatType Text
-rlahtLifecycleHookName =
-    lens _rlahtLifecycleHookName (\s a -> s { _rlahtLifecycleHookName = a })
+rlahLifecycleHookName :: Lens' RecordLifecycleActionHeartbeat Text
+rlahLifecycleHookName =
+    lens _rlahLifecycleHookName (\s a -> s { _rlahLifecycleHookName = a })
 
-instance ToQuery RecordLifecycleActionHeartbeatType
+instance ToQuery RecordLifecycleActionHeartbeat
 
-instance ToPath RecordLifecycleActionHeartbeatType where
+instance ToPath RecordLifecycleActionHeartbeat where
     toPath = const "/"
 
 data RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse
@@ -114,9 +114,9 @@ instance FromXML RecordLifecycleActionHeartbeatResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RecordLifecycleActionHeartbeatResponse"
 
-instance AWSRequest RecordLifecycleActionHeartbeatType where
-    type Sv RecordLifecycleActionHeartbeatType = AutoScaling
-    type Rs RecordLifecycleActionHeartbeatType = RecordLifecycleActionHeartbeatResponse
+instance AWSRequest RecordLifecycleActionHeartbeat where
+    type Sv RecordLifecycleActionHeartbeat = AutoScaling
+    type Rs RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeatResponse
 
     request  = post "RecordLifecycleActionHeartbeat"
     response = nullaryResponse RecordLifecycleActionHeartbeatResponse

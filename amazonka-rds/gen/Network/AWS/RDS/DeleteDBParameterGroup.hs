@@ -25,11 +25,11 @@
 module Network.AWS.RDS.DeleteDBParameterGroup
     (
     -- * Request
-      DeleteDBParameterGroupMessage
+      DeleteDBParameterGroup
     -- ** Request constructor
     , deleteDBParameterGroup
     -- ** Request lenses
-    , ddbpgm1DBParameterGroupName
+    , ddbpg1DBParameterGroupName
 
     -- * Response
     , DeleteDBParameterGroupResponse
@@ -41,33 +41,33 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-newtype DeleteDBParameterGroupMessage = DeleteDBParameterGroupMessage
-    { _ddbpgm1DBParameterGroupName :: Text
+newtype DeleteDBParameterGroup = DeleteDBParameterGroup
+    { _ddbpg1DBParameterGroupName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteDBParameterGroupMessage' constructor.
+-- | 'DeleteDBParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbpgm1DBParameterGroupName' @::@ 'Text'
+-- * 'ddbpg1DBParameterGroupName' @::@ 'Text'
 --
-deleteDBParameterGroup :: Text -- ^ 'ddbpgm1DBParameterGroupName'
-                       -> DeleteDBParameterGroupMessage
-deleteDBParameterGroup p1 = DeleteDBParameterGroupMessage
-    { _ddbpgm1DBParameterGroupName = p1
+deleteDBParameterGroup :: Text -- ^ 'ddbpg1DBParameterGroupName'
+                       -> DeleteDBParameterGroup
+deleteDBParameterGroup p1 = DeleteDBParameterGroup
+    { _ddbpg1DBParameterGroupName = p1
     }
 
 -- | The name of the DB parameter group. Constraints: Must be the name of an
 -- existing DB parameter group You cannot delete a default DB parameter
 -- group Cannot be associated with any DB instances.
-ddbpgm1DBParameterGroupName :: Lens' DeleteDBParameterGroupMessage Text
-ddbpgm1DBParameterGroupName =
-    lens _ddbpgm1DBParameterGroupName
-        (\s a -> s { _ddbpgm1DBParameterGroupName = a })
+ddbpg1DBParameterGroupName :: Lens' DeleteDBParameterGroup Text
+ddbpg1DBParameterGroupName =
+    lens _ddbpg1DBParameterGroupName
+        (\s a -> s { _ddbpg1DBParameterGroupName = a })
 
-instance ToQuery DeleteDBParameterGroupMessage
+instance ToQuery DeleteDBParameterGroup
 
-instance ToPath DeleteDBParameterGroupMessage where
+instance ToPath DeleteDBParameterGroup where
     toPath = const "/"
 
 data DeleteDBParameterGroupResponse = DeleteDBParameterGroupResponse
@@ -81,9 +81,9 @@ instance FromXML DeleteDBParameterGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteDBParameterGroupResponse"
 
-instance AWSRequest DeleteDBParameterGroupMessage where
-    type Sv DeleteDBParameterGroupMessage = RDS
-    type Rs DeleteDBParameterGroupMessage = DeleteDBParameterGroupResponse
+instance AWSRequest DeleteDBParameterGroup where
+    type Sv DeleteDBParameterGroup = RDS
+    type Rs DeleteDBParameterGroup = DeleteDBParameterGroupResponse
 
     request  = post "DeleteDBParameterGroup"
     response = nullaryResponse DeleteDBParameterGroupResponse

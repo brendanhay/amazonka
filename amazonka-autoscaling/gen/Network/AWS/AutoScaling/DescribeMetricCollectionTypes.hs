@@ -30,12 +30,12 @@ module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     , describeMetricCollectionTypes
 
     -- * Response
-    , DescribeMetricCollectionTypesAnswer
+    , DescribeMetricCollectionTypesResponse
     -- ** Response constructor
     , describeMetricCollectionTypesResponse
     -- ** Response lenses
-    , dmctaGranularities
-    , dmctaMetrics
+    , dmctrGranularities
+    , dmctrMetrics
     ) where
 
 import Network.AWS.Prelude
@@ -54,46 +54,46 @@ instance ToQuery DescribeMetricCollectionTypes
 instance ToPath DescribeMetricCollectionTypes where
     toPath = const "/"
 
-data DescribeMetricCollectionTypesAnswer = DescribeMetricCollectionTypesAnswer
-    { _dmctaGranularities :: [MetricGranularityType]
-    , _dmctaMetrics       :: [MetricCollectionType]
+data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
+    { _dmctrGranularities :: [MetricGranularityType]
+    , _dmctrMetrics       :: [MetricCollectionType]
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeMetricCollectionTypesAnswer' constructor.
+-- | 'DescribeMetricCollectionTypesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmctaGranularities' @::@ ['MetricGranularityType']
+-- * 'dmctrGranularities' @::@ ['MetricGranularityType']
 --
--- * 'dmctaMetrics' @::@ ['MetricCollectionType']
+-- * 'dmctrMetrics' @::@ ['MetricCollectionType']
 --
-describeMetricCollectionTypesResponse :: DescribeMetricCollectionTypesAnswer
-describeMetricCollectionTypesResponse = DescribeMetricCollectionTypesAnswer
-    { _dmctaMetrics       = mempty
-    , _dmctaGranularities = mempty
+describeMetricCollectionTypesResponse :: DescribeMetricCollectionTypesResponse
+describeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse
+    { _dmctrMetrics       = mempty
+    , _dmctrGranularities = mempty
     }
 
 -- | A list of granularities for the listed Metrics.
-dmctaGranularities :: Lens' DescribeMetricCollectionTypesAnswer [MetricGranularityType]
-dmctaGranularities =
-    lens _dmctaGranularities (\s a -> s { _dmctaGranularities = a })
+dmctrGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
+dmctrGranularities =
+    lens _dmctrGranularities (\s a -> s { _dmctrGranularities = a })
 
 -- | The list of Metrics collected. The following metrics are supported:
 -- GroupMinSize GroupMaxSize GroupDesiredCapacity GroupInServiceInstances
 -- GroupPendingInstances GroupStandbyInstances GroupTerminatingInstances
 -- GroupTotalInstances.
-dmctaMetrics :: Lens' DescribeMetricCollectionTypesAnswer [MetricCollectionType]
-dmctaMetrics = lens _dmctaMetrics (\s a -> s { _dmctaMetrics = a })
+dmctrMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
+dmctrMetrics = lens _dmctrMetrics (\s a -> s { _dmctrMetrics = a })
 
-instance FromXML DescribeMetricCollectionTypesAnswer where
+instance FromXML DescribeMetricCollectionTypesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeMetricCollectionTypesAnswer"
+    fromXMLRoot    = fromRoot "DescribeMetricCollectionTypesResponse"
 
 instance AWSRequest DescribeMetricCollectionTypes where
     type Sv DescribeMetricCollectionTypes = AutoScaling
-    type Rs DescribeMetricCollectionTypes = DescribeMetricCollectionTypesAnswer
+    type Rs DescribeMetricCollectionTypes = DescribeMetricCollectionTypesResponse
 
     request  = post "DescribeMetricCollectionTypes"
-    response = xmlResponse $ \h x -> DescribeMetricCollectionTypesAnswer
+    response = xmlResponse $ \h x -> DescribeMetricCollectionTypesResponse
         <$> x %| "Granularities"
         <*> x %| "Metrics"

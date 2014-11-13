@@ -56,7 +56,7 @@ module Network.AWS.SQS.GetQueueAttributes
     , gqaQueueUrl
 
     -- * Response
-    , GetQueueAttributesResult
+    , GetQueueAttributesResponse
     -- ** Response constructor
     , getQueueAttributesResponse
     -- ** Response lenses
@@ -101,34 +101,34 @@ instance ToQuery GetQueueAttributes
 instance ToPath GetQueueAttributes where
     toPath = const "/"
 
-newtype GetQueueAttributesResult = GetQueueAttributesResult
+newtype GetQueueAttributesResponse = GetQueueAttributesResponse
     { _gqarAttributes :: Map Text Text
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
--- | 'GetQueueAttributesResult' constructor.
+-- | 'GetQueueAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gqarAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
-getQueueAttributesResponse :: GetQueueAttributesResult
-getQueueAttributesResponse = GetQueueAttributesResult
+getQueueAttributesResponse :: GetQueueAttributesResponse
+getQueueAttributesResponse = GetQueueAttributesResponse
     { _gqarAttributes = mempty
     }
 
 -- | A map of attributes to the respective values.
-gqarAttributes :: Lens' GetQueueAttributesResult (HashMap Text Text)
+gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap Text Text)
 gqarAttributes = lens _gqarAttributes (\s a -> s { _gqarAttributes = a })
     . _Map
 
-instance FromXML GetQueueAttributesResult where
+instance FromXML GetQueueAttributesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetQueueAttributesResult"
+    fromXMLRoot    = fromRoot "GetQueueAttributesResponse"
 
 instance AWSRequest GetQueueAttributes where
     type Sv GetQueueAttributes = SQS
-    type Rs GetQueueAttributes = GetQueueAttributesResult
+    type Rs GetQueueAttributes = GetQueueAttributesResponse
 
     request  = post "GetQueueAttributes"
-    response = xmlResponse $ \h x -> GetQueueAttributesResult
+    response = xmlResponse $ \h x -> GetQueueAttributesResponse
         <$> x %| "Attribute"

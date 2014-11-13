@@ -26,126 +26,126 @@
 module Network.AWS.RDS.DescribeDBParameterGroups
     (
     -- * Request
-      DescribeDBParameterGroupsMessage
+      DescribeDBParameterGroups
     -- ** Request constructor
     , describeDBParameterGroups
     -- ** Request lenses
-    , ddbpgmDBParameterGroupName
-    , ddbpgmFilters
-    , ddbpgmMarker
-    , ddbpgmMaxRecords
+    , ddbpgDBParameterGroupName
+    , ddbpgFilters
+    , ddbpgMarker
+    , ddbpgMaxRecords
 
     -- * Response
-    , DBParameterGroupsMessage
+    , DescribeDBParameterGroupsResponse
     -- ** Response constructor
     , describeDBParameterGroupsResponse
     -- ** Response lenses
-    , dbpgmDBParameterGroups
-    , dbpgmMarker
+    , ddbpgrDBParameterGroups
+    , ddbpgrMarker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data DescribeDBParameterGroupsMessage = DescribeDBParameterGroupsMessage
-    { _ddbpgmDBParameterGroupName :: Maybe Text
-    , _ddbpgmFilters              :: [Filter]
-    , _ddbpgmMarker               :: Maybe Text
-    , _ddbpgmMaxRecords           :: Maybe Int
+data DescribeDBParameterGroups = DescribeDBParameterGroups
+    { _ddbpgDBParameterGroupName :: Maybe Text
+    , _ddbpgFilters              :: [Filter]
+    , _ddbpgMarker               :: Maybe Text
+    , _ddbpgMaxRecords           :: Maybe Int
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeDBParameterGroupsMessage' constructor.
+-- | 'DescribeDBParameterGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbpgmDBParameterGroupName' @::@ 'Maybe' 'Text'
+-- * 'ddbpgDBParameterGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'ddbpgmFilters' @::@ ['Filter']
+-- * 'ddbpgFilters' @::@ ['Filter']
 --
--- * 'ddbpgmMarker' @::@ 'Maybe' 'Text'
+-- * 'ddbpgMarker' @::@ 'Maybe' 'Text'
 --
--- * 'ddbpgmMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'ddbpgMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeDBParameterGroups :: DescribeDBParameterGroupsMessage
-describeDBParameterGroups = DescribeDBParameterGroupsMessage
-    { _ddbpgmDBParameterGroupName = Nothing
-    , _ddbpgmFilters              = mempty
-    , _ddbpgmMaxRecords           = Nothing
-    , _ddbpgmMarker               = Nothing
+describeDBParameterGroups :: DescribeDBParameterGroups
+describeDBParameterGroups = DescribeDBParameterGroups
+    { _ddbpgDBParameterGroupName = Nothing
+    , _ddbpgFilters              = mempty
+    , _ddbpgMaxRecords           = Nothing
+    , _ddbpgMarker               = Nothing
     }
 
 -- | The name of a specific DB parameter group to return details for.
 -- Constraints: Must be 1 to 255 alphanumeric characters First character
 -- must be a letter Cannot end with a hyphen or contain two consecutive
 -- hyphens.
-ddbpgmDBParameterGroupName :: Lens' DescribeDBParameterGroupsMessage (Maybe Text)
-ddbpgmDBParameterGroupName =
-    lens _ddbpgmDBParameterGroupName
-        (\s a -> s { _ddbpgmDBParameterGroupName = a })
+ddbpgDBParameterGroupName :: Lens' DescribeDBParameterGroups (Maybe Text)
+ddbpgDBParameterGroupName =
+    lens _ddbpgDBParameterGroupName
+        (\s a -> s { _ddbpgDBParameterGroupName = a })
 
 -- | This parameter is not currently supported.
-ddbpgmFilters :: Lens' DescribeDBParameterGroupsMessage [Filter]
-ddbpgmFilters = lens _ddbpgmFilters (\s a -> s { _ddbpgmFilters = a })
+ddbpgFilters :: Lens' DescribeDBParameterGroups [Filter]
+ddbpgFilters = lens _ddbpgFilters (\s a -> s { _ddbpgFilters = a })
 
 -- | An optional pagination token provided by a previous
 -- DescribeDBParameterGroups request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-ddbpgmMarker :: Lens' DescribeDBParameterGroupsMessage (Maybe Text)
-ddbpgmMarker = lens _ddbpgmMarker (\s a -> s { _ddbpgmMarker = a })
+ddbpgMarker :: Lens' DescribeDBParameterGroups (Maybe Text)
+ddbpgMarker = lens _ddbpgMarker (\s a -> s { _ddbpgMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-ddbpgmMaxRecords :: Lens' DescribeDBParameterGroupsMessage (Maybe Int)
-ddbpgmMaxRecords = lens _ddbpgmMaxRecords (\s a -> s { _ddbpgmMaxRecords = a })
+ddbpgMaxRecords :: Lens' DescribeDBParameterGroups (Maybe Int)
+ddbpgMaxRecords = lens _ddbpgMaxRecords (\s a -> s { _ddbpgMaxRecords = a })
 
-instance ToQuery DescribeDBParameterGroupsMessage
+instance ToQuery DescribeDBParameterGroups
 
-instance ToPath DescribeDBParameterGroupsMessage where
+instance ToPath DescribeDBParameterGroups where
     toPath = const "/"
 
-data DBParameterGroupsMessage = DBParameterGroupsMessage
-    { _dbpgmDBParameterGroups :: [DBParameterGroup]
-    , _dbpgmMarker            :: Maybe Text
+data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
+    { _ddbpgrDBParameterGroups :: [DBParameterGroup]
+    , _ddbpgrMarker            :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DBParameterGroupsMessage' constructor.
+-- | 'DescribeDBParameterGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbpgmDBParameterGroups' @::@ ['DBParameterGroup']
+-- * 'ddbpgrDBParameterGroups' @::@ ['DBParameterGroup']
 --
--- * 'dbpgmMarker' @::@ 'Maybe' 'Text'
+-- * 'ddbpgrMarker' @::@ 'Maybe' 'Text'
 --
-describeDBParameterGroupsResponse :: DBParameterGroupsMessage
-describeDBParameterGroupsResponse = DBParameterGroupsMessage
-    { _dbpgmMarker            = Nothing
-    , _dbpgmDBParameterGroups = mempty
+describeDBParameterGroupsResponse :: DescribeDBParameterGroupsResponse
+describeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse
+    { _ddbpgrMarker            = Nothing
+    , _ddbpgrDBParameterGroups = mempty
     }
 
 -- | A list of DBParameterGroup instances.
-dbpgmDBParameterGroups :: Lens' DBParameterGroupsMessage [DBParameterGroup]
-dbpgmDBParameterGroups =
-    lens _dbpgmDBParameterGroups (\s a -> s { _dbpgmDBParameterGroups = a })
+ddbpgrDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
+ddbpgrDBParameterGroups =
+    lens _ddbpgrDBParameterGroups (\s a -> s { _ddbpgrDBParameterGroups = a })
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-dbpgmMarker :: Lens' DBParameterGroupsMessage (Maybe Text)
-dbpgmMarker = lens _dbpgmMarker (\s a -> s { _dbpgmMarker = a })
+ddbpgrMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
+ddbpgrMarker = lens _ddbpgrMarker (\s a -> s { _ddbpgrMarker = a })
 
-instance FromXML DBParameterGroupsMessage where
+instance FromXML DescribeDBParameterGroupsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DBParameterGroupsMessage"
+    fromXMLRoot    = fromRoot "DescribeDBParameterGroupsResponse"
 
-instance AWSRequest DescribeDBParameterGroupsMessage where
-    type Sv DescribeDBParameterGroupsMessage = RDS
-    type Rs DescribeDBParameterGroupsMessage = DBParameterGroupsMessage
+instance AWSRequest DescribeDBParameterGroups where
+    type Sv DescribeDBParameterGroups = RDS
+    type Rs DescribeDBParameterGroups = DescribeDBParameterGroupsResponse
 
     request  = post "DescribeDBParameterGroups"
-    response = xmlResponse $ \h x -> DBParameterGroupsMessage
+    response = xmlResponse $ \h x -> DescribeDBParameterGroupsResponse
         <$> x %| "DBParameterGroups"
         <*> x %| "Marker"

@@ -24,17 +24,17 @@
 module Network.AWS.RDS.CopyOptionGroup
     (
     -- * Request
-      CopyOptionGroupMessage
+      CopyOptionGroup
     -- ** Request constructor
     , copyOptionGroup
     -- ** Request lenses
-    , cogm1SourceOptionGroupIdentifier
-    , cogm1Tags
-    , cogm1TargetOptionGroupDescription
-    , cogm1TargetOptionGroupIdentifier
+    , cog1SourceOptionGroupIdentifier
+    , cog1Tags
+    , cog1TargetOptionGroupDescription
+    , cog1TargetOptionGroupIdentifier
 
     -- * Response
-    , CopyOptionGroupResult
+    , CopyOptionGroupResponse
     -- ** Response constructor
     , copyOptionGroupResponse
     -- ** Response lenses
@@ -45,34 +45,34 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data CopyOptionGroupMessage = CopyOptionGroupMessage
-    { _cogm1SourceOptionGroupIdentifier  :: Text
-    , _cogm1Tags                         :: [Tag]
-    , _cogm1TargetOptionGroupDescription :: Text
-    , _cogm1TargetOptionGroupIdentifier  :: Text
+data CopyOptionGroup = CopyOptionGroup
+    { _cog1SourceOptionGroupIdentifier  :: Text
+    , _cog1Tags                         :: [Tag]
+    , _cog1TargetOptionGroupDescription :: Text
+    , _cog1TargetOptionGroupIdentifier  :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'CopyOptionGroupMessage' constructor.
+-- | 'CopyOptionGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cogm1SourceOptionGroupIdentifier' @::@ 'Text'
+-- * 'cog1SourceOptionGroupIdentifier' @::@ 'Text'
 --
--- * 'cogm1Tags' @::@ ['Tag']
+-- * 'cog1Tags' @::@ ['Tag']
 --
--- * 'cogm1TargetOptionGroupDescription' @::@ 'Text'
+-- * 'cog1TargetOptionGroupDescription' @::@ 'Text'
 --
--- * 'cogm1TargetOptionGroupIdentifier' @::@ 'Text'
+-- * 'cog1TargetOptionGroupIdentifier' @::@ 'Text'
 --
-copyOptionGroup :: Text -- ^ 'cogm1SourceOptionGroupIdentifier'
-                -> Text -- ^ 'cogm1TargetOptionGroupIdentifier'
-                -> Text -- ^ 'cogm1TargetOptionGroupDescription'
-                -> CopyOptionGroupMessage
-copyOptionGroup p1 p2 p3 = CopyOptionGroupMessage
-    { _cogm1SourceOptionGroupIdentifier  = p1
-    , _cogm1TargetOptionGroupIdentifier  = p2
-    , _cogm1TargetOptionGroupDescription = p3
-    , _cogm1Tags                         = mempty
+copyOptionGroup :: Text -- ^ 'cog1SourceOptionGroupIdentifier'
+                -> Text -- ^ 'cog1TargetOptionGroupIdentifier'
+                -> Text -- ^ 'cog1TargetOptionGroupDescription'
+                -> CopyOptionGroup
+copyOptionGroup p1 p2 p3 = CopyOptionGroup
+    { _cog1SourceOptionGroupIdentifier  = p1
+    , _cog1TargetOptionGroupIdentifier  = p2
+    , _cog1TargetOptionGroupDescription = p3
+    , _cog1Tags                         = mempty
     }
 
 -- | The identifier or ARN for the source Option Group. Constraints: Must
@@ -81,60 +81,60 @@ copyOptionGroup p1 p2 p3 = CopyOptionGroupMessage
 -- ARN. If the source Option Group is in a different region than the copy,
 -- specify a valid Option group ARN. Example: my-option-group Example:
 -- arn:aws:rds:us-west-2:123456789012:og:special-options.
-cogm1SourceOptionGroupIdentifier :: Lens' CopyOptionGroupMessage Text
-cogm1SourceOptionGroupIdentifier =
-    lens _cogm1SourceOptionGroupIdentifier
-        (\s a -> s { _cogm1SourceOptionGroupIdentifier = a })
+cog1SourceOptionGroupIdentifier :: Lens' CopyOptionGroup Text
+cog1SourceOptionGroupIdentifier =
+    lens _cog1SourceOptionGroupIdentifier
+        (\s a -> s { _cog1SourceOptionGroupIdentifier = a })
 
-cogm1Tags :: Lens' CopyOptionGroupMessage [Tag]
-cogm1Tags = lens _cogm1Tags (\s a -> s { _cogm1Tags = a })
+cog1Tags :: Lens' CopyOptionGroup [Tag]
+cog1Tags = lens _cog1Tags (\s a -> s { _cog1Tags = a })
 
 -- | The description for the copied Option Group.
-cogm1TargetOptionGroupDescription :: Lens' CopyOptionGroupMessage Text
-cogm1TargetOptionGroupDescription =
-    lens _cogm1TargetOptionGroupDescription
-        (\s a -> s { _cogm1TargetOptionGroupDescription = a })
+cog1TargetOptionGroupDescription :: Lens' CopyOptionGroup Text
+cog1TargetOptionGroupDescription =
+    lens _cog1TargetOptionGroupDescription
+        (\s a -> s { _cog1TargetOptionGroupDescription = a })
 
 -- | The identifier for the copied Option Group. Constraints: Cannot be null,
 -- empty, or blank Must contain from 1 to 255 alphanumeric characters or
 -- hyphens First character must be a letter Cannot end with a hyphen or
 -- contain two consecutive hyphens Example: my-option-group.
-cogm1TargetOptionGroupIdentifier :: Lens' CopyOptionGroupMessage Text
-cogm1TargetOptionGroupIdentifier =
-    lens _cogm1TargetOptionGroupIdentifier
-        (\s a -> s { _cogm1TargetOptionGroupIdentifier = a })
+cog1TargetOptionGroupIdentifier :: Lens' CopyOptionGroup Text
+cog1TargetOptionGroupIdentifier =
+    lens _cog1TargetOptionGroupIdentifier
+        (\s a -> s { _cog1TargetOptionGroupIdentifier = a })
 
-instance ToQuery CopyOptionGroupMessage
+instance ToQuery CopyOptionGroup
 
-instance ToPath CopyOptionGroupMessage where
+instance ToPath CopyOptionGroup where
     toPath = const "/"
 
-newtype CopyOptionGroupResult = CopyOptionGroupResult
+newtype CopyOptionGroupResponse = CopyOptionGroupResponse
     { _cogrOptionGroup :: Maybe OptionGroup
     } deriving (Eq, Show, Generic)
 
--- | 'CopyOptionGroupResult' constructor.
+-- | 'CopyOptionGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cogrOptionGroup' @::@ 'Maybe' 'OptionGroup'
 --
-copyOptionGroupResponse :: CopyOptionGroupResult
-copyOptionGroupResponse = CopyOptionGroupResult
+copyOptionGroupResponse :: CopyOptionGroupResponse
+copyOptionGroupResponse = CopyOptionGroupResponse
     { _cogrOptionGroup = Nothing
     }
 
-cogrOptionGroup :: Lens' CopyOptionGroupResult (Maybe OptionGroup)
+cogrOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
 cogrOptionGroup = lens _cogrOptionGroup (\s a -> s { _cogrOptionGroup = a })
 
-instance FromXML CopyOptionGroupResult where
+instance FromXML CopyOptionGroupResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopyOptionGroupResult"
+    fromXMLRoot    = fromRoot "CopyOptionGroupResponse"
 
-instance AWSRequest CopyOptionGroupMessage where
-    type Sv CopyOptionGroupMessage = RDS
-    type Rs CopyOptionGroupMessage = CopyOptionGroupResult
+instance AWSRequest CopyOptionGroup where
+    type Sv CopyOptionGroup = RDS
+    type Rs CopyOptionGroup = CopyOptionGroupResponse
 
     request  = post "CopyOptionGroup"
-    response = xmlResponse $ \h x -> CopyOptionGroupResult
+    response = xmlResponse $ \h x -> CopyOptionGroupResponse
         <$> x %| "OptionGroup"

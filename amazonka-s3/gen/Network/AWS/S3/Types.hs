@@ -115,10 +115,10 @@ module Network.AWS.S3.Types
     -- * DeletedObject
     , DeletedObject
     , deletedObject
-    , doDeleteMarker
-    , doDeleteMarkerVersionId
-    , doKey
-    , doVersionId
+    , do1DeleteMarker
+    , do1DeleteMarkerVersionId
+    , do1Key
+    , do1VersionId
 
     -- * ObjectVersionStorageClass
     , ObjectVersionStorageClass (..)
@@ -992,44 +992,45 @@ instance ToXML BucketVersioningStatus where
     toXMLRoot    = toRoot "BucketVersioningStatus"
 
 data DeletedObject = DeletedObject
-    { _doDeleteMarker          :: Maybe Bool
-    , _doDeleteMarkerVersionId :: Maybe Text
-    , _doKey                   :: Maybe Text
-    , _doVersionId             :: Maybe Text
+    { _do1DeleteMarker          :: Maybe Bool
+    , _do1DeleteMarkerVersionId :: Maybe Text
+    , _do1Key                   :: Maybe Text
+    , _do1VersionId             :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeletedObject' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'doDeleteMarker' @::@ 'Maybe' 'Bool'
+-- * 'do1DeleteMarker' @::@ 'Maybe' 'Bool'
 --
--- * 'doDeleteMarkerVersionId' @::@ 'Maybe' 'Text'
+-- * 'do1DeleteMarkerVersionId' @::@ 'Maybe' 'Text'
 --
--- * 'doKey' @::@ 'Maybe' 'Text'
+-- * 'do1Key' @::@ 'Maybe' 'Text'
 --
--- * 'doVersionId' @::@ 'Maybe' 'Text'
+-- * 'do1VersionId' @::@ 'Maybe' 'Text'
 --
 deletedObject :: DeletedObject
 deletedObject = DeletedObject
-    { _doKey                   = Nothing
-    , _doVersionId             = Nothing
-    , _doDeleteMarker          = Nothing
-    , _doDeleteMarkerVersionId = Nothing
+    { _do1Key                   = Nothing
+    , _do1VersionId             = Nothing
+    , _do1DeleteMarker          = Nothing
+    , _do1DeleteMarkerVersionId = Nothing
     }
 
-doDeleteMarker :: Lens' DeletedObject (Maybe Bool)
-doDeleteMarker = lens _doDeleteMarker (\s a -> s { _doDeleteMarker = a })
+do1DeleteMarker :: Lens' DeletedObject (Maybe Bool)
+do1DeleteMarker = lens _do1DeleteMarker (\s a -> s { _do1DeleteMarker = a })
 
-doDeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
-doDeleteMarkerVersionId =
-    lens _doDeleteMarkerVersionId (\s a -> s { _doDeleteMarkerVersionId = a })
+do1DeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
+do1DeleteMarkerVersionId =
+    lens _do1DeleteMarkerVersionId
+        (\s a -> s { _do1DeleteMarkerVersionId = a })
 
-doKey :: Lens' DeletedObject (Maybe Text)
-doKey = lens _doKey (\s a -> s { _doKey = a })
+do1Key :: Lens' DeletedObject (Maybe Text)
+do1Key = lens _do1Key (\s a -> s { _do1Key = a })
 
-doVersionId :: Lens' DeletedObject (Maybe Text)
-doVersionId = lens _doVersionId (\s a -> s { _doVersionId = a })
+do1VersionId :: Lens' DeletedObject (Maybe Text)
+do1VersionId = lens _do1VersionId (\s a -> s { _do1VersionId = a })
 
 instance FromXML DeletedObject where
     fromXMLOptions = xmlOptions

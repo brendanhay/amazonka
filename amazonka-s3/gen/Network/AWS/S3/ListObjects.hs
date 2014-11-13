@@ -38,19 +38,19 @@ module Network.AWS.S3.ListObjects
     , loPrefix
 
     -- * Response
-    , ListObjectsOutput
+    , ListObjectsResponse
     -- ** Response constructor
     , listObjectsResponse
     -- ** Response lenses
-    , looCommonPrefixes
-    , looContents
-    , looEncodingType
-    , looIsTruncated
-    , looMarker
-    , looMaxKeys
-    , looName
-    , looNextMarker
-    , looPrefix
+    , lorCommonPrefixes
+    , lorContents
+    , lorEncodingType
+    , lorIsTruncated
+    , lorMarker
+    , lorMaxKeys
+    , lorName
+    , lorNextMarker
+    , lorPrefix
     ) where
 
 import Network.AWS.Prelude
@@ -133,77 +133,77 @@ instance ToQuery ListObjects where
 
 instance ToHeaders ListObjects
 
-data ListObjectsOutput = ListObjectsOutput
-    { _looCommonPrefixes :: [CommonPrefix]
-    , _looContents       :: [Object]
-    , _looEncodingType   :: Maybe Text
-    , _looIsTruncated    :: Maybe Bool
-    , _looMarker         :: Maybe Text
-    , _looMaxKeys        :: Maybe Int
-    , _looName           :: Maybe Text
-    , _looNextMarker     :: Maybe Text
-    , _looPrefix         :: Maybe Text
+data ListObjectsResponse = ListObjectsResponse
+    { _lorCommonPrefixes :: [CommonPrefix]
+    , _lorContents       :: [Object]
+    , _lorEncodingType   :: Maybe Text
+    , _lorIsTruncated    :: Maybe Bool
+    , _lorMarker         :: Maybe Text
+    , _lorMaxKeys        :: Maybe Int
+    , _lorName           :: Maybe Text
+    , _lorNextMarker     :: Maybe Text
+    , _lorPrefix         :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'ListObjectsOutput' constructor.
+-- | 'ListObjectsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'looCommonPrefixes' @::@ ['CommonPrefix']
+-- * 'lorCommonPrefixes' @::@ ['CommonPrefix']
 --
--- * 'looContents' @::@ ['Object']
+-- * 'lorContents' @::@ ['Object']
 --
--- * 'looEncodingType' @::@ 'Maybe' 'Text'
+-- * 'lorEncodingType' @::@ 'Maybe' 'Text'
 --
--- * 'looIsTruncated' @::@ 'Maybe' 'Bool'
+-- * 'lorIsTruncated' @::@ 'Maybe' 'Bool'
 --
--- * 'looMarker' @::@ 'Maybe' 'Text'
+-- * 'lorMarker' @::@ 'Maybe' 'Text'
 --
--- * 'looMaxKeys' @::@ 'Maybe' 'Int'
+-- * 'lorMaxKeys' @::@ 'Maybe' 'Int'
 --
--- * 'looName' @::@ 'Maybe' 'Text'
+-- * 'lorName' @::@ 'Maybe' 'Text'
 --
--- * 'looNextMarker' @::@ 'Maybe' 'Text'
+-- * 'lorNextMarker' @::@ 'Maybe' 'Text'
 --
--- * 'looPrefix' @::@ 'Maybe' 'Text'
+-- * 'lorPrefix' @::@ 'Maybe' 'Text'
 --
-listObjectsResponse :: ListObjectsOutput
-listObjectsResponse = ListObjectsOutput
-    { _looIsTruncated    = Nothing
-    , _looMarker         = Nothing
-    , _looNextMarker     = Nothing
-    , _looContents       = mempty
-    , _looName           = Nothing
-    , _looPrefix         = Nothing
-    , _looMaxKeys        = Nothing
-    , _looCommonPrefixes = mempty
-    , _looEncodingType   = Nothing
+listObjectsResponse :: ListObjectsResponse
+listObjectsResponse = ListObjectsResponse
+    { _lorIsTruncated    = Nothing
+    , _lorMarker         = Nothing
+    , _lorNextMarker     = Nothing
+    , _lorContents       = mempty
+    , _lorName           = Nothing
+    , _lorPrefix         = Nothing
+    , _lorMaxKeys        = Nothing
+    , _lorCommonPrefixes = mempty
+    , _lorEncodingType   = Nothing
     }
 
-looCommonPrefixes :: Lens' ListObjectsOutput [CommonPrefix]
-looCommonPrefixes =
-    lens _looCommonPrefixes (\s a -> s { _looCommonPrefixes = a })
+lorCommonPrefixes :: Lens' ListObjectsResponse [CommonPrefix]
+lorCommonPrefixes =
+    lens _lorCommonPrefixes (\s a -> s { _lorCommonPrefixes = a })
 
-looContents :: Lens' ListObjectsOutput [Object]
-looContents = lens _looContents (\s a -> s { _looContents = a })
+lorContents :: Lens' ListObjectsResponse [Object]
+lorContents = lens _lorContents (\s a -> s { _lorContents = a })
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
-looEncodingType :: Lens' ListObjectsOutput (Maybe Text)
-looEncodingType = lens _looEncodingType (\s a -> s { _looEncodingType = a })
+lorEncodingType :: Lens' ListObjectsResponse (Maybe Text)
+lorEncodingType = lens _lorEncodingType (\s a -> s { _lorEncodingType = a })
 
 -- | A flag that indicates whether or not Amazon S3 returned all of the
 -- results that satisfied the search criteria.
-looIsTruncated :: Lens' ListObjectsOutput (Maybe Bool)
-looIsTruncated = lens _looIsTruncated (\s a -> s { _looIsTruncated = a })
+lorIsTruncated :: Lens' ListObjectsResponse (Maybe Bool)
+lorIsTruncated = lens _lorIsTruncated (\s a -> s { _lorIsTruncated = a })
 
-looMarker :: Lens' ListObjectsOutput (Maybe Text)
-looMarker = lens _looMarker (\s a -> s { _looMarker = a })
+lorMarker :: Lens' ListObjectsResponse (Maybe Text)
+lorMarker = lens _lorMarker (\s a -> s { _lorMarker = a })
 
-looMaxKeys :: Lens' ListObjectsOutput (Maybe Int)
-looMaxKeys = lens _looMaxKeys (\s a -> s { _looMaxKeys = a })
+lorMaxKeys :: Lens' ListObjectsResponse (Maybe Int)
+lorMaxKeys = lens _lorMaxKeys (\s a -> s { _lorMaxKeys = a })
 
-looName :: Lens' ListObjectsOutput (Maybe Text)
-looName = lens _looName (\s a -> s { _looName = a })
+lorName :: Lens' ListObjectsResponse (Maybe Text)
+lorName = lens _lorName (\s a -> s { _lorName = a })
 
 -- | When response is truncated (the IsTruncated element value in the response
 -- is true), you can use the key name in this field as marker in the
@@ -213,21 +213,21 @@ looName = lens _looName (\s a -> s { _looName = a })
 -- NextMaker and it is truncated, you can use the value of the last Key in
 -- the response as the marker in the subsequent request to get the next set
 -- of object keys.
-looNextMarker :: Lens' ListObjectsOutput (Maybe Text)
-looNextMarker = lens _looNextMarker (\s a -> s { _looNextMarker = a })
+lorNextMarker :: Lens' ListObjectsResponse (Maybe Text)
+lorNextMarker = lens _lorNextMarker (\s a -> s { _lorNextMarker = a })
 
-looPrefix :: Lens' ListObjectsOutput (Maybe Text)
-looPrefix = lens _looPrefix (\s a -> s { _looPrefix = a })
+lorPrefix :: Lens' ListObjectsResponse (Maybe Text)
+lorPrefix = lens _lorPrefix (\s a -> s { _lorPrefix = a })
 
-instance FromXML ListObjectsOutput where
+instance FromXML ListObjectsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListObjectsOutput"
+    fromXMLRoot    = fromRoot "ListObjectsResponse"
 instance AWSRequest ListObjects where
     type Sv ListObjects = S3
-    type Rs ListObjects = ListObjectsOutput
+    type Rs ListObjects = ListObjectsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListObjectsOutput
+    response = xmlResponse $ \h x -> ListObjectsResponse
         <$> x %| "CommonPrefixes"
         <*> x %| "Contents"
         <*> x %| "EncodingType"

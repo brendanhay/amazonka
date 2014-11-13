@@ -31,8 +31,8 @@ module Network.AWS.CloudSearch.DefineExpression
     -- ** Request constructor
     , defineExpression
     -- ** Request lenses
-    , de2DomainName
-    , de2Expression
+    , de1DomainName
+    , de1Expression
 
     -- * Response
     , DefineExpressionResponse
@@ -47,31 +47,31 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
 
 data DefineExpression = DefineExpression
-    { _de2DomainName :: Text
-    , _de2Expression :: Expression
+    { _de1DomainName :: Text
+    , _de1Expression :: Expression
     } deriving (Eq, Show, Generic)
 
 -- | 'DefineExpression' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'de2DomainName' @::@ 'Text'
+-- * 'de1DomainName' @::@ 'Text'
 --
--- * 'de2Expression' @::@ 'Expression'
+-- * 'de1Expression' @::@ 'Expression'
 --
-defineExpression :: Text -- ^ 'de2DomainName'
-                 -> Expression -- ^ 'de2Expression'
+defineExpression :: Text -- ^ 'de1DomainName'
+                 -> Expression -- ^ 'de1Expression'
                  -> DefineExpression
 defineExpression p1 p2 = DefineExpression
-    { _de2DomainName = p1
-    , _de2Expression = p2
+    { _de1DomainName = p1
+    , _de1Expression = p2
     }
 
-de2DomainName :: Lens' DefineExpression Text
-de2DomainName = lens _de2DomainName (\s a -> s { _de2DomainName = a })
+de1DomainName :: Lens' DefineExpression Text
+de1DomainName = lens _de1DomainName (\s a -> s { _de1DomainName = a })
 
-de2Expression :: Lens' DefineExpression Expression
-de2Expression = lens _de2Expression (\s a -> s { _de2Expression = a })
+de1Expression :: Lens' DefineExpression Expression
+de1Expression = lens _de1Expression (\s a -> s { _de1Expression = a })
 
 instance ToQuery DefineExpression
 

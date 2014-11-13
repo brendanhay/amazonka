@@ -24,12 +24,12 @@
 module Network.AWS.AutoScaling.DeletePolicy
     (
     -- * Request
-      DeletePolicyType
+      DeletePolicy
     -- ** Request constructor
     , deletePolicy
     -- ** Request lenses
-    , dpt1AutoScalingGroupName
-    , dpt1PolicyName
+    , dpAutoScalingGroupName
+    , dpPolicyName
 
     -- * Response
     , DeletePolicyResponse
@@ -41,39 +41,38 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data DeletePolicyType = DeletePolicyType
-    { _dpt1AutoScalingGroupName :: Maybe Text
-    , _dpt1PolicyName           :: Text
+data DeletePolicy = DeletePolicy
+    { _dpAutoScalingGroupName :: Maybe Text
+    , _dpPolicyName           :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeletePolicyType' constructor.
+-- | 'DeletePolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpt1AutoScalingGroupName' @::@ 'Maybe' 'Text'
+-- * 'dpAutoScalingGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'dpt1PolicyName' @::@ 'Text'
+-- * 'dpPolicyName' @::@ 'Text'
 --
-deletePolicy :: Text -- ^ 'dpt1PolicyName'
-             -> DeletePolicyType
-deletePolicy p1 = DeletePolicyType
-    { _dpt1PolicyName           = p1
-    , _dpt1AutoScalingGroupName = Nothing
+deletePolicy :: Text -- ^ 'dpPolicyName'
+             -> DeletePolicy
+deletePolicy p1 = DeletePolicy
+    { _dpPolicyName           = p1
+    , _dpAutoScalingGroupName = Nothing
     }
 
 -- | The name of the Auto Scaling group.
-dpt1AutoScalingGroupName :: Lens' DeletePolicyType (Maybe Text)
-dpt1AutoScalingGroupName =
-    lens _dpt1AutoScalingGroupName
-        (\s a -> s { _dpt1AutoScalingGroupName = a })
+dpAutoScalingGroupName :: Lens' DeletePolicy (Maybe Text)
+dpAutoScalingGroupName =
+    lens _dpAutoScalingGroupName (\s a -> s { _dpAutoScalingGroupName = a })
 
 -- | The name or PolicyARN of the policy you want to delete.
-dpt1PolicyName :: Lens' DeletePolicyType Text
-dpt1PolicyName = lens _dpt1PolicyName (\s a -> s { _dpt1PolicyName = a })
+dpPolicyName :: Lens' DeletePolicy Text
+dpPolicyName = lens _dpPolicyName (\s a -> s { _dpPolicyName = a })
 
-instance ToQuery DeletePolicyType
+instance ToQuery DeletePolicy
 
-instance ToPath DeletePolicyType where
+instance ToPath DeletePolicy where
     toPath = const "/"
 
 data DeletePolicyResponse = DeletePolicyResponse
@@ -87,9 +86,9 @@ instance FromXML DeletePolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeletePolicyResponse"
 
-instance AWSRequest DeletePolicyType where
-    type Sv DeletePolicyType = AutoScaling
-    type Rs DeletePolicyType = DeletePolicyResponse
+instance AWSRequest DeletePolicy where
+    type Sv DeletePolicy = AutoScaling
+    type Rs DeletePolicy = DeletePolicyResponse
 
     request  = post "DeletePolicy"
     response = nullaryResponse DeletePolicyResponse

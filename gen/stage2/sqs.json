@@ -1565,7 +1565,7 @@
                 "payload": null,
                 "required": [],
                 "shared": false,
-                "name": "ChangeMessageVisibilityBatchResult",
+                "name": "ChangeMessageVisibilityBatchResponse",
                 "resultWrapper": "ChangeMessageVisibilityBatchResult",
                 "type": "record",
                 "optional": [
@@ -1768,7 +1768,7 @@
                 "payload": null,
                 "required": [],
                 "shared": false,
-                "name": "CreateQueueResult",
+                "name": "CreateQueueResponse",
                 "resultWrapper": "CreateQueueResult",
                 "type": "newtype",
                 "optional": [
@@ -2054,7 +2054,7 @@
                 "payload": null,
                 "required": [],
                 "shared": false,
-                "name": "DeleteMessageBatchResult",
+                "name": "DeleteMessageBatchResponse",
                 "resultWrapper": "DeleteMessageBatchResult",
                 "type": "record",
                 "optional": [
@@ -2369,7 +2369,7 @@
                 "payload": null,
                 "required": [],
                 "shared": false,
-                "name": "GetQueueAttributesResult",
+                "name": "GetQueueAttributesResponse",
                 "resultWrapper": "GetQueueAttributesResult",
                 "type": "newtype",
                 "optional": [
@@ -2545,7 +2545,7 @@
                 "payload": null,
                 "required": [],
                 "shared": false,
-                "name": "GetQueueUrlResult",
+                "name": "GetQueueUrlResponse",
                 "resultWrapper": "GetQueueUrlResult",
                 "type": "newtype",
                 "optional": [
@@ -2722,7 +2722,7 @@
                 "payload": null,
                 "required": [],
                 "shared": false,
-                "name": "ListDeadLetterSourceQueuesResult",
+                "name": "ListDeadLetterSourceQueuesResponse",
                 "resultWrapper": "ListDeadLetterSourceQueuesResult",
                 "type": "newtype",
                 "optional": [
@@ -2882,7 +2882,7 @@
                 "payload": null,
                 "required": [],
                 "shared": false,
-                "name": "ListQueuesResult",
+                "name": "ListQueuesResponse",
                 "resultWrapper": "ListQueuesResult",
                 "type": "newtype",
                 "optional": [
@@ -3040,7 +3040,7 @@
                 "payload": null,
                 "required": [],
                 "shared": false,
-                "name": "ReceiveMessageResult",
+                "name": "ReceiveMessageResponse",
                 "resultWrapper": "ReceiveMessageResult",
                 "type": "newtype",
                 "optional": [
@@ -3460,7 +3460,7 @@
                 "payload": null,
                 "required": [],
                 "shared": false,
-                "name": "SendMessageResult",
+                "name": "SendMessageResponse",
                 "resultWrapper": "SendMessageResult",
                 "type": "record",
                 "optional": [
@@ -3740,7 +3740,7 @@
                 "payload": null,
                 "required": [],
                 "shared": false,
-                "name": "SendMessageBatchResult",
+                "name": "SendMessageBatchResponse",
                 "resultWrapper": "SendMessageBatchResult",
                 "type": "record",
                 "optional": [

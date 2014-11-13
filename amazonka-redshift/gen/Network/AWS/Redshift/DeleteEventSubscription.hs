@@ -24,11 +24,11 @@
 module Network.AWS.Redshift.DeleteEventSubscription
     (
     -- * Request
-      DeleteEventSubscriptionMessage
+      DeleteEventSubscription
     -- ** Request constructor
     , deleteEventSubscription
     -- ** Request lenses
-    , desm1SubscriptionName
+    , desSubscriptionName
 
     -- * Response
     , DeleteEventSubscriptionResponse
@@ -40,31 +40,31 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-newtype DeleteEventSubscriptionMessage = DeleteEventSubscriptionMessage
-    { _desm1SubscriptionName :: Text
+newtype DeleteEventSubscription = DeleteEventSubscription
+    { _desSubscriptionName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteEventSubscriptionMessage' constructor.
+-- | 'DeleteEventSubscription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desm1SubscriptionName' @::@ 'Text'
+-- * 'desSubscriptionName' @::@ 'Text'
 --
-deleteEventSubscription :: Text -- ^ 'desm1SubscriptionName'
-                        -> DeleteEventSubscriptionMessage
-deleteEventSubscription p1 = DeleteEventSubscriptionMessage
-    { _desm1SubscriptionName = p1
+deleteEventSubscription :: Text -- ^ 'desSubscriptionName'
+                        -> DeleteEventSubscription
+deleteEventSubscription p1 = DeleteEventSubscription
+    { _desSubscriptionName = p1
     }
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- deleted.
-desm1SubscriptionName :: Lens' DeleteEventSubscriptionMessage Text
-desm1SubscriptionName =
-    lens _desm1SubscriptionName (\s a -> s { _desm1SubscriptionName = a })
+desSubscriptionName :: Lens' DeleteEventSubscription Text
+desSubscriptionName =
+    lens _desSubscriptionName (\s a -> s { _desSubscriptionName = a })
 
-instance ToQuery DeleteEventSubscriptionMessage
+instance ToQuery DeleteEventSubscription
 
-instance ToPath DeleteEventSubscriptionMessage where
+instance ToPath DeleteEventSubscription where
     toPath = const "/"
 
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
@@ -78,9 +78,9 @@ instance FromXML DeleteEventSubscriptionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteEventSubscriptionResponse"
 
-instance AWSRequest DeleteEventSubscriptionMessage where
-    type Sv DeleteEventSubscriptionMessage = Redshift
-    type Rs DeleteEventSubscriptionMessage = DeleteEventSubscriptionResponse
+instance AWSRequest DeleteEventSubscription where
+    type Sv DeleteEventSubscription = Redshift
+    type Rs DeleteEventSubscription = DeleteEventSubscriptionResponse
 
     request  = post "DeleteEventSubscription"
     response = nullaryResponse DeleteEventSubscriptionResponse

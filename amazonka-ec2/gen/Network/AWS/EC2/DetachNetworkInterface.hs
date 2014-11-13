@@ -28,9 +28,9 @@ module Network.AWS.EC2.DetachNetworkInterface
     -- ** Request constructor
     , detachNetworkInterface
     -- ** Request lenses
-    , dni2AttachmentId
-    , dni2DryRun
-    , dni2Force
+    , dniAttachmentId
+    , dniDryRun
+    , dniForce
 
     -- * Response
     , DetachNetworkInterfaceResponse
@@ -43,39 +43,39 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DetachNetworkInterface = DetachNetworkInterface
-    { _dni2AttachmentId :: Text
-    , _dni2DryRun       :: Maybe Bool
-    , _dni2Force        :: Maybe Bool
+    { _dniAttachmentId :: Text
+    , _dniDryRun       :: Maybe Bool
+    , _dniForce        :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DetachNetworkInterface' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dni2AttachmentId' @::@ 'Text'
+-- * 'dniAttachmentId' @::@ 'Text'
 --
--- * 'dni2DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dniDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dni2Force' @::@ 'Maybe' 'Bool'
+-- * 'dniForce' @::@ 'Maybe' 'Bool'
 --
-detachNetworkInterface :: Text -- ^ 'dni2AttachmentId'
+detachNetworkInterface :: Text -- ^ 'dniAttachmentId'
                        -> DetachNetworkInterface
 detachNetworkInterface p1 = DetachNetworkInterface
-    { _dni2AttachmentId = p1
-    , _dni2DryRun       = Nothing
-    , _dni2Force        = Nothing
+    { _dniAttachmentId = p1
+    , _dniDryRun       = Nothing
+    , _dniForce        = Nothing
     }
 
 -- | The ID of the attachment.
-dni2AttachmentId :: Lens' DetachNetworkInterface Text
-dni2AttachmentId = lens _dni2AttachmentId (\s a -> s { _dni2AttachmentId = a })
+dniAttachmentId :: Lens' DetachNetworkInterface Text
+dniAttachmentId = lens _dniAttachmentId (\s a -> s { _dniAttachmentId = a })
 
-dni2DryRun :: Lens' DetachNetworkInterface (Maybe Bool)
-dni2DryRun = lens _dni2DryRun (\s a -> s { _dni2DryRun = a })
+dniDryRun :: Lens' DetachNetworkInterface (Maybe Bool)
+dniDryRun = lens _dniDryRun (\s a -> s { _dniDryRun = a })
 
 -- | Specifies whether to force a detachment.
-dni2Force :: Lens' DetachNetworkInterface (Maybe Bool)
-dni2Force = lens _dni2Force (\s a -> s { _dni2Force = a })
+dniForce :: Lens' DetachNetworkInterface (Maybe Bool)
+dniForce = lens _dniForce (\s a -> s { _dniForce = a })
 
 instance ToQuery DetachNetworkInterface
 

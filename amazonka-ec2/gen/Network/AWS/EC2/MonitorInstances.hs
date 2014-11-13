@@ -34,7 +34,7 @@ module Network.AWS.EC2.MonitorInstances
     , miInstanceIds
 
     -- * Response
-    , MonitorInstancesResult
+    , MonitorInstancesResponse
     -- ** Response constructor
     , monitorInstancesResponse
     -- ** Response lenses
@@ -76,40 +76,40 @@ instance ToQuery MonitorInstances
 instance ToPath MonitorInstances where
     toPath = const "/"
 
-newtype MonitorInstancesResult = MonitorInstancesResult
+newtype MonitorInstancesResponse = MonitorInstancesResponse
     { _mirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList MonitorInstancesResult where
-    type Item MonitorInstancesResult = InstanceMonitoring
+instance IsList MonitorInstancesResponse where
+    type Item MonitorInstancesResponse = InstanceMonitoring
 
-    fromList = MonitorInstancesResult . fromList
+    fromList = MonitorInstancesResponse . fromList
     toList   = toList . _mirInstanceMonitorings
 
--- | 'MonitorInstancesResult' constructor.
+-- | 'MonitorInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mirInstanceMonitorings' @::@ ['InstanceMonitoring']
 --
-monitorInstancesResponse :: MonitorInstancesResult
-monitorInstancesResponse = MonitorInstancesResult
+monitorInstancesResponse :: MonitorInstancesResponse
+monitorInstancesResponse = MonitorInstancesResponse
     { _mirInstanceMonitorings = mempty
     }
 
 -- | Monitoring information for one or more instances.
-mirInstanceMonitorings :: Lens' MonitorInstancesResult [InstanceMonitoring]
+mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
 mirInstanceMonitorings =
     lens _mirInstanceMonitorings (\s a -> s { _mirInstanceMonitorings = a })
 
-instance FromXML MonitorInstancesResult where
+instance FromXML MonitorInstancesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "MonitorInstancesResult"
+    fromXMLRoot    = fromRoot "MonitorInstancesResponse"
 
 instance AWSRequest MonitorInstances where
     type Sv MonitorInstances = EC2
-    type Rs MonitorInstances = MonitorInstancesResult
+    type Rs MonitorInstances = MonitorInstancesResponse
 
     request  = post "MonitorInstances"
-    response = xmlResponse $ \h x -> MonitorInstancesResult
+    response = xmlResponse $ \h x -> MonitorInstancesResponse
         <$> x %| "instancesSet"

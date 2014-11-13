@@ -26,11 +26,11 @@
 module Network.AWS.SNS.GetEndpointAttributes
     (
     -- * Request
-      GetEndpointAttributesInput
+      GetEndpointAttributes
     -- ** Request constructor
     , getEndpointAttributes
     -- ** Request lenses
-    , geaiEndpointArn
+    , geaEndpointArn
 
     -- * Response
     , GetEndpointAttributesResponse
@@ -44,29 +44,29 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-newtype GetEndpointAttributesInput = GetEndpointAttributesInput
-    { _geaiEndpointArn :: Text
+newtype GetEndpointAttributes = GetEndpointAttributes
+    { _geaEndpointArn :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'GetEndpointAttributesInput' constructor.
+-- | 'GetEndpointAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'geaiEndpointArn' @::@ 'Text'
+-- * 'geaEndpointArn' @::@ 'Text'
 --
-getEndpointAttributes :: Text -- ^ 'geaiEndpointArn'
-                      -> GetEndpointAttributesInput
-getEndpointAttributes p1 = GetEndpointAttributesInput
-    { _geaiEndpointArn = p1
+getEndpointAttributes :: Text -- ^ 'geaEndpointArn'
+                      -> GetEndpointAttributes
+getEndpointAttributes p1 = GetEndpointAttributes
+    { _geaEndpointArn = p1
     }
 
 -- | EndpointArn for GetEndpointAttributes input.
-geaiEndpointArn :: Lens' GetEndpointAttributesInput Text
-geaiEndpointArn = lens _geaiEndpointArn (\s a -> s { _geaiEndpointArn = a })
+geaEndpointArn :: Lens' GetEndpointAttributes Text
+geaEndpointArn = lens _geaEndpointArn (\s a -> s { _geaEndpointArn = a })
 
-instance ToQuery GetEndpointAttributesInput
+instance ToQuery GetEndpointAttributes
 
-instance ToPath GetEndpointAttributesInput where
+instance ToPath GetEndpointAttributes where
     toPath = const "/"
 
 newtype GetEndpointAttributesResponse = GetEndpointAttributesResponse
@@ -102,9 +102,9 @@ instance FromXML GetEndpointAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetEndpointAttributesResponse"
 
-instance AWSRequest GetEndpointAttributesInput where
-    type Sv GetEndpointAttributesInput = SNS
-    type Rs GetEndpointAttributesInput = GetEndpointAttributesResponse
+instance AWSRequest GetEndpointAttributes where
+    type Sv GetEndpointAttributes = SNS
+    type Rs GetEndpointAttributes = GetEndpointAttributesResponse
 
     request  = post "GetEndpointAttributes"
     response = xmlResponse $ \h x -> GetEndpointAttributesResponse

@@ -28,13 +28,13 @@
 module Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
     (
     -- * Request
-      RequestEnvironmentInfoMessage
+      RequestEnvironmentInfo
     -- ** Request constructor
     , requestEnvironmentInfo
     -- ** Request lenses
-    , reim1EnvironmentId
-    , reim1EnvironmentName
-    , reim1InfoType
+    , reiEnvironmentId
+    , reiEnvironmentName
+    , reiInfoType
 
     -- * Response
     , RequestEnvironmentInfoResponse
@@ -46,28 +46,28 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data RequestEnvironmentInfoMessage = RequestEnvironmentInfoMessage
-    { _reim1EnvironmentId   :: Maybe Text
-    , _reim1EnvironmentName :: Maybe Text
-    , _reim1InfoType        :: Text
+data RequestEnvironmentInfo = RequestEnvironmentInfo
+    { _reiEnvironmentId   :: Maybe Text
+    , _reiEnvironmentName :: Maybe Text
+    , _reiInfoType        :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'RequestEnvironmentInfoMessage' constructor.
+-- | 'RequestEnvironmentInfo' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'reim1EnvironmentId' @::@ 'Maybe' 'Text'
+-- * 'reiEnvironmentId' @::@ 'Maybe' 'Text'
 --
--- * 'reim1EnvironmentName' @::@ 'Maybe' 'Text'
+-- * 'reiEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * 'reim1InfoType' @::@ 'Text'
+-- * 'reiInfoType' @::@ 'Text'
 --
-requestEnvironmentInfo :: Text -- ^ 'reim1InfoType'
-                       -> RequestEnvironmentInfoMessage
-requestEnvironmentInfo p1 = RequestEnvironmentInfoMessage
-    { _reim1InfoType        = p1
-    , _reim1EnvironmentId   = Nothing
-    , _reim1EnvironmentName = Nothing
+requestEnvironmentInfo :: Text -- ^ 'reiInfoType'
+                       -> RequestEnvironmentInfo
+requestEnvironmentInfo p1 = RequestEnvironmentInfo
+    { _reiInfoType        = p1
+    , _reiEnvironmentId   = Nothing
+    , _reiEnvironmentName = Nothing
     }
 
 -- | The ID of the environment of the requested data. If no such environment
@@ -75,26 +75,25 @@ requestEnvironmentInfo p1 = RequestEnvironmentInfoMessage
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- MissingRequiredParameter error.
-reim1EnvironmentId :: Lens' RequestEnvironmentInfoMessage (Maybe Text)
-reim1EnvironmentId =
-    lens _reim1EnvironmentId (\s a -> s { _reim1EnvironmentId = a })
+reiEnvironmentId :: Lens' RequestEnvironmentInfo (Maybe Text)
+reiEnvironmentId = lens _reiEnvironmentId (\s a -> s { _reiEnvironmentId = a })
 
 -- | The name of the environment of the requested data. If no such environment
 -- is found, RequestEnvironmentInfo returns an InvalidParameterValue error.
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- MissingRequiredParameter error.
-reim1EnvironmentName :: Lens' RequestEnvironmentInfoMessage (Maybe Text)
-reim1EnvironmentName =
-    lens _reim1EnvironmentName (\s a -> s { _reim1EnvironmentName = a })
+reiEnvironmentName :: Lens' RequestEnvironmentInfo (Maybe Text)
+reiEnvironmentName =
+    lens _reiEnvironmentName (\s a -> s { _reiEnvironmentName = a })
 
 -- | The type of information to request.
-reim1InfoType :: Lens' RequestEnvironmentInfoMessage Text
-reim1InfoType = lens _reim1InfoType (\s a -> s { _reim1InfoType = a })
+reiInfoType :: Lens' RequestEnvironmentInfo Text
+reiInfoType = lens _reiInfoType (\s a -> s { _reiInfoType = a })
 
-instance ToQuery RequestEnvironmentInfoMessage
+instance ToQuery RequestEnvironmentInfo
 
-instance ToPath RequestEnvironmentInfoMessage where
+instance ToPath RequestEnvironmentInfo where
     toPath = const "/"
 
 data RequestEnvironmentInfoResponse = RequestEnvironmentInfoResponse
@@ -108,9 +107,9 @@ instance FromXML RequestEnvironmentInfoResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RequestEnvironmentInfoResponse"
 
-instance AWSRequest RequestEnvironmentInfoMessage where
-    type Sv RequestEnvironmentInfoMessage = ElasticBeanstalk
-    type Rs RequestEnvironmentInfoMessage = RequestEnvironmentInfoResponse
+instance AWSRequest RequestEnvironmentInfo where
+    type Sv RequestEnvironmentInfo = ElasticBeanstalk
+    type Rs RequestEnvironmentInfo = RequestEnvironmentInfoResponse
 
     request  = post "RequestEnvironmentInfo"
     response = nullaryResponse RequestEnvironmentInfoResponse

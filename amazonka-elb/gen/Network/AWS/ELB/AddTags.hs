@@ -29,12 +29,12 @@
 module Network.AWS.ELB.AddTags
     (
     -- * Request
-      AddTagsInput
+      AddTags
     -- ** Request constructor
     , addTags
     -- ** Request lenses
-    , atiLoadBalancerNames
-    , atiTags
+    , atLoadBalancerNames
+    , atTags
 
     -- * Response
     , AddTagsResponse
@@ -46,40 +46,40 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data AddTagsInput = AddTagsInput
-    { _atiLoadBalancerNames :: [Text]
-    , _atiTags              :: List1 Tag
+data AddTags = AddTags
+    { _atLoadBalancerNames :: [Text]
+    , _atTags              :: List1 Tag
     } deriving (Eq, Show, Generic)
 
--- | 'AddTagsInput' constructor.
+-- | 'AddTags' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atiLoadBalancerNames' @::@ ['Text']
+-- * 'atLoadBalancerNames' @::@ ['Text']
 --
--- * 'atiTags' @::@ 'NonEmpty' 'Tag'
+-- * 'atTags' @::@ 'NonEmpty' 'Tag'
 --
-addTags :: NonEmpty Tag -- ^ 'atiTags'
-        -> AddTagsInput
-addTags p1 = AddTagsInput
-    { _atiTags              = withIso _List1 (const id) p1
-    , _atiLoadBalancerNames = mempty
+addTags :: NonEmpty Tag -- ^ 'atTags'
+        -> AddTags
+addTags p1 = AddTags
+    { _atTags              = withIso _List1 (const id) p1
+    , _atLoadBalancerNames = mempty
     }
 
 -- | The name of the load balancer to tag. You can specify a maximum of one
 -- load balancer name.
-atiLoadBalancerNames :: Lens' AddTagsInput [Text]
-atiLoadBalancerNames =
-    lens _atiLoadBalancerNames (\s a -> s { _atiLoadBalancerNames = a })
+atLoadBalancerNames :: Lens' AddTags [Text]
+atLoadBalancerNames =
+    lens _atLoadBalancerNames (\s a -> s { _atLoadBalancerNames = a })
 
 -- | A list of tags for each load balancer.
-atiTags :: Lens' AddTagsInput (NonEmpty Tag)
-atiTags = lens _atiTags (\s a -> s { _atiTags = a })
+atTags :: Lens' AddTags (NonEmpty Tag)
+atTags = lens _atTags (\s a -> s { _atTags = a })
     . _List1
 
-instance ToQuery AddTagsInput
+instance ToQuery AddTags
 
-instance ToPath AddTagsInput where
+instance ToPath AddTags where
     toPath = const "/"
 
 data AddTagsResponse = AddTagsResponse
@@ -93,9 +93,9 @@ instance FromXML AddTagsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AddTagsResponse"
 
-instance AWSRequest AddTagsInput where
-    type Sv AddTagsInput = ELB
-    type Rs AddTagsInput = AddTagsResponse
+instance AWSRequest AddTags where
+    type Sv AddTags = ELB
+    type Rs AddTags = AddTagsResponse
 
     request  = post "AddTags"
     response = nullaryResponse AddTagsResponse

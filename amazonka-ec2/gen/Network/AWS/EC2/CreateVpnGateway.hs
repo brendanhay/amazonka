@@ -37,7 +37,7 @@ module Network.AWS.EC2.CreateVpnGateway
     , cvgType
 
     -- * Response
-    , CreateVpnGatewayResult
+    , CreateVpnGatewayResponse
     -- ** Response constructor
     , createVpnGatewayResponse
     -- ** Response lenses
@@ -89,33 +89,33 @@ instance ToQuery CreateVpnGateway
 instance ToPath CreateVpnGateway where
     toPath = const "/"
 
-newtype CreateVpnGatewayResult = CreateVpnGatewayResult
+newtype CreateVpnGatewayResponse = CreateVpnGatewayResponse
     { _cvgrVpnGateway :: Maybe VpnGateway
     } deriving (Eq, Show, Generic)
 
--- | 'CreateVpnGatewayResult' constructor.
+-- | 'CreateVpnGatewayResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cvgrVpnGateway' @::@ 'Maybe' 'VpnGateway'
 --
-createVpnGatewayResponse :: CreateVpnGatewayResult
-createVpnGatewayResponse = CreateVpnGatewayResult
+createVpnGatewayResponse :: CreateVpnGatewayResponse
+createVpnGatewayResponse = CreateVpnGatewayResponse
     { _cvgrVpnGateway = Nothing
     }
 
 -- | Information about the virtual private gateway.
-cvgrVpnGateway :: Lens' CreateVpnGatewayResult (Maybe VpnGateway)
+cvgrVpnGateway :: Lens' CreateVpnGatewayResponse (Maybe VpnGateway)
 cvgrVpnGateway = lens _cvgrVpnGateway (\s a -> s { _cvgrVpnGateway = a })
 
-instance FromXML CreateVpnGatewayResult where
+instance FromXML CreateVpnGatewayResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVpnGatewayResult"
+    fromXMLRoot    = fromRoot "CreateVpnGatewayResponse"
 
 instance AWSRequest CreateVpnGateway where
     type Sv CreateVpnGateway = EC2
-    type Rs CreateVpnGateway = CreateVpnGatewayResult
+    type Rs CreateVpnGateway = CreateVpnGatewayResponse
 
     request  = post "CreateVpnGateway"
-    response = xmlResponse $ \h x -> CreateVpnGatewayResult
+    response = xmlResponse $ \h x -> CreateVpnGatewayResponse
         <$> x %| "vpnGateway"

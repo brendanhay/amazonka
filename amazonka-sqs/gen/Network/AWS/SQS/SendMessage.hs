@@ -43,7 +43,7 @@ module Network.AWS.SQS.SendMessage
     , smQueueUrl
 
     -- * Response
-    , SendMessageResult
+    , SendMessageResponse
     -- ** Response constructor
     , sendMessageResponse
     -- ** Response lenses
@@ -113,13 +113,13 @@ instance ToQuery SendMessage
 instance ToPath SendMessage where
     toPath = const "/"
 
-data SendMessageResult = SendMessageResult
+data SendMessageResponse = SendMessageResponse
     { _smrMD5OfMessageAttributes :: Maybe Text
     , _smrMD5OfMessageBody       :: Maybe Text
     , _smrMessageId              :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'SendMessageResult' constructor.
+-- | 'SendMessageResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -129,8 +129,8 @@ data SendMessageResult = SendMessageResult
 --
 -- * 'smrMessageId' @::@ 'Maybe' 'Text'
 --
-sendMessageResponse :: SendMessageResult
-sendMessageResponse = SendMessageResult
+sendMessageResponse :: SendMessageResponse
+sendMessageResponse = SendMessageResponse
     { _smrMD5OfMessageBody       = Nothing
     , _smrMD5OfMessageAttributes = Nothing
     , _smrMessageId              = Nothing
@@ -140,7 +140,7 @@ sendMessageResponse = SendMessageResult
 -- be used to verify that Amazon SQS received the message correctly. Amazon
 -- SQS first URL decodes the message before creating the MD5 digest. For
 -- information about MD5, go to http://www.faqs.org/rfcs/rfc1321.html.
-smrMD5OfMessageAttributes :: Lens' SendMessageResult (Maybe Text)
+smrMD5OfMessageAttributes :: Lens' SendMessageResponse (Maybe Text)
 smrMD5OfMessageAttributes =
     lens _smrMD5OfMessageAttributes
         (\s a -> s { _smrMD5OfMessageAttributes = a })
@@ -149,26 +149,26 @@ smrMD5OfMessageAttributes =
 -- used to verify that Amazon SQS received the message correctly. Amazon SQS
 -- first URL decodes the message before creating the MD5 digest. For
 -- information about MD5, go to http://www.faqs.org/rfcs/rfc1321.html.
-smrMD5OfMessageBody :: Lens' SendMessageResult (Maybe Text)
+smrMD5OfMessageBody :: Lens' SendMessageResponse (Maybe Text)
 smrMD5OfMessageBody =
     lens _smrMD5OfMessageBody (\s a -> s { _smrMD5OfMessageBody = a })
 
 -- | An element containing the message ID of the message sent to the queue.
 -- For more information, see Queue and Message Identifiers in the Amazon SQS
 -- Developer Guide.
-smrMessageId :: Lens' SendMessageResult (Maybe Text)
+smrMessageId :: Lens' SendMessageResponse (Maybe Text)
 smrMessageId = lens _smrMessageId (\s a -> s { _smrMessageId = a })
 
-instance FromXML SendMessageResult where
+instance FromXML SendMessageResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SendMessageResult"
+    fromXMLRoot    = fromRoot "SendMessageResponse"
 
 instance AWSRequest SendMessage where
     type Sv SendMessage = SQS
-    type Rs SendMessage = SendMessageResult
+    type Rs SendMessage = SendMessageResponse
 
     request  = post "SendMessage"
-    response = xmlResponse $ \h x -> SendMessageResult
+    response = xmlResponse $ \h x -> SendMessageResponse
         <$> x %| "MD5OfMessageAttributes"
         <*> x %| "MD5OfMessageBody"
         <*> x %| "MessageId"

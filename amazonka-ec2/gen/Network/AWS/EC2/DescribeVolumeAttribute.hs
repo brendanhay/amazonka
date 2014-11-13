@@ -31,12 +31,12 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     -- ** Request constructor
     , describeVolumeAttribute
     -- ** Request lenses
-    , dva1Attribute
-    , dva1DryRun
-    , dva1VolumeId
+    , dvaAttribute
+    , dvaDryRun
+    , dvaVolumeId
 
     -- * Response
-    , DescribeVolumeAttributeResult
+    , DescribeVolumeAttributeResponse
     -- ** Response constructor
     , describeVolumeAttributeResponse
     -- ** Response lenses
@@ -50,52 +50,52 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DescribeVolumeAttribute = DescribeVolumeAttribute
-    { _dva1Attribute :: Maybe Text
-    , _dva1DryRun    :: Maybe Bool
-    , _dva1VolumeId  :: Text
+    { _dvaAttribute :: Maybe Text
+    , _dvaDryRun    :: Maybe Bool
+    , _dvaVolumeId  :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeVolumeAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dva1Attribute' @::@ 'Maybe' 'Text'
+-- * 'dvaAttribute' @::@ 'Maybe' 'Text'
 --
--- * 'dva1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dvaDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dva1VolumeId' @::@ 'Text'
+-- * 'dvaVolumeId' @::@ 'Text'
 --
-describeVolumeAttribute :: Text -- ^ 'dva1VolumeId'
+describeVolumeAttribute :: Text -- ^ 'dvaVolumeId'
                         -> DescribeVolumeAttribute
 describeVolumeAttribute p1 = DescribeVolumeAttribute
-    { _dva1VolumeId  = p1
-    , _dva1DryRun    = Nothing
-    , _dva1Attribute = Nothing
+    { _dvaVolumeId  = p1
+    , _dvaDryRun    = Nothing
+    , _dvaAttribute = Nothing
     }
 
 -- | The instance attribute.
-dva1Attribute :: Lens' DescribeVolumeAttribute (Maybe Text)
-dva1Attribute = lens _dva1Attribute (\s a -> s { _dva1Attribute = a })
+dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe Text)
+dvaAttribute = lens _dvaAttribute (\s a -> s { _dvaAttribute = a })
 
-dva1DryRun :: Lens' DescribeVolumeAttribute (Maybe Bool)
-dva1DryRun = lens _dva1DryRun (\s a -> s { _dva1DryRun = a })
+dvaDryRun :: Lens' DescribeVolumeAttribute (Maybe Bool)
+dvaDryRun = lens _dvaDryRun (\s a -> s { _dvaDryRun = a })
 
 -- | The ID of the volume.
-dva1VolumeId :: Lens' DescribeVolumeAttribute Text
-dva1VolumeId = lens _dva1VolumeId (\s a -> s { _dva1VolumeId = a })
+dvaVolumeId :: Lens' DescribeVolumeAttribute Text
+dvaVolumeId = lens _dvaVolumeId (\s a -> s { _dvaVolumeId = a })
 
 instance ToQuery DescribeVolumeAttribute
 
 instance ToPath DescribeVolumeAttribute where
     toPath = const "/"
 
-data DescribeVolumeAttributeResult = DescribeVolumeAttributeResult
+data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     { _dvarAutoEnableIO :: Maybe AttributeBooleanValue
     , _dvarProductCodes :: [ProductCode]
     , _dvarVolumeId     :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeVolumeAttributeResult' constructor.
+-- | 'DescribeVolumeAttributeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -105,35 +105,35 @@ data DescribeVolumeAttributeResult = DescribeVolumeAttributeResult
 --
 -- * 'dvarVolumeId' @::@ 'Maybe' 'Text'
 --
-describeVolumeAttributeResponse :: DescribeVolumeAttributeResult
-describeVolumeAttributeResponse = DescribeVolumeAttributeResult
+describeVolumeAttributeResponse :: DescribeVolumeAttributeResponse
+describeVolumeAttributeResponse = DescribeVolumeAttributeResponse
     { _dvarVolumeId     = Nothing
     , _dvarAutoEnableIO = Nothing
     , _dvarProductCodes = mempty
     }
 
 -- | The state of autoEnableIO attribute.
-dvarAutoEnableIO :: Lens' DescribeVolumeAttributeResult (Maybe AttributeBooleanValue)
+dvarAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
 dvarAutoEnableIO = lens _dvarAutoEnableIO (\s a -> s { _dvarAutoEnableIO = a })
 
 -- | A list of product codes.
-dvarProductCodes :: Lens' DescribeVolumeAttributeResult [ProductCode]
+dvarProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
 dvarProductCodes = lens _dvarProductCodes (\s a -> s { _dvarProductCodes = a })
 
 -- | The ID of the volume.
-dvarVolumeId :: Lens' DescribeVolumeAttributeResult (Maybe Text)
+dvarVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
 dvarVolumeId = lens _dvarVolumeId (\s a -> s { _dvarVolumeId = a })
 
-instance FromXML DescribeVolumeAttributeResult where
+instance FromXML DescribeVolumeAttributeResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVolumeAttributeResult"
+    fromXMLRoot    = fromRoot "DescribeVolumeAttributeResponse"
 
 instance AWSRequest DescribeVolumeAttribute where
     type Sv DescribeVolumeAttribute = EC2
-    type Rs DescribeVolumeAttribute = DescribeVolumeAttributeResult
+    type Rs DescribeVolumeAttribute = DescribeVolumeAttributeResponse
 
     request  = post "DescribeVolumeAttribute"
-    response = xmlResponse $ \h x -> DescribeVolumeAttributeResult
+    response = xmlResponse $ \h x -> DescribeVolumeAttributeResponse
         <$> x %| "autoEnableIO"
         <*> x %| "productCodes"
         <*> x %| "volumeId"

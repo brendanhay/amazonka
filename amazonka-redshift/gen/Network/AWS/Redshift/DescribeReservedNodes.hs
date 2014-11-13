@@ -24,48 +24,48 @@
 module Network.AWS.Redshift.DescribeReservedNodes
     (
     -- * Request
-      DescribeReservedNodesMessage
+      DescribeReservedNodes
     -- ** Request constructor
     , describeReservedNodes
     -- ** Request lenses
-    , drnmMarker
-    , drnmMaxRecords
-    , drnmReservedNodeId
+    , drnMarker
+    , drnMaxRecords
+    , drnReservedNodeId
 
     -- * Response
-    , ReservedNodesMessage
+    , DescribeReservedNodesResponse
     -- ** Response constructor
     , describeReservedNodesResponse
     -- ** Response lenses
-    , rnmMarker
-    , rnmReservedNodes
+    , drnrMarker
+    , drnrReservedNodes
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data DescribeReservedNodesMessage = DescribeReservedNodesMessage
-    { _drnmMarker         :: Maybe Text
-    , _drnmMaxRecords     :: Maybe Int
-    , _drnmReservedNodeId :: Maybe Text
+data DescribeReservedNodes = DescribeReservedNodes
+    { _drnMarker         :: Maybe Text
+    , _drnMaxRecords     :: Maybe Int
+    , _drnReservedNodeId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeReservedNodesMessage' constructor.
+-- | 'DescribeReservedNodes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drnmMarker' @::@ 'Maybe' 'Text'
+-- * 'drnMarker' @::@ 'Maybe' 'Text'
 --
--- * 'drnmMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'drnMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'drnmReservedNodeId' @::@ 'Maybe' 'Text'
+-- * 'drnReservedNodeId' @::@ 'Maybe' 'Text'
 --
-describeReservedNodes :: DescribeReservedNodesMessage
-describeReservedNodes = DescribeReservedNodesMessage
-    { _drnmReservedNodeId = Nothing
-    , _drnmMaxRecords     = Nothing
-    , _drnmMarker         = Nothing
+describeReservedNodes :: DescribeReservedNodes
+describeReservedNodes = DescribeReservedNodes
+    { _drnReservedNodeId = Nothing
+    , _drnMaxRecords     = Nothing
+    , _drnMarker         = Nothing
     }
 
 -- | An optional parameter that specifies the starting point to return a set
@@ -74,44 +74,44 @@ describeReservedNodes = DescribeReservedNodesMessage
 -- Marker field of the response. You can retrieve the next set of response
 -- records by providing the returned marker value in the Marker parameter
 -- and retrying the request.
-drnmMarker :: Lens' DescribeReservedNodesMessage (Maybe Text)
-drnmMarker = lens _drnmMarker (\s a -> s { _drnmMarker = a })
+drnMarker :: Lens' DescribeReservedNodes (Maybe Text)
+drnMarker = lens _drnMarker (\s a -> s { _drnMarker = a })
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
-drnmMaxRecords :: Lens' DescribeReservedNodesMessage (Maybe Int)
-drnmMaxRecords = lens _drnmMaxRecords (\s a -> s { _drnmMaxRecords = a })
+drnMaxRecords :: Lens' DescribeReservedNodes (Maybe Int)
+drnMaxRecords = lens _drnMaxRecords (\s a -> s { _drnMaxRecords = a })
 
 -- | Identifier for the node reservation.
-drnmReservedNodeId :: Lens' DescribeReservedNodesMessage (Maybe Text)
-drnmReservedNodeId =
-    lens _drnmReservedNodeId (\s a -> s { _drnmReservedNodeId = a })
+drnReservedNodeId :: Lens' DescribeReservedNodes (Maybe Text)
+drnReservedNodeId =
+    lens _drnReservedNodeId (\s a -> s { _drnReservedNodeId = a })
 
-instance ToQuery DescribeReservedNodesMessage
+instance ToQuery DescribeReservedNodes
 
-instance ToPath DescribeReservedNodesMessage where
+instance ToPath DescribeReservedNodes where
     toPath = const "/"
 
-data ReservedNodesMessage = ReservedNodesMessage
-    { _rnmMarker        :: Maybe Text
-    , _rnmReservedNodes :: [ReservedNode]
+data DescribeReservedNodesResponse = DescribeReservedNodesResponse
+    { _drnrMarker        :: Maybe Text
+    , _drnrReservedNodes :: [ReservedNode]
     } deriving (Eq, Show, Generic)
 
--- | 'ReservedNodesMessage' constructor.
+-- | 'DescribeReservedNodesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rnmMarker' @::@ 'Maybe' 'Text'
+-- * 'drnrMarker' @::@ 'Maybe' 'Text'
 --
--- * 'rnmReservedNodes' @::@ ['ReservedNode']
+-- * 'drnrReservedNodes' @::@ ['ReservedNode']
 --
-describeReservedNodesResponse :: ReservedNodesMessage
-describeReservedNodesResponse = ReservedNodesMessage
-    { _rnmMarker        = Nothing
-    , _rnmReservedNodes = mempty
+describeReservedNodesResponse :: DescribeReservedNodesResponse
+describeReservedNodesResponse = DescribeReservedNodesResponse
+    { _drnrMarker        = Nothing
+    , _drnrReservedNodes = mempty
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -120,22 +120,23 @@ describeReservedNodesResponse = ReservedNodesMessage
 -- marker value in the Marker parameter and retrying the command. If the
 -- Marker field is empty, all response records have been retrieved for the
 -- request.
-rnmMarker :: Lens' ReservedNodesMessage (Maybe Text)
-rnmMarker = lens _rnmMarker (\s a -> s { _rnmMarker = a })
+drnrMarker :: Lens' DescribeReservedNodesResponse (Maybe Text)
+drnrMarker = lens _drnrMarker (\s a -> s { _drnrMarker = a })
 
 -- | The list of reserved nodes.
-rnmReservedNodes :: Lens' ReservedNodesMessage [ReservedNode]
-rnmReservedNodes = lens _rnmReservedNodes (\s a -> s { _rnmReservedNodes = a })
+drnrReservedNodes :: Lens' DescribeReservedNodesResponse [ReservedNode]
+drnrReservedNodes =
+    lens _drnrReservedNodes (\s a -> s { _drnrReservedNodes = a })
 
-instance FromXML ReservedNodesMessage where
+instance FromXML DescribeReservedNodesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReservedNodesMessage"
+    fromXMLRoot    = fromRoot "DescribeReservedNodesResponse"
 
-instance AWSRequest DescribeReservedNodesMessage where
-    type Sv DescribeReservedNodesMessage = Redshift
-    type Rs DescribeReservedNodesMessage = ReservedNodesMessage
+instance AWSRequest DescribeReservedNodes where
+    type Sv DescribeReservedNodes = Redshift
+    type Rs DescribeReservedNodes = DescribeReservedNodesResponse
 
     request  = post "DescribeReservedNodes"
-    response = xmlResponse $ \h x -> ReservedNodesMessage
+    response = xmlResponse $ \h x -> DescribeReservedNodesResponse
         <$> x %| "Marker"
         <*> x %| "ReservedNodes"

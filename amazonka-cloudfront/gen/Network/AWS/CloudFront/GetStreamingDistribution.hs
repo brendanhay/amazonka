@@ -24,14 +24,14 @@
 module Network.AWS.CloudFront.GetStreamingDistribution
     (
     -- * Request
-      GetStreamingDistribution
+      GetStreamingDistribution2014_05_31
     -- ** Request constructor
     , getStreamingDistribution2014_05_31
     -- ** Request lenses
     , gsdId
 
     -- * Response
-    , GetStreamingDistributionResult
+    , GetStreamingDistribution2014_05_31Response
     -- ** Response constructor
     , getStreamingDistribution2014_05_31Response
     -- ** Response lenses
@@ -43,43 +43,43 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 
-newtype GetStreamingDistribution = GetStreamingDistribution
+newtype GetStreamingDistribution2014_05_31 = GetStreamingDistribution2014_05_31
     { _gsdId :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'GetStreamingDistribution' constructor.
+-- | 'GetStreamingDistribution2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gsdId' @::@ 'Text'
 --
 getStreamingDistribution2014_05_31 :: Text -- ^ 'gsdId'
-                                   -> GetStreamingDistribution
-getStreamingDistribution2014_05_31 p1 = GetStreamingDistribution
+                                   -> GetStreamingDistribution2014_05_31
+getStreamingDistribution2014_05_31 p1 = GetStreamingDistribution2014_05_31
     { _gsdId = p1
     }
 
 -- | The streaming distribution's id.
-gsdId :: Lens' GetStreamingDistribution Text
+gsdId :: Lens' GetStreamingDistribution2014_05_31 Text
 gsdId = lens _gsdId (\s a -> s { _gsdId = a })
 
-instance ToPath GetStreamingDistribution where
-    toPath GetStreamingDistribution{..} = mconcat
+instance ToPath GetStreamingDistribution2014_05_31 where
+    toPath GetStreamingDistribution2014_05_31{..} = mconcat
         [ "/2014-05-31/streaming-distribution/"
         , toText _gsdId
         ]
 
-instance ToQuery GetStreamingDistribution where
+instance ToQuery GetStreamingDistribution2014_05_31 where
     toQuery = const mempty
 
-instance ToHeaders GetStreamingDistribution
+instance ToHeaders GetStreamingDistribution2014_05_31
 
-data GetStreamingDistributionResult = GetStreamingDistributionResult
+data GetStreamingDistribution2014_05_31Response = GetStreamingDistribution2014_05_31Response
     { _gsdrETag                  :: Maybe Text
     , _gsdrStreamingDistribution :: Maybe StreamingDistribution
     } deriving (Eq, Show, Generic)
 
--- | 'GetStreamingDistributionResult' constructor.
+-- | 'GetStreamingDistribution2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -87,31 +87,31 @@ data GetStreamingDistributionResult = GetStreamingDistributionResult
 --
 -- * 'gsdrStreamingDistribution' @::@ 'Maybe' 'StreamingDistribution'
 --
-getStreamingDistribution2014_05_31Response :: GetStreamingDistributionResult
-getStreamingDistribution2014_05_31Response = GetStreamingDistributionResult
+getStreamingDistribution2014_05_31Response :: GetStreamingDistribution2014_05_31Response
+getStreamingDistribution2014_05_31Response = GetStreamingDistribution2014_05_31Response
     { _gsdrStreamingDistribution = Nothing
     , _gsdrETag                  = Nothing
     }
 
 -- | The current version of the streaming distribution's information. For
 -- example: E2QWRUHAPOMQZL.
-gsdrETag :: Lens' GetStreamingDistributionResult (Maybe Text)
+gsdrETag :: Lens' GetStreamingDistribution2014_05_31Response (Maybe Text)
 gsdrETag = lens _gsdrETag (\s a -> s { _gsdrETag = a })
 
 -- | The streaming distribution's information.
-gsdrStreamingDistribution :: Lens' GetStreamingDistributionResult (Maybe StreamingDistribution)
+gsdrStreamingDistribution :: Lens' GetStreamingDistribution2014_05_31Response (Maybe StreamingDistribution)
 gsdrStreamingDistribution =
     lens _gsdrStreamingDistribution
         (\s a -> s { _gsdrStreamingDistribution = a })
 
-instance FromXML GetStreamingDistributionResult where
+instance FromXML GetStreamingDistribution2014_05_31Response where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetStreamingDistributionResult"
-instance AWSRequest GetStreamingDistribution where
-    type Sv GetStreamingDistribution = CloudFront
-    type Rs GetStreamingDistribution = GetStreamingDistributionResult
+    fromXMLRoot    = fromRoot "GetStreamingDistribution2014_05_31Response"
+instance AWSRequest GetStreamingDistribution2014_05_31 where
+    type Sv GetStreamingDistribution2014_05_31 = CloudFront
+    type Rs GetStreamingDistribution2014_05_31 = GetStreamingDistribution2014_05_31Response
 
     request  = get
-    response = xmlResponse $ \h x -> GetStreamingDistributionResult
+    response = xmlResponse $ \h x -> GetStreamingDistribution2014_05_31Response
         <$> h ~:? "ETag"
         <*> x %| "StreamingDistribution"

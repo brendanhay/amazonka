@@ -31,8 +31,8 @@ module Network.AWS.EC2.DeleteVolume
     -- ** Request constructor
     , deleteVolume
     -- ** Request lenses
-    , dv3DryRun
-    , dv3VolumeId
+    , dv4DryRun
+    , dv4VolumeId
 
     -- * Response
     , DeleteVolumeResponse
@@ -45,31 +45,31 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DeleteVolume = DeleteVolume
-    { _dv3DryRun   :: Maybe Bool
-    , _dv3VolumeId :: Text
+    { _dv4DryRun   :: Maybe Bool
+    , _dv4VolumeId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteVolume' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dv3DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dv4DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dv3VolumeId' @::@ 'Text'
+-- * 'dv4VolumeId' @::@ 'Text'
 --
-deleteVolume :: Text -- ^ 'dv3VolumeId'
+deleteVolume :: Text -- ^ 'dv4VolumeId'
              -> DeleteVolume
 deleteVolume p1 = DeleteVolume
-    { _dv3VolumeId = p1
-    , _dv3DryRun   = Nothing
+    { _dv4VolumeId = p1
+    , _dv4DryRun   = Nothing
     }
 
-dv3DryRun :: Lens' DeleteVolume (Maybe Bool)
-dv3DryRun = lens _dv3DryRun (\s a -> s { _dv3DryRun = a })
+dv4DryRun :: Lens' DeleteVolume (Maybe Bool)
+dv4DryRun = lens _dv4DryRun (\s a -> s { _dv4DryRun = a })
 
 -- | The ID of the volume.
-dv3VolumeId :: Lens' DeleteVolume Text
-dv3VolumeId = lens _dv3VolumeId (\s a -> s { _dv3VolumeId = a })
+dv4VolumeId :: Lens' DeleteVolume Text
+dv4VolumeId = lens _dv4VolumeId (\s a -> s { _dv4VolumeId = a })
 
 instance ToQuery DeleteVolume
 

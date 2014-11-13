@@ -24,85 +24,85 @@
 module Network.AWS.ELB.DescribeTags
     (
     -- * Request
-      DescribeTagsInput
+      DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dtiLoadBalancerNames
+    , dtLoadBalancerNames
 
     -- * Response
-    , DescribeTagsOutput
+    , DescribeTagsResponse
     -- ** Response constructor
     , describeTagsResponse
     -- ** Response lenses
-    , dtoTagDescriptions
+    , dtrTagDescriptions
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-newtype DescribeTagsInput = DescribeTagsInput
-    { _dtiLoadBalancerNames :: List1 Text
+newtype DescribeTags = DescribeTags
+    { _dtLoadBalancerNames :: List1 Text
     } deriving (Eq, Ord, Show, Generic, Semigroup)
 
--- | 'DescribeTagsInput' constructor.
+-- | 'DescribeTags' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtiLoadBalancerNames' @::@ 'NonEmpty' 'Text'
+-- * 'dtLoadBalancerNames' @::@ 'NonEmpty' 'Text'
 --
-describeTags :: NonEmpty Text -- ^ 'dtiLoadBalancerNames'
-             -> DescribeTagsInput
-describeTags p1 = DescribeTagsInput
-    { _dtiLoadBalancerNames = withIso _List1 (const id) p1
+describeTags :: NonEmpty Text -- ^ 'dtLoadBalancerNames'
+             -> DescribeTags
+describeTags p1 = DescribeTags
+    { _dtLoadBalancerNames = withIso _List1 (const id) p1
     }
 
 -- | The names of the load balancers.
-dtiLoadBalancerNames :: Lens' DescribeTagsInput (NonEmpty Text)
-dtiLoadBalancerNames =
-    lens _dtiLoadBalancerNames (\s a -> s { _dtiLoadBalancerNames = a })
+dtLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
+dtLoadBalancerNames =
+    lens _dtLoadBalancerNames (\s a -> s { _dtLoadBalancerNames = a })
         . _List1
 
-instance ToQuery DescribeTagsInput
+instance ToQuery DescribeTags
 
-instance ToPath DescribeTagsInput where
+instance ToPath DescribeTags where
     toPath = const "/"
 
-newtype DescribeTagsOutput = DescribeTagsOutput
-    { _dtoTagDescriptions :: [TagDescription]
+newtype DescribeTagsResponse = DescribeTagsResponse
+    { _dtrTagDescriptions :: [TagDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeTagsOutput where
-    type Item DescribeTagsOutput = TagDescription
+instance IsList DescribeTagsResponse where
+    type Item DescribeTagsResponse = TagDescription
 
-    fromList = DescribeTagsOutput . fromList
-    toList   = toList . _dtoTagDescriptions
+    fromList = DescribeTagsResponse . fromList
+    toList   = toList . _dtrTagDescriptions
 
--- | 'DescribeTagsOutput' constructor.
+-- | 'DescribeTagsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtoTagDescriptions' @::@ ['TagDescription']
+-- * 'dtrTagDescriptions' @::@ ['TagDescription']
 --
-describeTagsResponse :: DescribeTagsOutput
-describeTagsResponse = DescribeTagsOutput
-    { _dtoTagDescriptions = mempty
+describeTagsResponse :: DescribeTagsResponse
+describeTagsResponse = DescribeTagsResponse
+    { _dtrTagDescriptions = mempty
     }
 
 -- | A list of tag description structures.
-dtoTagDescriptions :: Lens' DescribeTagsOutput [TagDescription]
-dtoTagDescriptions =
-    lens _dtoTagDescriptions (\s a -> s { _dtoTagDescriptions = a })
+dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
+dtrTagDescriptions =
+    lens _dtrTagDescriptions (\s a -> s { _dtrTagDescriptions = a })
 
-instance FromXML DescribeTagsOutput where
+instance FromXML DescribeTagsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeTagsOutput"
+    fromXMLRoot    = fromRoot "DescribeTagsResponse"
 
-instance AWSRequest DescribeTagsInput where
-    type Sv DescribeTagsInput = ELB
-    type Rs DescribeTagsInput = DescribeTagsOutput
+instance AWSRequest DescribeTags where
+    type Sv DescribeTags = ELB
+    type Rs DescribeTags = DescribeTagsResponse
 
     request  = post "DescribeTags"
-    response = xmlResponse $ \h x -> DescribeTagsOutput
+    response = xmlResponse $ \h x -> DescribeTagsResponse
         <$> x %| "TagDescriptions"

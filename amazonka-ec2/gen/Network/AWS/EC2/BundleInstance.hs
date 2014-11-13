@@ -36,7 +36,7 @@ module Network.AWS.EC2.BundleInstance
     , biStorage
 
     -- * Response
-    , BundleInstanceResult
+    , BundleInstanceResponse
     -- ** Response constructor
     , bundleInstanceResponse
     -- ** Response lenses
@@ -91,33 +91,33 @@ instance ToQuery BundleInstance
 instance ToPath BundleInstance where
     toPath = const "/"
 
-newtype BundleInstanceResult = BundleInstanceResult
+newtype BundleInstanceResponse = BundleInstanceResponse
     { _birBundleTask :: Maybe BundleTask
     } deriving (Eq, Show, Generic)
 
--- | 'BundleInstanceResult' constructor.
+-- | 'BundleInstanceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'birBundleTask' @::@ 'Maybe' 'BundleTask'
 --
-bundleInstanceResponse :: BundleInstanceResult
-bundleInstanceResponse = BundleInstanceResult
+bundleInstanceResponse :: BundleInstanceResponse
+bundleInstanceResponse = BundleInstanceResponse
     { _birBundleTask = Nothing
     }
 
 -- | Information about the bundle task.
-birBundleTask :: Lens' BundleInstanceResult (Maybe BundleTask)
+birBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
 birBundleTask = lens _birBundleTask (\s a -> s { _birBundleTask = a })
 
-instance FromXML BundleInstanceResult where
+instance FromXML BundleInstanceResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "BundleInstanceResult"
+    fromXMLRoot    = fromRoot "BundleInstanceResponse"
 
 instance AWSRequest BundleInstance where
     type Sv BundleInstance = EC2
-    type Rs BundleInstance = BundleInstanceResult
+    type Rs BundleInstance = BundleInstanceResponse
 
     request  = post "BundleInstance"
-    response = xmlResponse $ \h x -> BundleInstanceResult
+    response = xmlResponse $ \h x -> BundleInstanceResponse
         <$> x %| "bundleInstanceTask"

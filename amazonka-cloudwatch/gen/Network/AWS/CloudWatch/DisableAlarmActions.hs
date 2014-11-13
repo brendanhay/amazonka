@@ -26,11 +26,11 @@
 module Network.AWS.CloudWatch.DisableAlarmActions
     (
     -- * Request
-      DisableAlarmActionsInput
+      DisableAlarmActions
     -- ** Request constructor
     , disableAlarmActions
     -- ** Request lenses
-    , daaiAlarmNames
+    , daaAlarmNames
 
     -- * Response
     , DisableAlarmActionsResponse
@@ -42,34 +42,34 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
 
-newtype DisableAlarmActionsInput = DisableAlarmActionsInput
-    { _daaiAlarmNames :: [Text]
+newtype DisableAlarmActions = DisableAlarmActions
+    { _daaAlarmNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DisableAlarmActionsInput where
-    type Item DisableAlarmActionsInput = Text
+instance IsList DisableAlarmActions where
+    type Item DisableAlarmActions = Text
 
-    fromList = DisableAlarmActionsInput . fromList
-    toList   = toList . _daaiAlarmNames
+    fromList = DisableAlarmActions . fromList
+    toList   = toList . _daaAlarmNames
 
--- | 'DisableAlarmActionsInput' constructor.
+-- | 'DisableAlarmActions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daaiAlarmNames' @::@ ['Text']
+-- * 'daaAlarmNames' @::@ ['Text']
 --
-disableAlarmActions :: DisableAlarmActionsInput
-disableAlarmActions = DisableAlarmActionsInput
-    { _daaiAlarmNames = mempty
+disableAlarmActions :: DisableAlarmActions
+disableAlarmActions = DisableAlarmActions
+    { _daaAlarmNames = mempty
     }
 
 -- | The names of the alarms to disable actions for.
-daaiAlarmNames :: Lens' DisableAlarmActionsInput [Text]
-daaiAlarmNames = lens _daaiAlarmNames (\s a -> s { _daaiAlarmNames = a })
+daaAlarmNames :: Lens' DisableAlarmActions [Text]
+daaAlarmNames = lens _daaAlarmNames (\s a -> s { _daaAlarmNames = a })
 
-instance ToQuery DisableAlarmActionsInput
+instance ToQuery DisableAlarmActions
 
-instance ToPath DisableAlarmActionsInput where
+instance ToPath DisableAlarmActions where
     toPath = const "/"
 
 data DisableAlarmActionsResponse = DisableAlarmActionsResponse
@@ -83,9 +83,9 @@ instance FromXML DisableAlarmActionsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DisableAlarmActionsResponse"
 
-instance AWSRequest DisableAlarmActionsInput where
-    type Sv DisableAlarmActionsInput = CloudWatch
-    type Rs DisableAlarmActionsInput = DisableAlarmActionsResponse
+instance AWSRequest DisableAlarmActions where
+    type Sv DisableAlarmActions = CloudWatch
+    type Rs DisableAlarmActions = DisableAlarmActionsResponse
 
     request  = post "DisableAlarmActions"
     response = nullaryResponse DisableAlarmActionsResponse

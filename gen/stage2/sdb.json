@@ -1358,7 +1358,7 @@
                 "payload": null,
                 "required": [],
                 "shared": false,
-                "name": "DomainMetadataResult",
+                "name": "DomainMetadataResponse",
                 "resultWrapper": "DomainMetadataResult",
                 "type": "record",
                 "optional": [
@@ -1685,7 +1685,7 @@
                 "payload": null,
                 "required": [],
                 "shared": false,
-                "name": "GetAttributesResult",
+                "name": "GetAttributesResponse",
                 "resultWrapper": "GetAttributesResult",
                 "type": "newtype",
                 "optional": [
@@ -1911,7 +1911,7 @@
                 "payload": null,
                 "required": [],
                 "shared": false,
-                "name": "ListDomainsResult",
+                "name": "ListDomainsResponse",
                 "resultWrapper": "ListDomainsResult",
                 "type": "record",
                 "optional": [
@@ -2291,7 +2291,7 @@
                 "payload": null,
                 "required": [],
                 "shared": false,
-                "name": "SelectResult",
+                "name": "SelectResponse",
                 "resultWrapper": "SelectResult",
                 "type": "record",
                 "optional": [

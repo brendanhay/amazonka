@@ -28,9 +28,9 @@ module Network.AWS.EC2.DeleteRoute
     -- ** Request constructor
     , deleteRoute
     -- ** Request lenses
-    , dr1DestinationCidrBlock
-    , dr1DryRun
-    , dr1RouteTableId
+    , drDestinationCidrBlock
+    , drDryRun
+    , drRouteTableId
 
     -- * Response
     , DeleteRouteResponse
@@ -43,42 +43,42 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DeleteRoute = DeleteRoute
-    { _dr1DestinationCidrBlock :: Text
-    , _dr1DryRun               :: Maybe Bool
-    , _dr1RouteTableId         :: Text
+    { _drDestinationCidrBlock :: Text
+    , _drDryRun               :: Maybe Bool
+    , _drRouteTableId         :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteRoute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dr1DestinationCidrBlock' @::@ 'Text'
+-- * 'drDestinationCidrBlock' @::@ 'Text'
 --
--- * 'dr1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'drDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dr1RouteTableId' @::@ 'Text'
+-- * 'drRouteTableId' @::@ 'Text'
 --
-deleteRoute :: Text -- ^ 'dr1RouteTableId'
-            -> Text -- ^ 'dr1DestinationCidrBlock'
+deleteRoute :: Text -- ^ 'drRouteTableId'
+            -> Text -- ^ 'drDestinationCidrBlock'
             -> DeleteRoute
 deleteRoute p1 p2 = DeleteRoute
-    { _dr1RouteTableId         = p1
-    , _dr1DestinationCidrBlock = p2
-    , _dr1DryRun               = Nothing
+    { _drRouteTableId         = p1
+    , _drDestinationCidrBlock = p2
+    , _drDryRun               = Nothing
     }
 
 -- | The CIDR range for the route. The value you specify must match the CIDR
 -- for the route exactly.
-dr1DestinationCidrBlock :: Lens' DeleteRoute Text
-dr1DestinationCidrBlock =
-    lens _dr1DestinationCidrBlock (\s a -> s { _dr1DestinationCidrBlock = a })
+drDestinationCidrBlock :: Lens' DeleteRoute Text
+drDestinationCidrBlock =
+    lens _drDestinationCidrBlock (\s a -> s { _drDestinationCidrBlock = a })
 
-dr1DryRun :: Lens' DeleteRoute (Maybe Bool)
-dr1DryRun = lens _dr1DryRun (\s a -> s { _dr1DryRun = a })
+drDryRun :: Lens' DeleteRoute (Maybe Bool)
+drDryRun = lens _drDryRun (\s a -> s { _drDryRun = a })
 
 -- | The ID of the route table.
-dr1RouteTableId :: Lens' DeleteRoute Text
-dr1RouteTableId = lens _dr1RouteTableId (\s a -> s { _dr1RouteTableId = a })
+drRouteTableId :: Lens' DeleteRoute Text
+drRouteTableId = lens _drRouteTableId (\s a -> s { _drRouteTableId = a })
 
 instance ToQuery DeleteRoute
 

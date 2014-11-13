@@ -48,7 +48,7 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     , drilReservedInstancesListingId
 
     -- * Response
-    , DescribeReservedInstancesListingsResult
+    , DescribeReservedInstancesListingsResponse
     -- ** Response constructor
     , describeReservedInstancesListingsResponse
     -- ** Response lenses
@@ -106,41 +106,41 @@ instance ToQuery DescribeReservedInstancesListings
 instance ToPath DescribeReservedInstancesListings where
     toPath = const "/"
 
-newtype DescribeReservedInstancesListingsResult = DescribeReservedInstancesListingsResult
+newtype DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
     { _drilrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeReservedInstancesListingsResult where
-    type Item DescribeReservedInstancesListingsResult = ReservedInstancesListing
+instance IsList DescribeReservedInstancesListingsResponse where
+    type Item DescribeReservedInstancesListingsResponse = ReservedInstancesListing
 
-    fromList = DescribeReservedInstancesListingsResult . fromList
+    fromList = DescribeReservedInstancesListingsResponse . fromList
     toList   = toList . _drilrReservedInstancesListings
 
--- | 'DescribeReservedInstancesListingsResult' constructor.
+-- | 'DescribeReservedInstancesListingsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drilrReservedInstancesListings' @::@ ['ReservedInstancesListing']
 --
-describeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResult
-describeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResult
+describeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResponse
+describeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse
     { _drilrReservedInstancesListings = mempty
     }
 
 -- | Information about the Reserved Instance listing.
-drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResult [ReservedInstancesListing]
+drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
 drilrReservedInstancesListings =
     lens _drilrReservedInstancesListings
         (\s a -> s { _drilrReservedInstancesListings = a })
 
-instance FromXML DescribeReservedInstancesListingsResult where
+instance FromXML DescribeReservedInstancesListingsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReservedInstancesListingsResult"
+    fromXMLRoot    = fromRoot "DescribeReservedInstancesListingsResponse"
 
 instance AWSRequest DescribeReservedInstancesListings where
     type Sv DescribeReservedInstancesListings = EC2
-    type Rs DescribeReservedInstancesListings = DescribeReservedInstancesListingsResult
+    type Rs DescribeReservedInstancesListings = DescribeReservedInstancesListingsResponse
 
     request  = post "DescribeReservedInstancesListings"
-    response = xmlResponse $ \h x -> DescribeReservedInstancesListingsResult
+    response = xmlResponse $ \h x -> DescribeReservedInstancesListingsResponse
         <$> x %| "reservedInstancesListingsSet"

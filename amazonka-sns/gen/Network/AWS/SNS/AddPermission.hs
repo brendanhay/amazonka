@@ -25,14 +25,14 @@
 module Network.AWS.SNS.AddPermission
     (
     -- * Request
-      AddPermissionInput
+      AddPermission
     -- ** Request constructor
     , addPermission
     -- ** Request lenses
-    , apiAWSAccountId
-    , apiActionName
-    , apiLabel
-    , apiTopicArn
+    , apAWSAccountId
+    , apActionName
+    , apLabel
+    , apTopicArn
 
     -- * Response
     , AddPermissionResponse
@@ -44,57 +44,57 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-data AddPermissionInput = AddPermissionInput
-    { _apiAWSAccountId :: [Text]
-    , _apiActionName   :: [Text]
-    , _apiLabel        :: Text
-    , _apiTopicArn     :: Text
+data AddPermission = AddPermission
+    { _apAWSAccountId :: [Text]
+    , _apActionName   :: [Text]
+    , _apLabel        :: Text
+    , _apTopicArn     :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'AddPermissionInput' constructor.
+-- | 'AddPermission' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'apiAWSAccountId' @::@ ['Text']
+-- * 'apAWSAccountId' @::@ ['Text']
 --
--- * 'apiActionName' @::@ ['Text']
+-- * 'apActionName' @::@ ['Text']
 --
--- * 'apiLabel' @::@ 'Text'
+-- * 'apLabel' @::@ 'Text'
 --
--- * 'apiTopicArn' @::@ 'Text'
+-- * 'apTopicArn' @::@ 'Text'
 --
-addPermission :: Text -- ^ 'apiTopicArn'
-              -> Text -- ^ 'apiLabel'
-              -> AddPermissionInput
-addPermission p1 p2 = AddPermissionInput
-    { _apiTopicArn     = p1
-    , _apiLabel        = p2
-    , _apiAWSAccountId = mempty
-    , _apiActionName   = mempty
+addPermission :: Text -- ^ 'apTopicArn'
+              -> Text -- ^ 'apLabel'
+              -> AddPermission
+addPermission p1 p2 = AddPermission
+    { _apTopicArn     = p1
+    , _apLabel        = p2
+    , _apAWSAccountId = mempty
+    , _apActionName   = mempty
     }
 
 -- | The AWS account IDs of the users (principals) who will be given access to
 -- the specified actions. The users must have AWS accounts, but do not need
 -- to be signed up for this service.
-apiAWSAccountId :: Lens' AddPermissionInput [Text]
-apiAWSAccountId = lens _apiAWSAccountId (\s a -> s { _apiAWSAccountId = a })
+apAWSAccountId :: Lens' AddPermission [Text]
+apAWSAccountId = lens _apAWSAccountId (\s a -> s { _apAWSAccountId = a })
 
 -- | The action you want to allow for the specified principal(s). Valid
 -- values: any Amazon SNS action name.
-apiActionName :: Lens' AddPermissionInput [Text]
-apiActionName = lens _apiActionName (\s a -> s { _apiActionName = a })
+apActionName :: Lens' AddPermission [Text]
+apActionName = lens _apActionName (\s a -> s { _apActionName = a })
 
 -- | A unique identifier for the new policy statement.
-apiLabel :: Lens' AddPermissionInput Text
-apiLabel = lens _apiLabel (\s a -> s { _apiLabel = a })
+apLabel :: Lens' AddPermission Text
+apLabel = lens _apLabel (\s a -> s { _apLabel = a })
 
 -- | The ARN of the topic whose access control policy you wish to modify.
-apiTopicArn :: Lens' AddPermissionInput Text
-apiTopicArn = lens _apiTopicArn (\s a -> s { _apiTopicArn = a })
+apTopicArn :: Lens' AddPermission Text
+apTopicArn = lens _apTopicArn (\s a -> s { _apTopicArn = a })
 
-instance ToQuery AddPermissionInput
+instance ToQuery AddPermission
 
-instance ToPath AddPermissionInput where
+instance ToPath AddPermission where
     toPath = const "/"
 
 data AddPermissionResponse = AddPermissionResponse
@@ -108,9 +108,9 @@ instance FromXML AddPermissionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AddPermissionResponse"
 
-instance AWSRequest AddPermissionInput where
-    type Sv AddPermissionInput = SNS
-    type Rs AddPermissionInput = AddPermissionResponse
+instance AWSRequest AddPermission where
+    type Sv AddPermission = SNS
+    type Rs AddPermission = AddPermissionResponse
 
     request  = post "AddPermission"
     response = nullaryResponse AddPermissionResponse

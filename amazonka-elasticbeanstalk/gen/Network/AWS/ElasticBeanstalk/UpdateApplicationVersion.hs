@@ -24,76 +24,101 @@
 module Network.AWS.ElasticBeanstalk.UpdateApplicationVersion
     (
     -- * Request
-      UpdateApplicationVersionMessage
+      UpdateApplicationVersion
     -- ** Request constructor
     , updateApplicationVersion
     -- ** Request lenses
-    , uavmApplicationName
-    , uavmDescription
-    , uavmVersionLabel
+    , uavApplicationName
+    , uavDescription
+    , uavVersionLabel
 
     -- * Response
-    , ApplicationVersionDescriptionMessage
+    , UpdateApplicationVersionResponse
     -- ** Response constructor
-    , applicationVersionDescriptionMessage
+    , updateApplicationVersionResponse
     -- ** Response lenses
-    , avdmApplicationVersion
+    , uavrApplicationVersion
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data UpdateApplicationVersionMessage = UpdateApplicationVersionMessage
-    { _uavmApplicationName :: Text
-    , _uavmDescription     :: Maybe Text
-    , _uavmVersionLabel    :: Text
+data UpdateApplicationVersion = UpdateApplicationVersion
+    { _uavApplicationName :: Text
+    , _uavDescription     :: Maybe Text
+    , _uavVersionLabel    :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'UpdateApplicationVersionMessage' constructor.
+-- | 'UpdateApplicationVersion' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uavmApplicationName' @::@ 'Text'
+-- * 'uavApplicationName' @::@ 'Text'
 --
--- * 'uavmDescription' @::@ 'Maybe' 'Text'
+-- * 'uavDescription' @::@ 'Maybe' 'Text'
 --
--- * 'uavmVersionLabel' @::@ 'Text'
+-- * 'uavVersionLabel' @::@ 'Text'
 --
-updateApplicationVersion :: Text -- ^ 'uavmApplicationName'
-                         -> Text -- ^ 'uavmVersionLabel'
-                         -> UpdateApplicationVersionMessage
-updateApplicationVersion p1 p2 = UpdateApplicationVersionMessage
-    { _uavmApplicationName = p1
-    , _uavmVersionLabel    = p2
-    , _uavmDescription     = Nothing
+updateApplicationVersion :: Text -- ^ 'uavApplicationName'
+                         -> Text -- ^ 'uavVersionLabel'
+                         -> UpdateApplicationVersion
+updateApplicationVersion p1 p2 = UpdateApplicationVersion
+    { _uavApplicationName = p1
+    , _uavVersionLabel    = p2
+    , _uavDescription     = Nothing
     }
 
 -- | The name of the application associated with this version. If no
 -- application is found with this name, UpdateApplication returns an
 -- InvalidParameterValue error.
-uavmApplicationName :: Lens' UpdateApplicationVersionMessage Text
-uavmApplicationName =
-    lens _uavmApplicationName (\s a -> s { _uavmApplicationName = a })
+uavApplicationName :: Lens' UpdateApplicationVersion Text
+uavApplicationName =
+    lens _uavApplicationName (\s a -> s { _uavApplicationName = a })
 
 -- | A new description for this release.
-uavmDescription :: Lens' UpdateApplicationVersionMessage (Maybe Text)
-uavmDescription = lens _uavmDescription (\s a -> s { _uavmDescription = a })
+uavDescription :: Lens' UpdateApplicationVersion (Maybe Text)
+uavDescription = lens _uavDescription (\s a -> s { _uavDescription = a })
 
 -- | The name of the version to update. If no application version is found
 -- with this label, UpdateApplication returns an InvalidParameterValue
 -- error.
-uavmVersionLabel :: Lens' UpdateApplicationVersionMessage Text
-uavmVersionLabel = lens _uavmVersionLabel (\s a -> s { _uavmVersionLabel = a })
+uavVersionLabel :: Lens' UpdateApplicationVersion Text
+uavVersionLabel = lens _uavVersionLabel (\s a -> s { _uavVersionLabel = a })
 
-instance ToQuery UpdateApplicationVersionMessage
+instance ToQuery UpdateApplicationVersion
 
-instance ToPath UpdateApplicationVersionMessage where
+instance ToPath UpdateApplicationVersion where
     toPath = const "/"
 
-instance AWSRequest UpdateApplicationVersionMessage where
-    type Sv UpdateApplicationVersionMessage = ElasticBeanstalk
-    type Rs UpdateApplicationVersionMessage = ApplicationVersionDescriptionMessage
+newtype UpdateApplicationVersionResponse = UpdateApplicationVersionResponse
+    { _uavrApplicationVersion :: Maybe ApplicationVersionDescription
+    } deriving (Eq, Show, Generic)
+
+-- | 'UpdateApplicationVersionResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'uavrApplicationVersion' @::@ 'Maybe' 'ApplicationVersionDescription'
+--
+updateApplicationVersionResponse :: UpdateApplicationVersionResponse
+updateApplicationVersionResponse = UpdateApplicationVersionResponse
+    { _uavrApplicationVersion = Nothing
+    }
+
+-- | The ApplicationVersionDescription of the application version.
+uavrApplicationVersion :: Lens' UpdateApplicationVersionResponse (Maybe ApplicationVersionDescription)
+uavrApplicationVersion =
+    lens _uavrApplicationVersion (\s a -> s { _uavrApplicationVersion = a })
+
+instance FromXML UpdateApplicationVersionResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "UpdateApplicationVersionResponse"
+
+instance AWSRequest UpdateApplicationVersion where
+    type Sv UpdateApplicationVersion = ElasticBeanstalk
+    type Rs UpdateApplicationVersion = UpdateApplicationVersionResponse
 
     request  = post "UpdateApplicationVersion"
-    response = xmlResponse $ const decodeCursor
+    response = xmlResponse $ \h x -> UpdateApplicationVersionResponse
+        <$> x %| "ApplicationVersion"

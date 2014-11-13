@@ -28,12 +28,12 @@ module Network.AWS.EC2.DescribeVpcPeeringConnections
     -- ** Request constructor
     , describeVpcPeeringConnections
     -- ** Request lenses
-    , dvpcDryRun
-    , dvpcFilters
-    , dvpcVpcPeeringConnectionIds
+    , dvpc1DryRun
+    , dvpc1Filters
+    , dvpc1VpcPeeringConnectionIds
 
     -- * Response
-    , DescribeVpcPeeringConnectionsResult
+    , DescribeVpcPeeringConnectionsResponse
     -- ** Response constructor
     , describeVpcPeeringConnectionsResponse
     -- ** Response lenses
@@ -45,30 +45,30 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DescribeVpcPeeringConnections = DescribeVpcPeeringConnections
-    { _dvpcDryRun                  :: Maybe Bool
-    , _dvpcFilters                 :: [Filter]
-    , _dvpcVpcPeeringConnectionIds :: [Text]
+    { _dvpc1DryRun                  :: Maybe Bool
+    , _dvpc1Filters                 :: [Filter]
+    , _dvpc1VpcPeeringConnectionIds :: [Text]
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVpcPeeringConnections' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvpcDryRun' @::@ 'Maybe' 'Bool'
+-- * 'dvpc1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dvpcFilters' @::@ ['Filter']
+-- * 'dvpc1Filters' @::@ ['Filter']
 --
--- * 'dvpcVpcPeeringConnectionIds' @::@ ['Text']
+-- * 'dvpc1VpcPeeringConnectionIds' @::@ ['Text']
 --
 describeVpcPeeringConnections :: DescribeVpcPeeringConnections
 describeVpcPeeringConnections = DescribeVpcPeeringConnections
-    { _dvpcDryRun                  = Nothing
-    , _dvpcVpcPeeringConnectionIds = mempty
-    , _dvpcFilters                 = mempty
+    { _dvpc1DryRun                  = Nothing
+    , _dvpc1VpcPeeringConnectionIds = mempty
+    , _dvpc1Filters                 = mempty
     }
 
-dvpcDryRun :: Lens' DescribeVpcPeeringConnections (Maybe Bool)
-dvpcDryRun = lens _dvpcDryRun (\s a -> s { _dvpcDryRun = a })
+dvpc1DryRun :: Lens' DescribeVpcPeeringConnections (Maybe Bool)
+dvpc1DryRun = lens _dvpc1DryRun (\s a -> s { _dvpc1DryRun = a })
 
 -- | One or more filters. accepter-vpc-info.cidr-block - The CIDR block of the
 -- peer VPC. accepter-vpc-info.owner-id - The AWS account ID of the owner of
@@ -91,56 +91,56 @@ dvpcDryRun = lens _dvpcDryRun (\s a -> s { _dvpcDryRun = a })
 -- tag:key=value filter. tag-value - The value of a tag assigned to the
 -- resource. This filter is independent of the tag-key filter.
 -- vpc-peering-connection-id - The ID of the VPC peering connection.
-dvpcFilters :: Lens' DescribeVpcPeeringConnections [Filter]
-dvpcFilters = lens _dvpcFilters (\s a -> s { _dvpcFilters = a })
+dvpc1Filters :: Lens' DescribeVpcPeeringConnections [Filter]
+dvpc1Filters = lens _dvpc1Filters (\s a -> s { _dvpc1Filters = a })
 
 -- | One or more VPC peering connection IDs. Default: Describes all your VPC
 -- peering connections.
-dvpcVpcPeeringConnectionIds :: Lens' DescribeVpcPeeringConnections [Text]
-dvpcVpcPeeringConnectionIds =
-    lens _dvpcVpcPeeringConnectionIds
-        (\s a -> s { _dvpcVpcPeeringConnectionIds = a })
+dvpc1VpcPeeringConnectionIds :: Lens' DescribeVpcPeeringConnections [Text]
+dvpc1VpcPeeringConnectionIds =
+    lens _dvpc1VpcPeeringConnectionIds
+        (\s a -> s { _dvpc1VpcPeeringConnectionIds = a })
 
 instance ToQuery DescribeVpcPeeringConnections
 
 instance ToPath DescribeVpcPeeringConnections where
     toPath = const "/"
 
-newtype DescribeVpcPeeringConnectionsResult = DescribeVpcPeeringConnectionsResult
+newtype DescribeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
     { _dvpcrVpcPeeringConnections :: [VpcPeeringConnection]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeVpcPeeringConnectionsResult where
-    type Item DescribeVpcPeeringConnectionsResult = VpcPeeringConnection
+instance IsList DescribeVpcPeeringConnectionsResponse where
+    type Item DescribeVpcPeeringConnectionsResponse = VpcPeeringConnection
 
-    fromList = DescribeVpcPeeringConnectionsResult . fromList
+    fromList = DescribeVpcPeeringConnectionsResponse . fromList
     toList   = toList . _dvpcrVpcPeeringConnections
 
--- | 'DescribeVpcPeeringConnectionsResult' constructor.
+-- | 'DescribeVpcPeeringConnectionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvpcrVpcPeeringConnections' @::@ ['VpcPeeringConnection']
 --
-describeVpcPeeringConnectionsResponse :: DescribeVpcPeeringConnectionsResult
-describeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResult
+describeVpcPeeringConnectionsResponse :: DescribeVpcPeeringConnectionsResponse
+describeVpcPeeringConnectionsResponse = DescribeVpcPeeringConnectionsResponse
     { _dvpcrVpcPeeringConnections = mempty
     }
 
 -- | Information about the VPC peering connections.
-dvpcrVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResult [VpcPeeringConnection]
+dvpcrVpcPeeringConnections :: Lens' DescribeVpcPeeringConnectionsResponse [VpcPeeringConnection]
 dvpcrVpcPeeringConnections =
     lens _dvpcrVpcPeeringConnections
         (\s a -> s { _dvpcrVpcPeeringConnections = a })
 
-instance FromXML DescribeVpcPeeringConnectionsResult where
+instance FromXML DescribeVpcPeeringConnectionsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVpcPeeringConnectionsResult"
+    fromXMLRoot    = fromRoot "DescribeVpcPeeringConnectionsResponse"
 
 instance AWSRequest DescribeVpcPeeringConnections where
     type Sv DescribeVpcPeeringConnections = EC2
-    type Rs DescribeVpcPeeringConnections = DescribeVpcPeeringConnectionsResult
+    type Rs DescribeVpcPeeringConnections = DescribeVpcPeeringConnectionsResponse
 
     request  = post "DescribeVpcPeeringConnections"
-    response = xmlResponse $ \h x -> DescribeVpcPeeringConnectionsResult
+    response = xmlResponse $ \h x -> DescribeVpcPeeringConnectionsResponse
         <$> x %| "vpcPeeringConnectionSet"

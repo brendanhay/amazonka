@@ -25,15 +25,15 @@
 module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     (
     -- * Request
-      RemoveSourceIdentifierFromSubscriptionMessage
+      RemoveSourceIdentifierFromSubscription
     -- ** Request constructor
     , removeSourceIdentifierFromSubscription
     -- ** Request lenses
-    , rsifsmSourceIdentifier
-    , rsifsmSubscriptionName
+    , rsifsSourceIdentifier
+    , rsifsSubscriptionName
 
     -- * Response
-    , RemoveSourceIdentifierFromSubscriptionResult
+    , RemoveSourceIdentifierFromSubscriptionResponse
     -- ** Response constructor
     , removeSourceIdentifierFromSubscriptionResponse
     -- ** Response lenses
@@ -44,71 +44,71 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data RemoveSourceIdentifierFromSubscriptionMessage = RemoveSourceIdentifierFromSubscriptionMessage
-    { _rsifsmSourceIdentifier :: Text
-    , _rsifsmSubscriptionName :: Text
+data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription
+    { _rsifsSourceIdentifier :: Text
+    , _rsifsSubscriptionName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'RemoveSourceIdentifierFromSubscriptionMessage' constructor.
+-- | 'RemoveSourceIdentifierFromSubscription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rsifsmSourceIdentifier' @::@ 'Text'
+-- * 'rsifsSourceIdentifier' @::@ 'Text'
 --
--- * 'rsifsmSubscriptionName' @::@ 'Text'
+-- * 'rsifsSubscriptionName' @::@ 'Text'
 --
-removeSourceIdentifierFromSubscription :: Text -- ^ 'rsifsmSubscriptionName'
-                                       -> Text -- ^ 'rsifsmSourceIdentifier'
-                                       -> RemoveSourceIdentifierFromSubscriptionMessage
-removeSourceIdentifierFromSubscription p1 p2 = RemoveSourceIdentifierFromSubscriptionMessage
-    { _rsifsmSubscriptionName = p1
-    , _rsifsmSourceIdentifier = p2
+removeSourceIdentifierFromSubscription :: Text -- ^ 'rsifsSubscriptionName'
+                                       -> Text -- ^ 'rsifsSourceIdentifier'
+                                       -> RemoveSourceIdentifierFromSubscription
+removeSourceIdentifierFromSubscription p1 p2 = RemoveSourceIdentifierFromSubscription
+    { _rsifsSubscriptionName = p1
+    , _rsifsSourceIdentifier = p2
     }
 
 -- | The source identifier to be removed from the subscription, such as the DB
 -- instance identifier for a DB instance or the name of a security group.
-rsifsmSourceIdentifier :: Lens' RemoveSourceIdentifierFromSubscriptionMessage Text
-rsifsmSourceIdentifier =
-    lens _rsifsmSourceIdentifier (\s a -> s { _rsifsmSourceIdentifier = a })
+rsifsSourceIdentifier :: Lens' RemoveSourceIdentifierFromSubscription Text
+rsifsSourceIdentifier =
+    lens _rsifsSourceIdentifier (\s a -> s { _rsifsSourceIdentifier = a })
 
 -- | The name of the RDS event notification subscription you want to remove a
 -- source identifier from.
-rsifsmSubscriptionName :: Lens' RemoveSourceIdentifierFromSubscriptionMessage Text
-rsifsmSubscriptionName =
-    lens _rsifsmSubscriptionName (\s a -> s { _rsifsmSubscriptionName = a })
+rsifsSubscriptionName :: Lens' RemoveSourceIdentifierFromSubscription Text
+rsifsSubscriptionName =
+    lens _rsifsSubscriptionName (\s a -> s { _rsifsSubscriptionName = a })
 
-instance ToQuery RemoveSourceIdentifierFromSubscriptionMessage
+instance ToQuery RemoveSourceIdentifierFromSubscription
 
-instance ToPath RemoveSourceIdentifierFromSubscriptionMessage where
+instance ToPath RemoveSourceIdentifierFromSubscription where
     toPath = const "/"
 
-newtype RemoveSourceIdentifierFromSubscriptionResult = RemoveSourceIdentifierFromSubscriptionResult
+newtype RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
     { _rsifsrEventSubscription :: Maybe EventSubscription
     } deriving (Eq, Show, Generic)
 
--- | 'RemoveSourceIdentifierFromSubscriptionResult' constructor.
+-- | 'RemoveSourceIdentifierFromSubscriptionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rsifsrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-removeSourceIdentifierFromSubscriptionResponse :: RemoveSourceIdentifierFromSubscriptionResult
-removeSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResult
+removeSourceIdentifierFromSubscriptionResponse :: RemoveSourceIdentifierFromSubscriptionResponse
+removeSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse
     { _rsifsrEventSubscription = Nothing
     }
 
-rsifsrEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResult (Maybe EventSubscription)
+rsifsrEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse (Maybe EventSubscription)
 rsifsrEventSubscription =
     lens _rsifsrEventSubscription (\s a -> s { _rsifsrEventSubscription = a })
 
-instance FromXML RemoveSourceIdentifierFromSubscriptionResult where
+instance FromXML RemoveSourceIdentifierFromSubscriptionResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RemoveSourceIdentifierFromSubscriptionResult"
+    fromXMLRoot    = fromRoot "RemoveSourceIdentifierFromSubscriptionResponse"
 
-instance AWSRequest RemoveSourceIdentifierFromSubscriptionMessage where
-    type Sv RemoveSourceIdentifierFromSubscriptionMessage = RDS
-    type Rs RemoveSourceIdentifierFromSubscriptionMessage = RemoveSourceIdentifierFromSubscriptionResult
+instance AWSRequest RemoveSourceIdentifierFromSubscription where
+    type Sv RemoveSourceIdentifierFromSubscription = RDS
+    type Rs RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscriptionResponse
 
     request  = post "RemoveSourceIdentifierFromSubscription"
-    response = xmlResponse $ \h x -> RemoveSourceIdentifierFromSubscriptionResult
+    response = xmlResponse $ \h x -> RemoveSourceIdentifierFromSubscriptionResponse
         <$> x %| "EventSubscription"

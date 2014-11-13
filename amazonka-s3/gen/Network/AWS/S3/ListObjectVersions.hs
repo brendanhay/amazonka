@@ -37,22 +37,22 @@ module Network.AWS.S3.ListObjectVersions
     , lovVersionIdMarker
 
     -- * Response
-    , ListObjectVersionsOutput
+    , ListObjectVersionsResponse
     -- ** Response constructor
     , listObjectVersionsResponse
     -- ** Response lenses
-    , lovoCommonPrefixes
-    , lovoDeleteMarkers
-    , lovoEncodingType
-    , lovoIsTruncated
-    , lovoKeyMarker
-    , lovoMaxKeys
-    , lovoName
-    , lovoNextKeyMarker
-    , lovoNextVersionIdMarker
-    , lovoPrefix
-    , lovoVersionIdMarker
-    , lovoVersions
+    , lovrCommonPrefixes
+    , lovrDeleteMarkers
+    , lovrEncodingType
+    , lovrIsTruncated
+    , lovrKeyMarker
+    , lovrMaxKeys
+    , lovrName
+    , lovrNextKeyMarker
+    , lovrNextVersionIdMarker
+    , lovrPrefix
+    , lovrVersionIdMarker
+    , lovrVersions
     ) where
 
 import Network.AWS.Prelude
@@ -146,126 +146,126 @@ instance ToQuery ListObjectVersions where
 
 instance ToHeaders ListObjectVersions
 
-data ListObjectVersionsOutput = ListObjectVersionsOutput
-    { _lovoCommonPrefixes      :: [CommonPrefix]
-    , _lovoDeleteMarkers       :: [DeleteMarkerEntry]
-    , _lovoEncodingType        :: Maybe Text
-    , _lovoIsTruncated         :: Maybe Bool
-    , _lovoKeyMarker           :: Maybe Text
-    , _lovoMaxKeys             :: Maybe Int
-    , _lovoName                :: Maybe Text
-    , _lovoNextKeyMarker       :: Maybe Text
-    , _lovoNextVersionIdMarker :: Maybe Text
-    , _lovoPrefix              :: Maybe Text
-    , _lovoVersionIdMarker     :: Maybe Text
-    , _lovoVersions            :: [ObjectVersion]
+data ListObjectVersionsResponse = ListObjectVersionsResponse
+    { _lovrCommonPrefixes      :: [CommonPrefix]
+    , _lovrDeleteMarkers       :: [DeleteMarkerEntry]
+    , _lovrEncodingType        :: Maybe Text
+    , _lovrIsTruncated         :: Maybe Bool
+    , _lovrKeyMarker           :: Maybe Text
+    , _lovrMaxKeys             :: Maybe Int
+    , _lovrName                :: Maybe Text
+    , _lovrNextKeyMarker       :: Maybe Text
+    , _lovrNextVersionIdMarker :: Maybe Text
+    , _lovrPrefix              :: Maybe Text
+    , _lovrVersionIdMarker     :: Maybe Text
+    , _lovrVersions            :: [ObjectVersion]
     } deriving (Eq, Show, Generic)
 
--- | 'ListObjectVersionsOutput' constructor.
+-- | 'ListObjectVersionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lovoCommonPrefixes' @::@ ['CommonPrefix']
+-- * 'lovrCommonPrefixes' @::@ ['CommonPrefix']
 --
--- * 'lovoDeleteMarkers' @::@ ['DeleteMarkerEntry']
+-- * 'lovrDeleteMarkers' @::@ ['DeleteMarkerEntry']
 --
--- * 'lovoEncodingType' @::@ 'Maybe' 'Text'
+-- * 'lovrEncodingType' @::@ 'Maybe' 'Text'
 --
--- * 'lovoIsTruncated' @::@ 'Maybe' 'Bool'
+-- * 'lovrIsTruncated' @::@ 'Maybe' 'Bool'
 --
--- * 'lovoKeyMarker' @::@ 'Maybe' 'Text'
+-- * 'lovrKeyMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lovoMaxKeys' @::@ 'Maybe' 'Int'
+-- * 'lovrMaxKeys' @::@ 'Maybe' 'Int'
 --
--- * 'lovoName' @::@ 'Maybe' 'Text'
+-- * 'lovrName' @::@ 'Maybe' 'Text'
 --
--- * 'lovoNextKeyMarker' @::@ 'Maybe' 'Text'
+-- * 'lovrNextKeyMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lovoNextVersionIdMarker' @::@ 'Maybe' 'Text'
+-- * 'lovrNextVersionIdMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lovoPrefix' @::@ 'Maybe' 'Text'
+-- * 'lovrPrefix' @::@ 'Maybe' 'Text'
 --
--- * 'lovoVersionIdMarker' @::@ 'Maybe' 'Text'
+-- * 'lovrVersionIdMarker' @::@ 'Maybe' 'Text'
 --
--- * 'lovoVersions' @::@ ['ObjectVersion']
+-- * 'lovrVersions' @::@ ['ObjectVersion']
 --
-listObjectVersionsResponse :: ListObjectVersionsOutput
-listObjectVersionsResponse = ListObjectVersionsOutput
-    { _lovoIsTruncated         = Nothing
-    , _lovoKeyMarker           = Nothing
-    , _lovoVersionIdMarker     = Nothing
-    , _lovoNextKeyMarker       = Nothing
-    , _lovoNextVersionIdMarker = Nothing
-    , _lovoVersions            = mempty
-    , _lovoDeleteMarkers       = mempty
-    , _lovoName                = Nothing
-    , _lovoPrefix              = Nothing
-    , _lovoMaxKeys             = Nothing
-    , _lovoCommonPrefixes      = mempty
-    , _lovoEncodingType        = Nothing
+listObjectVersionsResponse :: ListObjectVersionsResponse
+listObjectVersionsResponse = ListObjectVersionsResponse
+    { _lovrIsTruncated         = Nothing
+    , _lovrKeyMarker           = Nothing
+    , _lovrVersionIdMarker     = Nothing
+    , _lovrNextKeyMarker       = Nothing
+    , _lovrNextVersionIdMarker = Nothing
+    , _lovrVersions            = mempty
+    , _lovrDeleteMarkers       = mempty
+    , _lovrName                = Nothing
+    , _lovrPrefix              = Nothing
+    , _lovrMaxKeys             = Nothing
+    , _lovrCommonPrefixes      = mempty
+    , _lovrEncodingType        = Nothing
     }
 
-lovoCommonPrefixes :: Lens' ListObjectVersionsOutput [CommonPrefix]
-lovoCommonPrefixes =
-    lens _lovoCommonPrefixes (\s a -> s { _lovoCommonPrefixes = a })
+lovrCommonPrefixes :: Lens' ListObjectVersionsResponse [CommonPrefix]
+lovrCommonPrefixes =
+    lens _lovrCommonPrefixes (\s a -> s { _lovrCommonPrefixes = a })
 
-lovoDeleteMarkers :: Lens' ListObjectVersionsOutput [DeleteMarkerEntry]
-lovoDeleteMarkers =
-    lens _lovoDeleteMarkers (\s a -> s { _lovoDeleteMarkers = a })
+lovrDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
+lovrDeleteMarkers =
+    lens _lovrDeleteMarkers (\s a -> s { _lovrDeleteMarkers = a })
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
-lovoEncodingType :: Lens' ListObjectVersionsOutput (Maybe Text)
-lovoEncodingType = lens _lovoEncodingType (\s a -> s { _lovoEncodingType = a })
+lovrEncodingType :: Lens' ListObjectVersionsResponse (Maybe Text)
+lovrEncodingType = lens _lovrEncodingType (\s a -> s { _lovrEncodingType = a })
 
 -- | A flag that indicates whether or not Amazon S3 returned all of the
 -- results that satisfied the search criteria. If your results were
 -- truncated, you can make a follow-up paginated request using the
 -- NextKeyMarker and NextVersionIdMarker response parameters as a starting
 -- place in another request to return the rest of the results.
-lovoIsTruncated :: Lens' ListObjectVersionsOutput (Maybe Bool)
-lovoIsTruncated = lens _lovoIsTruncated (\s a -> s { _lovoIsTruncated = a })
+lovrIsTruncated :: Lens' ListObjectVersionsResponse (Maybe Bool)
+lovrIsTruncated = lens _lovrIsTruncated (\s a -> s { _lovrIsTruncated = a })
 
 -- | Marks the last Key returned in a truncated response.
-lovoKeyMarker :: Lens' ListObjectVersionsOutput (Maybe Text)
-lovoKeyMarker = lens _lovoKeyMarker (\s a -> s { _lovoKeyMarker = a })
+lovrKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
+lovrKeyMarker = lens _lovrKeyMarker (\s a -> s { _lovrKeyMarker = a })
 
-lovoMaxKeys :: Lens' ListObjectVersionsOutput (Maybe Int)
-lovoMaxKeys = lens _lovoMaxKeys (\s a -> s { _lovoMaxKeys = a })
+lovrMaxKeys :: Lens' ListObjectVersionsResponse (Maybe Int)
+lovrMaxKeys = lens _lovrMaxKeys (\s a -> s { _lovrMaxKeys = a })
 
-lovoName :: Lens' ListObjectVersionsOutput (Maybe Text)
-lovoName = lens _lovoName (\s a -> s { _lovoName = a })
+lovrName :: Lens' ListObjectVersionsResponse (Maybe Text)
+lovrName = lens _lovrName (\s a -> s { _lovrName = a })
 
 -- | Use this value for the key marker request parameter in a subsequent
 -- request.
-lovoNextKeyMarker :: Lens' ListObjectVersionsOutput (Maybe Text)
-lovoNextKeyMarker =
-    lens _lovoNextKeyMarker (\s a -> s { _lovoNextKeyMarker = a })
+lovrNextKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
+lovrNextKeyMarker =
+    lens _lovrNextKeyMarker (\s a -> s { _lovrNextKeyMarker = a })
 
 -- | Use this value for the next version id marker parameter in a subsequent
 -- request.
-lovoNextVersionIdMarker :: Lens' ListObjectVersionsOutput (Maybe Text)
-lovoNextVersionIdMarker =
-    lens _lovoNextVersionIdMarker (\s a -> s { _lovoNextVersionIdMarker = a })
+lovrNextVersionIdMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
+lovrNextVersionIdMarker =
+    lens _lovrNextVersionIdMarker (\s a -> s { _lovrNextVersionIdMarker = a })
 
-lovoPrefix :: Lens' ListObjectVersionsOutput (Maybe Text)
-lovoPrefix = lens _lovoPrefix (\s a -> s { _lovoPrefix = a })
+lovrPrefix :: Lens' ListObjectVersionsResponse (Maybe Text)
+lovrPrefix = lens _lovrPrefix (\s a -> s { _lovrPrefix = a })
 
-lovoVersionIdMarker :: Lens' ListObjectVersionsOutput (Maybe Text)
-lovoVersionIdMarker =
-    lens _lovoVersionIdMarker (\s a -> s { _lovoVersionIdMarker = a })
+lovrVersionIdMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
+lovrVersionIdMarker =
+    lens _lovrVersionIdMarker (\s a -> s { _lovrVersionIdMarker = a })
 
-lovoVersions :: Lens' ListObjectVersionsOutput [ObjectVersion]
-lovoVersions = lens _lovoVersions (\s a -> s { _lovoVersions = a })
+lovrVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]
+lovrVersions = lens _lovrVersions (\s a -> s { _lovrVersions = a })
 
-instance FromXML ListObjectVersionsOutput where
+instance FromXML ListObjectVersionsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListObjectVersionsOutput"
+    fromXMLRoot    = fromRoot "ListObjectVersionsResponse"
 instance AWSRequest ListObjectVersions where
     type Sv ListObjectVersions = S3
-    type Rs ListObjectVersions = ListObjectVersionsOutput
+    type Rs ListObjectVersions = ListObjectVersionsResponse
 
     request  = get
-    response = xmlResponse $ \h x -> ListObjectVersionsOutput
+    response = xmlResponse $ \h x -> ListObjectVersionsResponse
         <$> x %| "CommonPrefixes"
         <*> x %| "DeleteMarker"
         <*> x %| "EncodingType"

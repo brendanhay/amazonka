@@ -24,12 +24,12 @@
 module Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
     (
     -- * Request
-      DeleteConfigurationTemplateMessage
+      DeleteConfigurationTemplate
     -- ** Request constructor
     , deleteConfigurationTemplate
     -- ** Request lenses
-    , dctmApplicationName
-    , dctmTemplateName
+    , dctApplicationName
+    , dctTemplateName
 
     -- * Response
     , DeleteConfigurationTemplateResponse
@@ -41,39 +41,39 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data DeleteConfigurationTemplateMessage = DeleteConfigurationTemplateMessage
-    { _dctmApplicationName :: Text
-    , _dctmTemplateName    :: Text
+data DeleteConfigurationTemplate = DeleteConfigurationTemplate
+    { _dctApplicationName :: Text
+    , _dctTemplateName    :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteConfigurationTemplateMessage' constructor.
+-- | 'DeleteConfigurationTemplate' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dctmApplicationName' @::@ 'Text'
+-- * 'dctApplicationName' @::@ 'Text'
 --
--- * 'dctmTemplateName' @::@ 'Text'
+-- * 'dctTemplateName' @::@ 'Text'
 --
-deleteConfigurationTemplate :: Text -- ^ 'dctmApplicationName'
-                            -> Text -- ^ 'dctmTemplateName'
-                            -> DeleteConfigurationTemplateMessage
-deleteConfigurationTemplate p1 p2 = DeleteConfigurationTemplateMessage
-    { _dctmApplicationName = p1
-    , _dctmTemplateName    = p2
+deleteConfigurationTemplate :: Text -- ^ 'dctApplicationName'
+                            -> Text -- ^ 'dctTemplateName'
+                            -> DeleteConfigurationTemplate
+deleteConfigurationTemplate p1 p2 = DeleteConfigurationTemplate
+    { _dctApplicationName = p1
+    , _dctTemplateName    = p2
     }
 
 -- | The name of the application to delete the configuration template from.
-dctmApplicationName :: Lens' DeleteConfigurationTemplateMessage Text
-dctmApplicationName =
-    lens _dctmApplicationName (\s a -> s { _dctmApplicationName = a })
+dctApplicationName :: Lens' DeleteConfigurationTemplate Text
+dctApplicationName =
+    lens _dctApplicationName (\s a -> s { _dctApplicationName = a })
 
 -- | The name of the configuration template to delete.
-dctmTemplateName :: Lens' DeleteConfigurationTemplateMessage Text
-dctmTemplateName = lens _dctmTemplateName (\s a -> s { _dctmTemplateName = a })
+dctTemplateName :: Lens' DeleteConfigurationTemplate Text
+dctTemplateName = lens _dctTemplateName (\s a -> s { _dctTemplateName = a })
 
-instance ToQuery DeleteConfigurationTemplateMessage
+instance ToQuery DeleteConfigurationTemplate
 
-instance ToPath DeleteConfigurationTemplateMessage where
+instance ToPath DeleteConfigurationTemplate where
     toPath = const "/"
 
 data DeleteConfigurationTemplateResponse = DeleteConfigurationTemplateResponse
@@ -87,9 +87,9 @@ instance FromXML DeleteConfigurationTemplateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteConfigurationTemplateResponse"
 
-instance AWSRequest DeleteConfigurationTemplateMessage where
-    type Sv DeleteConfigurationTemplateMessage = ElasticBeanstalk
-    type Rs DeleteConfigurationTemplateMessage = DeleteConfigurationTemplateResponse
+instance AWSRequest DeleteConfigurationTemplate where
+    type Sv DeleteConfigurationTemplate = ElasticBeanstalk
+    type Rs DeleteConfigurationTemplate = DeleteConfigurationTemplateResponse
 
     request  = post "DeleteConfigurationTemplate"
     response = nullaryResponse DeleteConfigurationTemplateResponse

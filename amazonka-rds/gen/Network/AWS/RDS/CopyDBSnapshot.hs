@@ -25,49 +25,49 @@
 module Network.AWS.RDS.CopyDBSnapshot
     (
     -- * Request
-      CopyDBSnapshotMessage
+      CopyDBSnapshot
     -- ** Request constructor
     , copyDBSnapshot
     -- ** Request lenses
-    , cdbsmSourceDBSnapshotIdentifier
-    , cdbsmTags
-    , cdbsmTargetDBSnapshotIdentifier
+    , cdbsSourceDBSnapshotIdentifier
+    , cdbsTags
+    , cdbsTargetDBSnapshotIdentifier
 
     -- * Response
-    , CopyDBSnapshotResult
+    , CopyDBSnapshotResponse
     -- ** Response constructor
     , copyDBSnapshotResponse
     -- ** Response lenses
-    , cdbsr1DBSnapshot
+    , cdbsrDBSnapshot
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data CopyDBSnapshotMessage = CopyDBSnapshotMessage
-    { _cdbsmSourceDBSnapshotIdentifier :: Text
-    , _cdbsmTags                       :: [Tag]
-    , _cdbsmTargetDBSnapshotIdentifier :: Text
+data CopyDBSnapshot = CopyDBSnapshot
+    { _cdbsSourceDBSnapshotIdentifier :: Text
+    , _cdbsTags                       :: [Tag]
+    , _cdbsTargetDBSnapshotIdentifier :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'CopyDBSnapshotMessage' constructor.
+-- | 'CopyDBSnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbsmSourceDBSnapshotIdentifier' @::@ 'Text'
+-- * 'cdbsSourceDBSnapshotIdentifier' @::@ 'Text'
 --
--- * 'cdbsmTags' @::@ ['Tag']
+-- * 'cdbsTags' @::@ ['Tag']
 --
--- * 'cdbsmTargetDBSnapshotIdentifier' @::@ 'Text'
+-- * 'cdbsTargetDBSnapshotIdentifier' @::@ 'Text'
 --
-copyDBSnapshot :: Text -- ^ 'cdbsmSourceDBSnapshotIdentifier'
-               -> Text -- ^ 'cdbsmTargetDBSnapshotIdentifier'
-               -> CopyDBSnapshotMessage
-copyDBSnapshot p1 p2 = CopyDBSnapshotMessage
-    { _cdbsmSourceDBSnapshotIdentifier = p1
-    , _cdbsmTargetDBSnapshotIdentifier = p2
-    , _cdbsmTags                       = mempty
+copyDBSnapshot :: Text -- ^ 'cdbsSourceDBSnapshotIdentifier'
+               -> Text -- ^ 'cdbsTargetDBSnapshotIdentifier'
+               -> CopyDBSnapshot
+copyDBSnapshot p1 p2 = CopyDBSnapshot
+    { _cdbsSourceDBSnapshotIdentifier = p1
+    , _cdbsTargetDBSnapshotIdentifier = p2
+    , _cdbsTags                       = mempty
     }
 
 -- | The identifier for the source DB snapshot. Constraints: Must specify a
@@ -78,54 +78,54 @@ copyDBSnapshot p1 p2 = CopyDBSnapshotMessage
 -- Example: rds:mydb-2012-04-02-00-01 Example:
 -- arn:aws:rds:rr-regn-1:123456789012:snapshot:mysql-instance1-snapshot-20130805.
 -- 
-cdbsmSourceDBSnapshotIdentifier :: Lens' CopyDBSnapshotMessage Text
-cdbsmSourceDBSnapshotIdentifier =
-    lens _cdbsmSourceDBSnapshotIdentifier
-        (\s a -> s { _cdbsmSourceDBSnapshotIdentifier = a })
+cdbsSourceDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
+cdbsSourceDBSnapshotIdentifier =
+    lens _cdbsSourceDBSnapshotIdentifier
+        (\s a -> s { _cdbsSourceDBSnapshotIdentifier = a })
 
-cdbsmTags :: Lens' CopyDBSnapshotMessage [Tag]
-cdbsmTags = lens _cdbsmTags (\s a -> s { _cdbsmTags = a })
+cdbsTags :: Lens' CopyDBSnapshot [Tag]
+cdbsTags = lens _cdbsTags (\s a -> s { _cdbsTags = a })
 
 -- | The identifier for the copied snapshot. Constraints: Cannot be null,
 -- empty, or blank Must contain from 1 to 255 alphanumeric characters or
 -- hyphens First character must be a letter Cannot end with a hyphen or
 -- contain two consecutive hyphens Example: my-db-snapshot.
-cdbsmTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshotMessage Text
-cdbsmTargetDBSnapshotIdentifier =
-    lens _cdbsmTargetDBSnapshotIdentifier
-        (\s a -> s { _cdbsmTargetDBSnapshotIdentifier = a })
+cdbsTargetDBSnapshotIdentifier :: Lens' CopyDBSnapshot Text
+cdbsTargetDBSnapshotIdentifier =
+    lens _cdbsTargetDBSnapshotIdentifier
+        (\s a -> s { _cdbsTargetDBSnapshotIdentifier = a })
 
-instance ToQuery CopyDBSnapshotMessage
+instance ToQuery CopyDBSnapshot
 
-instance ToPath CopyDBSnapshotMessage where
+instance ToPath CopyDBSnapshot where
     toPath = const "/"
 
-newtype CopyDBSnapshotResult = CopyDBSnapshotResult
-    { _cdbsr1DBSnapshot :: Maybe DBSnapshot
+newtype CopyDBSnapshotResponse = CopyDBSnapshotResponse
+    { _cdbsrDBSnapshot :: Maybe DBSnapshot
     } deriving (Eq, Show, Generic)
 
--- | 'CopyDBSnapshotResult' constructor.
+-- | 'CopyDBSnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbsr1DBSnapshot' @::@ 'Maybe' 'DBSnapshot'
+-- * 'cdbsrDBSnapshot' @::@ 'Maybe' 'DBSnapshot'
 --
-copyDBSnapshotResponse :: CopyDBSnapshotResult
-copyDBSnapshotResponse = CopyDBSnapshotResult
-    { _cdbsr1DBSnapshot = Nothing
+copyDBSnapshotResponse :: CopyDBSnapshotResponse
+copyDBSnapshotResponse = CopyDBSnapshotResponse
+    { _cdbsrDBSnapshot = Nothing
     }
 
-cdbsr1DBSnapshot :: Lens' CopyDBSnapshotResult (Maybe DBSnapshot)
-cdbsr1DBSnapshot = lens _cdbsr1DBSnapshot (\s a -> s { _cdbsr1DBSnapshot = a })
+cdbsrDBSnapshot :: Lens' CopyDBSnapshotResponse (Maybe DBSnapshot)
+cdbsrDBSnapshot = lens _cdbsrDBSnapshot (\s a -> s { _cdbsrDBSnapshot = a })
 
-instance FromXML CopyDBSnapshotResult where
+instance FromXML CopyDBSnapshotResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopyDBSnapshotResult"
+    fromXMLRoot    = fromRoot "CopyDBSnapshotResponse"
 
-instance AWSRequest CopyDBSnapshotMessage where
-    type Sv CopyDBSnapshotMessage = RDS
-    type Rs CopyDBSnapshotMessage = CopyDBSnapshotResult
+instance AWSRequest CopyDBSnapshot where
+    type Sv CopyDBSnapshot = RDS
+    type Rs CopyDBSnapshot = CopyDBSnapshotResponse
 
     request  = post "CopyDBSnapshot"
-    response = xmlResponse $ \h x -> CopyDBSnapshotResult
+    response = xmlResponse $ \h x -> CopyDBSnapshotResponse
         <$> x %| "DBSnapshot"

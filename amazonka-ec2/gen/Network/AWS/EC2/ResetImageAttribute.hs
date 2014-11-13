@@ -28,9 +28,9 @@ module Network.AWS.EC2.ResetImageAttribute
     -- ** Request constructor
     , resetImageAttribute
     -- ** Request lenses
-    , riaAttribute
-    , riaDryRun
-    , riaImageId
+    , ria1Attribute
+    , ria1DryRun
+    , ria1ImageId
 
     -- * Response
     , ResetImageAttributeResponse
@@ -43,41 +43,41 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data ResetImageAttribute = ResetImageAttribute
-    { _riaAttribute :: Text
-    , _riaDryRun    :: Maybe Bool
-    , _riaImageId   :: Text
+    { _ria1Attribute :: Text
+    , _ria1DryRun    :: Maybe Bool
+    , _ria1ImageId   :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResetImageAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'riaAttribute' @::@ 'Text'
+-- * 'ria1Attribute' @::@ 'Text'
 --
--- * 'riaDryRun' @::@ 'Maybe' 'Bool'
+-- * 'ria1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'riaImageId' @::@ 'Text'
+-- * 'ria1ImageId' @::@ 'Text'
 --
-resetImageAttribute :: Text -- ^ 'riaImageId'
-                    -> Text -- ^ 'riaAttribute'
+resetImageAttribute :: Text -- ^ 'ria1ImageId'
+                    -> Text -- ^ 'ria1Attribute'
                     -> ResetImageAttribute
 resetImageAttribute p1 p2 = ResetImageAttribute
-    { _riaImageId   = p1
-    , _riaAttribute = p2
-    , _riaDryRun    = Nothing
+    { _ria1ImageId   = p1
+    , _ria1Attribute = p2
+    , _ria1DryRun    = Nothing
     }
 
 -- | The attribute to reset (currently you can only reset the launch
 -- permission attribute).
-riaAttribute :: Lens' ResetImageAttribute Text
-riaAttribute = lens _riaAttribute (\s a -> s { _riaAttribute = a })
+ria1Attribute :: Lens' ResetImageAttribute Text
+ria1Attribute = lens _ria1Attribute (\s a -> s { _ria1Attribute = a })
 
-riaDryRun :: Lens' ResetImageAttribute (Maybe Bool)
-riaDryRun = lens _riaDryRun (\s a -> s { _riaDryRun = a })
+ria1DryRun :: Lens' ResetImageAttribute (Maybe Bool)
+ria1DryRun = lens _ria1DryRun (\s a -> s { _ria1DryRun = a })
 
 -- | The ID of the AMI.
-riaImageId :: Lens' ResetImageAttribute Text
-riaImageId = lens _riaImageId (\s a -> s { _riaImageId = a })
+ria1ImageId :: Lens' ResetImageAttribute Text
+ria1ImageId = lens _ria1ImageId (\s a -> s { _ria1ImageId = a })
 
 instance ToQuery ResetImageAttribute
 

@@ -26,144 +26,144 @@
 module Network.AWS.AutoScaling.DescribeScheduledActions
     (
     -- * Request
-      DescribeScheduledActionsType
+      DescribeScheduledActions
     -- ** Request constructor
     , describeScheduledActions
     -- ** Request lenses
-    , dsat2AutoScalingGroupName
-    , dsat2EndTime
-    , dsat2MaxRecords
-    , dsat2NextToken
-    , dsat2ScheduledActionNames
-    , dsat2StartTime
+    , dsa1AutoScalingGroupName
+    , dsa1EndTime
+    , dsa1MaxRecords
+    , dsa1NextToken
+    , dsa1ScheduledActionNames
+    , dsa1StartTime
 
     -- * Response
-    , ScheduledActionsType
+    , DescribeScheduledActionsResponse
     -- ** Response constructor
     , describeScheduledActionsResponse
     -- ** Response lenses
-    , satNextToken
-    , satScheduledUpdateGroupActions
+    , dsarNextToken
+    , dsarScheduledUpdateGroupActions
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data DescribeScheduledActionsType = DescribeScheduledActionsType
-    { _dsat2AutoScalingGroupName :: Maybe Text
-    , _dsat2EndTime              :: Maybe RFC822
-    , _dsat2MaxRecords           :: Maybe Int
-    , _dsat2NextToken            :: Maybe Text
-    , _dsat2ScheduledActionNames :: [Text]
-    , _dsat2StartTime            :: Maybe RFC822
+data DescribeScheduledActions = DescribeScheduledActions
+    { _dsa1AutoScalingGroupName :: Maybe Text
+    , _dsa1EndTime              :: Maybe RFC822
+    , _dsa1MaxRecords           :: Maybe Int
+    , _dsa1NextToken            :: Maybe Text
+    , _dsa1ScheduledActionNames :: [Text]
+    , _dsa1StartTime            :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeScheduledActionsType' constructor.
+-- | 'DescribeScheduledActions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsat2AutoScalingGroupName' @::@ 'Maybe' 'Text'
+-- * 'dsa1AutoScalingGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'dsat2EndTime' @::@ 'Maybe' 'UTCTime'
+-- * 'dsa1EndTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'dsat2MaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dsa1MaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'dsat2NextToken' @::@ 'Maybe' 'Text'
+-- * 'dsa1NextToken' @::@ 'Maybe' 'Text'
 --
--- * 'dsat2ScheduledActionNames' @::@ ['Text']
+-- * 'dsa1ScheduledActionNames' @::@ ['Text']
 --
--- * 'dsat2StartTime' @::@ 'Maybe' 'UTCTime'
+-- * 'dsa1StartTime' @::@ 'Maybe' 'UTCTime'
 --
-describeScheduledActions :: DescribeScheduledActionsType
-describeScheduledActions = DescribeScheduledActionsType
-    { _dsat2AutoScalingGroupName = Nothing
-    , _dsat2ScheduledActionNames = mempty
-    , _dsat2StartTime            = Nothing
-    , _dsat2EndTime              = Nothing
-    , _dsat2NextToken            = Nothing
-    , _dsat2MaxRecords           = Nothing
+describeScheduledActions :: DescribeScheduledActions
+describeScheduledActions = DescribeScheduledActions
+    { _dsa1AutoScalingGroupName = Nothing
+    , _dsa1ScheduledActionNames = mempty
+    , _dsa1StartTime            = Nothing
+    , _dsa1EndTime              = Nothing
+    , _dsa1NextToken            = Nothing
+    , _dsa1MaxRecords           = Nothing
     }
 
 -- | The name of the Auto Scaling group.
-dsat2AutoScalingGroupName :: Lens' DescribeScheduledActionsType (Maybe Text)
-dsat2AutoScalingGroupName =
-    lens _dsat2AutoScalingGroupName
-        (\s a -> s { _dsat2AutoScalingGroupName = a })
+dsa1AutoScalingGroupName :: Lens' DescribeScheduledActions (Maybe Text)
+dsa1AutoScalingGroupName =
+    lens _dsa1AutoScalingGroupName
+        (\s a -> s { _dsa1AutoScalingGroupName = a })
 
 -- | The latest scheduled start time to return. If scheduled action names are
 -- provided, this field is ignored.
-dsat2EndTime :: Lens' DescribeScheduledActionsType (Maybe UTCTime)
-dsat2EndTime = lens _dsat2EndTime (\s a -> s { _dsat2EndTime = a })
+dsa1EndTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
+dsa1EndTime = lens _dsa1EndTime (\s a -> s { _dsa1EndTime = a })
     . mapping _Time
 
 -- | The maximum number of scheduled actions to return.
-dsat2MaxRecords :: Lens' DescribeScheduledActionsType (Maybe Int)
-dsat2MaxRecords = lens _dsat2MaxRecords (\s a -> s { _dsat2MaxRecords = a })
+dsa1MaxRecords :: Lens' DescribeScheduledActions (Maybe Int)
+dsa1MaxRecords = lens _dsa1MaxRecords (\s a -> s { _dsa1MaxRecords = a })
 
 -- | A string that marks the start of the next batch of returned results.
-dsat2NextToken :: Lens' DescribeScheduledActionsType (Maybe Text)
-dsat2NextToken = lens _dsat2NextToken (\s a -> s { _dsat2NextToken = a })
+dsa1NextToken :: Lens' DescribeScheduledActions (Maybe Text)
+dsa1NextToken = lens _dsa1NextToken (\s a -> s { _dsa1NextToken = a })
 
 -- | A list of scheduled actions to be described. If this list is omitted, all
 -- scheduled actions are described. The list of requested scheduled actions
 -- cannot contain more than 50 items. If an auto scaling group name is
 -- provided, the results are limited to that group. If unknown scheduled
 -- actions are requested, they are ignored with no error.
-dsat2ScheduledActionNames :: Lens' DescribeScheduledActionsType [Text]
-dsat2ScheduledActionNames =
-    lens _dsat2ScheduledActionNames
-        (\s a -> s { _dsat2ScheduledActionNames = a })
+dsa1ScheduledActionNames :: Lens' DescribeScheduledActions [Text]
+dsa1ScheduledActionNames =
+    lens _dsa1ScheduledActionNames
+        (\s a -> s { _dsa1ScheduledActionNames = a })
 
 -- | The earliest scheduled start time to return. If scheduled action names
 -- are provided, this field will be ignored.
-dsat2StartTime :: Lens' DescribeScheduledActionsType (Maybe UTCTime)
-dsat2StartTime = lens _dsat2StartTime (\s a -> s { _dsat2StartTime = a })
+dsa1StartTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
+dsa1StartTime = lens _dsa1StartTime (\s a -> s { _dsa1StartTime = a })
     . mapping _Time
 
-instance ToQuery DescribeScheduledActionsType
+instance ToQuery DescribeScheduledActions
 
-instance ToPath DescribeScheduledActionsType where
+instance ToPath DescribeScheduledActions where
     toPath = const "/"
 
-data ScheduledActionsType = ScheduledActionsType
-    { _satNextToken                   :: Maybe Text
-    , _satScheduledUpdateGroupActions :: [ScheduledUpdateGroupAction]
+data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse
+    { _dsarNextToken                   :: Maybe Text
+    , _dsarScheduledUpdateGroupActions :: [ScheduledUpdateGroupAction]
     } deriving (Eq, Show, Generic)
 
--- | 'ScheduledActionsType' constructor.
+-- | 'DescribeScheduledActionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'satNextToken' @::@ 'Maybe' 'Text'
+-- * 'dsarNextToken' @::@ 'Maybe' 'Text'
 --
--- * 'satScheduledUpdateGroupActions' @::@ ['ScheduledUpdateGroupAction']
+-- * 'dsarScheduledUpdateGroupActions' @::@ ['ScheduledUpdateGroupAction']
 --
-describeScheduledActionsResponse :: ScheduledActionsType
-describeScheduledActionsResponse = ScheduledActionsType
-    { _satScheduledUpdateGroupActions = mempty
-    , _satNextToken                   = Nothing
+describeScheduledActionsResponse :: DescribeScheduledActionsResponse
+describeScheduledActionsResponse = DescribeScheduledActionsResponse
+    { _dsarScheduledUpdateGroupActions = mempty
+    , _dsarNextToken                   = Nothing
     }
 
 -- | A string that marks the start of the next batch of returned results.
-satNextToken :: Lens' ScheduledActionsType (Maybe Text)
-satNextToken = lens _satNextToken (\s a -> s { _satNextToken = a })
+dsarNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
+dsarNextToken = lens _dsarNextToken (\s a -> s { _dsarNextToken = a })
 
 -- | A list of scheduled actions designed to update an Auto Scaling group.
-satScheduledUpdateGroupActions :: Lens' ScheduledActionsType [ScheduledUpdateGroupAction]
-satScheduledUpdateGroupActions =
-    lens _satScheduledUpdateGroupActions
-        (\s a -> s { _satScheduledUpdateGroupActions = a })
+dsarScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
+dsarScheduledUpdateGroupActions =
+    lens _dsarScheduledUpdateGroupActions
+        (\s a -> s { _dsarScheduledUpdateGroupActions = a })
 
-instance FromXML ScheduledActionsType where
+instance FromXML DescribeScheduledActionsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ScheduledActionsType"
+    fromXMLRoot    = fromRoot "DescribeScheduledActionsResponse"
 
-instance AWSRequest DescribeScheduledActionsType where
-    type Sv DescribeScheduledActionsType = AutoScaling
-    type Rs DescribeScheduledActionsType = ScheduledActionsType
+instance AWSRequest DescribeScheduledActions where
+    type Sv DescribeScheduledActions = AutoScaling
+    type Rs DescribeScheduledActions = DescribeScheduledActionsResponse
 
     request  = post "DescribeScheduledActions"
-    response = xmlResponse $ \h x -> ScheduledActionsType
+    response = xmlResponse $ \h x -> DescribeScheduledActionsResponse
         <$> x %| "NextToken"
         <*> x %| "ScheduledUpdateGroupActions"

@@ -25,64 +25,88 @@
 module Network.AWS.ElasticBeanstalk.CreateApplication
     (
     -- * Request
-      CreateApplicationMessage
+      CreateApplication
     -- ** Request constructor
     , createApplication
     -- ** Request lenses
-    , camApplicationName
-    , camDescription
+    , caApplicationName
+    , caDescription
 
     -- * Response
-    , ApplicationDescriptionMessage
+    , CreateApplicationResponse
     -- ** Response constructor
-    , applicationDescriptionMessage
+    , createApplicationResponse
     -- ** Response lenses
-    , admApplication
+    , carApplication
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data CreateApplicationMessage = CreateApplicationMessage
-    { _camApplicationName :: Text
-    , _camDescription     :: Maybe Text
+data CreateApplication = CreateApplication
+    { _caApplicationName :: Text
+    , _caDescription     :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CreateApplicationMessage' constructor.
+-- | 'CreateApplication' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'camApplicationName' @::@ 'Text'
+-- * 'caApplicationName' @::@ 'Text'
 --
--- * 'camDescription' @::@ 'Maybe' 'Text'
+-- * 'caDescription' @::@ 'Maybe' 'Text'
 --
-createApplication :: Text -- ^ 'camApplicationName'
-                  -> CreateApplicationMessage
-createApplication p1 = CreateApplicationMessage
-    { _camApplicationName = p1
-    , _camDescription     = Nothing
+createApplication :: Text -- ^ 'caApplicationName'
+                  -> CreateApplication
+createApplication p1 = CreateApplication
+    { _caApplicationName = p1
+    , _caDescription     = Nothing
     }
 
 -- | The name of the application. Constraint: This name must be unique within
 -- your account. If the specified name already exists, the action returns an
 -- InvalidParameterValue error.
-camApplicationName :: Lens' CreateApplicationMessage Text
-camApplicationName =
-    lens _camApplicationName (\s a -> s { _camApplicationName = a })
+caApplicationName :: Lens' CreateApplication Text
+caApplicationName =
+    lens _caApplicationName (\s a -> s { _caApplicationName = a })
 
 -- | Describes the application.
-camDescription :: Lens' CreateApplicationMessage (Maybe Text)
-camDescription = lens _camDescription (\s a -> s { _camDescription = a })
+caDescription :: Lens' CreateApplication (Maybe Text)
+caDescription = lens _caDescription (\s a -> s { _caDescription = a })
 
-instance ToQuery CreateApplicationMessage
+instance ToQuery CreateApplication
 
-instance ToPath CreateApplicationMessage where
+instance ToPath CreateApplication where
     toPath = const "/"
 
-instance AWSRequest CreateApplicationMessage where
-    type Sv CreateApplicationMessage = ElasticBeanstalk
-    type Rs CreateApplicationMessage = ApplicationDescriptionMessage
+newtype CreateApplicationResponse = CreateApplicationResponse
+    { _carApplication :: Maybe ApplicationDescription
+    } deriving (Eq, Show, Generic)
+
+-- | 'CreateApplicationResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'carApplication' @::@ 'Maybe' 'ApplicationDescription'
+--
+createApplicationResponse :: CreateApplicationResponse
+createApplicationResponse = CreateApplicationResponse
+    { _carApplication = Nothing
+    }
+
+-- | The ApplicationDescription of the application.
+carApplication :: Lens' CreateApplicationResponse (Maybe ApplicationDescription)
+carApplication = lens _carApplication (\s a -> s { _carApplication = a })
+
+instance FromXML CreateApplicationResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "CreateApplicationResponse"
+
+instance AWSRequest CreateApplication where
+    type Sv CreateApplication = ElasticBeanstalk
+    type Rs CreateApplication = CreateApplicationResponse
 
     request  = post "CreateApplication"
-    response = xmlResponse $ const decodeCursor
+    response = xmlResponse $ \h x -> CreateApplicationResponse
+        <$> x %| "Application"

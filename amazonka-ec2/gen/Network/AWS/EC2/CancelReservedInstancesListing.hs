@@ -33,7 +33,7 @@ module Network.AWS.EC2.CancelReservedInstancesListing
     , crilReservedInstancesListingId
 
     -- * Response
-    , CancelReservedInstancesListingResult
+    , CancelReservedInstancesListingResponse
     -- ** Response constructor
     , cancelReservedInstancesListingResponse
     -- ** Response lenses
@@ -71,41 +71,41 @@ instance ToQuery CancelReservedInstancesListing
 instance ToPath CancelReservedInstancesListing where
     toPath = const "/"
 
-newtype CancelReservedInstancesListingResult = CancelReservedInstancesListingResult
+newtype CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { _crilrReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CancelReservedInstancesListingResult where
-    type Item CancelReservedInstancesListingResult = ReservedInstancesListing
+instance IsList CancelReservedInstancesListingResponse where
+    type Item CancelReservedInstancesListingResponse = ReservedInstancesListing
 
-    fromList = CancelReservedInstancesListingResult . fromList
+    fromList = CancelReservedInstancesListingResponse . fromList
     toList   = toList . _crilrReservedInstancesListings
 
--- | 'CancelReservedInstancesListingResult' constructor.
+-- | 'CancelReservedInstancesListingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'crilrReservedInstancesListings' @::@ ['ReservedInstancesListing']
 --
-cancelReservedInstancesListingResponse :: CancelReservedInstancesListingResult
-cancelReservedInstancesListingResponse = CancelReservedInstancesListingResult
+cancelReservedInstancesListingResponse :: CancelReservedInstancesListingResponse
+cancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse
     { _crilrReservedInstancesListings = mempty
     }
 
 -- | The Reserved Instance listing.
-crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResult [ReservedInstancesListing]
+crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
 crilrReservedInstancesListings =
     lens _crilrReservedInstancesListings
         (\s a -> s { _crilrReservedInstancesListings = a })
 
-instance FromXML CancelReservedInstancesListingResult where
+instance FromXML CancelReservedInstancesListingResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CancelReservedInstancesListingResult"
+    fromXMLRoot    = fromRoot "CancelReservedInstancesListingResponse"
 
 instance AWSRequest CancelReservedInstancesListing where
     type Sv CancelReservedInstancesListing = EC2
-    type Rs CancelReservedInstancesListing = CancelReservedInstancesListingResult
+    type Rs CancelReservedInstancesListing = CancelReservedInstancesListingResponse
 
     request  = post "CancelReservedInstancesListing"
-    response = xmlResponse $ \h x -> CancelReservedInstancesListingResult
+    response = xmlResponse $ \h x -> CancelReservedInstancesListingResponse
         <$> x %| "reservedInstancesListingsSet"

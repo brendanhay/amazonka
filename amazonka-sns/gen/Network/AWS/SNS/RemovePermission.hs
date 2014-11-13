@@ -24,12 +24,12 @@
 module Network.AWS.SNS.RemovePermission
     (
     -- * Request
-      RemovePermissionInput
+      RemovePermission
     -- ** Request constructor
     , removePermission
     -- ** Request lenses
-    , rpiLabel
-    , rpiTopicArn
+    , rpLabel
+    , rpTopicArn
 
     -- * Response
     , RemovePermissionResponse
@@ -41,38 +41,38 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-data RemovePermissionInput = RemovePermissionInput
-    { _rpiLabel    :: Text
-    , _rpiTopicArn :: Text
+data RemovePermission = RemovePermission
+    { _rpLabel    :: Text
+    , _rpTopicArn :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'RemovePermissionInput' constructor.
+-- | 'RemovePermission' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rpiLabel' @::@ 'Text'
+-- * 'rpLabel' @::@ 'Text'
 --
--- * 'rpiTopicArn' @::@ 'Text'
+-- * 'rpTopicArn' @::@ 'Text'
 --
-removePermission :: Text -- ^ 'rpiTopicArn'
-                 -> Text -- ^ 'rpiLabel'
-                 -> RemovePermissionInput
-removePermission p1 p2 = RemovePermissionInput
-    { _rpiTopicArn = p1
-    , _rpiLabel    = p2
+removePermission :: Text -- ^ 'rpTopicArn'
+                 -> Text -- ^ 'rpLabel'
+                 -> RemovePermission
+removePermission p1 p2 = RemovePermission
+    { _rpTopicArn = p1
+    , _rpLabel    = p2
     }
 
 -- | The unique label of the statement you want to remove.
-rpiLabel :: Lens' RemovePermissionInput Text
-rpiLabel = lens _rpiLabel (\s a -> s { _rpiLabel = a })
+rpLabel :: Lens' RemovePermission Text
+rpLabel = lens _rpLabel (\s a -> s { _rpLabel = a })
 
 -- | The ARN of the topic whose access control policy you wish to modify.
-rpiTopicArn :: Lens' RemovePermissionInput Text
-rpiTopicArn = lens _rpiTopicArn (\s a -> s { _rpiTopicArn = a })
+rpTopicArn :: Lens' RemovePermission Text
+rpTopicArn = lens _rpTopicArn (\s a -> s { _rpTopicArn = a })
 
-instance ToQuery RemovePermissionInput
+instance ToQuery RemovePermission
 
-instance ToPath RemovePermissionInput where
+instance ToPath RemovePermission where
     toPath = const "/"
 
 data RemovePermissionResponse = RemovePermissionResponse
@@ -86,9 +86,9 @@ instance FromXML RemovePermissionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RemovePermissionResponse"
 
-instance AWSRequest RemovePermissionInput where
-    type Sv RemovePermissionInput = SNS
-    type Rs RemovePermissionInput = RemovePermissionResponse
+instance AWSRequest RemovePermission where
+    type Sv RemovePermission = SNS
+    type Rs RemovePermission = RemovePermissionResponse
 
     request  = post "RemovePermission"
     response = nullaryResponse RemovePermissionResponse

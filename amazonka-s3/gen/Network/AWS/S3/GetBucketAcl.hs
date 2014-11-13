@@ -31,12 +31,12 @@ module Network.AWS.S3.GetBucketAcl
     , gbaBucket
 
     -- * Response
-    , GetBucketAclOutput
+    , GetBucketAclResponse
     -- ** Response constructor
     , getBucketAclResponse
     -- ** Response lenses
-    , gbaoGrants
-    , gbaoOwner
+    , gbarGrants
+    , gbarOwner
     ) where
 
 import Network.AWS.Prelude
@@ -73,40 +73,40 @@ instance ToQuery GetBucketAcl where
 
 instance ToHeaders GetBucketAcl
 
-data GetBucketAclOutput = GetBucketAclOutput
-    { _gbaoGrants :: [Grant]
-    , _gbaoOwner  :: Maybe Owner
+data GetBucketAclResponse = GetBucketAclResponse
+    { _gbarGrants :: [Grant]
+    , _gbarOwner  :: Maybe Owner
     } deriving (Eq, Show, Generic)
 
--- | 'GetBucketAclOutput' constructor.
+-- | 'GetBucketAclResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbaoGrants' @::@ ['Grant']
+-- * 'gbarGrants' @::@ ['Grant']
 --
--- * 'gbaoOwner' @::@ 'Maybe' 'Owner'
+-- * 'gbarOwner' @::@ 'Maybe' 'Owner'
 --
-getBucketAclResponse :: GetBucketAclOutput
-getBucketAclResponse = GetBucketAclOutput
-    { _gbaoOwner  = Nothing
-    , _gbaoGrants = mempty
+getBucketAclResponse :: GetBucketAclResponse
+getBucketAclResponse = GetBucketAclResponse
+    { _gbarOwner  = Nothing
+    , _gbarGrants = mempty
     }
 
 -- | A list of grants.
-gbaoGrants :: Lens' GetBucketAclOutput [Grant]
-gbaoGrants = lens _gbaoGrants (\s a -> s { _gbaoGrants = a })
+gbarGrants :: Lens' GetBucketAclResponse [Grant]
+gbarGrants = lens _gbarGrants (\s a -> s { _gbarGrants = a })
 
-gbaoOwner :: Lens' GetBucketAclOutput (Maybe Owner)
-gbaoOwner = lens _gbaoOwner (\s a -> s { _gbaoOwner = a })
+gbarOwner :: Lens' GetBucketAclResponse (Maybe Owner)
+gbarOwner = lens _gbarOwner (\s a -> s { _gbarOwner = a })
 
-instance FromXML GetBucketAclOutput where
+instance FromXML GetBucketAclResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketAclOutput"
+    fromXMLRoot    = fromRoot "GetBucketAclResponse"
 instance AWSRequest GetBucketAcl where
     type Sv GetBucketAcl = S3
-    type Rs GetBucketAcl = GetBucketAclOutput
+    type Rs GetBucketAcl = GetBucketAclResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketAclOutput
+    response = xmlResponse $ \h x -> GetBucketAclResponse
         <$> x %| "AccessControlList"
         <*> x %| "Owner"

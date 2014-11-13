@@ -26,135 +26,135 @@
 module Network.AWS.CloudWatch.DescribeAlarmHistory
     (
     -- * Request
-      DescribeAlarmHistoryInput
+      DescribeAlarmHistory
     -- ** Request constructor
     , describeAlarmHistory
     -- ** Request lenses
-    , dahiAlarmName
-    , dahiEndDate
-    , dahiHistoryItemType
-    , dahiMaxRecords
-    , dahiNextToken
-    , dahiStartDate
+    , dahAlarmName
+    , dahEndDate
+    , dahHistoryItemType
+    , dahMaxRecords
+    , dahNextToken
+    , dahStartDate
 
     -- * Response
-    , DescribeAlarmHistoryOutput
+    , DescribeAlarmHistoryResponse
     -- ** Response constructor
     , describeAlarmHistoryResponse
     -- ** Response lenses
-    , dahoAlarmHistoryItems
-    , dahoNextToken
+    , dahrAlarmHistoryItems
+    , dahrNextToken
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
 
-data DescribeAlarmHistoryInput = DescribeAlarmHistoryInput
-    { _dahiAlarmName       :: Maybe Text
-    , _dahiEndDate         :: Maybe RFC822
-    , _dahiHistoryItemType :: Maybe Text
-    , _dahiMaxRecords      :: Maybe Natural
-    , _dahiNextToken       :: Maybe Text
-    , _dahiStartDate       :: Maybe RFC822
+data DescribeAlarmHistory = DescribeAlarmHistory
+    { _dahAlarmName       :: Maybe Text
+    , _dahEndDate         :: Maybe RFC822
+    , _dahHistoryItemType :: Maybe Text
+    , _dahMaxRecords      :: Maybe Natural
+    , _dahNextToken       :: Maybe Text
+    , _dahStartDate       :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeAlarmHistoryInput' constructor.
+-- | 'DescribeAlarmHistory' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dahiAlarmName' @::@ 'Maybe' 'Text'
+-- * 'dahAlarmName' @::@ 'Maybe' 'Text'
 --
--- * 'dahiEndDate' @::@ 'Maybe' 'UTCTime'
+-- * 'dahEndDate' @::@ 'Maybe' 'UTCTime'
 --
--- * 'dahiHistoryItemType' @::@ 'Maybe' 'Text'
+-- * 'dahHistoryItemType' @::@ 'Maybe' 'Text'
 --
--- * 'dahiMaxRecords' @::@ 'Maybe' 'Natural'
+-- * 'dahMaxRecords' @::@ 'Maybe' 'Natural'
 --
--- * 'dahiNextToken' @::@ 'Maybe' 'Text'
+-- * 'dahNextToken' @::@ 'Maybe' 'Text'
 --
--- * 'dahiStartDate' @::@ 'Maybe' 'UTCTime'
+-- * 'dahStartDate' @::@ 'Maybe' 'UTCTime'
 --
-describeAlarmHistory :: DescribeAlarmHistoryInput
-describeAlarmHistory = DescribeAlarmHistoryInput
-    { _dahiAlarmName       = Nothing
-    , _dahiHistoryItemType = Nothing
-    , _dahiStartDate       = Nothing
-    , _dahiEndDate         = Nothing
-    , _dahiMaxRecords      = Nothing
-    , _dahiNextToken       = Nothing
+describeAlarmHistory :: DescribeAlarmHistory
+describeAlarmHistory = DescribeAlarmHistory
+    { _dahAlarmName       = Nothing
+    , _dahHistoryItemType = Nothing
+    , _dahStartDate       = Nothing
+    , _dahEndDate         = Nothing
+    , _dahMaxRecords      = Nothing
+    , _dahNextToken       = Nothing
     }
 
 -- | The name of the alarm.
-dahiAlarmName :: Lens' DescribeAlarmHistoryInput (Maybe Text)
-dahiAlarmName = lens _dahiAlarmName (\s a -> s { _dahiAlarmName = a })
+dahAlarmName :: Lens' DescribeAlarmHistory (Maybe Text)
+dahAlarmName = lens _dahAlarmName (\s a -> s { _dahAlarmName = a })
 
 -- | The ending date to retrieve alarm history.
-dahiEndDate :: Lens' DescribeAlarmHistoryInput (Maybe UTCTime)
-dahiEndDate = lens _dahiEndDate (\s a -> s { _dahiEndDate = a })
+dahEndDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
+dahEndDate = lens _dahEndDate (\s a -> s { _dahEndDate = a })
     . mapping _Time
 
 -- | The type of alarm histories to retrieve.
-dahiHistoryItemType :: Lens' DescribeAlarmHistoryInput (Maybe Text)
-dahiHistoryItemType =
-    lens _dahiHistoryItemType (\s a -> s { _dahiHistoryItemType = a })
+dahHistoryItemType :: Lens' DescribeAlarmHistory (Maybe Text)
+dahHistoryItemType =
+    lens _dahHistoryItemType (\s a -> s { _dahHistoryItemType = a })
 
 -- | The maximum number of alarm history records to retrieve.
-dahiMaxRecords :: Lens' DescribeAlarmHistoryInput (Maybe Natural)
-dahiMaxRecords = lens _dahiMaxRecords (\s a -> s { _dahiMaxRecords = a })
+dahMaxRecords :: Lens' DescribeAlarmHistory (Maybe Natural)
+dahMaxRecords = lens _dahMaxRecords (\s a -> s { _dahMaxRecords = a })
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
-dahiNextToken :: Lens' DescribeAlarmHistoryInput (Maybe Text)
-dahiNextToken = lens _dahiNextToken (\s a -> s { _dahiNextToken = a })
+dahNextToken :: Lens' DescribeAlarmHistory (Maybe Text)
+dahNextToken = lens _dahNextToken (\s a -> s { _dahNextToken = a })
 
 -- | The starting date to retrieve alarm history.
-dahiStartDate :: Lens' DescribeAlarmHistoryInput (Maybe UTCTime)
-dahiStartDate = lens _dahiStartDate (\s a -> s { _dahiStartDate = a })
+dahStartDate :: Lens' DescribeAlarmHistory (Maybe UTCTime)
+dahStartDate = lens _dahStartDate (\s a -> s { _dahStartDate = a })
     . mapping _Time
 
-instance ToQuery DescribeAlarmHistoryInput
+instance ToQuery DescribeAlarmHistory
 
-instance ToPath DescribeAlarmHistoryInput where
+instance ToPath DescribeAlarmHistory where
     toPath = const "/"
 
-data DescribeAlarmHistoryOutput = DescribeAlarmHistoryOutput
-    { _dahoAlarmHistoryItems :: [AlarmHistoryItem]
-    , _dahoNextToken         :: Maybe Text
+data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse
+    { _dahrAlarmHistoryItems :: [AlarmHistoryItem]
+    , _dahrNextToken         :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeAlarmHistoryOutput' constructor.
+-- | 'DescribeAlarmHistoryResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dahoAlarmHistoryItems' @::@ ['AlarmHistoryItem']
+-- * 'dahrAlarmHistoryItems' @::@ ['AlarmHistoryItem']
 --
--- * 'dahoNextToken' @::@ 'Maybe' 'Text'
+-- * 'dahrNextToken' @::@ 'Maybe' 'Text'
 --
-describeAlarmHistoryResponse :: DescribeAlarmHistoryOutput
-describeAlarmHistoryResponse = DescribeAlarmHistoryOutput
-    { _dahoAlarmHistoryItems = mempty
-    , _dahoNextToken         = Nothing
+describeAlarmHistoryResponse :: DescribeAlarmHistoryResponse
+describeAlarmHistoryResponse = DescribeAlarmHistoryResponse
+    { _dahrAlarmHistoryItems = mempty
+    , _dahrNextToken         = Nothing
     }
 
 -- | A list of alarm histories in JSON format.
-dahoAlarmHistoryItems :: Lens' DescribeAlarmHistoryOutput [AlarmHistoryItem]
-dahoAlarmHistoryItems =
-    lens _dahoAlarmHistoryItems (\s a -> s { _dahoAlarmHistoryItems = a })
+dahrAlarmHistoryItems :: Lens' DescribeAlarmHistoryResponse [AlarmHistoryItem]
+dahrAlarmHistoryItems =
+    lens _dahrAlarmHistoryItems (\s a -> s { _dahrAlarmHistoryItems = a })
 
 -- | A string that marks the start of the next batch of returned results.
-dahoNextToken :: Lens' DescribeAlarmHistoryOutput (Maybe Text)
-dahoNextToken = lens _dahoNextToken (\s a -> s { _dahoNextToken = a })
+dahrNextToken :: Lens' DescribeAlarmHistoryResponse (Maybe Text)
+dahrNextToken = lens _dahrNextToken (\s a -> s { _dahrNextToken = a })
 
-instance FromXML DescribeAlarmHistoryOutput where
+instance FromXML DescribeAlarmHistoryResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAlarmHistoryOutput"
+    fromXMLRoot    = fromRoot "DescribeAlarmHistoryResponse"
 
-instance AWSRequest DescribeAlarmHistoryInput where
-    type Sv DescribeAlarmHistoryInput = CloudWatch
-    type Rs DescribeAlarmHistoryInput = DescribeAlarmHistoryOutput
+instance AWSRequest DescribeAlarmHistory where
+    type Sv DescribeAlarmHistory = CloudWatch
+    type Rs DescribeAlarmHistory = DescribeAlarmHistoryResponse
 
     request  = post "DescribeAlarmHistory"
-    response = xmlResponse $ \h x -> DescribeAlarmHistoryOutput
+    response = xmlResponse $ \h x -> DescribeAlarmHistoryResponse
         <$> x %| "AlarmHistoryItems"
         <*> x %| "NextToken"

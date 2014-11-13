@@ -26,15 +26,15 @@
 module Network.AWS.Redshift.CreateClusterSnapshot
     (
     -- * Request
-      CreateClusterSnapshotMessage
+      CreateClusterSnapshot
     -- ** Request constructor
     , createClusterSnapshot
     -- ** Request lenses
-    , ccsmClusterIdentifier
-    , ccsmSnapshotIdentifier
+    , ccsClusterIdentifier
+    , ccsSnapshotIdentifier
 
     -- * Response
-    , CreateClusterSnapshotResult
+    , CreateClusterSnapshotResponse
     -- ** Response constructor
     , createClusterSnapshotResponse
     -- ** Response lenses
@@ -45,31 +45,31 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data CreateClusterSnapshotMessage = CreateClusterSnapshotMessage
-    { _ccsmClusterIdentifier  :: Text
-    , _ccsmSnapshotIdentifier :: Text
+data CreateClusterSnapshot = CreateClusterSnapshot
+    { _ccsClusterIdentifier  :: Text
+    , _ccsSnapshotIdentifier :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CreateClusterSnapshotMessage' constructor.
+-- | 'CreateClusterSnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsmClusterIdentifier' @::@ 'Text'
+-- * 'ccsClusterIdentifier' @::@ 'Text'
 --
--- * 'ccsmSnapshotIdentifier' @::@ 'Text'
+-- * 'ccsSnapshotIdentifier' @::@ 'Text'
 --
-createClusterSnapshot :: Text -- ^ 'ccsmSnapshotIdentifier'
-                      -> Text -- ^ 'ccsmClusterIdentifier'
-                      -> CreateClusterSnapshotMessage
-createClusterSnapshot p1 p2 = CreateClusterSnapshotMessage
-    { _ccsmSnapshotIdentifier = p1
-    , _ccsmClusterIdentifier  = p2
+createClusterSnapshot :: Text -- ^ 'ccsSnapshotIdentifier'
+                      -> Text -- ^ 'ccsClusterIdentifier'
+                      -> CreateClusterSnapshot
+createClusterSnapshot p1 p2 = CreateClusterSnapshot
+    { _ccsSnapshotIdentifier = p1
+    , _ccsClusterIdentifier  = p2
     }
 
 -- | The cluster identifier for which you want a snapshot.
-ccsmClusterIdentifier :: Lens' CreateClusterSnapshotMessage Text
-ccsmClusterIdentifier =
-    lens _ccsmClusterIdentifier (\s a -> s { _ccsmClusterIdentifier = a })
+ccsClusterIdentifier :: Lens' CreateClusterSnapshot Text
+ccsClusterIdentifier =
+    lens _ccsClusterIdentifier (\s a -> s { _ccsClusterIdentifier = a })
 
 -- | A unique identifier for the snapshot that you are requesting. This
 -- identifier must be unique for all snapshots within the AWS account.
@@ -77,41 +77,41 @@ ccsmClusterIdentifier =
 -- alphanumeric characters or hyphens First character must be a letter
 -- Cannot end with a hyphen or contain two consecutive hyphens Example:
 -- my-snapshot-id.
-ccsmSnapshotIdentifier :: Lens' CreateClusterSnapshotMessage Text
-ccsmSnapshotIdentifier =
-    lens _ccsmSnapshotIdentifier (\s a -> s { _ccsmSnapshotIdentifier = a })
+ccsSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
+ccsSnapshotIdentifier =
+    lens _ccsSnapshotIdentifier (\s a -> s { _ccsSnapshotIdentifier = a })
 
-instance ToQuery CreateClusterSnapshotMessage
+instance ToQuery CreateClusterSnapshot
 
-instance ToPath CreateClusterSnapshotMessage where
+instance ToPath CreateClusterSnapshot where
     toPath = const "/"
 
-newtype CreateClusterSnapshotResult = CreateClusterSnapshotResult
+newtype CreateClusterSnapshotResponse = CreateClusterSnapshotResponse
     { _ccsr1Snapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
 
--- | 'CreateClusterSnapshotResult' constructor.
+-- | 'CreateClusterSnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccsr1Snapshot' @::@ 'Maybe' 'Snapshot'
 --
-createClusterSnapshotResponse :: CreateClusterSnapshotResult
-createClusterSnapshotResponse = CreateClusterSnapshotResult
+createClusterSnapshotResponse :: CreateClusterSnapshotResponse
+createClusterSnapshotResponse = CreateClusterSnapshotResponse
     { _ccsr1Snapshot = Nothing
     }
 
-ccsr1Snapshot :: Lens' CreateClusterSnapshotResult (Maybe Snapshot)
+ccsr1Snapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
 ccsr1Snapshot = lens _ccsr1Snapshot (\s a -> s { _ccsr1Snapshot = a })
 
-instance FromXML CreateClusterSnapshotResult where
+instance FromXML CreateClusterSnapshotResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateClusterSnapshotResult"
+    fromXMLRoot    = fromRoot "CreateClusterSnapshotResponse"
 
-instance AWSRequest CreateClusterSnapshotMessage where
-    type Sv CreateClusterSnapshotMessage = Redshift
-    type Rs CreateClusterSnapshotMessage = CreateClusterSnapshotResult
+instance AWSRequest CreateClusterSnapshot where
+    type Sv CreateClusterSnapshot = Redshift
+    type Rs CreateClusterSnapshot = CreateClusterSnapshotResponse
 
     request  = post "CreateClusterSnapshot"
-    response = xmlResponse $ \h x -> CreateClusterSnapshotResult
+    response = xmlResponse $ \h x -> CreateClusterSnapshotResponse
         <$> x %| "Snapshot"

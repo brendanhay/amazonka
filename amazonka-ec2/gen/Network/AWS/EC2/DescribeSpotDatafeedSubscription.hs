@@ -32,7 +32,7 @@ module Network.AWS.EC2.DescribeSpotDatafeedSubscription
     , dsdsDryRun
 
     -- * Response
-    , DescribeSpotDatafeedSubscriptionResult
+    , DescribeSpotDatafeedSubscriptionResponse
     -- ** Response constructor
     , describeSpotDatafeedSubscriptionResponse
     -- ** Response lenses
@@ -66,35 +66,35 @@ instance ToQuery DescribeSpotDatafeedSubscription
 instance ToPath DescribeSpotDatafeedSubscription where
     toPath = const "/"
 
-newtype DescribeSpotDatafeedSubscriptionResult = DescribeSpotDatafeedSubscriptionResult
+newtype DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
     { _dsdsrSpotDatafeedSubscription :: Maybe SpotDatafeedSubscription
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeSpotDatafeedSubscriptionResult' constructor.
+-- | 'DescribeSpotDatafeedSubscriptionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsdsrSpotDatafeedSubscription' @::@ 'Maybe' 'SpotDatafeedSubscription'
 --
-describeSpotDatafeedSubscriptionResponse :: DescribeSpotDatafeedSubscriptionResult
-describeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResult
+describeSpotDatafeedSubscriptionResponse :: DescribeSpotDatafeedSubscriptionResponse
+describeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse
     { _dsdsrSpotDatafeedSubscription = Nothing
     }
 
 -- | The Spot Instance datafeed subscription.
-dsdsrSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResult (Maybe SpotDatafeedSubscription)
+dsdsrSpotDatafeedSubscription :: Lens' DescribeSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
 dsdsrSpotDatafeedSubscription =
     lens _dsdsrSpotDatafeedSubscription
         (\s a -> s { _dsdsrSpotDatafeedSubscription = a })
 
-instance FromXML DescribeSpotDatafeedSubscriptionResult where
+instance FromXML DescribeSpotDatafeedSubscriptionResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSpotDatafeedSubscriptionResult"
+    fromXMLRoot    = fromRoot "DescribeSpotDatafeedSubscriptionResponse"
 
 instance AWSRequest DescribeSpotDatafeedSubscription where
     type Sv DescribeSpotDatafeedSubscription = EC2
-    type Rs DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscriptionResult
+    type Rs DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscriptionResponse
 
     request  = post "DescribeSpotDatafeedSubscription"
-    response = xmlResponse $ \h x -> DescribeSpotDatafeedSubscriptionResult
+    response = xmlResponse $ \h x -> DescribeSpotDatafeedSubscriptionResponse
         <$> x %| "spotDatafeedSubscription"

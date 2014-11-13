@@ -42,7 +42,7 @@ module Network.AWS.SQS.CreateQueue
     , cqQueueName
 
     -- * Response
-    , CreateQueueResult
+    , CreateQueueResponse
     -- ** Response constructor
     , createQueueResponse
     -- ** Response lenses
@@ -107,33 +107,33 @@ instance ToQuery CreateQueue
 instance ToPath CreateQueue where
     toPath = const "/"
 
-newtype CreateQueueResult = CreateQueueResult
+newtype CreateQueueResponse = CreateQueueResponse
     { _cqrQueueUrl :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'CreateQueueResult' constructor.
+-- | 'CreateQueueResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cqrQueueUrl' @::@ 'Maybe' 'Text'
 --
-createQueueResponse :: CreateQueueResult
-createQueueResponse = CreateQueueResult
+createQueueResponse :: CreateQueueResponse
+createQueueResponse = CreateQueueResponse
     { _cqrQueueUrl = Nothing
     }
 
 -- | The URL for the created Amazon SQS queue.
-cqrQueueUrl :: Lens' CreateQueueResult (Maybe Text)
+cqrQueueUrl :: Lens' CreateQueueResponse (Maybe Text)
 cqrQueueUrl = lens _cqrQueueUrl (\s a -> s { _cqrQueueUrl = a })
 
-instance FromXML CreateQueueResult where
+instance FromXML CreateQueueResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateQueueResult"
+    fromXMLRoot    = fromRoot "CreateQueueResponse"
 
 instance AWSRequest CreateQueue where
     type Sv CreateQueue = SQS
-    type Rs CreateQueue = CreateQueueResult
+    type Rs CreateQueue = CreateQueueResponse
 
     request  = post "CreateQueue"
-    response = xmlResponse $ \h x -> CreateQueueResult
+    response = xmlResponse $ \h x -> CreateQueueResponse
         <$> x %| "QueueUrl"

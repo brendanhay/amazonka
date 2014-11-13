@@ -34,7 +34,7 @@ module Network.AWS.EC2.DescribeNetworkInterfaceAttribute
     , dniaNetworkInterfaceId
 
     -- * Response
-    , DescribeNetworkInterfaceAttributeResult
+    , DescribeNetworkInterfaceAttributeResponse
     -- ** Response constructor
     , describeNetworkInterfaceAttributeResponse
     -- ** Response lenses
@@ -90,7 +90,7 @@ instance ToQuery DescribeNetworkInterfaceAttribute
 instance ToPath DescribeNetworkInterfaceAttribute where
     toPath = const "/"
 
-data DescribeNetworkInterfaceAttributeResult = DescribeNetworkInterfaceAttributeResult
+data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
     { _dniarAttachment         :: Maybe NetworkInterfaceAttachment
     , _dniarDescription        :: Maybe AttributeValue
     , _dniarGroups             :: [GroupIdentifier]
@@ -98,7 +98,7 @@ data DescribeNetworkInterfaceAttributeResult = DescribeNetworkInterfaceAttribute
     , _dniarSourceDestCheck    :: Maybe AttributeBooleanValue
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeNetworkInterfaceAttributeResult' constructor.
+-- | 'DescribeNetworkInterfaceAttributeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -112,8 +112,8 @@ data DescribeNetworkInterfaceAttributeResult = DescribeNetworkInterfaceAttribute
 --
 -- * 'dniarSourceDestCheck' @::@ 'Maybe' 'AttributeBooleanValue'
 --
-describeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResult
-describeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResult
+describeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResponse
+describeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeResponse
     { _dniarNetworkInterfaceId = Nothing
     , _dniarDescription        = Nothing
     , _dniarSourceDestCheck    = Nothing
@@ -122,37 +122,37 @@ describeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttributeRes
     }
 
 -- | The attachment (if any) of the network interface.
-dniarAttachment :: Lens' DescribeNetworkInterfaceAttributeResult (Maybe NetworkInterfaceAttachment)
+dniarAttachment :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe NetworkInterfaceAttachment)
 dniarAttachment = lens _dniarAttachment (\s a -> s { _dniarAttachment = a })
 
 -- | The description of the network interface.
-dniarDescription :: Lens' DescribeNetworkInterfaceAttributeResult (Maybe AttributeValue)
+dniarDescription :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeValue)
 dniarDescription = lens _dniarDescription (\s a -> s { _dniarDescription = a })
 
 -- | The security groups associated with the network interface.
-dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResult [GroupIdentifier]
+dniarGroups :: Lens' DescribeNetworkInterfaceAttributeResponse [GroupIdentifier]
 dniarGroups = lens _dniarGroups (\s a -> s { _dniarGroups = a })
 
 -- | The ID of the network interface.
-dniarNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResult (Maybe Text)
+dniarNetworkInterfaceId :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe Text)
 dniarNetworkInterfaceId =
     lens _dniarNetworkInterfaceId (\s a -> s { _dniarNetworkInterfaceId = a })
 
 -- | Indicates whether source/destination checking is enabled.
-dniarSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResult (Maybe AttributeBooleanValue)
+dniarSourceDestCheck :: Lens' DescribeNetworkInterfaceAttributeResponse (Maybe AttributeBooleanValue)
 dniarSourceDestCheck =
     lens _dniarSourceDestCheck (\s a -> s { _dniarSourceDestCheck = a })
 
-instance FromXML DescribeNetworkInterfaceAttributeResult where
+instance FromXML DescribeNetworkInterfaceAttributeResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeNetworkInterfaceAttributeResult"
+    fromXMLRoot    = fromRoot "DescribeNetworkInterfaceAttributeResponse"
 
 instance AWSRequest DescribeNetworkInterfaceAttribute where
     type Sv DescribeNetworkInterfaceAttribute = EC2
-    type Rs DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttributeResult
+    type Rs DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttributeResponse
 
     request  = post "DescribeNetworkInterfaceAttribute"
-    response = xmlResponse $ \h x -> DescribeNetworkInterfaceAttributeResult
+    response = xmlResponse $ \h x -> DescribeNetworkInterfaceAttributeResponse
         <$> x %| "attachment"
         <*> x %| "description"
         <*> x %| "groupSet"

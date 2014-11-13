@@ -53,16 +53,16 @@ module Network.AWS.EC2.AttachVolume
     , avVolumeId
 
     -- * Response
-    , VolumeAttachment
+    , AttachVolumeResponse
     -- ** Response constructor
-    , volumeAttachment
+    , attachVolumeResponse
     -- ** Response lenses
-    , vaAttachTime
-    , vaDeleteOnTermination
-    , vaDevice
-    , vaInstanceId
-    , vaState
-    , vaVolumeId
+    , avrAttachTime
+    , avrDeleteOnTermination
+    , avrDevice
+    , avrInstanceId
+    , avrState
+    , avrVolumeId
     ) where
 
 import Network.AWS.Prelude
@@ -121,9 +121,81 @@ instance ToQuery AttachVolume
 instance ToPath AttachVolume where
     toPath = const "/"
 
+data AttachVolumeResponse = AttachVolumeResponse
+    { _avrAttachTime          :: Maybe RFC822
+    , _avrDeleteOnTermination :: Maybe Bool
+    , _avrDevice              :: Maybe Text
+    , _avrInstanceId          :: Maybe Text
+    , _avrState               :: Maybe Text
+    , _avrVolumeId            :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'AttachVolumeResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'avrAttachTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'avrDeleteOnTermination' @::@ 'Maybe' 'Bool'
+--
+-- * 'avrDevice' @::@ 'Maybe' 'Text'
+--
+-- * 'avrInstanceId' @::@ 'Maybe' 'Text'
+--
+-- * 'avrState' @::@ 'Maybe' 'Text'
+--
+-- * 'avrVolumeId' @::@ 'Maybe' 'Text'
+--
+attachVolumeResponse :: AttachVolumeResponse
+attachVolumeResponse = AttachVolumeResponse
+    { _avrVolumeId            = Nothing
+    , _avrInstanceId          = Nothing
+    , _avrDevice              = Nothing
+    , _avrState               = Nothing
+    , _avrAttachTime          = Nothing
+    , _avrDeleteOnTermination = Nothing
+    }
+
+-- | The time stamp when the attachment initiated.
+avrAttachTime :: Lens' AttachVolumeResponse (Maybe UTCTime)
+avrAttachTime = lens _avrAttachTime (\s a -> s { _avrAttachTime = a })
+    . mapping _Time
+
+-- | Indicates whether the Amazon EBS volume is deleted on instance
+-- termination.
+avrDeleteOnTermination :: Lens' AttachVolumeResponse (Maybe Bool)
+avrDeleteOnTermination =
+    lens _avrDeleteOnTermination (\s a -> s { _avrDeleteOnTermination = a })
+
+-- | The device name.
+avrDevice :: Lens' AttachVolumeResponse (Maybe Text)
+avrDevice = lens _avrDevice (\s a -> s { _avrDevice = a })
+
+-- | The ID of the instance.
+avrInstanceId :: Lens' AttachVolumeResponse (Maybe Text)
+avrInstanceId = lens _avrInstanceId (\s a -> s { _avrInstanceId = a })
+
+-- | The attachment state of the volume.
+avrState :: Lens' AttachVolumeResponse (Maybe Text)
+avrState = lens _avrState (\s a -> s { _avrState = a })
+
+-- | The ID of the volume.
+avrVolumeId :: Lens' AttachVolumeResponse (Maybe Text)
+avrVolumeId = lens _avrVolumeId (\s a -> s { _avrVolumeId = a })
+
+instance FromXML AttachVolumeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "AttachVolumeResponse"
+
 instance AWSRequest AttachVolume where
     type Sv AttachVolume = EC2
-    type Rs AttachVolume = VolumeAttachment
+    type Rs AttachVolume = AttachVolumeResponse
 
     request  = post "AttachVolume"
-    response = xmlResponse $ const decodeCursor
+    response = xmlResponse $ \h x -> AttachVolumeResponse
+        <$> x %| "attachTime"
+        <*> x %| "deleteOnTermination"
+        <*> x %| "device"
+        <*> x %| "instanceId"
+        <*> x %| "status"
+        <*> x %| "volumeId"

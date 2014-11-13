@@ -26,11 +26,11 @@
 module Network.AWS.AutoScaling.CreateOrUpdateTags
     (
     -- * Request
-      CreateOrUpdateTagsType
+      CreateOrUpdateTags
     -- ** Request constructor
     , createOrUpdateTags
     -- ** Request lenses
-    , couttTags
+    , coutTags
 
     -- * Response
     , CreateOrUpdateTagsResponse
@@ -42,25 +42,25 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-newtype CreateOrUpdateTagsType = CreateOrUpdateTagsType
-    { _couttTags :: [Tag]
+newtype CreateOrUpdateTags = CreateOrUpdateTags
+    { _coutTags :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CreateOrUpdateTagsType where
-    type Item CreateOrUpdateTagsType = Tag
+instance IsList CreateOrUpdateTags where
+    type Item CreateOrUpdateTags = Tag
 
-    fromList = CreateOrUpdateTagsType . fromList
-    toList   = toList . _couttTags
+    fromList = CreateOrUpdateTags . fromList
+    toList   = toList . _coutTags
 
--- | 'CreateOrUpdateTagsType' constructor.
+-- | 'CreateOrUpdateTags' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'couttTags' @::@ ['Tag']
+-- * 'coutTags' @::@ ['Tag']
 --
-createOrUpdateTags :: CreateOrUpdateTagsType
-createOrUpdateTags = CreateOrUpdateTagsType
-    { _couttTags = mempty
+createOrUpdateTags :: CreateOrUpdateTags
+createOrUpdateTags = CreateOrUpdateTags
+    { _coutTags = mempty
     }
 
 -- | The tag to be created or updated. Each tag should be defined by its
@@ -77,12 +77,12 @@ createOrUpdateTags = CreateOrUpdateTagsType
 -- version of the tag will continue to have the older tag. When you create a
 -- tag and a tag of the same name already exists, the operation overwrites
 -- the previous tag definition, but you will not get an error message.
-couttTags :: Lens' CreateOrUpdateTagsType [Tag]
-couttTags = lens _couttTags (\s a -> s { _couttTags = a })
+coutTags :: Lens' CreateOrUpdateTags [Tag]
+coutTags = lens _coutTags (\s a -> s { _coutTags = a })
 
-instance ToQuery CreateOrUpdateTagsType
+instance ToQuery CreateOrUpdateTags
 
-instance ToPath CreateOrUpdateTagsType where
+instance ToPath CreateOrUpdateTags where
     toPath = const "/"
 
 data CreateOrUpdateTagsResponse = CreateOrUpdateTagsResponse
@@ -96,9 +96,9 @@ instance FromXML CreateOrUpdateTagsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateOrUpdateTagsResponse"
 
-instance AWSRequest CreateOrUpdateTagsType where
-    type Sv CreateOrUpdateTagsType = AutoScaling
-    type Rs CreateOrUpdateTagsType = CreateOrUpdateTagsResponse
+instance AWSRequest CreateOrUpdateTags where
+    type Sv CreateOrUpdateTags = AutoScaling
+    type Rs CreateOrUpdateTags = CreateOrUpdateTagsResponse
 
     request  = post "CreateOrUpdateTags"
     response = nullaryResponse CreateOrUpdateTagsResponse

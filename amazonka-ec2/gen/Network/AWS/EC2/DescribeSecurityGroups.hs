@@ -32,13 +32,13 @@ module Network.AWS.EC2.DescribeSecurityGroups
     -- ** Request constructor
     , describeSecurityGroups
     -- ** Request lenses
-    , dsgDryRun
-    , dsgFilters
-    , dsgGroupIds
-    , dsgGroupNames
+    , dsg1DryRun
+    , dsg1Filters
+    , dsg1GroupIds
+    , dsg1GroupNames
 
     -- * Response
-    , DescribeSecurityGroupsResult
+    , DescribeSecurityGroupsResponse
     -- ** Response constructor
     , describeSecurityGroupsResponse
     -- ** Response lenses
@@ -50,34 +50,34 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DescribeSecurityGroups = DescribeSecurityGroups
-    { _dsgDryRun     :: Maybe Bool
-    , _dsgFilters    :: [Filter]
-    , _dsgGroupIds   :: [Text]
-    , _dsgGroupNames :: [Text]
+    { _dsg1DryRun     :: Maybe Bool
+    , _dsg1Filters    :: [Filter]
+    , _dsg1GroupIds   :: [Text]
+    , _dsg1GroupNames :: [Text]
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeSecurityGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsgDryRun' @::@ 'Maybe' 'Bool'
+-- * 'dsg1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dsgFilters' @::@ ['Filter']
+-- * 'dsg1Filters' @::@ ['Filter']
 --
--- * 'dsgGroupIds' @::@ ['Text']
+-- * 'dsg1GroupIds' @::@ ['Text']
 --
--- * 'dsgGroupNames' @::@ ['Text']
+-- * 'dsg1GroupNames' @::@ ['Text']
 --
 describeSecurityGroups :: DescribeSecurityGroups
 describeSecurityGroups = DescribeSecurityGroups
-    { _dsgDryRun     = Nothing
-    , _dsgGroupNames = mempty
-    , _dsgGroupIds   = mempty
-    , _dsgFilters    = mempty
+    { _dsg1DryRun     = Nothing
+    , _dsg1GroupNames = mempty
+    , _dsg1GroupIds   = mempty
+    , _dsg1Filters    = mempty
     }
 
-dsgDryRun :: Lens' DescribeSecurityGroups (Maybe Bool)
-dsgDryRun = lens _dsgDryRun (\s a -> s { _dsgDryRun = a })
+dsg1DryRun :: Lens' DescribeSecurityGroups (Maybe Bool)
+dsg1DryRun = lens _dsg1DryRun (\s a -> s { _dsg1DryRun = a })
 
 -- | One or more filters. description - The description of the security group.
 -- group-id - The ID of the security group. group-name - The name of the
@@ -94,59 +94,59 @@ dsgDryRun = lens _dsgDryRun (\s a -> s { _dsgDryRun = a })
 -- group. tag-key - The key of a tag assigned to the security group.
 -- tag-value - The value of a tag assigned to the security group. vpc-id -
 -- The ID of the VPC specified when the security group was created.
-dsgFilters :: Lens' DescribeSecurityGroups [Filter]
-dsgFilters = lens _dsgFilters (\s a -> s { _dsgFilters = a })
+dsg1Filters :: Lens' DescribeSecurityGroups [Filter]
+dsg1Filters = lens _dsg1Filters (\s a -> s { _dsg1Filters = a })
 
 -- | One or more security group IDs. Required for nondefault VPCs. Default:
 -- Describes all your security groups.
-dsgGroupIds :: Lens' DescribeSecurityGroups [Text]
-dsgGroupIds = lens _dsgGroupIds (\s a -> s { _dsgGroupIds = a })
+dsg1GroupIds :: Lens' DescribeSecurityGroups [Text]
+dsg1GroupIds = lens _dsg1GroupIds (\s a -> s { _dsg1GroupIds = a })
 
 -- | [EC2-Classic, default VPC] One or more security group names. You can
 -- specify either the security group name or the security group ID. Default:
 -- Describes all your security groups.
-dsgGroupNames :: Lens' DescribeSecurityGroups [Text]
-dsgGroupNames = lens _dsgGroupNames (\s a -> s { _dsgGroupNames = a })
+dsg1GroupNames :: Lens' DescribeSecurityGroups [Text]
+dsg1GroupNames = lens _dsg1GroupNames (\s a -> s { _dsg1GroupNames = a })
 
 instance ToQuery DescribeSecurityGroups
 
 instance ToPath DescribeSecurityGroups where
     toPath = const "/"
 
-newtype DescribeSecurityGroupsResult = DescribeSecurityGroupsResult
+newtype DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { _dsgrSecurityGroups :: [SecurityGroup]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeSecurityGroupsResult where
-    type Item DescribeSecurityGroupsResult = SecurityGroup
+instance IsList DescribeSecurityGroupsResponse where
+    type Item DescribeSecurityGroupsResponse = SecurityGroup
 
-    fromList = DescribeSecurityGroupsResult . fromList
+    fromList = DescribeSecurityGroupsResponse . fromList
     toList   = toList . _dsgrSecurityGroups
 
--- | 'DescribeSecurityGroupsResult' constructor.
+-- | 'DescribeSecurityGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsgrSecurityGroups' @::@ ['SecurityGroup']
 --
-describeSecurityGroupsResponse :: DescribeSecurityGroupsResult
-describeSecurityGroupsResponse = DescribeSecurityGroupsResult
+describeSecurityGroupsResponse :: DescribeSecurityGroupsResponse
+describeSecurityGroupsResponse = DescribeSecurityGroupsResponse
     { _dsgrSecurityGroups = mempty
     }
 
 -- | Information about one or more security groups.
-dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResult [SecurityGroup]
+dsgrSecurityGroups :: Lens' DescribeSecurityGroupsResponse [SecurityGroup]
 dsgrSecurityGroups =
     lens _dsgrSecurityGroups (\s a -> s { _dsgrSecurityGroups = a })
 
-instance FromXML DescribeSecurityGroupsResult where
+instance FromXML DescribeSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSecurityGroupsResult"
+    fromXMLRoot    = fromRoot "DescribeSecurityGroupsResponse"
 
 instance AWSRequest DescribeSecurityGroups where
     type Sv DescribeSecurityGroups = EC2
-    type Rs DescribeSecurityGroups = DescribeSecurityGroupsResult
+    type Rs DescribeSecurityGroups = DescribeSecurityGroupsResponse
 
     request  = post "DescribeSecurityGroups"
-    response = xmlResponse $ \h x -> DescribeSecurityGroupsResult
+    response = xmlResponse $ \h x -> DescribeSecurityGroupsResponse
         <$> x %| "securityGroupInfo"

@@ -29,12 +29,12 @@ module Network.AWS.EC2.DescribeVpcAttribute
     -- ** Request constructor
     , describeVpcAttribute
     -- ** Request lenses
-    , dvaAttribute
-    , dvaDryRun
-    , dvaVpcId
+    , dva1Attribute
+    , dva1DryRun
+    , dva1VpcId
 
     -- * Response
-    , DescribeVpcAttributeResult
+    , DescribeVpcAttributeResponse
     -- ** Response constructor
     , describeVpcAttributeResponse
     -- ** Response lenses
@@ -48,52 +48,52 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DescribeVpcAttribute = DescribeVpcAttribute
-    { _dvaAttribute :: Maybe Text
-    , _dvaDryRun    :: Maybe Bool
-    , _dvaVpcId     :: Text
+    { _dva1Attribute :: Maybe Text
+    , _dva1DryRun    :: Maybe Bool
+    , _dva1VpcId     :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeVpcAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvaAttribute' @::@ 'Maybe' 'Text'
+-- * 'dva1Attribute' @::@ 'Maybe' 'Text'
 --
--- * 'dvaDryRun' @::@ 'Maybe' 'Bool'
+-- * 'dva1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dvaVpcId' @::@ 'Text'
+-- * 'dva1VpcId' @::@ 'Text'
 --
-describeVpcAttribute :: Text -- ^ 'dvaVpcId'
+describeVpcAttribute :: Text -- ^ 'dva1VpcId'
                      -> DescribeVpcAttribute
 describeVpcAttribute p1 = DescribeVpcAttribute
-    { _dvaVpcId     = p1
-    , _dvaDryRun    = Nothing
-    , _dvaAttribute = Nothing
+    { _dva1VpcId     = p1
+    , _dva1DryRun    = Nothing
+    , _dva1Attribute = Nothing
     }
 
 -- | The VPC attribute.
-dvaAttribute :: Lens' DescribeVpcAttribute (Maybe Text)
-dvaAttribute = lens _dvaAttribute (\s a -> s { _dvaAttribute = a })
+dva1Attribute :: Lens' DescribeVpcAttribute (Maybe Text)
+dva1Attribute = lens _dva1Attribute (\s a -> s { _dva1Attribute = a })
 
-dvaDryRun :: Lens' DescribeVpcAttribute (Maybe Bool)
-dvaDryRun = lens _dvaDryRun (\s a -> s { _dvaDryRun = a })
+dva1DryRun :: Lens' DescribeVpcAttribute (Maybe Bool)
+dva1DryRun = lens _dva1DryRun (\s a -> s { _dva1DryRun = a })
 
 -- | The ID of the VPC.
-dvaVpcId :: Lens' DescribeVpcAttribute Text
-dvaVpcId = lens _dvaVpcId (\s a -> s { _dvaVpcId = a })
+dva1VpcId :: Lens' DescribeVpcAttribute Text
+dva1VpcId = lens _dva1VpcId (\s a -> s { _dva1VpcId = a })
 
 instance ToQuery DescribeVpcAttribute
 
 instance ToPath DescribeVpcAttribute where
     toPath = const "/"
 
-data DescribeVpcAttributeResult = DescribeVpcAttributeResult
+data DescribeVpcAttributeResponse = DescribeVpcAttributeResponse
     { _dvarEnableDnsHostnames :: Maybe AttributeBooleanValue
     , _dvarEnableDnsSupport   :: Maybe AttributeBooleanValue
     , _dvarVpcId              :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeVpcAttributeResult' constructor.
+-- | 'DescribeVpcAttributeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -103,8 +103,8 @@ data DescribeVpcAttributeResult = DescribeVpcAttributeResult
 --
 -- * 'dvarVpcId' @::@ 'Maybe' 'Text'
 --
-describeVpcAttributeResponse :: DescribeVpcAttributeResult
-describeVpcAttributeResponse = DescribeVpcAttributeResult
+describeVpcAttributeResponse :: DescribeVpcAttributeResponse
+describeVpcAttributeResponse = DescribeVpcAttributeResponse
     { _dvarVpcId              = Nothing
     , _dvarEnableDnsSupport   = Nothing
     , _dvarEnableDnsHostnames = Nothing
@@ -113,31 +113,31 @@ describeVpcAttributeResponse = DescribeVpcAttributeResult
 -- | Indicates whether the instances launched in the VPC get DNS hostnames. If
 -- this attribute is true, instances in the VPC get DNS hostnames;
 -- otherwise, they do not.
-dvarEnableDnsHostnames :: Lens' DescribeVpcAttributeResult (Maybe AttributeBooleanValue)
+dvarEnableDnsHostnames :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
 dvarEnableDnsHostnames =
     lens _dvarEnableDnsHostnames (\s a -> s { _dvarEnableDnsHostnames = a })
 
 -- | Indicates whether DNS resolution is enabled for the VPC. If this
 -- attribute is true, the Amazon DNS server resolves DNS hostnames for your
 -- instances to their corresponding IP addresses; otherwise, it does not.
-dvarEnableDnsSupport :: Lens' DescribeVpcAttributeResult (Maybe AttributeBooleanValue)
+dvarEnableDnsSupport :: Lens' DescribeVpcAttributeResponse (Maybe AttributeBooleanValue)
 dvarEnableDnsSupport =
     lens _dvarEnableDnsSupport (\s a -> s { _dvarEnableDnsSupport = a })
 
 -- | The ID of the VPC.
-dvarVpcId :: Lens' DescribeVpcAttributeResult (Maybe Text)
+dvarVpcId :: Lens' DescribeVpcAttributeResponse (Maybe Text)
 dvarVpcId = lens _dvarVpcId (\s a -> s { _dvarVpcId = a })
 
-instance FromXML DescribeVpcAttributeResult where
+instance FromXML DescribeVpcAttributeResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVpcAttributeResult"
+    fromXMLRoot    = fromRoot "DescribeVpcAttributeResponse"
 
 instance AWSRequest DescribeVpcAttribute where
     type Sv DescribeVpcAttribute = EC2
-    type Rs DescribeVpcAttribute = DescribeVpcAttributeResult
+    type Rs DescribeVpcAttribute = DescribeVpcAttributeResponse
 
     request  = post "DescribeVpcAttribute"
-    response = xmlResponse $ \h x -> DescribeVpcAttributeResult
+    response = xmlResponse $ \h x -> DescribeVpcAttributeResponse
         <$> x %| "enableDnsHostnames"
         <*> x %| "enableDnsSupport"
         <*> x %| "vpcId"

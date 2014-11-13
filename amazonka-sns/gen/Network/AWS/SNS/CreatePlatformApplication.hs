@@ -37,13 +37,13 @@
 module Network.AWS.SNS.CreatePlatformApplication
     (
     -- * Request
-      CreatePlatformApplicationInput
+      CreatePlatformApplication
     -- ** Request constructor
     , createPlatformApplication
     -- ** Request lenses
-    , cpaiAttributes
-    , cpaiName
-    , cpaiPlatform
+    , cpaAttributes
+    , cpaName
+    , cpaPlatform
 
     -- * Response
     , CreatePlatformApplicationResponse
@@ -57,51 +57,51 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-data CreatePlatformApplicationInput = CreatePlatformApplicationInput
-    { _cpaiAttributes :: Map Text Text
-    , _cpaiName       :: Text
-    , _cpaiPlatform   :: Text
+data CreatePlatformApplication = CreatePlatformApplication
+    { _cpaAttributes :: Map Text Text
+    , _cpaName       :: Text
+    , _cpaPlatform   :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'CreatePlatformApplicationInput' constructor.
+-- | 'CreatePlatformApplication' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpaiAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'cpaAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
--- * 'cpaiName' @::@ 'Text'
+-- * 'cpaName' @::@ 'Text'
 --
--- * 'cpaiPlatform' @::@ 'Text'
+-- * 'cpaPlatform' @::@ 'Text'
 --
-createPlatformApplication :: Text -- ^ 'cpaiName'
-                          -> Text -- ^ 'cpaiPlatform'
-                          -> CreatePlatformApplicationInput
-createPlatformApplication p1 p2 = CreatePlatformApplicationInput
-    { _cpaiName       = p1
-    , _cpaiPlatform   = p2
-    , _cpaiAttributes = mempty
+createPlatformApplication :: Text -- ^ 'cpaName'
+                          -> Text -- ^ 'cpaPlatform'
+                          -> CreatePlatformApplication
+createPlatformApplication p1 p2 = CreatePlatformApplication
+    { _cpaName       = p1
+    , _cpaPlatform   = p2
+    , _cpaAttributes = mempty
     }
 
 -- | For a list of attributes, see SetPlatformApplicationAttributes.
-cpaiAttributes :: Lens' CreatePlatformApplicationInput (HashMap Text Text)
-cpaiAttributes = lens _cpaiAttributes (\s a -> s { _cpaiAttributes = a })
+cpaAttributes :: Lens' CreatePlatformApplication (HashMap Text Text)
+cpaAttributes = lens _cpaAttributes (\s a -> s { _cpaAttributes = a })
     . _Map
 
 -- | Application names must be made up of only uppercase and lowercase ASCII
 -- letters, numbers, underscores, hyphens, and periods, and must be between
 -- 1 and 256 characters long.
-cpaiName :: Lens' CreatePlatformApplicationInput Text
-cpaiName = lens _cpaiName (\s a -> s { _cpaiName = a })
+cpaName :: Lens' CreatePlatformApplication Text
+cpaName = lens _cpaName (\s a -> s { _cpaName = a })
 
 -- | The following platforms are supported: ADM (Amazon Device Messaging),
 -- APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google
 -- Cloud Messaging).
-cpaiPlatform :: Lens' CreatePlatformApplicationInput Text
-cpaiPlatform = lens _cpaiPlatform (\s a -> s { _cpaiPlatform = a })
+cpaPlatform :: Lens' CreatePlatformApplication Text
+cpaPlatform = lens _cpaPlatform (\s a -> s { _cpaPlatform = a })
 
-instance ToQuery CreatePlatformApplicationInput
+instance ToQuery CreatePlatformApplication
 
-instance ToPath CreatePlatformApplicationInput where
+instance ToPath CreatePlatformApplication where
     toPath = const "/"
 
 newtype CreatePlatformApplicationResponse = CreatePlatformApplicationResponse
@@ -129,9 +129,9 @@ instance FromXML CreatePlatformApplicationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreatePlatformApplicationResponse"
 
-instance AWSRequest CreatePlatformApplicationInput where
-    type Sv CreatePlatformApplicationInput = SNS
-    type Rs CreatePlatformApplicationInput = CreatePlatformApplicationResponse
+instance AWSRequest CreatePlatformApplication where
+    type Sv CreatePlatformApplication = SNS
+    type Rs CreatePlatformApplication = CreatePlatformApplicationResponse
 
     request  = post "CreatePlatformApplication"
     response = xmlResponse $ \h x -> CreatePlatformApplicationResponse

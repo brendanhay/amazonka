@@ -25,79 +25,79 @@
 module Network.AWS.ELB.DescribeLoadBalancerAttributes
     (
     -- * Request
-      DescribeLoadBalancerAttributesInput
+      DescribeLoadBalancerAttributes
     -- ** Request constructor
     , describeLoadBalancerAttributes
     -- ** Request lenses
-    , dlbaiLoadBalancerName
+    , dlbaLoadBalancerName
 
     -- * Response
-    , DescribeLoadBalancerAttributesOutput
+    , DescribeLoadBalancerAttributesResponse
     -- ** Response constructor
     , describeLoadBalancerAttributesResponse
     -- ** Response lenses
-    , dlbaoLoadBalancerAttributes
+    , dlbarLoadBalancerAttributes
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-newtype DescribeLoadBalancerAttributesInput = DescribeLoadBalancerAttributesInput
-    { _dlbaiLoadBalancerName :: Text
+newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes
+    { _dlbaLoadBalancerName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DescribeLoadBalancerAttributesInput' constructor.
+-- | 'DescribeLoadBalancerAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbaiLoadBalancerName' @::@ 'Text'
+-- * 'dlbaLoadBalancerName' @::@ 'Text'
 --
-describeLoadBalancerAttributes :: Text -- ^ 'dlbaiLoadBalancerName'
-                               -> DescribeLoadBalancerAttributesInput
-describeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributesInput
-    { _dlbaiLoadBalancerName = p1
+describeLoadBalancerAttributes :: Text -- ^ 'dlbaLoadBalancerName'
+                               -> DescribeLoadBalancerAttributes
+describeLoadBalancerAttributes p1 = DescribeLoadBalancerAttributes
+    { _dlbaLoadBalancerName = p1
     }
 
 -- | The name of the load balancer.
-dlbaiLoadBalancerName :: Lens' DescribeLoadBalancerAttributesInput Text
-dlbaiLoadBalancerName =
-    lens _dlbaiLoadBalancerName (\s a -> s { _dlbaiLoadBalancerName = a })
+dlbaLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
+dlbaLoadBalancerName =
+    lens _dlbaLoadBalancerName (\s a -> s { _dlbaLoadBalancerName = a })
 
-instance ToQuery DescribeLoadBalancerAttributesInput
+instance ToQuery DescribeLoadBalancerAttributes
 
-instance ToPath DescribeLoadBalancerAttributesInput where
+instance ToPath DescribeLoadBalancerAttributes where
     toPath = const "/"
 
-newtype DescribeLoadBalancerAttributesOutput = DescribeLoadBalancerAttributesOutput
-    { _dlbaoLoadBalancerAttributes :: Maybe LoadBalancerAttributes
+newtype DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
+    { _dlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeLoadBalancerAttributesOutput' constructor.
+-- | 'DescribeLoadBalancerAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbaoLoadBalancerAttributes' @::@ 'Maybe' 'LoadBalancerAttributes'
+-- * 'dlbarLoadBalancerAttributes' @::@ 'Maybe' 'LoadBalancerAttributes'
 --
-describeLoadBalancerAttributesResponse :: DescribeLoadBalancerAttributesOutput
-describeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesOutput
-    { _dlbaoLoadBalancerAttributes = Nothing
+describeLoadBalancerAttributesResponse :: DescribeLoadBalancerAttributesResponse
+describeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse
+    { _dlbarLoadBalancerAttributes = Nothing
     }
 
 -- | The load balancer attributes structure.
-dlbaoLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesOutput (Maybe LoadBalancerAttributes)
-dlbaoLoadBalancerAttributes =
-    lens _dlbaoLoadBalancerAttributes
-        (\s a -> s { _dlbaoLoadBalancerAttributes = a })
+dlbarLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
+dlbarLoadBalancerAttributes =
+    lens _dlbarLoadBalancerAttributes
+        (\s a -> s { _dlbarLoadBalancerAttributes = a })
 
-instance FromXML DescribeLoadBalancerAttributesOutput where
+instance FromXML DescribeLoadBalancerAttributesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLoadBalancerAttributesOutput"
+    fromXMLRoot    = fromRoot "DescribeLoadBalancerAttributesResponse"
 
-instance AWSRequest DescribeLoadBalancerAttributesInput where
-    type Sv DescribeLoadBalancerAttributesInput = ELB
-    type Rs DescribeLoadBalancerAttributesInput = DescribeLoadBalancerAttributesOutput
+instance AWSRequest DescribeLoadBalancerAttributes where
+    type Sv DescribeLoadBalancerAttributes = ELB
+    type Rs DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributesResponse
 
     request  = post "DescribeLoadBalancerAttributes"
-    response = xmlResponse $ \h x -> DescribeLoadBalancerAttributesOutput
+    response = xmlResponse $ \h x -> DescribeLoadBalancerAttributesResponse
         <$> x %| "LoadBalancerAttributes"

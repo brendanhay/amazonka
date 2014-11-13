@@ -38,7 +38,7 @@ module Network.AWS.SQS.GetQueueUrl
     , gquQueueOwnerAWSAccountId
 
     -- * Response
-    , GetQueueUrlResult
+    , GetQueueUrlResponse
     -- ** Response constructor
     , getQueueUrlResponse
     -- ** Response lenses
@@ -85,33 +85,33 @@ instance ToQuery GetQueueUrl
 instance ToPath GetQueueUrl where
     toPath = const "/"
 
-newtype GetQueueUrlResult = GetQueueUrlResult
+newtype GetQueueUrlResponse = GetQueueUrlResponse
     { _gqurQueueUrl :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'GetQueueUrlResult' constructor.
+-- | 'GetQueueUrlResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'gqurQueueUrl' @::@ 'Maybe' 'Text'
 --
-getQueueUrlResponse :: GetQueueUrlResult
-getQueueUrlResponse = GetQueueUrlResult
+getQueueUrlResponse :: GetQueueUrlResponse
+getQueueUrlResponse = GetQueueUrlResponse
     { _gqurQueueUrl = Nothing
     }
 
 -- | The URL for the queue.
-gqurQueueUrl :: Lens' GetQueueUrlResult (Maybe Text)
+gqurQueueUrl :: Lens' GetQueueUrlResponse (Maybe Text)
 gqurQueueUrl = lens _gqurQueueUrl (\s a -> s { _gqurQueueUrl = a })
 
-instance FromXML GetQueueUrlResult where
+instance FromXML GetQueueUrlResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetQueueUrlResult"
+    fromXMLRoot    = fromRoot "GetQueueUrlResponse"
 
 instance AWSRequest GetQueueUrl where
     type Sv GetQueueUrl = SQS
-    type Rs GetQueueUrl = GetQueueUrlResult
+    type Rs GetQueueUrl = GetQueueUrlResponse
 
     request  = post "GetQueueUrl"
-    response = xmlResponse $ \h x -> GetQueueUrlResult
+    response = xmlResponse $ \h x -> GetQueueUrlResponse
         <$> x %| "QueueUrl"

@@ -27,109 +27,109 @@
 module Network.AWS.AutoScaling.DetachInstances
     (
     -- * Request
-      DetachInstancesQuery
+      DetachInstances
     -- ** Request constructor
     , detachInstances
     -- ** Request lenses
-    , diqAutoScalingGroupName
-    , diqInstanceIds
-    , diqShouldDecrementDesiredCapacity
+    , diAutoScalingGroupName
+    , diInstanceIds
+    , diShouldDecrementDesiredCapacity
 
     -- * Response
-    , DetachInstancesAnswer
+    , DetachInstancesResponse
     -- ** Response constructor
     , detachInstancesResponse
     -- ** Response lenses
-    , diaActivities
+    , dirActivities
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data DetachInstancesQuery = DetachInstancesQuery
-    { _diqAutoScalingGroupName           :: Text
-    , _diqInstanceIds                    :: [Text]
-    , _diqShouldDecrementDesiredCapacity :: Bool
+data DetachInstances = DetachInstances
+    { _diAutoScalingGroupName           :: Text
+    , _diInstanceIds                    :: [Text]
+    , _diShouldDecrementDesiredCapacity :: Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DetachInstancesQuery' constructor.
+-- | 'DetachInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diqAutoScalingGroupName' @::@ 'Text'
+-- * 'diAutoScalingGroupName' @::@ 'Text'
 --
--- * 'diqInstanceIds' @::@ ['Text']
+-- * 'diInstanceIds' @::@ ['Text']
 --
--- * 'diqShouldDecrementDesiredCapacity' @::@ 'Bool'
+-- * 'diShouldDecrementDesiredCapacity' @::@ 'Bool'
 --
-detachInstances :: Text -- ^ 'diqAutoScalingGroupName'
-                -> Bool -- ^ 'diqShouldDecrementDesiredCapacity'
-                -> DetachInstancesQuery
-detachInstances p1 p2 = DetachInstancesQuery
-    { _diqAutoScalingGroupName           = p1
-    , _diqShouldDecrementDesiredCapacity = p2
-    , _diqInstanceIds                    = mempty
+detachInstances :: Text -- ^ 'diAutoScalingGroupName'
+                -> Bool -- ^ 'diShouldDecrementDesiredCapacity'
+                -> DetachInstances
+detachInstances p1 p2 = DetachInstances
+    { _diAutoScalingGroupName           = p1
+    , _diShouldDecrementDesiredCapacity = p2
+    , _diInstanceIds                    = mempty
     }
 
 -- | The name of the Auto Scaling group from which to detach instances.
-diqAutoScalingGroupName :: Lens' DetachInstancesQuery Text
-diqAutoScalingGroupName =
-    lens _diqAutoScalingGroupName (\s a -> s { _diqAutoScalingGroupName = a })
+diAutoScalingGroupName :: Lens' DetachInstances Text
+diAutoScalingGroupName =
+    lens _diAutoScalingGroupName (\s a -> s { _diAutoScalingGroupName = a })
 
 -- | A list of instances to detach from the Auto Scaling group. You must
 -- specify at least one instance ID.
-diqInstanceIds :: Lens' DetachInstancesQuery [Text]
-diqInstanceIds = lens _diqInstanceIds (\s a -> s { _diqInstanceIds = a })
+diInstanceIds :: Lens' DetachInstances [Text]
+diInstanceIds = lens _diInstanceIds (\s a -> s { _diInstanceIds = a })
 
 -- | Specifies if the detached instance should decrement the desired capacity
 -- value for the Auto Scaling group. If set to True, the Auto Scaling group
 -- decrements the desired capacity value by the number of instances
 -- detached.
-diqShouldDecrementDesiredCapacity :: Lens' DetachInstancesQuery Bool
-diqShouldDecrementDesiredCapacity =
-    lens _diqShouldDecrementDesiredCapacity
-        (\s a -> s { _diqShouldDecrementDesiredCapacity = a })
+diShouldDecrementDesiredCapacity :: Lens' DetachInstances Bool
+diShouldDecrementDesiredCapacity =
+    lens _diShouldDecrementDesiredCapacity
+        (\s a -> s { _diShouldDecrementDesiredCapacity = a })
 
-instance ToQuery DetachInstancesQuery
+instance ToQuery DetachInstances
 
-instance ToPath DetachInstancesQuery where
+instance ToPath DetachInstances where
     toPath = const "/"
 
-newtype DetachInstancesAnswer = DetachInstancesAnswer
-    { _diaActivities :: [Activity]
+newtype DetachInstancesResponse = DetachInstancesResponse
+    { _dirActivities :: [Activity]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DetachInstancesAnswer where
-    type Item DetachInstancesAnswer = Activity
+instance IsList DetachInstancesResponse where
+    type Item DetachInstancesResponse = Activity
 
-    fromList = DetachInstancesAnswer . fromList
-    toList   = toList . _diaActivities
+    fromList = DetachInstancesResponse . fromList
+    toList   = toList . _dirActivities
 
--- | 'DetachInstancesAnswer' constructor.
+-- | 'DetachInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diaActivities' @::@ ['Activity']
+-- * 'dirActivities' @::@ ['Activity']
 --
-detachInstancesResponse :: DetachInstancesAnswer
-detachInstancesResponse = DetachInstancesAnswer
-    { _diaActivities = mempty
+detachInstancesResponse :: DetachInstancesResponse
+detachInstancesResponse = DetachInstancesResponse
+    { _dirActivities = mempty
     }
 
 -- | A list describing the activities related to detaching the instances from
 -- the Auto Scaling group.
-diaActivities :: Lens' DetachInstancesAnswer [Activity]
-diaActivities = lens _diaActivities (\s a -> s { _diaActivities = a })
+dirActivities :: Lens' DetachInstancesResponse [Activity]
+dirActivities = lens _dirActivities (\s a -> s { _dirActivities = a })
 
-instance FromXML DetachInstancesAnswer where
+instance FromXML DetachInstancesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DetachInstancesAnswer"
+    fromXMLRoot    = fromRoot "DetachInstancesResponse"
 
-instance AWSRequest DetachInstancesQuery where
-    type Sv DetachInstancesQuery = AutoScaling
-    type Rs DetachInstancesQuery = DetachInstancesAnswer
+instance AWSRequest DetachInstances where
+    type Sv DetachInstances = AutoScaling
+    type Rs DetachInstances = DetachInstancesResponse
 
     request  = post "DetachInstances"
-    response = xmlResponse $ \h x -> DetachInstancesAnswer
+    response = xmlResponse $ \h x -> DetachInstancesResponse
         <$> x %| "Activities"

@@ -30,93 +30,93 @@
 module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     (
     -- * Request
-      DeregisterEndPointsInput
+      DeregisterInstancesFromLoadBalancer
     -- ** Request constructor
     , deregisterInstancesFromLoadBalancer
     -- ** Request lenses
-    , depiInstances
-    , depiLoadBalancerName
+    , diflbInstances
+    , diflbLoadBalancerName
 
     -- * Response
-    , DeregisterEndPointsOutput
+    , DeregisterInstancesFromLoadBalancerResponse
     -- ** Response constructor
     , deregisterInstancesFromLoadBalancerResponse
     -- ** Response lenses
-    , depoInstances
+    , diflbrInstances
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data DeregisterEndPointsInput = DeregisterEndPointsInput
-    { _depiInstances        :: [Instance]
-    , _depiLoadBalancerName :: Text
+data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer
+    { _diflbInstances        :: [Instance]
+    , _diflbLoadBalancerName :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'DeregisterEndPointsInput' constructor.
+-- | 'DeregisterInstancesFromLoadBalancer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'depiInstances' @::@ ['Instance']
+-- * 'diflbInstances' @::@ ['Instance']
 --
--- * 'depiLoadBalancerName' @::@ 'Text'
+-- * 'diflbLoadBalancerName' @::@ 'Text'
 --
-deregisterInstancesFromLoadBalancer :: Text -- ^ 'depiLoadBalancerName'
-                                    -> DeregisterEndPointsInput
-deregisterInstancesFromLoadBalancer p1 = DeregisterEndPointsInput
-    { _depiLoadBalancerName = p1
-    , _depiInstances        = mempty
+deregisterInstancesFromLoadBalancer :: Text -- ^ 'diflbLoadBalancerName'
+                                    -> DeregisterInstancesFromLoadBalancer
+deregisterInstancesFromLoadBalancer p1 = DeregisterInstancesFromLoadBalancer
+    { _diflbLoadBalancerName = p1
+    , _diflbInstances        = mempty
     }
 
 -- | A list of EC2 instance IDs consisting of all instances to be
 -- deregistered.
-depiInstances :: Lens' DeregisterEndPointsInput [Instance]
-depiInstances = lens _depiInstances (\s a -> s { _depiInstances = a })
+diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
+diflbInstances = lens _diflbInstances (\s a -> s { _diflbInstances = a })
 
 -- | The name associated with the load balancer.
-depiLoadBalancerName :: Lens' DeregisterEndPointsInput Text
-depiLoadBalancerName =
-    lens _depiLoadBalancerName (\s a -> s { _depiLoadBalancerName = a })
+diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
+diflbLoadBalancerName =
+    lens _diflbLoadBalancerName (\s a -> s { _diflbLoadBalancerName = a })
 
-instance ToQuery DeregisterEndPointsInput
+instance ToQuery DeregisterInstancesFromLoadBalancer
 
-instance ToPath DeregisterEndPointsInput where
+instance ToPath DeregisterInstancesFromLoadBalancer where
     toPath = const "/"
 
-newtype DeregisterEndPointsOutput = DeregisterEndPointsOutput
-    { _depoInstances :: [Instance]
+newtype DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
+    { _diflbrInstances :: [Instance]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DeregisterEndPointsOutput where
-    type Item DeregisterEndPointsOutput = Instance
+instance IsList DeregisterInstancesFromLoadBalancerResponse where
+    type Item DeregisterInstancesFromLoadBalancerResponse = Instance
 
-    fromList = DeregisterEndPointsOutput . fromList
-    toList   = toList . _depoInstances
+    fromList = DeregisterInstancesFromLoadBalancerResponse . fromList
+    toList   = toList . _diflbrInstances
 
--- | 'DeregisterEndPointsOutput' constructor.
+-- | 'DeregisterInstancesFromLoadBalancerResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'depoInstances' @::@ ['Instance']
+-- * 'diflbrInstances' @::@ ['Instance']
 --
-deregisterInstancesFromLoadBalancerResponse :: DeregisterEndPointsOutput
-deregisterInstancesFromLoadBalancerResponse = DeregisterEndPointsOutput
-    { _depoInstances = mempty
+deregisterInstancesFromLoadBalancerResponse :: DeregisterInstancesFromLoadBalancerResponse
+deregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse
+    { _diflbrInstances = mempty
     }
 
 -- | An updated list of remaining instances registered with the load balancer.
-depoInstances :: Lens' DeregisterEndPointsOutput [Instance]
-depoInstances = lens _depoInstances (\s a -> s { _depoInstances = a })
+diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
+diflbrInstances = lens _diflbrInstances (\s a -> s { _diflbrInstances = a })
 
-instance FromXML DeregisterEndPointsOutput where
+instance FromXML DeregisterInstancesFromLoadBalancerResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeregisterEndPointsOutput"
+    fromXMLRoot    = fromRoot "DeregisterInstancesFromLoadBalancerResponse"
 
-instance AWSRequest DeregisterEndPointsInput where
-    type Sv DeregisterEndPointsInput = ELB
-    type Rs DeregisterEndPointsInput = DeregisterEndPointsOutput
+instance AWSRequest DeregisterInstancesFromLoadBalancer where
+    type Sv DeregisterInstancesFromLoadBalancer = ELB
+    type Rs DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancerResponse
 
     request  = post "DeregisterInstancesFromLoadBalancer"
-    response = xmlResponse $ \h x -> DeregisterEndPointsOutput
+    response = xmlResponse $ \h x -> DeregisterInstancesFromLoadBalancerResponse
         <$> x %| "Instances"

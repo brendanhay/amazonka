@@ -25,94 +25,93 @@
 module Network.AWS.RDS.ListTagsForResource
     (
     -- * Request
-      ListTagsForResourceMessage
+      ListTagsForResource
     -- ** Request constructor
     , listTagsForResource
     -- ** Request lenses
-    , ltfrmFilters
-    , ltfrmResourceName
+    , ltfrFilters
+    , ltfrResourceName
 
     -- * Response
-    , TagListMessage
+    , ListTagsForResourceResponse
     -- ** Response constructor
     , listTagsForResourceResponse
     -- ** Response lenses
-    , tlmTagList
+    , ltfrrTagList
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data ListTagsForResourceMessage = ListTagsForResourceMessage
-    { _ltfrmFilters      :: [Filter]
-    , _ltfrmResourceName :: Text
+data ListTagsForResource = ListTagsForResource
+    { _ltfrFilters      :: [Filter]
+    , _ltfrResourceName :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'ListTagsForResourceMessage' constructor.
+-- | 'ListTagsForResource' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfrmFilters' @::@ ['Filter']
+-- * 'ltfrFilters' @::@ ['Filter']
 --
--- * 'ltfrmResourceName' @::@ 'Text'
+-- * 'ltfrResourceName' @::@ 'Text'
 --
-listTagsForResource :: Text -- ^ 'ltfrmResourceName'
-                    -> ListTagsForResourceMessage
-listTagsForResource p1 = ListTagsForResourceMessage
-    { _ltfrmResourceName = p1
-    , _ltfrmFilters      = mempty
+listTagsForResource :: Text -- ^ 'ltfrResourceName'
+                    -> ListTagsForResource
+listTagsForResource p1 = ListTagsForResource
+    { _ltfrResourceName = p1
+    , _ltfrFilters      = mempty
     }
 
 -- | This parameter is not currently supported.
-ltfrmFilters :: Lens' ListTagsForResourceMessage [Filter]
-ltfrmFilters = lens _ltfrmFilters (\s a -> s { _ltfrmFilters = a })
+ltfrFilters :: Lens' ListTagsForResource [Filter]
+ltfrFilters = lens _ltfrFilters (\s a -> s { _ltfrFilters = a })
 
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon
 -- Resource Name (ARN). For information about creating an ARN, see
 -- Constructing an RDS Amazon Resource Name (ARN).
-ltfrmResourceName :: Lens' ListTagsForResourceMessage Text
-ltfrmResourceName =
-    lens _ltfrmResourceName (\s a -> s { _ltfrmResourceName = a })
+ltfrResourceName :: Lens' ListTagsForResource Text
+ltfrResourceName = lens _ltfrResourceName (\s a -> s { _ltfrResourceName = a })
 
-instance ToQuery ListTagsForResourceMessage
+instance ToQuery ListTagsForResource
 
-instance ToPath ListTagsForResourceMessage where
+instance ToPath ListTagsForResource where
     toPath = const "/"
 
-newtype TagListMessage = TagListMessage
-    { _tlmTagList :: [Tag]
+newtype ListTagsForResourceResponse = ListTagsForResourceResponse
+    { _ltfrrTagList :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList TagListMessage where
-    type Item TagListMessage = Tag
+instance IsList ListTagsForResourceResponse where
+    type Item ListTagsForResourceResponse = Tag
 
-    fromList = TagListMessage . fromList
-    toList   = toList . _tlmTagList
+    fromList = ListTagsForResourceResponse . fromList
+    toList   = toList . _ltfrrTagList
 
--- | 'TagListMessage' constructor.
+-- | 'ListTagsForResourceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tlmTagList' @::@ ['Tag']
+-- * 'ltfrrTagList' @::@ ['Tag']
 --
-listTagsForResourceResponse :: TagListMessage
-listTagsForResourceResponse = TagListMessage
-    { _tlmTagList = mempty
+listTagsForResourceResponse :: ListTagsForResourceResponse
+listTagsForResourceResponse = ListTagsForResourceResponse
+    { _ltfrrTagList = mempty
     }
 
 -- | List of tags returned by the ListTagsForResource operation.
-tlmTagList :: Lens' TagListMessage [Tag]
-tlmTagList = lens _tlmTagList (\s a -> s { _tlmTagList = a })
+ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
+ltfrrTagList = lens _ltfrrTagList (\s a -> s { _ltfrrTagList = a })
 
-instance FromXML TagListMessage where
+instance FromXML ListTagsForResourceResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TagListMessage"
+    fromXMLRoot    = fromRoot "ListTagsForResourceResponse"
 
-instance AWSRequest ListTagsForResourceMessage where
-    type Sv ListTagsForResourceMessage = RDS
-    type Rs ListTagsForResourceMessage = TagListMessage
+instance AWSRequest ListTagsForResource where
+    type Sv ListTagsForResource = RDS
+    type Rs ListTagsForResource = ListTagsForResourceResponse
 
     request  = post "ListTagsForResource"
-    response = xmlResponse $ \h x -> TagListMessage
+    response = xmlResponse $ \h x -> ListTagsForResourceResponse
         <$> x %| "TagList"

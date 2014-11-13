@@ -24,132 +24,132 @@
 module Network.AWS.RDS.DescribeOptionGroupOptions
     (
     -- * Request
-      DescribeOptionGroupOptionsMessage
+      DescribeOptionGroupOptions
     -- ** Request constructor
     , describeOptionGroupOptions
     -- ** Request lenses
-    , dogomEngineName
-    , dogomFilters
-    , dogomMajorEngineVersion
-    , dogomMarker
-    , dogomMaxRecords
+    , dogoEngineName
+    , dogoFilters
+    , dogoMajorEngineVersion
+    , dogoMarker
+    , dogoMaxRecords
 
     -- * Response
-    , OptionGroupOptionsMessage
+    , DescribeOptionGroupOptionsResponse
     -- ** Response constructor
     , describeOptionGroupOptionsResponse
     -- ** Response lenses
-    , ogomMarker
-    , ogomOptionGroupOptions
+    , dogorMarker
+    , dogorOptionGroupOptions
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data DescribeOptionGroupOptionsMessage = DescribeOptionGroupOptionsMessage
-    { _dogomEngineName         :: Text
-    , _dogomFilters            :: [Filter]
-    , _dogomMajorEngineVersion :: Maybe Text
-    , _dogomMarker             :: Maybe Text
-    , _dogomMaxRecords         :: Maybe Int
+data DescribeOptionGroupOptions = DescribeOptionGroupOptions
+    { _dogoEngineName         :: Text
+    , _dogoFilters            :: [Filter]
+    , _dogoMajorEngineVersion :: Maybe Text
+    , _dogoMarker             :: Maybe Text
+    , _dogoMaxRecords         :: Maybe Int
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeOptionGroupOptionsMessage' constructor.
+-- | 'DescribeOptionGroupOptions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dogomEngineName' @::@ 'Text'
+-- * 'dogoEngineName' @::@ 'Text'
 --
--- * 'dogomFilters' @::@ ['Filter']
+-- * 'dogoFilters' @::@ ['Filter']
 --
--- * 'dogomMajorEngineVersion' @::@ 'Maybe' 'Text'
+-- * 'dogoMajorEngineVersion' @::@ 'Maybe' 'Text'
 --
--- * 'dogomMarker' @::@ 'Maybe' 'Text'
+-- * 'dogoMarker' @::@ 'Maybe' 'Text'
 --
--- * 'dogomMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dogoMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeOptionGroupOptions :: Text -- ^ 'dogomEngineName'
-                           -> DescribeOptionGroupOptionsMessage
-describeOptionGroupOptions p1 = DescribeOptionGroupOptionsMessage
-    { _dogomEngineName         = p1
-    , _dogomMajorEngineVersion = Nothing
-    , _dogomFilters            = mempty
-    , _dogomMaxRecords         = Nothing
-    , _dogomMarker             = Nothing
+describeOptionGroupOptions :: Text -- ^ 'dogoEngineName'
+                           -> DescribeOptionGroupOptions
+describeOptionGroupOptions p1 = DescribeOptionGroupOptions
+    { _dogoEngineName         = p1
+    , _dogoMajorEngineVersion = Nothing
+    , _dogoFilters            = mempty
+    , _dogoMaxRecords         = Nothing
+    , _dogoMarker             = Nothing
     }
 
 -- | A required parameter. Options available for the given Engine name will be
 -- described.
-dogomEngineName :: Lens' DescribeOptionGroupOptionsMessage Text
-dogomEngineName = lens _dogomEngineName (\s a -> s { _dogomEngineName = a })
+dogoEngineName :: Lens' DescribeOptionGroupOptions Text
+dogoEngineName = lens _dogoEngineName (\s a -> s { _dogoEngineName = a })
 
 -- | This parameter is not currently supported.
-dogomFilters :: Lens' DescribeOptionGroupOptionsMessage [Filter]
-dogomFilters = lens _dogomFilters (\s a -> s { _dogomFilters = a })
+dogoFilters :: Lens' DescribeOptionGroupOptions [Filter]
+dogoFilters = lens _dogoFilters (\s a -> s { _dogoFilters = a })
 
 -- | If specified, filters the results to include only options for the
 -- specified major engine version.
-dogomMajorEngineVersion :: Lens' DescribeOptionGroupOptionsMessage (Maybe Text)
-dogomMajorEngineVersion =
-    lens _dogomMajorEngineVersion (\s a -> s { _dogomMajorEngineVersion = a })
+dogoMajorEngineVersion :: Lens' DescribeOptionGroupOptions (Maybe Text)
+dogoMajorEngineVersion =
+    lens _dogoMajorEngineVersion (\s a -> s { _dogoMajorEngineVersion = a })
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-dogomMarker :: Lens' DescribeOptionGroupOptionsMessage (Maybe Text)
-dogomMarker = lens _dogomMarker (\s a -> s { _dogomMarker = a })
+dogoMarker :: Lens' DescribeOptionGroupOptions (Maybe Text)
+dogoMarker = lens _dogoMarker (\s a -> s { _dogoMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results can be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-dogomMaxRecords :: Lens' DescribeOptionGroupOptionsMessage (Maybe Int)
-dogomMaxRecords = lens _dogomMaxRecords (\s a -> s { _dogomMaxRecords = a })
+dogoMaxRecords :: Lens' DescribeOptionGroupOptions (Maybe Int)
+dogoMaxRecords = lens _dogoMaxRecords (\s a -> s { _dogoMaxRecords = a })
 
-instance ToQuery DescribeOptionGroupOptionsMessage
+instance ToQuery DescribeOptionGroupOptions
 
-instance ToPath DescribeOptionGroupOptionsMessage where
+instance ToPath DescribeOptionGroupOptions where
     toPath = const "/"
 
-data OptionGroupOptionsMessage = OptionGroupOptionsMessage
-    { _ogomMarker             :: Maybe Text
-    , _ogomOptionGroupOptions :: [OptionGroupOption]
+data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
+    { _dogorMarker             :: Maybe Text
+    , _dogorOptionGroupOptions :: [OptionGroupOption]
     } deriving (Eq, Show, Generic)
 
--- | 'OptionGroupOptionsMessage' constructor.
+-- | 'DescribeOptionGroupOptionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ogomMarker' @::@ 'Maybe' 'Text'
+-- * 'dogorMarker' @::@ 'Maybe' 'Text'
 --
--- * 'ogomOptionGroupOptions' @::@ ['OptionGroupOption']
+-- * 'dogorOptionGroupOptions' @::@ ['OptionGroupOption']
 --
-describeOptionGroupOptionsResponse :: OptionGroupOptionsMessage
-describeOptionGroupOptionsResponse = OptionGroupOptionsMessage
-    { _ogomOptionGroupOptions = mempty
-    , _ogomMarker             = Nothing
+describeOptionGroupOptionsResponse :: DescribeOptionGroupOptionsResponse
+describeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse
+    { _dogorOptionGroupOptions = mempty
+    , _dogorMarker             = Nothing
     }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-ogomMarker :: Lens' OptionGroupOptionsMessage (Maybe Text)
-ogomMarker = lens _ogomMarker (\s a -> s { _ogomMarker = a })
+dogorMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
+dogorMarker = lens _dogorMarker (\s a -> s { _dogorMarker = a })
 
-ogomOptionGroupOptions :: Lens' OptionGroupOptionsMessage [OptionGroupOption]
-ogomOptionGroupOptions =
-    lens _ogomOptionGroupOptions (\s a -> s { _ogomOptionGroupOptions = a })
+dogorOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
+dogorOptionGroupOptions =
+    lens _dogorOptionGroupOptions (\s a -> s { _dogorOptionGroupOptions = a })
 
-instance FromXML OptionGroupOptionsMessage where
+instance FromXML DescribeOptionGroupOptionsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OptionGroupOptionsMessage"
+    fromXMLRoot    = fromRoot "DescribeOptionGroupOptionsResponse"
 
-instance AWSRequest DescribeOptionGroupOptionsMessage where
-    type Sv DescribeOptionGroupOptionsMessage = RDS
-    type Rs DescribeOptionGroupOptionsMessage = OptionGroupOptionsMessage
+instance AWSRequest DescribeOptionGroupOptions where
+    type Sv DescribeOptionGroupOptions = RDS
+    type Rs DescribeOptionGroupOptions = DescribeOptionGroupOptionsResponse
 
     request  = post "DescribeOptionGroupOptions"
-    response = xmlResponse $ \h x -> OptionGroupOptionsMessage
+    response = xmlResponse $ \h x -> DescribeOptionGroupOptionsResponse
         <$> x %| "Marker"
         <*> x %| "OptionGroupOptions"

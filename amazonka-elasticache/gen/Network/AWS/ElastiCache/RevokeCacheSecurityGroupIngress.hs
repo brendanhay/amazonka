@@ -26,16 +26,16 @@
 module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     (
     -- * Request
-      RevokeCacheSecurityGroupIngressMessage
+      RevokeCacheSecurityGroupIngress
     -- ** Request constructor
     , revokeCacheSecurityGroupIngress
     -- ** Request lenses
-    , rcsgimCacheSecurityGroupName
-    , rcsgimEC2SecurityGroupName
-    , rcsgimEC2SecurityGroupOwnerId
+    , rcsgiCacheSecurityGroupName
+    , rcsgiEC2SecurityGroupName
+    , rcsgiEC2SecurityGroupOwnerId
 
     -- * Response
-    , RevokeCacheSecurityGroupIngressResult
+    , RevokeCacheSecurityGroupIngressResponse
     -- ** Response constructor
     , revokeCacheSecurityGroupIngressResponse
     -- ** Response lenses
@@ -46,85 +46,85 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data RevokeCacheSecurityGroupIngressMessage = RevokeCacheSecurityGroupIngressMessage
-    { _rcsgimCacheSecurityGroupName  :: Text
-    , _rcsgimEC2SecurityGroupName    :: Text
-    , _rcsgimEC2SecurityGroupOwnerId :: Text
+data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress
+    { _rcsgiCacheSecurityGroupName  :: Text
+    , _rcsgiEC2SecurityGroupName    :: Text
+    , _rcsgiEC2SecurityGroupOwnerId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'RevokeCacheSecurityGroupIngressMessage' constructor.
+-- | 'RevokeCacheSecurityGroupIngress' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcsgimCacheSecurityGroupName' @::@ 'Text'
+-- * 'rcsgiCacheSecurityGroupName' @::@ 'Text'
 --
--- * 'rcsgimEC2SecurityGroupName' @::@ 'Text'
+-- * 'rcsgiEC2SecurityGroupName' @::@ 'Text'
 --
--- * 'rcsgimEC2SecurityGroupOwnerId' @::@ 'Text'
+-- * 'rcsgiEC2SecurityGroupOwnerId' @::@ 'Text'
 --
-revokeCacheSecurityGroupIngress :: Text -- ^ 'rcsgimCacheSecurityGroupName'
-                                -> Text -- ^ 'rcsgimEC2SecurityGroupName'
-                                -> Text -- ^ 'rcsgimEC2SecurityGroupOwnerId'
-                                -> RevokeCacheSecurityGroupIngressMessage
-revokeCacheSecurityGroupIngress p1 p2 p3 = RevokeCacheSecurityGroupIngressMessage
-    { _rcsgimCacheSecurityGroupName  = p1
-    , _rcsgimEC2SecurityGroupName    = p2
-    , _rcsgimEC2SecurityGroupOwnerId = p3
+revokeCacheSecurityGroupIngress :: Text -- ^ 'rcsgiCacheSecurityGroupName'
+                                -> Text -- ^ 'rcsgiEC2SecurityGroupName'
+                                -> Text -- ^ 'rcsgiEC2SecurityGroupOwnerId'
+                                -> RevokeCacheSecurityGroupIngress
+revokeCacheSecurityGroupIngress p1 p2 p3 = RevokeCacheSecurityGroupIngress
+    { _rcsgiCacheSecurityGroupName  = p1
+    , _rcsgiEC2SecurityGroupName    = p2
+    , _rcsgiEC2SecurityGroupOwnerId = p3
     }
 
 -- | The name of the cache security group to revoke ingress from.
-rcsgimCacheSecurityGroupName :: Lens' RevokeCacheSecurityGroupIngressMessage Text
-rcsgimCacheSecurityGroupName =
-    lens _rcsgimCacheSecurityGroupName
-        (\s a -> s { _rcsgimCacheSecurityGroupName = a })
+rcsgiCacheSecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
+rcsgiCacheSecurityGroupName =
+    lens _rcsgiCacheSecurityGroupName
+        (\s a -> s { _rcsgiCacheSecurityGroupName = a })
 
 -- | The name of the Amazon EC2 security group to revoke access from.
-rcsgimEC2SecurityGroupName :: Lens' RevokeCacheSecurityGroupIngressMessage Text
-rcsgimEC2SecurityGroupName =
-    lens _rcsgimEC2SecurityGroupName
-        (\s a -> s { _rcsgimEC2SecurityGroupName = a })
+rcsgiEC2SecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
+rcsgiEC2SecurityGroupName =
+    lens _rcsgiEC2SecurityGroupName
+        (\s a -> s { _rcsgiEC2SecurityGroupName = a })
 
 -- | The AWS account number of the Amazon EC2 security group owner. Note that
 -- this is not the same thing as an AWS access key ID - you must provide a
 -- valid AWS account number for this parameter.
-rcsgimEC2SecurityGroupOwnerId :: Lens' RevokeCacheSecurityGroupIngressMessage Text
-rcsgimEC2SecurityGroupOwnerId =
-    lens _rcsgimEC2SecurityGroupOwnerId
-        (\s a -> s { _rcsgimEC2SecurityGroupOwnerId = a })
+rcsgiEC2SecurityGroupOwnerId :: Lens' RevokeCacheSecurityGroupIngress Text
+rcsgiEC2SecurityGroupOwnerId =
+    lens _rcsgiEC2SecurityGroupOwnerId
+        (\s a -> s { _rcsgiEC2SecurityGroupOwnerId = a })
 
-instance ToQuery RevokeCacheSecurityGroupIngressMessage
+instance ToQuery RevokeCacheSecurityGroupIngress
 
-instance ToPath RevokeCacheSecurityGroupIngressMessage where
+instance ToPath RevokeCacheSecurityGroupIngress where
     toPath = const "/"
 
-newtype RevokeCacheSecurityGroupIngressResult = RevokeCacheSecurityGroupIngressResult
+newtype RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse
     { _rcsgirCacheSecurityGroup :: Maybe CacheSecurityGroup
     } deriving (Eq, Show, Generic)
 
--- | 'RevokeCacheSecurityGroupIngressResult' constructor.
+-- | 'RevokeCacheSecurityGroupIngressResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rcsgirCacheSecurityGroup' @::@ 'Maybe' 'CacheSecurityGroup'
 --
-revokeCacheSecurityGroupIngressResponse :: RevokeCacheSecurityGroupIngressResult
-revokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResult
+revokeCacheSecurityGroupIngressResponse :: RevokeCacheSecurityGroupIngressResponse
+revokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse
     { _rcsgirCacheSecurityGroup = Nothing
     }
 
-rcsgirCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResult (Maybe CacheSecurityGroup)
+rcsgirCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
 rcsgirCacheSecurityGroup =
     lens _rcsgirCacheSecurityGroup
         (\s a -> s { _rcsgirCacheSecurityGroup = a })
 
-instance FromXML RevokeCacheSecurityGroupIngressResult where
+instance FromXML RevokeCacheSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RevokeCacheSecurityGroupIngressResult"
+    fromXMLRoot    = fromRoot "RevokeCacheSecurityGroupIngressResponse"
 
-instance AWSRequest RevokeCacheSecurityGroupIngressMessage where
-    type Sv RevokeCacheSecurityGroupIngressMessage = ElastiCache
-    type Rs RevokeCacheSecurityGroupIngressMessage = RevokeCacheSecurityGroupIngressResult
+instance AWSRequest RevokeCacheSecurityGroupIngress where
+    type Sv RevokeCacheSecurityGroupIngress = ElastiCache
+    type Rs RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngressResponse
 
     request  = post "RevokeCacheSecurityGroupIngress"
-    response = xmlResponse $ \h x -> RevokeCacheSecurityGroupIngressResult
+    response = xmlResponse $ \h x -> RevokeCacheSecurityGroupIngressResponse
         <$> x %| "CacheSecurityGroup"

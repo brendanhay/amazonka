@@ -30,16 +30,16 @@
 module Network.AWS.ElastiCache.DeleteReplicationGroup
     (
     -- * Request
-      DeleteReplicationGroupMessage
+      DeleteReplicationGroup
     -- ** Request constructor
     , deleteReplicationGroup
     -- ** Request lenses
-    , drgm1FinalSnapshotIdentifier
-    , drgm1ReplicationGroupId
-    , drgm1RetainPrimaryCluster
+    , drgFinalSnapshotIdentifier
+    , drgReplicationGroupId
+    , drgRetainPrimaryCluster
 
     -- * Response
-    , DeleteReplicationGroupResult
+    , DeleteReplicationGroupResponse
     -- ** Response constructor
     , deleteReplicationGroupResponse
     -- ** Response lenses
@@ -50,84 +50,83 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data DeleteReplicationGroupMessage = DeleteReplicationGroupMessage
-    { _drgm1FinalSnapshotIdentifier :: Maybe Text
-    , _drgm1ReplicationGroupId      :: Text
-    , _drgm1RetainPrimaryCluster    :: Maybe Bool
+data DeleteReplicationGroup = DeleteReplicationGroup
+    { _drgFinalSnapshotIdentifier :: Maybe Text
+    , _drgReplicationGroupId      :: Text
+    , _drgRetainPrimaryCluster    :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteReplicationGroupMessage' constructor.
+-- | 'DeleteReplicationGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drgm1FinalSnapshotIdentifier' @::@ 'Maybe' 'Text'
+-- * 'drgFinalSnapshotIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'drgm1ReplicationGroupId' @::@ 'Text'
+-- * 'drgReplicationGroupId' @::@ 'Text'
 --
--- * 'drgm1RetainPrimaryCluster' @::@ 'Maybe' 'Bool'
+-- * 'drgRetainPrimaryCluster' @::@ 'Maybe' 'Bool'
 --
-deleteReplicationGroup :: Text -- ^ 'drgm1ReplicationGroupId'
-                       -> DeleteReplicationGroupMessage
-deleteReplicationGroup p1 = DeleteReplicationGroupMessage
-    { _drgm1ReplicationGroupId      = p1
-    , _drgm1RetainPrimaryCluster    = Nothing
-    , _drgm1FinalSnapshotIdentifier = Nothing
+deleteReplicationGroup :: Text -- ^ 'drgReplicationGroupId'
+                       -> DeleteReplicationGroup
+deleteReplicationGroup p1 = DeleteReplicationGroup
+    { _drgReplicationGroupId      = p1
+    , _drgRetainPrimaryCluster    = Nothing
+    , _drgFinalSnapshotIdentifier = Nothing
     }
 
 -- | The name of a final node group snapshot. ElastiCache creates the snapshot
 -- from the primary node in the cluster, rather than one of the replicas;
 -- this is to ensure that it captures the freshest data. After the final
 -- snapshot is taken, the cluster is immediately deleted.
-drgm1FinalSnapshotIdentifier :: Lens' DeleteReplicationGroupMessage (Maybe Text)
-drgm1FinalSnapshotIdentifier =
-    lens _drgm1FinalSnapshotIdentifier
-        (\s a -> s { _drgm1FinalSnapshotIdentifier = a })
+drgFinalSnapshotIdentifier :: Lens' DeleteReplicationGroup (Maybe Text)
+drgFinalSnapshotIdentifier =
+    lens _drgFinalSnapshotIdentifier
+        (\s a -> s { _drgFinalSnapshotIdentifier = a })
 
 -- | The identifier for the cluster to be deleted. This parameter is not case
 -- sensitive.
-drgm1ReplicationGroupId :: Lens' DeleteReplicationGroupMessage Text
-drgm1ReplicationGroupId =
-    lens _drgm1ReplicationGroupId (\s a -> s { _drgm1ReplicationGroupId = a })
+drgReplicationGroupId :: Lens' DeleteReplicationGroup Text
+drgReplicationGroupId =
+    lens _drgReplicationGroupId (\s a -> s { _drgReplicationGroupId = a })
 
 -- | If set to true, all of the read replicas will be deleted, but the primary
 -- node will be retained.
-drgm1RetainPrimaryCluster :: Lens' DeleteReplicationGroupMessage (Maybe Bool)
-drgm1RetainPrimaryCluster =
-    lens _drgm1RetainPrimaryCluster
-        (\s a -> s { _drgm1RetainPrimaryCluster = a })
+drgRetainPrimaryCluster :: Lens' DeleteReplicationGroup (Maybe Bool)
+drgRetainPrimaryCluster =
+    lens _drgRetainPrimaryCluster (\s a -> s { _drgRetainPrimaryCluster = a })
 
-instance ToQuery DeleteReplicationGroupMessage
+instance ToQuery DeleteReplicationGroup
 
-instance ToPath DeleteReplicationGroupMessage where
+instance ToPath DeleteReplicationGroup where
     toPath = const "/"
 
-newtype DeleteReplicationGroupResult = DeleteReplicationGroupResult
+newtype DeleteReplicationGroupResponse = DeleteReplicationGroupResponse
     { _drgrReplicationGroup :: Maybe ReplicationGroup
     } deriving (Eq, Show, Generic)
 
--- | 'DeleteReplicationGroupResult' constructor.
+-- | 'DeleteReplicationGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drgrReplicationGroup' @::@ 'Maybe' 'ReplicationGroup'
 --
-deleteReplicationGroupResponse :: DeleteReplicationGroupResult
-deleteReplicationGroupResponse = DeleteReplicationGroupResult
+deleteReplicationGroupResponse :: DeleteReplicationGroupResponse
+deleteReplicationGroupResponse = DeleteReplicationGroupResponse
     { _drgrReplicationGroup = Nothing
     }
 
-drgrReplicationGroup :: Lens' DeleteReplicationGroupResult (Maybe ReplicationGroup)
+drgrReplicationGroup :: Lens' DeleteReplicationGroupResponse (Maybe ReplicationGroup)
 drgrReplicationGroup =
     lens _drgrReplicationGroup (\s a -> s { _drgrReplicationGroup = a })
 
-instance FromXML DeleteReplicationGroupResult where
+instance FromXML DeleteReplicationGroupResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteReplicationGroupResult"
+    fromXMLRoot    = fromRoot "DeleteReplicationGroupResponse"
 
-instance AWSRequest DeleteReplicationGroupMessage where
-    type Sv DeleteReplicationGroupMessage = ElastiCache
-    type Rs DeleteReplicationGroupMessage = DeleteReplicationGroupResult
+instance AWSRequest DeleteReplicationGroup where
+    type Sv DeleteReplicationGroup = ElastiCache
+    type Rs DeleteReplicationGroup = DeleteReplicationGroupResponse
 
     request  = post "DeleteReplicationGroup"
-    response = xmlResponse $ \h x -> DeleteReplicationGroupResult
+    response = xmlResponse $ \h x -> DeleteReplicationGroupResponse
         <$> x %| "ReplicationGroup"

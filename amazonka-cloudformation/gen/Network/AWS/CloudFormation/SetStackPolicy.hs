@@ -24,13 +24,13 @@
 module Network.AWS.CloudFormation.SetStackPolicy
     (
     -- * Request
-      SetStackPolicyInput
+      SetStackPolicy
     -- ** Request constructor
     , setStackPolicy
     -- ** Request lenses
-    , sspiStackName
-    , sspiStackPolicyBody
-    , sspiStackPolicyURL
+    , sspStackName
+    , sspStackPolicyBody
+    , sspStackPolicyURL
 
     -- * Response
     , SetStackPolicyResponse
@@ -42,53 +42,53 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
 
-data SetStackPolicyInput = SetStackPolicyInput
-    { _sspiStackName       :: Text
-    , _sspiStackPolicyBody :: Maybe Text
-    , _sspiStackPolicyURL  :: Maybe Text
+data SetStackPolicy = SetStackPolicy
+    { _sspStackName       :: Text
+    , _sspStackPolicyBody :: Maybe Text
+    , _sspStackPolicyURL  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'SetStackPolicyInput' constructor.
+-- | 'SetStackPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sspiStackName' @::@ 'Text'
+-- * 'sspStackName' @::@ 'Text'
 --
--- * 'sspiStackPolicyBody' @::@ 'Maybe' 'Text'
+-- * 'sspStackPolicyBody' @::@ 'Maybe' 'Text'
 --
--- * 'sspiStackPolicyURL' @::@ 'Maybe' 'Text'
+-- * 'sspStackPolicyURL' @::@ 'Maybe' 'Text'
 --
-setStackPolicy :: Text -- ^ 'sspiStackName'
-               -> SetStackPolicyInput
-setStackPolicy p1 = SetStackPolicyInput
-    { _sspiStackName       = p1
-    , _sspiStackPolicyBody = Nothing
-    , _sspiStackPolicyURL  = Nothing
+setStackPolicy :: Text -- ^ 'sspStackName'
+               -> SetStackPolicy
+setStackPolicy p1 = SetStackPolicy
+    { _sspStackName       = p1
+    , _sspStackPolicyBody = Nothing
+    , _sspStackPolicyURL  = Nothing
     }
 
 -- | The name or stack ID that you want to associate a policy with.
-sspiStackName :: Lens' SetStackPolicyInput Text
-sspiStackName = lens _sspiStackName (\s a -> s { _sspiStackName = a })
+sspStackName :: Lens' SetStackPolicy Text
+sspStackName = lens _sspStackName (\s a -> s { _sspStackName = a })
 
 -- | Structure containing the stack policy body. For more information, go to
 -- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.
 -- You can specify either the StackPolicyBody or the StackPolicyURL
 -- parameter, but not both.
-sspiStackPolicyBody :: Lens' SetStackPolicyInput (Maybe Text)
-sspiStackPolicyBody =
-    lens _sspiStackPolicyBody (\s a -> s { _sspiStackPolicyBody = a })
+sspStackPolicyBody :: Lens' SetStackPolicy (Maybe Text)
+sspStackPolicyBody =
+    lens _sspStackPolicyBody (\s a -> s { _sspStackPolicyBody = a })
 
 -- | Location of a file containing the stack policy. The URL must point to a
 -- policy (max size: 16KB) located in an S3 bucket in the same region as the
 -- stack. You can specify either the StackPolicyBody or the StackPolicyURL
 -- parameter, but not both.
-sspiStackPolicyURL :: Lens' SetStackPolicyInput (Maybe Text)
-sspiStackPolicyURL =
-    lens _sspiStackPolicyURL (\s a -> s { _sspiStackPolicyURL = a })
+sspStackPolicyURL :: Lens' SetStackPolicy (Maybe Text)
+sspStackPolicyURL =
+    lens _sspStackPolicyURL (\s a -> s { _sspStackPolicyURL = a })
 
-instance ToQuery SetStackPolicyInput
+instance ToQuery SetStackPolicy
 
-instance ToPath SetStackPolicyInput where
+instance ToPath SetStackPolicy where
     toPath = const "/"
 
 data SetStackPolicyResponse = SetStackPolicyResponse
@@ -102,9 +102,9 @@ instance FromXML SetStackPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetStackPolicyResponse"
 
-instance AWSRequest SetStackPolicyInput where
-    type Sv SetStackPolicyInput = CloudFormation
-    type Rs SetStackPolicyInput = SetStackPolicyResponse
+instance AWSRequest SetStackPolicy where
+    type Sv SetStackPolicy = CloudFormation
+    type Rs SetStackPolicy = SetStackPolicyResponse
 
     request  = post "SetStackPolicy"
     response = nullaryResponse SetStackPolicyResponse

@@ -30,12 +30,12 @@
 module Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
     (
     -- * Request
-      DeleteEnvironmentConfigurationMessage
+      DeleteEnvironmentConfiguration
     -- ** Request constructor
     , deleteEnvironmentConfiguration
     -- ** Request lenses
-    , decmApplicationName
-    , decmEnvironmentName
+    , decApplicationName
+    , decEnvironmentName
 
     -- * Response
     , DeleteEnvironmentConfigurationResponse
@@ -47,40 +47,40 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data DeleteEnvironmentConfigurationMessage = DeleteEnvironmentConfigurationMessage
-    { _decmApplicationName :: Text
-    , _decmEnvironmentName :: Text
+data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration
+    { _decApplicationName :: Text
+    , _decEnvironmentName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteEnvironmentConfigurationMessage' constructor.
+-- | 'DeleteEnvironmentConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'decmApplicationName' @::@ 'Text'
+-- * 'decApplicationName' @::@ 'Text'
 --
--- * 'decmEnvironmentName' @::@ 'Text'
+-- * 'decEnvironmentName' @::@ 'Text'
 --
-deleteEnvironmentConfiguration :: Text -- ^ 'decmApplicationName'
-                               -> Text -- ^ 'decmEnvironmentName'
-                               -> DeleteEnvironmentConfigurationMessage
-deleteEnvironmentConfiguration p1 p2 = DeleteEnvironmentConfigurationMessage
-    { _decmApplicationName = p1
-    , _decmEnvironmentName = p2
+deleteEnvironmentConfiguration :: Text -- ^ 'decApplicationName'
+                               -> Text -- ^ 'decEnvironmentName'
+                               -> DeleteEnvironmentConfiguration
+deleteEnvironmentConfiguration p1 p2 = DeleteEnvironmentConfiguration
+    { _decApplicationName = p1
+    , _decEnvironmentName = p2
     }
 
 -- | The name of the application the environment is associated with.
-decmApplicationName :: Lens' DeleteEnvironmentConfigurationMessage Text
-decmApplicationName =
-    lens _decmApplicationName (\s a -> s { _decmApplicationName = a })
+decApplicationName :: Lens' DeleteEnvironmentConfiguration Text
+decApplicationName =
+    lens _decApplicationName (\s a -> s { _decApplicationName = a })
 
 -- | The name of the environment to delete the draft configuration from.
-decmEnvironmentName :: Lens' DeleteEnvironmentConfigurationMessage Text
-decmEnvironmentName =
-    lens _decmEnvironmentName (\s a -> s { _decmEnvironmentName = a })
+decEnvironmentName :: Lens' DeleteEnvironmentConfiguration Text
+decEnvironmentName =
+    lens _decEnvironmentName (\s a -> s { _decEnvironmentName = a })
 
-instance ToQuery DeleteEnvironmentConfigurationMessage
+instance ToQuery DeleteEnvironmentConfiguration
 
-instance ToPath DeleteEnvironmentConfigurationMessage where
+instance ToPath DeleteEnvironmentConfiguration where
     toPath = const "/"
 
 data DeleteEnvironmentConfigurationResponse = DeleteEnvironmentConfigurationResponse
@@ -94,9 +94,9 @@ instance FromXML DeleteEnvironmentConfigurationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteEnvironmentConfigurationResponse"
 
-instance AWSRequest DeleteEnvironmentConfigurationMessage where
-    type Sv DeleteEnvironmentConfigurationMessage = ElasticBeanstalk
-    type Rs DeleteEnvironmentConfigurationMessage = DeleteEnvironmentConfigurationResponse
+instance AWSRequest DeleteEnvironmentConfiguration where
+    type Sv DeleteEnvironmentConfiguration = ElasticBeanstalk
+    type Rs DeleteEnvironmentConfiguration = DeleteEnvironmentConfigurationResponse
 
     request  = post "DeleteEnvironmentConfiguration"
     response = nullaryResponse DeleteEnvironmentConfigurationResponse

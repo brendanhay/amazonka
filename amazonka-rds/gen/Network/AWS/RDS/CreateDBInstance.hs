@@ -24,41 +24,41 @@
 module Network.AWS.RDS.CreateDBInstance
     (
     -- * Request
-      CreateDBInstanceMessage
+      CreateDBInstance
     -- ** Request constructor
     , createDBInstance
     -- ** Request lenses
-    , cdbimAllocatedStorage
-    , cdbimAutoMinorVersionUpgrade
-    , cdbimAvailabilityZone
-    , cdbimBackupRetentionPeriod
-    , cdbimCharacterSetName
-    , cdbimDBInstanceClass
-    , cdbimDBInstanceIdentifier
-    , cdbimDBName
-    , cdbimDBParameterGroupName
-    , cdbimDBSecurityGroups
-    , cdbimDBSubnetGroupName
-    , cdbimEngine
-    , cdbimEngineVersion
-    , cdbimIops
-    , cdbimLicenseModel
-    , cdbimMasterUserPassword
-    , cdbimMasterUsername
-    , cdbimMultiAZ
-    , cdbimOptionGroupName
-    , cdbimPort
-    , cdbimPreferredBackupWindow
-    , cdbimPreferredMaintenanceWindow
-    , cdbimPubliclyAccessible
-    , cdbimStorageType
-    , cdbimTags
-    , cdbimTdeCredentialArn
-    , cdbimTdeCredentialPassword
-    , cdbimVpcSecurityGroupIds
+    , cdbiAllocatedStorage
+    , cdbiAutoMinorVersionUpgrade
+    , cdbiAvailabilityZone
+    , cdbiBackupRetentionPeriod
+    , cdbiCharacterSetName
+    , cdbiDBInstanceClass
+    , cdbiDBInstanceIdentifier
+    , cdbiDBName
+    , cdbiDBParameterGroupName
+    , cdbiDBSecurityGroups
+    , cdbiDBSubnetGroupName
+    , cdbiEngine
+    , cdbiEngineVersion
+    , cdbiIops
+    , cdbiLicenseModel
+    , cdbiMasterUserPassword
+    , cdbiMasterUsername
+    , cdbiMultiAZ
+    , cdbiOptionGroupName
+    , cdbiPort
+    , cdbiPreferredBackupWindow
+    , cdbiPreferredMaintenanceWindow
+    , cdbiPubliclyAccessible
+    , cdbiStorageType
+    , cdbiTags
+    , cdbiTdeCredentialArn
+    , cdbiTdeCredentialPassword
+    , cdbiVpcSecurityGroupIds
 
     -- * Response
-    , CreateDBInstanceResult
+    , CreateDBInstanceResponse
     -- ** Response constructor
     , createDBInstanceResponse
     -- ** Response lenses
@@ -69,133 +69,133 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data CreateDBInstanceMessage = CreateDBInstanceMessage
-    { _cdbimAllocatedStorage           :: Int
-    , _cdbimAutoMinorVersionUpgrade    :: Maybe Bool
-    , _cdbimAvailabilityZone           :: Maybe Text
-    , _cdbimBackupRetentionPeriod      :: Maybe Int
-    , _cdbimCharacterSetName           :: Maybe Text
-    , _cdbimDBInstanceClass            :: Text
-    , _cdbimDBInstanceIdentifier       :: Text
-    , _cdbimDBName                     :: Maybe Text
-    , _cdbimDBParameterGroupName       :: Maybe Text
-    , _cdbimDBSecurityGroups           :: [Text]
-    , _cdbimDBSubnetGroupName          :: Maybe Text
-    , _cdbimEngine                     :: Text
-    , _cdbimEngineVersion              :: Maybe Text
-    , _cdbimIops                       :: Maybe Int
-    , _cdbimLicenseModel               :: Maybe Text
-    , _cdbimMasterUserPassword         :: Text
-    , _cdbimMasterUsername             :: Text
-    , _cdbimMultiAZ                    :: Maybe Bool
-    , _cdbimOptionGroupName            :: Maybe Text
-    , _cdbimPort                       :: Maybe Int
-    , _cdbimPreferredBackupWindow      :: Maybe Text
-    , _cdbimPreferredMaintenanceWindow :: Maybe Text
-    , _cdbimPubliclyAccessible         :: Maybe Bool
-    , _cdbimStorageType                :: Maybe Text
-    , _cdbimTags                       :: [Tag]
-    , _cdbimTdeCredentialArn           :: Maybe Text
-    , _cdbimTdeCredentialPassword      :: Maybe Text
-    , _cdbimVpcSecurityGroupIds        :: [Text]
+data CreateDBInstance = CreateDBInstance
+    { _cdbiAllocatedStorage           :: Int
+    , _cdbiAutoMinorVersionUpgrade    :: Maybe Bool
+    , _cdbiAvailabilityZone           :: Maybe Text
+    , _cdbiBackupRetentionPeriod      :: Maybe Int
+    , _cdbiCharacterSetName           :: Maybe Text
+    , _cdbiDBInstanceClass            :: Text
+    , _cdbiDBInstanceIdentifier       :: Text
+    , _cdbiDBName                     :: Maybe Text
+    , _cdbiDBParameterGroupName       :: Maybe Text
+    , _cdbiDBSecurityGroups           :: [Text]
+    , _cdbiDBSubnetGroupName          :: Maybe Text
+    , _cdbiEngine                     :: Text
+    , _cdbiEngineVersion              :: Maybe Text
+    , _cdbiIops                       :: Maybe Int
+    , _cdbiLicenseModel               :: Maybe Text
+    , _cdbiMasterUserPassword         :: Text
+    , _cdbiMasterUsername             :: Text
+    , _cdbiMultiAZ                    :: Maybe Bool
+    , _cdbiOptionGroupName            :: Maybe Text
+    , _cdbiPort                       :: Maybe Int
+    , _cdbiPreferredBackupWindow      :: Maybe Text
+    , _cdbiPreferredMaintenanceWindow :: Maybe Text
+    , _cdbiPubliclyAccessible         :: Maybe Bool
+    , _cdbiStorageType                :: Maybe Text
+    , _cdbiTags                       :: [Tag]
+    , _cdbiTdeCredentialArn           :: Maybe Text
+    , _cdbiTdeCredentialPassword      :: Maybe Text
+    , _cdbiVpcSecurityGroupIds        :: [Text]
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDBInstanceMessage' constructor.
+-- | 'CreateDBInstance' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbimAllocatedStorage' @::@ 'Int'
+-- * 'cdbiAllocatedStorage' @::@ 'Int'
 --
--- * 'cdbimAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
+-- * 'cdbiAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
 --
--- * 'cdbimAvailabilityZone' @::@ 'Maybe' 'Text'
+-- * 'cdbiAvailabilityZone' @::@ 'Maybe' 'Text'
 --
--- * 'cdbimBackupRetentionPeriod' @::@ 'Maybe' 'Int'
+-- * 'cdbiBackupRetentionPeriod' @::@ 'Maybe' 'Int'
 --
--- * 'cdbimCharacterSetName' @::@ 'Maybe' 'Text'
+-- * 'cdbiCharacterSetName' @::@ 'Maybe' 'Text'
 --
--- * 'cdbimDBInstanceClass' @::@ 'Text'
+-- * 'cdbiDBInstanceClass' @::@ 'Text'
 --
--- * 'cdbimDBInstanceIdentifier' @::@ 'Text'
+-- * 'cdbiDBInstanceIdentifier' @::@ 'Text'
 --
--- * 'cdbimDBName' @::@ 'Maybe' 'Text'
+-- * 'cdbiDBName' @::@ 'Maybe' 'Text'
 --
--- * 'cdbimDBParameterGroupName' @::@ 'Maybe' 'Text'
+-- * 'cdbiDBParameterGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'cdbimDBSecurityGroups' @::@ ['Text']
+-- * 'cdbiDBSecurityGroups' @::@ ['Text']
 --
--- * 'cdbimDBSubnetGroupName' @::@ 'Maybe' 'Text'
+-- * 'cdbiDBSubnetGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'cdbimEngine' @::@ 'Text'
+-- * 'cdbiEngine' @::@ 'Text'
 --
--- * 'cdbimEngineVersion' @::@ 'Maybe' 'Text'
+-- * 'cdbiEngineVersion' @::@ 'Maybe' 'Text'
 --
--- * 'cdbimIops' @::@ 'Maybe' 'Int'
+-- * 'cdbiIops' @::@ 'Maybe' 'Int'
 --
--- * 'cdbimLicenseModel' @::@ 'Maybe' 'Text'
+-- * 'cdbiLicenseModel' @::@ 'Maybe' 'Text'
 --
--- * 'cdbimMasterUserPassword' @::@ 'Text'
+-- * 'cdbiMasterUserPassword' @::@ 'Text'
 --
--- * 'cdbimMasterUsername' @::@ 'Text'
+-- * 'cdbiMasterUsername' @::@ 'Text'
 --
--- * 'cdbimMultiAZ' @::@ 'Maybe' 'Bool'
+-- * 'cdbiMultiAZ' @::@ 'Maybe' 'Bool'
 --
--- * 'cdbimOptionGroupName' @::@ 'Maybe' 'Text'
+-- * 'cdbiOptionGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'cdbimPort' @::@ 'Maybe' 'Int'
+-- * 'cdbiPort' @::@ 'Maybe' 'Int'
 --
--- * 'cdbimPreferredBackupWindow' @::@ 'Maybe' 'Text'
+-- * 'cdbiPreferredBackupWindow' @::@ 'Maybe' 'Text'
 --
--- * 'cdbimPreferredMaintenanceWindow' @::@ 'Maybe' 'Text'
+-- * 'cdbiPreferredMaintenanceWindow' @::@ 'Maybe' 'Text'
 --
--- * 'cdbimPubliclyAccessible' @::@ 'Maybe' 'Bool'
+-- * 'cdbiPubliclyAccessible' @::@ 'Maybe' 'Bool'
 --
--- * 'cdbimStorageType' @::@ 'Maybe' 'Text'
+-- * 'cdbiStorageType' @::@ 'Maybe' 'Text'
 --
--- * 'cdbimTags' @::@ ['Tag']
+-- * 'cdbiTags' @::@ ['Tag']
 --
--- * 'cdbimTdeCredentialArn' @::@ 'Maybe' 'Text'
+-- * 'cdbiTdeCredentialArn' @::@ 'Maybe' 'Text'
 --
--- * 'cdbimTdeCredentialPassword' @::@ 'Maybe' 'Text'
+-- * 'cdbiTdeCredentialPassword' @::@ 'Maybe' 'Text'
 --
--- * 'cdbimVpcSecurityGroupIds' @::@ ['Text']
+-- * 'cdbiVpcSecurityGroupIds' @::@ ['Text']
 --
-createDBInstance :: Text -- ^ 'cdbimDBInstanceIdentifier'
-                 -> Int -- ^ 'cdbimAllocatedStorage'
-                 -> Text -- ^ 'cdbimDBInstanceClass'
-                 -> Text -- ^ 'cdbimEngine'
-                 -> Text -- ^ 'cdbimMasterUsername'
-                 -> Text -- ^ 'cdbimMasterUserPassword'
-                 -> CreateDBInstanceMessage
-createDBInstance p1 p2 p3 p4 p5 p6 = CreateDBInstanceMessage
-    { _cdbimDBInstanceIdentifier       = p1
-    , _cdbimAllocatedStorage           = p2
-    , _cdbimDBInstanceClass            = p3
-    , _cdbimEngine                     = p4
-    , _cdbimMasterUsername             = p5
-    , _cdbimMasterUserPassword         = p6
-    , _cdbimDBName                     = Nothing
-    , _cdbimDBSecurityGroups           = mempty
-    , _cdbimVpcSecurityGroupIds        = mempty
-    , _cdbimAvailabilityZone           = Nothing
-    , _cdbimDBSubnetGroupName          = Nothing
-    , _cdbimPreferredMaintenanceWindow = Nothing
-    , _cdbimDBParameterGroupName       = Nothing
-    , _cdbimBackupRetentionPeriod      = Nothing
-    , _cdbimPreferredBackupWindow      = Nothing
-    , _cdbimPort                       = Nothing
-    , _cdbimMultiAZ                    = Nothing
-    , _cdbimEngineVersion              = Nothing
-    , _cdbimAutoMinorVersionUpgrade    = Nothing
-    , _cdbimLicenseModel               = Nothing
-    , _cdbimIops                       = Nothing
-    , _cdbimOptionGroupName            = Nothing
-    , _cdbimCharacterSetName           = Nothing
-    , _cdbimPubliclyAccessible         = Nothing
-    , _cdbimTags                       = mempty
-    , _cdbimStorageType                = Nothing
-    , _cdbimTdeCredentialArn           = Nothing
-    , _cdbimTdeCredentialPassword      = Nothing
+createDBInstance :: Text -- ^ 'cdbiDBInstanceIdentifier'
+                 -> Int -- ^ 'cdbiAllocatedStorage'
+                 -> Text -- ^ 'cdbiDBInstanceClass'
+                 -> Text -- ^ 'cdbiEngine'
+                 -> Text -- ^ 'cdbiMasterUsername'
+                 -> Text -- ^ 'cdbiMasterUserPassword'
+                 -> CreateDBInstance
+createDBInstance p1 p2 p3 p4 p5 p6 = CreateDBInstance
+    { _cdbiDBInstanceIdentifier       = p1
+    , _cdbiAllocatedStorage           = p2
+    , _cdbiDBInstanceClass            = p3
+    , _cdbiEngine                     = p4
+    , _cdbiMasterUsername             = p5
+    , _cdbiMasterUserPassword         = p6
+    , _cdbiDBName                     = Nothing
+    , _cdbiDBSecurityGroups           = mempty
+    , _cdbiVpcSecurityGroupIds        = mempty
+    , _cdbiAvailabilityZone           = Nothing
+    , _cdbiDBSubnetGroupName          = Nothing
+    , _cdbiPreferredMaintenanceWindow = Nothing
+    , _cdbiDBParameterGroupName       = Nothing
+    , _cdbiBackupRetentionPeriod      = Nothing
+    , _cdbiPreferredBackupWindow      = Nothing
+    , _cdbiPort                       = Nothing
+    , _cdbiMultiAZ                    = Nothing
+    , _cdbiEngineVersion              = Nothing
+    , _cdbiAutoMinorVersionUpgrade    = Nothing
+    , _cdbiLicenseModel               = Nothing
+    , _cdbiIops                       = Nothing
+    , _cdbiOptionGroupName            = Nothing
+    , _cdbiCharacterSetName           = Nothing
+    , _cdbiPubliclyAccessible         = Nothing
+    , _cdbiTags                       = mempty
+    , _cdbiStorageType                = Nothing
+    , _cdbiTdeCredentialArn           = Nothing
+    , _cdbiTdeCredentialPassword      = Nothing
     }
 
 -- | The amount of storage (in gigabytes) to be initially allocated for the
@@ -204,16 +204,16 @@ createDBInstance p1 p2 p3 p4 p5 p6 = CreateDBInstanceMessage
 -- 3072. Oracle Constraints: Must be an integer from 10 to 3072. SQL Server
 -- Constraints: Must be an integer from 200 to 1024 (Standard Edition and
 -- Enterprise Edition) or from 30 to 1024 (Express Edition and Web Edition).
-cdbimAllocatedStorage :: Lens' CreateDBInstanceMessage Int
-cdbimAllocatedStorage =
-    lens _cdbimAllocatedStorage (\s a -> s { _cdbimAllocatedStorage = a })
+cdbiAllocatedStorage :: Lens' CreateDBInstance Int
+cdbiAllocatedStorage =
+    lens _cdbiAllocatedStorage (\s a -> s { _cdbiAllocatedStorage = a })
 
 -- | Indicates that minor engine upgrades will be applied automatically to the
 -- DB instance during the maintenance window. Default: true.
-cdbimAutoMinorVersionUpgrade :: Lens' CreateDBInstanceMessage (Maybe Bool)
-cdbimAutoMinorVersionUpgrade =
-    lens _cdbimAutoMinorVersionUpgrade
-        (\s a -> s { _cdbimAutoMinorVersionUpgrade = a })
+cdbiAutoMinorVersionUpgrade :: Lens' CreateDBInstance (Maybe Bool)
+cdbiAutoMinorVersionUpgrade =
+    lens _cdbiAutoMinorVersionUpgrade
+        (\s a -> s { _cdbiAutoMinorVersionUpgrade = a })
 
 -- | The EC2 Availability Zone that the database instance will be created in.
 -- Default: A random, system-chosen Availability Zone in the endpoint's
@@ -221,25 +221,25 @@ cdbimAutoMinorVersionUpgrade =
 -- cannot be specified if the MultiAZ parameter is set to true. The
 -- specified Availability Zone must be in the same region as the current
 -- endpoint.
-cdbimAvailabilityZone :: Lens' CreateDBInstanceMessage (Maybe Text)
-cdbimAvailabilityZone =
-    lens _cdbimAvailabilityZone (\s a -> s { _cdbimAvailabilityZone = a })
+cdbiAvailabilityZone :: Lens' CreateDBInstance (Maybe Text)
+cdbiAvailabilityZone =
+    lens _cdbiAvailabilityZone (\s a -> s { _cdbiAvailabilityZone = a })
 
 -- | The number of days for which automated backups are retained. Setting this
 -- parameter to a positive number enables backups. Setting this parameter to
 -- 0 disables automated backups. Default: 1 Constraints: Must be a value
 -- from 0 to 35 Cannot be set to 0 if the DB instance is a source to read
 -- replicas.
-cdbimBackupRetentionPeriod :: Lens' CreateDBInstanceMessage (Maybe Int)
-cdbimBackupRetentionPeriod =
-    lens _cdbimBackupRetentionPeriod
-        (\s a -> s { _cdbimBackupRetentionPeriod = a })
+cdbiBackupRetentionPeriod :: Lens' CreateDBInstance (Maybe Int)
+cdbiBackupRetentionPeriod =
+    lens _cdbiBackupRetentionPeriod
+        (\s a -> s { _cdbiBackupRetentionPeriod = a })
 
 -- | For supported engines, indicates that the DB instance should be
 -- associated with the specified CharacterSet.
-cdbimCharacterSetName :: Lens' CreateDBInstanceMessage (Maybe Text)
-cdbimCharacterSetName =
-    lens _cdbimCharacterSetName (\s a -> s { _cdbimCharacterSetName = a })
+cdbiCharacterSetName :: Lens' CreateDBInstance (Maybe Text)
+cdbiCharacterSetName =
+    lens _cdbiCharacterSetName (\s a -> s { _cdbiCharacterSetName = a })
 
 -- | The compute and memory capacity of the DB instance. Valid Values:
 -- db.t1.micro | db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge |
@@ -247,19 +247,19 @@ cdbimCharacterSetName =
 -- | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge |
 -- db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small
 -- | db.t2.medium.
-cdbimDBInstanceClass :: Lens' CreateDBInstanceMessage Text
-cdbimDBInstanceClass =
-    lens _cdbimDBInstanceClass (\s a -> s { _cdbimDBInstanceClass = a })
+cdbiDBInstanceClass :: Lens' CreateDBInstance Text
+cdbiDBInstanceClass =
+    lens _cdbiDBInstanceClass (\s a -> s { _cdbiDBInstanceClass = a })
 
 -- | The DB instance identifier. This parameter is stored as a lowercase
 -- string. Constraints: Must contain from 1 to 63 alphanumeric characters or
 -- hyphens (1 to 15 for SQL Server). First character must be a letter.
 -- Cannot end with a hyphen or contain two consecutive hyphens. Example:
 -- mydbinstance.
-cdbimDBInstanceIdentifier :: Lens' CreateDBInstanceMessage Text
-cdbimDBInstanceIdentifier =
-    lens _cdbimDBInstanceIdentifier
-        (\s a -> s { _cdbimDBInstanceIdentifier = a })
+cdbiDBInstanceIdentifier :: Lens' CreateDBInstance Text
+cdbiDBInstanceIdentifier =
+    lens _cdbiDBInstanceIdentifier
+        (\s a -> s { _cdbiDBInstanceIdentifier = a })
 
 -- | The meaning of this parameter differs according to the database engine
 -- you use. Type: String MySQL The name of the database to create when the
@@ -275,64 +275,63 @@ cdbimDBInstanceIdentifier =
 -- Oracle System ID (SID) of the created DB instance. Default: ORCL
 -- Constraints: Cannot be longer than 8 characters SQL Server Not
 -- applicable. Must be null.
-cdbimDBName :: Lens' CreateDBInstanceMessage (Maybe Text)
-cdbimDBName = lens _cdbimDBName (\s a -> s { _cdbimDBName = a })
+cdbiDBName :: Lens' CreateDBInstance (Maybe Text)
+cdbiDBName = lens _cdbiDBName (\s a -> s { _cdbiDBName = a })
 
 -- | The name of the DB parameter group to associate with this DB instance. If
 -- this argument is omitted, the default DBParameterGroup for the specified
 -- engine will be used. Constraints: Must be 1 to 255 alphanumeric
 -- characters First character must be a letter Cannot end with a hyphen or
 -- contain two consecutive hyphens.
-cdbimDBParameterGroupName :: Lens' CreateDBInstanceMessage (Maybe Text)
-cdbimDBParameterGroupName =
-    lens _cdbimDBParameterGroupName
-        (\s a -> s { _cdbimDBParameterGroupName = a })
+cdbiDBParameterGroupName :: Lens' CreateDBInstance (Maybe Text)
+cdbiDBParameterGroupName =
+    lens _cdbiDBParameterGroupName
+        (\s a -> s { _cdbiDBParameterGroupName = a })
 
 -- | A list of DB security groups to associate with this DB instance. Default:
 -- The default DB security group for the database engine.
-cdbimDBSecurityGroups :: Lens' CreateDBInstanceMessage [Text]
-cdbimDBSecurityGroups =
-    lens _cdbimDBSecurityGroups (\s a -> s { _cdbimDBSecurityGroups = a })
+cdbiDBSecurityGroups :: Lens' CreateDBInstance [Text]
+cdbiDBSecurityGroups =
+    lens _cdbiDBSecurityGroups (\s a -> s { _cdbiDBSecurityGroups = a })
 
 -- | A DB subnet group to associate with this DB instance. If there is no DB
 -- subnet group, then it is a non-VPC DB instance.
-cdbimDBSubnetGroupName :: Lens' CreateDBInstanceMessage (Maybe Text)
-cdbimDBSubnetGroupName =
-    lens _cdbimDBSubnetGroupName (\s a -> s { _cdbimDBSubnetGroupName = a })
+cdbiDBSubnetGroupName :: Lens' CreateDBInstance (Maybe Text)
+cdbiDBSubnetGroupName =
+    lens _cdbiDBSubnetGroupName (\s a -> s { _cdbiDBSubnetGroupName = a })
 
 -- | The name of the database engine to be used for this instance. Valid
 -- Values: MySQL | oracle-se1 | oracle-se | oracle-ee | sqlserver-ee |
 -- sqlserver-se | sqlserver-ex | sqlserver-web | postgres.
-cdbimEngine :: Lens' CreateDBInstanceMessage Text
-cdbimEngine = lens _cdbimEngine (\s a -> s { _cdbimEngine = a })
+cdbiEngine :: Lens' CreateDBInstance Text
+cdbiEngine = lens _cdbiEngine (\s a -> s { _cdbiEngine = a })
 
 -- | The version number of the database engine to use. MySQL Example: 5.1.42
 -- Type: String PostgreSQL Example: 9.3 Type: String Oracle Example:
 -- 11.2.0.2.v2 Type: String SQL Server Example: 10.50.2789.0.v1.
-cdbimEngineVersion :: Lens' CreateDBInstanceMessage (Maybe Text)
-cdbimEngineVersion =
-    lens _cdbimEngineVersion (\s a -> s { _cdbimEngineVersion = a })
+cdbiEngineVersion :: Lens' CreateDBInstance (Maybe Text)
+cdbiEngineVersion =
+    lens _cdbiEngineVersion (\s a -> s { _cdbiEngineVersion = a })
 
 -- | The amount of Provisioned IOPS (input/output operations per second) to be
 -- initially allocated for the DB instance. Constraints: To use PIOPS, this
 -- value must be an integer greater than 1000.
-cdbimIops :: Lens' CreateDBInstanceMessage (Maybe Int)
-cdbimIops = lens _cdbimIops (\s a -> s { _cdbimIops = a })
+cdbiIops :: Lens' CreateDBInstance (Maybe Int)
+cdbiIops = lens _cdbiIops (\s a -> s { _cdbiIops = a })
 
 -- | License model information for this DB instance. Valid values:
 -- license-included | bring-your-own-license | general-public-license.
-cdbimLicenseModel :: Lens' CreateDBInstanceMessage (Maybe Text)
-cdbimLicenseModel =
-    lens _cdbimLicenseModel (\s a -> s { _cdbimLicenseModel = a })
+cdbiLicenseModel :: Lens' CreateDBInstance (Maybe Text)
+cdbiLicenseModel = lens _cdbiLicenseModel (\s a -> s { _cdbiLicenseModel = a })
 
 -- | The password for the master database user. Can be any printable ASCII
 -- character except "/", """, or "@". Type: String MySQL Constraints: Must
 -- contain from 8 to 41 characters. Oracle Constraints: Must contain from 8
 -- to 30 characters. SQL Server Constraints: Must contain from 8 to 128
 -- characters.
-cdbimMasterUserPassword :: Lens' CreateDBInstanceMessage Text
-cdbimMasterUserPassword =
-    lens _cdbimMasterUserPassword (\s a -> s { _cdbimMasterUserPassword = a })
+cdbiMasterUserPassword :: Lens' CreateDBInstance Text
+cdbiMasterUserPassword =
+    lens _cdbiMasterUserPassword (\s a -> s { _cdbiMasterUserPassword = a })
 
 -- | The name of master user for the client DB instance. MySQL Constraints:
 -- Must be 1 to 16 alphanumeric characters. First character must be a
@@ -342,31 +341,31 @@ cdbimMasterUserPassword =
 -- database engine. SQL Server Constraints: Must be 1 to 128 alphanumeric
 -- characters. First character must be a letter. Cannot be a reserved word
 -- for the chosen database engine.
-cdbimMasterUsername :: Lens' CreateDBInstanceMessage Text
-cdbimMasterUsername =
-    lens _cdbimMasterUsername (\s a -> s { _cdbimMasterUsername = a })
+cdbiMasterUsername :: Lens' CreateDBInstance Text
+cdbiMasterUsername =
+    lens _cdbiMasterUsername (\s a -> s { _cdbiMasterUsername = a })
 
 -- | Specifies if the DB instance is a Multi-AZ deployment. You cannot set the
 -- AvailabilityZone parameter if the MultiAZ parameter is set to true.
-cdbimMultiAZ :: Lens' CreateDBInstanceMessage (Maybe Bool)
-cdbimMultiAZ = lens _cdbimMultiAZ (\s a -> s { _cdbimMultiAZ = a })
+cdbiMultiAZ :: Lens' CreateDBInstance (Maybe Bool)
+cdbiMultiAZ = lens _cdbiMultiAZ (\s a -> s { _cdbiMultiAZ = a })
 
 -- | Indicates that the DB instance should be associated with the specified
 -- option group. Permanent options, such as the TDE option for Oracle
 -- Advanced Security TDE, cannot be removed from an option group, and that
 -- option group cannot be removed from a DB instance once it is associated
 -- with a DB instance.
-cdbimOptionGroupName :: Lens' CreateDBInstanceMessage (Maybe Text)
-cdbimOptionGroupName =
-    lens _cdbimOptionGroupName (\s a -> s { _cdbimOptionGroupName = a })
+cdbiOptionGroupName :: Lens' CreateDBInstance (Maybe Text)
+cdbiOptionGroupName =
+    lens _cdbiOptionGroupName (\s a -> s { _cdbiOptionGroupName = a })
 
 -- | The port number on which the database accepts connections. MySQL Default:
 -- 3306 Valid Values: 1150-65535 Type: Integer PostgreSQL Default: 5432
 -- Valid Values: 1150-65535 Type: Integer Oracle Default: 1521 Valid Values:
 -- 1150-65535 SQL Server Default: 1433 Valid Values: 1150-65535 except for
 -- 1434, 3389, 47001, 49152, and 49152 through 49156.
-cdbimPort :: Lens' CreateDBInstanceMessage (Maybe Int)
-cdbimPort = lens _cdbimPort (\s a -> s { _cdbimPort = a })
+cdbiPort :: Lens' CreateDBInstance (Maybe Int)
+cdbiPort = lens _cdbiPort (\s a -> s { _cdbiPort = a })
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, using the BackupRetentionPeriod parameter.
@@ -376,10 +375,10 @@ cdbimPort = lens _cdbimPort (\s a -> s { _cdbimPort = a })
 -- Constraints: Must be in the format hh24:mi-hh24:mi. Times should be
 -- Universal Time Coordinated (UTC). Must not conflict with the preferred
 -- maintenance window. Must be at least 30 minutes.
-cdbimPreferredBackupWindow :: Lens' CreateDBInstanceMessage (Maybe Text)
-cdbimPreferredBackupWindow =
-    lens _cdbimPreferredBackupWindow
-        (\s a -> s { _cdbimPreferredBackupWindow = a })
+cdbiPreferredBackupWindow :: Lens' CreateDBInstance (Maybe Text)
+cdbiPreferredBackupWindow =
+    lens _cdbiPreferredBackupWindow
+        (\s a -> s { _cdbiPreferredBackupWindow = a })
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 -- Format: ddd:hh24:mi-ddd:hh24:mi Default: A 30-minute window selected at
@@ -387,10 +386,10 @@ cdbimPreferredBackupWindow =
 -- of the week. To see the time blocks available, see Adjusting the
 -- Preferred Maintenance Window in the Amazon RDS User Guide. Valid Days:
 -- Mon, Tue, Wed, Thu, Fri, Sat, Sun Constraints: Minimum 30-minute window.
-cdbimPreferredMaintenanceWindow :: Lens' CreateDBInstanceMessage (Maybe Text)
-cdbimPreferredMaintenanceWindow =
-    lens _cdbimPreferredMaintenanceWindow
-        (\s a -> s { _cdbimPreferredMaintenanceWindow = a })
+cdbiPreferredMaintenanceWindow :: Lens' CreateDBInstance (Maybe Text)
+cdbiPreferredMaintenanceWindow =
+    lens _cdbiPreferredMaintenanceWindow
+        (\s a -> s { _cdbiPreferredMaintenanceWindow = a })
 
 -- | Specifies the accessibility options for the DB instance. A value of true
 -- specifies an Internet-facing instance with a publicly resolvable DNS
@@ -404,71 +403,70 @@ cdbimPreferredMaintenanceWindow =
 -- subnet group has been specified as part of the request and the
 -- PubliclyAccessible value has not been set, the DB instance will be
 -- private.
-cdbimPubliclyAccessible :: Lens' CreateDBInstanceMessage (Maybe Bool)
-cdbimPubliclyAccessible =
-    lens _cdbimPubliclyAccessible (\s a -> s { _cdbimPubliclyAccessible = a })
+cdbiPubliclyAccessible :: Lens' CreateDBInstance (Maybe Bool)
+cdbiPubliclyAccessible =
+    lens _cdbiPubliclyAccessible (\s a -> s { _cdbiPubliclyAccessible = a })
 
 -- | Specifies storage type to be associated with the DB Instance. Valid
 -- values: standard | gp2 | io1 If you specify io1, you must also include a
 -- value for the Iops parameter.
-cdbimStorageType :: Lens' CreateDBInstanceMessage (Maybe Text)
-cdbimStorageType = lens _cdbimStorageType (\s a -> s { _cdbimStorageType = a })
+cdbiStorageType :: Lens' CreateDBInstance (Maybe Text)
+cdbiStorageType = lens _cdbiStorageType (\s a -> s { _cdbiStorageType = a })
 
-cdbimTags :: Lens' CreateDBInstanceMessage [Tag]
-cdbimTags = lens _cdbimTags (\s a -> s { _cdbimTags = a })
+cdbiTags :: Lens' CreateDBInstance [Tag]
+cdbiTags = lens _cdbiTags (\s a -> s { _cdbiTags = a })
 
 -- | The ARN from the Key Store with which to associate the instance for TDE
 -- encryption.
-cdbimTdeCredentialArn :: Lens' CreateDBInstanceMessage (Maybe Text)
-cdbimTdeCredentialArn =
-    lens _cdbimTdeCredentialArn (\s a -> s { _cdbimTdeCredentialArn = a })
+cdbiTdeCredentialArn :: Lens' CreateDBInstance (Maybe Text)
+cdbiTdeCredentialArn =
+    lens _cdbiTdeCredentialArn (\s a -> s { _cdbiTdeCredentialArn = a })
 
 -- | The password for the given ARN from the Key Store in order to access the
 -- device.
-cdbimTdeCredentialPassword :: Lens' CreateDBInstanceMessage (Maybe Text)
-cdbimTdeCredentialPassword =
-    lens _cdbimTdeCredentialPassword
-        (\s a -> s { _cdbimTdeCredentialPassword = a })
+cdbiTdeCredentialPassword :: Lens' CreateDBInstance (Maybe Text)
+cdbiTdeCredentialPassword =
+    lens _cdbiTdeCredentialPassword
+        (\s a -> s { _cdbiTdeCredentialPassword = a })
 
 -- | A list of EC2 VPC security groups to associate with this DB instance.
 -- Default: The default EC2 VPC security group for the DB subnet group's
 -- VPC.
-cdbimVpcSecurityGroupIds :: Lens' CreateDBInstanceMessage [Text]
-cdbimVpcSecurityGroupIds =
-    lens _cdbimVpcSecurityGroupIds
-        (\s a -> s { _cdbimVpcSecurityGroupIds = a })
+cdbiVpcSecurityGroupIds :: Lens' CreateDBInstance [Text]
+cdbiVpcSecurityGroupIds =
+    lens _cdbiVpcSecurityGroupIds (\s a -> s { _cdbiVpcSecurityGroupIds = a })
 
-instance ToQuery CreateDBInstanceMessage
+instance ToQuery CreateDBInstance
 
-instance ToPath CreateDBInstanceMessage where
+instance ToPath CreateDBInstance where
     toPath = const "/"
 
-newtype CreateDBInstanceResult = CreateDBInstanceResult
+newtype CreateDBInstanceResponse = CreateDBInstanceResponse
     { _cdbirDBInstance :: Maybe DBInstance
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDBInstanceResult' constructor.
+-- | 'CreateDBInstanceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdbirDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-createDBInstanceResponse :: CreateDBInstanceResult
-createDBInstanceResponse = CreateDBInstanceResult
+createDBInstanceResponse :: CreateDBInstanceResponse
+createDBInstanceResponse = CreateDBInstanceResponse
     { _cdbirDBInstance = Nothing
     }
 
-cdbirDBInstance :: Lens' CreateDBInstanceResult (Maybe DBInstance)
+cdbirDBInstance :: Lens' CreateDBInstanceResponse (Maybe DBInstance)
 cdbirDBInstance = lens _cdbirDBInstance (\s a -> s { _cdbirDBInstance = a })
 
-instance FromXML CreateDBInstanceResult where
+instance FromXML CreateDBInstanceResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDBInstanceResult"
+    fromXMLRoot    = fromRoot "CreateDBInstanceResponse"
 
-instance AWSRequest CreateDBInstanceMessage where
-    type Sv CreateDBInstanceMessage = RDS
-    type Rs CreateDBInstanceMessage = CreateDBInstanceResult
+instance AWSRequest CreateDBInstance where
+    type Sv CreateDBInstance = RDS
+    type Rs CreateDBInstance = CreateDBInstanceResponse
 
     request  = post "CreateDBInstance"
-    response = xmlResponse $ \h x -> CreateDBInstanceResult
+    response = xmlResponse $ \h x -> CreateDBInstanceResponse
         <$> x %| "DBInstance"

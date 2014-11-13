@@ -24,16 +24,16 @@
 module Network.AWS.RDS.PromoteReadReplica
     (
     -- * Request
-      PromoteReadReplicaMessage
+      PromoteReadReplica
     -- ** Request constructor
     , promoteReadReplica
     -- ** Request lenses
-    , prrmBackupRetentionPeriod
-    , prrmDBInstanceIdentifier
-    , prrmPreferredBackupWindow
+    , prrBackupRetentionPeriod
+    , prrDBInstanceIdentifier
+    , prrPreferredBackupWindow
 
     -- * Response
-    , PromoteReadReplicaResult
+    , PromoteReadReplicaResponse
     -- ** Response constructor
     , promoteReadReplicaResponse
     -- ** Response lenses
@@ -44,47 +44,46 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data PromoteReadReplicaMessage = PromoteReadReplicaMessage
-    { _prrmBackupRetentionPeriod :: Maybe Int
-    , _prrmDBInstanceIdentifier  :: Text
-    , _prrmPreferredBackupWindow :: Maybe Text
+data PromoteReadReplica = PromoteReadReplica
+    { _prrBackupRetentionPeriod :: Maybe Int
+    , _prrDBInstanceIdentifier  :: Text
+    , _prrPreferredBackupWindow :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'PromoteReadReplicaMessage' constructor.
+-- | 'PromoteReadReplica' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prrmBackupRetentionPeriod' @::@ 'Maybe' 'Int'
+-- * 'prrBackupRetentionPeriod' @::@ 'Maybe' 'Int'
 --
--- * 'prrmDBInstanceIdentifier' @::@ 'Text'
+-- * 'prrDBInstanceIdentifier' @::@ 'Text'
 --
--- * 'prrmPreferredBackupWindow' @::@ 'Maybe' 'Text'
+-- * 'prrPreferredBackupWindow' @::@ 'Maybe' 'Text'
 --
-promoteReadReplica :: Text -- ^ 'prrmDBInstanceIdentifier'
-                   -> PromoteReadReplicaMessage
-promoteReadReplica p1 = PromoteReadReplicaMessage
-    { _prrmDBInstanceIdentifier  = p1
-    , _prrmBackupRetentionPeriod = Nothing
-    , _prrmPreferredBackupWindow = Nothing
+promoteReadReplica :: Text -- ^ 'prrDBInstanceIdentifier'
+                   -> PromoteReadReplica
+promoteReadReplica p1 = PromoteReadReplica
+    { _prrDBInstanceIdentifier  = p1
+    , _prrBackupRetentionPeriod = Nothing
+    , _prrPreferredBackupWindow = Nothing
     }
 
 -- | The number of days to retain automated backups. Setting this parameter to
 -- a positive number enables backups. Setting this parameter to 0 disables
 -- automated backups. Default: 1 Constraints: Must be a value from 0 to 8.
-prrmBackupRetentionPeriod :: Lens' PromoteReadReplicaMessage (Maybe Int)
-prrmBackupRetentionPeriod =
-    lens _prrmBackupRetentionPeriod
-        (\s a -> s { _prrmBackupRetentionPeriod = a })
+prrBackupRetentionPeriod :: Lens' PromoteReadReplica (Maybe Int)
+prrBackupRetentionPeriod =
+    lens _prrBackupRetentionPeriod
+        (\s a -> s { _prrBackupRetentionPeriod = a })
 
 -- | The DB instance identifier. This value is stored as a lowercase string.
 -- Constraints: Must be the identifier for an existing read replica DB
 -- instance Must contain from 1 to 63 alphanumeric characters or hyphens
 -- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Example: mydbinstance.
-prrmDBInstanceIdentifier :: Lens' PromoteReadReplicaMessage Text
-prrmDBInstanceIdentifier =
-    lens _prrmDBInstanceIdentifier
-        (\s a -> s { _prrmDBInstanceIdentifier = a })
+prrDBInstanceIdentifier :: Lens' PromoteReadReplica Text
+prrDBInstanceIdentifier =
+    lens _prrDBInstanceIdentifier (\s a -> s { _prrDBInstanceIdentifier = a })
 
 -- | The daily time range during which automated backups are created if
 -- automated backups are enabled, using the BackupRetentionPeriod parameter.
@@ -94,42 +93,42 @@ prrmDBInstanceIdentifier =
 -- Constraints: Must be in the format hh24:mi-hh24:mi. Times should be
 -- Universal Time Coordinated (UTC). Must not conflict with the preferred
 -- maintenance window. Must be at least 30 minutes.
-prrmPreferredBackupWindow :: Lens' PromoteReadReplicaMessage (Maybe Text)
-prrmPreferredBackupWindow =
-    lens _prrmPreferredBackupWindow
-        (\s a -> s { _prrmPreferredBackupWindow = a })
+prrPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
+prrPreferredBackupWindow =
+    lens _prrPreferredBackupWindow
+        (\s a -> s { _prrPreferredBackupWindow = a })
 
-instance ToQuery PromoteReadReplicaMessage
+instance ToQuery PromoteReadReplica
 
-instance ToPath PromoteReadReplicaMessage where
+instance ToPath PromoteReadReplica where
     toPath = const "/"
 
-newtype PromoteReadReplicaResult = PromoteReadReplicaResult
+newtype PromoteReadReplicaResponse = PromoteReadReplicaResponse
     { _prrrDBInstance :: Maybe DBInstance
     } deriving (Eq, Show, Generic)
 
--- | 'PromoteReadReplicaResult' constructor.
+-- | 'PromoteReadReplicaResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'prrrDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-promoteReadReplicaResponse :: PromoteReadReplicaResult
-promoteReadReplicaResponse = PromoteReadReplicaResult
+promoteReadReplicaResponse :: PromoteReadReplicaResponse
+promoteReadReplicaResponse = PromoteReadReplicaResponse
     { _prrrDBInstance = Nothing
     }
 
-prrrDBInstance :: Lens' PromoteReadReplicaResult (Maybe DBInstance)
+prrrDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
 prrrDBInstance = lens _prrrDBInstance (\s a -> s { _prrrDBInstance = a })
 
-instance FromXML PromoteReadReplicaResult where
+instance FromXML PromoteReadReplicaResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PromoteReadReplicaResult"
+    fromXMLRoot    = fromRoot "PromoteReadReplicaResponse"
 
-instance AWSRequest PromoteReadReplicaMessage where
-    type Sv PromoteReadReplicaMessage = RDS
-    type Rs PromoteReadReplicaMessage = PromoteReadReplicaResult
+instance AWSRequest PromoteReadReplica where
+    type Sv PromoteReadReplica = RDS
+    type Rs PromoteReadReplica = PromoteReadReplicaResponse
 
     request  = post "PromoteReadReplica"
-    response = xmlResponse $ \h x -> PromoteReadReplicaResult
+    response = xmlResponse $ \h x -> PromoteReadReplicaResponse
         <$> x %| "DBInstance"

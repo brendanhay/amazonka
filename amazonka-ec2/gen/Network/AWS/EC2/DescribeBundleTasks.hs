@@ -33,7 +33,7 @@ module Network.AWS.EC2.DescribeBundleTasks
     , dbtFilters
 
     -- * Response
-    , DescribeBundleTasksResult
+    , DescribeBundleTasksResponse
     -- ** Response constructor
     , describeBundleTasksResponse
     -- ** Response lenses
@@ -92,39 +92,39 @@ instance ToQuery DescribeBundleTasks
 instance ToPath DescribeBundleTasks where
     toPath = const "/"
 
-newtype DescribeBundleTasksResult = DescribeBundleTasksResult
+newtype DescribeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtrBundleTasks :: [BundleTask]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeBundleTasksResult where
-    type Item DescribeBundleTasksResult = BundleTask
+instance IsList DescribeBundleTasksResponse where
+    type Item DescribeBundleTasksResponse = BundleTask
 
-    fromList = DescribeBundleTasksResult . fromList
+    fromList = DescribeBundleTasksResponse . fromList
     toList   = toList . _dbtrBundleTasks
 
--- | 'DescribeBundleTasksResult' constructor.
+-- | 'DescribeBundleTasksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dbtrBundleTasks' @::@ ['BundleTask']
 --
-describeBundleTasksResponse :: DescribeBundleTasksResult
-describeBundleTasksResponse = DescribeBundleTasksResult
+describeBundleTasksResponse :: DescribeBundleTasksResponse
+describeBundleTasksResponse = DescribeBundleTasksResponse
     { _dbtrBundleTasks = mempty
     }
 
 -- | Information about one or more bundle tasks.
-dbtrBundleTasks :: Lens' DescribeBundleTasksResult [BundleTask]
+dbtrBundleTasks :: Lens' DescribeBundleTasksResponse [BundleTask]
 dbtrBundleTasks = lens _dbtrBundleTasks (\s a -> s { _dbtrBundleTasks = a })
 
-instance FromXML DescribeBundleTasksResult where
+instance FromXML DescribeBundleTasksResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeBundleTasksResult"
+    fromXMLRoot    = fromRoot "DescribeBundleTasksResponse"
 
 instance AWSRequest DescribeBundleTasks where
     type Sv DescribeBundleTasks = EC2
-    type Rs DescribeBundleTasks = DescribeBundleTasksResult
+    type Rs DescribeBundleTasks = DescribeBundleTasksResponse
 
     request  = post "DescribeBundleTasks"
-    response = xmlResponse $ \h x -> DescribeBundleTasksResult
+    response = xmlResponse $ \h x -> DescribeBundleTasksResponse
         <$> x %| "bundleInstanceTasksSet"

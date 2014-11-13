@@ -31,11 +31,11 @@ module Network.AWS.S3.GetBucketLocation
     , gblBucket
 
     -- * Response
-    , GetBucketLocationOutput
+    , GetBucketLocationResponse
     -- ** Response constructor
     , getBucketLocationResponse
     -- ** Response lenses
-    , gbloLocationConstraint
+    , gblrLocationConstraint
     ) where
 
 import Network.AWS.Prelude
@@ -72,32 +72,32 @@ instance ToQuery GetBucketLocation where
 
 instance ToHeaders GetBucketLocation
 
-newtype GetBucketLocationOutput = GetBucketLocationOutput
-    { _gbloLocationConstraint :: Maybe Text
+newtype GetBucketLocationResponse = GetBucketLocationResponse
+    { _gblrLocationConstraint :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'GetBucketLocationOutput' constructor.
+-- | 'GetBucketLocationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbloLocationConstraint' @::@ 'Maybe' 'Text'
+-- * 'gblrLocationConstraint' @::@ 'Maybe' 'Text'
 --
-getBucketLocationResponse :: GetBucketLocationOutput
-getBucketLocationResponse = GetBucketLocationOutput
-    { _gbloLocationConstraint = Nothing
+getBucketLocationResponse :: GetBucketLocationResponse
+getBucketLocationResponse = GetBucketLocationResponse
+    { _gblrLocationConstraint = Nothing
     }
 
-gbloLocationConstraint :: Lens' GetBucketLocationOutput (Maybe Text)
-gbloLocationConstraint =
-    lens _gbloLocationConstraint (\s a -> s { _gbloLocationConstraint = a })
+gblrLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Text)
+gblrLocationConstraint =
+    lens _gblrLocationConstraint (\s a -> s { _gblrLocationConstraint = a })
 
-instance FromXML GetBucketLocationOutput where
+instance FromXML GetBucketLocationResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketLocationOutput"
+    fromXMLRoot    = fromRoot "GetBucketLocationResponse"
 instance AWSRequest GetBucketLocation where
     type Sv GetBucketLocation = S3
-    type Rs GetBucketLocation = GetBucketLocationOutput
+    type Rs GetBucketLocation = GetBucketLocationResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketLocationOutput
+    response = xmlResponse $ \h x -> GetBucketLocationResponse
         <$> x %| "LocationConstraint"

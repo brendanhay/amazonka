@@ -34,7 +34,7 @@ module Network.AWS.EC2.AttachNetworkInterface
     , aniNetworkInterfaceId
 
     -- * Response
-    , AttachNetworkInterfaceResult
+    , AttachNetworkInterfaceResponse
     -- ** Response constructor
     , attachNetworkInterfaceResponse
     -- ** Response lenses
@@ -96,33 +96,33 @@ instance ToQuery AttachNetworkInterface
 instance ToPath AttachNetworkInterface where
     toPath = const "/"
 
-newtype AttachNetworkInterfaceResult = AttachNetworkInterfaceResult
+newtype AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     { _anirAttachmentId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'AttachNetworkInterfaceResult' constructor.
+-- | 'AttachNetworkInterfaceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'anirAttachmentId' @::@ 'Maybe' 'Text'
 --
-attachNetworkInterfaceResponse :: AttachNetworkInterfaceResult
-attachNetworkInterfaceResponse = AttachNetworkInterfaceResult
+attachNetworkInterfaceResponse :: AttachNetworkInterfaceResponse
+attachNetworkInterfaceResponse = AttachNetworkInterfaceResponse
     { _anirAttachmentId = Nothing
     }
 
 -- | The ID of the network interface attachment.
-anirAttachmentId :: Lens' AttachNetworkInterfaceResult (Maybe Text)
+anirAttachmentId :: Lens' AttachNetworkInterfaceResponse (Maybe Text)
 anirAttachmentId = lens _anirAttachmentId (\s a -> s { _anirAttachmentId = a })
 
-instance FromXML AttachNetworkInterfaceResult where
+instance FromXML AttachNetworkInterfaceResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttachNetworkInterfaceResult"
+    fromXMLRoot    = fromRoot "AttachNetworkInterfaceResponse"
 
 instance AWSRequest AttachNetworkInterface where
     type Sv AttachNetworkInterface = EC2
-    type Rs AttachNetworkInterface = AttachNetworkInterfaceResult
+    type Rs AttachNetworkInterface = AttachNetworkInterfaceResponse
 
     request  = post "AttachNetworkInterface"
-    response = xmlResponse $ \h x -> AttachNetworkInterfaceResult
+    response = xmlResponse $ \h x -> AttachNetworkInterfaceResponse
         <$> x %| "attachmentId"

@@ -29,14 +29,14 @@
 module Network.AWS.Redshift.RebootCluster
     (
     -- * Request
-      RebootClusterMessage
+      RebootCluster
     -- ** Request constructor
     , rebootCluster
     -- ** Request lenses
-    , rcmClusterIdentifier
+    , rcClusterIdentifier
 
     -- * Response
-    , RebootClusterResult
+    , RebootClusterResponse
     -- ** Response constructor
     , rebootClusterResponse
     -- ** Response lenses
@@ -47,58 +47,58 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-newtype RebootClusterMessage = RebootClusterMessage
-    { _rcmClusterIdentifier :: Text
+newtype RebootCluster = RebootCluster
+    { _rcClusterIdentifier :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'RebootClusterMessage' constructor.
+-- | 'RebootCluster' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcmClusterIdentifier' @::@ 'Text'
+-- * 'rcClusterIdentifier' @::@ 'Text'
 --
-rebootCluster :: Text -- ^ 'rcmClusterIdentifier'
-              -> RebootClusterMessage
-rebootCluster p1 = RebootClusterMessage
-    { _rcmClusterIdentifier = p1
+rebootCluster :: Text -- ^ 'rcClusterIdentifier'
+              -> RebootCluster
+rebootCluster p1 = RebootCluster
+    { _rcClusterIdentifier = p1
     }
 
 -- | The cluster identifier.
-rcmClusterIdentifier :: Lens' RebootClusterMessage Text
-rcmClusterIdentifier =
-    lens _rcmClusterIdentifier (\s a -> s { _rcmClusterIdentifier = a })
+rcClusterIdentifier :: Lens' RebootCluster Text
+rcClusterIdentifier =
+    lens _rcClusterIdentifier (\s a -> s { _rcClusterIdentifier = a })
 
-instance ToQuery RebootClusterMessage
+instance ToQuery RebootCluster
 
-instance ToPath RebootClusterMessage where
+instance ToPath RebootCluster where
     toPath = const "/"
 
-newtype RebootClusterResult = RebootClusterResult
+newtype RebootClusterResponse = RebootClusterResponse
     { _rcrCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
 
--- | 'RebootClusterResult' constructor.
+-- | 'RebootClusterResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rcrCluster' @::@ 'Maybe' 'Cluster'
 --
-rebootClusterResponse :: RebootClusterResult
-rebootClusterResponse = RebootClusterResult
+rebootClusterResponse :: RebootClusterResponse
+rebootClusterResponse = RebootClusterResponse
     { _rcrCluster = Nothing
     }
 
-rcrCluster :: Lens' RebootClusterResult (Maybe Cluster)
+rcrCluster :: Lens' RebootClusterResponse (Maybe Cluster)
 rcrCluster = lens _rcrCluster (\s a -> s { _rcrCluster = a })
 
-instance FromXML RebootClusterResult where
+instance FromXML RebootClusterResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RebootClusterResult"
+    fromXMLRoot    = fromRoot "RebootClusterResponse"
 
-instance AWSRequest RebootClusterMessage where
-    type Sv RebootClusterMessage = Redshift
-    type Rs RebootClusterMessage = RebootClusterResult
+instance AWSRequest RebootCluster where
+    type Sv RebootCluster = Redshift
+    type Rs RebootCluster = RebootClusterResponse
 
     request  = post "RebootCluster"
-    response = xmlResponse $ \h x -> RebootClusterResult
+    response = xmlResponse $ \h x -> RebootClusterResponse
         <$> x %| "Cluster"

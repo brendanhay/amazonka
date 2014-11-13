@@ -24,15 +24,15 @@
 module Network.AWS.ElastiCache.CopySnapshot
     (
     -- * Request
-      CopySnapshotMessage
+      CopySnapshot
     -- ** Request constructor
     , copySnapshot
     -- ** Request lenses
-    , csmSourceSnapshotName
-    , csmTargetSnapshotName
+    , csSourceSnapshotName
+    , csTargetSnapshotName
 
     -- * Response
-    , CopySnapshotResult
+    , CopySnapshotResponse
     -- ** Response constructor
     , copySnapshotResponse
     -- ** Response lenses
@@ -43,68 +43,68 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data CopySnapshotMessage = CopySnapshotMessage
-    { _csmSourceSnapshotName :: Text
-    , _csmTargetSnapshotName :: Text
+data CopySnapshot = CopySnapshot
+    { _csSourceSnapshotName :: Text
+    , _csTargetSnapshotName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CopySnapshotMessage' constructor.
+-- | 'CopySnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csmSourceSnapshotName' @::@ 'Text'
+-- * 'csSourceSnapshotName' @::@ 'Text'
 --
--- * 'csmTargetSnapshotName' @::@ 'Text'
+-- * 'csTargetSnapshotName' @::@ 'Text'
 --
-copySnapshot :: Text -- ^ 'csmSourceSnapshotName'
-             -> Text -- ^ 'csmTargetSnapshotName'
-             -> CopySnapshotMessage
-copySnapshot p1 p2 = CopySnapshotMessage
-    { _csmSourceSnapshotName = p1
-    , _csmTargetSnapshotName = p2
+copySnapshot :: Text -- ^ 'csSourceSnapshotName'
+             -> Text -- ^ 'csTargetSnapshotName'
+             -> CopySnapshot
+copySnapshot p1 p2 = CopySnapshot
+    { _csSourceSnapshotName = p1
+    , _csTargetSnapshotName = p2
     }
 
 -- | The name of an existing snapshot from which to copy.
-csmSourceSnapshotName :: Lens' CopySnapshotMessage Text
-csmSourceSnapshotName =
-    lens _csmSourceSnapshotName (\s a -> s { _csmSourceSnapshotName = a })
+csSourceSnapshotName :: Lens' CopySnapshot Text
+csSourceSnapshotName =
+    lens _csSourceSnapshotName (\s a -> s { _csSourceSnapshotName = a })
 
 -- | A name for the copied snapshot.
-csmTargetSnapshotName :: Lens' CopySnapshotMessage Text
-csmTargetSnapshotName =
-    lens _csmTargetSnapshotName (\s a -> s { _csmTargetSnapshotName = a })
+csTargetSnapshotName :: Lens' CopySnapshot Text
+csTargetSnapshotName =
+    lens _csTargetSnapshotName (\s a -> s { _csTargetSnapshotName = a })
 
-instance ToQuery CopySnapshotMessage
+instance ToQuery CopySnapshot
 
-instance ToPath CopySnapshotMessage where
+instance ToPath CopySnapshot where
     toPath = const "/"
 
-newtype CopySnapshotResult = CopySnapshotResult
+newtype CopySnapshotResponse = CopySnapshotResponse
     { _csrSnapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
 
--- | 'CopySnapshotResult' constructor.
+-- | 'CopySnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csrSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-copySnapshotResponse :: CopySnapshotResult
-copySnapshotResponse = CopySnapshotResult
+copySnapshotResponse :: CopySnapshotResponse
+copySnapshotResponse = CopySnapshotResponse
     { _csrSnapshot = Nothing
     }
 
-csrSnapshot :: Lens' CopySnapshotResult (Maybe Snapshot)
+csrSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
 csrSnapshot = lens _csrSnapshot (\s a -> s { _csrSnapshot = a })
 
-instance FromXML CopySnapshotResult where
+instance FromXML CopySnapshotResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopySnapshotResult"
+    fromXMLRoot    = fromRoot "CopySnapshotResponse"
 
-instance AWSRequest CopySnapshotMessage where
-    type Sv CopySnapshotMessage = ElastiCache
-    type Rs CopySnapshotMessage = CopySnapshotResult
+instance AWSRequest CopySnapshot where
+    type Sv CopySnapshot = ElastiCache
+    type Rs CopySnapshot = CopySnapshotResponse
 
     request  = post "CopySnapshot"
-    response = xmlResponse $ \h x -> CopySnapshotResult
+    response = xmlResponse $ \h x -> CopySnapshotResponse
         <$> x %| "Snapshot"

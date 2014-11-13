@@ -27,204 +27,204 @@
 module Network.AWS.ImportExport.GetStatus
     (
     -- * Request
-      GetStatusInput
+      GetStatus
     -- ** Request constructor
     , getStatus
     -- ** Request lenses
-    , gsiJobId
+    , gsJobId
 
     -- * Response
-    , GetStatusOutput
+    , GetStatusResponse
     -- ** Response constructor
     , getStatusResponse
     -- ** Response lenses
-    , gsoAwsShippingAddress
-    , gsoCarrier
-    , gsoCreationDate
-    , gsoCurrentManifest
-    , gsoErrorCount
-    , gsoJobId
-    , gsoJobType
-    , gsoLocationCode
-    , gsoLocationMessage
-    , gsoLogBucket
-    , gsoLogKey
-    , gsoProgressCode
-    , gsoProgressMessage
-    , gsoSignature
-    , gsoSignatureFileContents
-    , gsoTrackingNumber
+    , gsrAwsShippingAddress
+    , gsrCarrier
+    , gsrCreationDate
+    , gsrCurrentManifest
+    , gsrErrorCount
+    , gsrJobId
+    , gsrJobType
+    , gsrLocationCode
+    , gsrLocationMessage
+    , gsrLogBucket
+    , gsrLogKey
+    , gsrProgressCode
+    , gsrProgressMessage
+    , gsrSignature
+    , gsrSignatureFileContents
+    , gsrTrackingNumber
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ImportExport.Types
 
-newtype GetStatusInput = GetStatusInput
-    { _gsiJobId :: Text
+newtype GetStatus = GetStatus
+    { _gsJobId :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'GetStatusInput' constructor.
+-- | 'GetStatus' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsiJobId' @::@ 'Text'
+-- * 'gsJobId' @::@ 'Text'
 --
-getStatus :: Text -- ^ 'gsiJobId'
-          -> GetStatusInput
-getStatus p1 = GetStatusInput
-    { _gsiJobId = p1
+getStatus :: Text -- ^ 'gsJobId'
+          -> GetStatus
+getStatus p1 = GetStatus
+    { _gsJobId = p1
     }
 
-gsiJobId :: Lens' GetStatusInput Text
-gsiJobId = lens _gsiJobId (\s a -> s { _gsiJobId = a })
+gsJobId :: Lens' GetStatus Text
+gsJobId = lens _gsJobId (\s a -> s { _gsJobId = a })
 
-instance ToQuery GetStatusInput
+instance ToQuery GetStatus
 
-instance ToPath GetStatusInput where
+instance ToPath GetStatus where
     toPath = const "/"
 
-data GetStatusOutput = GetStatusOutput
-    { _gsoAwsShippingAddress    :: Maybe Text
-    , _gsoCarrier               :: Maybe Text
-    , _gsoCreationDate          :: Maybe RFC822
-    , _gsoCurrentManifest       :: Maybe Text
-    , _gsoErrorCount            :: Maybe Int
-    , _gsoJobId                 :: Maybe Text
-    , _gsoJobType               :: Maybe Text
-    , _gsoLocationCode          :: Maybe Text
-    , _gsoLocationMessage       :: Maybe Text
-    , _gsoLogBucket             :: Maybe Text
-    , _gsoLogKey                :: Maybe Text
-    , _gsoProgressCode          :: Maybe Text
-    , _gsoProgressMessage       :: Maybe Text
-    , _gsoSignature             :: Maybe Text
-    , _gsoSignatureFileContents :: Maybe Text
-    , _gsoTrackingNumber        :: Maybe Text
+data GetStatusResponse = GetStatusResponse
+    { _gsrAwsShippingAddress    :: Maybe Text
+    , _gsrCarrier               :: Maybe Text
+    , _gsrCreationDate          :: Maybe RFC822
+    , _gsrCurrentManifest       :: Maybe Text
+    , _gsrErrorCount            :: Maybe Int
+    , _gsrJobId                 :: Maybe Text
+    , _gsrJobType               :: Maybe Text
+    , _gsrLocationCode          :: Maybe Text
+    , _gsrLocationMessage       :: Maybe Text
+    , _gsrLogBucket             :: Maybe Text
+    , _gsrLogKey                :: Maybe Text
+    , _gsrProgressCode          :: Maybe Text
+    , _gsrProgressMessage       :: Maybe Text
+    , _gsrSignature             :: Maybe Text
+    , _gsrSignatureFileContents :: Maybe Text
+    , _gsrTrackingNumber        :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'GetStatusOutput' constructor.
+-- | 'GetStatusResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsoAwsShippingAddress' @::@ 'Maybe' 'Text'
+-- * 'gsrAwsShippingAddress' @::@ 'Maybe' 'Text'
 --
--- * 'gsoCarrier' @::@ 'Maybe' 'Text'
+-- * 'gsrCarrier' @::@ 'Maybe' 'Text'
 --
--- * 'gsoCreationDate' @::@ 'Maybe' 'UTCTime'
+-- * 'gsrCreationDate' @::@ 'Maybe' 'UTCTime'
 --
--- * 'gsoCurrentManifest' @::@ 'Maybe' 'Text'
+-- * 'gsrCurrentManifest' @::@ 'Maybe' 'Text'
 --
--- * 'gsoErrorCount' @::@ 'Maybe' 'Int'
+-- * 'gsrErrorCount' @::@ 'Maybe' 'Int'
 --
--- * 'gsoJobId' @::@ 'Maybe' 'Text'
+-- * 'gsrJobId' @::@ 'Maybe' 'Text'
 --
--- * 'gsoJobType' @::@ 'Maybe' 'Text'
+-- * 'gsrJobType' @::@ 'Maybe' 'Text'
 --
--- * 'gsoLocationCode' @::@ 'Maybe' 'Text'
+-- * 'gsrLocationCode' @::@ 'Maybe' 'Text'
 --
--- * 'gsoLocationMessage' @::@ 'Maybe' 'Text'
+-- * 'gsrLocationMessage' @::@ 'Maybe' 'Text'
 --
--- * 'gsoLogBucket' @::@ 'Maybe' 'Text'
+-- * 'gsrLogBucket' @::@ 'Maybe' 'Text'
 --
--- * 'gsoLogKey' @::@ 'Maybe' 'Text'
+-- * 'gsrLogKey' @::@ 'Maybe' 'Text'
 --
--- * 'gsoProgressCode' @::@ 'Maybe' 'Text'
+-- * 'gsrProgressCode' @::@ 'Maybe' 'Text'
 --
--- * 'gsoProgressMessage' @::@ 'Maybe' 'Text'
+-- * 'gsrProgressMessage' @::@ 'Maybe' 'Text'
 --
--- * 'gsoSignature' @::@ 'Maybe' 'Text'
+-- * 'gsrSignature' @::@ 'Maybe' 'Text'
 --
--- * 'gsoSignatureFileContents' @::@ 'Maybe' 'Text'
+-- * 'gsrSignatureFileContents' @::@ 'Maybe' 'Text'
 --
--- * 'gsoTrackingNumber' @::@ 'Maybe' 'Text'
+-- * 'gsrTrackingNumber' @::@ 'Maybe' 'Text'
 --
-getStatusResponse :: GetStatusOutput
-getStatusResponse = GetStatusOutput
-    { _gsoJobId                 = Nothing
-    , _gsoJobType               = Nothing
-    , _gsoAwsShippingAddress    = Nothing
-    , _gsoLocationCode          = Nothing
-    , _gsoLocationMessage       = Nothing
-    , _gsoProgressCode          = Nothing
-    , _gsoProgressMessage       = Nothing
-    , _gsoCarrier               = Nothing
-    , _gsoTrackingNumber        = Nothing
-    , _gsoLogBucket             = Nothing
-    , _gsoLogKey                = Nothing
-    , _gsoErrorCount            = Nothing
-    , _gsoSignature             = Nothing
-    , _gsoSignatureFileContents = Nothing
-    , _gsoCurrentManifest       = Nothing
-    , _gsoCreationDate          = Nothing
+getStatusResponse :: GetStatusResponse
+getStatusResponse = GetStatusResponse
+    { _gsrJobId                 = Nothing
+    , _gsrJobType               = Nothing
+    , _gsrAwsShippingAddress    = Nothing
+    , _gsrLocationCode          = Nothing
+    , _gsrLocationMessage       = Nothing
+    , _gsrProgressCode          = Nothing
+    , _gsrProgressMessage       = Nothing
+    , _gsrCarrier               = Nothing
+    , _gsrTrackingNumber        = Nothing
+    , _gsrLogBucket             = Nothing
+    , _gsrLogKey                = Nothing
+    , _gsrErrorCount            = Nothing
+    , _gsrSignature             = Nothing
+    , _gsrSignatureFileContents = Nothing
+    , _gsrCurrentManifest       = Nothing
+    , _gsrCreationDate          = Nothing
     }
 
-gsoAwsShippingAddress :: Lens' GetStatusOutput (Maybe Text)
-gsoAwsShippingAddress =
-    lens _gsoAwsShippingAddress (\s a -> s { _gsoAwsShippingAddress = a })
+gsrAwsShippingAddress :: Lens' GetStatusResponse (Maybe Text)
+gsrAwsShippingAddress =
+    lens _gsrAwsShippingAddress (\s a -> s { _gsrAwsShippingAddress = a })
 
-gsoCarrier :: Lens' GetStatusOutput (Maybe Text)
-gsoCarrier = lens _gsoCarrier (\s a -> s { _gsoCarrier = a })
+gsrCarrier :: Lens' GetStatusResponse (Maybe Text)
+gsrCarrier = lens _gsrCarrier (\s a -> s { _gsrCarrier = a })
 
-gsoCreationDate :: Lens' GetStatusOutput (Maybe UTCTime)
-gsoCreationDate = lens _gsoCreationDate (\s a -> s { _gsoCreationDate = a })
+gsrCreationDate :: Lens' GetStatusResponse (Maybe UTCTime)
+gsrCreationDate = lens _gsrCreationDate (\s a -> s { _gsrCreationDate = a })
     . mapping _Time
 
-gsoCurrentManifest :: Lens' GetStatusOutput (Maybe Text)
-gsoCurrentManifest =
-    lens _gsoCurrentManifest (\s a -> s { _gsoCurrentManifest = a })
+gsrCurrentManifest :: Lens' GetStatusResponse (Maybe Text)
+gsrCurrentManifest =
+    lens _gsrCurrentManifest (\s a -> s { _gsrCurrentManifest = a })
 
-gsoErrorCount :: Lens' GetStatusOutput (Maybe Int)
-gsoErrorCount = lens _gsoErrorCount (\s a -> s { _gsoErrorCount = a })
+gsrErrorCount :: Lens' GetStatusResponse (Maybe Int)
+gsrErrorCount = lens _gsrErrorCount (\s a -> s { _gsrErrorCount = a })
 
-gsoJobId :: Lens' GetStatusOutput (Maybe Text)
-gsoJobId = lens _gsoJobId (\s a -> s { _gsoJobId = a })
+gsrJobId :: Lens' GetStatusResponse (Maybe Text)
+gsrJobId = lens _gsrJobId (\s a -> s { _gsrJobId = a })
 
-gsoJobType :: Lens' GetStatusOutput (Maybe Text)
-gsoJobType = lens _gsoJobType (\s a -> s { _gsoJobType = a })
+gsrJobType :: Lens' GetStatusResponse (Maybe Text)
+gsrJobType = lens _gsrJobType (\s a -> s { _gsrJobType = a })
 
-gsoLocationCode :: Lens' GetStatusOutput (Maybe Text)
-gsoLocationCode = lens _gsoLocationCode (\s a -> s { _gsoLocationCode = a })
+gsrLocationCode :: Lens' GetStatusResponse (Maybe Text)
+gsrLocationCode = lens _gsrLocationCode (\s a -> s { _gsrLocationCode = a })
 
-gsoLocationMessage :: Lens' GetStatusOutput (Maybe Text)
-gsoLocationMessage =
-    lens _gsoLocationMessage (\s a -> s { _gsoLocationMessage = a })
+gsrLocationMessage :: Lens' GetStatusResponse (Maybe Text)
+gsrLocationMessage =
+    lens _gsrLocationMessage (\s a -> s { _gsrLocationMessage = a })
 
-gsoLogBucket :: Lens' GetStatusOutput (Maybe Text)
-gsoLogBucket = lens _gsoLogBucket (\s a -> s { _gsoLogBucket = a })
+gsrLogBucket :: Lens' GetStatusResponse (Maybe Text)
+gsrLogBucket = lens _gsrLogBucket (\s a -> s { _gsrLogBucket = a })
 
-gsoLogKey :: Lens' GetStatusOutput (Maybe Text)
-gsoLogKey = lens _gsoLogKey (\s a -> s { _gsoLogKey = a })
+gsrLogKey :: Lens' GetStatusResponse (Maybe Text)
+gsrLogKey = lens _gsrLogKey (\s a -> s { _gsrLogKey = a })
 
-gsoProgressCode :: Lens' GetStatusOutput (Maybe Text)
-gsoProgressCode = lens _gsoProgressCode (\s a -> s { _gsoProgressCode = a })
+gsrProgressCode :: Lens' GetStatusResponse (Maybe Text)
+gsrProgressCode = lens _gsrProgressCode (\s a -> s { _gsrProgressCode = a })
 
-gsoProgressMessage :: Lens' GetStatusOutput (Maybe Text)
-gsoProgressMessage =
-    lens _gsoProgressMessage (\s a -> s { _gsoProgressMessage = a })
+gsrProgressMessage :: Lens' GetStatusResponse (Maybe Text)
+gsrProgressMessage =
+    lens _gsrProgressMessage (\s a -> s { _gsrProgressMessage = a })
 
-gsoSignature :: Lens' GetStatusOutput (Maybe Text)
-gsoSignature = lens _gsoSignature (\s a -> s { _gsoSignature = a })
+gsrSignature :: Lens' GetStatusResponse (Maybe Text)
+gsrSignature = lens _gsrSignature (\s a -> s { _gsrSignature = a })
 
-gsoSignatureFileContents :: Lens' GetStatusOutput (Maybe Text)
-gsoSignatureFileContents =
-    lens _gsoSignatureFileContents
-        (\s a -> s { _gsoSignatureFileContents = a })
+gsrSignatureFileContents :: Lens' GetStatusResponse (Maybe Text)
+gsrSignatureFileContents =
+    lens _gsrSignatureFileContents
+        (\s a -> s { _gsrSignatureFileContents = a })
 
-gsoTrackingNumber :: Lens' GetStatusOutput (Maybe Text)
-gsoTrackingNumber =
-    lens _gsoTrackingNumber (\s a -> s { _gsoTrackingNumber = a })
+gsrTrackingNumber :: Lens' GetStatusResponse (Maybe Text)
+gsrTrackingNumber =
+    lens _gsrTrackingNumber (\s a -> s { _gsrTrackingNumber = a })
 
-instance FromXML GetStatusOutput where
+instance FromXML GetStatusResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetStatusOutput"
+    fromXMLRoot    = fromRoot "GetStatusResponse"
 
-instance AWSRequest GetStatusInput where
-    type Sv GetStatusInput = ImportExport
-    type Rs GetStatusInput = GetStatusOutput
+instance AWSRequest GetStatus where
+    type Sv GetStatus = ImportExport
+    type Rs GetStatus = GetStatusResponse
 
     request  = post "GetStatus"
-    response = xmlResponse $ \h x -> GetStatusOutput
+    response = xmlResponse $ \h x -> GetStatusResponse
         <$> x %| "AwsShippingAddress"
         <*> x %| "Carrier"
         <*> x %| "CreationDate"

@@ -36,7 +36,7 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     , dsaSnapshotId
 
     -- * Response
-    , DescribeSnapshotAttributeResult
+    , DescribeSnapshotAttributeResponse
     -- ** Response constructor
     , describeSnapshotAttributeResponse
     -- ** Response lenses
@@ -90,13 +90,13 @@ instance ToQuery DescribeSnapshotAttribute
 instance ToPath DescribeSnapshotAttribute where
     toPath = const "/"
 
-data DescribeSnapshotAttributeResult = DescribeSnapshotAttributeResult
+data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     { _dsarCreateVolumePermissions :: [CreateVolumePermission]
     , _dsarProductCodes            :: [ProductCode]
     , _dsarSnapshotId              :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeSnapshotAttributeResult' constructor.
+-- | 'DescribeSnapshotAttributeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -106,37 +106,37 @@ data DescribeSnapshotAttributeResult = DescribeSnapshotAttributeResult
 --
 -- * 'dsarSnapshotId' @::@ 'Maybe' 'Text'
 --
-describeSnapshotAttributeResponse :: DescribeSnapshotAttributeResult
-describeSnapshotAttributeResponse = DescribeSnapshotAttributeResult
+describeSnapshotAttributeResponse :: DescribeSnapshotAttributeResponse
+describeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse
     { _dsarSnapshotId              = Nothing
     , _dsarCreateVolumePermissions = mempty
     , _dsarProductCodes            = mempty
     }
 
 -- | A list of permissions for creating volumes from the snapshot.
-dsarCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResult [CreateVolumePermission]
+dsarCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
 dsarCreateVolumePermissions =
     lens _dsarCreateVolumePermissions
         (\s a -> s { _dsarCreateVolumePermissions = a })
 
 -- | A list of product codes.
-dsarProductCodes :: Lens' DescribeSnapshotAttributeResult [ProductCode]
+dsarProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
 dsarProductCodes = lens _dsarProductCodes (\s a -> s { _dsarProductCodes = a })
 
 -- | The ID of the Amazon EBS snapshot.
-dsarSnapshotId :: Lens' DescribeSnapshotAttributeResult (Maybe Text)
+dsarSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
 dsarSnapshotId = lens _dsarSnapshotId (\s a -> s { _dsarSnapshotId = a })
 
-instance FromXML DescribeSnapshotAttributeResult where
+instance FromXML DescribeSnapshotAttributeResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSnapshotAttributeResult"
+    fromXMLRoot    = fromRoot "DescribeSnapshotAttributeResponse"
 
 instance AWSRequest DescribeSnapshotAttribute where
     type Sv DescribeSnapshotAttribute = EC2
-    type Rs DescribeSnapshotAttribute = DescribeSnapshotAttributeResult
+    type Rs DescribeSnapshotAttribute = DescribeSnapshotAttributeResponse
 
     request  = post "DescribeSnapshotAttribute"
-    response = xmlResponse $ \h x -> DescribeSnapshotAttributeResult
+    response = xmlResponse $ \h x -> DescribeSnapshotAttributeResponse
         <$> x %| "createVolumePermission"
         <*> x %| "productCodes"
         <*> x %| "snapshotId"

@@ -37,7 +37,7 @@ module Network.AWS.EC2.ModifyReservedInstances
     , mriTargetConfigurations
 
     -- * Response
-    , ModifyReservedInstancesResult
+    , ModifyReservedInstancesResponse
     -- ** Response constructor
     , modifyReservedInstancesResponse
     -- ** Response lenses
@@ -91,35 +91,35 @@ instance ToQuery ModifyReservedInstances
 instance ToPath ModifyReservedInstances where
     toPath = const "/"
 
-newtype ModifyReservedInstancesResult = ModifyReservedInstancesResult
+newtype ModifyReservedInstancesResponse = ModifyReservedInstancesResponse
     { _mrirReservedInstancesModificationId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'ModifyReservedInstancesResult' constructor.
+-- | 'ModifyReservedInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mrirReservedInstancesModificationId' @::@ 'Maybe' 'Text'
 --
-modifyReservedInstancesResponse :: ModifyReservedInstancesResult
-modifyReservedInstancesResponse = ModifyReservedInstancesResult
+modifyReservedInstancesResponse :: ModifyReservedInstancesResponse
+modifyReservedInstancesResponse = ModifyReservedInstancesResponse
     { _mrirReservedInstancesModificationId = Nothing
     }
 
 -- | The ID for the modification.
-mrirReservedInstancesModificationId :: Lens' ModifyReservedInstancesResult (Maybe Text)
+mrirReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
 mrirReservedInstancesModificationId =
     lens _mrirReservedInstancesModificationId
         (\s a -> s { _mrirReservedInstancesModificationId = a })
 
-instance FromXML ModifyReservedInstancesResult where
+instance FromXML ModifyReservedInstancesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyReservedInstancesResult"
+    fromXMLRoot    = fromRoot "ModifyReservedInstancesResponse"
 
 instance AWSRequest ModifyReservedInstances where
     type Sv ModifyReservedInstances = EC2
-    type Rs ModifyReservedInstances = ModifyReservedInstancesResult
+    type Rs ModifyReservedInstances = ModifyReservedInstancesResponse
 
     request  = post "ModifyReservedInstances"
-    response = xmlResponse $ \h x -> ModifyReservedInstancesResult
+    response = xmlResponse $ \h x -> ModifyReservedInstancesResponse
         <$> x %| "reservedInstancesModificationId"

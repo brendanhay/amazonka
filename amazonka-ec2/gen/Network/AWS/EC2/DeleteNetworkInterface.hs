@@ -29,8 +29,8 @@ module Network.AWS.EC2.DeleteNetworkInterface
     -- ** Request constructor
     , deleteNetworkInterface
     -- ** Request lenses
-    , dni1DryRun
-    , dni1NetworkInterfaceId
+    , dni2DryRun
+    , dni2NetworkInterfaceId
 
     -- * Response
     , DeleteNetworkInterfaceResponse
@@ -43,32 +43,32 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DeleteNetworkInterface = DeleteNetworkInterface
-    { _dni1DryRun             :: Maybe Bool
-    , _dni1NetworkInterfaceId :: Text
+    { _dni2DryRun             :: Maybe Bool
+    , _dni2NetworkInterfaceId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteNetworkInterface' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dni1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dni2DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dni1NetworkInterfaceId' @::@ 'Text'
+-- * 'dni2NetworkInterfaceId' @::@ 'Text'
 --
-deleteNetworkInterface :: Text -- ^ 'dni1NetworkInterfaceId'
+deleteNetworkInterface :: Text -- ^ 'dni2NetworkInterfaceId'
                        -> DeleteNetworkInterface
 deleteNetworkInterface p1 = DeleteNetworkInterface
-    { _dni1NetworkInterfaceId = p1
-    , _dni1DryRun             = Nothing
+    { _dni2NetworkInterfaceId = p1
+    , _dni2DryRun             = Nothing
     }
 
-dni1DryRun :: Lens' DeleteNetworkInterface (Maybe Bool)
-dni1DryRun = lens _dni1DryRun (\s a -> s { _dni1DryRun = a })
+dni2DryRun :: Lens' DeleteNetworkInterface (Maybe Bool)
+dni2DryRun = lens _dni2DryRun (\s a -> s { _dni2DryRun = a })
 
 -- | The ID of the network interface.
-dni1NetworkInterfaceId :: Lens' DeleteNetworkInterface Text
-dni1NetworkInterfaceId =
-    lens _dni1NetworkInterfaceId (\s a -> s { _dni1NetworkInterfaceId = a })
+dni2NetworkInterfaceId :: Lens' DeleteNetworkInterface Text
+dni2NetworkInterfaceId =
+    lens _dni2NetworkInterfaceId (\s a -> s { _dni2NetworkInterfaceId = a })
 
 instance ToQuery DeleteNetworkInterface
 

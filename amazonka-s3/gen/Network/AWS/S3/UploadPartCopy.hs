@@ -46,15 +46,15 @@ module Network.AWS.S3.UploadPartCopy
     , upcUploadId
 
     -- * Response
-    , UploadPartCopyOutput
+    , UploadPartCopyResponse
     -- ** Response constructor
     , uploadPartCopyResponse
     -- ** Response lenses
-    , upcoCopyPartResult
-    , upcoCopySourceVersionId
-    , upcoSSECustomerAlgorithm
-    , upcoSSECustomerKeyMD5
-    , upcoServerSideEncryption
+    , upcrCopyPartResult
+    , upcrCopySourceVersionId
+    , upcrSSECustomerAlgorithm
+    , upcrSSECustomerKeyMD5
+    , upcrServerSideEncryption
     ) where
 
 import Network.AWS.Prelude
@@ -276,77 +276,77 @@ instance ToHeaders UploadPartCopy where
 
 instance ToBody UploadPartCopy
 
-data UploadPartCopyOutput = UploadPartCopyOutput
-    { _upcoCopyPartResult       :: Maybe CopyPartResult
-    , _upcoCopySourceVersionId  :: Maybe Text
-    , _upcoSSECustomerAlgorithm :: Maybe Text
-    , _upcoSSECustomerKeyMD5    :: Maybe Text
-    , _upcoServerSideEncryption :: Maybe Text
+data UploadPartCopyResponse = UploadPartCopyResponse
+    { _upcrCopyPartResult       :: Maybe CopyPartResult
+    , _upcrCopySourceVersionId  :: Maybe Text
+    , _upcrSSECustomerAlgorithm :: Maybe Text
+    , _upcrSSECustomerKeyMD5    :: Maybe Text
+    , _upcrServerSideEncryption :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'UploadPartCopyOutput' constructor.
+-- | 'UploadPartCopyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upcoCopyPartResult' @::@ 'Maybe' 'CopyPartResult'
+-- * 'upcrCopyPartResult' @::@ 'Maybe' 'CopyPartResult'
 --
--- * 'upcoCopySourceVersionId' @::@ 'Maybe' 'Text'
+-- * 'upcrCopySourceVersionId' @::@ 'Maybe' 'Text'
 --
--- * 'upcoSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
+-- * 'upcrSSECustomerAlgorithm' @::@ 'Maybe' 'Text'
 --
--- * 'upcoSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
+-- * 'upcrSSECustomerKeyMD5' @::@ 'Maybe' 'Text'
 --
--- * 'upcoServerSideEncryption' @::@ 'Maybe' 'Text'
+-- * 'upcrServerSideEncryption' @::@ 'Maybe' 'Text'
 --
-uploadPartCopyResponse :: UploadPartCopyOutput
-uploadPartCopyResponse = UploadPartCopyOutput
-    { _upcoCopySourceVersionId  = Nothing
-    , _upcoCopyPartResult       = Nothing
-    , _upcoServerSideEncryption = Nothing
-    , _upcoSSECustomerAlgorithm = Nothing
-    , _upcoSSECustomerKeyMD5    = Nothing
+uploadPartCopyResponse :: UploadPartCopyResponse
+uploadPartCopyResponse = UploadPartCopyResponse
+    { _upcrCopySourceVersionId  = Nothing
+    , _upcrCopyPartResult       = Nothing
+    , _upcrServerSideEncryption = Nothing
+    , _upcrSSECustomerAlgorithm = Nothing
+    , _upcrSSECustomerKeyMD5    = Nothing
     }
 
-upcoCopyPartResult :: Lens' UploadPartCopyOutput (Maybe CopyPartResult)
-upcoCopyPartResult =
-    lens _upcoCopyPartResult (\s a -> s { _upcoCopyPartResult = a })
+upcrCopyPartResult :: Lens' UploadPartCopyResponse (Maybe CopyPartResult)
+upcrCopyPartResult =
+    lens _upcrCopyPartResult (\s a -> s { _upcrCopyPartResult = a })
 
 -- | The version of the source object that was copied, if you have enabled
 -- versioning on the source bucket.
-upcoCopySourceVersionId :: Lens' UploadPartCopyOutput (Maybe Text)
-upcoCopySourceVersionId =
-    lens _upcoCopySourceVersionId (\s a -> s { _upcoCopySourceVersionId = a })
+upcrCopySourceVersionId :: Lens' UploadPartCopyResponse (Maybe Text)
+upcrCopySourceVersionId =
+    lens _upcrCopySourceVersionId (\s a -> s { _upcrCopySourceVersionId = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header confirming the
 -- encryption algorithm used.
-upcoSSECustomerAlgorithm :: Lens' UploadPartCopyOutput (Maybe Text)
-upcoSSECustomerAlgorithm =
-    lens _upcoSSECustomerAlgorithm
-        (\s a -> s { _upcoSSECustomerAlgorithm = a })
+upcrSSECustomerAlgorithm :: Lens' UploadPartCopyResponse (Maybe Text)
+upcrSSECustomerAlgorithm =
+    lens _upcrSSECustomerAlgorithm
+        (\s a -> s { _upcrSSECustomerAlgorithm = a })
 
 -- | If server-side encryption with a customer-provided encryption key was
 -- requested, the response will include this header to provide round trip
 -- message integrity verification of the customer-provided encryption key.
-upcoSSECustomerKeyMD5 :: Lens' UploadPartCopyOutput (Maybe Text)
-upcoSSECustomerKeyMD5 =
-    lens _upcoSSECustomerKeyMD5 (\s a -> s { _upcoSSECustomerKeyMD5 = a })
+upcrSSECustomerKeyMD5 :: Lens' UploadPartCopyResponse (Maybe Text)
+upcrSSECustomerKeyMD5 =
+    lens _upcrSSECustomerKeyMD5 (\s a -> s { _upcrSSECustomerKeyMD5 = a })
 
 -- | The Server-side encryption algorithm used when storing this object in S3.
-upcoServerSideEncryption :: Lens' UploadPartCopyOutput (Maybe Text)
-upcoServerSideEncryption =
-    lens _upcoServerSideEncryption
-        (\s a -> s { _upcoServerSideEncryption = a })
+upcrServerSideEncryption :: Lens' UploadPartCopyResponse (Maybe Text)
+upcrServerSideEncryption =
+    lens _upcrServerSideEncryption
+        (\s a -> s { _upcrServerSideEncryption = a })
 
-instance FromXML UploadPartCopyOutput where
+instance FromXML UploadPartCopyResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UploadPartCopyOutput"
+    fromXMLRoot    = fromRoot "UploadPartCopyResponse"
 instance AWSRequest UploadPartCopy where
     type Sv UploadPartCopy = S3
-    type Rs UploadPartCopy = UploadPartCopyOutput
+    type Rs UploadPartCopy = UploadPartCopyResponse
 
     request  = put
-    response = xmlResponse $ \h x -> UploadPartCopyOutput
+    response = xmlResponse $ \h x -> UploadPartCopyResponse
         <$> x %| "CopyPartResult"
         <*> h ~:? "x-amz-copy-source-version-id"
         <*> h ~:? "x-amz-server-side-encryption-customer-algorithm"

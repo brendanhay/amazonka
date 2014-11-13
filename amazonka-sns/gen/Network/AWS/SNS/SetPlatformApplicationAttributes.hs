@@ -26,12 +26,12 @@
 module Network.AWS.SNS.SetPlatformApplicationAttributes
     (
     -- * Request
-      SetPlatformApplicationAttributesInput
+      SetPlatformApplicationAttributes
     -- ** Request constructor
     , setPlatformApplicationAttributes
     -- ** Request lenses
-    , spaaiAttributes
-    , spaaiPlatformApplicationArn
+    , spaaAttributes
+    , spaaPlatformApplicationArn
 
     -- * Response
     , SetPlatformApplicationAttributesResponse
@@ -43,24 +43,24 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-data SetPlatformApplicationAttributesInput = SetPlatformApplicationAttributesInput
-    { _spaaiAttributes             :: Map Text Text
-    , _spaaiPlatformApplicationArn :: Text
+data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes
+    { _spaaAttributes             :: Map Text Text
+    , _spaaPlatformApplicationArn :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'SetPlatformApplicationAttributesInput' constructor.
+-- | 'SetPlatformApplicationAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'spaaiAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'spaaAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
--- * 'spaaiPlatformApplicationArn' @::@ 'Text'
+-- * 'spaaPlatformApplicationArn' @::@ 'Text'
 --
-setPlatformApplicationAttributes :: Text -- ^ 'spaaiPlatformApplicationArn'
-                                 -> SetPlatformApplicationAttributesInput
-setPlatformApplicationAttributes p1 = SetPlatformApplicationAttributesInput
-    { _spaaiPlatformApplicationArn = p1
-    , _spaaiAttributes             = mempty
+setPlatformApplicationAttributes :: Text -- ^ 'spaaPlatformApplicationArn'
+                                 -> SetPlatformApplicationAttributes
+setPlatformApplicationAttributes p1 = SetPlatformApplicationAttributes
+    { _spaaPlatformApplicationArn = p1
+    , _spaaAttributes             = mempty
     }
 
 -- | A map of the platform application attributes. Attributes in this map
@@ -78,19 +78,19 @@ setPlatformApplicationAttributes p1 = SetPlatformApplicationAttributesInput
 -- EventDeliveryFailure -- Topic ARN to which DeliveryFailure event
 -- notifications should be sent upon Direct Publish delivery failure
 -- (permanent) to one of the application's endpoints.
-spaaiAttributes :: Lens' SetPlatformApplicationAttributesInput (HashMap Text Text)
-spaaiAttributes = lens _spaaiAttributes (\s a -> s { _spaaiAttributes = a })
+spaaAttributes :: Lens' SetPlatformApplicationAttributes (HashMap Text Text)
+spaaAttributes = lens _spaaAttributes (\s a -> s { _spaaAttributes = a })
     . _Map
 
 -- | PlatformApplicationArn for SetPlatformApplicationAttributes action.
-spaaiPlatformApplicationArn :: Lens' SetPlatformApplicationAttributesInput Text
-spaaiPlatformApplicationArn =
-    lens _spaaiPlatformApplicationArn
-        (\s a -> s { _spaaiPlatformApplicationArn = a })
+spaaPlatformApplicationArn :: Lens' SetPlatformApplicationAttributes Text
+spaaPlatformApplicationArn =
+    lens _spaaPlatformApplicationArn
+        (\s a -> s { _spaaPlatformApplicationArn = a })
 
-instance ToQuery SetPlatformApplicationAttributesInput
+instance ToQuery SetPlatformApplicationAttributes
 
-instance ToPath SetPlatformApplicationAttributesInput where
+instance ToPath SetPlatformApplicationAttributes where
     toPath = const "/"
 
 data SetPlatformApplicationAttributesResponse = SetPlatformApplicationAttributesResponse
@@ -104,9 +104,9 @@ instance FromXML SetPlatformApplicationAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetPlatformApplicationAttributesResponse"
 
-instance AWSRequest SetPlatformApplicationAttributesInput where
-    type Sv SetPlatformApplicationAttributesInput = SNS
-    type Rs SetPlatformApplicationAttributesInput = SetPlatformApplicationAttributesResponse
+instance AWSRequest SetPlatformApplicationAttributes where
+    type Sv SetPlatformApplicationAttributes = SNS
+    type Rs SetPlatformApplicationAttributes = SetPlatformApplicationAttributesResponse
 
     request  = post "SetPlatformApplicationAttributes"
     response = nullaryResponse SetPlatformApplicationAttributesResponse

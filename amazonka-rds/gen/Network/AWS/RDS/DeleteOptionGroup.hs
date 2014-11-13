@@ -24,11 +24,11 @@
 module Network.AWS.RDS.DeleteOptionGroup
     (
     -- * Request
-      DeleteOptionGroupMessage
+      DeleteOptionGroup
     -- ** Request constructor
     , deleteOptionGroup
     -- ** Request lenses
-    , dogmOptionGroupName
+    , dog1OptionGroupName
 
     -- * Response
     , DeleteOptionGroupResponse
@@ -40,30 +40,30 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-newtype DeleteOptionGroupMessage = DeleteOptionGroupMessage
-    { _dogmOptionGroupName :: Text
+newtype DeleteOptionGroup = DeleteOptionGroup
+    { _dog1OptionGroupName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteOptionGroupMessage' constructor.
+-- | 'DeleteOptionGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dogmOptionGroupName' @::@ 'Text'
+-- * 'dog1OptionGroupName' @::@ 'Text'
 --
-deleteOptionGroup :: Text -- ^ 'dogmOptionGroupName'
-                  -> DeleteOptionGroupMessage
-deleteOptionGroup p1 = DeleteOptionGroupMessage
-    { _dogmOptionGroupName = p1
+deleteOptionGroup :: Text -- ^ 'dog1OptionGroupName'
+                  -> DeleteOptionGroup
+deleteOptionGroup p1 = DeleteOptionGroup
+    { _dog1OptionGroupName = p1
     }
 
 -- | The name of the option group to be deleted.
-dogmOptionGroupName :: Lens' DeleteOptionGroupMessage Text
-dogmOptionGroupName =
-    lens _dogmOptionGroupName (\s a -> s { _dogmOptionGroupName = a })
+dog1OptionGroupName :: Lens' DeleteOptionGroup Text
+dog1OptionGroupName =
+    lens _dog1OptionGroupName (\s a -> s { _dog1OptionGroupName = a })
 
-instance ToQuery DeleteOptionGroupMessage
+instance ToQuery DeleteOptionGroup
 
-instance ToPath DeleteOptionGroupMessage where
+instance ToPath DeleteOptionGroup where
     toPath = const "/"
 
 data DeleteOptionGroupResponse = DeleteOptionGroupResponse
@@ -77,9 +77,9 @@ instance FromXML DeleteOptionGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteOptionGroupResponse"
 
-instance AWSRequest DeleteOptionGroupMessage where
-    type Sv DeleteOptionGroupMessage = RDS
-    type Rs DeleteOptionGroupMessage = DeleteOptionGroupResponse
+instance AWSRequest DeleteOptionGroup where
+    type Sv DeleteOptionGroup = RDS
+    type Rs DeleteOptionGroup = DeleteOptionGroupResponse
 
     request  = post "DeleteOptionGroup"
     response = nullaryResponse DeleteOptionGroupResponse

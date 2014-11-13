@@ -25,12 +25,12 @@
 module Network.AWS.ELB.DeleteLoadBalancerPolicy
     (
     -- * Request
-      DeleteLoadBalancerPolicyInput
+      DeleteLoadBalancerPolicy
     -- ** Request constructor
     , deleteLoadBalancerPolicy
     -- ** Request lenses
-    , dlbpi1LoadBalancerName
-    , dlbpi1PolicyName
+    , dlbp1LoadBalancerName
+    , dlbp1PolicyName
 
     -- * Response
     , DeleteLoadBalancerPolicyResponse
@@ -42,39 +42,39 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data DeleteLoadBalancerPolicyInput = DeleteLoadBalancerPolicyInput
-    { _dlbpi1LoadBalancerName :: Text
-    , _dlbpi1PolicyName       :: Text
+data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy
+    { _dlbp1LoadBalancerName :: Text
+    , _dlbp1PolicyName       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteLoadBalancerPolicyInput' constructor.
+-- | 'DeleteLoadBalancerPolicy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbpi1LoadBalancerName' @::@ 'Text'
+-- * 'dlbp1LoadBalancerName' @::@ 'Text'
 --
--- * 'dlbpi1PolicyName' @::@ 'Text'
+-- * 'dlbp1PolicyName' @::@ 'Text'
 --
-deleteLoadBalancerPolicy :: Text -- ^ 'dlbpi1LoadBalancerName'
-                         -> Text -- ^ 'dlbpi1PolicyName'
-                         -> DeleteLoadBalancerPolicyInput
-deleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicyInput
-    { _dlbpi1LoadBalancerName = p1
-    , _dlbpi1PolicyName       = p2
+deleteLoadBalancerPolicy :: Text -- ^ 'dlbp1LoadBalancerName'
+                         -> Text -- ^ 'dlbp1PolicyName'
+                         -> DeleteLoadBalancerPolicy
+deleteLoadBalancerPolicy p1 p2 = DeleteLoadBalancerPolicy
+    { _dlbp1LoadBalancerName = p1
+    , _dlbp1PolicyName       = p2
     }
 
 -- | The mnemonic name associated with the load balancer.
-dlbpi1LoadBalancerName :: Lens' DeleteLoadBalancerPolicyInput Text
-dlbpi1LoadBalancerName =
-    lens _dlbpi1LoadBalancerName (\s a -> s { _dlbpi1LoadBalancerName = a })
+dlbp1LoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
+dlbp1LoadBalancerName =
+    lens _dlbp1LoadBalancerName (\s a -> s { _dlbp1LoadBalancerName = a })
 
 -- | The mnemonic name for the policy being deleted.
-dlbpi1PolicyName :: Lens' DeleteLoadBalancerPolicyInput Text
-dlbpi1PolicyName = lens _dlbpi1PolicyName (\s a -> s { _dlbpi1PolicyName = a })
+dlbp1PolicyName :: Lens' DeleteLoadBalancerPolicy Text
+dlbp1PolicyName = lens _dlbp1PolicyName (\s a -> s { _dlbp1PolicyName = a })
 
-instance ToQuery DeleteLoadBalancerPolicyInput
+instance ToQuery DeleteLoadBalancerPolicy
 
-instance ToPath DeleteLoadBalancerPolicyInput where
+instance ToPath DeleteLoadBalancerPolicy where
     toPath = const "/"
 
 data DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse
@@ -88,9 +88,9 @@ instance FromXML DeleteLoadBalancerPolicyResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteLoadBalancerPolicyResponse"
 
-instance AWSRequest DeleteLoadBalancerPolicyInput where
-    type Sv DeleteLoadBalancerPolicyInput = ELB
-    type Rs DeleteLoadBalancerPolicyInput = DeleteLoadBalancerPolicyResponse
+instance AWSRequest DeleteLoadBalancerPolicy where
+    type Sv DeleteLoadBalancerPolicy = ELB
+    type Rs DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicyResponse
 
     request  = post "DeleteLoadBalancerPolicy"
     response = nullaryResponse DeleteLoadBalancerPolicyResponse

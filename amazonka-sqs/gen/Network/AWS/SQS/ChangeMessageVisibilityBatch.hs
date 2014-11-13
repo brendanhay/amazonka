@@ -39,7 +39,7 @@ module Network.AWS.SQS.ChangeMessageVisibilityBatch
     , cmvbQueueUrl
 
     -- * Response
-    , ChangeMessageVisibilityBatchResult
+    , ChangeMessageVisibilityBatchResponse
     -- ** Response constructor
     , changeMessageVisibilityBatchResponse
     -- ** Response lenses
@@ -85,12 +85,12 @@ instance ToQuery ChangeMessageVisibilityBatch
 instance ToPath ChangeMessageVisibilityBatch where
     toPath = const "/"
 
-data ChangeMessageVisibilityBatchResult = ChangeMessageVisibilityBatchResult
+data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
     { _cmvbrFailed     :: [BatchResultErrorEntry]
     , _cmvbrSuccessful :: [ChangeMessageVisibilityBatchResultEntry]
     } deriving (Eq, Show, Generic)
 
--- | 'ChangeMessageVisibilityBatchResult' constructor.
+-- | 'ChangeMessageVisibilityBatchResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -98,29 +98,29 @@ data ChangeMessageVisibilityBatchResult = ChangeMessageVisibilityBatchResult
 --
 -- * 'cmvbrSuccessful' @::@ ['ChangeMessageVisibilityBatchResultEntry']
 --
-changeMessageVisibilityBatchResponse :: ChangeMessageVisibilityBatchResult
-changeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResult
+changeMessageVisibilityBatchResponse :: ChangeMessageVisibilityBatchResponse
+changeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
     { _cmvbrSuccessful = mempty
     , _cmvbrFailed     = mempty
     }
 
 -- | A list of BatchResultErrorEntry items.
-cmvbrFailed :: Lens' ChangeMessageVisibilityBatchResult [BatchResultErrorEntry]
+cmvbrFailed :: Lens' ChangeMessageVisibilityBatchResponse [BatchResultErrorEntry]
 cmvbrFailed = lens _cmvbrFailed (\s a -> s { _cmvbrFailed = a })
 
 -- | A list of ChangeMessageVisibilityBatchResultEntry items.
-cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResult [ChangeMessageVisibilityBatchResultEntry]
+cmvbrSuccessful :: Lens' ChangeMessageVisibilityBatchResponse [ChangeMessageVisibilityBatchResultEntry]
 cmvbrSuccessful = lens _cmvbrSuccessful (\s a -> s { _cmvbrSuccessful = a })
 
-instance FromXML ChangeMessageVisibilityBatchResult where
+instance FromXML ChangeMessageVisibilityBatchResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ChangeMessageVisibilityBatchResult"
+    fromXMLRoot    = fromRoot "ChangeMessageVisibilityBatchResponse"
 
 instance AWSRequest ChangeMessageVisibilityBatch where
     type Sv ChangeMessageVisibilityBatch = SQS
-    type Rs ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatchResult
+    type Rs ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatchResponse
 
     request  = post "ChangeMessageVisibilityBatch"
-    response = xmlResponse $ \h x -> ChangeMessageVisibilityBatchResult
+    response = xmlResponse $ \h x -> ChangeMessageVisibilityBatchResponse
         <$> x %| "Failed"
         <*> x %| "Successful"

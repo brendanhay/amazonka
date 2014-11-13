@@ -26,113 +26,113 @@
 module Network.AWS.CloudWatch.ListMetrics
     (
     -- * Request
-      ListMetricsInput
+      ListMetrics
     -- ** Request constructor
     , listMetrics
     -- ** Request lenses
-    , lmiDimensions
-    , lmiMetricName
-    , lmiNamespace
-    , lmiNextToken
+    , lmDimensions
+    , lmMetricName
+    , lmNamespace
+    , lmNextToken
 
     -- * Response
-    , ListMetricsOutput
+    , ListMetricsResponse
     -- ** Response constructor
     , listMetricsResponse
     -- ** Response lenses
-    , lmoMetrics
-    , lmoNextToken
+    , lmrMetrics
+    , lmrNextToken
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
 
-data ListMetricsInput = ListMetricsInput
-    { _lmiDimensions :: [DimensionFilter]
-    , _lmiMetricName :: Maybe Text
-    , _lmiNamespace  :: Maybe Text
-    , _lmiNextToken  :: Maybe Text
+data ListMetrics = ListMetrics
+    { _lmDimensions :: [DimensionFilter]
+    , _lmMetricName :: Maybe Text
+    , _lmNamespace  :: Maybe Text
+    , _lmNextToken  :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'ListMetricsInput' constructor.
+-- | 'ListMetrics' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lmiDimensions' @::@ ['DimensionFilter']
+-- * 'lmDimensions' @::@ ['DimensionFilter']
 --
--- * 'lmiMetricName' @::@ 'Maybe' 'Text'
+-- * 'lmMetricName' @::@ 'Maybe' 'Text'
 --
--- * 'lmiNamespace' @::@ 'Maybe' 'Text'
+-- * 'lmNamespace' @::@ 'Maybe' 'Text'
 --
--- * 'lmiNextToken' @::@ 'Maybe' 'Text'
+-- * 'lmNextToken' @::@ 'Maybe' 'Text'
 --
-listMetrics :: ListMetricsInput
-listMetrics = ListMetricsInput
-    { _lmiNamespace  = Nothing
-    , _lmiMetricName = Nothing
-    , _lmiDimensions = mempty
-    , _lmiNextToken  = Nothing
+listMetrics :: ListMetrics
+listMetrics = ListMetrics
+    { _lmNamespace  = Nothing
+    , _lmMetricName = Nothing
+    , _lmDimensions = mempty
+    , _lmNextToken  = Nothing
     }
 
 -- | A list of dimensions to filter against.
-lmiDimensions :: Lens' ListMetricsInput [DimensionFilter]
-lmiDimensions = lens _lmiDimensions (\s a -> s { _lmiDimensions = a })
+lmDimensions :: Lens' ListMetrics [DimensionFilter]
+lmDimensions = lens _lmDimensions (\s a -> s { _lmDimensions = a })
 
 -- | The name of the metric to filter against.
-lmiMetricName :: Lens' ListMetricsInput (Maybe Text)
-lmiMetricName = lens _lmiMetricName (\s a -> s { _lmiMetricName = a })
+lmMetricName :: Lens' ListMetrics (Maybe Text)
+lmMetricName = lens _lmMetricName (\s a -> s { _lmMetricName = a })
 
 -- | The namespace to filter against.
-lmiNamespace :: Lens' ListMetricsInput (Maybe Text)
-lmiNamespace = lens _lmiNamespace (\s a -> s { _lmiNamespace = a })
+lmNamespace :: Lens' ListMetrics (Maybe Text)
+lmNamespace = lens _lmNamespace (\s a -> s { _lmNamespace = a })
 
 -- | The token returned by a previous call to indicate that there is more data
 -- available.
-lmiNextToken :: Lens' ListMetricsInput (Maybe Text)
-lmiNextToken = lens _lmiNextToken (\s a -> s { _lmiNextToken = a })
+lmNextToken :: Lens' ListMetrics (Maybe Text)
+lmNextToken = lens _lmNextToken (\s a -> s { _lmNextToken = a })
 
-instance ToQuery ListMetricsInput
+instance ToQuery ListMetrics
 
-instance ToPath ListMetricsInput where
+instance ToPath ListMetrics where
     toPath = const "/"
 
-data ListMetricsOutput = ListMetricsOutput
-    { _lmoMetrics   :: [Metric]
-    , _lmoNextToken :: Maybe Text
+data ListMetricsResponse = ListMetricsResponse
+    { _lmrMetrics   :: [Metric]
+    , _lmrNextToken :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'ListMetricsOutput' constructor.
+-- | 'ListMetricsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lmoMetrics' @::@ ['Metric']
+-- * 'lmrMetrics' @::@ ['Metric']
 --
--- * 'lmoNextToken' @::@ 'Maybe' 'Text'
+-- * 'lmrNextToken' @::@ 'Maybe' 'Text'
 --
-listMetricsResponse :: ListMetricsOutput
-listMetricsResponse = ListMetricsOutput
-    { _lmoMetrics   = mempty
-    , _lmoNextToken = Nothing
+listMetricsResponse :: ListMetricsResponse
+listMetricsResponse = ListMetricsResponse
+    { _lmrMetrics   = mempty
+    , _lmrNextToken = Nothing
     }
 
 -- | A list of metrics used to generate statistics for an AWS account.
-lmoMetrics :: Lens' ListMetricsOutput [Metric]
-lmoMetrics = lens _lmoMetrics (\s a -> s { _lmoMetrics = a })
+lmrMetrics :: Lens' ListMetricsResponse [Metric]
+lmrMetrics = lens _lmrMetrics (\s a -> s { _lmrMetrics = a })
 
 -- | A string that marks the start of the next batch of returned results.
-lmoNextToken :: Lens' ListMetricsOutput (Maybe Text)
-lmoNextToken = lens _lmoNextToken (\s a -> s { _lmoNextToken = a })
+lmrNextToken :: Lens' ListMetricsResponse (Maybe Text)
+lmrNextToken = lens _lmrNextToken (\s a -> s { _lmrNextToken = a })
 
-instance FromXML ListMetricsOutput where
+instance FromXML ListMetricsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListMetricsOutput"
+    fromXMLRoot    = fromRoot "ListMetricsResponse"
 
-instance AWSRequest ListMetricsInput where
-    type Sv ListMetricsInput = CloudWatch
-    type Rs ListMetricsInput = ListMetricsOutput
+instance AWSRequest ListMetrics where
+    type Sv ListMetrics = CloudWatch
+    type Rs ListMetrics = ListMetricsResponse
 
     request  = post "ListMetrics"
-    response = xmlResponse $ \h x -> ListMetricsOutput
+    response = xmlResponse $ \h x -> ListMetricsResponse
         <$> x %| "Metrics"
         <*> x %| "NextToken"

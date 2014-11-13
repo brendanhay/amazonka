@@ -34,7 +34,7 @@ module Network.AWS.EC2.AllocateAddress
     , aaDryRun
 
     -- * Response
-    , AllocateAddressResult
+    , AllocateAddressResponse
     -- ** Response constructor
     , allocateAddressResponse
     -- ** Response lenses
@@ -79,13 +79,13 @@ instance ToQuery AllocateAddress
 instance ToPath AllocateAddress where
     toPath = const "/"
 
-data AllocateAddressResult = AllocateAddressResult
+data AllocateAddressResponse = AllocateAddressResponse
     { _aarAllocationId :: Maybe Text
     , _aarDomain       :: Maybe Text
     , _aarPublicIp     :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'AllocateAddressResult' constructor.
+-- | 'AllocateAddressResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -95,8 +95,8 @@ data AllocateAddressResult = AllocateAddressResult
 --
 -- * 'aarPublicIp' @::@ 'Maybe' 'Text'
 --
-allocateAddressResponse :: AllocateAddressResult
-allocateAddressResponse = AllocateAddressResult
+allocateAddressResponse :: AllocateAddressResponse
+allocateAddressResponse = AllocateAddressResponse
     { _aarPublicIp     = Nothing
     , _aarDomain       = Nothing
     , _aarAllocationId = Nothing
@@ -104,28 +104,28 @@ allocateAddressResponse = AllocateAddressResult
 
 -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
 -- Elastic IP address for use with instances in a VPC.
-aarAllocationId :: Lens' AllocateAddressResult (Maybe Text)
+aarAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
 aarAllocationId = lens _aarAllocationId (\s a -> s { _aarAllocationId = a })
 
 -- | Indicates whether this Elastic IP address is for use with instances in
 -- EC2-Classic (standard) or instances in a VPC (vpc).
-aarDomain :: Lens' AllocateAddressResult (Maybe Text)
+aarDomain :: Lens' AllocateAddressResponse (Maybe Text)
 aarDomain = lens _aarDomain (\s a -> s { _aarDomain = a })
 
 -- | The Elastic IP address.
-aarPublicIp :: Lens' AllocateAddressResult (Maybe Text)
+aarPublicIp :: Lens' AllocateAddressResponse (Maybe Text)
 aarPublicIp = lens _aarPublicIp (\s a -> s { _aarPublicIp = a })
 
-instance FromXML AllocateAddressResult where
+instance FromXML AllocateAddressResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AllocateAddressResult"
+    fromXMLRoot    = fromRoot "AllocateAddressResponse"
 
 instance AWSRequest AllocateAddress where
     type Sv AllocateAddress = EC2
-    type Rs AllocateAddress = AllocateAddressResult
+    type Rs AllocateAddress = AllocateAddressResponse
 
     request  = post "AllocateAddress"
-    response = xmlResponse $ \h x -> AllocateAddressResult
+    response = xmlResponse $ \h x -> AllocateAddressResponse
         <$> x %| "allocationId"
         <*> x %| "domain"
         <*> x %| "publicIp"

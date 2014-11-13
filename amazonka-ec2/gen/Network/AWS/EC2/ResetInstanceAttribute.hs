@@ -35,9 +35,9 @@ module Network.AWS.EC2.ResetInstanceAttribute
     -- ** Request constructor
     , resetInstanceAttribute
     -- ** Request lenses
-    , ria1Attribute
-    , ria1DryRun
-    , ria1InstanceId
+    , riaAttribute
+    , riaDryRun
+    , riaInstanceId
 
     -- * Response
     , ResetInstanceAttributeResponse
@@ -50,40 +50,40 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data ResetInstanceAttribute = ResetInstanceAttribute
-    { _ria1Attribute  :: Text
-    , _ria1DryRun     :: Maybe Bool
-    , _ria1InstanceId :: Text
+    { _riaAttribute  :: Text
+    , _riaDryRun     :: Maybe Bool
+    , _riaInstanceId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ResetInstanceAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ria1Attribute' @::@ 'Text'
+-- * 'riaAttribute' @::@ 'Text'
 --
--- * 'ria1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'riaDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'ria1InstanceId' @::@ 'Text'
+-- * 'riaInstanceId' @::@ 'Text'
 --
-resetInstanceAttribute :: Text -- ^ 'ria1InstanceId'
-                       -> Text -- ^ 'ria1Attribute'
+resetInstanceAttribute :: Text -- ^ 'riaInstanceId'
+                       -> Text -- ^ 'riaAttribute'
                        -> ResetInstanceAttribute
 resetInstanceAttribute p1 p2 = ResetInstanceAttribute
-    { _ria1InstanceId = p1
-    , _ria1Attribute  = p2
-    , _ria1DryRun     = Nothing
+    { _riaInstanceId = p1
+    , _riaAttribute  = p2
+    , _riaDryRun     = Nothing
     }
 
 -- | The attribute to reset.
-ria1Attribute :: Lens' ResetInstanceAttribute Text
-ria1Attribute = lens _ria1Attribute (\s a -> s { _ria1Attribute = a })
+riaAttribute :: Lens' ResetInstanceAttribute Text
+riaAttribute = lens _riaAttribute (\s a -> s { _riaAttribute = a })
 
-ria1DryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
-ria1DryRun = lens _ria1DryRun (\s a -> s { _ria1DryRun = a })
+riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
+riaDryRun = lens _riaDryRun (\s a -> s { _riaDryRun = a })
 
 -- | The ID of the instance.
-ria1InstanceId :: Lens' ResetInstanceAttribute Text
-ria1InstanceId = lens _ria1InstanceId (\s a -> s { _ria1InstanceId = a })
+riaInstanceId :: Lens' ResetInstanceAttribute Text
+riaInstanceId = lens _riaInstanceId (\s a -> s { _riaInstanceId = a })
 
 instance ToQuery ResetInstanceAttribute
 

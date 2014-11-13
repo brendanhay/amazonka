@@ -30,15 +30,15 @@
 module Network.AWS.Redshift.DeleteClusterSnapshot
     (
     -- * Request
-      DeleteClusterSnapshotMessage
+      DeleteClusterSnapshot
     -- ** Request constructor
     , deleteClusterSnapshot
     -- ** Request lenses
-    , dcsmSnapshotClusterIdentifier
-    , dcsmSnapshotIdentifier
+    , dcsSnapshotClusterIdentifier
+    , dcsSnapshotIdentifier
 
     -- * Response
-    , DeleteClusterSnapshotResult
+    , DeleteClusterSnapshotResponse
     -- ** Response constructor
     , deleteClusterSnapshotResponse
     -- ** Response lenses
@@ -49,72 +49,72 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data DeleteClusterSnapshotMessage = DeleteClusterSnapshotMessage
-    { _dcsmSnapshotClusterIdentifier :: Maybe Text
-    , _dcsmSnapshotIdentifier        :: Text
+data DeleteClusterSnapshot = DeleteClusterSnapshot
+    { _dcsSnapshotClusterIdentifier :: Maybe Text
+    , _dcsSnapshotIdentifier        :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteClusterSnapshotMessage' constructor.
+-- | 'DeleteClusterSnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsmSnapshotClusterIdentifier' @::@ 'Maybe' 'Text'
+-- * 'dcsSnapshotClusterIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'dcsmSnapshotIdentifier' @::@ 'Text'
+-- * 'dcsSnapshotIdentifier' @::@ 'Text'
 --
-deleteClusterSnapshot :: Text -- ^ 'dcsmSnapshotIdentifier'
-                      -> DeleteClusterSnapshotMessage
-deleteClusterSnapshot p1 = DeleteClusterSnapshotMessage
-    { _dcsmSnapshotIdentifier        = p1
-    , _dcsmSnapshotClusterIdentifier = Nothing
+deleteClusterSnapshot :: Text -- ^ 'dcsSnapshotIdentifier'
+                      -> DeleteClusterSnapshot
+deleteClusterSnapshot p1 = DeleteClusterSnapshot
+    { _dcsSnapshotIdentifier        = p1
+    , _dcsSnapshotClusterIdentifier = Nothing
     }
 
 -- | The unique identifier of the cluster the snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a snapshot
 -- resource element that specifies anything other than * for the cluster
 -- name. Constraints: Must be the name of valid cluster.
-dcsmSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshotMessage (Maybe Text)
-dcsmSnapshotClusterIdentifier =
-    lens _dcsmSnapshotClusterIdentifier
-        (\s a -> s { _dcsmSnapshotClusterIdentifier = a })
+dcsSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
+dcsSnapshotClusterIdentifier =
+    lens _dcsSnapshotClusterIdentifier
+        (\s a -> s { _dcsSnapshotClusterIdentifier = a })
 
 -- | The unique identifier of the manual snapshot to be deleted. Constraints:
 -- Must be the name of an existing snapshot that is in the available state.
-dcsmSnapshotIdentifier :: Lens' DeleteClusterSnapshotMessage Text
-dcsmSnapshotIdentifier =
-    lens _dcsmSnapshotIdentifier (\s a -> s { _dcsmSnapshotIdentifier = a })
+dcsSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
+dcsSnapshotIdentifier =
+    lens _dcsSnapshotIdentifier (\s a -> s { _dcsSnapshotIdentifier = a })
 
-instance ToQuery DeleteClusterSnapshotMessage
+instance ToQuery DeleteClusterSnapshot
 
-instance ToPath DeleteClusterSnapshotMessage where
+instance ToPath DeleteClusterSnapshot where
     toPath = const "/"
 
-newtype DeleteClusterSnapshotResult = DeleteClusterSnapshotResult
+newtype DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
     { _dcsrSnapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
 
--- | 'DeleteClusterSnapshotResult' constructor.
+-- | 'DeleteClusterSnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dcsrSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-deleteClusterSnapshotResponse :: DeleteClusterSnapshotResult
-deleteClusterSnapshotResponse = DeleteClusterSnapshotResult
+deleteClusterSnapshotResponse :: DeleteClusterSnapshotResponse
+deleteClusterSnapshotResponse = DeleteClusterSnapshotResponse
     { _dcsrSnapshot = Nothing
     }
 
-dcsrSnapshot :: Lens' DeleteClusterSnapshotResult (Maybe Snapshot)
+dcsrSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
 dcsrSnapshot = lens _dcsrSnapshot (\s a -> s { _dcsrSnapshot = a })
 
-instance FromXML DeleteClusterSnapshotResult where
+instance FromXML DeleteClusterSnapshotResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteClusterSnapshotResult"
+    fromXMLRoot    = fromRoot "DeleteClusterSnapshotResponse"
 
-instance AWSRequest DeleteClusterSnapshotMessage where
-    type Sv DeleteClusterSnapshotMessage = Redshift
-    type Rs DeleteClusterSnapshotMessage = DeleteClusterSnapshotResult
+instance AWSRequest DeleteClusterSnapshot where
+    type Sv DeleteClusterSnapshot = Redshift
+    type Rs DeleteClusterSnapshot = DeleteClusterSnapshotResponse
 
     request  = post "DeleteClusterSnapshot"
-    response = xmlResponse $ \h x -> DeleteClusterSnapshotResult
+    response = xmlResponse $ \h x -> DeleteClusterSnapshotResponse
         <$> x %| "Snapshot"

@@ -26,113 +26,114 @@
 module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     (
     -- * Request
-      DescribeCacheSecurityGroupsMessage
+      DescribeCacheSecurityGroups
     -- ** Request constructor
     , describeCacheSecurityGroups
     -- ** Request lenses
-    , dcsgm1CacheSecurityGroupName
-    , dcsgm1Marker
-    , dcsgm1MaxRecords
+    , dcsg1CacheSecurityGroupName
+    , dcsg1Marker
+    , dcsg1MaxRecords
 
     -- * Response
-    , CacheSecurityGroupMessage
+    , DescribeCacheSecurityGroupsResponse
     -- ** Response constructor
     , describeCacheSecurityGroupsResponse
     -- ** Response lenses
-    , csgmCacheSecurityGroups
-    , csgmMarker
+    , dcsgr1CacheSecurityGroups
+    , dcsgr1Marker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data DescribeCacheSecurityGroupsMessage = DescribeCacheSecurityGroupsMessage
-    { _dcsgm1CacheSecurityGroupName :: Maybe Text
-    , _dcsgm1Marker                 :: Maybe Text
-    , _dcsgm1MaxRecords             :: Maybe Int
+data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups
+    { _dcsg1CacheSecurityGroupName :: Maybe Text
+    , _dcsg1Marker                 :: Maybe Text
+    , _dcsg1MaxRecords             :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeCacheSecurityGroupsMessage' constructor.
+-- | 'DescribeCacheSecurityGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgm1CacheSecurityGroupName' @::@ 'Maybe' 'Text'
+-- * 'dcsg1CacheSecurityGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'dcsgm1Marker' @::@ 'Maybe' 'Text'
+-- * 'dcsg1Marker' @::@ 'Maybe' 'Text'
 --
--- * 'dcsgm1MaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dcsg1MaxRecords' @::@ 'Maybe' 'Int'
 --
-describeCacheSecurityGroups :: DescribeCacheSecurityGroupsMessage
-describeCacheSecurityGroups = DescribeCacheSecurityGroupsMessage
-    { _dcsgm1CacheSecurityGroupName = Nothing
-    , _dcsgm1MaxRecords             = Nothing
-    , _dcsgm1Marker                 = Nothing
+describeCacheSecurityGroups :: DescribeCacheSecurityGroups
+describeCacheSecurityGroups = DescribeCacheSecurityGroups
+    { _dcsg1CacheSecurityGroupName = Nothing
+    , _dcsg1MaxRecords             = Nothing
+    , _dcsg1Marker                 = Nothing
     }
 
 -- | The name of the cache security group to return details for.
-dcsgm1CacheSecurityGroupName :: Lens' DescribeCacheSecurityGroupsMessage (Maybe Text)
-dcsgm1CacheSecurityGroupName =
-    lens _dcsgm1CacheSecurityGroupName
-        (\s a -> s { _dcsgm1CacheSecurityGroupName = a })
+dcsg1CacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
+dcsg1CacheSecurityGroupName =
+    lens _dcsg1CacheSecurityGroupName
+        (\s a -> s { _dcsg1CacheSecurityGroupName = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by MaxRecords.
-dcsgm1Marker :: Lens' DescribeCacheSecurityGroupsMessage (Maybe Text)
-dcsgm1Marker = lens _dcsgm1Marker (\s a -> s { _dcsgm1Marker = a })
+dcsg1Marker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
+dcsg1Marker = lens _dcsg1Marker (\s a -> s { _dcsg1Marker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-dcsgm1MaxRecords :: Lens' DescribeCacheSecurityGroupsMessage (Maybe Int)
-dcsgm1MaxRecords = lens _dcsgm1MaxRecords (\s a -> s { _dcsgm1MaxRecords = a })
+dcsg1MaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Int)
+dcsg1MaxRecords = lens _dcsg1MaxRecords (\s a -> s { _dcsg1MaxRecords = a })
 
-instance ToQuery DescribeCacheSecurityGroupsMessage
+instance ToQuery DescribeCacheSecurityGroups
 
-instance ToPath DescribeCacheSecurityGroupsMessage where
+instance ToPath DescribeCacheSecurityGroups where
     toPath = const "/"
 
-data CacheSecurityGroupMessage = CacheSecurityGroupMessage
-    { _csgmCacheSecurityGroups :: [CacheSecurityGroup]
-    , _csgmMarker              :: Maybe Text
+data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
+    { _dcsgr1CacheSecurityGroups :: [CacheSecurityGroup]
+    , _dcsgr1Marker              :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'CacheSecurityGroupMessage' constructor.
+-- | 'DescribeCacheSecurityGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csgmCacheSecurityGroups' @::@ ['CacheSecurityGroup']
+-- * 'dcsgr1CacheSecurityGroups' @::@ ['CacheSecurityGroup']
 --
--- * 'csgmMarker' @::@ 'Maybe' 'Text'
+-- * 'dcsgr1Marker' @::@ 'Maybe' 'Text'
 --
-describeCacheSecurityGroupsResponse :: CacheSecurityGroupMessage
-describeCacheSecurityGroupsResponse = CacheSecurityGroupMessage
-    { _csgmMarker              = Nothing
-    , _csgmCacheSecurityGroups = mempty
+describeCacheSecurityGroupsResponse :: DescribeCacheSecurityGroupsResponse
+describeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse
+    { _dcsgr1Marker              = Nothing
+    , _dcsgr1CacheSecurityGroups = mempty
     }
 
 -- | A list of cache security groups. Each element in the list contains
 -- detailed information about one group.
-csgmCacheSecurityGroups :: Lens' CacheSecurityGroupMessage [CacheSecurityGroup]
-csgmCacheSecurityGroups =
-    lens _csgmCacheSecurityGroups (\s a -> s { _csgmCacheSecurityGroups = a })
+dcsgr1CacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
+dcsgr1CacheSecurityGroups =
+    lens _dcsgr1CacheSecurityGroups
+        (\s a -> s { _dcsgr1CacheSecurityGroups = a })
 
 -- | Provides an identifier to allow retrieval of paginated results.
-csgmMarker :: Lens' CacheSecurityGroupMessage (Maybe Text)
-csgmMarker = lens _csgmMarker (\s a -> s { _csgmMarker = a })
+dcsgr1Marker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
+dcsgr1Marker = lens _dcsgr1Marker (\s a -> s { _dcsgr1Marker = a })
 
-instance FromXML CacheSecurityGroupMessage where
+instance FromXML DescribeCacheSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CacheSecurityGroupMessage"
+    fromXMLRoot    = fromRoot "DescribeCacheSecurityGroupsResponse"
 
-instance AWSRequest DescribeCacheSecurityGroupsMessage where
-    type Sv DescribeCacheSecurityGroupsMessage = ElastiCache
-    type Rs DescribeCacheSecurityGroupsMessage = CacheSecurityGroupMessage
+instance AWSRequest DescribeCacheSecurityGroups where
+    type Sv DescribeCacheSecurityGroups = ElastiCache
+    type Rs DescribeCacheSecurityGroups = DescribeCacheSecurityGroupsResponse
 
     request  = post "DescribeCacheSecurityGroups"
-    response = xmlResponse $ \h x -> CacheSecurityGroupMessage
+    response = xmlResponse $ \h x -> DescribeCacheSecurityGroupsResponse
         <$> x %| "CacheSecurityGroups"
         <*> x %| "Marker"

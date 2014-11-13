@@ -43,7 +43,7 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     , prioReservedInstancesOfferingId
 
     -- * Response
-    , PurchaseReservedInstancesOfferingResult
+    , PurchaseReservedInstancesOfferingResponse
     -- ** Response constructor
     , purchaseReservedInstancesOfferingResponse
     -- ** Response lenses
@@ -108,35 +108,35 @@ instance ToQuery PurchaseReservedInstancesOffering
 instance ToPath PurchaseReservedInstancesOffering where
     toPath = const "/"
 
-newtype PurchaseReservedInstancesOfferingResult = PurchaseReservedInstancesOfferingResult
+newtype PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
     { _priorReservedInstancesId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'PurchaseReservedInstancesOfferingResult' constructor.
+-- | 'PurchaseReservedInstancesOfferingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'priorReservedInstancesId' @::@ 'Maybe' 'Text'
 --
-purchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResult
-purchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResult
+purchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResponse
+purchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse
     { _priorReservedInstancesId = Nothing
     }
 
 -- | The IDs of the purchased Reserved Instances.
-priorReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResult (Maybe Text)
+priorReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
 priorReservedInstancesId =
     lens _priorReservedInstancesId
         (\s a -> s { _priorReservedInstancesId = a })
 
-instance FromXML PurchaseReservedInstancesOfferingResult where
+instance FromXML PurchaseReservedInstancesOfferingResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PurchaseReservedInstancesOfferingResult"
+    fromXMLRoot    = fromRoot "PurchaseReservedInstancesOfferingResponse"
 
 instance AWSRequest PurchaseReservedInstancesOffering where
     type Sv PurchaseReservedInstancesOffering = EC2
-    type Rs PurchaseReservedInstancesOffering = PurchaseReservedInstancesOfferingResult
+    type Rs PurchaseReservedInstancesOffering = PurchaseReservedInstancesOfferingResponse
 
     request  = post "PurchaseReservedInstancesOffering"
-    response = xmlResponse $ \h x -> PurchaseReservedInstancesOfferingResult
+    response = xmlResponse $ \h x -> PurchaseReservedInstancesOfferingResponse
         <$> x %| "reservedInstancesId"

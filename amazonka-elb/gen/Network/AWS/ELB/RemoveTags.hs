@@ -24,12 +24,12 @@
 module Network.AWS.ELB.RemoveTags
     (
     -- * Request
-      RemoveTagsInput
+      RemoveTags
     -- ** Request constructor
     , removeTags
     -- ** Request lenses
-    , rtiLoadBalancerNames
-    , rtiTags
+    , rtLoadBalancerNames
+    , rtTags
 
     -- * Response
     , RemoveTagsResponse
@@ -41,40 +41,40 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data RemoveTagsInput = RemoveTagsInput
-    { _rtiLoadBalancerNames :: [Text]
-    , _rtiTags              :: List1 TagKeyOnly
+data RemoveTags = RemoveTags
+    { _rtLoadBalancerNames :: [Text]
+    , _rtTags              :: List1 TagKeyOnly
     } deriving (Eq, Show, Generic)
 
--- | 'RemoveTagsInput' constructor.
+-- | 'RemoveTags' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtiLoadBalancerNames' @::@ ['Text']
+-- * 'rtLoadBalancerNames' @::@ ['Text']
 --
--- * 'rtiTags' @::@ 'NonEmpty' 'TagKeyOnly'
+-- * 'rtTags' @::@ 'NonEmpty' 'TagKeyOnly'
 --
-removeTags :: NonEmpty TagKeyOnly -- ^ 'rtiTags'
-           -> RemoveTagsInput
-removeTags p1 = RemoveTagsInput
-    { _rtiTags              = withIso _List1 (const id) p1
-    , _rtiLoadBalancerNames = mempty
+removeTags :: NonEmpty TagKeyOnly -- ^ 'rtTags'
+           -> RemoveTags
+removeTags p1 = RemoveTags
+    { _rtTags              = withIso _List1 (const id) p1
+    , _rtLoadBalancerNames = mempty
     }
 
 -- | The name of the load balancer. You can specify a maximum of one load
 -- balancer name.
-rtiLoadBalancerNames :: Lens' RemoveTagsInput [Text]
-rtiLoadBalancerNames =
-    lens _rtiLoadBalancerNames (\s a -> s { _rtiLoadBalancerNames = a })
+rtLoadBalancerNames :: Lens' RemoveTags [Text]
+rtLoadBalancerNames =
+    lens _rtLoadBalancerNames (\s a -> s { _rtLoadBalancerNames = a })
 
 -- | A list of tag keys to remove.
-rtiTags :: Lens' RemoveTagsInput (NonEmpty TagKeyOnly)
-rtiTags = lens _rtiTags (\s a -> s { _rtiTags = a })
+rtTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
+rtTags = lens _rtTags (\s a -> s { _rtTags = a })
     . _List1
 
-instance ToQuery RemoveTagsInput
+instance ToQuery RemoveTags
 
-instance ToPath RemoveTagsInput where
+instance ToPath RemoveTags where
     toPath = const "/"
 
 data RemoveTagsResponse = RemoveTagsResponse
@@ -88,9 +88,9 @@ instance FromXML RemoveTagsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "RemoveTagsResponse"
 
-instance AWSRequest RemoveTagsInput where
-    type Sv RemoveTagsInput = ELB
-    type Rs RemoveTagsInput = RemoveTagsResponse
+instance AWSRequest RemoveTags where
+    type Sv RemoveTags = ELB
+    type Rs RemoveTags = RemoveTagsResponse
 
     request  = post "RemoveTags"
     response = nullaryResponse RemoveTagsResponse

@@ -36,7 +36,7 @@ module Network.AWS.EC2.ConfirmProductInstance
     , cpiProductCode
 
     -- * Response
-    , ConfirmProductInstanceResult
+    , ConfirmProductInstanceResponse
     -- ** Response constructor
     , confirmProductInstanceResponse
     -- ** Response lenses
@@ -88,34 +88,34 @@ instance ToQuery ConfirmProductInstance
 instance ToPath ConfirmProductInstance where
     toPath = const "/"
 
-newtype ConfirmProductInstanceResult = ConfirmProductInstanceResult
+newtype ConfirmProductInstanceResponse = ConfirmProductInstanceResponse
     { _cpirOwnerId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'ConfirmProductInstanceResult' constructor.
+-- | 'ConfirmProductInstanceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cpirOwnerId' @::@ 'Maybe' 'Text'
 --
-confirmProductInstanceResponse :: ConfirmProductInstanceResult
-confirmProductInstanceResponse = ConfirmProductInstanceResult
+confirmProductInstanceResponse :: ConfirmProductInstanceResponse
+confirmProductInstanceResponse = ConfirmProductInstanceResponse
     { _cpirOwnerId = Nothing
     }
 
 -- | The AWS account ID of the instance owner. This is only present if the
 -- product code is attached to the instance.
-cpirOwnerId :: Lens' ConfirmProductInstanceResult (Maybe Text)
+cpirOwnerId :: Lens' ConfirmProductInstanceResponse (Maybe Text)
 cpirOwnerId = lens _cpirOwnerId (\s a -> s { _cpirOwnerId = a })
 
-instance FromXML ConfirmProductInstanceResult where
+instance FromXML ConfirmProductInstanceResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConfirmProductInstanceResult"
+    fromXMLRoot    = fromRoot "ConfirmProductInstanceResponse"
 
 instance AWSRequest ConfirmProductInstance where
     type Sv ConfirmProductInstance = EC2
-    type Rs ConfirmProductInstance = ConfirmProductInstanceResult
+    type Rs ConfirmProductInstance = ConfirmProductInstanceResponse
 
     request  = post "ConfirmProductInstance"
-    response = xmlResponse $ \h x -> ConfirmProductInstanceResult
+    response = xmlResponse $ \h x -> ConfirmProductInstanceResponse
         <$> x %| "ownerId"

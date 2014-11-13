@@ -37,7 +37,7 @@ module Network.AWS.EC2.CreateInstanceExportTask
     , cietTargetEnvironment
 
     -- * Response
-    , CreateInstanceExportTaskResult
+    , CreateInstanceExportTaskResponse
     -- ** Response constructor
     , createInstanceExportTaskResponse
     -- ** Response lenses
@@ -99,32 +99,32 @@ instance ToQuery CreateInstanceExportTask
 instance ToPath CreateInstanceExportTask where
     toPath = const "/"
 
-newtype CreateInstanceExportTaskResult = CreateInstanceExportTaskResult
+newtype CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse
     { _cietrExportTask :: Maybe ExportTask
     } deriving (Eq, Show, Generic)
 
--- | 'CreateInstanceExportTaskResult' constructor.
+-- | 'CreateInstanceExportTaskResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cietrExportTask' @::@ 'Maybe' 'ExportTask'
 --
-createInstanceExportTaskResponse :: CreateInstanceExportTaskResult
-createInstanceExportTaskResponse = CreateInstanceExportTaskResult
+createInstanceExportTaskResponse :: CreateInstanceExportTaskResponse
+createInstanceExportTaskResponse = CreateInstanceExportTaskResponse
     { _cietrExportTask = Nothing
     }
 
-cietrExportTask :: Lens' CreateInstanceExportTaskResult (Maybe ExportTask)
+cietrExportTask :: Lens' CreateInstanceExportTaskResponse (Maybe ExportTask)
 cietrExportTask = lens _cietrExportTask (\s a -> s { _cietrExportTask = a })
 
-instance FromXML CreateInstanceExportTaskResult where
+instance FromXML CreateInstanceExportTaskResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateInstanceExportTaskResult"
+    fromXMLRoot    = fromRoot "CreateInstanceExportTaskResponse"
 
 instance AWSRequest CreateInstanceExportTask where
     type Sv CreateInstanceExportTask = EC2
-    type Rs CreateInstanceExportTask = CreateInstanceExportTaskResult
+    type Rs CreateInstanceExportTask = CreateInstanceExportTaskResponse
 
     request  = post "CreateInstanceExportTask"
-    response = xmlResponse $ \h x -> CreateInstanceExportTaskResult
+    response = xmlResponse $ \h x -> CreateInstanceExportTaskResponse
         <$> x %| "exportTask"

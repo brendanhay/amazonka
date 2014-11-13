@@ -44,166 +44,166 @@
 module Network.AWS.CloudWatch.GetMetricStatistics
     (
     -- * Request
-      GetMetricStatisticsInput
+      GetMetricStatistics
     -- ** Request constructor
     , getMetricStatistics
     -- ** Request lenses
-    , gmsiDimensions
-    , gmsiEndTime
-    , gmsiMetricName
-    , gmsiNamespace
-    , gmsiPeriod
-    , gmsiStartTime
-    , gmsiStatistics
-    , gmsiUnit
+    , gmsDimensions
+    , gmsEndTime
+    , gmsMetricName
+    , gmsNamespace
+    , gmsPeriod
+    , gmsStartTime
+    , gmsStatistics
+    , gmsUnit
 
     -- * Response
-    , GetMetricStatisticsOutput
+    , GetMetricStatisticsResponse
     -- ** Response constructor
     , getMetricStatisticsResponse
     -- ** Response lenses
-    , gmsoDatapoints
-    , gmsoLabel
+    , gmsrDatapoints
+    , gmsrLabel
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
 
-data GetMetricStatisticsInput = GetMetricStatisticsInput
-    { _gmsiDimensions :: [Dimension]
-    , _gmsiEndTime    :: RFC822
-    , _gmsiMetricName :: Text
-    , _gmsiNamespace  :: Text
-    , _gmsiPeriod     :: Natural
-    , _gmsiStartTime  :: RFC822
-    , _gmsiStatistics :: List1 Text
-    , _gmsiUnit       :: Maybe Text
+data GetMetricStatistics = GetMetricStatistics
+    { _gmsDimensions :: [Dimension]
+    , _gmsEndTime    :: RFC822
+    , _gmsMetricName :: Text
+    , _gmsNamespace  :: Text
+    , _gmsPeriod     :: Natural
+    , _gmsStartTime  :: RFC822
+    , _gmsStatistics :: List1 Text
+    , _gmsUnit       :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'GetMetricStatisticsInput' constructor.
+-- | 'GetMetricStatistics' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gmsiDimensions' @::@ ['Dimension']
+-- * 'gmsDimensions' @::@ ['Dimension']
 --
--- * 'gmsiEndTime' @::@ 'UTCTime'
+-- * 'gmsEndTime' @::@ 'UTCTime'
 --
--- * 'gmsiMetricName' @::@ 'Text'
+-- * 'gmsMetricName' @::@ 'Text'
 --
--- * 'gmsiNamespace' @::@ 'Text'
+-- * 'gmsNamespace' @::@ 'Text'
 --
--- * 'gmsiPeriod' @::@ 'Natural'
+-- * 'gmsPeriod' @::@ 'Natural'
 --
--- * 'gmsiStartTime' @::@ 'UTCTime'
+-- * 'gmsStartTime' @::@ 'UTCTime'
 --
--- * 'gmsiStatistics' @::@ 'NonEmpty' 'Text'
+-- * 'gmsStatistics' @::@ 'NonEmpty' 'Text'
 --
--- * 'gmsiUnit' @::@ 'Maybe' 'Text'
+-- * 'gmsUnit' @::@ 'Maybe' 'Text'
 --
-getMetricStatistics :: Text -- ^ 'gmsiNamespace'
-                    -> Text -- ^ 'gmsiMetricName'
-                    -> UTCTime -- ^ 'gmsiStartTime'
-                    -> UTCTime -- ^ 'gmsiEndTime'
-                    -> Natural -- ^ 'gmsiPeriod'
-                    -> NonEmpty Text -- ^ 'gmsiStatistics'
-                    -> GetMetricStatisticsInput
-getMetricStatistics p1 p2 p3 p4 p5 p6 = GetMetricStatisticsInput
-    { _gmsiNamespace  = p1
-    , _gmsiMetricName = p2
-    , _gmsiStartTime  = withIso _Time (const id) p3
-    , _gmsiEndTime    = withIso _Time (const id) p4
-    , _gmsiPeriod     = p5
-    , _gmsiStatistics = withIso _List1 (const id) p6
-    , _gmsiDimensions = mempty
-    , _gmsiUnit       = Nothing
+getMetricStatistics :: Text -- ^ 'gmsNamespace'
+                    -> Text -- ^ 'gmsMetricName'
+                    -> UTCTime -- ^ 'gmsStartTime'
+                    -> UTCTime -- ^ 'gmsEndTime'
+                    -> Natural -- ^ 'gmsPeriod'
+                    -> NonEmpty Text -- ^ 'gmsStatistics'
+                    -> GetMetricStatistics
+getMetricStatistics p1 p2 p3 p4 p5 p6 = GetMetricStatistics
+    { _gmsNamespace  = p1
+    , _gmsMetricName = p2
+    , _gmsStartTime  = withIso _Time (const id) p3
+    , _gmsEndTime    = withIso _Time (const id) p4
+    , _gmsPeriod     = p5
+    , _gmsStatistics = withIso _List1 (const id) p6
+    , _gmsDimensions = mempty
+    , _gmsUnit       = Nothing
     }
 
 -- | A list of dimensions describing qualities of the metric.
-gmsiDimensions :: Lens' GetMetricStatisticsInput [Dimension]
-gmsiDimensions = lens _gmsiDimensions (\s a -> s { _gmsiDimensions = a })
+gmsDimensions :: Lens' GetMetricStatistics [Dimension]
+gmsDimensions = lens _gmsDimensions (\s a -> s { _gmsDimensions = a })
 
 -- | The time stamp to use for determining the last datapoint to return. The
 -- value specified is exclusive; results will include datapoints up to the
 -- time stamp specified.
-gmsiEndTime :: Lens' GetMetricStatisticsInput UTCTime
-gmsiEndTime = lens _gmsiEndTime (\s a -> s { _gmsiEndTime = a })
+gmsEndTime :: Lens' GetMetricStatistics UTCTime
+gmsEndTime = lens _gmsEndTime (\s a -> s { _gmsEndTime = a })
     . _Time
 
 -- | The name of the metric, with or without spaces.
-gmsiMetricName :: Lens' GetMetricStatisticsInput Text
-gmsiMetricName = lens _gmsiMetricName (\s a -> s { _gmsiMetricName = a })
+gmsMetricName :: Lens' GetMetricStatistics Text
+gmsMetricName = lens _gmsMetricName (\s a -> s { _gmsMetricName = a })
 
 -- | The namespace of the metric, with or without spaces.
-gmsiNamespace :: Lens' GetMetricStatisticsInput Text
-gmsiNamespace = lens _gmsiNamespace (\s a -> s { _gmsiNamespace = a })
+gmsNamespace :: Lens' GetMetricStatistics Text
+gmsNamespace = lens _gmsNamespace (\s a -> s { _gmsNamespace = a })
 
 -- | The granularity, in seconds, of the returned datapoints. Period must be
 -- at least 60 seconds and must be a multiple of 60. The default value is
 -- 60.
-gmsiPeriod :: Lens' GetMetricStatisticsInput Natural
-gmsiPeriod = lens _gmsiPeriod (\s a -> s { _gmsiPeriod = a })
+gmsPeriod :: Lens' GetMetricStatistics Natural
+gmsPeriod = lens _gmsPeriod (\s a -> s { _gmsPeriod = a })
 
 -- | The time stamp to use for determining the first datapoint to return. The
 -- value specified is inclusive; results include datapoints with the time
 -- stamp specified.
-gmsiStartTime :: Lens' GetMetricStatisticsInput UTCTime
-gmsiStartTime = lens _gmsiStartTime (\s a -> s { _gmsiStartTime = a })
+gmsStartTime :: Lens' GetMetricStatistics UTCTime
+gmsStartTime = lens _gmsStartTime (\s a -> s { _gmsStartTime = a })
     . _Time
 
 -- | The metric statistics to return. For information about specific
 -- statistics returned by GetMetricStatistics, go to Statistics in the
 -- Amazon CloudWatch Developer Guide. Valid Values: Average | Sum |
 -- SampleCount | Maximum | Minimum.
-gmsiStatistics :: Lens' GetMetricStatisticsInput (NonEmpty Text)
-gmsiStatistics = lens _gmsiStatistics (\s a -> s { _gmsiStatistics = a })
+gmsStatistics :: Lens' GetMetricStatistics (NonEmpty Text)
+gmsStatistics = lens _gmsStatistics (\s a -> s { _gmsStatistics = a })
     . _List1
 
 -- | The unit for the metric.
-gmsiUnit :: Lens' GetMetricStatisticsInput (Maybe Text)
-gmsiUnit = lens _gmsiUnit (\s a -> s { _gmsiUnit = a })
+gmsUnit :: Lens' GetMetricStatistics (Maybe Text)
+gmsUnit = lens _gmsUnit (\s a -> s { _gmsUnit = a })
 
-instance ToQuery GetMetricStatisticsInput
+instance ToQuery GetMetricStatistics
 
-instance ToPath GetMetricStatisticsInput where
+instance ToPath GetMetricStatistics where
     toPath = const "/"
 
-data GetMetricStatisticsOutput = GetMetricStatisticsOutput
-    { _gmsoDatapoints :: [Datapoint]
-    , _gmsoLabel      :: Maybe Text
+data GetMetricStatisticsResponse = GetMetricStatisticsResponse
+    { _gmsrDatapoints :: [Datapoint]
+    , _gmsrLabel      :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'GetMetricStatisticsOutput' constructor.
+-- | 'GetMetricStatisticsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gmsoDatapoints' @::@ ['Datapoint']
+-- * 'gmsrDatapoints' @::@ ['Datapoint']
 --
--- * 'gmsoLabel' @::@ 'Maybe' 'Text'
+-- * 'gmsrLabel' @::@ 'Maybe' 'Text'
 --
-getMetricStatisticsResponse :: GetMetricStatisticsOutput
-getMetricStatisticsResponse = GetMetricStatisticsOutput
-    { _gmsoLabel      = Nothing
-    , _gmsoDatapoints = mempty
+getMetricStatisticsResponse :: GetMetricStatisticsResponse
+getMetricStatisticsResponse = GetMetricStatisticsResponse
+    { _gmsrLabel      = Nothing
+    , _gmsrDatapoints = mempty
     }
 
 -- | The datapoints for the specified metric.
-gmsoDatapoints :: Lens' GetMetricStatisticsOutput [Datapoint]
-gmsoDatapoints = lens _gmsoDatapoints (\s a -> s { _gmsoDatapoints = a })
+gmsrDatapoints :: Lens' GetMetricStatisticsResponse [Datapoint]
+gmsrDatapoints = lens _gmsrDatapoints (\s a -> s { _gmsrDatapoints = a })
 
 -- | A label describing the specified metric.
-gmsoLabel :: Lens' GetMetricStatisticsOutput (Maybe Text)
-gmsoLabel = lens _gmsoLabel (\s a -> s { _gmsoLabel = a })
+gmsrLabel :: Lens' GetMetricStatisticsResponse (Maybe Text)
+gmsrLabel = lens _gmsrLabel (\s a -> s { _gmsrLabel = a })
 
-instance FromXML GetMetricStatisticsOutput where
+instance FromXML GetMetricStatisticsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetMetricStatisticsOutput"
+    fromXMLRoot    = fromRoot "GetMetricStatisticsResponse"
 
-instance AWSRequest GetMetricStatisticsInput where
-    type Sv GetMetricStatisticsInput = CloudWatch
-    type Rs GetMetricStatisticsInput = GetMetricStatisticsOutput
+instance AWSRequest GetMetricStatistics where
+    type Sv GetMetricStatistics = CloudWatch
+    type Rs GetMetricStatistics = GetMetricStatisticsResponse
 
     request  = post "GetMetricStatistics"
-    response = xmlResponse $ \h x -> GetMetricStatisticsOutput
+    response = xmlResponse $ \h x -> GetMetricStatisticsResponse
         <$> x %| "Datapoints"
         <*> x %| "Label"

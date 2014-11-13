@@ -28,26 +28,26 @@
 module Network.AWS.AutoScaling.CreateLaunchConfiguration
     (
     -- * Request
-      CreateLaunchConfigurationType
+      CreateLaunchConfiguration
     -- ** Request constructor
     , createLaunchConfiguration
     -- ** Request lenses
-    , clctAssociatePublicIpAddress
-    , clctBlockDeviceMappings
-    , clctEbsOptimized
-    , clctIamInstanceProfile
-    , clctImageId
-    , clctInstanceId
-    , clctInstanceMonitoring
-    , clctInstanceType
-    , clctKernelId
-    , clctKeyName
-    , clctLaunchConfigurationName
-    , clctPlacementTenancy
-    , clctRamdiskId
-    , clctSecurityGroups
-    , clctSpotPrice
-    , clctUserData
+    , clcAssociatePublicIpAddress
+    , clcBlockDeviceMappings
+    , clcEbsOptimized
+    , clcIamInstanceProfile
+    , clcImageId
+    , clcInstanceId
+    , clcInstanceMonitoring
+    , clcInstanceType
+    , clcKernelId
+    , clcKeyName
+    , clcLaunchConfigurationName
+    , clcPlacementTenancy
+    , clcRamdiskId
+    , clcSecurityGroups
+    , clcSpotPrice
+    , clcUserData
 
     -- * Response
     , CreateLaunchConfigurationResponse
@@ -59,80 +59,80 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data CreateLaunchConfigurationType = CreateLaunchConfigurationType
-    { _clctAssociatePublicIpAddress :: Maybe Bool
-    , _clctBlockDeviceMappings      :: [BlockDeviceMapping]
-    , _clctEbsOptimized             :: Maybe Bool
-    , _clctIamInstanceProfile       :: Maybe Text
-    , _clctImageId                  :: Maybe Text
-    , _clctInstanceId               :: Maybe Text
-    , _clctInstanceMonitoring       :: Maybe InstanceMonitoring
-    , _clctInstanceType             :: Maybe Text
-    , _clctKernelId                 :: Maybe Text
-    , _clctKeyName                  :: Maybe Text
-    , _clctLaunchConfigurationName  :: Text
-    , _clctPlacementTenancy         :: Maybe Text
-    , _clctRamdiskId                :: Maybe Text
-    , _clctSecurityGroups           :: [Text]
-    , _clctSpotPrice                :: Maybe Text
-    , _clctUserData                 :: Maybe Text
+data CreateLaunchConfiguration = CreateLaunchConfiguration
+    { _clcAssociatePublicIpAddress :: Maybe Bool
+    , _clcBlockDeviceMappings      :: [BlockDeviceMapping]
+    , _clcEbsOptimized             :: Maybe Bool
+    , _clcIamInstanceProfile       :: Maybe Text
+    , _clcImageId                  :: Maybe Text
+    , _clcInstanceId               :: Maybe Text
+    , _clcInstanceMonitoring       :: Maybe InstanceMonitoring
+    , _clcInstanceType             :: Maybe Text
+    , _clcKernelId                 :: Maybe Text
+    , _clcKeyName                  :: Maybe Text
+    , _clcLaunchConfigurationName  :: Text
+    , _clcPlacementTenancy         :: Maybe Text
+    , _clcRamdiskId                :: Maybe Text
+    , _clcSecurityGroups           :: [Text]
+    , _clcSpotPrice                :: Maybe Text
+    , _clcUserData                 :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'CreateLaunchConfigurationType' constructor.
+-- | 'CreateLaunchConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clctAssociatePublicIpAddress' @::@ 'Maybe' 'Bool'
+-- * 'clcAssociatePublicIpAddress' @::@ 'Maybe' 'Bool'
 --
--- * 'clctBlockDeviceMappings' @::@ ['BlockDeviceMapping']
+-- * 'clcBlockDeviceMappings' @::@ ['BlockDeviceMapping']
 --
--- * 'clctEbsOptimized' @::@ 'Maybe' 'Bool'
+-- * 'clcEbsOptimized' @::@ 'Maybe' 'Bool'
 --
--- * 'clctIamInstanceProfile' @::@ 'Maybe' 'Text'
+-- * 'clcIamInstanceProfile' @::@ 'Maybe' 'Text'
 --
--- * 'clctImageId' @::@ 'Maybe' 'Text'
+-- * 'clcImageId' @::@ 'Maybe' 'Text'
 --
--- * 'clctInstanceId' @::@ 'Maybe' 'Text'
+-- * 'clcInstanceId' @::@ 'Maybe' 'Text'
 --
--- * 'clctInstanceMonitoring' @::@ 'Maybe' 'InstanceMonitoring'
+-- * 'clcInstanceMonitoring' @::@ 'Maybe' 'InstanceMonitoring'
 --
--- * 'clctInstanceType' @::@ 'Maybe' 'Text'
+-- * 'clcInstanceType' @::@ 'Maybe' 'Text'
 --
--- * 'clctKernelId' @::@ 'Maybe' 'Text'
+-- * 'clcKernelId' @::@ 'Maybe' 'Text'
 --
--- * 'clctKeyName' @::@ 'Maybe' 'Text'
+-- * 'clcKeyName' @::@ 'Maybe' 'Text'
 --
--- * 'clctLaunchConfigurationName' @::@ 'Text'
+-- * 'clcLaunchConfigurationName' @::@ 'Text'
 --
--- * 'clctPlacementTenancy' @::@ 'Maybe' 'Text'
+-- * 'clcPlacementTenancy' @::@ 'Maybe' 'Text'
 --
--- * 'clctRamdiskId' @::@ 'Maybe' 'Text'
+-- * 'clcRamdiskId' @::@ 'Maybe' 'Text'
 --
--- * 'clctSecurityGroups' @::@ ['Text']
+-- * 'clcSecurityGroups' @::@ ['Text']
 --
--- * 'clctSpotPrice' @::@ 'Maybe' 'Text'
+-- * 'clcSpotPrice' @::@ 'Maybe' 'Text'
 --
--- * 'clctUserData' @::@ 'Maybe' 'Text'
+-- * 'clcUserData' @::@ 'Maybe' 'Text'
 --
-createLaunchConfiguration :: Text -- ^ 'clctLaunchConfigurationName'
-                          -> CreateLaunchConfigurationType
-createLaunchConfiguration p1 = CreateLaunchConfigurationType
-    { _clctLaunchConfigurationName  = p1
-    , _clctImageId                  = Nothing
-    , _clctKeyName                  = Nothing
-    , _clctSecurityGroups           = mempty
-    , _clctUserData                 = Nothing
-    , _clctInstanceId               = Nothing
-    , _clctInstanceType             = Nothing
-    , _clctKernelId                 = Nothing
-    , _clctRamdiskId                = Nothing
-    , _clctBlockDeviceMappings      = mempty
-    , _clctInstanceMonitoring       = Nothing
-    , _clctSpotPrice                = Nothing
-    , _clctIamInstanceProfile       = Nothing
-    , _clctEbsOptimized             = Nothing
-    , _clctAssociatePublicIpAddress = Nothing
-    , _clctPlacementTenancy         = Nothing
+createLaunchConfiguration :: Text -- ^ 'clcLaunchConfigurationName'
+                          -> CreateLaunchConfiguration
+createLaunchConfiguration p1 = CreateLaunchConfiguration
+    { _clcLaunchConfigurationName  = p1
+    , _clcImageId                  = Nothing
+    , _clcKeyName                  = Nothing
+    , _clcSecurityGroups           = mempty
+    , _clcUserData                 = Nothing
+    , _clcInstanceId               = Nothing
+    , _clcInstanceType             = Nothing
+    , _clcKernelId                 = Nothing
+    , _clcRamdiskId                = Nothing
+    , _clcBlockDeviceMappings      = mempty
+    , _clcInstanceMonitoring       = Nothing
+    , _clcSpotPrice                = Nothing
+    , _clcIamInstanceProfile       = Nothing
+    , _clcEbsOptimized             = Nothing
+    , _clcAssociatePublicIpAddress = Nothing
+    , _clcPlacementTenancy         = Nothing
     }
 
 -- | Used for Auto Scaling groups that launch instances into an Amazon Virtual
@@ -143,10 +143,10 @@ createLaunchConfiguration p1 = CreateLaunchConfigurationType
 -- is true. If the instance is launched into a nondefault subnet in a VPC,
 -- the default is false. For information about default VPC and VPC
 -- platforms, see Supported Platforms.
-clctAssociatePublicIpAddress :: Lens' CreateLaunchConfigurationType (Maybe Bool)
-clctAssociatePublicIpAddress =
-    lens _clctAssociatePublicIpAddress
-        (\s a -> s { _clctAssociatePublicIpAddress = a })
+clcAssociatePublicIpAddress :: Lens' CreateLaunchConfiguration (Maybe Bool)
+clcAssociatePublicIpAddress =
+    lens _clcAssociatePublicIpAddress
+        (\s a -> s { _clcAssociatePublicIpAddress = a })
 
 -- | A list of mappings that specify how block devices are exposed to the
 -- instance. Each mapping is made up of a VirtualName, a DeviceName, and an
@@ -154,9 +154,9 @@ clctAssociatePublicIpAddress =
 -- Block Storage volume. For more information about Amazon EC2
 -- BlockDeviceMappings, go to Block Device Mapping in the Amazon EC2 product
 -- documentation.
-clctBlockDeviceMappings :: Lens' CreateLaunchConfigurationType [BlockDeviceMapping]
-clctBlockDeviceMappings =
-    lens _clctBlockDeviceMappings (\s a -> s { _clctBlockDeviceMappings = a })
+clcBlockDeviceMappings :: Lens' CreateLaunchConfiguration [BlockDeviceMapping]
+clcBlockDeviceMappings =
+    lens _clcBlockDeviceMappings (\s a -> s { _clcBlockDeviceMappings = a })
 
 -- | Whether the instance is optimized for EBS I/O. The optimization provides
 -- dedicated throughput to Amazon EBS and an optimized configuration stack
@@ -165,8 +165,8 @@ clctBlockDeviceMappings =
 -- using an EBS Optimized instance. By default the instance is not optimized
 -- for EBS I/O. For information about EBS-optimized instances, go to
 -- EBS-Optimized Instances in the Amazon Elastic Compute Cloud User Guide.
-clctEbsOptimized :: Lens' CreateLaunchConfigurationType (Maybe Bool)
-clctEbsOptimized = lens _clctEbsOptimized (\s a -> s { _clctEbsOptimized = a })
+clcEbsOptimized :: Lens' CreateLaunchConfiguration (Maybe Bool)
+clcEbsOptimized = lens _clcEbsOptimized (\s a -> s { _clcEbsOptimized = a })
 
 -- | The name or the Amazon Resource Name (ARN) of the instance profile
 -- associated with the IAM role for the instance. Amazon EC2 instances
@@ -176,15 +176,15 @@ clctEbsOptimized = lens _clctEbsOptimized (\s a -> s { _clctEbsOptimized = a })
 -- securely access other AWS resources. For information on launching EC2
 -- instances with an IAM role, go to Launching Auto Scaling Instances With
 -- an IAM Role in the Auto Scaling Developer Guide.
-clctIamInstanceProfile :: Lens' CreateLaunchConfigurationType (Maybe Text)
-clctIamInstanceProfile =
-    lens _clctIamInstanceProfile (\s a -> s { _clctIamInstanceProfile = a })
+clcIamInstanceProfile :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcIamInstanceProfile =
+    lens _clcIamInstanceProfile (\s a -> s { _clcIamInstanceProfile = a })
 
 -- | Unique ID of the Amazon Machine Image (AMI) you want to use to launch
 -- your EC2 instances. For information about finding Amazon EC2 AMIs, see
 -- Finding a Suitable AMI in the Amazon Elastic Compute Cloud User Guide.
-clctImageId :: Lens' CreateLaunchConfigurationType (Maybe Text)
-clctImageId = lens _clctImageId (\s a -> s { _clctImageId = a })
+clcImageId :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcImageId = lens _clcImageId (\s a -> s { _clcImageId = a })
 
 -- | The ID of the Amazon EC2 instance you want to use to create the launch
 -- configuration. Use this attribute if you want the launch configuration to
@@ -197,8 +197,8 @@ clctImageId = lens _clctImageId (\s a -> s { _clctImageId = a })
 -- For more information on using an InstanceID to create a launch
 -- configuration, see Create a Launch Configuration Using an Amazon EC2
 -- Instance in the Auto Scaling Developer Guide.
-clctInstanceId :: Lens' CreateLaunchConfigurationType (Maybe Text)
-clctInstanceId = lens _clctInstanceId (\s a -> s { _clctInstanceId = a })
+clcInstanceId :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcInstanceId = lens _clcInstanceId (\s a -> s { _clcInstanceId = a })
 
 -- | Enables detailed monitoring if it is disabled. Detailed monitoring is
 -- enabled by default. When detailed monitoring is enabled, Amazon
@@ -207,30 +207,30 @@ clctInstanceId = lens _clctInstanceId (\s a -> s { _clctInstanceId = a })
 -- Cloudwatch will generate metrics every 5 minutes. For more information,
 -- see Monitor Your Auto Scaling Instances. For information about Amazon
 -- CloudWatch, see the Amazon CloudWatch Developer Guide.
-clctInstanceMonitoring :: Lens' CreateLaunchConfigurationType (Maybe InstanceMonitoring)
-clctInstanceMonitoring =
-    lens _clctInstanceMonitoring (\s a -> s { _clctInstanceMonitoring = a })
+clcInstanceMonitoring :: Lens' CreateLaunchConfiguration (Maybe InstanceMonitoring)
+clcInstanceMonitoring =
+    lens _clcInstanceMonitoring (\s a -> s { _clcInstanceMonitoring = a })
 
 -- | The instance type of the Amazon EC2 instance. For information about
 -- available Amazon EC2 instance types, see Available Instance Types in the
 -- Amazon Elastic Cloud Compute User Guide.
-clctInstanceType :: Lens' CreateLaunchConfigurationType (Maybe Text)
-clctInstanceType = lens _clctInstanceType (\s a -> s { _clctInstanceType = a })
+clcInstanceType :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcInstanceType = lens _clcInstanceType (\s a -> s { _clcInstanceType = a })
 
 -- | The ID of the kernel associated with the Amazon EC2 AMI.
-clctKernelId :: Lens' CreateLaunchConfigurationType (Maybe Text)
-clctKernelId = lens _clctKernelId (\s a -> s { _clctKernelId = a })
+clcKernelId :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcKernelId = lens _clcKernelId (\s a -> s { _clcKernelId = a })
 
 -- | The name of the Amazon EC2 key pair. For more information, see Getting a
 -- Key Pair in the Amazon Elastic Compute Cloud User Guide.
-clctKeyName :: Lens' CreateLaunchConfigurationType (Maybe Text)
-clctKeyName = lens _clctKeyName (\s a -> s { _clctKeyName = a })
+clcKeyName :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcKeyName = lens _clcKeyName (\s a -> s { _clcKeyName = a })
 
 -- | The name of the launch configuration to create.
-clctLaunchConfigurationName :: Lens' CreateLaunchConfigurationType Text
-clctLaunchConfigurationName =
-    lens _clctLaunchConfigurationName
-        (\s a -> s { _clctLaunchConfigurationName = a })
+clcLaunchConfigurationName :: Lens' CreateLaunchConfiguration Text
+clcLaunchConfigurationName =
+    lens _clcLaunchConfigurationName
+        (\s a -> s { _clcLaunchConfigurationName = a })
 
 -- | The tenancy of the instance. An instance with a tenancy of dedicated runs
 -- on single-tenant hardware and can only be launched in a VPC. You must set
@@ -241,13 +241,13 @@ clctLaunchConfigurationName =
 -- parameter when you create your Auto Scaling group. For more information,
 -- see Auto Scaling in Amazon Virtual Private Cloud in the Auto Scaling
 -- Developer Guide. Valid values: default | dedicated.
-clctPlacementTenancy :: Lens' CreateLaunchConfigurationType (Maybe Text)
-clctPlacementTenancy =
-    lens _clctPlacementTenancy (\s a -> s { _clctPlacementTenancy = a })
+clcPlacementTenancy :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcPlacementTenancy =
+    lens _clcPlacementTenancy (\s a -> s { _clcPlacementTenancy = a })
 
 -- | The ID of the RAM disk associated with the Amazon EC2 AMI.
-clctRamdiskId :: Lens' CreateLaunchConfigurationType (Maybe Text)
-clctRamdiskId = lens _clctRamdiskId (\s a -> s { _clctRamdiskId = a })
+clcRamdiskId :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcRamdiskId = lens _clcRamdiskId (\s a -> s { _clcRamdiskId = a })
 
 -- | The security groups with which to associate Amazon EC2 or Amazon VPC
 -- instances. If your instances are launched in EC2, you can either specify
@@ -257,27 +257,27 @@ clctRamdiskId = lens _clctRamdiskId (\s a -> s { _clctRamdiskId = a })
 -- launched within VPC, specify Amazon VPC security group IDs. For more
 -- information about Amazon VPC security groups, see Security Groups in the
 -- Amazon Virtual Private Cloud User Guide.
-clctSecurityGroups :: Lens' CreateLaunchConfigurationType [Text]
-clctSecurityGroups =
-    lens _clctSecurityGroups (\s a -> s { _clctSecurityGroups = a })
+clcSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
+clcSecurityGroups =
+    lens _clcSecurityGroups (\s a -> s { _clcSecurityGroups = a })
 
 -- | The maximum hourly price to be paid for any Spot Instance launched to
 -- fulfill the request. Spot Instances are launched when the price you
 -- specify exceeds the current Spot market price. For more information on
 -- launching Spot Instances, see Using Auto Scaling to Launch Spot Instances
 -- in the Auto Scaling Developer Guide.
-clctSpotPrice :: Lens' CreateLaunchConfigurationType (Maybe Text)
-clctSpotPrice = lens _clctSpotPrice (\s a -> s { _clctSpotPrice = a })
+clcSpotPrice :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcSpotPrice = lens _clcSpotPrice (\s a -> s { _clcSpotPrice = a })
 
 -- | The user data to make available to the launched Amazon EC2 instances. For
 -- more information about Amazon EC2 user data, see User Data Retrieval in
 -- the Amazon Elastic Compute Cloud User Guide.
-clctUserData :: Lens' CreateLaunchConfigurationType (Maybe Text)
-clctUserData = lens _clctUserData (\s a -> s { _clctUserData = a })
+clcUserData :: Lens' CreateLaunchConfiguration (Maybe Text)
+clcUserData = lens _clcUserData (\s a -> s { _clcUserData = a })
 
-instance ToQuery CreateLaunchConfigurationType
+instance ToQuery CreateLaunchConfiguration
 
-instance ToPath CreateLaunchConfigurationType where
+instance ToPath CreateLaunchConfiguration where
     toPath = const "/"
 
 data CreateLaunchConfigurationResponse = CreateLaunchConfigurationResponse
@@ -291,9 +291,9 @@ instance FromXML CreateLaunchConfigurationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateLaunchConfigurationResponse"
 
-instance AWSRequest CreateLaunchConfigurationType where
-    type Sv CreateLaunchConfigurationType = AutoScaling
-    type Rs CreateLaunchConfigurationType = CreateLaunchConfigurationResponse
+instance AWSRequest CreateLaunchConfiguration where
+    type Sv CreateLaunchConfiguration = AutoScaling
+    type Rs CreateLaunchConfiguration = CreateLaunchConfigurationResponse
 
     request  = post "CreateLaunchConfiguration"
     response = nullaryResponse CreateLaunchConfigurationResponse

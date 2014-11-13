@@ -24,12 +24,12 @@
 module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     (
     -- * Request
-      DeleteNotificationConfigurationType
+      DeleteNotificationConfiguration
     -- ** Request constructor
     , deleteNotificationConfiguration
     -- ** Request lenses
-    , dnctAutoScalingGroupName
-    , dnctTopicARN
+    , dncAutoScalingGroupName
+    , dncTopicARN
 
     -- * Response
     , DeleteNotificationConfigurationResponse
@@ -41,41 +41,40 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data DeleteNotificationConfigurationType = DeleteNotificationConfigurationType
-    { _dnctAutoScalingGroupName :: Text
-    , _dnctTopicARN             :: Text
+data DeleteNotificationConfiguration = DeleteNotificationConfiguration
+    { _dncAutoScalingGroupName :: Text
+    , _dncTopicARN             :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteNotificationConfigurationType' constructor.
+-- | 'DeleteNotificationConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dnctAutoScalingGroupName' @::@ 'Text'
+-- * 'dncAutoScalingGroupName' @::@ 'Text'
 --
--- * 'dnctTopicARN' @::@ 'Text'
+-- * 'dncTopicARN' @::@ 'Text'
 --
-deleteNotificationConfiguration :: Text -- ^ 'dnctAutoScalingGroupName'
-                                -> Text -- ^ 'dnctTopicARN'
-                                -> DeleteNotificationConfigurationType
-deleteNotificationConfiguration p1 p2 = DeleteNotificationConfigurationType
-    { _dnctAutoScalingGroupName = p1
-    , _dnctTopicARN             = p2
+deleteNotificationConfiguration :: Text -- ^ 'dncAutoScalingGroupName'
+                                -> Text -- ^ 'dncTopicARN'
+                                -> DeleteNotificationConfiguration
+deleteNotificationConfiguration p1 p2 = DeleteNotificationConfiguration
+    { _dncAutoScalingGroupName = p1
+    , _dncTopicARN             = p2
     }
 
 -- | The name of the Auto Scaling group.
-dnctAutoScalingGroupName :: Lens' DeleteNotificationConfigurationType Text
-dnctAutoScalingGroupName =
-    lens _dnctAutoScalingGroupName
-        (\s a -> s { _dnctAutoScalingGroupName = a })
+dncAutoScalingGroupName :: Lens' DeleteNotificationConfiguration Text
+dncAutoScalingGroupName =
+    lens _dncAutoScalingGroupName (\s a -> s { _dncAutoScalingGroupName = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
-dnctTopicARN :: Lens' DeleteNotificationConfigurationType Text
-dnctTopicARN = lens _dnctTopicARN (\s a -> s { _dnctTopicARN = a })
+dncTopicARN :: Lens' DeleteNotificationConfiguration Text
+dncTopicARN = lens _dncTopicARN (\s a -> s { _dncTopicARN = a })
 
-instance ToQuery DeleteNotificationConfigurationType
+instance ToQuery DeleteNotificationConfiguration
 
-instance ToPath DeleteNotificationConfigurationType where
+instance ToPath DeleteNotificationConfiguration where
     toPath = const "/"
 
 data DeleteNotificationConfigurationResponse = DeleteNotificationConfigurationResponse
@@ -89,9 +88,9 @@ instance FromXML DeleteNotificationConfigurationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteNotificationConfigurationResponse"
 
-instance AWSRequest DeleteNotificationConfigurationType where
-    type Sv DeleteNotificationConfigurationType = AutoScaling
-    type Rs DeleteNotificationConfigurationType = DeleteNotificationConfigurationResponse
+instance AWSRequest DeleteNotificationConfiguration where
+    type Sv DeleteNotificationConfiguration = AutoScaling
+    type Rs DeleteNotificationConfiguration = DeleteNotificationConfigurationResponse
 
     request  = post "DeleteNotificationConfiguration"
     response = nullaryResponse DeleteNotificationConfigurationResponse

@@ -24,95 +24,95 @@
 module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     (
     -- * Request
-      DescribeApplicationVersionsMessage
+      DescribeApplicationVersions
     -- ** Request constructor
     , describeApplicationVersions
     -- ** Request lenses
-    , davm1ApplicationName
-    , davm1VersionLabels
+    , dav1ApplicationName
+    , dav1VersionLabels
 
     -- * Response
-    , ApplicationVersionDescriptionsMessage
+    , DescribeApplicationVersionsResponse
     -- ** Response constructor
     , describeApplicationVersionsResponse
     -- ** Response lenses
-    , avdmApplicationVersions
+    , davrApplicationVersions
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data DescribeApplicationVersionsMessage = DescribeApplicationVersionsMessage
-    { _davm1ApplicationName :: Maybe Text
-    , _davm1VersionLabels   :: [Text]
+data DescribeApplicationVersions = DescribeApplicationVersions
+    { _dav1ApplicationName :: Maybe Text
+    , _dav1VersionLabels   :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeApplicationVersionsMessage' constructor.
+-- | 'DescribeApplicationVersions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'davm1ApplicationName' @::@ 'Maybe' 'Text'
+-- * 'dav1ApplicationName' @::@ 'Maybe' 'Text'
 --
--- * 'davm1VersionLabels' @::@ ['Text']
+-- * 'dav1VersionLabels' @::@ ['Text']
 --
-describeApplicationVersions :: DescribeApplicationVersionsMessage
-describeApplicationVersions = DescribeApplicationVersionsMessage
-    { _davm1ApplicationName = Nothing
-    , _davm1VersionLabels   = mempty
+describeApplicationVersions :: DescribeApplicationVersions
+describeApplicationVersions = DescribeApplicationVersions
+    { _dav1ApplicationName = Nothing
+    , _dav1VersionLabels   = mempty
     }
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include ones that are associated with the specified application.
-davm1ApplicationName :: Lens' DescribeApplicationVersionsMessage (Maybe Text)
-davm1ApplicationName =
-    lens _davm1ApplicationName (\s a -> s { _davm1ApplicationName = a })
+dav1ApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
+dav1ApplicationName =
+    lens _dav1ApplicationName (\s a -> s { _dav1ApplicationName = a })
 
 -- | If specified, restricts the returned descriptions to only include ones
 -- that have the specified version labels.
-davm1VersionLabels :: Lens' DescribeApplicationVersionsMessage [Text]
-davm1VersionLabels =
-    lens _davm1VersionLabels (\s a -> s { _davm1VersionLabels = a })
+dav1VersionLabels :: Lens' DescribeApplicationVersions [Text]
+dav1VersionLabels =
+    lens _dav1VersionLabels (\s a -> s { _dav1VersionLabels = a })
 
-instance ToQuery DescribeApplicationVersionsMessage
+instance ToQuery DescribeApplicationVersions
 
-instance ToPath DescribeApplicationVersionsMessage where
+instance ToPath DescribeApplicationVersions where
     toPath = const "/"
 
-newtype ApplicationVersionDescriptionsMessage = ApplicationVersionDescriptionsMessage
-    { _avdmApplicationVersions :: [ApplicationVersionDescription]
+newtype DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse
+    { _davrApplicationVersions :: [ApplicationVersionDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ApplicationVersionDescriptionsMessage where
-    type Item ApplicationVersionDescriptionsMessage = ApplicationVersionDescription
+instance IsList DescribeApplicationVersionsResponse where
+    type Item DescribeApplicationVersionsResponse = ApplicationVersionDescription
 
-    fromList = ApplicationVersionDescriptionsMessage . fromList
-    toList   = toList . _avdmApplicationVersions
+    fromList = DescribeApplicationVersionsResponse . fromList
+    toList   = toList . _davrApplicationVersions
 
--- | 'ApplicationVersionDescriptionsMessage' constructor.
+-- | 'DescribeApplicationVersionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'avdmApplicationVersions' @::@ ['ApplicationVersionDescription']
+-- * 'davrApplicationVersions' @::@ ['ApplicationVersionDescription']
 --
-describeApplicationVersionsResponse :: ApplicationVersionDescriptionsMessage
-describeApplicationVersionsResponse = ApplicationVersionDescriptionsMessage
-    { _avdmApplicationVersions = mempty
+describeApplicationVersionsResponse :: DescribeApplicationVersionsResponse
+describeApplicationVersionsResponse = DescribeApplicationVersionsResponse
+    { _davrApplicationVersions = mempty
     }
 
 -- | A list of ApplicationVersionDescription .
-avdmApplicationVersions :: Lens' ApplicationVersionDescriptionsMessage [ApplicationVersionDescription]
-avdmApplicationVersions =
-    lens _avdmApplicationVersions (\s a -> s { _avdmApplicationVersions = a })
+davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
+davrApplicationVersions =
+    lens _davrApplicationVersions (\s a -> s { _davrApplicationVersions = a })
 
-instance FromXML ApplicationVersionDescriptionsMessage where
+instance FromXML DescribeApplicationVersionsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ApplicationVersionDescriptionsMessage"
+    fromXMLRoot    = fromRoot "DescribeApplicationVersionsResponse"
 
-instance AWSRequest DescribeApplicationVersionsMessage where
-    type Sv DescribeApplicationVersionsMessage = ElasticBeanstalk
-    type Rs DescribeApplicationVersionsMessage = ApplicationVersionDescriptionsMessage
+instance AWSRequest DescribeApplicationVersions where
+    type Sv DescribeApplicationVersions = ElasticBeanstalk
+    type Rs DescribeApplicationVersions = DescribeApplicationVersionsResponse
 
     request  = post "DescribeApplicationVersions"
-    response = xmlResponse $ \h x -> ApplicationVersionDescriptionsMessage
+    response = xmlResponse $ \h x -> DescribeApplicationVersionsResponse
         <$> x %| "ApplicationVersions"

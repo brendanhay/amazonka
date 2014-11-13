@@ -24,7 +24,7 @@
 module Network.AWS.CloudFront.DeleteStreamingDistribution
     (
     -- * Request
-      DeleteStreamingDistribution
+      DeleteStreamingDistribution2014_05_31
     -- ** Request constructor
     , deleteStreamingDistribution2014_05_31
     -- ** Request lenses
@@ -41,12 +41,12 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 
-data DeleteStreamingDistribution = DeleteStreamingDistribution
+data DeleteStreamingDistribution2014_05_31 = DeleteStreamingDistribution2014_05_31
     { _dsdId      :: Text
     , _dsdIfMatch :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteStreamingDistribution' constructor.
+-- | 'DeleteStreamingDistribution2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -55,32 +55,32 @@ data DeleteStreamingDistribution = DeleteStreamingDistribution
 -- * 'dsdIfMatch' @::@ 'Maybe' 'Text'
 --
 deleteStreamingDistribution2014_05_31 :: Text -- ^ 'dsdId'
-                                      -> DeleteStreamingDistribution
-deleteStreamingDistribution2014_05_31 p1 = DeleteStreamingDistribution
+                                      -> DeleteStreamingDistribution2014_05_31
+deleteStreamingDistribution2014_05_31 p1 = DeleteStreamingDistribution2014_05_31
     { _dsdId      = p1
     , _dsdIfMatch = Nothing
     }
 
 -- | The distribution id.
-dsdId :: Lens' DeleteStreamingDistribution Text
+dsdId :: Lens' DeleteStreamingDistribution2014_05_31 Text
 dsdId = lens _dsdId (\s a -> s { _dsdId = a })
 
 -- | The value of the ETag header you received when you disabled the streaming
 -- distribution. For example: E2QWRUHAPOMQZL.
-dsdIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
+dsdIfMatch :: Lens' DeleteStreamingDistribution2014_05_31 (Maybe Text)
 dsdIfMatch = lens _dsdIfMatch (\s a -> s { _dsdIfMatch = a })
 
-instance ToPath DeleteStreamingDistribution where
-    toPath DeleteStreamingDistribution{..} = mconcat
+instance ToPath DeleteStreamingDistribution2014_05_31 where
+    toPath DeleteStreamingDistribution2014_05_31{..} = mconcat
         [ "/2014-05-31/streaming-distribution/"
         , toText _dsdId
         ]
 
-instance ToQuery DeleteStreamingDistribution where
+instance ToQuery DeleteStreamingDistribution2014_05_31 where
     toQuery = const mempty
 
-instance ToHeaders DeleteStreamingDistribution where
-    toHeaders DeleteStreamingDistribution{..} = mconcat
+instance ToHeaders DeleteStreamingDistribution2014_05_31 where
+    toHeaders DeleteStreamingDistribution2014_05_31{..} = mconcat
         [ "If-Match" =: _dsdIfMatch
         ]
 
@@ -94,9 +94,9 @@ deleteStreamingDistribution2014_05_31Response = DeleteStreamingDistribution2014_
 instance FromXML DeleteStreamingDistribution2014_05_31Response where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteStreamingDistribution2014_05_31Response"
-instance AWSRequest DeleteStreamingDistribution where
-    type Sv DeleteStreamingDistribution = CloudFront
-    type Rs DeleteStreamingDistribution = DeleteStreamingDistribution2014_05_31Response
+instance AWSRequest DeleteStreamingDistribution2014_05_31 where
+    type Sv DeleteStreamingDistribution2014_05_31 = CloudFront
+    type Rs DeleteStreamingDistribution2014_05_31 = DeleteStreamingDistribution2014_05_31Response
 
     request  = delete
     response = nullaryResponse DeleteStreamingDistribution2014_05_31Response

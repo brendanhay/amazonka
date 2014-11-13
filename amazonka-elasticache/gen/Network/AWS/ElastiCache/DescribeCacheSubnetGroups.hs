@@ -26,113 +26,113 @@
 module Network.AWS.ElastiCache.DescribeCacheSubnetGroups
     (
     -- * Request
-      DescribeCacheSubnetGroupsMessage
+      DescribeCacheSubnetGroups
     -- ** Request constructor
     , describeCacheSubnetGroups
     -- ** Request lenses
-    , dcsgmCacheSubnetGroupName
-    , dcsgmMarker
-    , dcsgmMaxRecords
+    , dcsgCacheSubnetGroupName
+    , dcsgMarker
+    , dcsgMaxRecords
 
     -- * Response
-    , CacheSubnetGroupMessage
+    , DescribeCacheSubnetGroupsResponse
     -- ** Response constructor
     , describeCacheSubnetGroupsResponse
     -- ** Response lenses
-    , csgm1CacheSubnetGroups
-    , csgm1Marker
+    , dcsgrCacheSubnetGroups
+    , dcsgrMarker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data DescribeCacheSubnetGroupsMessage = DescribeCacheSubnetGroupsMessage
-    { _dcsgmCacheSubnetGroupName :: Maybe Text
-    , _dcsgmMarker               :: Maybe Text
-    , _dcsgmMaxRecords           :: Maybe Int
+data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups
+    { _dcsgCacheSubnetGroupName :: Maybe Text
+    , _dcsgMarker               :: Maybe Text
+    , _dcsgMaxRecords           :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeCacheSubnetGroupsMessage' constructor.
+-- | 'DescribeCacheSubnetGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgmCacheSubnetGroupName' @::@ 'Maybe' 'Text'
+-- * 'dcsgCacheSubnetGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'dcsgmMarker' @::@ 'Maybe' 'Text'
+-- * 'dcsgMarker' @::@ 'Maybe' 'Text'
 --
--- * 'dcsgmMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dcsgMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeCacheSubnetGroups :: DescribeCacheSubnetGroupsMessage
-describeCacheSubnetGroups = DescribeCacheSubnetGroupsMessage
-    { _dcsgmCacheSubnetGroupName = Nothing
-    , _dcsgmMaxRecords           = Nothing
-    , _dcsgmMarker               = Nothing
+describeCacheSubnetGroups :: DescribeCacheSubnetGroups
+describeCacheSubnetGroups = DescribeCacheSubnetGroups
+    { _dcsgCacheSubnetGroupName = Nothing
+    , _dcsgMaxRecords           = Nothing
+    , _dcsgMarker               = Nothing
     }
 
 -- | The name of the cache subnet group to return details for.
-dcsgmCacheSubnetGroupName :: Lens' DescribeCacheSubnetGroupsMessage (Maybe Text)
-dcsgmCacheSubnetGroupName =
-    lens _dcsgmCacheSubnetGroupName
-        (\s a -> s { _dcsgmCacheSubnetGroupName = a })
+dcsgCacheSubnetGroupName :: Lens' DescribeCacheSubnetGroups (Maybe Text)
+dcsgCacheSubnetGroupName =
+    lens _dcsgCacheSubnetGroupName
+        (\s a -> s { _dcsgCacheSubnetGroupName = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by MaxRecords.
-dcsgmMarker :: Lens' DescribeCacheSubnetGroupsMessage (Maybe Text)
-dcsgmMarker = lens _dcsgmMarker (\s a -> s { _dcsgmMarker = a })
+dcsgMarker :: Lens' DescribeCacheSubnetGroups (Maybe Text)
+dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-dcsgmMaxRecords :: Lens' DescribeCacheSubnetGroupsMessage (Maybe Int)
-dcsgmMaxRecords = lens _dcsgmMaxRecords (\s a -> s { _dcsgmMaxRecords = a })
+dcsgMaxRecords :: Lens' DescribeCacheSubnetGroups (Maybe Int)
+dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
 
-instance ToQuery DescribeCacheSubnetGroupsMessage
+instance ToQuery DescribeCacheSubnetGroups
 
-instance ToPath DescribeCacheSubnetGroupsMessage where
+instance ToPath DescribeCacheSubnetGroups where
     toPath = const "/"
 
-data CacheSubnetGroupMessage = CacheSubnetGroupMessage
-    { _csgm1CacheSubnetGroups :: [CacheSubnetGroup]
-    , _csgm1Marker            :: Maybe Text
+data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
+    { _dcsgrCacheSubnetGroups :: [CacheSubnetGroup]
+    , _dcsgrMarker            :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'CacheSubnetGroupMessage' constructor.
+-- | 'DescribeCacheSubnetGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csgm1CacheSubnetGroups' @::@ ['CacheSubnetGroup']
+-- * 'dcsgrCacheSubnetGroups' @::@ ['CacheSubnetGroup']
 --
--- * 'csgm1Marker' @::@ 'Maybe' 'Text'
+-- * 'dcsgrMarker' @::@ 'Maybe' 'Text'
 --
-describeCacheSubnetGroupsResponse :: CacheSubnetGroupMessage
-describeCacheSubnetGroupsResponse = CacheSubnetGroupMessage
-    { _csgm1Marker            = Nothing
-    , _csgm1CacheSubnetGroups = mempty
+describeCacheSubnetGroupsResponse :: DescribeCacheSubnetGroupsResponse
+describeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse
+    { _dcsgrMarker            = Nothing
+    , _dcsgrCacheSubnetGroups = mempty
     }
 
 -- | A list of cache subnet groups. Each element in the list contains detailed
 -- information about one group.
-csgm1CacheSubnetGroups :: Lens' CacheSubnetGroupMessage [CacheSubnetGroup]
-csgm1CacheSubnetGroups =
-    lens _csgm1CacheSubnetGroups (\s a -> s { _csgm1CacheSubnetGroups = a })
+dcsgrCacheSubnetGroups :: Lens' DescribeCacheSubnetGroupsResponse [CacheSubnetGroup]
+dcsgrCacheSubnetGroups =
+    lens _dcsgrCacheSubnetGroups (\s a -> s { _dcsgrCacheSubnetGroups = a })
 
 -- | Provides an identifier to allow retrieval of paginated results.
-csgm1Marker :: Lens' CacheSubnetGroupMessage (Maybe Text)
-csgm1Marker = lens _csgm1Marker (\s a -> s { _csgm1Marker = a })
+dcsgrMarker :: Lens' DescribeCacheSubnetGroupsResponse (Maybe Text)
+dcsgrMarker = lens _dcsgrMarker (\s a -> s { _dcsgrMarker = a })
 
-instance FromXML CacheSubnetGroupMessage where
+instance FromXML DescribeCacheSubnetGroupsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CacheSubnetGroupMessage"
+    fromXMLRoot    = fromRoot "DescribeCacheSubnetGroupsResponse"
 
-instance AWSRequest DescribeCacheSubnetGroupsMessage where
-    type Sv DescribeCacheSubnetGroupsMessage = ElastiCache
-    type Rs DescribeCacheSubnetGroupsMessage = CacheSubnetGroupMessage
+instance AWSRequest DescribeCacheSubnetGroups where
+    type Sv DescribeCacheSubnetGroups = ElastiCache
+    type Rs DescribeCacheSubnetGroups = DescribeCacheSubnetGroupsResponse
 
     request  = post "DescribeCacheSubnetGroups"
-    response = xmlResponse $ \h x -> CacheSubnetGroupMessage
+    response = xmlResponse $ \h x -> DescribeCacheSubnetGroupsResponse
         <$> x %| "CacheSubnetGroups"
         <*> x %| "Marker"

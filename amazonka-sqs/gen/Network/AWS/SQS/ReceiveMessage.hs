@@ -57,7 +57,7 @@ module Network.AWS.SQS.ReceiveMessage
     , rmWaitTimeSeconds
 
     -- * Response
-    , ReceiveMessageResult
+    , ReceiveMessageResponse
     -- ** Response constructor
     , receiveMessageResponse
     -- ** Response lenses
@@ -158,39 +158,39 @@ instance ToQuery ReceiveMessage
 instance ToPath ReceiveMessage where
     toPath = const "/"
 
-newtype ReceiveMessageResult = ReceiveMessageResult
+newtype ReceiveMessageResponse = ReceiveMessageResponse
     { _rmrMessages :: [Message]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ReceiveMessageResult where
-    type Item ReceiveMessageResult = Message
+instance IsList ReceiveMessageResponse where
+    type Item ReceiveMessageResponse = Message
 
-    fromList = ReceiveMessageResult . fromList
+    fromList = ReceiveMessageResponse . fromList
     toList   = toList . _rmrMessages
 
--- | 'ReceiveMessageResult' constructor.
+-- | 'ReceiveMessageResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rmrMessages' @::@ ['Message']
 --
-receiveMessageResponse :: ReceiveMessageResult
-receiveMessageResponse = ReceiveMessageResult
+receiveMessageResponse :: ReceiveMessageResponse
+receiveMessageResponse = ReceiveMessageResponse
     { _rmrMessages = mempty
     }
 
 -- | A list of messages.
-rmrMessages :: Lens' ReceiveMessageResult [Message]
+rmrMessages :: Lens' ReceiveMessageResponse [Message]
 rmrMessages = lens _rmrMessages (\s a -> s { _rmrMessages = a })
 
-instance FromXML ReceiveMessageResult where
+instance FromXML ReceiveMessageResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReceiveMessageResult"
+    fromXMLRoot    = fromRoot "ReceiveMessageResponse"
 
 instance AWSRequest ReceiveMessage where
     type Sv ReceiveMessage = SQS
-    type Rs ReceiveMessage = ReceiveMessageResult
+    type Rs ReceiveMessage = ReceiveMessageResponse
 
     request  = post "ReceiveMessage"
-    response = xmlResponse $ \h x -> ReceiveMessageResult
+    response = xmlResponse $ \h x -> ReceiveMessageResponse
         <$> x %| "Messages"

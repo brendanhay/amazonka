@@ -33,7 +33,7 @@ module Network.AWS.SQS.ListDeadLetterSourceQueues
     , ldlsqQueueUrl
 
     -- * Response
-    , ListDeadLetterSourceQueuesResult
+    , ListDeadLetterSourceQueuesResponse
     -- ** Response constructor
     , listDeadLetterSourceQueuesResponse
     -- ** Response lenses
@@ -69,40 +69,40 @@ instance ToQuery ListDeadLetterSourceQueues
 instance ToPath ListDeadLetterSourceQueues where
     toPath = const "/"
 
-newtype ListDeadLetterSourceQueuesResult = ListDeadLetterSourceQueuesResult
+newtype ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
     { _ldlsqrQueueUrls :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList ListDeadLetterSourceQueuesResult where
-    type Item ListDeadLetterSourceQueuesResult = Text
+instance IsList ListDeadLetterSourceQueuesResponse where
+    type Item ListDeadLetterSourceQueuesResponse = Text
 
-    fromList = ListDeadLetterSourceQueuesResult . fromList
+    fromList = ListDeadLetterSourceQueuesResponse . fromList
     toList   = toList . _ldlsqrQueueUrls
 
--- | 'ListDeadLetterSourceQueuesResult' constructor.
+-- | 'ListDeadLetterSourceQueuesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ldlsqrQueueUrls' @::@ ['Text']
 --
-listDeadLetterSourceQueuesResponse :: ListDeadLetterSourceQueuesResult
-listDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResult
+listDeadLetterSourceQueuesResponse :: ListDeadLetterSourceQueuesResponse
+listDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse
     { _ldlsqrQueueUrls = mempty
     }
 
 -- | A list of source queue URLs that have the RedrivePolicy queue attribute
 -- configured with a dead letter queue.
-ldlsqrQueueUrls :: Lens' ListDeadLetterSourceQueuesResult [Text]
+ldlsqrQueueUrls :: Lens' ListDeadLetterSourceQueuesResponse [Text]
 ldlsqrQueueUrls = lens _ldlsqrQueueUrls (\s a -> s { _ldlsqrQueueUrls = a })
 
-instance FromXML ListDeadLetterSourceQueuesResult where
+instance FromXML ListDeadLetterSourceQueuesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListDeadLetterSourceQueuesResult"
+    fromXMLRoot    = fromRoot "ListDeadLetterSourceQueuesResponse"
 
 instance AWSRequest ListDeadLetterSourceQueues where
     type Sv ListDeadLetterSourceQueues = SQS
-    type Rs ListDeadLetterSourceQueues = ListDeadLetterSourceQueuesResult
+    type Rs ListDeadLetterSourceQueues = ListDeadLetterSourceQueuesResponse
 
     request  = post "ListDeadLetterSourceQueues"
-    response = xmlResponse $ \h x -> ListDeadLetterSourceQueuesResult
+    response = xmlResponse $ \h x -> ListDeadLetterSourceQueuesResponse
         <$> x %| "queueUrls"

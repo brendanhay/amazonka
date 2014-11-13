@@ -26,11 +26,11 @@
 module Network.AWS.CloudFormation.CancelUpdateStack
     (
     -- * Request
-      CancelUpdateStackInput
+      CancelUpdateStack
     -- ** Request constructor
     , cancelUpdateStack
     -- ** Request lenses
-    , cusiStackName
+    , cusStackName
 
     -- * Response
     , CancelUpdateStackResponse
@@ -42,29 +42,29 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
 
-newtype CancelUpdateStackInput = CancelUpdateStackInput
-    { _cusiStackName :: Text
+newtype CancelUpdateStack = CancelUpdateStack
+    { _cusStackName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'CancelUpdateStackInput' constructor.
+-- | 'CancelUpdateStack' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cusiStackName' @::@ 'Text'
+-- * 'cusStackName' @::@ 'Text'
 --
-cancelUpdateStack :: Text -- ^ 'cusiStackName'
-                  -> CancelUpdateStackInput
-cancelUpdateStack p1 = CancelUpdateStackInput
-    { _cusiStackName = p1
+cancelUpdateStack :: Text -- ^ 'cusStackName'
+                  -> CancelUpdateStack
+cancelUpdateStack p1 = CancelUpdateStack
+    { _cusStackName = p1
     }
 
 -- | The name or the unique identifier associated with the stack.
-cusiStackName :: Lens' CancelUpdateStackInput Text
-cusiStackName = lens _cusiStackName (\s a -> s { _cusiStackName = a })
+cusStackName :: Lens' CancelUpdateStack Text
+cusStackName = lens _cusStackName (\s a -> s { _cusStackName = a })
 
-instance ToQuery CancelUpdateStackInput
+instance ToQuery CancelUpdateStack
 
-instance ToPath CancelUpdateStackInput where
+instance ToPath CancelUpdateStack where
     toPath = const "/"
 
 data CancelUpdateStackResponse = CancelUpdateStackResponse
@@ -78,9 +78,9 @@ instance FromXML CancelUpdateStackResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CancelUpdateStackResponse"
 
-instance AWSRequest CancelUpdateStackInput where
-    type Sv CancelUpdateStackInput = CloudFormation
-    type Rs CancelUpdateStackInput = CancelUpdateStackResponse
+instance AWSRequest CancelUpdateStack where
+    type Sv CancelUpdateStack = CloudFormation
+    type Rs CancelUpdateStack = CancelUpdateStackResponse
 
     request  = post "CancelUpdateStack"
     response = nullaryResponse CancelUpdateStackResponse

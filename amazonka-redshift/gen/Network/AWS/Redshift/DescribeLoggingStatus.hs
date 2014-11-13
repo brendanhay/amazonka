@@ -25,59 +25,135 @@
 module Network.AWS.Redshift.DescribeLoggingStatus
     (
     -- * Request
-      DescribeLoggingStatusMessage
+      DescribeLoggingStatus
     -- ** Request constructor
     , describeLoggingStatus
     -- ** Request lenses
-    , dlsmClusterIdentifier
+    , dlsClusterIdentifier
 
     -- * Response
-    , LoggingStatus
+    , DescribeLoggingStatusResponse
     -- ** Response constructor
-    , loggingStatus
+    , describeLoggingStatusResponse
     -- ** Response lenses
-    , lsBucketName
-    , lsLastFailureMessage
-    , lsLastFailureTime
-    , lsLastSuccessfulDeliveryTime
-    , lsLoggingEnabled
-    , lsS3KeyPrefix
+    , dlsrBucketName
+    , dlsrLastFailureMessage
+    , dlsrLastFailureTime
+    , dlsrLastSuccessfulDeliveryTime
+    , dlsrLoggingEnabled
+    , dlsrS3KeyPrefix
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-newtype DescribeLoggingStatusMessage = DescribeLoggingStatusMessage
-    { _dlsmClusterIdentifier :: Text
+newtype DescribeLoggingStatus = DescribeLoggingStatus
+    { _dlsClusterIdentifier :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DescribeLoggingStatusMessage' constructor.
+-- | 'DescribeLoggingStatus' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlsmClusterIdentifier' @::@ 'Text'
+-- * 'dlsClusterIdentifier' @::@ 'Text'
 --
-describeLoggingStatus :: Text -- ^ 'dlsmClusterIdentifier'
-                      -> DescribeLoggingStatusMessage
-describeLoggingStatus p1 = DescribeLoggingStatusMessage
-    { _dlsmClusterIdentifier = p1
+describeLoggingStatus :: Text -- ^ 'dlsClusterIdentifier'
+                      -> DescribeLoggingStatus
+describeLoggingStatus p1 = DescribeLoggingStatus
+    { _dlsClusterIdentifier = p1
     }
 
 -- | The identifier of the cluster to get the logging status from. Example:
 -- examplecluster.
-dlsmClusterIdentifier :: Lens' DescribeLoggingStatusMessage Text
-dlsmClusterIdentifier =
-    lens _dlsmClusterIdentifier (\s a -> s { _dlsmClusterIdentifier = a })
+dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
+dlsClusterIdentifier =
+    lens _dlsClusterIdentifier (\s a -> s { _dlsClusterIdentifier = a })
 
-instance ToQuery DescribeLoggingStatusMessage
+instance ToQuery DescribeLoggingStatus
 
-instance ToPath DescribeLoggingStatusMessage where
+instance ToPath DescribeLoggingStatus where
     toPath = const "/"
 
-instance AWSRequest DescribeLoggingStatusMessage where
-    type Sv DescribeLoggingStatusMessage = Redshift
-    type Rs DescribeLoggingStatusMessage = LoggingStatus
+data DescribeLoggingStatusResponse = DescribeLoggingStatusResponse
+    { _dlsrBucketName                 :: Maybe Text
+    , _dlsrLastFailureMessage         :: Maybe Text
+    , _dlsrLastFailureTime            :: Maybe RFC822
+    , _dlsrLastSuccessfulDeliveryTime :: Maybe RFC822
+    , _dlsrLoggingEnabled             :: Maybe Bool
+    , _dlsrS3KeyPrefix                :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'DescribeLoggingStatusResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dlsrBucketName' @::@ 'Maybe' 'Text'
+--
+-- * 'dlsrLastFailureMessage' @::@ 'Maybe' 'Text'
+--
+-- * 'dlsrLastFailureTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'dlsrLastSuccessfulDeliveryTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'dlsrLoggingEnabled' @::@ 'Maybe' 'Bool'
+--
+-- * 'dlsrS3KeyPrefix' @::@ 'Maybe' 'Text'
+--
+describeLoggingStatusResponse :: DescribeLoggingStatusResponse
+describeLoggingStatusResponse = DescribeLoggingStatusResponse
+    { _dlsrLoggingEnabled             = Nothing
+    , _dlsrBucketName                 = Nothing
+    , _dlsrS3KeyPrefix                = Nothing
+    , _dlsrLastSuccessfulDeliveryTime = Nothing
+    , _dlsrLastFailureTime            = Nothing
+    , _dlsrLastFailureMessage         = Nothing
+    }
+
+-- | The name of the S3 bucket where the log files are stored.
+dlsrBucketName :: Lens' DescribeLoggingStatusResponse (Maybe Text)
+dlsrBucketName = lens _dlsrBucketName (\s a -> s { _dlsrBucketName = a })
+
+-- | The message indicating that logs failed to be delivered.
+dlsrLastFailureMessage :: Lens' DescribeLoggingStatusResponse (Maybe Text)
+dlsrLastFailureMessage =
+    lens _dlsrLastFailureMessage (\s a -> s { _dlsrLastFailureMessage = a })
+
+-- | The last time when logs failed to be delivered.
+dlsrLastFailureTime :: Lens' DescribeLoggingStatusResponse (Maybe UTCTime)
+dlsrLastFailureTime =
+    lens _dlsrLastFailureTime (\s a -> s { _dlsrLastFailureTime = a })
+        . mapping _Time
+
+-- | The last time when logs were delivered.
+dlsrLastSuccessfulDeliveryTime :: Lens' DescribeLoggingStatusResponse (Maybe UTCTime)
+dlsrLastSuccessfulDeliveryTime =
+    lens _dlsrLastSuccessfulDeliveryTime
+        (\s a -> s { _dlsrLastSuccessfulDeliveryTime = a })
+            . mapping _Time
+
+-- | true if logging is on, false if logging is off.
+dlsrLoggingEnabled :: Lens' DescribeLoggingStatusResponse (Maybe Bool)
+dlsrLoggingEnabled =
+    lens _dlsrLoggingEnabled (\s a -> s { _dlsrLoggingEnabled = a })
+
+-- | The prefix applied to the log file names.
+dlsrS3KeyPrefix :: Lens' DescribeLoggingStatusResponse (Maybe Text)
+dlsrS3KeyPrefix = lens _dlsrS3KeyPrefix (\s a -> s { _dlsrS3KeyPrefix = a })
+
+instance FromXML DescribeLoggingStatusResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DescribeLoggingStatusResponse"
+
+instance AWSRequest DescribeLoggingStatus where
+    type Sv DescribeLoggingStatus = Redshift
+    type Rs DescribeLoggingStatus = DescribeLoggingStatusResponse
 
     request  = post "DescribeLoggingStatus"
-    response = xmlResponse $ const decodeCursor
+    response = xmlResponse $ \h x -> DescribeLoggingStatusResponse
+        <$> x %| "BucketName"
+        <*> x %| "LastFailureMessage"
+        <*> x %| "LastFailureTime"
+        <*> x %| "LastSuccessfulDeliveryTime"
+        <*> x %| "LoggingEnabled"
+        <*> x %| "S3KeyPrefix"

@@ -51,7 +51,7 @@ module Network.AWS.EC2.CreateSecurityGroup
     , csgVpcId
 
     -- * Response
-    , CreateSecurityGroupResult
+    , CreateSecurityGroupResponse
     -- ** Response constructor
     , createSecurityGroupResponse
     -- ** Response lenses
@@ -116,33 +116,33 @@ instance ToQuery CreateSecurityGroup
 instance ToPath CreateSecurityGroup where
     toPath = const "/"
 
-newtype CreateSecurityGroupResult = CreateSecurityGroupResult
+newtype CreateSecurityGroupResponse = CreateSecurityGroupResponse
     { _csgrGroupId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'CreateSecurityGroupResult' constructor.
+-- | 'CreateSecurityGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csgrGroupId' @::@ 'Maybe' 'Text'
 --
-createSecurityGroupResponse :: CreateSecurityGroupResult
-createSecurityGroupResponse = CreateSecurityGroupResult
+createSecurityGroupResponse :: CreateSecurityGroupResponse
+createSecurityGroupResponse = CreateSecurityGroupResponse
     { _csgrGroupId = Nothing
     }
 
 -- | The ID of the security group.
-csgrGroupId :: Lens' CreateSecurityGroupResult (Maybe Text)
+csgrGroupId :: Lens' CreateSecurityGroupResponse (Maybe Text)
 csgrGroupId = lens _csgrGroupId (\s a -> s { _csgrGroupId = a })
 
-instance FromXML CreateSecurityGroupResult where
+instance FromXML CreateSecurityGroupResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateSecurityGroupResult"
+    fromXMLRoot    = fromRoot "CreateSecurityGroupResponse"
 
 instance AWSRequest CreateSecurityGroup where
     type Sv CreateSecurityGroup = EC2
-    type Rs CreateSecurityGroup = CreateSecurityGroupResult
+    type Rs CreateSecurityGroup = CreateSecurityGroupResponse
 
     request  = post "CreateSecurityGroup"
-    response = xmlResponse $ \h x -> CreateSecurityGroupResult
+    response = xmlResponse $ \h x -> CreateSecurityGroupResponse
         <$> x %| "groupId"

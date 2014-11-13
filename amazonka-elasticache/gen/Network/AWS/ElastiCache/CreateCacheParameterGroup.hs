@@ -26,16 +26,16 @@
 module Network.AWS.ElastiCache.CreateCacheParameterGroup
     (
     -- * Request
-      CreateCacheParameterGroupMessage
+      CreateCacheParameterGroup
     -- ** Request constructor
     , createCacheParameterGroup
     -- ** Request lenses
-    , ccpgmCacheParameterGroupFamily
-    , ccpgmCacheParameterGroupName
-    , ccpgmDescription
+    , ccpgCacheParameterGroupFamily
+    , ccpgCacheParameterGroupName
+    , ccpgDescription
 
     -- * Response
-    , CreateCacheParameterGroupResult
+    , CreateCacheParameterGroupResponse
     -- ** Response constructor
     , createCacheParameterGroupResponse
     -- ** Response lenses
@@ -46,82 +46,82 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data CreateCacheParameterGroupMessage = CreateCacheParameterGroupMessage
-    { _ccpgmCacheParameterGroupFamily :: Text
-    , _ccpgmCacheParameterGroupName   :: Text
-    , _ccpgmDescription               :: Text
+data CreateCacheParameterGroup = CreateCacheParameterGroup
+    { _ccpgCacheParameterGroupFamily :: Text
+    , _ccpgCacheParameterGroupName   :: Text
+    , _ccpgDescription               :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CreateCacheParameterGroupMessage' constructor.
+-- | 'CreateCacheParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccpgmCacheParameterGroupFamily' @::@ 'Text'
+-- * 'ccpgCacheParameterGroupFamily' @::@ 'Text'
 --
--- * 'ccpgmCacheParameterGroupName' @::@ 'Text'
+-- * 'ccpgCacheParameterGroupName' @::@ 'Text'
 --
--- * 'ccpgmDescription' @::@ 'Text'
+-- * 'ccpgDescription' @::@ 'Text'
 --
-createCacheParameterGroup :: Text -- ^ 'ccpgmCacheParameterGroupName'
-                          -> Text -- ^ 'ccpgmCacheParameterGroupFamily'
-                          -> Text -- ^ 'ccpgmDescription'
-                          -> CreateCacheParameterGroupMessage
-createCacheParameterGroup p1 p2 p3 = CreateCacheParameterGroupMessage
-    { _ccpgmCacheParameterGroupName   = p1
-    , _ccpgmCacheParameterGroupFamily = p2
-    , _ccpgmDescription               = p3
+createCacheParameterGroup :: Text -- ^ 'ccpgCacheParameterGroupName'
+                          -> Text -- ^ 'ccpgCacheParameterGroupFamily'
+                          -> Text -- ^ 'ccpgDescription'
+                          -> CreateCacheParameterGroup
+createCacheParameterGroup p1 p2 p3 = CreateCacheParameterGroup
+    { _ccpgCacheParameterGroupName   = p1
+    , _ccpgCacheParameterGroupFamily = p2
+    , _ccpgDescription               = p3
     }
 
 -- | The name of the cache parameter group family the cache parameter group
 -- can be used with. Valid values are: memcached1.4 | redis2.6 | redis2.8.
-ccpgmCacheParameterGroupFamily :: Lens' CreateCacheParameterGroupMessage Text
-ccpgmCacheParameterGroupFamily =
-    lens _ccpgmCacheParameterGroupFamily
-        (\s a -> s { _ccpgmCacheParameterGroupFamily = a })
+ccpgCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup Text
+ccpgCacheParameterGroupFamily =
+    lens _ccpgCacheParameterGroupFamily
+        (\s a -> s { _ccpgCacheParameterGroupFamily = a })
 
 -- | A user-specified name for the cache parameter group.
-ccpgmCacheParameterGroupName :: Lens' CreateCacheParameterGroupMessage Text
-ccpgmCacheParameterGroupName =
-    lens _ccpgmCacheParameterGroupName
-        (\s a -> s { _ccpgmCacheParameterGroupName = a })
+ccpgCacheParameterGroupName :: Lens' CreateCacheParameterGroup Text
+ccpgCacheParameterGroupName =
+    lens _ccpgCacheParameterGroupName
+        (\s a -> s { _ccpgCacheParameterGroupName = a })
 
 -- | A user-specified description for the cache parameter group.
-ccpgmDescription :: Lens' CreateCacheParameterGroupMessage Text
-ccpgmDescription = lens _ccpgmDescription (\s a -> s { _ccpgmDescription = a })
+ccpgDescription :: Lens' CreateCacheParameterGroup Text
+ccpgDescription = lens _ccpgDescription (\s a -> s { _ccpgDescription = a })
 
-instance ToQuery CreateCacheParameterGroupMessage
+instance ToQuery CreateCacheParameterGroup
 
-instance ToPath CreateCacheParameterGroupMessage where
+instance ToPath CreateCacheParameterGroup where
     toPath = const "/"
 
-newtype CreateCacheParameterGroupResult = CreateCacheParameterGroupResult
+newtype CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse
     { _ccpgrCacheParameterGroup :: Maybe CacheParameterGroup
     } deriving (Eq, Show, Generic)
 
--- | 'CreateCacheParameterGroupResult' constructor.
+-- | 'CreateCacheParameterGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccpgrCacheParameterGroup' @::@ 'Maybe' 'CacheParameterGroup'
 --
-createCacheParameterGroupResponse :: CreateCacheParameterGroupResult
-createCacheParameterGroupResponse = CreateCacheParameterGroupResult
+createCacheParameterGroupResponse :: CreateCacheParameterGroupResponse
+createCacheParameterGroupResponse = CreateCacheParameterGroupResponse
     { _ccpgrCacheParameterGroup = Nothing
     }
 
-ccpgrCacheParameterGroup :: Lens' CreateCacheParameterGroupResult (Maybe CacheParameterGroup)
+ccpgrCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
 ccpgrCacheParameterGroup =
     lens _ccpgrCacheParameterGroup
         (\s a -> s { _ccpgrCacheParameterGroup = a })
 
-instance FromXML CreateCacheParameterGroupResult where
+instance FromXML CreateCacheParameterGroupResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateCacheParameterGroupResult"
+    fromXMLRoot    = fromRoot "CreateCacheParameterGroupResponse"
 
-instance AWSRequest CreateCacheParameterGroupMessage where
-    type Sv CreateCacheParameterGroupMessage = ElastiCache
-    type Rs CreateCacheParameterGroupMessage = CreateCacheParameterGroupResult
+instance AWSRequest CreateCacheParameterGroup where
+    type Sv CreateCacheParameterGroup = ElastiCache
+    type Rs CreateCacheParameterGroup = CreateCacheParameterGroupResponse
 
     request  = post "CreateCacheParameterGroup"
-    response = xmlResponse $ \h x -> CreateCacheParameterGroupResult
+    response = xmlResponse $ \h x -> CreateCacheParameterGroupResponse
         <$> x %| "CacheParameterGroup"

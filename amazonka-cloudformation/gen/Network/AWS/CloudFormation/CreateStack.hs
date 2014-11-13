@@ -26,93 +26,93 @@
 module Network.AWS.CloudFormation.CreateStack
     (
     -- * Request
-      CreateStackInput
+      CreateStack
     -- ** Request constructor
     , createStack
     -- ** Request lenses
-    , csiCapabilities
-    , csiDisableRollback
-    , csiNotificationARNs
-    , csiOnFailure
-    , csiParameters
-    , csiStackName
-    , csiStackPolicyBody
-    , csiStackPolicyURL
-    , csiTags
-    , csiTemplateBody
-    , csiTemplateURL
-    , csiTimeoutInMinutes
+    , csCapabilities
+    , csDisableRollback
+    , csNotificationARNs
+    , csOnFailure
+    , csParameters
+    , csStackName
+    , csStackPolicyBody
+    , csStackPolicyURL
+    , csTags
+    , csTemplateBody
+    , csTemplateURL
+    , csTimeoutInMinutes
 
     -- * Response
-    , CreateStackOutput
+    , CreateStackResponse
     -- ** Response constructor
     , createStackResponse
     -- ** Response lenses
-    , csoStackId
+    , csrStackId
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
 
-data CreateStackInput = CreateStackInput
-    { _csiCapabilities     :: [Text]
-    , _csiDisableRollback  :: Maybe Bool
-    , _csiNotificationARNs :: [Text]
-    , _csiOnFailure        :: Maybe Text
-    , _csiParameters       :: [Parameter]
-    , _csiStackName        :: Text
-    , _csiStackPolicyBody  :: Maybe Text
-    , _csiStackPolicyURL   :: Maybe Text
-    , _csiTags             :: [Tag]
-    , _csiTemplateBody     :: Maybe Text
-    , _csiTemplateURL      :: Maybe Text
-    , _csiTimeoutInMinutes :: Maybe Natural
+data CreateStack = CreateStack
+    { _csCapabilities     :: [Text]
+    , _csDisableRollback  :: Maybe Bool
+    , _csNotificationARNs :: [Text]
+    , _csOnFailure        :: Maybe Text
+    , _csParameters       :: [Parameter]
+    , _csStackName        :: Text
+    , _csStackPolicyBody  :: Maybe Text
+    , _csStackPolicyURL   :: Maybe Text
+    , _csTags             :: [Tag]
+    , _csTemplateBody     :: Maybe Text
+    , _csTemplateURL      :: Maybe Text
+    , _csTimeoutInMinutes :: Maybe Natural
     } deriving (Eq, Show, Generic)
 
--- | 'CreateStackInput' constructor.
+-- | 'CreateStack' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csiCapabilities' @::@ ['Text']
+-- * 'csCapabilities' @::@ ['Text']
 --
--- * 'csiDisableRollback' @::@ 'Maybe' 'Bool'
+-- * 'csDisableRollback' @::@ 'Maybe' 'Bool'
 --
--- * 'csiNotificationARNs' @::@ ['Text']
+-- * 'csNotificationARNs' @::@ ['Text']
 --
--- * 'csiOnFailure' @::@ 'Maybe' 'Text'
+-- * 'csOnFailure' @::@ 'Maybe' 'Text'
 --
--- * 'csiParameters' @::@ ['Parameter']
+-- * 'csParameters' @::@ ['Parameter']
 --
--- * 'csiStackName' @::@ 'Text'
+-- * 'csStackName' @::@ 'Text'
 --
--- * 'csiStackPolicyBody' @::@ 'Maybe' 'Text'
+-- * 'csStackPolicyBody' @::@ 'Maybe' 'Text'
 --
--- * 'csiStackPolicyURL' @::@ 'Maybe' 'Text'
+-- * 'csStackPolicyURL' @::@ 'Maybe' 'Text'
 --
--- * 'csiTags' @::@ ['Tag']
+-- * 'csTags' @::@ ['Tag']
 --
--- * 'csiTemplateBody' @::@ 'Maybe' 'Text'
+-- * 'csTemplateBody' @::@ 'Maybe' 'Text'
 --
--- * 'csiTemplateURL' @::@ 'Maybe' 'Text'
+-- * 'csTemplateURL' @::@ 'Maybe' 'Text'
 --
--- * 'csiTimeoutInMinutes' @::@ 'Maybe' 'Natural'
+-- * 'csTimeoutInMinutes' @::@ 'Maybe' 'Natural'
 --
-createStack :: Text -- ^ 'csiStackName'
-            -> CreateStackInput
-createStack p1 = CreateStackInput
-    { _csiStackName        = p1
-    , _csiTemplateBody     = Nothing
-    , _csiTemplateURL      = Nothing
-    , _csiParameters       = mempty
-    , _csiDisableRollback  = Nothing
-    , _csiTimeoutInMinutes = Nothing
-    , _csiNotificationARNs = mempty
-    , _csiCapabilities     = mempty
-    , _csiOnFailure        = Nothing
-    , _csiStackPolicyBody  = Nothing
-    , _csiStackPolicyURL   = Nothing
-    , _csiTags             = mempty
+createStack :: Text -- ^ 'csStackName'
+            -> CreateStack
+createStack p1 = CreateStack
+    { _csStackName        = p1
+    , _csTemplateBody     = Nothing
+    , _csTemplateURL      = Nothing
+    , _csParameters       = mempty
+    , _csDisableRollback  = Nothing
+    , _csTimeoutInMinutes = Nothing
+    , _csNotificationARNs = mempty
+    , _csCapabilities     = mempty
+    , _csOnFailure        = Nothing
+    , _csStackPolicyBody  = Nothing
+    , _csStackPolicyURL   = Nothing
+    , _csTags             = mempty
     }
 
 -- | The list of capabilities that you want to allow in the stack. If your
@@ -123,117 +123,116 @@ createStack p1 = CreateStackInput
 -- AWS::IAM::AccessKey, AWS::IAM::Group, AWS::IAM::InstanceProfile,
 -- AWS::IAM::Policy, AWS::IAM::Role, AWS::IAM::User, and
 -- AWS::IAM::UserToGroupAddition.
-csiCapabilities :: Lens' CreateStackInput [Text]
-csiCapabilities = lens _csiCapabilities (\s a -> s { _csiCapabilities = a })
+csCapabilities :: Lens' CreateStack [Text]
+csCapabilities = lens _csCapabilities (\s a -> s { _csCapabilities = a })
 
 -- | Set to true to disable rollback of the stack if stack creation failed.
 -- You can specify either DisableRollback or OnFailure, but not both.
 -- Default: false.
-csiDisableRollback :: Lens' CreateStackInput (Maybe Bool)
-csiDisableRollback =
-    lens _csiDisableRollback (\s a -> s { _csiDisableRollback = a })
+csDisableRollback :: Lens' CreateStack (Maybe Bool)
+csDisableRollback =
+    lens _csDisableRollback (\s a -> s { _csDisableRollback = a })
 
 -- | The Simple Notification Service (SNS) topic ARNs to publish stack related
 -- events. You can find your SNS topic ARNs using the SNS console or your
 -- Command Line Interface (CLI).
-csiNotificationARNs :: Lens' CreateStackInput [Text]
-csiNotificationARNs =
-    lens _csiNotificationARNs (\s a -> s { _csiNotificationARNs = a })
+csNotificationARNs :: Lens' CreateStack [Text]
+csNotificationARNs =
+    lens _csNotificationARNs (\s a -> s { _csNotificationARNs = a })
 
 -- | Determines what action will be taken if stack creation fails. This must
 -- be one of: DO_NOTHING, ROLLBACK, or DELETE. You can specify either
 -- OnFailure or DisableRollback, but not both. Default: ROLLBACK.
-csiOnFailure :: Lens' CreateStackInput (Maybe Text)
-csiOnFailure = lens _csiOnFailure (\s a -> s { _csiOnFailure = a })
+csOnFailure :: Lens' CreateStack (Maybe Text)
+csOnFailure = lens _csOnFailure (\s a -> s { _csOnFailure = a })
 
 -- | A list of Parameter structures that specify input parameters for the
 -- stack.
-csiParameters :: Lens' CreateStackInput [Parameter]
-csiParameters = lens _csiParameters (\s a -> s { _csiParameters = a })
+csParameters :: Lens' CreateStack [Parameter]
+csParameters = lens _csParameters (\s a -> s { _csParameters = a })
 
 -- | The name associated with the stack. The name must be unique within your
 -- AWS account.
-csiStackName :: Lens' CreateStackInput Text
-csiStackName = lens _csiStackName (\s a -> s { _csiStackName = a })
+csStackName :: Lens' CreateStack Text
+csStackName = lens _csStackName (\s a -> s { _csStackName = a })
 
 -- | Structure containing the stack policy body. For more information, go to
 -- Prevent Updates to Stack Resources in the AWS CloudFormation User Guide.
 -- You can specify either the StackPolicyBody or the StackPolicyURL
 -- parameter, but not both.
-csiStackPolicyBody :: Lens' CreateStackInput (Maybe Text)
-csiStackPolicyBody =
-    lens _csiStackPolicyBody (\s a -> s { _csiStackPolicyBody = a })
+csStackPolicyBody :: Lens' CreateStack (Maybe Text)
+csStackPolicyBody =
+    lens _csStackPolicyBody (\s a -> s { _csStackPolicyBody = a })
 
 -- | Location of a file containing the stack policy. The URL must point to a
 -- policy (max size: 16KB) located in an S3 bucket in the same region as the
 -- stack. You can specify either the StackPolicyBody or the StackPolicyURL
 -- parameter, but not both.
-csiStackPolicyURL :: Lens' CreateStackInput (Maybe Text)
-csiStackPolicyURL =
-    lens _csiStackPolicyURL (\s a -> s { _csiStackPolicyURL = a })
+csStackPolicyURL :: Lens' CreateStack (Maybe Text)
+csStackPolicyURL = lens _csStackPolicyURL (\s a -> s { _csStackPolicyURL = a })
 
 -- | A set of user-defined Tags to associate with this stack, represented by
 -- key/value pairs. Tags defined for the stack are propagated to EC2
 -- resources that are created as part of the stack. A maximum number of 10
 -- tags can be specified.
-csiTags :: Lens' CreateStackInput [Tag]
-csiTags = lens _csiTags (\s a -> s { _csiTags = a })
+csTags :: Lens' CreateStack [Tag]
+csTags = lens _csTags (\s a -> s { _csTags = a })
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. For more information, go to
 -- Template Anatomy in the AWS CloudFormation User Guide. Conditional: You
 -- must specify either the TemplateBody or the TemplateURL parameter, but
 -- not both.
-csiTemplateBody :: Lens' CreateStackInput (Maybe Text)
-csiTemplateBody = lens _csiTemplateBody (\s a -> s { _csiTemplateBody = a })
+csTemplateBody :: Lens' CreateStack (Maybe Text)
+csTemplateBody = lens _csTemplateBody (\s a -> s { _csTemplateBody = a })
 
 -- | Location of file containing the template body. The URL must point to a
 -- template (max size: 307,200 bytes) located in an S3 bucket in the same
 -- region as the stack. For more information, go to the Template Anatomy in
 -- the AWS CloudFormation User Guide. Conditional: You must specify either
 -- the TemplateBody or the TemplateURL parameter, but not both.
-csiTemplateURL :: Lens' CreateStackInput (Maybe Text)
-csiTemplateURL = lens _csiTemplateURL (\s a -> s { _csiTemplateURL = a })
+csTemplateURL :: Lens' CreateStack (Maybe Text)
+csTemplateURL = lens _csTemplateURL (\s a -> s { _csTemplateURL = a })
 
 -- | The amount of time that can pass before the stack status becomes
 -- CREATE_FAILED; if DisableRollback is not set or is set to false, the
 -- stack will be rolled back.
-csiTimeoutInMinutes :: Lens' CreateStackInput (Maybe Natural)
-csiTimeoutInMinutes =
-    lens _csiTimeoutInMinutes (\s a -> s { _csiTimeoutInMinutes = a })
+csTimeoutInMinutes :: Lens' CreateStack (Maybe Natural)
+csTimeoutInMinutes =
+    lens _csTimeoutInMinutes (\s a -> s { _csTimeoutInMinutes = a })
 
-instance ToQuery CreateStackInput
+instance ToQuery CreateStack
 
-instance ToPath CreateStackInput where
+instance ToPath CreateStack where
     toPath = const "/"
 
-newtype CreateStackOutput = CreateStackOutput
-    { _csoStackId :: Maybe Text
+newtype CreateStackResponse = CreateStackResponse
+    { _csrStackId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'CreateStackOutput' constructor.
+-- | 'CreateStackResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csoStackId' @::@ 'Maybe' 'Text'
+-- * 'csrStackId' @::@ 'Maybe' 'Text'
 --
-createStackResponse :: CreateStackOutput
-createStackResponse = CreateStackOutput
-    { _csoStackId = Nothing
+createStackResponse :: CreateStackResponse
+createStackResponse = CreateStackResponse
+    { _csrStackId = Nothing
     }
 
 -- | Unique identifier of the stack.
-csoStackId :: Lens' CreateStackOutput (Maybe Text)
-csoStackId = lens _csoStackId (\s a -> s { _csoStackId = a })
+csrStackId :: Lens' CreateStackResponse (Maybe Text)
+csrStackId = lens _csrStackId (\s a -> s { _csrStackId = a })
 
-instance FromXML CreateStackOutput where
+instance FromXML CreateStackResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateStackOutput"
+    fromXMLRoot    = fromRoot "CreateStackResponse"
 
-instance AWSRequest CreateStackInput where
-    type Sv CreateStackInput = CloudFormation
-    type Rs CreateStackInput = CreateStackOutput
+instance AWSRequest CreateStack where
+    type Sv CreateStack = CloudFormation
+    type Rs CreateStack = CreateStackResponse
 
     request  = post "CreateStack"
-    response = xmlResponse $ \h x -> CreateStackOutput
+    response = xmlResponse $ \h x -> CreateStackResponse
         <$> x %| "StackId"

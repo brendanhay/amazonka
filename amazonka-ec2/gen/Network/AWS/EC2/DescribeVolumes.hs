@@ -35,14 +35,14 @@ module Network.AWS.EC2.DescribeVolumes
     -- ** Request constructor
     , describeVolumes
     -- ** Request lenses
-    , dvDryRun
-    , dvFilters
-    , dvMaxResults
-    , dvNextToken
-    , dvVolumeIds
+    , dv2DryRun
+    , dv2Filters
+    , dv2MaxResults
+    , dv2NextToken
+    , dv2VolumeIds
 
     -- * Response
-    , DescribeVolumesResult
+    , DescribeVolumesResponse
     -- ** Response constructor
     , describeVolumesResponse
     -- ** Response lenses
@@ -55,38 +55,38 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DescribeVolumes = DescribeVolumes
-    { _dvDryRun     :: Maybe Bool
-    , _dvFilters    :: [Filter]
-    , _dvMaxResults :: Maybe Int
-    , _dvNextToken  :: Maybe Text
-    , _dvVolumeIds  :: [Text]
+    { _dv2DryRun     :: Maybe Bool
+    , _dv2Filters    :: [Filter]
+    , _dv2MaxResults :: Maybe Int
+    , _dv2NextToken  :: Maybe Text
+    , _dv2VolumeIds  :: [Text]
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeVolumes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvDryRun' @::@ 'Maybe' 'Bool'
+-- * 'dv2DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dvFilters' @::@ ['Filter']
+-- * 'dv2Filters' @::@ ['Filter']
 --
--- * 'dvMaxResults' @::@ 'Maybe' 'Int'
+-- * 'dv2MaxResults' @::@ 'Maybe' 'Int'
 --
--- * 'dvNextToken' @::@ 'Maybe' 'Text'
+-- * 'dv2NextToken' @::@ 'Maybe' 'Text'
 --
--- * 'dvVolumeIds' @::@ ['Text']
+-- * 'dv2VolumeIds' @::@ ['Text']
 --
 describeVolumes :: DescribeVolumes
 describeVolumes = DescribeVolumes
-    { _dvDryRun     = Nothing
-    , _dvVolumeIds  = mempty
-    , _dvFilters    = mempty
-    , _dvNextToken  = Nothing
-    , _dvMaxResults = Nothing
+    { _dv2DryRun     = Nothing
+    , _dv2VolumeIds  = mempty
+    , _dv2Filters    = mempty
+    , _dv2NextToken  = Nothing
+    , _dv2MaxResults = Nothing
     }
 
-dvDryRun :: Lens' DescribeVolumes (Maybe Bool)
-dvDryRun = lens _dvDryRun (\s a -> s { _dvDryRun = a })
+dv2DryRun :: Lens' DescribeVolumes (Maybe Bool)
+dv2DryRun = lens _dv2DryRun (\s a -> s { _dv2DryRun = a })
 
 -- | One or more filters. attachment.attach-time - The time stamp when the
 -- attachment initiated. attachment.delete-on-termination - Whether the
@@ -111,8 +111,8 @@ dvDryRun = lens _dvDryRun (\s a -> s { _dvDryRun = a })
 -- tag-key filter. volume-id - The volume ID. volume-type - The Amazon EBS
 -- volume type. This can be gp2 for General Purpose (SSD) volumes, io1 for
 -- Provisioned IOPS (SSD) volumes, or standard for Magnetic volumes.
-dvFilters :: Lens' DescribeVolumes [Filter]
-dvFilters = lens _dvFilters (\s a -> s { _dvFilters = a })
+dv2Filters :: Lens' DescribeVolumes [Filter]
+dv2Filters = lens _dv2Filters (\s a -> s { _dv2Filters = a })
 
 -- | The maximum number of volume results returned by DescribeVolumes in
 -- paginated output. When this parameter is used, DescribeVolumes only
@@ -122,32 +122,32 @@ dvFilters = lens _dvFilters (\s a -> s { _dvFilters = a })
 -- NextToken value. This value can be between 5 and 1000; if MaxResults is
 -- given a value larger than 1000, only 1000 results are returned. If this
 -- parameter is not used, then DescribeVolumes returns all results.
-dvMaxResults :: Lens' DescribeVolumes (Maybe Int)
-dvMaxResults = lens _dvMaxResults (\s a -> s { _dvMaxResults = a })
+dv2MaxResults :: Lens' DescribeVolumes (Maybe Int)
+dv2MaxResults = lens _dv2MaxResults (\s a -> s { _dv2MaxResults = a })
 
 -- | The NextToken value returned from a previous paginated DescribeVolumes
 -- request where MaxResults was used and the results exceeded the value of
 -- that parameter. Pagination continues from the end of the previous results
 -- that returned the NextToken value. This value is null when there are no
 -- more results to return.
-dvNextToken :: Lens' DescribeVolumes (Maybe Text)
-dvNextToken = lens _dvNextToken (\s a -> s { _dvNextToken = a })
+dv2NextToken :: Lens' DescribeVolumes (Maybe Text)
+dv2NextToken = lens _dv2NextToken (\s a -> s { _dv2NextToken = a })
 
 -- | One or more volume IDs.
-dvVolumeIds :: Lens' DescribeVolumes [Text]
-dvVolumeIds = lens _dvVolumeIds (\s a -> s { _dvVolumeIds = a })
+dv2VolumeIds :: Lens' DescribeVolumes [Text]
+dv2VolumeIds = lens _dv2VolumeIds (\s a -> s { _dv2VolumeIds = a })
 
 instance ToQuery DescribeVolumes
 
 instance ToPath DescribeVolumes where
     toPath = const "/"
 
-data DescribeVolumesResult = DescribeVolumesResult
+data DescribeVolumesResponse = DescribeVolumesResponse
     { _dvrNextToken :: Maybe Text
     , _dvrVolumes   :: [Volume]
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeVolumesResult' constructor.
+-- | 'DescribeVolumesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -155,8 +155,8 @@ data DescribeVolumesResult = DescribeVolumesResult
 --
 -- * 'dvrVolumes' @::@ ['Volume']
 --
-describeVolumesResponse :: DescribeVolumesResult
-describeVolumesResponse = DescribeVolumesResult
+describeVolumesResponse :: DescribeVolumesResponse
+describeVolumesResponse = DescribeVolumesResponse
     { _dvrVolumes   = mempty
     , _dvrNextToken = Nothing
     }
@@ -165,21 +165,21 @@ describeVolumesResponse = DescribeVolumesResult
 -- the results of a DescribeVolumes request exceed MaxResults, this value
 -- can be used to retrieve the next page of results. This value is null when
 -- there are no more results to return.
-dvrNextToken :: Lens' DescribeVolumesResult (Maybe Text)
+dvrNextToken :: Lens' DescribeVolumesResponse (Maybe Text)
 dvrNextToken = lens _dvrNextToken (\s a -> s { _dvrNextToken = a })
 
-dvrVolumes :: Lens' DescribeVolumesResult [Volume]
+dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
 dvrVolumes = lens _dvrVolumes (\s a -> s { _dvrVolumes = a })
 
-instance FromXML DescribeVolumesResult where
+instance FromXML DescribeVolumesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVolumesResult"
+    fromXMLRoot    = fromRoot "DescribeVolumesResponse"
 
 instance AWSRequest DescribeVolumes where
     type Sv DescribeVolumes = EC2
-    type Rs DescribeVolumes = DescribeVolumesResult
+    type Rs DescribeVolumes = DescribeVolumesResponse
 
     request  = post "DescribeVolumes"
-    response = xmlResponse $ \h x -> DescribeVolumesResult
+    response = xmlResponse $ \h x -> DescribeVolumesResponse
         <$> x %| "nextToken"
         <*> x %| "volumeSet"

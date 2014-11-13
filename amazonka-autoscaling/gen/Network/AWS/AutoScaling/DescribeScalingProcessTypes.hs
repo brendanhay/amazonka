@@ -30,11 +30,11 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     , describeScalingProcessTypes
 
     -- * Response
-    , ProcessesType
+    , DescribeScalingProcessTypesResponse
     -- ** Response constructor
     , describeScalingProcessTypesResponse
     -- ** Response lenses
-    , ptProcesses
+    , dsptrProcesses
     ) where
 
 import Network.AWS.Prelude
@@ -53,39 +53,39 @@ instance ToQuery DescribeScalingProcessTypes
 instance ToPath DescribeScalingProcessTypes where
     toPath = const "/"
 
-newtype ProcessesType = ProcessesType
-    { _ptProcesses :: [ProcessType]
+newtype DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
+    { _dsptrProcesses :: [ProcessType]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ProcessesType where
-    type Item ProcessesType = ProcessType
+instance IsList DescribeScalingProcessTypesResponse where
+    type Item DescribeScalingProcessTypesResponse = ProcessType
 
-    fromList = ProcessesType . fromList
-    toList   = toList . _ptProcesses
+    fromList = DescribeScalingProcessTypesResponse . fromList
+    toList   = toList . _dsptrProcesses
 
--- | 'ProcessesType' constructor.
+-- | 'DescribeScalingProcessTypesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ptProcesses' @::@ ['ProcessType']
+-- * 'dsptrProcesses' @::@ ['ProcessType']
 --
-describeScalingProcessTypesResponse :: ProcessesType
-describeScalingProcessTypesResponse = ProcessesType
-    { _ptProcesses = mempty
+describeScalingProcessTypesResponse :: DescribeScalingProcessTypesResponse
+describeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse
+    { _dsptrProcesses = mempty
     }
 
 -- | A list of ProcessType names.
-ptProcesses :: Lens' ProcessesType [ProcessType]
-ptProcesses = lens _ptProcesses (\s a -> s { _ptProcesses = a })
+dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
+dsptrProcesses = lens _dsptrProcesses (\s a -> s { _dsptrProcesses = a })
 
-instance FromXML ProcessesType where
+instance FromXML DescribeScalingProcessTypesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ProcessesType"
+    fromXMLRoot    = fromRoot "DescribeScalingProcessTypesResponse"
 
 instance AWSRequest DescribeScalingProcessTypes where
     type Sv DescribeScalingProcessTypes = AutoScaling
-    type Rs DescribeScalingProcessTypes = ProcessesType
+    type Rs DescribeScalingProcessTypes = DescribeScalingProcessTypesResponse
 
     request  = post "DescribeScalingProcessTypes"
-    response = xmlResponse $ \h x -> ProcessesType
+    response = xmlResponse $ \h x -> DescribeScalingProcessTypesResponse
         <$> x %| "Processes"

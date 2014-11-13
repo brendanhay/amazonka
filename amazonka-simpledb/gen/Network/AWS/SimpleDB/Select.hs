@@ -41,7 +41,7 @@ module Network.AWS.SimpleDB.Select
     , sSelectExpression
 
     -- * Response
-    , SelectResult
+    , SelectResponse
     -- ** Response constructor
     , selectResponse
     -- ** Response lenses
@@ -100,12 +100,12 @@ instance ToQuery Select
 instance ToPath Select where
     toPath = const "/"
 
-data SelectResult = SelectResult
+data SelectResponse = SelectResponse
     { _srItems     :: [Item]
     , _srNextToken :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'SelectResult' constructor.
+-- | 'SelectResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -113,31 +113,31 @@ data SelectResult = SelectResult
 --
 -- * 'srNextToken' @::@ 'Maybe' 'Text'
 --
-selectResponse :: SelectResult
-selectResponse = SelectResult
+selectResponse :: SelectResponse
+selectResponse = SelectResponse
     { _srItems     = mempty
     , _srNextToken = Nothing
     }
 
 -- | A list of items that match the select expression.
-srItems :: Lens' SelectResult [Item]
+srItems :: Lens' SelectResponse [Item]
 srItems = lens _srItems (\s a -> s { _srItems = a })
 
 -- | An opaque token indicating that more items than MaxNumberOfItems were
 -- matched, the response size exceeded 1 megabyte, or the execution time
 -- exceeded 5 seconds.
-srNextToken :: Lens' SelectResult (Maybe Text)
+srNextToken :: Lens' SelectResponse (Maybe Text)
 srNextToken = lens _srNextToken (\s a -> s { _srNextToken = a })
 
-instance FromXML SelectResult where
+instance FromXML SelectResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "SelectResult"
+    fromXMLRoot    = fromRoot "SelectResponse"
 
 instance AWSRequest Select where
     type Sv Select = SimpleDB
-    type Rs Select = SelectResult
+    type Rs Select = SelectResponse
 
     request  = post "Select"
-    response = xmlResponse $ \h x -> SelectResult
+    response = xmlResponse $ \h x -> SelectResponse
         <$> x %| "Items"
         <*> x %| "NextToken"

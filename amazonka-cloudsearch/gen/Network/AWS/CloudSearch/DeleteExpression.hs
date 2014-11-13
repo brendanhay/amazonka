@@ -29,8 +29,8 @@ module Network.AWS.CloudSearch.DeleteExpression
     -- ** Request constructor
     , deleteExpression
     -- ** Request lenses
-    , deDomainName
-    , deExpressionName
+    , de2DomainName
+    , de2ExpressionName
 
     -- * Response
     , DeleteExpressionResponse
@@ -45,32 +45,33 @@ import Network.AWS.Request.Query
 import Network.AWS.CloudSearch.Types
 
 data DeleteExpression = DeleteExpression
-    { _deDomainName     :: Text
-    , _deExpressionName :: Text
+    { _de2DomainName     :: Text
+    , _de2ExpressionName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteExpression' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deDomainName' @::@ 'Text'
+-- * 'de2DomainName' @::@ 'Text'
 --
--- * 'deExpressionName' @::@ 'Text'
+-- * 'de2ExpressionName' @::@ 'Text'
 --
-deleteExpression :: Text -- ^ 'deDomainName'
-                 -> Text -- ^ 'deExpressionName'
+deleteExpression :: Text -- ^ 'de2DomainName'
+                 -> Text -- ^ 'de2ExpressionName'
                  -> DeleteExpression
 deleteExpression p1 p2 = DeleteExpression
-    { _deDomainName     = p1
-    , _deExpressionName = p2
+    { _de2DomainName     = p1
+    , _de2ExpressionName = p2
     }
 
-deDomainName :: Lens' DeleteExpression Text
-deDomainName = lens _deDomainName (\s a -> s { _deDomainName = a })
+de2DomainName :: Lens' DeleteExpression Text
+de2DomainName = lens _de2DomainName (\s a -> s { _de2DomainName = a })
 
 -- | The name of the Expression to delete.
-deExpressionName :: Lens' DeleteExpression Text
-deExpressionName = lens _deExpressionName (\s a -> s { _deExpressionName = a })
+de2ExpressionName :: Lens' DeleteExpression Text
+de2ExpressionName =
+    lens _de2ExpressionName (\s a -> s { _de2ExpressionName = a })
 
 instance ToQuery DeleteExpression
 

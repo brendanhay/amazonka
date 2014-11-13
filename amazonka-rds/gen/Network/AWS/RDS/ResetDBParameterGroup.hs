@@ -30,57 +30,57 @@
 module Network.AWS.RDS.ResetDBParameterGroup
     (
     -- * Request
-      ResetDBParameterGroupMessage
+      ResetDBParameterGroup
     -- ** Request constructor
     , resetDBParameterGroup
     -- ** Request lenses
-    , rdbpgmDBParameterGroupName
-    , rdbpgmParameters
-    , rdbpgmResetAllParameters
+    , rdbpgDBParameterGroupName
+    , rdbpgParameters
+    , rdbpgResetAllParameters
 
     -- * Response
-    , DBParameterGroupNameMessage
+    , ResetDBParameterGroupResponse
     -- ** Response constructor
-    , dbparameterGroupNameMessage
+    , resetDBParameterGroupResponse
     -- ** Response lenses
-    , dbpgnmDBParameterGroupName
+    , rdbpgrDBParameterGroupName
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data ResetDBParameterGroupMessage = ResetDBParameterGroupMessage
-    { _rdbpgmDBParameterGroupName :: Text
-    , _rdbpgmParameters           :: [Parameter]
-    , _rdbpgmResetAllParameters   :: Maybe Bool
+data ResetDBParameterGroup = ResetDBParameterGroup
+    { _rdbpgDBParameterGroupName :: Text
+    , _rdbpgParameters           :: [Parameter]
+    , _rdbpgResetAllParameters   :: Maybe Bool
     } deriving (Eq, Show, Generic)
 
--- | 'ResetDBParameterGroupMessage' constructor.
+-- | 'ResetDBParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdbpgmDBParameterGroupName' @::@ 'Text'
+-- * 'rdbpgDBParameterGroupName' @::@ 'Text'
 --
--- * 'rdbpgmParameters' @::@ ['Parameter']
+-- * 'rdbpgParameters' @::@ ['Parameter']
 --
--- * 'rdbpgmResetAllParameters' @::@ 'Maybe' 'Bool'
+-- * 'rdbpgResetAllParameters' @::@ 'Maybe' 'Bool'
 --
-resetDBParameterGroup :: Text -- ^ 'rdbpgmDBParameterGroupName'
-                      -> ResetDBParameterGroupMessage
-resetDBParameterGroup p1 = ResetDBParameterGroupMessage
-    { _rdbpgmDBParameterGroupName = p1
-    , _rdbpgmResetAllParameters   = Nothing
-    , _rdbpgmParameters           = mempty
+resetDBParameterGroup :: Text -- ^ 'rdbpgDBParameterGroupName'
+                      -> ResetDBParameterGroup
+resetDBParameterGroup p1 = ResetDBParameterGroup
+    { _rdbpgDBParameterGroupName = p1
+    , _rdbpgResetAllParameters   = Nothing
+    , _rdbpgParameters           = mempty
     }
 
 -- | The name of the DB parameter group. Constraints: Must be 1 to 255
 -- alphanumeric characters First character must be a letter Cannot end with
 -- a hyphen or contain two consecutive hyphens.
-rdbpgmDBParameterGroupName :: Lens' ResetDBParameterGroupMessage Text
-rdbpgmDBParameterGroupName =
-    lens _rdbpgmDBParameterGroupName
-        (\s a -> s { _rdbpgmDBParameterGroupName = a })
+rdbpgDBParameterGroupName :: Lens' ResetDBParameterGroup Text
+rdbpgDBParameterGroupName =
+    lens _rdbpgDBParameterGroupName
+        (\s a -> s { _rdbpgDBParameterGroupName = a })
 
 -- | An array of parameter names, values, and the apply method for the
 -- parameter update. At least one parameter name, value, and apply method
@@ -90,24 +90,49 @@ rdbpgmDBParameterGroupName =
 -- with dynamic parameters only. You can use the pending-reboot value for
 -- both dynamic and static parameters, and changes are applied when DB
 -- instance reboots. Oracle Valid Values (for Apply method): pending-reboot.
-rdbpgmParameters :: Lens' ResetDBParameterGroupMessage [Parameter]
-rdbpgmParameters = lens _rdbpgmParameters (\s a -> s { _rdbpgmParameters = a })
+rdbpgParameters :: Lens' ResetDBParameterGroup [Parameter]
+rdbpgParameters = lens _rdbpgParameters (\s a -> s { _rdbpgParameters = a })
 
 -- | Specifies whether (true) or not (false) to reset all parameters in the DB
 -- parameter group to default values. Default: true.
-rdbpgmResetAllParameters :: Lens' ResetDBParameterGroupMessage (Maybe Bool)
-rdbpgmResetAllParameters =
-    lens _rdbpgmResetAllParameters
-        (\s a -> s { _rdbpgmResetAllParameters = a })
+rdbpgResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
+rdbpgResetAllParameters =
+    lens _rdbpgResetAllParameters (\s a -> s { _rdbpgResetAllParameters = a })
 
-instance ToQuery ResetDBParameterGroupMessage
+instance ToQuery ResetDBParameterGroup
 
-instance ToPath ResetDBParameterGroupMessage where
+instance ToPath ResetDBParameterGroup where
     toPath = const "/"
 
-instance AWSRequest ResetDBParameterGroupMessage where
-    type Sv ResetDBParameterGroupMessage = RDS
-    type Rs ResetDBParameterGroupMessage = DBParameterGroupNameMessage
+newtype ResetDBParameterGroupResponse = ResetDBParameterGroupResponse
+    { _rdbpgrDBParameterGroupName :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic, Monoid)
+
+-- | 'ResetDBParameterGroupResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'rdbpgrDBParameterGroupName' @::@ 'Maybe' 'Text'
+--
+resetDBParameterGroupResponse :: ResetDBParameterGroupResponse
+resetDBParameterGroupResponse = ResetDBParameterGroupResponse
+    { _rdbpgrDBParameterGroupName = Nothing
+    }
+
+-- | The name of the DB parameter group.
+rdbpgrDBParameterGroupName :: Lens' ResetDBParameterGroupResponse (Maybe Text)
+rdbpgrDBParameterGroupName =
+    lens _rdbpgrDBParameterGroupName
+        (\s a -> s { _rdbpgrDBParameterGroupName = a })
+
+instance FromXML ResetDBParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ResetDBParameterGroupResponse"
+
+instance AWSRequest ResetDBParameterGroup where
+    type Sv ResetDBParameterGroup = RDS
+    type Rs ResetDBParameterGroup = ResetDBParameterGroupResponse
 
     request  = post "ResetDBParameterGroup"
-    response = xmlResponse $ const decodeCursor
+    response = xmlResponse $ \h x -> ResetDBParameterGroupResponse
+        <$> x %| "DBParameterGroupName"

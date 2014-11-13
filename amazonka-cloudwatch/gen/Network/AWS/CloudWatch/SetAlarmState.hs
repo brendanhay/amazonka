@@ -27,14 +27,14 @@
 module Network.AWS.CloudWatch.SetAlarmState
     (
     -- * Request
-      SetAlarmStateInput
+      SetAlarmState
     -- ** Request constructor
     , setAlarmState
     -- ** Request lenses
-    , sasiAlarmName
-    , sasiStateReason
-    , sasiStateReasonData
-    , sasiStateValue
+    , sasAlarmName
+    , sasStateReason
+    , sasStateReasonData
+    , sasStateValue
 
     -- * Response
     , SetAlarmStateResponse
@@ -46,59 +46,59 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudWatch.Types
 
-data SetAlarmStateInput = SetAlarmStateInput
-    { _sasiAlarmName       :: Text
-    , _sasiStateReason     :: Text
-    , _sasiStateReasonData :: Maybe Text
-    , _sasiStateValue      :: Text
+data SetAlarmState = SetAlarmState
+    { _sasAlarmName       :: Text
+    , _sasStateReason     :: Text
+    , _sasStateReasonData :: Maybe Text
+    , _sasStateValue      :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'SetAlarmStateInput' constructor.
+-- | 'SetAlarmState' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sasiAlarmName' @::@ 'Text'
+-- * 'sasAlarmName' @::@ 'Text'
 --
--- * 'sasiStateReason' @::@ 'Text'
+-- * 'sasStateReason' @::@ 'Text'
 --
--- * 'sasiStateReasonData' @::@ 'Maybe' 'Text'
+-- * 'sasStateReasonData' @::@ 'Maybe' 'Text'
 --
--- * 'sasiStateValue' @::@ 'Text'
+-- * 'sasStateValue' @::@ 'Text'
 --
-setAlarmState :: Text -- ^ 'sasiAlarmName'
-              -> Text -- ^ 'sasiStateValue'
-              -> Text -- ^ 'sasiStateReason'
-              -> SetAlarmStateInput
-setAlarmState p1 p2 p3 = SetAlarmStateInput
-    { _sasiAlarmName       = p1
-    , _sasiStateValue      = p2
-    , _sasiStateReason     = p3
-    , _sasiStateReasonData = Nothing
+setAlarmState :: Text -- ^ 'sasAlarmName'
+              -> Text -- ^ 'sasStateValue'
+              -> Text -- ^ 'sasStateReason'
+              -> SetAlarmState
+setAlarmState p1 p2 p3 = SetAlarmState
+    { _sasAlarmName       = p1
+    , _sasStateValue      = p2
+    , _sasStateReason     = p3
+    , _sasStateReasonData = Nothing
     }
 
 -- | The descriptive name for the alarm. This name must be unique within the
 -- user's AWS account. The maximum length is 255 characters.
-sasiAlarmName :: Lens' SetAlarmStateInput Text
-sasiAlarmName = lens _sasiAlarmName (\s a -> s { _sasiAlarmName = a })
+sasAlarmName :: Lens' SetAlarmState Text
+sasAlarmName = lens _sasAlarmName (\s a -> s { _sasAlarmName = a })
 
 -- | The reason that this alarm is set to this specific state (in
 -- human-readable text format).
-sasiStateReason :: Lens' SetAlarmStateInput Text
-sasiStateReason = lens _sasiStateReason (\s a -> s { _sasiStateReason = a })
+sasStateReason :: Lens' SetAlarmState Text
+sasStateReason = lens _sasStateReason (\s a -> s { _sasStateReason = a })
 
 -- | The reason that this alarm is set to this specific state (in
 -- machine-readable JSON format).
-sasiStateReasonData :: Lens' SetAlarmStateInput (Maybe Text)
-sasiStateReasonData =
-    lens _sasiStateReasonData (\s a -> s { _sasiStateReasonData = a })
+sasStateReasonData :: Lens' SetAlarmState (Maybe Text)
+sasStateReasonData =
+    lens _sasStateReasonData (\s a -> s { _sasStateReasonData = a })
 
 -- | The value of the state.
-sasiStateValue :: Lens' SetAlarmStateInput Text
-sasiStateValue = lens _sasiStateValue (\s a -> s { _sasiStateValue = a })
+sasStateValue :: Lens' SetAlarmState Text
+sasStateValue = lens _sasStateValue (\s a -> s { _sasStateValue = a })
 
-instance ToQuery SetAlarmStateInput
+instance ToQuery SetAlarmState
 
-instance ToPath SetAlarmStateInput where
+instance ToPath SetAlarmState where
     toPath = const "/"
 
 data SetAlarmStateResponse = SetAlarmStateResponse
@@ -112,9 +112,9 @@ instance FromXML SetAlarmStateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetAlarmStateResponse"
 
-instance AWSRequest SetAlarmStateInput where
-    type Sv SetAlarmStateInput = CloudWatch
-    type Rs SetAlarmStateInput = SetAlarmStateResponse
+instance AWSRequest SetAlarmState where
+    type Sv SetAlarmState = CloudWatch
+    type Rs SetAlarmState = SetAlarmStateResponse
 
     request  = post "SetAlarmState"
     response = nullaryResponse SetAlarmStateResponse

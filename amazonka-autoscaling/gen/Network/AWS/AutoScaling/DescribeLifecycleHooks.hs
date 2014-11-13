@@ -25,96 +25,95 @@
 module Network.AWS.AutoScaling.DescribeLifecycleHooks
     (
     -- * Request
-      DescribeLifecycleHooksType
+      DescribeLifecycleHooks
     -- ** Request constructor
     , describeLifecycleHooks
     -- ** Request lenses
-    , dlht1AutoScalingGroupName
-    , dlht1LifecycleHookNames
+    , dlhAutoScalingGroupName
+    , dlhLifecycleHookNames
 
     -- * Response
-    , DescribeLifecycleHooksAnswer
+    , DescribeLifecycleHooksResponse
     -- ** Response constructor
     , describeLifecycleHooksResponse
     -- ** Response lenses
-    , dlhaLifecycleHooks
+    , dlhrLifecycleHooks
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data DescribeLifecycleHooksType = DescribeLifecycleHooksType
-    { _dlht1AutoScalingGroupName :: Text
-    , _dlht1LifecycleHookNames   :: [Text]
+data DescribeLifecycleHooks = DescribeLifecycleHooks
+    { _dlhAutoScalingGroupName :: Text
+    , _dlhLifecycleHookNames   :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeLifecycleHooksType' constructor.
+-- | 'DescribeLifecycleHooks' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlht1AutoScalingGroupName' @::@ 'Text'
+-- * 'dlhAutoScalingGroupName' @::@ 'Text'
 --
--- * 'dlht1LifecycleHookNames' @::@ ['Text']
+-- * 'dlhLifecycleHookNames' @::@ ['Text']
 --
-describeLifecycleHooks :: Text -- ^ 'dlht1AutoScalingGroupName'
-                       -> DescribeLifecycleHooksType
-describeLifecycleHooks p1 = DescribeLifecycleHooksType
-    { _dlht1AutoScalingGroupName = p1
-    , _dlht1LifecycleHookNames   = mempty
+describeLifecycleHooks :: Text -- ^ 'dlhAutoScalingGroupName'
+                       -> DescribeLifecycleHooks
+describeLifecycleHooks p1 = DescribeLifecycleHooks
+    { _dlhAutoScalingGroupName = p1
+    , _dlhLifecycleHookNames   = mempty
     }
 
 -- | The name of one or more Auto Scaling groups.
-dlht1AutoScalingGroupName :: Lens' DescribeLifecycleHooksType Text
-dlht1AutoScalingGroupName =
-    lens _dlht1AutoScalingGroupName
-        (\s a -> s { _dlht1AutoScalingGroupName = a })
+dlhAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
+dlhAutoScalingGroupName =
+    lens _dlhAutoScalingGroupName (\s a -> s { _dlhAutoScalingGroupName = a })
 
 -- | The name of one or more lifecycle hooks.
-dlht1LifecycleHookNames :: Lens' DescribeLifecycleHooksType [Text]
-dlht1LifecycleHookNames =
-    lens _dlht1LifecycleHookNames (\s a -> s { _dlht1LifecycleHookNames = a })
+dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
+dlhLifecycleHookNames =
+    lens _dlhLifecycleHookNames (\s a -> s { _dlhLifecycleHookNames = a })
 
-instance ToQuery DescribeLifecycleHooksType
+instance ToQuery DescribeLifecycleHooks
 
-instance ToPath DescribeLifecycleHooksType where
+instance ToPath DescribeLifecycleHooks where
     toPath = const "/"
 
-newtype DescribeLifecycleHooksAnswer = DescribeLifecycleHooksAnswer
-    { _dlhaLifecycleHooks :: [LifecycleHook]
+newtype DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse
+    { _dlhrLifecycleHooks :: [LifecycleHook]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeLifecycleHooksAnswer where
-    type Item DescribeLifecycleHooksAnswer = LifecycleHook
+instance IsList DescribeLifecycleHooksResponse where
+    type Item DescribeLifecycleHooksResponse = LifecycleHook
 
-    fromList = DescribeLifecycleHooksAnswer . fromList
-    toList   = toList . _dlhaLifecycleHooks
+    fromList = DescribeLifecycleHooksResponse . fromList
+    toList   = toList . _dlhrLifecycleHooks
 
--- | 'DescribeLifecycleHooksAnswer' constructor.
+-- | 'DescribeLifecycleHooksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlhaLifecycleHooks' @::@ ['LifecycleHook']
+-- * 'dlhrLifecycleHooks' @::@ ['LifecycleHook']
 --
-describeLifecycleHooksResponse :: DescribeLifecycleHooksAnswer
-describeLifecycleHooksResponse = DescribeLifecycleHooksAnswer
-    { _dlhaLifecycleHooks = mempty
+describeLifecycleHooksResponse :: DescribeLifecycleHooksResponse
+describeLifecycleHooksResponse = DescribeLifecycleHooksResponse
+    { _dlhrLifecycleHooks = mempty
     }
 
 -- | A list describing the lifecycle hooks that belong to the specified Auto
 -- Scaling group.
-dlhaLifecycleHooks :: Lens' DescribeLifecycleHooksAnswer [LifecycleHook]
-dlhaLifecycleHooks =
-    lens _dlhaLifecycleHooks (\s a -> s { _dlhaLifecycleHooks = a })
+dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
+dlhrLifecycleHooks =
+    lens _dlhrLifecycleHooks (\s a -> s { _dlhrLifecycleHooks = a })
 
-instance FromXML DescribeLifecycleHooksAnswer where
+instance FromXML DescribeLifecycleHooksResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLifecycleHooksAnswer"
+    fromXMLRoot    = fromRoot "DescribeLifecycleHooksResponse"
 
-instance AWSRequest DescribeLifecycleHooksType where
-    type Sv DescribeLifecycleHooksType = AutoScaling
-    type Rs DescribeLifecycleHooksType = DescribeLifecycleHooksAnswer
+instance AWSRequest DescribeLifecycleHooks where
+    type Sv DescribeLifecycleHooks = AutoScaling
+    type Rs DescribeLifecycleHooks = DescribeLifecycleHooksResponse
 
     request  = post "DescribeLifecycleHooks"
-    response = xmlResponse $ \h x -> DescribeLifecycleHooksAnswer
+    response = xmlResponse $ \h x -> DescribeLifecycleHooksResponse
         <$> x %| "LifecycleHooks"

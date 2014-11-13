@@ -24,7 +24,7 @@
 module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     (
     -- * Request
-      ListCloudFrontOriginAccessIdentities
+      ListCloudFrontOriginAccessIdentities2014_05_31
     -- ** Request constructor
     , listCloudFrontOriginAccessIdentities2014_05_31
     -- ** Request lenses
@@ -32,7 +32,7 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     , lcfoaiMaxItems
 
     -- * Response
-    , ListCloudFrontOriginAccessIdentitiesResult
+    , ListCloudFrontOriginAccessIdentities2014_05_31Response
     -- ** Response constructor
     , listCloudFrontOriginAccessIdentities2014_05_31Response
     -- ** Response lenses
@@ -43,12 +43,12 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 
-data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
+data ListCloudFrontOriginAccessIdentities2014_05_31 = ListCloudFrontOriginAccessIdentities2014_05_31
     { _lcfoaiMarker   :: Maybe Text
     , _lcfoaiMaxItems :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ListCloudFrontOriginAccessIdentities' constructor.
+-- | 'ListCloudFrontOriginAccessIdentities2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -56,8 +56,8 @@ data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities
 --
 -- * 'lcfoaiMaxItems' @::@ 'Maybe' 'Text'
 --
-listCloudFrontOriginAccessIdentities2014_05_31 :: ListCloudFrontOriginAccessIdentities
-listCloudFrontOriginAccessIdentities2014_05_31 = ListCloudFrontOriginAccessIdentities
+listCloudFrontOriginAccessIdentities2014_05_31 :: ListCloudFrontOriginAccessIdentities2014_05_31
+listCloudFrontOriginAccessIdentities2014_05_31 = ListCloudFrontOriginAccessIdentities2014_05_31
     { _lcfoaiMarker   = Nothing
     , _lcfoaiMaxItems = Nothing
     }
@@ -67,53 +67,53 @@ listCloudFrontOriginAccessIdentities2014_05_31 = ListCloudFrontOriginAccessIdent
 -- that occur after the marker. To get the next page of results, set the
 -- Marker to the value of the NextMarker from the current page's response
 -- (which is also the ID of the last identity on that page).
-lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
+lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities2014_05_31 (Maybe Text)
 lcfoaiMarker = lens _lcfoaiMarker (\s a -> s { _lcfoaiMarker = a })
 
 -- | The maximum number of origin access identities you want in the response
 -- body.
-lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
+lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities2014_05_31 (Maybe Text)
 lcfoaiMaxItems = lens _lcfoaiMaxItems (\s a -> s { _lcfoaiMaxItems = a })
 
-instance ToPath ListCloudFrontOriginAccessIdentities where
+instance ToPath ListCloudFrontOriginAccessIdentities2014_05_31 where
     toPath = const "/2014-05-31/origin-access-identity/cloudfront"
 
-instance ToQuery ListCloudFrontOriginAccessIdentities where
-    toQuery ListCloudFrontOriginAccessIdentities{..} = mconcat
+instance ToQuery ListCloudFrontOriginAccessIdentities2014_05_31 where
+    toQuery ListCloudFrontOriginAccessIdentities2014_05_31{..} = mconcat
         [ "Marker"   =? _lcfoaiMarker
         , "MaxItems" =? _lcfoaiMaxItems
         ]
 
-instance ToHeaders ListCloudFrontOriginAccessIdentities
+instance ToHeaders ListCloudFrontOriginAccessIdentities2014_05_31
 
-newtype ListCloudFrontOriginAccessIdentitiesResult = ListCloudFrontOriginAccessIdentitiesResult
+newtype ListCloudFrontOriginAccessIdentities2014_05_31Response = ListCloudFrontOriginAccessIdentities2014_05_31Response
     { _lcfoairCloudFrontOriginAccessIdentityList :: Maybe CloudFrontOriginAccessIdentityList
     } deriving (Eq, Show, Generic)
 
--- | 'ListCloudFrontOriginAccessIdentitiesResult' constructor.
+-- | 'ListCloudFrontOriginAccessIdentities2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lcfoairCloudFrontOriginAccessIdentityList' @::@ 'Maybe' 'CloudFrontOriginAccessIdentityList'
 --
-listCloudFrontOriginAccessIdentities2014_05_31Response :: ListCloudFrontOriginAccessIdentitiesResult
-listCloudFrontOriginAccessIdentities2014_05_31Response = ListCloudFrontOriginAccessIdentitiesResult
+listCloudFrontOriginAccessIdentities2014_05_31Response :: ListCloudFrontOriginAccessIdentities2014_05_31Response
+listCloudFrontOriginAccessIdentities2014_05_31Response = ListCloudFrontOriginAccessIdentities2014_05_31Response
     { _lcfoairCloudFrontOriginAccessIdentityList = Nothing
     }
 
 -- | The CloudFrontOriginAccessIdentityList type.
-lcfoairCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResult (Maybe CloudFrontOriginAccessIdentityList)
+lcfoairCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentities2014_05_31Response (Maybe CloudFrontOriginAccessIdentityList)
 lcfoairCloudFrontOriginAccessIdentityList =
     lens _lcfoairCloudFrontOriginAccessIdentityList
         (\s a -> s { _lcfoairCloudFrontOriginAccessIdentityList = a })
 
-instance FromXML ListCloudFrontOriginAccessIdentitiesResult where
+instance FromXML ListCloudFrontOriginAccessIdentities2014_05_31Response where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListCloudFrontOriginAccessIdentitiesResult"
-instance AWSRequest ListCloudFrontOriginAccessIdentities where
-    type Sv ListCloudFrontOriginAccessIdentities = CloudFront
-    type Rs ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentitiesResult
+    fromXMLRoot    = fromRoot "ListCloudFrontOriginAccessIdentities2014_05_31Response"
+instance AWSRequest ListCloudFrontOriginAccessIdentities2014_05_31 where
+    type Sv ListCloudFrontOriginAccessIdentities2014_05_31 = CloudFront
+    type Rs ListCloudFrontOriginAccessIdentities2014_05_31 = ListCloudFrontOriginAccessIdentities2014_05_31Response
 
     request  = get
-    response = xmlResponse $ \h x -> ListCloudFrontOriginAccessIdentitiesResult
+    response = xmlResponse $ \h x -> ListCloudFrontOriginAccessIdentities2014_05_31Response
         <$> x %| "CloudFrontOriginAccessIdentityList"

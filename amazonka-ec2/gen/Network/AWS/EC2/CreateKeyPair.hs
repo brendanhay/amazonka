@@ -40,13 +40,13 @@ module Network.AWS.EC2.CreateKeyPair
     , ckpKeyName
 
     -- * Response
-    , KeyPair
+    , CreateKeyPairResponse
     -- ** Response constructor
     , createKeyPairResponse
     -- ** Response lenses
-    , kpKeyFingerprint
-    , kpKeyMaterial
-    , kpKeyName
+    , ckprKeyFingerprint
+    , ckprKeyMaterial
+    , ckprKeyName
     ) where
 
 import Network.AWS.Prelude
@@ -85,51 +85,52 @@ instance ToQuery CreateKeyPair
 instance ToPath CreateKeyPair where
     toPath = const "/"
 
-data KeyPair = KeyPair
-    { _kpKeyFingerprint :: Maybe Text
-    , _kpKeyMaterial    :: Maybe Text
-    , _kpKeyName        :: Maybe Text
+data CreateKeyPairResponse = CreateKeyPairResponse
+    { _ckprKeyFingerprint :: Maybe Text
+    , _ckprKeyMaterial    :: Maybe Text
+    , _ckprKeyName        :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'KeyPair' constructor.
+-- | 'CreateKeyPairResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'kpKeyFingerprint' @::@ 'Maybe' 'Text'
+-- * 'ckprKeyFingerprint' @::@ 'Maybe' 'Text'
 --
--- * 'kpKeyMaterial' @::@ 'Maybe' 'Text'
+-- * 'ckprKeyMaterial' @::@ 'Maybe' 'Text'
 --
--- * 'kpKeyName' @::@ 'Maybe' 'Text'
+-- * 'ckprKeyName' @::@ 'Maybe' 'Text'
 --
-createKeyPairResponse :: KeyPair
-createKeyPairResponse = KeyPair
-    { _kpKeyName        = Nothing
-    , _kpKeyFingerprint = Nothing
-    , _kpKeyMaterial    = Nothing
+createKeyPairResponse :: CreateKeyPairResponse
+createKeyPairResponse = CreateKeyPairResponse
+    { _ckprKeyName        = Nothing
+    , _ckprKeyFingerprint = Nothing
+    , _ckprKeyMaterial    = Nothing
     }
 
 -- | The SHA-1 digest of the DER encoded private key.
-kpKeyFingerprint :: Lens' KeyPair (Maybe Text)
-kpKeyFingerprint = lens _kpKeyFingerprint (\s a -> s { _kpKeyFingerprint = a })
+ckprKeyFingerprint :: Lens' CreateKeyPairResponse (Maybe Text)
+ckprKeyFingerprint =
+    lens _ckprKeyFingerprint (\s a -> s { _ckprKeyFingerprint = a })
 
 -- | An unencrypted PEM encoded RSA private key.
-kpKeyMaterial :: Lens' KeyPair (Maybe Text)
-kpKeyMaterial = lens _kpKeyMaterial (\s a -> s { _kpKeyMaterial = a })
+ckprKeyMaterial :: Lens' CreateKeyPairResponse (Maybe Text)
+ckprKeyMaterial = lens _ckprKeyMaterial (\s a -> s { _ckprKeyMaterial = a })
 
 -- | The name of the key pair.
-kpKeyName :: Lens' KeyPair (Maybe Text)
-kpKeyName = lens _kpKeyName (\s a -> s { _kpKeyName = a })
+ckprKeyName :: Lens' CreateKeyPairResponse (Maybe Text)
+ckprKeyName = lens _ckprKeyName (\s a -> s { _ckprKeyName = a })
 
-instance FromXML KeyPair where
+instance FromXML CreateKeyPairResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "KeyPair"
+    fromXMLRoot    = fromRoot "CreateKeyPairResponse"
 
 instance AWSRequest CreateKeyPair where
     type Sv CreateKeyPair = EC2
-    type Rs CreateKeyPair = KeyPair
+    type Rs CreateKeyPair = CreateKeyPairResponse
 
     request  = post "CreateKeyPair"
-    response = xmlResponse $ \h x -> KeyPair
+    response = xmlResponse $ \h x -> CreateKeyPairResponse
         <$> x %| "keyFingerprint"
         <*> x %| "keyMaterial"
         <*> x %| "keyName"

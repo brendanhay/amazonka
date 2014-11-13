@@ -27,22 +27,22 @@
 module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     (
     -- * Request
-      UpdateAutoScalingGroupType
+      UpdateAutoScalingGroup
     -- ** Request constructor
     , updateAutoScalingGroup
     -- ** Request lenses
-    , uasgtAutoScalingGroupName
-    , uasgtAvailabilityZones
-    , uasgtDefaultCooldown
-    , uasgtDesiredCapacity
-    , uasgtHealthCheckGracePeriod
-    , uasgtHealthCheckType
-    , uasgtLaunchConfigurationName
-    , uasgtMaxSize
-    , uasgtMinSize
-    , uasgtPlacementGroup
-    , uasgtTerminationPolicies
-    , uasgtVPCZoneIdentifier
+    , uasgAutoScalingGroupName
+    , uasgAvailabilityZones
+    , uasgDefaultCooldown
+    , uasgDesiredCapacity
+    , uasgHealthCheckGracePeriod
+    , uasgHealthCheckType
+    , uasgLaunchConfigurationName
+    , uasgMaxSize
+    , uasgMinSize
+    , uasgPlacementGroup
+    , uasgTerminationPolicies
+    , uasgVPCZoneIdentifier
 
     -- * Response
     , UpdateAutoScalingGroupResponse
@@ -54,136 +54,135 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data UpdateAutoScalingGroupType = UpdateAutoScalingGroupType
-    { _uasgtAutoScalingGroupName    :: Text
-    , _uasgtAvailabilityZones       :: List1 Text
-    , _uasgtDefaultCooldown         :: Maybe Int
-    , _uasgtDesiredCapacity         :: Maybe Int
-    , _uasgtHealthCheckGracePeriod  :: Maybe Int
-    , _uasgtHealthCheckType         :: Maybe Text
-    , _uasgtLaunchConfigurationName :: Maybe Text
-    , _uasgtMaxSize                 :: Maybe Int
-    , _uasgtMinSize                 :: Maybe Int
-    , _uasgtPlacementGroup          :: Maybe Text
-    , _uasgtTerminationPolicies     :: [Text]
-    , _uasgtVPCZoneIdentifier       :: Maybe Text
+data UpdateAutoScalingGroup = UpdateAutoScalingGroup
+    { _uasgAutoScalingGroupName    :: Text
+    , _uasgAvailabilityZones       :: List1 Text
+    , _uasgDefaultCooldown         :: Maybe Int
+    , _uasgDesiredCapacity         :: Maybe Int
+    , _uasgHealthCheckGracePeriod  :: Maybe Int
+    , _uasgHealthCheckType         :: Maybe Text
+    , _uasgLaunchConfigurationName :: Maybe Text
+    , _uasgMaxSize                 :: Maybe Int
+    , _uasgMinSize                 :: Maybe Int
+    , _uasgPlacementGroup          :: Maybe Text
+    , _uasgTerminationPolicies     :: [Text]
+    , _uasgVPCZoneIdentifier       :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'UpdateAutoScalingGroupType' constructor.
+-- | 'UpdateAutoScalingGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uasgtAutoScalingGroupName' @::@ 'Text'
+-- * 'uasgAutoScalingGroupName' @::@ 'Text'
 --
--- * 'uasgtAvailabilityZones' @::@ 'NonEmpty' 'Text'
+-- * 'uasgAvailabilityZones' @::@ 'NonEmpty' 'Text'
 --
--- * 'uasgtDefaultCooldown' @::@ 'Maybe' 'Int'
+-- * 'uasgDefaultCooldown' @::@ 'Maybe' 'Int'
 --
--- * 'uasgtDesiredCapacity' @::@ 'Maybe' 'Int'
+-- * 'uasgDesiredCapacity' @::@ 'Maybe' 'Int'
 --
--- * 'uasgtHealthCheckGracePeriod' @::@ 'Maybe' 'Int'
+-- * 'uasgHealthCheckGracePeriod' @::@ 'Maybe' 'Int'
 --
--- * 'uasgtHealthCheckType' @::@ 'Maybe' 'Text'
+-- * 'uasgHealthCheckType' @::@ 'Maybe' 'Text'
 --
--- * 'uasgtLaunchConfigurationName' @::@ 'Maybe' 'Text'
+-- * 'uasgLaunchConfigurationName' @::@ 'Maybe' 'Text'
 --
--- * 'uasgtMaxSize' @::@ 'Maybe' 'Int'
+-- * 'uasgMaxSize' @::@ 'Maybe' 'Int'
 --
--- * 'uasgtMinSize' @::@ 'Maybe' 'Int'
+-- * 'uasgMinSize' @::@ 'Maybe' 'Int'
 --
--- * 'uasgtPlacementGroup' @::@ 'Maybe' 'Text'
+-- * 'uasgPlacementGroup' @::@ 'Maybe' 'Text'
 --
--- * 'uasgtTerminationPolicies' @::@ ['Text']
+-- * 'uasgTerminationPolicies' @::@ ['Text']
 --
--- * 'uasgtVPCZoneIdentifier' @::@ 'Maybe' 'Text'
+-- * 'uasgVPCZoneIdentifier' @::@ 'Maybe' 'Text'
 --
-updateAutoScalingGroup :: Text -- ^ 'uasgtAutoScalingGroupName'
-                       -> NonEmpty Text -- ^ 'uasgtAvailabilityZones'
-                       -> UpdateAutoScalingGroupType
-updateAutoScalingGroup p1 p2 = UpdateAutoScalingGroupType
-    { _uasgtAutoScalingGroupName    = p1
-    , _uasgtAvailabilityZones       = withIso _List1 (const id) p2
-    , _uasgtLaunchConfigurationName = Nothing
-    , _uasgtMinSize                 = Nothing
-    , _uasgtMaxSize                 = Nothing
-    , _uasgtDesiredCapacity         = Nothing
-    , _uasgtDefaultCooldown         = Nothing
-    , _uasgtHealthCheckType         = Nothing
-    , _uasgtHealthCheckGracePeriod  = Nothing
-    , _uasgtPlacementGroup          = Nothing
-    , _uasgtVPCZoneIdentifier       = Nothing
-    , _uasgtTerminationPolicies     = mempty
+updateAutoScalingGroup :: Text -- ^ 'uasgAutoScalingGroupName'
+                       -> NonEmpty Text -- ^ 'uasgAvailabilityZones'
+                       -> UpdateAutoScalingGroup
+updateAutoScalingGroup p1 p2 = UpdateAutoScalingGroup
+    { _uasgAutoScalingGroupName    = p1
+    , _uasgAvailabilityZones       = withIso _List1 (const id) p2
+    , _uasgLaunchConfigurationName = Nothing
+    , _uasgMinSize                 = Nothing
+    , _uasgMaxSize                 = Nothing
+    , _uasgDesiredCapacity         = Nothing
+    , _uasgDefaultCooldown         = Nothing
+    , _uasgHealthCheckType         = Nothing
+    , _uasgHealthCheckGracePeriod  = Nothing
+    , _uasgPlacementGroup          = Nothing
+    , _uasgVPCZoneIdentifier       = Nothing
+    , _uasgTerminationPolicies     = mempty
     }
 
 -- | The name of the Auto Scaling group.
-uasgtAutoScalingGroupName :: Lens' UpdateAutoScalingGroupType Text
-uasgtAutoScalingGroupName =
-    lens _uasgtAutoScalingGroupName
-        (\s a -> s { _uasgtAutoScalingGroupName = a })
+uasgAutoScalingGroupName :: Lens' UpdateAutoScalingGroup Text
+uasgAutoScalingGroupName =
+    lens _uasgAutoScalingGroupName
+        (\s a -> s { _uasgAutoScalingGroupName = a })
 
 -- | Availability Zones for the group.
-uasgtAvailabilityZones :: Lens' UpdateAutoScalingGroupType (NonEmpty Text)
-uasgtAvailabilityZones =
-    lens _uasgtAvailabilityZones (\s a -> s { _uasgtAvailabilityZones = a })
+uasgAvailabilityZones :: Lens' UpdateAutoScalingGroup (NonEmpty Text)
+uasgAvailabilityZones =
+    lens _uasgAvailabilityZones (\s a -> s { _uasgAvailabilityZones = a })
         . _List1
 
 -- | The amount of time, in seconds, after a scaling activity completes before
 -- any further scaling activities can start. For more information, see
 -- Cooldown Period.
-uasgtDefaultCooldown :: Lens' UpdateAutoScalingGroupType (Maybe Int)
-uasgtDefaultCooldown =
-    lens _uasgtDefaultCooldown (\s a -> s { _uasgtDefaultCooldown = a })
+uasgDefaultCooldown :: Lens' UpdateAutoScalingGroup (Maybe Int)
+uasgDefaultCooldown =
+    lens _uasgDefaultCooldown (\s a -> s { _uasgDefaultCooldown = a })
 
 -- | The desired capacity for the Auto Scaling group.
-uasgtDesiredCapacity :: Lens' UpdateAutoScalingGroupType (Maybe Int)
-uasgtDesiredCapacity =
-    lens _uasgtDesiredCapacity (\s a -> s { _uasgtDesiredCapacity = a })
+uasgDesiredCapacity :: Lens' UpdateAutoScalingGroup (Maybe Int)
+uasgDesiredCapacity =
+    lens _uasgDesiredCapacity (\s a -> s { _uasgDesiredCapacity = a })
 
 -- | The length of time that Auto Scaling waits before checking an instance's
 -- health status. The grace period begins when the instance passes System
 -- Status and the Instance Status checks from Amazon EC2. For more
 -- information, see DescribeInstanceStatus.
-uasgtHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroupType (Maybe Int)
-uasgtHealthCheckGracePeriod =
-    lens _uasgtHealthCheckGracePeriod
-        (\s a -> s { _uasgtHealthCheckGracePeriod = a })
+uasgHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroup (Maybe Int)
+uasgHealthCheckGracePeriod =
+    lens _uasgHealthCheckGracePeriod
+        (\s a -> s { _uasgHealthCheckGracePeriod = a })
 
 -- | The type of health check for the instances in the Auto Scaling group. The
 -- health check type can either be EC2 for Amazon EC2 or ELB for Elastic
 -- Load Balancing.
-uasgtHealthCheckType :: Lens' UpdateAutoScalingGroupType (Maybe Text)
-uasgtHealthCheckType =
-    lens _uasgtHealthCheckType (\s a -> s { _uasgtHealthCheckType = a })
+uasgHealthCheckType :: Lens' UpdateAutoScalingGroup (Maybe Text)
+uasgHealthCheckType =
+    lens _uasgHealthCheckType (\s a -> s { _uasgHealthCheckType = a })
 
 -- | The name of the launch configuration.
-uasgtLaunchConfigurationName :: Lens' UpdateAutoScalingGroupType (Maybe Text)
-uasgtLaunchConfigurationName =
-    lens _uasgtLaunchConfigurationName
-        (\s a -> s { _uasgtLaunchConfigurationName = a })
+uasgLaunchConfigurationName :: Lens' UpdateAutoScalingGroup (Maybe Text)
+uasgLaunchConfigurationName =
+    lens _uasgLaunchConfigurationName
+        (\s a -> s { _uasgLaunchConfigurationName = a })
 
 -- | The maximum size of the Auto Scaling group.
-uasgtMaxSize :: Lens' UpdateAutoScalingGroupType (Maybe Int)
-uasgtMaxSize = lens _uasgtMaxSize (\s a -> s { _uasgtMaxSize = a })
+uasgMaxSize :: Lens' UpdateAutoScalingGroup (Maybe Int)
+uasgMaxSize = lens _uasgMaxSize (\s a -> s { _uasgMaxSize = a })
 
 -- | The minimum size of the Auto Scaling group.
-uasgtMinSize :: Lens' UpdateAutoScalingGroupType (Maybe Int)
-uasgtMinSize = lens _uasgtMinSize (\s a -> s { _uasgtMinSize = a })
+uasgMinSize :: Lens' UpdateAutoScalingGroup (Maybe Int)
+uasgMinSize = lens _uasgMinSize (\s a -> s { _uasgMinSize = a })
 
 -- | The name of the cluster placement group, if applicable. For more
 -- information, go to Using Cluster Instances in the Amazon EC2 User Guide.
-uasgtPlacementGroup :: Lens' UpdateAutoScalingGroupType (Maybe Text)
-uasgtPlacementGroup =
-    lens _uasgtPlacementGroup (\s a -> s { _uasgtPlacementGroup = a })
+uasgPlacementGroup :: Lens' UpdateAutoScalingGroup (Maybe Text)
+uasgPlacementGroup =
+    lens _uasgPlacementGroup (\s a -> s { _uasgPlacementGroup = a })
 
 -- | A standalone termination policy or a list of termination policies used to
 -- select the instance to terminate. The policies are executed in the order
 -- that they are listed. For more information on creating a termination
 -- policy for your Auto Scaling group, go to Instance Termination Policy for
 -- Your Auto Scaling Group in the the Auto Scaling Developer Guide.
-uasgtTerminationPolicies :: Lens' UpdateAutoScalingGroupType [Text]
-uasgtTerminationPolicies =
-    lens _uasgtTerminationPolicies
-        (\s a -> s { _uasgtTerminationPolicies = a })
+uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
+uasgTerminationPolicies =
+    lens _uasgTerminationPolicies (\s a -> s { _uasgTerminationPolicies = a })
 
 -- | The subnet identifier for the Amazon VPC connection, if applicable. You
 -- can specify several subnets in a comma-separated list. When you specify
@@ -192,13 +191,13 @@ uasgtTerminationPolicies =
 -- For more information on creating your Auto Scaling group in Amazon VPC by
 -- specifying subnets, see Launch Auto Scaling Instances into Amazon VPC in
 -- the the Auto Scaling Developer Guide.
-uasgtVPCZoneIdentifier :: Lens' UpdateAutoScalingGroupType (Maybe Text)
-uasgtVPCZoneIdentifier =
-    lens _uasgtVPCZoneIdentifier (\s a -> s { _uasgtVPCZoneIdentifier = a })
+uasgVPCZoneIdentifier :: Lens' UpdateAutoScalingGroup (Maybe Text)
+uasgVPCZoneIdentifier =
+    lens _uasgVPCZoneIdentifier (\s a -> s { _uasgVPCZoneIdentifier = a })
 
-instance ToQuery UpdateAutoScalingGroupType
+instance ToQuery UpdateAutoScalingGroup
 
-instance ToPath UpdateAutoScalingGroupType where
+instance ToPath UpdateAutoScalingGroup where
     toPath = const "/"
 
 data UpdateAutoScalingGroupResponse = UpdateAutoScalingGroupResponse
@@ -212,9 +211,9 @@ instance FromXML UpdateAutoScalingGroupResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UpdateAutoScalingGroupResponse"
 
-instance AWSRequest UpdateAutoScalingGroupType where
-    type Sv UpdateAutoScalingGroupType = AutoScaling
-    type Rs UpdateAutoScalingGroupType = UpdateAutoScalingGroupResponse
+instance AWSRequest UpdateAutoScalingGroup where
+    type Sv UpdateAutoScalingGroup = AutoScaling
+    type Rs UpdateAutoScalingGroup = UpdateAutoScalingGroupResponse
 
     request  = post "UpdateAutoScalingGroup"
     response = nullaryResponse UpdateAutoScalingGroupResponse

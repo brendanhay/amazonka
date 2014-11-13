@@ -33,28 +33,28 @@
 module Network.AWS.Redshift.ModifyCluster
     (
     -- * Request
-      ModifyClusterMessage
+      ModifyCluster
     -- ** Request constructor
     , modifyCluster
     -- ** Request lenses
-    , mcmAllowVersionUpgrade
-    , mcmAutomatedSnapshotRetentionPeriod
-    , mcmClusterIdentifier
-    , mcmClusterParameterGroupName
-    , mcmClusterSecurityGroups
-    , mcmClusterType
-    , mcmClusterVersion
-    , mcmHsmClientCertificateIdentifier
-    , mcmHsmConfigurationIdentifier
-    , mcmMasterUserPassword
-    , mcmNewClusterIdentifier
-    , mcmNodeType
-    , mcmNumberOfNodes
-    , mcmPreferredMaintenanceWindow
-    , mcmVpcSecurityGroupIds
+    , mcAllowVersionUpgrade
+    , mcAutomatedSnapshotRetentionPeriod
+    , mcClusterIdentifier
+    , mcClusterParameterGroupName
+    , mcClusterSecurityGroups
+    , mcClusterType
+    , mcClusterVersion
+    , mcHsmClientCertificateIdentifier
+    , mcHsmConfigurationIdentifier
+    , mcMasterUserPassword
+    , mcNewClusterIdentifier
+    , mcNodeType
+    , mcNumberOfNodes
+    , mcPreferredMaintenanceWindow
+    , mcVpcSecurityGroupIds
 
     -- * Response
-    , ModifyClusterResult
+    , ModifyClusterResponse
     -- ** Response constructor
     , modifyClusterResponse
     -- ** Response lenses
@@ -65,83 +65,83 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data ModifyClusterMessage = ModifyClusterMessage
-    { _mcmAllowVersionUpgrade              :: Maybe Bool
-    , _mcmAutomatedSnapshotRetentionPeriod :: Maybe Int
-    , _mcmClusterIdentifier                :: Text
-    , _mcmClusterParameterGroupName        :: Maybe Text
-    , _mcmClusterSecurityGroups            :: [Text]
-    , _mcmClusterType                      :: Maybe Text
-    , _mcmClusterVersion                   :: Maybe Text
-    , _mcmHsmClientCertificateIdentifier   :: Maybe Text
-    , _mcmHsmConfigurationIdentifier       :: Maybe Text
-    , _mcmMasterUserPassword               :: Maybe Text
-    , _mcmNewClusterIdentifier             :: Maybe Text
-    , _mcmNodeType                         :: Maybe Text
-    , _mcmNumberOfNodes                    :: Maybe Int
-    , _mcmPreferredMaintenanceWindow       :: Maybe Text
-    , _mcmVpcSecurityGroupIds              :: [Text]
+data ModifyCluster = ModifyCluster
+    { _mcAllowVersionUpgrade              :: Maybe Bool
+    , _mcAutomatedSnapshotRetentionPeriod :: Maybe Int
+    , _mcClusterIdentifier                :: Text
+    , _mcClusterParameterGroupName        :: Maybe Text
+    , _mcClusterSecurityGroups            :: [Text]
+    , _mcClusterType                      :: Maybe Text
+    , _mcClusterVersion                   :: Maybe Text
+    , _mcHsmClientCertificateIdentifier   :: Maybe Text
+    , _mcHsmConfigurationIdentifier       :: Maybe Text
+    , _mcMasterUserPassword               :: Maybe Text
+    , _mcNewClusterIdentifier             :: Maybe Text
+    , _mcNodeType                         :: Maybe Text
+    , _mcNumberOfNodes                    :: Maybe Int
+    , _mcPreferredMaintenanceWindow       :: Maybe Text
+    , _mcVpcSecurityGroupIds              :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ModifyClusterMessage' constructor.
+-- | 'ModifyCluster' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mcmAllowVersionUpgrade' @::@ 'Maybe' 'Bool'
+-- * 'mcAllowVersionUpgrade' @::@ 'Maybe' 'Bool'
 --
--- * 'mcmAutomatedSnapshotRetentionPeriod' @::@ 'Maybe' 'Int'
+-- * 'mcAutomatedSnapshotRetentionPeriod' @::@ 'Maybe' 'Int'
 --
--- * 'mcmClusterIdentifier' @::@ 'Text'
+-- * 'mcClusterIdentifier' @::@ 'Text'
 --
--- * 'mcmClusterParameterGroupName' @::@ 'Maybe' 'Text'
+-- * 'mcClusterParameterGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'mcmClusterSecurityGroups' @::@ ['Text']
+-- * 'mcClusterSecurityGroups' @::@ ['Text']
 --
--- * 'mcmClusterType' @::@ 'Maybe' 'Text'
+-- * 'mcClusterType' @::@ 'Maybe' 'Text'
 --
--- * 'mcmClusterVersion' @::@ 'Maybe' 'Text'
+-- * 'mcClusterVersion' @::@ 'Maybe' 'Text'
 --
--- * 'mcmHsmClientCertificateIdentifier' @::@ 'Maybe' 'Text'
+-- * 'mcHsmClientCertificateIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'mcmHsmConfigurationIdentifier' @::@ 'Maybe' 'Text'
+-- * 'mcHsmConfigurationIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'mcmMasterUserPassword' @::@ 'Maybe' 'Text'
+-- * 'mcMasterUserPassword' @::@ 'Maybe' 'Text'
 --
--- * 'mcmNewClusterIdentifier' @::@ 'Maybe' 'Text'
+-- * 'mcNewClusterIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'mcmNodeType' @::@ 'Maybe' 'Text'
+-- * 'mcNodeType' @::@ 'Maybe' 'Text'
 --
--- * 'mcmNumberOfNodes' @::@ 'Maybe' 'Int'
+-- * 'mcNumberOfNodes' @::@ 'Maybe' 'Int'
 --
--- * 'mcmPreferredMaintenanceWindow' @::@ 'Maybe' 'Text'
+-- * 'mcPreferredMaintenanceWindow' @::@ 'Maybe' 'Text'
 --
--- * 'mcmVpcSecurityGroupIds' @::@ ['Text']
+-- * 'mcVpcSecurityGroupIds' @::@ ['Text']
 --
-modifyCluster :: Text -- ^ 'mcmClusterIdentifier'
-              -> ModifyClusterMessage
-modifyCluster p1 = ModifyClusterMessage
-    { _mcmClusterIdentifier                = p1
-    , _mcmClusterType                      = Nothing
-    , _mcmNodeType                         = Nothing
-    , _mcmNumberOfNodes                    = Nothing
-    , _mcmClusterSecurityGroups            = mempty
-    , _mcmVpcSecurityGroupIds              = mempty
-    , _mcmMasterUserPassword               = Nothing
-    , _mcmClusterParameterGroupName        = Nothing
-    , _mcmAutomatedSnapshotRetentionPeriod = Nothing
-    , _mcmPreferredMaintenanceWindow       = Nothing
-    , _mcmClusterVersion                   = Nothing
-    , _mcmAllowVersionUpgrade              = Nothing
-    , _mcmHsmClientCertificateIdentifier   = Nothing
-    , _mcmHsmConfigurationIdentifier       = Nothing
-    , _mcmNewClusterIdentifier             = Nothing
+modifyCluster :: Text -- ^ 'mcClusterIdentifier'
+              -> ModifyCluster
+modifyCluster p1 = ModifyCluster
+    { _mcClusterIdentifier                = p1
+    , _mcClusterType                      = Nothing
+    , _mcNodeType                         = Nothing
+    , _mcNumberOfNodes                    = Nothing
+    , _mcClusterSecurityGroups            = mempty
+    , _mcVpcSecurityGroupIds              = mempty
+    , _mcMasterUserPassword               = Nothing
+    , _mcClusterParameterGroupName        = Nothing
+    , _mcAutomatedSnapshotRetentionPeriod = Nothing
+    , _mcPreferredMaintenanceWindow       = Nothing
+    , _mcClusterVersion                   = Nothing
+    , _mcAllowVersionUpgrade              = Nothing
+    , _mcHsmClientCertificateIdentifier   = Nothing
+    , _mcHsmConfigurationIdentifier       = Nothing
+    , _mcNewClusterIdentifier             = Nothing
     }
 
 -- | If true, major version upgrades will be applied automatically to the
 -- cluster during the maintenance window. Default: false.
-mcmAllowVersionUpgrade :: Lens' ModifyClusterMessage (Maybe Bool)
-mcmAllowVersionUpgrade =
-    lens _mcmAllowVersionUpgrade (\s a -> s { _mcmAllowVersionUpgrade = a })
+mcAllowVersionUpgrade :: Lens' ModifyCluster (Maybe Bool)
+mcAllowVersionUpgrade =
+    lens _mcAllowVersionUpgrade (\s a -> s { _mcAllowVersionUpgrade = a })
 
 -- | The number of days that automated snapshots are retained. If the value is
 -- 0, automated snapshots are disabled. Even if automated snapshots are
@@ -150,26 +150,26 @@ mcmAllowVersionUpgrade =
 -- period from its current value, existing automated snapshots that fall
 -- outside of the new retention period will be immediately deleted. Default:
 -- Uses existing setting. Constraints: Must be a value from 0 to 35.
-mcmAutomatedSnapshotRetentionPeriod :: Lens' ModifyClusterMessage (Maybe Int)
-mcmAutomatedSnapshotRetentionPeriod =
-    lens _mcmAutomatedSnapshotRetentionPeriod
-        (\s a -> s { _mcmAutomatedSnapshotRetentionPeriod = a })
+mcAutomatedSnapshotRetentionPeriod :: Lens' ModifyCluster (Maybe Int)
+mcAutomatedSnapshotRetentionPeriod =
+    lens _mcAutomatedSnapshotRetentionPeriod
+        (\s a -> s { _mcAutomatedSnapshotRetentionPeriod = a })
 
 -- | The unique identifier of the cluster to be modified. Example:
 -- examplecluster.
-mcmClusterIdentifier :: Lens' ModifyClusterMessage Text
-mcmClusterIdentifier =
-    lens _mcmClusterIdentifier (\s a -> s { _mcmClusterIdentifier = a })
+mcClusterIdentifier :: Lens' ModifyCluster Text
+mcClusterIdentifier =
+    lens _mcClusterIdentifier (\s a -> s { _mcClusterIdentifier = a })
 
 -- | The name of the cluster parameter group to apply to this cluster. This
 -- change is applied only after the cluster is rebooted. To reboot a cluster
 -- use RebootCluster. Default: Uses existing setting. Constraints: The
 -- cluster parameter group must be in the same parameter group family that
 -- matches the cluster version.
-mcmClusterParameterGroupName :: Lens' ModifyClusterMessage (Maybe Text)
-mcmClusterParameterGroupName =
-    lens _mcmClusterParameterGroupName
-        (\s a -> s { _mcmClusterParameterGroupName = a })
+mcClusterParameterGroupName :: Lens' ModifyCluster (Maybe Text)
+mcClusterParameterGroupName =
+    lens _mcClusterParameterGroupName
+        (\s a -> s { _mcClusterParameterGroupName = a })
 
 -- | A list of cluster security groups to be authorized on this cluster. This
 -- change is asynchronously applied as soon as possible. Security groups
@@ -177,10 +177,9 @@ mcmClusterParameterGroupName =
 -- apply, will be revoked from the cluster. Constraints: Must be 1 to 255
 -- alphanumeric characters or hyphens First character must be a letter
 -- Cannot end with a hyphen or contain two consecutive hyphens.
-mcmClusterSecurityGroups :: Lens' ModifyClusterMessage [Text]
-mcmClusterSecurityGroups =
-    lens _mcmClusterSecurityGroups
-        (\s a -> s { _mcmClusterSecurityGroups = a })
+mcClusterSecurityGroups :: Lens' ModifyCluster [Text]
+mcClusterSecurityGroups =
+    lens _mcClusterSecurityGroups (\s a -> s { _mcClusterSecurityGroups = a })
 
 -- | The new cluster type. When you submit your cluster resize request, your
 -- existing cluster goes into a read-only mode. After Amazon Redshift
@@ -188,8 +187,8 @@ mcmClusterSecurityGroups =
 -- outage for a period while the old cluster is deleted and your connection
 -- is switched to the new cluster. You can use DescribeResize to track the
 -- progress of the resize request. Valid Values: multi-node | single-node.
-mcmClusterType :: Lens' ModifyClusterMessage (Maybe Text)
-mcmClusterType = lens _mcmClusterType (\s a -> s { _mcmClusterType = a })
+mcClusterType :: Lens' ModifyCluster (Maybe Text)
+mcClusterType = lens _mcClusterType (\s a -> s { _mcClusterType = a })
 
 -- | The new version number of the Amazon Redshift engine to upgrade to. For
 -- major version upgrades, if a non-default cluster parameter group is
@@ -199,23 +198,22 @@ mcmClusterType = lens _mcmClusterType (\s a -> s { _mcmClusterType = a })
 -- family. For more information about managing parameter groups, go to
 -- Amazon Redshift Parameter Groups in the Amazon Redshift Management Guide.
 -- Example: 1.0.
-mcmClusterVersion :: Lens' ModifyClusterMessage (Maybe Text)
-mcmClusterVersion =
-    lens _mcmClusterVersion (\s a -> s { _mcmClusterVersion = a })
+mcClusterVersion :: Lens' ModifyCluster (Maybe Text)
+mcClusterVersion = lens _mcClusterVersion (\s a -> s { _mcClusterVersion = a })
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift
 -- cluster uses to retrieve the data encryption keys stored in an HSM.
-mcmHsmClientCertificateIdentifier :: Lens' ModifyClusterMessage (Maybe Text)
-mcmHsmClientCertificateIdentifier =
-    lens _mcmHsmClientCertificateIdentifier
-        (\s a -> s { _mcmHsmClientCertificateIdentifier = a })
+mcHsmClientCertificateIdentifier :: Lens' ModifyCluster (Maybe Text)
+mcHsmClientCertificateIdentifier =
+    lens _mcHsmClientCertificateIdentifier
+        (\s a -> s { _mcHsmClientCertificateIdentifier = a })
 
 -- | Specifies the name of the HSM configuration that contains the information
 -- the Amazon Redshift cluster can use to retrieve and store keys in an HSM.
-mcmHsmConfigurationIdentifier :: Lens' ModifyClusterMessage (Maybe Text)
-mcmHsmConfigurationIdentifier =
-    lens _mcmHsmConfigurationIdentifier
-        (\s a -> s { _mcmHsmConfigurationIdentifier = a })
+mcHsmConfigurationIdentifier :: Lens' ModifyCluster (Maybe Text)
+mcHsmConfigurationIdentifier =
+    lens _mcHsmConfigurationIdentifier
+        (\s a -> s { _mcHsmConfigurationIdentifier = a })
 
 -- | The new password for the cluster master user. This change is
 -- asynchronously applied as soon as possible. Between the time of the
@@ -226,18 +224,18 @@ mcmHsmConfigurationIdentifier =
 -- contain at least one lowercase letter. Must contain one number. Can be
 -- any printable ASCII character (ASCII code 33 to 126) except ' (single
 -- quote), " (double quote), \, /, @, or space.
-mcmMasterUserPassword :: Lens' ModifyClusterMessage (Maybe Text)
-mcmMasterUserPassword =
-    lens _mcmMasterUserPassword (\s a -> s { _mcmMasterUserPassword = a })
+mcMasterUserPassword :: Lens' ModifyCluster (Maybe Text)
+mcMasterUserPassword =
+    lens _mcMasterUserPassword (\s a -> s { _mcMasterUserPassword = a })
 
 -- | The new identifier for the cluster. Constraints: Must contain from 1 to
 -- 63 alphanumeric characters or hyphens. Alphabetic characters must be
 -- lowercase. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens. Must be unique for all clusters within
 -- an AWS account. Example: examplecluster.
-mcmNewClusterIdentifier :: Lens' ModifyClusterMessage (Maybe Text)
-mcmNewClusterIdentifier =
-    lens _mcmNewClusterIdentifier (\s a -> s { _mcmNewClusterIdentifier = a })
+mcNewClusterIdentifier :: Lens' ModifyCluster (Maybe Text)
+mcNewClusterIdentifier =
+    lens _mcNewClusterIdentifier (\s a -> s { _mcNewClusterIdentifier = a })
 
 -- | The new node type of the cluster. If you specify a new node type, you
 -- must also specify the number of nodes parameter. When you submit your
@@ -249,8 +247,8 @@ mcmNewClusterIdentifier =
 -- permissions for the cluster are restored. You can use DescribeResize to
 -- track the progress of the resize request. Valid Values: dw1.xlarge |
 -- dw1.8xlarge | dw2.large | dw2.8xlarge.
-mcmNodeType :: Lens' ModifyClusterMessage (Maybe Text)
-mcmNodeType = lens _mcmNodeType (\s a -> s { _mcmNodeType = a })
+mcNodeType :: Lens' ModifyCluster (Maybe Text)
+mcNodeType = lens _mcNodeType (\s a -> s { _mcNodeType = a })
 
 -- | The new number of nodes of the cluster. If you specify a new number of
 -- nodes, you must also specify the node type parameter. When you submit
@@ -262,8 +260,8 @@ mcmNodeType = lens _mcmNodeType (\s a -> s { _mcmNodeType = a })
 -- access permissions for the cluster are restored. You can use
 -- DescribeResize to track the progress of the resize request. Valid Values:
 -- Integer greater than 0.
-mcmNumberOfNodes :: Lens' ModifyClusterMessage (Maybe Int)
-mcmNumberOfNodes = lens _mcmNumberOfNodes (\s a -> s { _mcmNumberOfNodes = a })
+mcNumberOfNodes :: Lens' ModifyCluster (Maybe Int)
+mcNumberOfNodes = lens _mcNumberOfNodes (\s a -> s { _mcNumberOfNodes = a })
 
 -- | The weekly time range (in UTC) during which system maintenance can occur,
 -- if necessary. If system maintenance is necessary during the window, it
@@ -274,48 +272,48 @@ mcmNumberOfNodes = lens _mcmNumberOfNodes (\s a -> s { _mcmNumberOfNodes = a })
 -- Uses existing setting. Format: ddd:hh24:mi-ddd:hh24:mi, for example
 -- wed:07:30-wed:08:00. Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 -- Constraints: Must be at least 30 minutes.
-mcmPreferredMaintenanceWindow :: Lens' ModifyClusterMessage (Maybe Text)
-mcmPreferredMaintenanceWindow =
-    lens _mcmPreferredMaintenanceWindow
-        (\s a -> s { _mcmPreferredMaintenanceWindow = a })
+mcPreferredMaintenanceWindow :: Lens' ModifyCluster (Maybe Text)
+mcPreferredMaintenanceWindow =
+    lens _mcPreferredMaintenanceWindow
+        (\s a -> s { _mcPreferredMaintenanceWindow = a })
 
 -- | A list of virtual private cloud (VPC) security groups to be associated
 -- with the cluster.
-mcmVpcSecurityGroupIds :: Lens' ModifyClusterMessage [Text]
-mcmVpcSecurityGroupIds =
-    lens _mcmVpcSecurityGroupIds (\s a -> s { _mcmVpcSecurityGroupIds = a })
+mcVpcSecurityGroupIds :: Lens' ModifyCluster [Text]
+mcVpcSecurityGroupIds =
+    lens _mcVpcSecurityGroupIds (\s a -> s { _mcVpcSecurityGroupIds = a })
 
-instance ToQuery ModifyClusterMessage
+instance ToQuery ModifyCluster
 
-instance ToPath ModifyClusterMessage where
+instance ToPath ModifyCluster where
     toPath = const "/"
 
-newtype ModifyClusterResult = ModifyClusterResult
+newtype ModifyClusterResponse = ModifyClusterResponse
     { _mcrCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
 
--- | 'ModifyClusterResult' constructor.
+-- | 'ModifyClusterResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mcrCluster' @::@ 'Maybe' 'Cluster'
 --
-modifyClusterResponse :: ModifyClusterResult
-modifyClusterResponse = ModifyClusterResult
+modifyClusterResponse :: ModifyClusterResponse
+modifyClusterResponse = ModifyClusterResponse
     { _mcrCluster = Nothing
     }
 
-mcrCluster :: Lens' ModifyClusterResult (Maybe Cluster)
+mcrCluster :: Lens' ModifyClusterResponse (Maybe Cluster)
 mcrCluster = lens _mcrCluster (\s a -> s { _mcrCluster = a })
 
-instance FromXML ModifyClusterResult where
+instance FromXML ModifyClusterResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyClusterResult"
+    fromXMLRoot    = fromRoot "ModifyClusterResponse"
 
-instance AWSRequest ModifyClusterMessage where
-    type Sv ModifyClusterMessage = Redshift
-    type Rs ModifyClusterMessage = ModifyClusterResult
+instance AWSRequest ModifyCluster where
+    type Sv ModifyCluster = Redshift
+    type Rs ModifyCluster = ModifyClusterResponse
 
     request  = post "ModifyCluster"
-    response = xmlResponse $ \h x -> ModifyClusterResult
+    response = xmlResponse $ \h x -> ModifyClusterResponse
         <$> x %| "Cluster"

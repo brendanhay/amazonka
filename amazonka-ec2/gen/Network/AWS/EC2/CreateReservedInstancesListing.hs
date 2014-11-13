@@ -49,7 +49,7 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     , crilReservedInstancesId
 
     -- * Response
-    , CreateReservedInstancesListingResult
+    , CreateReservedInstancesListingResponse
     -- ** Response constructor
     , createReservedInstancesListingResponse
     -- ** Response lenses
@@ -120,41 +120,41 @@ instance ToQuery CreateReservedInstancesListing
 instance ToPath CreateReservedInstancesListing where
     toPath = const "/"
 
-newtype CreateReservedInstancesListingResult = CreateReservedInstancesListingResult
+newtype CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse
     { _crilr1ReservedInstancesListings :: [ReservedInstancesListing]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CreateReservedInstancesListingResult where
-    type Item CreateReservedInstancesListingResult = ReservedInstancesListing
+instance IsList CreateReservedInstancesListingResponse where
+    type Item CreateReservedInstancesListingResponse = ReservedInstancesListing
 
-    fromList = CreateReservedInstancesListingResult . fromList
+    fromList = CreateReservedInstancesListingResponse . fromList
     toList   = toList . _crilr1ReservedInstancesListings
 
--- | 'CreateReservedInstancesListingResult' constructor.
+-- | 'CreateReservedInstancesListingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'crilr1ReservedInstancesListings' @::@ ['ReservedInstancesListing']
 --
-createReservedInstancesListingResponse :: CreateReservedInstancesListingResult
-createReservedInstancesListingResponse = CreateReservedInstancesListingResult
+createReservedInstancesListingResponse :: CreateReservedInstancesListingResponse
+createReservedInstancesListingResponse = CreateReservedInstancesListingResponse
     { _crilr1ReservedInstancesListings = mempty
     }
 
 -- | Information about the Reserved Instances listing.
-crilr1ReservedInstancesListings :: Lens' CreateReservedInstancesListingResult [ReservedInstancesListing]
+crilr1ReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
 crilr1ReservedInstancesListings =
     lens _crilr1ReservedInstancesListings
         (\s a -> s { _crilr1ReservedInstancesListings = a })
 
-instance FromXML CreateReservedInstancesListingResult where
+instance FromXML CreateReservedInstancesListingResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateReservedInstancesListingResult"
+    fromXMLRoot    = fromRoot "CreateReservedInstancesListingResponse"
 
 instance AWSRequest CreateReservedInstancesListing where
     type Sv CreateReservedInstancesListing = EC2
-    type Rs CreateReservedInstancesListing = CreateReservedInstancesListingResult
+    type Rs CreateReservedInstancesListing = CreateReservedInstancesListingResponse
 
     request  = post "CreateReservedInstancesListing"
-    response = xmlResponse $ \h x -> CreateReservedInstancesListingResult
+    response = xmlResponse $ \h x -> CreateReservedInstancesListingResponse
         <$> x %| "reservedInstancesListingsSet"

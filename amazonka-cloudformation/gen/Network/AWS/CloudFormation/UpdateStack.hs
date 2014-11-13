@@ -31,88 +31,88 @@
 module Network.AWS.CloudFormation.UpdateStack
     (
     -- * Request
-      UpdateStackInput
+      UpdateStack
     -- ** Request constructor
     , updateStack
     -- ** Request lenses
-    , usiCapabilities
-    , usiNotificationARNs
-    , usiParameters
-    , usiStackName
-    , usiStackPolicyBody
-    , usiStackPolicyDuringUpdateBody
-    , usiStackPolicyDuringUpdateURL
-    , usiStackPolicyURL
-    , usiTemplateBody
-    , usiTemplateURL
-    , usiUsePreviousTemplate
+    , usCapabilities
+    , usNotificationARNs
+    , usParameters
+    , usStackName
+    , usStackPolicyBody
+    , usStackPolicyDuringUpdateBody
+    , usStackPolicyDuringUpdateURL
+    , usStackPolicyURL
+    , usTemplateBody
+    , usTemplateURL
+    , usUsePreviousTemplate
 
     -- * Response
-    , UpdateStackOutput
+    , UpdateStackResponse
     -- ** Response constructor
     , updateStackResponse
     -- ** Response lenses
-    , usoStackId
+    , usrStackId
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
 
-data UpdateStackInput = UpdateStackInput
-    { _usiCapabilities                :: [Text]
-    , _usiNotificationARNs            :: [Text]
-    , _usiParameters                  :: [Parameter]
-    , _usiStackName                   :: Text
-    , _usiStackPolicyBody             :: Maybe Text
-    , _usiStackPolicyDuringUpdateBody :: Maybe Text
-    , _usiStackPolicyDuringUpdateURL  :: Maybe Text
-    , _usiStackPolicyURL              :: Maybe Text
-    , _usiTemplateBody                :: Maybe Text
-    , _usiTemplateURL                 :: Maybe Text
-    , _usiUsePreviousTemplate         :: Maybe Bool
+data UpdateStack = UpdateStack
+    { _usCapabilities                :: [Text]
+    , _usNotificationARNs            :: [Text]
+    , _usParameters                  :: [Parameter]
+    , _usStackName                   :: Text
+    , _usStackPolicyBody             :: Maybe Text
+    , _usStackPolicyDuringUpdateBody :: Maybe Text
+    , _usStackPolicyDuringUpdateURL  :: Maybe Text
+    , _usStackPolicyURL              :: Maybe Text
+    , _usTemplateBody                :: Maybe Text
+    , _usTemplateURL                 :: Maybe Text
+    , _usUsePreviousTemplate         :: Maybe Bool
     } deriving (Eq, Show, Generic)
 
--- | 'UpdateStackInput' constructor.
+-- | 'UpdateStack' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usiCapabilities' @::@ ['Text']
+-- * 'usCapabilities' @::@ ['Text']
 --
--- * 'usiNotificationARNs' @::@ ['Text']
+-- * 'usNotificationARNs' @::@ ['Text']
 --
--- * 'usiParameters' @::@ ['Parameter']
+-- * 'usParameters' @::@ ['Parameter']
 --
--- * 'usiStackName' @::@ 'Text'
+-- * 'usStackName' @::@ 'Text'
 --
--- * 'usiStackPolicyBody' @::@ 'Maybe' 'Text'
+-- * 'usStackPolicyBody' @::@ 'Maybe' 'Text'
 --
--- * 'usiStackPolicyDuringUpdateBody' @::@ 'Maybe' 'Text'
+-- * 'usStackPolicyDuringUpdateBody' @::@ 'Maybe' 'Text'
 --
--- * 'usiStackPolicyDuringUpdateURL' @::@ 'Maybe' 'Text'
+-- * 'usStackPolicyDuringUpdateURL' @::@ 'Maybe' 'Text'
 --
--- * 'usiStackPolicyURL' @::@ 'Maybe' 'Text'
+-- * 'usStackPolicyURL' @::@ 'Maybe' 'Text'
 --
--- * 'usiTemplateBody' @::@ 'Maybe' 'Text'
+-- * 'usTemplateBody' @::@ 'Maybe' 'Text'
 --
--- * 'usiTemplateURL' @::@ 'Maybe' 'Text'
+-- * 'usTemplateURL' @::@ 'Maybe' 'Text'
 --
--- * 'usiUsePreviousTemplate' @::@ 'Maybe' 'Bool'
+-- * 'usUsePreviousTemplate' @::@ 'Maybe' 'Bool'
 --
-updateStack :: Text -- ^ 'usiStackName'
-            -> UpdateStackInput
-updateStack p1 = UpdateStackInput
-    { _usiStackName                   = p1
-    , _usiTemplateBody                = Nothing
-    , _usiTemplateURL                 = Nothing
-    , _usiUsePreviousTemplate         = Nothing
-    , _usiStackPolicyDuringUpdateBody = Nothing
-    , _usiStackPolicyDuringUpdateURL  = Nothing
-    , _usiParameters                  = mempty
-    , _usiCapabilities                = mempty
-    , _usiStackPolicyBody             = Nothing
-    , _usiStackPolicyURL              = Nothing
-    , _usiNotificationARNs            = mempty
+updateStack :: Text -- ^ 'usStackName'
+            -> UpdateStack
+updateStack p1 = UpdateStack
+    { _usStackName                   = p1
+    , _usTemplateBody                = Nothing
+    , _usTemplateURL                 = Nothing
+    , _usUsePreviousTemplate         = Nothing
+    , _usStackPolicyDuringUpdateBody = Nothing
+    , _usStackPolicyDuringUpdateURL  = Nothing
+    , _usParameters                  = mempty
+    , _usCapabilities                = mempty
+    , _usStackPolicyBody             = Nothing
+    , _usStackPolicyURL              = Nothing
+    , _usNotificationARNs            = mempty
     }
 
 -- | The list of capabilities that you want to allow in the stack. If your
@@ -121,23 +121,23 @@ updateStack p1 = UpdateStackInput
 -- InsufficientCapabilities error. IAM resources are the following:
 -- AWS::IAM::AccessKey, AWS::IAM::Group, AWS::IAM::Policy, AWS::IAM::User,
 -- and AWS::IAM::UserToGroupAddition.
-usiCapabilities :: Lens' UpdateStackInput [Text]
-usiCapabilities = lens _usiCapabilities (\s a -> s { _usiCapabilities = a })
+usCapabilities :: Lens' UpdateStack [Text]
+usCapabilities = lens _usCapabilities (\s a -> s { _usCapabilities = a })
 
 -- | Update the ARNs for the Amazon SNS topics that are associated with the
 -- stack.
-usiNotificationARNs :: Lens' UpdateStackInput [Text]
-usiNotificationARNs =
-    lens _usiNotificationARNs (\s a -> s { _usiNotificationARNs = a })
+usNotificationARNs :: Lens' UpdateStack [Text]
+usNotificationARNs =
+    lens _usNotificationARNs (\s a -> s { _usNotificationARNs = a })
 
 -- | A list of Parameter structures that specify input parameters for the
 -- stack.
-usiParameters :: Lens' UpdateStackInput [Parameter]
-usiParameters = lens _usiParameters (\s a -> s { _usiParameters = a })
+usParameters :: Lens' UpdateStack [Parameter]
+usParameters = lens _usParameters (\s a -> s { _usParameters = a })
 
 -- | The name or stack ID of the stack to update.
-usiStackName :: Lens' UpdateStackInput Text
-usiStackName = lens _usiStackName (\s a -> s { _usiStackName = a })
+usStackName :: Lens' UpdateStack Text
+usStackName = lens _usStackName (\s a -> s { _usStackName = a })
 
 -- | Structure containing a new stack policy body. You can specify either the
 -- StackPolicyBody or the StackPolicyURL parameter, but not both. You might
@@ -145,9 +145,9 @@ usiStackName = lens _usiStackName (\s a -> s { _usiStackName = a })
 -- that you created during a stack update. If you do not specify a stack
 -- policy, the current policy that is associated with the stack is
 -- unchanged.
-usiStackPolicyBody :: Lens' UpdateStackInput (Maybe Text)
-usiStackPolicyBody =
-    lens _usiStackPolicyBody (\s a -> s { _usiStackPolicyBody = a })
+usStackPolicyBody :: Lens' UpdateStack (Maybe Text)
+usStackPolicyBody =
+    lens _usStackPolicyBody (\s a -> s { _usStackPolicyBody = a })
 
 -- | Structure containing the temporary overriding stack policy body. You can
 -- specify either the StackPolicyDuringUpdateBody or the
@@ -155,10 +155,10 @@ usiStackPolicyBody =
 -- protected resources, specify a temporary overriding stack policy during
 -- this update. If you do not specify a stack policy, the current policy
 -- that is associated with the stack will be used.
-usiStackPolicyDuringUpdateBody :: Lens' UpdateStackInput (Maybe Text)
-usiStackPolicyDuringUpdateBody =
-    lens _usiStackPolicyDuringUpdateBody
-        (\s a -> s { _usiStackPolicyDuringUpdateBody = a })
+usStackPolicyDuringUpdateBody :: Lens' UpdateStack (Maybe Text)
+usStackPolicyDuringUpdateBody =
+    lens _usStackPolicyDuringUpdateBody
+        (\s a -> s { _usStackPolicyDuringUpdateBody = a })
 
 -- | Location of a file containing the temporary overriding stack policy. The
 -- URL must point to a policy (max size: 16KB) located in an S3 bucket in
@@ -168,10 +168,10 @@ usiStackPolicyDuringUpdateBody =
 -- temporary overriding stack policy during this update. If you do not
 -- specify a stack policy, the current policy that is associated with the
 -- stack will be used.
-usiStackPolicyDuringUpdateURL :: Lens' UpdateStackInput (Maybe Text)
-usiStackPolicyDuringUpdateURL =
-    lens _usiStackPolicyDuringUpdateURL
-        (\s a -> s { _usiStackPolicyDuringUpdateURL = a })
+usStackPolicyDuringUpdateURL :: Lens' UpdateStack (Maybe Text)
+usStackPolicyDuringUpdateURL =
+    lens _usStackPolicyDuringUpdateURL
+        (\s a -> s { _usStackPolicyDuringUpdateURL = a })
 
 -- | Location of a file containing the updated stack policy. The URL must
 -- point to a policy (max size: 16KB) located in an S3 bucket in the same
@@ -180,64 +180,63 @@ usiStackPolicyDuringUpdateURL =
 -- policy, for example, in order to protect a new resource that you created
 -- during a stack update. If you do not specify a stack policy, the current
 -- policy that is associated with the stack is unchanged.
-usiStackPolicyURL :: Lens' UpdateStackInput (Maybe Text)
-usiStackPolicyURL =
-    lens _usiStackPolicyURL (\s a -> s { _usiStackPolicyURL = a })
+usStackPolicyURL :: Lens' UpdateStack (Maybe Text)
+usStackPolicyURL = lens _usStackPolicyURL (\s a -> s { _usStackPolicyURL = a })
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. (For more information, go to
 -- Template Anatomy in the AWS CloudFormation User Guide.) Conditional: You
 -- must specify either the TemplateBody or the TemplateURL parameter, but
 -- not both.
-usiTemplateBody :: Lens' UpdateStackInput (Maybe Text)
-usiTemplateBody = lens _usiTemplateBody (\s a -> s { _usiTemplateBody = a })
+usTemplateBody :: Lens' UpdateStack (Maybe Text)
+usTemplateBody = lens _usTemplateBody (\s a -> s { _usTemplateBody = a })
 
 -- | Location of file containing the template body. The URL must point to a
 -- template located in an S3 bucket in the same region as the stack. For
 -- more information, go to Template Anatomy in the AWS CloudFormation User
 -- Guide. Conditional: You must specify either the TemplateBody or the
 -- TemplateURL parameter, but not both.
-usiTemplateURL :: Lens' UpdateStackInput (Maybe Text)
-usiTemplateURL = lens _usiTemplateURL (\s a -> s { _usiTemplateURL = a })
+usTemplateURL :: Lens' UpdateStack (Maybe Text)
+usTemplateURL = lens _usTemplateURL (\s a -> s { _usTemplateURL = a })
 
 -- | Reuse the existing template that is associated with the stack that you
 -- are updating.
-usiUsePreviousTemplate :: Lens' UpdateStackInput (Maybe Bool)
-usiUsePreviousTemplate =
-    lens _usiUsePreviousTemplate (\s a -> s { _usiUsePreviousTemplate = a })
+usUsePreviousTemplate :: Lens' UpdateStack (Maybe Bool)
+usUsePreviousTemplate =
+    lens _usUsePreviousTemplate (\s a -> s { _usUsePreviousTemplate = a })
 
-instance ToQuery UpdateStackInput
+instance ToQuery UpdateStack
 
-instance ToPath UpdateStackInput where
+instance ToPath UpdateStack where
     toPath = const "/"
 
-newtype UpdateStackOutput = UpdateStackOutput
-    { _usoStackId :: Maybe Text
+newtype UpdateStackResponse = UpdateStackResponse
+    { _usrStackId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'UpdateStackOutput' constructor.
+-- | 'UpdateStackResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usoStackId' @::@ 'Maybe' 'Text'
+-- * 'usrStackId' @::@ 'Maybe' 'Text'
 --
-updateStackResponse :: UpdateStackOutput
-updateStackResponse = UpdateStackOutput
-    { _usoStackId = Nothing
+updateStackResponse :: UpdateStackResponse
+updateStackResponse = UpdateStackResponse
+    { _usrStackId = Nothing
     }
 
 -- | Unique identifier of the stack.
-usoStackId :: Lens' UpdateStackOutput (Maybe Text)
-usoStackId = lens _usoStackId (\s a -> s { _usoStackId = a })
+usrStackId :: Lens' UpdateStackResponse (Maybe Text)
+usrStackId = lens _usrStackId (\s a -> s { _usrStackId = a })
 
-instance FromXML UpdateStackOutput where
+instance FromXML UpdateStackResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UpdateStackOutput"
+    fromXMLRoot    = fromRoot "UpdateStackResponse"
 
-instance AWSRequest UpdateStackInput where
-    type Sv UpdateStackInput = CloudFormation
-    type Rs UpdateStackInput = UpdateStackOutput
+instance AWSRequest UpdateStack where
+    type Sv UpdateStack = CloudFormation
+    type Rs UpdateStack = UpdateStackResponse
 
     request  = post "UpdateStack"
-    response = xmlResponse $ \h x -> UpdateStackOutput
+    response = xmlResponse $ \h x -> UpdateStackResponse
         <$> x %| "StackId"

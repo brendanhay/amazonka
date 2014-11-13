@@ -29,12 +29,12 @@ module Network.AWS.EC2.DescribeKeyPairs
     -- ** Request constructor
     , describeKeyPairs
     -- ** Request lenses
-    , dkpDryRun
-    , dkpFilters
-    , dkpKeyNames
+    , dkp1DryRun
+    , dkp1Filters
+    , dkp1KeyNames
 
     -- * Response
-    , DescribeKeyPairsResult
+    , DescribeKeyPairsResponse
     -- ** Response constructor
     , describeKeyPairsResponse
     -- ** Response lenses
@@ -46,78 +46,78 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DescribeKeyPairs = DescribeKeyPairs
-    { _dkpDryRun   :: Maybe Bool
-    , _dkpFilters  :: [Filter]
-    , _dkpKeyNames :: [Text]
+    { _dkp1DryRun   :: Maybe Bool
+    , _dkp1Filters  :: [Filter]
+    , _dkp1KeyNames :: [Text]
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeKeyPairs' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dkpDryRun' @::@ 'Maybe' 'Bool'
+-- * 'dkp1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dkpFilters' @::@ ['Filter']
+-- * 'dkp1Filters' @::@ ['Filter']
 --
--- * 'dkpKeyNames' @::@ ['Text']
+-- * 'dkp1KeyNames' @::@ ['Text']
 --
 describeKeyPairs :: DescribeKeyPairs
 describeKeyPairs = DescribeKeyPairs
-    { _dkpDryRun   = Nothing
-    , _dkpKeyNames = mempty
-    , _dkpFilters  = mempty
+    { _dkp1DryRun   = Nothing
+    , _dkp1KeyNames = mempty
+    , _dkp1Filters  = mempty
     }
 
-dkpDryRun :: Lens' DescribeKeyPairs (Maybe Bool)
-dkpDryRun = lens _dkpDryRun (\s a -> s { _dkpDryRun = a })
+dkp1DryRun :: Lens' DescribeKeyPairs (Maybe Bool)
+dkp1DryRun = lens _dkp1DryRun (\s a -> s { _dkp1DryRun = a })
 
 -- | One or more filters. fingerprint - The fingerprint of the key pair.
 -- key-name - The name of the key pair.
-dkpFilters :: Lens' DescribeKeyPairs [Filter]
-dkpFilters = lens _dkpFilters (\s a -> s { _dkpFilters = a })
+dkp1Filters :: Lens' DescribeKeyPairs [Filter]
+dkp1Filters = lens _dkp1Filters (\s a -> s { _dkp1Filters = a })
 
 -- | One or more key pair names. Default: Describes all your key pairs.
-dkpKeyNames :: Lens' DescribeKeyPairs [Text]
-dkpKeyNames = lens _dkpKeyNames (\s a -> s { _dkpKeyNames = a })
+dkp1KeyNames :: Lens' DescribeKeyPairs [Text]
+dkp1KeyNames = lens _dkp1KeyNames (\s a -> s { _dkp1KeyNames = a })
 
 instance ToQuery DescribeKeyPairs
 
 instance ToPath DescribeKeyPairs where
     toPath = const "/"
 
-newtype DescribeKeyPairsResult = DescribeKeyPairsResult
+newtype DescribeKeyPairsResponse = DescribeKeyPairsResponse
     { _dkprKeyPairs :: [KeyPairInfo]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeKeyPairsResult where
-    type Item DescribeKeyPairsResult = KeyPairInfo
+instance IsList DescribeKeyPairsResponse where
+    type Item DescribeKeyPairsResponse = KeyPairInfo
 
-    fromList = DescribeKeyPairsResult . fromList
+    fromList = DescribeKeyPairsResponse . fromList
     toList   = toList . _dkprKeyPairs
 
--- | 'DescribeKeyPairsResult' constructor.
+-- | 'DescribeKeyPairsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dkprKeyPairs' @::@ ['KeyPairInfo']
 --
-describeKeyPairsResponse :: DescribeKeyPairsResult
-describeKeyPairsResponse = DescribeKeyPairsResult
+describeKeyPairsResponse :: DescribeKeyPairsResponse
+describeKeyPairsResponse = DescribeKeyPairsResponse
     { _dkprKeyPairs = mempty
     }
 
 -- | Information about one or more key pairs.
-dkprKeyPairs :: Lens' DescribeKeyPairsResult [KeyPairInfo]
+dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
 dkprKeyPairs = lens _dkprKeyPairs (\s a -> s { _dkprKeyPairs = a })
 
-instance FromXML DescribeKeyPairsResult where
+instance FromXML DescribeKeyPairsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeKeyPairsResult"
+    fromXMLRoot    = fromRoot "DescribeKeyPairsResponse"
 
 instance AWSRequest DescribeKeyPairs where
     type Sv DescribeKeyPairs = EC2
-    type Rs DescribeKeyPairs = DescribeKeyPairsResult
+    type Rs DescribeKeyPairs = DescribeKeyPairsResponse
 
     request  = post "DescribeKeyPairs"
-    response = xmlResponse $ \h x -> DescribeKeyPairsResult
+    response = xmlResponse $ \h x -> DescribeKeyPairsResponse
         <$> x %| "keySet"

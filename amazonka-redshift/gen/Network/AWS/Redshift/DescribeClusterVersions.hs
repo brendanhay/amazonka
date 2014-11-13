@@ -28,68 +28,68 @@
 module Network.AWS.Redshift.DescribeClusterVersions
     (
     -- * Request
-      DescribeClusterVersionsMessage
+      DescribeClusterVersions
     -- ** Request constructor
     , describeClusterVersions
     -- ** Request lenses
-    , dcvmClusterParameterGroupFamily
-    , dcvmClusterVersion
-    , dcvmMarker
-    , dcvmMaxRecords
+    , dcvClusterParameterGroupFamily
+    , dcvClusterVersion
+    , dcvMarker
+    , dcvMaxRecords
 
     -- * Response
-    , ClusterVersionsMessage
+    , DescribeClusterVersionsResponse
     -- ** Response constructor
     , describeClusterVersionsResponse
     -- ** Response lenses
-    , cvmClusterVersions
-    , cvmMarker
+    , dcvrClusterVersions
+    , dcvrMarker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data DescribeClusterVersionsMessage = DescribeClusterVersionsMessage
-    { _dcvmClusterParameterGroupFamily :: Maybe Text
-    , _dcvmClusterVersion              :: Maybe Text
-    , _dcvmMarker                      :: Maybe Text
-    , _dcvmMaxRecords                  :: Maybe Int
+data DescribeClusterVersions = DescribeClusterVersions
+    { _dcvClusterParameterGroupFamily :: Maybe Text
+    , _dcvClusterVersion              :: Maybe Text
+    , _dcvMarker                      :: Maybe Text
+    , _dcvMaxRecords                  :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeClusterVersionsMessage' constructor.
+-- | 'DescribeClusterVersions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcvmClusterParameterGroupFamily' @::@ 'Maybe' 'Text'
+-- * 'dcvClusterParameterGroupFamily' @::@ 'Maybe' 'Text'
 --
--- * 'dcvmClusterVersion' @::@ 'Maybe' 'Text'
+-- * 'dcvClusterVersion' @::@ 'Maybe' 'Text'
 --
--- * 'dcvmMarker' @::@ 'Maybe' 'Text'
+-- * 'dcvMarker' @::@ 'Maybe' 'Text'
 --
--- * 'dcvmMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dcvMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeClusterVersions :: DescribeClusterVersionsMessage
-describeClusterVersions = DescribeClusterVersionsMessage
-    { _dcvmClusterVersion              = Nothing
-    , _dcvmClusterParameterGroupFamily = Nothing
-    , _dcvmMaxRecords                  = Nothing
-    , _dcvmMarker                      = Nothing
+describeClusterVersions :: DescribeClusterVersions
+describeClusterVersions = DescribeClusterVersions
+    { _dcvClusterVersion              = Nothing
+    , _dcvClusterParameterGroupFamily = Nothing
+    , _dcvMaxRecords                  = Nothing
+    , _dcvMarker                      = Nothing
     }
 
 -- | The name of a specific cluster parameter group family to return details
 -- for. Constraints: Must be 1 to 255 alphanumeric characters First
 -- character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens.
-dcvmClusterParameterGroupFamily :: Lens' DescribeClusterVersionsMessage (Maybe Text)
-dcvmClusterParameterGroupFamily =
-    lens _dcvmClusterParameterGroupFamily
-        (\s a -> s { _dcvmClusterParameterGroupFamily = a })
+dcvClusterParameterGroupFamily :: Lens' DescribeClusterVersions (Maybe Text)
+dcvClusterParameterGroupFamily =
+    lens _dcvClusterParameterGroupFamily
+        (\s a -> s { _dcvClusterParameterGroupFamily = a })
 
 -- | The specific cluster version to return. Example: 1.0.
-dcvmClusterVersion :: Lens' DescribeClusterVersionsMessage (Maybe Text)
-dcvmClusterVersion =
-    lens _dcvmClusterVersion (\s a -> s { _dcvmClusterVersion = a })
+dcvClusterVersion :: Lens' DescribeClusterVersions (Maybe Text)
+dcvClusterVersion =
+    lens _dcvClusterVersion (\s a -> s { _dcvClusterVersion = a })
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusterVersions
@@ -97,45 +97,45 @@ dcvmClusterVersion =
 -- the Marker field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the Marker
 -- parameter and retrying the request.
-dcvmMarker :: Lens' DescribeClusterVersionsMessage (Maybe Text)
-dcvmMarker = lens _dcvmMarker (\s a -> s { _dcvmMarker = a })
+dcvMarker :: Lens' DescribeClusterVersions (Maybe Text)
+dcvMarker = lens _dcvMarker (\s a -> s { _dcvMarker = a })
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcvmMaxRecords :: Lens' DescribeClusterVersionsMessage (Maybe Int)
-dcvmMaxRecords = lens _dcvmMaxRecords (\s a -> s { _dcvmMaxRecords = a })
+dcvMaxRecords :: Lens' DescribeClusterVersions (Maybe Int)
+dcvMaxRecords = lens _dcvMaxRecords (\s a -> s { _dcvMaxRecords = a })
 
-instance ToQuery DescribeClusterVersionsMessage
+instance ToQuery DescribeClusterVersions
 
-instance ToPath DescribeClusterVersionsMessage where
+instance ToPath DescribeClusterVersions where
     toPath = const "/"
 
-data ClusterVersionsMessage = ClusterVersionsMessage
-    { _cvmClusterVersions :: [ClusterVersion]
-    , _cvmMarker          :: Maybe Text
+data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse
+    { _dcvrClusterVersions :: [ClusterVersion]
+    , _dcvrMarker          :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'ClusterVersionsMessage' constructor.
+-- | 'DescribeClusterVersionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvmClusterVersions' @::@ ['ClusterVersion']
+-- * 'dcvrClusterVersions' @::@ ['ClusterVersion']
 --
--- * 'cvmMarker' @::@ 'Maybe' 'Text'
+-- * 'dcvrMarker' @::@ 'Maybe' 'Text'
 --
-describeClusterVersionsResponse :: ClusterVersionsMessage
-describeClusterVersionsResponse = ClusterVersionsMessage
-    { _cvmMarker          = Nothing
-    , _cvmClusterVersions = mempty
+describeClusterVersionsResponse :: DescribeClusterVersionsResponse
+describeClusterVersionsResponse = DescribeClusterVersionsResponse
+    { _dcvrMarker          = Nothing
+    , _dcvrClusterVersions = mempty
     }
 
 -- | A list of Version elements.
-cvmClusterVersions :: Lens' ClusterVersionsMessage [ClusterVersion]
-cvmClusterVersions =
-    lens _cvmClusterVersions (\s a -> s { _cvmClusterVersions = a })
+dcvrClusterVersions :: Lens' DescribeClusterVersionsResponse [ClusterVersion]
+dcvrClusterVersions =
+    lens _dcvrClusterVersions (\s a -> s { _dcvrClusterVersions = a })
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -143,18 +143,18 @@ cvmClusterVersions =
 -- marker value in the Marker parameter and retrying the command. If the
 -- Marker field is empty, all response records have been retrieved for the
 -- request.
-cvmMarker :: Lens' ClusterVersionsMessage (Maybe Text)
-cvmMarker = lens _cvmMarker (\s a -> s { _cvmMarker = a })
+dcvrMarker :: Lens' DescribeClusterVersionsResponse (Maybe Text)
+dcvrMarker = lens _dcvrMarker (\s a -> s { _dcvrMarker = a })
 
-instance FromXML ClusterVersionsMessage where
+instance FromXML DescribeClusterVersionsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ClusterVersionsMessage"
+    fromXMLRoot    = fromRoot "DescribeClusterVersionsResponse"
 
-instance AWSRequest DescribeClusterVersionsMessage where
-    type Sv DescribeClusterVersionsMessage = Redshift
-    type Rs DescribeClusterVersionsMessage = ClusterVersionsMessage
+instance AWSRequest DescribeClusterVersions where
+    type Sv DescribeClusterVersions = Redshift
+    type Rs DescribeClusterVersions = DescribeClusterVersionsResponse
 
     request  = post "DescribeClusterVersions"
-    response = xmlResponse $ \h x -> ClusterVersionsMessage
+    response = xmlResponse $ \h x -> DescribeClusterVersionsResponse
         <$> x %| "ClusterVersions"
         <*> x %| "Marker"

@@ -29,106 +29,106 @@
 module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     (
     -- * Request
-      AutoScalingGroupNamesType
+      DescribeAutoScalingGroups
     -- ** Request constructor
     , describeAutoScalingGroups
     -- ** Request lenses
-    , asgntAutoScalingGroupNames
-    , asgntMaxRecords
-    , asgntNextToken
+    , dasgAutoScalingGroupNames
+    , dasgMaxRecords
+    , dasgNextToken
 
     -- * Response
-    , AutoScalingGroupsType
+    , DescribeAutoScalingGroupsResponse
     -- ** Response constructor
     , describeAutoScalingGroupsResponse
     -- ** Response lenses
-    , asgtAutoScalingGroups
-    , asgtNextToken
+    , dasgrAutoScalingGroups
+    , dasgrNextToken
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data AutoScalingGroupNamesType = AutoScalingGroupNamesType
-    { _asgntAutoScalingGroupNames :: [Text]
-    , _asgntMaxRecords            :: Maybe Int
-    , _asgntNextToken             :: Maybe Text
+data DescribeAutoScalingGroups = DescribeAutoScalingGroups
+    { _dasgAutoScalingGroupNames :: [Text]
+    , _dasgMaxRecords            :: Maybe Int
+    , _dasgNextToken             :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'AutoScalingGroupNamesType' constructor.
+-- | 'DescribeAutoScalingGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asgntAutoScalingGroupNames' @::@ ['Text']
+-- * 'dasgAutoScalingGroupNames' @::@ ['Text']
 --
--- * 'asgntMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dasgMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'asgntNextToken' @::@ 'Maybe' 'Text'
+-- * 'dasgNextToken' @::@ 'Maybe' 'Text'
 --
-describeAutoScalingGroups :: AutoScalingGroupNamesType
-describeAutoScalingGroups = AutoScalingGroupNamesType
-    { _asgntAutoScalingGroupNames = mempty
-    , _asgntNextToken             = Nothing
-    , _asgntMaxRecords            = Nothing
+describeAutoScalingGroups :: DescribeAutoScalingGroups
+describeAutoScalingGroups = DescribeAutoScalingGroups
+    { _dasgAutoScalingGroupNames = mempty
+    , _dasgNextToken             = Nothing
+    , _dasgMaxRecords            = Nothing
     }
 
 -- | A list of Auto Scaling group names.
-asgntAutoScalingGroupNames :: Lens' AutoScalingGroupNamesType [Text]
-asgntAutoScalingGroupNames =
-    lens _asgntAutoScalingGroupNames
-        (\s a -> s { _asgntAutoScalingGroupNames = a })
+dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
+dasgAutoScalingGroupNames =
+    lens _dasgAutoScalingGroupNames
+        (\s a -> s { _dasgAutoScalingGroupNames = a })
 
 -- | The maximum number of records to return.
-asgntMaxRecords :: Lens' AutoScalingGroupNamesType (Maybe Int)
-asgntMaxRecords = lens _asgntMaxRecords (\s a -> s { _asgntMaxRecords = a })
+dasgMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Int)
+dasgMaxRecords = lens _dasgMaxRecords (\s a -> s { _dasgMaxRecords = a })
 
 -- | A string that marks the start of the next batch of returned results.
-asgntNextToken :: Lens' AutoScalingGroupNamesType (Maybe Text)
-asgntNextToken = lens _asgntNextToken (\s a -> s { _asgntNextToken = a })
+dasgNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
+dasgNextToken = lens _dasgNextToken (\s a -> s { _dasgNextToken = a })
 
-instance ToQuery AutoScalingGroupNamesType
+instance ToQuery DescribeAutoScalingGroups
 
-instance ToPath AutoScalingGroupNamesType where
+instance ToPath DescribeAutoScalingGroups where
     toPath = const "/"
 
-data AutoScalingGroupsType = AutoScalingGroupsType
-    { _asgtAutoScalingGroups :: [AutoScalingGroup]
-    , _asgtNextToken         :: Maybe Text
+data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
+    { _dasgrAutoScalingGroups :: [AutoScalingGroup]
+    , _dasgrNextToken         :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'AutoScalingGroupsType' constructor.
+-- | 'DescribeAutoScalingGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asgtAutoScalingGroups' @::@ ['AutoScalingGroup']
+-- * 'dasgrAutoScalingGroups' @::@ ['AutoScalingGroup']
 --
--- * 'asgtNextToken' @::@ 'Maybe' 'Text'
+-- * 'dasgrNextToken' @::@ 'Maybe' 'Text'
 --
-describeAutoScalingGroupsResponse :: AutoScalingGroupsType
-describeAutoScalingGroupsResponse = AutoScalingGroupsType
-    { _asgtAutoScalingGroups = mempty
-    , _asgtNextToken         = Nothing
+describeAutoScalingGroupsResponse :: DescribeAutoScalingGroupsResponse
+describeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse
+    { _dasgrAutoScalingGroups = mempty
+    , _dasgrNextToken         = Nothing
     }
 
 -- | A list of Auto Scaling groups.
-asgtAutoScalingGroups :: Lens' AutoScalingGroupsType [AutoScalingGroup]
-asgtAutoScalingGroups =
-    lens _asgtAutoScalingGroups (\s a -> s { _asgtAutoScalingGroups = a })
+dasgrAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
+dasgrAutoScalingGroups =
+    lens _dasgrAutoScalingGroups (\s a -> s { _dasgrAutoScalingGroups = a })
 
 -- | A string that marks the start of the next batch of returned results.
-asgtNextToken :: Lens' AutoScalingGroupsType (Maybe Text)
-asgtNextToken = lens _asgtNextToken (\s a -> s { _asgtNextToken = a })
+dasgrNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
+dasgrNextToken = lens _dasgrNextToken (\s a -> s { _dasgrNextToken = a })
 
-instance FromXML AutoScalingGroupsType where
+instance FromXML DescribeAutoScalingGroupsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AutoScalingGroupsType"
+    fromXMLRoot    = fromRoot "DescribeAutoScalingGroupsResponse"
 
-instance AWSRequest AutoScalingGroupNamesType where
-    type Sv AutoScalingGroupNamesType = AutoScaling
-    type Rs AutoScalingGroupNamesType = AutoScalingGroupsType
+instance AWSRequest DescribeAutoScalingGroups where
+    type Sv DescribeAutoScalingGroups = AutoScaling
+    type Rs DescribeAutoScalingGroups = DescribeAutoScalingGroupsResponse
 
     request  = post "DescribeAutoScalingGroups"
-    response = xmlResponse $ \h x -> AutoScalingGroupsType
+    response = xmlResponse $ \h x -> DescribeAutoScalingGroupsResponse
         <$> x %| "AutoScalingGroups"
         <*> x %| "NextToken"

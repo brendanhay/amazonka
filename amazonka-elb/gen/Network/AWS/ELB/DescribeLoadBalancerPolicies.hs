@@ -30,96 +30,96 @@
 module Network.AWS.ELB.DescribeLoadBalancerPolicies
     (
     -- * Request
-      DescribeLoadBalancerPoliciesInput
+      DescribeLoadBalancerPolicies
     -- ** Request constructor
     , describeLoadBalancerPolicies
     -- ** Request lenses
-    , dlbpiLoadBalancerName
-    , dlbpiPolicyNames
+    , dlbpLoadBalancerName
+    , dlbpPolicyNames
 
     -- * Response
-    , DescribeLoadBalancerPoliciesOutput
+    , DescribeLoadBalancerPoliciesResponse
     -- ** Response constructor
     , describeLoadBalancerPoliciesResponse
     -- ** Response lenses
-    , dlbpoPolicyDescriptions
+    , dlbprPolicyDescriptions
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data DescribeLoadBalancerPoliciesInput = DescribeLoadBalancerPoliciesInput
-    { _dlbpiLoadBalancerName :: Maybe Text
-    , _dlbpiPolicyNames      :: [Text]
+data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies
+    { _dlbpLoadBalancerName :: Maybe Text
+    , _dlbpPolicyNames      :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeLoadBalancerPoliciesInput' constructor.
+-- | 'DescribeLoadBalancerPolicies' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbpiLoadBalancerName' @::@ 'Maybe' 'Text'
+-- * 'dlbpLoadBalancerName' @::@ 'Maybe' 'Text'
 --
--- * 'dlbpiPolicyNames' @::@ ['Text']
+-- * 'dlbpPolicyNames' @::@ ['Text']
 --
-describeLoadBalancerPolicies :: DescribeLoadBalancerPoliciesInput
-describeLoadBalancerPolicies = DescribeLoadBalancerPoliciesInput
-    { _dlbpiLoadBalancerName = Nothing
-    , _dlbpiPolicyNames      = mempty
+describeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
+describeLoadBalancerPolicies = DescribeLoadBalancerPolicies
+    { _dlbpLoadBalancerName = Nothing
+    , _dlbpPolicyNames      = mempty
     }
 
 -- | The mnemonic name associated with the load balancer. If no name is
 -- specified, the operation returns the attributes of either all the sample
 -- policies pre-defined by Elastic Load Balancing or the specified sample
 -- polices.
-dlbpiLoadBalancerName :: Lens' DescribeLoadBalancerPoliciesInput (Maybe Text)
-dlbpiLoadBalancerName =
-    lens _dlbpiLoadBalancerName (\s a -> s { _dlbpiLoadBalancerName = a })
+dlbpLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
+dlbpLoadBalancerName =
+    lens _dlbpLoadBalancerName (\s a -> s { _dlbpLoadBalancerName = a })
 
 -- | The names of load balancer policies you've created or Elastic Load
 -- Balancing sample policy names.
-dlbpiPolicyNames :: Lens' DescribeLoadBalancerPoliciesInput [Text]
-dlbpiPolicyNames = lens _dlbpiPolicyNames (\s a -> s { _dlbpiPolicyNames = a })
+dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
+dlbpPolicyNames = lens _dlbpPolicyNames (\s a -> s { _dlbpPolicyNames = a })
 
-instance ToQuery DescribeLoadBalancerPoliciesInput
+instance ToQuery DescribeLoadBalancerPolicies
 
-instance ToPath DescribeLoadBalancerPoliciesInput where
+instance ToPath DescribeLoadBalancerPolicies where
     toPath = const "/"
 
-newtype DescribeLoadBalancerPoliciesOutput = DescribeLoadBalancerPoliciesOutput
-    { _dlbpoPolicyDescriptions :: [PolicyDescription]
+newtype DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
+    { _dlbprPolicyDescriptions :: [PolicyDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeLoadBalancerPoliciesOutput where
-    type Item DescribeLoadBalancerPoliciesOutput = PolicyDescription
+instance IsList DescribeLoadBalancerPoliciesResponse where
+    type Item DescribeLoadBalancerPoliciesResponse = PolicyDescription
 
-    fromList = DescribeLoadBalancerPoliciesOutput . fromList
-    toList   = toList . _dlbpoPolicyDescriptions
+    fromList = DescribeLoadBalancerPoliciesResponse . fromList
+    toList   = toList . _dlbprPolicyDescriptions
 
--- | 'DescribeLoadBalancerPoliciesOutput' constructor.
+-- | 'DescribeLoadBalancerPoliciesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbpoPolicyDescriptions' @::@ ['PolicyDescription']
+-- * 'dlbprPolicyDescriptions' @::@ ['PolicyDescription']
 --
-describeLoadBalancerPoliciesResponse :: DescribeLoadBalancerPoliciesOutput
-describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesOutput
-    { _dlbpoPolicyDescriptions = mempty
+describeLoadBalancerPoliciesResponse :: DescribeLoadBalancerPoliciesResponse
+describeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse
+    { _dlbprPolicyDescriptions = mempty
     }
 
 -- | A list of policy description structures.
-dlbpoPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesOutput [PolicyDescription]
-dlbpoPolicyDescriptions =
-    lens _dlbpoPolicyDescriptions (\s a -> s { _dlbpoPolicyDescriptions = a })
+dlbprPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
+dlbprPolicyDescriptions =
+    lens _dlbprPolicyDescriptions (\s a -> s { _dlbprPolicyDescriptions = a })
 
-instance FromXML DescribeLoadBalancerPoliciesOutput where
+instance FromXML DescribeLoadBalancerPoliciesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeLoadBalancerPoliciesOutput"
+    fromXMLRoot    = fromRoot "DescribeLoadBalancerPoliciesResponse"
 
-instance AWSRequest DescribeLoadBalancerPoliciesInput where
-    type Sv DescribeLoadBalancerPoliciesInput = ELB
-    type Rs DescribeLoadBalancerPoliciesInput = DescribeLoadBalancerPoliciesOutput
+instance AWSRequest DescribeLoadBalancerPolicies where
+    type Sv DescribeLoadBalancerPolicies = ELB
+    type Rs DescribeLoadBalancerPolicies = DescribeLoadBalancerPoliciesResponse
 
     request  = post "DescribeLoadBalancerPolicies"
-    response = xmlResponse $ \h x -> DescribeLoadBalancerPoliciesOutput
+    response = xmlResponse $ \h x -> DescribeLoadBalancerPoliciesResponse
         <$> x %| "PolicyDescriptions"

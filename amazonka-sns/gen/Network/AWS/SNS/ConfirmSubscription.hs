@@ -28,13 +28,13 @@
 module Network.AWS.SNS.ConfirmSubscription
     (
     -- * Request
-      ConfirmSubscriptionInput
+      ConfirmSubscription
     -- ** Request constructor
     , confirmSubscription
     -- ** Request lenses
-    , csiAuthenticateOnUnsubscribe
-    , csiToken
-    , csiTopicArn
+    , csAuthenticateOnUnsubscribe
+    , csToken
+    , csTopicArn
 
     -- * Response
     , ConfirmSubscriptionResponse
@@ -48,51 +48,51 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-data ConfirmSubscriptionInput = ConfirmSubscriptionInput
-    { _csiAuthenticateOnUnsubscribe :: Maybe Text
-    , _csiToken                     :: Text
-    , _csiTopicArn                  :: Text
+data ConfirmSubscription = ConfirmSubscription
+    { _csAuthenticateOnUnsubscribe :: Maybe Text
+    , _csToken                     :: Text
+    , _csTopicArn                  :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ConfirmSubscriptionInput' constructor.
+-- | 'ConfirmSubscription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csiAuthenticateOnUnsubscribe' @::@ 'Maybe' 'Text'
+-- * 'csAuthenticateOnUnsubscribe' @::@ 'Maybe' 'Text'
 --
--- * 'csiToken' @::@ 'Text'
+-- * 'csToken' @::@ 'Text'
 --
--- * 'csiTopicArn' @::@ 'Text'
+-- * 'csTopicArn' @::@ 'Text'
 --
-confirmSubscription :: Text -- ^ 'csiTopicArn'
-                    -> Text -- ^ 'csiToken'
-                    -> ConfirmSubscriptionInput
-confirmSubscription p1 p2 = ConfirmSubscriptionInput
-    { _csiTopicArn                  = p1
-    , _csiToken                     = p2
-    , _csiAuthenticateOnUnsubscribe = Nothing
+confirmSubscription :: Text -- ^ 'csTopicArn'
+                    -> Text -- ^ 'csToken'
+                    -> ConfirmSubscription
+confirmSubscription p1 p2 = ConfirmSubscription
+    { _csTopicArn                  = p1
+    , _csToken                     = p2
+    , _csAuthenticateOnUnsubscribe = Nothing
     }
 
 -- | Disallows unauthenticated unsubscribes of the subscription. If the value
 -- of this parameter is true and the request has an AWS signature, then only
 -- the topic owner and the subscription owner can unsubscribe the endpoint.
 -- The unsubscribe action requires AWS authentication.
-csiAuthenticateOnUnsubscribe :: Lens' ConfirmSubscriptionInput (Maybe Text)
-csiAuthenticateOnUnsubscribe =
-    lens _csiAuthenticateOnUnsubscribe
-        (\s a -> s { _csiAuthenticateOnUnsubscribe = a })
+csAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
+csAuthenticateOnUnsubscribe =
+    lens _csAuthenticateOnUnsubscribe
+        (\s a -> s { _csAuthenticateOnUnsubscribe = a })
 
 -- | Short-lived token sent to an endpoint during the Subscribe action.
-csiToken :: Lens' ConfirmSubscriptionInput Text
-csiToken = lens _csiToken (\s a -> s { _csiToken = a })
+csToken :: Lens' ConfirmSubscription Text
+csToken = lens _csToken (\s a -> s { _csToken = a })
 
 -- | The ARN of the topic for which you wish to confirm a subscription.
-csiTopicArn :: Lens' ConfirmSubscriptionInput Text
-csiTopicArn = lens _csiTopicArn (\s a -> s { _csiTopicArn = a })
+csTopicArn :: Lens' ConfirmSubscription Text
+csTopicArn = lens _csTopicArn (\s a -> s { _csTopicArn = a })
 
-instance ToQuery ConfirmSubscriptionInput
+instance ToQuery ConfirmSubscription
 
-instance ToPath ConfirmSubscriptionInput where
+instance ToPath ConfirmSubscription where
     toPath = const "/"
 
 newtype ConfirmSubscriptionResponse = ConfirmSubscriptionResponse
@@ -119,9 +119,9 @@ instance FromXML ConfirmSubscriptionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ConfirmSubscriptionResponse"
 
-instance AWSRequest ConfirmSubscriptionInput where
-    type Sv ConfirmSubscriptionInput = SNS
-    type Rs ConfirmSubscriptionInput = ConfirmSubscriptionResponse
+instance AWSRequest ConfirmSubscription where
+    type Sv ConfirmSubscription = SNS
+    type Rs ConfirmSubscription = ConfirmSubscriptionResponse
 
     request  = post "ConfirmSubscription"
     response = xmlResponse $ \h x -> ConfirmSubscriptionResponse

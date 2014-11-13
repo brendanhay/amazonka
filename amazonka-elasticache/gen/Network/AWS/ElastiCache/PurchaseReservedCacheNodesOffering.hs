@@ -25,16 +25,16 @@
 module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     (
     -- * Request
-      PurchaseReservedCacheNodesOfferingMessage
+      PurchaseReservedCacheNodesOffering
     -- ** Request constructor
     , purchaseReservedCacheNodesOffering
     -- ** Request lenses
-    , prcnomCacheNodeCount
-    , prcnomReservedCacheNodeId
-    , prcnomReservedCacheNodesOfferingId
+    , prcnoCacheNodeCount
+    , prcnoReservedCacheNodeId
+    , prcnoReservedCacheNodesOfferingId
 
     -- * Response
-    , PurchaseReservedCacheNodesOfferingResult
+    , PurchaseReservedCacheNodesOfferingResponse
     -- ** Response constructor
     , purchaseReservedCacheNodesOfferingResponse
     -- ** Response lenses
@@ -45,81 +45,81 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data PurchaseReservedCacheNodesOfferingMessage = PurchaseReservedCacheNodesOfferingMessage
-    { _prcnomCacheNodeCount               :: Maybe Int
-    , _prcnomReservedCacheNodeId          :: Maybe Text
-    , _prcnomReservedCacheNodesOfferingId :: Text
+data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering
+    { _prcnoCacheNodeCount               :: Maybe Int
+    , _prcnoReservedCacheNodeId          :: Maybe Text
+    , _prcnoReservedCacheNodesOfferingId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'PurchaseReservedCacheNodesOfferingMessage' constructor.
+-- | 'PurchaseReservedCacheNodesOffering' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prcnomCacheNodeCount' @::@ 'Maybe' 'Int'
+-- * 'prcnoCacheNodeCount' @::@ 'Maybe' 'Int'
 --
--- * 'prcnomReservedCacheNodeId' @::@ 'Maybe' 'Text'
+-- * 'prcnoReservedCacheNodeId' @::@ 'Maybe' 'Text'
 --
--- * 'prcnomReservedCacheNodesOfferingId' @::@ 'Text'
+-- * 'prcnoReservedCacheNodesOfferingId' @::@ 'Text'
 --
-purchaseReservedCacheNodesOffering :: Text -- ^ 'prcnomReservedCacheNodesOfferingId'
-                                   -> PurchaseReservedCacheNodesOfferingMessage
-purchaseReservedCacheNodesOffering p1 = PurchaseReservedCacheNodesOfferingMessage
-    { _prcnomReservedCacheNodesOfferingId = p1
-    , _prcnomReservedCacheNodeId          = Nothing
-    , _prcnomCacheNodeCount               = Nothing
+purchaseReservedCacheNodesOffering :: Text -- ^ 'prcnoReservedCacheNodesOfferingId'
+                                   -> PurchaseReservedCacheNodesOffering
+purchaseReservedCacheNodesOffering p1 = PurchaseReservedCacheNodesOffering
+    { _prcnoReservedCacheNodesOfferingId = p1
+    , _prcnoReservedCacheNodeId          = Nothing
+    , _prcnoCacheNodeCount               = Nothing
     }
 
 -- | The number of cache node instances to reserve. Default: 1.
-prcnomCacheNodeCount :: Lens' PurchaseReservedCacheNodesOfferingMessage (Maybe Int)
-prcnomCacheNodeCount =
-    lens _prcnomCacheNodeCount (\s a -> s { _prcnomCacheNodeCount = a })
+prcnoCacheNodeCount :: Lens' PurchaseReservedCacheNodesOffering (Maybe Int)
+prcnoCacheNodeCount =
+    lens _prcnoCacheNodeCount (\s a -> s { _prcnoCacheNodeCount = a })
 
 -- | A customer-specified identifier to track this reservation. Example:
 -- myreservationID.
-prcnomReservedCacheNodeId :: Lens' PurchaseReservedCacheNodesOfferingMessage (Maybe Text)
-prcnomReservedCacheNodeId =
-    lens _prcnomReservedCacheNodeId
-        (\s a -> s { _prcnomReservedCacheNodeId = a })
+prcnoReservedCacheNodeId :: Lens' PurchaseReservedCacheNodesOffering (Maybe Text)
+prcnoReservedCacheNodeId =
+    lens _prcnoReservedCacheNodeId
+        (\s a -> s { _prcnoReservedCacheNodeId = a })
 
 -- | The ID of the reserved cache node offering to purchase. Example:
 -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
-prcnomReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOfferingMessage Text
-prcnomReservedCacheNodesOfferingId =
-    lens _prcnomReservedCacheNodesOfferingId
-        (\s a -> s { _prcnomReservedCacheNodesOfferingId = a })
+prcnoReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOffering Text
+prcnoReservedCacheNodesOfferingId =
+    lens _prcnoReservedCacheNodesOfferingId
+        (\s a -> s { _prcnoReservedCacheNodesOfferingId = a })
 
-instance ToQuery PurchaseReservedCacheNodesOfferingMessage
+instance ToQuery PurchaseReservedCacheNodesOffering
 
-instance ToPath PurchaseReservedCacheNodesOfferingMessage where
+instance ToPath PurchaseReservedCacheNodesOffering where
     toPath = const "/"
 
-newtype PurchaseReservedCacheNodesOfferingResult = PurchaseReservedCacheNodesOfferingResult
+newtype PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse
     { _prcnorReservedCacheNode :: Maybe ReservedCacheNode
     } deriving (Eq, Show, Generic)
 
--- | 'PurchaseReservedCacheNodesOfferingResult' constructor.
+-- | 'PurchaseReservedCacheNodesOfferingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'prcnorReservedCacheNode' @::@ 'Maybe' 'ReservedCacheNode'
 --
-purchaseReservedCacheNodesOfferingResponse :: PurchaseReservedCacheNodesOfferingResult
-purchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResult
+purchaseReservedCacheNodesOfferingResponse :: PurchaseReservedCacheNodesOfferingResponse
+purchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse
     { _prcnorReservedCacheNode = Nothing
     }
 
-prcnorReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResult (Maybe ReservedCacheNode)
+prcnorReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)
 prcnorReservedCacheNode =
     lens _prcnorReservedCacheNode (\s a -> s { _prcnorReservedCacheNode = a })
 
-instance FromXML PurchaseReservedCacheNodesOfferingResult where
+instance FromXML PurchaseReservedCacheNodesOfferingResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PurchaseReservedCacheNodesOfferingResult"
+    fromXMLRoot    = fromRoot "PurchaseReservedCacheNodesOfferingResponse"
 
-instance AWSRequest PurchaseReservedCacheNodesOfferingMessage where
-    type Sv PurchaseReservedCacheNodesOfferingMessage = ElastiCache
-    type Rs PurchaseReservedCacheNodesOfferingMessage = PurchaseReservedCacheNodesOfferingResult
+instance AWSRequest PurchaseReservedCacheNodesOffering where
+    type Sv PurchaseReservedCacheNodesOffering = ElastiCache
+    type Rs PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOfferingResponse
 
     request  = post "PurchaseReservedCacheNodesOffering"
-    response = xmlResponse $ \h x -> PurchaseReservedCacheNodesOfferingResult
+    response = xmlResponse $ \h x -> PurchaseReservedCacheNodesOfferingResponse
         <$> x %| "ReservedCacheNode"

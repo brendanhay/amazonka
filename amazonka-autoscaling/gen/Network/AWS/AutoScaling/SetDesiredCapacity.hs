@@ -24,13 +24,13 @@
 module Network.AWS.AutoScaling.SetDesiredCapacity
     (
     -- * Request
-      SetDesiredCapacityType
+      SetDesiredCapacity
     -- ** Request constructor
     , setDesiredCapacity
     -- ** Request lenses
-    , sdctAutoScalingGroupName
-    , sdctDesiredCapacity
-    , sdctHonorCooldown
+    , sdcAutoScalingGroupName
+    , sdcDesiredCapacity
+    , sdcHonorCooldown
 
     -- * Response
     , SetDesiredCapacityResponse
@@ -42,54 +42,52 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data SetDesiredCapacityType = SetDesiredCapacityType
-    { _sdctAutoScalingGroupName :: Text
-    , _sdctDesiredCapacity      :: Int
-    , _sdctHonorCooldown        :: Maybe Bool
+data SetDesiredCapacity = SetDesiredCapacity
+    { _sdcAutoScalingGroupName :: Text
+    , _sdcDesiredCapacity      :: Int
+    , _sdcHonorCooldown        :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'SetDesiredCapacityType' constructor.
+-- | 'SetDesiredCapacity' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sdctAutoScalingGroupName' @::@ 'Text'
+-- * 'sdcAutoScalingGroupName' @::@ 'Text'
 --
--- * 'sdctDesiredCapacity' @::@ 'Int'
+-- * 'sdcDesiredCapacity' @::@ 'Int'
 --
--- * 'sdctHonorCooldown' @::@ 'Maybe' 'Bool'
+-- * 'sdcHonorCooldown' @::@ 'Maybe' 'Bool'
 --
-setDesiredCapacity :: Text -- ^ 'sdctAutoScalingGroupName'
-                   -> Int -- ^ 'sdctDesiredCapacity'
-                   -> SetDesiredCapacityType
-setDesiredCapacity p1 p2 = SetDesiredCapacityType
-    { _sdctAutoScalingGroupName = p1
-    , _sdctDesiredCapacity      = p2
-    , _sdctHonorCooldown        = Nothing
+setDesiredCapacity :: Text -- ^ 'sdcAutoScalingGroupName'
+                   -> Int -- ^ 'sdcDesiredCapacity'
+                   -> SetDesiredCapacity
+setDesiredCapacity p1 p2 = SetDesiredCapacity
+    { _sdcAutoScalingGroupName = p1
+    , _sdcDesiredCapacity      = p2
+    , _sdcHonorCooldown        = Nothing
     }
 
 -- | The name of the Auto Scaling group.
-sdctAutoScalingGroupName :: Lens' SetDesiredCapacityType Text
-sdctAutoScalingGroupName =
-    lens _sdctAutoScalingGroupName
-        (\s a -> s { _sdctAutoScalingGroupName = a })
+sdcAutoScalingGroupName :: Lens' SetDesiredCapacity Text
+sdcAutoScalingGroupName =
+    lens _sdcAutoScalingGroupName (\s a -> s { _sdcAutoScalingGroupName = a })
 
 -- | The new capacity setting for the Auto Scaling group.
-sdctDesiredCapacity :: Lens' SetDesiredCapacityType Int
-sdctDesiredCapacity =
-    lens _sdctDesiredCapacity (\s a -> s { _sdctDesiredCapacity = a })
+sdcDesiredCapacity :: Lens' SetDesiredCapacity Int
+sdcDesiredCapacity =
+    lens _sdcDesiredCapacity (\s a -> s { _sdcDesiredCapacity = a })
 
 -- | By default, SetDesiredCapacity overrides any cooldown period associated
 -- with the Auto Scaling group. Set to True if you want Auto Scaling to wait
 -- for the cooldown period associated with the Auto Scaling group to
 -- complete before initiating a scaling activity to set your Auto Scaling
 -- group to the new capacity setting.
-sdctHonorCooldown :: Lens' SetDesiredCapacityType (Maybe Bool)
-sdctHonorCooldown =
-    lens _sdctHonorCooldown (\s a -> s { _sdctHonorCooldown = a })
+sdcHonorCooldown :: Lens' SetDesiredCapacity (Maybe Bool)
+sdcHonorCooldown = lens _sdcHonorCooldown (\s a -> s { _sdcHonorCooldown = a })
 
-instance ToQuery SetDesiredCapacityType
+instance ToQuery SetDesiredCapacity
 
-instance ToPath SetDesiredCapacityType where
+instance ToPath SetDesiredCapacity where
     toPath = const "/"
 
 data SetDesiredCapacityResponse = SetDesiredCapacityResponse
@@ -103,9 +101,9 @@ instance FromXML SetDesiredCapacityResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetDesiredCapacityResponse"
 
-instance AWSRequest SetDesiredCapacityType where
-    type Sv SetDesiredCapacityType = AutoScaling
-    type Rs SetDesiredCapacityType = SetDesiredCapacityResponse
+instance AWSRequest SetDesiredCapacity where
+    type Sv SetDesiredCapacity = AutoScaling
+    type Rs SetDesiredCapacity = SetDesiredCapacityResponse
 
     request  = post "SetDesiredCapacity"
     response = nullaryResponse SetDesiredCapacityResponse

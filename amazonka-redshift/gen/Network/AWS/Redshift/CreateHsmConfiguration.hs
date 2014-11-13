@@ -31,19 +31,19 @@
 module Network.AWS.Redshift.CreateHsmConfiguration
     (
     -- * Request
-      CreateHsmConfigurationMessage
+      CreateHsmConfiguration
     -- ** Request constructor
     , createHsmConfiguration
     -- ** Request lenses
-    , chcmDescription
-    , chcmHsmConfigurationIdentifier
-    , chcmHsmIpAddress
-    , chcmHsmPartitionName
-    , chcmHsmPartitionPassword
-    , chcmHsmServerPublicCertificate
+    , chcDescription
+    , chcHsmConfigurationIdentifier
+    , chcHsmIpAddress
+    , chcHsmPartitionName
+    , chcHsmPartitionPassword
+    , chcHsmServerPublicCertificate
 
     -- * Response
-    , CreateHsmConfigurationResult
+    , CreateHsmConfigurationResponse
     -- ** Response constructor
     , createHsmConfigurationResponse
     -- ** Response lenses
@@ -54,114 +54,113 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data CreateHsmConfigurationMessage = CreateHsmConfigurationMessage
-    { _chcmDescription                :: Text
-    , _chcmHsmConfigurationIdentifier :: Text
-    , _chcmHsmIpAddress               :: Text
-    , _chcmHsmPartitionName           :: Text
-    , _chcmHsmPartitionPassword       :: Text
-    , _chcmHsmServerPublicCertificate :: Text
+data CreateHsmConfiguration = CreateHsmConfiguration
+    { _chcDescription                :: Text
+    , _chcHsmConfigurationIdentifier :: Text
+    , _chcHsmIpAddress               :: Text
+    , _chcHsmPartitionName           :: Text
+    , _chcHsmPartitionPassword       :: Text
+    , _chcHsmServerPublicCertificate :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CreateHsmConfigurationMessage' constructor.
+-- | 'CreateHsmConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chcmDescription' @::@ 'Text'
+-- * 'chcDescription' @::@ 'Text'
 --
--- * 'chcmHsmConfigurationIdentifier' @::@ 'Text'
+-- * 'chcHsmConfigurationIdentifier' @::@ 'Text'
 --
--- * 'chcmHsmIpAddress' @::@ 'Text'
+-- * 'chcHsmIpAddress' @::@ 'Text'
 --
--- * 'chcmHsmPartitionName' @::@ 'Text'
+-- * 'chcHsmPartitionName' @::@ 'Text'
 --
--- * 'chcmHsmPartitionPassword' @::@ 'Text'
+-- * 'chcHsmPartitionPassword' @::@ 'Text'
 --
--- * 'chcmHsmServerPublicCertificate' @::@ 'Text'
+-- * 'chcHsmServerPublicCertificate' @::@ 'Text'
 --
-createHsmConfiguration :: Text -- ^ 'chcmHsmConfigurationIdentifier'
-                       -> Text -- ^ 'chcmDescription'
-                       -> Text -- ^ 'chcmHsmIpAddress'
-                       -> Text -- ^ 'chcmHsmPartitionName'
-                       -> Text -- ^ 'chcmHsmPartitionPassword'
-                       -> Text -- ^ 'chcmHsmServerPublicCertificate'
-                       -> CreateHsmConfigurationMessage
-createHsmConfiguration p1 p2 p3 p4 p5 p6 = CreateHsmConfigurationMessage
-    { _chcmHsmConfigurationIdentifier = p1
-    , _chcmDescription                = p2
-    , _chcmHsmIpAddress               = p3
-    , _chcmHsmPartitionName           = p4
-    , _chcmHsmPartitionPassword       = p5
-    , _chcmHsmServerPublicCertificate = p6
+createHsmConfiguration :: Text -- ^ 'chcHsmConfigurationIdentifier'
+                       -> Text -- ^ 'chcDescription'
+                       -> Text -- ^ 'chcHsmIpAddress'
+                       -> Text -- ^ 'chcHsmPartitionName'
+                       -> Text -- ^ 'chcHsmPartitionPassword'
+                       -> Text -- ^ 'chcHsmServerPublicCertificate'
+                       -> CreateHsmConfiguration
+createHsmConfiguration p1 p2 p3 p4 p5 p6 = CreateHsmConfiguration
+    { _chcHsmConfigurationIdentifier = p1
+    , _chcDescription                = p2
+    , _chcHsmIpAddress               = p3
+    , _chcHsmPartitionName           = p4
+    , _chcHsmPartitionPassword       = p5
+    , _chcHsmServerPublicCertificate = p6
     }
 
 -- | A text description of the HSM configuration to be created.
-chcmDescription :: Lens' CreateHsmConfigurationMessage Text
-chcmDescription = lens _chcmDescription (\s a -> s { _chcmDescription = a })
+chcDescription :: Lens' CreateHsmConfiguration Text
+chcDescription = lens _chcDescription (\s a -> s { _chcDescription = a })
 
 -- | The identifier to be assigned to the new Amazon Redshift HSM
 -- configuration.
-chcmHsmConfigurationIdentifier :: Lens' CreateHsmConfigurationMessage Text
-chcmHsmConfigurationIdentifier =
-    lens _chcmHsmConfigurationIdentifier
-        (\s a -> s { _chcmHsmConfigurationIdentifier = a })
+chcHsmConfigurationIdentifier :: Lens' CreateHsmConfiguration Text
+chcHsmConfigurationIdentifier =
+    lens _chcHsmConfigurationIdentifier
+        (\s a -> s { _chcHsmConfigurationIdentifier = a })
 
 -- | The IP address that the Amazon Redshift cluster must use to access the
 -- HSM.
-chcmHsmIpAddress :: Lens' CreateHsmConfigurationMessage Text
-chcmHsmIpAddress = lens _chcmHsmIpAddress (\s a -> s { _chcmHsmIpAddress = a })
+chcHsmIpAddress :: Lens' CreateHsmConfiguration Text
+chcHsmIpAddress = lens _chcHsmIpAddress (\s a -> s { _chcHsmIpAddress = a })
 
 -- | The name of the partition in the HSM where the Amazon Redshift clusters
 -- will store their database encryption keys.
-chcmHsmPartitionName :: Lens' CreateHsmConfigurationMessage Text
-chcmHsmPartitionName =
-    lens _chcmHsmPartitionName (\s a -> s { _chcmHsmPartitionName = a })
+chcHsmPartitionName :: Lens' CreateHsmConfiguration Text
+chcHsmPartitionName =
+    lens _chcHsmPartitionName (\s a -> s { _chcHsmPartitionName = a })
 
 -- | The password required to access the HSM partition.
-chcmHsmPartitionPassword :: Lens' CreateHsmConfigurationMessage Text
-chcmHsmPartitionPassword =
-    lens _chcmHsmPartitionPassword
-        (\s a -> s { _chcmHsmPartitionPassword = a })
+chcHsmPartitionPassword :: Lens' CreateHsmConfiguration Text
+chcHsmPartitionPassword =
+    lens _chcHsmPartitionPassword (\s a -> s { _chcHsmPartitionPassword = a })
 
 -- | The HSMs public certificate file. When using Cloud HSM, the file name is
 -- server.pem.
-chcmHsmServerPublicCertificate :: Lens' CreateHsmConfigurationMessage Text
-chcmHsmServerPublicCertificate =
-    lens _chcmHsmServerPublicCertificate
-        (\s a -> s { _chcmHsmServerPublicCertificate = a })
+chcHsmServerPublicCertificate :: Lens' CreateHsmConfiguration Text
+chcHsmServerPublicCertificate =
+    lens _chcHsmServerPublicCertificate
+        (\s a -> s { _chcHsmServerPublicCertificate = a })
 
-instance ToQuery CreateHsmConfigurationMessage
+instance ToQuery CreateHsmConfiguration
 
-instance ToPath CreateHsmConfigurationMessage where
+instance ToPath CreateHsmConfiguration where
     toPath = const "/"
 
-newtype CreateHsmConfigurationResult = CreateHsmConfigurationResult
+newtype CreateHsmConfigurationResponse = CreateHsmConfigurationResponse
     { _chcrHsmConfiguration :: Maybe HsmConfiguration
     } deriving (Eq, Show, Generic)
 
--- | 'CreateHsmConfigurationResult' constructor.
+-- | 'CreateHsmConfigurationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'chcrHsmConfiguration' @::@ 'Maybe' 'HsmConfiguration'
 --
-createHsmConfigurationResponse :: CreateHsmConfigurationResult
-createHsmConfigurationResponse = CreateHsmConfigurationResult
+createHsmConfigurationResponse :: CreateHsmConfigurationResponse
+createHsmConfigurationResponse = CreateHsmConfigurationResponse
     { _chcrHsmConfiguration = Nothing
     }
 
-chcrHsmConfiguration :: Lens' CreateHsmConfigurationResult (Maybe HsmConfiguration)
+chcrHsmConfiguration :: Lens' CreateHsmConfigurationResponse (Maybe HsmConfiguration)
 chcrHsmConfiguration =
     lens _chcrHsmConfiguration (\s a -> s { _chcrHsmConfiguration = a })
 
-instance FromXML CreateHsmConfigurationResult where
+instance FromXML CreateHsmConfigurationResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateHsmConfigurationResult"
+    fromXMLRoot    = fromRoot "CreateHsmConfigurationResponse"
 
-instance AWSRequest CreateHsmConfigurationMessage where
-    type Sv CreateHsmConfigurationMessage = Redshift
-    type Rs CreateHsmConfigurationMessage = CreateHsmConfigurationResult
+instance AWSRequest CreateHsmConfiguration where
+    type Sv CreateHsmConfiguration = Redshift
+    type Rs CreateHsmConfiguration = CreateHsmConfigurationResponse
 
     request  = post "CreateHsmConfiguration"
-    response = xmlResponse $ \h x -> CreateHsmConfigurationResult
+    response = xmlResponse $ \h x -> CreateHsmConfigurationResponse
         <$> x %| "HsmConfiguration"

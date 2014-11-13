@@ -28,17 +28,17 @@
 module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     (
     -- * Request
-      RevokeClusterSecurityGroupIngressMessage
+      RevokeClusterSecurityGroupIngress
     -- ** Request constructor
     , revokeClusterSecurityGroupIngress
     -- ** Request lenses
-    , rcsgimCIDRIP
-    , rcsgimClusterSecurityGroupName
-    , rcsgimEC2SecurityGroupName
-    , rcsgimEC2SecurityGroupOwnerId
+    , rcsgiCIDRIP
+    , rcsgiClusterSecurityGroupName
+    , rcsgiEC2SecurityGroupName
+    , rcsgiEC2SecurityGroupOwnerId
 
     -- * Response
-    , RevokeClusterSecurityGroupIngressResult
+    , RevokeClusterSecurityGroupIngressResponse
     -- ** Response constructor
     , revokeClusterSecurityGroupIngressResponse
     -- ** Response lenses
@@ -49,98 +49,98 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data RevokeClusterSecurityGroupIngressMessage = RevokeClusterSecurityGroupIngressMessage
-    { _rcsgimCIDRIP                   :: Maybe Text
-    , _rcsgimClusterSecurityGroupName :: Text
-    , _rcsgimEC2SecurityGroupName     :: Maybe Text
-    , _rcsgimEC2SecurityGroupOwnerId  :: Maybe Text
+data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress
+    { _rcsgiCIDRIP                   :: Maybe Text
+    , _rcsgiClusterSecurityGroupName :: Text
+    , _rcsgiEC2SecurityGroupName     :: Maybe Text
+    , _rcsgiEC2SecurityGroupOwnerId  :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'RevokeClusterSecurityGroupIngressMessage' constructor.
+-- | 'RevokeClusterSecurityGroupIngress' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcsgimCIDRIP' @::@ 'Maybe' 'Text'
+-- * 'rcsgiCIDRIP' @::@ 'Maybe' 'Text'
 --
--- * 'rcsgimClusterSecurityGroupName' @::@ 'Text'
+-- * 'rcsgiClusterSecurityGroupName' @::@ 'Text'
 --
--- * 'rcsgimEC2SecurityGroupName' @::@ 'Maybe' 'Text'
+-- * 'rcsgiEC2SecurityGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'rcsgimEC2SecurityGroupOwnerId' @::@ 'Maybe' 'Text'
+-- * 'rcsgiEC2SecurityGroupOwnerId' @::@ 'Maybe' 'Text'
 --
-revokeClusterSecurityGroupIngress :: Text -- ^ 'rcsgimClusterSecurityGroupName'
-                                  -> RevokeClusterSecurityGroupIngressMessage
-revokeClusterSecurityGroupIngress p1 = RevokeClusterSecurityGroupIngressMessage
-    { _rcsgimClusterSecurityGroupName = p1
-    , _rcsgimCIDRIP                   = Nothing
-    , _rcsgimEC2SecurityGroupName     = Nothing
-    , _rcsgimEC2SecurityGroupOwnerId  = Nothing
+revokeClusterSecurityGroupIngress :: Text -- ^ 'rcsgiClusterSecurityGroupName'
+                                  -> RevokeClusterSecurityGroupIngress
+revokeClusterSecurityGroupIngress p1 = RevokeClusterSecurityGroupIngress
+    { _rcsgiClusterSecurityGroupName = p1
+    , _rcsgiCIDRIP                   = Nothing
+    , _rcsgiEC2SecurityGroupName     = Nothing
+    , _rcsgiEC2SecurityGroupOwnerId  = Nothing
     }
 
 -- | The IP range for which to revoke access. This range must be a valid
 -- Classless Inter-Domain Routing (CIDR) block of IP addresses. If CIDRIP is
 -- specified, EC2SecurityGroupName and EC2SecurityGroupOwnerId cannot be
 -- provided.
-rcsgimCIDRIP :: Lens' RevokeClusterSecurityGroupIngressMessage (Maybe Text)
-rcsgimCIDRIP = lens _rcsgimCIDRIP (\s a -> s { _rcsgimCIDRIP = a })
+rcsgiCIDRIP :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
+rcsgiCIDRIP = lens _rcsgiCIDRIP (\s a -> s { _rcsgiCIDRIP = a })
 
 -- | The name of the security Group from which to revoke the ingress rule.
-rcsgimClusterSecurityGroupName :: Lens' RevokeClusterSecurityGroupIngressMessage Text
-rcsgimClusterSecurityGroupName =
-    lens _rcsgimClusterSecurityGroupName
-        (\s a -> s { _rcsgimClusterSecurityGroupName = a })
+rcsgiClusterSecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress Text
+rcsgiClusterSecurityGroupName =
+    lens _rcsgiClusterSecurityGroupName
+        (\s a -> s { _rcsgiClusterSecurityGroupName = a })
 
 -- | The name of the EC2 Security Group whose access is to be revoked. If
 -- EC2SecurityGroupName is specified, EC2SecurityGroupOwnerId must also be
 -- provided and CIDRIP cannot be provided.
-rcsgimEC2SecurityGroupName :: Lens' RevokeClusterSecurityGroupIngressMessage (Maybe Text)
-rcsgimEC2SecurityGroupName =
-    lens _rcsgimEC2SecurityGroupName
-        (\s a -> s { _rcsgimEC2SecurityGroupName = a })
+rcsgiEC2SecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
+rcsgiEC2SecurityGroupName =
+    lens _rcsgiEC2SecurityGroupName
+        (\s a -> s { _rcsgiEC2SecurityGroupName = a })
 
 -- | The AWS account number of the owner of the security group specified in
 -- the EC2SecurityGroupName parameter. The AWS access key ID is not an
 -- acceptable value. If EC2SecurityGroupOwnerId is specified,
 -- EC2SecurityGroupName must also be provided. and CIDRIP cannot be
 -- provided. Example: 111122223333.
-rcsgimEC2SecurityGroupOwnerId :: Lens' RevokeClusterSecurityGroupIngressMessage (Maybe Text)
-rcsgimEC2SecurityGroupOwnerId =
-    lens _rcsgimEC2SecurityGroupOwnerId
-        (\s a -> s { _rcsgimEC2SecurityGroupOwnerId = a })
+rcsgiEC2SecurityGroupOwnerId :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
+rcsgiEC2SecurityGroupOwnerId =
+    lens _rcsgiEC2SecurityGroupOwnerId
+        (\s a -> s { _rcsgiEC2SecurityGroupOwnerId = a })
 
-instance ToQuery RevokeClusterSecurityGroupIngressMessage
+instance ToQuery RevokeClusterSecurityGroupIngress
 
-instance ToPath RevokeClusterSecurityGroupIngressMessage where
+instance ToPath RevokeClusterSecurityGroupIngress where
     toPath = const "/"
 
-newtype RevokeClusterSecurityGroupIngressResult = RevokeClusterSecurityGroupIngressResult
+newtype RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse
     { _rcsgirClusterSecurityGroup :: Maybe ClusterSecurityGroup
     } deriving (Eq, Show, Generic)
 
--- | 'RevokeClusterSecurityGroupIngressResult' constructor.
+-- | 'RevokeClusterSecurityGroupIngressResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rcsgirClusterSecurityGroup' @::@ 'Maybe' 'ClusterSecurityGroup'
 --
-revokeClusterSecurityGroupIngressResponse :: RevokeClusterSecurityGroupIngressResult
-revokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResult
+revokeClusterSecurityGroupIngressResponse :: RevokeClusterSecurityGroupIngressResponse
+revokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse
     { _rcsgirClusterSecurityGroup = Nothing
     }
 
-rcsgirClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResult (Maybe ClusterSecurityGroup)
+rcsgirClusterSecurityGroup :: Lens' RevokeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
 rcsgirClusterSecurityGroup =
     lens _rcsgirClusterSecurityGroup
         (\s a -> s { _rcsgirClusterSecurityGroup = a })
 
-instance FromXML RevokeClusterSecurityGroupIngressResult where
+instance FromXML RevokeClusterSecurityGroupIngressResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RevokeClusterSecurityGroupIngressResult"
+    fromXMLRoot    = fromRoot "RevokeClusterSecurityGroupIngressResponse"
 
-instance AWSRequest RevokeClusterSecurityGroupIngressMessage where
-    type Sv RevokeClusterSecurityGroupIngressMessage = Redshift
-    type Rs RevokeClusterSecurityGroupIngressMessage = RevokeClusterSecurityGroupIngressResult
+instance AWSRequest RevokeClusterSecurityGroupIngress where
+    type Sv RevokeClusterSecurityGroupIngress = Redshift
+    type Rs RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngressResponse
 
     request  = post "RevokeClusterSecurityGroupIngress"
-    response = xmlResponse $ \h x -> RevokeClusterSecurityGroupIngressResult
+    response = xmlResponse $ \h x -> RevokeClusterSecurityGroupIngressResponse
         <$> x %| "ClusterSecurityGroup"

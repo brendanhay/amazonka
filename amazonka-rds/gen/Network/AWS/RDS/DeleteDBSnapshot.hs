@@ -25,14 +25,14 @@
 module Network.AWS.RDS.DeleteDBSnapshot
     (
     -- * Request
-      DeleteDBSnapshotMessage
+      DeleteDBSnapshot
     -- ** Request constructor
     , deleteDBSnapshot
     -- ** Request lenses
-    , ddbsm1DBSnapshotIdentifier
+    , ddbs1DBSnapshotIdentifier
 
     -- * Response
-    , DeleteDBSnapshotResult
+    , DeleteDBSnapshotResponse
     -- ** Response constructor
     , deleteDBSnapshotResponse
     -- ** Response lenses
@@ -43,60 +43,60 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-newtype DeleteDBSnapshotMessage = DeleteDBSnapshotMessage
-    { _ddbsm1DBSnapshotIdentifier :: Text
+newtype DeleteDBSnapshot = DeleteDBSnapshot
+    { _ddbs1DBSnapshotIdentifier :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteDBSnapshotMessage' constructor.
+-- | 'DeleteDBSnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbsm1DBSnapshotIdentifier' @::@ 'Text'
+-- * 'ddbs1DBSnapshotIdentifier' @::@ 'Text'
 --
-deleteDBSnapshot :: Text -- ^ 'ddbsm1DBSnapshotIdentifier'
-                 -> DeleteDBSnapshotMessage
-deleteDBSnapshot p1 = DeleteDBSnapshotMessage
-    { _ddbsm1DBSnapshotIdentifier = p1
+deleteDBSnapshot :: Text -- ^ 'ddbs1DBSnapshotIdentifier'
+                 -> DeleteDBSnapshot
+deleteDBSnapshot p1 = DeleteDBSnapshot
+    { _ddbs1DBSnapshotIdentifier = p1
     }
 
 -- | The DBSnapshot identifier. Constraints: Must be the name of an existing
 -- DB snapshot in the available state.
-ddbsm1DBSnapshotIdentifier :: Lens' DeleteDBSnapshotMessage Text
-ddbsm1DBSnapshotIdentifier =
-    lens _ddbsm1DBSnapshotIdentifier
-        (\s a -> s { _ddbsm1DBSnapshotIdentifier = a })
+ddbs1DBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
+ddbs1DBSnapshotIdentifier =
+    lens _ddbs1DBSnapshotIdentifier
+        (\s a -> s { _ddbs1DBSnapshotIdentifier = a })
 
-instance ToQuery DeleteDBSnapshotMessage
+instance ToQuery DeleteDBSnapshot
 
-instance ToPath DeleteDBSnapshotMessage where
+instance ToPath DeleteDBSnapshot where
     toPath = const "/"
 
-newtype DeleteDBSnapshotResult = DeleteDBSnapshotResult
+newtype DeleteDBSnapshotResponse = DeleteDBSnapshotResponse
     { _ddbsrDBSnapshot :: Maybe DBSnapshot
     } deriving (Eq, Show, Generic)
 
--- | 'DeleteDBSnapshotResult' constructor.
+-- | 'DeleteDBSnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddbsrDBSnapshot' @::@ 'Maybe' 'DBSnapshot'
 --
-deleteDBSnapshotResponse :: DeleteDBSnapshotResult
-deleteDBSnapshotResponse = DeleteDBSnapshotResult
+deleteDBSnapshotResponse :: DeleteDBSnapshotResponse
+deleteDBSnapshotResponse = DeleteDBSnapshotResponse
     { _ddbsrDBSnapshot = Nothing
     }
 
-ddbsrDBSnapshot :: Lens' DeleteDBSnapshotResult (Maybe DBSnapshot)
+ddbsrDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
 ddbsrDBSnapshot = lens _ddbsrDBSnapshot (\s a -> s { _ddbsrDBSnapshot = a })
 
-instance FromXML DeleteDBSnapshotResult where
+instance FromXML DeleteDBSnapshotResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteDBSnapshotResult"
+    fromXMLRoot    = fromRoot "DeleteDBSnapshotResponse"
 
-instance AWSRequest DeleteDBSnapshotMessage where
-    type Sv DeleteDBSnapshotMessage = RDS
-    type Rs DeleteDBSnapshotMessage = DeleteDBSnapshotResult
+instance AWSRequest DeleteDBSnapshot where
+    type Sv DeleteDBSnapshot = RDS
+    type Rs DeleteDBSnapshot = DeleteDBSnapshotResponse
 
     request  = post "DeleteDBSnapshot"
-    response = xmlResponse $ \h x -> DeleteDBSnapshotResult
+    response = xmlResponse $ \h x -> DeleteDBSnapshotResponse
         <$> x %| "DBSnapshot"

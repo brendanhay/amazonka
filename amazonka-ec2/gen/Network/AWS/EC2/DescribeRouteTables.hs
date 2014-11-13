@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeRouteTables
     , drt2RouteTableIds
 
     -- * Response
-    , DescribeRouteTablesResult
+    , DescribeRouteTablesResponse
     -- ** Response constructor
     , describeRouteTablesResponse
     -- ** Response lenses
@@ -114,39 +114,39 @@ instance ToQuery DescribeRouteTables
 instance ToPath DescribeRouteTables where
     toPath = const "/"
 
-newtype DescribeRouteTablesResult = DescribeRouteTablesResult
+newtype DescribeRouteTablesResponse = DescribeRouteTablesResponse
     { _drtrRouteTables :: [RouteTable]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeRouteTablesResult where
-    type Item DescribeRouteTablesResult = RouteTable
+instance IsList DescribeRouteTablesResponse where
+    type Item DescribeRouteTablesResponse = RouteTable
 
-    fromList = DescribeRouteTablesResult . fromList
+    fromList = DescribeRouteTablesResponse . fromList
     toList   = toList . _drtrRouteTables
 
--- | 'DescribeRouteTablesResult' constructor.
+-- | 'DescribeRouteTablesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drtrRouteTables' @::@ ['RouteTable']
 --
-describeRouteTablesResponse :: DescribeRouteTablesResult
-describeRouteTablesResponse = DescribeRouteTablesResult
+describeRouteTablesResponse :: DescribeRouteTablesResponse
+describeRouteTablesResponse = DescribeRouteTablesResponse
     { _drtrRouteTables = mempty
     }
 
 -- | Information about one or more route tables.
-drtrRouteTables :: Lens' DescribeRouteTablesResult [RouteTable]
+drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
 drtrRouteTables = lens _drtrRouteTables (\s a -> s { _drtrRouteTables = a })
 
-instance FromXML DescribeRouteTablesResult where
+instance FromXML DescribeRouteTablesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeRouteTablesResult"
+    fromXMLRoot    = fromRoot "DescribeRouteTablesResponse"
 
 instance AWSRequest DescribeRouteTables where
     type Sv DescribeRouteTables = EC2
-    type Rs DescribeRouteTables = DescribeRouteTablesResult
+    type Rs DescribeRouteTables = DescribeRouteTablesResponse
 
     request  = post "DescribeRouteTables"
-    response = xmlResponse $ \h x -> DescribeRouteTablesResult
+    response = xmlResponse $ \h x -> DescribeRouteTablesResponse
         <$> x %| "routeTableSet"

@@ -46,7 +46,7 @@ module Network.AWS.EC2.TerminateInstances
     , tiInstanceIds
 
     -- * Response
-    , TerminateInstancesResult
+    , TerminateInstancesResponse
     -- ** Response constructor
     , terminateInstancesResponse
     -- ** Response lenses
@@ -88,40 +88,40 @@ instance ToQuery TerminateInstances
 instance ToPath TerminateInstances where
     toPath = const "/"
 
-newtype TerminateInstancesResult = TerminateInstancesResult
+newtype TerminateInstancesResponse = TerminateInstancesResponse
     { _tirTerminatingInstances :: [InstanceStateChange]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList TerminateInstancesResult where
-    type Item TerminateInstancesResult = InstanceStateChange
+instance IsList TerminateInstancesResponse where
+    type Item TerminateInstancesResponse = InstanceStateChange
 
-    fromList = TerminateInstancesResult . fromList
+    fromList = TerminateInstancesResponse . fromList
     toList   = toList . _tirTerminatingInstances
 
--- | 'TerminateInstancesResult' constructor.
+-- | 'TerminateInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'tirTerminatingInstances' @::@ ['InstanceStateChange']
 --
-terminateInstancesResponse :: TerminateInstancesResult
-terminateInstancesResponse = TerminateInstancesResult
+terminateInstancesResponse :: TerminateInstancesResponse
+terminateInstancesResponse = TerminateInstancesResponse
     { _tirTerminatingInstances = mempty
     }
 
 -- | Information about one or more terminated instances.
-tirTerminatingInstances :: Lens' TerminateInstancesResult [InstanceStateChange]
+tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
 tirTerminatingInstances =
     lens _tirTerminatingInstances (\s a -> s { _tirTerminatingInstances = a })
 
-instance FromXML TerminateInstancesResult where
+instance FromXML TerminateInstancesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "TerminateInstancesResult"
+    fromXMLRoot    = fromRoot "TerminateInstancesResponse"
 
 instance AWSRequest TerminateInstances where
     type Sv TerminateInstances = EC2
-    type Rs TerminateInstances = TerminateInstancesResult
+    type Rs TerminateInstances = TerminateInstancesResponse
 
     request  = post "TerminateInstances"
-    response = xmlResponse $ \h x -> TerminateInstancesResult
+    response = xmlResponse $ \h x -> TerminateInstancesResponse
         <$> x %| "instancesSet"

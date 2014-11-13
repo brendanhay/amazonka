@@ -32,29 +32,29 @@ module Network.AWS.EC2.DescribeInstanceAttribute
     -- ** Request constructor
     , describeInstanceAttribute
     -- ** Request lenses
-    , dia1Attribute
-    , dia1DryRun
-    , dia1InstanceId
+    , diaAttribute
+    , diaDryRun
+    , diaInstanceId
 
     -- * Response
-    , InstanceAttribute
+    , DescribeInstanceAttributeResponse
     -- ** Response constructor
     , describeInstanceAttributeResponse
     -- ** Response lenses
-    , iaBlockDeviceMappings
-    , iaDisableApiTermination
-    , iaEbsOptimized
-    , iaGroups
-    , iaInstanceId
-    , iaInstanceInitiatedShutdownBehavior
-    , iaInstanceType
-    , iaKernelId
-    , iaProductCodes
-    , iaRamdiskId
-    , iaRootDeviceName
-    , iaSourceDestCheck
-    , iaSriovNetSupport
-    , iaUserData
+    , diar1BlockDeviceMappings
+    , diar1DisableApiTermination
+    , diar1EbsOptimized
+    , diar1Groups
+    , diar1InstanceId
+    , diar1InstanceInitiatedShutdownBehavior
+    , diar1InstanceType
+    , diar1KernelId
+    , diar1ProductCodes
+    , diar1RamdiskId
+    , diar1RootDeviceName
+    , diar1SourceDestCheck
+    , diar1SriovNetSupport
+    , diar1UserData
     ) where
 
 import Network.AWS.Prelude
@@ -62,189 +62,195 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DescribeInstanceAttribute = DescribeInstanceAttribute
-    { _dia1Attribute  :: Text
-    , _dia1DryRun     :: Maybe Bool
-    , _dia1InstanceId :: Text
+    { _diaAttribute  :: Text
+    , _diaDryRun     :: Maybe Bool
+    , _diaInstanceId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DescribeInstanceAttribute' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dia1Attribute' @::@ 'Text'
+-- * 'diaAttribute' @::@ 'Text'
 --
--- * 'dia1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'diaDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dia1InstanceId' @::@ 'Text'
+-- * 'diaInstanceId' @::@ 'Text'
 --
-describeInstanceAttribute :: Text -- ^ 'dia1InstanceId'
-                          -> Text -- ^ 'dia1Attribute'
+describeInstanceAttribute :: Text -- ^ 'diaInstanceId'
+                          -> Text -- ^ 'diaAttribute'
                           -> DescribeInstanceAttribute
 describeInstanceAttribute p1 p2 = DescribeInstanceAttribute
-    { _dia1InstanceId = p1
-    , _dia1Attribute  = p2
-    , _dia1DryRun     = Nothing
+    { _diaInstanceId = p1
+    , _diaAttribute  = p2
+    , _diaDryRun     = Nothing
     }
 
 -- | The instance attribute.
-dia1Attribute :: Lens' DescribeInstanceAttribute Text
-dia1Attribute = lens _dia1Attribute (\s a -> s { _dia1Attribute = a })
+diaAttribute :: Lens' DescribeInstanceAttribute Text
+diaAttribute = lens _diaAttribute (\s a -> s { _diaAttribute = a })
 
-dia1DryRun :: Lens' DescribeInstanceAttribute (Maybe Bool)
-dia1DryRun = lens _dia1DryRun (\s a -> s { _dia1DryRun = a })
+diaDryRun :: Lens' DescribeInstanceAttribute (Maybe Bool)
+diaDryRun = lens _diaDryRun (\s a -> s { _diaDryRun = a })
 
 -- | The ID of the instance.
-dia1InstanceId :: Lens' DescribeInstanceAttribute Text
-dia1InstanceId = lens _dia1InstanceId (\s a -> s { _dia1InstanceId = a })
+diaInstanceId :: Lens' DescribeInstanceAttribute Text
+diaInstanceId = lens _diaInstanceId (\s a -> s { _diaInstanceId = a })
 
 instance ToQuery DescribeInstanceAttribute
 
 instance ToPath DescribeInstanceAttribute where
     toPath = const "/"
 
-data InstanceAttribute = InstanceAttribute
-    { _iaBlockDeviceMappings               :: [InstanceBlockDeviceMapping]
-    , _iaDisableApiTermination             :: Maybe AttributeBooleanValue
-    , _iaEbsOptimized                      :: Maybe AttributeBooleanValue
-    , _iaGroups                            :: [GroupIdentifier]
-    , _iaInstanceId                        :: Maybe Text
-    , _iaInstanceInitiatedShutdownBehavior :: Maybe AttributeValue
-    , _iaInstanceType                      :: Maybe AttributeValue
-    , _iaKernelId                          :: Maybe AttributeValue
-    , _iaProductCodes                      :: [ProductCode]
-    , _iaRamdiskId                         :: Maybe AttributeValue
-    , _iaRootDeviceName                    :: Maybe AttributeValue
-    , _iaSourceDestCheck                   :: Maybe AttributeBooleanValue
-    , _iaSriovNetSupport                   :: Maybe AttributeValue
-    , _iaUserData                          :: Maybe AttributeValue
+data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse
+    { _diar1BlockDeviceMappings               :: [InstanceBlockDeviceMapping]
+    , _diar1DisableApiTermination             :: Maybe AttributeBooleanValue
+    , _diar1EbsOptimized                      :: Maybe AttributeBooleanValue
+    , _diar1Groups                            :: [GroupIdentifier]
+    , _diar1InstanceId                        :: Maybe Text
+    , _diar1InstanceInitiatedShutdownBehavior :: Maybe AttributeValue
+    , _diar1InstanceType                      :: Maybe AttributeValue
+    , _diar1KernelId                          :: Maybe AttributeValue
+    , _diar1ProductCodes                      :: [ProductCode]
+    , _diar1RamdiskId                         :: Maybe AttributeValue
+    , _diar1RootDeviceName                    :: Maybe AttributeValue
+    , _diar1SourceDestCheck                   :: Maybe AttributeBooleanValue
+    , _diar1SriovNetSupport                   :: Maybe AttributeValue
+    , _diar1UserData                          :: Maybe AttributeValue
     } deriving (Eq, Show, Generic)
 
--- | 'InstanceAttribute' constructor.
+-- | 'DescribeInstanceAttributeResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iaBlockDeviceMappings' @::@ ['InstanceBlockDeviceMapping']
+-- * 'diar1BlockDeviceMappings' @::@ ['InstanceBlockDeviceMapping']
 --
--- * 'iaDisableApiTermination' @::@ 'Maybe' 'AttributeBooleanValue'
+-- * 'diar1DisableApiTermination' @::@ 'Maybe' 'AttributeBooleanValue'
 --
--- * 'iaEbsOptimized' @::@ 'Maybe' 'AttributeBooleanValue'
+-- * 'diar1EbsOptimized' @::@ 'Maybe' 'AttributeBooleanValue'
 --
--- * 'iaGroups' @::@ ['GroupIdentifier']
+-- * 'diar1Groups' @::@ ['GroupIdentifier']
 --
--- * 'iaInstanceId' @::@ 'Maybe' 'Text'
+-- * 'diar1InstanceId' @::@ 'Maybe' 'Text'
 --
--- * 'iaInstanceInitiatedShutdownBehavior' @::@ 'Maybe' 'AttributeValue'
+-- * 'diar1InstanceInitiatedShutdownBehavior' @::@ 'Maybe' 'AttributeValue'
 --
--- * 'iaInstanceType' @::@ 'Maybe' 'AttributeValue'
+-- * 'diar1InstanceType' @::@ 'Maybe' 'AttributeValue'
 --
--- * 'iaKernelId' @::@ 'Maybe' 'AttributeValue'
+-- * 'diar1KernelId' @::@ 'Maybe' 'AttributeValue'
 --
--- * 'iaProductCodes' @::@ ['ProductCode']
+-- * 'diar1ProductCodes' @::@ ['ProductCode']
 --
--- * 'iaRamdiskId' @::@ 'Maybe' 'AttributeValue'
+-- * 'diar1RamdiskId' @::@ 'Maybe' 'AttributeValue'
 --
--- * 'iaRootDeviceName' @::@ 'Maybe' 'AttributeValue'
+-- * 'diar1RootDeviceName' @::@ 'Maybe' 'AttributeValue'
 --
--- * 'iaSourceDestCheck' @::@ 'Maybe' 'AttributeBooleanValue'
+-- * 'diar1SourceDestCheck' @::@ 'Maybe' 'AttributeBooleanValue'
 --
--- * 'iaSriovNetSupport' @::@ 'Maybe' 'AttributeValue'
+-- * 'diar1SriovNetSupport' @::@ 'Maybe' 'AttributeValue'
 --
--- * 'iaUserData' @::@ 'Maybe' 'AttributeValue'
+-- * 'diar1UserData' @::@ 'Maybe' 'AttributeValue'
 --
-describeInstanceAttributeResponse :: InstanceAttribute
-describeInstanceAttributeResponse = InstanceAttribute
-    { _iaInstanceId                        = Nothing
-    , _iaInstanceType                      = Nothing
-    , _iaKernelId                          = Nothing
-    , _iaRamdiskId                         = Nothing
-    , _iaUserData                          = Nothing
-    , _iaDisableApiTermination             = Nothing
-    , _iaInstanceInitiatedShutdownBehavior = Nothing
-    , _iaRootDeviceName                    = Nothing
-    , _iaBlockDeviceMappings               = mempty
-    , _iaProductCodes                      = mempty
-    , _iaEbsOptimized                      = Nothing
-    , _iaSriovNetSupport                   = Nothing
-    , _iaSourceDestCheck                   = Nothing
-    , _iaGroups                            = mempty
+describeInstanceAttributeResponse :: DescribeInstanceAttributeResponse
+describeInstanceAttributeResponse = DescribeInstanceAttributeResponse
+    { _diar1InstanceId                        = Nothing
+    , _diar1InstanceType                      = Nothing
+    , _diar1KernelId                          = Nothing
+    , _diar1RamdiskId                         = Nothing
+    , _diar1UserData                          = Nothing
+    , _diar1DisableApiTermination             = Nothing
+    , _diar1InstanceInitiatedShutdownBehavior = Nothing
+    , _diar1RootDeviceName                    = Nothing
+    , _diar1BlockDeviceMappings               = mempty
+    , _diar1ProductCodes                      = mempty
+    , _diar1EbsOptimized                      = Nothing
+    , _diar1SriovNetSupport                   = Nothing
+    , _diar1SourceDestCheck                   = Nothing
+    , _diar1Groups                            = mempty
     }
 
 -- | The block device mapping of the instance.
-iaBlockDeviceMappings :: Lens' InstanceAttribute [InstanceBlockDeviceMapping]
-iaBlockDeviceMappings =
-    lens _iaBlockDeviceMappings (\s a -> s { _iaBlockDeviceMappings = a })
+diar1BlockDeviceMappings :: Lens' DescribeInstanceAttributeResponse [InstanceBlockDeviceMapping]
+diar1BlockDeviceMappings =
+    lens _diar1BlockDeviceMappings
+        (\s a -> s { _diar1BlockDeviceMappings = a })
 
 -- | If the value is true, you can't terminate the instance through the Amazon
 -- EC2 console, CLI, or API; otherwise, you can.
-iaDisableApiTermination :: Lens' InstanceAttribute (Maybe AttributeBooleanValue)
-iaDisableApiTermination =
-    lens _iaDisableApiTermination (\s a -> s { _iaDisableApiTermination = a })
+diar1DisableApiTermination :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+diar1DisableApiTermination =
+    lens _diar1DisableApiTermination
+        (\s a -> s { _diar1DisableApiTermination = a })
 
 -- | Indicates whether the instance is optimized for EBS I/O.
-iaEbsOptimized :: Lens' InstanceAttribute (Maybe AttributeBooleanValue)
-iaEbsOptimized = lens _iaEbsOptimized (\s a -> s { _iaEbsOptimized = a })
+diar1EbsOptimized :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+diar1EbsOptimized =
+    lens _diar1EbsOptimized (\s a -> s { _diar1EbsOptimized = a })
 
 -- | The security groups associated with the instance.
-iaGroups :: Lens' InstanceAttribute [GroupIdentifier]
-iaGroups = lens _iaGroups (\s a -> s { _iaGroups = a })
+diar1Groups :: Lens' DescribeInstanceAttributeResponse [GroupIdentifier]
+diar1Groups = lens _diar1Groups (\s a -> s { _diar1Groups = a })
 
 -- | The ID of the instance.
-iaInstanceId :: Lens' InstanceAttribute (Maybe Text)
-iaInstanceId = lens _iaInstanceId (\s a -> s { _iaInstanceId = a })
+diar1InstanceId :: Lens' DescribeInstanceAttributeResponse (Maybe Text)
+diar1InstanceId = lens _diar1InstanceId (\s a -> s { _diar1InstanceId = a })
 
 -- | Indicates whether an instance stops or terminates when you initiate
 -- shutdown from the instance (using the operating system command for system
 -- shutdown).
-iaInstanceInitiatedShutdownBehavior :: Lens' InstanceAttribute (Maybe AttributeValue)
-iaInstanceInitiatedShutdownBehavior =
-    lens _iaInstanceInitiatedShutdownBehavior
-        (\s a -> s { _iaInstanceInitiatedShutdownBehavior = a })
+diar1InstanceInitiatedShutdownBehavior :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diar1InstanceInitiatedShutdownBehavior =
+    lens _diar1InstanceInitiatedShutdownBehavior
+        (\s a -> s { _diar1InstanceInitiatedShutdownBehavior = a })
 
 -- | The instance type.
-iaInstanceType :: Lens' InstanceAttribute (Maybe AttributeValue)
-iaInstanceType = lens _iaInstanceType (\s a -> s { _iaInstanceType = a })
+diar1InstanceType :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diar1InstanceType =
+    lens _diar1InstanceType (\s a -> s { _diar1InstanceType = a })
 
 -- | The kernel ID.
-iaKernelId :: Lens' InstanceAttribute (Maybe AttributeValue)
-iaKernelId = lens _iaKernelId (\s a -> s { _iaKernelId = a })
+diar1KernelId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diar1KernelId = lens _diar1KernelId (\s a -> s { _diar1KernelId = a })
 
 -- | A list of product codes.
-iaProductCodes :: Lens' InstanceAttribute [ProductCode]
-iaProductCodes = lens _iaProductCodes (\s a -> s { _iaProductCodes = a })
+diar1ProductCodes :: Lens' DescribeInstanceAttributeResponse [ProductCode]
+diar1ProductCodes =
+    lens _diar1ProductCodes (\s a -> s { _diar1ProductCodes = a })
 
 -- | The RAM disk ID.
-iaRamdiskId :: Lens' InstanceAttribute (Maybe AttributeValue)
-iaRamdiskId = lens _iaRamdiskId (\s a -> s { _iaRamdiskId = a })
+diar1RamdiskId :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diar1RamdiskId = lens _diar1RamdiskId (\s a -> s { _diar1RamdiskId = a })
 
 -- | The name of the root device (for example, /dev/sda1).
-iaRootDeviceName :: Lens' InstanceAttribute (Maybe AttributeValue)
-iaRootDeviceName = lens _iaRootDeviceName (\s a -> s { _iaRootDeviceName = a })
+diar1RootDeviceName :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diar1RootDeviceName =
+    lens _diar1RootDeviceName (\s a -> s { _diar1RootDeviceName = a })
 
 -- | Indicates whether source/destination checking is enabled. A value of true
 -- means checking is enabled, and false means checking is disabled. This
 -- value must be false for a NAT instance to perform NAT.
-iaSourceDestCheck :: Lens' InstanceAttribute (Maybe AttributeBooleanValue)
-iaSourceDestCheck =
-    lens _iaSourceDestCheck (\s a -> s { _iaSourceDestCheck = a })
+diar1SourceDestCheck :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeBooleanValue)
+diar1SourceDestCheck =
+    lens _diar1SourceDestCheck (\s a -> s { _diar1SourceDestCheck = a })
 
-iaSriovNetSupport :: Lens' InstanceAttribute (Maybe AttributeValue)
-iaSriovNetSupport =
-    lens _iaSriovNetSupport (\s a -> s { _iaSriovNetSupport = a })
+diar1SriovNetSupport :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diar1SriovNetSupport =
+    lens _diar1SriovNetSupport (\s a -> s { _diar1SriovNetSupport = a })
 
 -- | The Base64-encoded MIME user data.
-iaUserData :: Lens' InstanceAttribute (Maybe AttributeValue)
-iaUserData = lens _iaUserData (\s a -> s { _iaUserData = a })
+diar1UserData :: Lens' DescribeInstanceAttributeResponse (Maybe AttributeValue)
+diar1UserData = lens _diar1UserData (\s a -> s { _diar1UserData = a })
 
-instance FromXML InstanceAttribute where
+instance FromXML DescribeInstanceAttributeResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "InstanceAttribute"
+    fromXMLRoot    = fromRoot "DescribeInstanceAttributeResponse"
 
 instance AWSRequest DescribeInstanceAttribute where
     type Sv DescribeInstanceAttribute = EC2
-    type Rs DescribeInstanceAttribute = InstanceAttribute
+    type Rs DescribeInstanceAttribute = DescribeInstanceAttributeResponse
 
     request  = post "DescribeInstanceAttribute"
-    response = xmlResponse $ \h x -> InstanceAttribute
+    response = xmlResponse $ \h x -> DescribeInstanceAttributeResponse
         <$> x %| "blockDeviceMapping"
         <*> x %| "disableApiTermination"
         <*> x %| "ebsOptimized"

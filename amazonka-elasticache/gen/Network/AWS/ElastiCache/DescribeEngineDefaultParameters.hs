@@ -25,16 +25,16 @@
 module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     (
     -- * Request
-      DescribeEngineDefaultParametersMessage
+      DescribeEngineDefaultParameters
     -- ** Request constructor
     , describeEngineDefaultParameters
     -- ** Request lenses
-    , dedpmCacheParameterGroupFamily
-    , dedpmMarker
-    , dedpmMaxRecords
+    , dedpCacheParameterGroupFamily
+    , dedpMarker
+    , dedpMaxRecords
 
     -- * Response
-    , DescribeEngineDefaultParametersResult
+    , DescribeEngineDefaultParametersResponse
     -- ** Response constructor
     , describeEngineDefaultParametersResponse
     -- ** Response lenses
@@ -45,83 +45,83 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data DescribeEngineDefaultParametersMessage = DescribeEngineDefaultParametersMessage
-    { _dedpmCacheParameterGroupFamily :: Text
-    , _dedpmMarker                    :: Maybe Text
-    , _dedpmMaxRecords                :: Maybe Int
+data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
+    { _dedpCacheParameterGroupFamily :: Text
+    , _dedpMarker                    :: Maybe Text
+    , _dedpMaxRecords                :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeEngineDefaultParametersMessage' constructor.
+-- | 'DescribeEngineDefaultParameters' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dedpmCacheParameterGroupFamily' @::@ 'Text'
+-- * 'dedpCacheParameterGroupFamily' @::@ 'Text'
 --
--- * 'dedpmMarker' @::@ 'Maybe' 'Text'
+-- * 'dedpMarker' @::@ 'Maybe' 'Text'
 --
--- * 'dedpmMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dedpMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeEngineDefaultParameters :: Text -- ^ 'dedpmCacheParameterGroupFamily'
-                                -> DescribeEngineDefaultParametersMessage
-describeEngineDefaultParameters p1 = DescribeEngineDefaultParametersMessage
-    { _dedpmCacheParameterGroupFamily = p1
-    , _dedpmMaxRecords                = Nothing
-    , _dedpmMarker                    = Nothing
+describeEngineDefaultParameters :: Text -- ^ 'dedpCacheParameterGroupFamily'
+                                -> DescribeEngineDefaultParameters
+describeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
+    { _dedpCacheParameterGroupFamily = p1
+    , _dedpMaxRecords                = Nothing
+    , _dedpMarker                    = Nothing
     }
 
 -- | The name of the cache parameter group family. Valid values are:
 -- memcached1.4 | redis2.6 | redis2.8.
-dedpmCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParametersMessage Text
-dedpmCacheParameterGroupFamily =
-    lens _dedpmCacheParameterGroupFamily
-        (\s a -> s { _dedpmCacheParameterGroupFamily = a })
+dedpCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
+dedpCacheParameterGroupFamily =
+    lens _dedpCacheParameterGroupFamily
+        (\s a -> s { _dedpCacheParameterGroupFamily = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by MaxRecords.
-dedpmMarker :: Lens' DescribeEngineDefaultParametersMessage (Maybe Text)
-dedpmMarker = lens _dedpmMarker (\s a -> s { _dedpmMarker = a })
+dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
+dedpMarker = lens _dedpMarker (\s a -> s { _dedpMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-dedpmMaxRecords :: Lens' DescribeEngineDefaultParametersMessage (Maybe Int)
-dedpmMaxRecords = lens _dedpmMaxRecords (\s a -> s { _dedpmMaxRecords = a })
+dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
+dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
 
-instance ToQuery DescribeEngineDefaultParametersMessage
+instance ToQuery DescribeEngineDefaultParameters
 
-instance ToPath DescribeEngineDefaultParametersMessage where
+instance ToPath DescribeEngineDefaultParameters where
     toPath = const "/"
 
-newtype DescribeEngineDefaultParametersResult = DescribeEngineDefaultParametersResult
+newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
     { _dedprEngineDefaults :: Maybe EngineDefaults
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeEngineDefaultParametersResult' constructor.
+-- | 'DescribeEngineDefaultParametersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dedprEngineDefaults' @::@ 'Maybe' 'EngineDefaults'
 --
-describeEngineDefaultParametersResponse :: DescribeEngineDefaultParametersResult
-describeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResult
+describeEngineDefaultParametersResponse :: DescribeEngineDefaultParametersResponse
+describeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
     { _dedprEngineDefaults = Nothing
     }
 
-dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResult (Maybe EngineDefaults)
+dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (Maybe EngineDefaults)
 dedprEngineDefaults =
     lens _dedprEngineDefaults (\s a -> s { _dedprEngineDefaults = a })
 
-instance FromXML DescribeEngineDefaultParametersResult where
+instance FromXML DescribeEngineDefaultParametersResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeEngineDefaultParametersResult"
+    fromXMLRoot    = fromRoot "DescribeEngineDefaultParametersResponse"
 
-instance AWSRequest DescribeEngineDefaultParametersMessage where
-    type Sv DescribeEngineDefaultParametersMessage = ElastiCache
-    type Rs DescribeEngineDefaultParametersMessage = DescribeEngineDefaultParametersResult
+instance AWSRequest DescribeEngineDefaultParameters where
+    type Sv DescribeEngineDefaultParameters = ElastiCache
+    type Rs DescribeEngineDefaultParameters = DescribeEngineDefaultParametersResponse
 
     request  = post "DescribeEngineDefaultParameters"
-    response = xmlResponse $ \h x -> DescribeEngineDefaultParametersResult
+    response = xmlResponse $ \h x -> DescribeEngineDefaultParametersResponse
         <$> x %| "EngineDefaults"

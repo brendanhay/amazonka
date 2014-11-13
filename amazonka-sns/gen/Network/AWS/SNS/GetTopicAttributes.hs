@@ -25,11 +25,11 @@
 module Network.AWS.SNS.GetTopicAttributes
     (
     -- * Request
-      GetTopicAttributesInput
+      GetTopicAttributes
     -- ** Request constructor
     , getTopicAttributes
     -- ** Request lenses
-    , gtaiTopicArn
+    , gtaTopicArn
 
     -- * Response
     , GetTopicAttributesResponse
@@ -43,29 +43,29 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-newtype GetTopicAttributesInput = GetTopicAttributesInput
-    { _gtaiTopicArn :: Text
+newtype GetTopicAttributes = GetTopicAttributes
+    { _gtaTopicArn :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'GetTopicAttributesInput' constructor.
+-- | 'GetTopicAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtaiTopicArn' @::@ 'Text'
+-- * 'gtaTopicArn' @::@ 'Text'
 --
-getTopicAttributes :: Text -- ^ 'gtaiTopicArn'
-                   -> GetTopicAttributesInput
-getTopicAttributes p1 = GetTopicAttributesInput
-    { _gtaiTopicArn = p1
+getTopicAttributes :: Text -- ^ 'gtaTopicArn'
+                   -> GetTopicAttributes
+getTopicAttributes p1 = GetTopicAttributes
+    { _gtaTopicArn = p1
     }
 
 -- | The ARN of the topic whose properties you want to get.
-gtaiTopicArn :: Lens' GetTopicAttributesInput Text
-gtaiTopicArn = lens _gtaiTopicArn (\s a -> s { _gtaiTopicArn = a })
+gtaTopicArn :: Lens' GetTopicAttributes Text
+gtaTopicArn = lens _gtaTopicArn (\s a -> s { _gtaTopicArn = a })
 
-instance ToQuery GetTopicAttributesInput
+instance ToQuery GetTopicAttributes
 
-instance ToPath GetTopicAttributesInput where
+instance ToPath GetTopicAttributes where
     toPath = const "/"
 
 newtype GetTopicAttributesResponse = GetTopicAttributesResponse
@@ -103,9 +103,9 @@ instance FromXML GetTopicAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "GetTopicAttributesResponse"
 
-instance AWSRequest GetTopicAttributesInput where
-    type Sv GetTopicAttributesInput = SNS
-    type Rs GetTopicAttributesInput = GetTopicAttributesResponse
+instance AWSRequest GetTopicAttributes where
+    type Sv GetTopicAttributes = SNS
+    type Rs GetTopicAttributes = GetTopicAttributesResponse
 
     request  = post "GetTopicAttributes"
     response = xmlResponse $ \h x -> GetTopicAttributesResponse

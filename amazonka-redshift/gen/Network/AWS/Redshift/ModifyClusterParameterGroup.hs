@@ -26,50 +26,50 @@
 module Network.AWS.Redshift.ModifyClusterParameterGroup
     (
     -- * Request
-      ModifyClusterParameterGroupMessage
+      ModifyClusterParameterGroup
     -- ** Request constructor
     , modifyClusterParameterGroup
     -- ** Request lenses
-    , mcpgmParameterGroupName
-    , mcpgmParameters
+    , mcpgParameterGroupName
+    , mcpgParameters
 
     -- * Response
-    , ClusterParameterGroupNameMessage
+    , ModifyClusterParameterGroupResponse
     -- ** Response constructor
-    , clusterParameterGroupNameMessage
+    , modifyClusterParameterGroupResponse
     -- ** Response lenses
-    , cpgnmParameterGroupName
-    , cpgnmParameterGroupStatus
+    , mcpgrParameterGroupName
+    , mcpgrParameterGroupStatus
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data ModifyClusterParameterGroupMessage = ModifyClusterParameterGroupMessage
-    { _mcpgmParameterGroupName :: Text
-    , _mcpgmParameters         :: [Parameter]
+data ModifyClusterParameterGroup = ModifyClusterParameterGroup
+    { _mcpgParameterGroupName :: Text
+    , _mcpgParameters         :: [Parameter]
     } deriving (Eq, Show, Generic)
 
--- | 'ModifyClusterParameterGroupMessage' constructor.
+-- | 'ModifyClusterParameterGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mcpgmParameterGroupName' @::@ 'Text'
+-- * 'mcpgParameterGroupName' @::@ 'Text'
 --
--- * 'mcpgmParameters' @::@ ['Parameter']
+-- * 'mcpgParameters' @::@ ['Parameter']
 --
-modifyClusterParameterGroup :: Text -- ^ 'mcpgmParameterGroupName'
-                            -> ModifyClusterParameterGroupMessage
-modifyClusterParameterGroup p1 = ModifyClusterParameterGroupMessage
-    { _mcpgmParameterGroupName = p1
-    , _mcpgmParameters         = mempty
+modifyClusterParameterGroup :: Text -- ^ 'mcpgParameterGroupName'
+                            -> ModifyClusterParameterGroup
+modifyClusterParameterGroup p1 = ModifyClusterParameterGroup
+    { _mcpgParameterGroupName = p1
+    , _mcpgParameters         = mempty
     }
 
 -- | The name of the parameter group to be modified.
-mcpgmParameterGroupName :: Lens' ModifyClusterParameterGroupMessage Text
-mcpgmParameterGroupName =
-    lens _mcpgmParameterGroupName (\s a -> s { _mcpgmParameterGroupName = a })
+mcpgParameterGroupName :: Lens' ModifyClusterParameterGroup Text
+mcpgParameterGroupName =
+    lens _mcpgParameterGroupName (\s a -> s { _mcpgParameterGroupName = a })
 
 -- | An array of parameters to be modified. A maximum of 20 parameters can be
 -- modified in a single request. For each parameter to be modified, you must
@@ -77,17 +77,55 @@ mcpgmParameterGroupName =
 -- pairs of the parameter are optional. For the workload management (WLM)
 -- configuration, you must supply all the name-value pairs in the
 -- wlm_json_configuration parameter.
-mcpgmParameters :: Lens' ModifyClusterParameterGroupMessage [Parameter]
-mcpgmParameters = lens _mcpgmParameters (\s a -> s { _mcpgmParameters = a })
+mcpgParameters :: Lens' ModifyClusterParameterGroup [Parameter]
+mcpgParameters = lens _mcpgParameters (\s a -> s { _mcpgParameters = a })
 
-instance ToQuery ModifyClusterParameterGroupMessage
+instance ToQuery ModifyClusterParameterGroup
 
-instance ToPath ModifyClusterParameterGroupMessage where
+instance ToPath ModifyClusterParameterGroup where
     toPath = const "/"
 
-instance AWSRequest ModifyClusterParameterGroupMessage where
-    type Sv ModifyClusterParameterGroupMessage = Redshift
-    type Rs ModifyClusterParameterGroupMessage = ClusterParameterGroupNameMessage
+data ModifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
+    { _mcpgrParameterGroupName   :: Maybe Text
+    , _mcpgrParameterGroupStatus :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'ModifyClusterParameterGroupResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'mcpgrParameterGroupName' @::@ 'Maybe' 'Text'
+--
+-- * 'mcpgrParameterGroupStatus' @::@ 'Maybe' 'Text'
+--
+modifyClusterParameterGroupResponse :: ModifyClusterParameterGroupResponse
+modifyClusterParameterGroupResponse = ModifyClusterParameterGroupResponse
+    { _mcpgrParameterGroupName   = Nothing
+    , _mcpgrParameterGroupStatus = Nothing
+    }
+
+-- | The name of the cluster parameter group.
+mcpgrParameterGroupName :: Lens' ModifyClusterParameterGroupResponse (Maybe Text)
+mcpgrParameterGroupName =
+    lens _mcpgrParameterGroupName (\s a -> s { _mcpgrParameterGroupName = a })
+
+-- | The status of the parameter group. For example, if you made a change to a
+-- parameter group name-value pair, then the change could be pending a
+-- reboot of an associated cluster.
+mcpgrParameterGroupStatus :: Lens' ModifyClusterParameterGroupResponse (Maybe Text)
+mcpgrParameterGroupStatus =
+    lens _mcpgrParameterGroupStatus
+        (\s a -> s { _mcpgrParameterGroupStatus = a })
+
+instance FromXML ModifyClusterParameterGroupResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "ModifyClusterParameterGroupResponse"
+
+instance AWSRequest ModifyClusterParameterGroup where
+    type Sv ModifyClusterParameterGroup = Redshift
+    type Rs ModifyClusterParameterGroup = ModifyClusterParameterGroupResponse
 
     request  = post "ModifyClusterParameterGroup"
-    response = xmlResponse $ const decodeCursor
+    response = xmlResponse $ \h x -> ModifyClusterParameterGroupResponse
+        <$> x %| "ParameterGroupName"
+        <*> x %| "ParameterGroupStatus"

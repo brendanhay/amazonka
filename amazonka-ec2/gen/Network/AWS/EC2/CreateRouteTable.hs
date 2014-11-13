@@ -35,7 +35,7 @@ module Network.AWS.EC2.CreateRouteTable
     , crtVpcId
 
     -- * Response
-    , CreateRouteTableResult
+    , CreateRouteTableResponse
     -- ** Response constructor
     , createRouteTableResponse
     -- ** Response lenses
@@ -78,33 +78,33 @@ instance ToQuery CreateRouteTable
 instance ToPath CreateRouteTable where
     toPath = const "/"
 
-newtype CreateRouteTableResult = CreateRouteTableResult
+newtype CreateRouteTableResponse = CreateRouteTableResponse
     { _crtrRouteTable :: Maybe RouteTable
     } deriving (Eq, Show, Generic)
 
--- | 'CreateRouteTableResult' constructor.
+-- | 'CreateRouteTableResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'crtrRouteTable' @::@ 'Maybe' 'RouteTable'
 --
-createRouteTableResponse :: CreateRouteTableResult
-createRouteTableResponse = CreateRouteTableResult
+createRouteTableResponse :: CreateRouteTableResponse
+createRouteTableResponse = CreateRouteTableResponse
     { _crtrRouteTable = Nothing
     }
 
 -- | Information about the route table.
-crtrRouteTable :: Lens' CreateRouteTableResult (Maybe RouteTable)
+crtrRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
 crtrRouteTable = lens _crtrRouteTable (\s a -> s { _crtrRouteTable = a })
 
-instance FromXML CreateRouteTableResult where
+instance FromXML CreateRouteTableResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateRouteTableResult"
+    fromXMLRoot    = fromRoot "CreateRouteTableResponse"
 
 instance AWSRequest CreateRouteTable where
     type Sv CreateRouteTable = EC2
-    type Rs CreateRouteTable = CreateRouteTableResult
+    type Rs CreateRouteTable = CreateRouteTableResponse
 
     request  = post "CreateRouteTable"
-    response = xmlResponse $ \h x -> CreateRouteTableResult
+    response = xmlResponse $ \h x -> CreateRouteTableResponse
         <$> x %| "routeTable"

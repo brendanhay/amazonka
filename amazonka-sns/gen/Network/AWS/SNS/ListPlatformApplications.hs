@@ -31,11 +31,11 @@
 module Network.AWS.SNS.ListPlatformApplications
     (
     -- * Request
-      ListPlatformApplicationsInput
+      ListPlatformApplications
     -- ** Request constructor
     , listPlatformApplications
     -- ** Request lenses
-    , lpaiNextToken
+    , lpaNextToken
 
     -- * Response
     , ListPlatformApplicationsResponse
@@ -50,30 +50,30 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-newtype ListPlatformApplicationsInput = ListPlatformApplicationsInput
-    { _lpaiNextToken :: Maybe Text
+newtype ListPlatformApplications = ListPlatformApplications
+    { _lpaNextToken :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'ListPlatformApplicationsInput' constructor.
+-- | 'ListPlatformApplications' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lpaiNextToken' @::@ 'Maybe' 'Text'
+-- * 'lpaNextToken' @::@ 'Maybe' 'Text'
 --
-listPlatformApplications :: ListPlatformApplicationsInput
-listPlatformApplications = ListPlatformApplicationsInput
-    { _lpaiNextToken = Nothing
+listPlatformApplications :: ListPlatformApplications
+listPlatformApplications = ListPlatformApplications
+    { _lpaNextToken = Nothing
     }
 
 -- | NextToken string is used when calling ListPlatformApplications action to
 -- retrieve additional records that are available after the first page
 -- results.
-lpaiNextToken :: Lens' ListPlatformApplicationsInput (Maybe Text)
-lpaiNextToken = lens _lpaiNextToken (\s a -> s { _lpaiNextToken = a })
+lpaNextToken :: Lens' ListPlatformApplications (Maybe Text)
+lpaNextToken = lens _lpaNextToken (\s a -> s { _lpaNextToken = a })
 
-instance ToQuery ListPlatformApplicationsInput
+instance ToQuery ListPlatformApplications
 
-instance ToPath ListPlatformApplicationsInput where
+instance ToPath ListPlatformApplications where
     toPath = const "/"
 
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse
@@ -111,9 +111,9 @@ instance FromXML ListPlatformApplicationsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "ListPlatformApplicationsResponse"
 
-instance AWSRequest ListPlatformApplicationsInput where
-    type Sv ListPlatformApplicationsInput = SNS
-    type Rs ListPlatformApplicationsInput = ListPlatformApplicationsResponse
+instance AWSRequest ListPlatformApplications where
+    type Sv ListPlatformApplications = SNS
+    type Rs ListPlatformApplications = ListPlatformApplicationsResponse
 
     request  = post "ListPlatformApplications"
     response = xmlResponse $ \h x -> ListPlatformApplicationsResponse

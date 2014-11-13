@@ -25,16 +25,16 @@
 module Network.AWS.Redshift.EnableSnapshotCopy
     (
     -- * Request
-      EnableSnapshotCopyMessage
+      EnableSnapshotCopy
     -- ** Request constructor
     , enableSnapshotCopy
     -- ** Request lenses
-    , escmClusterIdentifier
-    , escmDestinationRegion
-    , escmRetentionPeriod
+    , escClusterIdentifier
+    , escDestinationRegion
+    , escRetentionPeriod
 
     -- * Response
-    , EnableSnapshotCopyResult
+    , EnableSnapshotCopyResponse
     -- ** Response constructor
     , enableSnapshotCopyResponse
     -- ** Response lenses
@@ -45,83 +45,83 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data EnableSnapshotCopyMessage = EnableSnapshotCopyMessage
-    { _escmClusterIdentifier :: Text
-    , _escmDestinationRegion :: Text
-    , _escmRetentionPeriod   :: Maybe Int
+data EnableSnapshotCopy = EnableSnapshotCopy
+    { _escClusterIdentifier :: Text
+    , _escDestinationRegion :: Text
+    , _escRetentionPeriod   :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'EnableSnapshotCopyMessage' constructor.
+-- | 'EnableSnapshotCopy' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'escmClusterIdentifier' @::@ 'Text'
+-- * 'escClusterIdentifier' @::@ 'Text'
 --
--- * 'escmDestinationRegion' @::@ 'Text'
+-- * 'escDestinationRegion' @::@ 'Text'
 --
--- * 'escmRetentionPeriod' @::@ 'Maybe' 'Int'
+-- * 'escRetentionPeriod' @::@ 'Maybe' 'Int'
 --
-enableSnapshotCopy :: Text -- ^ 'escmClusterIdentifier'
-                   -> Text -- ^ 'escmDestinationRegion'
-                   -> EnableSnapshotCopyMessage
-enableSnapshotCopy p1 p2 = EnableSnapshotCopyMessage
-    { _escmClusterIdentifier = p1
-    , _escmDestinationRegion = p2
-    , _escmRetentionPeriod   = Nothing
+enableSnapshotCopy :: Text -- ^ 'escClusterIdentifier'
+                   -> Text -- ^ 'escDestinationRegion'
+                   -> EnableSnapshotCopy
+enableSnapshotCopy p1 p2 = EnableSnapshotCopy
+    { _escClusterIdentifier = p1
+    , _escDestinationRegion = p2
+    , _escRetentionPeriod   = Nothing
     }
 
 -- | The unique identifier of the source cluster to copy snapshots from.
 -- Constraints: Must be the valid name of an existing cluster that does not
 -- already have cross-region snapshot copy enabled.
-escmClusterIdentifier :: Lens' EnableSnapshotCopyMessage Text
-escmClusterIdentifier =
-    lens _escmClusterIdentifier (\s a -> s { _escmClusterIdentifier = a })
+escClusterIdentifier :: Lens' EnableSnapshotCopy Text
+escClusterIdentifier =
+    lens _escClusterIdentifier (\s a -> s { _escClusterIdentifier = a })
 
 -- | The destination region that you want to copy snapshots to. Constraints:
 -- Must be the name of a valid region. For more information, see Regions and
 -- Endpoints in the Amazon Web Services General Reference.
-escmDestinationRegion :: Lens' EnableSnapshotCopyMessage Text
-escmDestinationRegion =
-    lens _escmDestinationRegion (\s a -> s { _escmDestinationRegion = a })
+escDestinationRegion :: Lens' EnableSnapshotCopy Text
+escDestinationRegion =
+    lens _escDestinationRegion (\s a -> s { _escDestinationRegion = a })
 
 -- | The number of days to retain automated snapshots in the destination
 -- region after they are copied from the source region. Default: 7.
 -- Constraints: Must be at least 1 and no more than 35.
-escmRetentionPeriod :: Lens' EnableSnapshotCopyMessage (Maybe Int)
-escmRetentionPeriod =
-    lens _escmRetentionPeriod (\s a -> s { _escmRetentionPeriod = a })
+escRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Int)
+escRetentionPeriod =
+    lens _escRetentionPeriod (\s a -> s { _escRetentionPeriod = a })
 
-instance ToQuery EnableSnapshotCopyMessage
+instance ToQuery EnableSnapshotCopy
 
-instance ToPath EnableSnapshotCopyMessage where
+instance ToPath EnableSnapshotCopy where
     toPath = const "/"
 
-newtype EnableSnapshotCopyResult = EnableSnapshotCopyResult
+newtype EnableSnapshotCopyResponse = EnableSnapshotCopyResponse
     { _escrCluster :: Maybe Cluster
     } deriving (Eq, Show, Generic)
 
--- | 'EnableSnapshotCopyResult' constructor.
+-- | 'EnableSnapshotCopyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'escrCluster' @::@ 'Maybe' 'Cluster'
 --
-enableSnapshotCopyResponse :: EnableSnapshotCopyResult
-enableSnapshotCopyResponse = EnableSnapshotCopyResult
+enableSnapshotCopyResponse :: EnableSnapshotCopyResponse
+enableSnapshotCopyResponse = EnableSnapshotCopyResponse
     { _escrCluster = Nothing
     }
 
-escrCluster :: Lens' EnableSnapshotCopyResult (Maybe Cluster)
+escrCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
 escrCluster = lens _escrCluster (\s a -> s { _escrCluster = a })
 
-instance FromXML EnableSnapshotCopyResult where
+instance FromXML EnableSnapshotCopyResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EnableSnapshotCopyResult"
+    fromXMLRoot    = fromRoot "EnableSnapshotCopyResponse"
 
-instance AWSRequest EnableSnapshotCopyMessage where
-    type Sv EnableSnapshotCopyMessage = Redshift
-    type Rs EnableSnapshotCopyMessage = EnableSnapshotCopyResult
+instance AWSRequest EnableSnapshotCopy where
+    type Sv EnableSnapshotCopy = Redshift
+    type Rs EnableSnapshotCopy = EnableSnapshotCopyResponse
 
     request  = post "EnableSnapshotCopy"
-    response = xmlResponse $ \h x -> EnableSnapshotCopyResult
+    response = xmlResponse $ \h x -> EnableSnapshotCopyResponse
         <$> x %| "Cluster"

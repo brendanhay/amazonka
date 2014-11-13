@@ -31,11 +31,11 @@ module Network.AWS.S3.GetBucketTagging
     , gbtBucket
 
     -- * Response
-    , GetBucketTaggingOutput
+    , GetBucketTaggingResponse
     -- ** Response constructor
     , getBucketTaggingResponse
     -- ** Response lenses
-    , gbtoTagSet
+    , gbtrTagSet
     ) where
 
 import Network.AWS.Prelude
@@ -72,37 +72,37 @@ instance ToQuery GetBucketTagging where
 
 instance ToHeaders GetBucketTagging
 
-newtype GetBucketTaggingOutput = GetBucketTaggingOutput
-    { _gbtoTagSet :: [Tag]
+newtype GetBucketTaggingResponse = GetBucketTaggingResponse
+    { _gbtrTagSet :: [Tag]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList GetBucketTaggingOutput where
-    type Item GetBucketTaggingOutput = Tag
+instance IsList GetBucketTaggingResponse where
+    type Item GetBucketTaggingResponse = Tag
 
-    fromList = GetBucketTaggingOutput . fromList
-    toList   = toList . _gbtoTagSet
+    fromList = GetBucketTaggingResponse . fromList
+    toList   = toList . _gbtrTagSet
 
--- | 'GetBucketTaggingOutput' constructor.
+-- | 'GetBucketTaggingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbtoTagSet' @::@ ['Tag']
+-- * 'gbtrTagSet' @::@ ['Tag']
 --
-getBucketTaggingResponse :: GetBucketTaggingOutput
-getBucketTaggingResponse = GetBucketTaggingOutput
-    { _gbtoTagSet = mempty
+getBucketTaggingResponse :: GetBucketTaggingResponse
+getBucketTaggingResponse = GetBucketTaggingResponse
+    { _gbtrTagSet = mempty
     }
 
-gbtoTagSet :: Lens' GetBucketTaggingOutput [Tag]
-gbtoTagSet = lens _gbtoTagSet (\s a -> s { _gbtoTagSet = a })
+gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]
+gbtrTagSet = lens _gbtrTagSet (\s a -> s { _gbtrTagSet = a })
 
-instance FromXML GetBucketTaggingOutput where
+instance FromXML GetBucketTaggingResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketTaggingOutput"
+    fromXMLRoot    = fromRoot "GetBucketTaggingResponse"
 instance AWSRequest GetBucketTagging where
     type Sv GetBucketTagging = S3
-    type Rs GetBucketTagging = GetBucketTaggingOutput
+    type Rs GetBucketTagging = GetBucketTaggingResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketTaggingOutput
+    response = xmlResponse $ \h x -> GetBucketTaggingResponse
         <$> x %| "TagSet"

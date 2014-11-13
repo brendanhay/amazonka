@@ -30,9 +30,9 @@ module Network.AWS.EC2.DetachInternetGateway
     -- ** Request constructor
     , detachInternetGateway
     -- ** Request lenses
-    , dig2DryRun
-    , dig2InternetGatewayId
-    , dig2VpcId
+    , digDryRun
+    , digInternetGatewayId
+    , digVpcId
 
     -- * Response
     , DetachInternetGatewayResponse
@@ -45,41 +45,41 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DetachInternetGateway = DetachInternetGateway
-    { _dig2DryRun            :: Maybe Bool
-    , _dig2InternetGatewayId :: Text
-    , _dig2VpcId             :: Text
+    { _digDryRun            :: Maybe Bool
+    , _digInternetGatewayId :: Text
+    , _digVpcId             :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DetachInternetGateway' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dig2DryRun' @::@ 'Maybe' 'Bool'
+-- * 'digDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dig2InternetGatewayId' @::@ 'Text'
+-- * 'digInternetGatewayId' @::@ 'Text'
 --
--- * 'dig2VpcId' @::@ 'Text'
+-- * 'digVpcId' @::@ 'Text'
 --
-detachInternetGateway :: Text -- ^ 'dig2InternetGatewayId'
-                      -> Text -- ^ 'dig2VpcId'
+detachInternetGateway :: Text -- ^ 'digInternetGatewayId'
+                      -> Text -- ^ 'digVpcId'
                       -> DetachInternetGateway
 detachInternetGateway p1 p2 = DetachInternetGateway
-    { _dig2InternetGatewayId = p1
-    , _dig2VpcId             = p2
-    , _dig2DryRun            = Nothing
+    { _digInternetGatewayId = p1
+    , _digVpcId             = p2
+    , _digDryRun            = Nothing
     }
 
-dig2DryRun :: Lens' DetachInternetGateway (Maybe Bool)
-dig2DryRun = lens _dig2DryRun (\s a -> s { _dig2DryRun = a })
+digDryRun :: Lens' DetachInternetGateway (Maybe Bool)
+digDryRun = lens _digDryRun (\s a -> s { _digDryRun = a })
 
 -- | The ID of the Internet gateway.
-dig2InternetGatewayId :: Lens' DetachInternetGateway Text
-dig2InternetGatewayId =
-    lens _dig2InternetGatewayId (\s a -> s { _dig2InternetGatewayId = a })
+digInternetGatewayId :: Lens' DetachInternetGateway Text
+digInternetGatewayId =
+    lens _digInternetGatewayId (\s a -> s { _digInternetGatewayId = a })
 
 -- | The ID of the VPC.
-dig2VpcId :: Lens' DetachInternetGateway Text
-dig2VpcId = lens _dig2VpcId (\s a -> s { _dig2VpcId = a })
+digVpcId :: Lens' DetachInternetGateway Text
+digVpcId = lens _digVpcId (\s a -> s { _digVpcId = a })
 
 instance ToQuery DetachInternetGateway
 

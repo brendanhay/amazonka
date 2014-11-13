@@ -32,16 +32,16 @@
 module Network.AWS.SNS.Publish
     (
     -- * Request
-      PublishInput
+      Publish
     -- ** Request constructor
     , publish
     -- ** Request lenses
-    , piMessage
-    , piMessageAttributes
-    , piMessageStructure
-    , piSubject
-    , piTargetArn
-    , piTopicArn
+    , pMessage
+    , pMessageAttributes
+    , pMessageStructure
+    , pSubject
+    , pTargetArn
+    , pTopicArn
 
     -- * Response
     , PublishResponse
@@ -55,40 +55,40 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-data PublishInput = PublishInput
-    { _piMessage           :: Text
-    , _piMessageAttributes :: Map Text MessageAttributeValue
-    , _piMessageStructure  :: Maybe Text
-    , _piSubject           :: Maybe Text
-    , _piTargetArn         :: Maybe Text
-    , _piTopicArn          :: Maybe Text
+data Publish = Publish
+    { _pMessage           :: Text
+    , _pMessageAttributes :: Map Text MessageAttributeValue
+    , _pMessageStructure  :: Maybe Text
+    , _pSubject           :: Maybe Text
+    , _pTargetArn         :: Maybe Text
+    , _pTopicArn          :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'PublishInput' constructor.
+-- | 'Publish' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'piMessage' @::@ 'Text'
+-- * 'pMessage' @::@ 'Text'
 --
--- * 'piMessageAttributes' @::@ 'HashMap' 'Text' 'MessageAttributeValue'
+-- * 'pMessageAttributes' @::@ 'HashMap' 'Text' 'MessageAttributeValue'
 --
--- * 'piMessageStructure' @::@ 'Maybe' 'Text'
+-- * 'pMessageStructure' @::@ 'Maybe' 'Text'
 --
--- * 'piSubject' @::@ 'Maybe' 'Text'
+-- * 'pSubject' @::@ 'Maybe' 'Text'
 --
--- * 'piTargetArn' @::@ 'Maybe' 'Text'
+-- * 'pTargetArn' @::@ 'Maybe' 'Text'
 --
--- * 'piTopicArn' @::@ 'Maybe' 'Text'
+-- * 'pTopicArn' @::@ 'Maybe' 'Text'
 --
-publish :: Text -- ^ 'piMessage'
-        -> PublishInput
-publish p1 = PublishInput
-    { _piMessage           = p1
-    , _piTopicArn          = Nothing
-    , _piTargetArn         = Nothing
-    , _piSubject           = Nothing
-    , _piMessageStructure  = Nothing
-    , _piMessageAttributes = mempty
+publish :: Text -- ^ 'pMessage'
+        -> Publish
+publish p1 = Publish
+    { _pMessage           = p1
+    , _pTopicArn          = Nothing
+    , _pTargetArn         = Nothing
+    , _pSubject           = Nothing
+    , _pMessageStructure  = Nothing
+    , _pMessageAttributes = mempty
     }
 
 -- | The message you want to send to the topic. If you want to send the same
@@ -110,13 +110,13 @@ publish p1 = PublishInput
 -- Duplicate keys are not allowed. Failure to parse or validate any key or
 -- value in the message will cause the Publish call to return an error (no
 -- partial delivery).
-piMessage :: Lens' PublishInput Text
-piMessage = lens _piMessage (\s a -> s { _piMessage = a })
+pMessage :: Lens' Publish Text
+pMessage = lens _pMessage (\s a -> s { _pMessage = a })
 
 -- | Message attributes for Publish action.
-piMessageAttributes :: Lens' PublishInput (HashMap Text MessageAttributeValue)
-piMessageAttributes =
-    lens _piMessageAttributes (\s a -> s { _piMessageAttributes = a })
+pMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
+pMessageAttributes =
+    lens _pMessageAttributes (\s a -> s { _pMessageAttributes = a })
         . _Map
 
 -- | Set MessageStructure to json if you want to send a different message for
@@ -131,9 +131,9 @@ piMessageAttributes =
 -- Management Console, go to Create Different Messages for Each Protocol in
 -- the Amazon Simple Notification Service Getting Started Guide. Valid
 -- value: json.
-piMessageStructure :: Lens' PublishInput (Maybe Text)
-piMessageStructure =
-    lens _piMessageStructure (\s a -> s { _piMessageStructure = a })
+pMessageStructure :: Lens' Publish (Maybe Text)
+pMessageStructure =
+    lens _pMessageStructure (\s a -> s { _pMessageStructure = a })
 
 -- | Optional parameter to be used as the "Subject" line when the message is
 -- delivered to email endpoints. This field will also be included, if
@@ -141,20 +141,20 @@ piMessageStructure =
 -- Constraints: Subjects must be ASCII text that begins with a letter,
 -- number, or punctuation mark; must not include line breaks or control
 -- characters; and must be less than 100 characters long.
-piSubject :: Lens' PublishInput (Maybe Text)
-piSubject = lens _piSubject (\s a -> s { _piSubject = a })
+pSubject :: Lens' Publish (Maybe Text)
+pSubject = lens _pSubject (\s a -> s { _pSubject = a })
 
 -- | Either TopicArn or EndpointArn, but not both.
-piTargetArn :: Lens' PublishInput (Maybe Text)
-piTargetArn = lens _piTargetArn (\s a -> s { _piTargetArn = a })
+pTargetArn :: Lens' Publish (Maybe Text)
+pTargetArn = lens _pTargetArn (\s a -> s { _pTargetArn = a })
 
 -- | The topic you want to publish to.
-piTopicArn :: Lens' PublishInput (Maybe Text)
-piTopicArn = lens _piTopicArn (\s a -> s { _piTopicArn = a })
+pTopicArn :: Lens' Publish (Maybe Text)
+pTopicArn = lens _pTopicArn (\s a -> s { _pTopicArn = a })
 
-instance ToQuery PublishInput
+instance ToQuery Publish
 
-instance ToPath PublishInput where
+instance ToPath Publish where
     toPath = const "/"
 
 newtype PublishResponse = PublishResponse
@@ -181,9 +181,9 @@ instance FromXML PublishResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "PublishResponse"
 
-instance AWSRequest PublishInput where
-    type Sv PublishInput = SNS
-    type Rs PublishInput = PublishResponse
+instance AWSRequest Publish where
+    type Sv Publish = SNS
+    type Rs Publish = PublishResponse
 
     request  = post "Publish"
     response = xmlResponse $ \h x -> PublishResponse

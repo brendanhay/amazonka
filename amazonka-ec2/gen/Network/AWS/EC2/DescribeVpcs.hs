@@ -33,7 +33,7 @@ module Network.AWS.EC2.DescribeVpcs
     , dv1VpcIds
 
     -- * Response
-    , DescribeVpcsResult
+    , DescribeVpcsResponse
     -- ** Response constructor
     , describeVpcsResponse
     -- ** Response lenses
@@ -97,39 +97,39 @@ instance ToQuery DescribeVpcs
 instance ToPath DescribeVpcs where
     toPath = const "/"
 
-newtype DescribeVpcsResult = DescribeVpcsResult
+newtype DescribeVpcsResponse = DescribeVpcsResponse
     { _dvrVpcs :: [Vpc]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeVpcsResult where
-    type Item DescribeVpcsResult = Vpc
+instance IsList DescribeVpcsResponse where
+    type Item DescribeVpcsResponse = Vpc
 
-    fromList = DescribeVpcsResult . fromList
+    fromList = DescribeVpcsResponse . fromList
     toList   = toList . _dvrVpcs
 
--- | 'DescribeVpcsResult' constructor.
+-- | 'DescribeVpcsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dvrVpcs' @::@ ['Vpc']
 --
-describeVpcsResponse :: DescribeVpcsResult
-describeVpcsResponse = DescribeVpcsResult
+describeVpcsResponse :: DescribeVpcsResponse
+describeVpcsResponse = DescribeVpcsResponse
     { _dvrVpcs = mempty
     }
 
 -- | Information about one or more VPCs.
-dvrVpcs :: Lens' DescribeVpcsResult [Vpc]
+dvrVpcs :: Lens' DescribeVpcsResponse [Vpc]
 dvrVpcs = lens _dvrVpcs (\s a -> s { _dvrVpcs = a })
 
-instance FromXML DescribeVpcsResult where
+instance FromXML DescribeVpcsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVpcsResult"
+    fromXMLRoot    = fromRoot "DescribeVpcsResponse"
 
 instance AWSRequest DescribeVpcs where
     type Sv DescribeVpcs = EC2
-    type Rs DescribeVpcs = DescribeVpcsResult
+    type Rs DescribeVpcs = DescribeVpcsResponse
 
     request  = post "DescribeVpcs"
-    response = xmlResponse $ \h x -> DescribeVpcsResult
+    response = xmlResponse $ \h x -> DescribeVpcsResponse
         <$> x %| "vpcSet"

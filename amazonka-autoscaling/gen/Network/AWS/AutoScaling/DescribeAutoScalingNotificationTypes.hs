@@ -30,11 +30,11 @@ module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
     , describeAutoScalingNotificationTypes
 
     -- * Response
-    , DescribeAutoScalingNotificationTypesAnswer
+    , DescribeAutoScalingNotificationTypesResponse
     -- ** Response constructor
     , describeAutoScalingNotificationTypesResponse
     -- ** Response lenses
-    , dasntaAutoScalingNotificationTypes
+    , dasntrAutoScalingNotificationTypes
     ) where
 
 import Network.AWS.Prelude
@@ -53,44 +53,44 @@ instance ToQuery DescribeAutoScalingNotificationTypes
 instance ToPath DescribeAutoScalingNotificationTypes where
     toPath = const "/"
 
-newtype DescribeAutoScalingNotificationTypesAnswer = DescribeAutoScalingNotificationTypesAnswer
-    { _dasntaAutoScalingNotificationTypes :: [Text]
+newtype DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
+    { _dasntrAutoScalingNotificationTypes :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAutoScalingNotificationTypesAnswer where
-    type Item DescribeAutoScalingNotificationTypesAnswer = Text
+instance IsList DescribeAutoScalingNotificationTypesResponse where
+    type Item DescribeAutoScalingNotificationTypesResponse = Text
 
-    fromList = DescribeAutoScalingNotificationTypesAnswer . fromList
-    toList   = toList . _dasntaAutoScalingNotificationTypes
+    fromList = DescribeAutoScalingNotificationTypesResponse . fromList
+    toList   = toList . _dasntrAutoScalingNotificationTypes
 
--- | 'DescribeAutoScalingNotificationTypesAnswer' constructor.
+-- | 'DescribeAutoScalingNotificationTypesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dasntaAutoScalingNotificationTypes' @::@ ['Text']
+-- * 'dasntrAutoScalingNotificationTypes' @::@ ['Text']
 --
-describeAutoScalingNotificationTypesResponse :: DescribeAutoScalingNotificationTypesAnswer
-describeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesAnswer
-    { _dasntaAutoScalingNotificationTypes = mempty
+describeAutoScalingNotificationTypesResponse :: DescribeAutoScalingNotificationTypesResponse
+describeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse
+    { _dasntrAutoScalingNotificationTypes = mempty
     }
 
 -- | Returns a list of all notification types supported by Auto Scaling. They
 -- are: autoscaling:EC2_INSTANCE_LAUNCH
 -- autoscaling:EC2_INSTANCE_LAUNCH_ERROR autoscaling:EC2_INSTANCE_TERMINATE
 -- autoscaling:EC2_INSTANCE_TERMINATE_ERROR autoscaling:TEST_NOTIFICATION.
-dasntaAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesAnswer [Text]
-dasntaAutoScalingNotificationTypes =
-    lens _dasntaAutoScalingNotificationTypes
-        (\s a -> s { _dasntaAutoScalingNotificationTypes = a })
+dasntrAutoScalingNotificationTypes :: Lens' DescribeAutoScalingNotificationTypesResponse [Text]
+dasntrAutoScalingNotificationTypes =
+    lens _dasntrAutoScalingNotificationTypes
+        (\s a -> s { _dasntrAutoScalingNotificationTypes = a })
 
-instance FromXML DescribeAutoScalingNotificationTypesAnswer where
+instance FromXML DescribeAutoScalingNotificationTypesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAutoScalingNotificationTypesAnswer"
+    fromXMLRoot    = fromRoot "DescribeAutoScalingNotificationTypesResponse"
 
 instance AWSRequest DescribeAutoScalingNotificationTypes where
     type Sv DescribeAutoScalingNotificationTypes = AutoScaling
-    type Rs DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypesAnswer
+    type Rs DescribeAutoScalingNotificationTypes = DescribeAutoScalingNotificationTypesResponse
 
     request  = post "DescribeAutoScalingNotificationTypes"
-    response = xmlResponse $ \h x -> DescribeAutoScalingNotificationTypesAnswer
+    response = xmlResponse $ \h x -> DescribeAutoScalingNotificationTypesResponse
         <$> x %| "AutoScalingNotificationTypes"

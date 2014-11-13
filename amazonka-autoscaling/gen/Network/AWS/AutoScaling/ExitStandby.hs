@@ -26,96 +26,95 @@
 module Network.AWS.AutoScaling.ExitStandby
     (
     -- * Request
-      ExitStandbyQuery
+      ExitStandby
     -- ** Request constructor
     , exitStandby
     -- ** Request lenses
-    , esq1AutoScalingGroupName
-    , esq1InstanceIds
+    , es1AutoScalingGroupName
+    , es1InstanceIds
 
     -- * Response
-    , ExitStandbyAnswer
+    , ExitStandbyResponse
     -- ** Response constructor
     , exitStandbyResponse
     -- ** Response lenses
-    , esa1Activities
+    , esrActivities
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data ExitStandbyQuery = ExitStandbyQuery
-    { _esq1AutoScalingGroupName :: Text
-    , _esq1InstanceIds          :: [Text]
+data ExitStandby = ExitStandby
+    { _es1AutoScalingGroupName :: Text
+    , _es1InstanceIds          :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ExitStandbyQuery' constructor.
+-- | 'ExitStandby' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'esq1AutoScalingGroupName' @::@ 'Text'
+-- * 'es1AutoScalingGroupName' @::@ 'Text'
 --
--- * 'esq1InstanceIds' @::@ ['Text']
+-- * 'es1InstanceIds' @::@ ['Text']
 --
-exitStandby :: Text -- ^ 'esq1AutoScalingGroupName'
-            -> ExitStandbyQuery
-exitStandby p1 = ExitStandbyQuery
-    { _esq1AutoScalingGroupName = p1
-    , _esq1InstanceIds          = mempty
+exitStandby :: Text -- ^ 'es1AutoScalingGroupName'
+            -> ExitStandby
+exitStandby p1 = ExitStandby
+    { _es1AutoScalingGroupName = p1
+    , _es1InstanceIds          = mempty
     }
 
 -- | The name of the Auto Scaling group from which to move instances out of
 -- Standby mode.
-esq1AutoScalingGroupName :: Lens' ExitStandbyQuery Text
-esq1AutoScalingGroupName =
-    lens _esq1AutoScalingGroupName
-        (\s a -> s { _esq1AutoScalingGroupName = a })
+es1AutoScalingGroupName :: Lens' ExitStandby Text
+es1AutoScalingGroupName =
+    lens _es1AutoScalingGroupName (\s a -> s { _es1AutoScalingGroupName = a })
 
 -- | A list of instances to move out of Standby mode. You must specify at
 -- least one instance ID.
-esq1InstanceIds :: Lens' ExitStandbyQuery [Text]
-esq1InstanceIds = lens _esq1InstanceIds (\s a -> s { _esq1InstanceIds = a })
+es1InstanceIds :: Lens' ExitStandby [Text]
+es1InstanceIds = lens _es1InstanceIds (\s a -> s { _es1InstanceIds = a })
 
-instance ToQuery ExitStandbyQuery
+instance ToQuery ExitStandby
 
-instance ToPath ExitStandbyQuery where
+instance ToPath ExitStandby where
     toPath = const "/"
 
-newtype ExitStandbyAnswer = ExitStandbyAnswer
-    { _esa1Activities :: [Activity]
+newtype ExitStandbyResponse = ExitStandbyResponse
+    { _esrActivities :: [Activity]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ExitStandbyAnswer where
-    type Item ExitStandbyAnswer = Activity
+instance IsList ExitStandbyResponse where
+    type Item ExitStandbyResponse = Activity
 
-    fromList = ExitStandbyAnswer . fromList
-    toList   = toList . _esa1Activities
+    fromList = ExitStandbyResponse . fromList
+    toList   = toList . _esrActivities
 
--- | 'ExitStandbyAnswer' constructor.
+-- | 'ExitStandbyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'esa1Activities' @::@ ['Activity']
+-- * 'esrActivities' @::@ ['Activity']
 --
-exitStandbyResponse :: ExitStandbyAnswer
-exitStandbyResponse = ExitStandbyAnswer
-    { _esa1Activities = mempty
+exitStandbyResponse :: ExitStandbyResponse
+exitStandbyResponse = ExitStandbyResponse
+    { _esrActivities = mempty
     }
 
 -- | A list describing the activities related to moving instances out of
 -- Standby mode.
-esa1Activities :: Lens' ExitStandbyAnswer [Activity]
-esa1Activities = lens _esa1Activities (\s a -> s { _esa1Activities = a })
+esrActivities :: Lens' ExitStandbyResponse [Activity]
+esrActivities = lens _esrActivities (\s a -> s { _esrActivities = a })
 
-instance FromXML ExitStandbyAnswer where
+instance FromXML ExitStandbyResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ExitStandbyAnswer"
+    fromXMLRoot    = fromRoot "ExitStandbyResponse"
 
-instance AWSRequest ExitStandbyQuery where
-    type Sv ExitStandbyQuery = AutoScaling
-    type Rs ExitStandbyQuery = ExitStandbyAnswer
+instance AWSRequest ExitStandby where
+    type Sv ExitStandby = AutoScaling
+    type Rs ExitStandby = ExitStandbyResponse
 
     request  = post "ExitStandby"
-    response = xmlResponse $ \h x -> ExitStandbyAnswer
+    response = xmlResponse $ \h x -> ExitStandbyResponse
         <$> x %| "Activities"

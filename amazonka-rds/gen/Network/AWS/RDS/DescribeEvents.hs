@@ -28,113 +28,113 @@
 module Network.AWS.RDS.DescribeEvents
     (
     -- * Request
-      DescribeEventsMessage
+      DescribeEvents
     -- ** Request constructor
     , describeEvents
     -- ** Request lenses
-    , demDuration
-    , demEndTime
-    , demEventCategories
-    , demFilters
-    , demMarker
-    , demMaxRecords
-    , demSourceIdentifier
-    , demSourceType
-    , demStartTime
+    , deDuration
+    , deEndTime
+    , deEventCategories
+    , deFilters
+    , deMarker
+    , deMaxRecords
+    , deSourceIdentifier
+    , deSourceType
+    , deStartTime
 
     -- * Response
-    , EventsMessage
+    , DescribeEventsResponse
     -- ** Response constructor
     , describeEventsResponse
     -- ** Response lenses
-    , emEvents
-    , emMarker
+    , derEvents
+    , derMarker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data DescribeEventsMessage = DescribeEventsMessage
-    { _demDuration         :: Maybe Int
-    , _demEndTime          :: Maybe RFC822
-    , _demEventCategories  :: [Text]
-    , _demFilters          :: [Filter]
-    , _demMarker           :: Maybe Text
-    , _demMaxRecords       :: Maybe Int
-    , _demSourceIdentifier :: Maybe Text
-    , _demSourceType       :: Maybe Text
-    , _demStartTime        :: Maybe RFC822
+data DescribeEvents = DescribeEvents
+    { _deDuration         :: Maybe Int
+    , _deEndTime          :: Maybe RFC822
+    , _deEventCategories  :: [Text]
+    , _deFilters          :: [Filter]
+    , _deMarker           :: Maybe Text
+    , _deMaxRecords       :: Maybe Int
+    , _deSourceIdentifier :: Maybe Text
+    , _deSourceType       :: Maybe Text
+    , _deStartTime        :: Maybe RFC822
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeEventsMessage' constructor.
+-- | 'DescribeEvents' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'demDuration' @::@ 'Maybe' 'Int'
+-- * 'deDuration' @::@ 'Maybe' 'Int'
 --
--- * 'demEndTime' @::@ 'Maybe' 'UTCTime'
+-- * 'deEndTime' @::@ 'Maybe' 'UTCTime'
 --
--- * 'demEventCategories' @::@ ['Text']
+-- * 'deEventCategories' @::@ ['Text']
 --
--- * 'demFilters' @::@ ['Filter']
+-- * 'deFilters' @::@ ['Filter']
 --
--- * 'demMarker' @::@ 'Maybe' 'Text'
+-- * 'deMarker' @::@ 'Maybe' 'Text'
 --
--- * 'demMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'deMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'demSourceIdentifier' @::@ 'Maybe' 'Text'
+-- * 'deSourceIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'demSourceType' @::@ 'Maybe' 'Text'
+-- * 'deSourceType' @::@ 'Maybe' 'Text'
 --
--- * 'demStartTime' @::@ 'Maybe' 'UTCTime'
+-- * 'deStartTime' @::@ 'Maybe' 'UTCTime'
 --
-describeEvents :: DescribeEventsMessage
-describeEvents = DescribeEventsMessage
-    { _demSourceIdentifier = Nothing
-    , _demSourceType       = Nothing
-    , _demStartTime        = Nothing
-    , _demEndTime          = Nothing
-    , _demDuration         = Nothing
-    , _demEventCategories  = mempty
-    , _demFilters          = mempty
-    , _demMaxRecords       = Nothing
-    , _demMarker           = Nothing
+describeEvents :: DescribeEvents
+describeEvents = DescribeEvents
+    { _deSourceIdentifier = Nothing
+    , _deSourceType       = Nothing
+    , _deStartTime        = Nothing
+    , _deEndTime          = Nothing
+    , _deDuration         = Nothing
+    , _deEventCategories  = mempty
+    , _deFilters          = mempty
+    , _deMaxRecords       = Nothing
+    , _deMarker           = Nothing
     }
 
 -- | The number of minutes to retrieve events for. Default: 60.
-demDuration :: Lens' DescribeEventsMessage (Maybe Int)
-demDuration = lens _demDuration (\s a -> s { _demDuration = a })
+deDuration :: Lens' DescribeEvents (Maybe Int)
+deDuration = lens _deDuration (\s a -> s { _deDuration = a })
 
 -- | The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format. For more information about ISO 8601, go to the ISO8601
 -- Wikipedia page. Example: 2009-07-08T18:00Z.
-demEndTime :: Lens' DescribeEventsMessage (Maybe UTCTime)
-demEndTime = lens _demEndTime (\s a -> s { _demEndTime = a })
+deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
+deEndTime = lens _deEndTime (\s a -> s { _deEndTime = a })
     . mapping _Time
 
 -- | A list of event categories that trigger notifications for a event
 -- notification subscription.
-demEventCategories :: Lens' DescribeEventsMessage [Text]
-demEventCategories =
-    lens _demEventCategories (\s a -> s { _demEventCategories = a })
+deEventCategories :: Lens' DescribeEvents [Text]
+deEventCategories =
+    lens _deEventCategories (\s a -> s { _deEventCategories = a })
 
 -- | This parameter is not currently supported.
-demFilters :: Lens' DescribeEventsMessage [Filter]
-demFilters = lens _demFilters (\s a -> s { _demFilters = a })
+deFilters :: Lens' DescribeEvents [Filter]
+deFilters = lens _deFilters (\s a -> s { _deFilters = a })
 
 -- | An optional pagination token provided by a previous DescribeEvents
 -- request. If this parameter is specified, the response includes only
 -- records beyond the marker, up to the value specified by MaxRecords.
-demMarker :: Lens' DescribeEventsMessage (Maybe Text)
-demMarker = lens _demMarker (\s a -> s { _demMarker = a })
+deMarker :: Lens' DescribeEvents (Maybe Text)
+deMarker = lens _deMarker (\s a -> s { _deMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-demMaxRecords :: Lens' DescribeEventsMessage (Maybe Int)
-demMaxRecords = lens _demMaxRecords (\s a -> s { _demMaxRecords = a })
+deMaxRecords :: Lens' DescribeEvents (Maybe Int)
+deMaxRecords = lens _deMaxRecords (\s a -> s { _deMaxRecords = a })
 
 -- | The identifier of the event source for which events will be returned. If
 -- not specified, then all sources are included in the response.
@@ -145,65 +145,65 @@ demMaxRecords = lens _demMaxRecords (\s a -> s { _demMaxRecords = a })
 -- DBParameterGroup, a DBParameterGroupName must be supplied. If the source
 -- type is DBSnapshot, a DBSnapshotIdentifier must be supplied. Cannot end
 -- with a hyphen or contain two consecutive hyphens.
-demSourceIdentifier :: Lens' DescribeEventsMessage (Maybe Text)
-demSourceIdentifier =
-    lens _demSourceIdentifier (\s a -> s { _demSourceIdentifier = a })
+deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
+deSourceIdentifier =
+    lens _deSourceIdentifier (\s a -> s { _deSourceIdentifier = a })
 
 -- | The event source to retrieve events for. If no value is specified, all
 -- events are returned.
-demSourceType :: Lens' DescribeEventsMessage (Maybe Text)
-demSourceType = lens _demSourceType (\s a -> s { _demSourceType = a })
+deSourceType :: Lens' DescribeEvents (Maybe Text)
+deSourceType = lens _deSourceType (\s a -> s { _deSourceType = a })
 
 -- | The beginning of the time interval to retrieve events for, specified in
 -- ISO 8601 format. For more information about ISO 8601, go to the ISO8601
 -- Wikipedia page. Example: 2009-07-08T18:00Z.
-demStartTime :: Lens' DescribeEventsMessage (Maybe UTCTime)
-demStartTime = lens _demStartTime (\s a -> s { _demStartTime = a })
+deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
+deStartTime = lens _deStartTime (\s a -> s { _deStartTime = a })
     . mapping _Time
 
-instance ToQuery DescribeEventsMessage
+instance ToQuery DescribeEvents
 
-instance ToPath DescribeEventsMessage where
+instance ToPath DescribeEvents where
     toPath = const "/"
 
-data EventsMessage = EventsMessage
-    { _emEvents :: [Event]
-    , _emMarker :: Maybe Text
+data DescribeEventsResponse = DescribeEventsResponse
+    { _derEvents :: [Event]
+    , _derMarker :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'EventsMessage' constructor.
+-- | 'DescribeEventsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'emEvents' @::@ ['Event']
+-- * 'derEvents' @::@ ['Event']
 --
--- * 'emMarker' @::@ 'Maybe' 'Text'
+-- * 'derMarker' @::@ 'Maybe' 'Text'
 --
-describeEventsResponse :: EventsMessage
-describeEventsResponse = EventsMessage
-    { _emMarker = Nothing
-    , _emEvents = mempty
+describeEventsResponse :: DescribeEventsResponse
+describeEventsResponse = DescribeEventsResponse
+    { _derMarker = Nothing
+    , _derEvents = mempty
     }
 
 -- | A list of Event instances.
-emEvents :: Lens' EventsMessage [Event]
-emEvents = lens _emEvents (\s a -> s { _emEvents = a })
+derEvents :: Lens' DescribeEventsResponse [Event]
+derEvents = lens _derEvents (\s a -> s { _derEvents = a })
 
 -- | An optional pagination token provided by a previous Events request. If
 -- this parameter is specified, the response includes only records beyond
 -- the marker, up to the value specified by MaxRecords .
-emMarker :: Lens' EventsMessage (Maybe Text)
-emMarker = lens _emMarker (\s a -> s { _emMarker = a })
+derMarker :: Lens' DescribeEventsResponse (Maybe Text)
+derMarker = lens _derMarker (\s a -> s { _derMarker = a })
 
-instance FromXML EventsMessage where
+instance FromXML DescribeEventsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EventsMessage"
+    fromXMLRoot    = fromRoot "DescribeEventsResponse"
 
-instance AWSRequest DescribeEventsMessage where
-    type Sv DescribeEventsMessage = RDS
-    type Rs DescribeEventsMessage = EventsMessage
+instance AWSRequest DescribeEvents where
+    type Sv DescribeEvents = RDS
+    type Rs DescribeEvents = DescribeEventsResponse
 
     request  = post "DescribeEvents"
-    response = xmlResponse $ \h x -> EventsMessage
+    response = xmlResponse $ \h x -> DescribeEventsResponse
         <$> x %| "Events"
         <*> x %| "Marker"

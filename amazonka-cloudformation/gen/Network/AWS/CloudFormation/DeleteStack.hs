@@ -26,11 +26,11 @@
 module Network.AWS.CloudFormation.DeleteStack
     (
     -- * Request
-      DeleteStackInput
+      DeleteStack
     -- ** Request constructor
     , deleteStack
     -- ** Request lenses
-    , dsi1StackName
+    , dsStackName
 
     -- * Response
     , DeleteStackResponse
@@ -42,29 +42,29 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
 
-newtype DeleteStackInput = DeleteStackInput
-    { _dsi1StackName :: Text
+newtype DeleteStack = DeleteStack
+    { _dsStackName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteStackInput' constructor.
+-- | 'DeleteStack' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsi1StackName' @::@ 'Text'
+-- * 'dsStackName' @::@ 'Text'
 --
-deleteStack :: Text -- ^ 'dsi1StackName'
-            -> DeleteStackInput
-deleteStack p1 = DeleteStackInput
-    { _dsi1StackName = p1
+deleteStack :: Text -- ^ 'dsStackName'
+            -> DeleteStack
+deleteStack p1 = DeleteStack
+    { _dsStackName = p1
     }
 
 -- | The name or the unique identifier associated with the stack.
-dsi1StackName :: Lens' DeleteStackInput Text
-dsi1StackName = lens _dsi1StackName (\s a -> s { _dsi1StackName = a })
+dsStackName :: Lens' DeleteStack Text
+dsStackName = lens _dsStackName (\s a -> s { _dsStackName = a })
 
-instance ToQuery DeleteStackInput
+instance ToQuery DeleteStack
 
-instance ToPath DeleteStackInput where
+instance ToPath DeleteStack where
     toPath = const "/"
 
 data DeleteStackResponse = DeleteStackResponse
@@ -78,9 +78,9 @@ instance FromXML DeleteStackResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteStackResponse"
 
-instance AWSRequest DeleteStackInput where
-    type Sv DeleteStackInput = CloudFormation
-    type Rs DeleteStackInput = DeleteStackResponse
+instance AWSRequest DeleteStack where
+    type Sv DeleteStack = CloudFormation
+    type Rs DeleteStack = DeleteStackResponse
 
     request  = post "DeleteStack"
     response = nullaryResponse DeleteStackResponse

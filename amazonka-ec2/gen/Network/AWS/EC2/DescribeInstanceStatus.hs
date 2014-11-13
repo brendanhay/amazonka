@@ -82,7 +82,7 @@ module Network.AWS.EC2.DescribeInstanceStatus
     , disNextToken
 
     -- * Response
-    , DescribeInstanceStatusResult
+    , DescribeInstanceStatusResponse
     -- ** Response constructor
     , describeInstanceStatusResponse
     -- ** Response lenses
@@ -185,12 +185,12 @@ instance ToQuery DescribeInstanceStatus
 instance ToPath DescribeInstanceStatus where
     toPath = const "/"
 
-data DescribeInstanceStatusResult = DescribeInstanceStatusResult
+data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse
     { _disrInstanceStatuses :: [InstanceStatus]
     , _disrNextToken        :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeInstanceStatusResult' constructor.
+-- | 'DescribeInstanceStatusResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -198,30 +198,30 @@ data DescribeInstanceStatusResult = DescribeInstanceStatusResult
 --
 -- * 'disrNextToken' @::@ 'Maybe' 'Text'
 --
-describeInstanceStatusResponse :: DescribeInstanceStatusResult
-describeInstanceStatusResponse = DescribeInstanceStatusResult
+describeInstanceStatusResponse :: DescribeInstanceStatusResponse
+describeInstanceStatusResponse = DescribeInstanceStatusResponse
     { _disrInstanceStatuses = mempty
     , _disrNextToken        = Nothing
     }
 
 -- | One or more instance status descriptions.
-disrInstanceStatuses :: Lens' DescribeInstanceStatusResult [InstanceStatus]
+disrInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
 disrInstanceStatuses =
     lens _disrInstanceStatuses (\s a -> s { _disrInstanceStatuses = a })
 
 -- | The next paginated set of results to return.
-disrNextToken :: Lens' DescribeInstanceStatusResult (Maybe Text)
+disrNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
 disrNextToken = lens _disrNextToken (\s a -> s { _disrNextToken = a })
 
-instance FromXML DescribeInstanceStatusResult where
+instance FromXML DescribeInstanceStatusResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeInstanceStatusResult"
+    fromXMLRoot    = fromRoot "DescribeInstanceStatusResponse"
 
 instance AWSRequest DescribeInstanceStatus where
     type Sv DescribeInstanceStatus = EC2
-    type Rs DescribeInstanceStatus = DescribeInstanceStatusResult
+    type Rs DescribeInstanceStatus = DescribeInstanceStatusResponse
 
     request  = post "DescribeInstanceStatus"
-    response = xmlResponse $ \h x -> DescribeInstanceStatusResult
+    response = xmlResponse $ \h x -> DescribeInstanceStatusResponse
         <$> x %| "instanceStatusSet"
         <*> x %| "nextToken"

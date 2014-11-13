@@ -31,112 +31,112 @@
 module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     (
     -- * Request
-      DescribeConfigurationSettingsMessage
+      DescribeConfigurationSettings
     -- ** Request constructor
     , describeConfigurationSettings
     -- ** Request lenses
-    , dcsmApplicationName
-    , dcsmEnvironmentName
-    , dcsmTemplateName
+    , dcsApplicationName
+    , dcsEnvironmentName
+    , dcsTemplateName
 
     -- * Response
-    , ConfigurationSettingsDescriptions
+    , DescribeConfigurationSettingsResponse
     -- ** Response constructor
     , describeConfigurationSettingsResponse
     -- ** Response lenses
-    , csdConfigurationSettings
+    , dcsrConfigurationSettings
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data DescribeConfigurationSettingsMessage = DescribeConfigurationSettingsMessage
-    { _dcsmApplicationName :: Text
-    , _dcsmEnvironmentName :: Maybe Text
-    , _dcsmTemplateName    :: Maybe Text
+data DescribeConfigurationSettings = DescribeConfigurationSettings
+    { _dcsApplicationName :: Text
+    , _dcsEnvironmentName :: Maybe Text
+    , _dcsTemplateName    :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeConfigurationSettingsMessage' constructor.
+-- | 'DescribeConfigurationSettings' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsmApplicationName' @::@ 'Text'
+-- * 'dcsApplicationName' @::@ 'Text'
 --
--- * 'dcsmEnvironmentName' @::@ 'Maybe' 'Text'
+-- * 'dcsEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * 'dcsmTemplateName' @::@ 'Maybe' 'Text'
+-- * 'dcsTemplateName' @::@ 'Maybe' 'Text'
 --
-describeConfigurationSettings :: Text -- ^ 'dcsmApplicationName'
-                              -> DescribeConfigurationSettingsMessage
-describeConfigurationSettings p1 = DescribeConfigurationSettingsMessage
-    { _dcsmApplicationName = p1
-    , _dcsmTemplateName    = Nothing
-    , _dcsmEnvironmentName = Nothing
+describeConfigurationSettings :: Text -- ^ 'dcsApplicationName'
+                              -> DescribeConfigurationSettings
+describeConfigurationSettings p1 = DescribeConfigurationSettings
+    { _dcsApplicationName = p1
+    , _dcsTemplateName    = Nothing
+    , _dcsEnvironmentName = Nothing
     }
 
 -- | The application for the environment or configuration template.
-dcsmApplicationName :: Lens' DescribeConfigurationSettingsMessage Text
-dcsmApplicationName =
-    lens _dcsmApplicationName (\s a -> s { _dcsmApplicationName = a })
+dcsApplicationName :: Lens' DescribeConfigurationSettings Text
+dcsApplicationName =
+    lens _dcsApplicationName (\s a -> s { _dcsApplicationName = a })
 
 -- | The name of the environment to describe. Condition: You must specify
 -- either this or a TemplateName, but not both. If you specify both, AWS
 -- Elastic Beanstalk returns an InvalidParameterCombination error. If you do
 -- not specify either, AWS Elastic Beanstalk returns
 -- MissingRequiredParameter error.
-dcsmEnvironmentName :: Lens' DescribeConfigurationSettingsMessage (Maybe Text)
-dcsmEnvironmentName =
-    lens _dcsmEnvironmentName (\s a -> s { _dcsmEnvironmentName = a })
+dcsEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
+dcsEnvironmentName =
+    lens _dcsEnvironmentName (\s a -> s { _dcsEnvironmentName = a })
 
 -- | The name of the configuration template to describe. Conditional: You must
 -- specify either this parameter or an EnvironmentName, but not both. If you
 -- specify both, AWS Elastic Beanstalk returns an
 -- InvalidParameterCombination error. If you do not specify either, AWS
 -- Elastic Beanstalk returns a MissingRequiredParameter error.
-dcsmTemplateName :: Lens' DescribeConfigurationSettingsMessage (Maybe Text)
-dcsmTemplateName = lens _dcsmTemplateName (\s a -> s { _dcsmTemplateName = a })
+dcsTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
+dcsTemplateName = lens _dcsTemplateName (\s a -> s { _dcsTemplateName = a })
 
-instance ToQuery DescribeConfigurationSettingsMessage
+instance ToQuery DescribeConfigurationSettings
 
-instance ToPath DescribeConfigurationSettingsMessage where
+instance ToPath DescribeConfigurationSettings where
     toPath = const "/"
 
-newtype ConfigurationSettingsDescriptions = ConfigurationSettingsDescriptions
-    { _csdConfigurationSettings :: [ConfigurationSettingsDescription]
+newtype DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
+    { _dcsrConfigurationSettings :: [ConfigurationSettingsDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ConfigurationSettingsDescriptions where
-    type Item ConfigurationSettingsDescriptions = ConfigurationSettingsDescription
+instance IsList DescribeConfigurationSettingsResponse where
+    type Item DescribeConfigurationSettingsResponse = ConfigurationSettingsDescription
 
-    fromList = ConfigurationSettingsDescriptions . fromList
-    toList   = toList . _csdConfigurationSettings
+    fromList = DescribeConfigurationSettingsResponse . fromList
+    toList   = toList . _dcsrConfigurationSettings
 
--- | 'ConfigurationSettingsDescriptions' constructor.
+-- | 'DescribeConfigurationSettingsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csdConfigurationSettings' @::@ ['ConfigurationSettingsDescription']
+-- * 'dcsrConfigurationSettings' @::@ ['ConfigurationSettingsDescription']
 --
-describeConfigurationSettingsResponse :: ConfigurationSettingsDescriptions
-describeConfigurationSettingsResponse = ConfigurationSettingsDescriptions
-    { _csdConfigurationSettings = mempty
+describeConfigurationSettingsResponse :: DescribeConfigurationSettingsResponse
+describeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse
+    { _dcsrConfigurationSettings = mempty
     }
 
 -- | A list of ConfigurationSettingsDescription.
-csdConfigurationSettings :: Lens' ConfigurationSettingsDescriptions [ConfigurationSettingsDescription]
-csdConfigurationSettings =
-    lens _csdConfigurationSettings
-        (\s a -> s { _csdConfigurationSettings = a })
+dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
+dcsrConfigurationSettings =
+    lens _dcsrConfigurationSettings
+        (\s a -> s { _dcsrConfigurationSettings = a })
 
-instance FromXML ConfigurationSettingsDescriptions where
+instance FromXML DescribeConfigurationSettingsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConfigurationSettingsDescriptions"
+    fromXMLRoot    = fromRoot "DescribeConfigurationSettingsResponse"
 
-instance AWSRequest DescribeConfigurationSettingsMessage where
-    type Sv DescribeConfigurationSettingsMessage = ElasticBeanstalk
-    type Rs DescribeConfigurationSettingsMessage = ConfigurationSettingsDescriptions
+instance AWSRequest DescribeConfigurationSettings where
+    type Sv DescribeConfigurationSettings = ElasticBeanstalk
+    type Rs DescribeConfigurationSettings = DescribeConfigurationSettingsResponse
 
     request  = post "DescribeConfigurationSettings"
-    response = xmlResponse $ \h x -> ConfigurationSettingsDescriptions
+    response = xmlResponse $ \h x -> DescribeConfigurationSettingsResponse
         <$> x %| "ConfigurationSettings"

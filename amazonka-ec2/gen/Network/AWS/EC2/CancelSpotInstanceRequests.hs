@@ -39,7 +39,7 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     , csirSpotInstanceRequestIds
 
     -- * Response
-    , CancelSpotInstanceRequestsResult
+    , CancelSpotInstanceRequestsResponse
     -- ** Response constructor
     , cancelSpotInstanceRequestsResponse
     -- ** Response lenses
@@ -83,41 +83,41 @@ instance ToQuery CancelSpotInstanceRequests
 instance ToPath CancelSpotInstanceRequests where
     toPath = const "/"
 
-newtype CancelSpotInstanceRequestsResult = CancelSpotInstanceRequestsResult
+newtype CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { _csirrCancelledSpotInstanceRequests :: [CancelledSpotInstanceRequest]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList CancelSpotInstanceRequestsResult where
-    type Item CancelSpotInstanceRequestsResult = CancelledSpotInstanceRequest
+instance IsList CancelSpotInstanceRequestsResponse where
+    type Item CancelSpotInstanceRequestsResponse = CancelledSpotInstanceRequest
 
-    fromList = CancelSpotInstanceRequestsResult . fromList
+    fromList = CancelSpotInstanceRequestsResponse . fromList
     toList   = toList . _csirrCancelledSpotInstanceRequests
 
--- | 'CancelSpotInstanceRequestsResult' constructor.
+-- | 'CancelSpotInstanceRequestsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'csirrCancelledSpotInstanceRequests' @::@ ['CancelledSpotInstanceRequest']
 --
-cancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResult
-cancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResult
+cancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResponse
+cancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse
     { _csirrCancelledSpotInstanceRequests = mempty
     }
 
 -- | One or more Spot Instance requests.
-csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResult [CancelledSpotInstanceRequest]
+csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
 csirrCancelledSpotInstanceRequests =
     lens _csirrCancelledSpotInstanceRequests
         (\s a -> s { _csirrCancelledSpotInstanceRequests = a })
 
-instance FromXML CancelSpotInstanceRequestsResult where
+instance FromXML CancelSpotInstanceRequestsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CancelSpotInstanceRequestsResult"
+    fromXMLRoot    = fromRoot "CancelSpotInstanceRequestsResponse"
 
 instance AWSRequest CancelSpotInstanceRequests where
     type Sv CancelSpotInstanceRequests = EC2
-    type Rs CancelSpotInstanceRequests = CancelSpotInstanceRequestsResult
+    type Rs CancelSpotInstanceRequests = CancelSpotInstanceRequestsResponse
 
     request  = post "CancelSpotInstanceRequests"
-    response = xmlResponse $ \h x -> CancelSpotInstanceRequestsResult
+    response = xmlResponse $ \h x -> CancelSpotInstanceRequestsResponse
         <$> x %| "spotInstanceRequestSet"

@@ -28,12 +28,12 @@
 module Network.AWS.ELB.CreateLoadBalancerListeners
     (
     -- * Request
-      CreateLoadBalancerListenerInput
+      CreateLoadBalancerListeners
     -- ** Request constructor
     , createLoadBalancerListeners
     -- ** Request lenses
-    , clbliListeners
-    , clbliLoadBalancerName
+    , clblListeners
+    , clblLoadBalancerName
 
     -- * Response
     , CreateLoadBalancerListenersResponse
@@ -45,39 +45,39 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data CreateLoadBalancerListenerInput = CreateLoadBalancerListenerInput
-    { _clbliListeners        :: [Listener]
-    , _clbliLoadBalancerName :: Text
+data CreateLoadBalancerListeners = CreateLoadBalancerListeners
+    { _clblListeners        :: [Listener]
+    , _clblLoadBalancerName :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'CreateLoadBalancerListenerInput' constructor.
+-- | 'CreateLoadBalancerListeners' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clbliListeners' @::@ ['Listener']
+-- * 'clblListeners' @::@ ['Listener']
 --
--- * 'clbliLoadBalancerName' @::@ 'Text'
+-- * 'clblLoadBalancerName' @::@ 'Text'
 --
-createLoadBalancerListeners :: Text -- ^ 'clbliLoadBalancerName'
-                            -> CreateLoadBalancerListenerInput
-createLoadBalancerListeners p1 = CreateLoadBalancerListenerInput
-    { _clbliLoadBalancerName = p1
-    , _clbliListeners        = mempty
+createLoadBalancerListeners :: Text -- ^ 'clblLoadBalancerName'
+                            -> CreateLoadBalancerListeners
+createLoadBalancerListeners p1 = CreateLoadBalancerListeners
+    { _clblLoadBalancerName = p1
+    , _clblListeners        = mempty
     }
 
 -- | A list of LoadBalancerPort, InstancePort, Protocol, InstanceProtocol, and
 -- SSLCertificateId items.
-clbliListeners :: Lens' CreateLoadBalancerListenerInput [Listener]
-clbliListeners = lens _clbliListeners (\s a -> s { _clbliListeners = a })
+clblListeners :: Lens' CreateLoadBalancerListeners [Listener]
+clblListeners = lens _clblListeners (\s a -> s { _clblListeners = a })
 
 -- | The name of the load balancer.
-clbliLoadBalancerName :: Lens' CreateLoadBalancerListenerInput Text
-clbliLoadBalancerName =
-    lens _clbliLoadBalancerName (\s a -> s { _clbliLoadBalancerName = a })
+clblLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
+clblLoadBalancerName =
+    lens _clblLoadBalancerName (\s a -> s { _clblLoadBalancerName = a })
 
-instance ToQuery CreateLoadBalancerListenerInput
+instance ToQuery CreateLoadBalancerListeners
 
-instance ToPath CreateLoadBalancerListenerInput where
+instance ToPath CreateLoadBalancerListeners where
     toPath = const "/"
 
 data CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse
@@ -91,9 +91,9 @@ instance FromXML CreateLoadBalancerListenersResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateLoadBalancerListenersResponse"
 
-instance AWSRequest CreateLoadBalancerListenerInput where
-    type Sv CreateLoadBalancerListenerInput = ELB
-    type Rs CreateLoadBalancerListenerInput = CreateLoadBalancerListenersResponse
+instance AWSRequest CreateLoadBalancerListeners where
+    type Sv CreateLoadBalancerListeners = ELB
+    type Rs CreateLoadBalancerListeners = CreateLoadBalancerListenersResponse
 
     request  = post "CreateLoadBalancerListeners"
     response = nullaryResponse CreateLoadBalancerListenersResponse

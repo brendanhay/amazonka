@@ -24,17 +24,17 @@
 module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     (
     -- * Request
-      PurchaseReservedDBInstancesOfferingMessage
+      PurchaseReservedDBInstancesOffering
     -- ** Request constructor
     , purchaseReservedDBInstancesOffering
     -- ** Request lenses
-    , prdbiomDBInstanceCount
-    , prdbiomReservedDBInstanceId
-    , prdbiomReservedDBInstancesOfferingId
-    , prdbiomTags
+    , prdbioDBInstanceCount
+    , prdbioReservedDBInstanceId
+    , prdbioReservedDBInstancesOfferingId
+    , prdbioTags
 
     -- * Response
-    , PurchaseReservedDBInstancesOfferingResult
+    , PurchaseReservedDBInstancesOfferingResponse
     -- ** Response constructor
     , purchaseReservedDBInstancesOfferingResponse
     -- ** Response lenses
@@ -45,89 +45,89 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data PurchaseReservedDBInstancesOfferingMessage = PurchaseReservedDBInstancesOfferingMessage
-    { _prdbiomDBInstanceCount               :: Maybe Int
-    , _prdbiomReservedDBInstanceId          :: Maybe Text
-    , _prdbiomReservedDBInstancesOfferingId :: Text
-    , _prdbiomTags                          :: [Tag]
+data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering
+    { _prdbioDBInstanceCount               :: Maybe Int
+    , _prdbioReservedDBInstanceId          :: Maybe Text
+    , _prdbioReservedDBInstancesOfferingId :: Text
+    , _prdbioTags                          :: [Tag]
     } deriving (Eq, Show, Generic)
 
--- | 'PurchaseReservedDBInstancesOfferingMessage' constructor.
+-- | 'PurchaseReservedDBInstancesOffering' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prdbiomDBInstanceCount' @::@ 'Maybe' 'Int'
+-- * 'prdbioDBInstanceCount' @::@ 'Maybe' 'Int'
 --
--- * 'prdbiomReservedDBInstanceId' @::@ 'Maybe' 'Text'
+-- * 'prdbioReservedDBInstanceId' @::@ 'Maybe' 'Text'
 --
--- * 'prdbiomReservedDBInstancesOfferingId' @::@ 'Text'
+-- * 'prdbioReservedDBInstancesOfferingId' @::@ 'Text'
 --
--- * 'prdbiomTags' @::@ ['Tag']
+-- * 'prdbioTags' @::@ ['Tag']
 --
-purchaseReservedDBInstancesOffering :: Text -- ^ 'prdbiomReservedDBInstancesOfferingId'
-                                    -> PurchaseReservedDBInstancesOfferingMessage
-purchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOfferingMessage
-    { _prdbiomReservedDBInstancesOfferingId = p1
-    , _prdbiomReservedDBInstanceId          = Nothing
-    , _prdbiomDBInstanceCount               = Nothing
-    , _prdbiomTags                          = mempty
+purchaseReservedDBInstancesOffering :: Text -- ^ 'prdbioReservedDBInstancesOfferingId'
+                                    -> PurchaseReservedDBInstancesOffering
+purchaseReservedDBInstancesOffering p1 = PurchaseReservedDBInstancesOffering
+    { _prdbioReservedDBInstancesOfferingId = p1
+    , _prdbioReservedDBInstanceId          = Nothing
+    , _prdbioDBInstanceCount               = Nothing
+    , _prdbioTags                          = mempty
     }
 
 -- | The number of instances to reserve. Default: 1.
-prdbiomDBInstanceCount :: Lens' PurchaseReservedDBInstancesOfferingMessage (Maybe Int)
-prdbiomDBInstanceCount =
-    lens _prdbiomDBInstanceCount (\s a -> s { _prdbiomDBInstanceCount = a })
+prdbioDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Int)
+prdbioDBInstanceCount =
+    lens _prdbioDBInstanceCount (\s a -> s { _prdbioDBInstanceCount = a })
 
 -- | Customer-specified identifier to track this reservation. Example:
 -- myreservationID.
-prdbiomReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOfferingMessage (Maybe Text)
-prdbiomReservedDBInstanceId =
-    lens _prdbiomReservedDBInstanceId
-        (\s a -> s { _prdbiomReservedDBInstanceId = a })
+prdbioReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Text)
+prdbioReservedDBInstanceId =
+    lens _prdbioReservedDBInstanceId
+        (\s a -> s { _prdbioReservedDBInstanceId = a })
 
 -- | The ID of the Reserved DB instance offering to purchase. Example:
 -- 438012d3-4052-4cc7-b2e3-8d3372e0e706.
-prdbiomReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOfferingMessage Text
-prdbiomReservedDBInstancesOfferingId =
-    lens _prdbiomReservedDBInstancesOfferingId
-        (\s a -> s { _prdbiomReservedDBInstancesOfferingId = a })
+prdbioReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering Text
+prdbioReservedDBInstancesOfferingId =
+    lens _prdbioReservedDBInstancesOfferingId
+        (\s a -> s { _prdbioReservedDBInstancesOfferingId = a })
 
-prdbiomTags :: Lens' PurchaseReservedDBInstancesOfferingMessage [Tag]
-prdbiomTags = lens _prdbiomTags (\s a -> s { _prdbiomTags = a })
+prdbioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
+prdbioTags = lens _prdbioTags (\s a -> s { _prdbioTags = a })
 
-instance ToQuery PurchaseReservedDBInstancesOfferingMessage
+instance ToQuery PurchaseReservedDBInstancesOffering
 
-instance ToPath PurchaseReservedDBInstancesOfferingMessage where
+instance ToPath PurchaseReservedDBInstancesOffering where
     toPath = const "/"
 
-newtype PurchaseReservedDBInstancesOfferingResult = PurchaseReservedDBInstancesOfferingResult
+newtype PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
     { _prdbiorReservedDBInstance :: Maybe ReservedDBInstance
     } deriving (Eq, Show, Generic)
 
--- | 'PurchaseReservedDBInstancesOfferingResult' constructor.
+-- | 'PurchaseReservedDBInstancesOfferingResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'prdbiorReservedDBInstance' @::@ 'Maybe' 'ReservedDBInstance'
 --
-purchaseReservedDBInstancesOfferingResponse :: PurchaseReservedDBInstancesOfferingResult
-purchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResult
+purchaseReservedDBInstancesOfferingResponse :: PurchaseReservedDBInstancesOfferingResponse
+purchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse
     { _prdbiorReservedDBInstance = Nothing
     }
 
-prdbiorReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResult (Maybe ReservedDBInstance)
+prdbiorReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
 prdbiorReservedDBInstance =
     lens _prdbiorReservedDBInstance
         (\s a -> s { _prdbiorReservedDBInstance = a })
 
-instance FromXML PurchaseReservedDBInstancesOfferingResult where
+instance FromXML PurchaseReservedDBInstancesOfferingResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PurchaseReservedDBInstancesOfferingResult"
+    fromXMLRoot    = fromRoot "PurchaseReservedDBInstancesOfferingResponse"
 
-instance AWSRequest PurchaseReservedDBInstancesOfferingMessage where
-    type Sv PurchaseReservedDBInstancesOfferingMessage = RDS
-    type Rs PurchaseReservedDBInstancesOfferingMessage = PurchaseReservedDBInstancesOfferingResult
+instance AWSRequest PurchaseReservedDBInstancesOffering where
+    type Sv PurchaseReservedDBInstancesOffering = RDS
+    type Rs PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOfferingResponse
 
     request  = post "PurchaseReservedDBInstancesOffering"
-    response = xmlResponse $ \h x -> PurchaseReservedDBInstancesOfferingResult
+    response = xmlResponse $ \h x -> PurchaseReservedDBInstancesOfferingResponse
         <$> x %| "ReservedDBInstance"

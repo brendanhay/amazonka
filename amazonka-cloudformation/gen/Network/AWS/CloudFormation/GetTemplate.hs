@@ -26,80 +26,80 @@
 module Network.AWS.CloudFormation.GetTemplate
     (
     -- * Request
-      GetTemplateInput
+      GetTemplate
     -- ** Request constructor
     , getTemplate
     -- ** Request lenses
-    , gtiStackName
+    , gtStackName
 
     -- * Response
-    , GetTemplateOutput
+    , GetTemplateResponse
     -- ** Response constructor
     , getTemplateResponse
     -- ** Response lenses
-    , gtoTemplateBody
+    , gtrTemplateBody
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
 
-newtype GetTemplateInput = GetTemplateInput
-    { _gtiStackName :: Text
+newtype GetTemplate = GetTemplate
+    { _gtStackName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'GetTemplateInput' constructor.
+-- | 'GetTemplate' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtiStackName' @::@ 'Text'
+-- * 'gtStackName' @::@ 'Text'
 --
-getTemplate :: Text -- ^ 'gtiStackName'
-            -> GetTemplateInput
-getTemplate p1 = GetTemplateInput
-    { _gtiStackName = p1
+getTemplate :: Text -- ^ 'gtStackName'
+            -> GetTemplate
+getTemplate p1 = GetTemplate
+    { _gtStackName = p1
     }
 
 -- | The name or the unique identifier associated with the stack, which are
 -- not always interchangeable: Running stacks: You can specify either the
 -- stack's name or its unique stack ID. Deleted stacks: You must specify the
 -- unique stack ID. Default: There is no default value.
-gtiStackName :: Lens' GetTemplateInput Text
-gtiStackName = lens _gtiStackName (\s a -> s { _gtiStackName = a })
+gtStackName :: Lens' GetTemplate Text
+gtStackName = lens _gtStackName (\s a -> s { _gtStackName = a })
 
-instance ToQuery GetTemplateInput
+instance ToQuery GetTemplate
 
-instance ToPath GetTemplateInput where
+instance ToPath GetTemplate where
     toPath = const "/"
 
-newtype GetTemplateOutput = GetTemplateOutput
-    { _gtoTemplateBody :: Maybe Text
+newtype GetTemplateResponse = GetTemplateResponse
+    { _gtrTemplateBody :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'GetTemplateOutput' constructor.
+-- | 'GetTemplateResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtoTemplateBody' @::@ 'Maybe' 'Text'
+-- * 'gtrTemplateBody' @::@ 'Maybe' 'Text'
 --
-getTemplateResponse :: GetTemplateOutput
-getTemplateResponse = GetTemplateOutput
-    { _gtoTemplateBody = Nothing
+getTemplateResponse :: GetTemplateResponse
+getTemplateResponse = GetTemplateResponse
+    { _gtrTemplateBody = Nothing
     }
 
 -- | Structure containing the template body. (For more information, go to
 -- Template Anatomy in the AWS CloudFormation User Guide.).
-gtoTemplateBody :: Lens' GetTemplateOutput (Maybe Text)
-gtoTemplateBody = lens _gtoTemplateBody (\s a -> s { _gtoTemplateBody = a })
+gtrTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
+gtrTemplateBody = lens _gtrTemplateBody (\s a -> s { _gtrTemplateBody = a })
 
-instance FromXML GetTemplateOutput where
+instance FromXML GetTemplateResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetTemplateOutput"
+    fromXMLRoot    = fromRoot "GetTemplateResponse"
 
-instance AWSRequest GetTemplateInput where
-    type Sv GetTemplateInput = CloudFormation
-    type Rs GetTemplateInput = GetTemplateOutput
+instance AWSRequest GetTemplate where
+    type Sv GetTemplate = CloudFormation
+    type Rs GetTemplate = GetTemplateResponse
 
     request  = post "GetTemplate"
-    response = xmlResponse $ \h x -> GetTemplateOutput
+    response = xmlResponse $ \h x -> GetTemplateResponse
         <$> x %| "TemplateBody"

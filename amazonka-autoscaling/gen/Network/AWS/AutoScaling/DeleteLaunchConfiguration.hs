@@ -26,11 +26,11 @@
 module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     (
     -- * Request
-      LaunchConfigurationNameType
+      DeleteLaunchConfiguration
     -- ** Request constructor
     , deleteLaunchConfiguration
     -- ** Request lenses
-    , lcntLaunchConfigurationName
+    , dlcLaunchConfigurationName
 
     -- * Response
     , DeleteLaunchConfigurationResponse
@@ -42,31 +42,31 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-newtype LaunchConfigurationNameType = LaunchConfigurationNameType
-    { _lcntLaunchConfigurationName :: Text
+newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration
+    { _dlcLaunchConfigurationName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'LaunchConfigurationNameType' constructor.
+-- | 'DeleteLaunchConfiguration' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcntLaunchConfigurationName' @::@ 'Text'
+-- * 'dlcLaunchConfigurationName' @::@ 'Text'
 --
-deleteLaunchConfiguration :: Text -- ^ 'lcntLaunchConfigurationName'
-                          -> LaunchConfigurationNameType
-deleteLaunchConfiguration p1 = LaunchConfigurationNameType
-    { _lcntLaunchConfigurationName = p1
+deleteLaunchConfiguration :: Text -- ^ 'dlcLaunchConfigurationName'
+                          -> DeleteLaunchConfiguration
+deleteLaunchConfiguration p1 = DeleteLaunchConfiguration
+    { _dlcLaunchConfigurationName = p1
     }
 
 -- | The name of the launch configuration.
-lcntLaunchConfigurationName :: Lens' LaunchConfigurationNameType Text
-lcntLaunchConfigurationName =
-    lens _lcntLaunchConfigurationName
-        (\s a -> s { _lcntLaunchConfigurationName = a })
+dlcLaunchConfigurationName :: Lens' DeleteLaunchConfiguration Text
+dlcLaunchConfigurationName =
+    lens _dlcLaunchConfigurationName
+        (\s a -> s { _dlcLaunchConfigurationName = a })
 
-instance ToQuery LaunchConfigurationNameType
+instance ToQuery DeleteLaunchConfiguration
 
-instance ToPath LaunchConfigurationNameType where
+instance ToPath DeleteLaunchConfiguration where
     toPath = const "/"
 
 data DeleteLaunchConfigurationResponse = DeleteLaunchConfigurationResponse
@@ -80,9 +80,9 @@ instance FromXML DeleteLaunchConfigurationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteLaunchConfigurationResponse"
 
-instance AWSRequest LaunchConfigurationNameType where
-    type Sv LaunchConfigurationNameType = AutoScaling
-    type Rs LaunchConfigurationNameType = DeleteLaunchConfigurationResponse
+instance AWSRequest DeleteLaunchConfiguration where
+    type Sv DeleteLaunchConfiguration = AutoScaling
+    type Rs DeleteLaunchConfiguration = DeleteLaunchConfigurationResponse
 
     request  = post "DeleteLaunchConfiguration"
     response = nullaryResponse DeleteLaunchConfigurationResponse

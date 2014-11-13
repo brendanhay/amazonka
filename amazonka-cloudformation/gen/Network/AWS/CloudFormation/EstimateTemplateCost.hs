@@ -26,102 +26,102 @@
 module Network.AWS.CloudFormation.EstimateTemplateCost
     (
     -- * Request
-      EstimateTemplateCostInput
+      EstimateTemplateCost
     -- ** Request constructor
     , estimateTemplateCost
     -- ** Request lenses
-    , etciParameters
-    , etciTemplateBody
-    , etciTemplateURL
+    , etcParameters
+    , etcTemplateBody
+    , etcTemplateURL
 
     -- * Response
-    , EstimateTemplateCostOutput
+    , EstimateTemplateCostResponse
     -- ** Response constructor
     , estimateTemplateCostResponse
     -- ** Response lenses
-    , etcoUrl
+    , etcrUrl
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
 
-data EstimateTemplateCostInput = EstimateTemplateCostInput
-    { _etciParameters   :: [Parameter]
-    , _etciTemplateBody :: Maybe Text
-    , _etciTemplateURL  :: Maybe Text
+data EstimateTemplateCost = EstimateTemplateCost
+    { _etcParameters   :: [Parameter]
+    , _etcTemplateBody :: Maybe Text
+    , _etcTemplateURL  :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'EstimateTemplateCostInput' constructor.
+-- | 'EstimateTemplateCost' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'etciParameters' @::@ ['Parameter']
+-- * 'etcParameters' @::@ ['Parameter']
 --
--- * 'etciTemplateBody' @::@ 'Maybe' 'Text'
+-- * 'etcTemplateBody' @::@ 'Maybe' 'Text'
 --
--- * 'etciTemplateURL' @::@ 'Maybe' 'Text'
+-- * 'etcTemplateURL' @::@ 'Maybe' 'Text'
 --
-estimateTemplateCost :: EstimateTemplateCostInput
-estimateTemplateCost = EstimateTemplateCostInput
-    { _etciTemplateBody = Nothing
-    , _etciTemplateURL  = Nothing
-    , _etciParameters   = mempty
+estimateTemplateCost :: EstimateTemplateCost
+estimateTemplateCost = EstimateTemplateCost
+    { _etcTemplateBody = Nothing
+    , _etcTemplateURL  = Nothing
+    , _etcParameters   = mempty
     }
 
 -- | A list of Parameter structures that specify input parameters.
-etciParameters :: Lens' EstimateTemplateCostInput [Parameter]
-etciParameters = lens _etciParameters (\s a -> s { _etciParameters = a })
+etcParameters :: Lens' EstimateTemplateCost [Parameter]
+etcParameters = lens _etcParameters (\s a -> s { _etcParameters = a })
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. (For more information, go to
 -- Template Anatomy in the AWS CloudFormation User Guide.) Conditional: You
 -- must pass TemplateBody or TemplateURL. If both are passed, only
 -- TemplateBody is used.
-etciTemplateBody :: Lens' EstimateTemplateCostInput (Maybe Text)
-etciTemplateBody = lens _etciTemplateBody (\s a -> s { _etciTemplateBody = a })
+etcTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
+etcTemplateBody = lens _etcTemplateBody (\s a -> s { _etcTemplateBody = a })
 
 -- | Location of file containing the template body. The URL must point to a
 -- template located in an S3 bucket in the same region as the stack. For
 -- more information, go to Template Anatomy in the AWS CloudFormation User
 -- Guide. Conditional: You must pass TemplateURL or TemplateBody. If both
 -- are passed, only TemplateBody is used.
-etciTemplateURL :: Lens' EstimateTemplateCostInput (Maybe Text)
-etciTemplateURL = lens _etciTemplateURL (\s a -> s { _etciTemplateURL = a })
+etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
+etcTemplateURL = lens _etcTemplateURL (\s a -> s { _etcTemplateURL = a })
 
-instance ToQuery EstimateTemplateCostInput
+instance ToQuery EstimateTemplateCost
 
-instance ToPath EstimateTemplateCostInput where
+instance ToPath EstimateTemplateCost where
     toPath = const "/"
 
-newtype EstimateTemplateCostOutput = EstimateTemplateCostOutput
-    { _etcoUrl :: Maybe Text
+newtype EstimateTemplateCostResponse = EstimateTemplateCostResponse
+    { _etcrUrl :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'EstimateTemplateCostOutput' constructor.
+-- | 'EstimateTemplateCostResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'etcoUrl' @::@ 'Maybe' 'Text'
+-- * 'etcrUrl' @::@ 'Maybe' 'Text'
 --
-estimateTemplateCostResponse :: EstimateTemplateCostOutput
-estimateTemplateCostResponse = EstimateTemplateCostOutput
-    { _etcoUrl = Nothing
+estimateTemplateCostResponse :: EstimateTemplateCostResponse
+estimateTemplateCostResponse = EstimateTemplateCostResponse
+    { _etcrUrl = Nothing
     }
 
 -- | An AWS Simple Monthly Calculator URL with a query string that describes
 -- the resources required to run the template.
-etcoUrl :: Lens' EstimateTemplateCostOutput (Maybe Text)
-etcoUrl = lens _etcoUrl (\s a -> s { _etcoUrl = a })
+etcrUrl :: Lens' EstimateTemplateCostResponse (Maybe Text)
+etcrUrl = lens _etcrUrl (\s a -> s { _etcrUrl = a })
 
-instance FromXML EstimateTemplateCostOutput where
+instance FromXML EstimateTemplateCostResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EstimateTemplateCostOutput"
+    fromXMLRoot    = fromRoot "EstimateTemplateCostResponse"
 
-instance AWSRequest EstimateTemplateCostInput where
-    type Sv EstimateTemplateCostInput = CloudFormation
-    type Rs EstimateTemplateCostInput = EstimateTemplateCostOutput
+instance AWSRequest EstimateTemplateCost where
+    type Sv EstimateTemplateCost = CloudFormation
+    type Rs EstimateTemplateCost = EstimateTemplateCostResponse
 
     request  = post "EstimateTemplateCost"
-    response = xmlResponse $ \h x -> EstimateTemplateCostOutput
+    response = xmlResponse $ \h x -> EstimateTemplateCostResponse
         <$> x %| "Url"

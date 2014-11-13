@@ -26,11 +26,11 @@
 module Network.AWS.SNS.DeletePlatformApplication
     (
     -- * Request
-      DeletePlatformApplicationInput
+      DeletePlatformApplication
     -- ** Request constructor
     , deletePlatformApplication
     -- ** Request lenses
-    , dpaiPlatformApplicationArn
+    , dpaPlatformApplicationArn
 
     -- * Response
     , DeletePlatformApplicationResponse
@@ -42,31 +42,31 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-newtype DeletePlatformApplicationInput = DeletePlatformApplicationInput
-    { _dpaiPlatformApplicationArn :: Text
+newtype DeletePlatformApplication = DeletePlatformApplication
+    { _dpaPlatformApplicationArn :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeletePlatformApplicationInput' constructor.
+-- | 'DeletePlatformApplication' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpaiPlatformApplicationArn' @::@ 'Text'
+-- * 'dpaPlatformApplicationArn' @::@ 'Text'
 --
-deletePlatformApplication :: Text -- ^ 'dpaiPlatformApplicationArn'
-                          -> DeletePlatformApplicationInput
-deletePlatformApplication p1 = DeletePlatformApplicationInput
-    { _dpaiPlatformApplicationArn = p1
+deletePlatformApplication :: Text -- ^ 'dpaPlatformApplicationArn'
+                          -> DeletePlatformApplication
+deletePlatformApplication p1 = DeletePlatformApplication
+    { _dpaPlatformApplicationArn = p1
     }
 
 -- | PlatformApplicationArn of platform application object to delete.
-dpaiPlatformApplicationArn :: Lens' DeletePlatformApplicationInput Text
-dpaiPlatformApplicationArn =
-    lens _dpaiPlatformApplicationArn
-        (\s a -> s { _dpaiPlatformApplicationArn = a })
+dpaPlatformApplicationArn :: Lens' DeletePlatformApplication Text
+dpaPlatformApplicationArn =
+    lens _dpaPlatformApplicationArn
+        (\s a -> s { _dpaPlatformApplicationArn = a })
 
-instance ToQuery DeletePlatformApplicationInput
+instance ToQuery DeletePlatformApplication
 
-instance ToPath DeletePlatformApplicationInput where
+instance ToPath DeletePlatformApplication where
     toPath = const "/"
 
 data DeletePlatformApplicationResponse = DeletePlatformApplicationResponse
@@ -80,9 +80,9 @@ instance FromXML DeletePlatformApplicationResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeletePlatformApplicationResponse"
 
-instance AWSRequest DeletePlatformApplicationInput where
-    type Sv DeletePlatformApplicationInput = SNS
-    type Rs DeletePlatformApplicationInput = DeletePlatformApplicationResponse
+instance AWSRequest DeletePlatformApplication where
+    type Sv DeletePlatformApplication = SNS
+    type Rs DeletePlatformApplication = DeletePlatformApplicationResponse
 
     request  = post "DeletePlatformApplication"
     response = nullaryResponse DeletePlatformApplicationResponse

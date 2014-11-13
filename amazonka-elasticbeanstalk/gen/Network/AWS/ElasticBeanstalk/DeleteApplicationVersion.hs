@@ -24,13 +24,13 @@
 module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     (
     -- * Request
-      DeleteApplicationVersionMessage
+      DeleteApplicationVersion
     -- ** Request constructor
     , deleteApplicationVersion
     -- ** Request lenses
-    , davmApplicationName
-    , davmDeleteSourceBundle
-    , davmVersionLabel
+    , davApplicationName
+    , davDeleteSourceBundle
+    , davVersionLabel
 
     -- * Response
     , DeleteApplicationVersionResponse
@@ -42,51 +42,51 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data DeleteApplicationVersionMessage = DeleteApplicationVersionMessage
-    { _davmApplicationName    :: Text
-    , _davmDeleteSourceBundle :: Maybe Bool
-    , _davmVersionLabel       :: Text
+data DeleteApplicationVersion = DeleteApplicationVersion
+    { _davApplicationName    :: Text
+    , _davDeleteSourceBundle :: Maybe Bool
+    , _davVersionLabel       :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteApplicationVersionMessage' constructor.
+-- | 'DeleteApplicationVersion' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'davmApplicationName' @::@ 'Text'
+-- * 'davApplicationName' @::@ 'Text'
 --
--- * 'davmDeleteSourceBundle' @::@ 'Maybe' 'Bool'
+-- * 'davDeleteSourceBundle' @::@ 'Maybe' 'Bool'
 --
--- * 'davmVersionLabel' @::@ 'Text'
+-- * 'davVersionLabel' @::@ 'Text'
 --
-deleteApplicationVersion :: Text -- ^ 'davmApplicationName'
-                         -> Text -- ^ 'davmVersionLabel'
-                         -> DeleteApplicationVersionMessage
-deleteApplicationVersion p1 p2 = DeleteApplicationVersionMessage
-    { _davmApplicationName    = p1
-    , _davmVersionLabel       = p2
-    , _davmDeleteSourceBundle = Nothing
+deleteApplicationVersion :: Text -- ^ 'davApplicationName'
+                         -> Text -- ^ 'davVersionLabel'
+                         -> DeleteApplicationVersion
+deleteApplicationVersion p1 p2 = DeleteApplicationVersion
+    { _davApplicationName    = p1
+    , _davVersionLabel       = p2
+    , _davDeleteSourceBundle = Nothing
     }
 
 -- | The name of the application to delete releases from.
-davmApplicationName :: Lens' DeleteApplicationVersionMessage Text
-davmApplicationName =
-    lens _davmApplicationName (\s a -> s { _davmApplicationName = a })
+davApplicationName :: Lens' DeleteApplicationVersion Text
+davApplicationName =
+    lens _davApplicationName (\s a -> s { _davApplicationName = a })
 
 -- | Indicates whether to delete the associated source bundle from Amazon S3:
 -- true: An attempt is made to delete the associated Amazon S3 source bundle
 -- specified at time of creation. false: No action is taken on the Amazon S3
 -- source bundle specified at time of creation. Valid Values: true | false.
-davmDeleteSourceBundle :: Lens' DeleteApplicationVersionMessage (Maybe Bool)
-davmDeleteSourceBundle =
-    lens _davmDeleteSourceBundle (\s a -> s { _davmDeleteSourceBundle = a })
+davDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
+davDeleteSourceBundle =
+    lens _davDeleteSourceBundle (\s a -> s { _davDeleteSourceBundle = a })
 
 -- | The label of the version to delete.
-davmVersionLabel :: Lens' DeleteApplicationVersionMessage Text
-davmVersionLabel = lens _davmVersionLabel (\s a -> s { _davmVersionLabel = a })
+davVersionLabel :: Lens' DeleteApplicationVersion Text
+davVersionLabel = lens _davVersionLabel (\s a -> s { _davVersionLabel = a })
 
-instance ToQuery DeleteApplicationVersionMessage
+instance ToQuery DeleteApplicationVersion
 
-instance ToPath DeleteApplicationVersionMessage where
+instance ToPath DeleteApplicationVersion where
     toPath = const "/"
 
 data DeleteApplicationVersionResponse = DeleteApplicationVersionResponse
@@ -100,9 +100,9 @@ instance FromXML DeleteApplicationVersionResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteApplicationVersionResponse"
 
-instance AWSRequest DeleteApplicationVersionMessage where
-    type Sv DeleteApplicationVersionMessage = ElasticBeanstalk
-    type Rs DeleteApplicationVersionMessage = DeleteApplicationVersionResponse
+instance AWSRequest DeleteApplicationVersion where
+    type Sv DeleteApplicationVersion = ElasticBeanstalk
+    type Rs DeleteApplicationVersion = DeleteApplicationVersionResponse
 
     request  = post "DeleteApplicationVersion"
     response = nullaryResponse DeleteApplicationVersionResponse

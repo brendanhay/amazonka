@@ -37,23 +37,23 @@ module Network.AWS.EC2.DetachVolume
     -- ** Request constructor
     , detachVolume
     -- ** Request lenses
-    , dv4Device
-    , dv4DryRun
-    , dv4Force
-    , dv4InstanceId
-    , dv4VolumeId
+    , dvDevice
+    , dvDryRun
+    , dvForce
+    , dvInstanceId
+    , dvVolumeId
 
     -- * Response
-    , VolumeAttachment
+    , DetachVolumeResponse
     -- ** Response constructor
-    , volumeAttachment
+    , detachVolumeResponse
     -- ** Response lenses
-    , vaAttachTime
-    , vaDeleteOnTermination
-    , vaDevice
-    , vaInstanceId
-    , vaState
-    , vaVolumeId
+    , dvrAttachTime
+    , dvrDeleteOnTermination
+    , dvrDevice
+    , dvrInstanceId
+    , dvrState
+    , dvrVolumeId
     ) where
 
 import Network.AWS.Prelude
@@ -61,43 +61,43 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DetachVolume = DetachVolume
-    { _dv4Device     :: Maybe Text
-    , _dv4DryRun     :: Maybe Bool
-    , _dv4Force      :: Maybe Bool
-    , _dv4InstanceId :: Maybe Text
-    , _dv4VolumeId   :: Text
+    { _dvDevice     :: Maybe Text
+    , _dvDryRun     :: Maybe Bool
+    , _dvForce      :: Maybe Bool
+    , _dvInstanceId :: Maybe Text
+    , _dvVolumeId   :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DetachVolume' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dv4Device' @::@ 'Maybe' 'Text'
+-- * 'dvDevice' @::@ 'Maybe' 'Text'
 --
--- * 'dv4DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dvDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dv4Force' @::@ 'Maybe' 'Bool'
+-- * 'dvForce' @::@ 'Maybe' 'Bool'
 --
--- * 'dv4InstanceId' @::@ 'Maybe' 'Text'
+-- * 'dvInstanceId' @::@ 'Maybe' 'Text'
 --
--- * 'dv4VolumeId' @::@ 'Text'
+-- * 'dvVolumeId' @::@ 'Text'
 --
-detachVolume :: Text -- ^ 'dv4VolumeId'
+detachVolume :: Text -- ^ 'dvVolumeId'
              -> DetachVolume
 detachVolume p1 = DetachVolume
-    { _dv4VolumeId   = p1
-    , _dv4DryRun     = Nothing
-    , _dv4InstanceId = Nothing
-    , _dv4Device     = Nothing
-    , _dv4Force      = Nothing
+    { _dvVolumeId   = p1
+    , _dvDryRun     = Nothing
+    , _dvInstanceId = Nothing
+    , _dvDevice     = Nothing
+    , _dvForce      = Nothing
     }
 
 -- | The device name.
-dv4Device :: Lens' DetachVolume (Maybe Text)
-dv4Device = lens _dv4Device (\s a -> s { _dv4Device = a })
+dvDevice :: Lens' DetachVolume (Maybe Text)
+dvDevice = lens _dvDevice (\s a -> s { _dvDevice = a })
 
-dv4DryRun :: Lens' DetachVolume (Maybe Bool)
-dv4DryRun = lens _dv4DryRun (\s a -> s { _dv4DryRun = a })
+dvDryRun :: Lens' DetachVolume (Maybe Bool)
+dvDryRun = lens _dvDryRun (\s a -> s { _dvDryRun = a })
 
 -- | Forces detachment if the previous detachment attempt did not occur
 -- cleanly (for example, logging into an instance, unmounting the volume,
@@ -106,25 +106,97 @@ dv4DryRun = lens _dv4DryRun (\s a -> s { _dv4DryRun = a })
 -- from a failed instance. The instance won't have an opportunity to flush
 -- file system caches or file system metadata. If you use this option, you
 -- must perform file system check and repair procedures.
-dv4Force :: Lens' DetachVolume (Maybe Bool)
-dv4Force = lens _dv4Force (\s a -> s { _dv4Force = a })
+dvForce :: Lens' DetachVolume (Maybe Bool)
+dvForce = lens _dvForce (\s a -> s { _dvForce = a })
 
 -- | The ID of the instance.
-dv4InstanceId :: Lens' DetachVolume (Maybe Text)
-dv4InstanceId = lens _dv4InstanceId (\s a -> s { _dv4InstanceId = a })
+dvInstanceId :: Lens' DetachVolume (Maybe Text)
+dvInstanceId = lens _dvInstanceId (\s a -> s { _dvInstanceId = a })
 
 -- | The ID of the volume.
-dv4VolumeId :: Lens' DetachVolume Text
-dv4VolumeId = lens _dv4VolumeId (\s a -> s { _dv4VolumeId = a })
+dvVolumeId :: Lens' DetachVolume Text
+dvVolumeId = lens _dvVolumeId (\s a -> s { _dvVolumeId = a })
 
 instance ToQuery DetachVolume
 
 instance ToPath DetachVolume where
     toPath = const "/"
 
+data DetachVolumeResponse = DetachVolumeResponse
+    { _dvrAttachTime          :: Maybe RFC822
+    , _dvrDeleteOnTermination :: Maybe Bool
+    , _dvrDevice              :: Maybe Text
+    , _dvrInstanceId          :: Maybe Text
+    , _dvrState               :: Maybe Text
+    , _dvrVolumeId            :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'DetachVolumeResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'dvrAttachTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'dvrDeleteOnTermination' @::@ 'Maybe' 'Bool'
+--
+-- * 'dvrDevice' @::@ 'Maybe' 'Text'
+--
+-- * 'dvrInstanceId' @::@ 'Maybe' 'Text'
+--
+-- * 'dvrState' @::@ 'Maybe' 'Text'
+--
+-- * 'dvrVolumeId' @::@ 'Maybe' 'Text'
+--
+detachVolumeResponse :: DetachVolumeResponse
+detachVolumeResponse = DetachVolumeResponse
+    { _dvrVolumeId            = Nothing
+    , _dvrInstanceId          = Nothing
+    , _dvrDevice              = Nothing
+    , _dvrState               = Nothing
+    , _dvrAttachTime          = Nothing
+    , _dvrDeleteOnTermination = Nothing
+    }
+
+-- | The time stamp when the attachment initiated.
+dvrAttachTime :: Lens' DetachVolumeResponse (Maybe UTCTime)
+dvrAttachTime = lens _dvrAttachTime (\s a -> s { _dvrAttachTime = a })
+    . mapping _Time
+
+-- | Indicates whether the Amazon EBS volume is deleted on instance
+-- termination.
+dvrDeleteOnTermination :: Lens' DetachVolumeResponse (Maybe Bool)
+dvrDeleteOnTermination =
+    lens _dvrDeleteOnTermination (\s a -> s { _dvrDeleteOnTermination = a })
+
+-- | The device name.
+dvrDevice :: Lens' DetachVolumeResponse (Maybe Text)
+dvrDevice = lens _dvrDevice (\s a -> s { _dvrDevice = a })
+
+-- | The ID of the instance.
+dvrInstanceId :: Lens' DetachVolumeResponse (Maybe Text)
+dvrInstanceId = lens _dvrInstanceId (\s a -> s { _dvrInstanceId = a })
+
+-- | The attachment state of the volume.
+dvrState :: Lens' DetachVolumeResponse (Maybe Text)
+dvrState = lens _dvrState (\s a -> s { _dvrState = a })
+
+-- | The ID of the volume.
+dvrVolumeId :: Lens' DetachVolumeResponse (Maybe Text)
+dvrVolumeId = lens _dvrVolumeId (\s a -> s { _dvrVolumeId = a })
+
+instance FromXML DetachVolumeResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "DetachVolumeResponse"
+
 instance AWSRequest DetachVolume where
     type Sv DetachVolume = EC2
-    type Rs DetachVolume = VolumeAttachment
+    type Rs DetachVolume = DetachVolumeResponse
 
     request  = post "DetachVolume"
-    response = xmlResponse $ const decodeCursor
+    response = xmlResponse $ \h x -> DetachVolumeResponse
+        <$> x %| "attachTime"
+        <*> x %| "deleteOnTermination"
+        <*> x %| "device"
+        <*> x %| "instanceId"
+        <*> x %| "status"
+        <*> x %| "volumeId"

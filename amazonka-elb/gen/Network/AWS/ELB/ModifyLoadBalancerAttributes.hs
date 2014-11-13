@@ -30,101 +30,101 @@
 module Network.AWS.ELB.ModifyLoadBalancerAttributes
     (
     -- * Request
-      ModifyLoadBalancerAttributesInput
+      ModifyLoadBalancerAttributes
     -- ** Request constructor
     , modifyLoadBalancerAttributes
     -- ** Request lenses
-    , mlbaiLoadBalancerAttributes
-    , mlbaiLoadBalancerName
+    , mlbaLoadBalancerAttributes
+    , mlbaLoadBalancerName
 
     -- * Response
-    , ModifyLoadBalancerAttributesOutput
+    , ModifyLoadBalancerAttributesResponse
     -- ** Response constructor
     , modifyLoadBalancerAttributesResponse
     -- ** Response lenses
-    , mlbaoLoadBalancerAttributes
-    , mlbaoLoadBalancerName
+    , mlbarLoadBalancerAttributes
+    , mlbarLoadBalancerName
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data ModifyLoadBalancerAttributesInput = ModifyLoadBalancerAttributesInput
-    { _mlbaiLoadBalancerAttributes :: LoadBalancerAttributes
-    , _mlbaiLoadBalancerName       :: Text
+data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes
+    { _mlbaLoadBalancerAttributes :: LoadBalancerAttributes
+    , _mlbaLoadBalancerName       :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'ModifyLoadBalancerAttributesInput' constructor.
+-- | 'ModifyLoadBalancerAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mlbaiLoadBalancerAttributes' @::@ 'LoadBalancerAttributes'
+-- * 'mlbaLoadBalancerAttributes' @::@ 'LoadBalancerAttributes'
 --
--- * 'mlbaiLoadBalancerName' @::@ 'Text'
+-- * 'mlbaLoadBalancerName' @::@ 'Text'
 --
-modifyLoadBalancerAttributes :: Text -- ^ 'mlbaiLoadBalancerName'
-                             -> LoadBalancerAttributes -- ^ 'mlbaiLoadBalancerAttributes'
-                             -> ModifyLoadBalancerAttributesInput
-modifyLoadBalancerAttributes p1 p2 = ModifyLoadBalancerAttributesInput
-    { _mlbaiLoadBalancerName       = p1
-    , _mlbaiLoadBalancerAttributes = p2
+modifyLoadBalancerAttributes :: Text -- ^ 'mlbaLoadBalancerName'
+                             -> LoadBalancerAttributes -- ^ 'mlbaLoadBalancerAttributes'
+                             -> ModifyLoadBalancerAttributes
+modifyLoadBalancerAttributes p1 p2 = ModifyLoadBalancerAttributes
+    { _mlbaLoadBalancerName       = p1
+    , _mlbaLoadBalancerAttributes = p2
     }
 
 -- | Attributes of the load balancer.
-mlbaiLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesInput LoadBalancerAttributes
-mlbaiLoadBalancerAttributes =
-    lens _mlbaiLoadBalancerAttributes
-        (\s a -> s { _mlbaiLoadBalancerAttributes = a })
+mlbaLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
+mlbaLoadBalancerAttributes =
+    lens _mlbaLoadBalancerAttributes
+        (\s a -> s { _mlbaLoadBalancerAttributes = a })
 
 -- | The name of the load balancer.
-mlbaiLoadBalancerName :: Lens' ModifyLoadBalancerAttributesInput Text
-mlbaiLoadBalancerName =
-    lens _mlbaiLoadBalancerName (\s a -> s { _mlbaiLoadBalancerName = a })
+mlbaLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
+mlbaLoadBalancerName =
+    lens _mlbaLoadBalancerName (\s a -> s { _mlbaLoadBalancerName = a })
 
-instance ToQuery ModifyLoadBalancerAttributesInput
+instance ToQuery ModifyLoadBalancerAttributes
 
-instance ToPath ModifyLoadBalancerAttributesInput where
+instance ToPath ModifyLoadBalancerAttributes where
     toPath = const "/"
 
-data ModifyLoadBalancerAttributesOutput = ModifyLoadBalancerAttributesOutput
-    { _mlbaoLoadBalancerAttributes :: Maybe LoadBalancerAttributes
-    , _mlbaoLoadBalancerName       :: Maybe Text
+data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
+    { _mlbarLoadBalancerAttributes :: Maybe LoadBalancerAttributes
+    , _mlbarLoadBalancerName       :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'ModifyLoadBalancerAttributesOutput' constructor.
+-- | 'ModifyLoadBalancerAttributesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mlbaoLoadBalancerAttributes' @::@ 'Maybe' 'LoadBalancerAttributes'
+-- * 'mlbarLoadBalancerAttributes' @::@ 'Maybe' 'LoadBalancerAttributes'
 --
--- * 'mlbaoLoadBalancerName' @::@ 'Maybe' 'Text'
+-- * 'mlbarLoadBalancerName' @::@ 'Maybe' 'Text'
 --
-modifyLoadBalancerAttributesResponse :: ModifyLoadBalancerAttributesOutput
-modifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesOutput
-    { _mlbaoLoadBalancerName       = Nothing
-    , _mlbaoLoadBalancerAttributes = Nothing
+modifyLoadBalancerAttributesResponse :: ModifyLoadBalancerAttributesResponse
+modifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
+    { _mlbarLoadBalancerName       = Nothing
+    , _mlbarLoadBalancerAttributes = Nothing
     }
 
-mlbaoLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesOutput (Maybe LoadBalancerAttributes)
-mlbaoLoadBalancerAttributes =
-    lens _mlbaoLoadBalancerAttributes
-        (\s a -> s { _mlbaoLoadBalancerAttributes = a })
+mlbarLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
+mlbarLoadBalancerAttributes =
+    lens _mlbarLoadBalancerAttributes
+        (\s a -> s { _mlbarLoadBalancerAttributes = a })
 
 -- | The name of the load balancer.
-mlbaoLoadBalancerName :: Lens' ModifyLoadBalancerAttributesOutput (Maybe Text)
-mlbaoLoadBalancerName =
-    lens _mlbaoLoadBalancerName (\s a -> s { _mlbaoLoadBalancerName = a })
+mlbarLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
+mlbarLoadBalancerName =
+    lens _mlbarLoadBalancerName (\s a -> s { _mlbarLoadBalancerName = a })
 
-instance FromXML ModifyLoadBalancerAttributesOutput where
+instance FromXML ModifyLoadBalancerAttributesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyLoadBalancerAttributesOutput"
+    fromXMLRoot    = fromRoot "ModifyLoadBalancerAttributesResponse"
 
-instance AWSRequest ModifyLoadBalancerAttributesInput where
-    type Sv ModifyLoadBalancerAttributesInput = ELB
-    type Rs ModifyLoadBalancerAttributesInput = ModifyLoadBalancerAttributesOutput
+instance AWSRequest ModifyLoadBalancerAttributes where
+    type Sv ModifyLoadBalancerAttributes = ELB
+    type Rs ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributesResponse
 
     request  = post "ModifyLoadBalancerAttributes"
-    response = xmlResponse $ \h x -> ModifyLoadBalancerAttributesOutput
+    response = xmlResponse $ \h x -> ModifyLoadBalancerAttributesResponse
         <$> x %| "LoadBalancerAttributes"
         <*> x %| "LoadBalancerName"

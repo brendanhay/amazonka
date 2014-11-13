@@ -31,7 +31,7 @@ module Network.AWS.EC2.DescribeExportTasks
     , detExportTaskIds
 
     -- * Response
-    , DescribeExportTasksResult
+    , DescribeExportTasksResponse
     -- ** Response constructor
     , describeExportTasksResponse
     -- ** Response lenses
@@ -72,38 +72,38 @@ instance ToQuery DescribeExportTasks
 instance ToPath DescribeExportTasks where
     toPath = const "/"
 
-newtype DescribeExportTasksResult = DescribeExportTasksResult
+newtype DescribeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks :: [ExportTask]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeExportTasksResult where
-    type Item DescribeExportTasksResult = ExportTask
+instance IsList DescribeExportTasksResponse where
+    type Item DescribeExportTasksResponse = ExportTask
 
-    fromList = DescribeExportTasksResult . fromList
+    fromList = DescribeExportTasksResponse . fromList
     toList   = toList . _detrExportTasks
 
--- | 'DescribeExportTasksResult' constructor.
+-- | 'DescribeExportTasksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'detrExportTasks' @::@ ['ExportTask']
 --
-describeExportTasksResponse :: DescribeExportTasksResult
-describeExportTasksResponse = DescribeExportTasksResult
+describeExportTasksResponse :: DescribeExportTasksResponse
+describeExportTasksResponse = DescribeExportTasksResponse
     { _detrExportTasks = mempty
     }
 
-detrExportTasks :: Lens' DescribeExportTasksResult [ExportTask]
+detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
 detrExportTasks = lens _detrExportTasks (\s a -> s { _detrExportTasks = a })
 
-instance FromXML DescribeExportTasksResult where
+instance FromXML DescribeExportTasksResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeExportTasksResult"
+    fromXMLRoot    = fromRoot "DescribeExportTasksResponse"
 
 instance AWSRequest DescribeExportTasks where
     type Sv DescribeExportTasks = EC2
-    type Rs DescribeExportTasks = DescribeExportTasksResult
+    type Rs DescribeExportTasks = DescribeExportTasksResponse
 
     request  = post "DescribeExportTasks"
-    response = xmlResponse $ \h x -> DescribeExportTasksResult
+    response = xmlResponse $ \h x -> DescribeExportTasksResponse
         <$> x %| "exportTaskSet"

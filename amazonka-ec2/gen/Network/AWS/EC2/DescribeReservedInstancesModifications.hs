@@ -38,7 +38,7 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     , drimReservedInstancesModificationIds
 
     -- * Response
-    , DescribeReservedInstancesModificationsResult
+    , DescribeReservedInstancesModificationsResponse
     -- ** Response constructor
     , describeReservedInstancesModificationsResponse
     -- ** Response lenses
@@ -111,12 +111,12 @@ instance ToQuery DescribeReservedInstancesModifications
 instance ToPath DescribeReservedInstancesModifications where
     toPath = const "/"
 
-data DescribeReservedInstancesModificationsResult = DescribeReservedInstancesModificationsResult
+data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
     { _drimrNextToken                      :: Maybe Text
     , _drimrReservedInstancesModifications :: [ReservedInstancesModification]
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeReservedInstancesModificationsResult' constructor.
+-- | 'DescribeReservedInstancesModificationsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -124,31 +124,31 @@ data DescribeReservedInstancesModificationsResult = DescribeReservedInstancesMod
 --
 -- * 'drimrReservedInstancesModifications' @::@ ['ReservedInstancesModification']
 --
-describeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResult
-describeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResult
+describeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResponse
+describeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse
     { _drimrReservedInstancesModifications = mempty
     , _drimrNextToken                      = Nothing
     }
 
 -- | The token for the next page of data.
-drimrNextToken :: Lens' DescribeReservedInstancesModificationsResult (Maybe Text)
+drimrNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
 drimrNextToken = lens _drimrNextToken (\s a -> s { _drimrNextToken = a })
 
 -- | The Reserved Instance modification information.
-drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResult [ReservedInstancesModification]
+drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
 drimrReservedInstancesModifications =
     lens _drimrReservedInstancesModifications
         (\s a -> s { _drimrReservedInstancesModifications = a })
 
-instance FromXML DescribeReservedInstancesModificationsResult where
+instance FromXML DescribeReservedInstancesModificationsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeReservedInstancesModificationsResult"
+    fromXMLRoot    = fromRoot "DescribeReservedInstancesModificationsResponse"
 
 instance AWSRequest DescribeReservedInstancesModifications where
     type Sv DescribeReservedInstancesModifications = EC2
-    type Rs DescribeReservedInstancesModifications = DescribeReservedInstancesModificationsResult
+    type Rs DescribeReservedInstancesModifications = DescribeReservedInstancesModificationsResponse
 
     request  = post "DescribeReservedInstancesModifications"
-    response = xmlResponse $ \h x -> DescribeReservedInstancesModificationsResult
+    response = xmlResponse $ \h x -> DescribeReservedInstancesModificationsResponse
         <$> x %| "nextToken"
         <*> x %| "reservedInstancesModificationsSet"

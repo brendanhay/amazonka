@@ -34,7 +34,7 @@ module Network.AWS.EC2.UnmonitorInstances
     , uiInstanceIds
 
     -- * Response
-    , UnmonitorInstancesResult
+    , UnmonitorInstancesResponse
     -- ** Response constructor
     , unmonitorInstancesResponse
     -- ** Response lenses
@@ -76,40 +76,40 @@ instance ToQuery UnmonitorInstances
 instance ToPath UnmonitorInstances where
     toPath = const "/"
 
-newtype UnmonitorInstancesResult = UnmonitorInstancesResult
+newtype UnmonitorInstancesResponse = UnmonitorInstancesResponse
     { _uirInstanceMonitorings :: [InstanceMonitoring]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList UnmonitorInstancesResult where
-    type Item UnmonitorInstancesResult = InstanceMonitoring
+instance IsList UnmonitorInstancesResponse where
+    type Item UnmonitorInstancesResponse = InstanceMonitoring
 
-    fromList = UnmonitorInstancesResult . fromList
+    fromList = UnmonitorInstancesResponse . fromList
     toList   = toList . _uirInstanceMonitorings
 
--- | 'UnmonitorInstancesResult' constructor.
+-- | 'UnmonitorInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'uirInstanceMonitorings' @::@ ['InstanceMonitoring']
 --
-unmonitorInstancesResponse :: UnmonitorInstancesResult
-unmonitorInstancesResponse = UnmonitorInstancesResult
+unmonitorInstancesResponse :: UnmonitorInstancesResponse
+unmonitorInstancesResponse = UnmonitorInstancesResponse
     { _uirInstanceMonitorings = mempty
     }
 
 -- | Monitoring information for one or more instances.
-uirInstanceMonitorings :: Lens' UnmonitorInstancesResult [InstanceMonitoring]
+uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
 uirInstanceMonitorings =
     lens _uirInstanceMonitorings (\s a -> s { _uirInstanceMonitorings = a })
 
-instance FromXML UnmonitorInstancesResult where
+instance FromXML UnmonitorInstancesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "UnmonitorInstancesResult"
+    fromXMLRoot    = fromRoot "UnmonitorInstancesResponse"
 
 instance AWSRequest UnmonitorInstances where
     type Sv UnmonitorInstances = EC2
-    type Rs UnmonitorInstances = UnmonitorInstancesResult
+    type Rs UnmonitorInstances = UnmonitorInstancesResponse
 
     request  = post "UnmonitorInstances"
-    response = xmlResponse $ \h x -> UnmonitorInstancesResult
+    response = xmlResponse $ \h x -> UnmonitorInstancesResponse
         <$> x %| "instancesSet"

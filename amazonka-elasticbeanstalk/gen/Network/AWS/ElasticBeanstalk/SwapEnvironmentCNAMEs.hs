@@ -24,14 +24,14 @@
 module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
     (
     -- * Request
-      SwapEnvironmentCNAMEsMessage
+      SwapEnvironmentCNAMEs
     -- ** Request constructor
     , swapEnvironmentCNAMEs
     -- ** Request lenses
-    , secnamemDestinationEnvironmentId
-    , secnamemDestinationEnvironmentName
-    , secnamemSourceEnvironmentId
-    , secnamemSourceEnvironmentName
+    , secnameDestinationEnvironmentId
+    , secnameDestinationEnvironmentName
+    , secnameSourceEnvironmentId
+    , secnameSourceEnvironmentName
 
     -- * Response
     , SwapEnvironmentCNAMEsResponse
@@ -43,72 +43,72 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data SwapEnvironmentCNAMEsMessage = SwapEnvironmentCNAMEsMessage
-    { _secnamemDestinationEnvironmentId   :: Maybe Text
-    , _secnamemDestinationEnvironmentName :: Maybe Text
-    , _secnamemSourceEnvironmentId        :: Maybe Text
-    , _secnamemSourceEnvironmentName      :: Maybe Text
+data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
+    { _secnameDestinationEnvironmentId   :: Maybe Text
+    , _secnameDestinationEnvironmentName :: Maybe Text
+    , _secnameSourceEnvironmentId        :: Maybe Text
+    , _secnameSourceEnvironmentName      :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'SwapEnvironmentCNAMEsMessage' constructor.
+-- | 'SwapEnvironmentCNAMEs' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'secnamemDestinationEnvironmentId' @::@ 'Maybe' 'Text'
+-- * 'secnameDestinationEnvironmentId' @::@ 'Maybe' 'Text'
 --
--- * 'secnamemDestinationEnvironmentName' @::@ 'Maybe' 'Text'
+-- * 'secnameDestinationEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * 'secnamemSourceEnvironmentId' @::@ 'Maybe' 'Text'
+-- * 'secnameSourceEnvironmentId' @::@ 'Maybe' 'Text'
 --
--- * 'secnamemSourceEnvironmentName' @::@ 'Maybe' 'Text'
+-- * 'secnameSourceEnvironmentName' @::@ 'Maybe' 'Text'
 --
-swapEnvironmentCNAMEs :: SwapEnvironmentCNAMEsMessage
-swapEnvironmentCNAMEs = SwapEnvironmentCNAMEsMessage
-    { _secnamemSourceEnvironmentId        = Nothing
-    , _secnamemSourceEnvironmentName      = Nothing
-    , _secnamemDestinationEnvironmentId   = Nothing
-    , _secnamemDestinationEnvironmentName = Nothing
+swapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs
+swapEnvironmentCNAMEs = SwapEnvironmentCNAMEs
+    { _secnameSourceEnvironmentId        = Nothing
+    , _secnameSourceEnvironmentName      = Nothing
+    , _secnameDestinationEnvironmentId   = Nothing
+    , _secnameDestinationEnvironmentName = Nothing
     }
 
 -- | The ID of the destination environment. Condition: You must specify at
 -- least the DestinationEnvironmentID or the DestinationEnvironmentName. You
 -- may also specify both. You must specify the SourceEnvironmentId with the
 -- DestinationEnvironmentId.
-secnamemDestinationEnvironmentId :: Lens' SwapEnvironmentCNAMEsMessage (Maybe Text)
-secnamemDestinationEnvironmentId =
-    lens _secnamemDestinationEnvironmentId
-        (\s a -> s { _secnamemDestinationEnvironmentId = a })
+secnameDestinationEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
+secnameDestinationEnvironmentId =
+    lens _secnameDestinationEnvironmentId
+        (\s a -> s { _secnameDestinationEnvironmentId = a })
 
 -- | The name of the destination environment. Condition: You must specify at
 -- least the DestinationEnvironmentID or the DestinationEnvironmentName. You
 -- may also specify both. You must specify the SourceEnvironmentName with
 -- the DestinationEnvironmentName.
-secnamemDestinationEnvironmentName :: Lens' SwapEnvironmentCNAMEsMessage (Maybe Text)
-secnamemDestinationEnvironmentName =
-    lens _secnamemDestinationEnvironmentName
-        (\s a -> s { _secnamemDestinationEnvironmentName = a })
+secnameDestinationEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
+secnameDestinationEnvironmentName =
+    lens _secnameDestinationEnvironmentName
+        (\s a -> s { _secnameDestinationEnvironmentName = a })
 
 -- | The ID of the source environment. Condition: You must specify at least
 -- the SourceEnvironmentID or the SourceEnvironmentName. You may also
 -- specify both. If you specify the SourceEnvironmentId, you must specify
 -- the DestinationEnvironmentId.
-secnamemSourceEnvironmentId :: Lens' SwapEnvironmentCNAMEsMessage (Maybe Text)
-secnamemSourceEnvironmentId =
-    lens _secnamemSourceEnvironmentId
-        (\s a -> s { _secnamemSourceEnvironmentId = a })
+secnameSourceEnvironmentId :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
+secnameSourceEnvironmentId =
+    lens _secnameSourceEnvironmentId
+        (\s a -> s { _secnameSourceEnvironmentId = a })
 
 -- | The name of the source environment. Condition: You must specify at least
 -- the SourceEnvironmentID or the SourceEnvironmentName. You may also
 -- specify both. If you specify the SourceEnvironmentName, you must specify
 -- the DestinationEnvironmentName.
-secnamemSourceEnvironmentName :: Lens' SwapEnvironmentCNAMEsMessage (Maybe Text)
-secnamemSourceEnvironmentName =
-    lens _secnamemSourceEnvironmentName
-        (\s a -> s { _secnamemSourceEnvironmentName = a })
+secnameSourceEnvironmentName :: Lens' SwapEnvironmentCNAMEs (Maybe Text)
+secnameSourceEnvironmentName =
+    lens _secnameSourceEnvironmentName
+        (\s a -> s { _secnameSourceEnvironmentName = a })
 
-instance ToQuery SwapEnvironmentCNAMEsMessage
+instance ToQuery SwapEnvironmentCNAMEs
 
-instance ToPath SwapEnvironmentCNAMEsMessage where
+instance ToPath SwapEnvironmentCNAMEs where
     toPath = const "/"
 
 data SwapEnvironmentCNAMEsResponse = SwapEnvironmentCNAMEsResponse
@@ -122,9 +122,9 @@ instance FromXML SwapEnvironmentCNAMEsResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SwapEnvironmentCNAMEsResponse"
 
-instance AWSRequest SwapEnvironmentCNAMEsMessage where
-    type Sv SwapEnvironmentCNAMEsMessage = ElasticBeanstalk
-    type Rs SwapEnvironmentCNAMEsMessage = SwapEnvironmentCNAMEsResponse
+instance AWSRequest SwapEnvironmentCNAMEs where
+    type Sv SwapEnvironmentCNAMEs = ElasticBeanstalk
+    type Rs SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEsResponse
 
     request  = post "SwapEnvironmentCNAMEs"
     response = nullaryResponse SwapEnvironmentCNAMEsResponse

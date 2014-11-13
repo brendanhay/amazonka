@@ -38,15 +38,15 @@
 module Network.AWS.RDS.RebootDBInstance
     (
     -- * Request
-      RebootDBInstanceMessage
+      RebootDBInstance
     -- ** Request constructor
     , rebootDBInstance
     -- ** Request lenses
-    , rdbimDBInstanceIdentifier
-    , rdbimForceFailover
+    , rdbiDBInstanceIdentifier
+    , rdbiForceFailover
 
     -- * Response
-    , RebootDBInstanceResult
+    , RebootDBInstanceResponse
     -- ** Response constructor
     , rebootDBInstanceResponse
     -- ** Response lenses
@@ -57,73 +57,73 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data RebootDBInstanceMessage = RebootDBInstanceMessage
-    { _rdbimDBInstanceIdentifier :: Text
-    , _rdbimForceFailover        :: Maybe Bool
+data RebootDBInstance = RebootDBInstance
+    { _rdbiDBInstanceIdentifier :: Text
+    , _rdbiForceFailover        :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'RebootDBInstanceMessage' constructor.
+-- | 'RebootDBInstance' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdbimDBInstanceIdentifier' @::@ 'Text'
+-- * 'rdbiDBInstanceIdentifier' @::@ 'Text'
 --
--- * 'rdbimForceFailover' @::@ 'Maybe' 'Bool'
+-- * 'rdbiForceFailover' @::@ 'Maybe' 'Bool'
 --
-rebootDBInstance :: Text -- ^ 'rdbimDBInstanceIdentifier'
-                 -> RebootDBInstanceMessage
-rebootDBInstance p1 = RebootDBInstanceMessage
-    { _rdbimDBInstanceIdentifier = p1
-    , _rdbimForceFailover        = Nothing
+rebootDBInstance :: Text -- ^ 'rdbiDBInstanceIdentifier'
+                 -> RebootDBInstance
+rebootDBInstance p1 = RebootDBInstance
+    { _rdbiDBInstanceIdentifier = p1
+    , _rdbiForceFailover        = Nothing
     }
 
 -- | The DB instance identifier. This parameter is stored as a lowercase
 -- string. Constraints: Must contain from 1 to 63 alphanumeric characters or
 -- hyphens First character must be a letter Cannot end with a hyphen or
 -- contain two consecutive hyphens.
-rdbimDBInstanceIdentifier :: Lens' RebootDBInstanceMessage Text
-rdbimDBInstanceIdentifier =
-    lens _rdbimDBInstanceIdentifier
-        (\s a -> s { _rdbimDBInstanceIdentifier = a })
+rdbiDBInstanceIdentifier :: Lens' RebootDBInstance Text
+rdbiDBInstanceIdentifier =
+    lens _rdbiDBInstanceIdentifier
+        (\s a -> s { _rdbiDBInstanceIdentifier = a })
 
 -- | When true, the reboot will be conducted through a MultiAZ failover.
 -- Constraint: You cannot specify true if the instance is not configured for
 -- MultiAZ.
-rdbimForceFailover :: Lens' RebootDBInstanceMessage (Maybe Bool)
-rdbimForceFailover =
-    lens _rdbimForceFailover (\s a -> s { _rdbimForceFailover = a })
+rdbiForceFailover :: Lens' RebootDBInstance (Maybe Bool)
+rdbiForceFailover =
+    lens _rdbiForceFailover (\s a -> s { _rdbiForceFailover = a })
 
-instance ToQuery RebootDBInstanceMessage
+instance ToQuery RebootDBInstance
 
-instance ToPath RebootDBInstanceMessage where
+instance ToPath RebootDBInstance where
     toPath = const "/"
 
-newtype RebootDBInstanceResult = RebootDBInstanceResult
+newtype RebootDBInstanceResponse = RebootDBInstanceResponse
     { _rdbirDBInstance :: Maybe DBInstance
     } deriving (Eq, Show, Generic)
 
--- | 'RebootDBInstanceResult' constructor.
+-- | 'RebootDBInstanceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rdbirDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-rebootDBInstanceResponse :: RebootDBInstanceResult
-rebootDBInstanceResponse = RebootDBInstanceResult
+rebootDBInstanceResponse :: RebootDBInstanceResponse
+rebootDBInstanceResponse = RebootDBInstanceResponse
     { _rdbirDBInstance = Nothing
     }
 
-rdbirDBInstance :: Lens' RebootDBInstanceResult (Maybe DBInstance)
+rdbirDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
 rdbirDBInstance = lens _rdbirDBInstance (\s a -> s { _rdbirDBInstance = a })
 
-instance FromXML RebootDBInstanceResult where
+instance FromXML RebootDBInstanceResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RebootDBInstanceResult"
+    fromXMLRoot    = fromRoot "RebootDBInstanceResponse"
 
-instance AWSRequest RebootDBInstanceMessage where
-    type Sv RebootDBInstanceMessage = RDS
-    type Rs RebootDBInstanceMessage = RebootDBInstanceResult
+instance AWSRequest RebootDBInstance where
+    type Sv RebootDBInstance = RDS
+    type Rs RebootDBInstance = RebootDBInstanceResponse
 
     request  = post "RebootDBInstance"
-    response = xmlResponse $ \h x -> RebootDBInstanceResult
+    response = xmlResponse $ \h x -> RebootDBInstanceResponse
         <$> x %| "DBInstance"

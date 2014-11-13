@@ -39,7 +39,7 @@ module Network.AWS.EC2.ImportKeyPair
     , ikpPublicKeyMaterial
 
     -- * Response
-    , ImportKeyPairResult
+    , ImportKeyPairResponse
     -- ** Response constructor
     , importKeyPairResponse
     -- ** Response lenses
@@ -94,12 +94,12 @@ instance ToQuery ImportKeyPair
 instance ToPath ImportKeyPair where
     toPath = const "/"
 
-data ImportKeyPairResult = ImportKeyPairResult
+data ImportKeyPairResponse = ImportKeyPairResponse
     { _ikprKeyFingerprint :: Maybe Text
     , _ikprKeyName        :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ImportKeyPairResult' constructor.
+-- | 'ImportKeyPairResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -107,30 +107,30 @@ data ImportKeyPairResult = ImportKeyPairResult
 --
 -- * 'ikprKeyName' @::@ 'Maybe' 'Text'
 --
-importKeyPairResponse :: ImportKeyPairResult
-importKeyPairResponse = ImportKeyPairResult
+importKeyPairResponse :: ImportKeyPairResponse
+importKeyPairResponse = ImportKeyPairResponse
     { _ikprKeyName        = Nothing
     , _ikprKeyFingerprint = Nothing
     }
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
-ikprKeyFingerprint :: Lens' ImportKeyPairResult (Maybe Text)
+ikprKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
 ikprKeyFingerprint =
     lens _ikprKeyFingerprint (\s a -> s { _ikprKeyFingerprint = a })
 
 -- | The key pair name you provided.
-ikprKeyName :: Lens' ImportKeyPairResult (Maybe Text)
+ikprKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
 ikprKeyName = lens _ikprKeyName (\s a -> s { _ikprKeyName = a })
 
-instance FromXML ImportKeyPairResult where
+instance FromXML ImportKeyPairResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ImportKeyPairResult"
+    fromXMLRoot    = fromRoot "ImportKeyPairResponse"
 
 instance AWSRequest ImportKeyPair where
     type Sv ImportKeyPair = EC2
-    type Rs ImportKeyPair = ImportKeyPairResult
+    type Rs ImportKeyPair = ImportKeyPairResponse
 
     request  = post "ImportKeyPair"
-    response = xmlResponse $ \h x -> ImportKeyPairResult
+    response = xmlResponse $ \h x -> ImportKeyPairResponse
         <$> x %| "keyFingerprint"
         <*> x %| "keyName"

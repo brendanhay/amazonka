@@ -29,12 +29,12 @@ module Network.AWS.EC2.DescribeRegions
     -- ** Request constructor
     , describeRegions
     -- ** Request lenses
-    , drDryRun
-    , drFilters
-    , drRegionNames
+    , dr1DryRun
+    , dr1Filters
+    , dr1RegionNames
 
     -- * Response
-    , DescribeRegionsResult
+    , DescribeRegionsResponse
     -- ** Response constructor
     , describeRegionsResponse
     -- ** Response lenses
@@ -46,79 +46,79 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DescribeRegions = DescribeRegions
-    { _drDryRun      :: Maybe Bool
-    , _drFilters     :: [Filter]
-    , _drRegionNames :: [Text]
+    { _dr1DryRun      :: Maybe Bool
+    , _dr1Filters     :: [Filter]
+    , _dr1RegionNames :: [Text]
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeRegions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drDryRun' @::@ 'Maybe' 'Bool'
+-- * 'dr1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'drFilters' @::@ ['Filter']
+-- * 'dr1Filters' @::@ ['Filter']
 --
--- * 'drRegionNames' @::@ ['Text']
+-- * 'dr1RegionNames' @::@ ['Text']
 --
 describeRegions :: DescribeRegions
 describeRegions = DescribeRegions
-    { _drDryRun      = Nothing
-    , _drRegionNames = mempty
-    , _drFilters     = mempty
+    { _dr1DryRun      = Nothing
+    , _dr1RegionNames = mempty
+    , _dr1Filters     = mempty
     }
 
-drDryRun :: Lens' DescribeRegions (Maybe Bool)
-drDryRun = lens _drDryRun (\s a -> s { _drDryRun = a })
+dr1DryRun :: Lens' DescribeRegions (Maybe Bool)
+dr1DryRun = lens _dr1DryRun (\s a -> s { _dr1DryRun = a })
 
 -- | One or more filters. endpoint - The endpoint of the region (for example,
 -- ec2.us-east-1.amazonaws.com). region-name - The name of the region (for
 -- example, us-east-1).
-drFilters :: Lens' DescribeRegions [Filter]
-drFilters = lens _drFilters (\s a -> s { _drFilters = a })
+dr1Filters :: Lens' DescribeRegions [Filter]
+dr1Filters = lens _dr1Filters (\s a -> s { _dr1Filters = a })
 
 -- | The names of one or more regions.
-drRegionNames :: Lens' DescribeRegions [Text]
-drRegionNames = lens _drRegionNames (\s a -> s { _drRegionNames = a })
+dr1RegionNames :: Lens' DescribeRegions [Text]
+dr1RegionNames = lens _dr1RegionNames (\s a -> s { _dr1RegionNames = a })
 
 instance ToQuery DescribeRegions
 
 instance ToPath DescribeRegions where
     toPath = const "/"
 
-newtype DescribeRegionsResult = DescribeRegionsResult
+newtype DescribeRegionsResponse = DescribeRegionsResponse
     { _drrRegions :: [Region]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeRegionsResult where
-    type Item DescribeRegionsResult = Region
+instance IsList DescribeRegionsResponse where
+    type Item DescribeRegionsResponse = Region
 
-    fromList = DescribeRegionsResult . fromList
+    fromList = DescribeRegionsResponse . fromList
     toList   = toList . _drrRegions
 
--- | 'DescribeRegionsResult' constructor.
+-- | 'DescribeRegionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'drrRegions' @::@ ['Region']
 --
-describeRegionsResponse :: DescribeRegionsResult
-describeRegionsResponse = DescribeRegionsResult
+describeRegionsResponse :: DescribeRegionsResponse
+describeRegionsResponse = DescribeRegionsResponse
     { _drrRegions = mempty
     }
 
 -- | Information about one or more regions.
-drrRegions :: Lens' DescribeRegionsResult [Region]
+drrRegions :: Lens' DescribeRegionsResponse [Region]
 drrRegions = lens _drrRegions (\s a -> s { _drrRegions = a })
 
-instance FromXML DescribeRegionsResult where
+instance FromXML DescribeRegionsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeRegionsResult"
+    fromXMLRoot    = fromRoot "DescribeRegionsResponse"
 
 instance AWSRequest DescribeRegions where
     type Sv DescribeRegions = EC2
-    type Rs DescribeRegions = DescribeRegionsResult
+    type Rs DescribeRegions = DescribeRegionsResponse
 
     request  = post "DescribeRegions"
-    response = xmlResponse $ \h x -> DescribeRegionsResult
+    response = xmlResponse $ \h x -> DescribeRegionsResponse
         <$> x %| "regionInfo"

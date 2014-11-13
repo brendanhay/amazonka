@@ -35,7 +35,7 @@ module Network.AWS.EC2.AttachVpnGateway
     , avgVpnGatewayId
 
     -- * Response
-    , AttachVpnGatewayResult
+    , AttachVpnGatewayResponse
     -- ** Response constructor
     , attachVpnGatewayResponse
     -- ** Response lenses
@@ -87,34 +87,34 @@ instance ToQuery AttachVpnGateway
 instance ToPath AttachVpnGateway where
     toPath = const "/"
 
-newtype AttachVpnGatewayResult = AttachVpnGatewayResult
+newtype AttachVpnGatewayResponse = AttachVpnGatewayResponse
     { _avgrVpcAttachment :: Maybe VpcAttachment
     } deriving (Eq, Show, Generic)
 
--- | 'AttachVpnGatewayResult' constructor.
+-- | 'AttachVpnGatewayResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'avgrVpcAttachment' @::@ 'Maybe' 'VpcAttachment'
 --
-attachVpnGatewayResponse :: AttachVpnGatewayResult
-attachVpnGatewayResponse = AttachVpnGatewayResult
+attachVpnGatewayResponse :: AttachVpnGatewayResponse
+attachVpnGatewayResponse = AttachVpnGatewayResponse
     { _avgrVpcAttachment = Nothing
     }
 
 -- | Information about the attachment.
-avgrVpcAttachment :: Lens' AttachVpnGatewayResult (Maybe VpcAttachment)
+avgrVpcAttachment :: Lens' AttachVpnGatewayResponse (Maybe VpcAttachment)
 avgrVpcAttachment =
     lens _avgrVpcAttachment (\s a -> s { _avgrVpcAttachment = a })
 
-instance FromXML AttachVpnGatewayResult where
+instance FromXML AttachVpnGatewayResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttachVpnGatewayResult"
+    fromXMLRoot    = fromRoot "AttachVpnGatewayResponse"
 
 instance AWSRequest AttachVpnGateway where
     type Sv AttachVpnGateway = EC2
-    type Rs AttachVpnGateway = AttachVpnGatewayResult
+    type Rs AttachVpnGateway = AttachVpnGatewayResponse
 
     request  = post "AttachVpnGateway"
-    response = xmlResponse $ \h x -> AttachVpnGatewayResult
+    response = xmlResponse $ \h x -> AttachVpnGatewayResponse
         <$> x %| "attachment"

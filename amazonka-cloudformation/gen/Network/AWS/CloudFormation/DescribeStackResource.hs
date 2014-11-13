@@ -26,93 +26,93 @@
 module Network.AWS.CloudFormation.DescribeStackResource
     (
     -- * Request
-      DescribeStackResourceInput
+      DescribeStackResource
     -- ** Request constructor
     , describeStackResource
     -- ** Request lenses
-    , dsri1LogicalResourceId
-    , dsri1StackName
+    , dsr1LogicalResourceId
+    , dsr1StackName
 
     -- * Response
-    , DescribeStackResourceOutput
+    , DescribeStackResourceResponse
     -- ** Response constructor
     , describeStackResourceResponse
     -- ** Response lenses
-    , dsroStackResourceDetail
+    , dsrrStackResourceDetail
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
 
-data DescribeStackResourceInput = DescribeStackResourceInput
-    { _dsri1LogicalResourceId :: Text
-    , _dsri1StackName         :: Text
+data DescribeStackResource = DescribeStackResource
+    { _dsr1LogicalResourceId :: Text
+    , _dsr1StackName         :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeStackResourceInput' constructor.
+-- | 'DescribeStackResource' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsri1LogicalResourceId' @::@ 'Text'
+-- * 'dsr1LogicalResourceId' @::@ 'Text'
 --
--- * 'dsri1StackName' @::@ 'Text'
+-- * 'dsr1StackName' @::@ 'Text'
 --
-describeStackResource :: Text -- ^ 'dsri1StackName'
-                      -> Text -- ^ 'dsri1LogicalResourceId'
-                      -> DescribeStackResourceInput
-describeStackResource p1 p2 = DescribeStackResourceInput
-    { _dsri1StackName         = p1
-    , _dsri1LogicalResourceId = p2
+describeStackResource :: Text -- ^ 'dsr1StackName'
+                      -> Text -- ^ 'dsr1LogicalResourceId'
+                      -> DescribeStackResource
+describeStackResource p1 p2 = DescribeStackResource
+    { _dsr1StackName         = p1
+    , _dsr1LogicalResourceId = p2
     }
 
 -- | The logical name of the resource as specified in the template. Default:
 -- There is no default value.
-dsri1LogicalResourceId :: Lens' DescribeStackResourceInput Text
-dsri1LogicalResourceId =
-    lens _dsri1LogicalResourceId (\s a -> s { _dsri1LogicalResourceId = a })
+dsr1LogicalResourceId :: Lens' DescribeStackResource Text
+dsr1LogicalResourceId =
+    lens _dsr1LogicalResourceId (\s a -> s { _dsr1LogicalResourceId = a })
 
 -- | The name or the unique identifier associated with the stack, which are
 -- not always interchangeable: Running stacks: You can specify either the
 -- stack's name or its unique stack ID. Deleted stacks: You must specify the
 -- unique stack ID. Default: There is no default value.
-dsri1StackName :: Lens' DescribeStackResourceInput Text
-dsri1StackName = lens _dsri1StackName (\s a -> s { _dsri1StackName = a })
+dsr1StackName :: Lens' DescribeStackResource Text
+dsr1StackName = lens _dsr1StackName (\s a -> s { _dsr1StackName = a })
 
-instance ToQuery DescribeStackResourceInput
+instance ToQuery DescribeStackResource
 
-instance ToPath DescribeStackResourceInput where
+instance ToPath DescribeStackResource where
     toPath = const "/"
 
-newtype DescribeStackResourceOutput = DescribeStackResourceOutput
-    { _dsroStackResourceDetail :: Maybe StackResourceDetail
+newtype DescribeStackResourceResponse = DescribeStackResourceResponse
+    { _dsrrStackResourceDetail :: Maybe StackResourceDetail
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeStackResourceOutput' constructor.
+-- | 'DescribeStackResourceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsroStackResourceDetail' @::@ 'Maybe' 'StackResourceDetail'
+-- * 'dsrrStackResourceDetail' @::@ 'Maybe' 'StackResourceDetail'
 --
-describeStackResourceResponse :: DescribeStackResourceOutput
-describeStackResourceResponse = DescribeStackResourceOutput
-    { _dsroStackResourceDetail = Nothing
+describeStackResourceResponse :: DescribeStackResourceResponse
+describeStackResourceResponse = DescribeStackResourceResponse
+    { _dsrrStackResourceDetail = Nothing
     }
 
 -- | A StackResourceDetail structure containing the description of the
 -- specified resource in the specified stack.
-dsroStackResourceDetail :: Lens' DescribeStackResourceOutput (Maybe StackResourceDetail)
-dsroStackResourceDetail =
-    lens _dsroStackResourceDetail (\s a -> s { _dsroStackResourceDetail = a })
+dsrrStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
+dsrrStackResourceDetail =
+    lens _dsrrStackResourceDetail (\s a -> s { _dsrrStackResourceDetail = a })
 
-instance FromXML DescribeStackResourceOutput where
+instance FromXML DescribeStackResourceResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeStackResourceOutput"
+    fromXMLRoot    = fromRoot "DescribeStackResourceResponse"
 
-instance AWSRequest DescribeStackResourceInput where
-    type Sv DescribeStackResourceInput = CloudFormation
-    type Rs DescribeStackResourceInput = DescribeStackResourceOutput
+instance AWSRequest DescribeStackResource where
+    type Sv DescribeStackResource = CloudFormation
+    type Rs DescribeStackResource = DescribeStackResourceResponse
 
     request  = post "DescribeStackResource"
-    response = xmlResponse $ \h x -> DescribeStackResourceOutput
+    response = xmlResponse $ \h x -> DescribeStackResourceResponse
         <$> x %| "StackResourceDetail"

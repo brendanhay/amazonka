@@ -25,99 +25,99 @@
 module Network.AWS.CloudFormation.DescribeStacks
     (
     -- * Request
-      DescribeStacksInput
+      DescribeStacks
     -- ** Request constructor
     , describeStacks
     -- ** Request lenses
-    , dsiNextToken
-    , dsiStackName
+    , ds1NextToken
+    , ds1StackName
 
     -- * Response
-    , DescribeStacksOutput
+    , DescribeStacksResponse
     -- ** Response constructor
     , describeStacksResponse
     -- ** Response lenses
-    , dsoNextToken
-    , dsoStacks
+    , dsrNextToken
+    , dsrStacks
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
 
-data DescribeStacksInput = DescribeStacksInput
-    { _dsiNextToken :: Maybe Text
-    , _dsiStackName :: Maybe Text
+data DescribeStacks = DescribeStacks
+    { _ds1NextToken :: Maybe Text
+    , _ds1StackName :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeStacksInput' constructor.
+-- | 'DescribeStacks' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsiNextToken' @::@ 'Maybe' 'Text'
+-- * 'ds1NextToken' @::@ 'Maybe' 'Text'
 --
--- * 'dsiStackName' @::@ 'Maybe' 'Text'
+-- * 'ds1StackName' @::@ 'Maybe' 'Text'
 --
-describeStacks :: DescribeStacksInput
-describeStacks = DescribeStacksInput
-    { _dsiStackName = Nothing
-    , _dsiNextToken = Nothing
+describeStacks :: DescribeStacks
+describeStacks = DescribeStacks
+    { _ds1StackName = Nothing
+    , _ds1NextToken = Nothing
     }
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-dsiNextToken :: Lens' DescribeStacksInput (Maybe Text)
-dsiNextToken = lens _dsiNextToken (\s a -> s { _dsiNextToken = a })
+ds1NextToken :: Lens' DescribeStacks (Maybe Text)
+ds1NextToken = lens _ds1NextToken (\s a -> s { _ds1NextToken = a })
 
 -- | The name or the unique identifier associated with the stack, which are
 -- not always interchangeable: Running stacks: You can specify either the
 -- stack's name or its unique stack ID. Deleted stacks: You must specify the
 -- unique stack ID. Default: There is no default value.
-dsiStackName :: Lens' DescribeStacksInput (Maybe Text)
-dsiStackName = lens _dsiStackName (\s a -> s { _dsiStackName = a })
+ds1StackName :: Lens' DescribeStacks (Maybe Text)
+ds1StackName = lens _ds1StackName (\s a -> s { _ds1StackName = a })
 
-instance ToQuery DescribeStacksInput
+instance ToQuery DescribeStacks
 
-instance ToPath DescribeStacksInput where
+instance ToPath DescribeStacks where
     toPath = const "/"
 
-data DescribeStacksOutput = DescribeStacksOutput
-    { _dsoNextToken :: Maybe Text
-    , _dsoStacks    :: [Stack]
+data DescribeStacksResponse = DescribeStacksResponse
+    { _dsrNextToken :: Maybe Text
+    , _dsrStacks    :: [Stack]
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeStacksOutput' constructor.
+-- | 'DescribeStacksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsoNextToken' @::@ 'Maybe' 'Text'
+-- * 'dsrNextToken' @::@ 'Maybe' 'Text'
 --
--- * 'dsoStacks' @::@ ['Stack']
+-- * 'dsrStacks' @::@ ['Stack']
 --
-describeStacksResponse :: DescribeStacksOutput
-describeStacksResponse = DescribeStacksOutput
-    { _dsoStacks    = mempty
-    , _dsoNextToken = Nothing
+describeStacksResponse :: DescribeStacksResponse
+describeStacksResponse = DescribeStacksResponse
+    { _dsrStacks    = mempty
+    , _dsrNextToken = Nothing
     }
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-dsoNextToken :: Lens' DescribeStacksOutput (Maybe Text)
-dsoNextToken = lens _dsoNextToken (\s a -> s { _dsoNextToken = a })
+dsrNextToken :: Lens' DescribeStacksResponse (Maybe Text)
+dsrNextToken = lens _dsrNextToken (\s a -> s { _dsrNextToken = a })
 
 -- | A list of stack structures.
-dsoStacks :: Lens' DescribeStacksOutput [Stack]
-dsoStacks = lens _dsoStacks (\s a -> s { _dsoStacks = a })
+dsrStacks :: Lens' DescribeStacksResponse [Stack]
+dsrStacks = lens _dsrStacks (\s a -> s { _dsrStacks = a })
 
-instance FromXML DescribeStacksOutput where
+instance FromXML DescribeStacksResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeStacksOutput"
+    fromXMLRoot    = fromRoot "DescribeStacksResponse"
 
-instance AWSRequest DescribeStacksInput where
-    type Sv DescribeStacksInput = CloudFormation
-    type Rs DescribeStacksInput = DescribeStacksOutput
+instance AWSRequest DescribeStacks where
+    type Sv DescribeStacks = CloudFormation
+    type Rs DescribeStacks = DescribeStacksResponse
 
     request  = post "DescribeStacks"
-    response = xmlResponse $ \h x -> DescribeStacksOutput
+    response = xmlResponse $ \h x -> DescribeStacksResponse
         <$> x %| "NextToken"
         <*> x %| "Stacks"

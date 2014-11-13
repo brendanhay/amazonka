@@ -32,34 +32,34 @@
 module Network.AWS.ElastiCache.CreateReplicationGroup
     (
     -- * Request
-      CreateReplicationGroupMessage
+      CreateReplicationGroup
     -- ** Request constructor
     , createReplicationGroup
     -- ** Request lenses
-    , crgmAutoMinorVersionUpgrade
-    , crgmAutomaticFailoverEnabled
-    , crgmCacheNodeType
-    , crgmCacheParameterGroupName
-    , crgmCacheSecurityGroupNames
-    , crgmCacheSubnetGroupName
-    , crgmEngine
-    , crgmEngineVersion
-    , crgmNotificationTopicArn
-    , crgmNumCacheClusters
-    , crgmPort
-    , crgmPreferredCacheClusterAZs
-    , crgmPreferredMaintenanceWindow
-    , crgmPrimaryClusterId
-    , crgmReplicationGroupDescription
-    , crgmReplicationGroupId
-    , crgmSecurityGroupIds
-    , crgmSnapshotArns
-    , crgmSnapshotName
-    , crgmSnapshotRetentionLimit
-    , crgmSnapshotWindow
+    , crgAutoMinorVersionUpgrade
+    , crgAutomaticFailoverEnabled
+    , crgCacheNodeType
+    , crgCacheParameterGroupName
+    , crgCacheSecurityGroupNames
+    , crgCacheSubnetGroupName
+    , crgEngine
+    , crgEngineVersion
+    , crgNotificationTopicArn
+    , crgNumCacheClusters
+    , crgPort
+    , crgPreferredCacheClusterAZs
+    , crgPreferredMaintenanceWindow
+    , crgPrimaryClusterId
+    , crgReplicationGroupDescription
+    , crgReplicationGroupId
+    , crgSecurityGroupIds
+    , crgSnapshotArns
+    , crgSnapshotName
+    , crgSnapshotRetentionLimit
+    , crgSnapshotWindow
 
     -- * Response
-    , CreateReplicationGroupResult
+    , CreateReplicationGroupResponse
     -- ** Response constructor
     , createReplicationGroupResponse
     -- ** Response lenses
@@ -70,120 +70,120 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data CreateReplicationGroupMessage = CreateReplicationGroupMessage
-    { _crgmAutoMinorVersionUpgrade     :: Maybe Bool
-    , _crgmAutomaticFailoverEnabled    :: Maybe Bool
-    , _crgmCacheNodeType               :: Maybe Text
-    , _crgmCacheParameterGroupName     :: Maybe Text
-    , _crgmCacheSecurityGroupNames     :: [Text]
-    , _crgmCacheSubnetGroupName        :: Maybe Text
-    , _crgmEngine                      :: Maybe Text
-    , _crgmEngineVersion               :: Maybe Text
-    , _crgmNotificationTopicArn        :: Maybe Text
-    , _crgmNumCacheClusters            :: Maybe Int
-    , _crgmPort                        :: Maybe Int
-    , _crgmPreferredCacheClusterAZs    :: [Text]
-    , _crgmPreferredMaintenanceWindow  :: Maybe Text
-    , _crgmPrimaryClusterId            :: Maybe Text
-    , _crgmReplicationGroupDescription :: Text
-    , _crgmReplicationGroupId          :: Text
-    , _crgmSecurityGroupIds            :: [Text]
-    , _crgmSnapshotArns                :: [Text]
-    , _crgmSnapshotName                :: Maybe Text
-    , _crgmSnapshotRetentionLimit      :: Maybe Int
-    , _crgmSnapshotWindow              :: Maybe Text
+data CreateReplicationGroup = CreateReplicationGroup
+    { _crgAutoMinorVersionUpgrade     :: Maybe Bool
+    , _crgAutomaticFailoverEnabled    :: Maybe Bool
+    , _crgCacheNodeType               :: Maybe Text
+    , _crgCacheParameterGroupName     :: Maybe Text
+    , _crgCacheSecurityGroupNames     :: [Text]
+    , _crgCacheSubnetGroupName        :: Maybe Text
+    , _crgEngine                      :: Maybe Text
+    , _crgEngineVersion               :: Maybe Text
+    , _crgNotificationTopicArn        :: Maybe Text
+    , _crgNumCacheClusters            :: Maybe Int
+    , _crgPort                        :: Maybe Int
+    , _crgPreferredCacheClusterAZs    :: [Text]
+    , _crgPreferredMaintenanceWindow  :: Maybe Text
+    , _crgPrimaryClusterId            :: Maybe Text
+    , _crgReplicationGroupDescription :: Text
+    , _crgReplicationGroupId          :: Text
+    , _crgSecurityGroupIds            :: [Text]
+    , _crgSnapshotArns                :: [Text]
+    , _crgSnapshotName                :: Maybe Text
+    , _crgSnapshotRetentionLimit      :: Maybe Int
+    , _crgSnapshotWindow              :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CreateReplicationGroupMessage' constructor.
+-- | 'CreateReplicationGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crgmAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
+-- * 'crgAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
 --
--- * 'crgmAutomaticFailoverEnabled' @::@ 'Maybe' 'Bool'
+-- * 'crgAutomaticFailoverEnabled' @::@ 'Maybe' 'Bool'
 --
--- * 'crgmCacheNodeType' @::@ 'Maybe' 'Text'
+-- * 'crgCacheNodeType' @::@ 'Maybe' 'Text'
 --
--- * 'crgmCacheParameterGroupName' @::@ 'Maybe' 'Text'
+-- * 'crgCacheParameterGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'crgmCacheSecurityGroupNames' @::@ ['Text']
+-- * 'crgCacheSecurityGroupNames' @::@ ['Text']
 --
--- * 'crgmCacheSubnetGroupName' @::@ 'Maybe' 'Text'
+-- * 'crgCacheSubnetGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'crgmEngine' @::@ 'Maybe' 'Text'
+-- * 'crgEngine' @::@ 'Maybe' 'Text'
 --
--- * 'crgmEngineVersion' @::@ 'Maybe' 'Text'
+-- * 'crgEngineVersion' @::@ 'Maybe' 'Text'
 --
--- * 'crgmNotificationTopicArn' @::@ 'Maybe' 'Text'
+-- * 'crgNotificationTopicArn' @::@ 'Maybe' 'Text'
 --
--- * 'crgmNumCacheClusters' @::@ 'Maybe' 'Int'
+-- * 'crgNumCacheClusters' @::@ 'Maybe' 'Int'
 --
--- * 'crgmPort' @::@ 'Maybe' 'Int'
+-- * 'crgPort' @::@ 'Maybe' 'Int'
 --
--- * 'crgmPreferredCacheClusterAZs' @::@ ['Text']
+-- * 'crgPreferredCacheClusterAZs' @::@ ['Text']
 --
--- * 'crgmPreferredMaintenanceWindow' @::@ 'Maybe' 'Text'
+-- * 'crgPreferredMaintenanceWindow' @::@ 'Maybe' 'Text'
 --
--- * 'crgmPrimaryClusterId' @::@ 'Maybe' 'Text'
+-- * 'crgPrimaryClusterId' @::@ 'Maybe' 'Text'
 --
--- * 'crgmReplicationGroupDescription' @::@ 'Text'
+-- * 'crgReplicationGroupDescription' @::@ 'Text'
 --
--- * 'crgmReplicationGroupId' @::@ 'Text'
+-- * 'crgReplicationGroupId' @::@ 'Text'
 --
--- * 'crgmSecurityGroupIds' @::@ ['Text']
+-- * 'crgSecurityGroupIds' @::@ ['Text']
 --
--- * 'crgmSnapshotArns' @::@ ['Text']
+-- * 'crgSnapshotArns' @::@ ['Text']
 --
--- * 'crgmSnapshotName' @::@ 'Maybe' 'Text'
+-- * 'crgSnapshotName' @::@ 'Maybe' 'Text'
 --
--- * 'crgmSnapshotRetentionLimit' @::@ 'Maybe' 'Int'
+-- * 'crgSnapshotRetentionLimit' @::@ 'Maybe' 'Int'
 --
--- * 'crgmSnapshotWindow' @::@ 'Maybe' 'Text'
+-- * 'crgSnapshotWindow' @::@ 'Maybe' 'Text'
 --
-createReplicationGroup :: Text -- ^ 'crgmReplicationGroupId'
-                       -> Text -- ^ 'crgmReplicationGroupDescription'
-                       -> CreateReplicationGroupMessage
-createReplicationGroup p1 p2 = CreateReplicationGroupMessage
-    { _crgmReplicationGroupId          = p1
-    , _crgmReplicationGroupDescription = p2
-    , _crgmPrimaryClusterId            = Nothing
-    , _crgmAutomaticFailoverEnabled    = Nothing
-    , _crgmNumCacheClusters            = Nothing
-    , _crgmPreferredCacheClusterAZs    = mempty
-    , _crgmCacheNodeType               = Nothing
-    , _crgmEngine                      = Nothing
-    , _crgmEngineVersion               = Nothing
-    , _crgmCacheParameterGroupName     = Nothing
-    , _crgmCacheSubnetGroupName        = Nothing
-    , _crgmCacheSecurityGroupNames     = mempty
-    , _crgmSecurityGroupIds            = mempty
-    , _crgmSnapshotArns                = mempty
-    , _crgmSnapshotName                = Nothing
-    , _crgmPreferredMaintenanceWindow  = Nothing
-    , _crgmPort                        = Nothing
-    , _crgmNotificationTopicArn        = Nothing
-    , _crgmAutoMinorVersionUpgrade     = Nothing
-    , _crgmSnapshotRetentionLimit      = Nothing
-    , _crgmSnapshotWindow              = Nothing
+createReplicationGroup :: Text -- ^ 'crgReplicationGroupId'
+                       -> Text -- ^ 'crgReplicationGroupDescription'
+                       -> CreateReplicationGroup
+createReplicationGroup p1 p2 = CreateReplicationGroup
+    { _crgReplicationGroupId          = p1
+    , _crgReplicationGroupDescription = p2
+    , _crgPrimaryClusterId            = Nothing
+    , _crgAutomaticFailoverEnabled    = Nothing
+    , _crgNumCacheClusters            = Nothing
+    , _crgPreferredCacheClusterAZs    = mempty
+    , _crgCacheNodeType               = Nothing
+    , _crgEngine                      = Nothing
+    , _crgEngineVersion               = Nothing
+    , _crgCacheParameterGroupName     = Nothing
+    , _crgCacheSubnetGroupName        = Nothing
+    , _crgCacheSecurityGroupNames     = mempty
+    , _crgSecurityGroupIds            = mempty
+    , _crgSnapshotArns                = mempty
+    , _crgSnapshotName                = Nothing
+    , _crgPreferredMaintenanceWindow  = Nothing
+    , _crgPort                        = Nothing
+    , _crgNotificationTopicArn        = Nothing
+    , _crgAutoMinorVersionUpgrade     = Nothing
+    , _crgSnapshotRetentionLimit      = Nothing
+    , _crgSnapshotWindow              = Nothing
     }
 
 -- | Determines whether minor engine upgrades will be applied automatically to
 -- the node group during the maintenance window. A value of true allows
 -- these upgrades to occur; false disables automatic upgrades. Default:
 -- true.
-crgmAutoMinorVersionUpgrade :: Lens' CreateReplicationGroupMessage (Maybe Bool)
-crgmAutoMinorVersionUpgrade =
-    lens _crgmAutoMinorVersionUpgrade
-        (\s a -> s { _crgmAutoMinorVersionUpgrade = a })
+crgAutoMinorVersionUpgrade :: Lens' CreateReplicationGroup (Maybe Bool)
+crgAutoMinorVersionUpgrade =
+    lens _crgAutoMinorVersionUpgrade
+        (\s a -> s { _crgAutoMinorVersionUpgrade = a })
 
 -- | Specifies whether a read-only replica will be automatically promoted to
 -- read/write primary if the existing primary fails. If true, automatic
 -- failover is enabled for this replication group. If false, automatic
 -- failover is disabled for this replication group. Default: false.
-crgmAutomaticFailoverEnabled :: Lens' CreateReplicationGroupMessage (Maybe Bool)
-crgmAutomaticFailoverEnabled =
-    lens _crgmAutomaticFailoverEnabled
-        (\s a -> s { _crgmAutomaticFailoverEnabled = a })
+crgAutomaticFailoverEnabled :: Lens' CreateReplicationGroup (Maybe Bool)
+crgAutomaticFailoverEnabled =
+    lens _crgAutomaticFailoverEnabled
+        (\s a -> s { _crgAutomaticFailoverEnabled = a })
 
 -- | The compute and memory capacity of the nodes in the node group. Valid
 -- node types are as follows: General purpose: Current generation:
@@ -200,49 +200,45 @@ crgmAutomaticFailoverEnabled =
 -- node types and specifications, see Amazon ElastiCache Product Features
 -- and Details and Cache Node Type-Specific Parameters for Memcached or
 -- Cache Node Type-Specific Parameters for Redis.
-crgmCacheNodeType :: Lens' CreateReplicationGroupMessage (Maybe Text)
-crgmCacheNodeType =
-    lens _crgmCacheNodeType (\s a -> s { _crgmCacheNodeType = a })
+crgCacheNodeType :: Lens' CreateReplicationGroup (Maybe Text)
+crgCacheNodeType = lens _crgCacheNodeType (\s a -> s { _crgCacheNodeType = a })
 
 -- | The name of the parameter group to associate with this replication group.
 -- If this argument is omitted, the default cache parameter group for the
 -- specified engine is used.
-crgmCacheParameterGroupName :: Lens' CreateReplicationGroupMessage (Maybe Text)
-crgmCacheParameterGroupName =
-    lens _crgmCacheParameterGroupName
-        (\s a -> s { _crgmCacheParameterGroupName = a })
+crgCacheParameterGroupName :: Lens' CreateReplicationGroup (Maybe Text)
+crgCacheParameterGroupName =
+    lens _crgCacheParameterGroupName
+        (\s a -> s { _crgCacheParameterGroupName = a })
 
 -- | A list of cache security group names to associate with this replication
 -- group.
-crgmCacheSecurityGroupNames :: Lens' CreateReplicationGroupMessage [Text]
-crgmCacheSecurityGroupNames =
-    lens _crgmCacheSecurityGroupNames
-        (\s a -> s { _crgmCacheSecurityGroupNames = a })
+crgCacheSecurityGroupNames :: Lens' CreateReplicationGroup [Text]
+crgCacheSecurityGroupNames =
+    lens _crgCacheSecurityGroupNames
+        (\s a -> s { _crgCacheSecurityGroupNames = a })
 
 -- | The name of the cache subnet group to be used for the replication group.
-crgmCacheSubnetGroupName :: Lens' CreateReplicationGroupMessage (Maybe Text)
-crgmCacheSubnetGroupName =
-    lens _crgmCacheSubnetGroupName
-        (\s a -> s { _crgmCacheSubnetGroupName = a })
+crgCacheSubnetGroupName :: Lens' CreateReplicationGroup (Maybe Text)
+crgCacheSubnetGroupName =
+    lens _crgCacheSubnetGroupName (\s a -> s { _crgCacheSubnetGroupName = a })
 
 -- | The name of the cache engine to be used for the cache clusters in this
 -- replication group. Default: redis.
-crgmEngine :: Lens' CreateReplicationGroupMessage (Maybe Text)
-crgmEngine = lens _crgmEngine (\s a -> s { _crgmEngine = a })
+crgEngine :: Lens' CreateReplicationGroup (Maybe Text)
+crgEngine = lens _crgEngine (\s a -> s { _crgEngine = a })
 
 -- | The version number of the cach engine to be used for the cache clusters
 -- in this replication group. To view the supported cache engine versions,
 -- use the DescribeCacheEngineVersions operation.
-crgmEngineVersion :: Lens' CreateReplicationGroupMessage (Maybe Text)
-crgmEngineVersion =
-    lens _crgmEngineVersion (\s a -> s { _crgmEngineVersion = a })
+crgEngineVersion :: Lens' CreateReplicationGroup (Maybe Text)
+crgEngineVersion = lens _crgEngineVersion (\s a -> s { _crgEngineVersion = a })
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic to which notifications will be sent.
-crgmNotificationTopicArn :: Lens' CreateReplicationGroupMessage (Maybe Text)
-crgmNotificationTopicArn =
-    lens _crgmNotificationTopicArn
-        (\s a -> s { _crgmNotificationTopicArn = a })
+crgNotificationTopicArn :: Lens' CreateReplicationGroup (Maybe Text)
+crgNotificationTopicArn =
+    lens _crgNotificationTopicArn (\s a -> s { _crgNotificationTopicArn = a })
 
 -- | The number of cache clusters this replication group will initially have.
 -- If AutomaticFailover is enabled, the value of this parameter must be at
@@ -250,14 +246,14 @@ crgmNotificationTopicArn =
 -- plus 5 replicas). If you need to exceed this limit, please fill out the
 -- ElastiCache Limit Increase Request forrm at
 -- http://aws.amazon.com/contact-us/elasticache-node-limit-request.
-crgmNumCacheClusters :: Lens' CreateReplicationGroupMessage (Maybe Int)
-crgmNumCacheClusters =
-    lens _crgmNumCacheClusters (\s a -> s { _crgmNumCacheClusters = a })
+crgNumCacheClusters :: Lens' CreateReplicationGroup (Maybe Int)
+crgNumCacheClusters =
+    lens _crgNumCacheClusters (\s a -> s { _crgNumCacheClusters = a })
 
 -- | The port number on which each member of the replication group will accept
 -- connections.
-crgmPort :: Lens' CreateReplicationGroupMessage (Maybe Int)
-crgmPort = lens _crgmPort (\s a -> s { _crgmPort = a })
+crgPort :: Lens' CreateReplicationGroup (Maybe Int)
+crgPort = lens _crgPort (\s a -> s { _crgPort = a })
 
 -- | A list of EC2 availability zones in which the replication group's cache
 -- clusters will be created. The order of the availability zones in the list
@@ -266,46 +262,46 @@ crgmPort = lens _crgmPort (\s a -> s { _crgmPort = a })
 -- PreferredAvailabilityZones.member.1=us-east-1a
 -- PreferredAvailabilityZones.member.2=us-east-1c
 -- PreferredAvailabilityZones.member.3=us-east-1d.
-crgmPreferredCacheClusterAZs :: Lens' CreateReplicationGroupMessage [Text]
-crgmPreferredCacheClusterAZs =
-    lens _crgmPreferredCacheClusterAZs
-        (\s a -> s { _crgmPreferredCacheClusterAZs = a })
+crgPreferredCacheClusterAZs :: Lens' CreateReplicationGroup [Text]
+crgPreferredCacheClusterAZs =
+    lens _crgPreferredCacheClusterAZs
+        (\s a -> s { _crgPreferredCacheClusterAZs = a })
 
 -- | The weekly time range (in UTC) during which system maintenance can occur.
 -- Example: sun:05:00-sun:09:00.
-crgmPreferredMaintenanceWindow :: Lens' CreateReplicationGroupMessage (Maybe Text)
-crgmPreferredMaintenanceWindow =
-    lens _crgmPreferredMaintenanceWindow
-        (\s a -> s { _crgmPreferredMaintenanceWindow = a })
+crgPreferredMaintenanceWindow :: Lens' CreateReplicationGroup (Maybe Text)
+crgPreferredMaintenanceWindow =
+    lens _crgPreferredMaintenanceWindow
+        (\s a -> s { _crgPreferredMaintenanceWindow = a })
 
 -- | The identifier of the cache cluster that will serve as the primary for
 -- this replication group. This cache cluster must already exist and have a
 -- status of available. This parameter is not required if NumCacheClusters
 -- is specified.
-crgmPrimaryClusterId :: Lens' CreateReplicationGroupMessage (Maybe Text)
-crgmPrimaryClusterId =
-    lens _crgmPrimaryClusterId (\s a -> s { _crgmPrimaryClusterId = a })
+crgPrimaryClusterId :: Lens' CreateReplicationGroup (Maybe Text)
+crgPrimaryClusterId =
+    lens _crgPrimaryClusterId (\s a -> s { _crgPrimaryClusterId = a })
 
 -- | A user-created description for the replication group.
-crgmReplicationGroupDescription :: Lens' CreateReplicationGroupMessage Text
-crgmReplicationGroupDescription =
-    lens _crgmReplicationGroupDescription
-        (\s a -> s { _crgmReplicationGroupDescription = a })
+crgReplicationGroupDescription :: Lens' CreateReplicationGroup Text
+crgReplicationGroupDescription =
+    lens _crgReplicationGroupDescription
+        (\s a -> s { _crgReplicationGroupDescription = a })
 
 -- | The replication group identifier. This parameter is stored as a lowercase
 -- string. Constraints: A name must contain from 1 to 20 alphanumeric
 -- characters or hyphens. The first character must be a letter. A name
 -- cannot end with a hyphen or contain two consecutive hyphens.
-crgmReplicationGroupId :: Lens' CreateReplicationGroupMessage Text
-crgmReplicationGroupId =
-    lens _crgmReplicationGroupId (\s a -> s { _crgmReplicationGroupId = a })
+crgReplicationGroupId :: Lens' CreateReplicationGroup Text
+crgReplicationGroupId =
+    lens _crgReplicationGroupId (\s a -> s { _crgReplicationGroupId = a })
 
 -- | One or more Amazon VPC security groups associated with this replication
 -- group. Use this parameter only when you are creating a replication group
 -- in an Amazon Virtual Private Cloud (VPC).
-crgmSecurityGroupIds :: Lens' CreateReplicationGroupMessage [Text]
-crgmSecurityGroupIds =
-    lens _crgmSecurityGroupIds (\s a -> s { _crgmSecurityGroupIds = a })
+crgSecurityGroupIds :: Lens' CreateReplicationGroup [Text]
+crgSecurityGroupIds =
+    lens _crgSecurityGroupIds (\s a -> s { _crgSecurityGroupIds = a })
 
 -- | A single-element string list containing an Amazon Resource Name (ARN)
 -- that uniquely identifies a Redis RDB snapshot file stored in Amazon S3.
@@ -313,15 +309,15 @@ crgmSecurityGroupIds =
 -- object name in the ARN cannot contain any commas. Note: This parameter is
 -- only valid if the Engine parameter is redis. Example of an Amazon S3 ARN:
 -- arn:aws:s3:::my_bucket/snapshot1.rdb.
-crgmSnapshotArns :: Lens' CreateReplicationGroupMessage [Text]
-crgmSnapshotArns = lens _crgmSnapshotArns (\s a -> s { _crgmSnapshotArns = a })
+crgSnapshotArns :: Lens' CreateReplicationGroup [Text]
+crgSnapshotArns = lens _crgSnapshotArns (\s a -> s { _crgSnapshotArns = a })
 
 -- | The name of a snapshot from which to restore data into the new node
 -- group. The snapshot status changes to restoring while the new node group
 -- is being created. Note: This parameter is only valid if the Engine
 -- parameter is redis.
-crgmSnapshotName :: Lens' CreateReplicationGroupMessage (Maybe Text)
-crgmSnapshotName = lens _crgmSnapshotName (\s a -> s { _crgmSnapshotName = a })
+crgSnapshotName :: Lens' CreateReplicationGroup (Maybe Text)
+crgSnapshotName = lens _crgSnapshotName (\s a -> s { _crgSnapshotName = a })
 
 -- | The number of days for which ElastiCache will retain automatic snapshots
 -- before deleting them. For example, if you set SnapshotRetentionLimit to
@@ -329,52 +325,52 @@ crgmSnapshotName = lens _crgmSnapshotName (\s a -> s { _crgmSnapshotName = a })
 -- before being deleted. Note: This parameter is only valid if the Engine
 -- parameter is redis. Default: 0 (i.e., automatic backups are disabled for
 -- this cache cluster).
-crgmSnapshotRetentionLimit :: Lens' CreateReplicationGroupMessage (Maybe Int)
-crgmSnapshotRetentionLimit =
-    lens _crgmSnapshotRetentionLimit
-        (\s a -> s { _crgmSnapshotRetentionLimit = a })
+crgSnapshotRetentionLimit :: Lens' CreateReplicationGroup (Maybe Int)
+crgSnapshotRetentionLimit =
+    lens _crgSnapshotRetentionLimit
+        (\s a -> s { _crgSnapshotRetentionLimit = a })
 
 -- | The daily time range (in UTC) during which ElastiCache will begin taking
 -- a daily snapshot of your node group. Example: 05:00-09:00 If you do not
 -- specify this parameter, then ElastiCache will automatically choose an
 -- appropriate time range. Note: This parameter is only valid if the Engine
 -- parameter is redis.
-crgmSnapshotWindow :: Lens' CreateReplicationGroupMessage (Maybe Text)
-crgmSnapshotWindow =
-    lens _crgmSnapshotWindow (\s a -> s { _crgmSnapshotWindow = a })
+crgSnapshotWindow :: Lens' CreateReplicationGroup (Maybe Text)
+crgSnapshotWindow =
+    lens _crgSnapshotWindow (\s a -> s { _crgSnapshotWindow = a })
 
-instance ToQuery CreateReplicationGroupMessage
+instance ToQuery CreateReplicationGroup
 
-instance ToPath CreateReplicationGroupMessage where
+instance ToPath CreateReplicationGroup where
     toPath = const "/"
 
-newtype CreateReplicationGroupResult = CreateReplicationGroupResult
+newtype CreateReplicationGroupResponse = CreateReplicationGroupResponse
     { _crgrReplicationGroup :: Maybe ReplicationGroup
     } deriving (Eq, Show, Generic)
 
--- | 'CreateReplicationGroupResult' constructor.
+-- | 'CreateReplicationGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'crgrReplicationGroup' @::@ 'Maybe' 'ReplicationGroup'
 --
-createReplicationGroupResponse :: CreateReplicationGroupResult
-createReplicationGroupResponse = CreateReplicationGroupResult
+createReplicationGroupResponse :: CreateReplicationGroupResponse
+createReplicationGroupResponse = CreateReplicationGroupResponse
     { _crgrReplicationGroup = Nothing
     }
 
-crgrReplicationGroup :: Lens' CreateReplicationGroupResult (Maybe ReplicationGroup)
+crgrReplicationGroup :: Lens' CreateReplicationGroupResponse (Maybe ReplicationGroup)
 crgrReplicationGroup =
     lens _crgrReplicationGroup (\s a -> s { _crgrReplicationGroup = a })
 
-instance FromXML CreateReplicationGroupResult where
+instance FromXML CreateReplicationGroupResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateReplicationGroupResult"
+    fromXMLRoot    = fromRoot "CreateReplicationGroupResponse"
 
-instance AWSRequest CreateReplicationGroupMessage where
-    type Sv CreateReplicationGroupMessage = ElastiCache
-    type Rs CreateReplicationGroupMessage = CreateReplicationGroupResult
+instance AWSRequest CreateReplicationGroup where
+    type Sv CreateReplicationGroup = ElastiCache
+    type Rs CreateReplicationGroup = CreateReplicationGroupResponse
 
     request  = post "CreateReplicationGroup"
-    response = xmlResponse $ \h x -> CreateReplicationGroupResult
+    response = xmlResponse $ \h x -> CreateReplicationGroupResponse
         <$> x %| "ReplicationGroup"

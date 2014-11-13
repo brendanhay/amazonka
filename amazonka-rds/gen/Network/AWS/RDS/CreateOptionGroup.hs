@@ -24,18 +24,18 @@
 module Network.AWS.RDS.CreateOptionGroup
     (
     -- * Request
-      CreateOptionGroupMessage
+      CreateOptionGroup
     -- ** Request constructor
     , createOptionGroup
     -- ** Request lenses
-    , cogmEngineName
-    , cogmMajorEngineVersion
-    , cogmOptionGroupDescription
-    , cogmOptionGroupName
-    , cogmTags
+    , cogEngineName
+    , cogMajorEngineVersion
+    , cogOptionGroupDescription
+    , cogOptionGroupName
+    , cogTags
 
     -- * Response
-    , CreateOptionGroupResult
+    , CreateOptionGroupResponse
     -- ** Response constructor
     , createOptionGroupResponse
     -- ** Response lenses
@@ -46,100 +46,100 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data CreateOptionGroupMessage = CreateOptionGroupMessage
-    { _cogmEngineName             :: Text
-    , _cogmMajorEngineVersion     :: Text
-    , _cogmOptionGroupDescription :: Text
-    , _cogmOptionGroupName        :: Text
-    , _cogmTags                   :: [Tag]
+data CreateOptionGroup = CreateOptionGroup
+    { _cogEngineName             :: Text
+    , _cogMajorEngineVersion     :: Text
+    , _cogOptionGroupDescription :: Text
+    , _cogOptionGroupName        :: Text
+    , _cogTags                   :: [Tag]
     } deriving (Eq, Show, Generic)
 
--- | 'CreateOptionGroupMessage' constructor.
+-- | 'CreateOptionGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cogmEngineName' @::@ 'Text'
+-- * 'cogEngineName' @::@ 'Text'
 --
--- * 'cogmMajorEngineVersion' @::@ 'Text'
+-- * 'cogMajorEngineVersion' @::@ 'Text'
 --
--- * 'cogmOptionGroupDescription' @::@ 'Text'
+-- * 'cogOptionGroupDescription' @::@ 'Text'
 --
--- * 'cogmOptionGroupName' @::@ 'Text'
+-- * 'cogOptionGroupName' @::@ 'Text'
 --
--- * 'cogmTags' @::@ ['Tag']
+-- * 'cogTags' @::@ ['Tag']
 --
-createOptionGroup :: Text -- ^ 'cogmOptionGroupName'
-                  -> Text -- ^ 'cogmEngineName'
-                  -> Text -- ^ 'cogmMajorEngineVersion'
-                  -> Text -- ^ 'cogmOptionGroupDescription'
-                  -> CreateOptionGroupMessage
-createOptionGroup p1 p2 p3 p4 = CreateOptionGroupMessage
-    { _cogmOptionGroupName        = p1
-    , _cogmEngineName             = p2
-    , _cogmMajorEngineVersion     = p3
-    , _cogmOptionGroupDescription = p4
-    , _cogmTags                   = mempty
+createOptionGroup :: Text -- ^ 'cogOptionGroupName'
+                  -> Text -- ^ 'cogEngineName'
+                  -> Text -- ^ 'cogMajorEngineVersion'
+                  -> Text -- ^ 'cogOptionGroupDescription'
+                  -> CreateOptionGroup
+createOptionGroup p1 p2 p3 p4 = CreateOptionGroup
+    { _cogOptionGroupName        = p1
+    , _cogEngineName             = p2
+    , _cogMajorEngineVersion     = p3
+    , _cogOptionGroupDescription = p4
+    , _cogTags                   = mempty
     }
 
 -- | Specifies the name of the engine that this option group should be
 -- associated with.
-cogmEngineName :: Lens' CreateOptionGroupMessage Text
-cogmEngineName = lens _cogmEngineName (\s a -> s { _cogmEngineName = a })
+cogEngineName :: Lens' CreateOptionGroup Text
+cogEngineName = lens _cogEngineName (\s a -> s { _cogEngineName = a })
 
 -- | Specifies the major version of the engine that this option group should
 -- be associated with.
-cogmMajorEngineVersion :: Lens' CreateOptionGroupMessage Text
-cogmMajorEngineVersion =
-    lens _cogmMajorEngineVersion (\s a -> s { _cogmMajorEngineVersion = a })
+cogMajorEngineVersion :: Lens' CreateOptionGroup Text
+cogMajorEngineVersion =
+    lens _cogMajorEngineVersion (\s a -> s { _cogMajorEngineVersion = a })
 
 -- | The description of the option group.
-cogmOptionGroupDescription :: Lens' CreateOptionGroupMessage Text
-cogmOptionGroupDescription =
-    lens _cogmOptionGroupDescription
-        (\s a -> s { _cogmOptionGroupDescription = a })
+cogOptionGroupDescription :: Lens' CreateOptionGroup Text
+cogOptionGroupDescription =
+    lens _cogOptionGroupDescription
+        (\s a -> s { _cogOptionGroupDescription = a })
 
 -- | Specifies the name of the option group to be created. Constraints: Must
 -- be 1 to 255 alphanumeric characters or hyphens First character must be a
 -- letter Cannot end with a hyphen or contain two consecutive hyphens
 -- Example: myoptiongroup.
-cogmOptionGroupName :: Lens' CreateOptionGroupMessage Text
-cogmOptionGroupName =
-    lens _cogmOptionGroupName (\s a -> s { _cogmOptionGroupName = a })
+cogOptionGroupName :: Lens' CreateOptionGroup Text
+cogOptionGroupName =
+    lens _cogOptionGroupName (\s a -> s { _cogOptionGroupName = a })
 
-cogmTags :: Lens' CreateOptionGroupMessage [Tag]
-cogmTags = lens _cogmTags (\s a -> s { _cogmTags = a })
+cogTags :: Lens' CreateOptionGroup [Tag]
+cogTags = lens _cogTags (\s a -> s { _cogTags = a })
 
-instance ToQuery CreateOptionGroupMessage
+instance ToQuery CreateOptionGroup
 
-instance ToPath CreateOptionGroupMessage where
+instance ToPath CreateOptionGroup where
     toPath = const "/"
 
-newtype CreateOptionGroupResult = CreateOptionGroupResult
+newtype CreateOptionGroupResponse = CreateOptionGroupResponse
     { _cogr1OptionGroup :: Maybe OptionGroup
     } deriving (Eq, Show, Generic)
 
--- | 'CreateOptionGroupResult' constructor.
+-- | 'CreateOptionGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cogr1OptionGroup' @::@ 'Maybe' 'OptionGroup'
 --
-createOptionGroupResponse :: CreateOptionGroupResult
-createOptionGroupResponse = CreateOptionGroupResult
+createOptionGroupResponse :: CreateOptionGroupResponse
+createOptionGroupResponse = CreateOptionGroupResponse
     { _cogr1OptionGroup = Nothing
     }
 
-cogr1OptionGroup :: Lens' CreateOptionGroupResult (Maybe OptionGroup)
+cogr1OptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
 cogr1OptionGroup = lens _cogr1OptionGroup (\s a -> s { _cogr1OptionGroup = a })
 
-instance FromXML CreateOptionGroupResult where
+instance FromXML CreateOptionGroupResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateOptionGroupResult"
+    fromXMLRoot    = fromRoot "CreateOptionGroupResponse"
 
-instance AWSRequest CreateOptionGroupMessage where
-    type Sv CreateOptionGroupMessage = RDS
-    type Rs CreateOptionGroupMessage = CreateOptionGroupResult
+instance AWSRequest CreateOptionGroup where
+    type Sv CreateOptionGroup = RDS
+    type Rs CreateOptionGroup = CreateOptionGroupResponse
 
     request  = post "CreateOptionGroup"
-    response = xmlResponse $ \h x -> CreateOptionGroupResult
+    response = xmlResponse $ \h x -> CreateOptionGroupResponse
         <$> x %| "OptionGroup"

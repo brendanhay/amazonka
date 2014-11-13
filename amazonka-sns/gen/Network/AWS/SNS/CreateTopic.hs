@@ -28,11 +28,11 @@
 module Network.AWS.SNS.CreateTopic
     (
     -- * Request
-      CreateTopicInput
+      CreateTopic
     -- ** Request constructor
     , createTopic
     -- ** Request lenses
-    , ctiName
+    , ctName
 
     -- * Response
     , CreateTopicResponse
@@ -46,31 +46,31 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-newtype CreateTopicInput = CreateTopicInput
-    { _ctiName :: Text
+newtype CreateTopic = CreateTopic
+    { _ctName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'CreateTopicInput' constructor.
+-- | 'CreateTopic' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctiName' @::@ 'Text'
+-- * 'ctName' @::@ 'Text'
 --
-createTopic :: Text -- ^ 'ctiName'
-            -> CreateTopicInput
-createTopic p1 = CreateTopicInput
-    { _ctiName = p1
+createTopic :: Text -- ^ 'ctName'
+            -> CreateTopic
+createTopic p1 = CreateTopic
+    { _ctName = p1
     }
 
 -- | The name of the topic you want to create. Constraints: Topic names must
 -- be made up of only uppercase and lowercase ASCII letters, numbers,
 -- underscores, and hyphens, and must be between 1 and 256 characters long.
-ctiName :: Lens' CreateTopicInput Text
-ctiName = lens _ctiName (\s a -> s { _ctiName = a })
+ctName :: Lens' CreateTopic Text
+ctName = lens _ctName (\s a -> s { _ctName = a })
 
-instance ToQuery CreateTopicInput
+instance ToQuery CreateTopic
 
-instance ToPath CreateTopicInput where
+instance ToPath CreateTopic where
     toPath = const "/"
 
 newtype CreateTopicResponse = CreateTopicResponse
@@ -96,9 +96,9 @@ instance FromXML CreateTopicResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "CreateTopicResponse"
 
-instance AWSRequest CreateTopicInput where
-    type Sv CreateTopicInput = SNS
-    type Rs CreateTopicInput = CreateTopicResponse
+instance AWSRequest CreateTopic where
+    type Sv CreateTopic = SNS
+    type Rs CreateTopic = CreateTopicResponse
 
     request  = post "CreateTopic"
     response = xmlResponse $ \h x -> CreateTopicResponse

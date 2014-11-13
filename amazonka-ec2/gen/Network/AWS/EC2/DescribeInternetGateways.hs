@@ -28,12 +28,12 @@ module Network.AWS.EC2.DescribeInternetGateways
     -- ** Request constructor
     , describeInternetGateways
     -- ** Request lenses
-    , digDryRun
-    , digFilters
-    , digInternetGatewayIds
+    , dig1DryRun
+    , dig1Filters
+    , dig1InternetGatewayIds
 
     -- * Response
-    , DescribeInternetGatewaysResult
+    , DescribeInternetGatewaysResponse
     -- ** Response constructor
     , describeInternetGatewaysResponse
     -- ** Response lenses
@@ -45,30 +45,30 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DescribeInternetGateways = DescribeInternetGateways
-    { _digDryRun             :: Maybe Bool
-    , _digFilters            :: [Filter]
-    , _digInternetGatewayIds :: [Text]
+    { _dig1DryRun             :: Maybe Bool
+    , _dig1Filters            :: [Filter]
+    , _dig1InternetGatewayIds :: [Text]
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeInternetGateways' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'digDryRun' @::@ 'Maybe' 'Bool'
+-- * 'dig1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'digFilters' @::@ ['Filter']
+-- * 'dig1Filters' @::@ ['Filter']
 --
--- * 'digInternetGatewayIds' @::@ ['Text']
+-- * 'dig1InternetGatewayIds' @::@ ['Text']
 --
 describeInternetGateways :: DescribeInternetGateways
 describeInternetGateways = DescribeInternetGateways
-    { _digDryRun             = Nothing
-    , _digInternetGatewayIds = mempty
-    , _digFilters            = mempty
+    { _dig1DryRun             = Nothing
+    , _dig1InternetGatewayIds = mempty
+    , _dig1Filters            = mempty
     }
 
-digDryRun :: Lens' DescribeInternetGateways (Maybe Bool)
-digDryRun = lens _digDryRun (\s a -> s { _digDryRun = a })
+dig1DryRun :: Lens' DescribeInternetGateways (Maybe Bool)
+dig1DryRun = lens _dig1DryRun (\s a -> s { _dig1DryRun = a })
 
 -- | One or more filters. attachment.state - The current state of the
 -- attachment between the gateway and the VPC (available). Present only if a
@@ -83,54 +83,54 @@ digDryRun = lens _digDryRun (\s a -> s { _digDryRun = a })
 -- want to list only resources where Purpose is X, see the tag:key=value
 -- filter. tag-value - The value of a tag assigned to the resource. This
 -- filter is independent of the tag-key filter.
-digFilters :: Lens' DescribeInternetGateways [Filter]
-digFilters = lens _digFilters (\s a -> s { _digFilters = a })
+dig1Filters :: Lens' DescribeInternetGateways [Filter]
+dig1Filters = lens _dig1Filters (\s a -> s { _dig1Filters = a })
 
 -- | One or more Internet gateway IDs. Default: Describes all your Internet
 -- gateways.
-digInternetGatewayIds :: Lens' DescribeInternetGateways [Text]
-digInternetGatewayIds =
-    lens _digInternetGatewayIds (\s a -> s { _digInternetGatewayIds = a })
+dig1InternetGatewayIds :: Lens' DescribeInternetGateways [Text]
+dig1InternetGatewayIds =
+    lens _dig1InternetGatewayIds (\s a -> s { _dig1InternetGatewayIds = a })
 
 instance ToQuery DescribeInternetGateways
 
 instance ToPath DescribeInternetGateways where
     toPath = const "/"
 
-newtype DescribeInternetGatewaysResult = DescribeInternetGatewaysResult
+newtype DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { _digrInternetGateways :: [InternetGateway]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeInternetGatewaysResult where
-    type Item DescribeInternetGatewaysResult = InternetGateway
+instance IsList DescribeInternetGatewaysResponse where
+    type Item DescribeInternetGatewaysResponse = InternetGateway
 
-    fromList = DescribeInternetGatewaysResult . fromList
+    fromList = DescribeInternetGatewaysResponse . fromList
     toList   = toList . _digrInternetGateways
 
--- | 'DescribeInternetGatewaysResult' constructor.
+-- | 'DescribeInternetGatewaysResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'digrInternetGateways' @::@ ['InternetGateway']
 --
-describeInternetGatewaysResponse :: DescribeInternetGatewaysResult
-describeInternetGatewaysResponse = DescribeInternetGatewaysResult
+describeInternetGatewaysResponse :: DescribeInternetGatewaysResponse
+describeInternetGatewaysResponse = DescribeInternetGatewaysResponse
     { _digrInternetGateways = mempty
     }
 
 -- | Information about one or more Internet gateways.
-digrInternetGateways :: Lens' DescribeInternetGatewaysResult [InternetGateway]
+digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
 digrInternetGateways =
     lens _digrInternetGateways (\s a -> s { _digrInternetGateways = a })
 
-instance FromXML DescribeInternetGatewaysResult where
+instance FromXML DescribeInternetGatewaysResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeInternetGatewaysResult"
+    fromXMLRoot    = fromRoot "DescribeInternetGatewaysResponse"
 
 instance AWSRequest DescribeInternetGateways where
     type Sv DescribeInternetGateways = EC2
-    type Rs DescribeInternetGateways = DescribeInternetGatewaysResult
+    type Rs DescribeInternetGateways = DescribeInternetGatewaysResponse
 
     request  = post "DescribeInternetGateways"
-    response = xmlResponse $ \h x -> DescribeInternetGatewaysResult
+    response = xmlResponse $ \h x -> DescribeInternetGatewaysResponse
         <$> x %| "internetGatewaySet"

@@ -56,7 +56,7 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     , dsphStartTime
 
     -- * Response
-    , DescribeSpotPriceHistoryResult
+    , DescribeSpotPriceHistoryResponse
     -- ** Response constructor
     , describeSpotPriceHistoryResponse
     -- ** Response lenses
@@ -169,12 +169,12 @@ instance ToQuery DescribeSpotPriceHistory
 instance ToPath DescribeSpotPriceHistory where
     toPath = const "/"
 
-data DescribeSpotPriceHistoryResult = DescribeSpotPriceHistoryResult
+data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     { _dsphrNextToken        :: Maybe Text
     , _dsphrSpotPriceHistory :: [SpotPrice]
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeSpotPriceHistoryResult' constructor.
+-- | 'DescribeSpotPriceHistoryResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -182,31 +182,31 @@ data DescribeSpotPriceHistoryResult = DescribeSpotPriceHistoryResult
 --
 -- * 'dsphrSpotPriceHistory' @::@ ['SpotPrice']
 --
-describeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResult
-describeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResult
+describeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResponse
+describeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse
     { _dsphrSpotPriceHistory = mempty
     , _dsphrNextToken        = Nothing
     }
 
 -- | The string marking the next set of results. This is empty if there are no
 -- more results.
-dsphrNextToken :: Lens' DescribeSpotPriceHistoryResult (Maybe Text)
+dsphrNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
 dsphrNextToken = lens _dsphrNextToken (\s a -> s { _dsphrNextToken = a })
 
 -- | The historical Spot Prices.
-dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResult [SpotPrice]
+dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
 dsphrSpotPriceHistory =
     lens _dsphrSpotPriceHistory (\s a -> s { _dsphrSpotPriceHistory = a })
 
-instance FromXML DescribeSpotPriceHistoryResult where
+instance FromXML DescribeSpotPriceHistoryResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeSpotPriceHistoryResult"
+    fromXMLRoot    = fromRoot "DescribeSpotPriceHistoryResponse"
 
 instance AWSRequest DescribeSpotPriceHistory where
     type Sv DescribeSpotPriceHistory = EC2
-    type Rs DescribeSpotPriceHistory = DescribeSpotPriceHistoryResult
+    type Rs DescribeSpotPriceHistory = DescribeSpotPriceHistoryResponse
 
     request  = post "DescribeSpotPriceHistory"
-    response = xmlResponse $ \h x -> DescribeSpotPriceHistoryResult
+    response = xmlResponse $ \h x -> DescribeSpotPriceHistoryResponse
         <$> x %| "nextToken"
         <*> x %| "spotPriceHistorySet"

@@ -27,124 +27,124 @@
 module Network.AWS.RDS.DescribeEventSubscriptions
     (
     -- * Request
-      DescribeEventSubscriptionsMessage
+      DescribeEventSubscriptions
     -- ** Request constructor
     , describeEventSubscriptions
     -- ** Request lenses
-    , desmFilters
-    , desmMarker
-    , desmMaxRecords
-    , desmSubscriptionName
+    , des1Filters
+    , des1Marker
+    , des1MaxRecords
+    , des1SubscriptionName
 
     -- * Response
-    , EventSubscriptionsMessage
+    , DescribeEventSubscriptionsResponse
     -- ** Response constructor
     , describeEventSubscriptionsResponse
     -- ** Response lenses
-    , esmEventSubscriptionsList
-    , esmMarker
+    , desrEventSubscriptionsList
+    , desrMarker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data DescribeEventSubscriptionsMessage = DescribeEventSubscriptionsMessage
-    { _desmFilters          :: [Filter]
-    , _desmMarker           :: Maybe Text
-    , _desmMaxRecords       :: Maybe Int
-    , _desmSubscriptionName :: Maybe Text
+data DescribeEventSubscriptions = DescribeEventSubscriptions
+    { _des1Filters          :: [Filter]
+    , _des1Marker           :: Maybe Text
+    , _des1MaxRecords       :: Maybe Int
+    , _des1SubscriptionName :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeEventSubscriptionsMessage' constructor.
+-- | 'DescribeEventSubscriptions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desmFilters' @::@ ['Filter']
+-- * 'des1Filters' @::@ ['Filter']
 --
--- * 'desmMarker' @::@ 'Maybe' 'Text'
+-- * 'des1Marker' @::@ 'Maybe' 'Text'
 --
--- * 'desmMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'des1MaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'desmSubscriptionName' @::@ 'Maybe' 'Text'
+-- * 'des1SubscriptionName' @::@ 'Maybe' 'Text'
 --
-describeEventSubscriptions :: DescribeEventSubscriptionsMessage
-describeEventSubscriptions = DescribeEventSubscriptionsMessage
-    { _desmSubscriptionName = Nothing
-    , _desmFilters          = mempty
-    , _desmMaxRecords       = Nothing
-    , _desmMarker           = Nothing
+describeEventSubscriptions :: DescribeEventSubscriptions
+describeEventSubscriptions = DescribeEventSubscriptions
+    { _des1SubscriptionName = Nothing
+    , _des1Filters          = mempty
+    , _des1MaxRecords       = Nothing
+    , _des1Marker           = Nothing
     }
 
 -- | This parameter is not currently supported.
-desmFilters :: Lens' DescribeEventSubscriptionsMessage [Filter]
-desmFilters = lens _desmFilters (\s a -> s { _desmFilters = a })
+des1Filters :: Lens' DescribeEventSubscriptions [Filter]
+des1Filters = lens _des1Filters (\s a -> s { _des1Filters = a })
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by MaxRecords .
-desmMarker :: Lens' DescribeEventSubscriptionsMessage (Maybe Text)
-desmMarker = lens _desmMarker (\s a -> s { _desmMarker = a })
+des1Marker :: Lens' DescribeEventSubscriptions (Maybe Text)
+des1Marker = lens _des1Marker (\s a -> s { _des1Marker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results can be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-desmMaxRecords :: Lens' DescribeEventSubscriptionsMessage (Maybe Int)
-desmMaxRecords = lens _desmMaxRecords (\s a -> s { _desmMaxRecords = a })
+des1MaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
+des1MaxRecords = lens _des1MaxRecords (\s a -> s { _des1MaxRecords = a })
 
 -- | The name of the RDS event notification subscription you want to describe.
-desmSubscriptionName :: Lens' DescribeEventSubscriptionsMessage (Maybe Text)
-desmSubscriptionName =
-    lens _desmSubscriptionName (\s a -> s { _desmSubscriptionName = a })
+des1SubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
+des1SubscriptionName =
+    lens _des1SubscriptionName (\s a -> s { _des1SubscriptionName = a })
 
-instance ToQuery DescribeEventSubscriptionsMessage
+instance ToQuery DescribeEventSubscriptions
 
-instance ToPath DescribeEventSubscriptionsMessage where
+instance ToPath DescribeEventSubscriptions where
     toPath = const "/"
 
-data EventSubscriptionsMessage = EventSubscriptionsMessage
-    { _esmEventSubscriptionsList :: [EventSubscription]
-    , _esmMarker                 :: Maybe Text
+data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
+    { _desrEventSubscriptionsList :: [EventSubscription]
+    , _desrMarker                 :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'EventSubscriptionsMessage' constructor.
+-- | 'DescribeEventSubscriptionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'esmEventSubscriptionsList' @::@ ['EventSubscription']
+-- * 'desrEventSubscriptionsList' @::@ ['EventSubscription']
 --
--- * 'esmMarker' @::@ 'Maybe' 'Text'
+-- * 'desrMarker' @::@ 'Maybe' 'Text'
 --
-describeEventSubscriptionsResponse :: EventSubscriptionsMessage
-describeEventSubscriptionsResponse = EventSubscriptionsMessage
-    { _esmMarker                 = Nothing
-    , _esmEventSubscriptionsList = mempty
+describeEventSubscriptionsResponse :: DescribeEventSubscriptionsResponse
+describeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse
+    { _desrMarker                 = Nothing
+    , _desrEventSubscriptionsList = mempty
     }
 
 -- | A list of EventSubscriptions data types.
-esmEventSubscriptionsList :: Lens' EventSubscriptionsMessage [EventSubscription]
-esmEventSubscriptionsList =
-    lens _esmEventSubscriptionsList
-        (\s a -> s { _esmEventSubscriptionsList = a })
+desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
+desrEventSubscriptionsList =
+    lens _desrEventSubscriptionsList
+        (\s a -> s { _desrEventSubscriptionsList = a })
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by MaxRecords.
-esmMarker :: Lens' EventSubscriptionsMessage (Maybe Text)
-esmMarker = lens _esmMarker (\s a -> s { _esmMarker = a })
+desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
+desrMarker = lens _desrMarker (\s a -> s { _desrMarker = a })
 
-instance FromXML EventSubscriptionsMessage where
+instance FromXML DescribeEventSubscriptionsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "EventSubscriptionsMessage"
+    fromXMLRoot    = fromRoot "DescribeEventSubscriptionsResponse"
 
-instance AWSRequest DescribeEventSubscriptionsMessage where
-    type Sv DescribeEventSubscriptionsMessage = RDS
-    type Rs DescribeEventSubscriptionsMessage = EventSubscriptionsMessage
+instance AWSRequest DescribeEventSubscriptions where
+    type Sv DescribeEventSubscriptions = RDS
+    type Rs DescribeEventSubscriptions = DescribeEventSubscriptionsResponse
 
     request  = post "DescribeEventSubscriptions"
-    response = xmlResponse $ \h x -> EventSubscriptionsMessage
+    response = xmlResponse $ \h x -> DescribeEventSubscriptionsResponse
         <$> x %| "EventSubscriptionsList"
         <*> x %| "Marker"

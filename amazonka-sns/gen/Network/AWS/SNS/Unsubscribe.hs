@@ -30,11 +30,11 @@
 module Network.AWS.SNS.Unsubscribe
     (
     -- * Request
-      UnsubscribeInput
+      Unsubscribe
     -- ** Request constructor
     , unsubscribe
     -- ** Request lenses
-    , uiSubscriptionArn
+    , uSubscriptionArn
 
     -- * Response
     , UnsubscribeResponse
@@ -46,30 +46,29 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-newtype UnsubscribeInput = UnsubscribeInput
-    { _uiSubscriptionArn :: Text
+newtype Unsubscribe = Unsubscribe
+    { _uSubscriptionArn :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'UnsubscribeInput' constructor.
+-- | 'Unsubscribe' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uiSubscriptionArn' @::@ 'Text'
+-- * 'uSubscriptionArn' @::@ 'Text'
 --
-unsubscribe :: Text -- ^ 'uiSubscriptionArn'
-            -> UnsubscribeInput
-unsubscribe p1 = UnsubscribeInput
-    { _uiSubscriptionArn = p1
+unsubscribe :: Text -- ^ 'uSubscriptionArn'
+            -> Unsubscribe
+unsubscribe p1 = Unsubscribe
+    { _uSubscriptionArn = p1
     }
 
 -- | The ARN of the subscription to be deleted.
-uiSubscriptionArn :: Lens' UnsubscribeInput Text
-uiSubscriptionArn =
-    lens _uiSubscriptionArn (\s a -> s { _uiSubscriptionArn = a })
+uSubscriptionArn :: Lens' Unsubscribe Text
+uSubscriptionArn = lens _uSubscriptionArn (\s a -> s { _uSubscriptionArn = a })
 
-instance ToQuery UnsubscribeInput
+instance ToQuery Unsubscribe
 
-instance ToPath UnsubscribeInput where
+instance ToPath Unsubscribe where
     toPath = const "/"
 
 data UnsubscribeResponse = UnsubscribeResponse
@@ -83,9 +82,9 @@ instance FromXML UnsubscribeResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "UnsubscribeResponse"
 
-instance AWSRequest UnsubscribeInput where
-    type Sv UnsubscribeInput = SNS
-    type Rs UnsubscribeInput = UnsubscribeResponse
+instance AWSRequest Unsubscribe where
+    type Sv Unsubscribe = SNS
+    type Rs Unsubscribe = UnsubscribeResponse
 
     request  = post "Unsubscribe"
     response = nullaryResponse UnsubscribeResponse

@@ -37,7 +37,7 @@ module Network.AWS.EC2.DescribeAddresses
     , daPublicIps
 
     -- * Response
-    , DescribeAddressesResult
+    , DescribeAddressesResponse
     -- ** Response constructor
     , describeAddressesResponse
     -- ** Response lenses
@@ -106,39 +106,39 @@ instance ToQuery DescribeAddresses
 instance ToPath DescribeAddresses where
     toPath = const "/"
 
-newtype DescribeAddressesResult = DescribeAddressesResult
+newtype DescribeAddressesResponse = DescribeAddressesResponse
     { _darAddresses :: [Address]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeAddressesResult where
-    type Item DescribeAddressesResult = Address
+instance IsList DescribeAddressesResponse where
+    type Item DescribeAddressesResponse = Address
 
-    fromList = DescribeAddressesResult . fromList
+    fromList = DescribeAddressesResponse . fromList
     toList   = toList . _darAddresses
 
--- | 'DescribeAddressesResult' constructor.
+-- | 'DescribeAddressesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'darAddresses' @::@ ['Address']
 --
-describeAddressesResponse :: DescribeAddressesResult
-describeAddressesResponse = DescribeAddressesResult
+describeAddressesResponse :: DescribeAddressesResponse
+describeAddressesResponse = DescribeAddressesResponse
     { _darAddresses = mempty
     }
 
 -- | Information about one or more Elastic IP addresses.
-darAddresses :: Lens' DescribeAddressesResult [Address]
+darAddresses :: Lens' DescribeAddressesResponse [Address]
 darAddresses = lens _darAddresses (\s a -> s { _darAddresses = a })
 
-instance FromXML DescribeAddressesResult where
+instance FromXML DescribeAddressesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAddressesResult"
+    fromXMLRoot    = fromRoot "DescribeAddressesResponse"
 
 instance AWSRequest DescribeAddresses where
     type Sv DescribeAddresses = EC2
-    type Rs DescribeAddresses = DescribeAddressesResult
+    type Rs DescribeAddresses = DescribeAddressesResponse
 
     request  = post "DescribeAddresses"
-    response = xmlResponse $ \h x -> DescribeAddressesResult
+    response = xmlResponse $ \h x -> DescribeAddressesResponse
         <$> x %| "addressesSet"

@@ -28,12 +28,12 @@
 module Network.AWS.RDS.AddTagsToResource
     (
     -- * Request
-      AddTagsToResourceMessage
+      AddTagsToResource
     -- ** Request constructor
     , addTagsToResource
     -- ** Request lenses
-    , attrmResourceName
-    , attrmTags
+    , attrResourceName
+    , attrTags
 
     -- * Response
     , AddTagsToResourceResponse
@@ -45,40 +45,39 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data AddTagsToResourceMessage = AddTagsToResourceMessage
-    { _attrmResourceName :: Text
-    , _attrmTags         :: [Tag]
+data AddTagsToResource = AddTagsToResource
+    { _attrResourceName :: Text
+    , _attrTags         :: [Tag]
     } deriving (Eq, Show, Generic)
 
--- | 'AddTagsToResourceMessage' constructor.
+-- | 'AddTagsToResource' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'attrmResourceName' @::@ 'Text'
+-- * 'attrResourceName' @::@ 'Text'
 --
--- * 'attrmTags' @::@ ['Tag']
+-- * 'attrTags' @::@ ['Tag']
 --
-addTagsToResource :: Text -- ^ 'attrmResourceName'
-                  -> AddTagsToResourceMessage
-addTagsToResource p1 = AddTagsToResourceMessage
-    { _attrmResourceName = p1
-    , _attrmTags         = mempty
+addTagsToResource :: Text -- ^ 'attrResourceName'
+                  -> AddTagsToResource
+addTagsToResource p1 = AddTagsToResource
+    { _attrResourceName = p1
+    , _attrTags         = mempty
     }
 
 -- | The Amazon RDS resource the tags will be added to. This value is an
 -- Amazon Resource Name (ARN). For information about creating an ARN, see
 -- Constructing an RDS Amazon Resource Name (ARN).
-attrmResourceName :: Lens' AddTagsToResourceMessage Text
-attrmResourceName =
-    lens _attrmResourceName (\s a -> s { _attrmResourceName = a })
+attrResourceName :: Lens' AddTagsToResource Text
+attrResourceName = lens _attrResourceName (\s a -> s { _attrResourceName = a })
 
 -- | The tags to be assigned to the Amazon RDS resource.
-attrmTags :: Lens' AddTagsToResourceMessage [Tag]
-attrmTags = lens _attrmTags (\s a -> s { _attrmTags = a })
+attrTags :: Lens' AddTagsToResource [Tag]
+attrTags = lens _attrTags (\s a -> s { _attrTags = a })
 
-instance ToQuery AddTagsToResourceMessage
+instance ToQuery AddTagsToResource
 
-instance ToPath AddTagsToResourceMessage where
+instance ToPath AddTagsToResource where
     toPath = const "/"
 
 data AddTagsToResourceResponse = AddTagsToResourceResponse
@@ -92,9 +91,9 @@ instance FromXML AddTagsToResourceResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "AddTagsToResourceResponse"
 
-instance AWSRequest AddTagsToResourceMessage where
-    type Sv AddTagsToResourceMessage = RDS
-    type Rs AddTagsToResourceMessage = AddTagsToResourceResponse
+instance AWSRequest AddTagsToResource where
+    type Sv AddTagsToResource = RDS
+    type Rs AddTagsToResource = AddTagsToResourceResponse
 
     request  = post "AddTagsToResource"
     response = nullaryResponse AddTagsToResourceResponse

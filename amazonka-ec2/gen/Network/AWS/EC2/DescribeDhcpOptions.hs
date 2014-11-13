@@ -30,12 +30,12 @@ module Network.AWS.EC2.DescribeDhcpOptions
     -- ** Request constructor
     , describeDhcpOptions
     -- ** Request lenses
-    , ddo1DhcpOptionsIds
-    , ddo1DryRun
-    , ddo1Filters
+    , ddoDhcpOptionsIds
+    , ddoDryRun
+    , ddoFilters
 
     -- * Response
-    , DescribeDhcpOptionsResult
+    , DescribeDhcpOptionsResponse
     -- ** Response constructor
     , describeDhcpOptionsResponse
     -- ** Response lenses
@@ -47,36 +47,36 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DescribeDhcpOptions = DescribeDhcpOptions
-    { _ddo1DhcpOptionsIds :: [Text]
-    , _ddo1DryRun         :: Maybe Bool
-    , _ddo1Filters        :: [Filter]
+    { _ddoDhcpOptionsIds :: [Text]
+    , _ddoDryRun         :: Maybe Bool
+    , _ddoFilters        :: [Filter]
     } deriving (Eq, Show, Generic)
 
 -- | 'DescribeDhcpOptions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddo1DhcpOptionsIds' @::@ ['Text']
+-- * 'ddoDhcpOptionsIds' @::@ ['Text']
 --
--- * 'ddo1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'ddoDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'ddo1Filters' @::@ ['Filter']
+-- * 'ddoFilters' @::@ ['Filter']
 --
 describeDhcpOptions :: DescribeDhcpOptions
 describeDhcpOptions = DescribeDhcpOptions
-    { _ddo1DryRun         = Nothing
-    , _ddo1DhcpOptionsIds = mempty
-    , _ddo1Filters        = mempty
+    { _ddoDryRun         = Nothing
+    , _ddoDhcpOptionsIds = mempty
+    , _ddoFilters        = mempty
     }
 
 -- | The IDs of one or more DHCP options sets. Default: Describes all your
 -- DHCP options sets.
-ddo1DhcpOptionsIds :: Lens' DescribeDhcpOptions [Text]
-ddo1DhcpOptionsIds =
-    lens _ddo1DhcpOptionsIds (\s a -> s { _ddo1DhcpOptionsIds = a })
+ddoDhcpOptionsIds :: Lens' DescribeDhcpOptions [Text]
+ddoDhcpOptionsIds =
+    lens _ddoDhcpOptionsIds (\s a -> s { _ddoDhcpOptionsIds = a })
 
-ddo1DryRun :: Lens' DescribeDhcpOptions (Maybe Bool)
-ddo1DryRun = lens _ddo1DryRun (\s a -> s { _ddo1DryRun = a })
+ddoDryRun :: Lens' DescribeDhcpOptions (Maybe Bool)
+ddoDryRun = lens _ddoDryRun (\s a -> s { _ddoDryRun = a })
 
 -- | One or more filters. dhcp-options-id - The ID of a set of DHCP options.
 -- key - The key for one of the options (for example, domain-name). value -
@@ -90,47 +90,47 @@ ddo1DryRun = lens _ddo1DryRun (\s a -> s { _ddo1DryRun = a })
 -- where Purpose is X, see the tag:key=value filter. tag-value - The value
 -- of a tag assigned to the resource. This filter is independent of the
 -- tag-key filter.
-ddo1Filters :: Lens' DescribeDhcpOptions [Filter]
-ddo1Filters = lens _ddo1Filters (\s a -> s { _ddo1Filters = a })
+ddoFilters :: Lens' DescribeDhcpOptions [Filter]
+ddoFilters = lens _ddoFilters (\s a -> s { _ddoFilters = a })
 
 instance ToQuery DescribeDhcpOptions
 
 instance ToPath DescribeDhcpOptions where
     toPath = const "/"
 
-newtype DescribeDhcpOptionsResult = DescribeDhcpOptionsResult
+newtype DescribeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { _ddorDhcpOptions :: [DhcpOptions]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeDhcpOptionsResult where
-    type Item DescribeDhcpOptionsResult = DhcpOptions
+instance IsList DescribeDhcpOptionsResponse where
+    type Item DescribeDhcpOptionsResponse = DhcpOptions
 
-    fromList = DescribeDhcpOptionsResult . fromList
+    fromList = DescribeDhcpOptionsResponse . fromList
     toList   = toList . _ddorDhcpOptions
 
--- | 'DescribeDhcpOptionsResult' constructor.
+-- | 'DescribeDhcpOptionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddorDhcpOptions' @::@ ['DhcpOptions']
 --
-describeDhcpOptionsResponse :: DescribeDhcpOptionsResult
-describeDhcpOptionsResponse = DescribeDhcpOptionsResult
+describeDhcpOptionsResponse :: DescribeDhcpOptionsResponse
+describeDhcpOptionsResponse = DescribeDhcpOptionsResponse
     { _ddorDhcpOptions = mempty
     }
 
 -- | Information about one or more DHCP options sets.
-ddorDhcpOptions :: Lens' DescribeDhcpOptionsResult [DhcpOptions]
+ddorDhcpOptions :: Lens' DescribeDhcpOptionsResponse [DhcpOptions]
 ddorDhcpOptions = lens _ddorDhcpOptions (\s a -> s { _ddorDhcpOptions = a })
 
-instance FromXML DescribeDhcpOptionsResult where
+instance FromXML DescribeDhcpOptionsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeDhcpOptionsResult"
+    fromXMLRoot    = fromRoot "DescribeDhcpOptionsResponse"
 
 instance AWSRequest DescribeDhcpOptions where
     type Sv DescribeDhcpOptions = EC2
-    type Rs DescribeDhcpOptions = DescribeDhcpOptionsResult
+    type Rs DescribeDhcpOptions = DescribeDhcpOptionsResponse
 
     request  = post "DescribeDhcpOptions"
-    response = xmlResponse $ \h x -> DescribeDhcpOptionsResult
+    response = xmlResponse $ \h x -> DescribeDhcpOptionsResponse
         <$> x %| "dhcpOptionsSet"

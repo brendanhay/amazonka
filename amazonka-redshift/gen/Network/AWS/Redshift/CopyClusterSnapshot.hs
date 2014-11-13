@@ -32,16 +32,16 @@
 module Network.AWS.Redshift.CopyClusterSnapshot
     (
     -- * Request
-      CopyClusterSnapshotMessage
+      CopyClusterSnapshot
     -- ** Request constructor
     , copyClusterSnapshot
     -- ** Request lenses
-    , ccsmSourceSnapshotClusterIdentifier
-    , ccsmSourceSnapshotIdentifier
-    , ccsmTargetSnapshotIdentifier
+    , ccsSourceSnapshotClusterIdentifier
+    , ccsSourceSnapshotIdentifier
+    , ccsTargetSnapshotIdentifier
 
     -- * Response
-    , CopyClusterSnapshotResult
+    , CopyClusterSnapshotResponse
     -- ** Response constructor
     , copyClusterSnapshotResponse
     -- ** Response lenses
@@ -52,88 +52,88 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data CopyClusterSnapshotMessage = CopyClusterSnapshotMessage
-    { _ccsmSourceSnapshotClusterIdentifier :: Maybe Text
-    , _ccsmSourceSnapshotIdentifier        :: Text
-    , _ccsmTargetSnapshotIdentifier        :: Text
+data CopyClusterSnapshot = CopyClusterSnapshot
+    { _ccsSourceSnapshotClusterIdentifier :: Maybe Text
+    , _ccsSourceSnapshotIdentifier        :: Text
+    , _ccsTargetSnapshotIdentifier        :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'CopyClusterSnapshotMessage' constructor.
+-- | 'CopyClusterSnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsmSourceSnapshotClusterIdentifier' @::@ 'Maybe' 'Text'
+-- * 'ccsSourceSnapshotClusterIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'ccsmSourceSnapshotIdentifier' @::@ 'Text'
+-- * 'ccsSourceSnapshotIdentifier' @::@ 'Text'
 --
--- * 'ccsmTargetSnapshotIdentifier' @::@ 'Text'
+-- * 'ccsTargetSnapshotIdentifier' @::@ 'Text'
 --
-copyClusterSnapshot :: Text -- ^ 'ccsmSourceSnapshotIdentifier'
-                    -> Text -- ^ 'ccsmTargetSnapshotIdentifier'
-                    -> CopyClusterSnapshotMessage
-copyClusterSnapshot p1 p2 = CopyClusterSnapshotMessage
-    { _ccsmSourceSnapshotIdentifier        = p1
-    , _ccsmTargetSnapshotIdentifier        = p2
-    , _ccsmSourceSnapshotClusterIdentifier = Nothing
+copyClusterSnapshot :: Text -- ^ 'ccsSourceSnapshotIdentifier'
+                    -> Text -- ^ 'ccsTargetSnapshotIdentifier'
+                    -> CopyClusterSnapshot
+copyClusterSnapshot p1 p2 = CopyClusterSnapshot
+    { _ccsSourceSnapshotIdentifier        = p1
+    , _ccsTargetSnapshotIdentifier        = p2
+    , _ccsSourceSnapshotClusterIdentifier = Nothing
     }
 
 -- | The identifier of the cluster the source snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a snapshot
 -- resource element that specifies anything other than * for the cluster
 -- name. Constraints: Must be the identifier for a valid cluster.
-ccsmSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshotMessage (Maybe Text)
-ccsmSourceSnapshotClusterIdentifier =
-    lens _ccsmSourceSnapshotClusterIdentifier
-        (\s a -> s { _ccsmSourceSnapshotClusterIdentifier = a })
+ccsSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
+ccsSourceSnapshotClusterIdentifier =
+    lens _ccsSourceSnapshotClusterIdentifier
+        (\s a -> s { _ccsSourceSnapshotClusterIdentifier = a })
 
 -- | The identifier for the source snapshot. Constraints: Must be the
 -- identifier for a valid automated snapshot whose state is available.
-ccsmSourceSnapshotIdentifier :: Lens' CopyClusterSnapshotMessage Text
-ccsmSourceSnapshotIdentifier =
-    lens _ccsmSourceSnapshotIdentifier
-        (\s a -> s { _ccsmSourceSnapshotIdentifier = a })
+ccsSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
+ccsSourceSnapshotIdentifier =
+    lens _ccsSourceSnapshotIdentifier
+        (\s a -> s { _ccsSourceSnapshotIdentifier = a })
 
 -- | The identifier given to the new manual snapshot. Constraints: Cannot be
 -- null, empty, or blank. Must contain from 1 to 255 alphanumeric characters
 -- or hyphens. First character must be a letter. Cannot end with a hyphen or
 -- contain two consecutive hyphens. Must be unique for the AWS account that
 -- is making the request.
-ccsmTargetSnapshotIdentifier :: Lens' CopyClusterSnapshotMessage Text
-ccsmTargetSnapshotIdentifier =
-    lens _ccsmTargetSnapshotIdentifier
-        (\s a -> s { _ccsmTargetSnapshotIdentifier = a })
+ccsTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
+ccsTargetSnapshotIdentifier =
+    lens _ccsTargetSnapshotIdentifier
+        (\s a -> s { _ccsTargetSnapshotIdentifier = a })
 
-instance ToQuery CopyClusterSnapshotMessage
+instance ToQuery CopyClusterSnapshot
 
-instance ToPath CopyClusterSnapshotMessage where
+instance ToPath CopyClusterSnapshot where
     toPath = const "/"
 
-newtype CopyClusterSnapshotResult = CopyClusterSnapshotResult
+newtype CopyClusterSnapshotResponse = CopyClusterSnapshotResponse
     { _ccsrSnapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
 
--- | 'CopyClusterSnapshotResult' constructor.
+-- | 'CopyClusterSnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ccsrSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-copyClusterSnapshotResponse :: CopyClusterSnapshotResult
-copyClusterSnapshotResponse = CopyClusterSnapshotResult
+copyClusterSnapshotResponse :: CopyClusterSnapshotResponse
+copyClusterSnapshotResponse = CopyClusterSnapshotResponse
     { _ccsrSnapshot = Nothing
     }
 
-ccsrSnapshot :: Lens' CopyClusterSnapshotResult (Maybe Snapshot)
+ccsrSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
 ccsrSnapshot = lens _ccsrSnapshot (\s a -> s { _ccsrSnapshot = a })
 
-instance FromXML CopyClusterSnapshotResult where
+instance FromXML CopyClusterSnapshotResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CopyClusterSnapshotResult"
+    fromXMLRoot    = fromRoot "CopyClusterSnapshotResponse"
 
-instance AWSRequest CopyClusterSnapshotMessage where
-    type Sv CopyClusterSnapshotMessage = Redshift
-    type Rs CopyClusterSnapshotMessage = CopyClusterSnapshotResult
+instance AWSRequest CopyClusterSnapshot where
+    type Sv CopyClusterSnapshot = Redshift
+    type Rs CopyClusterSnapshot = CopyClusterSnapshotResponse
 
     request  = post "CopyClusterSnapshot"
-    response = xmlResponse $ \h x -> CopyClusterSnapshotResult
+    response = xmlResponse $ \h x -> CopyClusterSnapshotResponse
         <$> x %| "Snapshot"

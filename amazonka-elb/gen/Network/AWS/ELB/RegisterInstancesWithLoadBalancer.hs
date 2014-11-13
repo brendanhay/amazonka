@@ -44,93 +44,93 @@
 module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     (
     -- * Request
-      RegisterEndPointsInput
+      RegisterInstancesWithLoadBalancer
     -- ** Request constructor
     , registerInstancesWithLoadBalancer
     -- ** Request lenses
-    , repiInstances
-    , repiLoadBalancerName
+    , riwlbInstances
+    , riwlbLoadBalancerName
 
     -- * Response
-    , RegisterEndPointsOutput
+    , RegisterInstancesWithLoadBalancerResponse
     -- ** Response constructor
     , registerInstancesWithLoadBalancerResponse
     -- ** Response lenses
-    , repoInstances
+    , riwlbrInstances
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data RegisterEndPointsInput = RegisterEndPointsInput
-    { _repiInstances        :: [Instance]
-    , _repiLoadBalancerName :: Text
+data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer
+    { _riwlbInstances        :: [Instance]
+    , _riwlbLoadBalancerName :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'RegisterEndPointsInput' constructor.
+-- | 'RegisterInstancesWithLoadBalancer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'repiInstances' @::@ ['Instance']
+-- * 'riwlbInstances' @::@ ['Instance']
 --
--- * 'repiLoadBalancerName' @::@ 'Text'
+-- * 'riwlbLoadBalancerName' @::@ 'Text'
 --
-registerInstancesWithLoadBalancer :: Text -- ^ 'repiLoadBalancerName'
-                                  -> RegisterEndPointsInput
-registerInstancesWithLoadBalancer p1 = RegisterEndPointsInput
-    { _repiLoadBalancerName = p1
-    , _repiInstances        = mempty
+registerInstancesWithLoadBalancer :: Text -- ^ 'riwlbLoadBalancerName'
+                                  -> RegisterInstancesWithLoadBalancer
+registerInstancesWithLoadBalancer p1 = RegisterInstancesWithLoadBalancer
+    { _riwlbLoadBalancerName = p1
+    , _riwlbInstances        = mempty
     }
 
 -- | A list of instance IDs that should be registered with the load balancer.
-repiInstances :: Lens' RegisterEndPointsInput [Instance]
-repiInstances = lens _repiInstances (\s a -> s { _repiInstances = a })
+riwlbInstances :: Lens' RegisterInstancesWithLoadBalancer [Instance]
+riwlbInstances = lens _riwlbInstances (\s a -> s { _riwlbInstances = a })
 
 -- | The name associated with the load balancer. The name must be unique
 -- within your set of load balancers.
-repiLoadBalancerName :: Lens' RegisterEndPointsInput Text
-repiLoadBalancerName =
-    lens _repiLoadBalancerName (\s a -> s { _repiLoadBalancerName = a })
+riwlbLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
+riwlbLoadBalancerName =
+    lens _riwlbLoadBalancerName (\s a -> s { _riwlbLoadBalancerName = a })
 
-instance ToQuery RegisterEndPointsInput
+instance ToQuery RegisterInstancesWithLoadBalancer
 
-instance ToPath RegisterEndPointsInput where
+instance ToPath RegisterInstancesWithLoadBalancer where
     toPath = const "/"
 
-newtype RegisterEndPointsOutput = RegisterEndPointsOutput
-    { _repoInstances :: [Instance]
+newtype RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
+    { _riwlbrInstances :: [Instance]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList RegisterEndPointsOutput where
-    type Item RegisterEndPointsOutput = Instance
+instance IsList RegisterInstancesWithLoadBalancerResponse where
+    type Item RegisterInstancesWithLoadBalancerResponse = Instance
 
-    fromList = RegisterEndPointsOutput . fromList
-    toList   = toList . _repoInstances
+    fromList = RegisterInstancesWithLoadBalancerResponse . fromList
+    toList   = toList . _riwlbrInstances
 
--- | 'RegisterEndPointsOutput' constructor.
+-- | 'RegisterInstancesWithLoadBalancerResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'repoInstances' @::@ ['Instance']
+-- * 'riwlbrInstances' @::@ ['Instance']
 --
-registerInstancesWithLoadBalancerResponse :: RegisterEndPointsOutput
-registerInstancesWithLoadBalancerResponse = RegisterEndPointsOutput
-    { _repoInstances = mempty
+registerInstancesWithLoadBalancerResponse :: RegisterInstancesWithLoadBalancerResponse
+registerInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse
+    { _riwlbrInstances = mempty
     }
 
 -- | An updated list of instances for the load balancer.
-repoInstances :: Lens' RegisterEndPointsOutput [Instance]
-repoInstances = lens _repoInstances (\s a -> s { _repoInstances = a })
+riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
+riwlbrInstances = lens _riwlbrInstances (\s a -> s { _riwlbrInstances = a })
 
-instance FromXML RegisterEndPointsOutput where
+instance FromXML RegisterInstancesWithLoadBalancerResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RegisterEndPointsOutput"
+    fromXMLRoot    = fromRoot "RegisterInstancesWithLoadBalancerResponse"
 
-instance AWSRequest RegisterEndPointsInput where
-    type Sv RegisterEndPointsInput = ELB
-    type Rs RegisterEndPointsInput = RegisterEndPointsOutput
+instance AWSRequest RegisterInstancesWithLoadBalancer where
+    type Sv RegisterInstancesWithLoadBalancer = ELB
+    type Rs RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancerResponse
 
     request  = post "RegisterInstancesWithLoadBalancer"
-    response = xmlResponse $ \h x -> RegisterEndPointsOutput
+    response = xmlResponse $ \h x -> RegisterInstancesWithLoadBalancerResponse
         <$> x %| "Instances"

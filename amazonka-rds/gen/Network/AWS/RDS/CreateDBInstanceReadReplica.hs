@@ -29,25 +29,25 @@
 module Network.AWS.RDS.CreateDBInstanceReadReplica
     (
     -- * Request
-      CreateDBInstanceReadReplicaMessage
+      CreateDBInstanceReadReplica
     -- ** Request constructor
     , createDBInstanceReadReplica
     -- ** Request lenses
-    , cdbirrmAutoMinorVersionUpgrade
-    , cdbirrmAvailabilityZone
-    , cdbirrmDBInstanceClass
-    , cdbirrmDBInstanceIdentifier
-    , cdbirrmDBSubnetGroupName
-    , cdbirrmIops
-    , cdbirrmOptionGroupName
-    , cdbirrmPort
-    , cdbirrmPubliclyAccessible
-    , cdbirrmSourceDBInstanceIdentifier
-    , cdbirrmStorageType
-    , cdbirrmTags
+    , cdbirrAutoMinorVersionUpgrade
+    , cdbirrAvailabilityZone
+    , cdbirrDBInstanceClass
+    , cdbirrDBInstanceIdentifier
+    , cdbirrDBSubnetGroupName
+    , cdbirrIops
+    , cdbirrOptionGroupName
+    , cdbirrPort
+    , cdbirrPubliclyAccessible
+    , cdbirrSourceDBInstanceIdentifier
+    , cdbirrStorageType
+    , cdbirrTags
 
     -- * Response
-    , CreateDBInstanceReadReplicaResult
+    , CreateDBInstanceReadReplicaResponse
     -- ** Response constructor
     , createDBInstanceReadReplicaResponse
     -- ** Response lenses
@@ -58,81 +58,81 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data CreateDBInstanceReadReplicaMessage = CreateDBInstanceReadReplicaMessage
-    { _cdbirrmAutoMinorVersionUpgrade    :: Maybe Bool
-    , _cdbirrmAvailabilityZone           :: Maybe Text
-    , _cdbirrmDBInstanceClass            :: Maybe Text
-    , _cdbirrmDBInstanceIdentifier       :: Text
-    , _cdbirrmDBSubnetGroupName          :: Maybe Text
-    , _cdbirrmIops                       :: Maybe Int
-    , _cdbirrmOptionGroupName            :: Maybe Text
-    , _cdbirrmPort                       :: Maybe Int
-    , _cdbirrmPubliclyAccessible         :: Maybe Bool
-    , _cdbirrmSourceDBInstanceIdentifier :: Text
-    , _cdbirrmStorageType                :: Maybe Text
-    , _cdbirrmTags                       :: [Tag]
+data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica
+    { _cdbirrAutoMinorVersionUpgrade    :: Maybe Bool
+    , _cdbirrAvailabilityZone           :: Maybe Text
+    , _cdbirrDBInstanceClass            :: Maybe Text
+    , _cdbirrDBInstanceIdentifier       :: Text
+    , _cdbirrDBSubnetGroupName          :: Maybe Text
+    , _cdbirrIops                       :: Maybe Int
+    , _cdbirrOptionGroupName            :: Maybe Text
+    , _cdbirrPort                       :: Maybe Int
+    , _cdbirrPubliclyAccessible         :: Maybe Bool
+    , _cdbirrSourceDBInstanceIdentifier :: Text
+    , _cdbirrStorageType                :: Maybe Text
+    , _cdbirrTags                       :: [Tag]
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDBInstanceReadReplicaMessage' constructor.
+-- | 'CreateDBInstanceReadReplica' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbirrmAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
+-- * 'cdbirrAutoMinorVersionUpgrade' @::@ 'Maybe' 'Bool'
 --
--- * 'cdbirrmAvailabilityZone' @::@ 'Maybe' 'Text'
+-- * 'cdbirrAvailabilityZone' @::@ 'Maybe' 'Text'
 --
--- * 'cdbirrmDBInstanceClass' @::@ 'Maybe' 'Text'
+-- * 'cdbirrDBInstanceClass' @::@ 'Maybe' 'Text'
 --
--- * 'cdbirrmDBInstanceIdentifier' @::@ 'Text'
+-- * 'cdbirrDBInstanceIdentifier' @::@ 'Text'
 --
--- * 'cdbirrmDBSubnetGroupName' @::@ 'Maybe' 'Text'
+-- * 'cdbirrDBSubnetGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'cdbirrmIops' @::@ 'Maybe' 'Int'
+-- * 'cdbirrIops' @::@ 'Maybe' 'Int'
 --
--- * 'cdbirrmOptionGroupName' @::@ 'Maybe' 'Text'
+-- * 'cdbirrOptionGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'cdbirrmPort' @::@ 'Maybe' 'Int'
+-- * 'cdbirrPort' @::@ 'Maybe' 'Int'
 --
--- * 'cdbirrmPubliclyAccessible' @::@ 'Maybe' 'Bool'
+-- * 'cdbirrPubliclyAccessible' @::@ 'Maybe' 'Bool'
 --
--- * 'cdbirrmSourceDBInstanceIdentifier' @::@ 'Text'
+-- * 'cdbirrSourceDBInstanceIdentifier' @::@ 'Text'
 --
--- * 'cdbirrmStorageType' @::@ 'Maybe' 'Text'
+-- * 'cdbirrStorageType' @::@ 'Maybe' 'Text'
 --
--- * 'cdbirrmTags' @::@ ['Tag']
+-- * 'cdbirrTags' @::@ ['Tag']
 --
-createDBInstanceReadReplica :: Text -- ^ 'cdbirrmDBInstanceIdentifier'
-                            -> Text -- ^ 'cdbirrmSourceDBInstanceIdentifier'
-                            -> CreateDBInstanceReadReplicaMessage
-createDBInstanceReadReplica p1 p2 = CreateDBInstanceReadReplicaMessage
-    { _cdbirrmDBInstanceIdentifier       = p1
-    , _cdbirrmSourceDBInstanceIdentifier = p2
-    , _cdbirrmDBInstanceClass            = Nothing
-    , _cdbirrmAvailabilityZone           = Nothing
-    , _cdbirrmPort                       = Nothing
-    , _cdbirrmAutoMinorVersionUpgrade    = Nothing
-    , _cdbirrmIops                       = Nothing
-    , _cdbirrmOptionGroupName            = Nothing
-    , _cdbirrmPubliclyAccessible         = Nothing
-    , _cdbirrmTags                       = mempty
-    , _cdbirrmDBSubnetGroupName          = Nothing
-    , _cdbirrmStorageType                = Nothing
+createDBInstanceReadReplica :: Text -- ^ 'cdbirrDBInstanceIdentifier'
+                            -> Text -- ^ 'cdbirrSourceDBInstanceIdentifier'
+                            -> CreateDBInstanceReadReplica
+createDBInstanceReadReplica p1 p2 = CreateDBInstanceReadReplica
+    { _cdbirrDBInstanceIdentifier       = p1
+    , _cdbirrSourceDBInstanceIdentifier = p2
+    , _cdbirrDBInstanceClass            = Nothing
+    , _cdbirrAvailabilityZone           = Nothing
+    , _cdbirrPort                       = Nothing
+    , _cdbirrAutoMinorVersionUpgrade    = Nothing
+    , _cdbirrIops                       = Nothing
+    , _cdbirrOptionGroupName            = Nothing
+    , _cdbirrPubliclyAccessible         = Nothing
+    , _cdbirrTags                       = mempty
+    , _cdbirrDBSubnetGroupName          = Nothing
+    , _cdbirrStorageType                = Nothing
     }
 
 -- | Indicates that minor engine upgrades will be applied automatically to the
 -- read replica during the maintenance window. Default: Inherits from the
 -- source DB instance.
-cdbirrmAutoMinorVersionUpgrade :: Lens' CreateDBInstanceReadReplicaMessage (Maybe Bool)
-cdbirrmAutoMinorVersionUpgrade =
-    lens _cdbirrmAutoMinorVersionUpgrade
-        (\s a -> s { _cdbirrmAutoMinorVersionUpgrade = a })
+cdbirrAutoMinorVersionUpgrade :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
+cdbirrAutoMinorVersionUpgrade =
+    lens _cdbirrAutoMinorVersionUpgrade
+        (\s a -> s { _cdbirrAutoMinorVersionUpgrade = a })
 
 -- | The Amazon EC2 Availability Zone that the read replica will be created
 -- in. Default: A random, system-chosen Availability Zone in the endpoint's
 -- region. Example: us-east-1d.
-cdbirrmAvailabilityZone :: Lens' CreateDBInstanceReadReplicaMessage (Maybe Text)
-cdbirrmAvailabilityZone =
-    lens _cdbirrmAvailabilityZone (\s a -> s { _cdbirrmAvailabilityZone = a })
+cdbirrAvailabilityZone :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdbirrAvailabilityZone =
+    lens _cdbirrAvailabilityZone (\s a -> s { _cdbirrAvailabilityZone = a })
 
 -- | The compute and memory capacity of the read replica. Valid Values:
 -- db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge
@@ -140,17 +140,17 @@ cdbirrmAvailabilityZone =
 -- db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge
 -- | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small |
 -- db.t2.medium Default: Inherits from the source DB instance.
-cdbirrmDBInstanceClass :: Lens' CreateDBInstanceReadReplicaMessage (Maybe Text)
-cdbirrmDBInstanceClass =
-    lens _cdbirrmDBInstanceClass (\s a -> s { _cdbirrmDBInstanceClass = a })
+cdbirrDBInstanceClass :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdbirrDBInstanceClass =
+    lens _cdbirrDBInstanceClass (\s a -> s { _cdbirrDBInstanceClass = a })
 
 -- | The DB instance identifier of the read replica. This is the unique key
 -- that identifies a DB instance. This parameter is stored as a lowercase
 -- string.
-cdbirrmDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplicaMessage Text
-cdbirrmDBInstanceIdentifier =
-    lens _cdbirrmDBInstanceIdentifier
-        (\s a -> s { _cdbirrmDBInstanceIdentifier = a })
+cdbirrDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
+cdbirrDBInstanceIdentifier =
+    lens _cdbirrDBInstanceIdentifier
+        (\s a -> s { _cdbirrDBInstanceIdentifier = a })
 
 -- | Specifies a DB subnet group for the DB instance. The new DB instance will
 -- be created in the VPC associated with the DB subnet group. If no DB
@@ -163,26 +163,25 @@ cdbirrmDBInstanceIdentifier =
 -- VPC. All these read replicas will be created in the same VPC. Not specify
 -- a DB subnet group. All these read replicas will be created outside of any
 -- VPC.
-cdbirrmDBSubnetGroupName :: Lens' CreateDBInstanceReadReplicaMessage (Maybe Text)
-cdbirrmDBSubnetGroupName =
-    lens _cdbirrmDBSubnetGroupName
-        (\s a -> s { _cdbirrmDBSubnetGroupName = a })
+cdbirrDBSubnetGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdbirrDBSubnetGroupName =
+    lens _cdbirrDBSubnetGroupName (\s a -> s { _cdbirrDBSubnetGroupName = a })
 
 -- | The amount of Provisioned IOPS (input/output operations per second) to be
 -- initially allocated for the DB instance.
-cdbirrmIops :: Lens' CreateDBInstanceReadReplicaMessage (Maybe Int)
-cdbirrmIops = lens _cdbirrmIops (\s a -> s { _cdbirrmIops = a })
+cdbirrIops :: Lens' CreateDBInstanceReadReplica (Maybe Int)
+cdbirrIops = lens _cdbirrIops (\s a -> s { _cdbirrIops = a })
 
 -- | The option group the DB instance will be associated with. If omitted, the
 -- default option group for the engine specified will be used.
-cdbirrmOptionGroupName :: Lens' CreateDBInstanceReadReplicaMessage (Maybe Text)
-cdbirrmOptionGroupName =
-    lens _cdbirrmOptionGroupName (\s a -> s { _cdbirrmOptionGroupName = a })
+cdbirrOptionGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdbirrOptionGroupName =
+    lens _cdbirrOptionGroupName (\s a -> s { _cdbirrOptionGroupName = a })
 
 -- | The port number that the DB instance uses for connections. Default:
 -- Inherits from the source DB instance Valid Values: 1150-65535.
-cdbirrmPort :: Lens' CreateDBInstanceReadReplicaMessage (Maybe Int)
-cdbirrmPort = lens _cdbirrmPort (\s a -> s { _cdbirrmPort = a })
+cdbirrPort :: Lens' CreateDBInstanceReadReplica (Maybe Int)
+cdbirrPort = lens _cdbirrPort (\s a -> s { _cdbirrPort = a })
 
 -- | Specifies the accessibility options for the DB instance. A value of true
 -- specifies an Internet-facing instance with a publicly resolvable DNS
@@ -196,10 +195,10 @@ cdbirrmPort = lens _cdbirrmPort (\s a -> s { _cdbirrmPort = a })
 -- subnet group has been specified as part of the request and the
 -- PubliclyAccessible value has not been set, the DB instance will be
 -- private.
-cdbirrmPubliclyAccessible :: Lens' CreateDBInstanceReadReplicaMessage (Maybe Bool)
-cdbirrmPubliclyAccessible =
-    lens _cdbirrmPubliclyAccessible
-        (\s a -> s { _cdbirrmPubliclyAccessible = a })
+cdbirrPubliclyAccessible :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
+cdbirrPubliclyAccessible =
+    lens _cdbirrPubliclyAccessible
+        (\s a -> s { _cdbirrPubliclyAccessible = a })
 
 -- | The identifier of the DB instance that will act as the source for the
 -- read replica. Each DB instance can have up to five read replicas.
@@ -211,53 +210,53 @@ cdbirrmPubliclyAccessible =
 -- valid DB instance identifier. If the source DB instance is in a different
 -- region than the read replica, specify a valid DB instance ARN. For more
 -- information, go to Constructing a Amazon RDS Amazon Resource Name (ARN).
-cdbirrmSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplicaMessage Text
-cdbirrmSourceDBInstanceIdentifier =
-    lens _cdbirrmSourceDBInstanceIdentifier
-        (\s a -> s { _cdbirrmSourceDBInstanceIdentifier = a })
+cdbirrSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
+cdbirrSourceDBInstanceIdentifier =
+    lens _cdbirrSourceDBInstanceIdentifier
+        (\s a -> s { _cdbirrSourceDBInstanceIdentifier = a })
 
 -- | Specifies storage type to be associated with the DB Instance read
 -- replica. Valid values: standard | gp2 | io1 If you specify io1, you must
 -- also include a value for the Iops parameter.
-cdbirrmStorageType :: Lens' CreateDBInstanceReadReplicaMessage (Maybe Text)
-cdbirrmStorageType =
-    lens _cdbirrmStorageType (\s a -> s { _cdbirrmStorageType = a })
+cdbirrStorageType :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdbirrStorageType =
+    lens _cdbirrStorageType (\s a -> s { _cdbirrStorageType = a })
 
-cdbirrmTags :: Lens' CreateDBInstanceReadReplicaMessage [Tag]
-cdbirrmTags = lens _cdbirrmTags (\s a -> s { _cdbirrmTags = a })
+cdbirrTags :: Lens' CreateDBInstanceReadReplica [Tag]
+cdbirrTags = lens _cdbirrTags (\s a -> s { _cdbirrTags = a })
 
-instance ToQuery CreateDBInstanceReadReplicaMessage
+instance ToQuery CreateDBInstanceReadReplica
 
-instance ToPath CreateDBInstanceReadReplicaMessage where
+instance ToPath CreateDBInstanceReadReplica where
     toPath = const "/"
 
-newtype CreateDBInstanceReadReplicaResult = CreateDBInstanceReadReplicaResult
+newtype CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
     { _cdbirrrDBInstance :: Maybe DBInstance
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDBInstanceReadReplicaResult' constructor.
+-- | 'CreateDBInstanceReadReplicaResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdbirrrDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-createDBInstanceReadReplicaResponse :: CreateDBInstanceReadReplicaResult
-createDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResult
+createDBInstanceReadReplicaResponse :: CreateDBInstanceReadReplicaResponse
+createDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse
     { _cdbirrrDBInstance = Nothing
     }
 
-cdbirrrDBInstance :: Lens' CreateDBInstanceReadReplicaResult (Maybe DBInstance)
+cdbirrrDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
 cdbirrrDBInstance =
     lens _cdbirrrDBInstance (\s a -> s { _cdbirrrDBInstance = a })
 
-instance FromXML CreateDBInstanceReadReplicaResult where
+instance FromXML CreateDBInstanceReadReplicaResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDBInstanceReadReplicaResult"
+    fromXMLRoot    = fromRoot "CreateDBInstanceReadReplicaResponse"
 
-instance AWSRequest CreateDBInstanceReadReplicaMessage where
-    type Sv CreateDBInstanceReadReplicaMessage = RDS
-    type Rs CreateDBInstanceReadReplicaMessage = CreateDBInstanceReadReplicaResult
+instance AWSRequest CreateDBInstanceReadReplica where
+    type Sv CreateDBInstanceReadReplica = RDS
+    type Rs CreateDBInstanceReadReplica = CreateDBInstanceReadReplicaResponse
 
     request  = post "CreateDBInstanceReadReplica"
-    response = xmlResponse $ \h x -> CreateDBInstanceReadReplicaResult
+    response = xmlResponse $ \h x -> CreateDBInstanceReadReplicaResponse
         <$> x %| "DBInstance"

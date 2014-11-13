@@ -41,12 +41,12 @@ module Network.AWS.EC2.StartInstances
     -- ** Request constructor
     , startInstances
     -- ** Request lenses
-    , siAdditionalInfo
-    , siDryRun
-    , siInstanceIds
+    , si1AdditionalInfo
+    , si1DryRun
+    , si1InstanceIds
 
     -- * Response
-    , StartInstancesResult
+    , StartInstancesResponse
     -- ** Response constructor
     , startInstancesResponse
     -- ** Response lenses
@@ -58,78 +58,79 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data StartInstances = StartInstances
-    { _siAdditionalInfo :: Maybe Text
-    , _siDryRun         :: Maybe Bool
-    , _siInstanceIds    :: [Text]
+    { _si1AdditionalInfo :: Maybe Text
+    , _si1DryRun         :: Maybe Bool
+    , _si1InstanceIds    :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'StartInstances' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'siAdditionalInfo' @::@ 'Maybe' 'Text'
+-- * 'si1AdditionalInfo' @::@ 'Maybe' 'Text'
 --
--- * 'siDryRun' @::@ 'Maybe' 'Bool'
+-- * 'si1DryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'siInstanceIds' @::@ ['Text']
+-- * 'si1InstanceIds' @::@ ['Text']
 --
 startInstances :: StartInstances
 startInstances = StartInstances
-    { _siInstanceIds    = mempty
-    , _siAdditionalInfo = Nothing
-    , _siDryRun         = Nothing
+    { _si1InstanceIds    = mempty
+    , _si1AdditionalInfo = Nothing
+    , _si1DryRun         = Nothing
     }
 
 -- | Reserved.
-siAdditionalInfo :: Lens' StartInstances (Maybe Text)
-siAdditionalInfo = lens _siAdditionalInfo (\s a -> s { _siAdditionalInfo = a })
+si1AdditionalInfo :: Lens' StartInstances (Maybe Text)
+si1AdditionalInfo =
+    lens _si1AdditionalInfo (\s a -> s { _si1AdditionalInfo = a })
 
-siDryRun :: Lens' StartInstances (Maybe Bool)
-siDryRun = lens _siDryRun (\s a -> s { _siDryRun = a })
+si1DryRun :: Lens' StartInstances (Maybe Bool)
+si1DryRun = lens _si1DryRun (\s a -> s { _si1DryRun = a })
 
 -- | One or more instance IDs.
-siInstanceIds :: Lens' StartInstances [Text]
-siInstanceIds = lens _siInstanceIds (\s a -> s { _siInstanceIds = a })
+si1InstanceIds :: Lens' StartInstances [Text]
+si1InstanceIds = lens _si1InstanceIds (\s a -> s { _si1InstanceIds = a })
 
 instance ToQuery StartInstances
 
 instance ToPath StartInstances where
     toPath = const "/"
 
-newtype StartInstancesResult = StartInstancesResult
+newtype StartInstancesResponse = StartInstancesResponse
     { _sirStartingInstances :: [InstanceStateChange]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList StartInstancesResult where
-    type Item StartInstancesResult = InstanceStateChange
+instance IsList StartInstancesResponse where
+    type Item StartInstancesResponse = InstanceStateChange
 
-    fromList = StartInstancesResult . fromList
+    fromList = StartInstancesResponse . fromList
     toList   = toList . _sirStartingInstances
 
--- | 'StartInstancesResult' constructor.
+-- | 'StartInstancesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'sirStartingInstances' @::@ ['InstanceStateChange']
 --
-startInstancesResponse :: StartInstancesResult
-startInstancesResponse = StartInstancesResult
+startInstancesResponse :: StartInstancesResponse
+startInstancesResponse = StartInstancesResponse
     { _sirStartingInstances = mempty
     }
 
 -- | Information about one or more started instances.
-sirStartingInstances :: Lens' StartInstancesResult [InstanceStateChange]
+sirStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
 sirStartingInstances =
     lens _sirStartingInstances (\s a -> s { _sirStartingInstances = a })
 
-instance FromXML StartInstancesResult where
+instance FromXML StartInstancesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "StartInstancesResult"
+    fromXMLRoot    = fromRoot "StartInstancesResponse"
 
 instance AWSRequest StartInstances where
     type Sv StartInstances = EC2
-    type Rs StartInstances = StartInstancesResult
+    type Rs StartInstances = StartInstancesResponse
 
     request  = post "StartInstances"
-    response = xmlResponse $ \h x -> StartInstancesResult
+    response = xmlResponse $ \h x -> StartInstancesResponse
         <$> x %| "instancesSet"

@@ -45,7 +45,7 @@ module Network.AWS.EC2.CreateVpnConnection
     , cvcVpnGatewayId
 
     -- * Response
-    , CreateVpnConnectionResult
+    , CreateVpnConnectionResponse
     -- ** Response constructor
     , createVpnConnectionResponse
     -- ** Response lenses
@@ -117,34 +117,34 @@ instance ToQuery CreateVpnConnection
 instance ToPath CreateVpnConnection where
     toPath = const "/"
 
-newtype CreateVpnConnectionResult = CreateVpnConnectionResult
+newtype CreateVpnConnectionResponse = CreateVpnConnectionResponse
     { _cvcrVpnConnection :: Maybe VpnConnection
     } deriving (Eq, Show, Generic)
 
--- | 'CreateVpnConnectionResult' constructor.
+-- | 'CreateVpnConnectionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cvcrVpnConnection' @::@ 'Maybe' 'VpnConnection'
 --
-createVpnConnectionResponse :: CreateVpnConnectionResult
-createVpnConnectionResponse = CreateVpnConnectionResult
+createVpnConnectionResponse :: CreateVpnConnectionResponse
+createVpnConnectionResponse = CreateVpnConnectionResponse
     { _cvcrVpnConnection = Nothing
     }
 
 -- | Information about the VPN connection.
-cvcrVpnConnection :: Lens' CreateVpnConnectionResult (Maybe VpnConnection)
+cvcrVpnConnection :: Lens' CreateVpnConnectionResponse (Maybe VpnConnection)
 cvcrVpnConnection =
     lens _cvcrVpnConnection (\s a -> s { _cvcrVpnConnection = a })
 
-instance FromXML CreateVpnConnectionResult where
+instance FromXML CreateVpnConnectionResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVpnConnectionResult"
+    fromXMLRoot    = fromRoot "CreateVpnConnectionResponse"
 
 instance AWSRequest CreateVpnConnection where
     type Sv CreateVpnConnection = EC2
-    type Rs CreateVpnConnection = CreateVpnConnectionResult
+    type Rs CreateVpnConnection = CreateVpnConnectionResponse
 
     request  = post "CreateVpnConnection"
-    response = xmlResponse $ \h x -> CreateVpnConnectionResult
+    response = xmlResponse $ \h x -> CreateVpnConnectionResponse
         <$> x %| "vpnConnection"

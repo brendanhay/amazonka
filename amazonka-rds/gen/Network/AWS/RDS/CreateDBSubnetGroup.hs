@@ -25,17 +25,17 @@
 module Network.AWS.RDS.CreateDBSubnetGroup
     (
     -- * Request
-      CreateDBSubnetGroupMessage
+      CreateDBSubnetGroup
     -- ** Request constructor
     , createDBSubnetGroup
     -- ** Request lenses
-    , cdbsgmDBSubnetGroupDescription
-    , cdbsgmDBSubnetGroupName
-    , cdbsgmSubnetIds
-    , cdbsgmTags
+    , cdbsg1DBSubnetGroupDescription
+    , cdbsg1DBSubnetGroupName
+    , cdbsg1SubnetIds
+    , cdbsg1Tags
 
     -- * Response
-    , CreateDBSubnetGroupResult
+    , CreateDBSubnetGroupResponse
     -- ** Response constructor
     , createDBSubnetGroupResponse
     -- ** Response lenses
@@ -46,87 +46,87 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data CreateDBSubnetGroupMessage = CreateDBSubnetGroupMessage
-    { _cdbsgmDBSubnetGroupDescription :: Text
-    , _cdbsgmDBSubnetGroupName        :: Text
-    , _cdbsgmSubnetIds                :: [Text]
-    , _cdbsgmTags                     :: [Tag]
+data CreateDBSubnetGroup = CreateDBSubnetGroup
+    { _cdbsg1DBSubnetGroupDescription :: Text
+    , _cdbsg1DBSubnetGroupName        :: Text
+    , _cdbsg1SubnetIds                :: [Text]
+    , _cdbsg1Tags                     :: [Tag]
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDBSubnetGroupMessage' constructor.
+-- | 'CreateDBSubnetGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbsgmDBSubnetGroupDescription' @::@ 'Text'
+-- * 'cdbsg1DBSubnetGroupDescription' @::@ 'Text'
 --
--- * 'cdbsgmDBSubnetGroupName' @::@ 'Text'
+-- * 'cdbsg1DBSubnetGroupName' @::@ 'Text'
 --
--- * 'cdbsgmSubnetIds' @::@ ['Text']
+-- * 'cdbsg1SubnetIds' @::@ ['Text']
 --
--- * 'cdbsgmTags' @::@ ['Tag']
+-- * 'cdbsg1Tags' @::@ ['Tag']
 --
-createDBSubnetGroup :: Text -- ^ 'cdbsgmDBSubnetGroupName'
-                    -> Text -- ^ 'cdbsgmDBSubnetGroupDescription'
-                    -> CreateDBSubnetGroupMessage
-createDBSubnetGroup p1 p2 = CreateDBSubnetGroupMessage
-    { _cdbsgmDBSubnetGroupName        = p1
-    , _cdbsgmDBSubnetGroupDescription = p2
-    , _cdbsgmSubnetIds                = mempty
-    , _cdbsgmTags                     = mempty
+createDBSubnetGroup :: Text -- ^ 'cdbsg1DBSubnetGroupName'
+                    -> Text -- ^ 'cdbsg1DBSubnetGroupDescription'
+                    -> CreateDBSubnetGroup
+createDBSubnetGroup p1 p2 = CreateDBSubnetGroup
+    { _cdbsg1DBSubnetGroupName        = p1
+    , _cdbsg1DBSubnetGroupDescription = p2
+    , _cdbsg1SubnetIds                = mempty
+    , _cdbsg1Tags                     = mempty
     }
 
 -- | The description for the DB subnet group.
-cdbsgmDBSubnetGroupDescription :: Lens' CreateDBSubnetGroupMessage Text
-cdbsgmDBSubnetGroupDescription =
-    lens _cdbsgmDBSubnetGroupDescription
-        (\s a -> s { _cdbsgmDBSubnetGroupDescription = a })
+cdbsg1DBSubnetGroupDescription :: Lens' CreateDBSubnetGroup Text
+cdbsg1DBSubnetGroupDescription =
+    lens _cdbsg1DBSubnetGroupDescription
+        (\s a -> s { _cdbsg1DBSubnetGroupDescription = a })
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric
 -- characters or hyphens. Must not be "Default". Example: mySubnetgroup.
-cdbsgmDBSubnetGroupName :: Lens' CreateDBSubnetGroupMessage Text
-cdbsgmDBSubnetGroupName =
-    lens _cdbsgmDBSubnetGroupName (\s a -> s { _cdbsgmDBSubnetGroupName = a })
+cdbsg1DBSubnetGroupName :: Lens' CreateDBSubnetGroup Text
+cdbsg1DBSubnetGroupName =
+    lens _cdbsg1DBSubnetGroupName (\s a -> s { _cdbsg1DBSubnetGroupName = a })
 
 -- | The EC2 Subnet IDs for the DB subnet group.
-cdbsgmSubnetIds :: Lens' CreateDBSubnetGroupMessage [Text]
-cdbsgmSubnetIds = lens _cdbsgmSubnetIds (\s a -> s { _cdbsgmSubnetIds = a })
+cdbsg1SubnetIds :: Lens' CreateDBSubnetGroup [Text]
+cdbsg1SubnetIds = lens _cdbsg1SubnetIds (\s a -> s { _cdbsg1SubnetIds = a })
 
-cdbsgmTags :: Lens' CreateDBSubnetGroupMessage [Tag]
-cdbsgmTags = lens _cdbsgmTags (\s a -> s { _cdbsgmTags = a })
+cdbsg1Tags :: Lens' CreateDBSubnetGroup [Tag]
+cdbsg1Tags = lens _cdbsg1Tags (\s a -> s { _cdbsg1Tags = a })
 
-instance ToQuery CreateDBSubnetGroupMessage
+instance ToQuery CreateDBSubnetGroup
 
-instance ToPath CreateDBSubnetGroupMessage where
+instance ToPath CreateDBSubnetGroup where
     toPath = const "/"
 
-newtype CreateDBSubnetGroupResult = CreateDBSubnetGroupResult
+newtype CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse
     { _cdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDBSubnetGroupResult' constructor.
+-- | 'CreateDBSubnetGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdbsgrDBSubnetGroup' @::@ 'Maybe' 'DBSubnetGroup'
 --
-createDBSubnetGroupResponse :: CreateDBSubnetGroupResult
-createDBSubnetGroupResponse = CreateDBSubnetGroupResult
+createDBSubnetGroupResponse :: CreateDBSubnetGroupResponse
+createDBSubnetGroupResponse = CreateDBSubnetGroupResponse
     { _cdbsgrDBSubnetGroup = Nothing
     }
 
-cdbsgrDBSubnetGroup :: Lens' CreateDBSubnetGroupResult (Maybe DBSubnetGroup)
+cdbsgrDBSubnetGroup :: Lens' CreateDBSubnetGroupResponse (Maybe DBSubnetGroup)
 cdbsgrDBSubnetGroup =
     lens _cdbsgrDBSubnetGroup (\s a -> s { _cdbsgrDBSubnetGroup = a })
 
-instance FromXML CreateDBSubnetGroupResult where
+instance FromXML CreateDBSubnetGroupResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDBSubnetGroupResult"
+    fromXMLRoot    = fromRoot "CreateDBSubnetGroupResponse"
 
-instance AWSRequest CreateDBSubnetGroupMessage where
-    type Sv CreateDBSubnetGroupMessage = RDS
-    type Rs CreateDBSubnetGroupMessage = CreateDBSubnetGroupResult
+instance AWSRequest CreateDBSubnetGroup where
+    type Sv CreateDBSubnetGroup = RDS
+    type Rs CreateDBSubnetGroup = CreateDBSubnetGroupResponse
 
     request  = post "CreateDBSubnetGroup"
-    response = xmlResponse $ \h x -> CreateDBSubnetGroupResult
+    response = xmlResponse $ \h x -> CreateDBSubnetGroupResponse
         <$> x %| "DBSubnetGroup"

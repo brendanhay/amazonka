@@ -31,11 +31,11 @@ module Network.AWS.S3.GetBucketPolicy
     , gbpBucket
 
     -- * Response
-    , GetBucketPolicyOutput
+    , GetBucketPolicyResponse
     -- ** Response constructor
     , getBucketPolicyResponse
     -- ** Response lenses
-    , gbpoPolicy
+    , gbprPolicy
     ) where
 
 import Network.AWS.Prelude
@@ -72,32 +72,32 @@ instance ToQuery GetBucketPolicy where
 
 instance ToHeaders GetBucketPolicy
 
-newtype GetBucketPolicyOutput = GetBucketPolicyOutput
-    { _gbpoPolicy :: Maybe Text
+newtype GetBucketPolicyResponse = GetBucketPolicyResponse
+    { _gbprPolicy :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'GetBucketPolicyOutput' constructor.
+-- | 'GetBucketPolicyResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbpoPolicy' @::@ 'Maybe' 'Text'
+-- * 'gbprPolicy' @::@ 'Maybe' 'Text'
 --
-getBucketPolicyResponse :: GetBucketPolicyOutput
-getBucketPolicyResponse = GetBucketPolicyOutput
-    { _gbpoPolicy = Nothing
+getBucketPolicyResponse :: GetBucketPolicyResponse
+getBucketPolicyResponse = GetBucketPolicyResponse
+    { _gbprPolicy = Nothing
     }
 
 -- | The bucket policy as a JSON document.
-gbpoPolicy :: Lens' GetBucketPolicyOutput (Maybe Text)
-gbpoPolicy = lens _gbpoPolicy (\s a -> s { _gbpoPolicy = a })
+gbprPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
+gbprPolicy = lens _gbprPolicy (\s a -> s { _gbprPolicy = a })
 
-instance FromXML GetBucketPolicyOutput where
+instance FromXML GetBucketPolicyResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketPolicyOutput"
+    fromXMLRoot    = fromRoot "GetBucketPolicyResponse"
 instance AWSRequest GetBucketPolicy where
     type Sv GetBucketPolicy = S3
-    type Rs GetBucketPolicy = GetBucketPolicyOutput
+    type Rs GetBucketPolicy = GetBucketPolicyResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketPolicyOutput
+    response = xmlResponse $ \h x -> GetBucketPolicyResponse
         <$> x %| "Policy"

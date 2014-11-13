@@ -60,7 +60,7 @@ module Network.AWS.EC2.DescribeVolumeStatus
     , dvsVolumeIds
 
     -- * Response
-    , DescribeVolumeStatusResult
+    , DescribeVolumeStatusResponse
     -- ** Response constructor
     , describeVolumeStatusResponse
     -- ** Response lenses
@@ -142,12 +142,12 @@ instance ToQuery DescribeVolumeStatus
 instance ToPath DescribeVolumeStatus where
     toPath = const "/"
 
-data DescribeVolumeStatusResult = DescribeVolumeStatusResult
+data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse
     { _dvsrNextToken      :: Maybe Text
     , _dvsrVolumeStatuses :: [VolumeStatusItem]
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeVolumeStatusResult' constructor.
+-- | 'DescribeVolumeStatusResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -155,30 +155,30 @@ data DescribeVolumeStatusResult = DescribeVolumeStatusResult
 --
 -- * 'dvsrVolumeStatuses' @::@ ['VolumeStatusItem']
 --
-describeVolumeStatusResponse :: DescribeVolumeStatusResult
-describeVolumeStatusResponse = DescribeVolumeStatusResult
+describeVolumeStatusResponse :: DescribeVolumeStatusResponse
+describeVolumeStatusResponse = DescribeVolumeStatusResponse
     { _dvsrVolumeStatuses = mempty
     , _dvsrNextToken      = Nothing
     }
 
 -- | The next paginated set of results to return.
-dvsrNextToken :: Lens' DescribeVolumeStatusResult (Maybe Text)
+dvsrNextToken :: Lens' DescribeVolumeStatusResponse (Maybe Text)
 dvsrNextToken = lens _dvsrNextToken (\s a -> s { _dvsrNextToken = a })
 
 -- | A list of volumes.
-dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResult [VolumeStatusItem]
+dvsrVolumeStatuses :: Lens' DescribeVolumeStatusResponse [VolumeStatusItem]
 dvsrVolumeStatuses =
     lens _dvsrVolumeStatuses (\s a -> s { _dvsrVolumeStatuses = a })
 
-instance FromXML DescribeVolumeStatusResult where
+instance FromXML DescribeVolumeStatusResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeVolumeStatusResult"
+    fromXMLRoot    = fromRoot "DescribeVolumeStatusResponse"
 
 instance AWSRequest DescribeVolumeStatus where
     type Sv DescribeVolumeStatus = EC2
-    type Rs DescribeVolumeStatus = DescribeVolumeStatusResult
+    type Rs DescribeVolumeStatus = DescribeVolumeStatusResponse
 
     request  = post "DescribeVolumeStatus"
-    response = xmlResponse $ \h x -> DescribeVolumeStatusResult
+    response = xmlResponse $ \h x -> DescribeVolumeStatusResponse
         <$> x %| "nextToken"
         <*> x %| "volumeStatusSet"

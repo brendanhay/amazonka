@@ -28,8 +28,8 @@ module Network.AWS.Route53.ListTagsForResource
     -- ** Request constructor
     , listTagsForResource
     -- ** Request lenses
-    , ltfr1ResourceId
-    , ltfr1ResourceType
+    , ltfrResourceId
+    , ltfrResourceType
 
     -- * Response
     , ListTagsForResourceResponse
@@ -44,42 +44,41 @@ import Network.AWS.Request
 import Network.AWS.Route53.Types
 
 data ListTagsForResource = ListTagsForResource
-    { _ltfr1ResourceId   :: Text
-    , _ltfr1ResourceType :: Text
+    { _ltfrResourceId   :: Text
+    , _ltfrResourceType :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'ListTagsForResource' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfr1ResourceId' @::@ 'Text'
+-- * 'ltfrResourceId' @::@ 'Text'
 --
--- * 'ltfr1ResourceType' @::@ 'Text'
+-- * 'ltfrResourceType' @::@ 'Text'
 --
-listTagsForResource :: Text -- ^ 'ltfr1ResourceType'
-                    -> Text -- ^ 'ltfr1ResourceId'
+listTagsForResource :: Text -- ^ 'ltfrResourceType'
+                    -> Text -- ^ 'ltfrResourceId'
                     -> ListTagsForResource
 listTagsForResource p1 p2 = ListTagsForResource
-    { _ltfr1ResourceType = p1
-    , _ltfr1ResourceId   = p2
+    { _ltfrResourceType = p1
+    , _ltfrResourceId   = p2
     }
 
 -- | The ID of the resource for which you want to retrieve tags.
-ltfr1ResourceId :: Lens' ListTagsForResource Text
-ltfr1ResourceId = lens _ltfr1ResourceId (\s a -> s { _ltfr1ResourceId = a })
+ltfrResourceId :: Lens' ListTagsForResource Text
+ltfrResourceId = lens _ltfrResourceId (\s a -> s { _ltfrResourceId = a })
 
 -- | The type of the resource. The resource type for health checks is
 -- healthcheck.
-ltfr1ResourceType :: Lens' ListTagsForResource Text
-ltfr1ResourceType =
-    lens _ltfr1ResourceType (\s a -> s { _ltfr1ResourceType = a })
+ltfrResourceType :: Lens' ListTagsForResource Text
+ltfrResourceType = lens _ltfrResourceType (\s a -> s { _ltfrResourceType = a })
 
 instance ToPath ListTagsForResource where
     toPath ListTagsForResource{..} = mconcat
         [ "/2013-04-01/tags/"
-        , toText _ltfr1ResourceType
+        , toText _ltfrResourceType
         , "/"
-        , toText _ltfr1ResourceId
+        , toText _ltfrResourceId
         ]
 
 instance ToQuery ListTagsForResource where

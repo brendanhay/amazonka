@@ -27,115 +27,115 @@
 module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     (
     -- * Request
-      ValidateConfigurationSettingsMessage
+      ValidateConfigurationSettings
     -- ** Request constructor
     , validateConfigurationSettings
     -- ** Request lenses
-    , vcsmApplicationName
-    , vcsmEnvironmentName
-    , vcsmOptionSettings
-    , vcsmTemplateName
+    , vcsApplicationName
+    , vcsEnvironmentName
+    , vcsOptionSettings
+    , vcsTemplateName
 
     -- * Response
-    , ConfigurationSettingsValidationMessages
+    , ValidateConfigurationSettingsResponse
     -- ** Response constructor
     , validateConfigurationSettingsResponse
     -- ** Response lenses
-    , csvmMessages
+    , vcsrMessages
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-data ValidateConfigurationSettingsMessage = ValidateConfigurationSettingsMessage
-    { _vcsmApplicationName :: Text
-    , _vcsmEnvironmentName :: Maybe Text
-    , _vcsmOptionSettings  :: [ConfigurationOptionSetting]
-    , _vcsmTemplateName    :: Maybe Text
+data ValidateConfigurationSettings = ValidateConfigurationSettings
+    { _vcsApplicationName :: Text
+    , _vcsEnvironmentName :: Maybe Text
+    , _vcsOptionSettings  :: [ConfigurationOptionSetting]
+    , _vcsTemplateName    :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'ValidateConfigurationSettingsMessage' constructor.
+-- | 'ValidateConfigurationSettings' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vcsmApplicationName' @::@ 'Text'
+-- * 'vcsApplicationName' @::@ 'Text'
 --
--- * 'vcsmEnvironmentName' @::@ 'Maybe' 'Text'
+-- * 'vcsEnvironmentName' @::@ 'Maybe' 'Text'
 --
--- * 'vcsmOptionSettings' @::@ ['ConfigurationOptionSetting']
+-- * 'vcsOptionSettings' @::@ ['ConfigurationOptionSetting']
 --
--- * 'vcsmTemplateName' @::@ 'Maybe' 'Text'
+-- * 'vcsTemplateName' @::@ 'Maybe' 'Text'
 --
-validateConfigurationSettings :: Text -- ^ 'vcsmApplicationName'
-                              -> ValidateConfigurationSettingsMessage
-validateConfigurationSettings p1 = ValidateConfigurationSettingsMessage
-    { _vcsmApplicationName = p1
-    , _vcsmTemplateName    = Nothing
-    , _vcsmEnvironmentName = Nothing
-    , _vcsmOptionSettings  = mempty
+validateConfigurationSettings :: Text -- ^ 'vcsApplicationName'
+                              -> ValidateConfigurationSettings
+validateConfigurationSettings p1 = ValidateConfigurationSettings
+    { _vcsApplicationName = p1
+    , _vcsTemplateName    = Nothing
+    , _vcsEnvironmentName = Nothing
+    , _vcsOptionSettings  = mempty
     }
 
 -- | The name of the application that the configuration template or
 -- environment belongs to.
-vcsmApplicationName :: Lens' ValidateConfigurationSettingsMessage Text
-vcsmApplicationName =
-    lens _vcsmApplicationName (\s a -> s { _vcsmApplicationName = a })
+vcsApplicationName :: Lens' ValidateConfigurationSettings Text
+vcsApplicationName =
+    lens _vcsApplicationName (\s a -> s { _vcsApplicationName = a })
 
 -- | The name of the environment to validate the settings against. Condition:
 -- You cannot specify both this and a configuration template name.
-vcsmEnvironmentName :: Lens' ValidateConfigurationSettingsMessage (Maybe Text)
-vcsmEnvironmentName =
-    lens _vcsmEnvironmentName (\s a -> s { _vcsmEnvironmentName = a })
+vcsEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
+vcsEnvironmentName =
+    lens _vcsEnvironmentName (\s a -> s { _vcsEnvironmentName = a })
 
 -- | A list of the options and desired values to evaluate.
-vcsmOptionSettings :: Lens' ValidateConfigurationSettingsMessage [ConfigurationOptionSetting]
-vcsmOptionSettings =
-    lens _vcsmOptionSettings (\s a -> s { _vcsmOptionSettings = a })
+vcsOptionSettings :: Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
+vcsOptionSettings =
+    lens _vcsOptionSettings (\s a -> s { _vcsOptionSettings = a })
 
 -- | The name of the configuration template to validate the settings against.
 -- Condition: You cannot specify both this and an environment name.
-vcsmTemplateName :: Lens' ValidateConfigurationSettingsMessage (Maybe Text)
-vcsmTemplateName = lens _vcsmTemplateName (\s a -> s { _vcsmTemplateName = a })
+vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
+vcsTemplateName = lens _vcsTemplateName (\s a -> s { _vcsTemplateName = a })
 
-instance ToQuery ValidateConfigurationSettingsMessage
+instance ToQuery ValidateConfigurationSettings
 
-instance ToPath ValidateConfigurationSettingsMessage where
+instance ToPath ValidateConfigurationSettings where
     toPath = const "/"
 
-newtype ConfigurationSettingsValidationMessages = ConfigurationSettingsValidationMessages
-    { _csvmMessages :: [ValidationMessage]
+newtype ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
+    { _vcsrMessages :: [ValidationMessage]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ConfigurationSettingsValidationMessages where
-    type Item ConfigurationSettingsValidationMessages = ValidationMessage
+instance IsList ValidateConfigurationSettingsResponse where
+    type Item ValidateConfigurationSettingsResponse = ValidationMessage
 
-    fromList = ConfigurationSettingsValidationMessages . fromList
-    toList   = toList . _csvmMessages
+    fromList = ValidateConfigurationSettingsResponse . fromList
+    toList   = toList . _vcsrMessages
 
--- | 'ConfigurationSettingsValidationMessages' constructor.
+-- | 'ValidateConfigurationSettingsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csvmMessages' @::@ ['ValidationMessage']
+-- * 'vcsrMessages' @::@ ['ValidationMessage']
 --
-validateConfigurationSettingsResponse :: ConfigurationSettingsValidationMessages
-validateConfigurationSettingsResponse = ConfigurationSettingsValidationMessages
-    { _csvmMessages = mempty
+validateConfigurationSettingsResponse :: ValidateConfigurationSettingsResponse
+validateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse
+    { _vcsrMessages = mempty
     }
 
 -- | A list of ValidationMessage.
-csvmMessages :: Lens' ConfigurationSettingsValidationMessages [ValidationMessage]
-csvmMessages = lens _csvmMessages (\s a -> s { _csvmMessages = a })
+vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
+vcsrMessages = lens _vcsrMessages (\s a -> s { _vcsrMessages = a })
 
-instance FromXML ConfigurationSettingsValidationMessages where
+instance FromXML ValidateConfigurationSettingsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ConfigurationSettingsValidationMessages"
+    fromXMLRoot    = fromRoot "ValidateConfigurationSettingsResponse"
 
-instance AWSRequest ValidateConfigurationSettingsMessage where
-    type Sv ValidateConfigurationSettingsMessage = ElasticBeanstalk
-    type Rs ValidateConfigurationSettingsMessage = ConfigurationSettingsValidationMessages
+instance AWSRequest ValidateConfigurationSettings where
+    type Sv ValidateConfigurationSettings = ElasticBeanstalk
+    type Rs ValidateConfigurationSettings = ValidateConfigurationSettingsResponse
 
     request  = post "ValidateConfigurationSettings"
-    response = xmlResponse $ \h x -> ConfigurationSettingsValidationMessages
+    response = xmlResponse $ \h x -> ValidateConfigurationSettingsResponse
         <$> x %| "Messages"

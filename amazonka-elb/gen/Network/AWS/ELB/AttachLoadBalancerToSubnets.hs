@@ -28,94 +28,94 @@
 module Network.AWS.ELB.AttachLoadBalancerToSubnets
     (
     -- * Request
-      AttachLoadBalancerToSubnetsInput
+      AttachLoadBalancerToSubnets
     -- ** Request constructor
     , attachLoadBalancerToSubnets
     -- ** Request lenses
-    , albtsiLoadBalancerName
-    , albtsiSubnets
+    , albtsLoadBalancerName
+    , albtsSubnets
 
     -- * Response
-    , AttachLoadBalancerToSubnetsOutput
+    , AttachLoadBalancerToSubnetsResponse
     -- ** Response constructor
     , attachLoadBalancerToSubnetsResponse
     -- ** Response lenses
-    , albtsoSubnets
+    , albtsrSubnets
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data AttachLoadBalancerToSubnetsInput = AttachLoadBalancerToSubnetsInput
-    { _albtsiLoadBalancerName :: Text
-    , _albtsiSubnets          :: [Text]
+data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets
+    { _albtsLoadBalancerName :: Text
+    , _albtsSubnets          :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'AttachLoadBalancerToSubnetsInput' constructor.
+-- | 'AttachLoadBalancerToSubnets' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'albtsiLoadBalancerName' @::@ 'Text'
+-- * 'albtsLoadBalancerName' @::@ 'Text'
 --
--- * 'albtsiSubnets' @::@ ['Text']
+-- * 'albtsSubnets' @::@ ['Text']
 --
-attachLoadBalancerToSubnets :: Text -- ^ 'albtsiLoadBalancerName'
-                            -> AttachLoadBalancerToSubnetsInput
-attachLoadBalancerToSubnets p1 = AttachLoadBalancerToSubnetsInput
-    { _albtsiLoadBalancerName = p1
-    , _albtsiSubnets          = mempty
+attachLoadBalancerToSubnets :: Text -- ^ 'albtsLoadBalancerName'
+                            -> AttachLoadBalancerToSubnets
+attachLoadBalancerToSubnets p1 = AttachLoadBalancerToSubnets
+    { _albtsLoadBalancerName = p1
+    , _albtsSubnets          = mempty
     }
 
 -- | The name associated with the load balancer. The name must be unique
 -- within the set of load balancers associated with your AWS account.
-albtsiLoadBalancerName :: Lens' AttachLoadBalancerToSubnetsInput Text
-albtsiLoadBalancerName =
-    lens _albtsiLoadBalancerName (\s a -> s { _albtsiLoadBalancerName = a })
+albtsLoadBalancerName :: Lens' AttachLoadBalancerToSubnets Text
+albtsLoadBalancerName =
+    lens _albtsLoadBalancerName (\s a -> s { _albtsLoadBalancerName = a })
 
 -- | A list of subnet IDs to add for the load balancer. You can add only one
 -- subnet per Availability Zone.
-albtsiSubnets :: Lens' AttachLoadBalancerToSubnetsInput [Text]
-albtsiSubnets = lens _albtsiSubnets (\s a -> s { _albtsiSubnets = a })
+albtsSubnets :: Lens' AttachLoadBalancerToSubnets [Text]
+albtsSubnets = lens _albtsSubnets (\s a -> s { _albtsSubnets = a })
 
-instance ToQuery AttachLoadBalancerToSubnetsInput
+instance ToQuery AttachLoadBalancerToSubnets
 
-instance ToPath AttachLoadBalancerToSubnetsInput where
+instance ToPath AttachLoadBalancerToSubnets where
     toPath = const "/"
 
-newtype AttachLoadBalancerToSubnetsOutput = AttachLoadBalancerToSubnetsOutput
-    { _albtsoSubnets :: [Text]
+newtype AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
+    { _albtsrSubnets :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList AttachLoadBalancerToSubnetsOutput where
-    type Item AttachLoadBalancerToSubnetsOutput = Text
+instance IsList AttachLoadBalancerToSubnetsResponse where
+    type Item AttachLoadBalancerToSubnetsResponse = Text
 
-    fromList = AttachLoadBalancerToSubnetsOutput . fromList
-    toList   = toList . _albtsoSubnets
+    fromList = AttachLoadBalancerToSubnetsResponse . fromList
+    toList   = toList . _albtsrSubnets
 
--- | 'AttachLoadBalancerToSubnetsOutput' constructor.
+-- | 'AttachLoadBalancerToSubnetsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'albtsoSubnets' @::@ ['Text']
+-- * 'albtsrSubnets' @::@ ['Text']
 --
-attachLoadBalancerToSubnetsResponse :: AttachLoadBalancerToSubnetsOutput
-attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsOutput
-    { _albtsoSubnets = mempty
+attachLoadBalancerToSubnetsResponse :: AttachLoadBalancerToSubnetsResponse
+attachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse
+    { _albtsrSubnets = mempty
     }
 
 -- | A list of subnet IDs attached to the load balancer.
-albtsoSubnets :: Lens' AttachLoadBalancerToSubnetsOutput [Text]
-albtsoSubnets = lens _albtsoSubnets (\s a -> s { _albtsoSubnets = a })
+albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
+albtsrSubnets = lens _albtsrSubnets (\s a -> s { _albtsrSubnets = a })
 
-instance FromXML AttachLoadBalancerToSubnetsOutput where
+instance FromXML AttachLoadBalancerToSubnetsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "AttachLoadBalancerToSubnetsOutput"
+    fromXMLRoot    = fromRoot "AttachLoadBalancerToSubnetsResponse"
 
-instance AWSRequest AttachLoadBalancerToSubnetsInput where
-    type Sv AttachLoadBalancerToSubnetsInput = ELB
-    type Rs AttachLoadBalancerToSubnetsInput = AttachLoadBalancerToSubnetsOutput
+instance AWSRequest AttachLoadBalancerToSubnets where
+    type Sv AttachLoadBalancerToSubnets = ELB
+    type Rs AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnetsResponse
 
     request  = post "AttachLoadBalancerToSubnets"
-    response = xmlResponse $ \h x -> AttachLoadBalancerToSubnetsOutput
+    response = xmlResponse $ \h x -> AttachLoadBalancerToSubnetsResponse
         <$> x %| "Subnets"

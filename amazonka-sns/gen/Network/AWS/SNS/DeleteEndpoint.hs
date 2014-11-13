@@ -25,11 +25,11 @@
 module Network.AWS.SNS.DeleteEndpoint
     (
     -- * Request
-      DeleteEndpointInput
+      DeleteEndpoint
     -- ** Request constructor
     , deleteEndpoint
     -- ** Request lenses
-    , deiEndpointArn
+    , deEndpointArn
 
     -- * Response
     , DeleteEndpointResponse
@@ -41,29 +41,29 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-newtype DeleteEndpointInput = DeleteEndpointInput
-    { _deiEndpointArn :: Text
+newtype DeleteEndpoint = DeleteEndpoint
+    { _deEndpointArn :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteEndpointInput' constructor.
+-- | 'DeleteEndpoint' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deiEndpointArn' @::@ 'Text'
+-- * 'deEndpointArn' @::@ 'Text'
 --
-deleteEndpoint :: Text -- ^ 'deiEndpointArn'
-               -> DeleteEndpointInput
-deleteEndpoint p1 = DeleteEndpointInput
-    { _deiEndpointArn = p1
+deleteEndpoint :: Text -- ^ 'deEndpointArn'
+               -> DeleteEndpoint
+deleteEndpoint p1 = DeleteEndpoint
+    { _deEndpointArn = p1
     }
 
 -- | EndpointArn of endpoint to delete.
-deiEndpointArn :: Lens' DeleteEndpointInput Text
-deiEndpointArn = lens _deiEndpointArn (\s a -> s { _deiEndpointArn = a })
+deEndpointArn :: Lens' DeleteEndpoint Text
+deEndpointArn = lens _deEndpointArn (\s a -> s { _deEndpointArn = a })
 
-instance ToQuery DeleteEndpointInput
+instance ToQuery DeleteEndpoint
 
-instance ToPath DeleteEndpointInput where
+instance ToPath DeleteEndpoint where
     toPath = const "/"
 
 data DeleteEndpointResponse = DeleteEndpointResponse
@@ -77,9 +77,9 @@ instance FromXML DeleteEndpointResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteEndpointResponse"
 
-instance AWSRequest DeleteEndpointInput where
-    type Sv DeleteEndpointInput = SNS
-    type Rs DeleteEndpointInput = DeleteEndpointResponse
+instance AWSRequest DeleteEndpoint where
+    type Sv DeleteEndpoint = SNS
+    type Rs DeleteEndpoint = DeleteEndpointResponse
 
     request  = post "DeleteEndpoint"
     response = nullaryResponse DeleteEndpointResponse

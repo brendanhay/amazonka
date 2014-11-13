@@ -24,11 +24,11 @@
 module Network.AWS.Redshift.DeleteHsmClientCertificate
     (
     -- * Request
-      DeleteHsmClientCertificateMessage
+      DeleteHsmClientCertificate
     -- ** Request constructor
     , deleteHsmClientCertificate
     -- ** Request lenses
-    , dhccm1HsmClientCertificateIdentifier
+    , dhcc1HsmClientCertificateIdentifier
 
     -- * Response
     , DeleteHsmClientCertificateResponse
@@ -40,31 +40,31 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-newtype DeleteHsmClientCertificateMessage = DeleteHsmClientCertificateMessage
-    { _dhccm1HsmClientCertificateIdentifier :: Text
+newtype DeleteHsmClientCertificate = DeleteHsmClientCertificate
+    { _dhcc1HsmClientCertificateIdentifier :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteHsmClientCertificateMessage' constructor.
+-- | 'DeleteHsmClientCertificate' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhccm1HsmClientCertificateIdentifier' @::@ 'Text'
+-- * 'dhcc1HsmClientCertificateIdentifier' @::@ 'Text'
 --
-deleteHsmClientCertificate :: Text -- ^ 'dhccm1HsmClientCertificateIdentifier'
-                           -> DeleteHsmClientCertificateMessage
-deleteHsmClientCertificate p1 = DeleteHsmClientCertificateMessage
-    { _dhccm1HsmClientCertificateIdentifier = p1
+deleteHsmClientCertificate :: Text -- ^ 'dhcc1HsmClientCertificateIdentifier'
+                           -> DeleteHsmClientCertificate
+deleteHsmClientCertificate p1 = DeleteHsmClientCertificate
+    { _dhcc1HsmClientCertificateIdentifier = p1
     }
 
 -- | The identifier of the HSM client certificate to be deleted.
-dhccm1HsmClientCertificateIdentifier :: Lens' DeleteHsmClientCertificateMessage Text
-dhccm1HsmClientCertificateIdentifier =
-    lens _dhccm1HsmClientCertificateIdentifier
-        (\s a -> s { _dhccm1HsmClientCertificateIdentifier = a })
+dhcc1HsmClientCertificateIdentifier :: Lens' DeleteHsmClientCertificate Text
+dhcc1HsmClientCertificateIdentifier =
+    lens _dhcc1HsmClientCertificateIdentifier
+        (\s a -> s { _dhcc1HsmClientCertificateIdentifier = a })
 
-instance ToQuery DeleteHsmClientCertificateMessage
+instance ToQuery DeleteHsmClientCertificate
 
-instance ToPath DeleteHsmClientCertificateMessage where
+instance ToPath DeleteHsmClientCertificate where
     toPath = const "/"
 
 data DeleteHsmClientCertificateResponse = DeleteHsmClientCertificateResponse
@@ -78,9 +78,9 @@ instance FromXML DeleteHsmClientCertificateResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "DeleteHsmClientCertificateResponse"
 
-instance AWSRequest DeleteHsmClientCertificateMessage where
-    type Sv DeleteHsmClientCertificateMessage = Redshift
-    type Rs DeleteHsmClientCertificateMessage = DeleteHsmClientCertificateResponse
+instance AWSRequest DeleteHsmClientCertificate where
+    type Sv DeleteHsmClientCertificate = Redshift
+    type Rs DeleteHsmClientCertificate = DeleteHsmClientCertificateResponse
 
     request  = post "DeleteHsmClientCertificate"
     response = nullaryResponse DeleteHsmClientCertificateResponse

@@ -44,7 +44,7 @@ module Network.AWS.EC2.GetConsoleOutput
     , gcoInstanceId
 
     -- * Response
-    , GetConsoleOutputResult
+    , GetConsoleOutputResponse
     -- ** Response constructor
     , getConsoleOutputResponse
     -- ** Response lenses
@@ -89,13 +89,13 @@ instance ToQuery GetConsoleOutput
 instance ToPath GetConsoleOutput where
     toPath = const "/"
 
-data GetConsoleOutputResult = GetConsoleOutputResult
+data GetConsoleOutputResponse = GetConsoleOutputResponse
     { _gcorInstanceId :: Maybe Text
     , _gcorOutput     :: Maybe Text
     , _gcorTimestamp  :: Maybe RFC822
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'GetConsoleOutputResult' constructor.
+-- | 'GetConsoleOutputResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -105,36 +105,36 @@ data GetConsoleOutputResult = GetConsoleOutputResult
 --
 -- * 'gcorTimestamp' @::@ 'Maybe' 'UTCTime'
 --
-getConsoleOutputResponse :: GetConsoleOutputResult
-getConsoleOutputResponse = GetConsoleOutputResult
+getConsoleOutputResponse :: GetConsoleOutputResponse
+getConsoleOutputResponse = GetConsoleOutputResponse
     { _gcorInstanceId = Nothing
     , _gcorTimestamp  = Nothing
     , _gcorOutput     = Nothing
     }
 
 -- | The ID of the instance.
-gcorInstanceId :: Lens' GetConsoleOutputResult (Maybe Text)
+gcorInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorInstanceId = lens _gcorInstanceId (\s a -> s { _gcorInstanceId = a })
 
 -- | The console output, Base64 encoded.
-gcorOutput :: Lens' GetConsoleOutputResult (Maybe Text)
+gcorOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
 gcorOutput = lens _gcorOutput (\s a -> s { _gcorOutput = a })
 
 -- | The time the output was last updated.
-gcorTimestamp :: Lens' GetConsoleOutputResult (Maybe UTCTime)
+gcorTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
 gcorTimestamp = lens _gcorTimestamp (\s a -> s { _gcorTimestamp = a })
     . mapping _Time
 
-instance FromXML GetConsoleOutputResult where
+instance FromXML GetConsoleOutputResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetConsoleOutputResult"
+    fromXMLRoot    = fromRoot "GetConsoleOutputResponse"
 
 instance AWSRequest GetConsoleOutput where
     type Sv GetConsoleOutput = EC2
-    type Rs GetConsoleOutput = GetConsoleOutputResult
+    type Rs GetConsoleOutput = GetConsoleOutputResponse
 
     request  = post "GetConsoleOutput"
-    response = xmlResponse $ \h x -> GetConsoleOutputResult
+    response = xmlResponse $ \h x -> GetConsoleOutputResponse
         <$> x %| "instanceId"
         <*> x %| "output"
         <*> x %| "timestamp"

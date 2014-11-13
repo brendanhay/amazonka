@@ -31,14 +31,14 @@ module Network.AWS.S3.GetBucketWebsite
     , gbwBucket
 
     -- * Response
-    , GetBucketWebsiteOutput
+    , GetBucketWebsiteResponse
     -- ** Response constructor
     , getBucketWebsiteResponse
     -- ** Response lenses
-    , gbwoErrorDocument
-    , gbwoIndexDocument
-    , gbwoRedirectAllRequestsTo
-    , gbwoRoutingRules
+    , gbwrErrorDocument
+    , gbwrIndexDocument
+    , gbwrRedirectAllRequestsTo
+    , gbwrRoutingRules
     ) where
 
 import Network.AWS.Prelude
@@ -75,58 +75,58 @@ instance ToQuery GetBucketWebsite where
 
 instance ToHeaders GetBucketWebsite
 
-data GetBucketWebsiteOutput = GetBucketWebsiteOutput
-    { _gbwoErrorDocument         :: Maybe ErrorDocument
-    , _gbwoIndexDocument         :: Maybe IndexDocument
-    , _gbwoRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
-    , _gbwoRoutingRules          :: [RoutingRule]
+data GetBucketWebsiteResponse = GetBucketWebsiteResponse
+    { _gbwrErrorDocument         :: Maybe ErrorDocument
+    , _gbwrIndexDocument         :: Maybe IndexDocument
+    , _gbwrRedirectAllRequestsTo :: Maybe RedirectAllRequestsTo
+    , _gbwrRoutingRules          :: [RoutingRule]
     } deriving (Eq, Show, Generic)
 
--- | 'GetBucketWebsiteOutput' constructor.
+-- | 'GetBucketWebsiteResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbwoErrorDocument' @::@ 'Maybe' 'ErrorDocument'
+-- * 'gbwrErrorDocument' @::@ 'Maybe' 'ErrorDocument'
 --
--- * 'gbwoIndexDocument' @::@ 'Maybe' 'IndexDocument'
+-- * 'gbwrIndexDocument' @::@ 'Maybe' 'IndexDocument'
 --
--- * 'gbwoRedirectAllRequestsTo' @::@ 'Maybe' 'RedirectAllRequestsTo'
+-- * 'gbwrRedirectAllRequestsTo' @::@ 'Maybe' 'RedirectAllRequestsTo'
 --
--- * 'gbwoRoutingRules' @::@ ['RoutingRule']
+-- * 'gbwrRoutingRules' @::@ ['RoutingRule']
 --
-getBucketWebsiteResponse :: GetBucketWebsiteOutput
-getBucketWebsiteResponse = GetBucketWebsiteOutput
-    { _gbwoRedirectAllRequestsTo = Nothing
-    , _gbwoIndexDocument         = Nothing
-    , _gbwoErrorDocument         = Nothing
-    , _gbwoRoutingRules          = mempty
+getBucketWebsiteResponse :: GetBucketWebsiteResponse
+getBucketWebsiteResponse = GetBucketWebsiteResponse
+    { _gbwrRedirectAllRequestsTo = Nothing
+    , _gbwrIndexDocument         = Nothing
+    , _gbwrErrorDocument         = Nothing
+    , _gbwrRoutingRules          = mempty
     }
 
-gbwoErrorDocument :: Lens' GetBucketWebsiteOutput (Maybe ErrorDocument)
-gbwoErrorDocument =
-    lens _gbwoErrorDocument (\s a -> s { _gbwoErrorDocument = a })
+gbwrErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
+gbwrErrorDocument =
+    lens _gbwrErrorDocument (\s a -> s { _gbwrErrorDocument = a })
 
-gbwoIndexDocument :: Lens' GetBucketWebsiteOutput (Maybe IndexDocument)
-gbwoIndexDocument =
-    lens _gbwoIndexDocument (\s a -> s { _gbwoIndexDocument = a })
+gbwrIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
+gbwrIndexDocument =
+    lens _gbwrIndexDocument (\s a -> s { _gbwrIndexDocument = a })
 
-gbwoRedirectAllRequestsTo :: Lens' GetBucketWebsiteOutput (Maybe RedirectAllRequestsTo)
-gbwoRedirectAllRequestsTo =
-    lens _gbwoRedirectAllRequestsTo
-        (\s a -> s { _gbwoRedirectAllRequestsTo = a })
+gbwrRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
+gbwrRedirectAllRequestsTo =
+    lens _gbwrRedirectAllRequestsTo
+        (\s a -> s { _gbwrRedirectAllRequestsTo = a })
 
-gbwoRoutingRules :: Lens' GetBucketWebsiteOutput [RoutingRule]
-gbwoRoutingRules = lens _gbwoRoutingRules (\s a -> s { _gbwoRoutingRules = a })
+gbwrRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
+gbwrRoutingRules = lens _gbwrRoutingRules (\s a -> s { _gbwrRoutingRules = a })
 
-instance FromXML GetBucketWebsiteOutput where
+instance FromXML GetBucketWebsiteResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "GetBucketWebsiteOutput"
+    fromXMLRoot    = fromRoot "GetBucketWebsiteResponse"
 instance AWSRequest GetBucketWebsite where
     type Sv GetBucketWebsite = S3
-    type Rs GetBucketWebsite = GetBucketWebsiteOutput
+    type Rs GetBucketWebsite = GetBucketWebsiteResponse
 
     request  = get
-    response = xmlResponse $ \h x -> GetBucketWebsiteOutput
+    response = xmlResponse $ \h x -> GetBucketWebsiteResponse
         <$> x %| "ErrorDocument"
         <*> x %| "IndexDocument"
         <*> x %| "RedirectAllRequestsTo"

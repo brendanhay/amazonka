@@ -25,83 +25,159 @@
 module Network.AWS.Redshift.EnableLogging
     (
     -- * Request
-      EnableLoggingMessage
+      EnableLogging
     -- ** Request constructor
     , enableLogging
     -- ** Request lenses
-    , elmBucketName
-    , elmClusterIdentifier
-    , elmS3KeyPrefix
+    , elBucketName
+    , elClusterIdentifier
+    , elS3KeyPrefix
 
     -- * Response
-    , LoggingStatus
+    , EnableLoggingResponse
     -- ** Response constructor
-    , loggingStatus
+    , enableLoggingResponse
     -- ** Response lenses
-    , lsBucketName
-    , lsLastFailureMessage
-    , lsLastFailureTime
-    , lsLastSuccessfulDeliveryTime
-    , lsLoggingEnabled
-    , lsS3KeyPrefix
+    , elrBucketName
+    , elrLastFailureMessage
+    , elrLastFailureTime
+    , elrLastSuccessfulDeliveryTime
+    , elrLoggingEnabled
+    , elrS3KeyPrefix
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data EnableLoggingMessage = EnableLoggingMessage
-    { _elmBucketName        :: Text
-    , _elmClusterIdentifier :: Text
-    , _elmS3KeyPrefix       :: Maybe Text
+data EnableLogging = EnableLogging
+    { _elBucketName        :: Text
+    , _elClusterIdentifier :: Text
+    , _elS3KeyPrefix       :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'EnableLoggingMessage' constructor.
+-- | 'EnableLogging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'elmBucketName' @::@ 'Text'
+-- * 'elBucketName' @::@ 'Text'
 --
--- * 'elmClusterIdentifier' @::@ 'Text'
+-- * 'elClusterIdentifier' @::@ 'Text'
 --
--- * 'elmS3KeyPrefix' @::@ 'Maybe' 'Text'
+-- * 'elS3KeyPrefix' @::@ 'Maybe' 'Text'
 --
-enableLogging :: Text -- ^ 'elmClusterIdentifier'
-              -> Text -- ^ 'elmBucketName'
-              -> EnableLoggingMessage
-enableLogging p1 p2 = EnableLoggingMessage
-    { _elmClusterIdentifier = p1
-    , _elmBucketName        = p2
-    , _elmS3KeyPrefix       = Nothing
+enableLogging :: Text -- ^ 'elClusterIdentifier'
+              -> Text -- ^ 'elBucketName'
+              -> EnableLogging
+enableLogging p1 p2 = EnableLogging
+    { _elClusterIdentifier = p1
+    , _elBucketName        = p2
+    , _elS3KeyPrefix       = Nothing
     }
 
 -- | The name of an existing S3 bucket where the log files are to be stored.
 -- Constraints: Must be in the same region as the cluster The cluster must
 -- have read bucket and put object permissions.
-elmBucketName :: Lens' EnableLoggingMessage Text
-elmBucketName = lens _elmBucketName (\s a -> s { _elmBucketName = a })
+elBucketName :: Lens' EnableLogging Text
+elBucketName = lens _elBucketName (\s a -> s { _elBucketName = a })
 
 -- | The identifier of the cluster on which logging is to be started. Example:
 -- examplecluster.
-elmClusterIdentifier :: Lens' EnableLoggingMessage Text
-elmClusterIdentifier =
-    lens _elmClusterIdentifier (\s a -> s { _elmClusterIdentifier = a })
+elClusterIdentifier :: Lens' EnableLogging Text
+elClusterIdentifier =
+    lens _elClusterIdentifier (\s a -> s { _elClusterIdentifier = a })
 
 -- | The prefix applied to the log file names. Constraints: Cannot exceed 512
 -- characters Cannot contain spaces( ), double quotes ("), single quotes
 -- ('), a backslash (\), or control characters. The hexadecimal codes for
 -- invalid characters are: x00 to x20 x22 x27 x5c x7f or larger.
-elmS3KeyPrefix :: Lens' EnableLoggingMessage (Maybe Text)
-elmS3KeyPrefix = lens _elmS3KeyPrefix (\s a -> s { _elmS3KeyPrefix = a })
+elS3KeyPrefix :: Lens' EnableLogging (Maybe Text)
+elS3KeyPrefix = lens _elS3KeyPrefix (\s a -> s { _elS3KeyPrefix = a })
 
-instance ToQuery EnableLoggingMessage
+instance ToQuery EnableLogging
 
-instance ToPath EnableLoggingMessage where
+instance ToPath EnableLogging where
     toPath = const "/"
 
-instance AWSRequest EnableLoggingMessage where
-    type Sv EnableLoggingMessage = Redshift
-    type Rs EnableLoggingMessage = LoggingStatus
+data EnableLoggingResponse = EnableLoggingResponse
+    { _elrBucketName                 :: Maybe Text
+    , _elrLastFailureMessage         :: Maybe Text
+    , _elrLastFailureTime            :: Maybe RFC822
+    , _elrLastSuccessfulDeliveryTime :: Maybe RFC822
+    , _elrLoggingEnabled             :: Maybe Bool
+    , _elrS3KeyPrefix                :: Maybe Text
+    } deriving (Eq, Ord, Show, Generic)
+
+-- | 'EnableLoggingResponse' constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'elrBucketName' @::@ 'Maybe' 'Text'
+--
+-- * 'elrLastFailureMessage' @::@ 'Maybe' 'Text'
+--
+-- * 'elrLastFailureTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'elrLastSuccessfulDeliveryTime' @::@ 'Maybe' 'UTCTime'
+--
+-- * 'elrLoggingEnabled' @::@ 'Maybe' 'Bool'
+--
+-- * 'elrS3KeyPrefix' @::@ 'Maybe' 'Text'
+--
+enableLoggingResponse :: EnableLoggingResponse
+enableLoggingResponse = EnableLoggingResponse
+    { _elrLoggingEnabled             = Nothing
+    , _elrBucketName                 = Nothing
+    , _elrS3KeyPrefix                = Nothing
+    , _elrLastSuccessfulDeliveryTime = Nothing
+    , _elrLastFailureTime            = Nothing
+    , _elrLastFailureMessage         = Nothing
+    }
+
+-- | The name of the S3 bucket where the log files are stored.
+elrBucketName :: Lens' EnableLoggingResponse (Maybe Text)
+elrBucketName = lens _elrBucketName (\s a -> s { _elrBucketName = a })
+
+-- | The message indicating that logs failed to be delivered.
+elrLastFailureMessage :: Lens' EnableLoggingResponse (Maybe Text)
+elrLastFailureMessage =
+    lens _elrLastFailureMessage (\s a -> s { _elrLastFailureMessage = a })
+
+-- | The last time when logs failed to be delivered.
+elrLastFailureTime :: Lens' EnableLoggingResponse (Maybe UTCTime)
+elrLastFailureTime =
+    lens _elrLastFailureTime (\s a -> s { _elrLastFailureTime = a })
+        . mapping _Time
+
+-- | The last time when logs were delivered.
+elrLastSuccessfulDeliveryTime :: Lens' EnableLoggingResponse (Maybe UTCTime)
+elrLastSuccessfulDeliveryTime =
+    lens _elrLastSuccessfulDeliveryTime
+        (\s a -> s { _elrLastSuccessfulDeliveryTime = a })
+            . mapping _Time
+
+-- | true if logging is on, false if logging is off.
+elrLoggingEnabled :: Lens' EnableLoggingResponse (Maybe Bool)
+elrLoggingEnabled =
+    lens _elrLoggingEnabled (\s a -> s { _elrLoggingEnabled = a })
+
+-- | The prefix applied to the log file names.
+elrS3KeyPrefix :: Lens' EnableLoggingResponse (Maybe Text)
+elrS3KeyPrefix = lens _elrS3KeyPrefix (\s a -> s { _elrS3KeyPrefix = a })
+
+instance FromXML EnableLoggingResponse where
+    fromXMLOptions = xmlOptions
+    fromXMLRoot    = fromRoot "EnableLoggingResponse"
+
+instance AWSRequest EnableLogging where
+    type Sv EnableLogging = Redshift
+    type Rs EnableLogging = EnableLoggingResponse
 
     request  = post "EnableLogging"
-    response = xmlResponse $ const decodeCursor
+    response = xmlResponse $ \h x -> EnableLoggingResponse
+        <$> x %| "BucketName"
+        <*> x %| "LastFailureMessage"
+        <*> x %| "LastFailureTime"
+        <*> x %| "LastSuccessfulDeliveryTime"
+        <*> x %| "LoggingEnabled"
+        <*> x %| "S3KeyPrefix"

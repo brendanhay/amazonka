@@ -38,11 +38,11 @@ module Network.AWS.S3.CreateBucket
     , cbGrantWriteACP
 
     -- * Response
-    , CreateBucketOutput
+    , CreateBucketResponse
     -- ** Response constructor
     , createBucketResponse
     -- ** Response lenses
-    , cboLocation
+    , cbrLocation
     ) where
 
 import Network.AWS.Prelude
@@ -149,31 +149,31 @@ instance ToHeaders CreateBucket where
 instance ToBody CreateBucket where
     toBody = toBody . encodeXML . _cbCreateBucketConfiguration
 
-newtype CreateBucketOutput = CreateBucketOutput
-    { _cboLocation :: Maybe Text
+newtype CreateBucketResponse = CreateBucketResponse
+    { _cbrLocation :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'CreateBucketOutput' constructor.
+-- | 'CreateBucketResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cboLocation' @::@ 'Maybe' 'Text'
+-- * 'cbrLocation' @::@ 'Maybe' 'Text'
 --
-createBucketResponse :: CreateBucketOutput
-createBucketResponse = CreateBucketOutput
-    { _cboLocation = Nothing
+createBucketResponse :: CreateBucketResponse
+createBucketResponse = CreateBucketResponse
+    { _cbrLocation = Nothing
     }
 
-cboLocation :: Lens' CreateBucketOutput (Maybe Text)
-cboLocation = lens _cboLocation (\s a -> s { _cboLocation = a })
+cbrLocation :: Lens' CreateBucketResponse (Maybe Text)
+cbrLocation = lens _cbrLocation (\s a -> s { _cbrLocation = a })
 
-instance FromXML CreateBucketOutput where
+instance FromXML CreateBucketResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateBucketOutput"
+    fromXMLRoot    = fromRoot "CreateBucketResponse"
 instance AWSRequest CreateBucket where
     type Sv CreateBucket = S3
-    type Rs CreateBucket = CreateBucketOutput
+    type Rs CreateBucket = CreateBucketResponse
 
     request  = put
-    response = xmlResponse $ \h x -> CreateBucketOutput
+    response = xmlResponse $ \h x -> CreateBucketResponse
         <$> h ~:? "Location"

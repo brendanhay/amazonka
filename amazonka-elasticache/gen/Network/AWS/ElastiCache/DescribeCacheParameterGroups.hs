@@ -26,114 +26,114 @@
 module Network.AWS.ElastiCache.DescribeCacheParameterGroups
     (
     -- * Request
-      DescribeCacheParameterGroupsMessage
+      DescribeCacheParameterGroups
     -- ** Request constructor
     , describeCacheParameterGroups
     -- ** Request lenses
-    , dcpgmCacheParameterGroupName
-    , dcpgmMarker
-    , dcpgmMaxRecords
+    , dcpgCacheParameterGroupName
+    , dcpgMarker
+    , dcpgMaxRecords
 
     -- * Response
-    , CacheParameterGroupsMessage
+    , DescribeCacheParameterGroupsResponse
     -- ** Response constructor
     , describeCacheParameterGroupsResponse
     -- ** Response lenses
-    , cpgmCacheParameterGroups
-    , cpgmMarker
+    , dcpgrCacheParameterGroups
+    , dcpgrMarker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data DescribeCacheParameterGroupsMessage = DescribeCacheParameterGroupsMessage
-    { _dcpgmCacheParameterGroupName :: Maybe Text
-    , _dcpgmMarker                  :: Maybe Text
-    , _dcpgmMaxRecords              :: Maybe Int
+data DescribeCacheParameterGroups = DescribeCacheParameterGroups
+    { _dcpgCacheParameterGroupName :: Maybe Text
+    , _dcpgMarker                  :: Maybe Text
+    , _dcpgMaxRecords              :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeCacheParameterGroupsMessage' constructor.
+-- | 'DescribeCacheParameterGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcpgmCacheParameterGroupName' @::@ 'Maybe' 'Text'
+-- * 'dcpgCacheParameterGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'dcpgmMarker' @::@ 'Maybe' 'Text'
+-- * 'dcpgMarker' @::@ 'Maybe' 'Text'
 --
--- * 'dcpgmMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dcpgMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeCacheParameterGroups :: DescribeCacheParameterGroupsMessage
-describeCacheParameterGroups = DescribeCacheParameterGroupsMessage
-    { _dcpgmCacheParameterGroupName = Nothing
-    , _dcpgmMaxRecords              = Nothing
-    , _dcpgmMarker                  = Nothing
+describeCacheParameterGroups :: DescribeCacheParameterGroups
+describeCacheParameterGroups = DescribeCacheParameterGroups
+    { _dcpgCacheParameterGroupName = Nothing
+    , _dcpgMaxRecords              = Nothing
+    , _dcpgMarker                  = Nothing
     }
 
 -- | The name of a specific cache parameter group to return details for.
-dcpgmCacheParameterGroupName :: Lens' DescribeCacheParameterGroupsMessage (Maybe Text)
-dcpgmCacheParameterGroupName =
-    lens _dcpgmCacheParameterGroupName
-        (\s a -> s { _dcpgmCacheParameterGroupName = a })
+dcpgCacheParameterGroupName :: Lens' DescribeCacheParameterGroups (Maybe Text)
+dcpgCacheParameterGroupName =
+    lens _dcpgCacheParameterGroupName
+        (\s a -> s { _dcpgCacheParameterGroupName = a })
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by MaxRecords.
-dcpgmMarker :: Lens' DescribeCacheParameterGroupsMessage (Maybe Text)
-dcpgmMarker = lens _dcpgmMarker (\s a -> s { _dcpgmMarker = a })
+dcpgMarker :: Lens' DescribeCacheParameterGroups (Maybe Text)
+dcpgMarker = lens _dcpgMarker (\s a -> s { _dcpgMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-dcpgmMaxRecords :: Lens' DescribeCacheParameterGroupsMessage (Maybe Int)
-dcpgmMaxRecords = lens _dcpgmMaxRecords (\s a -> s { _dcpgmMaxRecords = a })
+dcpgMaxRecords :: Lens' DescribeCacheParameterGroups (Maybe Int)
+dcpgMaxRecords = lens _dcpgMaxRecords (\s a -> s { _dcpgMaxRecords = a })
 
-instance ToQuery DescribeCacheParameterGroupsMessage
+instance ToQuery DescribeCacheParameterGroups
 
-instance ToPath DescribeCacheParameterGroupsMessage where
+instance ToPath DescribeCacheParameterGroups where
     toPath = const "/"
 
-data CacheParameterGroupsMessage = CacheParameterGroupsMessage
-    { _cpgmCacheParameterGroups :: [CacheParameterGroup]
-    , _cpgmMarker               :: Maybe Text
+data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
+    { _dcpgrCacheParameterGroups :: [CacheParameterGroup]
+    , _dcpgrMarker               :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'CacheParameterGroupsMessage' constructor.
+-- | 'DescribeCacheParameterGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpgmCacheParameterGroups' @::@ ['CacheParameterGroup']
+-- * 'dcpgrCacheParameterGroups' @::@ ['CacheParameterGroup']
 --
--- * 'cpgmMarker' @::@ 'Maybe' 'Text'
+-- * 'dcpgrMarker' @::@ 'Maybe' 'Text'
 --
-describeCacheParameterGroupsResponse :: CacheParameterGroupsMessage
-describeCacheParameterGroupsResponse = CacheParameterGroupsMessage
-    { _cpgmMarker               = Nothing
-    , _cpgmCacheParameterGroups = mempty
+describeCacheParameterGroupsResponse :: DescribeCacheParameterGroupsResponse
+describeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
+    { _dcpgrMarker               = Nothing
+    , _dcpgrCacheParameterGroups = mempty
     }
 
 -- | A list of cache parameter groups. Each element in the list contains
 -- detailed information about one cache parameter group.
-cpgmCacheParameterGroups :: Lens' CacheParameterGroupsMessage [CacheParameterGroup]
-cpgmCacheParameterGroups =
-    lens _cpgmCacheParameterGroups
-        (\s a -> s { _cpgmCacheParameterGroups = a })
+dcpgrCacheParameterGroups :: Lens' DescribeCacheParameterGroupsResponse [CacheParameterGroup]
+dcpgrCacheParameterGroups =
+    lens _dcpgrCacheParameterGroups
+        (\s a -> s { _dcpgrCacheParameterGroups = a })
 
 -- | Provides an identifier to allow retrieval of paginated results.
-cpgmMarker :: Lens' CacheParameterGroupsMessage (Maybe Text)
-cpgmMarker = lens _cpgmMarker (\s a -> s { _cpgmMarker = a })
+dcpgrMarker :: Lens' DescribeCacheParameterGroupsResponse (Maybe Text)
+dcpgrMarker = lens _dcpgrMarker (\s a -> s { _dcpgrMarker = a })
 
-instance FromXML CacheParameterGroupsMessage where
+instance FromXML DescribeCacheParameterGroupsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CacheParameterGroupsMessage"
+    fromXMLRoot    = fromRoot "DescribeCacheParameterGroupsResponse"
 
-instance AWSRequest DescribeCacheParameterGroupsMessage where
-    type Sv DescribeCacheParameterGroupsMessage = ElastiCache
-    type Rs DescribeCacheParameterGroupsMessage = CacheParameterGroupsMessage
+instance AWSRequest DescribeCacheParameterGroups where
+    type Sv DescribeCacheParameterGroups = ElastiCache
+    type Rs DescribeCacheParameterGroups = DescribeCacheParameterGroupsResponse
 
     request  = post "DescribeCacheParameterGroups"
-    response = xmlResponse $ \h x -> CacheParameterGroupsMessage
+    response = xmlResponse $ \h x -> DescribeCacheParameterGroupsResponse
         <$> x %| "CacheParameterGroups"
         <*> x %| "Marker"

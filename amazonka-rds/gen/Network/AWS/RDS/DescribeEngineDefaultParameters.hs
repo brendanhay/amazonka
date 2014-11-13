@@ -25,17 +25,17 @@
 module Network.AWS.RDS.DescribeEngineDefaultParameters
     (
     -- * Request
-      DescribeEngineDefaultParametersMessage
+      DescribeEngineDefaultParameters
     -- ** Request constructor
     , describeEngineDefaultParameters
     -- ** Request lenses
-    , dedpmDBParameterGroupFamily
-    , dedpmFilters
-    , dedpmMarker
-    , dedpmMaxRecords
+    , dedpDBParameterGroupFamily
+    , dedpFilters
+    , dedpMarker
+    , dedpMaxRecords
 
     -- * Response
-    , DescribeEngineDefaultParametersResult
+    , DescribeEngineDefaultParametersResponse
     -- ** Response constructor
     , describeEngineDefaultParametersResponse
     -- ** Response lenses
@@ -46,90 +46,90 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data DescribeEngineDefaultParametersMessage = DescribeEngineDefaultParametersMessage
-    { _dedpmDBParameterGroupFamily :: Text
-    , _dedpmFilters                :: [Filter]
-    , _dedpmMarker                 :: Maybe Text
-    , _dedpmMaxRecords             :: Maybe Int
+data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters
+    { _dedpDBParameterGroupFamily :: Text
+    , _dedpFilters                :: [Filter]
+    , _dedpMarker                 :: Maybe Text
+    , _dedpMaxRecords             :: Maybe Int
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeEngineDefaultParametersMessage' constructor.
+-- | 'DescribeEngineDefaultParameters' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dedpmDBParameterGroupFamily' @::@ 'Text'
+-- * 'dedpDBParameterGroupFamily' @::@ 'Text'
 --
--- * 'dedpmFilters' @::@ ['Filter']
+-- * 'dedpFilters' @::@ ['Filter']
 --
--- * 'dedpmMarker' @::@ 'Maybe' 'Text'
+-- * 'dedpMarker' @::@ 'Maybe' 'Text'
 --
--- * 'dedpmMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dedpMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeEngineDefaultParameters :: Text -- ^ 'dedpmDBParameterGroupFamily'
-                                -> DescribeEngineDefaultParametersMessage
-describeEngineDefaultParameters p1 = DescribeEngineDefaultParametersMessage
-    { _dedpmDBParameterGroupFamily = p1
-    , _dedpmFilters                = mempty
-    , _dedpmMaxRecords             = Nothing
-    , _dedpmMarker                 = Nothing
+describeEngineDefaultParameters :: Text -- ^ 'dedpDBParameterGroupFamily'
+                                -> DescribeEngineDefaultParameters
+describeEngineDefaultParameters p1 = DescribeEngineDefaultParameters
+    { _dedpDBParameterGroupFamily = p1
+    , _dedpFilters                = mempty
+    , _dedpMaxRecords             = Nothing
+    , _dedpMarker                 = Nothing
     }
 
 -- | The name of the DB parameter group family.
-dedpmDBParameterGroupFamily :: Lens' DescribeEngineDefaultParametersMessage Text
-dedpmDBParameterGroupFamily =
-    lens _dedpmDBParameterGroupFamily
-        (\s a -> s { _dedpmDBParameterGroupFamily = a })
+dedpDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
+dedpDBParameterGroupFamily =
+    lens _dedpDBParameterGroupFamily
+        (\s a -> s { _dedpDBParameterGroupFamily = a })
 
 -- | Not currently supported.
-dedpmFilters :: Lens' DescribeEngineDefaultParametersMessage [Filter]
-dedpmFilters = lens _dedpmFilters (\s a -> s { _dedpmFilters = a })
+dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
+dedpFilters = lens _dedpFilters (\s a -> s { _dedpFilters = a })
 
 -- | An optional pagination token provided by a previous
 -- DescribeEngineDefaultParameters request. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by MaxRecords.
-dedpmMarker :: Lens' DescribeEngineDefaultParametersMessage (Maybe Text)
-dedpmMarker = lens _dedpmMarker (\s a -> s { _dedpmMarker = a })
+dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
+dedpMarker = lens _dedpMarker (\s a -> s { _dedpMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results may be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-dedpmMaxRecords :: Lens' DescribeEngineDefaultParametersMessage (Maybe Int)
-dedpmMaxRecords = lens _dedpmMaxRecords (\s a -> s { _dedpmMaxRecords = a })
+dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
+dedpMaxRecords = lens _dedpMaxRecords (\s a -> s { _dedpMaxRecords = a })
 
-instance ToQuery DescribeEngineDefaultParametersMessage
+instance ToQuery DescribeEngineDefaultParameters
 
-instance ToPath DescribeEngineDefaultParametersMessage where
+instance ToPath DescribeEngineDefaultParameters where
     toPath = const "/"
 
-newtype DescribeEngineDefaultParametersResult = DescribeEngineDefaultParametersResult
+newtype DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
     { _dedprEngineDefaults :: Maybe EngineDefaults
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeEngineDefaultParametersResult' constructor.
+-- | 'DescribeEngineDefaultParametersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dedprEngineDefaults' @::@ 'Maybe' 'EngineDefaults'
 --
-describeEngineDefaultParametersResponse :: DescribeEngineDefaultParametersResult
-describeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResult
+describeEngineDefaultParametersResponse :: DescribeEngineDefaultParametersResponse
+describeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse
     { _dedprEngineDefaults = Nothing
     }
 
-dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResult (Maybe EngineDefaults)
+dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse (Maybe EngineDefaults)
 dedprEngineDefaults =
     lens _dedprEngineDefaults (\s a -> s { _dedprEngineDefaults = a })
 
-instance FromXML DescribeEngineDefaultParametersResult where
+instance FromXML DescribeEngineDefaultParametersResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeEngineDefaultParametersResult"
+    fromXMLRoot    = fromRoot "DescribeEngineDefaultParametersResponse"
 
-instance AWSRequest DescribeEngineDefaultParametersMessage where
-    type Sv DescribeEngineDefaultParametersMessage = RDS
-    type Rs DescribeEngineDefaultParametersMessage = DescribeEngineDefaultParametersResult
+instance AWSRequest DescribeEngineDefaultParameters where
+    type Sv DescribeEngineDefaultParameters = RDS
+    type Rs DescribeEngineDefaultParameters = DescribeEngineDefaultParametersResponse
 
     request  = post "DescribeEngineDefaultParameters"
-    response = xmlResponse $ \h x -> DescribeEngineDefaultParametersResult
+    response = xmlResponse $ \h x -> DescribeEngineDefaultParametersResponse
         <$> x %| "EngineDefaults"

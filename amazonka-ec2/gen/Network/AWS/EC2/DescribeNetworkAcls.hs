@@ -35,7 +35,7 @@ module Network.AWS.EC2.DescribeNetworkAcls
     , dna1NetworkAclIds
 
     -- * Response
-    , DescribeNetworkAclsResult
+    , DescribeNetworkAclsResponse
     -- ** Response constructor
     , describeNetworkAclsResponse
     -- ** Response lenses
@@ -109,39 +109,39 @@ instance ToQuery DescribeNetworkAcls
 instance ToPath DescribeNetworkAcls where
     toPath = const "/"
 
-newtype DescribeNetworkAclsResult = DescribeNetworkAclsResult
+newtype DescribeNetworkAclsResponse = DescribeNetworkAclsResponse
     { _dnarNetworkAcls :: [NetworkAcl]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeNetworkAclsResult where
-    type Item DescribeNetworkAclsResult = NetworkAcl
+instance IsList DescribeNetworkAclsResponse where
+    type Item DescribeNetworkAclsResponse = NetworkAcl
 
-    fromList = DescribeNetworkAclsResult . fromList
+    fromList = DescribeNetworkAclsResponse . fromList
     toList   = toList . _dnarNetworkAcls
 
--- | 'DescribeNetworkAclsResult' constructor.
+-- | 'DescribeNetworkAclsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dnarNetworkAcls' @::@ ['NetworkAcl']
 --
-describeNetworkAclsResponse :: DescribeNetworkAclsResult
-describeNetworkAclsResponse = DescribeNetworkAclsResult
+describeNetworkAclsResponse :: DescribeNetworkAclsResponse
+describeNetworkAclsResponse = DescribeNetworkAclsResponse
     { _dnarNetworkAcls = mempty
     }
 
 -- | Information about one or more network ACLs.
-dnarNetworkAcls :: Lens' DescribeNetworkAclsResult [NetworkAcl]
+dnarNetworkAcls :: Lens' DescribeNetworkAclsResponse [NetworkAcl]
 dnarNetworkAcls = lens _dnarNetworkAcls (\s a -> s { _dnarNetworkAcls = a })
 
-instance FromXML DescribeNetworkAclsResult where
+instance FromXML DescribeNetworkAclsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeNetworkAclsResult"
+    fromXMLRoot    = fromRoot "DescribeNetworkAclsResponse"
 
 instance AWSRequest DescribeNetworkAcls where
     type Sv DescribeNetworkAcls = EC2
-    type Rs DescribeNetworkAcls = DescribeNetworkAclsResult
+    type Rs DescribeNetworkAcls = DescribeNetworkAclsResponse
 
     request  = post "DescribeNetworkAcls"
-    response = xmlResponse $ \h x -> DescribeNetworkAclsResult
+    response = xmlResponse $ \h x -> DescribeNetworkAclsResponse
         <$> x %| "networkAclSet"

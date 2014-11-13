@@ -24,7 +24,7 @@
 module Network.AWS.CloudFront.ListStreamingDistributions
     (
     -- * Request
-      ListStreamingDistributions
+      ListStreamingDistributions2014_05_31
     -- ** Request constructor
     , listStreamingDistributions2014_05_31
     -- ** Request lenses
@@ -32,7 +32,7 @@ module Network.AWS.CloudFront.ListStreamingDistributions
     , lsdMaxItems
 
     -- * Response
-    , ListStreamingDistributionsResult
+    , ListStreamingDistributions2014_05_31Response
     -- ** Response constructor
     , listStreamingDistributions2014_05_31Response
     -- ** Response lenses
@@ -43,12 +43,12 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 
-data ListStreamingDistributions = ListStreamingDistributions
+data ListStreamingDistributions2014_05_31 = ListStreamingDistributions2014_05_31
     { _lsdMarker   :: Maybe Text
     , _lsdMaxItems :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ListStreamingDistributions' constructor.
+-- | 'ListStreamingDistributions2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -56,8 +56,8 @@ data ListStreamingDistributions = ListStreamingDistributions
 --
 -- * 'lsdMaxItems' @::@ 'Maybe' 'Text'
 --
-listStreamingDistributions2014_05_31 :: ListStreamingDistributions
-listStreamingDistributions2014_05_31 = ListStreamingDistributions
+listStreamingDistributions2014_05_31 :: ListStreamingDistributions2014_05_31
+listStreamingDistributions2014_05_31 = ListStreamingDistributions2014_05_31
     { _lsdMarker   = Nothing
     , _lsdMaxItems = Nothing
     }
@@ -67,53 +67,53 @@ listStreamingDistributions2014_05_31 = ListStreamingDistributions
 -- that occur after the marker. To get the next page of results, set the
 -- Marker to the value of the NextMarker from the current page's response
 -- (which is also the ID of the last distribution on that page).
-lsdMarker :: Lens' ListStreamingDistributions (Maybe Text)
+lsdMarker :: Lens' ListStreamingDistributions2014_05_31 (Maybe Text)
 lsdMarker = lens _lsdMarker (\s a -> s { _lsdMarker = a })
 
 -- | The maximum number of streaming distributions you want in the response
 -- body.
-lsdMaxItems :: Lens' ListStreamingDistributions (Maybe Text)
+lsdMaxItems :: Lens' ListStreamingDistributions2014_05_31 (Maybe Text)
 lsdMaxItems = lens _lsdMaxItems (\s a -> s { _lsdMaxItems = a })
 
-instance ToPath ListStreamingDistributions where
+instance ToPath ListStreamingDistributions2014_05_31 where
     toPath = const "/2014-05-31/streaming-distribution"
 
-instance ToQuery ListStreamingDistributions where
-    toQuery ListStreamingDistributions{..} = mconcat
+instance ToQuery ListStreamingDistributions2014_05_31 where
+    toQuery ListStreamingDistributions2014_05_31{..} = mconcat
         [ "Marker"   =? _lsdMarker
         , "MaxItems" =? _lsdMaxItems
         ]
 
-instance ToHeaders ListStreamingDistributions
+instance ToHeaders ListStreamingDistributions2014_05_31
 
-newtype ListStreamingDistributionsResult = ListStreamingDistributionsResult
+newtype ListStreamingDistributions2014_05_31Response = ListStreamingDistributions2014_05_31Response
     { _lsdrStreamingDistributionList :: Maybe StreamingDistributionList
     } deriving (Eq, Show, Generic)
 
--- | 'ListStreamingDistributionsResult' constructor.
+-- | 'ListStreamingDistributions2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'lsdrStreamingDistributionList' @::@ 'Maybe' 'StreamingDistributionList'
 --
-listStreamingDistributions2014_05_31Response :: ListStreamingDistributionsResult
-listStreamingDistributions2014_05_31Response = ListStreamingDistributionsResult
+listStreamingDistributions2014_05_31Response :: ListStreamingDistributions2014_05_31Response
+listStreamingDistributions2014_05_31Response = ListStreamingDistributions2014_05_31Response
     { _lsdrStreamingDistributionList = Nothing
     }
 
 -- | The StreamingDistributionList type.
-lsdrStreamingDistributionList :: Lens' ListStreamingDistributionsResult (Maybe StreamingDistributionList)
+lsdrStreamingDistributionList :: Lens' ListStreamingDistributions2014_05_31Response (Maybe StreamingDistributionList)
 lsdrStreamingDistributionList =
     lens _lsdrStreamingDistributionList
         (\s a -> s { _lsdrStreamingDistributionList = a })
 
-instance FromXML ListStreamingDistributionsResult where
+instance FromXML ListStreamingDistributions2014_05_31Response where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListStreamingDistributionsResult"
-instance AWSRequest ListStreamingDistributions where
-    type Sv ListStreamingDistributions = CloudFront
-    type Rs ListStreamingDistributions = ListStreamingDistributionsResult
+    fromXMLRoot    = fromRoot "ListStreamingDistributions2014_05_31Response"
+instance AWSRequest ListStreamingDistributions2014_05_31 where
+    type Sv ListStreamingDistributions2014_05_31 = CloudFront
+    type Rs ListStreamingDistributions2014_05_31 = ListStreamingDistributions2014_05_31Response
 
     request  = get
-    response = xmlResponse $ \h x -> ListStreamingDistributionsResult
+    response = xmlResponse $ \h x -> ListStreamingDistributions2014_05_31Response
         <$> x %| "StreamingDistributionList"

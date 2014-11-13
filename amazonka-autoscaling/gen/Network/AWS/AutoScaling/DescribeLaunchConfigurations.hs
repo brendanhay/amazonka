@@ -26,106 +26,107 @@
 module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     (
     -- * Request
-      LaunchConfigurationNamesType
+      DescribeLaunchConfigurations
     -- ** Request constructor
     , describeLaunchConfigurations
     -- ** Request lenses
-    , lcntLaunchConfigurationNames
-    , lcntMaxRecords
-    , lcntNextToken
+    , dlcLaunchConfigurationNames
+    , dlcMaxRecords
+    , dlcNextToken
 
     -- * Response
-    , LaunchConfigurationsType
+    , DescribeLaunchConfigurationsResponse
     -- ** Response constructor
     , describeLaunchConfigurationsResponse
     -- ** Response lenses
-    , lctLaunchConfigurations
-    , lctNextToken
+    , dlcrLaunchConfigurations
+    , dlcrNextToken
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data LaunchConfigurationNamesType = LaunchConfigurationNamesType
-    { _lcntLaunchConfigurationNames :: [Text]
-    , _lcntMaxRecords               :: Maybe Int
-    , _lcntNextToken                :: Maybe Text
+data DescribeLaunchConfigurations = DescribeLaunchConfigurations
+    { _dlcLaunchConfigurationNames :: [Text]
+    , _dlcMaxRecords               :: Maybe Int
+    , _dlcNextToken                :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'LaunchConfigurationNamesType' constructor.
+-- | 'DescribeLaunchConfigurations' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcntLaunchConfigurationNames' @::@ ['Text']
+-- * 'dlcLaunchConfigurationNames' @::@ ['Text']
 --
--- * 'lcntMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dlcMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'lcntNextToken' @::@ 'Maybe' 'Text'
+-- * 'dlcNextToken' @::@ 'Maybe' 'Text'
 --
-describeLaunchConfigurations :: LaunchConfigurationNamesType
-describeLaunchConfigurations = LaunchConfigurationNamesType
-    { _lcntLaunchConfigurationNames = mempty
-    , _lcntNextToken                = Nothing
-    , _lcntMaxRecords               = Nothing
+describeLaunchConfigurations :: DescribeLaunchConfigurations
+describeLaunchConfigurations = DescribeLaunchConfigurations
+    { _dlcLaunchConfigurationNames = mempty
+    , _dlcNextToken                = Nothing
+    , _dlcMaxRecords               = Nothing
     }
 
 -- | A list of launch configuration names.
-lcntLaunchConfigurationNames :: Lens' LaunchConfigurationNamesType [Text]
-lcntLaunchConfigurationNames =
-    lens _lcntLaunchConfigurationNames
-        (\s a -> s { _lcntLaunchConfigurationNames = a })
+dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
+dlcLaunchConfigurationNames =
+    lens _dlcLaunchConfigurationNames
+        (\s a -> s { _dlcLaunchConfigurationNames = a })
 
 -- | The maximum number of launch configurations. The default is 100.
-lcntMaxRecords :: Lens' LaunchConfigurationNamesType (Maybe Int)
-lcntMaxRecords = lens _lcntMaxRecords (\s a -> s { _lcntMaxRecords = a })
+dlcMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
+dlcMaxRecords = lens _dlcMaxRecords (\s a -> s { _dlcMaxRecords = a })
 
 -- | A string that marks the start of the next batch of returned results.
-lcntNextToken :: Lens' LaunchConfigurationNamesType (Maybe Text)
-lcntNextToken = lens _lcntNextToken (\s a -> s { _lcntNextToken = a })
+dlcNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
+dlcNextToken = lens _dlcNextToken (\s a -> s { _dlcNextToken = a })
 
-instance ToQuery LaunchConfigurationNamesType
+instance ToQuery DescribeLaunchConfigurations
 
-instance ToPath LaunchConfigurationNamesType where
+instance ToPath DescribeLaunchConfigurations where
     toPath = const "/"
 
-data LaunchConfigurationsType = LaunchConfigurationsType
-    { _lctLaunchConfigurations :: [LaunchConfiguration]
-    , _lctNextToken            :: Maybe Text
+data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
+    { _dlcrLaunchConfigurations :: [LaunchConfiguration]
+    , _dlcrNextToken            :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'LaunchConfigurationsType' constructor.
+-- | 'DescribeLaunchConfigurationsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lctLaunchConfigurations' @::@ ['LaunchConfiguration']
+-- * 'dlcrLaunchConfigurations' @::@ ['LaunchConfiguration']
 --
--- * 'lctNextToken' @::@ 'Maybe' 'Text'
+-- * 'dlcrNextToken' @::@ 'Maybe' 'Text'
 --
-describeLaunchConfigurationsResponse :: LaunchConfigurationsType
-describeLaunchConfigurationsResponse = LaunchConfigurationsType
-    { _lctLaunchConfigurations = mempty
-    , _lctNextToken            = Nothing
+describeLaunchConfigurationsResponse :: DescribeLaunchConfigurationsResponse
+describeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
+    { _dlcrLaunchConfigurations = mempty
+    , _dlcrNextToken            = Nothing
     }
 
 -- | A list of launch configurations.
-lctLaunchConfigurations :: Lens' LaunchConfigurationsType [LaunchConfiguration]
-lctLaunchConfigurations =
-    lens _lctLaunchConfigurations (\s a -> s { _lctLaunchConfigurations = a })
+dlcrLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
+dlcrLaunchConfigurations =
+    lens _dlcrLaunchConfigurations
+        (\s a -> s { _dlcrLaunchConfigurations = a })
 
 -- | A string that marks the start of the next batch of returned results.
-lctNextToken :: Lens' LaunchConfigurationsType (Maybe Text)
-lctNextToken = lens _lctNextToken (\s a -> s { _lctNextToken = a })
+dlcrNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
+dlcrNextToken = lens _dlcrNextToken (\s a -> s { _dlcrNextToken = a })
 
-instance FromXML LaunchConfigurationsType where
+instance FromXML DescribeLaunchConfigurationsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "LaunchConfigurationsType"
+    fromXMLRoot    = fromRoot "DescribeLaunchConfigurationsResponse"
 
-instance AWSRequest LaunchConfigurationNamesType where
-    type Sv LaunchConfigurationNamesType = AutoScaling
-    type Rs LaunchConfigurationNamesType = LaunchConfigurationsType
+instance AWSRequest DescribeLaunchConfigurations where
+    type Sv DescribeLaunchConfigurations = AutoScaling
+    type Rs DescribeLaunchConfigurations = DescribeLaunchConfigurationsResponse
 
     request  = post "DescribeLaunchConfigurations"
-    response = xmlResponse $ \h x -> LaunchConfigurationsType
+    response = xmlResponse $ \h x -> DescribeLaunchConfigurationsResponse
         <$> x %| "LaunchConfigurations"
         <*> x %| "NextToken"

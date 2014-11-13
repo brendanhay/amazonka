@@ -32,62 +32,62 @@
 module Network.AWS.Redshift.DescribeOrderableClusterOptions
     (
     -- * Request
-      DescribeOrderableClusterOptionsMessage
+      DescribeOrderableClusterOptions
     -- ** Request constructor
     , describeOrderableClusterOptions
     -- ** Request lenses
-    , docomClusterVersion
-    , docomMarker
-    , docomMaxRecords
-    , docomNodeType
+    , docoClusterVersion
+    , docoMarker
+    , docoMaxRecords
+    , docoNodeType
 
     -- * Response
-    , OrderableClusterOptionsMessage
+    , DescribeOrderableClusterOptionsResponse
     -- ** Response constructor
     , describeOrderableClusterOptionsResponse
     -- ** Response lenses
-    , ocomMarker
-    , ocomOrderableClusterOptions
+    , docorMarker
+    , docorOrderableClusterOptions
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data DescribeOrderableClusterOptionsMessage = DescribeOrderableClusterOptionsMessage
-    { _docomClusterVersion :: Maybe Text
-    , _docomMarker         :: Maybe Text
-    , _docomMaxRecords     :: Maybe Int
-    , _docomNodeType       :: Maybe Text
+data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions
+    { _docoClusterVersion :: Maybe Text
+    , _docoMarker         :: Maybe Text
+    , _docoMaxRecords     :: Maybe Int
+    , _docoNodeType       :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeOrderableClusterOptionsMessage' constructor.
+-- | 'DescribeOrderableClusterOptions' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'docomClusterVersion' @::@ 'Maybe' 'Text'
+-- * 'docoClusterVersion' @::@ 'Maybe' 'Text'
 --
--- * 'docomMarker' @::@ 'Maybe' 'Text'
+-- * 'docoMarker' @::@ 'Maybe' 'Text'
 --
--- * 'docomMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'docoMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'docomNodeType' @::@ 'Maybe' 'Text'
+-- * 'docoNodeType' @::@ 'Maybe' 'Text'
 --
-describeOrderableClusterOptions :: DescribeOrderableClusterOptionsMessage
-describeOrderableClusterOptions = DescribeOrderableClusterOptionsMessage
-    { _docomClusterVersion = Nothing
-    , _docomNodeType       = Nothing
-    , _docomMaxRecords     = Nothing
-    , _docomMarker         = Nothing
+describeOrderableClusterOptions :: DescribeOrderableClusterOptions
+describeOrderableClusterOptions = DescribeOrderableClusterOptions
+    { _docoClusterVersion = Nothing
+    , _docoNodeType       = Nothing
+    , _docoMaxRecords     = Nothing
+    , _docoMarker         = Nothing
     }
 
 -- | The version filter value. Specify this parameter to show only the
 -- available offerings matching the specified version. Default: All
 -- versions. Constraints: Must be one of the version returned from
 -- DescribeClusterVersions.
-docomClusterVersion :: Lens' DescribeOrderableClusterOptionsMessage (Maybe Text)
-docomClusterVersion =
-    lens _docomClusterVersion (\s a -> s { _docomClusterVersion = a })
+docoClusterVersion :: Lens' DescribeOrderableClusterOptions (Maybe Text)
+docoClusterVersion =
+    lens _docoClusterVersion (\s a -> s { _docoClusterVersion = a })
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
@@ -95,44 +95,44 @@ docomClusterVersion =
 -- MaxRecords, AWS returns a value in the Marker field of the response. You
 -- can retrieve the next set of response records by providing the returned
 -- marker value in the Marker parameter and retrying the request.
-docomMarker :: Lens' DescribeOrderableClusterOptionsMessage (Maybe Text)
-docomMarker = lens _docomMarker (\s a -> s { _docomMarker = a })
+docoMarker :: Lens' DescribeOrderableClusterOptions (Maybe Text)
+docoMarker = lens _docoMarker (\s a -> s { _docoMarker = a })
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
-docomMaxRecords :: Lens' DescribeOrderableClusterOptionsMessage (Maybe Int)
-docomMaxRecords = lens _docomMaxRecords (\s a -> s { _docomMaxRecords = a })
+docoMaxRecords :: Lens' DescribeOrderableClusterOptions (Maybe Int)
+docoMaxRecords = lens _docoMaxRecords (\s a -> s { _docoMaxRecords = a })
 
 -- | The node type filter value. Specify this parameter to show only the
 -- available offerings matching the specified node type.
-docomNodeType :: Lens' DescribeOrderableClusterOptionsMessage (Maybe Text)
-docomNodeType = lens _docomNodeType (\s a -> s { _docomNodeType = a })
+docoNodeType :: Lens' DescribeOrderableClusterOptions (Maybe Text)
+docoNodeType = lens _docoNodeType (\s a -> s { _docoNodeType = a })
 
-instance ToQuery DescribeOrderableClusterOptionsMessage
+instance ToQuery DescribeOrderableClusterOptions
 
-instance ToPath DescribeOrderableClusterOptionsMessage where
+instance ToPath DescribeOrderableClusterOptions where
     toPath = const "/"
 
-data OrderableClusterOptionsMessage = OrderableClusterOptionsMessage
-    { _ocomMarker                  :: Maybe Text
-    , _ocomOrderableClusterOptions :: [OrderableClusterOption]
+data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
+    { _docorMarker                  :: Maybe Text
+    , _docorOrderableClusterOptions :: [OrderableClusterOption]
     } deriving (Eq, Show, Generic)
 
--- | 'OrderableClusterOptionsMessage' constructor.
+-- | 'DescribeOrderableClusterOptionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ocomMarker' @::@ 'Maybe' 'Text'
+-- * 'docorMarker' @::@ 'Maybe' 'Text'
 --
--- * 'ocomOrderableClusterOptions' @::@ ['OrderableClusterOption']
+-- * 'docorOrderableClusterOptions' @::@ ['OrderableClusterOption']
 --
-describeOrderableClusterOptionsResponse :: OrderableClusterOptionsMessage
-describeOrderableClusterOptionsResponse = OrderableClusterOptionsMessage
-    { _ocomOrderableClusterOptions = mempty
-    , _ocomMarker                  = Nothing
+describeOrderableClusterOptionsResponse :: DescribeOrderableClusterOptionsResponse
+describeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse
+    { _docorOrderableClusterOptions = mempty
+    , _docorMarker                  = Nothing
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -141,25 +141,25 @@ describeOrderableClusterOptionsResponse = OrderableClusterOptionsMessage
 -- marker value in the Marker parameter and retrying the command. If the
 -- Marker field is empty, all response records have been retrieved for the
 -- request.
-ocomMarker :: Lens' OrderableClusterOptionsMessage (Maybe Text)
-ocomMarker = lens _ocomMarker (\s a -> s { _ocomMarker = a })
+docorMarker :: Lens' DescribeOrderableClusterOptionsResponse (Maybe Text)
+docorMarker = lens _docorMarker (\s a -> s { _docorMarker = a })
 
 -- | An OrderableClusterOption structure containing information about
 -- orderable options for the Cluster.
-ocomOrderableClusterOptions :: Lens' OrderableClusterOptionsMessage [OrderableClusterOption]
-ocomOrderableClusterOptions =
-    lens _ocomOrderableClusterOptions
-        (\s a -> s { _ocomOrderableClusterOptions = a })
+docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
+docorOrderableClusterOptions =
+    lens _docorOrderableClusterOptions
+        (\s a -> s { _docorOrderableClusterOptions = a })
 
-instance FromXML OrderableClusterOptionsMessage where
+instance FromXML DescribeOrderableClusterOptionsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OrderableClusterOptionsMessage"
+    fromXMLRoot    = fromRoot "DescribeOrderableClusterOptionsResponse"
 
-instance AWSRequest DescribeOrderableClusterOptionsMessage where
-    type Sv DescribeOrderableClusterOptionsMessage = Redshift
-    type Rs DescribeOrderableClusterOptionsMessage = OrderableClusterOptionsMessage
+instance AWSRequest DescribeOrderableClusterOptions where
+    type Sv DescribeOrderableClusterOptions = Redshift
+    type Rs DescribeOrderableClusterOptions = DescribeOrderableClusterOptionsResponse
 
     request  = post "DescribeOrderableClusterOptions"
-    response = xmlResponse $ \h x -> OrderableClusterOptionsMessage
+    response = xmlResponse $ \h x -> DescribeOrderableClusterOptionsResponse
         <$> x %| "Marker"
         <*> x %| "OrderableClusterOptions"

@@ -30,11 +30,11 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     , createStorageLocation
 
     -- * Response
-    , CreateStorageLocationResultMessage
+    , CreateStorageLocationResponse
     -- ** Response constructor
     , createStorageLocationResponse
     -- ** Response lenses
-    , cslrmS3Bucket
+    , cslrS3Bucket
     ) where
 
 import Network.AWS.Prelude
@@ -53,33 +53,33 @@ instance ToQuery CreateStorageLocation
 instance ToPath CreateStorageLocation where
     toPath = const "/"
 
-newtype CreateStorageLocationResultMessage = CreateStorageLocationResultMessage
-    { _cslrmS3Bucket :: Maybe Text
+newtype CreateStorageLocationResponse = CreateStorageLocationResponse
+    { _cslrS3Bucket :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'CreateStorageLocationResultMessage' constructor.
+-- | 'CreateStorageLocationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cslrmS3Bucket' @::@ 'Maybe' 'Text'
+-- * 'cslrS3Bucket' @::@ 'Maybe' 'Text'
 --
-createStorageLocationResponse :: CreateStorageLocationResultMessage
-createStorageLocationResponse = CreateStorageLocationResultMessage
-    { _cslrmS3Bucket = Nothing
+createStorageLocationResponse :: CreateStorageLocationResponse
+createStorageLocationResponse = CreateStorageLocationResponse
+    { _cslrS3Bucket = Nothing
     }
 
 -- | The name of the Amazon S3 bucket created.
-cslrmS3Bucket :: Lens' CreateStorageLocationResultMessage (Maybe Text)
-cslrmS3Bucket = lens _cslrmS3Bucket (\s a -> s { _cslrmS3Bucket = a })
+cslrS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
+cslrS3Bucket = lens _cslrS3Bucket (\s a -> s { _cslrS3Bucket = a })
 
-instance FromXML CreateStorageLocationResultMessage where
+instance FromXML CreateStorageLocationResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateStorageLocationResultMessage"
+    fromXMLRoot    = fromRoot "CreateStorageLocationResponse"
 
 instance AWSRequest CreateStorageLocation where
     type Sv CreateStorageLocation = ElasticBeanstalk
-    type Rs CreateStorageLocation = CreateStorageLocationResultMessage
+    type Rs CreateStorageLocation = CreateStorageLocationResponse
 
     request  = post "CreateStorageLocation"
-    response = xmlResponse $ \h x -> CreateStorageLocationResultMessage
+    response = xmlResponse $ \h x -> CreateStorageLocationResponse
         <$> x %| "S3Bucket"

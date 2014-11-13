@@ -27,119 +27,119 @@
 module Network.AWS.AutoScaling.DescribePolicies
     (
     -- * Request
-      DescribePoliciesType
+      DescribePolicies
     -- ** Request constructor
     , describePolicies
     -- ** Request lenses
-    , dptAutoScalingGroupName
-    , dptMaxRecords
-    , dptNextToken
-    , dptPolicyNames
+    , dp1AutoScalingGroupName
+    , dp1MaxRecords
+    , dp1NextToken
+    , dp1PolicyNames
 
     -- * Response
-    , PoliciesType
+    , DescribePoliciesResponse
     -- ** Response constructor
     , describePoliciesResponse
     -- ** Response lenses
-    , ptNextToken
-    , ptScalingPolicies
+    , dprNextToken
+    , dprScalingPolicies
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.AutoScaling.Types
 
-data DescribePoliciesType = DescribePoliciesType
-    { _dptAutoScalingGroupName :: Maybe Text
-    , _dptMaxRecords           :: Maybe Int
-    , _dptNextToken            :: Maybe Text
-    , _dptPolicyNames          :: [Text]
+data DescribePolicies = DescribePolicies
+    { _dp1AutoScalingGroupName :: Maybe Text
+    , _dp1MaxRecords           :: Maybe Int
+    , _dp1NextToken            :: Maybe Text
+    , _dp1PolicyNames          :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribePoliciesType' constructor.
+-- | 'DescribePolicies' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dptAutoScalingGroupName' @::@ 'Maybe' 'Text'
+-- * 'dp1AutoScalingGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'dptMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dp1MaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'dptNextToken' @::@ 'Maybe' 'Text'
+-- * 'dp1NextToken' @::@ 'Maybe' 'Text'
 --
--- * 'dptPolicyNames' @::@ ['Text']
+-- * 'dp1PolicyNames' @::@ ['Text']
 --
-describePolicies :: DescribePoliciesType
-describePolicies = DescribePoliciesType
-    { _dptAutoScalingGroupName = Nothing
-    , _dptPolicyNames          = mempty
-    , _dptNextToken            = Nothing
-    , _dptMaxRecords           = Nothing
+describePolicies :: DescribePolicies
+describePolicies = DescribePolicies
+    { _dp1AutoScalingGroupName = Nothing
+    , _dp1PolicyNames          = mempty
+    , _dp1NextToken            = Nothing
+    , _dp1MaxRecords           = Nothing
     }
 
 -- | The name of the Auto Scaling group.
-dptAutoScalingGroupName :: Lens' DescribePoliciesType (Maybe Text)
-dptAutoScalingGroupName =
-    lens _dptAutoScalingGroupName (\s a -> s { _dptAutoScalingGroupName = a })
+dp1AutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
+dp1AutoScalingGroupName =
+    lens _dp1AutoScalingGroupName (\s a -> s { _dp1AutoScalingGroupName = a })
 
 -- | The maximum number of policies that will be described with each call.
-dptMaxRecords :: Lens' DescribePoliciesType (Maybe Int)
-dptMaxRecords = lens _dptMaxRecords (\s a -> s { _dptMaxRecords = a })
+dp1MaxRecords :: Lens' DescribePolicies (Maybe Int)
+dp1MaxRecords = lens _dp1MaxRecords (\s a -> s { _dp1MaxRecords = a })
 
 -- | A string that is used to mark the start of the next batch of returned
 -- results for pagination.
-dptNextToken :: Lens' DescribePoliciesType (Maybe Text)
-dptNextToken = lens _dptNextToken (\s a -> s { _dptNextToken = a })
+dp1NextToken :: Lens' DescribePolicies (Maybe Text)
+dp1NextToken = lens _dp1NextToken (\s a -> s { _dp1NextToken = a })
 
 -- | A list of policy names or policy ARNs to be described. If this list is
 -- omitted, all policy names are described. If an auto scaling group name is
 -- provided, the results are limited to that group. The list of requested
 -- policy names cannot contain more than 50 items. If unknown policy names
 -- are requested, they are ignored with no error.
-dptPolicyNames :: Lens' DescribePoliciesType [Text]
-dptPolicyNames = lens _dptPolicyNames (\s a -> s { _dptPolicyNames = a })
+dp1PolicyNames :: Lens' DescribePolicies [Text]
+dp1PolicyNames = lens _dp1PolicyNames (\s a -> s { _dp1PolicyNames = a })
 
-instance ToQuery DescribePoliciesType
+instance ToQuery DescribePolicies
 
-instance ToPath DescribePoliciesType where
+instance ToPath DescribePolicies where
     toPath = const "/"
 
-data PoliciesType = PoliciesType
-    { _ptNextToken       :: Maybe Text
-    , _ptScalingPolicies :: [ScalingPolicy]
+data DescribePoliciesResponse = DescribePoliciesResponse
+    { _dprNextToken       :: Maybe Text
+    , _dprScalingPolicies :: [ScalingPolicy]
     } deriving (Eq, Show, Generic)
 
--- | 'PoliciesType' constructor.
+-- | 'DescribePoliciesResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ptNextToken' @::@ 'Maybe' 'Text'
+-- * 'dprNextToken' @::@ 'Maybe' 'Text'
 --
--- * 'ptScalingPolicies' @::@ ['ScalingPolicy']
+-- * 'dprScalingPolicies' @::@ ['ScalingPolicy']
 --
-describePoliciesResponse :: PoliciesType
-describePoliciesResponse = PoliciesType
-    { _ptScalingPolicies = mempty
-    , _ptNextToken       = Nothing
+describePoliciesResponse :: DescribePoliciesResponse
+describePoliciesResponse = DescribePoliciesResponse
+    { _dprScalingPolicies = mempty
+    , _dprNextToken       = Nothing
     }
 
 -- | A string that marks the start of the next batch of returned results.
-ptNextToken :: Lens' PoliciesType (Maybe Text)
-ptNextToken = lens _ptNextToken (\s a -> s { _ptNextToken = a })
+dprNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
+dprNextToken = lens _dprNextToken (\s a -> s { _dprNextToken = a })
 
 -- | A list of scaling policies.
-ptScalingPolicies :: Lens' PoliciesType [ScalingPolicy]
-ptScalingPolicies =
-    lens _ptScalingPolicies (\s a -> s { _ptScalingPolicies = a })
+dprScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
+dprScalingPolicies =
+    lens _dprScalingPolicies (\s a -> s { _dprScalingPolicies = a })
 
-instance FromXML PoliciesType where
+instance FromXML DescribePoliciesResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "PoliciesType"
+    fromXMLRoot    = fromRoot "DescribePoliciesResponse"
 
-instance AWSRequest DescribePoliciesType where
-    type Sv DescribePoliciesType = AutoScaling
-    type Rs DescribePoliciesType = PoliciesType
+instance AWSRequest DescribePolicies where
+    type Sv DescribePolicies = AutoScaling
+    type Rs DescribePolicies = DescribePoliciesResponse
 
     request  = post "DescribePolicies"
-    response = xmlResponse $ \h x -> PoliciesType
+    response = xmlResponse $ \h x -> DescribePoliciesResponse
         <$> x %| "NextToken"
         <*> x %| "ScalingPolicies"

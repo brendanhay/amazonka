@@ -35,12 +35,12 @@ module Network.AWS.EC2.CreateVpc
     -- ** Request constructor
     , createVpc
     -- ** Request lenses
-    , cv1CidrBlock
-    , cv1DryRun
-    , cv1InstanceTenancy
+    , cvCidrBlock
+    , cvDryRun
+    , cvInstanceTenancy
 
     -- * Response
-    , CreateVpcResult
+    , CreateVpcResponse
     -- ** Response constructor
     , createVpcResponse
     -- ** Response lenses
@@ -52,36 +52,36 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data CreateVpc = CreateVpc
-    { _cv1CidrBlock       :: Text
-    , _cv1DryRun          :: Maybe Bool
-    , _cv1InstanceTenancy :: Maybe Text
+    { _cvCidrBlock       :: Text
+    , _cvDryRun          :: Maybe Bool
+    , _cvInstanceTenancy :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'CreateVpc' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cv1CidrBlock' @::@ 'Text'
+-- * 'cvCidrBlock' @::@ 'Text'
 --
--- * 'cv1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'cvDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'cv1InstanceTenancy' @::@ 'Maybe' 'Text'
+-- * 'cvInstanceTenancy' @::@ 'Maybe' 'Text'
 --
-createVpc :: Text -- ^ 'cv1CidrBlock'
+createVpc :: Text -- ^ 'cvCidrBlock'
           -> CreateVpc
 createVpc p1 = CreateVpc
-    { _cv1CidrBlock       = p1
-    , _cv1DryRun          = Nothing
-    , _cv1InstanceTenancy = Nothing
+    { _cvCidrBlock       = p1
+    , _cvDryRun          = Nothing
+    , _cvInstanceTenancy = Nothing
     }
 
 -- | The network range for the VPC, in CIDR notation. For example,
 -- 10.0.0.0/16.
-cv1CidrBlock :: Lens' CreateVpc Text
-cv1CidrBlock = lens _cv1CidrBlock (\s a -> s { _cv1CidrBlock = a })
+cvCidrBlock :: Lens' CreateVpc Text
+cvCidrBlock = lens _cvCidrBlock (\s a -> s { _cvCidrBlock = a })
 
-cv1DryRun :: Lens' CreateVpc (Maybe Bool)
-cv1DryRun = lens _cv1DryRun (\s a -> s { _cv1DryRun = a })
+cvDryRun :: Lens' CreateVpc (Maybe Bool)
+cvDryRun = lens _cvDryRun (\s a -> s { _cvDryRun = a })
 
 -- | The supported tenancy options for instances launched into the VPC. A
 -- value of default means that instances can be launched with any tenancy; a
@@ -89,42 +89,42 @@ cv1DryRun = lens _cv1DryRun (\s a -> s { _cv1DryRun = a })
 -- as dedicated tenancy instances regardless of the tenancy assigned to the
 -- instance at launch. Dedicated tenancy instances run on single-tenant
 -- hardware. Default: default.
-cv1InstanceTenancy :: Lens' CreateVpc (Maybe Text)
-cv1InstanceTenancy =
-    lens _cv1InstanceTenancy (\s a -> s { _cv1InstanceTenancy = a })
+cvInstanceTenancy :: Lens' CreateVpc (Maybe Text)
+cvInstanceTenancy =
+    lens _cvInstanceTenancy (\s a -> s { _cvInstanceTenancy = a })
 
 instance ToQuery CreateVpc
 
 instance ToPath CreateVpc where
     toPath = const "/"
 
-newtype CreateVpcResult = CreateVpcResult
+newtype CreateVpcResponse = CreateVpcResponse
     { _cvrVpc :: Maybe Vpc
     } deriving (Eq, Show, Generic)
 
--- | 'CreateVpcResult' constructor.
+-- | 'CreateVpcResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cvrVpc' @::@ 'Maybe' 'Vpc'
 --
-createVpcResponse :: CreateVpcResult
-createVpcResponse = CreateVpcResult
+createVpcResponse :: CreateVpcResponse
+createVpcResponse = CreateVpcResponse
     { _cvrVpc = Nothing
     }
 
 -- | Information about the VPC.
-cvrVpc :: Lens' CreateVpcResult (Maybe Vpc)
+cvrVpc :: Lens' CreateVpcResponse (Maybe Vpc)
 cvrVpc = lens _cvrVpc (\s a -> s { _cvrVpc = a })
 
-instance FromXML CreateVpcResult where
+instance FromXML CreateVpcResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateVpcResult"
+    fromXMLRoot    = fromRoot "CreateVpcResponse"
 
 instance AWSRequest CreateVpc where
     type Sv CreateVpc = EC2
-    type Rs CreateVpc = CreateVpcResult
+    type Rs CreateVpc = CreateVpcResponse
 
     request  = post "CreateVpc"
-    response = xmlResponse $ \h x -> CreateVpcResult
+    response = xmlResponse $ \h x -> CreateVpcResponse
         <$> x %| "vpc"

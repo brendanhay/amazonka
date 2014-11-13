@@ -31,16 +31,16 @@
 module Network.AWS.RDS.DeleteDBInstance
     (
     -- * Request
-      DeleteDBInstanceMessage
+      DeleteDBInstance
     -- ** Request constructor
     , deleteDBInstance
     -- ** Request lenses
-    , ddbim1DBInstanceIdentifier
-    , ddbim1FinalDBSnapshotIdentifier
-    , ddbim1SkipFinalSnapshot
+    , ddbiDBInstanceIdentifier
+    , ddbiFinalDBSnapshotIdentifier
+    , ddbiSkipFinalSnapshot
 
     -- * Response
-    , DeleteDBInstanceResult
+    , DeleteDBInstanceResponse
     -- ** Response constructor
     , deleteDBInstanceResponse
     -- ** Response lenses
@@ -51,88 +51,88 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data DeleteDBInstanceMessage = DeleteDBInstanceMessage
-    { _ddbim1DBInstanceIdentifier      :: Text
-    , _ddbim1FinalDBSnapshotIdentifier :: Maybe Text
-    , _ddbim1SkipFinalSnapshot         :: Maybe Bool
+data DeleteDBInstance = DeleteDBInstance
+    { _ddbiDBInstanceIdentifier      :: Text
+    , _ddbiFinalDBSnapshotIdentifier :: Maybe Text
+    , _ddbiSkipFinalSnapshot         :: Maybe Bool
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DeleteDBInstanceMessage' constructor.
+-- | 'DeleteDBInstance' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbim1DBInstanceIdentifier' @::@ 'Text'
+-- * 'ddbiDBInstanceIdentifier' @::@ 'Text'
 --
--- * 'ddbim1FinalDBSnapshotIdentifier' @::@ 'Maybe' 'Text'
+-- * 'ddbiFinalDBSnapshotIdentifier' @::@ 'Maybe' 'Text'
 --
--- * 'ddbim1SkipFinalSnapshot' @::@ 'Maybe' 'Bool'
+-- * 'ddbiSkipFinalSnapshot' @::@ 'Maybe' 'Bool'
 --
-deleteDBInstance :: Text -- ^ 'ddbim1DBInstanceIdentifier'
-                 -> DeleteDBInstanceMessage
-deleteDBInstance p1 = DeleteDBInstanceMessage
-    { _ddbim1DBInstanceIdentifier      = p1
-    , _ddbim1SkipFinalSnapshot         = Nothing
-    , _ddbim1FinalDBSnapshotIdentifier = Nothing
+deleteDBInstance :: Text -- ^ 'ddbiDBInstanceIdentifier'
+                 -> DeleteDBInstance
+deleteDBInstance p1 = DeleteDBInstance
+    { _ddbiDBInstanceIdentifier      = p1
+    , _ddbiSkipFinalSnapshot         = Nothing
+    , _ddbiFinalDBSnapshotIdentifier = Nothing
     }
 
 -- | The DB instance identifier for the DB instance to be deleted. This
 -- parameter isn't case sensitive. Constraints: Must contain from 1 to 63
 -- alphanumeric characters or hyphens First character must be a letter
 -- Cannot end with a hyphen or contain two consecutive hyphens.
-ddbim1DBInstanceIdentifier :: Lens' DeleteDBInstanceMessage Text
-ddbim1DBInstanceIdentifier =
-    lens _ddbim1DBInstanceIdentifier
-        (\s a -> s { _ddbim1DBInstanceIdentifier = a })
+ddbiDBInstanceIdentifier :: Lens' DeleteDBInstance Text
+ddbiDBInstanceIdentifier =
+    lens _ddbiDBInstanceIdentifier
+        (\s a -> s { _ddbiDBInstanceIdentifier = a })
 
 -- | The DBSnapshotIdentifier of the new DBSnapshot created when
 -- SkipFinalSnapshot is set to false. Constraints: Must be 1 to 255
 -- alphanumeric characters First character must be a letter Cannot end with
 -- a hyphen or contain two consecutive hyphens Cannot be specified when
 -- deleting a read replica.
-ddbim1FinalDBSnapshotIdentifier :: Lens' DeleteDBInstanceMessage (Maybe Text)
-ddbim1FinalDBSnapshotIdentifier =
-    lens _ddbim1FinalDBSnapshotIdentifier
-        (\s a -> s { _ddbim1FinalDBSnapshotIdentifier = a })
+ddbiFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
+ddbiFinalDBSnapshotIdentifier =
+    lens _ddbiFinalDBSnapshotIdentifier
+        (\s a -> s { _ddbiFinalDBSnapshotIdentifier = a })
 
 -- | Determines whether a final DB snapshot is created before the DB instance
 -- is deleted. If true is specified, no DBSnapshot is created. If false is
 -- specified, a DB snapshot is created before the DB instance is deleted.
 -- Specify true when deleting a read replica. Default: false.
-ddbim1SkipFinalSnapshot :: Lens' DeleteDBInstanceMessage (Maybe Bool)
-ddbim1SkipFinalSnapshot =
-    lens _ddbim1SkipFinalSnapshot (\s a -> s { _ddbim1SkipFinalSnapshot = a })
+ddbiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
+ddbiSkipFinalSnapshot =
+    lens _ddbiSkipFinalSnapshot (\s a -> s { _ddbiSkipFinalSnapshot = a })
 
-instance ToQuery DeleteDBInstanceMessage
+instance ToQuery DeleteDBInstance
 
-instance ToPath DeleteDBInstanceMessage where
+instance ToPath DeleteDBInstance where
     toPath = const "/"
 
-newtype DeleteDBInstanceResult = DeleteDBInstanceResult
+newtype DeleteDBInstanceResponse = DeleteDBInstanceResponse
     { _ddbirDBInstance :: Maybe DBInstance
     } deriving (Eq, Show, Generic)
 
--- | 'DeleteDBInstanceResult' constructor.
+-- | 'DeleteDBInstanceResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'ddbirDBInstance' @::@ 'Maybe' 'DBInstance'
 --
-deleteDBInstanceResponse :: DeleteDBInstanceResult
-deleteDBInstanceResponse = DeleteDBInstanceResult
+deleteDBInstanceResponse :: DeleteDBInstanceResponse
+deleteDBInstanceResponse = DeleteDBInstanceResponse
     { _ddbirDBInstance = Nothing
     }
 
-ddbirDBInstance :: Lens' DeleteDBInstanceResult (Maybe DBInstance)
+ddbirDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
 ddbirDBInstance = lens _ddbirDBInstance (\s a -> s { _ddbirDBInstance = a })
 
-instance FromXML DeleteDBInstanceResult where
+instance FromXML DeleteDBInstanceResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteDBInstanceResult"
+    fromXMLRoot    = fromRoot "DeleteDBInstanceResponse"
 
-instance AWSRequest DeleteDBInstanceMessage where
-    type Sv DeleteDBInstanceMessage = RDS
-    type Rs DeleteDBInstanceMessage = DeleteDBInstanceResult
+instance AWSRequest DeleteDBInstance where
+    type Sv DeleteDBInstance = RDS
+    type Rs DeleteDBInstance = DeleteDBInstanceResponse
 
     request  = post "DeleteDBInstance"
-    response = xmlResponse $ \h x -> DeleteDBInstanceResult
+    response = xmlResponse $ \h x -> DeleteDBInstanceResponse
         <$> x %| "DBInstance"

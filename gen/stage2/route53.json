@@ -7936,7 +7936,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "fieldPad": 18,
+                "fieldPad": 17,
                 "ctor": "listTagsForResource",
                 "headerPad": 0,
                 "path": [
@@ -7945,7 +7945,7 @@
                         "type": "const"
                     },
                     {
-                        "value": "_ltfr1ResourceType",
+                        "value": "_ltfrResourceType",
                         "type": "var"
                     },
                     {
@@ -7953,7 +7953,7 @@
                         "type": "const"
                     },
                     {
-                        "value": "_ltfr1ResourceId",
+                        "value": "_ltfrResourceId",
                         "type": "var"
                     }
                 ],
@@ -7965,8 +7965,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "ltfr1ResourceType",
-                        "name": "_ltfr1ResourceType",
+                        "lens": "ltfrResourceType",
+                        "name": "_ltfrResourceType",
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eThe type of the resource. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",
@@ -7979,8 +7979,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "ltfr1ResourceId",
-                        "name": "_ltfr1ResourceId",
+                        "lens": "ltfrResourceId",
+                        "name": "_ltfrResourceId",
                         "shape": "TagResourceId",
                         "locationName": "ResourceId",
                         "documentation": "\u003cp\u003eThe ID of the resource for which you want to retrieve tags.\u003c/p\u003e",
@@ -8002,8 +8002,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "ltfr1ResourceId",
-                        "name": "_ltfr1ResourceId",
+                        "lens": "ltfrResourceId",
+                        "name": "_ltfrResourceId",
                         "shape": "TagResourceId",
                         "locationName": "ResourceId",
                         "documentation": "\u003cp\u003eThe ID of the resource for which you want to retrieve tags.\u003c/p\u003e",
@@ -8016,8 +8016,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "ltfr1ResourceType",
-                        "name": "_ltfr1ResourceType",
+                        "lens": "ltfrResourceType",
+                        "name": "_ltfrResourceType",
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eThe type of the resource. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",
@@ -8125,7 +8125,7 @@
                     "Generic"
                 ],
                 "streaming": false,
-                "fieldPad": 17,
+                "fieldPad": 18,
                 "ctor": "listTagsForResources",
                 "headerPad": 0,
                 "path": [
@@ -8134,7 +8134,7 @@
                         "type": "const"
                     },
                     {
-                        "value": "_ltfrResourceType",
+                        "value": "_ltfr1ResourceType",
                         "type": "var"
                     }
                 ],
@@ -8144,8 +8144,8 @@
                     "lensMapping": "_List1",
                     "default": "\u003cerror\u003e",
                     "required": true,
-                    "lens": "ltfrResourceIds",
-                    "name": "_ltfrResourceIds",
+                    "lens": "ltfr1ResourceIds",
+                    "name": "_ltfr1ResourceIds",
                     "shape": "TagResourceIdList",
                     "locationName": "ResourceIds",
                     "documentation": "\u003cp\u003eA complex type that contains the ResourceId element for each resource for which you want to get a list of tags.\u003c/p\u003e",
@@ -8159,8 +8159,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "ltfrResourceType",
-                        "name": "_ltfrResourceType",
+                        "lens": "ltfr1ResourceType",
+                        "name": "_ltfr1ResourceType",
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eThe type of the resources. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",
@@ -8173,8 +8173,8 @@
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "ltfrResourceIds",
-                        "name": "_ltfrResourceIds",
+                        "lens": "ltfr1ResourceIds",
+                        "name": "_ltfr1ResourceIds",
                         "shape": "TagResourceIdList",
                         "locationName": "ResourceIds",
                         "documentation": "\u003cp\u003eA complex type that contains the ResourceId element for each resource for which you want to get a list of tags.\u003c/p\u003e",
@@ -8196,8 +8196,8 @@
                         "lensMapping": "_List1",
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "ltfrResourceIds",
-                        "name": "_ltfrResourceIds",
+                        "lens": "ltfr1ResourceIds",
+                        "name": "_ltfr1ResourceIds",
                         "shape": "TagResourceIdList",
                         "locationName": "ResourceIds",
                         "documentation": "\u003cp\u003eA complex type that contains the ResourceId element for each resource for which you want to get a list of tags.\u003c/p\u003e",
@@ -8210,8 +8210,8 @@
                         "lensMapping": null,
                         "default": "\u003cerror\u003e",
                         "required": true,
-                        "lens": "ltfrResourceType",
-                        "name": "_ltfrResourceType",
+                        "lens": "ltfr1ResourceType",
+                        "name": "_ltfr1ResourceType",
                         "shape": "TagResourceType",
                         "locationName": "ResourceType",
                         "documentation": "\u003cp\u003eThe type of the resources. The resource type for health checks is \u003ccode\u003ehealthcheck\u003c/code\u003e.\u003c/p\u003e",

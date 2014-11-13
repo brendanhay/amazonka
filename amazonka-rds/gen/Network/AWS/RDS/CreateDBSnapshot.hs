@@ -24,103 +24,103 @@
 module Network.AWS.RDS.CreateDBSnapshot
     (
     -- * Request
-      CreateDBSnapshotMessage
+      CreateDBSnapshot
     -- ** Request constructor
     , createDBSnapshot
     -- ** Request lenses
-    , cdbsm1DBInstanceIdentifier
-    , cdbsm1DBSnapshotIdentifier
-    , cdbsm1Tags
+    , cdbs1DBInstanceIdentifier
+    , cdbs1DBSnapshotIdentifier
+    , cdbs1Tags
 
     -- * Response
-    , CreateDBSnapshotResult
+    , CreateDBSnapshotResponse
     -- ** Response constructor
     , createDBSnapshotResponse
     -- ** Response lenses
-    , cdbsrDBSnapshot
+    , cdbsr1DBSnapshot
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data CreateDBSnapshotMessage = CreateDBSnapshotMessage
-    { _cdbsm1DBInstanceIdentifier :: Text
-    , _cdbsm1DBSnapshotIdentifier :: Text
-    , _cdbsm1Tags                 :: [Tag]
+data CreateDBSnapshot = CreateDBSnapshot
+    { _cdbs1DBInstanceIdentifier :: Text
+    , _cdbs1DBSnapshotIdentifier :: Text
+    , _cdbs1Tags                 :: [Tag]
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDBSnapshotMessage' constructor.
+-- | 'CreateDBSnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbsm1DBInstanceIdentifier' @::@ 'Text'
+-- * 'cdbs1DBInstanceIdentifier' @::@ 'Text'
 --
--- * 'cdbsm1DBSnapshotIdentifier' @::@ 'Text'
+-- * 'cdbs1DBSnapshotIdentifier' @::@ 'Text'
 --
--- * 'cdbsm1Tags' @::@ ['Tag']
+-- * 'cdbs1Tags' @::@ ['Tag']
 --
-createDBSnapshot :: Text -- ^ 'cdbsm1DBSnapshotIdentifier'
-                 -> Text -- ^ 'cdbsm1DBInstanceIdentifier'
-                 -> CreateDBSnapshotMessage
-createDBSnapshot p1 p2 = CreateDBSnapshotMessage
-    { _cdbsm1DBSnapshotIdentifier = p1
-    , _cdbsm1DBInstanceIdentifier = p2
-    , _cdbsm1Tags                 = mempty
+createDBSnapshot :: Text -- ^ 'cdbs1DBSnapshotIdentifier'
+                 -> Text -- ^ 'cdbs1DBInstanceIdentifier'
+                 -> CreateDBSnapshot
+createDBSnapshot p1 p2 = CreateDBSnapshot
+    { _cdbs1DBSnapshotIdentifier = p1
+    , _cdbs1DBInstanceIdentifier = p2
+    , _cdbs1Tags                 = mempty
     }
 
 -- | The DB instance identifier. This is the unique key that identifies a DB
 -- instance. Constraints: Must contain from 1 to 63 alphanumeric characters
 -- or hyphens First character must be a letter Cannot end with a hyphen or
 -- contain two consecutive hyphens.
-cdbsm1DBInstanceIdentifier :: Lens' CreateDBSnapshotMessage Text
-cdbsm1DBInstanceIdentifier =
-    lens _cdbsm1DBInstanceIdentifier
-        (\s a -> s { _cdbsm1DBInstanceIdentifier = a })
+cdbs1DBInstanceIdentifier :: Lens' CreateDBSnapshot Text
+cdbs1DBInstanceIdentifier =
+    lens _cdbs1DBInstanceIdentifier
+        (\s a -> s { _cdbs1DBInstanceIdentifier = a })
 
 -- | The identifier for the DB snapshot. Constraints: Cannot be null, empty,
 -- or blank Must contain from 1 to 255 alphanumeric characters or hyphens
 -- First character must be a letter Cannot end with a hyphen or contain two
 -- consecutive hyphens Example: my-snapshot-id.
-cdbsm1DBSnapshotIdentifier :: Lens' CreateDBSnapshotMessage Text
-cdbsm1DBSnapshotIdentifier =
-    lens _cdbsm1DBSnapshotIdentifier
-        (\s a -> s { _cdbsm1DBSnapshotIdentifier = a })
+cdbs1DBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
+cdbs1DBSnapshotIdentifier =
+    lens _cdbs1DBSnapshotIdentifier
+        (\s a -> s { _cdbs1DBSnapshotIdentifier = a })
 
-cdbsm1Tags :: Lens' CreateDBSnapshotMessage [Tag]
-cdbsm1Tags = lens _cdbsm1Tags (\s a -> s { _cdbsm1Tags = a })
+cdbs1Tags :: Lens' CreateDBSnapshot [Tag]
+cdbs1Tags = lens _cdbs1Tags (\s a -> s { _cdbs1Tags = a })
 
-instance ToQuery CreateDBSnapshotMessage
+instance ToQuery CreateDBSnapshot
 
-instance ToPath CreateDBSnapshotMessage where
+instance ToPath CreateDBSnapshot where
     toPath = const "/"
 
-newtype CreateDBSnapshotResult = CreateDBSnapshotResult
-    { _cdbsrDBSnapshot :: Maybe DBSnapshot
+newtype CreateDBSnapshotResponse = CreateDBSnapshotResponse
+    { _cdbsr1DBSnapshot :: Maybe DBSnapshot
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDBSnapshotResult' constructor.
+-- | 'CreateDBSnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdbsrDBSnapshot' @::@ 'Maybe' 'DBSnapshot'
+-- * 'cdbsr1DBSnapshot' @::@ 'Maybe' 'DBSnapshot'
 --
-createDBSnapshotResponse :: CreateDBSnapshotResult
-createDBSnapshotResponse = CreateDBSnapshotResult
-    { _cdbsrDBSnapshot = Nothing
+createDBSnapshotResponse :: CreateDBSnapshotResponse
+createDBSnapshotResponse = CreateDBSnapshotResponse
+    { _cdbsr1DBSnapshot = Nothing
     }
 
-cdbsrDBSnapshot :: Lens' CreateDBSnapshotResult (Maybe DBSnapshot)
-cdbsrDBSnapshot = lens _cdbsrDBSnapshot (\s a -> s { _cdbsrDBSnapshot = a })
+cdbsr1DBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
+cdbsr1DBSnapshot = lens _cdbsr1DBSnapshot (\s a -> s { _cdbsr1DBSnapshot = a })
 
-instance FromXML CreateDBSnapshotResult where
+instance FromXML CreateDBSnapshotResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDBSnapshotResult"
+    fromXMLRoot    = fromRoot "CreateDBSnapshotResponse"
 
-instance AWSRequest CreateDBSnapshotMessage where
-    type Sv CreateDBSnapshotMessage = RDS
-    type Rs CreateDBSnapshotMessage = CreateDBSnapshotResult
+instance AWSRequest CreateDBSnapshot where
+    type Sv CreateDBSnapshot = RDS
+    type Rs CreateDBSnapshot = CreateDBSnapshotResponse
 
     request  = post "CreateDBSnapshot"
-    response = xmlResponse $ \h x -> CreateDBSnapshotResult
+    response = xmlResponse $ \h x -> CreateDBSnapshotResponse
         <$> x %| "DBSnapshot"

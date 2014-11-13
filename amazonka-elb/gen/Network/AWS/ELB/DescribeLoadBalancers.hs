@@ -28,109 +28,109 @@
 module Network.AWS.ELB.DescribeLoadBalancers
     (
     -- * Request
-      DescribeAccessPointsInput
+      DescribeLoadBalancers
     -- ** Request constructor
     , describeLoadBalancers
     -- ** Request lenses
-    , dapiLoadBalancerNames
-    , dapiMarker
-    , dapiPageSize
+    , dlbLoadBalancerNames
+    , dlbMarker
+    , dlbPageSize
 
     -- * Response
-    , DescribeAccessPointsOutput
+    , DescribeLoadBalancersResponse
     -- ** Response constructor
     , describeLoadBalancersResponse
     -- ** Response lenses
-    , dapoLoadBalancerDescriptions
-    , dapoNextMarker
+    , dlbrLoadBalancerDescriptions
+    , dlbrNextMarker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data DescribeAccessPointsInput = DescribeAccessPointsInput
-    { _dapiLoadBalancerNames :: [Text]
-    , _dapiMarker            :: Maybe Text
-    , _dapiPageSize          :: Maybe Natural
+data DescribeLoadBalancers = DescribeLoadBalancers
+    { _dlbLoadBalancerNames :: [Text]
+    , _dlbMarker            :: Maybe Text
+    , _dlbPageSize          :: Maybe Natural
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeAccessPointsInput' constructor.
+-- | 'DescribeLoadBalancers' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dapiLoadBalancerNames' @::@ ['Text']
+-- * 'dlbLoadBalancerNames' @::@ ['Text']
 --
--- * 'dapiMarker' @::@ 'Maybe' 'Text'
+-- * 'dlbMarker' @::@ 'Maybe' 'Text'
 --
--- * 'dapiPageSize' @::@ 'Maybe' 'Natural'
+-- * 'dlbPageSize' @::@ 'Maybe' 'Natural'
 --
-describeLoadBalancers :: DescribeAccessPointsInput
-describeLoadBalancers = DescribeAccessPointsInput
-    { _dapiLoadBalancerNames = mempty
-    , _dapiMarker            = Nothing
-    , _dapiPageSize          = Nothing
+describeLoadBalancers :: DescribeLoadBalancers
+describeLoadBalancers = DescribeLoadBalancers
+    { _dlbLoadBalancerNames = mempty
+    , _dlbMarker            = Nothing
+    , _dlbPageSize          = Nothing
     }
 
 -- | A list of load balancer names associated with the account.
-dapiLoadBalancerNames :: Lens' DescribeAccessPointsInput [Text]
-dapiLoadBalancerNames =
-    lens _dapiLoadBalancerNames (\s a -> s { _dapiLoadBalancerNames = a })
+dlbLoadBalancerNames :: Lens' DescribeLoadBalancers [Text]
+dlbLoadBalancerNames =
+    lens _dlbLoadBalancerNames (\s a -> s { _dlbLoadBalancerNames = a })
 
 -- | An optional parameter used for pagination of results from this call. If
 -- specified, the response includes only records beyond the marker.
-dapiMarker :: Lens' DescribeAccessPointsInput (Maybe Text)
-dapiMarker = lens _dapiMarker (\s a -> s { _dapiMarker = a })
+dlbMarker :: Lens' DescribeLoadBalancers (Maybe Text)
+dlbMarker = lens _dlbMarker (\s a -> s { _dlbMarker = a })
 
 -- | The number of results returned in each page. The default is 400. You
 -- cannot specify a page size greater than 400 or less than 1.
-dapiPageSize :: Lens' DescribeAccessPointsInput (Maybe Natural)
-dapiPageSize = lens _dapiPageSize (\s a -> s { _dapiPageSize = a })
+dlbPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
+dlbPageSize = lens _dlbPageSize (\s a -> s { _dlbPageSize = a })
 
-instance ToQuery DescribeAccessPointsInput
+instance ToQuery DescribeLoadBalancers
 
-instance ToPath DescribeAccessPointsInput where
+instance ToPath DescribeLoadBalancers where
     toPath = const "/"
 
-data DescribeAccessPointsOutput = DescribeAccessPointsOutput
-    { _dapoLoadBalancerDescriptions :: [LoadBalancerDescription]
-    , _dapoNextMarker               :: Maybe Text
+data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse
+    { _dlbrLoadBalancerDescriptions :: [LoadBalancerDescription]
+    , _dlbrNextMarker               :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeAccessPointsOutput' constructor.
+-- | 'DescribeLoadBalancersResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dapoLoadBalancerDescriptions' @::@ ['LoadBalancerDescription']
+-- * 'dlbrLoadBalancerDescriptions' @::@ ['LoadBalancerDescription']
 --
--- * 'dapoNextMarker' @::@ 'Maybe' 'Text'
+-- * 'dlbrNextMarker' @::@ 'Maybe' 'Text'
 --
-describeLoadBalancersResponse :: DescribeAccessPointsOutput
-describeLoadBalancersResponse = DescribeAccessPointsOutput
-    { _dapoLoadBalancerDescriptions = mempty
-    , _dapoNextMarker               = Nothing
+describeLoadBalancersResponse :: DescribeLoadBalancersResponse
+describeLoadBalancersResponse = DescribeLoadBalancersResponse
+    { _dlbrLoadBalancerDescriptions = mempty
+    , _dlbrNextMarker               = Nothing
     }
 
 -- | A list of load balancer description structures.
-dapoLoadBalancerDescriptions :: Lens' DescribeAccessPointsOutput [LoadBalancerDescription]
-dapoLoadBalancerDescriptions =
-    lens _dapoLoadBalancerDescriptions
-        (\s a -> s { _dapoLoadBalancerDescriptions = a })
+dlbrLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]
+dlbrLoadBalancerDescriptions =
+    lens _dlbrLoadBalancerDescriptions
+        (\s a -> s { _dlbrLoadBalancerDescriptions = a })
 
 -- | Specifies the value of next marker if the request returned more than one
 -- page of results.
-dapoNextMarker :: Lens' DescribeAccessPointsOutput (Maybe Text)
-dapoNextMarker = lens _dapoNextMarker (\s a -> s { _dapoNextMarker = a })
+dlbrNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
+dlbrNextMarker = lens _dlbrNextMarker (\s a -> s { _dlbrNextMarker = a })
 
-instance FromXML DescribeAccessPointsOutput where
+instance FromXML DescribeLoadBalancersResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DescribeAccessPointsOutput"
+    fromXMLRoot    = fromRoot "DescribeLoadBalancersResponse"
 
-instance AWSRequest DescribeAccessPointsInput where
-    type Sv DescribeAccessPointsInput = ELB
-    type Rs DescribeAccessPointsInput = DescribeAccessPointsOutput
+instance AWSRequest DescribeLoadBalancers where
+    type Sv DescribeLoadBalancers = ELB
+    type Rs DescribeLoadBalancers = DescribeLoadBalancersResponse
 
     request  = post "DescribeLoadBalancers"
-    response = xmlResponse $ \h x -> DescribeAccessPointsOutput
+    response = xmlResponse $ \h x -> DescribeLoadBalancersResponse
         <$> x %| "LoadBalancerDescriptions"
         <*> x %| "NextMarker"

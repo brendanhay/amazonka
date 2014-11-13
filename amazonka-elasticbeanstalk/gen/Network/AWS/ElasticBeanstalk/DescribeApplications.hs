@@ -24,89 +24,89 @@
 module Network.AWS.ElasticBeanstalk.DescribeApplications
     (
     -- * Request
-      DescribeApplicationsMessage
+      DescribeApplications
     -- ** Request constructor
     , describeApplications
     -- ** Request lenses
-    , damApplicationNames
+    , daApplicationNames
 
     -- * Response
-    , ApplicationDescriptionsMessage
+    , DescribeApplicationsResponse
     -- ** Response constructor
     , describeApplicationsResponse
     -- ** Response lenses
-    , admApplications
+    , darApplications
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElasticBeanstalk.Types
 
-newtype DescribeApplicationsMessage = DescribeApplicationsMessage
-    { _damApplicationNames :: [Text]
+newtype DescribeApplications = DescribeApplications
+    { _daApplicationNames :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList DescribeApplicationsMessage where
-    type Item DescribeApplicationsMessage = Text
+instance IsList DescribeApplications where
+    type Item DescribeApplications = Text
 
-    fromList = DescribeApplicationsMessage . fromList
-    toList   = toList . _damApplicationNames
+    fromList = DescribeApplications . fromList
+    toList   = toList . _daApplicationNames
 
--- | 'DescribeApplicationsMessage' constructor.
+-- | 'DescribeApplications' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'damApplicationNames' @::@ ['Text']
+-- * 'daApplicationNames' @::@ ['Text']
 --
-describeApplications :: DescribeApplicationsMessage
-describeApplications = DescribeApplicationsMessage
-    { _damApplicationNames = mempty
+describeApplications :: DescribeApplications
+describeApplications = DescribeApplications
+    { _daApplicationNames = mempty
     }
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include those with the specified names.
-damApplicationNames :: Lens' DescribeApplicationsMessage [Text]
-damApplicationNames =
-    lens _damApplicationNames (\s a -> s { _damApplicationNames = a })
+daApplicationNames :: Lens' DescribeApplications [Text]
+daApplicationNames =
+    lens _daApplicationNames (\s a -> s { _daApplicationNames = a })
 
-instance ToQuery DescribeApplicationsMessage
+instance ToQuery DescribeApplications
 
-instance ToPath DescribeApplicationsMessage where
+instance ToPath DescribeApplications where
     toPath = const "/"
 
-newtype ApplicationDescriptionsMessage = ApplicationDescriptionsMessage
-    { _admApplications :: [ApplicationDescription]
+newtype DescribeApplicationsResponse = DescribeApplicationsResponse
+    { _darApplications :: [ApplicationDescription]
     } deriving (Eq, Show, Generic, Monoid, Semigroup)
 
-instance IsList ApplicationDescriptionsMessage where
-    type Item ApplicationDescriptionsMessage = ApplicationDescription
+instance IsList DescribeApplicationsResponse where
+    type Item DescribeApplicationsResponse = ApplicationDescription
 
-    fromList = ApplicationDescriptionsMessage . fromList
-    toList   = toList . _admApplications
+    fromList = DescribeApplicationsResponse . fromList
+    toList   = toList . _darApplications
 
--- | 'ApplicationDescriptionsMessage' constructor.
+-- | 'DescribeApplicationsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'admApplications' @::@ ['ApplicationDescription']
+-- * 'darApplications' @::@ ['ApplicationDescription']
 --
-describeApplicationsResponse :: ApplicationDescriptionsMessage
-describeApplicationsResponse = ApplicationDescriptionsMessage
-    { _admApplications = mempty
+describeApplicationsResponse :: DescribeApplicationsResponse
+describeApplicationsResponse = DescribeApplicationsResponse
+    { _darApplications = mempty
     }
 
 -- | This parameter contains a list of ApplicationDescription.
-admApplications :: Lens' ApplicationDescriptionsMessage [ApplicationDescription]
-admApplications = lens _admApplications (\s a -> s { _admApplications = a })
+darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
+darApplications = lens _darApplications (\s a -> s { _darApplications = a })
 
-instance FromXML ApplicationDescriptionsMessage where
+instance FromXML DescribeApplicationsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ApplicationDescriptionsMessage"
+    fromXMLRoot    = fromRoot "DescribeApplicationsResponse"
 
-instance AWSRequest DescribeApplicationsMessage where
-    type Sv DescribeApplicationsMessage = ElasticBeanstalk
-    type Rs DescribeApplicationsMessage = ApplicationDescriptionsMessage
+instance AWSRequest DescribeApplications where
+    type Sv DescribeApplications = ElasticBeanstalk
+    type Rs DescribeApplications = DescribeApplicationsResponse
 
     request  = post "DescribeApplications"
-    response = xmlResponse $ \h x -> ApplicationDescriptionsMessage
+    response = xmlResponse $ \h x -> DescribeApplicationsResponse
         <$> x %| "Applications"

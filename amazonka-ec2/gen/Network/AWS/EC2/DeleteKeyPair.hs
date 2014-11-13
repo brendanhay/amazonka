@@ -28,8 +28,8 @@ module Network.AWS.EC2.DeleteKeyPair
     -- ** Request constructor
     , deleteKeyPair
     -- ** Request lenses
-    , dkp1DryRun
-    , dkp1KeyName
+    , dkpDryRun
+    , dkpKeyName
 
     -- * Response
     , DeleteKeyPairResponse
@@ -42,31 +42,31 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DeleteKeyPair = DeleteKeyPair
-    { _dkp1DryRun  :: Maybe Bool
-    , _dkp1KeyName :: Text
+    { _dkpDryRun  :: Maybe Bool
+    , _dkpKeyName :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeleteKeyPair' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dkp1DryRun' @::@ 'Maybe' 'Bool'
+-- * 'dkpDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'dkp1KeyName' @::@ 'Text'
+-- * 'dkpKeyName' @::@ 'Text'
 --
-deleteKeyPair :: Text -- ^ 'dkp1KeyName'
+deleteKeyPair :: Text -- ^ 'dkpKeyName'
               -> DeleteKeyPair
 deleteKeyPair p1 = DeleteKeyPair
-    { _dkp1KeyName = p1
-    , _dkp1DryRun  = Nothing
+    { _dkpKeyName = p1
+    , _dkpDryRun  = Nothing
     }
 
-dkp1DryRun :: Lens' DeleteKeyPair (Maybe Bool)
-dkp1DryRun = lens _dkp1DryRun (\s a -> s { _dkp1DryRun = a })
+dkpDryRun :: Lens' DeleteKeyPair (Maybe Bool)
+dkpDryRun = lens _dkpDryRun (\s a -> s { _dkpDryRun = a })
 
 -- | The name of the key pair.
-dkp1KeyName :: Lens' DeleteKeyPair Text
-dkp1KeyName = lens _dkp1KeyName (\s a -> s { _dkp1KeyName = a })
+dkpKeyName :: Lens' DeleteKeyPair Text
+dkpKeyName = lens _dkpKeyName (\s a -> s { _dkpKeyName = a })
 
 instance ToQuery DeleteKeyPair
 

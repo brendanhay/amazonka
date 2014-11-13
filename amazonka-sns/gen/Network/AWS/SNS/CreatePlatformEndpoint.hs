@@ -36,73 +36,73 @@
 module Network.AWS.SNS.CreatePlatformEndpoint
     (
     -- * Request
-      CreatePlatformEndpointInput
+      CreatePlatformEndpoint
     -- ** Request constructor
     , createPlatformEndpoint
     -- ** Request lenses
-    , cpeiAttributes
-    , cpeiCustomUserData
-    , cpeiPlatformApplicationArn
-    , cpeiToken
+    , cpeAttributes
+    , cpeCustomUserData
+    , cpePlatformApplicationArn
+    , cpeToken
 
     -- * Response
-    , CreateEndpointResponse
+    , CreatePlatformEndpointResponse
     -- ** Response constructor
     , createPlatformEndpointResponse
     -- ** Response lenses
-    , cerEndpointArn
+    , cperEndpointArn
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-data CreatePlatformEndpointInput = CreatePlatformEndpointInput
-    { _cpeiAttributes             :: Map Text Text
-    , _cpeiCustomUserData         :: Maybe Text
-    , _cpeiPlatformApplicationArn :: Text
-    , _cpeiToken                  :: Text
+data CreatePlatformEndpoint = CreatePlatformEndpoint
+    { _cpeAttributes             :: Map Text Text
+    , _cpeCustomUserData         :: Maybe Text
+    , _cpePlatformApplicationArn :: Text
+    , _cpeToken                  :: Text
     } deriving (Eq, Show, Generic)
 
--- | 'CreatePlatformEndpointInput' constructor.
+-- | 'CreatePlatformEndpoint' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpeiAttributes' @::@ 'HashMap' 'Text' 'Text'
+-- * 'cpeAttributes' @::@ 'HashMap' 'Text' 'Text'
 --
--- * 'cpeiCustomUserData' @::@ 'Maybe' 'Text'
+-- * 'cpeCustomUserData' @::@ 'Maybe' 'Text'
 --
--- * 'cpeiPlatformApplicationArn' @::@ 'Text'
+-- * 'cpePlatformApplicationArn' @::@ 'Text'
 --
--- * 'cpeiToken' @::@ 'Text'
+-- * 'cpeToken' @::@ 'Text'
 --
-createPlatformEndpoint :: Text -- ^ 'cpeiPlatformApplicationArn'
-                       -> Text -- ^ 'cpeiToken'
-                       -> CreatePlatformEndpointInput
-createPlatformEndpoint p1 p2 = CreatePlatformEndpointInput
-    { _cpeiPlatformApplicationArn = p1
-    , _cpeiToken                  = p2
-    , _cpeiCustomUserData         = Nothing
-    , _cpeiAttributes             = mempty
+createPlatformEndpoint :: Text -- ^ 'cpePlatformApplicationArn'
+                       -> Text -- ^ 'cpeToken'
+                       -> CreatePlatformEndpoint
+createPlatformEndpoint p1 p2 = CreatePlatformEndpoint
+    { _cpePlatformApplicationArn = p1
+    , _cpeToken                  = p2
+    , _cpeCustomUserData         = Nothing
+    , _cpeAttributes             = mempty
     }
 
 -- | For a list of attributes, see SetEndpointAttributes.
-cpeiAttributes :: Lens' CreatePlatformEndpointInput (HashMap Text Text)
-cpeiAttributes = lens _cpeiAttributes (\s a -> s { _cpeiAttributes = a })
+cpeAttributes :: Lens' CreatePlatformEndpoint (HashMap Text Text)
+cpeAttributes = lens _cpeAttributes (\s a -> s { _cpeAttributes = a })
     . _Map
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not
 -- use this data. The data must be in UTF-8 format and less than 2KB.
-cpeiCustomUserData :: Lens' CreatePlatformEndpointInput (Maybe Text)
-cpeiCustomUserData =
-    lens _cpeiCustomUserData (\s a -> s { _cpeiCustomUserData = a })
+cpeCustomUserData :: Lens' CreatePlatformEndpoint (Maybe Text)
+cpeCustomUserData =
+    lens _cpeCustomUserData (\s a -> s { _cpeCustomUserData = a })
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used to
 -- create a an endpoint.
-cpeiPlatformApplicationArn :: Lens' CreatePlatformEndpointInput Text
-cpeiPlatformApplicationArn =
-    lens _cpeiPlatformApplicationArn
-        (\s a -> s { _cpeiPlatformApplicationArn = a })
+cpePlatformApplicationArn :: Lens' CreatePlatformEndpoint Text
+cpePlatformApplicationArn =
+    lens _cpePlatformApplicationArn
+        (\s a -> s { _cpePlatformApplicationArn = a })
 
 -- | Unique identifier created by the notification service for an app on a
 -- device. The specific name for Token will vary, depending on which
@@ -110,41 +110,41 @@ cpeiPlatformApplicationArn =
 -- notification service, you need the device token. Alternatively, when
 -- using GCM or ADM, the device token equivalent is called the registration
 -- ID.
-cpeiToken :: Lens' CreatePlatformEndpointInput Text
-cpeiToken = lens _cpeiToken (\s a -> s { _cpeiToken = a })
+cpeToken :: Lens' CreatePlatformEndpoint Text
+cpeToken = lens _cpeToken (\s a -> s { _cpeToken = a })
 
-instance ToQuery CreatePlatformEndpointInput
+instance ToQuery CreatePlatformEndpoint
 
-instance ToPath CreatePlatformEndpointInput where
+instance ToPath CreatePlatformEndpoint where
     toPath = const "/"
 
-newtype CreateEndpointResponse = CreateEndpointResponse
-    { _cerEndpointArn :: Maybe Text
+newtype CreatePlatformEndpointResponse = CreatePlatformEndpointResponse
+    { _cperEndpointArn :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'CreateEndpointResponse' constructor.
+-- | 'CreatePlatformEndpointResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cerEndpointArn' @::@ 'Maybe' 'Text'
+-- * 'cperEndpointArn' @::@ 'Maybe' 'Text'
 --
-createPlatformEndpointResponse :: CreateEndpointResponse
-createPlatformEndpointResponse = CreateEndpointResponse
-    { _cerEndpointArn = Nothing
+createPlatformEndpointResponse :: CreatePlatformEndpointResponse
+createPlatformEndpointResponse = CreatePlatformEndpointResponse
+    { _cperEndpointArn = Nothing
     }
 
 -- | EndpointArn returned from CreateEndpoint action.
-cerEndpointArn :: Lens' CreateEndpointResponse (Maybe Text)
-cerEndpointArn = lens _cerEndpointArn (\s a -> s { _cerEndpointArn = a })
+cperEndpointArn :: Lens' CreatePlatformEndpointResponse (Maybe Text)
+cperEndpointArn = lens _cperEndpointArn (\s a -> s { _cperEndpointArn = a })
 
-instance FromXML CreateEndpointResponse where
+instance FromXML CreatePlatformEndpointResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateEndpointResponse"
+    fromXMLRoot    = fromRoot "CreatePlatformEndpointResponse"
 
-instance AWSRequest CreatePlatformEndpointInput where
-    type Sv CreatePlatformEndpointInput = SNS
-    type Rs CreatePlatformEndpointInput = CreateEndpointResponse
+instance AWSRequest CreatePlatformEndpoint where
+    type Sv CreatePlatformEndpoint = SNS
+    type Rs CreatePlatformEndpoint = CreatePlatformEndpointResponse
 
     request  = post "CreatePlatformEndpoint"
-    response = xmlResponse $ \h x -> CreateEndpointResponse
+    response = xmlResponse $ \h x -> CreatePlatformEndpointResponse
         <$> x %| "EndpointArn"

@@ -26,114 +26,114 @@
 module Network.AWS.ElastiCache.DescribeReplicationGroups
     (
     -- * Request
-      DescribeReplicationGroupsMessage
+      DescribeReplicationGroups
     -- ** Request constructor
     , describeReplicationGroups
     -- ** Request lenses
-    , drgmMarker
-    , drgmMaxRecords
-    , drgmReplicationGroupId
+    , drg1Marker
+    , drg1MaxRecords
+    , drg1ReplicationGroupId
 
     -- * Response
-    , ReplicationGroupMessage
+    , DescribeReplicationGroupsResponse
     -- ** Response constructor
     , describeReplicationGroupsResponse
     -- ** Response lenses
-    , rgmMarker
-    , rgmReplicationGroups
+    , drgrMarker
+    , drgrReplicationGroups
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data DescribeReplicationGroupsMessage = DescribeReplicationGroupsMessage
-    { _drgmMarker             :: Maybe Text
-    , _drgmMaxRecords         :: Maybe Int
-    , _drgmReplicationGroupId :: Maybe Text
+data DescribeReplicationGroups = DescribeReplicationGroups
+    { _drg1Marker             :: Maybe Text
+    , _drg1MaxRecords         :: Maybe Int
+    , _drg1ReplicationGroupId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeReplicationGroupsMessage' constructor.
+-- | 'DescribeReplicationGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drgmMarker' @::@ 'Maybe' 'Text'
+-- * 'drg1Marker' @::@ 'Maybe' 'Text'
 --
--- * 'drgmMaxRecords' @::@ 'Maybe' 'Int'
+-- * 'drg1MaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'drgmReplicationGroupId' @::@ 'Maybe' 'Text'
+-- * 'drg1ReplicationGroupId' @::@ 'Maybe' 'Text'
 --
-describeReplicationGroups :: DescribeReplicationGroupsMessage
-describeReplicationGroups = DescribeReplicationGroupsMessage
-    { _drgmReplicationGroupId = Nothing
-    , _drgmMaxRecords         = Nothing
-    , _drgmMarker             = Nothing
+describeReplicationGroups :: DescribeReplicationGroups
+describeReplicationGroups = DescribeReplicationGroups
+    { _drg1ReplicationGroupId = Nothing
+    , _drg1MaxRecords         = Nothing
+    , _drg1Marker             = Nothing
     }
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this operation. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by MaxRecords.
-drgmMarker :: Lens' DescribeReplicationGroupsMessage (Maybe Text)
-drgmMarker = lens _drgmMarker (\s a -> s { _drgmMarker = a })
+drg1Marker :: Lens' DescribeReplicationGroups (Maybe Text)
+drg1Marker = lens _drg1Marker (\s a -> s { _drg1Marker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a marker is included in the
 -- response so that the remaining results can be retrieved. Default: 100
 -- Constraints: minimum 20; maximum 100.
-drgmMaxRecords :: Lens' DescribeReplicationGroupsMessage (Maybe Int)
-drgmMaxRecords = lens _drgmMaxRecords (\s a -> s { _drgmMaxRecords = a })
+drg1MaxRecords :: Lens' DescribeReplicationGroups (Maybe Int)
+drg1MaxRecords = lens _drg1MaxRecords (\s a -> s { _drg1MaxRecords = a })
 
 -- | The identifier for the replication group to be described. This parameter
 -- is not case sensitive. If you do not specify this parameter, information
 -- about all replication groups is returned.
-drgmReplicationGroupId :: Lens' DescribeReplicationGroupsMessage (Maybe Text)
-drgmReplicationGroupId =
-    lens _drgmReplicationGroupId (\s a -> s { _drgmReplicationGroupId = a })
+drg1ReplicationGroupId :: Lens' DescribeReplicationGroups (Maybe Text)
+drg1ReplicationGroupId =
+    lens _drg1ReplicationGroupId (\s a -> s { _drg1ReplicationGroupId = a })
 
-instance ToQuery DescribeReplicationGroupsMessage
+instance ToQuery DescribeReplicationGroups
 
-instance ToPath DescribeReplicationGroupsMessage where
+instance ToPath DescribeReplicationGroups where
     toPath = const "/"
 
-data ReplicationGroupMessage = ReplicationGroupMessage
-    { _rgmMarker            :: Maybe Text
-    , _rgmReplicationGroups :: [ReplicationGroup]
+data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse
+    { _drgrMarker            :: Maybe Text
+    , _drgrReplicationGroups :: [ReplicationGroup]
     } deriving (Eq, Show, Generic)
 
--- | 'ReplicationGroupMessage' constructor.
+-- | 'DescribeReplicationGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rgmMarker' @::@ 'Maybe' 'Text'
+-- * 'drgrMarker' @::@ 'Maybe' 'Text'
 --
--- * 'rgmReplicationGroups' @::@ ['ReplicationGroup']
+-- * 'drgrReplicationGroups' @::@ ['ReplicationGroup']
 --
-describeReplicationGroupsResponse :: ReplicationGroupMessage
-describeReplicationGroupsResponse = ReplicationGroupMessage
-    { _rgmMarker            = Nothing
-    , _rgmReplicationGroups = mempty
+describeReplicationGroupsResponse :: DescribeReplicationGroupsResponse
+describeReplicationGroupsResponse = DescribeReplicationGroupsResponse
+    { _drgrMarker            = Nothing
+    , _drgrReplicationGroups = mempty
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
-rgmMarker :: Lens' ReplicationGroupMessage (Maybe Text)
-rgmMarker = lens _rgmMarker (\s a -> s { _rgmMarker = a })
+drgrMarker :: Lens' DescribeReplicationGroupsResponse (Maybe Text)
+drgrMarker = lens _drgrMarker (\s a -> s { _drgrMarker = a })
 
 -- | A list of replication groups. Each item in the list contains detailed
 -- information about one replication group.
-rgmReplicationGroups :: Lens' ReplicationGroupMessage [ReplicationGroup]
-rgmReplicationGroups =
-    lens _rgmReplicationGroups (\s a -> s { _rgmReplicationGroups = a })
+drgrReplicationGroups :: Lens' DescribeReplicationGroupsResponse [ReplicationGroup]
+drgrReplicationGroups =
+    lens _drgrReplicationGroups (\s a -> s { _drgrReplicationGroups = a })
 
-instance FromXML ReplicationGroupMessage where
+instance FromXML DescribeReplicationGroupsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReplicationGroupMessage"
+    fromXMLRoot    = fromRoot "DescribeReplicationGroupsResponse"
 
-instance AWSRequest DescribeReplicationGroupsMessage where
-    type Sv DescribeReplicationGroupsMessage = ElastiCache
-    type Rs DescribeReplicationGroupsMessage = ReplicationGroupMessage
+instance AWSRequest DescribeReplicationGroups where
+    type Sv DescribeReplicationGroups = ElastiCache
+    type Rs DescribeReplicationGroups = DescribeReplicationGroupsResponse
 
     request  = post "DescribeReplicationGroups"
-    response = xmlResponse $ \h x -> ReplicationGroupMessage
+    response = xmlResponse $ \h x -> DescribeReplicationGroupsResponse
         <$> x %| "Marker"
         <*> x %| "ReplicationGroups"

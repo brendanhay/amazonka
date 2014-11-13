@@ -31,14 +31,14 @@
 module Network.AWS.Redshift.CreateHsmClientCertificate
     (
     -- * Request
-      CreateHsmClientCertificateMessage
+      CreateHsmClientCertificate
     -- ** Request constructor
     , createHsmClientCertificate
     -- ** Request lenses
-    , chccmHsmClientCertificateIdentifier
+    , chccHsmClientCertificateIdentifier
 
     -- * Response
-    , CreateHsmClientCertificateResult
+    , CreateHsmClientCertificateResponse
     -- ** Response constructor
     , createHsmClientCertificateResponse
     -- ** Response lenses
@@ -49,63 +49,63 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-newtype CreateHsmClientCertificateMessage = CreateHsmClientCertificateMessage
-    { _chccmHsmClientCertificateIdentifier :: Text
+newtype CreateHsmClientCertificate = CreateHsmClientCertificate
+    { _chccHsmClientCertificateIdentifier :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'CreateHsmClientCertificateMessage' constructor.
+-- | 'CreateHsmClientCertificate' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chccmHsmClientCertificateIdentifier' @::@ 'Text'
+-- * 'chccHsmClientCertificateIdentifier' @::@ 'Text'
 --
-createHsmClientCertificate :: Text -- ^ 'chccmHsmClientCertificateIdentifier'
-                           -> CreateHsmClientCertificateMessage
-createHsmClientCertificate p1 = CreateHsmClientCertificateMessage
-    { _chccmHsmClientCertificateIdentifier = p1
+createHsmClientCertificate :: Text -- ^ 'chccHsmClientCertificateIdentifier'
+                           -> CreateHsmClientCertificate
+createHsmClientCertificate p1 = CreateHsmClientCertificate
+    { _chccHsmClientCertificateIdentifier = p1
     }
 
 -- | The identifier to be assigned to the new HSM client certificate that the
 -- cluster will use to connect to the HSM to use the database encryption
 -- keys.
-chccmHsmClientCertificateIdentifier :: Lens' CreateHsmClientCertificateMessage Text
-chccmHsmClientCertificateIdentifier =
-    lens _chccmHsmClientCertificateIdentifier
-        (\s a -> s { _chccmHsmClientCertificateIdentifier = a })
+chccHsmClientCertificateIdentifier :: Lens' CreateHsmClientCertificate Text
+chccHsmClientCertificateIdentifier =
+    lens _chccHsmClientCertificateIdentifier
+        (\s a -> s { _chccHsmClientCertificateIdentifier = a })
 
-instance ToQuery CreateHsmClientCertificateMessage
+instance ToQuery CreateHsmClientCertificate
 
-instance ToPath CreateHsmClientCertificateMessage where
+instance ToPath CreateHsmClientCertificate where
     toPath = const "/"
 
-newtype CreateHsmClientCertificateResult = CreateHsmClientCertificateResult
+newtype CreateHsmClientCertificateResponse = CreateHsmClientCertificateResponse
     { _chccrHsmClientCertificate :: Maybe HsmClientCertificate
     } deriving (Eq, Show, Generic)
 
--- | 'CreateHsmClientCertificateResult' constructor.
+-- | 'CreateHsmClientCertificateResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'chccrHsmClientCertificate' @::@ 'Maybe' 'HsmClientCertificate'
 --
-createHsmClientCertificateResponse :: CreateHsmClientCertificateResult
-createHsmClientCertificateResponse = CreateHsmClientCertificateResult
+createHsmClientCertificateResponse :: CreateHsmClientCertificateResponse
+createHsmClientCertificateResponse = CreateHsmClientCertificateResponse
     { _chccrHsmClientCertificate = Nothing
     }
 
-chccrHsmClientCertificate :: Lens' CreateHsmClientCertificateResult (Maybe HsmClientCertificate)
+chccrHsmClientCertificate :: Lens' CreateHsmClientCertificateResponse (Maybe HsmClientCertificate)
 chccrHsmClientCertificate =
     lens _chccrHsmClientCertificate
         (\s a -> s { _chccrHsmClientCertificate = a })
 
-instance FromXML CreateHsmClientCertificateResult where
+instance FromXML CreateHsmClientCertificateResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateHsmClientCertificateResult"
+    fromXMLRoot    = fromRoot "CreateHsmClientCertificateResponse"
 
-instance AWSRequest CreateHsmClientCertificateMessage where
-    type Sv CreateHsmClientCertificateMessage = Redshift
-    type Rs CreateHsmClientCertificateMessage = CreateHsmClientCertificateResult
+instance AWSRequest CreateHsmClientCertificate where
+    type Sv CreateHsmClientCertificate = Redshift
+    type Rs CreateHsmClientCertificate = CreateHsmClientCertificateResponse
 
     request  = post "CreateHsmClientCertificate"
-    response = xmlResponse $ \h x -> CreateHsmClientCertificateResult
+    response = xmlResponse $ \h x -> CreateHsmClientCertificateResponse
         <$> x %| "HsmClientCertificate"

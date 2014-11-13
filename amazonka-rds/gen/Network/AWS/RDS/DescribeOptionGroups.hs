@@ -24,144 +24,144 @@
 module Network.AWS.RDS.DescribeOptionGroups
     (
     -- * Request
-      DescribeOptionGroupsMessage
+      DescribeOptionGroups
     -- ** Request constructor
     , describeOptionGroups
     -- ** Request lenses
-    , dogm1EngineName
-    , dogm1Filters
-    , dogm1MajorEngineVersion
-    , dogm1Marker
-    , dogm1MaxRecords
-    , dogm1OptionGroupName
+    , dogEngineName
+    , dogFilters
+    , dogMajorEngineVersion
+    , dogMarker
+    , dogMaxRecords
+    , dogOptionGroupName
 
     -- * Response
-    , OptionGroups
+    , DescribeOptionGroupsResponse
     -- ** Response constructor
     , describeOptionGroupsResponse
     -- ** Response lenses
-    , ogMarker
-    , ogOptionGroupsList
+    , dogrMarker
+    , dogrOptionGroupsList
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data DescribeOptionGroupsMessage = DescribeOptionGroupsMessage
-    { _dogm1EngineName         :: Maybe Text
-    , _dogm1Filters            :: [Filter]
-    , _dogm1MajorEngineVersion :: Maybe Text
-    , _dogm1Marker             :: Maybe Text
-    , _dogm1MaxRecords         :: Maybe Int
-    , _dogm1OptionGroupName    :: Maybe Text
+data DescribeOptionGroups = DescribeOptionGroups
+    { _dogEngineName         :: Maybe Text
+    , _dogFilters            :: [Filter]
+    , _dogMajorEngineVersion :: Maybe Text
+    , _dogMarker             :: Maybe Text
+    , _dogMaxRecords         :: Maybe Int
+    , _dogOptionGroupName    :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'DescribeOptionGroupsMessage' constructor.
+-- | 'DescribeOptionGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dogm1EngineName' @::@ 'Maybe' 'Text'
+-- * 'dogEngineName' @::@ 'Maybe' 'Text'
 --
--- * 'dogm1Filters' @::@ ['Filter']
+-- * 'dogFilters' @::@ ['Filter']
 --
--- * 'dogm1MajorEngineVersion' @::@ 'Maybe' 'Text'
+-- * 'dogMajorEngineVersion' @::@ 'Maybe' 'Text'
 --
--- * 'dogm1Marker' @::@ 'Maybe' 'Text'
+-- * 'dogMarker' @::@ 'Maybe' 'Text'
 --
--- * 'dogm1MaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dogMaxRecords' @::@ 'Maybe' 'Int'
 --
--- * 'dogm1OptionGroupName' @::@ 'Maybe' 'Text'
+-- * 'dogOptionGroupName' @::@ 'Maybe' 'Text'
 --
-describeOptionGroups :: DescribeOptionGroupsMessage
-describeOptionGroups = DescribeOptionGroupsMessage
-    { _dogm1OptionGroupName    = Nothing
-    , _dogm1Filters            = mempty
-    , _dogm1Marker             = Nothing
-    , _dogm1MaxRecords         = Nothing
-    , _dogm1EngineName         = Nothing
-    , _dogm1MajorEngineVersion = Nothing
+describeOptionGroups :: DescribeOptionGroups
+describeOptionGroups = DescribeOptionGroups
+    { _dogOptionGroupName    = Nothing
+    , _dogFilters            = mempty
+    , _dogMarker             = Nothing
+    , _dogMaxRecords         = Nothing
+    , _dogEngineName         = Nothing
+    , _dogMajorEngineVersion = Nothing
     }
 
 -- | Filters the list of option groups to only include groups associated with
 -- a specific database engine.
-dogm1EngineName :: Lens' DescribeOptionGroupsMessage (Maybe Text)
-dogm1EngineName = lens _dogm1EngineName (\s a -> s { _dogm1EngineName = a })
+dogEngineName :: Lens' DescribeOptionGroups (Maybe Text)
+dogEngineName = lens _dogEngineName (\s a -> s { _dogEngineName = a })
 
 -- | This parameter is not currently supported.
-dogm1Filters :: Lens' DescribeOptionGroupsMessage [Filter]
-dogm1Filters = lens _dogm1Filters (\s a -> s { _dogm1Filters = a })
+dogFilters :: Lens' DescribeOptionGroups [Filter]
+dogFilters = lens _dogFilters (\s a -> s { _dogFilters = a })
 
 -- | Filters the list of option groups to only include groups associated with
 -- a specific database engine version. If specified, then EngineName must
 -- also be specified.
-dogm1MajorEngineVersion :: Lens' DescribeOptionGroupsMessage (Maybe Text)
-dogm1MajorEngineVersion =
-    lens _dogm1MajorEngineVersion (\s a -> s { _dogm1MajorEngineVersion = a })
+dogMajorEngineVersion :: Lens' DescribeOptionGroups (Maybe Text)
+dogMajorEngineVersion =
+    lens _dogMajorEngineVersion (\s a -> s { _dogMajorEngineVersion = a })
 
 -- | An optional pagination token provided by a previous DescribeOptionGroups
 -- request. If this parameter is specified, the response includes only
 -- records beyond the marker, up to the value specified by MaxRecords.
-dogm1Marker :: Lens' DescribeOptionGroupsMessage (Maybe Text)
-dogm1Marker = lens _dogm1Marker (\s a -> s { _dogm1Marker = a })
+dogMarker :: Lens' DescribeOptionGroups (Maybe Text)
+dogMarker = lens _dogMarker (\s a -> s { _dogMarker = a })
 
 -- | The maximum number of records to include in the response. If more records
 -- exist than the specified MaxRecords value, a pagination token called a
 -- marker is included in the response so that the remaining results can be
 -- retrieved. Default: 100 Constraints: minimum 20, maximum 100.
-dogm1MaxRecords :: Lens' DescribeOptionGroupsMessage (Maybe Int)
-dogm1MaxRecords = lens _dogm1MaxRecords (\s a -> s { _dogm1MaxRecords = a })
+dogMaxRecords :: Lens' DescribeOptionGroups (Maybe Int)
+dogMaxRecords = lens _dogMaxRecords (\s a -> s { _dogMaxRecords = a })
 
 -- | The name of the option group to describe. Cannot be supplied together
 -- with EngineName or MajorEngineVersion.
-dogm1OptionGroupName :: Lens' DescribeOptionGroupsMessage (Maybe Text)
-dogm1OptionGroupName =
-    lens _dogm1OptionGroupName (\s a -> s { _dogm1OptionGroupName = a })
+dogOptionGroupName :: Lens' DescribeOptionGroups (Maybe Text)
+dogOptionGroupName =
+    lens _dogOptionGroupName (\s a -> s { _dogOptionGroupName = a })
 
-instance ToQuery DescribeOptionGroupsMessage
+instance ToQuery DescribeOptionGroups
 
-instance ToPath DescribeOptionGroupsMessage where
+instance ToPath DescribeOptionGroups where
     toPath = const "/"
 
-data OptionGroups = OptionGroups
-    { _ogMarker           :: Maybe Text
-    , _ogOptionGroupsList :: [OptionGroup]
+data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse
+    { _dogrMarker           :: Maybe Text
+    , _dogrOptionGroupsList :: [OptionGroup]
     } deriving (Eq, Show, Generic)
 
--- | 'OptionGroups' constructor.
+-- | 'DescribeOptionGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ogMarker' @::@ 'Maybe' 'Text'
+-- * 'dogrMarker' @::@ 'Maybe' 'Text'
 --
--- * 'ogOptionGroupsList' @::@ ['OptionGroup']
+-- * 'dogrOptionGroupsList' @::@ ['OptionGroup']
 --
-describeOptionGroupsResponse :: OptionGroups
-describeOptionGroupsResponse = OptionGroups
-    { _ogOptionGroupsList = mempty
-    , _ogMarker           = Nothing
+describeOptionGroupsResponse :: DescribeOptionGroupsResponse
+describeOptionGroupsResponse = DescribeOptionGroupsResponse
+    { _dogrOptionGroupsList = mempty
+    , _dogrMarker           = Nothing
     }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by MaxRecords.
-ogMarker :: Lens' OptionGroups (Maybe Text)
-ogMarker = lens _ogMarker (\s a -> s { _ogMarker = a })
+dogrMarker :: Lens' DescribeOptionGroupsResponse (Maybe Text)
+dogrMarker = lens _dogrMarker (\s a -> s { _dogrMarker = a })
 
 -- | List of option groups.
-ogOptionGroupsList :: Lens' OptionGroups [OptionGroup]
-ogOptionGroupsList =
-    lens _ogOptionGroupsList (\s a -> s { _ogOptionGroupsList = a })
+dogrOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
+dogrOptionGroupsList =
+    lens _dogrOptionGroupsList (\s a -> s { _dogrOptionGroupsList = a })
 
-instance FromXML OptionGroups where
+instance FromXML DescribeOptionGroupsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "OptionGroups"
+    fromXMLRoot    = fromRoot "DescribeOptionGroupsResponse"
 
-instance AWSRequest DescribeOptionGroupsMessage where
-    type Sv DescribeOptionGroupsMessage = RDS
-    type Rs DescribeOptionGroupsMessage = OptionGroups
+instance AWSRequest DescribeOptionGroups where
+    type Sv DescribeOptionGroups = RDS
+    type Rs DescribeOptionGroups = DescribeOptionGroupsResponse
 
     request  = post "DescribeOptionGroups"
-    response = xmlResponse $ \h x -> OptionGroups
+    response = xmlResponse $ \h x -> DescribeOptionGroupsResponse
         <$> x %| "Marker"
         <*> x %| "OptionGroupsList"

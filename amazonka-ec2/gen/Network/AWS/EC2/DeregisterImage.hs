@@ -29,8 +29,8 @@ module Network.AWS.EC2.DeregisterImage
     -- ** Request constructor
     , deregisterImage
     -- ** Request lenses
-    , di2DryRun
-    , di2ImageId
+    , diDryRun
+    , diImageId
 
     -- * Response
     , DeregisterImageResponse
@@ -43,31 +43,31 @@ import Network.AWS.Request.Query
 import Network.AWS.EC2.Types
 
 data DeregisterImage = DeregisterImage
-    { _di2DryRun  :: Maybe Bool
-    , _di2ImageId :: Text
+    { _diDryRun  :: Maybe Bool
+    , _diImageId :: Text
     } deriving (Eq, Ord, Show, Generic)
 
 -- | 'DeregisterImage' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'di2DryRun' @::@ 'Maybe' 'Bool'
+-- * 'diDryRun' @::@ 'Maybe' 'Bool'
 --
--- * 'di2ImageId' @::@ 'Text'
+-- * 'diImageId' @::@ 'Text'
 --
-deregisterImage :: Text -- ^ 'di2ImageId'
+deregisterImage :: Text -- ^ 'diImageId'
                 -> DeregisterImage
 deregisterImage p1 = DeregisterImage
-    { _di2ImageId = p1
-    , _di2DryRun  = Nothing
+    { _diImageId = p1
+    , _diDryRun  = Nothing
     }
 
-di2DryRun :: Lens' DeregisterImage (Maybe Bool)
-di2DryRun = lens _di2DryRun (\s a -> s { _di2DryRun = a })
+diDryRun :: Lens' DeregisterImage (Maybe Bool)
+diDryRun = lens _diDryRun (\s a -> s { _diDryRun = a })
 
 -- | The ID of the AMI.
-di2ImageId :: Lens' DeregisterImage Text
-di2ImageId = lens _di2ImageId (\s a -> s { _di2ImageId = a })
+diImageId :: Lens' DeregisterImage Text
+diImageId = lens _diImageId (\s a -> s { _diImageId = a })
 
 instance ToQuery DeregisterImage
 

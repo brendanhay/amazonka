@@ -28,97 +28,97 @@
 module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     (
     -- * Request
-      ApplySecurityGroupsToLoadBalancerInput
+      ApplySecurityGroupsToLoadBalancer
     -- ** Request constructor
     , applySecurityGroupsToLoadBalancer
     -- ** Request lenses
-    , asgtlbiLoadBalancerName
-    , asgtlbiSecurityGroups
+    , asgtlbLoadBalancerName
+    , asgtlbSecurityGroups
 
     -- * Response
-    , ApplySecurityGroupsToLoadBalancerOutput
+    , ApplySecurityGroupsToLoadBalancerResponse
     -- ** Response constructor
     , applySecurityGroupsToLoadBalancerResponse
     -- ** Response lenses
-    , asgtlboSecurityGroups
+    , asgtlbrSecurityGroups
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ELB.Types
 
-data ApplySecurityGroupsToLoadBalancerInput = ApplySecurityGroupsToLoadBalancerInput
-    { _asgtlbiLoadBalancerName :: Text
-    , _asgtlbiSecurityGroups   :: [Text]
+data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer
+    { _asgtlbLoadBalancerName :: Text
+    , _asgtlbSecurityGroups   :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ApplySecurityGroupsToLoadBalancerInput' constructor.
+-- | 'ApplySecurityGroupsToLoadBalancer' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asgtlbiLoadBalancerName' @::@ 'Text'
+-- * 'asgtlbLoadBalancerName' @::@ 'Text'
 --
--- * 'asgtlbiSecurityGroups' @::@ ['Text']
+-- * 'asgtlbSecurityGroups' @::@ ['Text']
 --
-applySecurityGroupsToLoadBalancer :: Text -- ^ 'asgtlbiLoadBalancerName'
-                                  -> ApplySecurityGroupsToLoadBalancerInput
-applySecurityGroupsToLoadBalancer p1 = ApplySecurityGroupsToLoadBalancerInput
-    { _asgtlbiLoadBalancerName = p1
-    , _asgtlbiSecurityGroups   = mempty
+applySecurityGroupsToLoadBalancer :: Text -- ^ 'asgtlbLoadBalancerName'
+                                  -> ApplySecurityGroupsToLoadBalancer
+applySecurityGroupsToLoadBalancer p1 = ApplySecurityGroupsToLoadBalancer
+    { _asgtlbLoadBalancerName = p1
+    , _asgtlbSecurityGroups   = mempty
     }
 
 -- | The name associated with the load balancer. The name must be unique
 -- within the set of load balancers associated with your AWS account.
-asgtlbiLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancerInput Text
-asgtlbiLoadBalancerName =
-    lens _asgtlbiLoadBalancerName (\s a -> s { _asgtlbiLoadBalancerName = a })
+asgtlbLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer Text
+asgtlbLoadBalancerName =
+    lens _asgtlbLoadBalancerName (\s a -> s { _asgtlbLoadBalancerName = a })
 
 -- | A list of security group IDs to associate with your load balancer in VPC.
 -- The security group IDs must be provided as the ID and not the security
 -- group name (For example, sg-1234).
-asgtlbiSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerInput [Text]
-asgtlbiSecurityGroups =
-    lens _asgtlbiSecurityGroups (\s a -> s { _asgtlbiSecurityGroups = a })
+asgtlbSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer [Text]
+asgtlbSecurityGroups =
+    lens _asgtlbSecurityGroups (\s a -> s { _asgtlbSecurityGroups = a })
 
-instance ToQuery ApplySecurityGroupsToLoadBalancerInput
+instance ToQuery ApplySecurityGroupsToLoadBalancer
 
-instance ToPath ApplySecurityGroupsToLoadBalancerInput where
+instance ToPath ApplySecurityGroupsToLoadBalancer where
     toPath = const "/"
 
-newtype ApplySecurityGroupsToLoadBalancerOutput = ApplySecurityGroupsToLoadBalancerOutput
-    { _asgtlboSecurityGroups :: [Text]
+newtype ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
+    { _asgtlbrSecurityGroups :: [Text]
     } deriving (Eq, Ord, Show, Generic, Monoid, Semigroup)
 
-instance IsList ApplySecurityGroupsToLoadBalancerOutput where
-    type Item ApplySecurityGroupsToLoadBalancerOutput = Text
+instance IsList ApplySecurityGroupsToLoadBalancerResponse where
+    type Item ApplySecurityGroupsToLoadBalancerResponse = Text
 
-    fromList = ApplySecurityGroupsToLoadBalancerOutput . fromList
-    toList   = toList . _asgtlboSecurityGroups
+    fromList = ApplySecurityGroupsToLoadBalancerResponse . fromList
+    toList   = toList . _asgtlbrSecurityGroups
 
--- | 'ApplySecurityGroupsToLoadBalancerOutput' constructor.
+-- | 'ApplySecurityGroupsToLoadBalancerResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asgtlboSecurityGroups' @::@ ['Text']
+-- * 'asgtlbrSecurityGroups' @::@ ['Text']
 --
-applySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerOutput
-applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerOutput
-    { _asgtlboSecurityGroups = mempty
+applySecurityGroupsToLoadBalancerResponse :: ApplySecurityGroupsToLoadBalancerResponse
+applySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse
+    { _asgtlbrSecurityGroups = mempty
     }
 
 -- | A list of security group IDs associated with your load balancer.
-asgtlboSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerOutput [Text]
-asgtlboSecurityGroups =
-    lens _asgtlboSecurityGroups (\s a -> s { _asgtlboSecurityGroups = a })
+asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
+asgtlbrSecurityGroups =
+    lens _asgtlbrSecurityGroups (\s a -> s { _asgtlbrSecurityGroups = a })
 
-instance FromXML ApplySecurityGroupsToLoadBalancerOutput where
+instance FromXML ApplySecurityGroupsToLoadBalancerResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ApplySecurityGroupsToLoadBalancerOutput"
+    fromXMLRoot    = fromRoot "ApplySecurityGroupsToLoadBalancerResponse"
 
-instance AWSRequest ApplySecurityGroupsToLoadBalancerInput where
-    type Sv ApplySecurityGroupsToLoadBalancerInput = ELB
-    type Rs ApplySecurityGroupsToLoadBalancerInput = ApplySecurityGroupsToLoadBalancerOutput
+instance AWSRequest ApplySecurityGroupsToLoadBalancer where
+    type Sv ApplySecurityGroupsToLoadBalancer = ELB
+    type Rs ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancerResponse
 
     request  = post "ApplySecurityGroupsToLoadBalancer"
-    response = xmlResponse $ \h x -> ApplySecurityGroupsToLoadBalancerOutput
+    response = xmlResponse $ \h x -> ApplySecurityGroupsToLoadBalancerResponse
         <$> x %| "SecurityGroups"

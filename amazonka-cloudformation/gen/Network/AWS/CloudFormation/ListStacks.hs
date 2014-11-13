@@ -28,102 +28,102 @@
 module Network.AWS.CloudFormation.ListStacks
     (
     -- * Request
-      ListStacksInput
+      ListStacks
     -- ** Request constructor
     , listStacks
     -- ** Request lenses
-    , lsiNextToken
-    , lsiStackStatusFilter
+    , lsNextToken
+    , lsStackStatusFilter
 
     -- * Response
-    , ListStacksOutput
+    , ListStacksResponse
     -- ** Response constructor
     , listStacksResponse
     -- ** Response lenses
-    , lsoNextToken
-    , lsoStackSummaries
+    , lsr1NextToken
+    , lsr1StackSummaries
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.CloudFormation.Types
 
-data ListStacksInput = ListStacksInput
-    { _lsiNextToken         :: Maybe Text
-    , _lsiStackStatusFilter :: [Text]
+data ListStacks = ListStacks
+    { _lsNextToken         :: Maybe Text
+    , _lsStackStatusFilter :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ListStacksInput' constructor.
+-- | 'ListStacks' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsiNextToken' @::@ 'Maybe' 'Text'
+-- * 'lsNextToken' @::@ 'Maybe' 'Text'
 --
--- * 'lsiStackStatusFilter' @::@ ['Text']
+-- * 'lsStackStatusFilter' @::@ ['Text']
 --
-listStacks :: ListStacksInput
-listStacks = ListStacksInput
-    { _lsiNextToken         = Nothing
-    , _lsiStackStatusFilter = mempty
+listStacks :: ListStacks
+listStacks = ListStacks
+    { _lsNextToken         = Nothing
+    , _lsStackStatusFilter = mempty
     }
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one. Default: There is no default value.
-lsiNextToken :: Lens' ListStacksInput (Maybe Text)
-lsiNextToken = lens _lsiNextToken (\s a -> s { _lsiNextToken = a })
+lsNextToken :: Lens' ListStacks (Maybe Text)
+lsNextToken = lens _lsNextToken (\s a -> s { _lsNextToken = a })
 
 -- | Stack status to use as a filter. Specify one or more stack status codes
 -- to list only stacks with the specified status codes. For a complete list
 -- of stack status codes, see the StackStatus parameter of the Stack data
 -- type.
-lsiStackStatusFilter :: Lens' ListStacksInput [Text]
-lsiStackStatusFilter =
-    lens _lsiStackStatusFilter (\s a -> s { _lsiStackStatusFilter = a })
+lsStackStatusFilter :: Lens' ListStacks [Text]
+lsStackStatusFilter =
+    lens _lsStackStatusFilter (\s a -> s { _lsStackStatusFilter = a })
 
-instance ToQuery ListStacksInput
+instance ToQuery ListStacks
 
-instance ToPath ListStacksInput where
+instance ToPath ListStacks where
     toPath = const "/"
 
-data ListStacksOutput = ListStacksOutput
-    { _lsoNextToken      :: Maybe Text
-    , _lsoStackSummaries :: [StackSummary]
+data ListStacksResponse = ListStacksResponse
+    { _lsr1NextToken      :: Maybe Text
+    , _lsr1StackSummaries :: [StackSummary]
     } deriving (Eq, Show, Generic)
 
--- | 'ListStacksOutput' constructor.
+-- | 'ListStacksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsoNextToken' @::@ 'Maybe' 'Text'
+-- * 'lsr1NextToken' @::@ 'Maybe' 'Text'
 --
--- * 'lsoStackSummaries' @::@ ['StackSummary']
+-- * 'lsr1StackSummaries' @::@ ['StackSummary']
 --
-listStacksResponse :: ListStacksOutput
-listStacksResponse = ListStacksOutput
-    { _lsoStackSummaries = mempty
-    , _lsoNextToken      = Nothing
+listStacksResponse :: ListStacksResponse
+listStacksResponse = ListStacksResponse
+    { _lsr1StackSummaries = mempty
+    , _lsr1NextToken      = Nothing
     }
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-lsoNextToken :: Lens' ListStacksOutput (Maybe Text)
-lsoNextToken = lens _lsoNextToken (\s a -> s { _lsoNextToken = a })
+lsr1NextToken :: Lens' ListStacksResponse (Maybe Text)
+lsr1NextToken = lens _lsr1NextToken (\s a -> s { _lsr1NextToken = a })
 
 -- | A list of StackSummary structures containing information about the
 -- specified stacks.
-lsoStackSummaries :: Lens' ListStacksOutput [StackSummary]
-lsoStackSummaries =
-    lens _lsoStackSummaries (\s a -> s { _lsoStackSummaries = a })
+lsr1StackSummaries :: Lens' ListStacksResponse [StackSummary]
+lsr1StackSummaries =
+    lens _lsr1StackSummaries (\s a -> s { _lsr1StackSummaries = a })
 
-instance FromXML ListStacksOutput where
+instance FromXML ListStacksResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListStacksOutput"
+    fromXMLRoot    = fromRoot "ListStacksResponse"
 
-instance AWSRequest ListStacksInput where
-    type Sv ListStacksInput = CloudFormation
-    type Rs ListStacksInput = ListStacksOutput
+instance AWSRequest ListStacks where
+    type Sv ListStacks = CloudFormation
+    type Rs ListStacks = ListStacksResponse
 
     request  = post "ListStacks"
-    response = xmlResponse $ \h x -> ListStacksOutput
+    response = xmlResponse $ \h x -> ListStacksResponse
         <$> x %| "NextToken"
         <*> x %| "StackSummaries"

@@ -25,13 +25,13 @@
 module Network.AWS.SNS.SetSubscriptionAttributes
     (
     -- * Request
-      SetSubscriptionAttributesInput
+      SetSubscriptionAttributes
     -- ** Request constructor
     , setSubscriptionAttributes
     -- ** Request lenses
-    , ssaiAttributeName
-    , ssaiAttributeValue
-    , ssaiSubscriptionArn
+    , ssaAttributeName
+    , ssaAttributeValue
+    , ssaSubscriptionArn
 
     -- * Response
     , SetSubscriptionAttributesResponse
@@ -43,51 +43,50 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.SNS.Types
 
-data SetSubscriptionAttributesInput = SetSubscriptionAttributesInput
-    { _ssaiAttributeName   :: Text
-    , _ssaiAttributeValue  :: Maybe Text
-    , _ssaiSubscriptionArn :: Text
+data SetSubscriptionAttributes = SetSubscriptionAttributes
+    { _ssaAttributeName   :: Text
+    , _ssaAttributeValue  :: Maybe Text
+    , _ssaSubscriptionArn :: Text
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'SetSubscriptionAttributesInput' constructor.
+-- | 'SetSubscriptionAttributes' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ssaiAttributeName' @::@ 'Text'
+-- * 'ssaAttributeName' @::@ 'Text'
 --
--- * 'ssaiAttributeValue' @::@ 'Maybe' 'Text'
+-- * 'ssaAttributeValue' @::@ 'Maybe' 'Text'
 --
--- * 'ssaiSubscriptionArn' @::@ 'Text'
+-- * 'ssaSubscriptionArn' @::@ 'Text'
 --
-setSubscriptionAttributes :: Text -- ^ 'ssaiSubscriptionArn'
-                          -> Text -- ^ 'ssaiAttributeName'
-                          -> SetSubscriptionAttributesInput
-setSubscriptionAttributes p1 p2 = SetSubscriptionAttributesInput
-    { _ssaiSubscriptionArn = p1
-    , _ssaiAttributeName   = p2
-    , _ssaiAttributeValue  = Nothing
+setSubscriptionAttributes :: Text -- ^ 'ssaSubscriptionArn'
+                          -> Text -- ^ 'ssaAttributeName'
+                          -> SetSubscriptionAttributes
+setSubscriptionAttributes p1 p2 = SetSubscriptionAttributes
+    { _ssaSubscriptionArn = p1
+    , _ssaAttributeName   = p2
+    , _ssaAttributeValue  = Nothing
     }
 
 -- | The name of the attribute you want to set. Only a subset of the
 -- subscriptions attributes are mutable. Valid values: DeliveryPolicy |
 -- RawMessageDelivery.
-ssaiAttributeName :: Lens' SetSubscriptionAttributesInput Text
-ssaiAttributeName =
-    lens _ssaiAttributeName (\s a -> s { _ssaiAttributeName = a })
+ssaAttributeName :: Lens' SetSubscriptionAttributes Text
+ssaAttributeName = lens _ssaAttributeName (\s a -> s { _ssaAttributeName = a })
 
 -- | The new value for the attribute in JSON format.
-ssaiAttributeValue :: Lens' SetSubscriptionAttributesInput (Maybe Text)
-ssaiAttributeValue =
-    lens _ssaiAttributeValue (\s a -> s { _ssaiAttributeValue = a })
+ssaAttributeValue :: Lens' SetSubscriptionAttributes (Maybe Text)
+ssaAttributeValue =
+    lens _ssaAttributeValue (\s a -> s { _ssaAttributeValue = a })
 
 -- | The ARN of the subscription to modify.
-ssaiSubscriptionArn :: Lens' SetSubscriptionAttributesInput Text
-ssaiSubscriptionArn =
-    lens _ssaiSubscriptionArn (\s a -> s { _ssaiSubscriptionArn = a })
+ssaSubscriptionArn :: Lens' SetSubscriptionAttributes Text
+ssaSubscriptionArn =
+    lens _ssaSubscriptionArn (\s a -> s { _ssaSubscriptionArn = a })
 
-instance ToQuery SetSubscriptionAttributesInput
+instance ToQuery SetSubscriptionAttributes
 
-instance ToPath SetSubscriptionAttributesInput where
+instance ToPath SetSubscriptionAttributes where
     toPath = const "/"
 
 data SetSubscriptionAttributesResponse = SetSubscriptionAttributesResponse
@@ -101,9 +100,9 @@ instance FromXML SetSubscriptionAttributesResponse where
     fromXMLOptions = xmlOptions
     fromXMLRoot    = fromRoot "SetSubscriptionAttributesResponse"
 
-instance AWSRequest SetSubscriptionAttributesInput where
-    type Sv SetSubscriptionAttributesInput = SNS
-    type Rs SetSubscriptionAttributesInput = SetSubscriptionAttributesResponse
+instance AWSRequest SetSubscriptionAttributes where
+    type Sv SetSubscriptionAttributes = SNS
+    type Rs SetSubscriptionAttributes = SetSubscriptionAttributesResponse
 
     request  = post "SetSubscriptionAttributes"
     response = nullaryResponse SetSubscriptionAttributesResponse

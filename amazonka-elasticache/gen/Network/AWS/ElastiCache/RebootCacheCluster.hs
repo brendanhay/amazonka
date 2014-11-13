@@ -30,15 +30,15 @@
 module Network.AWS.ElastiCache.RebootCacheCluster
     (
     -- * Request
-      RebootCacheClusterMessage
+      RebootCacheCluster
     -- ** Request constructor
     , rebootCacheCluster
     -- ** Request lenses
-    , rccmCacheClusterId
-    , rccmCacheNodeIdsToReboot
+    , rccCacheClusterId
+    , rccCacheNodeIdsToReboot
 
     -- * Response
-    , RebootCacheClusterResult
+    , RebootCacheClusterResponse
     -- ** Response constructor
     , rebootCacheClusterResponse
     -- ** Response lenses
@@ -49,71 +49,70 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-data RebootCacheClusterMessage = RebootCacheClusterMessage
-    { _rccmCacheClusterId       :: Text
-    , _rccmCacheNodeIdsToReboot :: [Text]
+data RebootCacheCluster = RebootCacheCluster
+    { _rccCacheClusterId       :: Text
+    , _rccCacheNodeIdsToReboot :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'RebootCacheClusterMessage' constructor.
+-- | 'RebootCacheCluster' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rccmCacheClusterId' @::@ 'Text'
+-- * 'rccCacheClusterId' @::@ 'Text'
 --
--- * 'rccmCacheNodeIdsToReboot' @::@ ['Text']
+-- * 'rccCacheNodeIdsToReboot' @::@ ['Text']
 --
-rebootCacheCluster :: Text -- ^ 'rccmCacheClusterId'
-                   -> RebootCacheClusterMessage
-rebootCacheCluster p1 = RebootCacheClusterMessage
-    { _rccmCacheClusterId       = p1
-    , _rccmCacheNodeIdsToReboot = mempty
+rebootCacheCluster :: Text -- ^ 'rccCacheClusterId'
+                   -> RebootCacheCluster
+rebootCacheCluster p1 = RebootCacheCluster
+    { _rccCacheClusterId       = p1
+    , _rccCacheNodeIdsToReboot = mempty
     }
 
 -- | The cache cluster identifier. This parameter is stored as a lowercase
 -- string.
-rccmCacheClusterId :: Lens' RebootCacheClusterMessage Text
-rccmCacheClusterId =
-    lens _rccmCacheClusterId (\s a -> s { _rccmCacheClusterId = a })
+rccCacheClusterId :: Lens' RebootCacheCluster Text
+rccCacheClusterId =
+    lens _rccCacheClusterId (\s a -> s { _rccCacheClusterId = a })
 
 -- | A list of cache node IDs to reboot. A node ID is a numeric identifier
 -- (0001, 0002, etc.). To reboot an entire cache cluster, specify all of the
 -- cache node IDs.
-rccmCacheNodeIdsToReboot :: Lens' RebootCacheClusterMessage [Text]
-rccmCacheNodeIdsToReboot =
-    lens _rccmCacheNodeIdsToReboot
-        (\s a -> s { _rccmCacheNodeIdsToReboot = a })
+rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
+rccCacheNodeIdsToReboot =
+    lens _rccCacheNodeIdsToReboot (\s a -> s { _rccCacheNodeIdsToReboot = a })
 
-instance ToQuery RebootCacheClusterMessage
+instance ToQuery RebootCacheCluster
 
-instance ToPath RebootCacheClusterMessage where
+instance ToPath RebootCacheCluster where
     toPath = const "/"
 
-newtype RebootCacheClusterResult = RebootCacheClusterResult
+newtype RebootCacheClusterResponse = RebootCacheClusterResponse
     { _rccrCacheCluster :: Maybe CacheCluster
     } deriving (Eq, Show, Generic)
 
--- | 'RebootCacheClusterResult' constructor.
+-- | 'RebootCacheClusterResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rccrCacheCluster' @::@ 'Maybe' 'CacheCluster'
 --
-rebootCacheClusterResponse :: RebootCacheClusterResult
-rebootCacheClusterResponse = RebootCacheClusterResult
+rebootCacheClusterResponse :: RebootCacheClusterResponse
+rebootCacheClusterResponse = RebootCacheClusterResponse
     { _rccrCacheCluster = Nothing
     }
 
-rccrCacheCluster :: Lens' RebootCacheClusterResult (Maybe CacheCluster)
+rccrCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
 rccrCacheCluster = lens _rccrCacheCluster (\s a -> s { _rccrCacheCluster = a })
 
-instance FromXML RebootCacheClusterResult where
+instance FromXML RebootCacheClusterResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "RebootCacheClusterResult"
+    fromXMLRoot    = fromRoot "RebootCacheClusterResponse"
 
-instance AWSRequest RebootCacheClusterMessage where
-    type Sv RebootCacheClusterMessage = ElastiCache
-    type Rs RebootCacheClusterMessage = RebootCacheClusterResult
+instance AWSRequest RebootCacheCluster where
+    type Sv RebootCacheCluster = ElastiCache
+    type Rs RebootCacheCluster = RebootCacheClusterResponse
 
     request  = post "RebootCacheCluster"
-    response = xmlResponse $ \h x -> RebootCacheClusterResult
+    response = xmlResponse $ \h x -> RebootCacheClusterResponse
         <$> x %| "CacheCluster"

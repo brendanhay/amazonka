@@ -39,7 +39,7 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
     , rrtaRouteTableId
 
     -- * Response
-    , ReplaceRouteTableAssociationResult
+    , ReplaceRouteTableAssociationResponse
     -- ** Response constructor
     , replaceRouteTableAssociationResponse
     -- ** Response lenses
@@ -92,34 +92,34 @@ instance ToQuery ReplaceRouteTableAssociation
 instance ToPath ReplaceRouteTableAssociation where
     toPath = const "/"
 
-newtype ReplaceRouteTableAssociationResult = ReplaceRouteTableAssociationResult
+newtype ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
     { _rrtarNewAssociationId :: Maybe Text
     } deriving (Eq, Ord, Show, Generic, Monoid)
 
--- | 'ReplaceRouteTableAssociationResult' constructor.
+-- | 'ReplaceRouteTableAssociationResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'rrtarNewAssociationId' @::@ 'Maybe' 'Text'
 --
-replaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResult
-replaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResult
+replaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResponse
+replaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse
     { _rrtarNewAssociationId = Nothing
     }
 
 -- | The ID of the new association.
-rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResult (Maybe Text)
+rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
 rrtarNewAssociationId =
     lens _rrtarNewAssociationId (\s a -> s { _rrtarNewAssociationId = a })
 
-instance FromXML ReplaceRouteTableAssociationResult where
+instance FromXML ReplaceRouteTableAssociationResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ReplaceRouteTableAssociationResult"
+    fromXMLRoot    = fromRoot "ReplaceRouteTableAssociationResponse"
 
 instance AWSRequest ReplaceRouteTableAssociation where
     type Sv ReplaceRouteTableAssociation = EC2
-    type Rs ReplaceRouteTableAssociation = ReplaceRouteTableAssociationResult
+    type Rs ReplaceRouteTableAssociation = ReplaceRouteTableAssociationResponse
 
     request  = post "ReplaceRouteTableAssociation"
-    response = xmlResponse $ \h x -> ReplaceRouteTableAssociationResult
+    response = xmlResponse $ \h x -> ReplaceRouteTableAssociationResponse
         <$> x %| "newAssociationId"

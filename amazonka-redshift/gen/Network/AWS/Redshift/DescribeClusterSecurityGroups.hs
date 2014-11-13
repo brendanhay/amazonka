@@ -28,58 +28,58 @@
 module Network.AWS.Redshift.DescribeClusterSecurityGroups
     (
     -- * Request
-      DescribeClusterSecurityGroupsMessage
+      DescribeClusterSecurityGroups
     -- ** Request constructor
     , describeClusterSecurityGroups
     -- ** Request lenses
-    , dcsgm2ClusterSecurityGroupName
-    , dcsgm2Marker
-    , dcsgm2MaxRecords
+    , dcsgClusterSecurityGroupName
+    , dcsgMarker
+    , dcsgMaxRecords
 
     -- * Response
-    , ClusterSecurityGroupMessage
+    , DescribeClusterSecurityGroupsResponse
     -- ** Response constructor
     , describeClusterSecurityGroupsResponse
     -- ** Response lenses
-    , csgm1ClusterSecurityGroups
-    , csgm1Marker
+    , dcsgr1ClusterSecurityGroups
+    , dcsgr1Marker
     ) where
 
 import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.Redshift.Types
 
-data DescribeClusterSecurityGroupsMessage = DescribeClusterSecurityGroupsMessage
-    { _dcsgm2ClusterSecurityGroupName :: Maybe Text
-    , _dcsgm2Marker                   :: Maybe Text
-    , _dcsgm2MaxRecords               :: Maybe Int
+data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups
+    { _dcsgClusterSecurityGroupName :: Maybe Text
+    , _dcsgMarker                   :: Maybe Text
+    , _dcsgMaxRecords               :: Maybe Int
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'DescribeClusterSecurityGroupsMessage' constructor.
+-- | 'DescribeClusterSecurityGroups' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgm2ClusterSecurityGroupName' @::@ 'Maybe' 'Text'
+-- * 'dcsgClusterSecurityGroupName' @::@ 'Maybe' 'Text'
 --
--- * 'dcsgm2Marker' @::@ 'Maybe' 'Text'
+-- * 'dcsgMarker' @::@ 'Maybe' 'Text'
 --
--- * 'dcsgm2MaxRecords' @::@ 'Maybe' 'Int'
+-- * 'dcsgMaxRecords' @::@ 'Maybe' 'Int'
 --
-describeClusterSecurityGroups :: DescribeClusterSecurityGroupsMessage
-describeClusterSecurityGroups = DescribeClusterSecurityGroupsMessage
-    { _dcsgm2ClusterSecurityGroupName = Nothing
-    , _dcsgm2MaxRecords               = Nothing
-    , _dcsgm2Marker                   = Nothing
+describeClusterSecurityGroups :: DescribeClusterSecurityGroups
+describeClusterSecurityGroups = DescribeClusterSecurityGroups
+    { _dcsgClusterSecurityGroupName = Nothing
+    , _dcsgMaxRecords               = Nothing
+    , _dcsgMarker                   = Nothing
     }
 
 -- | The name of a cluster security group for which you are requesting
 -- details. You can specify either the Marker parameter or a
 -- ClusterSecurityGroupName parameter, but not both. Example:
 -- securitygroup1.
-dcsgm2ClusterSecurityGroupName :: Lens' DescribeClusterSecurityGroupsMessage (Maybe Text)
-dcsgm2ClusterSecurityGroupName =
-    lens _dcsgm2ClusterSecurityGroupName
-        (\s a -> s { _dcsgm2ClusterSecurityGroupName = a })
+dcsgClusterSecurityGroupName :: Lens' DescribeClusterSecurityGroups (Maybe Text)
+dcsgClusterSecurityGroupName =
+    lens _dcsgClusterSecurityGroupName
+        (\s a -> s { _dcsgClusterSecurityGroupName = a })
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusterSecurityGroups
@@ -89,46 +89,46 @@ dcsgm2ClusterSecurityGroupName =
 -- parameter and retrying the request. Constraints: You can specify either
 -- the ClusterSecurityGroupName parameter or the Marker parameter, but not
 -- both.
-dcsgm2Marker :: Lens' DescribeClusterSecurityGroupsMessage (Maybe Text)
-dcsgm2Marker = lens _dcsgm2Marker (\s a -> s { _dcsgm2Marker = a })
+dcsgMarker :: Lens' DescribeClusterSecurityGroups (Maybe Text)
+dcsgMarker = lens _dcsgMarker (\s a -> s { _dcsgMarker = a })
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified MaxRecords
 -- value, a value is returned in a marker field of the response. You can
 -- retrieve the next set of records by retrying the command with the
 -- returned marker value. Default: 100 Constraints: minimum 20, maximum 100.
-dcsgm2MaxRecords :: Lens' DescribeClusterSecurityGroupsMessage (Maybe Int)
-dcsgm2MaxRecords = lens _dcsgm2MaxRecords (\s a -> s { _dcsgm2MaxRecords = a })
+dcsgMaxRecords :: Lens' DescribeClusterSecurityGroups (Maybe Int)
+dcsgMaxRecords = lens _dcsgMaxRecords (\s a -> s { _dcsgMaxRecords = a })
 
-instance ToQuery DescribeClusterSecurityGroupsMessage
+instance ToQuery DescribeClusterSecurityGroups
 
-instance ToPath DescribeClusterSecurityGroupsMessage where
+instance ToPath DescribeClusterSecurityGroups where
     toPath = const "/"
 
-data ClusterSecurityGroupMessage = ClusterSecurityGroupMessage
-    { _csgm1ClusterSecurityGroups :: [ClusterSecurityGroup]
-    , _csgm1Marker                :: Maybe Text
+data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
+    { _dcsgr1ClusterSecurityGroups :: [ClusterSecurityGroup]
+    , _dcsgr1Marker                :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'ClusterSecurityGroupMessage' constructor.
+-- | 'DescribeClusterSecurityGroupsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csgm1ClusterSecurityGroups' @::@ ['ClusterSecurityGroup']
+-- * 'dcsgr1ClusterSecurityGroups' @::@ ['ClusterSecurityGroup']
 --
--- * 'csgm1Marker' @::@ 'Maybe' 'Text'
+-- * 'dcsgr1Marker' @::@ 'Maybe' 'Text'
 --
-describeClusterSecurityGroupsResponse :: ClusterSecurityGroupMessage
-describeClusterSecurityGroupsResponse = ClusterSecurityGroupMessage
-    { _csgm1Marker                = Nothing
-    , _csgm1ClusterSecurityGroups = mempty
+describeClusterSecurityGroupsResponse :: DescribeClusterSecurityGroupsResponse
+describeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse
+    { _dcsgr1Marker                = Nothing
+    , _dcsgr1ClusterSecurityGroups = mempty
     }
 
 -- | A list of ClusterSecurityGroup instances.
-csgm1ClusterSecurityGroups :: Lens' ClusterSecurityGroupMessage [ClusterSecurityGroup]
-csgm1ClusterSecurityGroups =
-    lens _csgm1ClusterSecurityGroups
-        (\s a -> s { _csgm1ClusterSecurityGroups = a })
+dcsgr1ClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
+dcsgr1ClusterSecurityGroups =
+    lens _dcsgr1ClusterSecurityGroups
+        (\s a -> s { _dcsgr1ClusterSecurityGroups = a })
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -136,18 +136,18 @@ csgm1ClusterSecurityGroups =
 -- marker value in the Marker parameter and retrying the command. If the
 -- Marker field is empty, all response records have been retrieved for the
 -- request.
-csgm1Marker :: Lens' ClusterSecurityGroupMessage (Maybe Text)
-csgm1Marker = lens _csgm1Marker (\s a -> s { _csgm1Marker = a })
+dcsgr1Marker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
+dcsgr1Marker = lens _dcsgr1Marker (\s a -> s { _dcsgr1Marker = a })
 
-instance FromXML ClusterSecurityGroupMessage where
+instance FromXML DescribeClusterSecurityGroupsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ClusterSecurityGroupMessage"
+    fromXMLRoot    = fromRoot "DescribeClusterSecurityGroupsResponse"
 
-instance AWSRequest DescribeClusterSecurityGroupsMessage where
-    type Sv DescribeClusterSecurityGroupsMessage = Redshift
-    type Rs DescribeClusterSecurityGroupsMessage = ClusterSecurityGroupMessage
+instance AWSRequest DescribeClusterSecurityGroups where
+    type Sv DescribeClusterSecurityGroups = Redshift
+    type Rs DescribeClusterSecurityGroups = DescribeClusterSecurityGroupsResponse
 
     request  = post "DescribeClusterSecurityGroups"
-    response = xmlResponse $ \h x -> ClusterSecurityGroupMessage
+    response = xmlResponse $ \h x -> DescribeClusterSecurityGroupsResponse
         <$> x %| "ClusterSecurityGroups"
         <*> x %| "Marker"

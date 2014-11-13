@@ -55,7 +55,7 @@ module Network.AWS.EC2.CreateDhcpOptions
     , cdoDryRun
 
     -- * Response
-    , CreateDhcpOptionsResult
+    , CreateDhcpOptionsResponse
     -- ** Response constructor
     , createDhcpOptionsResponse
     -- ** Response lenses
@@ -98,33 +98,33 @@ instance ToQuery CreateDhcpOptions
 instance ToPath CreateDhcpOptions where
     toPath = const "/"
 
-newtype CreateDhcpOptionsResult = CreateDhcpOptionsResult
+newtype CreateDhcpOptionsResponse = CreateDhcpOptionsResponse
     { _cdorDhcpOptions :: Maybe DhcpOptions
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDhcpOptionsResult' constructor.
+-- | 'CreateDhcpOptionsResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdorDhcpOptions' @::@ 'Maybe' 'DhcpOptions'
 --
-createDhcpOptionsResponse :: CreateDhcpOptionsResult
-createDhcpOptionsResponse = CreateDhcpOptionsResult
+createDhcpOptionsResponse :: CreateDhcpOptionsResponse
+createDhcpOptionsResponse = CreateDhcpOptionsResponse
     { _cdorDhcpOptions = Nothing
     }
 
 -- | A set of DHCP options.
-cdorDhcpOptions :: Lens' CreateDhcpOptionsResult (Maybe DhcpOptions)
+cdorDhcpOptions :: Lens' CreateDhcpOptionsResponse (Maybe DhcpOptions)
 cdorDhcpOptions = lens _cdorDhcpOptions (\s a -> s { _cdorDhcpOptions = a })
 
-instance FromXML CreateDhcpOptionsResult where
+instance FromXML CreateDhcpOptionsResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDhcpOptionsResult"
+    fromXMLRoot    = fromRoot "CreateDhcpOptionsResponse"
 
 instance AWSRequest CreateDhcpOptions where
     type Sv CreateDhcpOptions = EC2
-    type Rs CreateDhcpOptions = CreateDhcpOptionsResult
+    type Rs CreateDhcpOptions = CreateDhcpOptionsResponse
 
     request  = post "CreateDhcpOptions"
-    response = xmlResponse $ \h x -> CreateDhcpOptionsResult
+    response = xmlResponse $ \h x -> CreateDhcpOptionsResponse
         <$> x %| "dhcpOptions"

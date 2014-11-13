@@ -29,12 +29,12 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     , listAvailableSolutionStacks
 
     -- * Response
-    , ListAvailableSolutionStacksResultMessage
+    , ListAvailableSolutionStacksResponse
     -- ** Response constructor
     , listAvailableSolutionStacksResponse
     -- ** Response lenses
-    , lassrmSolutionStackDetails
-    , lassrmSolutionStacks
+    , lassrSolutionStackDetails
+    , lassrSolutionStacks
     ) where
 
 import Network.AWS.Prelude
@@ -53,45 +53,45 @@ instance ToQuery ListAvailableSolutionStacks
 instance ToPath ListAvailableSolutionStacks where
     toPath = const "/"
 
-data ListAvailableSolutionStacksResultMessage = ListAvailableSolutionStacksResultMessage
-    { _lassrmSolutionStackDetails :: [SolutionStackDescription]
-    , _lassrmSolutionStacks       :: [Text]
+data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
+    { _lassrSolutionStackDetails :: [SolutionStackDescription]
+    , _lassrSolutionStacks       :: [Text]
     } deriving (Eq, Show, Generic)
 
--- | 'ListAvailableSolutionStacksResultMessage' constructor.
+-- | 'ListAvailableSolutionStacksResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lassrmSolutionStackDetails' @::@ ['SolutionStackDescription']
+-- * 'lassrSolutionStackDetails' @::@ ['SolutionStackDescription']
 --
--- * 'lassrmSolutionStacks' @::@ ['Text']
+-- * 'lassrSolutionStacks' @::@ ['Text']
 --
-listAvailableSolutionStacksResponse :: ListAvailableSolutionStacksResultMessage
-listAvailableSolutionStacksResponse = ListAvailableSolutionStacksResultMessage
-    { _lassrmSolutionStacks       = mempty
-    , _lassrmSolutionStackDetails = mempty
+listAvailableSolutionStacksResponse :: ListAvailableSolutionStacksResponse
+listAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse
+    { _lassrSolutionStacks       = mempty
+    , _lassrSolutionStackDetails = mempty
     }
 
 -- | A list of available solution stacks and their SolutionStackDescription.
-lassrmSolutionStackDetails :: Lens' ListAvailableSolutionStacksResultMessage [SolutionStackDescription]
-lassrmSolutionStackDetails =
-    lens _lassrmSolutionStackDetails
-        (\s a -> s { _lassrmSolutionStackDetails = a })
+lassrSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
+lassrSolutionStackDetails =
+    lens _lassrSolutionStackDetails
+        (\s a -> s { _lassrSolutionStackDetails = a })
 
 -- | A list of available solution stacks.
-lassrmSolutionStacks :: Lens' ListAvailableSolutionStacksResultMessage [Text]
-lassrmSolutionStacks =
-    lens _lassrmSolutionStacks (\s a -> s { _lassrmSolutionStacks = a })
+lassrSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
+lassrSolutionStacks =
+    lens _lassrSolutionStacks (\s a -> s { _lassrSolutionStacks = a })
 
-instance FromXML ListAvailableSolutionStacksResultMessage where
+instance FromXML ListAvailableSolutionStacksResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ListAvailableSolutionStacksResultMessage"
+    fromXMLRoot    = fromRoot "ListAvailableSolutionStacksResponse"
 
 instance AWSRequest ListAvailableSolutionStacks where
     type Sv ListAvailableSolutionStacks = ElasticBeanstalk
-    type Rs ListAvailableSolutionStacks = ListAvailableSolutionStacksResultMessage
+    type Rs ListAvailableSolutionStacks = ListAvailableSolutionStacksResponse
 
     request  = post "ListAvailableSolutionStacks"
-    response = xmlResponse $ \h x -> ListAvailableSolutionStacksResultMessage
+    response = xmlResponse $ \h x -> ListAvailableSolutionStacksResponse
         <$> x %| "SolutionStackDetails"
         <*> x %| "SolutionStacks"

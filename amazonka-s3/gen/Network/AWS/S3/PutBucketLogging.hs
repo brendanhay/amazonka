@@ -30,9 +30,9 @@ module Network.AWS.S3.PutBucketLogging
     -- ** Request constructor
     , putBucketLogging
     -- ** Request lenses
-    , pbl1Bucket
-    , pbl1BucketLoggingStatus
-    , pbl1ContentMD5
+    , pblBucket
+    , pblBucketLoggingStatus
+    , pblContentMD5
 
     -- * Response
     , PutBucketLoggingResponse
@@ -45,44 +45,44 @@ import Network.AWS.Request
 import Network.AWS.S3.Types
 
 data PutBucketLogging = PutBucketLogging
-    { _pbl1Bucket              :: Text
-    , _pbl1BucketLoggingStatus :: BucketLoggingStatus
-    , _pbl1ContentMD5          :: Maybe Text
+    { _pblBucket              :: Text
+    , _pblBucketLoggingStatus :: BucketLoggingStatus
+    , _pblContentMD5          :: Maybe Text
     } deriving (Eq, Show, Generic)
 
 -- | 'PutBucketLogging' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbl1Bucket' @::@ 'Text'
+-- * 'pblBucket' @::@ 'Text'
 --
--- * 'pbl1BucketLoggingStatus' @::@ 'BucketLoggingStatus'
+-- * 'pblBucketLoggingStatus' @::@ 'BucketLoggingStatus'
 --
--- * 'pbl1ContentMD5' @::@ 'Maybe' 'Text'
+-- * 'pblContentMD5' @::@ 'Maybe' 'Text'
 --
-putBucketLogging :: Text -- ^ 'pbl1Bucket'
-                 -> BucketLoggingStatus -- ^ 'pbl1BucketLoggingStatus'
+putBucketLogging :: Text -- ^ 'pblBucket'
+                 -> BucketLoggingStatus -- ^ 'pblBucketLoggingStatus'
                  -> PutBucketLogging
 putBucketLogging p1 p2 = PutBucketLogging
-    { _pbl1Bucket              = p1
-    , _pbl1BucketLoggingStatus = p2
-    , _pbl1ContentMD5          = Nothing
+    { _pblBucket              = p1
+    , _pblBucketLoggingStatus = p2
+    , _pblContentMD5          = Nothing
     }
 
-pbl1Bucket :: Lens' PutBucketLogging Text
-pbl1Bucket = lens _pbl1Bucket (\s a -> s { _pbl1Bucket = a })
+pblBucket :: Lens' PutBucketLogging Text
+pblBucket = lens _pblBucket (\s a -> s { _pblBucket = a })
 
-pbl1BucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
-pbl1BucketLoggingStatus =
-    lens _pbl1BucketLoggingStatus (\s a -> s { _pbl1BucketLoggingStatus = a })
+pblBucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
+pblBucketLoggingStatus =
+    lens _pblBucketLoggingStatus (\s a -> s { _pblBucketLoggingStatus = a })
 
-pbl1ContentMD5 :: Lens' PutBucketLogging (Maybe Text)
-pbl1ContentMD5 = lens _pbl1ContentMD5 (\s a -> s { _pbl1ContentMD5 = a })
+pblContentMD5 :: Lens' PutBucketLogging (Maybe Text)
+pblContentMD5 = lens _pblContentMD5 (\s a -> s { _pblContentMD5 = a })
 
 instance ToPath PutBucketLogging where
     toPath PutBucketLogging{..} = mconcat
         [ "/"
-        , toText _pbl1Bucket
+        , toText _pblBucket
         ]
 
 instance ToQuery PutBucketLogging where
@@ -90,11 +90,11 @@ instance ToQuery PutBucketLogging where
 
 instance ToHeaders PutBucketLogging where
     toHeaders PutBucketLogging{..} = mconcat
-        [ "Content-MD5" =: _pbl1ContentMD5
+        [ "Content-MD5" =: _pblContentMD5
         ]
 
 instance ToBody PutBucketLogging where
-    toBody = toBody . encodeXML . _pbl1BucketLoggingStatus
+    toBody = toBody . encodeXML . _pblBucketLoggingStatus
 
 data PutBucketLoggingResponse = PutBucketLoggingResponse
     deriving (Eq, Ord, Show, Generic)

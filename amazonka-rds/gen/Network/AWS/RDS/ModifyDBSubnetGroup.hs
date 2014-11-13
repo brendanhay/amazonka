@@ -25,16 +25,16 @@
 module Network.AWS.RDS.ModifyDBSubnetGroup
     (
     -- * Request
-      ModifyDBSubnetGroupMessage
+      ModifyDBSubnetGroup
     -- ** Request constructor
     , modifyDBSubnetGroup
     -- ** Request lenses
-    , mdbsgmDBSubnetGroupDescription
-    , mdbsgmDBSubnetGroupName
-    , mdbsgmSubnetIds
+    , mdbsgDBSubnetGroupDescription
+    , mdbsgDBSubnetGroupName
+    , mdbsgSubnetIds
 
     -- * Response
-    , ModifyDBSubnetGroupResult
+    , ModifyDBSubnetGroupResponse
     -- ** Response constructor
     , modifyDBSubnetGroupResponse
     -- ** Response lenses
@@ -45,79 +45,79 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-data ModifyDBSubnetGroupMessage = ModifyDBSubnetGroupMessage
-    { _mdbsgmDBSubnetGroupDescription :: Maybe Text
-    , _mdbsgmDBSubnetGroupName        :: Text
-    , _mdbsgmSubnetIds                :: [Text]
+data ModifyDBSubnetGroup = ModifyDBSubnetGroup
+    { _mdbsgDBSubnetGroupDescription :: Maybe Text
+    , _mdbsgDBSubnetGroupName        :: Text
+    , _mdbsgSubnetIds                :: [Text]
     } deriving (Eq, Ord, Show, Generic)
 
--- | 'ModifyDBSubnetGroupMessage' constructor.
+-- | 'ModifyDBSubnetGroup' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mdbsgmDBSubnetGroupDescription' @::@ 'Maybe' 'Text'
+-- * 'mdbsgDBSubnetGroupDescription' @::@ 'Maybe' 'Text'
 --
--- * 'mdbsgmDBSubnetGroupName' @::@ 'Text'
+-- * 'mdbsgDBSubnetGroupName' @::@ 'Text'
 --
--- * 'mdbsgmSubnetIds' @::@ ['Text']
+-- * 'mdbsgSubnetIds' @::@ ['Text']
 --
-modifyDBSubnetGroup :: Text -- ^ 'mdbsgmDBSubnetGroupName'
-                    -> ModifyDBSubnetGroupMessage
-modifyDBSubnetGroup p1 = ModifyDBSubnetGroupMessage
-    { _mdbsgmDBSubnetGroupName        = p1
-    , _mdbsgmDBSubnetGroupDescription = Nothing
-    , _mdbsgmSubnetIds                = mempty
+modifyDBSubnetGroup :: Text -- ^ 'mdbsgDBSubnetGroupName'
+                    -> ModifyDBSubnetGroup
+modifyDBSubnetGroup p1 = ModifyDBSubnetGroup
+    { _mdbsgDBSubnetGroupName        = p1
+    , _mdbsgDBSubnetGroupDescription = Nothing
+    , _mdbsgSubnetIds                = mempty
     }
 
 -- | The description for the DB subnet group.
-mdbsgmDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroupMessage (Maybe Text)
-mdbsgmDBSubnetGroupDescription =
-    lens _mdbsgmDBSubnetGroupDescription
-        (\s a -> s { _mdbsgmDBSubnetGroupDescription = a })
+mdbsgDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
+mdbsgDBSubnetGroupDescription =
+    lens _mdbsgDBSubnetGroupDescription
+        (\s a -> s { _mdbsgDBSubnetGroupDescription = a })
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string. Constraints: Must contain no more than 255 alphanumeric
 -- characters or hyphens. Must not be "Default". Example: mySubnetgroup.
-mdbsgmDBSubnetGroupName :: Lens' ModifyDBSubnetGroupMessage Text
-mdbsgmDBSubnetGroupName =
-    lens _mdbsgmDBSubnetGroupName (\s a -> s { _mdbsgmDBSubnetGroupName = a })
+mdbsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
+mdbsgDBSubnetGroupName =
+    lens _mdbsgDBSubnetGroupName (\s a -> s { _mdbsgDBSubnetGroupName = a })
 
 -- | The EC2 subnet IDs for the DB subnet group.
-mdbsgmSubnetIds :: Lens' ModifyDBSubnetGroupMessage [Text]
-mdbsgmSubnetIds = lens _mdbsgmSubnetIds (\s a -> s { _mdbsgmSubnetIds = a })
+mdbsgSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
+mdbsgSubnetIds = lens _mdbsgSubnetIds (\s a -> s { _mdbsgSubnetIds = a })
 
-instance ToQuery ModifyDBSubnetGroupMessage
+instance ToQuery ModifyDBSubnetGroup
 
-instance ToPath ModifyDBSubnetGroupMessage where
+instance ToPath ModifyDBSubnetGroup where
     toPath = const "/"
 
-newtype ModifyDBSubnetGroupResult = ModifyDBSubnetGroupResult
+newtype ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
     { _mdbsgrDBSubnetGroup :: Maybe DBSubnetGroup
     } deriving (Eq, Show, Generic)
 
--- | 'ModifyDBSubnetGroupResult' constructor.
+-- | 'ModifyDBSubnetGroupResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'mdbsgrDBSubnetGroup' @::@ 'Maybe' 'DBSubnetGroup'
 --
-modifyDBSubnetGroupResponse :: ModifyDBSubnetGroupResult
-modifyDBSubnetGroupResponse = ModifyDBSubnetGroupResult
+modifyDBSubnetGroupResponse :: ModifyDBSubnetGroupResponse
+modifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse
     { _mdbsgrDBSubnetGroup = Nothing
     }
 
-mdbsgrDBSubnetGroup :: Lens' ModifyDBSubnetGroupResult (Maybe DBSubnetGroup)
+mdbsgrDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
 mdbsgrDBSubnetGroup =
     lens _mdbsgrDBSubnetGroup (\s a -> s { _mdbsgrDBSubnetGroup = a })
 
-instance FromXML ModifyDBSubnetGroupResult where
+instance FromXML ModifyDBSubnetGroupResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "ModifyDBSubnetGroupResult"
+    fromXMLRoot    = fromRoot "ModifyDBSubnetGroupResponse"
 
-instance AWSRequest ModifyDBSubnetGroupMessage where
-    type Sv ModifyDBSubnetGroupMessage = RDS
-    type Rs ModifyDBSubnetGroupMessage = ModifyDBSubnetGroupResult
+instance AWSRequest ModifyDBSubnetGroup where
+    type Sv ModifyDBSubnetGroup = RDS
+    type Rs ModifyDBSubnetGroup = ModifyDBSubnetGroupResponse
 
     request  = post "ModifyDBSubnetGroup"
-    response = xmlResponse $ \h x -> ModifyDBSubnetGroupResult
+    response = xmlResponse $ \h x -> ModifyDBSubnetGroupResponse
         <$> x %| "DBSubnetGroup"

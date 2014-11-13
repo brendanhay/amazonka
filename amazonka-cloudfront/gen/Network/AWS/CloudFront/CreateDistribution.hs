@@ -24,14 +24,14 @@
 module Network.AWS.CloudFront.CreateDistribution
     (
     -- * Request
-      CreateDistribution
+      CreateDistribution2014_05_31
     -- ** Request constructor
     , createDistribution2014_05_31
     -- ** Request lenses
     , cdDistributionConfig
 
     -- * Response
-    , CreateDistributionResult
+    , CreateDistribution2014_05_31Response
     -- ** Response constructor
     , createDistribution2014_05_31Response
     -- ** Response lenses
@@ -44,45 +44,45 @@ import Network.AWS.Prelude
 import Network.AWS.Request
 import Network.AWS.CloudFront.Types
 
-newtype CreateDistribution = CreateDistribution
+newtype CreateDistribution2014_05_31 = CreateDistribution2014_05_31
     { _cdDistributionConfig :: DistributionConfig
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDistribution' constructor.
+-- | 'CreateDistribution2014_05_31' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'cdDistributionConfig' @::@ 'DistributionConfig'
 --
 createDistribution2014_05_31 :: DistributionConfig -- ^ 'cdDistributionConfig'
-                             -> CreateDistribution
-createDistribution2014_05_31 p1 = CreateDistribution
+                             -> CreateDistribution2014_05_31
+createDistribution2014_05_31 p1 = CreateDistribution2014_05_31
     { _cdDistributionConfig = p1
     }
 
 -- | The distribution's configuration information.
-cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
+cdDistributionConfig :: Lens' CreateDistribution2014_05_31 DistributionConfig
 cdDistributionConfig =
     lens _cdDistributionConfig (\s a -> s { _cdDistributionConfig = a })
 
-instance ToPath CreateDistribution where
+instance ToPath CreateDistribution2014_05_31 where
     toPath = const "/2014-05-31/distribution"
 
-instance ToQuery CreateDistribution where
+instance ToQuery CreateDistribution2014_05_31 where
     toQuery = const mempty
 
-instance ToHeaders CreateDistribution
+instance ToHeaders CreateDistribution2014_05_31
 
-instance ToBody CreateDistribution where
+instance ToBody CreateDistribution2014_05_31 where
     toBody = toBody . encodeXML . _cdDistributionConfig
 
-data CreateDistributionResult = CreateDistributionResult
+data CreateDistribution2014_05_31Response = CreateDistribution2014_05_31Response
     { _cdrDistribution :: Maybe Distribution
     , _cdrETag         :: Maybe Text
     , _cdrLocation     :: Maybe Text
     } deriving (Eq, Show, Generic)
 
--- | 'CreateDistributionResult' constructor.
+-- | 'CreateDistribution2014_05_31Response' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -92,36 +92,36 @@ data CreateDistributionResult = CreateDistributionResult
 --
 -- * 'cdrLocation' @::@ 'Maybe' 'Text'
 --
-createDistribution2014_05_31Response :: CreateDistributionResult
-createDistribution2014_05_31Response = CreateDistributionResult
+createDistribution2014_05_31Response :: CreateDistribution2014_05_31Response
+createDistribution2014_05_31Response = CreateDistribution2014_05_31Response
     { _cdrDistribution = Nothing
     , _cdrLocation     = Nothing
     , _cdrETag         = Nothing
     }
 
 -- | The distribution's information.
-cdrDistribution :: Lens' CreateDistributionResult (Maybe Distribution)
+cdrDistribution :: Lens' CreateDistribution2014_05_31Response (Maybe Distribution)
 cdrDistribution = lens _cdrDistribution (\s a -> s { _cdrDistribution = a })
 
 -- | The current version of the distribution created.
-cdrETag :: Lens' CreateDistributionResult (Maybe Text)
+cdrETag :: Lens' CreateDistribution2014_05_31Response (Maybe Text)
 cdrETag = lens _cdrETag (\s a -> s { _cdrETag = a })
 
 -- | The fully qualified URI of the new distribution resource just created.
 -- For example:
 -- https://cloudfront.amazonaws.com/2010-11-01/distribution/EDFDVBD632BHDS5.
-cdrLocation :: Lens' CreateDistributionResult (Maybe Text)
+cdrLocation :: Lens' CreateDistribution2014_05_31Response (Maybe Text)
 cdrLocation = lens _cdrLocation (\s a -> s { _cdrLocation = a })
 
-instance FromXML CreateDistributionResult where
+instance FromXML CreateDistribution2014_05_31Response where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "CreateDistributionResult"
-instance AWSRequest CreateDistribution where
-    type Sv CreateDistribution = CloudFront
-    type Rs CreateDistribution = CreateDistributionResult
+    fromXMLRoot    = fromRoot "CreateDistribution2014_05_31Response"
+instance AWSRequest CreateDistribution2014_05_31 where
+    type Sv CreateDistribution2014_05_31 = CloudFront
+    type Rs CreateDistribution2014_05_31 = CreateDistribution2014_05_31Response
 
     request  = post
-    response = xmlResponse $ \h x -> CreateDistributionResult
+    response = xmlResponse $ \h x -> CreateDistribution2014_05_31Response
         <$> x %| "Distribution"
         <*> h ~:? "ETag"
         <*> h ~:? "Location"

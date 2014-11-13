@@ -24,14 +24,14 @@
 module Network.AWS.RDS.DeleteEventSubscription
     (
     -- * Request
-      DeleteEventSubscriptionMessage
+      DeleteEventSubscription
     -- ** Request constructor
     , deleteEventSubscription
     -- ** Request lenses
-    , desm1SubscriptionName
+    , desSubscriptionName
 
     -- * Response
-    , DeleteEventSubscriptionResult
+    , DeleteEventSubscriptionResponse
     -- ** Response constructor
     , deleteEventSubscriptionResponse
     -- ** Response lenses
@@ -42,59 +42,59 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.RDS.Types
 
-newtype DeleteEventSubscriptionMessage = DeleteEventSubscriptionMessage
-    { _desm1SubscriptionName :: Text
+newtype DeleteEventSubscription = DeleteEventSubscription
+    { _desSubscriptionName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteEventSubscriptionMessage' constructor.
+-- | 'DeleteEventSubscription' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desm1SubscriptionName' @::@ 'Text'
+-- * 'desSubscriptionName' @::@ 'Text'
 --
-deleteEventSubscription :: Text -- ^ 'desm1SubscriptionName'
-                        -> DeleteEventSubscriptionMessage
-deleteEventSubscription p1 = DeleteEventSubscriptionMessage
-    { _desm1SubscriptionName = p1
+deleteEventSubscription :: Text -- ^ 'desSubscriptionName'
+                        -> DeleteEventSubscription
+deleteEventSubscription p1 = DeleteEventSubscription
+    { _desSubscriptionName = p1
     }
 
 -- | The name of the RDS event notification subscription you want to delete.
-desm1SubscriptionName :: Lens' DeleteEventSubscriptionMessage Text
-desm1SubscriptionName =
-    lens _desm1SubscriptionName (\s a -> s { _desm1SubscriptionName = a })
+desSubscriptionName :: Lens' DeleteEventSubscription Text
+desSubscriptionName =
+    lens _desSubscriptionName (\s a -> s { _desSubscriptionName = a })
 
-instance ToQuery DeleteEventSubscriptionMessage
+instance ToQuery DeleteEventSubscription
 
-instance ToPath DeleteEventSubscriptionMessage where
+instance ToPath DeleteEventSubscription where
     toPath = const "/"
 
-newtype DeleteEventSubscriptionResult = DeleteEventSubscriptionResult
+newtype DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
     { _desrEventSubscription :: Maybe EventSubscription
     } deriving (Eq, Show, Generic)
 
--- | 'DeleteEventSubscriptionResult' constructor.
+-- | 'DeleteEventSubscriptionResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'desrEventSubscription' @::@ 'Maybe' 'EventSubscription'
 --
-deleteEventSubscriptionResponse :: DeleteEventSubscriptionResult
-deleteEventSubscriptionResponse = DeleteEventSubscriptionResult
+deleteEventSubscriptionResponse :: DeleteEventSubscriptionResponse
+deleteEventSubscriptionResponse = DeleteEventSubscriptionResponse
     { _desrEventSubscription = Nothing
     }
 
-desrEventSubscription :: Lens' DeleteEventSubscriptionResult (Maybe EventSubscription)
+desrEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
 desrEventSubscription =
     lens _desrEventSubscription (\s a -> s { _desrEventSubscription = a })
 
-instance FromXML DeleteEventSubscriptionResult where
+instance FromXML DeleteEventSubscriptionResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteEventSubscriptionResult"
+    fromXMLRoot    = fromRoot "DeleteEventSubscriptionResponse"
 
-instance AWSRequest DeleteEventSubscriptionMessage where
-    type Sv DeleteEventSubscriptionMessage = RDS
-    type Rs DeleteEventSubscriptionMessage = DeleteEventSubscriptionResult
+instance AWSRequest DeleteEventSubscription where
+    type Sv DeleteEventSubscription = RDS
+    type Rs DeleteEventSubscription = DeleteEventSubscriptionResponse
 
     request  = post "DeleteEventSubscription"
-    response = xmlResponse $ \h x -> DeleteEventSubscriptionResult
+    response = xmlResponse $ \h x -> DeleteEventSubscriptionResponse
         <$> x %| "EventSubscription"

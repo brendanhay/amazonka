@@ -26,14 +26,14 @@
 module Network.AWS.ElastiCache.DeleteSnapshot
     (
     -- * Request
-      DeleteSnapshotMessage
+      DeleteSnapshot
     -- ** Request constructor
     , deleteSnapshot
     -- ** Request lenses
-    , dsmSnapshotName
+    , ds1SnapshotName
 
     -- * Response
-    , DeleteSnapshotResult
+    , DeleteSnapshotResponse
     -- ** Response constructor
     , deleteSnapshotResponse
     -- ** Response lenses
@@ -44,57 +44,57 @@ import Network.AWS.Prelude
 import Network.AWS.Request.Query
 import Network.AWS.ElastiCache.Types
 
-newtype DeleteSnapshotMessage = DeleteSnapshotMessage
-    { _dsmSnapshotName :: Text
+newtype DeleteSnapshot = DeleteSnapshot
+    { _ds1SnapshotName :: Text
     } deriving (Eq, Ord, Show, Generic, Monoid, IsString)
 
--- | 'DeleteSnapshotMessage' constructor.
+-- | 'DeleteSnapshot' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsmSnapshotName' @::@ 'Text'
+-- * 'ds1SnapshotName' @::@ 'Text'
 --
-deleteSnapshot :: Text -- ^ 'dsmSnapshotName'
-               -> DeleteSnapshotMessage
-deleteSnapshot p1 = DeleteSnapshotMessage
-    { _dsmSnapshotName = p1
+deleteSnapshot :: Text -- ^ 'ds1SnapshotName'
+               -> DeleteSnapshot
+deleteSnapshot p1 = DeleteSnapshot
+    { _ds1SnapshotName = p1
     }
 
 -- | The name of the snapshot to be deleted.
-dsmSnapshotName :: Lens' DeleteSnapshotMessage Text
-dsmSnapshotName = lens _dsmSnapshotName (\s a -> s { _dsmSnapshotName = a })
+ds1SnapshotName :: Lens' DeleteSnapshot Text
+ds1SnapshotName = lens _ds1SnapshotName (\s a -> s { _ds1SnapshotName = a })
 
-instance ToQuery DeleteSnapshotMessage
+instance ToQuery DeleteSnapshot
 
-instance ToPath DeleteSnapshotMessage where
+instance ToPath DeleteSnapshot where
     toPath = const "/"
 
-newtype DeleteSnapshotResult = DeleteSnapshotResult
+newtype DeleteSnapshotResponse = DeleteSnapshotResponse
     { _dsrSnapshot :: Maybe Snapshot
     } deriving (Eq, Show, Generic)
 
--- | 'DeleteSnapshotResult' constructor.
+-- | 'DeleteSnapshotResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
 -- * 'dsrSnapshot' @::@ 'Maybe' 'Snapshot'
 --
-deleteSnapshotResponse :: DeleteSnapshotResult
-deleteSnapshotResponse = DeleteSnapshotResult
+deleteSnapshotResponse :: DeleteSnapshotResponse
+deleteSnapshotResponse = DeleteSnapshotResponse
     { _dsrSnapshot = Nothing
     }
 
-dsrSnapshot :: Lens' DeleteSnapshotResult (Maybe Snapshot)
+dsrSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
 dsrSnapshot = lens _dsrSnapshot (\s a -> s { _dsrSnapshot = a })
 
-instance FromXML DeleteSnapshotResult where
+instance FromXML DeleteSnapshotResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteSnapshotResult"
+    fromXMLRoot    = fromRoot "DeleteSnapshotResponse"
 
-instance AWSRequest DeleteSnapshotMessage where
-    type Sv DeleteSnapshotMessage = ElastiCache
-    type Rs DeleteSnapshotMessage = DeleteSnapshotResult
+instance AWSRequest DeleteSnapshot where
+    type Sv DeleteSnapshot = ElastiCache
+    type Rs DeleteSnapshot = DeleteSnapshotResponse
 
     request  = post "DeleteSnapshot"
-    response = xmlResponse $ \h x -> DeleteSnapshotResult
+    response = xmlResponse $ \h x -> DeleteSnapshotResponse
         <$> x %| "Snapshot"

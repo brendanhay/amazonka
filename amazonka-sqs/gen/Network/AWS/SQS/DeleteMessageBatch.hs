@@ -37,7 +37,7 @@ module Network.AWS.SQS.DeleteMessageBatch
     , dmbQueueUrl
 
     -- * Response
-    , DeleteMessageBatchResult
+    , DeleteMessageBatchResponse
     -- ** Response constructor
     , deleteMessageBatchResponse
     -- ** Response lenses
@@ -82,12 +82,12 @@ instance ToQuery DeleteMessageBatch
 instance ToPath DeleteMessageBatch where
     toPath = const "/"
 
-data DeleteMessageBatchResult = DeleteMessageBatchResult
+data DeleteMessageBatchResponse = DeleteMessageBatchResponse
     { _dmbrFailed     :: [BatchResultErrorEntry]
     , _dmbrSuccessful :: [DeleteMessageBatchResultEntry]
     } deriving (Eq, Show, Generic)
 
--- | 'DeleteMessageBatchResult' constructor.
+-- | 'DeleteMessageBatchResponse' constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -95,29 +95,29 @@ data DeleteMessageBatchResult = DeleteMessageBatchResult
 --
 -- * 'dmbrSuccessful' @::@ ['DeleteMessageBatchResultEntry']
 --
-deleteMessageBatchResponse :: DeleteMessageBatchResult
-deleteMessageBatchResponse = DeleteMessageBatchResult
+deleteMessageBatchResponse :: DeleteMessageBatchResponse
+deleteMessageBatchResponse = DeleteMessageBatchResponse
     { _dmbrSuccessful = mempty
     , _dmbrFailed     = mempty
     }
 
 -- | A list of BatchResultErrorEntry items.
-dmbrFailed :: Lens' DeleteMessageBatchResult [BatchResultErrorEntry]
+dmbrFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
 dmbrFailed = lens _dmbrFailed (\s a -> s { _dmbrFailed = a })
 
 -- | A list of DeleteMessageBatchResultEntry items.
-dmbrSuccessful :: Lens' DeleteMessageBatchResult [DeleteMessageBatchResultEntry]
+dmbrSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
 dmbrSuccessful = lens _dmbrSuccessful (\s a -> s { _dmbrSuccessful = a })
 
-instance FromXML DeleteMessageBatchResult where
+instance FromXML DeleteMessageBatchResponse where
     fromXMLOptions = xmlOptions
-    fromXMLRoot    = fromRoot "DeleteMessageBatchResult"
+    fromXMLRoot    = fromRoot "DeleteMessageBatchResponse"
 
 instance AWSRequest DeleteMessageBatch where
     type Sv DeleteMessageBatch = SQS
-    type Rs DeleteMessageBatch = DeleteMessageBatchResult
+    type Rs DeleteMessageBatch = DeleteMessageBatchResponse
 
     request  = post "DeleteMessageBatch"
-    response = xmlResponse $ \h x -> DeleteMessageBatchResult
+    response = xmlResponse $ \h x -> DeleteMessageBatchResponse
         <$> x %| "Failed"
         <*> x %| "Successful"

@@ -90,8 +90,6 @@ module Network.AWS.Types
     , zRegion
     , zSuffix
 
-
-
     -- * Shared
     , LazyByteString
     , Base64
@@ -124,6 +122,7 @@ import           Data.Default.Class
 import           Data.IORef
 import           Data.Monoid
 import           Data.String
+import           Data.Tagged
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Encoding           as Text
@@ -475,14 +474,14 @@ instance ToJSON Base64 where
 
 -- instance ToQuery Base64
 
-newtype Sensitive a = Sensitive a
-    deriving (Eq, Ord)
+newtype Sensitive a = Sensitive { unSensitive :: a }
+    deriving (Eq, Ord, Generic, FromXML, ToXML, ToQuery)
 
 instance Show (Sensitive a) where
     show = const "******"
 
 instance ToByteString a => ToByteString (Sensitive a) where
-    toBS (Sensitive s) = toBS s
+    toBS = toBS . unSensitive
 
 data Empty = Empty
     deriving (Eq, Show)

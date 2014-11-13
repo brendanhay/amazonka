@@ -47,7 +47,7 @@ JSON := \
  cognito-sync \
  cloudsearchdomain
 
-MODELS ?= $(JSON) # $(XML) $(QUERY)
+MODELS ?= $(JSON) $(XML) $(QUERY)
 
 .PHONY: gen
 

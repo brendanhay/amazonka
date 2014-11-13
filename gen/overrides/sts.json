@@ -1,7 +1,7 @@
 {
-    "library": "amazonka-securitytoken",
+    "library": "amazonka-sts",
     "documentation": "The AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users).",
     "metadata": {
-        "serviceAbbreviation": "SecurityToken"
+        "serviceAbbreviation": "STS"
     }
 }

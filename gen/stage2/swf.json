@@ -2,43 +2,43 @@
     "service": {
         "signature": "V4",
         "checksum": "sha256",
-        "abbrev": "SimpleWorkflow",
-        "error": "SimpleWorkflowError",
-        "namespace": "Network.AWS.SimpleWorkflow",
+        "abbrev": "SWF",
+        "error": "SWFError",
+        "namespace": "Network.AWS.SWF",
         "protocol": "json",
         "imports": [
-            "Network.AWS.SimpleWorkflow.CountClosedWorkflowExecutions",
-            "Network.AWS.SimpleWorkflow.CountOpenWorkflowExecutions",
-            "Network.AWS.SimpleWorkflow.CountPendingActivityTasks",
-            "Network.AWS.SimpleWorkflow.CountPendingDecisionTasks",
-            "Network.AWS.SimpleWorkflow.DeprecateActivityType",
-            "Network.AWS.SimpleWorkflow.DeprecateDomain",
-            "Network.AWS.SimpleWorkflow.DeprecateWorkflowType",
-            "Network.AWS.SimpleWorkflow.DescribeActivityType",
-            "Network.AWS.SimpleWorkflow.DescribeDomain",
-            "Network.AWS.SimpleWorkflow.DescribeWorkflowExecution",
-            "Network.AWS.SimpleWorkflow.DescribeWorkflowType",
-            "Network.AWS.SimpleWorkflow.GetWorkflowExecutionHistory",
-            "Network.AWS.SimpleWorkflow.ListActivityTypes",
-            "Network.AWS.SimpleWorkflow.ListClosedWorkflowExecutions",
-            "Network.AWS.SimpleWorkflow.ListDomains",
-            "Network.AWS.SimpleWorkflow.ListOpenWorkflowExecutions",
-            "Network.AWS.SimpleWorkflow.ListWorkflowTypes",
-            "Network.AWS.SimpleWorkflow.PollForActivityTask",
-            "Network.AWS.SimpleWorkflow.PollForDecisionTask",
-            "Network.AWS.SimpleWorkflow.RecordActivityTaskHeartbeat",
-            "Network.AWS.SimpleWorkflow.RegisterActivityType",
-            "Network.AWS.SimpleWorkflow.RegisterDomain",
-            "Network.AWS.SimpleWorkflow.RegisterWorkflowType",
-            "Network.AWS.SimpleWorkflow.RequestCancelWorkflowExecution",
-            "Network.AWS.SimpleWorkflow.RespondActivityTaskCanceled",
-            "Network.AWS.SimpleWorkflow.RespondActivityTaskCompleted",
-            "Network.AWS.SimpleWorkflow.RespondActivityTaskFailed",
-            "Network.AWS.SimpleWorkflow.RespondDecisionTaskCompleted",
-            "Network.AWS.SimpleWorkflow.SignalWorkflowExecution",
-            "Network.AWS.SimpleWorkflow.StartWorkflowExecution",
-            "Network.AWS.SimpleWorkflow.TerminateWorkflowExecution",
-            "Network.AWS.SimpleWorkflow.Types"
+            "Network.AWS.SWF.CountClosedWorkflowExecutions",
+            "Network.AWS.SWF.CountOpenWorkflowExecutions",
+            "Network.AWS.SWF.CountPendingActivityTasks",
+            "Network.AWS.SWF.CountPendingDecisionTasks",
+            "Network.AWS.SWF.DeprecateActivityType",
+            "Network.AWS.SWF.DeprecateDomain",
+            "Network.AWS.SWF.DeprecateWorkflowType",
+            "Network.AWS.SWF.DescribeActivityType",
+            "Network.AWS.SWF.DescribeDomain",
+            "Network.AWS.SWF.DescribeWorkflowExecution",
+            "Network.AWS.SWF.DescribeWorkflowType",
+            "Network.AWS.SWF.GetWorkflowExecutionHistory",
+            "Network.AWS.SWF.ListActivityTypes",
+            "Network.AWS.SWF.ListClosedWorkflowExecutions",
+            "Network.AWS.SWF.ListDomains",
+            "Network.AWS.SWF.ListOpenWorkflowExecutions",
+            "Network.AWS.SWF.ListWorkflowTypes",
+            "Network.AWS.SWF.PollForActivityTask",
+            "Network.AWS.SWF.PollForDecisionTask",
+            "Network.AWS.SWF.RecordActivityTaskHeartbeat",
+            "Network.AWS.SWF.RegisterActivityType",
+            "Network.AWS.SWF.RegisterDomain",
+            "Network.AWS.SWF.RegisterWorkflowType",
+            "Network.AWS.SWF.RequestCancelWorkflowExecution",
+            "Network.AWS.SWF.RespondActivityTaskCanceled",
+            "Network.AWS.SWF.RespondActivityTaskCompleted",
+            "Network.AWS.SWF.RespondActivityTaskFailed",
+            "Network.AWS.SWF.RespondDecisionTaskCompleted",
+            "Network.AWS.SWF.SignalWorkflowExecution",
+            "Network.AWS.SWF.StartWorkflowExecution",
+            "Network.AWS.SWF.TerminateWorkflowExecution",
+            "Network.AWS.SWF.Types"
         ],
         "name": "Amazon Simple Workflow Service",
         "version": "2012-01-25",
@@ -50,41 +50,41 @@
     },
     "cabal": {
         "other": [],
-        "library": "amazonka-simpleworkflow",
+        "library": "amazonka-swf",
         "exposed": [
-            "Network.AWS.SimpleWorkflow",
-            "Network.AWS.SimpleWorkflow.CountClosedWorkflowExecutions",
-            "Network.AWS.SimpleWorkflow.CountOpenWorkflowExecutions",
-            "Network.AWS.SimpleWorkflow.CountPendingActivityTasks",
-            "Network.AWS.SimpleWorkflow.CountPendingDecisionTasks",
-            "Network.AWS.SimpleWorkflow.DeprecateActivityType",
-            "Network.AWS.SimpleWorkflow.DeprecateDomain",
-            "Network.AWS.SimpleWorkflow.DeprecateWorkflowType",
-            "Network.AWS.SimpleWorkflow.DescribeActivityType",
-            "Network.AWS.SimpleWorkflow.DescribeDomain",
-            "Network.AWS.SimpleWorkflow.DescribeWorkflowExecution",
-            "Network.AWS.SimpleWorkflow.DescribeWorkflowType",
-            "Network.AWS.SimpleWorkflow.GetWorkflowExecutionHistory",
-            "Network.AWS.SimpleWorkflow.ListActivityTypes",
-            "Network.AWS.SimpleWorkflow.ListClosedWorkflowExecutions",
-            "Network.AWS.SimpleWorkflow.ListDomains",
-            "Network.AWS.SimpleWorkflow.ListOpenWorkflowExecutions",
-            "Network.AWS.SimpleWorkflow.ListWorkflowTypes",
-            "Network.AWS.SimpleWorkflow.PollForActivityTask",
-            "Network.AWS.SimpleWorkflow.PollForDecisionTask",
-            "Network.AWS.SimpleWorkflow.RecordActivityTaskHeartbeat",
-            "Network.AWS.SimpleWorkflow.RegisterActivityType",
-            "Network.AWS.SimpleWorkflow.RegisterDomain",
-            "Network.AWS.SimpleWorkflow.RegisterWorkflowType",
-            "Network.AWS.SimpleWorkflow.RequestCancelWorkflowExecution",
-            "Network.AWS.SimpleWorkflow.RespondActivityTaskCanceled",
-            "Network.AWS.SimpleWorkflow.RespondActivityTaskCompleted",
-            "Network.AWS.SimpleWorkflow.RespondActivityTaskFailed",
-            "Network.AWS.SimpleWorkflow.RespondDecisionTaskCompleted",
-            "Network.AWS.SimpleWorkflow.SignalWorkflowExecution",
-            "Network.AWS.SimpleWorkflow.StartWorkflowExecution",
-            "Network.AWS.SimpleWorkflow.TerminateWorkflowExecution",
-            "Network.AWS.SimpleWorkflow.Types"
+            "Network.AWS.SWF",
+            "Network.AWS.SWF.CountClosedWorkflowExecutions",
+            "Network.AWS.SWF.CountOpenWorkflowExecutions",
+            "Network.AWS.SWF.CountPendingActivityTasks",
+            "Network.AWS.SWF.CountPendingDecisionTasks",
+            "Network.AWS.SWF.DeprecateActivityType",
+            "Network.AWS.SWF.DeprecateDomain",
+            "Network.AWS.SWF.DeprecateWorkflowType",
+            "Network.AWS.SWF.DescribeActivityType",
+            "Network.AWS.SWF.DescribeDomain",
+            "Network.AWS.SWF.DescribeWorkflowExecution",
+            "Network.AWS.SWF.DescribeWorkflowType",
+            "Network.AWS.SWF.GetWorkflowExecutionHistory",
+            "Network.AWS.SWF.ListActivityTypes",
+            "Network.AWS.SWF.ListClosedWorkflowExecutions",
+            "Network.AWS.SWF.ListDomains",
+            "Network.AWS.SWF.ListOpenWorkflowExecutions",
+            "Network.AWS.SWF.ListWorkflowTypes",
+            "Network.AWS.SWF.PollForActivityTask",
+            "Network.AWS.SWF.PollForDecisionTask",
+            "Network.AWS.SWF.RecordActivityTaskHeartbeat",
+            "Network.AWS.SWF.RegisterActivityType",
+            "Network.AWS.SWF.RegisterDomain",
+            "Network.AWS.SWF.RegisterWorkflowType",
+            "Network.AWS.SWF.RequestCancelWorkflowExecution",
+            "Network.AWS.SWF.RespondActivityTaskCanceled",
+            "Network.AWS.SWF.RespondActivityTaskCompleted",
+            "Network.AWS.SWF.RespondActivityTaskFailed",
+            "Network.AWS.SWF.RespondDecisionTaskCompleted",
+            "Network.AWS.SWF.SignalWorkflowExecution",
+            "Network.AWS.SWF.StartWorkflowExecution",
+            "Network.AWS.SWF.TerminateWorkflowExecution",
+            "Network.AWS.SWF.Types"
         ],
         "dependencies": [],
         "name": "Amazon Simple Workflow Service",
@@ -95,43 +95,43 @@
         "service": {
             "signature": "V4",
             "checksum": "sha256",
-            "abbrev": "SimpleWorkflow",
-            "error": "SimpleWorkflowError",
-            "namespace": "Network.AWS.SimpleWorkflow",
+            "abbrev": "SWF",
+            "error": "SWFError",
+            "namespace": "Network.AWS.SWF",
             "protocol": "json",
             "imports": [
-                "Network.AWS.SimpleWorkflow.CountClosedWorkflowExecutions",
-                "Network.AWS.SimpleWorkflow.CountOpenWorkflowExecutions",
-                "Network.AWS.SimpleWorkflow.CountPendingActivityTasks",
-                "Network.AWS.SimpleWorkflow.CountPendingDecisionTasks",
-                "Network.AWS.SimpleWorkflow.DeprecateActivityType",
-                "Network.AWS.SimpleWorkflow.DeprecateDomain",
-                "Network.AWS.SimpleWorkflow.DeprecateWorkflowType",
-                "Network.AWS.SimpleWorkflow.DescribeActivityType",
-                "Network.AWS.SimpleWorkflow.DescribeDomain",
-                "Network.AWS.SimpleWorkflow.DescribeWorkflowExecution",
-                "Network.AWS.SimpleWorkflow.DescribeWorkflowType",
-                "Network.AWS.SimpleWorkflow.GetWorkflowExecutionHistory",
-                "Network.AWS.SimpleWorkflow.ListActivityTypes",
-                "Network.AWS.SimpleWorkflow.ListClosedWorkflowExecutions",
-                "Network.AWS.SimpleWorkflow.ListDomains",
-                "Network.AWS.SimpleWorkflow.ListOpenWorkflowExecutions",
-                "Network.AWS.SimpleWorkflow.ListWorkflowTypes",
-                "Network.AWS.SimpleWorkflow.PollForActivityTask",
-                "Network.AWS.SimpleWorkflow.PollForDecisionTask",
-                "Network.AWS.SimpleWorkflow.RecordActivityTaskHeartbeat",
-                "Network.AWS.SimpleWorkflow.RegisterActivityType",
-                "Network.AWS.SimpleWorkflow.RegisterDomain",
-                "Network.AWS.SimpleWorkflow.RegisterWorkflowType",
-                "Network.AWS.SimpleWorkflow.RequestCancelWorkflowExecution",
-                "Network.AWS.SimpleWorkflow.RespondActivityTaskCanceled",
-                "Network.AWS.SimpleWorkflow.RespondActivityTaskCompleted",
-                "Network.AWS.SimpleWorkflow.RespondActivityTaskFailed",
-                "Network.AWS.SimpleWorkflow.RespondDecisionTaskCompleted",
-                "Network.AWS.SimpleWorkflow.SignalWorkflowExecution",
-                "Network.AWS.SimpleWorkflow.StartWorkflowExecution",
-                "Network.AWS.SimpleWorkflow.TerminateWorkflowExecution",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.CountClosedWorkflowExecutions",
+                "Network.AWS.SWF.CountOpenWorkflowExecutions",
+                "Network.AWS.SWF.CountPendingActivityTasks",
+                "Network.AWS.SWF.CountPendingDecisionTasks",
+                "Network.AWS.SWF.DeprecateActivityType",
+                "Network.AWS.SWF.DeprecateDomain",
+                "Network.AWS.SWF.DeprecateWorkflowType",
+                "Network.AWS.SWF.DescribeActivityType",
+                "Network.AWS.SWF.DescribeDomain",
+                "Network.AWS.SWF.DescribeWorkflowExecution",
+                "Network.AWS.SWF.DescribeWorkflowType",
+                "Network.AWS.SWF.GetWorkflowExecutionHistory",
+                "Network.AWS.SWF.ListActivityTypes",
+                "Network.AWS.SWF.ListClosedWorkflowExecutions",
+                "Network.AWS.SWF.ListDomains",
+                "Network.AWS.SWF.ListOpenWorkflowExecutions",
+                "Network.AWS.SWF.ListWorkflowTypes",
+                "Network.AWS.SWF.PollForActivityTask",
+                "Network.AWS.SWF.PollForDecisionTask",
+                "Network.AWS.SWF.RecordActivityTaskHeartbeat",
+                "Network.AWS.SWF.RegisterActivityType",
+                "Network.AWS.SWF.RegisterDomain",
+                "Network.AWS.SWF.RegisterWorkflowType",
+                "Network.AWS.SWF.RequestCancelWorkflowExecution",
+                "Network.AWS.SWF.RespondActivityTaskCanceled",
+                "Network.AWS.SWF.RespondActivityTaskCompleted",
+                "Network.AWS.SWF.RespondActivityTaskFailed",
+                "Network.AWS.SWF.RespondDecisionTaskCompleted",
+                "Network.AWS.SWF.SignalWorkflowExecution",
+                "Network.AWS.SWF.StartWorkflowExecution",
+                "Network.AWS.SWF.TerminateWorkflowExecution",
+                "Network.AWS.SWF.Types"
             ],
             "name": "Amazon Simple Workflow Service",
             "version": "2012-01-25",
@@ -141,7 +141,7 @@
             "endpointPrefix": "swf",
             "targetPrefix": "SimpleWorkflowService"
         },
-        "namespace": "Network.AWS.SimpleWorkflow.Types",
+        "namespace": "Network.AWS.SWF.Types",
         "types": [
             {
                 "deriving": [
@@ -13161,7 +13161,7 @@
     },
     "operations": [
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -13254,11 +13254,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.CountClosedWorkflowExecutions",
+            "namespace": "Network.AWS.SWF.CountClosedWorkflowExecutions",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "CountClosedWorkflowExecutions",
             "method": "post",
@@ -13504,7 +13504,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -13597,11 +13597,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.CountOpenWorkflowExecutions",
+            "namespace": "Network.AWS.SWF.CountOpenWorkflowExecutions",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "CountOpenWorkflowExecutions",
             "method": "post",
@@ -13791,7 +13791,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -13884,11 +13884,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.CountPendingActivityTasks",
+            "namespace": "Network.AWS.SWF.CountPendingActivityTasks",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "CountPendingActivityTasks",
             "method": "post",
@@ -13993,7 +13993,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -14086,11 +14086,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.CountPendingDecisionTasks",
+            "namespace": "Network.AWS.SWF.CountPendingDecisionTasks",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "CountPendingDecisionTasks",
             "method": "post",
@@ -14195,7 +14195,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -14215,11 +14215,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleWorkflow.DeprecateActivityType",
+            "namespace": "Network.AWS.SWF.DeprecateActivityType",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "DeprecateActivityType",
             "method": "post",
@@ -14324,7 +14324,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -14344,11 +14344,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleWorkflow.DeprecateDomain",
+            "namespace": "Network.AWS.SWF.DeprecateDomain",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "DeprecateDomain",
             "method": "post",
@@ -14443,7 +14443,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -14463,11 +14463,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleWorkflow.DeprecateWorkflowType",
+            "namespace": "Network.AWS.SWF.DeprecateWorkflowType",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "DeprecateWorkflowType",
             "method": "post",
@@ -14572,7 +14572,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -14663,11 +14663,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.DescribeActivityType",
+            "namespace": "Network.AWS.SWF.DescribeActivityType",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "DescribeActivityType",
             "method": "post",
@@ -14772,7 +14772,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -14863,11 +14863,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.DescribeDomain",
+            "namespace": "Network.AWS.SWF.DescribeDomain",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "DescribeDomain",
             "method": "post",
@@ -14962,7 +14962,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -15138,11 +15138,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.DescribeWorkflowExecution",
+            "namespace": "Network.AWS.SWF.DescribeWorkflowExecution",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "DescribeWorkflowExecution",
             "method": "post",
@@ -15247,7 +15247,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -15338,11 +15338,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.DescribeWorkflowType",
+            "namespace": "Network.AWS.SWF.DescribeWorkflowType",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "DescribeWorkflowType",
             "method": "post",
@@ -15447,7 +15447,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -15538,11 +15538,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.GetWorkflowExecutionHistory",
+            "namespace": "Network.AWS.SWF.GetWorkflowExecutionHistory",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "GetWorkflowExecutionHistory",
             "method": "post",
@@ -15732,7 +15732,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -15823,11 +15823,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.ListActivityTypes",
+            "namespace": "Network.AWS.SWF.ListActivityTypes",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "ListActivityTypes",
             "method": "post",
@@ -16046,7 +16046,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -16137,11 +16137,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.ListClosedWorkflowExecutions",
+            "namespace": "Network.AWS.SWF.ListClosedWorkflowExecutions",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "ListClosedWorkflowExecutions",
             "method": "post",
@@ -16471,7 +16471,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -16562,11 +16562,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.ListDomains",
+            "namespace": "Network.AWS.SWF.ListDomains",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "ListDomains",
             "method": "post",
@@ -16729,7 +16729,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -16820,11 +16820,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.ListOpenWorkflowExecutions",
+            "namespace": "Network.AWS.SWF.ListOpenWorkflowExecutions",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "ListOpenWorkflowExecutions",
             "method": "post",
@@ -17098,7 +17098,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -17189,11 +17189,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.ListWorkflowTypes",
+            "namespace": "Network.AWS.SWF.ListWorkflowTypes",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "ListWorkflowTypes",
             "method": "post",
@@ -17412,7 +17412,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -17616,11 +17616,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.PollForActivityTask",
+            "namespace": "Network.AWS.SWF.PollForActivityTask",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "PollForActivityTask",
             "method": "post",
@@ -17754,7 +17754,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -17986,11 +17986,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.PollForDecisionTask",
+            "namespace": "Network.AWS.SWF.PollForDecisionTask",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "PollForDecisionTask",
             "method": "post",
@@ -18208,7 +18208,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -18288,11 +18288,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.RecordActivityTaskHeartbeat",
+            "namespace": "Network.AWS.SWF.RecordActivityTaskHeartbeat",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "RecordActivityTaskHeartbeat",
             "method": "post",
@@ -18399,7 +18399,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -18419,11 +18419,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleWorkflow.RegisterActivityType",
+            "namespace": "Network.AWS.SWF.RegisterActivityType",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "RegisterActivityType",
             "method": "post",
@@ -18725,7 +18725,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -18745,11 +18745,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleWorkflow.RegisterDomain",
+            "namespace": "Network.AWS.SWF.RegisterDomain",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "RegisterDomain",
             "method": "post",
@@ -18884,7 +18884,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -18904,11 +18904,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleWorkflow.RegisterWorkflowType",
+            "namespace": "Network.AWS.SWF.RegisterWorkflowType",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "RegisterWorkflowType",
             "method": "post",
@@ -19182,7 +19182,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -19202,11 +19202,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleWorkflow.RequestCancelWorkflowExecution",
+            "namespace": "Network.AWS.SWF.RequestCancelWorkflowExecution",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "RequestCancelWorkflowExecution",
             "method": "post",
@@ -19341,7 +19341,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -19361,11 +19361,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleWorkflow.RespondActivityTaskCanceled",
+            "namespace": "Network.AWS.SWF.RespondActivityTaskCanceled",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "RespondActivityTaskCanceled",
             "method": "post",
@@ -19472,7 +19472,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -19492,11 +19492,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleWorkflow.RespondActivityTaskCompleted",
+            "namespace": "Network.AWS.SWF.RespondActivityTaskCompleted",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "RespondActivityTaskCompleted",
             "method": "post",
@@ -19603,7 +19603,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -19623,11 +19623,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleWorkflow.RespondActivityTaskFailed",
+            "namespace": "Network.AWS.SWF.RespondActivityTaskFailed",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "RespondActivityTaskFailed",
             "method": "post",
@@ -19762,7 +19762,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -19782,11 +19782,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleWorkflow.RespondDecisionTaskCompleted",
+            "namespace": "Network.AWS.SWF.RespondDecisionTaskCompleted",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "RespondDecisionTaskCompleted",
             "method": "post",
@@ -19920,7 +19920,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -19940,11 +19940,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleWorkflow.SignalWorkflowExecution",
+            "namespace": "Network.AWS.SWF.SignalWorkflowExecution",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "SignalWorkflowExecution",
             "method": "post",
@@ -20135,7 +20135,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -20215,11 +20215,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleWorkflow.StartWorkflowExecution",
+            "namespace": "Network.AWS.SWF.StartWorkflowExecution",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "StartWorkflowExecution",
             "method": "post",
@@ -20521,7 +20521,7 @@
             }
         },
         {
-            "service": "SimpleWorkflow",
+            "service": "SWF",
             "response": {
                 "deriving": [
                     "Eq",
@@ -20541,11 +20541,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleWorkflow.TerminateWorkflowExecution",
+            "namespace": "Network.AWS.SWF.TerminateWorkflowExecution",
             "protocol": "json",
             "imports": [
                 "Network.AWS.Request",
-                "Network.AWS.SimpleWorkflow.Types"
+                "Network.AWS.SWF.Types"
             ],
             "name": "TerminateWorkflowExecution",
             "method": "post",

@@ -2,22 +2,22 @@
     "service": {
         "signature": "V2",
         "checksum": "sha256",
-        "abbrev": "SimpleDB",
+        "abbrev": "SDB",
         "error": "RESTError",
-        "namespace": "Network.AWS.SimpleDB",
+        "namespace": "Network.AWS.SDB",
         "protocol": "query",
         "imports": [
-            "Network.AWS.SimpleDB.BatchDeleteAttributes",
-            "Network.AWS.SimpleDB.BatchPutAttributes",
-            "Network.AWS.SimpleDB.CreateDomain",
-            "Network.AWS.SimpleDB.DeleteAttributes",
-            "Network.AWS.SimpleDB.DeleteDomain",
-            "Network.AWS.SimpleDB.DomainMetadata",
-            "Network.AWS.SimpleDB.GetAttributes",
-            "Network.AWS.SimpleDB.ListDomains",
-            "Network.AWS.SimpleDB.PutAttributes",
-            "Network.AWS.SimpleDB.Select",
-            "Network.AWS.SimpleDB.Types"
+            "Network.AWS.SDB.BatchDeleteAttributes",
+            "Network.AWS.SDB.BatchPutAttributes",
+            "Network.AWS.SDB.CreateDomain",
+            "Network.AWS.SDB.DeleteAttributes",
+            "Network.AWS.SDB.DeleteDomain",
+            "Network.AWS.SDB.DomainMetadata",
+            "Network.AWS.SDB.GetAttributes",
+            "Network.AWS.SDB.ListDomains",
+            "Network.AWS.SDB.PutAttributes",
+            "Network.AWS.SDB.Select",
+            "Network.AWS.SDB.Types"
         ],
         "name": "Amazon SimpleDB",
         "version": "2009-04-15",
@@ -28,20 +28,20 @@
     },
     "cabal": {
         "other": [],
-        "library": "amazonka-simpledb",
+        "library": "amazonka-sdb",
         "exposed": [
-            "Network.AWS.SimpleDB",
-            "Network.AWS.SimpleDB.BatchDeleteAttributes",
-            "Network.AWS.SimpleDB.BatchPutAttributes",
-            "Network.AWS.SimpleDB.CreateDomain",
-            "Network.AWS.SimpleDB.DeleteAttributes",
-            "Network.AWS.SimpleDB.DeleteDomain",
-            "Network.AWS.SimpleDB.DomainMetadata",
-            "Network.AWS.SimpleDB.GetAttributes",
-            "Network.AWS.SimpleDB.ListDomains",
-            "Network.AWS.SimpleDB.PutAttributes",
-            "Network.AWS.SimpleDB.Select",
-            "Network.AWS.SimpleDB.Types"
+            "Network.AWS.SDB",
+            "Network.AWS.SDB.BatchDeleteAttributes",
+            "Network.AWS.SDB.BatchPutAttributes",
+            "Network.AWS.SDB.CreateDomain",
+            "Network.AWS.SDB.DeleteAttributes",
+            "Network.AWS.SDB.DeleteDomain",
+            "Network.AWS.SDB.DomainMetadata",
+            "Network.AWS.SDB.GetAttributes",
+            "Network.AWS.SDB.ListDomains",
+            "Network.AWS.SDB.PutAttributes",
+            "Network.AWS.SDB.Select",
+            "Network.AWS.SDB.Types"
         ],
         "dependencies": [],
         "name": "Amazon SimpleDB",
@@ -52,22 +52,22 @@
         "service": {
             "signature": "V2",
             "checksum": "sha256",
-            "abbrev": "SimpleDB",
+            "abbrev": "SDB",
             "error": "RESTError",
-            "namespace": "Network.AWS.SimpleDB",
+            "namespace": "Network.AWS.SDB",
             "protocol": "query",
             "imports": [
-                "Network.AWS.SimpleDB.BatchDeleteAttributes",
-                "Network.AWS.SimpleDB.BatchPutAttributes",
-                "Network.AWS.SimpleDB.CreateDomain",
-                "Network.AWS.SimpleDB.DeleteAttributes",
-                "Network.AWS.SimpleDB.DeleteDomain",
-                "Network.AWS.SimpleDB.DomainMetadata",
-                "Network.AWS.SimpleDB.GetAttributes",
-                "Network.AWS.SimpleDB.ListDomains",
-                "Network.AWS.SimpleDB.PutAttributes",
-                "Network.AWS.SimpleDB.Select",
-                "Network.AWS.SimpleDB.Types"
+                "Network.AWS.SDB.BatchDeleteAttributes",
+                "Network.AWS.SDB.BatchPutAttributes",
+                "Network.AWS.SDB.CreateDomain",
+                "Network.AWS.SDB.DeleteAttributes",
+                "Network.AWS.SDB.DeleteDomain",
+                "Network.AWS.SDB.DomainMetadata",
+                "Network.AWS.SDB.GetAttributes",
+                "Network.AWS.SDB.ListDomains",
+                "Network.AWS.SDB.PutAttributes",
+                "Network.AWS.SDB.Select",
+                "Network.AWS.SDB.Types"
             ],
             "name": "Amazon SimpleDB",
             "version": "2009-04-15",
@@ -76,7 +76,7 @@
             "endpoint": "Regional",
             "endpointPrefix": "sdb"
         },
-        "namespace": "Network.AWS.SimpleDB.Types",
+        "namespace": "Network.AWS.SDB.Types",
         "types": [
             {
                 "deriving": [
@@ -669,7 +669,7 @@
     },
     "operations": [
         {
-            "service": "SimpleDB",
+            "service": "SDB",
             "response": {
                 "deriving": [
                     "Eq",
@@ -689,11 +689,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleDB.BatchDeleteAttributes",
+            "namespace": "Network.AWS.SDB.BatchDeleteAttributes",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SimpleDB.Types"
+                "Network.AWS.SDB.Types"
             ],
             "name": "BatchDeleteAttributes",
             "method": "post",
@@ -797,7 +797,7 @@
             }
         },
         {
-            "service": "SimpleDB",
+            "service": "SDB",
             "response": {
                 "deriving": [
                     "Eq",
@@ -817,11 +817,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleDB.BatchPutAttributes",
+            "namespace": "Network.AWS.SDB.BatchPutAttributes",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SimpleDB.Types"
+                "Network.AWS.SDB.Types"
             ],
             "name": "BatchPutAttributes",
             "method": "post",
@@ -925,7 +925,7 @@
             }
         },
         {
-            "service": "SimpleDB",
+            "service": "SDB",
             "response": {
                 "deriving": [
                     "Eq",
@@ -945,11 +945,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleDB.CreateDomain",
+            "namespace": "Network.AWS.SDB.CreateDomain",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SimpleDB.Types"
+                "Network.AWS.SDB.Types"
             ],
             "name": "CreateDomain",
             "method": "post",
@@ -1037,7 +1037,7 @@
             }
         },
         {
-            "service": "SimpleDB",
+            "service": "SDB",
             "response": {
                 "deriving": [
                     "Eq",
@@ -1057,11 +1057,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleDB.DeleteAttributes",
+            "namespace": "Network.AWS.SDB.DeleteAttributes",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SimpleDB.Types"
+                "Network.AWS.SDB.Types"
             ],
             "name": "DeleteAttributes",
             "method": "post",
@@ -1231,7 +1231,7 @@
             }
         },
         {
-            "service": "SimpleDB",
+            "service": "SDB",
             "response": {
                 "deriving": [
                     "Eq",
@@ -1251,11 +1251,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleDB.DeleteDomain",
+            "namespace": "Network.AWS.SDB.DeleteDomain",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SimpleDB.Types"
+                "Network.AWS.SDB.Types"
             ],
             "name": "DeleteDomain",
             "method": "post",
@@ -1343,7 +1343,7 @@
             }
         },
         {
-            "service": "SimpleDB",
+            "service": "SDB",
             "response": {
                 "deriving": [
                     "Eq",
@@ -1562,11 +1562,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleDB.DomainMetadata",
+            "namespace": "Network.AWS.SDB.DomainMetadata",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SimpleDB.Types"
+                "Network.AWS.SDB.Types"
             ],
             "name": "DomainMetadata",
             "method": "post",
@@ -1654,7 +1654,7 @@
             }
         },
         {
-            "service": "SimpleDB",
+            "service": "SDB",
             "response": {
                 "deriving": [
                     "Eq",
@@ -1721,11 +1721,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleDB.GetAttributes",
+            "namespace": "Network.AWS.SDB.GetAttributes",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SimpleDB.Types"
+                "Network.AWS.SDB.Types"
             ],
             "name": "GetAttributes",
             "method": "post",
@@ -1896,7 +1896,7 @@
             }
         },
         {
-            "service": "SimpleDB",
+            "service": "SDB",
             "response": {
                 "deriving": [
                     "Eq",
@@ -1975,11 +1975,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleDB.ListDomains",
+            "namespace": "Network.AWS.SDB.ListDomains",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SimpleDB.Types"
+                "Network.AWS.SDB.Types"
             ],
             "name": "ListDomains",
             "method": "post",
@@ -2083,7 +2083,7 @@
             }
         },
         {
-            "service": "SimpleDB",
+            "service": "SDB",
             "response": {
                 "deriving": [
                     "Eq",
@@ -2103,11 +2103,11 @@
                 "optional": [],
                 "fields": []
             },
-            "namespace": "Network.AWS.SimpleDB.PutAttributes",
+            "namespace": "Network.AWS.SDB.PutAttributes",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SimpleDB.Types"
+                "Network.AWS.SDB.Types"
             ],
             "name": "PutAttributes",
             "method": "post",
@@ -2277,7 +2277,7 @@
             }
         },
         {
-            "service": "SimpleDB",
+            "service": "SDB",
             "response": {
                 "deriving": [
                     "Eq",
@@ -2355,11 +2355,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SimpleDB.Select",
+            "namespace": "Network.AWS.SDB.Select",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SimpleDB.Types"
+                "Network.AWS.SDB.Types"
             ],
             "name": "Select",
             "method": "post",

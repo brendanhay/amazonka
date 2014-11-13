@@ -36,7 +36,7 @@
     },
     "cabal": {
         "other": [],
-        "library": "amazonka-elasticmapreduce",
+        "library": "amazonka-emr",
         "exposed": [
             "Network.AWS.EMR",
             "Network.AWS.EMR.AddInstanceGroups",

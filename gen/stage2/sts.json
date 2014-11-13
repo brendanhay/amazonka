@@ -2,18 +2,18 @@
     "service": {
         "signature": "V4",
         "checksum": "sha256",
-        "abbrev": "SecurityToken",
+        "abbrev": "STS",
         "error": "RESTError",
-        "namespace": "Network.AWS.SecurityToken",
+        "namespace": "Network.AWS.STS",
         "protocol": "query",
         "imports": [
-            "Network.AWS.SecurityToken.AssumeRole",
-            "Network.AWS.SecurityToken.AssumeRoleWithSAML",
-            "Network.AWS.SecurityToken.AssumeRoleWithWebIdentity",
-            "Network.AWS.SecurityToken.DecodeAuthorizationMessage",
-            "Network.AWS.SecurityToken.GetFederationToken",
-            "Network.AWS.SecurityToken.GetSessionToken",
-            "Network.AWS.SecurityToken.Types"
+            "Network.AWS.STS.AssumeRole",
+            "Network.AWS.STS.AssumeRoleWithSAML",
+            "Network.AWS.STS.AssumeRoleWithWebIdentity",
+            "Network.AWS.STS.DecodeAuthorizationMessage",
+            "Network.AWS.STS.GetFederationToken",
+            "Network.AWS.STS.GetSessionToken",
+            "Network.AWS.STS.Types"
         ],
         "name": "Amazon Security Token Service",
         "version": "2011-06-15",
@@ -24,16 +24,16 @@
     },
     "cabal": {
         "other": [],
-        "library": "amazonka-securitytoken",
+        "library": "amazonka-sts",
         "exposed": [
-            "Network.AWS.SecurityToken",
-            "Network.AWS.SecurityToken.AssumeRole",
-            "Network.AWS.SecurityToken.AssumeRoleWithSAML",
-            "Network.AWS.SecurityToken.AssumeRoleWithWebIdentity",
-            "Network.AWS.SecurityToken.DecodeAuthorizationMessage",
-            "Network.AWS.SecurityToken.GetFederationToken",
-            "Network.AWS.SecurityToken.GetSessionToken",
-            "Network.AWS.SecurityToken.Types"
+            "Network.AWS.STS",
+            "Network.AWS.STS.AssumeRole",
+            "Network.AWS.STS.AssumeRoleWithSAML",
+            "Network.AWS.STS.AssumeRoleWithWebIdentity",
+            "Network.AWS.STS.DecodeAuthorizationMessage",
+            "Network.AWS.STS.GetFederationToken",
+            "Network.AWS.STS.GetSessionToken",
+            "Network.AWS.STS.Types"
         ],
         "dependencies": [],
         "name": "Amazon Security Token Service",
@@ -44,18 +44,18 @@
         "service": {
             "signature": "V4",
             "checksum": "sha256",
-            "abbrev": "SecurityToken",
+            "abbrev": "STS",
             "error": "RESTError",
-            "namespace": "Network.AWS.SecurityToken",
+            "namespace": "Network.AWS.STS",
             "protocol": "query",
             "imports": [
-                "Network.AWS.SecurityToken.AssumeRole",
-                "Network.AWS.SecurityToken.AssumeRoleWithSAML",
-                "Network.AWS.SecurityToken.AssumeRoleWithWebIdentity",
-                "Network.AWS.SecurityToken.DecodeAuthorizationMessage",
-                "Network.AWS.SecurityToken.GetFederationToken",
-                "Network.AWS.SecurityToken.GetSessionToken",
-                "Network.AWS.SecurityToken.Types"
+                "Network.AWS.STS.AssumeRole",
+                "Network.AWS.STS.AssumeRoleWithSAML",
+                "Network.AWS.STS.AssumeRoleWithWebIdentity",
+                "Network.AWS.STS.DecodeAuthorizationMessage",
+                "Network.AWS.STS.GetFederationToken",
+                "Network.AWS.STS.GetSessionToken",
+                "Network.AWS.STS.Types"
             ],
             "name": "Amazon Security Token Service",
             "version": "2011-06-15",
@@ -64,7 +64,7 @@
             "endpoint": "Global",
             "endpointPrefix": "sts"
         },
-        "namespace": "Network.AWS.SecurityToken.Types",
+        "namespace": "Network.AWS.STS.Types",
         "types": [
             {
                 "deriving": [
@@ -349,7 +349,7 @@
     },
     "operations": [
         {
-            "service": "SecurityToken",
+            "service": "STS",
             "response": {
                 "deriving": [
                     "Eq",
@@ -455,11 +455,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SecurityToken.AssumeRole",
+            "namespace": "Network.AWS.STS.AssumeRole",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SecurityToken.Types"
+                "Network.AWS.STS.Types"
             ],
             "name": "AssumeRole",
             "method": "post",
@@ -729,7 +729,7 @@
             }
         },
         {
-            "service": "SecurityToken",
+            "service": "STS",
             "response": {
                 "deriving": [
                     "Eq",
@@ -975,11 +975,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SecurityToken.AssumeRoleWithSAML",
+            "namespace": "Network.AWS.STS.AssumeRoleWithSAML",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SecurityToken.Types"
+                "Network.AWS.STS.Types"
             ],
             "name": "AssumeRoleWithSAML",
             "method": "post",
@@ -1183,7 +1183,7 @@
             }
         },
         {
-            "service": "SecurityToken",
+            "service": "STS",
             "response": {
                 "deriving": [
                     "Eq",
@@ -1373,11 +1373,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SecurityToken.AssumeRoleWithWebIdentity",
+            "namespace": "Network.AWS.STS.AssumeRoleWithWebIdentity",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SecurityToken.Types"
+                "Network.AWS.STS.Types"
             ],
             "name": "AssumeRoleWithWebIdentity",
             "method": "post",
@@ -1614,7 +1614,7 @@
             }
         },
         {
-            "service": "SecurityToken",
+            "service": "STS",
             "response": {
                 "deriving": [
                     "Eq",
@@ -1681,11 +1681,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SecurityToken.DecodeAuthorizationMessage",
+            "namespace": "Network.AWS.STS.DecodeAuthorizationMessage",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SecurityToken.Types"
+                "Network.AWS.STS.Types"
             ],
             "name": "DecodeAuthorizationMessage",
             "method": "post",
@@ -1773,7 +1773,7 @@
             }
         },
         {
-            "service": "SecurityToken",
+            "service": "STS",
             "response": {
                 "deriving": [
                     "Eq",
@@ -1879,11 +1879,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SecurityToken.GetFederationToken",
+            "namespace": "Network.AWS.STS.GetFederationToken",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SecurityToken.Types"
+                "Network.AWS.STS.Types"
             ],
             "name": "GetFederationToken",
             "method": "post",
@@ -2021,7 +2021,7 @@
             }
         },
         {
-            "service": "SecurityToken",
+            "service": "STS",
             "response": {
                 "deriving": [
                     "Eq",
@@ -2086,11 +2086,11 @@
                     }
                 ]
             },
-            "namespace": "Network.AWS.SecurityToken.GetSessionToken",
+            "namespace": "Network.AWS.STS.GetSessionToken",
             "protocol": "query",
             "imports": [
                 "Network.AWS.Request.Query",
-                "Network.AWS.SecurityToken.Types"
+                "Network.AWS.STS.Types"
             ],
             "name": "GetSessionToken",
             "method": "post",
